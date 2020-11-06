@@ -70,6 +70,8 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Korzystanie z wystąpień kontenerów
           href: deploy-form-recognizer-on-container-instances.md
+        - name: Dokumentacja kontenerów usługi Cognitive Services
+          href: ../containers/index.yml
     - name: Modele tworzenia kopii zapasowych i odzyskiwania
       href: disaster-recovery.md
 - name: Dokumentacja

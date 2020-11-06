@@ -161,6 +161,8 @@
           href: spatial-analysis-zone-line-placement.md
         - name: Umieszczanie kamery
           href: spatial-analysis-camera-placement.md
+    - name: Dokumentacja kontenerów usługi Cognitive Services
+      href: ../containers/index.yml
 - name: Przewodniki z instrukcjami
   items:
     - name: Wywoływanie interfejsu API przetwarzania obrazów

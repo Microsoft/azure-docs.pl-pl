@@ -140,7 +140,7 @@
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/'
             - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
+              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: Zestaw SDK Java
@@ -168,7 +168,7 @@
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview
+              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: Java SDK — Maven
@@ -193,6 +193,8 @@
           href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
         - name: Pakiet interfejsu wiersza polecenia
           href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
+    - name: Moduł usługi Azure PowerShell dla usługi Digital Twins
+      href: 'https://www.powershellgallery.com/packages/Az.DigitalTwins/'
     - name: Specyfikacja DTDL
       items:
         - name: Specyfikacja DTDL v2

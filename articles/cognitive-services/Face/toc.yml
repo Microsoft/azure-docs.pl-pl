@@ -69,6 +69,8 @@
           href: face-resource-container-config.md
         - name: Korzystanie z wystąpień kontenerów
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+        - name: Dokumentacja kontenerów usługi Cognitive Services
+          href: ../containers/index.yml
 - name: Dokumentacja
   items:
     - name: Interfejs API rozpoznawania twarzy

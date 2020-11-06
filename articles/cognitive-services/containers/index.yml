@@ -1,0 +1,90 @@
+### YamlMime:Landing
+title: Kontenery usługi Azure Cognitive Services
+summary: Usługa Azure Cognitive Services oferuje kilka kontenerów umożliwiających korzystanie ze sztucznej inteligencji w środowisku lokalnym. Kontenery zapewniają elastyczność umożliwiającą umieszczenie usługi Cognitive Services bliżej danych w celu zapewnienia zgodności lub bezpieczeństwa albo z innych przyczyn operacyjnych.
+metadata:
+  title: Kontenery usługi Azure Cognitive Services
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.topic: landing-page
+  ms.date: 10/27/2020
+  ms.author: aahi
+  ms.openlocfilehash: 28eb8450201280e58e24dd5ad9b8826165b614c3
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93328080"
+landingContent:
+- title: Informacje o kontenerach usługi Cognitive Services
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Co to są kontenery usługi Cognitive Services?
+      url: ../cognitive-services-container-support.md
+    - text: Często zadawane pytania
+      url: container-faq.md
+    - text: Tagi obrazu kontenera
+      url: container-image-tags.md
+- title: Przepisy kontenera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Przepis na ponowne używanie kontenera
+      url: container-reuse-recipe.md
+    - text: Wdrażanie w usłudze Azure Container Instances
+      url: azure-container-instance-recipe.md
+    - text: Wdrażanie na platformie Kubernetes
+      url: azure-kubernetes-recipe.md
+    - text: Wdrażanie przy użyciu rozwiązania Docker compose
+      url: azure-kubernetes-recipe.md
+- title: Kontenery przetwarzania obrazów
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../computer-vision/computer-vision-how-to-install-containers.md
+      text: Odczytywanie metodą OCR
+    - url: ../computer-vision/spatial-analysis-container.md
+      text: Analiza przestrzenna
+    - url: ../face/face-how-to-install-containers.md
+      text: Rozpoznawanie twarzy
+    - url: ../form-recognizer/form-recognizer-container-howto.md
+      text: Rozpoznawanie formularzy
+- title: Kontenery języka
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+      text: Analiza tonacji
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
+      text: Wyodrębnianie kluczowych fraz
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
+      text: Wykrywanie języka tekstu
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
+      text: Analiza tekstu dla opieki zdrowotnej
+    - url: ../luis/luis-container-howto.md
+      text: Kontener usługi LUIS
+- title: Kontenery usługi Mowa
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../speech-service/speech-container-howto.md?tabs=stt
+      text: Zamiana mowy na tekst
+    - url: ../speech-service/speech-container-howto.md?tabs=cstt
+      text: Niestandardowa zamiana mowy na tekst
+    - url: ../speech-service/speech-container-howto.md?tabs=tts
+      text: Zamiana tekstu na mowę
+    - url: ../speech-service/speech-container-howto.md?tabs=ctts
+      text: Niestandardowa zamiana tekstu na mowę
+    - url: ../speech-service/speech-container-howto.md?tabs=ntts
+      text: Neuronowa zamiana tekstu na mowę
+    - url: ../speech-service/speech-container-howto.md?tabs=lid
+      text: Wykrywanie języka mowy
+- title: Kontener decyzyjny
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../anomaly-detector/anomaly-detector-container-howto.md
+      text: Narzędzie do wykrywania anomalii

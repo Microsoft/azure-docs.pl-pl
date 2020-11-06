@@ -39,8 +39,6 @@
           href: how-to-automatic-language-detection.md
         - name: Korzystanie z interfejsu API REST transkrypcji wsadowej
           href: batch-transcription.md
-        - name: Ocena wymowy
-          href: how-to-pronunciation-assessment.md
     - name: Samouczki
       items:
         - name: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
@@ -530,6 +528,8 @@
           href: deploy-speech-on-container-instances.md
         - name: Kontenery — często zadawane pytania
           href: speech-container-faq.md
+        - name: Dokumentacja kontenerów usługi Cognitive Services
+          href: ../containers/index.yml
 - name: Urządzenia
   items:
     - name: Dokumentacja urządzeń usługi Mowa
