@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie migawkami przy użyciu Azure NetApp Files | Microsoft Docs
-description: Opisuje sposób tworzenia migawek i zarządzania nimi za pomocą Azure NetApp Files.
+description: Opisuje sposób tworzenia migawek i zarządzania nimi przy użyciu Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932281"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421883"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
-Azure NetApp Files obsługuje tworzenie migawek na żądanie i Używanie zasad migawek do planowania automatycznego tworzenia migawek.  Możesz również przywrócić migawkę do nowego woluminu lub przywrócić pojedynczy plik przy użyciu klienta programu.  
+Azure NetApp Files obsługuje tworzenie migawek na żądanie i Używanie zasad migawek do planowania automatycznego tworzenia migawek. Możesz również przywrócić migawkę do nowego woluminu, przywrócić pojedynczy plik za pomocą klienta lub przywrócić istniejący wolumin przy użyciu migawki.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Tworzenie migawki na żądanie dla woluminu
 
@@ -41,7 +41,7 @@ Migawki woluminów można tworzyć na żądanie.
 
     ![Nowa migawka](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. Kliknij przycisk **OK**. 
+4. Kliknij pozycję **OK**. 
 
 ## <a name="manage-snapshot-policies"></a>Zarządzanie zasadami migawek
 
@@ -77,7 +77,7 @@ Zasady migawek umożliwiają określenie częstotliwości tworzenia migawek w cy
 
 2.  W oknie Zasady migawek Ustaw stan zasady na **włączone**. 
 
-3.  Kliknij kartę **co godzinę**, **codziennie**, **co tydzień**lub **co miesiąc** , aby utworzyć zasady co godzinę, codziennie, co tydzień lub co miesiąc. Określ **liczbę migawek do zachowania**.  
+3.  Kliknij kartę **co godzinę** , **codziennie** , **co tydzień** lub **co miesiąc** , aby utworzyć zasady co godzinę, codziennie, co tydzień lub co miesiąc. Określ **liczbę migawek do zachowania**.  
 
     Zapoznaj się z [limitami zasobów dla Azure NetApp Files](azure-netapp-files-resource-limits.md) o maksymalnej liczbie migawek dozwolonych dla woluminu. 
 
@@ -112,7 +112,7 @@ Jeśli chcesz, aby wolumin używał utworzonych zasad migawek, należy zastosowa
 
     ![Woluminy menu po kliknięciu prawym przyciskiem myszy](../media/azure-netapp-files/volume-right-cick-menu.png) 
 
-2.  W oknie Edycja w obszarze **zasady migawek**wybierz zasady, które mają być używane dla woluminu.  Kliknij przycisk **OK** , aby zastosować zasady.  
+2.  W oknie Edycja w obszarze **zasady migawek** wybierz zasady, które mają być używane dla woluminu.  Kliknij przycisk **OK** , aby zastosować zasady.  
 
     ![Edytowanie zasad migawek](../media/azure-netapp-files/snapshot-policy-edit.png) 
 
@@ -161,7 +161,7 @@ Obecnie można przywrócić migawkę tylko do nowego woluminu.
 
     ![Przywróć do nowego woluminu](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij przycisk **Utwórz**.   
+4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij pozycję **Utwórz**.   
     Nowy wolumin używa tego samego protokołu, który jest wykorzystywany przez migawkę.   
     Nowy wolumin, do którego zostanie przywrócona migawka, pojawia się w bloku woluminy.
 
@@ -215,9 +215,40 @@ W przypadku wybrania pola wyboru Ukryj ścieżkę migawki podczas tworzenia wolu
 
     ![Wklej plik do przywrócenia](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. Możesz również kliknąć prawym przyciskiem myszy katalog nadrzędny, wybrać pozycję **Właściwości**, kliknij kartę **poprzednie wersje** , aby wyświetlić listę migawek, a następnie wybierz pozycję **Przywróć** , aby przywrócić plik.  
+4. Możesz również kliknąć prawym przyciskiem myszy katalog nadrzędny, wybrać pozycję **Właściwości** , kliknij kartę **poprzednie wersje** , aby wyświetlić listę migawek, a następnie wybierz pozycję **Przywróć** , aby przywrócić plik.  
 
     ![Właściwości poprzednie wersje](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Przywracanie woluminu przy użyciu funkcji przywracania migawek
+
+Funkcja przywracania migawek umożliwia szybkie przywrócenie woluminu do stanu, w którym został utworzony. W większości przypadków przywrócenie woluminu jest znacznie szybsze niż przywrócenie pojedynczych plików z migawki do aktywnego systemu plików. Jest to również bardziej wydajne miejsce w porównaniu do przywracania migawki do nowego woluminu. 
+
+Opcję Przywróć wolumin można znaleźć w menu migawki woluminu. Po wybraniu migawki do przetworzenia, Azure NetApp Files przywraca wolumin do danych i sygnatur czasowych zawartych podczas tworzenia wybranej migawki. 
+
+> [!IMPORTANT]
+> Aktywne dane i migawki systemu plików utworzonych po wykonaniu wybranej migawki zostaną utracone. Operacja przywrócenia migawki spowoduje zamianę *wszystkich* danych w woluminie przeznaczonym na dane w wybranej migawce. Po wybraniu migawki należy zwrócić uwagę na zawartość migawki i datę utworzenia. Nie można cofnąć operacji przywracania migawki.
+
+1. Przejdź do menu **migawek** woluminu.  Kliknij prawym przyciskiem myszy migawkę, która ma być używana dla operacji przywracania. Wybierz pozycję **Przywróć wolumin**. 
+
+    ![Zrzut ekranu, który opisuje menu po kliknięciu prawym przyciskiem myszy migawki](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. W oknie Przywracanie woluminu do migawki wpisz nazwę woluminu, a następnie kliknij przycisk **Przywróć**.   
+
+    Wolumin jest teraz przywracany do punktu w czasie wybranej migawki.
+
+    ![Zrzut ekranu przedstawiający okno migawki woluminu przywracania](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>Usuwanie migawek  
+
+Można usunąć migawki, które nie są już potrzebne. 
+
+1. Przejdź do menu **migawek** woluminu. Kliknij prawym przyciskiem myszy migawkę, którą chcesz usunąć. Wybierz pozycję **Usuń**.
+
+    ![Zrzut ekranu, który opisuje menu po kliknięciu prawym przyciskiem myszy migawki](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. W oknie Usuwanie migawki Potwierdź, że chcesz usunąć migawkę, klikając **przycisk tak**. 
+
+    ![Zrzut ekranu, który potwierdza usunięcie migawki](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,18 +1,18 @@
 ---
-title: Łączenie Plug and Play IoT przykład kod urządzenia składnika Java do IoT Hub | Microsoft Docs
-description: Kompiluj i uruchamiaj Plug and Play przykładowego kodu urządzenia Java, który używa wielu składników i łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Samouczek — łączenie usługi IoT Plug and Play przykładowy kod urządzenia składnika Java do platformy Azure IoT Hub | Microsoft Docs
+description: Samouczek — Kompilowanie i uruchamianie przykładowego kodu urządzenia Java Plug and Play w programie IoT, który używa wielu składników i łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: fce6477313cb7fb917c0fb81d03a73eec4714915
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 92732eee94a17aa59257ce2894775b2f881632d4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046404"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421428"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-java"></a>Samouczek: łączenie przykładowego rozwiązania IoT Plug and Play wielu aplikacji urządzeń składników do IoT Hub (Java)
 
@@ -28,7 +28,7 @@ W tym samouczku przedstawiono sposób tworzenia przykładowej aplikacji urządze
 
 Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Windows:
 
-* Java SE Development Kit 8. W programie [Java długoterminowa obsługa platformy Azure i Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)w obszarze **Obsługa długoterminowa**wybierz pozycję **Java 8**.
+* Java SE Development Kit 8. W programie [Java długoterminowa obsługa platformy Azure i Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)w obszarze **Obsługa długoterminowa** wybierz pozycję **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>Pobieranie kodu

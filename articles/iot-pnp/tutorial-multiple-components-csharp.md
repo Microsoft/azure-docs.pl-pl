@@ -1,18 +1,18 @@
 ---
-title: Łączenie Plug and Play IoT przykład kod urządzenia składnika C# IoT Hub | Microsoft Docs
-description: Kompiluj i uruchamiaj program IoT Plug and Play przykładowy kod urządzenia w języku C#, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Samouczek — łączenie Plug and Play przykładowego kodu urządzenia składnika C# na platformie Azure IoT Hub | Microsoft Docs
+description: Samouczek — Kompilowanie i uruchamianie programu IoT Plug and Play przykładowy kod urządzenia w języku C#, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f7a1aa85c4456bdcf7ed50e42382fc440618ec7d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945536"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421451"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Samouczek: łączenie IoT Plug and Play aplikacji z wieloma urządzeniami składnika działającą w systemie Windows do IoT Hub (C#)
 

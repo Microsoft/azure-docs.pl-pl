@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: a8c5b20f833ab09463e1ae8b5bd3825c7c23f85e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394933"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422131"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurowanie modułów IoT Edge i połączeń
 
@@ -49,27 +49,30 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
    Nazwa użytkownika|Nazwa użytkownika
    Hasło|Hasło
   
-## <a name="deploy-the-data-generator-module"></a>Wdrażanie modułu generatora danych
+## <a name="build-push-and-deploy-the-data-generator-module"></a>Kompilowanie, wypychanie i wdrażanie modułu generatora danych
 
-1. W sekcji **IoT Edge** w obszarze **Automatyczne zarządzanie urządzeniami** kliknij pozycję **Identyfikator urządzenia**. W tym samouczku identyfikator jest, `IronOrePredictionDevice` a następnie kliknij pozycję **Ustaw moduły**.
-
-2.  W sekcji **IoT Edge modułów** na stronie **Ustawianie modułów na urządzeniu:** kliknij pozycję **+ Dodaj** i wybierz **moduł IoT Edge**.
-
-3. Podaj prawidłową nazwę i identyfikator URI obrazu dla modułu IoT Edge.
-   Identyfikator URI obrazu można znaleźć w rejestrze kontenerów w grupie zasobów utworzonej w części pierwszej z tego samouczka. Wybierz sekcję **repozytoria** w obszarze **usługi**. Na potrzeby tego samouczka wybierz repozytorium o nazwie `silicaprediction` . Wybierz odpowiedni tag. Identyfikator URI obrazu będzie miał format:
-
-   *serwer logowania containerregistry* / *Nazwa repozytorium* : *nazwa tagu*
-
-   Na przykład:
-
+1. Sklonuj [pliki projektu](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) na komputerze.
+2. Otwórz plik **IronOre_Silica_Predict. sln** przy użyciu programu Visual Studio 2019
+3. Zaktualizuj szczegóły rejestru kontenera w **deployment.template.jsna** 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. Zaktualizuj **modules.jsw** pliku, aby określić docelowy rejestr kontenerów (lub repozytorium dla modułu)
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. Pozostaw *zasady ponownego uruchamiania* i *wymagane pola stanu* , jeśli jest to.
-
-5. Kliknij pozycję **Dodaj**.
-
+5. Wykonaj projekt w trybie debugowania lub wersji, aby upewnić się, że projekt zostanie uruchomiony bez żadnych problemów 
+6. Wypchnij projekt do rejestru kontenerów, klikając prawym przyciskiem myszy nazwę projektu, a następnie wybierając **moduły kompilowania i wypychania IoT Edge**.
+7. Wdróż moduł generatora danych jako moduł IoT Edge na urządzeniu brzegowym. 
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Wdrażanie modułu usługi Azure SQL Edge
 

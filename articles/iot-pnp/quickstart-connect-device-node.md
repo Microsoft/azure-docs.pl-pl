@@ -1,19 +1,19 @@
 ---
-title: Łączenie Plug and Play IoT Node.js kod urządzenia z platformą Azure IoT Hub | Microsoft Docs
-description: Użyj Node.js, aby skompilować i uruchomić przykładowy kod urządzenia IoT Plug and Play, który łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Szybki Start — łączenie przykładowego Node.js Plug and Play IoT na platformie Azure IoT Hub | Microsoft Docs
+description: Szybki Start — używanie Node.js do kompilowania i uruchamiania przykładowego kodu urządzenia w usłudze IoT Plug and Play, który łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2342577fdd7e42f4b21d1f47348c39e3ed4a46e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 24f6cc1e9656957d6894ecb6b7c3e0476b233cf6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747242"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421587"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-nodejs"></a>Szybki Start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play do IoT Hub (Node.js)
 

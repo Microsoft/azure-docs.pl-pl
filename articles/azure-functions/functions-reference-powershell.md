@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108477"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422539"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -20,7 +20,7 @@ Funkcja PowerShell platformy Azure (funkcja) jest reprezentowana przez skrypt pr
 
 Podobnie jak w przypadku innych rodzajów funkcji, funkcja skryptu programu PowerShell przyjmuje parametry, które pasują do nazw wszystkich powiązań wejściowych zdefiniowanych w `function.json` pliku. `TriggerMetadata`Parametr jest również przekazywać, który zawiera dodatkowe informacje na temat wyzwalacza, który uruchomił funkcję.
 
-W tym artykule przyjęto założenie, że już odczytano [informacje dotyczące deweloperów Azure Functions](functions-reference.md). Należy również ukończyć funkcję [Szybki Start dla programu PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) , aby utworzyć pierwszą funkcję programu PowerShell.
+W tym artykule przyjęto założenie, że już odczytano [informacje dotyczące deweloperów Azure Functions](functions-reference.md). Należy również ukończyć funkcję [Szybki Start dla programu PowerShell](./create-first-function-vs-code-powershell.md) , aby utworzyć pierwszą funkcję programu PowerShell.
 
 ## <a name="folder-structure"></a>Struktura folderów
 
@@ -53,7 +53,7 @@ W katalogu głównym projektu znajduje się plik udostępniony, za pomocą [`hos
 
 Niektóre powiązania wymagają obecności `extensions.csproj` pliku. Rozszerzenia powiązań wymagane w [wersji 2. x i nowszych wersjach](functions-versions.md) środowiska uruchomieniowego funkcji są zdefiniowane w `extensions.csproj` pliku z rzeczywistymi plikami biblioteki w `bin` folderze. Podczas programowania lokalnego należy [zarejestrować rozszerzenia powiązań](functions-bindings-register.md#extension-bundles). Podczas tworzenia funkcji w Azure Portal Rejestracja jest wykonywana.
 
-W aplikacjach funkcji programu PowerShell możesz opcjonalnie mieć, `profile.ps1` które są uruchamiane, gdy rozpocznie się uruchamianie aplikacji funkcji (w przeciwnym razie jako *[zimny start](#cold-start)*). Aby uzyskać więcej informacji, zobacz [profil programu PowerShell](#powershell-profile).
+W aplikacjach funkcji programu PowerShell możesz opcjonalnie mieć, `profile.ps1` które są uruchamiane, gdy rozpocznie się uruchamianie aplikacji funkcji (w przeciwnym razie jako *[zimny start](#cold-start)* ). Aby uzyskać więcej informacji, zobacz [profil programu PowerShell](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definiowanie skryptu programu PowerShell jako funkcji
 
@@ -418,13 +418,13 @@ Aby zmienić wersję programu PowerShell używaną przez aplikację funkcji, nal
 
 1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojej aplikacji funkcji.
 
-1. W obszarze **Ustawienia**wybierz pozycję **Konfiguracja**. Na karcie **Ustawienia ogólne** Znajdź **wersję programu PowerShell**. 
+1. W obszarze **Ustawienia** wybierz pozycję **Konfiguracja**. Na karcie **Ustawienia ogólne** Znajdź **wersję programu PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Wybieranie wersji programu PowerShell używanej przez aplikację funkcji"::: 
 
 1. Wybierz żądaną **wersję rdzenia programu PowerShell** i wybierz pozycję **Zapisz**. Po wyświetleniu ostrzeżenia o oczekującym ponownym uruchomieniu wybierz pozycję **Kontynuuj**. Aplikacja funkcji jest uruchamiana ponownie w wybranej wersji programu PowerShell. 
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Uruchom następujący skrypt, aby zmienić wersję programu PowerShell: 
 
@@ -525,7 +525,7 @@ Proces roboczy języka programu PowerShell często korzysta z kilku modułów. T
 Bieżąca lista modułów jest następująca:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): moduł używany do pracy z archiwami, takimi jak `.zip` , `.nupkg` i innymi.
-* **ThreadJob**: implementacja oparta na wątkach interfejsów API zadań programu PowerShell.
+* **ThreadJob** : implementacja oparta na wątkach interfejsów API zadań programu PowerShell.
 
 Domyślnie funkcje używają najnowszej wersji tych modułów. Aby użyć określonej wersji modułu, należy umieścić tę określoną wersję w `Modules` folderze aplikacji funkcji.
 

@@ -9,18 +9,27 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: a60ca64113bb3f2700e9f521f65780dc8ffbcc54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307736"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423015"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowiedzieć się więcej o znanych usterkach i obejść.
+
+## <a name="2020-11-05"></a>2020-11-05
+
+### <a name="data-labeling-for-image-instance-segmentation-polygon-annotation-preview"></a>Etykiety danych dla segmentacji wystąpienia obrazu (Adnotacja z wielokątem) (wersja zapoznawcza)
+
+Typ projektu segmentacji wystąpienia obrazu (adnotacje wielokątne) w ramach etykietowania danych jest teraz dostępny, aby użytkownicy mogli rysować wielokąty i dodawać do nich adnotacje wokół konturów obiektów w obrazach. Użytkownicy będą mogli przypisywać klasy i wielokąta do każdego obiektu, który jest interesujący w obrazie.
+
+Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-label-images.md).
+
 
 ## <a name="2020-10-26"></a>2020-10-26
 
@@ -44,7 +53,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Pakiet Azure-Wyjaśnij-model jest oficjalnie przestarzały
   + **azureml-mlflow**
     + Rozwiązano błąd w mlflow. Projects. Run w odniesieniu do zaplecza Azure, gdzie finalizowanie stanu nie zostało prawidłowo obsłużone.
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Dodaj obsługę tworzenia, wyświetlania i pobierania harmonogramu potoku w oparciu o jeden punkt końcowy potoku.
     +  Ulepszona dokumentacja PipelineData.as_dataset z nieprawidłowym przykładem użycia — użycie PipelineData.as_dataset nieprawidłowego spowoduje teraz wyrzucanie wartości Valueexception
     + Zmieniono Notes potoków HyperDriveStep, aby zarejestrować najlepszy model w PipelineStep bezpośrednio po uruchomieniu HyperDriveStep.
@@ -195,7 +204,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Usuń usterkę w Dataset.get_by_name, która będzie zawierała Tagi dla najnowszej wersji zestawu danych, nawet w przypadku pobrania określonej starszej wersji.
   + **azureml-interpret**
     + Dodano wyniki prawdopodobieństwa do objaśnień oceny oceniania na platformie Azure w oparciu o parametr shap_values_output z oryginalnego objaśnienia.
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Ulepszona `PipelineOutputAbstractDataset.register` Dokumentacja.
   + **azureml-train-automl-client**
     + Uaktualnione zależności AutoML: `scikit-learn` (teraz 0.22.1), `pandas` (teraz 0.25.1), `numpy` (teraz 1.18.2).
@@ -596,7 +605,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
   + **azureml-interpret**
     + Dokumentacja aktualizacji pakietu do interpretacji z usługą Azure.
     + Stałe pakiety do interpretacji i notesy, które mają być zgodne z najnowszą aktualizacją skryptu sklearn
-  + **azureml-opendatasets**
+  + **Azure — opendatasets**
     + Zwróć brak, gdy nie zostaną zwrócone żadne dane.
     + Zwiększ wydajność to_pandas_dataframe.
   + **azureml-pipeline-core**
@@ -1904,7 +1913,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
     + Zwiększ wykorzystanie zasobów przez zdalne uruchomienia za pomocą usługi Azure. mlflow.
     + Ulepszanie dokumentacji pakietu Azure-mlflow
     + Poprawka błędu, gdzie mlflow.log_artifacts ("my_dir") zapisze artefakty w obszarze "my_dir/<artefaktów>" zamiast "<ścieżek artefaktów>"
-  + **Azure — opendatasets**
+  + **azureml-opendatasets**
     + Przypnij `pyarrow` `opendatasets` do starych wersji (<0.14.0) z powodu problemu z pamięcią nowo wprowadzonego w tym miejscu.
     + Przenieś usługę Azure-contrib-opendatasets do programu Azure opendatasets.
     + Zezwalaj na rejestrację otwartych klas DataSet w obszarze roboczym Azure Machine Learning i bezproblemowo korzystaj z możliwości zestawu danych AML.
@@ -1978,7 +1987,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
     + Ulepszone wykorzystanie zasobów przez zdalne uruchomienia korzystające z platformy Azure. mlflow.
     + Ulepszona Dokumentacja pakietu Azure-mlflow.
     + Rozwiązano problem polegający na tym, że mlflow.log_artifacts ("my_dir") zapisze artefakty w obszarze "my_dir/artifact-Paths" zamiast "artefaktów".
-  + **Azure — potok — rdzeń**
+  + **azureml-pipeline-core**
     + Parametr hash_paths dla wszystkich kroków potoku jest przestarzały i zostanie usunięty w przyszłości. Domyślnie zawartość source_directory jest skrótem (z wyjątkiem plików wymienionych w `.amlignore` lub `.gitignore` )
     + Kontynuuj ulepszanie modułów i ModuleStep w celu obsługi obliczeniowych modułów dla konkretnych typów, aby przygotować się do integracji RunConfiguration i innych zmian w celu odblokowania użycia modułu specyficznego dla typu obliczeń w potokach.
   + **azureml-pipeline-steps**

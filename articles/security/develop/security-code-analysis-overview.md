@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fd8fb2e40fa44c5aec3f14bfd586187c952df0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031249"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422437"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Informacje o analizie kodu zabezpieczeń firmy Microsoft
 
@@ -39,7 +39,7 @@ Dodawanie narzędzi do analizy kodu zabezpieczeń firmy Microsoft do potoku usł
 
 ### <a name="clean-builds"></a>Czyste kompilacje
 
-Po rozwiązaniu problemów początkowych raportowanych przez narzędzia można skonfigurować rozszerzenie, aby przerwać kompilacje w nowych problemach.Skonfigurowanie kompilacji ciągłej integracji dla każdego żądania ściągnięcia jest proste.
+Po rozwiązaniu problemów początkowych raportowanych przez narzędzia można skonfigurować rozszerzenie, aby przerwać kompilacje w nowych problemach. Skonfigurowanie kompilacji ciągłej integracji dla każdego żądania ściągnięcia jest proste.
 
 ### <a name="set-it-and-forget-it"></a>Ustaw ją i zapomnij
 
@@ -73,7 +73,7 @@ Hasła i inne wpisy tajne przechowywane w kodzie źródłowym są istotnym probl
 
 ### <a name="roslyn-analyzers"></a>Analizatory Roslyn
 
-Analizatory Roslyn to narzędzie zintegrowane z kompilatorem firmy Microsoft służące do statycznej analizy kodu zarządzanego C# i Visual Basic. Aby uzyskać więcej informacji, zobacz [analizatory oparte na Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
+Analizatory Roslyn to narzędzie zintegrowane z kompilatorem firmy Microsoft służące do statycznej analizy kodu zarządzanego C# i Visual Basic. Aby uzyskać więcej informacji, zobacz [analizatory oparte na Roslyn](https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
 ### <a name="tslint"></a>TSLint
 

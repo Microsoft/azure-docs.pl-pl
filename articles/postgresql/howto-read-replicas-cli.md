@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 11/05/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fa8794066739302d2f32acb13c936c524dc89a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489714"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422352"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Tworzenie replik odczytu i zarządzanie nimi w interfejsie wiersza polecenia platformy Azure, interfejs API REST
 
@@ -27,7 +27,9 @@ Aby skonfigurować odpowiedni poziom rejestrowania, użyj parametru Obsługa rep
 * **Replika** — większa niż **wyłączona**. Jest to minimalny poziom rejestrowania, który jest wymagany do działania [replik odczytu](concepts-read-replicas.md) . To ustawienie jest domyślne na większości serwerów.
 * **Logiczne** — więcej informacji niż **replika**. Jest to minimalny poziom rejestrowania kodu logicznego do pracy. Odczytaj repliki również działają w tym ustawieniu.
 
-Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten parametr ustawia parametry Postgres `wal_level` , `max_replication_slots` i `max_wal_senders` .
+
+> [!NOTE]
+> W przypadku wdrażania replik odczytu dla trwałych dużych obciążeń z dużą ilością operacji opóźnienie replikacji może nadal wzrosnąć i nigdy nie będzie możliwe przechwycenie z podstawowym. Może to również zwiększyć użycie magazynu na poziomie podstawowym, ponieważ pliki WAL nie zostaną usunięte, dopóki nie zostaną odebrane w replice.
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure.

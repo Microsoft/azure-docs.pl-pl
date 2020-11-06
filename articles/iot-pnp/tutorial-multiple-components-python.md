@@ -1,18 +1,18 @@
 ---
-title: Połącz Plug and Play IoT przykład kod urządzenia składnika Python do IoT Hub | Microsoft Docs
-description: Kompiluj i uruchamiaj Plug and Play IoT przykład kod urządzenia w języku Python, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Samouczek — łączenie Plug and Play przykładowego kodu urządzeń składników w języku Python z platformą Azure IoT Hub | Microsoft Docs
+description: Samouczek — Kompilowanie i uruchamianie przykładowego kodu urządzenia w języku Python w usłudze IoT Plug and Play, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1b329206dcc41d8f7fcb3874da037f5b57142722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a4130688d479902f7836ae09c4006bb36fc16d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613666"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421400"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Samouczek: łączenie przykładu IoT Plug and Play wielu aplikacji urządzeń składników IoT Hub (Python)
 
@@ -93,7 +93,7 @@ Otwórz plik *temp_controller_with_thermostats. PR* w wybranym edytorze. Kod w t
     - Aktualizuje właściwości, które można odczytać dla jego składników przez wywołanie `patch_twin_reported_properties` .
 
     - Zaczyna nasłuchiwanie żądań poleceń przy użyciu `execute_command_listener` funkcji. Funkcja konfiguruje odbiornik dla żądań poleceń z usługi. Podczas konfigurowania odbiornika, który podajesz `method_name` , `user_command_handler` i opcjonalnie `create_user_response_handler` jako parametry.
-        - `method_name`Definiuje żądanie polecenia. W tym przykładzie model definiuje **ponowny rozruch**poleceń i **getMaxMinReport**.
+        - `method_name`Definiuje żądanie polecenia. W tym przykładzie model definiuje **ponowny rozruch** poleceń i **getMaxMinReport**.
         - `user_command_handler`Funkcja definiuje, jakie urządzenie ma wykonać po odebraniu polecenia.
         - `create_user_response_handler`Funkcja tworzy odpowiedź do wysłania do centrum IoT Hub, gdy polecenie zostanie wykonane pomyślnie. Tę odpowiedź można wyświetlić w portalu. Jeśli ta funkcja nie zostanie podana, do usługi jest wysyłana ogólna odpowiedź.
 

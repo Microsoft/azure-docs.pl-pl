@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629344"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423049"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Przegląd ciągłości działania z Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -21,9 +21,14 @@ Ten przegląd zawiera opis możliwości, które Azure Database for PostgreSQL za
 
 Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po wystąpieniu zdarzenia zakłócenia — jest to cel czasu odzyskiwania (RTO). Należy również zrozumieć maksymalną ilość najnowszych aktualizacji danych (przedział czasu), jaką aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia — jest to cel punktu odzyskiwania (RPO).
 
-Azure Database for PostgreSQL zapewnia funkcje ciągłości biznesowej, które obejmują geograficznie nadmiarowe kopie zapasowe z możliwością inicjowania przywracania geograficznego oraz wdrażania replik odczytu w innym regionie. Każdy z nich ma różne cechy czasu odzyskiwania i potencjalną utratę danych. Dzięki funkcji [przywracania geograficznego](concepts-backup.md) nowy serwer jest tworzony przy użyciu danych kopii zapasowej replikowanych z innego regionu. Całkowity czas przywracania i odzyskiwania zależy od rozmiaru bazy danych i ilości dzienników do odzyskania. Całkowity czas ustanowienia serwera różni się od kilku minut do kilku godzin. W przypadku [replik odczytu](concepts-read-replicas.md)dzienniki transakcji z podstawowego programu są przesyłane strumieniowo do repliki. Opóźnienie między podstawową i repliką zależy od opóźnienia między lokacjami, a także ilości danych do przesłania. W przypadku awarii lokacji głównej, takiej jak błąd strefy dostępności, podwyższanie poziomu repliki zapewnia krótszą RTO i zmniejsza utratę danych. 
+Azure Database for PostgreSQL zapewnia funkcje ciągłości biznesowej, które obejmują geograficznie nadmiarowe kopie zapasowe z możliwością inicjowania przywracania geograficznego oraz wdrażania replik odczytu w innym regionie. Każdy z nich ma różne cechy czasu odzyskiwania i potencjalną utratę danych. Dzięki funkcji [przywracania geograficznego](concepts-backup.md) nowy serwer jest tworzony przy użyciu danych kopii zapasowej replikowanych z innego regionu. Całkowity czas przywracania i odzyskiwania zależy od rozmiaru bazy danych i ilości dzienników do odzyskania. Całkowity czas ustanowienia serwera różni się od kilku minut do kilku godzin. W przypadku [replik odczytu](concepts-read-replicas.md)dzienniki transakcji z podstawowego programu są przesyłane strumieniowo do repliki. W przypadku awarii podstawowej bazy danych z powodu błędu poziomu strefy lub poziomu regionu, przełączenie w tryb failover do repliki zapewnia krótszą RTO i zmniejsza utratę danych.
 
-W poniższej tabeli porównano RTO i cel punktu odzyskiwania w typowym scenariuszu:
+> [!NOTE]
+> Opóźnienie między serwerem podstawowym a repliką zależy od opóźnienia między lokacjami, ilości danych do przesłania i najważniejszego obciążenia pracą zapisu na serwerze podstawowym. Duże obciążenia mogą generować duże opóźnienia. 
+>
+> Z powodu asynchronicznego charakteru replikacji używanej do odczytu replik **nie należy** traktować ich jako rozwiązania wysokiej dostępności, ponieważ wyższa spowolnieniaa może oznaczać wyższy RTO i cel punktu odzyskiwania. Tylko w przypadku obciążeń, w których zwłoka pozostanie mniejsza przez szczytowe i nieszczytowe czasy obciążenia, repliki odczytu mogą działać jako alternatywa HA. W przeciwnym razie repliki odczytu są przeznaczone do prawdziwej skali odczytu w przypadku dużych obciążeń i scenariuszy odzyskiwania po awarii.
+
+W poniższej tabeli porównano RTO i cel punktu odzyskiwania w **typowym** scenariuszu obciążenia:
 
 | **Funkcja** | **Podstawowe** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
 | :------------: | :-------: | :-----------------: | :------------------: |
@@ -31,7 +36,7 @@ W poniższej tabeli porównano RTO i cel punktu odzyskiwania w typowym scenarius
 | Przywracanie geograficzne z kopii zapasowych replikowanych geograficznie | Nieobsługiwane | RTO — różne <br/>Cel punktu odzyskiwania < 1 h | RTO — różne <br/>Cel punktu odzyskiwania < 1 h |
 | Repliki do odczytu | RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min * | RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min *| RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min *|
 
-\* RTO i cel punktu odzyskiwania mogą być znacznie wyższe w niektórych przypadkach, w zależności od różnych czynników, takich jak obciążenie podstawowej bazy danych i opóźnienie między regionami. 
+ \* RTO i cel punktu odzyskiwania **mogą być znacznie wyższe** w niektórych przypadkach, w zależności od różnych czynników, takich jak opóźnienie między lokacjami, ilość danych do przesłania i ważna podstawowa obciążenie bazy danych. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Odzyskiwanie serwera po błędzie użytkownika lub aplikacji
 
@@ -56,7 +61,7 @@ Funkcja przywracania geograficznego przywraca serwer przy użyciu geograficznie 
 > Przywracanie geograficzne jest możliwe tylko w przypadku aprowizacji serwera z magazynem kopii zapasowych nadmiarowego. Aby przełączyć się z lokalnie nadmiarowego do geograficznie nadmiarowych kopii zapasowych dla istniejącego serwera, należy wykonać zrzut przy użyciu pg_dump istniejącego serwera i przywrócić go na nowo utworzonym serwerze skonfigurowanym z użyciem geograficznie nadmiarowych kopii zapasowych.
 
 ## <a name="cross-region-read-replicas"></a>Repliki odczytu między regionami
-Za pomocą replik odczytu między regionami można usprawnić planowanie ciągłości działania i odzyskiwania po awarii. Repliki odczytu są aktualizowane asynchronicznie za pomocą technologii replikacji fizycznej PostgreSQL. Dowiedz się więcej na temat odczytywania replik, dostępnych regionów i sposobu przełączenia w tryb failover z [artykułu pojęć dotyczących replik](concepts-read-replicas.md). 
+Za pomocą replik odczytu między regionami można usprawnić planowanie ciągłości działania i odzyskiwania po awarii. Repliki odczytu są aktualizowane asynchronicznie za pomocą technologii replikacji fizycznej PostgreSQL i mogą być w niej opóźnienia. Dowiedz się więcej na temat odczytywania replik, dostępnych regionów i sposobu przełączenia w tryb failover z [artykułu pojęć dotyczących replik](concepts-read-replicas.md). 
 
 ## <a name="faq"></a>Często zadawane pytania
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Gdzie usługa Azure Database for PostgreSQL przechowywać dane klienta?

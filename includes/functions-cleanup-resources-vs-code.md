@@ -2,25 +2,21 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: glenga
-ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af009a3f04f17d9d7e518d2dd02343a8ed54e342
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408594"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93425066"
 ---
-1. W Visual Studio Code naciśnij klawisz <kbd>F1</kbd> , aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Open in portal` .
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-1. Wybierz aplikację funkcji i naciśnij klawisz <kbd>Enter</kbd>. Strona aplikacji funkcji zostanie otwarta w Azure Portal.
+Po przeniesieniu do [następnego kroku](#next-steps) i dodaniu powiązania kolejki usługi Azure Storage do funkcji należy zachować wszystkie Twoje zasoby, aby skompilować, co już zostało zrobione.
 
-1. Na karcie **Przegląd** wybierz link nazwany obok pozycji **Grupa zasobów**.
+W przeciwnym razie można wykonać poniższe kroki, aby usunąć aplikację funkcji i powiązane z nią zasoby, aby uniknąć ponoszenia dalszych kosztów.
 
-   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Wybierz grupę zasobów do usunięcia ze strony aplikacji funkcji.":::
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](functions-cleanup-resources-vs-code-inner.md)]
 
-1. Na stronie **Grupa zasobów** zapoznaj się z listą dołączonych zasobów i sprawdź, czy chcesz je usunąć.
- 
-1. Wybierz pozycję **Usuń grupę zasobów**, a następnie postępuj zgodnie z instrukcjami.
-
-   Usuwanie może potrwać kilka minut. Po jego zakończeniu przez kilka sekund będzie widoczne powiadomienie. Możesz również wybrać ikonę dzwonka w górnej części strony, aby wyświetlić powiadomienie.
+Aby dowiedzieć się więcej o kosztach funkcji, zobacz [szacowanie kosztów planu zużycia](../articles/azure-functions/functions-consumption-costs.md).

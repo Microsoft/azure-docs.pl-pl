@@ -6,19 +6,19 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a9592d848398c71bc573c073f0b712898f666640
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104873"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422811"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Tworzenie i publikowanie funkcji na platformie Azure przy użyciu języka Java i Gradle
 
 W tym artykule opisano sposób kompilowania i publikowania projektu funkcji języka Java w celu Azure Functions za pomocą narzędzia wiersza polecenia Gradle. Gdy wszystko będzie gotowe, kod funkcji jest uruchamiany na platformie Azure w [planie hostingu bezserwerowym](functions-scale.md#consumption-plan) i jest wyzwalany przez żądanie HTTP. 
 
 > [!NOTE]
-> Jeśli Gradle nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java za pomocą [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ pomysłu](/azure/developer/java/toolkit-for-intellij/quickstart-functions) i [vs Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
+> Jeśli Gradle nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java za pomocą [Maven](./create-first-function-cli-java.md), [IntelliJ pomysłu](/azure/developer/java/toolkit-for-intellij/quickstart-functions) i [vs Code](./create-first-function-vs-code-java.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -142,7 +142,7 @@ Możesz uzyskać adres URL wymagany do wyzwolenia funkcji przy użyciu klucza fu
 
 1. Przejdź do [Azure Portal], zaloguj się, _wpisz nazwę aplikacji funkcji w polu_ **wyszukiwania** w górnej części strony, a następnie naciśnij klawisz ENTER.
  
-1. W aplikacji funkcji wybierz pozycję **funkcje**, wybierz funkcję, a następnie kliknij pozycję **</> Pobierz adres URL funkcji** w prawym górnym rogu. 
+1. W aplikacji funkcji wybierz pozycję **funkcje** , wybierz funkcję, a następnie kliknij pozycję **</> Pobierz adres URL funkcji** w prawym górnym rogu. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Kopiowanie adresu URL funkcji z witryny Azure Portal":::
 

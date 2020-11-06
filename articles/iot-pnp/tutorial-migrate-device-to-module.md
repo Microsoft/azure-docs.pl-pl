@@ -1,18 +1,18 @@
 ---
-title: Łączenie ogólnego modułu IoT Plug and Play | Microsoft Docs
-description: Użyj przykładowego kodu urządzenia w języku C# Plug and Play w module ogólnym.
+title: Samouczek — łączenie ogólnego modułu usługi Azure IoT Plug and Play | Microsoft Docs
+description: Samouczek — używanie przykładowego kodu urządzenia w języku C# Plug and Play w module ogólnym.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426935"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421468"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Samouczek: łączenie modułu IoT Plug and Play (C#)
 
@@ -33,11 +33,11 @@ Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogr
 
 Za pomocą narzędzia Azure IoT Explorer Dodaj nowe urządzenie o nazwie **My-module-Device** do centrum IoT Hub.
 
-Dodaj moduł o nazwie **My-module** do **urządzenia My-module**:
+Dodaj moduł o nazwie **My-module** do **urządzenia My-module** :
 
 1. W narzędziu Azure IoT Explorer przejdź do urządzenia **My-module-Device** .
 
-1. Wybierz pozycję **tożsamość modułu**, a następnie wybierz pozycję **+ Dodaj**.
+1. Wybierz pozycję **tożsamość modułu** , a następnie wybierz pozycję **+ Dodaj**.
 
 1. Wprowadź **My-module** jako nazwę tożsamości modułu, a następnie wybierz pozycję **Zapisz**.
 

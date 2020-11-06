@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 25c79229a09db912903fba825f0d48f571880745
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a36e15a56a5a4c8a637120ca730ae1da764d376d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877000"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422907"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Typowe kody błędów dla Azure Key Vault
 
@@ -22,7 +22,7 @@ Kody błędów wymienione w poniższej tabeli mogą zostać zwrócone przez oper
 
 | Kod błędu | Komunikat użytkownika |
 |--|--|
-| VaultAlreadyExists |  Określony magazyn kluczy już istnieje (w stanie nieusuniętym lub w innej subskrypcji). |
+| VaultAlreadyExists |  Próba utworzenia nowego magazynu kluczy o określonej nazwie nie powiodła się, ponieważ nazwa jest już używana. Jeśli magazyn kluczy został niedawno usunięty z tą nazwą, nadal może być w stanie usunięte nietrwałe. Możesz sprawdzić, czy istnieje w stanie nietrwałego usunięcia w [tym miejscu](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
 | VaultNameNotValid |  Nazwa magazynu powinna składać się z 24 znaków alfanumerycznych i zaczynać się od alfabetu |
 | AccessDenied |  W zasadach dostępu nie ma uprawnień do wykonania tej operacji. |
 | ForbiddenByFirewall |  Adres klienta nie jest autoryzowany, a element wywołujący nie jest zaufaną usługą. |

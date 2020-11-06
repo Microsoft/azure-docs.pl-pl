@@ -3,12 +3,12 @@ title: Wdróż horyzont w rozwiązaniu VMware platformy Azure
 description: Dowiedz się, jak wdrożyć platformę VMware w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321356"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423122"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Wdróż horyzont w rozwiązaniu VMware platformy Azure 
 
@@ -127,6 +127,18 @@ Te same zasady mają zastosowanie w przypadku wdrożenia dwóch zasobników w ty
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Rozmiar hostów rozwiązań platformy Azure VMware na potrzeby wdrożeń z horyzontem 
 
 Metodologia ustalania wielkości dla hosta działającego na platformie Azure VMware jest prostsza niż w środowisku lokalnym.  Wynika to z faktu, że host rozwiązań VMware platformy Azure jest ustandaryzowany.  Dokładne ustalanie wielkości hosta pozwala określić liczbę hostów potrzebnych do obsługi wymagań infrastruktury VDI.  Jest to centralne określenie kosztu poszczególnych komputerów.
+
+### <a name="sizing-tables"></a>Ustalanie wielkości tabel
+
+W tabelach przedstawiono typowe obciążenia związane z logowaniem i obciążeniami pracownikami VSI Knowledge.
+
+#### <a name="knowledge-worker-workloads"></a>Obciążenia pracowników merytorycznych
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Tabela typowych profilów infrastruktury VDI dla programu VMware Horizon na potrzeby obciążeń pracownikami VSI Knowledge" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+
+#### <a name="power-worker-workloads"></a>Obciążenia związane z pracownikami
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabela typowych profilów infrastruktury VDI dla programu VMware Horizon na potrzeby obciążeń VSIego procesu roboczego" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="azure-vmware-solution-host-instance"></a>Wystąpienie hosta rozwiązania VMware platformy Azure
 

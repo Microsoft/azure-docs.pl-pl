@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory Zarządzanie aplikacjami
 description: Nowa i zaktualizowana dokumentacja dotycząca Azure Active Directory zarządzania aplikacjami.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,34 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428026"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422607"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
 Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze zarządzania aplikacjami, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Październik 2020 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Azure Active Directory Zarządzanie aplikacjami: co nowego](whats-new-docs.md)
+- [Informacje na temat logowania jednokrotnego opartego na OIDC](configure-oidc-single-sign-on.md)
+- [Konfigurowanie klasyfikacji uprawnień](configure-permission-classifications.md)
+- [Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy](configure-user-consent-groups.md)
+- [Zarządzanie zasadami wyrażania zgody aplikacji](manage-app-consent-policies.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Problem z instalacją łącznika agenta serwera proxy aplikacji](application-proxy-connector-installation-problem.md)
+- [Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](configure-user-consent.md)
+
 
 ## <a name="september-2020"></a>Wrzesień 2020
 

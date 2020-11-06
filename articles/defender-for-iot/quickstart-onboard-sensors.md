@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
-ms.openlocfilehash: e90bdcfe22828d85ebeeb74314617fc6eac81385
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 28d64f5d9d845c2a14f0277799213501e1d68010
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094860"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421768"
 ---
 # <a name="quickstart-deploy-and-onboard-a-sensor"></a>Szybki Start: wdrażanie i dołączanie czujnika
 
@@ -39,7 +39,7 @@ Czujniki dołączania umożliwiają:
 |------ | ----------- |
 | **Zdefiniuj nazwę czujnika** | Nazwij czujnik, który jest dołączany, i skojarz go z IoT Hub lub subskrypcją.<br /><br />Aby uzyskać więcej informacji, zobacz **czujniki** dołączania.|
 |**Wybierz subskrypcję i liczbę zatwierdzonych urządzeń**|Wybierz subskrypcję i liczbę urządzeń objętych subskrypcją. Wprowadź liczbę przyrostów wynoszącą 1000.|
-| **Zdefiniuj tryb zarządzania czujnikiem** | Zdefiniuj miejsce, w którym jest wyświetlany element zawartości, alert i inne informacje wykryte przez czujnik. Jest to ustalane na podstawie zdefiniowanego **trybu zarządzania czujnikami** .<br /><br />**Tryb zarządzany lokalnie**: informacje wykryte przez czujnik są wyświetlane w konsoli czujnika. Informacje o wykrywaniu są również udostępniane w lokalnej konsoli zarządzania, jeśli czujnik jest podłączony do niego.<br /><br />**Tryb zarządzany w chmurze**: informacje wykryte przez czujnik są wyświetlane w konsoli czujnika. Ponadto informacje o alertach są dostarczane przez IoT Hub i mogą być udostępniane innym usługom platformy Azure, na przykład na platformie Azure.<br />Aby uzyskać więcej informacji, zobacz **czujnik** dołączania. |
+| **Zdefiniuj tryb zarządzania czujnikiem** | Zdefiniuj miejsce, w którym jest wyświetlany element zawartości, alert i inne informacje wykryte przez czujnik. Jest to ustalane na podstawie zdefiniowanego **trybu zarządzania czujnikami** .<br /><br />**Tryb zarządzany lokalnie** : informacje wykryte przez czujnik są wyświetlane w konsoli czujnika. Informacje o wykrywaniu są również udostępniane w lokalnej konsoli zarządzania, jeśli czujnik jest podłączony do niego.<br /><br />**Tryb zarządzany w chmurze** : informacje wykryte przez czujnik są wyświetlane w konsoli czujnika. Ponadto informacje o alertach są dostarczane przez IoT Hub i mogą być udostępniane innym usługom platformy Azure, na przykład na platformie Azure.<br />Aby uzyskać więcej informacji, zobacz **czujnik** dołączania. |
 | **Pobierz plik aktywacji czujnika** | W przypadku czujników **zarządzanych lokalnie** plik aktywacji jest używany do zarządzania autoryzowanymi okresami aktywacji czujnika.<br /><br />W przypadku czujników **zarządzanych przez chmurę** plik aktywacji jest używany jako połączenie między czujnikiem i IoT Hub. Aby uzyskać więcej informacji, zobacz Dołączanie **czujników**. |
 | **Przekaż plik aktywacji do czujnika** | Pliki aktywacji muszą zostać przekazane do czujników przedsiębiorstwa. Monitorowanie sieci i dostęp do funkcji konsoli czujników nie będą dostępne do czasu przekazania pliku aktywacji. Aby uzyskać więcej informacji, zobacz **przekazywanie plików aktywacji czujników**. |
 | **Zaktualizuj parametry sieci czujnika przed aktywacją** | Parametry aktualizacji zdefiniowane podczas instalacji czujnika. Aby uzyskać więcej informacji, zobacz **błąd! Nie znaleziono źródła odwołania**.|
@@ -57,11 +57,11 @@ Czujniki dołączania umożliwiają:
 
 4. Wybierz opcję uzyskania czujnika.
 
-   ![Widok sektora sieci usługi Azure Defender dla IoT](media/updates/image6.png)
+   ![Widok czujnika sieci usługi Azure Defender for IoT](media/updates/image6.png)
 
-  - **Kup wstępnie skonfigurowany czujnik**: Firma Microsoft i Strzałka współpracują ze sobą, aby zapewnić wstępnie skonfigurowane czujniki. Aby zakupić wstępnie skonfigurowany czujnik, skontaktuj się ze strzałką w: <hardware.sales@arrow.com> . Czujnik zostanie dostarczony do Twojej infrastruktury. Najnowsza wersja jest zainstalowana.
+  - **Kup wstępnie skonfigurowany czujnik** : Firma Microsoft i Strzałka współpracują ze sobą, aby zapewnić wstępnie skonfigurowane czujniki. Aby zakupić wstępnie skonfigurowany czujnik, skontaktuj się ze strzałką w: <hardware.sales@arrow.com> . Czujnik zostanie dostarczony do Twojej infrastruktury. Najnowsza wersja jest zainstalowana.
 
-  - **Przenoszenie własnego urządzenia (instalacja ISO)**: rozwiązanie działa na certyfikowanych urządzeniach. Przewodnik po [specyfikacjach sprzętu usługi Azure Defender for IoT](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) jest używany w przypadku zakupu urządzenia certyfikowanego.
+  - **Przenoszenie własnego urządzenia (instalacja ISO)** : rozwiązanie działa na certyfikowanych urządzeniach. Przewodnik po [specyfikacjach sprzętu usługi Azure Defender for IoT](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) jest używany w przypadku zakupu urządzenia certyfikowanego.
 
     - Wybierz wersję z menu **Wybierz wersję** .
 

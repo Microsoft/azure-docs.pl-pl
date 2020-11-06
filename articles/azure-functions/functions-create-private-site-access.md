@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530072"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423032"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Samouczek: ustanawianie Azure Functions dostępu do lokacji prywatnej
 
@@ -53,7 +53,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
 
 1. Wybierz przycisk **Utwórz zasób** .
 
-1. W polu wyszukiwania wpisz **Windows Server**, a następnie w wynikach wyszukiwania wybierz pozycję **Windows Server** .
+1. W polu wyszukiwania wpisz **Windows Server** , a następnie w wynikach wyszukiwania wybierz pozycję **Windows Server** .
 
 1. Wybierz pozycję **Windows server 2019 Datacenter** z listy opcji systemu Windows Server, a następnie naciśnij przycisk **Utwórz** .
 
@@ -67,7 +67,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
     | _Subskrypcja_ | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. |
     | [_Grupa zasobów_](../azure-resource-manager/management/overview.md) | myResourceGroup | Wybierz grupę zasobów, aby zawierała wszystkie zasoby dla tego samouczka.  Korzystanie z tej samej grupy zasobów ułatwia czyszczenie zasobów po zakończeniu pracy z tym samouczkiem. |
     | _Nazwa maszyny wirtualnej_ | myVM | Nazwa maszyny wirtualnej musi być unikatowa w grupie zasobów |
-    | [_Region_](https://azure.microsoft.com/regions/) | Prześlij Północno-środkowe stany USA | Wybierz region w sąsiedztwie lub w prawie funkcji do uzyskania dostępu. |
+    | [_Okolicy_](https://azure.microsoft.com/regions/) | Prześlij Północno-środkowe stany USA | Wybierz region w sąsiedztwie lub w prawie funkcji do uzyskania dostępu. |
     | _Publiczne porty ruchu przychodzącego_ | Brak | Wybierz opcję **Brak** , aby upewnić się, że nie ma połączenia przychodzącego z maszyną wirtualną z Internetu. Dostęp zdalny do maszyny wirtualnej zostanie skonfigurowany za pośrednictwem usługi Azure bastionu. |
 
 1. Wybierz kartę _Sieć_ i wybierz pozycję **Utwórz nową** , aby skonfigurować nową sieć wirtualną.
@@ -75,7 +75,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
     >[!div class="mx-imgBorder"]
     >![Zrzut ekranu pokazujący kartę "Sieć" z akcją "Utwórz nowy" wyróżnioną w sekcji "Sieć wirtualna".](./media/functions-create-private-site-access/create-vm-networking.png)
 
-1. W obszarze _Utwórz sieć wirtualną_Użyj ustawień w tabeli poniżej obrazu:
+1. W obszarze _Utwórz sieć wirtualną_ Użyj ustawień w tabeli poniżej obrazu:
 
     >[!div class="mx-imgBorder"]
     >![Utwórz nową sieć wirtualną dla nowej maszyny wirtualnej](./media/functions-create-private-site-access/create-vm-vnet-1.png)
@@ -88,10 +88,10 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
     | _Zakres adresów_ (podsieci) | 10.10.1.0/24 | Rozmiar podsieci definiuje liczbę interfejsów, które można dodać do podsieci. Ta podsieć jest używana przez maszynę wirtualną. Podsieć/24 zawiera adresy hosta 254. |
 
 1. Wybierz **przycisk OK** , aby utworzyć sieć wirtualną.
-1. Na karcie _Sieć_ upewnij się, że dla _publicznego adresu IP_nie wybrano opcji **Brak** .
-1. Wybierz kartę _Zarządzanie_ , a następnie w obszarze _konto magazynu diagnostycznego_wybierz pozycję **Utwórz nowy** , aby utworzyć nowe konto magazynu.
-1. Pozostaw wartości domyślne dla sekcji _tożsamość_, _automatyczne zamykanie_i _kopia zapasowa_ .
-1. Wybierz pozycję _Przeglądanie + tworzenie_. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut.
+1. Na karcie _Sieć_ upewnij się, że dla _publicznego adresu IP_ nie wybrano opcji **Brak** .
+1. Wybierz kartę _Zarządzanie_ , a następnie w obszarze _konto magazynu diagnostycznego_ wybierz pozycję **Utwórz nowy** , aby utworzyć nowe konto magazynu.
+1. Pozostaw wartości domyślne dla sekcji _tożsamość_ , _automatyczne zamykanie_ i _kopia zapasowa_ .
+1. Wybierz pozycję _Przejrzyj i utwórz_. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut.
 
 ## <a name="configure-azure-bastion"></a>Konfigurowanie usługi Azure bastionu
 
@@ -145,7 +145,7 @@ Następnym krokiem jest utworzenie aplikacji funkcji na platformie Azure przy u�
     | _Region_ | Północno-środkowe stany USA | Wybierz [region](https://azure.microsoft.com/regions/) znajdujący się w sąsiedztwie lub w najbliższej usłudze dostęp do funkcji. |
 
     Wybierz przycisk **Dalej: Hosting >** .
-1. W sekcji _hosting_ wybierz odpowiednie _konto magazynu_, _system operacyjny_i _Planowanie_ zgodnie z opisem w poniższej tabeli.
+1. W sekcji _hosting_ wybierz odpowiednie _konto magazynu_ , _system operacyjny_ i _Planowanie_ zgodnie z opisem w poniższej tabeli.
 
     | Ustawienie      | Sugerowana wartość  | Opis      |
     | ------------ | ---------------- | ---------------- |
@@ -153,7 +153,7 @@ Następnym krokiem jest utworzenie aplikacji funkcji na platformie Azure przy u�
     | _System operacyjny_ | Preferowany system operacyjny | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. |
     | _Planowanie_ | Zużycie | [Plan hostingu](./functions-scale.md) określa, jak aplikacja funkcji jest skalowana i jakie zasoby są dostępne dla każdego wystąpienia. |
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć wybrane opcje konfiguracji aplikacji.
-1. Wybierz pozycję **Utwórz**, aby zaaprowizować i wdrożyć aplikację funkcji.
+1. Wybierz pozycję **Utwórz** , aby zaaprowizować i wdrożyć aplikację funkcji.
 
 ## <a name="configure-access-restrictions"></a>Konfigurowanie ograniczeń dostępu
 
@@ -165,7 +165,7 @@ Dostęp do [lokacji prywatnej](functions-networking-options.md#private-site-acce
 1. Strona _sieci_ jest punktem wyjścia do konfigurowania drzwi platformy Azure, Azure CDN, a także ograniczeń dostępu.
 1. Wybierz pozycję **Konfiguruj ograniczenia dostępu** , aby skonfigurować dostęp do lokacji prywatnej.
 1. Na stronie _ograniczenia dostępu_ zobaczysz tylko domyślne ograniczenie w miejscu. Domyślnie nie są stosowane żadne ograniczenia dostępu do aplikacji funkcji.  Wybierz pozycję **Dodaj regułę** , aby utworzyć konfigurację ograniczeń dostępu do lokacji prywatnej.
-1. W okienku _Dodaj ograniczenie dostępu_ Podaj _nazwę_, _priorytet_i _Opis_ nowej reguły.
+1. W okienku _Dodaj ograniczenie dostępu_ Podaj _nazwę_ , _priorytet_ i _Opis_ nowej reguły.
 1. Wybierz pozycję **Virtual Network** w polu listy rozwijanej _Typ_ , a następnie wybierz wcześniej utworzoną sieć wirtualną, a następnie wybierz podsieć **samouczka** . 
     > [!NOTE]
     > Włączenie punktu końcowego usługi może potrwać kilka minut.
@@ -195,9 +195,9 @@ Następnym krokiem w tym samouczku jest utworzenie funkcji platformy Azure wyzwa
 1. Wykonaj jeden z następujących przewodników Szybki Start, aby utworzyć i wdrożyć aplikację Azure Functions.
 
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
-    * [Program Visual Studio](./functions-create-your-first-function-visual-studio.md)
+    * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Wiersz polecenia](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Podczas publikowania Azure Functions projektu wybierz zasób aplikacji funkcji, który został utworzony wcześniej w tym samouczku.
 1. Sprawdź, czy funkcja została wdrożona.

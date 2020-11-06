@@ -5,18 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4f4733a52d1d58cbec4413140a613a93c8074188
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b709981e199d63c32426381ba48665402de820ce
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323433"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422709"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-W tym artykule pokazano, jak za pomocą Visual Studio Code połączyć funkcję utworzoną w [poprzednim artykule szybki start](functions-create-first-function-vs-code.md) z usługą Azure Storage. Powiązanie danych wyjściowych dodawane do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce usługi Azure queue storage. 
+W tym artykule pokazano, jak za pomocą Visual Studio Code połączyć usługę Azure Storage z funkcją utworzoną w poprzednim artykule Szybki Start. Powiązanie danych wyjściowych dodawane do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce usługi Azure queue storage. 
 
 Większość powiązań wymaga przechowywanych parametrów połączenia używanych przez funkcje do uzyskiwania dostępu do usługi powiązanej. Aby ułatwić sobie korzystanie z konta magazynu utworzonego za pomocą aplikacji funkcji programu. Połączenie z tym kontem jest już przechowywane w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .  
 
@@ -32,7 +32,24 @@ Przed rozpoczęciem pracy z tym artykułem należy spełnić następujące wymag
 * Zainstaluj [narzędzia interfejs wiersza polecenia platformy .NET Core](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Wykonaj kroki opisane w [części 1 Visual Studio Code szybki start](functions-create-first-function-vs-code.md). 
+::: zone pivot="programming-language-csharp"  
+* Wykonaj kroki opisane w [części 1 Visual Studio Code szybki start](create-first-function-vs-code-csharp.md). 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* Wykonaj kroki opisane w [części 1 Visual Studio Code szybki start](create-first-function-vs-code-node.md). 
+::: zone-end   
+::: zone pivot="programming-language-java"  
+* Wykonaj kroki opisane w [części 1 Visual Studio Code szybki start](create-first-function-vs-code-java.md). 
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+* Wykonaj kroki opisane w [części 1 Visual Studio Code szybki start](create-first-function-vs-code-typescript.md). 
+::: zone-end   
+::: zone pivot="programming-language-python"  
+* Wykonaj kroki opisane w [części 1 Visual Studio Code szybki start](create-first-function-vs-code-python.md). 
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+* Wykonaj kroki opisane w [części 1 Visual Studio Code szybki start](create-first-function-vs-code-powershell.md). 
+::: zone-end   
 
 W tym artykule przyjęto założenie, że użytkownik jest już zalogowany do subskrypcji platformy Azure z Visual Studio Code. Możesz się zalogować, uruchamiając `Azure: Sign In` polecenie z palety poleceń. 
 
@@ -165,7 +182,7 @@ Pomiń tę sekcję, jeśli już zainstalowano Eksplorator usługi Azure Storage 
 
     ![Dodaj konto platformy Azure do Eksplorator usługi Microsoft Azure Storage](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
-1. W oknie dialogowym **Połącz** wybierz pozycję **Dodaj konto platformy**Azure, wybierz **środowisko platformy Azure**, a następnie wybierz pozycję **Zaloguj się...**. 
+1. W oknie dialogowym **Połącz** wybierz pozycję **Dodaj konto platformy** Azure, wybierz **środowisko platformy Azure** , a następnie wybierz pozycję **Zaloguj się...**. 
 
     ![Zaloguj się do swojego konta platformy Azure](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png)
 
@@ -175,9 +192,9 @@ Po pomyślnym zalogowaniu się do konta zobaczysz wszystkie subskrypcje platform
 
 1. W Visual Studio Code naciśnij klawisz F1, aby otworzyć paletę poleceń, a następnie wyszukaj i uruchom polecenie `Azure Storage: Open in Storage Explorer` i wybierz nazwę konta magazynu. Twoje konto magazynu zostanie otwarte w Eksplorator usługi Azure Storage.  
 
-1. Rozwiń węzeł **Kolejki**, a następnie wybierz kolejkę o nazwie **outqueue**. 
+1. Rozwiń węzeł **Kolejki** , a następnie wybierz kolejkę o nazwie **outqueue**. 
 
-   Kolejka zawiera komunikat utworzony za pomocą powiązania danych wyjściowych kolejki po uruchomieniu funkcji wyzwalanej przez protokół HTTP. Jeśli funkcja została wywołana przy użyciu domyślnego elementu `name` o wartości *Azure*, komunikat w kolejce to *Nazwa przekazana do funkcji: Azure*.
+   Kolejka zawiera komunikat utworzony za pomocą powiązania danych wyjściowych kolejki po uruchomieniu funkcji wyzwalanej przez protokół HTTP. Jeśli funkcja została wywołana przy użyciu domyślnego elementu `name` o wartości *Azure* , komunikat w kolejce to *Nazwa przekazana do funkcji: Azure*.
 
     ![Komunikat w kolejce wyświetlany w Eksplorator usługi Azure Storage](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -201,37 +218,46 @@ Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platfor
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Na platformie Azure *zasoby* odnoszą się do aplikacji funkcji, funkcji, kont magazynu i tak dalej. Są one pogrupowane w *grupy zasobów*, a wszystkie elementy w grupie można usunąć, usuwając grupę.
+Na platformie Azure *zasoby* odnoszą się do aplikacji funkcji, funkcji, kont magazynu i tak dalej. Są one pogrupowane w *grupy zasobów* , a wszystkie elementy w grupie można usunąć, usuwając grupę.
 
 Aby ukończyć te przewodniki Szybki start, zostały utworzone zasoby. Za te zasoby może zostać naliczona opłata — zależy to od Twojego [stanu konta](https://azure.microsoft.com/account/) i [cennika usług](https://azure.microsoft.com/pricing/). Jeśli nie potrzebujesz już tych zasobów, oto jak możesz je usunąć:
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
 Została zaktualizowana funkcja wyzwalana przez protokół HTTP w celu zapisania danych w kolejce magazynu. Teraz można dowiedzieć się więcej na temat opracowywania funkcji przy użyciu Visual Studio Code:
 
 + [Opracowywanie Azure Functions przy użyciu Visual Studio Code](functions-develop-vs-code.md)
+
++ [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md).
 ::: zone pivot="programming-language-csharp"  
 + [Przykłady kompletnych projektów funkcji w języku C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Dokumentacja dla deweloperów Azure Functions C#](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Przykłady kompletnych projektów funkcji w języku JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [Przewodnik dla deweloperów Azure Functions JavaScript](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Przykłady kompletnych projektów funkcji w języku Java](/samples/browse/?products=azure-functions&languages=java).
+
++ [Przewodnik dewelopera Azure Functions Java](functions-reference-java.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Przykłady całych projektów funkcji w języku TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Azure Functions przewodnik dewelopera języka TypeScript](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Przykłady kompletnych projektów funkcji w języku Python](/samples/browse/?products=azure-functions&languages=python).
+
 + [Przewodnik dewelopera w języku Python Azure Functions](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Przykłady kompletnych projektów funkcji w programie PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [Przewodnik dewelopera programu Azure Functions PowerShell](functions-reference-powershell.md) 
 ::: zone-end
-+ [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md).
-+ [Strona cennika funkcji](https://azure.microsoft.com/pricing/details/functions/)
-+ [Szacowanie kosztów planu zużycia](functions-consumption-costs.md) .

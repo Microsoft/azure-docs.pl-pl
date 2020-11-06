@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043110"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422556"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -20,7 +20,7 @@ Jako Express.js, Node.js lub programista JavaScript, jeśli dopiero zaczynasz Az
 
 | Wprowadzenie | Pojęcia| Nauka z przewodnikiem |
 | -- | -- | -- | 
-| <ul><li>[ FunkcjaNode.js przy użyciu Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ FunkcjaNode.js z terminalem/wierszem polecenia](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[Funkcje języka TypeScript](#typescript)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Refaktoryzacja Node.js i Express API do bezserwerowych interfejsów API](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[ FunkcjaNode.js przy użyciu Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunkcjaNode.js z terminalem/wierszem polecenia](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[Funkcje języka TypeScript](#typescript)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Refaktoryzacja Node.js i Express API do bezserwerowych interfejsów API](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Podstawowe funkcje języka JavaScript
 
@@ -107,13 +107,13 @@ W języku JavaScript [powiązania](functions-triggers-bindings.md) są konfiguro
 
 ### <a name="inputs"></a>Dane wejściowe
 Dane wejściowe są podzielone na dwie kategorie w Azure Functions: jeden to dane wejściowe wyzwalacza, a drugi to dodatkowe dane wejściowe. Wyzwalacz i inne powiązania wejściowe (powiązania `direction === "in"` ) mogą być odczytywane przez funkcję na trzy sposoby:
- - **_[Zalecane]_ Jako parametry przesłane do funkcji.** Są one przenoszone do funkcji w takiej samej kolejności, w jakiej są zdefiniowane w *function.jsna* . `name`Właściwość zdefiniowana w *function.jsna* nie musi być zgodna z nazwą parametru, chociaż powinna być.
+ - **_[Zalecane]_ Jako parametry przesłane do funkcji.** Są one przenoszone do funkcji w takiej samej kolejności, w jakiej są zdefiniowane w *function.jsna*. `name`Właściwość zdefiniowana w *function.jsna* nie musi być zgodna z nazwą parametru, chociaż powinna być.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Jako elementy członkowskie [`context.bindings`](#contextbindings-property) obiektu.** Każdy element członkowski jest nazwany przez `name` Właściwość zdefiniowaną w *function.jsna* .
+ - **Jako elementy członkowskie [`context.bindings`](#contextbindings-property) obiektu.** Każdy element członkowski jest nazwany przez `name` Właściwość zdefiniowaną w *function.jsna*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Dane wyjściowe (powiązania `direction === "out"` ) mogą być zapisywane przez
 
 Dane można przypisywać do powiązań wyjściowych w jeden z następujących sposobów (nie łącz tych metod):
 
-- **_[Zalecane dla wielu wyjść]_ Zwracanie obiektu.** Jeśli używana jest funkcja zwracająca Asynchroniczność/Promise, można zwrócić obiekt z przypisanymi danymi wyjściowymi. W poniższym przykładzie powiązania wyjściowe mają nazwę "httpResponse" i "queueOutput" w *function.json* .
+- **_[Zalecane dla wielu wyjść]_ Zwracanie obiektu.** Jeśli używana jest funkcja zwracająca Asynchroniczność/Promise, można zwrócić obiekt z przypisanymi danymi wyjściowymi. W poniższym przykładzie powiązania wyjściowe mają nazwę "httpResponse" i "queueOutput" w *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -203,9 +203,9 @@ Kontekst przekazaną do funkcji uwidacznia `executionContext` Właściwość, kt
 
 | Nazwa właściwości  | Typ  | Opis |
 |---------|---------|---------|
-| `invocationId` | String | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
-| `functionName` | String | Zawiera nazwę działającej funkcji |
-| `functionDirectory` | String | Udostępnia katalog aplikacji usługi Functions. |
+| `invocationId` | Ciąg | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
+| `functionName` | Ciąg | Zawiera nazwę działającej funkcji |
+| `functionDirectory` | Ciąg | Udostępnia katalog aplikacji usługi Functions. |
 
 Poniższy przykład pokazuje, jak zwrócić `invocationId` .
 
@@ -358,7 +358,7 @@ Aby ustawić wartość progową dla wszystkich śladów, które są zapisywane w
 }  
 ```
 
-Wartości **consoleLevel** odpowiadają nazwom `context.log` metod. Aby wyłączyć wszystkie rejestrowanie śledzenia w konsoli programu, należy ustawić **consoleLevel** na _wyłączone_ . Aby uzyskać więcej informacji, zobacz [host.jsinformacje o wersji 1. x](functions-host-json-v1.md).
+Wartości **consoleLevel** odpowiadają nazwom `context.log` metod. Aby wyłączyć wszystkie rejestrowanie śledzenia w konsoli programu, należy ustawić **consoleLevel** na _wyłączone_. Aby uzyskać więcej informacji, zobacz [host.jsinformacje o wersji 1. x](functions-host-json-v1.md).
 
 ---
 
@@ -507,7 +507,7 @@ W poniższej tabeli przedstawiono bieżące obsługiwane wersje Node.js dla każ
 
 | Wersja funkcji | Wersja węzła (system Windows) | Wersja węzła (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (zablokowany przez środowisko uruchomieniowe) | nie dotyczy |
+| 1.x | 6.11.2 (zablokowany przez środowisko uruchomieniowe) | n/d |
 | 2.x  | ~ 8<br/>~ 10 (zalecane)<br/>~ 12<sup>*</sup> | ~ 8 (zalecane)<br/>~ 10  |
 | wersji | ~ 10<br/>~ 12 (zalecane)  | ~ 10<br/>~ 12 (zalecane) |
 
@@ -545,12 +545,12 @@ Istnieją dwa sposoby instalowania pakietów na aplikacja funkcji:
 ### <a name="using-kudu"></a>Korzystanie z kudu
 1. Przejdź do adresu `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Kliknij pozycję **Debuguj konsolę**  >  **cmd** .
+2. Kliknij pozycję **Debuguj konsolę**  >  **cmd**.
 
 3. Przejdź do `D:\home\site\wwwroot` , a następnie przeciągnij package.jsw pliku do folderu **wwwroot** w górnej połowie strony.  
     Możesz również przekazywać pliki do aplikacji funkcji w inny sposób. Aby uzyskać więcej informacji, zobacz [jak zaktualizować pliki aplikacji funkcji](functions-reference.md#fileupdate). 
 
-4. Po przekazaniu package.jsw pliku Uruchom `npm install` polecenie w **konsoli wykonywania zdalnego kudu** .  
+4. Po przekazaniu package.jsw pliku Uruchom `npm install` polecenie w **konsoli wykonywania zdalnego kudu**.  
     Ta akcja spowoduje pobranie pakietów wskazanych w package.jsw pliku i ponowne uruchomienie aplikacji funkcji.
 
 ## <a name="environment-variables"></a>Zmienne środowiskowe
@@ -651,7 +651,7 @@ W wersji 1. x ustawienie `languageWorkers:node:arguments` nie będzie działało
 
 ## <a name="typescript"></a>TypeScript
 
-Gdy element docelowy jest w wersji 2. x środowiska uruchomieniowego Functions, obie [Azure Functions dla Visual Studio Code](functions-create-first-function-vs-code.md) i [Azure Functions Core Tools](functions-run-local.md) umożliwiają tworzenie aplikacji funkcji przy użyciu szablonu, który obsługuje projekty aplikacji funkcji TypeScript. Szablon generuje i tworzy pliki projektu, które ułatwiają transkodowanie `package.json` `tsconfig.json` , uruchamianie i publikowanie funkcji języka JavaScript w kodzie TypeScript za pomocą tych narzędzi.
+Gdy element docelowy jest w wersji 2. x środowiska uruchomieniowego Functions, obie [Azure Functions dla Visual Studio Code](./create-first-function-cli-typescript.md) i [Azure Functions Core Tools](functions-run-local.md) umożliwiają tworzenie aplikacji funkcji przy użyciu szablonu, który obsługuje projekty aplikacji funkcji TypeScript. Szablon generuje i tworzy pliki projektu, które ułatwiają transkodowanie `package.json` `tsconfig.json` , uruchamianie i publikowanie funkcji języka JavaScript w kodzie TypeScript za pomocą tych narzędzi.
 
 Wygenerowany `.funcignore` plik służy do wskazywania, które pliki są wykluczone, gdy projekt jest publikowany na platformie Azure.  
 

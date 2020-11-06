@@ -5,24 +5,27 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708615"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421813"
 ---
 # <a name="logical-decoding"></a>Dekodowanie logiczne
  
+> [!NOTE]
+> Dekodowanie logiczne jest w publicznej wersji zapoznawczej na Azure Database for PostgreSQL-pojedynczym serwerze.
+
 [Dekodowanie logiczne w programie PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) umożliwia przesyłanie strumieniowe zmian danych do użytkowników zewnętrznych. Dekodowanie logiczne jest popularne w przypadku scenariuszy przesyłania strumieniowego zdarzeń i przechwytywania zmian danych.
 
-Dekodowanie logiczne używa wtyczki wyjściowej do przekonwertowania dziennika zapisu z wyprzedzeniem (WAL) Postgres na format możliwy do odczytu. Azure Database for PostgreSQL udostępnia wtyczki danych wyjściowych [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) i pgoutput. pgoutput jest udostępniana przez Postgres z Postgres w wersji 10.
+Dekodowanie logiczne używa wtyczki wyjściowej do przekonwertowania dziennika zapisu z wyprzedzeniem (WAL) Postgres na format możliwy do odczytu. Azure Database for PostgreSQL udostępnia wtyczki danych wyjściowych [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) i pgoutput. pgoutput jest udostępniana przez PostgreSQL z PostgreSQL w wersji 10.
 
 Aby zapoznać się z omówieniem działania dekodowania logicznego Postgres, [odwiedź nasz blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
-> Dekodowanie logiczne jest w publicznej wersji zapoznawczej na Azure Database for PostgreSQL-pojedynczym serwerze.
+> Replikacja logiczna przy użyciu publikacji/subskrypcji PostgreSQL jest nieobsługiwana w przypadku Azure Database for PostgreSQL-jednego serwera.
 
 
 ## <a name="set-up-your-server"></a>Skonfiguruj serwer 
@@ -39,25 +42,29 @@ Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
 1. Ustaw azure.replication_support na `logical` .
-   ```
+   ```azurecli-interactive
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. Uruchom ponownie serwer, aby zastosować zmianę.
-   ```
+   ```azurecli-interactive
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. W przypadku korzystania z programu Postgres 9,5 lub 9,6 i używania publicznego dostępu do sieci należy dodać regułę zapory, aby uwzględnić publiczny adres IP klienta, z poziomu którego zostanie uruchomiona replikacja logiczna. Nazwa reguły zapory musi zawierać **_replrule**. Na przykład *test_replrule*. Aby utworzyć nową regułę zapory na serwerze, uruchom polecenie [AZ Postgres Server firewall-Rule Create](/cli/azure/postgres/server/firewall-rule) . 
 
 ### <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. Ustaw wartość **logiczna**Obsługa replikacji platformy Azure. Wybierz pozycję **Zapisz**.
+1. Ustaw wartość **logiczna** Obsługa replikacji platformy Azure. Wybierz pozycję **Zapisz**.
 
    :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL-replikacja — Obsługa replikacji platformy Azure":::
 
 2. Uruchom ponownie serwer, aby zastosować zmiany, wybierając opcję **tak**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-replikacja — Obsługa replikacji platformy Azure":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie":::
 
+3. W przypadku korzystania z programu Postgres 9,5 lub 9,6 i używania publicznego dostępu do sieci należy dodać regułę zapory, aby uwzględnić publiczny adres IP klienta, z poziomu którego zostanie uruchomiona replikacja logiczna. Nazwa reguły zapory musi zawierać **_replrule**. Na przykład *test_replrule*. Następnie kliknij przycisk **Zapisz**.
+
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Azure Database for PostgreSQL-replikacja — Dodawanie reguły zapory":::
 
 ## <a name="start-logical-decoding"></a>Rozpocznij dekodowanie logiczne
 

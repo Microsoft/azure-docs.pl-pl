@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 009018335e57943392b83047702f24890bf714d5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 825413421bc9025c2912bb790a3166c6e3d34a0f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359616"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421842"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -117,7 +117,7 @@ Następnie określ, gdzie będzie szkolony model. Eksperyment treningowy zautoma
 
     Zobacz [ten notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), aby zapoznać się z przykładem obliczeń zdalnych przy użyciu usługi Azure Machine Learning Managed Compute. 
 
-* **Klaster Azure Databricks** w ramach subskrypcji platformy Azure. Więcej szczegółów można znaleźć tutaj — [Konfigurowanie klastra usługi Azure Databricks na potrzeby zautomatyzowanego uczenia maszynowego](how-to-configure-environment.md#aml-databricks). Zobacz tę [witrynę w witrynie GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) , aby zapoznać się z przykładami notesów z Azure Databricks.
+* **Klaster Azure Databricks** w ramach subskrypcji platformy Azure. Więcej szczegółów można znaleźć w temacie [Konfigurowanie klastra Azure Databricks na potrzeby zautomatyzowanej ml](how-to-configure-databricks-automl-environment.md). Zobacz tę [witrynę w witrynie GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) , aby zapoznać się z przykładami notesów z Azure Databricks.
 
 <a name='configure-experiment'></a>
 

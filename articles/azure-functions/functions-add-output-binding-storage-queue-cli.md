@@ -5,20 +5,39 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87852637"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422878"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu narzędzi wiersza polecenia
 
-W tym artykule opisano integrację kolejki usługi Azure Storage z funkcją i kontem magazynu utworzonym w [poprzednim przewodniku szybki start](functions-create-first-azure-function-azure-cli.md). Tę integrację można osiągnąć za pomocą *powiązania danych wyjściowych* , które zapisuje dane z żądania HTTP do wiadomości w kolejce. Wykonanie tego artykułu nie wiąże się z żadnymi dodatkowymi kosztami powyżej kilku centów z poprzedniego przewodnika Szybki Start. Aby dowiedzieć się więcej na temat powiązań, zobacz temat [Azure Functions wyzwalacze i koncepcje powiązań](functions-triggers-bindings.md).
+W tym artykule opisano integrację kolejki usługi Azure Storage z funkcją i kontem magazynu utworzonym w poprzednim artykule Szybki Start. Tę integrację można osiągnąć za pomocą *powiązania danych wyjściowych* , które zapisuje dane z żądania HTTP do wiadomości w kolejce. Wykonanie tego artykułu nie wiąże się z żadnymi dodatkowymi kosztami powyżej kilku centów z poprzedniego przewodnika Szybki Start. Aby dowiedzieć się więcej na temat powiązań, zobacz temat [Azure Functions wyzwalacze i koncepcje powiązań](functions-triggers-bindings.md).
 
 ## <a name="configure-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
-Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](functions-create-first-azure-function-azure-cli.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.
+Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia][previous-quickstart]. Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.
+
+::: zone pivot="programming-language-csharp"  
+Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-csharp.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-node.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
+::: zone-end   
+::: zone pivot="programming-language-java"  
+Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-java.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-typescript.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
+::: zone-end   
+::: zone pivot="programming-language-python"  
+Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-python.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-powershell.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
+::: zone-end   
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
@@ -107,7 +126,7 @@ mvn azure-functions:deploy
 
     # <a name="curl"></a>[odsłon](#tab/curl)
     
-    Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
+    Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL** , dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
     
     ![Dane wyjściowe funkcji są uruchamiane na platformie Azure przy użyciu zwinięcia](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 
@@ -129,33 +148,41 @@ Została zaktualizowana funkcja wyzwalana przez protokół HTTP w celu zapisania
 
 + [Korzystanie z narzędzi Azure Functions Core Tools](functions-run-local.md)  
 
++ [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md)
+
 ::: zone pivot="programming-language-csharp"  
 + [Przykłady kompletnych projektów funkcji w języku C#](/samples/browse/?products=azure-functions&languages=csharp).
 
 + [Dokumentacja dla deweloperów Azure Functions C#](functions-dotnet-class-library.md)  
+
+[previous-quickstart]: create-first-function-cli-csharp.md
+
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Przykłady kompletnych projektów funkcji w języku JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
 + [Przewodnik dla deweloperów Azure Functions JavaScript](functions-reference-node.md)  
+
+[previous-quickstart]: create-first-function-cli-javascript.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Przykłady całych projektów funkcji w języku TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
 + [Azure Functions przewodnik dewelopera języka TypeScript](functions-reference-node.md#typescript)  
+
+[previous-quickstart]: create-first-function-cli-typescript.md
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Przykłady kompletnych projektów funkcji w języku Python](/samples/browse/?products=azure-functions&languages=python).
 
 + [Przewodnik dewelopera w języku Python Azure Functions](functions-reference-python.md)  
+
+[previous-quickstart]: create-first-function-cli-python.md
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Przykłady kompletnych projektów funkcji w programie PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
 
 + [Przewodnik dewelopera programu Azure Functions PowerShell](functions-reference-powershell.md) 
+
+[previous-quickstart]: create-first-function-cli-powershell.md
 ::: zone-end
-+ [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md)
-
-+ [Strona cennika funkcji](https://azure.microsoft.com/pricing/details/functions/)
-
-+ [Szacowanie kosztów planu zużycia](functions-consumption-costs.md) 

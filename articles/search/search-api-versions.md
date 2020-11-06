@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fab49c4242afc2e4f2d0595e2aa95f19f3d976f8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/05/2020
+ms.openlocfilehash: feca2e83646264b28e42125b3fdebf41266c06bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951583"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422726"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Wersje interfejsu API na platformie Azure Wyszukiwanie poznawcze
 
@@ -87,8 +87,8 @@ Poniższa tabela zawiera linki do nowszych wersji zestawu SDK.
 
 | Wersja zestawu SDK | Stan | Opis |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11,0](/dotnet/api/overview/azure/search.documents-readme) | Stable | Nowa Biblioteka kliencka z zestawu Azure .NET SDK wydana w lipcu 2020. Celem interfejsu API REST wyszukiwania — wersja = 2020-06-30 REST API, ale nie obsługuje jeszcze filtrów geograficznych ani [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). |
-| [Microsoft. Azure. Search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Wydanie może 2019. Jest przeznaczony dla interfejsu API REST wyszukiwania — Version = 2019-05-06.|
+| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | Nowa Biblioteka kliencka z zestawu Azure .NET SDK wydana w lipcu 2020. Jest przeznaczony dla interfejsu API REST wyszukiwania-Version = 2020-06-30 REST API, ale nie obsługuje jeszcze filtrów geograficznych. |
+| [Microsoft. Azure. Search 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Wydanie może 2019. Jest przeznaczony dla interfejsu API REST wyszukiwania — Version = 2019-05-06.|
 | [Microsoft. Azure. Management. Search 4.0.0](/dotnet/api/overview/azure/search/management) | Stable | Przeznaczony dla interfejsu API REST zarządzania — wersja = 2020-08-01.  |
 | Microsoft. Azure. Management. Search 3.0.0 | Stable | Jest przeznaczony dla interfejsu API REST zarządzania — Version = 2015-08-19.  |
 

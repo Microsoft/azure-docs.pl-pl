@@ -8,14 +8,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5e9d9e762568c01d31f0c3a29be809a5f90b6b44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043718"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421655"
 ---
-# <a name="whats-in-the-current-iot-plug-and-play-release"></a>Co znajduje się w bieżącej wersji Plug and Play IoT
+# <a name="what-is-in-the-current-iot-plug-and-play-release"></a>Co to jest bieżąca wersja Plug and Play IoT?
 
 Ten artykuł zawiera podsumowanie narzędzi, zestawów SDK i interfejsów API, które obsługują bieżącą wersję Plug and Play IoT. Pokazane numery wersji odzwierciedlają numer wersji w czasie Plug and Play IoT jest ogólnie dostępny. Numery wersji mogą narastać po wydaniu.
 
@@ -65,7 +65,7 @@ Interfejs API REST [2020-09-30](/rest/api/iothub).
 
 Aby dowiedzieć się więcej, zobacz [Przewodnik dla deweloperów Plug and Play IoT](concepts-developer-guide-service.md).
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-hub"></a>Usługa IoT Hub
 
 Plug and Play IoT jest obsługiwana przez IoT Hub we wszystkich regionach. Plug and Play IoT jest obsługiwana tylko przez centra IoT dla warstwy Standardowa lub bezpłatna.
 

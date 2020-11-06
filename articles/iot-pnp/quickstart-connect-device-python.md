@@ -1,6 +1,6 @@
 ---
-title: Łączenie przykładowego kodu urządzenia w języku Python Plug and Play z usługą Azure IoT Hub | Microsoft Docs
-description: Użyj języka Python, aby skompilować i uruchomić przykładowy kod urządzenia Plug and Play IoT, który łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Szybki Start — łączenie Plug and Play przykładowego kodu urządzenia w języku Python z platformą Azure IoT Hub | Microsoft Docs
+description: Szybki Start — używanie języka Python do kompilowania i uruchamiania przykładowego kodu urządzenia Plug and Play IoT, który łączy się z Centrum IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 38c6b835f0a3ddaaf4c049ca6ea3aeb484ad3280
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737312"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421570"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>Szybki Start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play do IoT Hub (Python)
 
@@ -69,7 +69,7 @@ Otwórz plik **simple_thermostat. PR** w edytorze tekstów. Zwróć uwagę, jak 
 
     1. Uruchamia wysyłanie danych telemetrycznych. **Pnp_send_telemetry** jest zdefiniowany w pliku pnp_methods. pr. Przykładowy kod używa pętli do wywołania tej funkcji co osiem sekund.
 
-    1. Wyłącza wszystkie detektory i zadania i istnieje pętla po naciśnięciu przycisku **q** lub **q** .
+    1. Wyłącza wszystkie detektory i zadania i istnieje pętla po naciśnięciu przycisku **q** lub **q**.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

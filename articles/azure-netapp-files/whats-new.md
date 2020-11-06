@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932417"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421706"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Co nowego w Azure NetApp Files
 
 Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowanie dotyczące najnowszych nowych funkcji i ulepszeń. 
+
+## <a name="november-2020"></a>Listopad 2020
+
+* [Przywracanie migawek](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+
+    Funkcja przywracania migawek umożliwia szybkie przywrócenie woluminu do stanu, w którym został utworzony. W większości przypadków przywrócenie woluminu jest znacznie szybsze niż przywrócenie pojedynczych plików z migawki do aktywnego systemu plików. Jest to również bardziej wydajne miejsce w porównaniu do przywracania migawki do nowego woluminu.
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
@@ -46,10 +52,10 @@ Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowa
 * Nowe [metryki](azure-netapp-files-metrics.md):   
 
     * Nowe metryki woluminów: 
-        * *Przydzielony rozmiar woluminu*: rozmiar zainicjowany woluminu
+        * *Przydzielony rozmiar woluminu* : rozmiar zainicjowany woluminu
     * Nowe metryki puli: 
-        * *Rozmiar przydzielony puli*: rozmiar zainicjowany puli 
-        * *Łączny rozmiar migawki dla puli*: suma rozmiaru migawki ze wszystkich woluminów w puli
+        * *Rozmiar przydzielony puli* : rozmiar zainicjowany puli 
+        * *Łączny rozmiar migawki dla puli* : suma rozmiaru migawki ze wszystkich woluminów w puli
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 

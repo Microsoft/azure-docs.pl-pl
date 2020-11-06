@@ -1,18 +1,18 @@
 ---
-title: Łączenie Plug and Play IoT przykład kod urządzenia C do IoT Hub | Microsoft Docs
-description: Kompiluj i uruchamiaj Plug and Play IoT przykład kod urządzenia C, który używa wielu składników i łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Samouczek — łączenie usługi IoT Plug and Play przykładowego kodu urządzenia C z platformą Azure IoT Hub | Microsoft Docs
+description: Samouczek — Kompilowanie i uruchamianie przykładowego kodu urządzenia C Plug and Play IoT, który używa wielu składników i łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e1a2a45d0f5743874ce0c0b20190d7d396094e43
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0bf0e45f6e9b088567dd48d3eb12ae979ba679e4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046387"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421485"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>Samouczek: łączenie IoT Plug and Play aplikacji urządzeń składników działających w systemie Linux lub Windows do IoT Hub (C)
 
@@ -34,7 +34,7 @@ W tym samouczku przyjęto założenie, że używasz Ubuntu Linux. Kroki opisane 
 
 Aby wykonać kroki tego samouczka w systemie Linux, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Linux:
 
-Zainstaluj oprogramowanie w **zatoce**, **git**, **CMAKE**i wszystkie wymagane zależności przy użyciu `apt-get` polecenia:
+Zainstaluj oprogramowanie w **zatoce** , **git** , **CMAKE** i wszystkie wymagane zależności przy użyciu `apt-get` polecenia:
 
 ```sh
 sudo apt-get update
@@ -79,7 +79,7 @@ Możesz skompilować i uruchomić kod przy użyciu programu Visual Studio lub `c
 ### <a name="use-visual-studio"></a>Korzystanie z programu Visual Studio
 
 1. Otwórz folder główny sklonowanego repozytorium. Po kilku sekundach obsługa **CMAKE** w programie Visual Studio tworzy wszystko, co jest potrzebne do uruchomienia i debugowania projektu.
-1. Gdy program Visual Studio jest gotowy, w **Eksplorator rozwiązań**przejdź do przykładu *iothub_client/Samples/PnP/pnp_temperature_controller/*.
+1. Gdy program Visual Studio jest gotowy, w **Eksplorator rozwiązań** przejdź do przykładu *iothub_client/Samples/PnP/pnp_temperature_controller/*.
 1. Kliknij prawym przyciskiem myszy plik *pnp_temperature_controller. c* i wybierz polecenie **Dodaj konfigurację debugowania**. Wybierz pozycję **domyślne**.
 1. Program Visual Studio otwiera *launch.vs.js* pliku. Edytuj ten plik, jak pokazano w poniższym fragmencie kodu, aby ustawić wymagane zmienne środowiskowe. Po zakończeniu [konfigurowania środowiska dla przewodników Szybki Start i samouczków Plug and Play IoT](set-up-environment.md)zawarto zanotować identyfikator zakresu i klucz podstawowy rejestracji:
 
@@ -167,7 +167,7 @@ Dla tego przykładu kod używa niektórych funkcji pomocnika z folderu */typowe*
 
 *pnp_device_client_ll* zawiera metodę connect dla Plug and Play IoT z `model-id` dołączonym parametrem: `PnP_CreateDeviceClientLLHandle` .
 
-*pnp_protocol*: zawiera funkcje pomocnika Plug and Play IoT:
+*pnp_protocol* : zawiera funkcje pomocnika Plug and Play IoT:
 
 * `PnP_CreateReportedProperty`
 * `PnP_CreateReportedPropertyWithStatus`

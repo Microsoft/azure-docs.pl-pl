@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie środowiska deweloperskiego | Python
+title: Konfigurowanie środowiska deweloperskiego języka Python
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak skonfigurować środowisko programistyczne języka Python dla Azure Machine Learning. Używaj środowisk Conda, twórz pliki konfiguracji i Konfiguruj własny, oparty na chmurze serwer notesu, notesy Jupyter, Azure Databricks, środowisk IDE, edytory kodu i Data Science Virtual Machine.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 7e189885fbf7befcaea3f63148a42c81dc1da03e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320486"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422913"
 ---
-# <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
+# <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne języka Python dla Azure Machine Learning
 
 Dowiedz się, jak skonfigurować środowisko deweloperskie języka Python dla Azure Machine Learning.
 
@@ -27,9 +27,9 @@ W poniższej tabeli przedstawiono wszystkie środowiska deweloperskie omówione 
 | Środowisko | Zalety | Wady |
 | --- | --- | --- |
 | [Środowisko lokalne](#local) | Pełna kontrola nad środowiskiem deweloperskim i zależnościami. Uruchamiaj przy użyciu dowolnego narzędzia kompilacji, środowiska lub IDE. | Rozpoczęcie pracy trwa dłużej. Wymagane pakiety SDK muszą być zainstalowane, a także należy zainstalować środowisko, jeśli jeszcze go nie masz. |
-| [Wystąpienie obliczeniowe usługi Azure Machine Learning](#compute-instance) | Najprostszym sposobem na rozpoczęcie pracy. Cały zestaw SDK jest już zainstalowany na maszynie wirtualnej obszaru roboczego, a samouczki notesu są wstępnie sklonowane i gotowe do uruchomienia. | Brak kontroli nad środowiskiem deweloperskim i zależnościami. Dodatkowe koszty związane z maszyną wirtualną z systemem Linux (maszyna wirtualna może zostać zatrzymana, gdy nie jest używana, aby uniknąć opłat). Zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
-| [Azure Databricks](#aml-databricks) | Idealne rozwiązanie do uruchamiania przepływów pracy uczenia maszynowego dużej skali na skalowalnej platformie Apache Spark. | Zbyt obszerne eksperymentalne Uczenie maszynowe, a także na mniejsze eksperymenty i przepływy pracy. Dodatkowe koszty poniesione przez Azure Databricks. Zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/databricks/). |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | Podobnie jak w przypadku wystąpienia obliczeniowego opartego na chmurze (Python i zestawu SDK są wstępnie zainstalowane), ale przy użyciu dodatkowych popularnych narzędzi do nauki o danych i uczenia maszynowego. Łatwe skalowanie i łączenie z innymi niestandardowymi narzędziami i przepływami pracy. | Wolniejsze środowisko uruchamiania w porównaniu do wystąpienia obliczeniowego opartego na chmurze. |
+| [Wystąpienie obliczeniowe usługi Azure Machine Learning](#compute-instance) | Najprostszym sposobem na rozpoczęcie pracy. Cały zestaw SDK jest już zainstalowany na maszynie wirtualnej obszaru roboczego, a samouczki notesu są wstępnie sklonowane i gotowe do uruchomienia. | Brak kontroli nad środowiskiem deweloperskim i zależnościami. Dodatkowe koszty związane z maszyną wirtualną z systemem Linux (maszyna wirtualna może zostać zatrzymana, gdy nie jest używana, aby uniknąć opłat). Zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Azure Databricks](how-to-configure-databricks-automl-environment.md) | Idealne rozwiązanie do uruchamiania przepływów pracy uczenia maszynowego dużej skali na skalowalnej platformie Apache Spark. | Zbyt obszerne eksperymentalne Uczenie maszynowe, a także na mniejsze eksperymenty i przepływy pracy. Dodatkowe koszty poniesione przez Azure Databricks. Zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/databricks/). |
 
 Ten artykuł zawiera również dodatkowe wskazówki dotyczące użycia następujących narzędzi:
 
@@ -41,7 +41,7 @@ Ten artykuł zawiera również dodatkowe wskazówki dotyczące użycia następuj
 
 * Azure Machine Learning obszar roboczy. Jeśli go nie masz, możesz utworzyć obszar roboczy Azure Machine Learning za pomocą szablonów [Azure Portal](how-to-manage-workspace.md), [interfejsu wiersza polecenia platformy Azure](how-to-manage-workspace-cli.md#create-a-workspace)i [Azure Resource Manager](how-to-create-workspace-template.md).
 
-### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> (Tylko lokalne i DSVM) Utwórz plik konfiguracji obszaru roboczego
+### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> Tylko lokalne i DSVM: Tworzenie pliku konfiguracji obszaru roboczego
 
 Plik konfiguracji obszaru roboczego to plik JSON, który informuje zestaw SDK, jak komunikować się z obszarem roboczym Azure Machine Learning. Plik ma nazwę *config.jsna* i ma następujący format:
 
@@ -84,9 +84,11 @@ Utwórz plik konfiguracji obszaru roboczego w jednej z następujących metod:
         print('Workspace not found')
     ```
 
-## <a name="local-computer"></a><a id="local"></a>Komputer lokalny
+## <a name="local-computer-or-remote-vm-environment"></a><a id="local"></a>Komputer lokalny lub zdalne środowisko maszyny wirtualnej
 
-Aby skonfigurować lokalne środowisko deweloperskie (które może być również zdalną maszyną wirtualną, taką jak wystąpienie obliczeniowe Azure Machine Learning lub DSVM):
+Środowisko można skonfigurować na komputerze lokalnym lub na zdalnej maszynie wirtualnej, na przykład w przypadku wystąpienia obliczeniowego Azure Machine Learning lub Data Science VM. 
+
+Aby skonfigurować lokalne środowisko programistyczne lub zdalną maszynę wirtualną:
 
 1. Utwórz środowisko wirtualne języka Python (virtualenv, Conda).
 
@@ -153,7 +155,7 @@ Można również użyć rozszerzenia Azure Machine Learning Visual Studio Code, 
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Maszyna wirtualna do analizy danych
 
-DSVM to dostosowany obraz maszyny wirtualnej (VM). Została zaprojektowana do pracy z nauką o danych, które są wstępnie skonfigurowane narzędzia i oprogramowanie takie jak:
+Data Science VM to dostosowany obraz maszyny wirtualnej, którego można użyć jako środowiska deweloperskiego. Została zaprojektowana do pracy z nauką o danych, które są wstępnie skonfigurowane narzędzia i oprogramowanie takie jak:
 
   - Pakiety takie jak TensorFlow, PyTorch, Scikit-uczyć się, XGBoost i Azure Machine Learning SDK
   - Popularne narzędzia do nauki o danych, takie jak platforma Spark autonomiczna i przechodzenie do szczegółów
@@ -161,23 +163,23 @@ DSVM to dostosowany obraz maszyny wirtualnej (VM). Została zaprojektowana do pr
   - Zintegrowane środowiska deweloperskie (środowisk IDE), takie jak Visual Studio Code i platformy PyCharm itd
   - Serwer Jupyter Notebook
 
-Aby zapoznać się z bardziej kompleksową listą narzędzi, zobacz [Przewodnik po narzędziach DSVM](data-science-virtual-machine/tools-included.md).
+Bardziej obszerną listę narzędzi można znaleźć w [przewodniku narzędzi Data Science VM Tools](data-science-virtual-machine/tools-included.md).
 
 > [!IMPORTANT]
-> Jeśli planujesz użycie DSVM jako [elementu docelowego obliczeń](concept-compute-target.md) dla zadań szkoleniowych lub inferencing, obsługiwana jest tylko wartość Ubuntu.
+> Jeśli zamierzasz używać Data Science VM jako [elementu docelowego obliczeń](concept-compute-target.md) dla zadań szkoleniowych lub inferencing, obsługiwane są tylko Ubuntu.
 
-Aby użyć DSVM jako środowiska deweloperskiego
+Aby użyć Data Science VM jako środowiska deweloperskiego:
 
-1. Utwórz element DSVM przy użyciu jednej z następujących metod:
+1. Utwórz Data Science VM przy użyciu jednej z następujących metod:
 
     * Użyj Azure Portal, aby utworzyć [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) lub DSVM [systemu Windows](data-science-virtual-machine/provision-vm.md) .
-    * [Tworzenie DSVM przy użyciu szablonów usługi ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
+    * [Utwórz Data Science VM przy użyciu szablonów usługi ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
     * Używanie interfejsu wiersza polecenia platformy Azure
 
-        Aby utworzyć Ubuntu DSVM, użyj następującego polecenia:
+        Aby utworzyć Ubuntu Data Science VM, użyj następującego polecenia:
 
         ```azurecli-interactive
-        # create a Ubuntu DSVM in your resource group
+        # create a Ubuntu Data Science VM in your resource group
         # note you need to be at least a contributor to the resource group in order to execute this command successfully
         # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
         az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
@@ -193,108 +195,26 @@ Aby użyć DSVM jako środowiska deweloperskiego
 
 1. Aktywuj środowisko Conda zawierające zestaw SDK Azure Machine Learning.
 
-    * Dla Ubuntu DSVM:
+    * Ubuntu Data Science VM:
 
         ```bash
         conda activate py36
         ```
 
-    * Dla DSVM systemu Windows:
+    * W przypadku Data Science VM systemu Windows:
 
         ```bash
         conda activate AzureML
         ```
 
-1. Aby skonfigurować DSVM do korzystania z obszaru roboczego Azure Machine Learning, [Utwórz plik konfiguracji obszaru roboczego](#workspace) lub Użyj istniejącego.
+1. Aby skonfigurować Data Science VM do korzystania z obszaru roboczego Azure Machine Learning, [Utwórz plik konfiguracji obszaru roboczego](#workspace) lub Użyj istniejącego.
 
 Podobnie jak w środowiskach lokalnych, można Visual Studio Code użyć [rozszerzenia Visual Studio Code Azure Machine Learning](#vscode) , aby współdziałać z Azure Machine Learning.
 
 Aby uzyskać więcej informacji, zobacz [Virtual Machines analizy danych](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
-## <a name="azure-databricks"></a><a name="aml-databricks"></a> Azure Databricks
-
-Azure Databricks jest środowiskiem opartym na Apache Spark w chmurze platformy Azure. Udostępnia środowisko współpracy oparte na notesach z procesorem CPU lub klastrem obliczeniowym opartym na procesorach GPU.
-
-Jak Azure Databricks współpracuje z Azure Machine Learning:
-
-+ Możesz nauczyć model przy użyciu platformy Spark MLlib i wdrożyć model do ACI/AKS z poziomu Azure Databricks.
-+ Możesz również użyć funkcji [automatycznego uczenia maszynowego](concept-automated-ml.md) w specjalnym zestawie SDK usługi Azure ML z Azure Databricks.
-+ Azure Databricks jako obiekt docelowy obliczeń można użyć z [potoku Azure Machine Learning](concept-ml-pipelines.md).
-
-### <a name="set-up-your-databricks-cluster"></a>Konfigurowanie klastra datakostks
-
-Utwórz [klaster datakostki](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Niektóre ustawienia są stosowane tylko w przypadku instalowania zestawu SDK w celu automatycznego uczenia maszynowego w kostkach.
-**Utworzenie klastra potrwa kilka minut.**
-
-Użyj następujących ustawień:
-
-| Ustawienie |Dotyczy| Wartość |
-|----|---|---|
-| Nazwa klastra |zawsze| yourclustername |
-| Środowisko uruchomieniowe usługi Databricks |zawsze|Środowisko uruchomieniowe inne niż ML 7,1 (Scala 2,21, Spark 3.0.0) |
-| Wersja języka Python |zawsze| 3 |
-| Ochotnik |zawsze| 2 lub nowszy |
-| Typy maszyn wirtualnych węzła procesu roboczego <br>(określa maksymalną liczbę współbieżnych iteracji) |Zautomatyzowane uczenie maszynowe<br>jedyn| Preferowana maszyna wirtualna zoptymalizowana pod kątem pamięci |
-| Włącz Skalowanie automatyczne |Zautomatyzowane uczenie maszynowe<br>jedyn| Usuń zaznaczenie |
-
-Przed kontynuowaniem Zaczekaj, aż klaster zostanie uruchomiony.
-
-### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Zainstaluj poprawny zestaw SDK w bibliotece datakostks
-
-Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-guide/libraries.html#create-a-library) , aby dołączyć odpowiedni pakiet Azure Machine Learning SDK do klastra. W przypadku zautomatyzowanej ML przejdź do [zestawu SDK dla kostek datakostków z automatyczną nauką uczenia maszynowego](#sdk-for-databricks-with-automated-machine-learning).
-
-1. Kliknij prawym przyciskiem myszy folder bieżący obszar roboczy, w którym chcesz przechowywać bibliotekę. Wybierz pozycję **Utwórz**  >  **bibliotekę**.
-
-1. Wybierz następującą opcję (nie są obsługiwane żadne inne instalacje zestawu SDK)
-
-   |&nbsp;Dodatki do pakietu SDK &nbsp;|Źródło|&nbsp;Nazwa PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-   |----|---|---|
-   |Dla kostek datakostki| Przekaż Język Python lub PyPI | Azure-SDK [datakostki]|
-
-   > [!Warning]
-   > Nie można zainstalować żadnych innych rozszerzeń zestawu SDK. Wybierz tylko opcję [ `databricks` ].
-
-   * Nie wybieraj opcji **Dołącz automatycznie do wszystkich klastrów**.
-   * Wybierz pozycję  **Dołącz** obok nazwy klastra.
-
-1. Monitoruj błędy do momentu zmiany stanu **dołączone** , co może potrwać kilka minut.  Jeśli ten krok zakończy się niepowodzeniem:
-
-   Spróbuj ponownie uruchomić klaster przez:
-   1. W lewym okienku wybierz pozycję **klastry**.
-   1. W tabeli wybierz nazwę klastra.
-   1. Na karcie **biblioteki** wybierz pozycję **Uruchom ponownie**.
-
-   Rozważ również:
-   + W konfiguracji AutoML podczas korzystania z Azure Databricks dodać następujące parametry:
-       1. ```max_concurrent_iterations``` jest oparty na liczbie węzłów procesu roboczego w klastrze.
-        2. ```spark_context=sc``` jest oparty na domyślnym kontekście Spark.
-   + Lub, jeśli masz starą wersję zestawu SDK, usuń zaznaczenie jej z zainstalowanego libs klastra i Przenieś do kosza. Zainstaluj nową wersję zestawu SDK i ponownie uruchom klaster. Jeśli po ponownym uruchomieniu wystąpi problem, odłącz i ponownie Dołącz klaster.
-
-Jeśli instalacja zakończyła się pomyślnie, zaimportowana biblioteka powinna wyglądać następująco:
-
-#### <a name="sdk-for-databricks"></a>Zestaw SDK dla datakostki
-![Zestaw Azure Machine Learning SDK dla datakostki](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
-
-#### <a name="sdk-for-databricks-with-automated-machine-learning"></a>Zestaw SDK dla kostek datakostks z automatycznym uczeniem maszynowym
-Jeśli klaster został utworzony z użyciem elementów datakostks o wartości innej niż środowisko uruchomieniowe 7,1 lub nowszy, uruchom następujące polecenie w pierwszej komórce notesu, aby zainstalować zestaw SDK AML.
-
-```
-%pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
-```
-W przypadku datarangs nie ML Runtime 7,0 i Lower Zainstaluj zestaw AML SDK przy użyciu [skryptu init](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
-
-
-### <a name="start-exploring"></a>Rozpocznij eksplorację
-
-Wypróbuj:
-+ Chociaż dostępnych jest wiele przykładowych notesów, **tylko [te przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) współpracują z Azure Databricks.**
-
-+ Zaimportuj te próbki bezpośrednio z obszaru roboczego. Patrz poniżej: ![ Wybierz pozycję Importuj ](./media/how-to-configure-environment/azure-db-screenshot.png)
- ![ panel importowania](./media/how-to-configure-environment/azure-db-import.png)
-
-+ Dowiedz się [, jak tworzyć potoki z kostkami w ramach obliczeń szkoleniowych](how-to-create-your-first-pipeline.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Uczenie modelu](tutorial-train-models-with-aml.md) na Azure Machine Learning z zestawem danych mnist ręcznie
-- Wyświetl informacje o [zestawie Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+- [Uczenie modelu](tutorial-train-models-with-aml.md) na Azure Machine Learning z zestawem danych mnist ręcznie.
+- Zapoznaj się z informacjami w [Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). 

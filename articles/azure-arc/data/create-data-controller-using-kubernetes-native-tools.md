@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 051a7f506d351a17764e38c760ffba06d224cc38
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91661061"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422573"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Tworzenie kontrolera danych usługi Azure ARC przy użyciu narzędzi Kubernetes
 
@@ -102,7 +102,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -131,7 +131,7 @@ Wpis tajny Kubernetes jest przechowywany jako ciąg zakodowany w formacie base64
 
 Możesz użyć narzędzia online do kodowania base64 żądanej nazwy użytkownika i hasła lub użyć wbudowanych narzędzi interfejsu wiersza polecenia w zależności od platformy.
 
-Program PowerShell
+PowerShell
 
 ```console
 [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))
@@ -170,21 +170,21 @@ Najpierw utwórz kopię [pliku szablonu](https://raw.githubusercontent.com/micro
 W razie konieczności Edytuj następujące elementy:
 
 **Wymagane**
-- **Lokalizacja**: Zmień to na lokalizację platformy Azure, w której będą przechowywane _metadane_ dotyczące kontrolera danych.  Listę dostępnych lokalizacji platformy Azure można znaleźć w artykule [Przegląd tworzenia kontrolera danych](create-data-controller.md) .
-- Grupa **zasobów: usługa**Azure Resource Group, w której chcesz utworzyć zasób platformy Azure kontrolera danych w Azure Resource Manager.  Zwykle ta grupa zasobów powinna już istnieć, ale nie jest wymagana do czasu przekazania danych na platformę Azure.
-- **subskrypcja**: identyfikator GUID subskrypcji platformy Azure dla subskrypcji, w której chcesz utworzyć zasoby platformy Azure.
+- **Lokalizacja** : Zmień to na lokalizację platformy Azure, w której będą przechowywane _metadane_ dotyczące kontrolera danych.  Listę dostępnych lokalizacji platformy Azure można znaleźć w artykule [Przegląd tworzenia kontrolera danych](create-data-controller.md) .
+- Grupa **zasobów: usługa** Azure Resource Group, w której chcesz utworzyć zasób platformy Azure kontrolera danych w Azure Resource Manager.  Zwykle ta grupa zasobów powinna już istnieć, ale nie jest wymagana do czasu przekazania danych na platformę Azure.
+- **subskrypcja** : identyfikator GUID subskrypcji platformy Azure dla subskrypcji, w której chcesz utworzyć zasoby platformy Azure.
 
 **ZALECANE DO PRZEGLĄDANIA I EWENTUALNYCH ZMIAN DOMYŚLNYCH**
-- **Magazyn... className**: Klasa magazynu, która ma być używana dla plików danych i dziennika kontrolera danych.  Jeśli nie masz pewności co do dostępnych klas magazynu w klastrze Kubernetes, możesz uruchomić następujące polecenie: `kubectl get storageclass` .  Wartość domyślna to `default` zakłada, że istnieje Klasa magazynu, która istnieje i ma nazwę, która `default` nie jest klasą magazynu, która _jest_ wartością domyślną.  Uwaga: Istnieją dwa ustawienia className, które mają zostać ustawione na żądaną klasę magazynu — jeden dla danych i jeden dla dzienników.
-- **ServiceType**: Zmień typ usługi na, `NodePort` Jeśli nie używasz modułu równoważenia obciążenia.  Uwaga: Istnieją dwa ustawienia, które wymagają zmiany.
+- **Magazyn... className** : Klasa magazynu, która ma być używana dla plików danych i dziennika kontrolera danych.  Jeśli nie masz pewności co do dostępnych klas magazynu w klastrze Kubernetes, możesz uruchomić następujące polecenie: `kubectl get storageclass` .  Wartość domyślna to `default` zakłada, że istnieje Klasa magazynu, która istnieje i ma nazwę, która `default` nie jest klasą magazynu, która _jest_ wartością domyślną.  Uwaga: Istnieją dwa ustawienia className, które mają zostać ustawione na żądaną klasę magazynu — jeden dla danych i jeden dla dzienników.
+- **ServiceType** : Zmień typ usługi na, `NodePort` Jeśli nie używasz modułu równoważenia obciążenia.  Uwaga: Istnieją dwa ustawienia, które wymagają zmiany.
 
 **OBOWIĄZKOWE**
-- **Nazwa**: domyślna nazwa kontrolera danych to `arc` , ale można ją zmienić w razie potrzeby.
-- **DisplayName**: Ustaw tę samą wartość, która jest taka sama jak nazwa atrybutu w górnej części pliku.
-- **Rejestr**: wartość domyślna to Microsoft Container Registry.  W przypadku ściągania obrazów z Container Registry firmy Microsoft i [wypchnięcia ich do prywatnego rejestru kontenerów](offline-deployment.md)Wprowadź tutaj adres IP lub nazwę DNS rejestru.
-- **dockerRegistry**: w razie potrzeby ściągają obrazy z prywatnego rejestru kontenerów.
-- **repozytorium**: domyślne repozytorium w Container Registry firmy Microsoft to `arcdata` .  Jeśli używasz prywatnego rejestru kontenerów, wprowadź ścieżkę do folderu/repozytorium zawierającego obrazy kontenerów usług Azure ARR Data Services.
-- **imageTag**: bieżący tag wersji jest domyślny w szablonie, ale możesz go zmienić, jeśli chcesz użyć starszej wersji.
+- **Nazwa** : domyślna nazwa kontrolera danych to `arc` , ale można ją zmienić w razie potrzeby.
+- **DisplayName** : Ustaw tę samą wartość, która jest taka sama jak nazwa atrybutu w górnej części pliku.
+- **Rejestr** : wartość domyślna to Microsoft Container Registry.  W przypadku ściągania obrazów z Container Registry firmy Microsoft i [wypchnięcia ich do prywatnego rejestru kontenerów](offline-deployment.md)Wprowadź tutaj adres IP lub nazwę DNS rejestru.
+- **dockerRegistry** : w razie potrzeby ściągają obrazy z prywatnego rejestru kontenerów.
+- **repozytorium** : domyślne repozytorium w Container Registry firmy Microsoft to `arcdata` .  Jeśli używasz prywatnego rejestru kontenerów, wprowadź ścieżkę do folderu/repozytorium zawierającego obrazy kontenerów usług Azure ARR Data Services.
+- **imageTag** : bieżący tag wersji jest domyślny w szablonie, ale możesz go zmienić, jeśli chcesz użyć starszej wersji.
 
 Przykład ukończonego pliku YAML kontrolera danych:
 ```yaml
@@ -200,7 +200,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-oct-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

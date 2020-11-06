@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z urządzenia Plug and Play IoT połączonego z rozwiązaniem Azure IoT (Python) | Microsoft Docs
-description: Użyj języka Python, aby nawiązać połączenie z urządzeniem IoT Plug and Play i korzystać z niego, które jest połączone z rozwiązaniem usługi Azure IoT.
+title: Szybki Start — korzystanie z urządzenia Plug and Play IoT połączonego z rozwiązaniem Azure IoT (Python) | Microsoft Docs
+description: Szybki Start — Użyj języka Python, aby nawiązać połączenie z urządzeniem IoT Plug and Play i korzystać z niego, które jest połączone z rozwiązaniem usługi Azure IoT.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 681568c3aee88483c7f9c813529f0eb500a59e93
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741494"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421502"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Python)
 
@@ -80,7 +80,7 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w język
 1. Otwórz plik *registry_manager_pnp_sample. PR* i Przejrzyj kod. Ten przykład pokazuje, jak używać klasy **IoTHubRegistryManager** w celu współdziałania z urządzeniem IoT Plug and Play.
 
 > [!NOTE]
-> Te przykłady usługi używają klasy **IoTHubRegistryManager** z poziomu **klienta usługi IoT Hub** . Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
+> Te przykłady usługi używają klasy **IoTHubRegistryManager** z poziomu **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Pobieranie sznurka urządzenia
 

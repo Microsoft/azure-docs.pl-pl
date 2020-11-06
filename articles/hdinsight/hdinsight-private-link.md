@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547422"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422301"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Zabezpiecz i Izoluj klastry usługi Azure HDInsight za pomocą prywatnego linku (wersja zapoznawcza)
 
@@ -29,9 +29,9 @@ Domyślnie element RP usługi HDInsight używa połączenia *przychodzącego* z 
 
 Podstawowe usługi równoważenia obciążenia używane w domyślnej architekturze sieci wirtualnej automatycznie zapewniają publiczne translatora adresów sieciowych (NAT), aby uzyskać dostęp do wymaganych zależności wychodzących, takich jak HDInsight RP. Jeśli chcesz ograniczyć łączność wychodzącą do publicznej sieci Internet, możesz [skonfigurować zaporę](./hdinsight-restrict-outbound-traffic.md), ale nie jest to wymagane.
 
-Skonfigurowanie `resourceProviderConnection` do wychodzącego umożliwia również dostęp do zasobów specyficznych dla klastra, takich jak Azure Data Lake Storage Gen2 lub zewnętrznych magazynów metadanych, za pomocą prywatnych punktów końcowych. Przed utworzeniem klastra usługi HDInsight należy skonfigurować prywatne punkty końcowe i wpisy DNS. Zalecamy utworzenie i udostępnienie wszystkich potrzebnych zewnętrznych baz danych SQL, takich jak Apache Ranger, Ambari, Oozie i Hive, podczas tworzenia klastra.
+Skonfigurowanie `resourceProviderConnection` do wychodzącego umożliwia również dostęp do zasobów specyficznych dla klastra, takich jak Azure Data Lake Storage Gen2 lub zewnętrznych magazynów metadanych, za pomocą prywatnych punktów końcowych. Używanie prywatnych punktów końcowych dla tych zasobów nie jest mandetory, ale jeśli planujesz posiadanie prywatnych punktów końcowych dla tych zasobów, musisz skonfigurować prywatne punkty końcowe i wpisy DNS, `before` które tworzą klaster usługi HDInsight. Zalecamy utworzenie i udostępnienie wszystkich potrzebnych zewnętrznych baz danych SQL, takich jak Apache Ranger, Ambari, Oozie i Hive, w czasie tworzenia klastra. Wymaganiem jest, że wszystkie te zasoby muszą być dostępne z wewnątrz podsieci klastra przy użyciu własnego prywatnego punktu końcowego lub w inny sposób.
 
-Prywatne punkty końcowe dla Azure Key Vault nie są obsługiwane. Jeśli używasz Azure Key Vault do szyfrowania CMK w spoczynku, punkt końcowy Azure Key Vault musi być dostępny z poziomu podsieci usługi HDInsight bez prywatnego punktu końcowego.
+Używanie prywatnych punktów końcowych dla Azure Key Vault nie jest obsługiwane. Jeśli używasz Azure Key Vault do szyfrowania CMK w spoczynku, punkt końcowy Azure Key Vault musi być dostępny z poziomu podsieci usługi HDInsight bez prywatnego punktu końcowego.
 
 Na poniższym diagramie przedstawiono, jak może wyglądać potencjalna architektura sieci wirtualnej usługi HDInsight `resourceProviderConnection` :
 
@@ -52,7 +52,7 @@ Aby uzyskać dostęp do klastra przy użyciu nazw FQDN klastra, możesz bezpośr
 
 ## <a name="enable-private-link"></a>Włącz link prywatny
 
-Link prywatny, który jest domyślnie wyłączony, wymaga rozległej wiedzy o sieci, aby skonfigurować trasy zdefiniowane przez użytkownika (UDR) i reguły zapory prawidłowo przed utworzeniem klastra. Dostęp do prywatnego linku do klastra jest dostępny tylko wtedy, gdy `resourceProviderConnection` Właściwość Network jest ustawiona na ruch *wychodzący* zgodnie z opisem w poprzedniej sekcji.
+Link prywatny, który jest domyślnie wyłączony, wymaga rozległej wiedzy o sieci, aby skonfigurować trasy zdefiniowane przez użytkownika (UDR) i reguły zapory prawidłowo przed utworzeniem klastra. Użycie tego ustawienia jest opcjonalne, ale jest dostępne tylko wtedy, gdy `resourceProviderConnection` Właściwość Network jest ustawiona na ruch *wychodzący* zgodnie z opisem w poprzedniej sekcji.
 
 Gdy `privateLink` jest ustawiona na wartość *enable* , są tworzone wewnętrzne [standardowe moduły równoważenia obciążenia](../load-balancer/load-balancer-overview.md) , a usługa Azure Private link jest obsługiwana dla każdego modułu wystawcy. Usługa link prywatny umożliwia dostęp do klastra usługi HDInsight z prywatnych punktów końcowych.
 
@@ -64,11 +64,11 @@ Aby successgfull tworzenie usług łączy prywatnych, należy jawnie [wyłączy�
 
 Na poniższym diagramie przedstawiono przykład konfiguracji sieci wymaganej przed utworzeniem klastra. W tym przykładzie cały ruch wychodzący jest [wymuszany](../firewall/forced-tunneling.md) w zaporze platformy Azure przy użyciu programu UDR, a przed utworzeniem klastra wymagane są "dozwolone" w zaporze. W przypadku klastrów pakiet Enterprise Security połączenie sieciowe z Azure Active Directory Domain Services może być zapewnione przez komunikację równorzędną sieci wirtualnych.
 
-:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram architektury usługi HDInsight przy użyciu połączenia dostawcy zasobów wychodzących":::
+:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram środowiska prywatnego linku przed utworzeniem klastra":::
 
 Po skonfigurowaniu sieci można utworzyć klaster z połączeniem dostawcy zasobów wychodzących i z włączonym linkiem prywatnym, jak pokazano na poniższej ilustracji. W tej konfiguracji nie ma publicznych adresów IP i prywatnych usług linków dla każdego standardowego modułu równoważenia obciążenia.
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagram architektury usługi HDInsight przy użyciu połączenia dostawcy zasobów wychodzących":::
+:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagram środowiska prywatnego linku po utworzeniu klastra":::
 
 ### <a name="access-a-private-cluster"></a>Dostęp do prywatnego klastra
 
@@ -84,7 +84,7 @@ Prywatne wpisy linku utworzone w publicznej strefie DNS zarządzanej przez platf
 
 Na poniższej ilustracji przedstawiono przykład prywatnych wpisów DNS wymaganych do uzyskania dostępu do klastra z sieci wirtualnej, która nie jest równorzędna lub nie ma bezpośredniego wglądu w usługi równoważenia obciążenia klastra. Strefy prywatnej platformy Azure można użyć do przesłania `*.privatelink.azurehdinsight.net` nazw FQDN i rozpoznawania własnych adresów IP prywatnych punktów końcowych.
 
-:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram architektury usługi HDInsight przy użyciu połączenia dostawcy zasobów wychodzących":::
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram architektury linku prywatnego":::
 
 ## <a name="arm-template-properties"></a>Właściwości szablonu ARM
 

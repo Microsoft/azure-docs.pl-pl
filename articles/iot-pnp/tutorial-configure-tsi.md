@@ -1,5 +1,5 @@
 ---
-title: Używanie Time Series Insights do przechowywania i analizowania danych telemetrycznych urządzeń Plug and Play IoT | Microsoft Docs
+title: Używanie Time Series Insights do przechowywania i analizowania danych telemetrycznych dotyczących urządzeń usługi Azure IoT Plug and Play | Microsoft Docs
 description: Skonfiguruj środowisko Time Series Insights i Połącz IoT Hub, aby wyświetlić i przeanalizować dane telemetryczne z urządzeń Plug and Play IoT.
 author: lyrana
 ms.author: lyhughes
@@ -7,12 +7,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0d4c24ed771b4d112a448ceec0e9fc2f9e8ac359
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: aa99b9059fe8e3cd5b0dfe6f7e62bd02012fd144
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146403"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422267"
 ---
 # <a name="tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Samouczek: Tworzenie i łączenie Time Series Insights Gen2 w celu przechowywania, wizualizacji i analizowania danych telemetrycznych dotyczących urządzeń Plug and Play IoT
 
@@ -98,7 +98,7 @@ Następnie Przetłumacz model urządzenia DTDL na model zasobów w Azure Time Se
 
 ### <a name="define-your-types"></a>Definiowanie typów
 
-Możesz rozpocząć pozyskiwanie danych do Azure Time Series Insights Gen2 bez wstępnie zdefiniowanego modelu. Po nadejściu danych telemetrycznych funkcja TSI podejmie próbę rozwiązania automatycznie Rozwiązuj wystąpienia szeregów czasowych na podstawie wartości właściwości identyfikator TS. Wszystkie wystąpienia zostaną przypisane do *typu domyślnego* . Należy ręcznie utworzyć nowy typ reprezentujący modele. Na poniższym obrazie przedstawiono prostą metodę synchronizacji modelu DTDL i typu TSM:
+Możesz rozpocząć pozyskiwanie danych do Azure Time Series Insights Gen2 bez wstępnie zdefiniowanego modelu. Po nadejściu danych telemetrycznych funkcja TSI podejmie próbę rozwiązania automatycznie Rozwiązuj wystąpienia szeregów czasowych na podstawie wartości właściwości identyfikator TS. Wszystkie wystąpienia zostaną przypisane do *typu domyślnego*. Należy ręcznie utworzyć nowy typ reprezentujący modele. Na poniższym obrazie przedstawiono prostą metodę synchronizacji modelu DTDL i typu TSM:
 
 ![DTDL do typu TSM](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
@@ -156,7 +156,7 @@ Powinien zostać wyświetlony nowo zdefiniowany typ termostatu.
 
 Opcjonalnie można utworzyć hierarchię, aby zorganizować dwa składniki termostatu w ramach ich elementu nadrzędnego TemeraptureController.
 
-Kliknij *hierarchie* i wybierz pozycję *Dodaj hierarchię* . Wprowadź `Device Fleet` jako nazwę i Utwórz jeden poziom o nazwie `Device Name` , a następnie kliknij przycisk *Zapisz* .
+Kliknij *hierarchie* i wybierz pozycję *Dodaj hierarchię*. Wprowadź `Device Fleet` jako nazwę i Utwórz jeden poziom o nazwie `Device Name` , a następnie kliknij przycisk *Zapisz*.
 
 ![Dodawanie hierarchii](./media/tutorial-configure-tsi/add-hierarchy.png)
 
@@ -172,7 +172,7 @@ Kliknij listę rozwijaną typ i wybierz pozycję `Thermostat` .
 
 ![Zmień typ wystąpienia](./media/tutorial-configure-tsi/change-type.png)
 
-Jeśli została utworzona hierarchia, zaznacz *pola wystąpienia* i sprawdź, czy `Device Fleet` pole wyboru. Wprowadź `Temperature Controller` wartość jako jej urządzenie nadrzędne, a następnie kliknij przycisk *Zapisz* .
+Jeśli została utworzona hierarchia, zaznacz *pola wystąpienia* i sprawdź, czy `Device Fleet` pole wyboru. Wprowadź `Temperature Controller` wartość jako jej urządzenie nadrzędne, a następnie kliknij przycisk *Zapisz*.
 
 ![Przypisz do hierarchii](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 
@@ -182,7 +182,7 @@ Powtórz powyższe kroki dla drugiego termostatu.
 
 Przejdź z powrotem do okienka wykresy i rozwiń pozycję flota urządzenia i TemperatureController. Kliknij pozycję thermostat1, wybierz `Temperature` zmienną, a następnie kliknij pozycję *Dodaj* , aby uzyskać wykres wartości. Wykonaj te same czynności dla thermostat2.
 
-![Zmień typ wystąpienia](./media/tutorial-configure-tsi/charting-values.png)
+![Zmień typ wystąpienia dla thermostat2](./media/tutorial-configure-tsi/charting-values.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

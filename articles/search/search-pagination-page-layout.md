@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934926"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421723"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
 W tym artykule wyjaśniono, jak uzyskać odpowiedź na zapytanie, która powraca do łącznej liczby pasujących dokumentów, wyników z podziałem na strony, posortowanych wyników oraz warunków wyróżnionych trafień.
 
-Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](/rest/api/searchservice/Search-Documents) w interfejsie API REST lub w [klasie DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) w zestawie .NET SDK.
+Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](/rest/api/searchservice/Search-Documents) w interfejsie API REST lub w [klasie SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) w zestawie .NET SDK.
 
 ## <a name="result-composition"></a>Kompozycja wyniku
 
@@ -52,7 +52,7 @@ Aby zwrócić inną liczbę pasujących dokumentów, Dodaj `$top` Parametry i `$
 + Zwróć drugi zestaw, pomijając pierwsze 15, aby uzyskać następny 15: `$top=15&$skip=15` . Wykonaj te same czynności dla trzeciego zestawu 15: `$top=15&$skip=30`
 
 Wyniki zapytań z podziałem na strony nie są gwarantowane w przypadku zmiany podstawowego indeksu. Stronicowanie zmienia wartość `$skip` dla każdej strony, ale każde zapytanie jest niezależne i działa w bieżącym widoku danych, tak jak istnieje w indeksie w czasie zapytania (innymi słowy, nie istnieje buforowanie ani migawka wyników, na przykład te znajdujące się w bazie danych ogólnego przeznaczenia).
- 
+ 
 Poniżej znajduje się przykład, w jaki sposób można uzyskać duplikaty. Załóżmy, że indeks ma cztery dokumenty:
 
 ```text
@@ -61,21 +61,21 @@ Poniżej znajduje się przykład, w jaki sposób można uzyskać duplikaty. Zał
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Teraz Załóżmy, że wyniki zwracane są dwa naraz, uporządkowane według klasyfikacji. Wykonanie tego zapytania spowoduje uzyskanie pierwszej strony z wynikami: `$top=2&$skip=0&$orderby=rating desc` , generując następujące wyniki:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 Załóżmy, że w usłudze zostanie dodany piąty dokument do indeksu między wywołaniami zapytań: `{ "id": "5", "rating": 4 }` .  Wkrótce należy wykonać zapytanie w celu pobrania drugiej strony: `$top=2&$skip=2&$orderby=rating desc` i uzyskać następujące wyniki:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Zauważ, że dokument 2 jest pobierany dwa razy. Wynika to z faktu, że nowy dokument 5 ma większą wartość dla klasyfikacji, więc sortuje przed dokument 2 i grunty na pierwszej stronie. Chociaż takie zachowanie może być nieoczekiwane, typowe jest zachowanie aparatu wyszukiwania.
 
 ## <a name="ordering-results"></a>Porządkowanie wyników

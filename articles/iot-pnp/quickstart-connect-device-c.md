@@ -1,18 +1,18 @@
 ---
-title: Łączenie Plug and Play IoT przykład kod urządzenia C do IoT Hub | Microsoft Docs
-description: Kompiluj i uruchamiaj kod przykładowego urządzenia Plug and Play IoT w systemie Linux lub Windows, który nawiązuje połączenie z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Szybki Start — łączenie Plug and Play IoT przykład kod urządzenia C do platformy Azure IoT Hub | Microsoft Docs
+description: Szybki Start — Kompilowanie i uruchamianie przykładowego kodu urządzenia Plug and Play IoT w systemie Linux lub Windows, który nawiązuje połączenie z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e490171fd533783aab9fd44798a9c81c55faf89f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d69eca10a3ee19919d7cd9e748486e30db95e749
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047934"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421672"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Szybki Start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play działającej w systemie Linux lub Windows do IoT Hub (C)
 
@@ -34,7 +34,7 @@ W tym przewodniku szybki start przyjęto założenie, że używasz Ubuntu Linux.
 
 Aby ukończyć ten przewodnik Szybki Start w systemie Linux, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Linux:
 
-Zainstaluj oprogramowanie w **zatoce**, **git**, **CMAKE**i wszystkie wymagane zależności przy użyciu `apt-get` polecenia:
+Zainstaluj oprogramowanie w **zatoce** , **git** , **CMAKE** i wszystkie wymagane zależności przy użyciu `apt-get` polecenia:
 
 ```sh
 sudo apt-get update

@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 78c6e4dffb35980b73fbc09bdc07d55215e659ae
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164871"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422590"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Istnieją trzy wersje Azure Functions Core Tools. Używana wersja zależy od lok
 
 + [**Wersja 3. x/2. x**](#v2): obsługuje [wersję 3. x lub 2. x środowiska uruchomieniowego Azure Functions](functions-versions.md). Te wersje obsługują [systemy Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2)i [Linux](?tabs=linux#v2) oraz korzystają z menedżerów pakietów lub npm do instalacji.
 
-+ **Wersja 1. x**: obsługuje wersję 1. x środowiska uruchomieniowego Azure Functions. Ta wersja narzędzi jest obsługiwana tylko na komputerach z systemem Windows i jest instalowana z [pakietu npm](https://www.npmjs.com/package/azure-functions-core-tools).
++ **Wersja 1. x** : obsługuje wersję 1. x środowiska uruchomieniowego Azure Functions. Ta wersja narzędzi jest obsługiwana tylko na komputerach z systemem Windows i jest instalowana z [pakietu npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
 Można zainstalować tylko jedną wersję podstawowych narzędzi na danym komputerze. Jeśli nie określono inaczej, przykłady w tym artykule dotyczą wersji 3. x.
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Środowisko Java używa Maven Archetype do tworzenia projektu funkcji lokalnych wraz z pierwszą funkcją wyzwalaną przez protokół HTTP. Aby utworzyć projekt Java, użyj następującego polecenia: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Aby zapoznać się z przykładem za pomocą Maven Archetype, zobacz [wiersz polecenia szybki start](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
+> Środowisko Java używa Maven Archetype do tworzenia projektu funkcji lokalnych wraz z pierwszą funkcją wyzwalaną przez protokół HTTP. Aby utworzyć projekt Java, użyj następującego polecenia: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Aby zapoznać się z przykładem za pomocą Maven Archetype, zobacz [wiersz polecenia szybki start](./create-first-function-cli-java.md).  
 
 Po podaniu nazwy projektu zostanie utworzony i zainicjowany nowy folder o tej nazwie. W przeciwnym razie bieżący folder zostanie zainicjowany.  
 W wersji 3. x/2. x po uruchomieniu polecenia należy wybrać środowisko uruchomieniowe dla projektu. 
@@ -179,7 +179,7 @@ python
 powershell
 </pre>
 
-Użyj klawiszy strzałek w górę/w dół, aby wybrać język, a następnie naciśnij klawisz ENTER. Jeśli planujesz programowanie funkcji JavaScript lub TypeScript, wybierz **węzeł**, a następnie wybierz język. Język TypeScript ma [pewne dodatkowe wymagania](functions-reference-node.md#typescript). 
+Użyj klawiszy strzałek w górę/w dół, aby wybrać język, a następnie naciśnij klawisz ENTER. Jeśli planujesz programowanie funkcji JavaScript lub TypeScript, wybierz **węzeł** , a następnie wybierz język. Język TypeScript ma [pewne dodatkowe wymagania](functions-reference-node.md#typescript). 
 
 Dane wyjściowe wyglądają podobnie do następującego przykładu dla projektu JavaScript:
 
@@ -236,7 +236,7 @@ Wartości ustawień aplikacji funkcji można także odczytać w kodzie jako zmie
 * [Skrypt języka C# (csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
-* [Program PowerShell](functions-reference-powershell.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
 * [Python](functions-reference-python.md#environment-variables)
 
 Gdy nie ustawiono prawidłowych parametrów połączenia magazynu dla [`AzureWebJobsStorage`] i emulator nie jest używany, wyświetlany jest następujący komunikat o błędzie:
@@ -250,10 +250,10 @@ Nawet w przypadku używania emulator magazynu Microsoft Azure do programowania m
 - W [Azure Portal]Wyszukaj i wybierz pozycję **konta magazynu**. 
   ![Wybierz konta magazynu z Azure Portal](./media/functions-run-local/select-storage-accounts.png)
   
-  Wybierz konto magazynu, wybierz pozycję **klucze dostępu** w obszarze **Ustawienia**, a następnie skopiuj jedną z wartości **parametrów połączenia** .
+  Wybierz konto magazynu, wybierz pozycję **klucze dostępu** w obszarze **Ustawienia** , a następnie skopiuj jedną z wartości **parametrów połączenia** .
   ![Kopiuj parametry połączenia z Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- Użyj [Eksplorator usługi Azure Storage](https://storageexplorer.com/) , aby nawiązać połączenie z kontem platformy Azure. W **Eksploratorze**Rozwiń swoją subskrypcję, rozwiń węzeł **konta magazynu**, wybierz konto magazynu i skopiuj podstawowe lub pomocnicze parametry połączenia.
+- Użyj [Eksplorator usługi Azure Storage](https://storageexplorer.com/) , aby nawiązać połączenie z kontem platformy Azure. W **Eksploratorze** Rozwiń swoją subskrypcję, rozwiń węzeł **konta magazynu** , wybierz konto magazynu i skopiuj podstawowe lub pomocnicze parametry połączenia.
 
   ![Kopiuj parametry połączenia z Eksplorator usługi Storage](./media/functions-run-local/storage-explorer.png)
 
@@ -312,9 +312,9 @@ Możesz również określić te opcje w poleceniu przy użyciu następujących a
 | Argument     | Opis                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Wersja 2. x i nowsze wersje). Generuje te same szablony skryptów C# (. CSX), które są używane w wersji 1. x i w portalu. |
-| **`--language`**, **`-l`**| Język programowania szablonu, taki jak C#, F # lub JavaScript. Ta opcja jest wymagana w wersji 1. x. W wersji 2. x i nowszych wersje nie należy używać tej opcji ani wybierać języka odpowiadającego środowisku uruchomieniowemu procesu roboczego. |
-| **`--name`**, **`-n`** | Nazwa funkcji. |
-| **`--template`**, **`-t`** | Użyj `func templates list` polecenia, aby wyświetlić pełną listę dostępnych szablonów dla każdego obsługiwanego języka.   |
+| **`--language`** , **`-l`**| Język programowania szablonu, taki jak C#, F # lub JavaScript. Ta opcja jest wymagana w wersji 1. x. W wersji 2. x i nowszych wersje nie należy używać tej opcji ani wybierać języka odpowiadającego środowisku uruchomieniowemu procesu roboczego. |
+| **`--name`** , **`-n`** | Nazwa funkcji. |
+| **`--template`** , **`-t`** | Użyj `func templates list` polecenia, aby wyświetlić pełną listę dostępnych szablonów dla każdego obsługiwanego języka.   |
 
 
 Na przykład aby utworzyć wyzwalacz HTTP JavaScript w pojedynczym poleceniu, uruchom polecenie:
@@ -357,7 +357,7 @@ func start
 ```
 func start
 ```
-To polecenie musi być [uruchamiane w środowisku wirtualnym](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+To polecenie musi być [uruchamiane w środowisku wirtualnym](./create-first-function-cli-python.md).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -385,10 +385,10 @@ npm start
 | **`--language-worker`** | Argumenty umożliwiające skonfigurowanie procesu roboczego języka. Na przykład można włączyć debugowanie dla procesu roboczego, dostarczając [port debugowania i inne wymagane argumenty](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Nieobsługiwane w wersji 1. x. |
 | **`--cert`** | Ścieżka do pliku PFX, który zawiera klucz prywatny. Używany tylko z `--useHttps` . Nieobsługiwane w wersji 1. x. |
 | **`--password`** | Hasło lub plik zawierający hasło dla pliku PFX. Używany tylko z `--cert` . Nieobsługiwane w wersji 1. x. |
-| **`--port`**, **`-p`** | Port lokalny, na którym nasłuchuje. Wartość domyślna: 7071. |
+| **`--port`** , **`-p`** | Port lokalny, na którym nasłuchuje. Wartość domyślna: 7071. |
 | **`--pause-on-error`** | Wstrzymaj, aby uzyskać dodatkowe dane wejściowe przed wyjściem z procesu. Używane tylko w przypadku uruchamiania podstawowych narzędzi z zintegrowanego środowiska programistycznego (IDE).|
-| **`--script-root`**, **`--prefix`** | Służy do określania ścieżki do katalogu głównego aplikacji funkcji, która ma być uruchamiana lub wdrażana. Służy do kompilowania projektów, które generują pliki projektu w podfolderze. Na przykład podczas kompilowania projektu biblioteki klas C#, host.json, local.settings.json i function.jsdla plików są generowane w podfolderze *głównym* z ścieżką taką jak `MyProject/bin/Debug/netstandard2.0` . W takim przypadku należy ustawić prefiks jako `--script-root MyProject/bin/Debug/netstandard2.0` . Jest to katalog główny aplikacji funkcji w przypadku uruchamiania na platformie Azure. |
-| **`--timeout`**, **`-t`** | Limit czasu uruchamiania hosta usługi Functions (w sekundach). Wartość domyślna: 20 sekund.|
+| **`--script-root`** , **`--prefix`** | Służy do określania ścieżki do katalogu głównego aplikacji funkcji, która ma być uruchamiana lub wdrażana. Służy do kompilowania projektów, które generują pliki projektu w podfolderze. Na przykład podczas kompilowania projektu biblioteki klas C#, host.json, local.settings.json i function.jsdla plików są generowane w podfolderze *głównym* z ścieżką taką jak `MyProject/bin/Debug/netstandard2.0` . W takim przypadku należy ustawić prefiks jako `--script-root MyProject/bin/Debug/netstandard2.0` . Jest to katalog główny aplikacji funkcji w przypadku uruchamiania na platformie Azure. |
+| **`--timeout`** , **`-t`** | Limit czasu uruchamiania hosta usługi Functions (w sekundach). Wartość domyślna: 20 sekund.|
 | **`--useHttps`** | Powiąż z, `https://localhost:{port}` a nie z `http://localhost:{port}` . Domyślnie ta opcja tworzy zaufany certyfikat na komputerze.|
 
 Po uruchomieniu hosta funkcji wyświetla adres URL funkcji wyzwalanych przez protokół HTTP:
@@ -488,10 +488,10 @@ W wersji 1. x można także wywołać funkcję bezpośrednio przy użyciu `func 
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
-| **`--content`**, **`-c`** | Zawartość wbudowana. |
-| **`--debug`**, **`-d`** | Dołącz debuger do procesu hosta przed uruchomieniem funkcji.|
-| **`--timeout`**, **`-t`** | Czas oczekiwania (w sekundach), aż do momentu, gdy host funkcji lokalnych jest gotowy.|
-| **`--file`**, **`-f`** | Nazwa pliku do użycia jako zawartość.|
+| **`--content`** , **`-c`** | Zawartość wbudowana. |
+| **`--debug`** , **`-d`** | Dołącz debuger do procesu hosta przed uruchomieniem funkcji.|
+| **`--timeout`** , **`-t`** | Czas oczekiwania (w sekundach), aż do momentu, gdy host funkcji lokalnych jest gotowy.|
+| **`--file`** , **`-f`** | Nazwa pliku do użycia jako zawartość.|
 | **`--no-interactive`** | Nie monituje o dane wejściowe. Przydatne w scenariuszach automatyzacji.|
 
 Na przykład aby wywołać funkcję wyzwalaną przez protokół HTTP i przekazać treść zawartości, uruchom następujące polecenie:
@@ -537,12 +537,12 @@ Następujące opcje publikowania są obsługiwane tylko dla wersji 2. x i nowszy
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only`**, **`-o`** |  Tylko Publikuj ustawienia i Pomiń zawartość. Wartość domyślna to Prompt. |
+| **`--publish-settings-only`** , **`-o`** |  Tylko Publikuj ustawienia i Pomiń zawartość. Wartość domyślna to Prompt. |
 |**`--list-ignored-files`** | Wyświetla listę plików, które są ignorowane podczas publikowania, oparte na pliku. funcignore. |
 | **`--list-included-files`** | Wyświetla listę opublikowanych plików, która jest oparta na pliku. funcignore. |
 | **`--nozip`** | Wyłącza tryb domyślny `Run-From-Package` . |
 | **`--build-native-deps`** | Pomija generowanie folderu. kół podczas publikowania aplikacji funkcji języka Python. |
-| **`--build`**, **`-b`** | Wykonuje akcję kompilacji podczas wdrażania w aplikacji funkcji systemu Linux. Akceptuje: `remote` i `local` . |
+| **`--build`** , **`-b`** | Wykonuje akcję kompilacji podczas wdrażania w aplikacji funkcji systemu Linux. Akceptuje: `remote` i `local` . |
 | **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Przykład: `python3-dev libevent-dev`. |
 | **`--force`** | Ignoruj weryfikację przed publikacją w określonych scenariuszach. |
 | **`--csx`** | Opublikuj projekt skryptu C# (. CSX). |

@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642269"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422828"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie zasobów Azure Functions przy użyciu szablonu ARM
 
@@ -38,15 +38,29 @@ Wybierz jedną z następujących kart, Użyj linku i wypełnij sekcję, aby utwo
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[Utwórz projekt funkcji lokalnych w Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
+Utwórz projekt funkcji lokalnych w wybranym języku w Visual Studio Code:  
 
-# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
++ [C#](create-first-function-vs-code-csharp.md)
++ [Java](create-first-function-vs-code-java.md)
++ [JavaScript](create-first-function-vs-code-node.md)
++ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Python](create-first-function-vs-code-python.md)
++ [TypeScript](create-first-function-vs-code-typescript.md)
+
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [Tworzenie projektu funkcji lokalnych w programie Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
 
 # <a name="command-line"></a>[Wiersz polecenia](#tab/command-line)
 
-[Tworzenie projektu funkcji lokalnych z poziomu wiersza polecenia](functions-create-first-azure-function-azure-cli.md#create-a-local-function-project)
+Utwórz projekt funkcji lokalnych w wybranym języku z poziomu wiersza polecenia:
+
++ [C#](create-first-function-cli-csharp.md)
++ [Java](create-first-function-cli-java.md)
++ [JavaScript](create-first-function-cli-node.md)
++ [PowerShell](create-first-function-cli-powershell.md)
++ [Python](create-first-function-cli-python.md)
++ [TypeScript](create-first-function-cli-typescript.md)
 
 ---
 
@@ -65,7 +79,7 @@ Ten szablon tworzy następujące cztery zasoby platformy Azure:
 + [**Microsoft. Web/Sites**](/azure/templates/microsoft.web/sites): Utwórz aplikację funkcji.
 + [**Microsoft. Insights/Components**](/azure/templates/microsoft.insights/components): utwórz wystąpienie Application Insights do monitorowania.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli-interactive
@@ -77,7 +91,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri  $
 echo "Press [ENTER] to continue ..." &&
 read
 ```
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
@@ -105,19 +119,19 @@ Aby opublikować projekt w nowych zasobach platformy Azure, wykonaj następując
 
 W danych wyjściowych Skopiuj adres URL wyzwalacza HTTP. Służy do testowania funkcji działającej na platformie Azure. 
 
-# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**.
 
-1. W obszarze Wybieranie **elementu docelowego publikowania**wybierz pozycję **Azure Functions plan zużycia** , **wybierając pozycję istniejący** i wybierz pozycję **Utwórz profil**.
+1. W obszarze Wybieranie **elementu docelowego publikowania** wybierz pozycję **Azure Functions plan zużycia** , **wybierając pozycję istniejący** i wybierz pozycję **Utwórz profil**.
 
     :::image type="content" source="media/functions-create-first-function-arm/choose-publish-target-visual-studio.png" alt-text="Wybierz istniejący element docelowy publikowania":::
 
-1. Wybierz swoją **subskrypcję**, rozwiń grupę zasobów, wybierz aplikację funkcji, a następnie wybierz **przycisk OK**.
+1. Wybierz swoją **subskrypcję** , rozwiń grupę zasobów, wybierz aplikację funkcji, a następnie wybierz **przycisk OK**.
 
 1. Po zakończeniu publikowania Skopiuj **adres URL witryny**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Wybierz istniejący element docelowy publikowania":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Skopiuj adres URL witryny z podsumowania publikowania":::
 
 1. Dołącz ścieżkę `/api/<FUNCTION_NAME>?name=Functions` , gdzie `<FUNCTION_NAME>` to nazwa funkcji. Adres URL, który wywołuje funkcję wyzwalacza HTTP, ma następujący format:
 
@@ -168,7 +182,7 @@ Teraz, po opublikowaniu pierwszej funkcji, Dowiedz się więcej, dodając powią
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md)
 
-# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs.md)

@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927519"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422522"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -19,7 +19,7 @@ Jeśli jesteś deweloperem języka Java, jeśli jesteś nowym do Azure Functions
 
 | Wprowadzenie | Pojęcia| 
 | -- | -- |  
-| <ul><li>[Funkcja języka Java używająca Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Funkcja Java/Maven z terminalem/wierszem polecenia](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Funkcja języka Java używająca Gradle](functions-create-first-java-gradle.md)</li><li>[Funkcja języka Java wykorzystująca przezaćmienie](functions-create-maven-eclipse.md)</li><li>[Funkcja języka Java używająca POMYSŁu IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> |
+| <ul><li>[Funkcja języka Java używająca Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Funkcja Java/Maven z terminalem/wierszem polecenia](./create-first-function-cli-java.md)</li><li>[Funkcja języka Java używająca Gradle](functions-create-first-java-gradle.md)</li><li>[Funkcja języka Java wykorzystująca przezaćmienie](functions-create-maven-eclipse.md)</li><li>[Funkcja języka Java używająca POMYSŁu IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Podstawowe funkcje języka Java
 
@@ -55,7 +55,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-Aby rozpocząć korzystanie z tego Archetype, zobacz [Przewodnik Szybki Start dla języka Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
+Aby rozpocząć korzystanie z tego Archetype, zobacz [Przewodnik Szybki Start dla języka Java](./create-first-function-cli-java.md).
 
 ## <a name="folder-structure"></a>Struktura folderów
 
@@ -143,7 +143,7 @@ W poniższej tabeli przedstawiono bieżące obsługiwane wersje języka Java dla
 | Wersja funkcji | Wersje Java (Windows) | Wersje Java (Linux) |
 | ----- | ----- | --- |
 | wersji | 11 <br/>8 | 11 <br/>8 |
-| 2.x | 8 | nie dotyczy |
+| 2.x | 8 | n/d |
 
 O ile nie zostanie określona wersja języka Java dla danego wdrożenia, Maven Archetype domyślnie język Java 8 podczas wdrażania na platformie Azure.
 
