@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 285c3bf37e9d6de042cb028745fc8b094d34c3a1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284385"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406785"
 ---
 Błędy wywoływane w Azure Functions mogą pochodzić z jednego z następujących źródeł:
 
@@ -23,15 +23,15 @@ Poniższe praktyki dotyczące obsługi błędów są ważne, aby uniknąć utrat
 - [Włącz usługę Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Użyj strukturalnej obsługi błędów](#use-structured-error-handling)
 - [Projektuj dla idempotentności](../articles/azure-functions/functions-idempotent.md)
-- [Zaimplementuj zasady ponawiania](#retry-policies) (w razie potrzeby)
+- [Zaimplementuj zasady ponawiania](#retry-policies-preview) (w razie potrzeby)
 
 ### <a name="use-structured-error-handling"></a>Użyj strukturalnej obsługi błędów
 
 Błędy przechwytywania i rejestrowania mają kluczowe znaczenie dla monitorowania kondycji aplikacji. Najwyższy poziom dowolnego kodu funkcji powinien zawierać blok try/catch. W bloku catch można przechwytywać i rejestrować błędy.
 
-## <a name="retry-policies"></a>Zasady ponawiania
+## <a name="retry-policies-preview"></a>Zasady ponawiania (wersja zapoznawcza)
 
-Zasady ponawiania można definiować w dowolnej funkcji dla dowolnego typu wyzwalacza w aplikacji funkcji.  Zasady ponawiania ponownie wykonują funkcję do momentu pomyślnego wykonania lub do momentu, aż zostanie osiągnięta maksymalna liczba ponownych prób.  Zasady ponawiania można zdefiniować dla wszystkich funkcji w aplikacji lub dla poszczególnych funkcji.  Domyślnie aplikacja funkcji nie będzie ponawiać prób komunikatów (poza [określonymi wyzwalaczami, które mają zasady ponawiania w źródle wyzwalacza](#trigger-specific-retry-support)).  Zasady ponawiania są oceniane za każdym razem, gdy wykonanie powoduje nieprzechwycony wyjątek.  Najlepszym rozwiązaniem jest przechwycenie wszystkich wyjątków w kodzie i ponowne wygenerowanie wszelkich błędów, które powinny spowodować ponowienie próby.  Punkty kontrolne Event Hubs i Azure Cosmos DB nie będą zapisywane do momentu ukończenia zasad ponawiania dla wykonania, co oznacza, że postęp na tej partycji zostanie wstrzymany, dopóki bieżąca partia nie zostanie ukończona.
+Zasady ponawiania można definiować w dowolnej funkcji dla dowolnego typu wyzwalacza w aplikacji funkcji.  Zasady ponawiania ponownie wykonują funkcję do momentu pomyślnego wykonania lub do momentu, aż zostanie osiągnięta maksymalna liczba ponownych prób.  Zasady ponawiania można zdefiniować dla wszystkich funkcji w aplikacji lub dla poszczególnych funkcji.  Domyślnie aplikacja funkcji nie będzie ponawiać prób komunikatów (poza [określonymi wyzwalaczami, które mają zasady ponawiania w źródle wyzwalacza](#using-retry-support-on-top-of-trigger-resilience)).  Zasady ponawiania są oceniane za każdym razem, gdy wykonanie powoduje nieprzechwycony wyjątek.  Najlepszym rozwiązaniem jest przechwycenie wszystkich wyjątków w kodzie i ponowne zgłoszenie błędów, które powinny skutkować ponowną próbą.  Punkty kontrolne Event Hubs i Azure Cosmos DB nie będą zapisywane do momentu ukończenia zasad ponawiania dla wykonania, co oznacza, że postęp na tej partycji zostanie wstrzymany, dopóki bieżąca partia nie zostanie ukończona.
 
 ### <a name="retry-policy-options"></a>Opcje zasad ponawiania
 
@@ -57,6 +57,8 @@ Zasady ponawiania można zdefiniować dla określonej funkcji.  Konfiguracja spe
 #### <a name="fixed-delay-retry"></a>Naprawiono ponawianie opóźnień
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+Ponowne próby wymagają pakietu NuGet [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -152,6 +154,8 @@ Oto zasady ponawiania w *function.jsw* pliku:
 #### <a name="exponential-backoff-retry"></a>Wycofywania wykładniczy
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+Ponowne próby wymagają pakietu NuGet [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -255,12 +259,27 @@ Oto zasady ponawiania w *function.jsw* pliku:
 |minimumInterval|n/d|Minimalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.|
 |maximumInterval|n/d|Maksymalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.| 
 
-## <a name="trigger-specific-retry-support"></a>Obsługa ponawiania prób specyficznych dla wyzwalacza
+### <a name="retry-limitations-during-preview"></a>Ograniczenia ponowień w trakcie okresu zapoznawczego
 
-Niektóre wyzwalacze zapewniają ponowną próbę w źródle wyzwalacza.  Te ponowne próby wyzwalacza mogą być używane oprócz lub jako zamiennika dla zasad ponawiania hosta aplikacji funkcji.  Jeśli pożądane jest poprawna liczba ponownych prób, należy użyć zasad ponawiania specyficznych dla wyzwalacza za pośrednictwem zasad ponownych prób hosta ogólnego.  Następujące wyzwalacze obsługują ponowną próbę w źródle wyzwalacza:
+- W przypadku projektów platformy .NET może być konieczne ręczne ściągnięcie w wersji [programu Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23.
+- W planie zużycia aplikacja może być skalowana w dół do zera podczas ponawiania próby końcowych komunikatów w kolejce.
+- W planie zużycia aplikacja może być skalowana w dół podczas wykonywania ponownych prób.  Aby uzyskać najlepsze wyniki, wybierz interwał ponawiania prób <= 00:01:00 i <= 5 ponownych prób.
+
+## <a name="using-retry-support-on-top-of-trigger-resilience"></a>Używanie obsługi ponowień na poziomie odporności wyzwalacza
+
+Zasady ponawiania działania aplikacji funkcji są niezależne od wszelkich ponownych prób lub odporności, które zapewnia wyzwalacz.  Zasady ponawiania funkcji będą tylko warstwa na wierzchu wyzwalacza.  Na przykład w przypadku używania Azure Service Bus kolejki domyślnie mają liczbę dostaw komunikatów 10.  Domyślna liczba dostaw oznacza po 10 próbach dostarczenia komunikatu w kolejce, Service Bus komunikat zostanie utracony.  Można zdefiniować zasady ponawiania dla funkcji, która ma wyzwalacz Service Bus, ale ponowna próba będzie warstwą na podstawie Service Bus prób dostarczenia.  
+
+Na przykład jeśli użyto domyślnej liczby Service Bus dostarczania 10 i zdefiniowano zasady ponawiania funkcji 5.  Komunikat zostałby najpierw usunięty z kolejki, zwiększając konto dostawy usługi Service Bus do 1.  Jeśli każde wykonanie nie powiodło się, po pięciu próbach uruchomienia tego samego komunikatu ten komunikat zostałby oznaczony jako porzucony.  Service Bus będzie natychmiast ponownie kolejkować komunikat, wyzwoli funkcję i zwiększy liczbę dostaw do 2.  Na koniec po 50 prób (10 dostaw usługi Service Bus * pięć funkcji na dostarczenie) komunikat zostałby porzucony i wyzwolony utraconą wiadomość w usłudze Service Bus.
+
+> [!WARNING]
+> Nie zaleca się ustawiania liczby dostaw dla wyzwalacza, takiego jak Service Bus Queues na 1, co oznacza, że komunikat zostałby utracony natychmiast po ponowieniu próby pojedynczego działania.  Wynika to z faktu, że wyzwalacze zapewniają odporność z ponownymi próbami, podczas gdy zasady ponawiania działania są najlepszym nakładem pracy i mogą wynikać z mniejszą liczbą ponownych prób.
+
+### <a name="triggers-with-additional-resiliency-or-retries"></a>Wyzwalacze z dodatkową odpornością lub ponownymi próbami
+
+Następujące wyzwalacze obsługują ponowną próbę w źródle wyzwalacza:
 
 * [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Usługa Azure queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (Kolejka/temat)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Domyślnie te wyzwalacze ponawiają żądania do pięciu razy. Po piątej ponowieniu próby zarówno usługa Azure queue storage, jak i wyzwalacz Azure Service Bus zapiszą komunikat do [kolejki trującej](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
+Domyślnie większość wyzwalaczy ponawia żądania do pięciu razy. Po piątej ponowieniu próby w usłudze Azure queue storage zostanie zapisany komunikat do [kolejki trującej](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  Domyślna kolejka Service Bus i zasady tematu będą zapisywać komunikat do [kolejki utraconych](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) wiadomości po 10 próbach.
