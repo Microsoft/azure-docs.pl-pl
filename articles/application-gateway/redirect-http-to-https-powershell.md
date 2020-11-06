@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86eaa645cd6a81b9180d1241695240a71aa8202d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446524"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397267"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure PowerShell
 
-Za pomocą Azure PowerShell można utworzyć [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS/SSL. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie utworzysz również [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) dla puli zaplecza bramy aplikacji, która zawiera dwa wystąpienia maszyn wirtualnych. 
+Za pomocą Azure PowerShell można utworzyć [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS/SSL. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie utworzysz również [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) dla puli zaplecza bramy aplikacji, która zawiera dwa wystąpienia maszyn wirtualnych. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -34,7 +34,7 @@ Ten samouczek wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Urucho
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
+Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -327,7 +327,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Ostrzeżenie o zabezpieczeniach](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 
-Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły**, a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna internetowa usług IIS, tak jak w poniższym przykładzie:
+Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły** , a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna internetowa usług IIS, tak jak w poniższym przykładzie:
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 

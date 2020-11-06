@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee286540d4fd740c5e7c1f8bd693fddd625eeae2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308229"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398151"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Samouczek: odbieranie danych urządzenia za pomocą usługi Azure IoT Hub
 
@@ -23,7 +23,7 @@ ms.locfileid: "91308229"
 
 - Aktywna subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Interfejs API platformy Azure dla zasobu FHIR z co najmniej jednym łącznikiem usługi Azure IoT dla FHIR — [wdrażanie łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza) przy użyciu Azure Portal](iot-fhir-portal-quickstart.md)
-- Zasób platformy Azure IoT Hub połączony z rzeczywistymi lub symulowanymi urządzeniami — [Tworzenie Centrum IoT Hub przy użyciu Azure Portal](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+- Zasób platformy Azure IoT Hub połączony z rzeczywistymi lub symulowanymi urządzeniami — [Tworzenie Centrum IoT Hub przy użyciu Azure Portal](../iot-hub/quickstart-send-telemetry-dotnet.md)
 
 > [!TIP]
 > Jeśli używasz aplikacji symulowanego urządzenia IoT Hub platformy Azure, możesz wybrać wybraną aplikację spośród różnych obsługiwanych języków i systemów.
@@ -36,15 +36,15 @@ Usługa Azure IoT Hub wymaga parametrów połączenia, aby bezpiecznie połączy
 
 ## <a name="connect-azure-iot-hub-with-the-azure-iot-connector-for-fhir-preview"></a>Łączenie IoT Hub platformy Azure z łącznikiem usługi Azure IoT dla FHIR (wersja zapoznawcza)
 
-Usługa Azure IoT Hub obsługuje funkcję o nazwie [Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) , która zapewnia możliwość wysyłania danych urządzenia do różnych usług platformy Azure, takich jak centrum zdarzeń, konto magazynu i Service Bus. Łącznik usługi Azure IoT dla programu FHIR korzysta z tej funkcji, aby połączyć i wysłać dane urządzenia z usługi Azure IoT Hub do punktu końcowego centrum zdarzeń.
+Usługa Azure IoT Hub obsługuje funkcję o nazwie [Routing komunikatów](../iot-hub/iot-hub-devguide-messages-d2c.md) , która zapewnia możliwość wysyłania danych urządzenia do różnych usług platformy Azure, takich jak centrum zdarzeń, konto magazynu i Service Bus. Łącznik usługi Azure IoT dla programu FHIR korzysta z tej funkcji, aby połączyć i wysłać dane urządzenia z usługi Azure IoT Hub do punktu końcowego centrum zdarzeń.
 
 > [!NOTE] 
-> Teraz można użyć programu PowerShell lub interfejsu wiersza polecenia do [tworzenia routingu wiadomości](https://docs.microsoft.com/azure/iot-hub/tutorial-routing) , ponieważ łącznik usługi Azure IoT dla centrum zdarzeń FHIR nie jest obsługiwany w ramach subskrypcji klienta, dlatego nie będzie on widoczny przez Azure Portal. Chociaż po dodaniu obiektów tras komunikatów przy użyciu programu PowerShell lub interfejsu wiersza polecenia są one widoczne w Azure Portal i można z niej zarządzać.
+> Teraz można użyć programu PowerShell lub interfejsu wiersza polecenia do [tworzenia routingu wiadomości](../iot-hub/tutorial-routing.md) , ponieważ łącznik usługi Azure IoT dla centrum zdarzeń FHIR nie jest obsługiwany w ramach subskrypcji klienta, dlatego nie będzie on widoczny przez Azure Portal. Chociaż po dodaniu obiektów tras komunikatów przy użyciu programu PowerShell lub interfejsu wiersza polecenia są one widoczne w Azure Portal i można z niej zarządzać.
 
 Skonfigurowanie routingu wiadomości składa się z dwóch kroków.
 
 ### <a name="add-an-endpoint"></a>Dodawanie punktu końcowego
-Ten krok definiuje punkt końcowy, do którego IoT Hub będzie kierować dane. Utwórz ten punkt końcowy przy użyciu polecenia [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) środowiska PowerShell lub [AZ IoT Hub Routing-Endpoint Create](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?#az-iot-hub-routing-endpoint-create) interfejsu wiersza polecenia na podstawie preferencji.
+Ten krok definiuje punkt końcowy, do którego IoT Hub będzie kierować dane. Utwórz ten punkt końcowy przy użyciu polecenia [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) środowiska PowerShell lub [AZ IoT Hub Routing-Endpoint Create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) interfejsu wiersza polecenia na podstawie preferencji.
 
 Poniżej znajduje się lista parametrów do użycia z poleceniem do utworzenia punktu końcowego:
 
@@ -59,7 +59,7 @@ Poniżej znajduje się lista parametrów do użycia z poleceniem do utworzenia p
 |Przekształcon|połączenie — parametry|Parametry połączenia z łącznikiem usługi Azure IoT dla FHIR. Użyj wartości uzyskanej w poprzednim kroku.|
 
 ### <a name="add-a-message-route"></a>Dodawanie trasy wiadomości
-Ten krok definiuje trasę komunikatów przy użyciu punktu końcowego utworzonego powyżej. Utwórz trasę przy użyciu polecenia [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) środowiska PowerShell lub [AZ IoT Hub Route Create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) interfejsu wiersza polecenia na podstawie preferencji.
+Ten krok definiuje trasę komunikatów przy użyciu punktu końcowego utworzonego powyżej. Utwórz trasę przy użyciu polecenia [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) środowiska PowerShell lub [AZ IoT Hub Route Create](/cli/azure/iot/hub/route#az-iot-hub-route-create) interfejsu wiersza polecenia na podstawie preferencji.
 
 Poniżej znajduje się lista parametrów do użycia z poleceniem dodawania trasy wiadomości:
 

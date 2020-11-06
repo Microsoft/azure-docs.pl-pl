@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088074"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397862"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Tworzenie niestandardowej sondy dla platformy Azure Application Gateway (klasyczny) przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Witryna Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-probe-ps.md)
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -200,7 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby skonfigurować usługę Transport Layer Security (TLS), która wcześniej znana jako odciążanie SSL (SSL), zobacz [Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu TLS](application-gateway-ssl.md).
+Aby skonfigurować usługę Transport Layer Security (TLS), która wcześniej znana jako odciążanie SSL (SSL), zobacz [Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu TLS](./tutorial-ssl-powershell.md).
 
-Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznym modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).
-
+Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznym modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb-arm.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).

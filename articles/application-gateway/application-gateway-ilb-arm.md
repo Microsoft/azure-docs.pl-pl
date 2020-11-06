@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d663dc4e2bd860ec9494785ecbf6dbf10a4c5b5
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808143"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397760"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia (ILB)
 
@@ -50,7 +50,7 @@ Oto kroki wymagane do utworzenia bramy aplikacji:
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Tworzenie grupy zasobów dla usługi Resource Manager
 
-Upewnij się, że program PowerShell został przełączony do trybu umożliwiającego korzystanie z poleceń cmdlet usługi Azure Resource Manager. Więcej informacji znajduje się w artykule [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
+Upewnij się, że program PowerShell został przełączony do trybu umożliwiającego korzystanie z poleceń cmdlet usługi Azure Resource Manager. Więcej informacji znajduje się w artykule [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
 ### <a name="step-1"></a>Krok 1
 
@@ -258,10 +258,9 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz skonfigurować odciążanie protokołu SSL, zobacz artykuł [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu SSL).
+Jeśli chcesz skonfigurować odciążanie protokołu SSL, zobacz artykuł [Configure an application gateway for SSL offload](./tutorial-ssl-powershell.md) (Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu SSL).
 
 Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz znaleźć w następujących artykułach:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

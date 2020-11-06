@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 18c8aa0ff05dababc5a79c5c05b43ce9ebcbf9b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427979"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397100"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących (wersja zapoznawcza) dla nowego klastra AKS z nowym wystąpieniem Application Gateway
 
@@ -22,7 +22,7 @@ W tym samouczku utworzysz klaster AKS z włączonym dodatkiem AGIC. Utworzenie k
 
 Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). Oferuje również w pełni zarządzane środowisko.    
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz grupę zasobów. 
@@ -39,17 +39,17 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Zarejestruj flagę funkcji *AKS-IngressApplicationGatewayAddon* za pomocą polecenia [AZ Feature Register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) , jak pokazano w poniższym przykładzie. Należy to zrobić tylko raz dla każdej subskrypcji, gdy dodatek jest nadal w wersji zapoznawczej.
+Zarejestruj flagę funkcji *AKS-IngressApplicationGatewayAddon* za pomocą polecenia [AZ Feature Register](/cli/azure/feature#az-feature-register) , jak pokazano w poniższym przykładzie. Należy to zrobić tylko raz dla każdej subskrypcji, gdy dodatek jest nadal w wersji zapoznawczej.
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
 ```
 
-Wyświetlenie stanu może potrwać kilka minut `Registered` . Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :
+Wyświetlenie stanu może potrwać kilka minut `Registered` . Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature#az-feature-register) :
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia [AZ Provider Register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) :
+Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) :
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -82,15 +82,15 @@ Teraz zostanie wdrożony nowy klaster AKS z włączonym dodatkiem AGIC. Jeśli n
 > - Włącz WAF na Application Gateway za pomocą portalu. 
 > - Najpierw Utwórz wystąpienie WAF_v2 Application Gateway, a następnie postępuj zgodnie z instrukcjami dotyczącymi [włączania dodatku AGIC z istniejącym klastrem AKS i istniejącym wystąpieniem Application Gateway](tutorial-ingress-controller-add-on-existing.md). 
 
-W poniższym przykładzie zostanie wdrożony nowy klaster AKS o nazwie "Moja *klaster* " przy użyciu [usługi Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) i [zarządzanych tożsamości](https://docs.microsoft.com/azure/aks/use-managed-identity). Dodatek AGIC zostanie włączony w grupie zasobów utworzonej przez *użytkownika.* 
+W poniższym przykładzie zostanie wdrożony nowy klaster AKS o nazwie "Moja *klaster* " przy użyciu [usługi Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) i [zarządzanych tożsamości](../aks/use-managed-identity.md). Dodatek AGIC zostanie włączony w grupie zasobów utworzonej przez *użytkownika.* 
 
-Wdrożenie nowego klastra AKS z włączonym dodatkiem AGIC bez określania istniejącego wystąpienia Application Gateway oznacza automatyczne utworzenie wystąpienia Standard_v2 jednostki SKU Application Gateway. W związku z tym należy również określić nazwę i przestrzeń adresową podsieci wystąpienia Application Gateway. Nazwa wystąpienia Application Gateway będzie *myApplicationGateway*, a używana przestrzeń adresowa podsieci to 10.2.0.0/16. Upewnij się, że dodano lub Zaktualizowano rozszerzenie AKS-Preview na początku tego samouczka. 
+Wdrożenie nowego klastra AKS z włączonym dodatkiem AGIC bez określania istniejącego wystąpienia Application Gateway oznacza automatyczne utworzenie wystąpienia Standard_v2 jednostki SKU Application Gateway. W związku z tym należy również określić nazwę i przestrzeń adresową podsieci wystąpienia Application Gateway. Nazwa wystąpienia Application Gateway będzie *myApplicationGateway* , a używana przestrzeń adresowa podsieci to 10.2.0.0/16. Upewnij się, że dodano lub Zaktualizowano rozszerzenie AKS-Preview na początku tego samouczka. 
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Aby skonfigurować dodatkowe parametry dla `az aks create` polecenia, zobacz [te odwołania](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Aby skonfigurować dodatkowe parametry dla `az aks create` polecenia, zobacz [te odwołania](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 > [!NOTE]
 > Utworzony przez Ciebie klaster AKS pojawi się w utworzonej grupie *zasobów.* Jednak automatycznie utworzone wystąpienie Application Gateway będzie się znajdować w grupie zasobów węzła, gdzie są pule agentów. Grupa zasobów węzła według jest domyślnie nazywana *MC_resource-Group-name_cluster-name_location* , ale można ją modyfikować. 
@@ -138,4 +138,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej na temat wyłączania dodatku AGIC](./ingress-controller-disable-addon.md)
-

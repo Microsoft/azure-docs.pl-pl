@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311601"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397227"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrowanie usługi Azure Application Gateway i zapory aplikacji sieci Web z wersji 1 do wersji 2
 
@@ -125,7 +125,7 @@ Aby uruchomić skrypt:
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      Aby utworzyć listę obiektów PSApplicationGatewayTrustedRootCertificate, zobacz [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+      Aby utworzyć listę obiektów PSApplicationGatewayTrustedRootCertificate, zobacz [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [ciąg]: opcjonalne**. Określony prywatny adres IP, który ma zostać skojarzony z nową bramą w wersji 2.  Ta wartość musi należeć do tej samej sieci wirtualnej, która została przydzielona dla nowej bramy v2. Jeśli ta wartość nie zostanie określona, skrypt przydziela prywatny adres IP dla bramy v2.
    * **publicIpResourceId: [ciąg]: opcjonalne**. Identyfikator resourceId istniejącego zasobu publicznego adresu IP (standardowej jednostki SKU) w subskrypcji, który ma zostać przydzielony do nowej bramy w wersji 2. Jeśli ta wartość nie zostanie określona, skrypt przydziela nowy publiczny adres IP w tej samej grupie zasobów. Nazwa to nazwa bramy w wersji 2 z dołączoną opcją *-IP* .
    * **validateMigration: [przełącznik]: opcjonalny**. Użyj tego parametru, jeśli chcesz, aby skrypt wykonał pewne podstawowe operacje porównujące konfigurację po utworzeniu bramy v2 i kopii konfiguracji. Domyślnie żadna weryfikacja nie jest wykonywana.

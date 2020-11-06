@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335820"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397454"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Adnotacje dla Application Gateway kontroler danych przychodzących 
 
@@ -72,7 +72,7 @@ W powyższym przykładzie zdefiniowano zasób transferu danych przychodzących o
 
 ## <a name="tls-redirect"></a>Przekierowanie protokołu TLS
 
-Application Gateway [można skonfigurować tak](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) , aby automatycznie przekierowywać adresy URL http do ich odpowiedników https. Gdy ta adnotacja jest obecna, a protokół TLS jest prawidłowo skonfigurowany, Kubernetes transferu danych przychodzących utworzy [regułę routingu z konfiguracją przekierowania](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) i zastosuje zmiany do Application Gateway. Utworzone przekierowanie będzie HTTP `301 Moved Permanently` .
+Application Gateway [można skonfigurować tak](./redirect-overview.md) , aby automatycznie przekierowywać adresy URL http do ich odpowiedników https. Gdy ta adnotacja jest obecna, a protokół TLS jest prawidłowo skonfigurowany, Kubernetes transferu danych przychodzących utworzy [regułę routingu z konfiguracją przekierowania](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) i zastosuje zmiany do Application Gateway. Utworzone przekierowanie będzie HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Użycie
 

@@ -8,25 +8,25 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186801"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397879"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Tworzenie niestandardowej sondy dla Application Gateway przy użyciu portalu
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Witryna Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-probe-ps.md)
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-probe-classic-ps.md)
 
 W tym artykule opisano Dodawanie niestandardowej sondy kondycji do istniejącej bramy aplikacji za pomocą Azure Portal. Korzystając z sond kondycji, platforma Azure Application Gateway monitoruje kondycję zasobów w puli zaplecza.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Jeśli nie masz jeszcze bramy aplikacji, odwiedź stronę [tworzenie Application Gateway](application-gateway-create-gateway-portal.md) , aby utworzyć bramę aplikacji do pracy.
+Jeśli nie masz jeszcze bramy aplikacji, odwiedź stronę [tworzenie Application Gateway](./quick-create-portal.md) , aby utworzyć bramę aplikacji do pracy.
 
 ## <a name="create-probe-for-application-gateway-v2-sku"></a>Utwórz sondę dla jednostki SKU Application Gateway v2
 
@@ -49,14 +49,14 @@ Sondy są konfigurowane w procesie dwuetapowym za pomocą portalu. Pierwszym kro
    |**Nazwa**|customProbe|Ta wartość jest przyjazną nazwą dla sondy, która jest dostępna w portalu.|
    |**Protokół**|HTTP lub HTTPS | Protokół używany przez sondę kondycji. |
    |**Host**|co contoso.com|Ta wartość jest nazwą hosta wirtualnego (inną niż nazwa hosta maszyny wirtualnej) działającą na serwerze aplikacji. Sonda jest wysyłana do \<protocol\> :// \<host name\> :\<port\>/\<urlPath\>|
-   |**Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza**|Tak lub Nie|Ustawia nagłówek *hosta* w sondie na nazwę hosta z ustawień http, z którym jest skojarzona ta sonda. Specjalne wymaganie w przypadku wielodostępnych punktów końcowych, takich jak usługa Azure App Service. [Dowiedz się więcej](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza**|Tak lub Nie|Ustawia nagłówek *hosta* w sondie na nazwę hosta z ustawień http, z którym jest skojarzona ta sonda. Specjalne wymaganie w przypadku wielodostępnych punktów końcowych, takich jak usługa Azure App Service. [Dowiedz się więcej](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Wybierz port z ustawień protokołu HTTP zaplecza**| Tak lub Nie|Ustawia *port* sondy kondycji na port z ustawień http, z którymi jest skojarzona ta sonda. Jeśli wybierzesz opcję nie, możesz wprowadzić niestandardowy port docelowy do użycia. |
    |**Port**| 1-65535 | Niestandardowy port do użycia w sondach kondycji | 
    |**Ścieżka**|lub dowolna prawidłowa ścieżka|Pozostała część pełnego adresu URL dla sondy niestandardowej. Prawidłowa ścieżka zaczyna się od znaku "/". Dla domyślnej ścieżki http: \/ /contoso.com samo użycie "/" |
    |**Interwał (s)**|30|Częstotliwość uruchamiania sondy w celu sprawdzenia kondycji. Nie zaleca się ustawiania wartości mniejszej niż 30 sekund.|
    |**Limit czasu (w sekundach)**|30|Czas, przez jaki sonda czeka przed upływem limitu czasu. Jeśli prawidłowa odpowiedź nie zostanie odebrana w tym okresie, sonda zostanie oznaczona jako niepowodzenie. Interwał limitu czasu musi być wystarczająco duży, aby można było wykonać wywołanie http, aby zapewnić dostępność strony kondycji zaplecza. Należy zauważyć, że wartość limitu czasu nie powinna być większa niż wartość "Interval" użyta w tym ustawieniu sondy lub wartość "Request timeout" w ustawieniach HTTP, która zostanie skojarzona z tą sondą.|
    |**Próg złej kondycji**|3|Liczba kolejnych nieudanych prób w złej kondycji. Próg można ustawić na wartość 1 lub większą.|
-   |**Użyj warunków dopasowywania sondy**|Tak lub Nie|Domyślnie odpowiedź HTTP (S) o kodzie stanu z zakresu od 200 do 399 jest traktowana w dobrej kondycji. Można zmienić akceptowalny zakres kodu odpowiedzi zaplecza lub treści odpowiedzi zaplecza. [Dowiedz się więcej](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Użyj warunków dopasowywania sondy**|Tak lub Nie|Domyślnie odpowiedź HTTP (S) o kodzie stanu z zakresu od 200 do 399 jest traktowana w dobrej kondycji. Można zmienić akceptowalny zakres kodu odpowiedzi zaplecza lub treści odpowiedzi zaplecza. [Dowiedz się więcej](./application-gateway-probe-overview.md#probe-matching)|
    |**Ustawienia protokołu HTTP**|wybór z listy rozwijanej|Sonda zostanie skojarzona z ustawieniami protokołu HTTP wybranymi tutaj i w związku z tym będzie monitorować kondycję tej puli zaplecza, która jest skojarzona z wybranym ustawieniem protokołu HTTP. Użyje tego samego portu dla żądania sondowania jako, który jest używany w wybranym ustawieniu protokołu HTTP. Można wybrać tylko te ustawienia protokołu HTTP, które nie są skojarzone z żadną inną sondą niestandardową. <br>Należy zauważyć, że tylko te ustawienia protokołu HTTP są dostępne dla skojarzenia, które mają ten sam protokół, co protokół wybrany w tej konfiguracji sondowania i mają ten sam stan dla *nazwy wybranego hosta z przełącznika ustawienia http zaplecza* .|
    
    > [!IMPORTANT]
@@ -100,12 +100,12 @@ Sondy są konfigurowane w procesie dwuetapowym za pomocą portalu. Pierwszym kro
    |**Nazwa**|customProbe|Ta wartość jest przyjazną nazwą dla sondy, która jest dostępna w portalu.|
    |**Protokół**|HTTP lub HTTPS | Protokół używany przez sondę kondycji. |
    |**Host**|co contoso.com|Ta wartość jest nazwą hosta wirtualnego (inną niż nazwa hosta maszyny wirtualnej) działającą na serwerze aplikacji. Sonda jest wysyłana do (protokół)://(nazwa hosta):(port z httpsetting)/urlPath.  Ma to zastosowanie w przypadku, gdy na Application Gateway jest skonfigurowana wiele witryn. Jeśli Application Gateway jest skonfigurowany dla jednej lokacji, wprowadź wartość "127.0.0.1".|
-   |**Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza**|Tak lub Nie|Ustawia nagłówek *hosta* w sondie na nazwę hosta zasobu zaplecza w puli zaplecza skojarzoną z USTAWIENIEm http, z którym jest skojarzona ta sonda. Specjalne wymaganie w przypadku wielodostępnych punktów końcowych, takich jak usługa Azure App Service. [Dowiedz się więcej](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza**|Tak lub Nie|Ustawia nagłówek *hosta* w sondie na nazwę hosta zasobu zaplecza w puli zaplecza skojarzoną z USTAWIENIEm http, z którym jest skojarzona ta sonda. Specjalne wymaganie w przypadku wielodostępnych punktów końcowych, takich jak usługa Azure App Service. [Dowiedz się więcej](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Ścieżka**|lub dowolna prawidłowa ścieżka|Pozostała część pełnego adresu URL dla sondy niestandardowej. Prawidłowa ścieżka zaczyna się od znaku "/". Dla domyślnej ścieżki http: \/ /contoso.com samo użycie "/" |
    |**Interwał (s)**|30|Częstotliwość uruchamiania sondy w celu sprawdzenia kondycji. Nie zaleca się ustawiania wartości mniejszej niż 30 sekund.|
    |**Limit czasu (w sekundach)**|30|Czas, przez jaki sonda czeka przed upływem limitu czasu. Jeśli prawidłowa odpowiedź nie zostanie odebrana w tym okresie, sonda zostanie oznaczona jako niepowodzenie. Interwał limitu czasu musi być wystarczająco duży, aby można było wykonać wywołanie http, aby zapewnić dostępność strony kondycji zaplecza. Należy zauważyć, że wartość limitu czasu nie powinna być większa niż wartość "Interval" użyta w tym ustawieniu sondy lub wartość "Request timeout" w ustawieniach HTTP, która zostanie skojarzona z tą sondą.|
    |**Próg złej kondycji**|3|Liczba kolejnych nieudanych prób w złej kondycji. Próg można ustawić na wartość 1 lub większą.|
-   |**Użyj warunków dopasowywania sondy**|Tak lub Nie|Domyślnie odpowiedź HTTP (S) o kodzie stanu z zakresu od 200 do 399 jest traktowana w dobrej kondycji. Można zmienić akceptowalny zakres kodu odpowiedzi zaplecza lub treści odpowiedzi zaplecza. [Dowiedz się więcej](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Użyj warunków dopasowywania sondy**|Tak lub Nie|Domyślnie odpowiedź HTTP (S) o kodzie stanu z zakresu od 200 do 399 jest traktowana w dobrej kondycji. Można zmienić akceptowalny zakres kodu odpowiedzi zaplecza lub treści odpowiedzi zaplecza. [Dowiedz się więcej](./application-gateway-probe-overview.md#probe-matching)|
 
    > [!IMPORTANT]
    > Nazwa hosta nie jest taka sama jak nazwa serwera. Ta wartość jest nazwą hosta wirtualnego uruchomionego na serwerze aplikacji. Sonda jest wysyłana do \<protocol\> :// \<hostName\> :\<port from http settings\>/\<urlPath\>
@@ -123,7 +123,7 @@ Teraz, gdy sonda została utworzona, należy ją dodać do bramy. Ustawienia son
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wyświetlanie kondycji zasobów zaplecza określonych przez sondę przy użyciu [widoku kondycja zaplecza](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
+Wyświetlanie kondycji zasobów zaplecza określonych przez sondę przy użyciu [widoku kondycja zaplecza](./application-gateway-diagnostics.md#back-end-health).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

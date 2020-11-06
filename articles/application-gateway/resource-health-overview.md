@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
-ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67659504"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397176"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Omówienie usługi Azure Application Gateway Resource Health
 
@@ -43,7 +43,7 @@ Resource Health zawiera dodatkowe szczegóły dotyczące zdarzenia i procesu odz
 
 ![Stan niedostępny](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Nieznane
+## <a name="unknown"></a>Nieznany
 
 **Nieznany** stan kondycji oznacza, Resource Health nie otrzymał informacji o bramie dłużej niż 10 minut. Ten stan nie jest ostatecznym oznaczeniem stanu bramy. Jest to ważny punkt danych w procesie rozwiązywania problemów.
 
@@ -61,4 +61,4 @@ Jeśli występują problemy, **nieznany** stan kondycji może zasugerować, że 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o rozwiązywaniu problemów Application Gateway zaporę aplikacji sieci Web (WAF), zobacz [Rozwiązywanie problemów z zaporą aplikacji sieci Web (WAF) dla platformy Application Gateway Azure](web-application-firewall-troubleshoot.md)
+Aby dowiedzieć się więcej o rozwiązywaniu problemów Application Gateway zaporę aplikacji sieci Web (WAF), zobacz [Rozwiązywanie problemów z zaporą aplikacji sieci Web (WAF) dla platformy Application Gateway Azure](../web-application-firewall/ag/web-application-firewall-troubleshoot.md)

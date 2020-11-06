@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 548bda36ed2b167c159d32a575b63ecbf10b16dd
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563764"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397573"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Rozwiązywanie problemów z koligacją sesji usługi Azure Application Gateway
 
@@ -52,9 +52,9 @@ Czasami problemy z koligacją sesji mogą wystąpić, gdy zapomnisz włączyć u
 
 
 
-Możesz również sprawdzić wartość "**CookieBasedAffinity**" *w obszarze "backendHttpSettingsCollection", używając*jednej z następujących**backendHttpSettingsCollection**metod:
+Możesz również sprawdzić wartość " **CookieBasedAffinity** " *w obszarze "backendHttpSettingsCollection", używając* jednej z następujących **backendHttpSettingsCollection** metod:
 
-- Uruchamianie polecenia [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) w programie PowerShell
+- Uruchamianie polecenia [Get-AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) w programie PowerShell
 - Poszukaj pliku JSON przy użyciu szablonu Azure Resource Manager
 
 ```
@@ -80,9 +80,9 @@ Ustawienie koligacji opartej na plikach cookie jest włączone, gdy uzyskujesz d
 Aby zidentyfikować ten problem, postępuj zgodnie z instrukcjami:
 
 1. Wykonaj śledzenie debugera sieci Web na "kliencie", który nawiązuje połączenie z aplikacją za Application Gateway (w tym przykładzie korzystamy z programu Fiddler).
-    **Porada** Jeśli nie wiesz, jak korzystać z programu Fiddler, zaznacz opcję "**Chcę zbierać ruch sieciowy i analizować go przy użyciu narzędzia Web Debugger**" u dołu.
+    **Porada** Jeśli nie wiesz, jak korzystać z programu Fiddler, zaznacz opcję " **Chcę zbierać ruch sieciowy i analizować go przy użyciu narzędzia Web Debugger** " u dołu.
 
-2. Sprawdź i Analizuj dzienniki sesji, aby określić, czy pliki cookie dostarczone przez klienta mają ARRAffinity szczegóły. Jeśli nie znajdziesz szczegółów ARRAffinity, takich jak "**ARRAffinity =** *ARRAffinityValue*" w zestawie plików cookie, oznacza to, że klient nie odpowiada za pomocą pliku cookie Arra, który jest dostarczany przez Application Gateway.
+2. Sprawdź i Analizuj dzienniki sesji, aby określić, czy pliki cookie dostarczone przez klienta mają ARRAffinity szczegóły. Jeśli nie znajdziesz szczegółów ARRAffinity, takich jak " **ARRAffinity =** *ARRAffinityValue* " w zestawie plików cookie, oznacza to, że klient nie odpowiada za pomocą pliku cookie Arra, który jest dostarczany przez Application Gateway.
     Na przykład:
 
     ![Zrzut ekranu przedstawia dziennik sesji z wyróżnionym pojedynczym wpisem.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
@@ -131,7 +131,7 @@ Włączanie rejestrowania za pośrednictwem witryny Azure Portal
 
    ![Zrzut ekranu przedstawia monitorowanie z wybranymi dziennikami diagnostycznymi.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-8.png)
 
-2. Po prawej stronie wybierz pozycję "**ApplicationGatewayAccessLog**" na liście rozwijanej w obszarze **kategorie dzienników.**  
+2. Po prawej stronie wybierz pozycję " **ApplicationGatewayAccessLog** " na liście rozwijanej w obszarze **kategorie dzienników.**  
 
    ![Zrzut ekranu przedstawia listę rozwijaną kategorie dziennika z wybraną pozycją ApplicationGatewayAccessLog.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
 
@@ -141,19 +141,19 @@ Włączanie rejestrowania za pośrednictwem witryny Azure Portal
 
 5. Sprawdź następujące dane:
 
-- **ClientIP**— adres IP klienta z klienta nawiązującego połączenie.
+- **ClientIP** — adres IP klienta z klienta nawiązującego połączenie.
 - **ClientPort** — jest to port źródłowy z klienta nawiązującego połączenie dla żądania.
 - **RequestQuery** — wskazuje na to, że serwer docelowy otrzyma żądanie.
-- **Serwer — rozesłane**: wystąpienie puli zaplecza, że żądanie zostało odebrane.
-- **X-AzureApplicationGateway-log-ID**: identyfikator korelacji używany dla żądania. Może służyć do rozwiązywania problemów z ruchem na serwerach zaplecza. Na przykład: X-AzureApplicationGateway-CACHE-trafi = 0&SERVER-ROUTEd = 10.0.2.4.
+- **Serwer — rozesłane** : wystąpienie puli zaplecza, że żądanie zostało odebrane.
+- **X-AzureApplicationGateway-log-ID** : identyfikator korelacji używany dla żądania. Może służyć do rozwiązywania problemów z ruchem na serwerach zaplecza. Na przykład: X-AzureApplicationGateway-CACHE-trafi = 0&SERVER-ROUTEd = 10.0.2.4.
 
-  - **Serwer-stan**: kod odpowiedzi HTTP otrzymany Application Gateway od zaplecza.
+  - **Serwer-stan** : kod odpowiedzi HTTP otrzymany Application Gateway od zaplecza.
 
   ![Zrzut ekranu przedstawia stan serwera w postaci zwykłego tekstu, a głównie zasłaniane, z wyróżnioną clientPort i SERWERowo.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
 
 Jeśli widzisz dwa elementy pochodzące z tego samego ClientIP i portu klienta i są wysyłane na ten sam serwer zaplecza, oznacza to, że Application Gateway prawidłowo skonfigurowany.
 
-Jeśli widzisz dwa elementy pochodzące z tego samego ClientIP i portu klienta i są one wysyłane do różnych serwerów zaplecza, oznacza to, że żądanie jest odbijane między serwerami zaplecza, wybierz pozycję "**aplikacja korzysta z koligacji opartej na plikach cookie, ale żądania nadal przechodzą między serwerami**zaplecza" w dolnej części, aby rozwiązać ten problem.
+Jeśli widzisz dwa elementy pochodzące z tego samego ClientIP i portu klienta i są one wysyłane do różnych serwerów zaplecza, oznacza to, że żądanie jest odbijane między serwerami zaplecza, wybierz pozycję " **aplikacja korzysta z koligacji opartej na plikach cookie, ale żądania nadal przechodzą między serwerami** zaplecza" w dolnej części, aby rozwiązać ten problem.
 
 ### <a name="use-web-debugger-to-capture-and-analyze-the-http-or-https-traffics"></a>Przechwytywanie i analizowanie ruchu HTTP lub HTTPS za pomocą debugera sieci Web
 
@@ -174,7 +174,7 @@ Użyj wybranego debugera sieci Web. W tym przykładzie będziemy używać progra
 
     ![Zrzut ekranu przedstawia debuger sieci Web programu Fiddler z wyróżnionym wskaźnikiem przechwytywania.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. Najprawdopodobniej interesuje Cię odszyfrowany ruch https i można włączyć odszyfrowywanie https, wybierając pozycję **Narzędzia**  >  **Opcje programu Fiddler**, a następnie zaznacz pole wyboru " **Szyfruj ruch https**".
+4. Najprawdopodobniej interesuje Cię odszyfrowany ruch https i można włączyć odszyfrowywanie https, wybierając pozycję **Narzędzia**  >  **Opcje programu Fiddler** , a następnie zaznacz pole wyboru " **Szyfruj ruch https** ".
 
     ![Zrzut ekranu przedstawia opcje w programu Fiddler z wybraną pozycją H T t i odszyfruj wybrany ruch HTTPS.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -190,7 +190,7 @@ Użyj wybranego debugera sieci Web. W tym przykładzie będziemy używać progra
 
     Przykłady:
 
-- **Przykład:** Można znaleźć dziennik sesji, z którego żądanie jest wysyłane z klienta i który przechodzi do publicznego adresu IP Application Gateway, kliknij ten dziennik, aby wyświetlić szczegóły.  Po prawej stronie dane w dolnym polu to elementy, które Application Gateway zwraca klientowi. Wybierz kartę "RAW" i określ, czy klient otrzymuje "**Set-Cookie: ARRAffinity =** *ARRAffinityValue*". Jeśli nie ma pliku cookie, koligacja sesji nie jest ustawiona lub Application Gateway nie stosuje pliku cookie z powrotem do klienta.
+- **Przykład:** Można znaleźć dziennik sesji, z którego żądanie jest wysyłane z klienta i który przechodzi do publicznego adresu IP Application Gateway, kliknij ten dziennik, aby wyświetlić szczegóły.  Po prawej stronie dane w dolnym polu to elementy, które Application Gateway zwraca klientowi. Wybierz kartę "RAW" i określ, czy klient otrzymuje " **Set-Cookie: ARRAffinity =** *ARRAffinityValue* ". Jeśli nie ma pliku cookie, koligacja sesji nie jest ustawiona lub Application Gateway nie stosuje pliku cookie z powrotem do klienta.
 
    > [!NOTE]
    > Ta wartość ARRAffinity jest identyfikatorem cookie, który Application Gateway ustawiany przez klienta do określonego serwera zaplecza.

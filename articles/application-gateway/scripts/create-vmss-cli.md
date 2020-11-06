@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b7ae2543cfa9226064a2890b95dcc96be85fe56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c936acc00801f8473c1ec74aa50dbf2abb4936
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497226"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397029"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Zarządzanie ruchem internetowym przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -45,16 +45,16 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Tworzy sieć wirtualną. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Tworzy podsieć w sieci wirtualnej. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Tworzy publiczny adres IP dla bramy aplikacji. |
-| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Tworzy bramę aplikacji. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Tworzy zestaw skalowania maszyn wirtualnych. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Pobiera publiczny adres IP bramy aplikacji. |
+| [az group create](/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az network vnet create](/cli/azure/network/vnet) | Tworzy sieć wirtualną. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Tworzy podsieć w sieci wirtualnej. |
+| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | Tworzy publiczny adres IP dla bramy aplikacji. |
+| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | Tworzy bramę aplikacji. |
+| [az vmss create](/cli/azure/vmss) | Tworzy zestaw skalowania maszyn wirtualnych. |
+| [az network public-ip show](/cli/azure/network/public-ip) | Pobiera publiczny adres IP bramy aplikacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia bramy aplikacji można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Windows](../cli-samples.md).

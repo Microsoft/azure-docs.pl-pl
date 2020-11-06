@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ed4bc60fbffbfbc553d41d7f7d44709551b620dc
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: a09563e787573f3cb3dd510229822a0b0fbcb6c9
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280343"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395890"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -31,11 +31,11 @@ Najbardziej aktualna wersja interfejsu API płaszczyzny kontroli to _**2020-10-3
 Aby używać interfejsów API płaszczyzny kontroli:
 * Interfejsy API można wywoływać bezpośrednio, odwołując się do najnowszej struktury Swagger w [folderze płaszczyzny kontroli Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie.
 * Obecnie możesz uzyskiwać dostęp do zestawów SDK dla formantów API w...
-  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([odwołanie [generowane automatycznie]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([Źródło](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([odwołanie [generowane automatycznie]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview)) ([Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
-  - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
-  - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([Źródło](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
-  - [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
+  - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ( [odwołanie [generowane automatycznie]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ( [Źródło](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ( [odwołanie [generowane automatycznie]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview)) ( [Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
+  - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ( [Źródło](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
+  - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ( [Źródło](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
+  - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ( [Źródło](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
 
 Możesz również wykonywać interfejsy API płaszczyzny kontroli, współpracując z usługą Azure Digital bliźniaczych reprezentacji za pomocą [Azure Portal](https://portal.azure.com) i [interfejsu wiersza polecenia](how-to-use-cli.md).
 
@@ -53,21 +53,22 @@ Aby używać interfejsów API płaszczyzny danych:
 * Interfejsy API można wywoływać bezpośrednio, przez...
    - Odwoływanie się do najnowszej struktury Swagger w [folderze Swagger płaszczyzny danych](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie. 
    - Wyświetlanie [dokumentacji dotyczącej interfejsu API](/rest/api/azure-digitaltwins/).
-* Możesz użyć zestawu SDK **platformy .NET (C#)** . Aby użyć zestawu SDK platformy .NET...
+* Możesz użyć **zestawu SDK platformy .NET (C#)**. Aby użyć zestawu SDK platformy .NET...
    - Możesz wyświetlić i dodać pakiet z programu NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - można wyświetlić [dokumentację referencyjną zestawu SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
    - Źródło zestawu SDK, w tym folder przykładów, można znaleźć w witrynie GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - Aby wyświetlić szczegółowe informacje i przykłady użycia, można kontynuować sekcję [zestawu SDK platformy .NET (C#)](#net-c-sdk-data-plane) w tym artykule.
-* Możesz użyć zestawu SDK **języka Java** . Aby użyć zestawu Java SDK...
+   - Aby wyświetlić szczegółowe informacje i przykłady użycia, można kontynuować sekcję [*zestawu SDK platformy .NET (C#)*](#net-c-sdk-data-plane) w tym artykule.
+* Możesz użyć **zestawu SDK języka Java**. Aby użyć zestawu Java SDK...
    - Możesz wyświetlić i zainstalować pakiet z Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
-   - można wyświetlić [dokumentację referencyjną zestawu SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
+   - można wyświetlić [dokumentację referencyjną zestawu SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable)
    - Źródło zestawu SDK można znaleźć w usłudze GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
-* Możesz użyć zestawu SDK **języka JavaScript** . Aby użyć zestawu SDK języka JavaScript...
-   - Możesz wyświetlić i zainstalować pakiet z npm: [Azure Digital bliźniaczych reprezentacji Client Library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
-   - można wyświetlić [dokumentację referencyjną zestawu SDK](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
+* Możesz użyć **zestawu SDK języka JavaScript**. Aby użyć zestawu SDK języka JavaScript...
+   - Możesz wyświetlić i zainstalować pakiet z npm: [Azure Azure Digital bliźniaczych reprezentacji Core Client Library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
+   - można wyświetlić [dokumentację referencyjną zestawu SDK](/javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest&preserve-view=true).
    - Źródło zestawu SDK można znaleźć w usłudze GitHub: [podstawowa Biblioteka kliencka usługi Azure Azure Digital bliźniaczych reprezentacji dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
-* Możesz użyć zestawu SDK języka **Python** . Aby użyć zestawu SDK języka Python...
-   - Możesz wyświetlić i zainstalować pakiet: [podstawowa Biblioteka kliencka usługi Azure Azure Digital bliźniaczych reprezentacji dla języka Python](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/).
+* Możesz użyć **zestawu SDK języka Python**. Aby użyć zestawu SDK języka Python...
+   - Możesz wyświetlić i zainstalować pakiet z PyPi: [Azure Azure Digital bliźniaczych reprezentacji Core Client Library dla języka Python](https://pypi.org/project/azure-digitaltwins-core/).
+   - można wyświetlić [dokumentację referencyjną zestawu SDK](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
    - Źródło zestawu SDK można znaleźć w usłudze GitHub: [podstawowa Biblioteka kliencka usługi Azure Azure Digital bliźniaczych reprezentacji dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Zestaw SDK dla innego języka można wygenerować przy użyciu funkcji AutoRest. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
 

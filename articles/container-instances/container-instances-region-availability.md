@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Azure 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521462"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395873"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure
 
@@ -29,27 +29,28 @@ Poniższe regiony i maksymalne zasoby są dostępne dla grup kontenerów z konte
 > [!IMPORTANT]
 > Maksymalne zasoby w regionie są różne w zależności od wdrożenia. Na przykład region może mieć inny maksymalny rozmiar procesora i pamięci w ramach wdrożenia sieci wirtualnej platformy Azure niż w przypadku ogólnego wdrożenia. Ten sam region może również mieć inny zestaw wartości maksymalnych dla wdrożenia z zasobami procesora GPU. Sprawdź typ wdrożenia przed sprawdzeniem w poniższych tabelach wartości maksymalnych w Twoim regionie.
 
-| Region | CPU (maksymalnie) | Maksymalna ilość pamięci (GB) | Maksymalny procesor sieci wirtualnej | Maksymalna pamięć sieci wirtualnej (GB) | Magazyn (GB) | Jednostki SKU procesora GPU (wersja zapoznawcza) |
+| Region (Region) | CPU (maksymalnie) | Maksymalna ilość pamięci (GB) | Maksymalny procesor sieci wirtualnej | Maksymalna pamięć sieci wirtualnej (GB) | Magazyn (GB) | Jednostki SKU procesora GPU (wersja zapoznawcza) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
-| Australia Wschodnia | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | Nie dotyczy |
-| Kanada Środkowa | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Australia Wschodnia | 4 | 16 | 4 | 16 | 50 | Brak |
+| Brazil South | 4 | 16 | 2 | 8 | 50 | Brak |
+| Kanada Środkowa | 4 | 16 | 4 | 16 | 50 | Brak |
 | Indie Środkowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | V100 |
-| Central US | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
-| Azja Wschodnia | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Central US | 4 | 16 | 4 | 16 | 50 | Brak |
+| Azja Wschodnia | 4 | 16 | 4 | 16 | 50 | Brak |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| Wschodnie stany USA 2 | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
-| Japonia Wschodnia | 2 | 8 | 4 | 16 | 50 | Nie dotyczy |
-| Korea Środkowa | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
-| Północno-środkowe stany USA | 2 | 3,5 | 4 | 16 | 50 | Nie dotyczy |
+| Wschodnie stany USA 2 | 4 | 16 | 4 | 16 | 50 | Brak |
+| Francja Środkowa | 4 | 16 | 4 | 16 | 50 | Brak |
+| Japan East | 2 | 8 | 4 | 16 | 50 | Brak |
+| Korea Środkowa | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Brak |
+| Północno-środkowe stany USA | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europa Północna | 4 | 16 | 4 | 16 | 50 | K80 |
-| South Central US | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| South Central US | 4 | 16 | 4 | 16 | 50 | Brak |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
-| Indie Południowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
-| Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
-| Zachodnio-środkowe stany USA| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| Zachodnie stany USA | 4 | 16 | 2 | 4 | 16| Nie dotyczy |
+| Indie Południowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Brak |
+| Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 50 | Brak |
+| Zachodnio-środkowe stany USA| 4 | 16 | 4 | 16 | 50 | Brak |
+| Europa Zachodnia | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Zachodnie stany USA | 4 | 16 | 4 | 16 | 50 | Brak |
 | Zachodnie stany USA 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Następujące maksymalne zasoby są dostępne dla grupy kontenerów wdrożonej z [zasobami procesora GPU](container-instances-gpu.md) (wersja zapoznawcza).
@@ -67,29 +68,63 @@ Następujące maksymalne zasoby są dostępne dla grupy kontenerów wdrożonej z
 
 Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [obsługiwanymi i podglądami](container-instances-faq.md#what-windows-base-os-images-are-supported) kontenerów systemu Windows Server.
 
-| Region | Maksymalny procesor systemu Windows Server 2016 | Maksymalna pamięć w systemie Windows Server 2016 (GB) | Windows Server 2019 LTSC Max CPU | LTSC Maksymalna pamięć (GB) dla systemu Windows Server 2019 | Magazyn (GB) |
+###  <a name="windows-server-2016"></a>Windows Server 2016
+
+> [!NOTE]
+> Aby uzyskać więcej informacji na temat hostów 1B, 2B i 3B, zobacz [zgodność hostów i wersji kontenerów](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
+
+| Region (Region) | 1B/2B maksymalny procesor CPU | 1B/2B Maksymalna pamięć (GB) |3B maksymalny procesor CPU | b Maksymalna pamięć (GB) | Magazyn (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia Wschodnia | 2 | 3,5 | 4 | 16 | 20 |
+| Australia Wschodnia | 2 | 8 | 2 | 3,5 | 20 |
 | Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Kanada Środkowa | 2 | 3,5 | 4 | 16 | 20 |
-| Indie Środkowe | 2 | 3,5 | 4 | 16 | 20 |
-| Central US | 2 | 3,5 | 4 | 16 | 20 |
-| Azja Wschodnia | 2 | 3,5 | 4 | 16 | 20 |
-| East US | 2 | 8 | 4 | 16 | 20 |
+| Kanada Środkowa | 2 | 3,5 | 2 | 3,5 | 20 |
+| Indie Środkowe | 2 | 3,5 | 2 | 3,5 | 20 |
+| Central US | 2 | 3,5 | 2 | 3,5 | 20 |
+| Azja Wschodnia | 2 | 3,5 | 2 | 3,5 | 20 |
+| East US | 4 | 16 | 2 | 8 | 20 |
+| Wschodnie stany USA 2 | 2 | 3,5 | 4 | 16 | 20 |
+| Japan East | 4 | 16 | 4 | 16 | 20 |
+| Korea Środkowa | 4 | 16 | 4 | 16 | 20 |
+| Północno-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
+| Europa Północna | 2 | 3,5 | 2 | 8 | 20 |
+| South Central US | 2 | 3,5 | 2 | 3,5 | 20 |
+| Southeast Asia | NIE DOTYCZY | NIE DOTYCZY | 2 | 3,5 | 20 |
+| Indie Południowe | 2 | 3,5 | 2 | 3,5 | 20 |
+| Południowe Zjednoczone Królestwo | 2 | 8 | 2 | 3,5 | 20 |
+| Zachodnio-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
+| Europa Zachodnia | 4 | 16 | 4 | 16 | 20 |
+| Zachodnie stany USA | 4 | 16 | 2 | 8 | 20 |
+| Zachodnie stany USA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+
+
+### <a name="windows-server-2019-ltsc"></a>LTSC systemu Windows Server 2019
+
+> [!NOTE]
+> Aby uzyskać więcej informacji na temat hostów 1B, 2B i 3B, zobacz [zgodność hostów i wersji kontenerów](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
+
+| Region (Region) | 1B/2B maksymalny procesor CPU | 1B/2B Maksymalna pamięć (GB) |3B maksymalny procesor CPU | b Maksymalna pamięć (GB) | Magazyn (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Australia Wschodnia | 4 | 16 | 4 | 16 | 20 |
+| Brazil South | 4 | 16 | 4 | 16 | 20 |
+| Kanada Środkowa | 4 | 16 | 4 | 16 | 20 |
+| Indie Środkowe | 4 | 16 | 4 | 16 | 20 |
+| Central US | 4 | 16 | 4 | 16 | 20 |
+| Azja Wschodnia | 4 | 16 | 4 | 16 | 20 |
+| East US | 4 | 16 | 4 | 16 | 20 |
 | Wschodnie stany USA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
 | Francja Środkowa | 4 | 16 | 4 | 16 | 20 |
-| Japonia Wschodnia | 4 | 16 | 4 | 16 | 20 |
+| Japan East | NIE DOTYCZY | Nie dotyczy | 4 | 16 | 20 |
 | Korea Środkowa | 4 | 16 | 4 | 16 | 20 |
-| Północno-środkowe stany USA | 2 | 3,5 | 4 | 16 | 20 |
-| Europa Północna | 2 | 3,5 | 4 | 16 | 20 |
-| South Central US | 2 | 3,5 | 4 | 16 | 20 |
-| Indie Południowe | 2 | 3,5 | 4 | 16 | 20 |
-| Southeast Asia | 2 | 3,5 | 4 | 16 | 20 |
-| Południowe Zjednoczone Królestwo | 2 | 3,5 | 4 | 16 | 20 |
+| Północno-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
+| Europa Północna | 4 | 16 | 4 | 16 | 20 |
+| South Central US | 4 | 16 | 4 | 16 | 20 |
+| Southeast Asia | 4 | 16 | 4 | 16 | 20 |
+| Indie Południowe | 4 | 16 | 4 | 16 | 20 |
+| Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 20 |
 | Zachodnio-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
-| West Europe | 4 | 16 | 4 | 16 | 20 |
-| Zachodnie stany USA | 4 | 14 | NIE DOTYCZY | NIE DOTYCZY | 20 |
-| Zachodnie stany USA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| Europa Zachodnia | 4 | 16 | 4 | 16 | 20 |
+| Zachodnie stany USA | 4 | 16 | 4 | 16 | 20 |
+| Zachodnie stany USA 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 20bf72c55a5b6d76a3b214f0a679e28da81e41e2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558571"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398100"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Często zadawane pytania dotyczące interfejsu API platformy Azure dla usługi FHIR
 
@@ -52,7 +52,7 @@ Aby zobaczyć, co jest zwalniane w interfejsie API platformy Azure dla usługi F
 
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>W jakich regionach jest dostępny interfejs API platformy Azure dla usługi FHIR?
 
-Obecnie ogólnie dostępna jest ogólna dostępność zarówno dla publiczności, jak i dla instytucji rządowych w [wielu regionach geograficznych](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Aby uzyskać informacje o usługach w chmurze dla instytucji rządowych firmy Microsoft, zapoznaj się z [usługami platformy Azure według FedRAMP](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
+Obecnie ogólnie dostępna jest ogólna dostępność zarówno dla publiczności, jak i dla instytucji rządowych w [wielu regionach geograficznych](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Aby uzyskać informacje o usługach w chmurze dla instytucji rządowych firmy Microsoft, zapoznaj się z [usługami platformy Azure według FedRAMP](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Gdzie mogę zobaczyć, co jest uwalniane do interfejsu API platformy Azure dla usługi FHIR?
 
@@ -97,17 +97,17 @@ Poniżej przedstawiono przykłady poniżej:
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Co to jest domyślne sortowanie podczas wyszukiwania zasobów w usłudze Azure API for FHIR?
 
-Obsługujemy sortowanie według daty ostatniej aktualizacji: _sort = _lastUpdated. Aby uzyskać więcej informacji na temat innych obsługiwanych parametrów wyszukiwania, zapoznaj się z naszymi [obsługiwanymi funkcjami](https://docs.microsoft.com/azure/healthcare-apis/fhir-features-supported#search).
+Obsługujemy sortowanie według daty ostatniej aktualizacji: _sort = _lastUpdated. Aby uzyskać więcej informacji na temat innych obsługiwanych parametrów wyszukiwania, zapoznaj się z naszymi [obsługiwanymi funkcjami](./fhir-features-supported.md#search).
 
 ### <a name="how-does-export-work"></a>Jak działa $export?
 
-$export jest częścią specyfikacji FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Jeśli usługa FHIR jest skonfigurowana przy użyciu tożsamości zarządzanej i konta magazynu, a zarządzana tożsamość ma dostęp do tego konta magazynu — możesz po prostu wywołać $export w interfejsie API FHIR, a wszystkie zasoby FHIR zostaną wyeksportowane do konta magazynu. Aby uzyskać więcej informacji, zapoznaj się [z artykułem na $Export](https://docs.microsoft.com/azure/healthcare-apis/export-data).
+$export jest częścią specyfikacji FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Jeśli usługa FHIR jest skonfigurowana przy użyciu tożsamości zarządzanej i konta magazynu, a zarządzana tożsamość ma dostęp do tego konta magazynu — możesz po prostu wywołać $export w interfejsie API FHIR, a wszystkie zasoby FHIR zostaną wyeksportowane do konta magazynu. Aby uzyskać więcej informacji, zapoznaj się [z artykułem na $Export](./export-data.md).
 
 ## <a name="using-azure-api-for-fhir"></a>Korzystanie z interfejsu API platformy Azure dla usługi FHIR
 
 ### <a name="how-do-i-enable-log-analytics-for-azure-api-for-fhir"></a>Jak mogę włączyć usługę log Analytics dla usługi Azure API for FHIR?
 
-Włączamy rejestrowanie diagnostyczne i zezwalają na przeglądanie przykładowych zapytań dla tych dzienników. Aby uzyskać szczegółowe informacje na temat włączania dzienników inspekcji i przykładowych zapytań, zapoznaj się z [tą sekcją](https://docs.microsoft.com/azure/healthcare-apis/enable-diagnostic-logging). Jeśli chcesz uwzględnić dodatkowe informacje w dziennikach, Wyewidencjonuj [przy użyciu niestandardowych nagłówków HTTP](https://docs.microsoft.com/azure/healthcare-apis/use-custom-headers).
+Włączamy rejestrowanie diagnostyczne i zezwalają na przeglądanie przykładowych zapytań dla tych dzienników. Aby uzyskać szczegółowe informacje na temat włączania dzienników inspekcji i przykładowych zapytań, zapoznaj się z [tą sekcją](./enable-diagnostic-logging.md). Jeśli chcesz uwzględnić dodatkowe informacje w dziennikach, Wyewidencjonuj [przy użyciu niestandardowych nagłówków HTTP](./use-custom-headers.md).
 
 ### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Gdzie mogę zobaczyć przykłady użycia interfejsu API platformy Azure dla usługi FHIR w ramach przepływu pracy?
 
@@ -121,7 +121,7 @@ Mamy stronę usługi [GitHub o architekturze kondycji](https://github.com/micros
 
 ### <a name="is-there-a-way-to-encrypt-my-data-using-my-personal-key-not-a-default-key"></a>Czy istnieje sposób, aby zaszyfrować dane przy użyciu klucza osobistego nie klucza domyślnego?
 
-Tak, usługa Azure API for FHIR umożliwia konfigurowanie kluczy zarządzanych przez klienta, korzystanie z pomocy technicznej Cosmos DB. Aby uzyskać więcej informacji na temat szyfrowania danych za pomocą klucza osobistego, zapoznaj się z [tą sekcją](https://docs.microsoft.com/azure/healthcare-apis/customer-managed-key).
+Tak, usługa Azure API for FHIR umożliwia konfigurowanie kluczy zarządzanych przez klienta, korzystanie z pomocy technicznej Cosmos DB. Aby uzyskać więcej informacji na temat szyfrowania danych za pomocą klucza osobistego, zapoznaj się z [tą sekcją](./customer-managed-key.md).
 
 ## <a name="azure-api-for-fhir-preview-features"></a>Azure API for FHIR: funkcje w wersji zapoznawczej
 

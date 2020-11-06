@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 37e76f54b9c4fe38c891f7cee7bc443d1b0b20f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596077"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397182"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Kierowanie ruchu internetowego na podstawie adresu URL za pomocą programu Azure PowerShell
 
-Korzystając z programu Azure PowerShell, możesz skonfigurować kierowanie ruchu internetowego do określonych skalowalnych pul serwerów na podstawie adresu URL użytego do uzyskania dostępu do aplikacji. W tym artykule opisano tworzenie [Application Gateway platformy Azure](application-gateway-introduction.md) z trzema pulami zaplecza przy użyciu [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Każda z pul zaplecza ma określony cel, na przykład obsługę typowych danych, obrazów i wideo.  Kierowanie ruchu do oddzielnych pul gwarantuje, że klienci otrzymają potrzebne informacje we właściwym czasie.
+Korzystając z programu Azure PowerShell, możesz skonfigurować kierowanie ruchu internetowego do określonych skalowalnych pul serwerów na podstawie adresu URL użytego do uzyskania dostępu do aplikacji. W tym artykule opisano tworzenie [Application Gateway platformy Azure](./overview.md) z trzema pulami zaplecza przy użyciu [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md). Każda z pul zaplecza ma określony cel, na przykład obsługę typowych danych, obrazów i wideo.  Kierowanie ruchu do oddzielnych pul gwarantuje, że klienci otrzymają potrzebne informacje we właściwym czasie.
 
-Aby włączyć kierowanie ruchu, należy utworzyć [reguły routingu](application-gateway-url-route-overview.md) przypisane do odbiorników nasłuchujących na określonych portach w celu zapewnienia, że ruch internetowy będzie kierowany do odpowiednich serwerów w pulach.
+Aby włączyć kierowanie ruchu, należy utworzyć [reguły routingu](./url-route-overview.md) przypisane do odbiorników nasłuchujących na określonych portach w celu zapewnienia, że ruch internetowy będzie kierowany do odpowiednich serwerów w pulach.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -185,7 +185,7 @@ W tym momencie masz bramę aplikacji, która nasłuchuje ruchu na porcie 80 i wy
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Dodawanie pul zaplecza i portu na potrzeby obsługi obrazów i wideo
 
-Dodaj pule zaplecza o nazwie *imagesBackendPool* i *videoBackendPool* do bramy Application Gateway[Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Dodaj port frontonu dla pul przy użyciu polecenia [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Prześlij zmiany do bramy aplikacji przy użyciu polecenia [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
+Dodaj pule zaplecza o nazwie *imagesBackendPool* i *videoBackendPool* do bramy Application Gateway [Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Dodaj port frontonu dla pul przy użyciu polecenia [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Prześlij zmiany do bramy aplikacji przy użyciu polecenia [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech utworzonych pul zaplecza. Utworzone zestawy skalowania będą miały nazwy *myvmss1*, *myvmss2* i *myvmss3*. Zestaw skalowania przypisuje się do puli zaplecza podczas konfigurowania ustawień adresu IP.
+W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech utworzonych pul zaplecza. Utworzone zestawy skalowania będą miały nazwy *myvmss1* , *myvmss2* i *myvmss3*. Zestaw skalowania przypisuje się do puli zaplecza podczas konfigurowania ustawień adresu IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

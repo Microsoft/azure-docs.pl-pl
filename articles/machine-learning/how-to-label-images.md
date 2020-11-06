@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: ff8ade938433e09c6b9ff9deffe64d8294d96b8c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0d0f344e60edfc83c8ac4f79ad18520307b790e3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325546"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396645"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
@@ -126,6 +126,28 @@ Użyj narzędzia **opartego na szablonie** narzędzia Box ![ ](./media/how-to-la
 Aby usunąć *wszystkie* pola związane z bieżącym obrazem, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń regiony ](./media/how-to-label-images/delete-regions-tool.png) .
 
 Po utworzeniu pól ograniczenia dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
+
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Tworzenie tagów obrazów i określanie wielokątów dla segmentacji obrazów 
+
+Jeśli projekt jest typu "segmentacja wystąpienia (Wielokąt)", należy określić jeden lub więcej wielokątów w obrazie i zastosować tag do każdego wielokąta. Obrazy mogą zawierać wiele wielokątów, z których każdy ma jeden tag. Użyj **widoku szczegółowe instrukcje** , aby określić, czy w projekcie są używane wiele wielokątów powiązanych.
+
+1. Wybierz tag dla wielokąta, który ma zostać utworzony.
+1. Wybierz narzędzie **Rysuj region wielokąta** , ![ rysując region wielokąta ](./media/how-to-label-images/polygon-tool.png) lub wybierz "P".
+3. Kliknij dla każdego punktu w wielokąta.  Po zakończeniu kształtu kliknij dwukrotnie, aby zakończyć.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Tworzenie wielokątów dla klas Cat i Dog":::
+
+Aby usunąć Wielokąt, kliknij obiekt docelowy w kształcie X, który pojawia się obok wielokąta po utworzeniu.
+
+Jeśli chcesz zmienić tag dla wielokąta, wybierz narzędzie do **przenoszenia regionów** , kliknij Wielokąt i wybierz odpowiedni tag.
+
+Można edytować istniejące wielokąty. Narzędzie **blokowania/odblokowywania** regionów narzędzie do ![ blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego wielokąta.
+
+Aby dostosować istniejący Wielokąt, użyj narzędzia **Dodaj lub Usuń punkty wielokąta** w obszarze narzędzia ![ do manipulowania regionami ](./media/how-to-label-images/add-remove-points-tool.png) lub "U". Kliknij Wielokąt, aby dodać lub usunąć punkt. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
+
+Aby usunąć *wszystkie* wielokąty w bieżącym obrazie, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń regiony ](./media/how-to-label-images/delete-regions-tool.png) .
+
+Po utworzeniu wielokątów dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
 
 ## <a name="finish-up"></a>Zakończenie
 

@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49fd6a939fc30671cf78984fdcba009666f6121e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331033"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397318"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP do HTTPS za pomocą interfejsu wiersza polecenia platformy Azure
 
-Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS/SSL. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie utworzysz również [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) dla puli zaplecza bramy aplikacji, która zawiera dwa wystąpienia maszyn wirtualnych.
+Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS/SSL. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie utworzysz również [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) dla puli zaplecza bramy aplikacji, która zawiera dwa wystąpienia maszyn wirtualnych.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -217,12 +217,10 @@ az network public-ip show \
 
 ![Ostrzeżenie o zabezpieczeniach](./media/redirect-http-to-https-cli/application-gateway-secure.png)
 
-Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły**, a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna serwera NGINX, tak jak w poniższym przykładzie:
+Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły** , a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna serwera NGINX, tak jak w poniższym przykładzie:
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu interfejsu wiersza polecenia platformy Azure](redirect-internal-site-cli.md)
-
-

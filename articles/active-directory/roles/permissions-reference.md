@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378826"
+ms.locfileid: "93396519"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -90,7 +90,7 @@ Uprawnienie [administrator uwierzytelniania uprzywilejowanego](#privileged-authe
 
 ### <a name="azure-devops-administrator"></a>[Administrator usługi Azure DevOps](#azure-devops-administrator-permissions)
 
-Użytkownicy z tą rolą mogą zarządzać zasadami usługi Azure DevOps, aby ograniczyć Tworzenie nowej organizacji usługi Azure DevOps do zestawu konfigurowalnych użytkowników lub grup. Użytkownicy w tej roli mogą zarządzać tymi zasadami za pomocą dowolnej organizacji usługi Azure DevOps, która jest objęta organizacją organizacji usługi Azure AD firmy.
+Użytkownicy z tą rolą mogą zarządzać zasadami usługi Azure DevOps, aby ograniczyć Tworzenie nowej organizacji usługi Azure DevOps do zestawu konfigurowalnych użytkowników lub grup. Użytkownicy w tej roli mogą zarządzać tymi zasadami za pomocą dowolnej organizacji usługi Azure DevOps, która jest obsługiwana przez organizację usługi Azure AD firmy. Ta rola nie udziela żadnych innych uprawnień specyficznych dla usługi Azure DevOps (na przykład administratorów kolekcji projektów) w ramach żadnej organizacji usługi Azure DevOps objętej organizacją usługi Azure AD firmy.
 
 Wszystkie zasady usługi Azure DevOps dla przedsiębiorstw mogą być zarządzane przez użytkowników w tej roli.
 

@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042494"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398202"
 ---
 # <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych 
 
 Interfejs API platformy Azure dla usługi FHIR używa bazy danych do przechowywania danych. Wydajność podstawowej bazy danych zależy od liczby jednostek żądań wybranych podczas aprowizacji usług lub w ustawieniach bazy danych po zainicjowaniu obsługi administracyjnej usługi.
 
-Usługa Azure API for FHIR zażyczy koncepcji jednostek ru z Cosmos DB (zobacz [jednostki żądań w Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)) podczas ustawiania wydajności źródłowej bazy danych. 
+Usługa Azure API for FHIR zażyczy koncepcji jednostek ru z Cosmos DB (zobacz [jednostki żądań w Azure Cosmos DB](../cosmos-db/request-units.md)) podczas ustawiania wydajności źródłowej bazy danych. 
 
 Obsługa przepływności musi być zapewniona, aby zapewnić, że dla bazy danych są dostępne wystarczające zasoby systemowe. Ile jednostek ru potrzebujesz dla aplikacji, zależy od wykonywanych operacji. Operacje mogą być różne od prostych operacji odczytu i zapisu do bardziej złożonych zapytań. 
 

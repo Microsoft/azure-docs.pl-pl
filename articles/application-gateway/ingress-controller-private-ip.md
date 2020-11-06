@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be37ed1da0da4da3db43ef4c1cd01ed962f24ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806799"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397312"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Używanie prywatnego adresu IP do routingu wewnętrznego dla punktu końcowego transferu danych przychodzących 
 
 Ta funkcja pozwala uwidocznić punkt końcowy transferu danych przychodzących w ramach `Virtual Network` prywatnego adresu IP.
 
 ## <a name="pre-requisites"></a>Wymagania wstępne  
-Application Gateway z [konfiguracją prywatnego adresu IP](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Application Gateway z [konfiguracją prywatnego adresu IP](./configure-application-gateway-with-private-frontend-ip.md)
 
 Istnieją dwa sposoby konfigurowania kontrolera do korzystania z prywatnego adresu IP na potrzeby ruchu przychodzącego.
 
@@ -66,4 +66,4 @@ Dzięki temu kontroler transferu danych przychodzących będzie przefiltrować k
 AGIC będzie awaryjnego i ulega awarii, jeśli `usePrivateIP: true` nie zostanie przypisany prywatny adres IP.
 
 > [!NOTE]
-> Jednostka SKU Application Gateway v2 wymaga publicznego adresu IP. Jeśli potrzebujesz Application Gateway być prywatnym, Dołącz [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) do podsieci Application Gateway, aby ograniczyć ruch.
+> Jednostka SKU Application Gateway v2 wymaga publicznego adresu IP. Jeśli potrzebujesz Application Gateway być prywatnym, Dołącz [`Network Security Group`](../virtual-network/network-security-groups-overview.md) do podsieci Application Gateway, aby ograniczyć ruch.

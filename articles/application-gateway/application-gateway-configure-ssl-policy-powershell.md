@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808240"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397930"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Skonfiguruj wersje zasad protokołu TLS i mechanizmy szyfrowania na Application Gateway
 
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Aktualizowanie istniejącej bramy aplikacji przy użyciu wstępnie zdefiniowanych zasad protokołu TLS
 
-Aby ustawić niestandardowe zasady protokołu TLS, należy przekazać następujące parametry: **policyType**, **MinProtocolVersion**, **CipherSuite**i **elementu applicationgateway**. Aby ustawić wstępnie zdefiniowane zasady protokołu TLS, należy przekazać następujące parametry: **policyType**, **PolicyName**i **elementu applicationgateway**. Jeśli próbujesz przekazać inne parametry, podczas tworzenia lub aktualizowania Application Gateway wystąpi błąd.
+Aby ustawić niestandardowe zasady protokołu TLS, należy przekazać następujące parametry: **policyType** , **MinProtocolVersion** , **CipherSuite** i **elementu applicationgateway**. Aby ustawić wstępnie zdefiniowane zasady protokołu TLS, należy przekazać następujące parametry: **policyType** , **PolicyName** i **elementu applicationgateway**. Jeśli próbujesz przekazać inne parametry, podczas tworzenia lub aktualizowania Application Gateway wystąpi błąd.
 
 W poniższym przykładzie istnieją przykłady kodu dla zasad niestandardowych i wstępnie zdefiniowanych zasad. Usuń komentarz z zasad, których chcesz użyć.
 
@@ -217,4 +217,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Następne kroki
 
-Odwiedź stronę [Omówienie przekierowania Application Gateway](application-gateway-redirect-overview.md) , aby dowiedzieć się, jak przekierować ruch HTTP do punktu końcowego HTTPS.
+Odwiedź stronę [Omówienie przekierowania Application Gateway](./redirect-overview.md) , aby dowiedzieć się, jak przekierować ruch HTTP do punktu końcowego HTTPS.

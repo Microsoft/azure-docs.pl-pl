@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336534"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398015"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -45,7 +45,7 @@ Konfiguracja adresu IP frontonu dla międzyregionowego modułu równoważenia ob
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram modułu równoważenia obciążenia między regionami." border="true":::
 
 > [!NOTE]
-> Port zaplecza Załaduj regułę równoważenia w module równoważenia obciążenia między regionami powinien być zgodny z portem frontonu reguły równoważenia obciążenia/reguły NAT dla ruchu przychodzącego w regionalnym standardowym module równoważenia obciążenia. 
+> Port zaplecza reguły równoważenia obciążenia w module równoważenia obciążenia między regionami powinien być zgodny z portem frontonu reguły równoważenia obciążenia/reguły NAT dla ruchu przychodzącego w regionalnym standardowym module równoważenia obciążenia. 
 
 ### <a name="regional-redundancy"></a>Nadmiarowość regionalna
 
@@ -55,7 +55,7 @@ Jeśli jeden region ulegnie awarii, ruch jest kierowany do następnego najbliżs
 
 Sonda kondycji modułu równoważenia obciążenia między regionami zbiera informacje o dostępności co 20 sekund. Jeśli jeden z regionalnych modułów równoważenia obciążenia powróci swoją dostępność na 0, moduł równoważenia obciążenia między regionami wykryje awarię. Moduł równoważenia obciążenia w regionie jest wyłączany. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram modułu równoważenia obciążenia między regionami." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram widoku ruchu globalnego w regionie." border="true":::
 
 ### <a name="ultra-low-latency"></a>Niezwykle małe opóźnienia
 

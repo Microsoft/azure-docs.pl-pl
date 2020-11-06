@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: 22f31cf3911b5ea24e8798fb226e389071fadd0b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa95dc5cc052fbff6c553de50f4f52dc5df850a5
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87848982"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398117"
 ---
 # <a name="register-the-azure-active-directory-apps-for-azure-api-for-fhir"></a>Zarejestruj Azure Active Directory aplikacje dla interfejsu API platformy Azure dla usługi FHIR
 
@@ -31,9 +31,9 @@ Aby aplikacja mogła korzystać z usługi Azure AD, musi zostać zarejestrowana.
 
 *Aplikacje klienckie* to rejestracje klientów, którzy będą żądać tokenów. Często w przypadku protokołu OAuth 2,0 rozróżniamy co najmniej trzy różne typy aplikacji:
 
-1. **Poufne klienci**, nazywani również aplikacjami sieci Web w usłudze Azure AD. Poufne klienci są aplikacjami, które używają [przepływu kodu autoryzacji](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code) w celu uzyskania tokenu w imieniu zalogowanego użytkownika, który wysłał prawidłowe poświadczenia. Są one nazywane klientami poufnymi, ponieważ mogą przechowywać klucz tajny i zaprezentować ten klucz tajny w usłudze Azure AD podczas wymiany kodu uwierzytelniania dla tokenu. Ze względu na to, że poufne klienci mogą uwierzytelniać się przy użyciu klucza tajnego klienta, są one zaufane na więcej niż publiczne komputery klienckie i mogą mieć już inne tokeny i mieć przypisany token odświeżania. Zapoznaj się ze szczegółowymi informacjami na temat [rejestrowania klienta poufnego](register-confidential-azure-ad-client-app.md). Należy pamiętać, że jest ważne, aby zarejestrować adres URL odpowiedzi, pod którym klient będzie otrzymywał kod autoryzacji.
+1. **Poufne klienci** , nazywani również aplikacjami sieci Web w usłudze Azure AD. Poufne klienci są aplikacjami, które używają [przepływu kodu autoryzacji](../active-directory/azuread-dev/v1-protocols-oauth-code.md) w celu uzyskania tokenu w imieniu zalogowanego użytkownika, który wysłał prawidłowe poświadczenia. Są one nazywane klientami poufnymi, ponieważ mogą przechowywać klucz tajny i zaprezentować ten klucz tajny w usłudze Azure AD podczas wymiany kodu uwierzytelniania dla tokenu. Ze względu na to, że poufne klienci mogą uwierzytelniać się przy użyciu klucza tajnego klienta, są one zaufane na więcej niż publiczne komputery klienckie i mogą mieć już inne tokeny i mieć przypisany token odświeżania. Zapoznaj się ze szczegółowymi informacjami na temat [rejestrowania klienta poufnego](register-confidential-azure-ad-client-app.md). Należy pamiętać, że jest ważne, aby zarejestrować adres URL odpowiedzi, pod którym klient będzie otrzymywał kod autoryzacji.
 1. **Klienci publiczni**. Są to klienci, którzy nie mogą zachować klucza tajnego. Zwykle jest to aplikacja urządzenia przenośnego lub aplikacja JavaScript jednostronicowa, w której użytkownik może odnaleźć wpis tajny klienta. Klienci publiczni również używają przepływu kodu autoryzacji, ale nie mogą przedstawić wpisu tajnego podczas uzyskiwania tokenu i mogą mieć krótsze tokeny, a nie tokeny odświeżania. Zapoznaj się ze szczegółowymi informacjami na temat [rejestrowania klienta publicznego](register-public-azure-ad-client-app.md).
-1. Klienci usługi. Ci klienci uzyskują tokeny w imieniu własnym (a nie w imieniu użytkownika) przy użyciu [przepływu poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). Zazwyczaj reprezentują aplikacje, które uzyskują dostęp do serwera FHIR w sposób nieinteraktywny. Przykładem może być proces pozyskiwania. W przypadku korzystania z klienta usługi nie jest konieczne rozpoczęcie procesu uzyskiwania tokenu z wywołaniem do `/authorize` punktu końcowego. Klient usługi może przejść bezpośrednio do `/token` punktu końcowego i przedstawić identyfikator klienta i klucz tajny klienta w celu uzyskania tokenu. Zapoznaj się ze szczegółami dotyczącymi [rejestrowania klienta usługi](register-service-azure-ad-client-app.md)
+1. Klienci usługi. Ci klienci uzyskują tokeny w imieniu własnym (a nie w imieniu użytkownika) przy użyciu [przepływu poświadczeń klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md). Zazwyczaj reprezentują aplikacje, które uzyskują dostęp do serwera FHIR w sposób nieinteraktywny. Przykładem może być proces pozyskiwania. W przypadku korzystania z klienta usługi nie jest konieczne rozpoczęcie procesu uzyskiwania tokenu z wywołaniem do `/authorize` punktu końcowego. Klient usługi może przejść bezpośrednio do `/token` punktu końcowego i przedstawić identyfikator klienta i klucz tajny klienta w celu uzyskania tokenu. Zapoznaj się ze szczegółami dotyczącymi [rejestrowania klienta usługi](register-service-azure-ad-client-app.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

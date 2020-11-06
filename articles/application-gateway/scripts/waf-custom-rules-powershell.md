@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bf19052c11301412a299c31a2cd73ed2f9ffc7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 312f052671036d8153dd19fcf4e559e825fd8464
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079901"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396995"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Tworzenie reguł niestandardowych zapory aplikacji sieci Web (WAF) za pomocą Azure PowerShell
 
@@ -70,6 +70,6 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat reguł niestandardowych WAF, zobacz [reguły niestandardowe dla zapory aplikacji sieci Web](../custom-waf-rules-overview.md)
+- Aby uzyskać więcej informacji na temat reguł niestandardowych WAF, zobacz [reguły niestandardowe dla zapory aplikacji sieci Web](../../web-application-firewall/ag/custom-waf-rules-overview.md)
 - Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).
 - Dodatkowe przykładowe skrypty programu PowerShell dotyczące bramy aplikacji można znaleźć w [dokumentacji usługi Azure Application Gateway](../powershell-samples.md).

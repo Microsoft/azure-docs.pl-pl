@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808152"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397709"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Rozwiązywanie problemów z nieprawidłową bramą w usłudze Application Gateway
 
@@ -95,8 +95,8 @@ Poniższa tabela zawiera listę wartości skojarzonych z domyślną sondą kondy
 * Jeśli BackendHttpSetting określa port inny niż 80, należy skonfigurować domyślną lokację do nasłuchiwania na tym porcie.
 * Wywołanie `http://127.0.0.1:port` powinno zwrócić kod wyniku HTTP 200. Ta wartość powinna zostać zwrócona w ciągu 30-sekundowego okresu limitu czasu.
 * Upewnij się, że skonfigurowany port jest otwarty i że nie ma żadnych reguł zapory lub sieciowych grup zabezpieczeń platformy Azure, które blokują ruch przychodzący lub wychodzący na porcie skonfigurowanym.
-* Jeśli klasyczne maszyny wirtualne platformy Azure lub usługa w chmurze jest używana z nazwą FQDN lub publicznym adresem IP, należy się upewnić, że odpowiadający mu [punkt końcowy](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) jest otwarty.
-* Jeśli maszyna wirtualna jest skonfigurowana za pośrednictwem Azure Resource Manager i znajduje się poza siecią wirtualną, w której wdrożono bramę aplikacji, należy skonfigurować [sieciową grupę zabezpieczeń](../virtual-network/security-overview.md) tak, aby zezwalała na dostęp na żądanym porcie.
+* Jeśli klasyczne maszyny wirtualne platformy Azure lub usługa w chmurze jest używana z nazwą FQDN lub publicznym adresem IP, należy się upewnić, że odpowiadający mu [punkt końcowy](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) jest otwarty.
+* Jeśli maszyna wirtualna jest skonfigurowana za pośrednictwem Azure Resource Manager i znajduje się poza siecią wirtualną, w której wdrożono bramę aplikacji, należy skonfigurować [sieciową grupę zabezpieczeń](../virtual-network/network-security-groups-overview.md) tak, aby zezwalała na dostęp na żądanym porcie.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemy z niestandardową sondą kondycji
 
@@ -195,4 +195,3 @@ Upewnij się, że wystąpienia są w dobrej kondycji i że aplikacja została pr
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli powyższe kroki nie rozwiążą problemu, Otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/options/).
-

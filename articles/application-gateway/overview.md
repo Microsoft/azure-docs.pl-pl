@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: 7ccc83a61ac4ffe6e1bb6767a9c611bd3fcc0edf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52bc2a20be0d7113583b7f23cc569dbb9503d364
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892783"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397250"
 ---
 # <a name="what-is-azure-application-gateway"></a>Co to jest Azure Application Gateway?
 
@@ -28,7 +28,7 @@ Ten typ routingu jest nazywany równoważeniem obciążenia warstwy aplikacji (w
 >[!NOTE]
 > Platforma Azure udostępnia zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia dla Twoich scenariuszy. Jeśli potrzebujesz wysokiej wydajności, niskiego opóźnienia i równoważenia obciążenia warstwy 4, zobacz [co to jest Azure Load Balancer?](../load-balancer/load-balancer-overview.md) Jeśli szukasz globalnego równoważenia obciążenia DNS, zobacz [co to jest Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Kompleksowe scenariusze mogą przynieść korzyści wynikające z łączenia tych rozwiązań.
 >
-> Aby zapoznać się z porównaniem opcji równoważenia obciążenia platformy Azure, zobacz [Omówienie opcji równoważenia obciążenia na platformie Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> Aby zapoznać się z porównaniem opcji równoważenia obciążenia platformy Azure, zobacz [Omówienie opcji równoważenia obciążenia na platformie Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="features"></a>Funkcje
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558947"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398219"
 ---
 # <a name="configure-private-link"></a>Konfigurowanie linku prywatnego
 
@@ -30,7 +30,7 @@ Przed utworzeniem prywatnego punktu końcowego należy najpierw utworzyć zasoby
 - Azure API for FHIR — zasób FHIR, który chcesz umieścić za prywatnym punktem końcowym.
 - Virtual Network — sieć wirtualna, z którą będą połączone usługi klienta i prywatny punkt końcowy.
 
-Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją prywatnego linku](https://docs.microsoft.com/azure/private-link/).
+Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją prywatnego linku](../private-link/index.yml).
 
 ## <a name="disable-public-network-access"></a>Wyłącz dostęp do sieci publicznej
 
@@ -40,7 +40,7 @@ Utworzenie prywatnego punktu końcowego dla zasobu FHIR nie powoduje automatyczn
 
 ## <a name="create-private-endpoint"></a>Utwórz prywatny punkt końcowy
 
-Aby utworzyć prywatny punkt końcowy, deweloper z uprawnieniami RBAC w ramach zasobu FHIR może używać Azure Portal, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). W tym artykule omówiono procedurę korzystania z Azure Portal. Używanie Azure Portal jest zalecane, ponieważ automatyzuje tworzenie i konfigurację strefy Prywatna strefa DNS. Aby uzyskać więcej informacji, możesz odwoływać się do [prywatnego linku szybki start przewodników](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) .
+Aby utworzyć prywatny punkt końcowy, deweloper z uprawnieniami RBAC w ramach zasobu FHIR może używać Azure Portal, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](../private-link/create-private-endpoint-cli.md). W tym artykule omówiono procedurę korzystania z Azure Portal. Używanie Azure Portal jest zalecane, ponieważ automatyzuje tworzenie i konfigurację strefy Prywatna strefa DNS. Aby uzyskać więcej informacji, możesz odwoływać się do [prywatnego linku szybki start przewodników](../private-link/create-private-endpoint-portal.md) .
 
 Istnieją dwa sposoby tworzenia prywatnego punktu końcowego. Przepływ autozatwierdzania umożliwia użytkownikowi, który ma uprawnienia RBAC w zasobie FHIR, tworzenie prywatnego punktu końcowego bez konieczności zatwierdzania. Przepływ ręcznego zatwierdzania umożliwia użytkownikowi bez uprawnień do zasobu FHIR zażądanie prywatnego punktu końcowego, który ma zostać zatwierdzony przez właścicieli zasobu FHIR.
 

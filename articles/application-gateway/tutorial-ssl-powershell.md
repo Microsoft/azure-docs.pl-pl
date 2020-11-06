@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 67d22535f44d4d1b39b6c305fa0670d2d08be0c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bd57344f0bd7f3b97c523f9378a5820c1a90a84
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595805"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396570"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Tworzenie bramy aplikacji z zakończeniem protokołu TLS przy użyciu Azure PowerShell
 
-Za pomocą Azure PowerShell można utworzyć [bramę aplikacji](overview.md) z certyfikatem dla [zakończenia protokołu TLS/SSL](ssl-overview.md) , który używa [zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) dla serwerów zaplecza. W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, które są dodawane do domyślnej puli zaplecza bramy aplikacji. 
+Za pomocą Azure PowerShell można utworzyć [bramę aplikacji](overview.md) z certyfikatem dla [zakończenia protokołu TLS/SSL](ssl-overview.md) , który używa [zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) dla serwerów zaplecza. W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, które są dodawane do domyślnej puli zaplecza bramy aplikacji. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -35,7 +35,7 @@ Ten artykuł wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym artykule utworzysz certyfikat z podpisem własnym za pomocą polecenia [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
+Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym artykule utworzysz certyfikat z podpisem własnym za pomocą polecenia [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -284,7 +284,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Ostrzeżenie o zabezpieczeniach](./media/tutorial-ssl-powershell/application-gateway-secure.png)
 
-Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły**, a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna internetowa usług IIS, tak jak w poniższym przykładzie:
+Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły** , a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna internetowa usług IIS, tak jak w poniższym przykładzie:
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-ssl-powershell/application-gateway-iistest.png)
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506557"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397471"
 ---
 # <a name="how-an-application-gateway-works"></a>Jak działa Brama aplikacji
 
@@ -32,7 +32,7 @@ W tym artykule wyjaśniono, jak Brama aplikacji akceptuje żądania przychodząc
 
 Usługi Azure Application Gateway można używać jako wewnętrznego modułu równoważenia obciążenia aplikacji lub jako modułu równoważenia obciążenia aplikacji dostępnego z Internetu. Brama aplikacji mających dostęp do Internetu używa publicznych adresów IP. Nazwa DNS bramy aplikacji dostępnej z Internetu jest publicznie rozpoznawalna na swój publiczny adres IP. W związku z tym internetowe bramy aplikacji mogą kierować żądania klientów do Internetu.
 
-Wewnętrzne bramy aplikacji używają tylko prywatnych adresów IP. Jeśli używasz niestandardowej lub [prywatna strefa DNS strefy](https://docs.microsoft.com/azure/dns/private-dns-overview), nazwa domeny powinna być wewnętrznie rozpoznawalna na prywatny adres IP Application Gateway. W związku z tym wewnętrzne moduły równoważenia obciążenia mogą kierować żądania tylko od klientów mających dostęp do sieci wirtualnej dla bramy aplikacji.
+Wewnętrzne bramy aplikacji używają tylko prywatnych adresów IP. Jeśli używasz niestandardowej lub [prywatna strefa DNS strefy](../dns/private-dns-overview.md), nazwa domeny powinna być wewnętrznie rozpoznawalna na prywatny adres IP Application Gateway. W związku z tym wewnętrzne moduły równoważenia obciążenia mogą kierować żądania tylko od klientów mających dostęp do sieci wirtualnej dla bramy aplikacji.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>Jak Brama aplikacji kieruje żądanie
 
@@ -53,8 +53,8 @@ Gdy Brama aplikacji wysyła oryginalne żądanie do serwera wewnętrznej bazy da
  >[!NOTE]
 >Jeśli pula zaplecza:
 > - **To publiczny punkt końcowy**. Brama aplikacji używa publicznego adresu IP frontonu do uzyskiwania dostępu do serwera. Jeśli nie ma publicznego adresu IP frontonu, jeden zostanie przypisany do wychodzącej łączności zewnętrznej.
-> - **Zawiera wewnętrznie rozpoznawalną nazwę FQDN lub prywatny adres IP**, Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych za pomocą prywatnych adresów IP wystąpienia.
-> - **Zawiera zewnętrzny punkt końcowy lub zewnętrznie rozpoznawalną nazwę FQDN**, Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych przy użyciu publicznego adresu IP frontonu. Rozpoznawanie nazw DNS jest oparte na prywatnej strefie DNS lub niestandardowym serwerze DNS, jeśli jest skonfigurowany lub korzysta z domyślnej usługi DNS udostępnionej przez platformę Azure. Jeśli nie ma publicznego adresu IP frontonu, jeden zostanie przypisany do wychodzącej łączności zewnętrznej.
+> - **Zawiera wewnętrznie rozpoznawalną nazwę FQDN lub prywatny adres IP** , Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych za pomocą prywatnych adresów IP wystąpienia.
+> - **Zawiera zewnętrzny punkt końcowy lub zewnętrznie rozpoznawalną nazwę FQDN** , Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych przy użyciu publicznego adresu IP frontonu. Rozpoznawanie nazw DNS jest oparte na prywatnej strefie DNS lub niestandardowym serwerze DNS, jeśli jest skonfigurowany lub korzysta z domyślnej usługi DNS udostępnionej przez platformę Azure. Jeśli nie ma publicznego adresu IP frontonu, jeden zostanie przypisany do wychodzącej łączności zewnętrznej.
 
 ### <a name="modifications-to-the-request"></a>Modyfikacje żądania
 

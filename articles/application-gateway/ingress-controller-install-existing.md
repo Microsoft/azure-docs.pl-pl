@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807102"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397403"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Zainstaluj Application Gateway kontroler transferu danych przychodzących (AGIC) przy użyciu istniejącej Application Gateway
 
@@ -29,8 +29,8 @@ AGIC monitoruje zasoby [transferu](https://kubernetes.io/docs/concepts/services-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym dokumencie przyjęto założenie, że masz już zainstalowane następujące narzędzia i infrastruktura:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) z włączoną funkcją [zaawansowanej sieci](https://docs.microsoft.com/azure/aks/configure-azure-cni)
-- [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) w tej samej sieci wirtualnej co AKS
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) z włączoną funkcją [zaawansowanej sieci](../aks/configure-azure-cni.md)
+- [Application Gateway v2](./tutorial-autoscale-ps.md) w tej samej sieci wirtualnej co AKS
 - [Tożsamość usługi AAD pod](https://github.com/Azure/aad-pod-identity) zainstalowana w klastrze AKS
 - [Cloud Shell](https://shell.azure.com/) jest środowiskiem usługi Azure Shell, który ma `az` interfejs wiersza polecenia, `kubectl` i został `helm` zainstalowany. Te narzędzia są wymagane dla poniższych poleceń.
 
@@ -40,11 +40,11 @@ Przed zainstalowaniem AGIC __Wykonaj kopię zapasową konfiguracji Application G
 
 Pobrany plik zip będzie miał szablony JSON, bash i skrypty programu PowerShell, których można użyć do przywrócenia bramy App Gateway.
 
-## <a name="install-helm"></a>Zainstaluj Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) to Menedżer pakietów dla Kubernetes. Użyjemy go do zainstalowania `application-gateway-kubernetes-ingress` pakietu.
+## <a name="install-helm"></a>Instalowanie narzędzia Helm
+[Helm](../aks/kubernetes-helm.md) to Menedżer pakietów dla Kubernetes. Użyjemy go do zainstalowania `application-gateway-kubernetes-ingress` pakietu.
 Użyj [Cloud Shell](https://shell.azure.com/) , aby zainstalować Helm:
 
-1. Zainstaluj [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) i uruchom następujące kroki, aby dodać `application-gateway-kubernetes-ingress` pakiet Helm:
+1. Zainstaluj [Helm](../aks/kubernetes-helm.md) i uruchom następujące kroki, aby dodać `application-gateway-kubernetes-ingress` pakiet Helm:
 
     - *Włączono kontrolę RBAC* Klaster AKS
 
@@ -72,7 +72,7 @@ AGIC komunikuje się z serwerem interfejsu API Kubernetes i Azure Resource Manag
 
 ## <a name="set-up-aad-pod-identity"></a>Skonfiguruj tożsamość usługi AAD pod
 
-[Tożsamość usługi AAD pod](https://github.com/Azure/aad-pod-identity) jest kontrolerem podobnym do AGIC, który również działa na AKS. Wiąże się ona z tożsamościami Azure Active Directory Kubernetes. Tożsamość jest wymagana dla aplikacji w Kubernetes pod, aby można było komunikować się z innymi składnikami platformy Azure. W konkretnym przypadku wymagana jest autoryzacja AGIC pod względem żądania HTTP do usługi [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+[Tożsamość usługi AAD pod](https://github.com/Azure/aad-pod-identity) jest kontrolerem podobnym do AGIC, który również działa na AKS. Wiąże się ona z tożsamościami Azure Active Directory Kubernetes. Tożsamość jest wymagana dla aplikacji w Kubernetes pod, aby można było komunikować się z innymi składnikami platformy Azure. W konkretnym przypadku wymagana jest autoryzacja AGIC pod względem żądania HTTP do usługi [ARM](../azure-resource-manager/management/overview.md).
 
 Postępuj zgodnie z [instrukcjami dotyczącymi instalacji tożsamości usługi AAD pod](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra) , aby dodać ten składnik do AKS.
 
@@ -323,7 +323,7 @@ Poszerzenie uprawnień AGIC z:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Włącz dla istniejącej instalacji AGIC
-Załóżmy, że mamy już działającą AKS, Application Gateway i skonfigurowany AGIC w naszym klastrze. Mamy przychodzący dla `prod.contosor.com` i pomyślnie obsługujący ruch dla niego z AKS. Chcemy dodać `staging.contoso.com` do istniejących Application Gateway, ale muszą one być hostowane na [maszynie wirtualnej](https://azure.microsoft.com/services/virtual-machines/). Będziemy ponownie używać istniejących Application Gateway i ręcznie skonfigurować odbiornik i pule zaplecza dla programu `staging.contoso.com` . Ale ręczne Dostosowywanie konfiguracji Application Gateway (za pośrednictwem [portalu](https://portal.azure.com), [interfejsów API ARM](https://docs.microsoft.com/rest/api/resources/) lub [Terraform](https://www.terraform.io/)) koliduje z założeniami AGIC o pełnej własności. Wkrótce po zastosowaniu zmian AGIC zastąpią je lub usunie.
+Załóżmy, że mamy już działającą AKS, Application Gateway i skonfigurowany AGIC w naszym klastrze. Mamy przychodzący dla `prod.contosor.com` i pomyślnie obsługujący ruch dla niego z AKS. Chcemy dodać `staging.contoso.com` do istniejących Application Gateway, ale muszą one być hostowane na [maszynie wirtualnej](https://azure.microsoft.com/services/virtual-machines/). Będziemy ponownie używać istniejących Application Gateway i ręcznie skonfigurować odbiornik i pule zaplecza dla programu `staging.contoso.com` . Ale ręczne Dostosowywanie konfiguracji Application Gateway (za pośrednictwem [portalu](https://portal.azure.com), [interfejsów API ARM](/rest/api/resources/) lub [Terraform](https://www.terraform.io/)) koliduje z założeniami AGIC o pełnej własności. Wkrótce po zastosowaniu zmian AGIC zastąpią je lub usunie.
 
 Możemy zabronić AGIC wprowadzania zmian w podzestawie konfiguracji.
 

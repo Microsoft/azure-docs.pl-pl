@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63f4b28915a932398e5417f8ea9be3fe4d68e705
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186745"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397845"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Utwórz niestandardową sondę dla Application Gateway platformy Azure przy użyciu programu PowerShell dla Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Witryna Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-probe-ps.md)
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -197,5 +197,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Następne kroki
 
-Informacje na temat konfigurowania odciążania protokołu TLS przez odwiedzenie: [Konfigurowanie odciążania protokołu TLS](application-gateway-ssl-arm.md)
-
+Informacje na temat konfigurowania odciążania protokołu TLS przez odwiedzenie: [Konfigurowanie odciążania protokołu TLS](./tutorial-ssl-powershell.md)

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424396"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397743"
 ---
 # <a name="metrics-for-application-gateway"></a>Metryki dla Application Gateway
 
-Application Gateway publikuje punkty danych o nazwie Metrics, aby [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) wydajności Application Gateway i wystąpień zaplecza. Te metryki to wartości liczbowe w uporządkowanym zestawie danych szeregów czasowych, które opisują kilka aspektów bramy aplikacji w danym momencie. Jeśli istnieją żądania przepływające przez Application Gateway, miary i wysyłają metryki w 60 sekund. Jeśli nie ma żadnych żądań przepływających przez Application Gateway lub Brak danych dla metryki, Metryka nie zostanie zgłoszona. Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publikuje punkty danych o nazwie Metrics, aby [Azure monitor](../azure-monitor/overview.md) wydajności Application Gateway i wystąpień zaplecza. Te metryki to wartości liczbowe w uporządkowanym zestawie danych szeregów czasowych, które opisują kilka aspektów bramy aplikacji w danym momencie. Jeśli istnieją żądania przepływające przez Application Gateway, miary i wysyłają metryki w 60 sekund. Jeśli nie ma żadnych żądań przepływających przez Application Gateway lub Brak danych dla metryki, Metryka nie zostanie zgłoszona. Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../azure-monitor/platform/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Metryki obsługiwane przez jednostkę SKU Application Gateway v2
 
@@ -40,7 +40,7 @@ Application Gateway zapewnia kilka wbudowanych metryk czasu związanych z żąda
 
   Interwał czasu między rozpoczęciem ustanawiania połączenia z serwerem zaplecza i otrzymywania pierwszego bajtu nagłówka odpowiedzi. 
 
-  Jest to przybliżona suma *czasu łączenia zaplecza*, czasu podejmowanego przez żądanie do osiągnięcia wewnętrznej bazy danych z Application Gateway, czas trwania przez aplikację zaplecza (czas, w którym serwer wygenerował zawartość, potencjalnie pobierane kwerendy bazy danych) i czas potrzebny na pierwszy bajt odpowiedzi w celu uzyskania dostępu do Application Gateway z zaplecza.
+  Jest to przybliżona suma *czasu łączenia zaplecza* , czasu podejmowanego przez żądanie do osiągnięcia wewnętrznej bazy danych z Application Gateway, czas trwania przez aplikację zaplecza (czas, w którym serwer wygenerował zawartość, potencjalnie pobierane kwerendy bazy danych) i czas potrzebny na pierwszy bajt odpowiedzi w celu uzyskania dostępu do Application Gateway z zaplecza.
 
 - **Czas odpowiedzi ostatniego bajtu wewnętrznej bazy danych**
 
@@ -52,7 +52,7 @@ Application Gateway zapewnia kilka wbudowanych metryk czasu związanych z żąda
 
   Średni czas odbierania i przetwarzania żądania oraz jego odpowiedź na wysłanie. 
 
-  Jest to interwał od momentu odebrania przez Application Gateway pierwszego bajtu żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Dotyczy to również czasu przetwarzania wykonywanego przez Application Gateway, *czas odpowiedzi ostatniego bajtu*, czas wykonania przez Application Gateway, aby wysłać całą odpowiedź i *RTT klienta*.
+  Jest to interwał od momentu odebrania przez Application Gateway pierwszego bajtu żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Dotyczy to również czasu przetwarzania wykonywanego przez Application Gateway, *czas odpowiedzi ostatniego bajtu* , czas wykonania przez Application Gateway, aby wysłać całą odpowiedź i *RTT klienta*.
 
 - **Czas RTT klienta**
 
@@ -62,7 +62,7 @@ Application Gateway zapewnia kilka wbudowanych metryk czasu związanych z żąda
 
 Te metryki mogą służyć do określenia, czy obserwowane spowolnienie jest spowodowane przez sieć klienta, Application Gateway wydajność, nasycenie stosu TCP sieci i zaplecza, wydajność aplikacji zaplecza lub duży rozmiar pliku.
 
-Na przykład, jeśli występuje wzrost trendu *czasu odpowiedzi na pierwszy bajt z zaplecza* , ale trend *czasu połączenia zaplecza* jest stabilny, można wywnioskować, że czas oczekiwania bramy aplikacji na zaplecze, a termin nawiązywania połączenia jest stabilny, a skok jest spowodowany zwiększeniem czasu odpowiedzi aplikacji zaplecza. Z drugiej strony, jeśli wartość w polu *czas odpowiedzi pierwszego bajtu w zapleczu* jest skojarzona z odpowiednim skokiem w *czasie połączenia zaplecza*, można ustalić, czy sieć między Application Gateway i serwerem zaplecza lub stosem TCP serwera wewnętrznej bazy danych zakończyła się nasyceniem. 
+Na przykład, jeśli występuje wzrost trendu *czasu odpowiedzi na pierwszy bajt z zaplecza* , ale trend *czasu połączenia zaplecza* jest stabilny, można wywnioskować, że czas oczekiwania bramy aplikacji na zaplecze, a termin nawiązywania połączenia jest stabilny, a skok jest spowodowany zwiększeniem czasu odpowiedzi aplikacji zaplecza. Z drugiej strony, jeśli wartość w polu *czas odpowiedzi pierwszego bajtu w zapleczu* jest skojarzona z odpowiednim skokiem w *czasie połączenia zaplecza* , można ustalić, czy sieć między Application Gateway i serwerem zaplecza lub stosem TCP serwera wewnętrznej bazy danych zakończyła się nasyceniem. 
 
 Jeśli zauważysz wzrost w *czasie odpowiedzi ostatniego bajtu* , ale *czas odpowiedzi pierwszego bajtu zaplecze* jest stabilny, można ustalić, że skok jest spowodowany większym żądanym plikiem.
 
@@ -214,11 +214,11 @@ Poniższy przykład przeprowadzi Cię przez proces tworzenia reguły alertu, kt�
 
 2. Na stronie **Dodawanie reguły** Wypełnij sekcje nazwa, warunek i powiadomienie, a następnie wybierz **przycisk OK**.
 
-   * W selektorze **warunku** wybierz jedną z czterech wartości: **większe**niż, **większe niż lub równe**, **mniejsze niż**lub **mniejsze niż lub równe**.
+   * W selektorze **warunku** wybierz jedną z czterech wartości: **większe** niż, **większe niż lub równe** , **mniejsze niż** lub **mniejsze niż lub równe**.
 
    * W selektorze **okresu** Wybierz okres z pięciu minut do 6 godzin.
 
-   * W przypadku wybrania opcji **właściciele, współautorzy i czytelnicy poczty**e-mail wiadomość e-mail może być dynamiczna na podstawie użytkowników, którzy mają dostęp do tego zasobu. W przeciwnym razie można podać listę użytkowników z rozdzieloną przecinkami w polu **dodatkowe adresy e-mail administratora** .
+   * W przypadku wybrania opcji **właściciele, współautorzy i czytelnicy poczty** e-mail wiadomość e-mail może być dynamiczna na podstawie użytkowników, którzy mają dostęp do tego zasobu. W przeciwnym razie można podać listę użytkowników z rozdzieloną przecinkami w polu **dodatkowe adresy e-mail administratora** .
 
    ![Dodaj stronę reguły][7]
 
@@ -230,7 +230,7 @@ Po utworzeniu alertu dotyczącego metryki pojawia się lista alertów. Zawiera p
 
 ![Lista alertów i reguł][9]
 
-Aby dowiedzieć się więcej na temat powiadomień o alertach, zobacz [Odbieranie powiadomień o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Aby dowiedzieć się więcej na temat powiadomień o alertach, zobacz [Odbieranie powiadomień o alertach](../azure-monitor/platform/alerts-overview.md).
 
 Aby dowiedzieć się więcej o elementach webhook i sposobach ich użycia z alertami, odwiedź stronę [Konfigurowanie elementu webhook w ramach alertu dotyczącego metryki platformy Azure](../azure-monitor/platform/alerts-webhooks.md).
 

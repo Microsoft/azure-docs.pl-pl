@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fea0c8b6f3c13c9f462ecbb72611c6659c65d0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595822"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397084"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Tworzenie bramy aplikacji z zakończeniem protokołu TLS przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bramę aplikacji](overview.md) z certyfikatem dla [zakończenia protokołu TLS](ssl-overview.md). W przypadku serwerów zaplecza można użyć [zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, które są dodawane do domyślnej puli zaplecza bramy aplikacji.
+Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bramę aplikacji](overview.md) z certyfikatem dla [zakończenia protokołu TLS](ssl-overview.md). W przypadku serwerów zaplecza można użyć [zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) . W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, które są dodawane do domyślnej puli zaplecza bramy aplikacji.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -168,7 +168,7 @@ Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.
 
 ![Ostrzeżenie o zabezpieczeniach](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
-Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły**, a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna serwera NGINX, tak jak w poniższym przykładzie:
+Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z podpisem własnym, wybierz pozycję **Szczegóły** , a następnie pozycję **Przejdź do strony internetowej**. Zostanie wyświetlona zabezpieczona witryna serwera NGINX, tak jak w poniższym przykładzie:
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 

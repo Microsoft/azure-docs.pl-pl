@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723303"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396927"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway
 
@@ -51,10 +51,10 @@ Brama aplikacji obsługuje następujące typy certyfikatów:
 - Certyfikat z symbolami wieloznacznymi: ten certyfikat obsługuje dowolną liczbę poddomen opartych na *. site.com, gdzie poddomena zastąpi *. Nie jest to jednak obsługiwane w site.com, więc w przypadku, gdy użytkownicy uzyskują dostęp do witryny sieci Web bez konieczności pisania wiodącego "www", certyfikat wieloznaczny nie będzie uwzględniał tego.
 - Self-Signed certyfikaty: przeglądarki klienta nie ufają tym certyfikatom i ostrzegają użytkownika o tym, że certyfikat usługi wirtualnej nie jest częścią łańcucha zaufania. Certyfikaty z podpisem własnym są przydatne w przypadku testowania lub środowisk, w których Administratorzy kontrolują klientów i mogą bezpiecznie pomijać alerty zabezpieczeń przeglądarki. Obciążenia produkcyjne nigdy nie powinny korzystać z certyfikatów z podpisem własnym.
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie zakończenia protokołu TLS przy użyciu usługi Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie zakończenia protokołu TLS przy użyciu usługi Application Gateway](./create-ssl-portal.md).
 
 ### <a name="size-of-the-certificate"></a>Rozmiar certyfikatu
-Sprawdź sekcję [limity Application Gateway](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) , aby poznać maksymalny obsługiwany rozmiar certyfikatu TLS/SSL.
+Sprawdź sekcję [limity Application Gateway](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) , aby poznać maksymalny obsługiwany rozmiar certyfikatu TLS/SSL.
 
 ## <a name="end-to-end-tls-encryption"></a>Kompleksowe szyfrowanie protokołu TLS
 
@@ -62,7 +62,7 @@ Nie należy zaszyfrować nieszyfrowanej komunikacji z serwerami zaplecza. Mogą 
 
 Kompleksowa warstwa TLS umożliwia szyfrowanie i bezpieczne przesyłanie poufnych danych do zaplecza podczas korzystania z funkcji równoważenia obciążenia warstwy 7 Application Gateway. Te funkcje obejmują koligację sesji na podstawie plików cookie, routing oparty na adresach URL, obsługę routingu opartego na witrynach, możliwość ponownego zapisu lub iniekcji nagłówków X-Forwarded-* i tak dalej.
 
-W przypadku skonfigurowania z kompleksowym trybem komunikacji TLS Application Gateway przerywa sesje protokołu TLS na bramie i odszyfrowuje ruch użytkownika. Następnie stosuje skonfigurowane reguły, aby wybrać odpowiednie wystąpienie puli serwerów zaplecza w celu skierowania do nich ruchu. Application Gateway następnie Inicjuje nowe połączenie TLS z serwerem zaplecza i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera zaplecza przed przekazaniem żądania do zaplecza. Każda odpowiedź z serwera sieci Web przechodzi przez ten sam proces z powrotem do użytkownika końcowego. Kompleksowa obsługa protokołu TLS jest włączana przez ustawienie protokołu w ustawieniu [http zaplecza](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) na https, który następnie jest stosowany do puli zaplecza.
+W przypadku skonfigurowania z kompleksowym trybem komunikacji TLS Application Gateway przerywa sesje protokołu TLS na bramie i odszyfrowuje ruch użytkownika. Następnie stosuje skonfigurowane reguły, aby wybrać odpowiednie wystąpienie puli serwerów zaplecza w celu skierowania do nich ruchu. Application Gateway następnie Inicjuje nowe połączenie TLS z serwerem zaplecza i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera zaplecza przed przekazaniem żądania do zaplecza. Każda odpowiedź z serwera sieci Web przechodzi przez ten sam proces z powrotem do użytkownika końcowego. Kompleksowa obsługa protokołu TLS jest włączana przez ustawienie protokołu w ustawieniu [http zaplecza](./configuration-overview.md#http-settings) na https, który następnie jest stosowany do puli zaplecza.
 
 W przypadku jednostki SKU Application Gateway i WAF V1 zasady protokołu TLS dotyczą zarówno ruchu frontonu, jak i zaplecza. Na frontonie Application Gateway działa jako serwer i wymusza zasady. W zapleczu Application Gateway pełni rolę klienta i wysyła informacje o protokole i szyfrowania jako preferencję podczas uzgadniania TLS.
 

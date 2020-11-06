@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132045"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397902"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Rozwiązywanie problemów z kondycją zaplecza w Application Gateway
 ==================================================
@@ -24,7 +24,7 @@ Domyślnie usługa Azure Application Gateway sonduje serwery zaplecza, aby spraw
 
 ### <a name="how-to-check-backend-health"></a>Sprawdzanie kondycji zaplecza
 
-Aby sprawdzić kondycję puli zaplecza, można użyć strony **kondycja zaplecza** na Azure Portal. Można też użyć [interfejsu API](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth) [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), interfejsu [wiersza polecenia](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)lub protokołu REST.
+Aby sprawdzić kondycję puli zaplecza, można użyć strony **kondycja zaplecza** na Azure Portal. Można też użyć [interfejsu API](/rest/api/application-gateway/applicationgateways/backendhealth) [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), interfejsu [wiersza polecenia](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)lub protokołu REST.
 
 Stan pobrany przez dowolną z tych metod może być jednym z następujących:
 
@@ -32,7 +32,7 @@ Stan pobrany przez dowolną z tych metod może być jednym z następujących:
 
 - Nieprawidłowy
 
-- Nieznane
+- Nieznany
 
 Jeśli kondycja zaplecza serwera jest w dobrej kondycji, oznacza to, że Application Gateway przekaże żądania do tego serwera. Jeśli jednak kondycja zaplecza dla wszystkich serwerów w puli zaplecza jest zła lub nieznana, podczas próby uzyskania dostępu do aplikacji mogą wystąpić problemy. W tym artykule opisano objawy, przyczynę i rozwiązanie dla każdego z wymienionych błędów.
 
@@ -91,7 +91,7 @@ Komunikat wyświetlany w kolumnie **szczegóły** zawiera bardziej szczegółowe
 
 **Przyczyna:** Gdy Application Gateway wysyła żądanie sondy HTTP (S) do serwera wewnętrznej bazy danych, czeka na odpowiedź z serwera wewnętrznej bazy danych przez skonfigurowany okres. Jeśli serwer wewnętrznej bazy danych nie odpowiada w skonfigurowanym okresie (wartość limitu czasu), zostanie oznaczony jako nieprawidłowy do momentu, aż zacznie reagować w skonfigurowanym limicie czasu.
 
-**Rozwiązanie:** Sprawdź, dlaczego serwer zaplecza lub aplikacja nie odpowiada przed upływem skonfigurowanego limitu czasu, a także sprawdź zależności aplikacji. Na przykład sprawdź, czy baza danych ma jakiekolwiek problemy, które mogą spowodować opóźnienie w odpowiedzi. Jeśli masz świadomość zachowania aplikacji i powinna ona reagować tylko po wartości limitu czasu, zwiększ wartość limitu czasu z ustawień sondy niestandardowej. Aby zmienić wartość limitu czasu, trzeba mieć niestandardową sondę. Informacje o sposobie konfigurowania sondy niestandardowej [znajdują się na stronie dokumentacji](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Rozwiązanie:** Sprawdź, dlaczego serwer zaplecza lub aplikacja nie odpowiada przed upływem skonfigurowanego limitu czasu, a także sprawdź zależności aplikacji. Na przykład sprawdź, czy baza danych ma jakiekolwiek problemy, które mogą spowodować opóźnienie w odpowiedzi. Jeśli masz świadomość zachowania aplikacji i powinna ona reagować tylko po wartości limitu czasu, zwiększ wartość limitu czasu z ustawień sondy niestandardowej. Aby zmienić wartość limitu czasu, trzeba mieć niestandardową sondę. Informacje o sposobie konfigurowania sondy niestandardowej [znajdują się na stronie dokumentacji](./application-gateway-create-probe-portal.md).
 
 Aby zwiększyć wartość limitu czasu, wykonaj następujące kroki:
 
@@ -105,7 +105,7 @@ Aby zwiększyć wartość limitu czasu, wykonaj następujące kroki:
 
 #### <a name="dns-resolution-error"></a>Błąd rozpoznawania nazw DNS
 
-**Komunikat:** Application Gateway nie może utworzyć sondy dla tego zaplecza. Dzieje się tak zazwyczaj wtedy, gdy nazwa FQDN zaplecza nie została wprowadzona prawidłowo. 
+**Komunikat:** Application Gateway nie może utworzyć sondy dla tego zaplecza. Dzieje się tak zazwyczaj wtedy, gdy nazwa FQDN zaplecza nie została wprowadzona prawidłowo. 
 
 **Przyczyna:** Jeśli pula zaplecza jest typu adresu IP/FQDN lub App Service, Application Gateway jest rozpoznawana jako adres IP nazwy FQDN wprowadzonej za pośrednictwem systemu nazw domen (DNS) (niestandardowa lub Azure default) i próbuje nawiązać połączenie z serwerem na porcie TCP wymienionym w ustawieniach protokołu HTTP. Ale jeśli ten komunikat jest wyświetlany, sugeruje, że Application Gateway nie może pomyślnie rozpoznać adresu IP wprowadzonej nazwy FQDN.
 
@@ -119,7 +119,7 @@ Aby zwiększyć wartość limitu czasu, wykonaj następujące kroki:
 
 1.  Jeśli używasz domyślnej usługi DNS platformy Azure, skontaktuj się z rejestratorem nazw domen, aby dowiedzieć się, czy zakończono poprawne mapowanie rekordów lub rekordu CNAME.
 
-1.  Jeśli domena jest prywatna lub wewnętrzna, spróbuj ją rozpoznać z poziomu maszyny wirtualnej w tej samej sieci wirtualnej. Jeśli możesz rozwiązać ten problem, ponownie uruchom Application Gateway i sprawdź ponownie. Aby ponownie uruchomić Application Gateway, należy [zatrzymać](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) i [uruchomić](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) program przy użyciu poleceń programu PowerShell opisanych w tych połączonych zasobach.
+1.  Jeśli domena jest prywatna lub wewnętrzna, spróbuj ją rozpoznać z poziomu maszyny wirtualnej w tej samej sieci wirtualnej. Jeśli możesz rozwiązać ten problem, ponownie uruchom Application Gateway i sprawdź ponownie. Aby ponownie uruchomić Application Gateway, należy [zatrzymać](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) i [uruchomić](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) program przy użyciu poleceń programu PowerShell opisanych w tych połączonych zasobach.
 
 #### <a name="tcp-connect-error"></a>Błąd połączenia TCP
 
@@ -138,7 +138,7 @@ Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blo
 
 1.  Jeśli nie można nawiązać połączenia z portem na komputerze lokalnym, a następnie:
 
-    a.  Sprawdź ustawienia sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) karty sieciowej i podsieci serwera wewnętrznej bazy danych oraz czy dozwolone są połączenia przychodzące ze skonfigurowanym portem. Jeśli nie, Utwórz nową regułę, aby zezwolić na połączenia. Aby dowiedzieć się, jak utworzyć reguły sieciowej grupy zabezpieczeń, [Zobacz stronę z dokumentacją](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Sprawdź ustawienia sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) karty sieciowej i podsieci serwera wewnętrznej bazy danych oraz czy dozwolone są połączenia przychodzące ze skonfigurowanym portem. Jeśli nie, Utwórz nową regułę, aby zezwolić na połączenia. Aby dowiedzieć się, jak utworzyć reguły sieciowej grupy zabezpieczeń, [Zobacz stronę z dokumentacją](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
     b.  Sprawdź, czy ustawienia sieciowej grupy zabezpieczeń podsieci Application Gateway zezwalają na ruch wychodzący publicznego i prywatnego, aby można było nawiązać połączenie. Aby dowiedzieć się więcej na temat tworzenia reguł sieciowej grupy zabezpieczeń, zapoznaj się ze stroną dokumentu dostarczoną w kroku 3a.
     ```azurepowershell
@@ -185,13 +185,13 @@ Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blo
 
 Lub, jeśli uważasz, że odpowiedź jest uzasadniona i chcesz, aby Application Gateway akceptowała inne kody stanu w dobrej kondycji, możesz utworzyć niestandardową sondę. Takie podejście jest przydatne w sytuacjach, gdy witryna sieci Web zaplecza wymaga uwierzytelniania. Ponieważ żądania sondowania nie mają żadnych poświadczeń użytkownika, nie powiodą się, a serwer wewnętrznej bazy danych zwróci kod stanu HTTP 401.
 
-Aby utworzyć niestandardową sondę, wykonaj następujące [kroki](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+Aby utworzyć niestandardową sondę, wykonaj następujące [kroki](./application-gateway-create-probe-portal.md).
 
 #### <a name="http-response-body-mismatch"></a>Niezgodność treści odpowiedzi HTTP
 
 **Komunikat:** Treść odpowiedzi HTTP zaplecza jest \' niezgodna z ustawieniem sondy. Odebrana treść odpowiedzi nie zawiera ciągu {String}.
 
-**Przyczyna:** Podczas tworzenia niestandardowej sondy można oznaczyć serwer zaplecza jako zdrowy przez dopasowanie ciągu z treści odpowiedzi. Można na przykład skonfigurować Application Gateway tak, aby akceptował "nieautoryzowane" jako ciąg do dopasowania. Jeśli odpowiedź serwera wewnętrznej bazy danych dla żądania sondowania zawiera ciąg **nieautoryzowany**, zostanie oznaczony jako w dobrej kondycji. W przeciwnym razie zostanie ona oznaczona jako w złej kondycji za pomocą tej wiadomości.
+**Przyczyna:** Podczas tworzenia niestandardowej sondy można oznaczyć serwer zaplecza jako zdrowy przez dopasowanie ciągu z treści odpowiedzi. Można na przykład skonfigurować Application Gateway tak, aby akceptował "nieautoryzowane" jako ciąg do dopasowania. Jeśli odpowiedź serwera wewnętrznej bazy danych dla żądania sondowania zawiera ciąg **nieautoryzowany** , zostanie oznaczony jako w dobrej kondycji. W przeciwnym razie zostanie ona oznaczona jako w złej kondycji za pomocą tej wiadomości.
 
 **Rozwiązanie:** Aby rozwiązać ten problem, wykonaj następujące kroki:
 
@@ -201,7 +201,7 @@ Aby utworzyć niestandardową sondę, wykonaj następujące [kroki](https://docs
 
 1.  Jeśli nie są zgodne, Zmień konfigurację sondy tak, aby stała się wartością ciągu do zaakceptowania.
 
-Dowiedz się więcej na temat [dopasowywania sond Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Dowiedz się więcej na temat [dopasowywania sond Application Gateway](./application-gateway-probe-overview.md#probe-matching).
 
 >[!NOTE]
 > W przypadku wszystkich komunikatów o błędach związanych z protokołem TLS aby dowiedzieć się więcej na temat zachowania SNI i różnic między jednostką SKU V1 i v2, należy sprawdzić stronę [Przegląd protokołu TLS](ssl-overview.md) .
@@ -232,13 +232,13 @@ Aby certyfikat TLS/SSL był zaufany, certyfikat serwera wewnętrznej bazy danych
 
 1.  Otwórz stronę **Ustawienia** protokołu HTTP Application Gateway w Azure Portal.
 
-1. Otwórz ustawienia protokołu HTTP, wybierz pozycję **Dodaj certyfikat**i Znajdź plik certyfikatu, który został właśnie zapisany.
+1. Otwórz ustawienia protokołu HTTP, wybierz pozycję **Dodaj certyfikat** i Znajdź plik certyfikatu, który został właśnie zapisany.
 
 1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia protokołu HTTP.
 
 Alternatywnie można wyeksportować certyfikat główny z komputera klienckiego, uzyskując bezpośrednio dostęp do serwera (pomijając Application Gateway) za pośrednictwem przeglądarki i eksportując certyfikat główny z przeglądarki.
 
-Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w Application Gateway, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w Application Gateway, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 #### <a name="trusted-root-certificate-mismatch"></a>Niezgodność zaufanych certyfikatów głównych
 
@@ -253,7 +253,7 @@ Certyfikat przekazany do Application Gateway ustawień protokołu HTTP musi być
 
 Wykonaj kroki 1-11 w poprzedniej metodzie, aby przekazać prawidłowy zaufany certyfikat główny do Application Gateway.
 
-Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w Application Gateway, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w Application Gateway, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
 > Ten błąd może również wystąpić, jeśli serwer wewnętrznej bazy danych nie wymienia kompletnego łańcucha certyfikatu, łącznie z głównym > pośrednią (jeśli dotyczy) > liścia podczas uzgadniania TLS. Aby sprawdzić, można użyć poleceń OpenSSL z dowolnego klienta i połączyć się z serwerem zaplecza przy użyciu skonfigurowanych ustawień sondy Application Gateway.
 
@@ -308,7 +308,7 @@ W przypadku systemu Windows:
 
 1.  Znajdź certyfikat (zazwyczaj w `\Certificates - Current User\\Personal\\Certificates` ), a następnie otwórz certyfikat.
 
-1.  Na karcie **szczegóły** zapoznaj się z **tematem**certyfikatu.
+1.  Na karcie **szczegóły** zapoznaj się z **tematem** certyfikatu.
 
 1.  Sprawdź nazwę POSPOLITą certyfikatu ze szczegółowych informacji i wprowadź tę samą wartość w polu Nazwa hosta sondy niestandardowej lub w ustawieniach protokołu HTTP (Jeśli wybrano pozycję **Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza** ). Jeśli to nie jest wymagana nazwa hosta dla witryny sieci Web, należy uzyskać certyfikat dla tej domeny lub wprowadzić poprawną nazwę hosta w niestandardowej sondze lub konfiguracji ustawienia HTTP.
 
@@ -331,7 +331,7 @@ W przypadku systemu Linux przy użyciu OpenSSL:
 
 1.  Otwórz ustawienia protokołu HTTP Application Gateway w portalu.
 
-1.  Wybierz ustawienie z wygasłym certyfikatem, wybierz pozycję **Dodaj certyfikat**i Otwórz nowy plik certyfikatu.
+1.  Wybierz ustawienie z wygasłym certyfikatem, wybierz pozycję **Dodaj certyfikat** i Otwórz nowy plik certyfikatu.
 
 1.  Usuń stary certyfikat przy użyciu ikony **usuwania** obok certyfikatu, a następnie wybierz pozycję **Zapisz**.
 
@@ -359,7 +359,7 @@ Takie zachowanie może wystąpić z następujących powodów:
 
 **Rozwiązanie:**
 
-1.  Sprawdź, czy Twój sieciowej grupy zabezpieczeń blokuje dostęp do portów 65503-65534 (SKU v1) lub 65200-65535 (jednostka SKU v2) z **Internetu**:
+1.  Sprawdź, czy Twój sieciowej grupy zabezpieczeń blokuje dostęp do portów 65503-65534 (SKU v1) lub 65200-65535 (jednostka SKU v2) z **Internetu** :
 
     a.  Na karcie **przegląd** Application Gateway wybierz łącze **Virtual Network/podsieć** .
 
@@ -371,17 +371,17 @@ Takie zachowanie może wystąpić z następujących powodów:
 
     e.  W sekcji **reguły ruchu przychodzącego** Dodaj regułę ruchu przychodzącego zezwalającą na zakres portów docelowych 65503-65534 dla jednostki SKU w wersji 1 lub 65200-65535 v2 z zestawem **źródłowym** ustawionym jako **dowolny** lub **internetowy**.
 
-    f.  Wybierz pozycję **Zapisz** i sprawdź, czy zaplecze można wyświetlić w dobrej kondycji. Alternatywnie możesz to zrobić za poorednictwem [programu PowerShell/interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+    f.  Wybierz pozycję **Zapisz** i sprawdź, czy zaplecze można wyświetlić w dobrej kondycji. Alternatywnie możesz to zrobić za poorednictwem [programu PowerShell/interfejsu wiersza polecenia](../virtual-network/manage-network-security-group.md).
 
-1.  Sprawdź, czy Twój UDR ma trasę domyślną (0.0.0.0/0) z następnym przeskokiem, który nie został ustawiony jako **Internet**:
+1.  Sprawdź, czy Twój UDR ma trasę domyślną (0.0.0.0/0) z następnym przeskokiem, który nie został ustawiony jako **Internet** :
     
     a.  Wykonaj kroki 1a i 1B, aby określić podsieć.
 
     b.  Sprawdź, czy nie ma skonfigurowanych UDR. Jeśli jest, wyszukaj zasób na pasku wyszukiwania lub w obszarze **wszystkie zasoby**.
 
-    c.  Sprawdź, czy istnieją trasy domyślne (0.0.0.0/0) z następnym przeskokiem nie ustawionym jako **Internet**. Jeśli to ustawienie jest **urządzeniem wirtualnym** lub **bramą Virtual Network**, należy upewnić się, że urządzenie wirtualne lub urządzenie lokalne może prawidłowo skierować pakiet z powrotem do internetowego miejsca docelowego bez modyfikowania pakietu.
+    c.  Sprawdź, czy istnieją trasy domyślne (0.0.0.0/0) z następnym przeskokiem nie ustawionym jako **Internet**. Jeśli to ustawienie jest **urządzeniem wirtualnym** lub **bramą Virtual Network** , należy upewnić się, że urządzenie wirtualne lub urządzenie lokalne może prawidłowo skierować pakiet z powrotem do internetowego miejsca docelowego bez modyfikowania pakietu.
 
-    d.  W przeciwnym razie zmień następny przeskok na **Internet**, wybierz pozycję **Zapisz**, a następnie Sprawdź kondycję zaplecza.
+    d.  W przeciwnym razie zmień następny przeskok na **Internet** , wybierz pozycję **Zapisz** , a następnie Sprawdź kondycję zaplecza.
 
 1.  Trasa domyślna anonsowana przez połączenie ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP:
 
@@ -398,4 +398,4 @@ Takie zachowanie może wystąpić z następujących powodów:
 <a name="next-steps"></a>Następne kroki
 ----------
 
-Dowiedz się więcej na temat [diagnostyki i rejestrowania Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Dowiedz się więcej na temat [diagnostyki i rejestrowania Application Gateway](./application-gateway-diagnostics.md).

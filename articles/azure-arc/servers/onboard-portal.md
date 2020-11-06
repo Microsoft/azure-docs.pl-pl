@@ -1,14 +1,14 @@
 ---
 title: Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 description: W tym artykule dowiesz się, jak zainstalować agenta i połączyć maszyny z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC z poziomu Azure Portal.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370155"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398032"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 
@@ -52,7 +52,7 @@ Skrypt służący do automatyzowania pobierania i instalacji oraz do nawiązywan
 
 ### <a name="install-manually"></a>Instalowanie ręczne
 
-Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając *AzureConnectedMachineAgent.msi*pakietu Instalator Windows. Najnowszą wersję [pakietu Windows agent Instalator Windows](https://aka.ms/AzureConnectedMachineAgent) można pobrać z centrum pobierania Microsoft.
+Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając *AzureConnectedMachineAgent.msi* pakietu Instalator Windows. Najnowszą wersję [pakietu Windows agent Instalator Windows](https://aka.ms/AzureConnectedMachineAgent) można pobrać z centrum pobierania Microsoft.
 
 >[!NOTE]
 >* Aby zainstalować lub odinstalować agenta, musisz mieć uprawnienia *administratora* .
@@ -113,9 +113,9 @@ Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapozn
 
 Agent połączonej maszyny dla systemu Linux jest dostępny w preferowanym formacie pakietu dla dystrybucji (. RPM lub. DEB), które są hostowane w [repozytorium pakietu](https://packages.microsoft.com/)Microsoft. [ `Install_linux_azcmagent.sh` Pakiet skryptu powłoki](https://aka.ms/azcmagent) wykonuje następujące akcje:
 
-- Konfiguruje maszynę hosta do pobrania pakietu agenta z packages.microsoft.com.
-- Instaluje pakiet hybrydowego dostawcy zasobów.
-- Rejestruje maszynę przy użyciu usługi Azure Arc
+* Konfiguruje maszynę hosta do pobrania pakietu agenta z packages.microsoft.com.
+
+* Instaluje pakiet hybrydowego dostawcy zasobów.
 
 Opcjonalnie można skonfigurować agenta przy użyciu informacji o serwerze proxy, dołączając `--proxy "{proxy-url}:{proxy-port}"` parametr.
 
@@ -131,15 +131,30 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-Aby pobrać i zainstalować agenta, w tym `--proxy` parametr służący do konfigurowania agenta do komunikowania się za pomocą serwera proxy, uruchom następujące polecenia:
+1. Aby pobrać i zainstalować agenta, w tym `--proxy` parametr służący do konfigurowania agenta do komunikowania się za pomocą serwera proxy, uruchom następujące polecenia:
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
+
+2. Po zainstalowaniu agenta należy go skonfigurować do komunikowania się z usługą Azure Arc, uruchamiając następujące polecenie:
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### <a name="install-with-the-scripted-method"></a>Zainstaluj przy użyciu metody skryptowej
+
+1. Zaloguj się na serwerze przy użyciu konta, które ma dostęp do katalogu głównego.
+
+1. Przejdź do folderu lub udziału, do którego skopiowano skrypt, i wykonaj go na serwerze, uruchamiając `./OnboardingScript.sh` skrypt.
+
+Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalogiem dziennika jest *var/opt/azcmagent/log*.
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Weryfikowanie połączenia z usługą Azure Arc
 

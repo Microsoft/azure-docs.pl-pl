@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362716"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397726"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Tworzenie certyfikatów w celu zezwalania na zaplecze przy użyciu usługi Azure Application Gateway
 
@@ -35,7 +35,7 @@ Certyfikat uwierzytelniania jest wymagany, aby zezwalać na wystąpienia zaplecz
 
 Z certyfikatu TLS/SSL wyeksportuj plik. cer klucza publicznego (nie klucz prywatny). Poniższe kroki ułatwiają wyeksportowanie pliku CER w formacie X. 509 z kodowaniem Base-64 (. Format CER) dla certyfikatu:
 
-1. Aby uzyskać plik cer z certyfikatu, otwórz okno **Zarządzaj certyfikatami użytkowników**. Znajdź certyfikat, zazwyczaj w "Certificates-Current User\Personal\Certificates" i kliknij prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania**, a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**. Jeśli nie możesz znaleźć certyfikatu w ramach bieżącego User\Personal\Certificates, być może przypadkowo otwarto "certyfikaty — komputer lokalny", a nie "Certyfikaty — bieżący użytkownik"). Jeśli chcesz otworzyć Menedżera certyfikatów w bieżącym zakresie użytkownika przy użyciu programu PowerShell, wpisz *certmgr* w oknie konsoli.
+1. Aby uzyskać plik cer z certyfikatu, otwórz okno **Zarządzaj certyfikatami użytkowników**. Znajdź certyfikat, zazwyczaj w "Certificates-Current User\Personal\Certificates" i kliknij prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania** , a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**. Jeśli nie możesz znaleźć certyfikatu w ramach bieżącego User\Personal\Certificates, być może przypadkowo otwarto "certyfikaty — komputer lokalny", a nie "Certyfikaty — bieżący użytkownik"). Jeśli chcesz otworzyć Menedżera certyfikatów w bieżącym zakresie użytkownika przy użyciu programu PowerShell, wpisz *certmgr* w oknie konsoli.
 
    ![Zrzut ekranu przedstawia Menedżera certyfikatów z wybranymi certyfikatami i menu kontekstowe ze wszystkimi zadaniami, a następnie eksportuje wybrane.](./media/certificates-for-backend-authentication/export.png)
 
@@ -43,11 +43,11 @@ Z certyfikatu TLS/SSL wyeksportuj plik. cer klucza publicznego (nie klucz prywat
 
    ![Eksportowanie certyfikatu](./media/certificates-for-backend-authentication/exportwizard.png)
 
-3. Wybierz pozycję **Nie eksportuj klucza prywatnego**, a następnie kliknij pozycję **Dalej**.
+3. Wybierz pozycję **Nie eksportuj klucza prywatnego** , a następnie kliknij pozycję **Dalej**.
 
    ![Nie Eksportuj klucza prywatnego](./media/certificates-for-backend-authentication/notprivatekey.png)
 
-4. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)**, a następnie kliknij pozycję **Dalej**.
+4. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)** , a następnie kliknij pozycję **Dalej**.
 
    ![Base-64 — zakodowana](./media/certificates-for-backend-authentication/base64.png)
 
@@ -55,7 +55,7 @@ Z certyfikatu TLS/SSL wyeksportuj plik. cer klucza publicznego (nie klucz prywat
 
    ![Zrzut ekranu przedstawia Kreatora eksportu certyfikatów, w którym można określić plik do wyeksportowania.](./media/certificates-for-backend-authentication/browse.png)
 
-6. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat.
+6. Kliknij przycisk **Zakończ** , aby wyeksportować certyfikat.
 
    ![Zrzut ekranu przedstawia Kreatora eksportu certyfikatów po zakończeniu eksportowania pliku.](./media/certificates-for-backend-authentication/finish.png)
 
@@ -105,5 +105,4 @@ Poniższe kroki ułatwiają wyeksportowanie pliku CER dla certyfikatu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz masz certyfikat uwierzytelniania/zaufany certyfikat główny w Base-64 zakodowany X. 509 (. CER). Można dodać to do bramy aplikacji, aby umożliwić serwerom zaplecza kompleksowe szyfrowanie TLS. Zobacz [Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-
+Teraz masz certyfikat uwierzytelniania/zaufany certyfikat główny w Base-64 zakodowany X. 509 (. CER). Można dodać to do bramy aplikacji, aby umożliwić serwerom zaplecza kompleksowe szyfrowanie TLS. Zobacz [Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell](./application-gateway-end-to-end-ssl-powershell.md).

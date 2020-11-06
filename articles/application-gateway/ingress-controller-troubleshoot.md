@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168192"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397369"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Rozwiązywanie typowych pytań lub problemów z kontrolerem transferu danych przychodzących
 
@@ -141,7 +141,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, należy wykonać następujące czynn
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. Co najmniej jedna **Usługa**, odwołująca się do powyższych zasobników za pośrednictwem pasujących `selector` etykiet.
+  2. Co najmniej jedna **Usługa** , odwołująca się do powyższych zasobników za pośrednictwem pasujących `selector` etykiet.
      Sprawdź poprawność tego [Cloud Shell](https://shell.azure.com/) z `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
@@ -150,7 +150,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, należy wykonać następujące czynn
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. Ruch przychodzący **, z**adnotacjami `kubernetes.io/ingress.class: azure/application-gateway` , odwołujący się do usługi powyżej, Weryfikuj ten element z [Cloud Shell](https://shell.azure.com/) z`kubectl get ingress -o wide --show-labels`
+  3. Ruch przychodzący **, z** adnotacjami `kubernetes.io/ingress.class: azure/application-gateway` , odwołujący się do usługi powyżej, Weryfikuj ten element z [Cloud Shell](https://shell.azure.com/) z`kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -243,7 +243,7 @@ Społeczność Kubernetes ustanowiła 9 poziomów rejestrowania dla narzędzia [
 |  5        | Rejestruje obiekty organizowane; pokazuje oczyszczoną konfigurację JSON zastosowaną do ARM |
 
 
-Poziomy szczegółowości są ustawiane za pośrednictwem `verbosityLevel` zmiennej w pliku [Helm-config. YAML](#sample-helm-config-file) . Zwiększ poziom szczegółowości, aby `5` uzyskać konfigurację JSON wysłaną do [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+Poziomy szczegółowości są ustawiane za pośrednictwem `verbosityLevel` zmiennej w pliku [Helm-config. YAML](#sample-helm-config-file) . Zwiększ poziom szczegółowości, aby `5` uzyskać konfigurację JSON wysłaną do [ARM](../azure-resource-manager/management/overview.md):
   - Dodaj `verbosityLevel: 5` bezpośrednio w wierszu w [Helm-config. YAML](#sample-helm-config-file) i ponownie zainstaluj
   - Pobierz dzienniki z `kubectl logs <pod-name>`
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

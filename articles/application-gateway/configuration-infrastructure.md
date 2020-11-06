@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319796"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397624"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Konfiguracja infrastruktury Application Gateway
 
@@ -37,7 +37,7 @@ Jednostka SKU Application Gateway (standardowa lub WAF) może obsługiwać do 32
 
 Application Gateway (jednostka SKU Standard_v2 lub WAF_v2) może obsługiwać do 125 wystąpień (125 wystąpień adresów IP + 1 prywatny adres IP frontonu + 5 zarezerwowane platformy Azure) — w związku z tym zaleca się minimalny rozmiar podsieci/24.
 
-## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
+## <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń
 
 Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) są obsługiwane w Application Gateway. Istnieją jednak pewne ograniczenia:
 
@@ -55,15 +55,15 @@ Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) są obsługiwane w 
 W tym scenariuszu należy użyć sieciowych grup zabezpieczeń w podsieci Application Gateway. W tej kolejności należy umieścić następujące ograniczenia w podsieci:
 
 1. Zezwalaj na ruch przychodzący ze źródłowego adresu IP lub zakresu adresów IP z miejscem docelowym jako cały zakres adresów podsieci Application Gateway i port docelowy jako port dostępu przychodzącego, na przykład port 80 dla dostępu za pośrednictwem protokołu HTTP.
-2. Zezwalaj na przychodzące żądania ze źródła jako tag usługi **gatewaymanager** i miejsce docelowe jako **dowolnych** i docelowych portów as 65503-65534 dla jednostki SKU Application Gateway V1 oraz portów 65200-65535 dla wersji 2 jednostki SKU do [komunikacji z stanem kondycji zaplecza](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Ten zakres portów jest wymagany w przypadku komunikacji infrastruktury platformy Azure. Te porty są chronione (zablokowane) przez certyfikaty platformy Azure. Bez odpowiednich certyfikatów jednostki zewnętrzne nie mogą inicjować zmian w tych punktach końcowych.
-3. Zezwalaj na wychodzące sondy Azure Load Balancer (tag*AzureLoadBalancer* ) i ruchu przychodzącego sieci wirtualnej (tag*VirtualNetwork* ) w [sieciowej grupie zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview).
+2. Zezwalaj na przychodzące żądania ze źródła jako tag usługi **gatewaymanager** i miejsce docelowe jako **dowolnych** i docelowych portów as 65503-65534 dla jednostki SKU Application Gateway V1 oraz portów 65200-65535 dla wersji 2 jednostki SKU do [komunikacji z stanem kondycji zaplecza](./application-gateway-diagnostics.md). Ten zakres portów jest wymagany w przypadku komunikacji infrastruktury platformy Azure. Te porty są chronione (zablokowane) przez certyfikaty platformy Azure. Bez odpowiednich certyfikatów jednostki zewnętrzne nie mogą inicjować zmian w tych punktach końcowych.
+3. Zezwalaj na wychodzące sondy Azure Load Balancer (tag *AzureLoadBalancer* ) i ruchu przychodzącego sieci wirtualnej (tag *VirtualNetwork* ) w [sieciowej grupie zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 4. Blokuj cały ruch przychodzący za pomocą reguły Odmów.
 5. Zezwalaj na ruch wychodzący do Internetu dla wszystkich miejsc docelowych.
 
 ## <a name="supported-user-defined-routes"></a>Obsługiwane trasy zdefiniowane przez użytkownika 
 
 > [!IMPORTANT]
-> Użycie UDR w podsieci Application Gateway może spowodować, że stan kondycji w [widoku kondycji wewnętrznej bazy](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) danych będzie wyglądać jako **nieznany**. Może to spowodować, że generowanie dzienników Application Gateway i metryk kończy się niepowodzeniem. Zalecamy, aby nie używać UDR w podsieci Application Gateway, aby można było wyświetlić kondycję, dzienniki i metryki zaplecza.
+> Użycie UDR w podsieci Application Gateway może spowodować, że stan kondycji w [widoku kondycji wewnętrznej bazy](./application-gateway-diagnostics.md#back-end-health) danych będzie wyglądać jako **nieznany**. Może to spowodować, że generowanie dzienników Application Gateway i metryk kończy się niepowodzeniem. Zalecamy, aby nie używać UDR w podsieci Application Gateway, aby można było wyświetlić kondycję, dzienniki i metryki zaplecza.
 
 - **wersjach**
 
@@ -78,7 +78,7 @@ W tym scenariuszu należy użyć sieciowych grup zabezpieczeń w podsieci Applic
    > Niepoprawna konfiguracja tabeli tras może spowodować, że Routing asymetryczny w Application Gateway v2. Upewnij się, że cały ruch związany z zarządzaniem/płaszczyzną kontroli jest wysyłany bezpośrednio do Internetu, a nie za pomocą urządzenia wirtualnego. Może to również mieć na celu rejestrowanie i metryki.
 
 
-  **Scenariusz 1**: UDR do wyłączenia propagacji tras Border Gateway Protocol (BGP) do podsieci Application Gateway
+  **Scenariusz 1** : UDR do wyłączenia propagacji tras Border Gateway Protocol (BGP) do podsieci Application Gateway
 
    Czasami trasy bramy domyślnej (0.0.0.0/0) są anonsowane za pośrednictwem bram ExpressRoute lub VPN skojarzonych z siecią wirtualną Application Gateway. Ten podział ruchu płaszczyzny zarządzania, który wymaga bezpośredniej ścieżki do Internetu. W takich scenariuszach UDR może służyć do wyłączania propagacji tras BGP. 
 
@@ -90,11 +90,11 @@ W tym scenariuszu należy użyć sieciowych grup zabezpieczeń w podsieci Applic
 
    Włączenie UDR w tym scenariuszu nie należy przerywać żadnych istniejących ustawień.
 
-  **Scenariusz 2**: UDR do bezpośredniego 0.0.0.0/0 do Internetu
+  **Scenariusz 2** : UDR do bezpośredniego 0.0.0.0/0 do Internetu
 
    Można utworzyć UDR do wysyłania ruchu 0.0.0.0/0 bezpośrednio do Internetu. 
 
-  **Scenariusz 3**: UDR dla usługi Azure Kubernetes z usługą korzystającą wtyczki kubenet
+  **Scenariusz 3** : UDR dla usługi Azure Kubernetes z usługą korzystającą wtyczki kubenet
 
   Jeśli używasz korzystającą wtyczki kubenet z usługą Azure Kubernetes Service (AKS) i Application Gatewaym kontrolerem transferu danych przychodzących (AGIC), będziesz potrzebować tabeli tras, aby zezwolić na ruch wysyłany do tych zasobników z Application Gateway do kierowania do poprawnego węzła. Nie będzie to konieczne, jeśli używasz usługi Azure CNI. 
 
@@ -109,7 +109,7 @@ W tym scenariuszu należy użyć sieciowych grup zabezpieczeń w podsieci Applic
     
   **v2 nieobsługiwane scenariusze**
 
-  **Scenariusz 1**: UDR dla urządzeń wirtualnych
+  **Scenariusz 1** : UDR dla urządzeń wirtualnych
 
   Każdy scenariusz, w którym 0.0.0.0/0 musi być przekierowywany za pomocą dowolnego urządzenia wirtualnego, sieci wirtualnej Hub/szprych lub lokalnego (tunelowanie wymuszone) nie jest obsługiwany w wersji 2.
 

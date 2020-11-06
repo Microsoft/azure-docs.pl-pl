@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ef2ff8924cd8a92c5d2d2e5dd9da6bb74fad1a14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653223"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397647"
 ---
 # <a name="application-gateway-listener-configuration"></a>Konfiguracja odbiornika Application Gateway
 
@@ -20,13 +20,13 @@ ms.locfileid: "89653223"
 
 Odbiornik jest jednostką logiczną, która sprawdza przychodzące żądania połączeń przy użyciu portu, protokołu, hosta i adresu IP. Podczas konfigurowania odbiornika należy wprowadzić wartości pasujące do odpowiednich wartości w żądaniu przychodzącym na bramie.
 
-Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy również utworzyć odbiornik domyślny, wybierając protokół i port odbiornika. Możesz wybrać, czy włączyć obsługę HTTP2 na odbiorniku. Po utworzeniu bramy aplikacji można edytować ustawienia tego odbiornika domyślnego (*appGatewayHttpListener*) lub utworzyć nowe odbiorniki.
+Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy również utworzyć odbiornik domyślny, wybierając protokół i port odbiornika. Możesz wybrać, czy włączyć obsługę HTTP2 na odbiorniku. Po utworzeniu bramy aplikacji można edytować ustawienia tego odbiornika domyślnego ( *appGatewayHttpListener* ) lub utworzyć nowe odbiorniki.
 
 ## <a name="listener-type"></a>Typ odbiornika
 
-Podczas tworzenia nowego odbiornika należy wybrać jedną z [ *podstawowych* i *wiele lokacji*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners).
+Podczas tworzenia nowego odbiornika należy wybrać jedną z [ *podstawowych* i *wiele lokacji*](./application-gateway-components.md#types-of-listeners).
 
-- Jeśli chcesz, aby wszystkie żądania (dla dowolnej domeny) zostały zaakceptowane i przesłane dalej do pul zaplecza, wybierz pozycję podstawowa. Dowiedz się, [jak utworzyć bramę aplikacji z odbiornikiem podstawowym](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Jeśli chcesz, aby wszystkie żądania (dla dowolnej domeny) zostały zaakceptowane i przesłane dalej do pul zaplecza, wybierz pozycję podstawowa. Dowiedz się, [jak utworzyć bramę aplikacji z odbiornikiem podstawowym](./quick-create-portal.md).
 
 - Jeśli chcesz przekazywać żądania do różnych pul zaplecza na podstawie nazwy nagłówka *hosta* lub hosta, wybierz odbiornik wielu witryn, w którym należy określić nazwę hosta zgodną z żądaniem przychodzącym. Jest to spowodowane tym, że Application Gateway opiera się na nagłówkach hosta HTTP 1,1 do hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie. Aby dowiedzieć się więcej, zobacz [hostowanie wielu witryn przy użyciu Application Gateway](multiple-site-overview.md).
 
@@ -42,7 +42,7 @@ Wybierz adres IP frontonu, który ma zostać skojarzony z tym odbiornikiem. Odbi
 
 ## <a name="front-end-port"></a>Port frontonu
 
-Wybierz port frontonu. Wybierz istniejący port lub Utwórz nowy. Wybierz dowolną wartość z [dozwolonego zakresu portów](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Można użyć nie tylko dobrze znanych portów, na przykład 80 i 443, ale dowolnego dozwolonego niestandardowego portu, który jest odpowiedni. Port może być używany na potrzeby odbiorników publicznych lub odbiorników prywatnych.
+Wybierz port frontonu. Wybierz istniejący port lub Utwórz nowy. Wybierz dowolną wartość z [dozwolonego zakresu portów](./application-gateway-components.md#ports). Można użyć nie tylko dobrze znanych portów, na przykład 80 i 443, ale dowolnego dozwolonego niestandardowego portu, który jest odpowiedni. Port może być używany na potrzeby odbiorników publicznych lub odbiorników prywatnych.
 
 ## <a name="protocol"></a>Protokół
 
@@ -50,7 +50,7 @@ Wybierz pozycję HTTP lub HTTPS:
 
 - W przypadku wybrania protokołu HTTP ruch między klientem i bramą aplikacji jest niezaszyfrowany.
 
-- Wybierz opcję HTTPS, jeśli chcesz, aby [protokół TLS](features.md#secure-sockets-layer-ssltls-termination) lub [kompleksowe szyfrowanie TLS](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Ruch między klientem i bramą aplikacji jest szyfrowany. A połączenie TLS kończy się na bramie aplikacji. Aby kompleksowe szyfrowanie TLS było wymagane, należy wybrać opcję HTTPS i skonfigurować ustawienia **protokołu HTTP zaplecza** . Gwarantuje to, że ruch jest ponownie szyfrowany podczas podróży z bramy aplikacji do zaplecza.
+- Wybierz opcję HTTPS, jeśli chcesz, aby [protokół TLS](features.md#secure-sockets-layer-ssltls-termination) lub [kompleksowe szyfrowanie TLS](./ssl-overview.md). Ruch między klientem i bramą aplikacji jest szyfrowany. A połączenie TLS kończy się na bramie aplikacji. Aby kompleksowe szyfrowanie TLS było wymagane, należy wybrać opcję HTTPS i skonfigurować ustawienia **protokołu HTTP zaplecza** . Gwarantuje to, że ruch jest ponownie szyfrowany podczas podróży z bramy aplikacji do zaplecza.
 
 
 Aby skonfigurować zakończenie protokołu TLS i kompleksowe szyfrowanie protokołu TLS, należy dodać certyfikat do odbiornika, aby umożliwić bramie aplikacji uzyskanie klucza symetrycznego. Jest to podyktowane specyfikacją protokołu TLS. Klucz symetryczny służy do szyfrowania i odszyfrowywania ruchu wysyłanego do bramy. Certyfikat bramy musi być w formacie wymiany informacji osobistych (PFX). Ten format umożliwia wyeksportowanie klucza prywatnego, który jest wykorzystywany przez bramę do szyfrowania i odszyfrowywania ruchu.
@@ -79,17 +79,17 @@ Obsługa protokołu WebSocket jest domyślnie włączona. Nie istnieje ustawieni
 
 ## <a name="custom-error-pages"></a>Niestandardowe strony błędów
 
-Błąd niestandardowy można zdefiniować na poziomie globalnym lub na poziomie odbiornika. Jednak tworzenie niestandardowych stron błędów niestandardowych na poziomie globalnym na podstawie Azure Portal nie jest obecnie obsługiwane. Można skonfigurować niestandardową stronę błędów dla błędu zapory aplikacji sieci Web 403 lub strony obsługi 502 na poziomie odbiornika. Należy również określić publicznie dostępny adres URL obiektu BLOB dla danego kodu stanu błędu. Aby uzyskać więcej informacji, zobacz [Create Application Gateway custom error pages (Tworzenie niestandardowych stron błędów w usłudze Application Gateway)](https://docs.microsoft.com/azure/application-gateway/custom-error).
+Błąd niestandardowy można zdefiniować na poziomie globalnym lub na poziomie odbiornika. Jednak tworzenie niestandardowych stron błędów niestandardowych na poziomie globalnym na podstawie Azure Portal nie jest obecnie obsługiwane. Można skonfigurować niestandardową stronę błędów dla błędu zapory aplikacji sieci Web 403 lub strony obsługi 502 na poziomie odbiornika. Należy również określić publicznie dostępny adres URL obiektu BLOB dla danego kodu stanu błędu. Aby uzyskać więcej informacji, zobacz [Create Application Gateway custom error pages (Tworzenie niestandardowych stron błędów w usłudze Application Gateway)](./custom-error.md).
 
-![Application Gateway kody błędów](https://docs.microsoft.com/azure/application-gateway/media/custom-error/ag-error-codes.png)
+![Application Gateway kody błędów](/azure/application-gateway/media/custom-error/ag-error-codes.png)
 
-Aby skonfigurować globalną stronę błędu niestandardowego, zobacz [konfiguracja Azure PowerShell](https://docs.microsoft.com/azure/application-gateway/custom-error#azure-powershell-configuration).
+Aby skonfigurować globalną stronę błędu niestandardowego, zobacz [konfiguracja Azure PowerShell](./custom-error.md#azure-powershell-configuration).
 
 ## <a name="tls-policy"></a>Zasady protokołu TLS
 
-Można scentralizować zarządzanie certyfikatami TLS/SSL i zmniejszyć obciążenie odszyfrowywania dla farmy serwerów zaplecza. Scentralizowana obsługa protokołu TLS umożliwia również określenie centralnych zasad protokołu TLS, które są odpowiednie do wymagań dotyczących zabezpieczeń. Można wybrać *domyślne*, *wstępnie zdefiniowane*lub *niestandardowe* zasady protokołu TLS.
+Można scentralizować zarządzanie certyfikatami TLS/SSL i zmniejszyć obciążenie odszyfrowywania dla farmy serwerów zaplecza. Scentralizowana obsługa protokołu TLS umożliwia również określenie centralnych zasad protokołu TLS, które są odpowiednie do wymagań dotyczących zabezpieczeń. Można wybrać *domyślne* , *wstępnie zdefiniowane* lub *niestandardowe* zasady protokołu TLS.
 
-Zasady protokołu TLS można skonfigurować do kontroli wersji protokołu TLS. Bramę aplikacji można skonfigurować tak, aby korzystała z minimalnej wersji protokołu dla uzgadniania TLS z protokołów TLS 1.0, TLS 1.1 i TLS 1.2. Domyślnie protokoły SSL 2,0 i 3,0 są wyłączone i nie można ich konfigurować. Aby uzyskać więcej informacji, zobacz [Application Gateway zasad protokołu TLS](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Zasady protokołu TLS można skonfigurować do kontroli wersji protokołu TLS. Bramę aplikacji można skonfigurować tak, aby korzystała z minimalnej wersji protokołu dla uzgadniania TLS z protokołów TLS 1.0, TLS 1.1 i TLS 1.2. Domyślnie protokoły SSL 2,0 i 3,0 są wyłączone i nie można ich konfigurować. Aby uzyskać więcej informacji, zobacz [Application Gateway zasad protokołu TLS](./application-gateway-ssl-policy-overview.md).
 
 Po utworzeniu odbiornika należy skojarzyć go z regułą routingu żądania. Ta reguła określa, jak żądania odbierane w odbiorniku są kierowane do zaplecza.
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595907"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396859"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Utwórz bramę aplikacji i Zapisz ponownie nagłówki HTTP
 
-Za pomocą Azure PowerShell można skonfigurować [reguły do ponownego zapisywania nagłówków żądań i odpowiedzi HTTP](rewrite-http-headers.md) podczas tworzenia nowej [jednostki SKU bramy aplikacji z obsługą automatycznego skalowania i strefowo nadmiarowej](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+Za pomocą Azure PowerShell można skonfigurować [reguły do ponownego zapisywania nagłówków żądań i odpowiedzi HTTP](rewrite-http-headers.md) podczas tworzenia nowej [jednostki SKU bramy aplikacji z obsługą automatycznego skalowania i strefowo nadmiarowej](./application-gateway-autoscaling-zone-redundant.md)
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten artykuł wymaga uruchomienia Azure PowerShell lokalnie. Musisz mieć zainstalowany AZ module w wersji 1.0.0 lub nowszej. Uruchom `Import-Module Az` polecenie, a następnie `Get-Module Az` Znajdź wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Ten artykuł wymaga uruchomienia Azure PowerShell lokalnie. Musisz mieć zainstalowany AZ module w wersji 1.0.0 lub nowszej. Uruchom `Import-Module Az` polecenie, a następnie `Get-Module Az` Znajdź wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Skonfiguruj nowe obiekty wymagane do ponownego zapisania nagłówków http:
 
-- **RequestHeaderConfiguration**: ten obiekt służy do określania pól nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
-- **ResponseHeaderConfiguration**: ten obiekt służy do określania pól nagłówka odpowiedzi, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
-- **ActionSet**: ten obiekt zawiera konfiguracje żądań i nagłówków odpowiedzi określonych powyżej. 
-- **RewriteRule**: ten obiekt zawiera wszystkie *actionSets* określone powyżej. 
-- **RewriteRuleSet**— ten obiekt zawiera wszystkie *rewriteRules* i będzie musiał zostać dołączony do reguły routingu żądań — podstawowa lub oparta na ścieżce.
+- **RequestHeaderConfiguration** : ten obiekt służy do określania pól nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
+- **ResponseHeaderConfiguration** : ten obiekt służy do określania pól nagłówka odpowiedzi, które mają być ponownie zapisane, oraz do nowej wartości, w której mają być zapisywane oryginalne nagłówki.
+- **ActionSet** : ten obiekt zawiera konfiguracje żądań i nagłówków odpowiedzi określonych powyżej. 
+- **RewriteRule** : ten obiekt zawiera wszystkie *actionSets* określone powyżej. 
+- **RewriteRuleSet** — ten obiekt zawiera wszystkie *rewriteRules* i będzie musiał zostać dołączony do reguły routingu żądań — podstawowa lub oparta na ścieżce.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248687"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397155"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP przy użyciu Application Gateway
 
@@ -22,7 +22,7 @@ Nagłówki HTTP umożliwiają klientowi i serwerowi przekazywanie dodatkowych in
 
 Usługa Application Gateway umożliwia dodawanie, usuwanie lub aktualizowanie nagłówków żądań i odpowiedzi HTTP podczas przenoszenia pakietów żądań i odpowiedzi między pulami klientów i zaplecza. Pozwala ona również na dodawanie warunków w celu zapewnienia, że określone nagłówki będą ponownie zapisywane tylko po spełnieniu pewnych warunków.
 
-Application Gateway obsługuje również kilka [zmiennych serwera](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) , które ułatwiają przechowywanie dodatkowych informacji na temat żądań i odpowiedzi. Ułatwia to tworzenie zaawansowanych reguł ponownego zapisywania.
+Application Gateway obsługuje również kilka [zmiennych serwera](#server-variables) , które ułatwiają przechowywanie dodatkowych informacji na temat żądań i odpowiedzi. Ułatwia to tworzenie zaawansowanych reguł ponownego zapisywania.
 
 > [!NOTE]
 >
@@ -48,15 +48,15 @@ Można użyć warunku, aby oszacować, czy określona zmienna jest obecna, czy o
 
 Aby określić nagłówki żądania i odpowiedzi, które mają zostać ponownie zapisane, i nową wartość dla nagłówków, należy użyć akcji ponownego zapisywania. Można utworzyć nowy nagłówek, zmodyfikować wartość istniejącego nagłówka lub usunąć istniejący nagłówek. Wartość nowego nagłówka lub istniejącego nagłówka można ustawić na następujące typy wartości:
 
-- Opis.
-- Nagłówek żądania. Aby określić nagłówek żądania, należy użyć składni {http_req_*headerName*}.
-- Nagłówek odpowiedzi. Aby określić nagłówek odpowiedzi, należy użyć składni {http_resp_*headerName*}.
-- Zmienna serwera. Aby określić zmienną serwera, należy użyć składni {var_*ServerVariables*}.
+- Tekst.
+- Nagłówek żądania. Aby określić nagłówek żądania, należy użyć składni {http_req_ *headerName* }.
+- Nagłówek odpowiedzi. Aby określić nagłówek odpowiedzi, należy użyć składni {http_resp_ *headerName* }.
+- Zmienna serwera. Aby określić zmienną serwera, należy użyć składni {var_ *ServerVariables* }.
 - Kombinacja tekstu, nagłówka żądania, nagłówka odpowiedzi i zmiennej serwerowej.
 
 ## <a name="server-variables"></a>Zmienne serwera
 
-Application Gateway używa zmiennych serwera do przechowywania użytecznych informacji o serwerze, połączeniu z klientem i bieżącym żądaniu połączenia. Przykłady przechowywanych informacji obejmują adres IP klienta i typ przeglądarki sieci Web. Zmienne serwera zmieniają się dynamicznie, na przykład po załadowaniu nowej strony lub po opublikowaniu formularza. Możesz użyć tych zmiennych do oszacowania warunków ponownego zapisu i ponownego zapisywania nagłówków. Aby można było użyć wartości zmiennych serwera do ponownego zapisania nagłówków, należy określić te zmienne w składni {var_*ServerVariables*}
+Application Gateway używa zmiennych serwera do przechowywania użytecznych informacji o serwerze, połączeniu z klientem i bieżącym żądaniu połączenia. Przykłady przechowywanych informacji obejmują adres IP klienta i typ przeglądarki sieci Web. Zmienne serwera zmieniają się dynamicznie, na przykład po załadowaniu nowej strony lub po opublikowaniu formularza. Możesz użyć tych zmiennych do oszacowania warunków ponownego zapisu i ponownego zapisywania nagłówków. Aby można było użyć wartości zmiennych serwera do ponownego zapisania nagłówków, należy określić te zmienne w składni {var_ *ServerVariables* }
 
 Brama aplikacji obsługuje te zmienne serwera:
 
@@ -91,19 +91,19 @@ Aby skonfigurować ponowne zapisywanie nagłówka HTTP, należy wykonać te krok
 
 1. Utwórz obiekty wymagane do ponownego zapisania nagłówka HTTP:
 
-   - **Akcja ponownego zapisu**: służy do określania pól żądania i nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości nagłówków. Możliwe jest skojarzenie jednego lub więcej warunków ponownego zapisu z akcją ponownego zapisu.
+   - **Akcja ponownego zapisu** : służy do określania pól żądania i nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości nagłówków. Możliwe jest skojarzenie jednego lub więcej warunków ponownego zapisu z akcją ponownego zapisu.
 
-   - **Warunek ponownego zapisu**: opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
+   - **Warunek ponownego zapisu** : opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
 
      Jeśli powiążesz więcej niż jeden warunek z akcją, Akcja występuje tylko wtedy, gdy wszystkie warunki są spełnione. Innymi słowy, operacja jest operacją logiczną i.
 
-   - **Reguła ponownego zapisywania**: zawiera kilka kombinacji warunku akcji ponownego zapisu/ponownego zapisywania.
+   - **Reguła ponownego zapisywania** : zawiera kilka kombinacji warunku akcji ponownego zapisu/ponownego zapisywania.
 
-   - **Sekwencja reguł**: pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama sekwencja reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
+   - **Sekwencja reguł** : pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama sekwencja reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
 
-   - **Zestaw do ponownego zapisu**: zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
+   - **Zestaw do ponownego zapisu** : zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
 
-2. Dołącz zestaw do ponownego zapisu (*rewriteRuleSet*) do reguły routingu. Konfiguracja ponownego zapisywania jest dołączona do odbiornika źródłowego za pośrednictwem reguły routingu. W przypadku korzystania z podstawowej reguły routingu, konfiguracja ponownego zapisywania nagłówka jest skojarzona z odbiornikiem źródłowym i jest ponownym zapisem nagłówka globalnego. W przypadku korzystania z reguły routingu opartej na ścieżce, konfiguracja ponownego zapisywania nagłówka jest definiowana na mapie ścieżki URL. W takim przypadku ma zastosowanie tylko do obszaru określonej ścieżki w lokacji.
+2. Dołącz zestaw do ponownego zapisu ( *rewriteRuleSet* ) do reguły routingu. Konfiguracja ponownego zapisywania jest dołączona do odbiornika źródłowego za pośrednictwem reguły routingu. W przypadku korzystania z podstawowej reguły routingu, konfiguracja ponownego zapisywania nagłówka jest skojarzona z odbiornikiem źródłowym i jest ponownym zapisem nagłówka globalnego. W przypadku korzystania z reguły routingu opartej na ścieżce, konfiguracja ponownego zapisywania nagłówka jest definiowana na mapie ścieżki URL. W takim przypadku ma zastosowanie tylko do obszaru określonej ścieżki w lokacji.
    > [!NOTE]
    > Ponowne zapisywanie adresów URL zmiana nagłówków; nie powoduje zmiany adresu URL ścieżki.
 
@@ -168,5 +168,5 @@ Można oszacować żądanie HTTP lub nagłówek odpowiedzi dla obecności nagł�
 
 Aby dowiedzieć się, jak ponownie napisać nagłówki HTTP, zobacz:
 
-- [Ponowne zapisywanie nagłówków HTTP przy użyciu witryny Azure Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Ponowne zapisywanie nagłówków HTTP przy użyciu witryny Azure Portal](./rewrite-http-headers-portal.md)
 - [Zapisz ponownie nagłówki HTTP przy użyciu Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

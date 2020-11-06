@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595948"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396893"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Rozwiązywanie problemów z App Service w programie Application Gateway
 
@@ -80,10 +80,10 @@ W poprzednim przykładzie Zwróć uwagę, że nagłówek odpowiedzi ma kod stanu
 
 ## <a name="solution-rewrite-the-location-header"></a>Rozwiązanie: Zapisz ponownie nagłówek lokalizacji
 
-W nagłówku lokalizacji Ustaw nazwę hosta na nazwę domeny bramy aplikacji. W tym celu należy utworzyć [regułę ponownego zapisywania](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) z warunkiem, który oblicza, czy nagłówek lokalizacji w odpowiedzi zawiera azurewebsites.NET. Należy również wykonać akcję, aby ponownie zapisać nagłówek lokalizacji w celu posiadania nazwy hosta bramy aplikacji. Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [ponownego zapisywania nagłówka lokalizacji](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+W nagłówku lokalizacji Ustaw nazwę hosta na nazwę domeny bramy aplikacji. W tym celu należy utworzyć [regułę ponownego zapisywania](./rewrite-http-headers.md) z warunkiem, który oblicza, czy nagłówek lokalizacji w odpowiedzi zawiera azurewebsites.NET. Należy również wykonać akcję, aby ponownie zapisać nagłówek lokalizacji w celu posiadania nazwy hosta bramy aplikacji. Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [ponownego zapisywania nagłówka lokalizacji](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> Obsługa ponownego zapisywania nagłówka HTTP jest dostępna tylko dla [Standard_v2 i WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) Application Gateway. W przypadku korzystania z jednostki SKU w wersji 1 zalecamy [Migrowanie z wersji od 1 do v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Chcesz użyć funkcji ponownego zapisywania i innych [zaawansowanych możliwości](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) dostępnych w wersji 2 jednostki SKU.
+> Obsługa ponownego zapisywania nagłówka HTTP jest dostępna tylko dla [Standard_v2 i WAF_V2 SKU](./application-gateway-autoscaling-zone-redundant.md) Application Gateway. W przypadku korzystania z jednostki SKU w wersji 1 zalecamy [Migrowanie z wersji od 1 do v2](./migrate-v1-v2.md). Chcesz użyć funkcji ponownego zapisywania i innych [zaawansowanych możliwości](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) dostępnych w wersji 2 jednostki SKU.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Alternatywne rozwiązanie: Użyj niestandardowej nazwy domeny
 
@@ -93,7 +93,7 @@ Usługa App Service wykonuje teraz przekierowanie (jeśli istnieje) w tym samym 
 
 Musisz być członkiem domeny niestandardowej i wykonać następujący proces:
 
-- Zarejestruj domenę na liście domen niestandardowych usługi App Service. W domenie niestandardowej musi znajdować się rekord CNAME, który wskazuje na nazwę FQDN usługi App Service. Aby uzyskać więcej informacji, zobacz [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Zarejestruj domenę na liście domen niestandardowych usługi App Service. W domenie niestandardowej musi znajdować się rekord CNAME, który wskazuje na nazwę FQDN usługi App Service. Aby uzyskać więcej informacji, zobacz [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](//azure/app-service/app-service-web-tutorial-custom-domain).
 
     ![Niestandardowa lista domen usługi App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

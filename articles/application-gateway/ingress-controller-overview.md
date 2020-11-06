@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668104"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397352"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Co to jest Application Gateway kontroler transferu danych przychodzących?
 Application Gateway AGIC (transfer danych przychodzących) to aplikacja Kubernetes, która umożliwia klientom korzystającym z [usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) korzystanie z natywnego [Application Gateway](https://azure.microsoft.com/services/application-gateway/) P7 modułu równoważenia obciążenia platformy Azure w celu udostępnienia oprogramowania chmury do Internetu. AGIC monitoruje klaster Kubernetes, na którym jest on hostowany, i ciągle aktualizuje Application Gateway, dzięki czemu wybrane usługi są dostępne w Internecie.
 
-Kontroler transferu danych przychodzących działa we własnym zakresie na AKS klienta. AGIC monitoruje podzestaw zasobów Kubernetes dla zmian. Stan klastra AKS jest tłumaczony na Application Gateway konkretną konfigurację i stosowany do [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Kontroler transferu danych przychodzących działa we własnym zakresie na AKS klienta. AGIC monitoruje podzestaw zasobów Kubernetes dla zmian. Stan klastra AKS jest tłumaczony na Application Gateway konkretną konfigurację i stosowany do [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>Zalety kontrolera Application Gateway transferu danych przychodzących
 AGIC pomaga wyeliminować konieczność posiadania innego modułu równoważenia obciążenia/publicznego adresu IP przed klastrem AKS i unika wielu przeskoków w ścieżce danych, zanim żądania docierają do klastra AKS. Application Gateway rozmowy do zasobników przy użyciu prywatnego adresu IP bezpośrednio i nie wymagają usług NodePort i KubeProxy. Zapewnia to również lepszą wydajność wdrożeń.
@@ -70,11 +70,10 @@ W poniższych tabelach przedstawiono, które scenariusze są obecnie obsługiwan
 |                  |1 Application Gateway |dwie bramy aplikacji |
 |------------------|---------|--------|
 |**1 AGIC**|NIE DOTYCZY |NIE DOTYCZY |
-|**2 + AGICs**|Musi używać funkcji Shared ProhibitedTarget |Nie dotyczy |
+|**2 + AGICs**|Musi używać funkcji Shared ProhibitedTarget |Brak |
 
 ## <a name="next-steps"></a>Następne kroki
 - [**AKS Add-On Greenfield Deployment**](tutorial-ingress-controller-add-on-new.md): instrukcje dotyczące instalowania dodatku AGIC, AKS i Application Gateway dla infrastruktury pustej.
 - [**AKS Add-On brownfield Deployment**](tutorial-ingress-controller-add-on-existing.md): Zainstaluj dodatek AGIC w klastrze AKS z istniejącym Application Gateway.
 - [**Helm Greenfield Deployment**](ingress-controller-install-new.md): Instaluj AGIC za poorednictwem Helm, nowego klastra AKS i nowego Application Gateway w infrastrukturze z pustą.
 - [**Helm brownfield Deployment**](ingress-controller-install-existing.md): Wdróż AGIC za poorednictwem Helm na istniejącym klastrze AKS i Application Gateway.
-

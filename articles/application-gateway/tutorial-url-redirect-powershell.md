@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595278"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397072"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą programu Azure PowerShell
 
-Za pomocą programu Azure PowerShell możesz skonfigurować [reguły routingu na podstawie adresu URL](application-gateway-url-route-overview.md) w trakcie tworzenia [bramy aplikacji](application-gateway-introduction.md). W tym artykule opisano tworzenie pul zaplecza przy użyciu  [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Następnie utworzysz reguły routingu na podstawie adresów URL, aby zapewnić przekierowywanie ruchu internetowego do odpowiedniej puli zaplecza.
+Za pomocą programu Azure PowerShell możesz skonfigurować [reguły routingu na podstawie adresu URL](./url-route-overview.md) w trakcie tworzenia [bramy aplikacji](./overview.md). W tym artykule opisano tworzenie pul zaplecza przy użyciu  [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md). Następnie utworzysz reguły routingu na podstawie adresów URL, aby zapewnić przekierowywanie ruchu internetowego do odpowiedniej puli zaplecza.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -390,7 +390,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech utworzonych pul zaplecza. Utworzone zestawy skalowania będą miały nazwy *myvmss1*, *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się usługi IIS. Zestaw skalowania przypisuje się do puli zaplecza podczas konfigurowania ustawień adresu IP.
+W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech utworzonych pul zaplecza. Utworzone zestawy skalowania będą miały nazwy *myvmss1* , *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się usługi IIS. Zestaw skalowania przypisuje się do puli zaplecza podczas konfigurowania ustawień adresu IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -518,4 +518,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Więcej informacji na temat funkcji bramy aplikacji](application-gateway-introduction.md)
+> [Więcej informacji na temat funkcji bramy aplikacji](./overview.md)

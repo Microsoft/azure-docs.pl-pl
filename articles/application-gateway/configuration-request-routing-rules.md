@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653209"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397539"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Reguły routingu żądań Application Gateway
 
-Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy utworzyć regułę domyślną (*RULE1*). Ta reguła wiąże domyślny odbiornik (*appGatewayHttpListener*) z domyślną pulą zaplecza (*appGatewayBackendPool*) i domyślnymi ustawieniami http zaplecza (*appGatewayBackendHttpSettings*). Po utworzeniu bramy można edytować ustawienia reguły domyślnej lub utworzyć nowe reguły.
+Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy utworzyć regułę domyślną ( *RULE1* ). Ta reguła wiąże domyślny odbiornik ( *appGatewayHttpListener* ) z domyślną pulą zaplecza ( *appGatewayBackendPool* ) i domyślnymi ustawieniami http zaplecza ( *appGatewayBackendHttpSettings* ). Po utworzeniu bramy można edytować ustawienia reguły domyślnej lub utworzyć nowe reguły.
 
 ## <a name="rule-type"></a>Typ reguły
 
-Podczas tworzenia reguły wybiera się między [ *podstawową* a *opartą na ścieżce*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
+Podczas tworzenia reguły wybiera się między [ *podstawową* a *opartą na ścieżce*](./application-gateway-components.md#request-routing-rules).
 
 - Wybierz pozycję podstawowa, jeśli chcesz przesłać dalej wszystkie żądania na skojarzonym odbiorniku (na przykład *blog <i></i> . contoso.com/ \* )* do jednej puli zaplecza.
 - Wybierz pozycję oparta na ścieżce, jeśli chcesz kierować żądania z określonych ścieżek URL do określonych pul zaplecza. Wzorzec ścieżki jest stosowany tylko do ścieżki adresu URL, a nie do parametrów zapytania.
@@ -51,13 +51,13 @@ Dla reguły opartej na ścieżce Dodaj wiele ustawień protokołu HTTP zaplecza,
 
 ## <a name="redirection-setting"></a>Ustawienie przekierowania
 
-W przypadku skonfigurowania przekierowania dla podstawowej reguły wszystkie żądania na skojarzonym odbiorniku są przekierowywane do obiektu docelowego. To jest przekierowanie *globalne* . Jeśli przekierowanie jest skonfigurowane dla reguły opartej na ścieżce, przekierowywane są tylko żądania w określonym obszarze witryny. Przykładem jest obszar koszyka zakupów, który jest oznaczany przez */Cart/ \* *. Jest to przekierowanie *oparte na ścieżce* .
+W przypadku skonfigurowania przekierowania dla podstawowej reguły wszystkie żądania na skojarzonym odbiorniku są przekierowywane do obiektu docelowego. To jest przekierowanie *globalne* . Jeśli przekierowanie jest skonfigurowane dla reguły opartej na ścieżce, przekierowywane są tylko żądania w określonym obszarze witryny. Przykładem jest obszar koszyka zakupów, który jest oznaczany przez */Cart/ \**. Jest to przekierowanie *oparte na ścieżce* .
 
 Aby uzyskać więcej informacji na temat przekierowań, zobacz [Omówienie przekierowania Application Gateway](redirect-overview.md).
 
 ### <a name="redirection-type"></a>Typ przekierowania
 
-Wybierz wymagany typ przekierowania: *trwały (301)*, *tymczasowy (307)*, *znaleziono (302)* lub *Zobacz inne (303)*.
+Wybierz wymagany typ przekierowania: *trwały (301)* , *tymczasowy (307)* , *znaleziono (302)* lub *Zobacz inne (303)*.
 
 ### <a name="redirection-target"></a>Cel przekierowania
 

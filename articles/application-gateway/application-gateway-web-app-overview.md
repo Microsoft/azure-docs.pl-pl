@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628690"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397692"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway obsługa zaplecza wielodostępnego, takiego jak usługa App Service
 
@@ -28,11 +28,11 @@ Usługa Application Gateway umożliwia użytkownikom zastępowanie nagłówka ho
 
 ## <a name="override-host-header-in-the-request"></a>Zastąp nagłówek hosta w żądaniu
 
-Możliwość określania przesłonięcia hosta jest definiowana w [ustawieniach protokołu HTTP](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) i może być stosowana do dowolnej puli zaplecza podczas tworzenia reguły. Obsługiwane są następujące dwa sposoby przesłaniania nagłówka hosta i rozszerzenia SNI dla zaplecza z wieloma dzierżawami:
+Możliwość określania przesłonięcia hosta jest definiowana w [ustawieniach protokołu HTTP](./configuration-overview.md#http-settings) i może być stosowana do dowolnej puli zaplecza podczas tworzenia reguły. Obsługiwane są następujące dwa sposoby przesłaniania nagłówka hosta i rozszerzenia SNI dla zaplecza z wieloma dzierżawami:
 
 - Możliwość ustawienia dla nazwy hosta stałej wartości jawnie wprowadzonej w ustawieniach protokołu HTTP. Ta funkcja zapewnia, że nagłówek hosta zostanie przesłonięty na tę wartość dla całego ruchu do puli zaplecza, w której stosowane są określone ustawienia protokołu HTTP. W przypadku korzystania z kompleksowej usługi TLS ta zastąpiona nazwa hosta jest używana w rozszerzeniu SNI. Ta funkcja umożliwia obsługę scenariuszy, w których Farma puli zaplecza oczekuje nagłówka hosta, który różni się od przychodzącego nagłówka hosta klienta.
 
-- Możliwość uzyskania nazwy hosta z adresu IP lub nazwy FQDN członków puli zaplecza. Ustawienia protokołu HTTP udostępniają również opcję dynamicznego wybierania nazwy hosta z nazwy FQDN składowej puli zaplecza, jeśli została skonfigurowana z użyciem opcji, aby utworzyć pochodną nazwę hosta z pojedynczego elementu członkowskiego puli zaplecza. W przypadku korzystania z kompleksowej usługi TLS ta nazwa hosta jest określana na podstawie nazwy FQDN i jest używana w rozszerzeniu SNI. Ta funkcja umożliwia obsługę scenariuszy, w których Pula zaplecza może mieć co najmniej dwie wielodostępne usługi PaaS, takie jak aplikacje sieci Web platformy Azure, a nagłówek hosta żądania do każdego elementu członkowskiego zawiera nazwę hosta pochodzącą od jego nazwy FQDN. W przypadku wdrażania tego scenariusza używamy przełącznika w ustawieniach protokołu HTTP o nazwie [Nazwa hosta z adresu zaplecza](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) , co spowoduje dynamiczne zastępowanie nagłówka hosta w oryginalnym żądaniu do tego, który jest wymieniony w puli zaplecza.  Jeśli na przykład nazwa FQDN puli zaplecza zawiera "contoso11.azurewebsites.net" i "contoso22.azurewebsites.net", nagłówek hosta oryginalnego żądania, który jest contoso.com, zostanie przesłonięty do contoso11.azurewebsites.net lub contoso22.azurewebsites.net, gdy żądanie zostanie wysłane do odpowiedniego serwera wewnętrznej bazy danych. 
+- Możliwość uzyskania nazwy hosta z adresu IP lub nazwy FQDN członków puli zaplecza. Ustawienia protokołu HTTP udostępniają również opcję dynamicznego wybierania nazwy hosta z nazwy FQDN składowej puli zaplecza, jeśli została skonfigurowana z użyciem opcji, aby utworzyć pochodną nazwę hosta z pojedynczego elementu członkowskiego puli zaplecza. W przypadku korzystania z kompleksowej usługi TLS ta nazwa hosta jest określana na podstawie nazwy FQDN i jest używana w rozszerzeniu SNI. Ta funkcja umożliwia obsługę scenariuszy, w których Pula zaplecza może mieć co najmniej dwie wielodostępne usługi PaaS, takie jak aplikacje sieci Web platformy Azure, a nagłówek hosta żądania do każdego elementu członkowskiego zawiera nazwę hosta pochodzącą od jego nazwy FQDN. W przypadku wdrażania tego scenariusza używamy przełącznika w ustawieniach protokołu HTTP o nazwie [Nazwa hosta z adresu zaplecza](./configuration-http-settings.md#pick-host-name-from-back-end-address) , co spowoduje dynamiczne zastępowanie nagłówka hosta w oryginalnym żądaniu do tego, który jest wymieniony w puli zaplecza.  Jeśli na przykład nazwa FQDN puli zaplecza zawiera "contoso11.azurewebsites.net" i "contoso22.azurewebsites.net", nagłówek hosta oryginalnego żądania, który jest contoso.com, zostanie przesłonięty do contoso11.azurewebsites.net lub contoso22.azurewebsites.net, gdy żądanie zostanie wysłane do odpowiedniego serwera wewnętrznej bazy danych. 
 
   ![Scenariusz aplikacji internetowej](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -59,8 +59,8 @@ Mogą istnieć sytuacje, w których nazwa hosta w odpowiedzi z usługi App Servi
 - Skonfigurowano przekierowanie na App Service. Przekierowanie może być proste, dodając końcowy ukośnik do żądania.
 - Masz uwierzytelnianie usługi Azure AD, które powoduje przekierowanie.
 
-Aby rozwiązać te problemy, zobacz [Rozwiązywanie problemów z adresem URL usługi App Service](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Aby rozwiązać te problemy, zobacz [Rozwiązywanie problemów z adresem URL usługi App Service](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak skonfigurować bramę aplikacji za pomocą aplikacji wielodostępnej, takiej jak usługa Azure App Service Web App jako członek puli zaplecza, odwiedzając [konfigurowanie App Service Web Apps z Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)
+Dowiedz się, jak skonfigurować bramę aplikacji za pomocą aplikacji wielodostępnej, takiej jak usługa Azure App Service Web App jako członek puli zaplecza, odwiedzając [konfigurowanie App Service Web Apps z Application Gateway](./configure-web-app-portal.md)

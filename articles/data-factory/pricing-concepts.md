@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a05089ae6365bb5d279105f8c010278bd0adb8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983620"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396009"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Informacje o cenach usługi Data Factory w ramach przykładów
 
@@ -48,7 +48,7 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 | Pobierz potok | 1 jednostka odczytu/zapisu |
 | Uruchom potok | 2 uruchomienia działania (1 dla uruchomienia wyzwalacza, 1 dla uruchomień działania) |
 | Kopiowanie danych założeń: czas wykonywania = 10 min | 10 \* 4 Azure Integration Runtime (domyślne ustawienie DIU = 4) Aby uzyskać więcej informacji o jednostkach integracji danych i optymalizowaniu wydajności kopiowania, zobacz [ten artykuł](copy-activity-performance.md) . |
-| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 2 ponowione rekordy uruchomienia monitorowania (1 dla uruchomienia potoku, 1 dla uruchomienia działania) |
+| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 2 pobrane rekordy przebiegu monitorowania (1 dla uruchomienia potoku, 1 dla uruchomienia działania) |
 
 **Łączny Cennik scenariusza: $0,16811**
 
@@ -79,7 +79,7 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 | Pobierz potok | 1 jednostka odczytu/zapisu |
 | Uruchom potok | 3 uruchomienia działania (1 dla uruchomienia wyzwalacza, 2 dla uruchomień działania) |
 | Kopiowanie danych założeń: czas wykonywania = 10 min | 10 \* 4 Azure Integration Runtime (domyślne ustawienie DIU = 4) Aby uzyskać więcej informacji o jednostkach integracji danych i optymalizowaniu wydajności kopiowania, zobacz [ten artykuł](copy-activity-performance.md) . |
-| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 3 ponowione rekordy uruchomienia monitorowania (1 dla uruchomienia potoku, 2 dla uruchomienia działania) |
+| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 3 pobrane rekordy przebiegu monitorowania (1 dla uruchomienia potoku, 2 dla uruchomienia działania) |
 | Założenie działania wykonywania elementów datakostki: czas wykonywania = 10 min | 10-minimalne wykonywanie działania zewnętrznego potoku |
 
 **Łączny Cennik scenariusza: $0,16916**
@@ -113,7 +113,7 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 | Pobierz potok | 1 jednostka odczytu/zapisu |
 | Uruchom potok | 4 uruchomienia działania (1 dla uruchomienia wyzwalacza, 3 dla uruchomień działania) |
 | Kopiowanie danych założeń: czas wykonywania = 10 min | 10 \* 4 Azure Integration Runtime (domyślne ustawienie DIU = 4) Aby uzyskać więcej informacji o jednostkach integracji danych i optymalizowaniu wydajności kopiowania, zobacz [ten artykuł](copy-activity-performance.md) . |
-| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 4 ponowione rekordy uruchomienia monitorowania (1 dla uruchomienia potoku, 3 dla uruchomienia działania) |
+| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 4 pobrane rekordy przebiegu monitorowania (1 dla uruchomienia potoku, 3 dla uruchomienia działania) |
 | Założenie wykonania działania wyszukiwania: czas wykonywania = 1 min | 1 min wykonania działania potoku |
 | Założenie działania wykonywania elementów datakostki: czas wykonywania = 10 min | 10-minimalne wykonywanie działania zewnętrznego potoku |
 
@@ -160,7 +160,7 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 | Pobierz potok | 1 jednostka odczytu/zapisu |
 | Uruchom potok | 2 uruchomienia działania (1 dla uruchomienia wyzwalacza, 1 dla uruchomień działania) |
 | Założenia przepływu danych: czas wykonywania = 10 min + 10 min. TTL | 10 \* 16 rdzeni ogólnych obliczeń z wartością TTL 10 |
-| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 2 ponowione rekordy uruchomienia monitorowania (1 dla uruchomienia potoku, 1 dla uruchomienia działania) |
+| Monitorowanie założeń potoku: wystąpił tylko 1 przebieg | 2 pobrane rekordy przebiegu monitorowania (1 dla uruchomienia potoku, 1 dla uruchomienia działania) |
 
 **Łączny Cennik scenariusza: $1,4631**
 
@@ -189,7 +189,7 @@ W tym scenariuszu chcesz usunąć oryginalne pliki na platformie Azure Blob Stor
 | Uruchom potok | 6 uruchomień działania (2 dla uruchomienia wyzwalacza, 4 dla uruchomień działania) |
 | Wykonaj działanie usuwania: każdy czas wykonywania = 5 minut. Wykonanie działania usuwania w pierwszym potoku to od 10:00 czasu UTC do 10:05 czasu UTC. Wykonanie działania usuwania w drugim potoku to od 10:02 czasu UTC do 10:07 czasu UTC.|Łącznie 7 min wykonywania działania potoku w zarządzanej sieci wirtualnej. Działanie potoku obsługuje do 50 współbieżności w zarządzanej sieci wirtualnej. |
 | Kopiowanie danych założeń: każdy czas wykonywania = 10 min. Wykonanie kopii w pierwszym potoku to od 10:06 czasu UTC do 10:15 czasu UTC. Wykonanie działania usuwania w drugim potoku to od 10:08 czasu UTC do 10:17 czasu UTC. | 10 * 4 Azure Integration Runtime (domyślne ustawienie DIU = 4) Aby uzyskać więcej informacji o jednostkach integracji danych i optymalizowaniu wydajności kopiowania, zobacz [ten artykuł](copy-activity-performance.md) . |
-| Monitorowanie założeń potoku: wystąpiły tylko 2 uruchomienia | 6 ponownych prób uruchomienia monitorowania (2 dla uruchomienia potoku, 4 dla uruchomienia działania) |
+| Monitorowanie założeń potoku: wystąpiły tylko 2 uruchomienia | 6 pobranych rekordów przebiegu monitorowania (2 dla uruchomienia potoku, 4 dla uruchomienia działania) |
 
 
 **Łączny Cennik scenariusza: $0,45523**
