@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii usług udostępnionych ISO 27001
 description: Omówienie i architektura przykładu strategii usług udostępnionych ISO 27001. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli ISO 27001.
-ms.date: 07/13/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: e02f34c424e3f68e67f2d0dc2f4541c57ce3882f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b14e929a2041daa1e6b35653f3ebd9178efefbfe
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950554"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420363"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Omówienie przykładu strategii usług udostępnionych ISO 27001.
 

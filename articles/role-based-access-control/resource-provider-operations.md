@@ -22,7 +22,7 @@ Ta sekcja zawiera listę operacji dla dostawców zasobów platformy Azure, któr
 
 Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę operacji.
 
-## <a name="all"></a>Wszystkie
+## <a name="all"></a>Wszystko
 
 | Ogólne |
 | --- |
@@ -629,7 +629,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -1866,7 +1866,7 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/storageDomains/operationResults/Read | Wyświetla lub pobiera wyniki operacji |
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
-## <a name="web"></a>sieć Web
+## <a name="web"></a>Internet
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -7436,7 +7436,7 @@ Usługa platformy Azure: [Azure Migrate](../migrate/migrate-services-overview.md
 > | Microsoft. OffAzure/VMwareSites/vCenter/odczyt | Pobiera właściwości programu VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vcenters/Write | Tworzy lub aktualizuje program VMware vCenter |
 
-## <a name="monitor"></a>Monitorowanie
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 

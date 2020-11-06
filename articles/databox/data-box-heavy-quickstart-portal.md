@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122827"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347426"
 ---
 ::: zone target = "docs"
 
@@ -60,14 +60,87 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ## <a name="order"></a>Zamówienie
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Ten krok zajmuje około 5 minut.
 
 1. Utwórz nowy zasób usługi Azure Data Box w witrynie Azure Portal.
-2. Wybierz istniejącą subskrypcję, w której włączono tę usługę, a następnie wybierz typ transferu **Import**. Podaj **Kraj źródłowy**, w którym są przechowywane dane, oraz **Docelowy region platformy Azure**, do którego mają zostać przekazane dane.
+2. Wybierz istniejącą subskrypcję, w której włączono tę usługę, a następnie wybierz typ transferu **Import**. Podaj **Kraj źródłowy** , w którym są przechowywane dane, oraz **Docelowy region platformy Azure** , do którego mają zostać przekazane dane.
 3. Wybierz pozycję **Data Box Heavy**. Maksymalna dostępna do użycia pojemność tego rozwiązania to 770 TB. W przypadku większych ilości danych możesz utworzyć większą liczbę zamówień.
 4. Wprowadź szczegóły zamówienia i informacje dotyczące wysyłki. Jeśli ta usługa jest dostępna w Twoim regionie, podaj adresy e-mail na potrzeby powiadomień, zapoznaj się z podsumowaniem i utwórz zamówienie.
 
 Po utworzeniu zamówienia urządzenie zostanie przygotowane do wysłania.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Skorzystaj z następujących poleceń interfejsu wiersza polecenia platformy Azure, aby utworzyć zadanie urządzenia Data Box Heavy.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Uruchom polecenie [az group create](/cli/azure/group#az_group_create), aby utworzyć grupę zasobów lub użyć istniejącej grupy zasobów:
+
+   ```azurecli
+   az group create --name databox-rg --location westus 
+   ```
+
+1. Użyj polecenia [az storage account create](/cli/azure/storage/account#az_storage_account_create), aby utworzyć konto magazynu lub użyć istniejącego konta magazynu:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Uruchom polecenie [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create), aby utworzyć zadanie urządzenia Data Box przy użyciu parametru **--sku** o wartości `DataBoxHeavy`:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxheavy-job \
+       --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 \
+       --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa \
+       --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+   ```
+
+   > [!NOTE]
+   > Upewnij się, że Twoja subskrypcja wspiera urządzenie Data Box Heavy.
+
+1. Uruchom polecenie [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update), aby zaktualizować zadanie. W tym przykładzie zmieniono nazwę i adres e-mail kontaktu:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Uruchom polecenie [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show), aby uzyskać informacje o zadaniu:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Użyj polecenia [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list), aby wyświetlić wszystkie zadania urządzenia Data Box dla grupy zasobów:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Uruchom polecenie [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel), aby anulować zadanie:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Uruchom polecenie [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete), aby usunąć zadanie:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Użyj polecenia [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials), aby wyświetlić listę poświadczeń dla zadania urządzenia Data Box:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+Po utworzeniu zamówienia urządzenie zostanie przygotowane do wysłania.
+
+---
 
 ::: zone-end
 

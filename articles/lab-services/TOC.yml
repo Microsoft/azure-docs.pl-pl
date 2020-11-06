@@ -4,6 +4,10 @@
   items:
     - name: Informacje o usługach Lab Services
       href: lab-services-overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Rozpoczęcie pracy
+      href: get-started-manage-labs.md
 - name: Samouczki
   items:
     - name: Konfigurowanie konta laboratorium

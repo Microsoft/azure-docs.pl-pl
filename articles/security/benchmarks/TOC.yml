@@ -179,7 +179,5 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Virtual Network
       href: ../../virtual-network/security-baseline.md
-    - name: Punkt odniesienia zabezpieczeń wirtualnej sieci WAN
-      href: ../../virtual-wan/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi VPN Gateway
       href: ../../vpn-gateway/security-baseline.md

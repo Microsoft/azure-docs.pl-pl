@@ -662,6 +662,8 @@
               href: how-to-time-to-live.md
             - name: Definiowanie unikatowych kluczy
               href: how-to-define-unique-keys.md
+            - name: Wykonywanie transakcyjnych operacji wsadowych
+              href: transactional-batch.md
         - name: Wydajność
           items:
             - name: Zapytanie
@@ -753,8 +755,6 @@
               href: create-sql-api-java-changefeed.md
         - name: Programowanie po stronie serwera
           items:
-            - name: Wykonywanie transakcyjnych operacji wsadowych
-              href: transactional-batch.md
             - name: 'Pisanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Pisanie procedur składowanych i wyzwalaczy za pomocą interfejsu API zapytań języka JavaScript

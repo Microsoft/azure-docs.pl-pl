@@ -14,8 +14,9 @@
     - name: Informacje o wersji
       href: release-notes.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
-    - name: Wprowadzenie
+    - name: Rozpoczęcie pracy
       href: get-started.md
       displayName: 'get, started, quickstart'
     - name: 1. Tworzenie obszaru roboczego usługi Synapse
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: Modele użycia zasobów
           href: sql/resource-consumption-models.md
-        - name: 'Najlepsze rozwiązania: bezserwerowa pula SQL'
+        - name: Ilość przetworzonych danych
+          href: sql/data-processed.md
+        - name: Najlepsze rozwiązania — SQL na żądanie
           href: sql/best-practices-sql-on-demand.md
         - name: 'Najlepsze rozwiązania: dedykowana pula SQL'
           href: sql/best-practices-sql-pool.md

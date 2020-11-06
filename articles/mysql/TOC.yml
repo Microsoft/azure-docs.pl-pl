@@ -29,6 +29,9 @@
     - name: Eliminowanie uszkodzenia bazy danych
       href: how-to-fix-corrupt-database.md
       displayName: corrupt data
+    - name: Zasady wersji
+      href: concepts-version-policy.md
+      displayName: version policy
 - name: Pojedynczy serwer
   expanded: true
   items:

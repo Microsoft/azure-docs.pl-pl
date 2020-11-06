@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 23615daf4a07e02b01bbd5a9cdf57ec9a81a2b76
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514072"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347409"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ W tym przewodniku Szybki start opisano sposób wdrażania usługi Azure Data Box
 
 Aby zyskać szczegółowe instrukcje dotyczące wdrażania i śledzenia krok po kroku, zobacz [Samouczek: zamawianie urządzenia Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
 
 ::: zone-end
 
@@ -52,11 +52,11 @@ Zaloguj się do witryny Azure Portal pod adresem [https://aka.ms/azuredataboxfro
 
 > [!div class="checklist"]
 >
-> - **Przejrzyj wymagania wstępne**: Sprawdź liczbę dysków i kabli, system operacyjny i inne oprogramowanie.
-> - **Podłącz i odblokuj**: Podłącz urządzenie i odblokuj dysk, aby skopiować dane.
-> - **Skopiuj dane na dysk i sprawdź ich poprawność**: Skopiuj dane na dyski do wstępnie utworzonych folderów.
-> - **Zwróć dyski**: Zwróć dyski do centrum danych platformy Azure, w którym dane zostaną przekazane do Twojego konta magazynu.
-> - **Sprawdź dane na platformie Azure**: Przed usunięciem danych z serwera źródłowego sprawdź, czy dane zostały przekazane na Twoje konto magazynu.
+> - **Przejrzyj wymagania wstępne** : Sprawdź liczbę dysków i kabli, system operacyjny i inne oprogramowanie.
+> - **Podłącz i odblokuj** : Podłącz urządzenie i odblokuj dysk, aby skopiować dane.
+> - **Skopiuj dane na dysk i sprawdź ich poprawność** : Skopiuj dane na dyski do wstępnie utworzonych folderów.
+> - **Zwróć dyski** : Zwróć dyski do centrum danych platformy Azure, w którym dane zostaną przekazane do Twojego konta magazynu.
+> - **Sprawdź dane na platformie Azure** : Przed usunięciem danych z serwera źródłowego sprawdź, czy dane zostały przekazane na Twoje konto magazynu.
 
 ::: zone-end
 
@@ -65,14 +65,84 @@ Zaloguj się do witryny Azure Portal pod adresem [https://aka.ms/azuredataboxfro
 
 ## <a name="order"></a>Zamówienie
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Ten krok zajmuje około 5 minut.
 
 1. Utwórz nowy zasób usługi Azure Data Box w witrynie Azure Portal. 
-2. Wybierz subskrypcję, w której włączono tę usługę, a następnie wybierz typ transferu **Import**. Podaj **Kraj źródłowy**, w którym są przechowywane dane, oraz **Docelowy region platformy Azure**, do którego mają zostać przekazane dane.
+2. Wybierz subskrypcję, w której włączono tę usługę, a następnie wybierz typ transferu **Import**. Podaj **Kraj źródłowy** , w którym są przechowywane dane, oraz **Docelowy region platformy Azure** , do którego mają zostać przekazane dane.
 3. Wybierz pozycję **Data Box Disk**. Maksymalna pojemność tego rozwiązania to 35 TB. W przypadku większych ilości danych możesz utworzyć większą liczbę zamówień.  
 4. Wprowadź szczegóły zamówienia i informacje dotyczące wysyłki. Jeśli ta usługa jest dostępna w Twoim regionie, podaj adresy e-mail na potrzeby powiadomień, zapoznaj się z podsumowaniem i utwórz zamówienie.
 
 Po utworzeniu zamówienia dyski zostaną przygotowane do wysłania.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Skorzystaj z następujących poleceń interfejsu wiersza polecenia platformy Azure, aby utworzyć zadanie rozwiązania Data Box Disk.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Uruchom polecenie [az group create](/cli/azure/group#az_group_create), aby utworzyć grupę zasobów lub użyć istniejącej grupy zasobów:
+
+   ```azurecli
+   az group create --name databox-rg --location westus
+   ```
+
+1. Użyj polecenia [az storage account create](/cli/azure/storage/account#az_storage_account_create), aby utworzyć konto magazynu lub użyć istniejącego konta magazynu:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Uruchom polecenie [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create), aby utworzyć zadanie urządzenia Data Box z jednostką SKU o wartości DataBoxDisk:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxdisk-job \
+       --location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 \
+       –-city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA \
+       --storage-account databoxtestsa --expected-data-size 1
+   ```
+
+1. Uruchom polecenie [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update), aby zaktualizować zadanie. W tym przykładzie zmieniono nazwę i adres e-mail kontaktu:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Uruchom polecenie [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show), aby uzyskać informacje o zadaniu:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Użyj polecenia [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list), aby wyświetlić wszystkie zadania urządzenia Data Box dla grupy zasobów:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Uruchom polecenie [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel), aby anulować zadanie:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Uruchom polecenie [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete), aby usunąć zadanie:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Użyj polecenia [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials), aby wyświetlić listę poświadczeń dla zadania urządzenia Data Box:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+Po utworzeniu zamówienia urządzenie zostanie przygotowane do wysłania.
+
+---
 
 ## <a name="unpack"></a>Rozpakowywanie
 
@@ -100,7 +170,7 @@ Ten krok zajmuje około 5 minut.
 
 Czas wymagany do ukończenia tej operacji zależy od rozmiaru danych.
 
-1. Na dysku znajdują się następujące foldery: *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* i *DataBoxDiskImport*. Przeciągnij i upuść dane, które mają zostać zaimportowane jako blokowe obiekty blob, do folderu *BlockBlob*. Analogicznie przeciągnij i upuść dane w formatach takich jak VHD/VHDX do folderu *PageBlob* oraz odpowiednie dane do folderu *AzureFile*. Skopiuj wirtualne dyski twarde, które chcesz przekazać jako dyski zarządzane, do folderu w folderze *ManagedDisk*.
+1. Na dysku znajdują się następujące foldery: *PageBlob* , *BlockBlob* , *AzureFile* , *ManagedDisk* i *DataBoxDiskImport*. Przeciągnij i upuść dane, które mają zostać zaimportowane jako blokowe obiekty blob, do folderu *BlockBlob*. Analogicznie przeciągnij i upuść dane w formatach takich jak VHD/VHDX do folderu *PageBlob* oraz odpowiednie dane do folderu *AzureFile*. Skopiuj wirtualne dyski twarde, które chcesz przekazać jako dyski zarządzane, do folderu w folderze *ManagedDisk*.
 
     Dla każdego podfolderu w folderach *BlockBlob* i *PageBlob* zostanie utworzony kontener na koncie usługi Azure Storage. Dla podfolderu w folderze *AzureFile* jest tworzony udział plików.
 
