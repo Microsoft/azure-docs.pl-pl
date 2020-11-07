@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: e5b008dd3d3a9d2422cca1fe00329543ed6d362f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1b603dc4c31cb608a0840da78a2e987b3edd3c1e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517150"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353612"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Zapisz konfigurację.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow, która pokazuje czwarty krok integracji. Przycisk Zapisz konfigurację jest wyróżniony." border="false":::
 
 5. Wybierz pozycję Inicjowanie obsługi użytkowników i kliknij przycisk **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow, która pokazuje piąty krok integracji. Przyciski Użyj aprowizacji użytkowników i OK są wyróżnione." border="false":::
 
 6. Kliknij pozycję **Generuj klucz tajny**. Skopiuj i Zapisz tę wartość. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie **aprowizacji** aplikacji MediusFLow w Azure Portal.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Zrzut ekranu przedstawiający kartę Konfiguracja aprowizacji użytkowników w konsoli administracyjnej MediusFlow. Zostaną wyróżnione przyciski Generuj klucz tajny i Kopiuj." border="false":::
 
 7. Kliknij przycisk **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow z powiadomieniem informującym użytkowników o kliknięciu przycisku OK w celu wygenerowania nowego klucza tajnego. Przycisk OK jest wyróżniony." border="false":::
 
 8. Aby użytkownicy zaimportowali ze wstępnie zdefiniowanym zestawem ról, firm i innych konfiguracji ogólnych w MediusFlow, należy najpierw ją skonfigurować. Zacznij od dodania konfiguracji, klikając pozycję **Dodaj nową konfigurację**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Zrzut ekranu przedstawiający kartę Konfiguracja aprowizacji użytkowników w konsoli administracyjnej MediusFlow. Zostanie wyróżniony przycisk Dodaj nową konfigurację." border="false":::
 
 9. Podaj ustawienia domyślne dla użytkowników. W tym widoku można ustawić domyślny atrybut. Jeśli ustawienia standardowe są poprawne, wystarczy podać prawidłową nazwę firmy. Ponieważ te ustawienia konfiguracji są pobierane z MediusFlow, należy najpierw je skonfigurować. Aby uzyskać więcej informacji, zobacz sekcję **wymagania wstępne** w tym artykule.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Zrzut ekranu przedstawiający okno MediusFlow Dodaj nową konfigurację. Wiele ustawień jest widocznych, takich jak ustawienia regionalne, filtr i role użytkownika." border="false":::
 
 10. Kliknij przycisk **Zapisz** , aby zapisać konfigurację użytkownika.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Zrzut ekranu przedstawiający kartę Konfiguracja aprowizacji użytkowników w konsoli administracyjnej MediusFlow. Przycisk Zapisz jest wyróżniony." border="false":::
 
 11. Aby uzyskać link aprowizacji użytkowników, kliknij **link Kopiuj Standard scim**. Skopiuj i Zapisz tę wartość. Ta wartość jest wprowadzana w polu **adres URL dzierżawy** na karcie **aprowizacji** aplikacji MediusFLow w Azure Portal.
  
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Zrzut ekranu przedstawiający kartę Konfiguracja aprowizacji użytkowników w konsoli administracyjnej MediusFlow. Zostanie wyróżniony przycisk Kopiuj S C I M link." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie MediusFlow z galerii aplikacji usługi Azure AD
 
@@ -125,7 +125,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-mediusflow-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla MediusFlow w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -159,12 +159,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |---|---|
    |userName|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |Nazwa. displayName|String|
+   |Nazwa. displayName|Ciąg|
    |aktywne|Wartość logiczna|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|String|
-   |externalID|String|
+   |Nazwa. sformatowana|Ciąg|
+   |externalID|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 
@@ -201,7 +201,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

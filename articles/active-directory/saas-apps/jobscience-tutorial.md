@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459394"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Samouczek: integracja Azure Active Directory z usługą Jobscience
 
@@ -57,7 +57,7 @@ Aby skonfigurować integrację programu Jobscience z usługą Azure AD, musisz d
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**. 
 
-    ![Usługa Active Directory][1]
+    ![Active Directory][1]
 
 1. Przejdź do **aplikacji dla przedsiębiorstw**. Następnie przejdź do **wszystkich aplikacji**.
 
@@ -71,7 +71,7 @@ Aby skonfigurować integrację programu Jobscience z usługą Azure AD, musisz d
 
     ![Zrzut ekranu przedstawia Dodawanie z galerii z wprowadzonym Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-1. W panelu wyników wybierz pozycję **Jobscience**, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+1. W panelu wyników wybierz pozycję **Jobscience** , a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Zrzut ekranu przedstawia wyniki, które obejmowały Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -135,11 +135,11 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
    
    ![Moja domena](./media/jobscience-tutorial/ic767825.png "Moja domena")
 
-1. Aby sprawdzić, czy domena została prawidłowo skonfigurowana, upewnij się, że znajduje się w sekcji "**krok 4 wdrożony dla użytkowników**" i przejrzyj "**Moje ustawienia domeny**".
+1. Aby sprawdzić, czy domena została prawidłowo skonfigurowana, upewnij się, że znajduje się w sekcji " **krok 4 wdrożony dla użytkowników** " i przejrzyj " **Moje ustawienia domeny** ".
 
     ![Domena wdrożona dla użytkownika](./media/jobscience-tutorial/ic784377.png "Domena wdrożona dla użytkownika")
 
-1. W witrynie firmy Jobscience kliknij pozycję **Security Controls**, a następnie kliknij pozycję **Single Sign-On Settings**.
+1. W witrynie firmy Jobscience kliknij pozycję **Security Controls** , a następnie kliknij pozycję **Single Sign-On Settings**.
     
     ![Zrzut ekranu przedstawia ustawienia pojedynczych Sign-On wybranych z poziomu formantów zabezpieczeń.](./media/jobscience-tutorial/ic784364.png "Mechanizmy zabezpieczeń")
 
@@ -157,21 +157,21 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
     
     a. W polu tekstowym **Name** (Nazwa) wpisz nazwę konfiguracji.
 
-    b. W polu tekstowym **wystawcy** wklej wartość **identyfikatora jednostki SAML**, która została skopiowana z Azure Portal.
+    b. W polu tekstowym **wystawcy** wklej wartość **identyfikatora jednostki SAML** , która została skopiowana z Azure Portal.
 
     c. W polu tekstowym **Identyfikator jednostki** wpisz `https://salesforce-jobscience.com`
 
     d. Kliknij przycisk **Przeglądaj** , aby przekazać certyfikat usługi Azure AD.
 
-    e. Jako **Typ tożsamości SAML**, wybierz pozycję **potwierdzenie zawiera identyfikator Federacji z obiektu użytkownika**.
+    e. Jako **Typ tożsamości SAML** , wybierz pozycję **potwierdzenie zawiera identyfikator Federacji z obiektu użytkownika**.
 
-    f. Jako **lokalizację tożsamości SAML**, **w elemencie NameIdentfier instrukcji subject**wybierz pozycję Identity (tożsamość).
+    f. Jako **lokalizację tożsamości SAML** , **w elemencie NameIdentfier instrukcji subject** wybierz pozycję Identity (tożsamość).
 
-    przykład W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL usługi SAML Single Sign-On**, która została skopiowana z Azure Portal.
+    przykład W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL usługi SAML Single Sign-On** , która została skopiowana z Azure Portal.
 
-    h. W polu tekstowym **adres URL wylogowania dostawcy tożsamości** wklej wartość **adresu URL wylogowania**, który został skopiowany z Azure Portal.
+    h. W polu tekstowym **adres URL wylogowania dostawcy tożsamości** wklej wartość **adresu URL wylogowania** , który został skopiowany z Azure Portal.
 
-    i. Kliknij pozycję **Zapisz**.
+    i. Kliknij przycisk **Zapisz**.
 
 1. W okienku nawigacji po lewej stronie w sekcji **Administruj** kliknij pozycję **Zarządzanie domeną** , aby rozwinąć sekcję pokrewne, a następnie kliknij pozycję **moja domena** , aby otworzyć stronę **Moje domeny** . 
     
@@ -192,7 +192,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
     Kliknij profil rejestracji jednokrotnej utworzony w powyższym kroku. Na tej stronie jest wyświetlany adres URL logowania jednokrotnego dla swojej firmy (na przykład `https://companyname.my.salesforce.com?so=companyid` .    
 
 > [!TIP]
-> Teraz możesz korzystać ze zwięzłej wersji tych instrukcji w witrynie [Azure Portal](https://portal.azure.com) podczas konfigurowania aplikacji.  Po dodaniu tej aplikacji z sekcji **Active Directory > Aplikacje dla przedsiębiorstw** wystarczy kliknąć kartę **Logowanie jednokrotne** i uzyskać dostęp do osadzonej dokumentacji za pośrednictwem sekcji ** Konfiguracja** w dolnej części strony. Więcej informacji na temat funkcji osadzonej dokumentacji można znaleźć tutaj: [Dokumentacja usługi Azure AD Embedded]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz korzystać ze zwięzłej wersji tych instrukcji w witrynie [Azure Portal](https://portal.azure.com) podczas konfigurowania aplikacji.  Po dodaniu tej aplikacji z sekcji **Active Directory > Aplikacje dla przedsiębiorstw** wystarczy kliknąć kartę **Logowanie jednokrotne** i uzyskać dostęp do osadzonej dokumentacji za pośrednictwem sekcji **Konfiguracja** w dolnej części strony. Więcej informacji na temat funkcji osadzonej dokumentacji można znaleźć tutaj: [Dokumentacja usługi Azure AD Embedded]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
@@ -202,7 +202,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **Azure Portal**w okienku nawigacji po lewej stronie kliknij ikonę **Azure Active Directory** .
+1. W **Azure Portal** w okienku nawigacji po lewej stronie kliknij ikonę **Azure Active Directory** .
 
     ![Zrzut ekranu przedstawia ikonę Azure A D w Azure Portal.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
@@ -241,7 +241,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Jobscie
 1. Przejdź do pozycji Konfiguracja.
    
    ![Zrzut ekranu przedstawia element Instalatora.](./media/jobscience-tutorial/ic784358.png "Konfigurowanie")
-1. Przejdź do pozycji **Zarządzaj \> użytkownikami**użytkownicy.
+1. Przejdź do pozycji **Zarządzaj \> użytkownikami** użytkownicy.
    
    ![Użytkownicy](./media/jobscience-tutorial/ic784369.png "Użytkownicy")
 1. Kliknij pozycję **New User** (Nowy użytkownik).
@@ -263,7 +263,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Jobscie
 
    f. W polu tekstowym **Nazwa nick** wpisz nazwę nick użytkownika, na przykład Simon.
 
-   przykład Kliknij pozycję **Zapisz**.
+   przykład Kliknij przycisk **Zapisz**.
 
     
 > [!NOTE]

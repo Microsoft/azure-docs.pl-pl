@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 46312dc2037eb128908e743f29474b9b4e79a2a6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 280083ccbd732e95796013bf2b2c08e96564c24c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519847"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354176"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie powiększenia automatycznej aprowizacji użytkowników
 
@@ -85,7 +85,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-zoom-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników w celu powiększania w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -121,8 +121,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |aktywne|Wartość logiczna|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |wiadomości e-mail [typ EQ "Work"]|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |wiadomości e-mail [typ EQ "Work"]|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -154,7 +154,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 * 05/14/2020 — obsługa operacji aktualizacji dodanych dla atrybutu wiadomości e-mail [Type EQ "Work"].
 * 10/20/2020 — dodano obsługę dwóch nowych ról "licencjonowane" i "on-Premium", aby zastąpić istniejące role "Pro" i "Corp". Obsługa ról "Pro" i "Corp" zostanie usunięta w przyszłości.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

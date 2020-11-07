@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2f694c5a089245a29aaf0e493542fc7f4fce46f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675453"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353003"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi SolarWinds Service Desk (wcześniej Samanage) w celu automatycznego aprowizacji użytkowników
 
@@ -24,16 +24,16 @@ W tym samouczku opisano kroki, które należy wykonać w programie SolarWinds Se
 
 ## <a name="migrate-to-the-new-solarwinds-service-desk-application"></a>Migrowanie do nowej aplikacji SolarWinds Service Desk
 
-Jeśli masz istniejącą integrację z usługą SolarWinds Service Desk, zapoznaj się z sekcją w poniższej sekcji dotyczącej nadchodzących zmian. Jeśli konfigurujesz usługę SolarWinds Service Desk po raz pierwszy, możesz pominąć tę sekcję i przejść do opcji **obsługiwane** .
+Jeśli masz istniejącą integrację z usługą SolarWinds Service Desk, zapoznaj się z sekcją w poniższej sekcji dotyczącej nadchodzących zmian. Jeśli konfigurujesz usługę SolarWinds Service Desk po raz pierwszy, możesz pominąć tę sekcję i przejść do opcji **obsługiwane**.
 
 #### <a name="whats-changing"></a>Co się zmieni?
 
-* Zmiany po stronie usługi Azure AD: Metoda autoryzacji do aprowizacji użytkowników w usłudze Samange ma historyczną **autoryzację** . Wkrótce zostanie wyświetlona Metoda autoryzacji zmieniona na **długi czas** życia.
+* Zmiany po stronie usługi Azure AD: Metoda autoryzacji do aprowizacji użytkowników w usłudze Samange ma historyczną **autoryzację**. Wkrótce zostanie wyświetlona Metoda autoryzacji zmieniona na **długi czas** życia.
 
 
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Co należy zrobić, aby przeprowadzić migrację istniejącej integracji niestandardowej do nowej aplikacji?
 
-Jeśli masz istniejącą integrację z usługą SolarWinds Service Desk z prawidłowymi poświadczeniami administratora, **nie jest wymagana żadna akcja** . Automatycznie Migrujemy klientów do nowej aplikacji. Ten proces jest wykonywany całkowicie w tle. Jeśli istniejące poświadczenia wygasną lub jeśli musisz ponownie autoryzować dostęp do aplikacji, musisz wygenerować token długiego wpisu tajnego. Aby wygenerować nowy token, zapoznaj się z częścią krok 2 tego artykułu.
+Jeśli masz istniejącą integrację z usługą SolarWinds Service Desk z prawidłowymi poświadczeniami administratora, **nie jest wymagana żadna akcja**. Automatycznie Migrujemy klientów do nowej aplikacji. Ten proces jest wykonywany całkowicie w tle. Jeśli istniejące poświadczenia wygasną lub jeśli musisz ponownie autoryzować dostęp do aplikacji, musisz wygenerować token długiego wpisu tajnego. Aby wygenerować nowy token, zapoznaj się z częścią krok 2 tego artykułu.
 
 
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Jak sprawdzić, czy moja aplikacja została zmigrowana? 
@@ -75,7 +75,7 @@ Dodaj usługę SolarWinds Service Desk z galerii aplikacji usługi Azure AD, aby
 
 Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podstawie przypisania do aplikacji lub na podstawie atrybutów użytkownika/grupy. Jeśli zdecydujesz się na określenie zakresu aprowizacji w aplikacji na podstawie przypisania, możesz skorzystać z następujących [instrukcji](../manage-apps/assign-user-or-group-access-portal.md) w celu przypisania użytkowników i grup do aplikacji. Jeśli zdecydujesz się na określenie zakresu aprowizacji wyłącznie na podstawie atrybutów użytkownika lub grupy, możesz użyć filtra zakresu zgodnie z opisem zamieszczonym [tutaj](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Podczas przypisywania użytkowników i grup do usługi SolarWinds Service Desk należy wybrać rolę inną niż **domyślny dostęp** . Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](../develop/howto-add-app-roles-in-azure-ad-apps.md), aby dodać więcej ról. 
+* Podczas przypisywania użytkowników i grup do usługi SolarWinds Service Desk należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](../develop/howto-add-app-roles-in-azure-ad-apps.md), aby dodać więcej ról. 
 
 * Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -86,37 +86,37 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-solarwinds-service-desk-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników dla usługi SolarWinds Service Desk w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje** .
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **SolarWinds Service Desk** .
+2. Na liście Aplikacje wybierz pozycję **SolarWinds Service Desk**.
 
-3. Wybierz kartę **Aprowizacja** .
+3. Wybierz kartę **Aprowizacja**.
 
     ![Zrzut ekranu przedstawiający wybraną kartę aprowizacji.](common/provisioning.png)
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Zrzut ekranu pokazujący tryb aprowizacji ustawiony na automatyczny.](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź `https://api.samanage.com` **adres URL dzierżawy** .  Wprowadź wcześniej pobraną wartość tokenu tajnego w polu **token tajny** . Wybierz pozycję **Testuj połączenie** , aby zapewnić, że usługa Azure AD może nawiązać połączenie z usługą SolarWinds Service Desk. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi SolarWinds Service Desk ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź `https://api.samanage.com` **adres URL dzierżawy**.  Wprowadź wcześniej pobraną wartość tokenu tajnego w polu **token tajny**. Wybierz pozycję **Testuj połączenie** , aby zapewnić, że usługa Azure AD może nawiązać połączenie z usługą SolarWinds Service Desk. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi SolarWinds Service Desk ma uprawnienia administratora i spróbuj ponownie.
 
     ![Zrzut ekranu pokazujący wybrany przycisk Testuj połączenie.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu** .
+6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Wybierz pozycję **Zapisz** .
+7. Wybierz pozycję **Zapisz**.
 
-8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy, aby SolarWinds Service Desk** .
+8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy, aby SolarWinds Service Desk**.
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do usługi SolarWinds Service Desk w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowywania kont użytkowników w SolarWinds Service Desk dla operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](../app-provisioning/customize-application-attributes.md), należy się upewnić, że interfejs API usługi SolarWinds Service Desk obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
       ![Samange mapowania użytkowników](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy, aby SolarWinds Service Desk** .
+10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy, aby SolarWinds Service Desk**.
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do usługi SolarWinds Service Desk w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w SolarWinds Service Desk dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -132,11 +132,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy wszystko będzie gotowe do udostępnienia, wybierz pozycję **Zapisz** .
+15. Gdy wszystko będzie gotowe do udostępnienia, wybierz pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
 Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:

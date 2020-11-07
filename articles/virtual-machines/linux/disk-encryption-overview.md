@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f95d7ae38ece2a2ad939d2b3c829aed2c676d0f7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996483"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354006"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -48,6 +48,8 @@ Azure Disk Encryption jest również dostępna dla maszyn wirtualnych z magazyne
 
 Azure Disk Encryption nie jest dostępna w przypadku [maszyn wirtualnych 2. generacji](../generation-2.md#generation-1-vs-generation-2-capabilities) i [maszyn wirtualnych z serii Lsv2](../lsv2-series.md). Aby uzyskać więcej wyjątków, zobacz [Azure Disk Encryption: scenariusze nieobsługiwane](disk-encryption-linux.md#unsupported-scenarios).
 
+Azure Disk Encryption nie jest dostępna w obrazach maszyn wirtualnych bez dysków tymczasowych (Dv4, Dsv4, Ev4 i Esv4).  Zobacz [rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](../azure-vms-no-temp-disk.md).
+
 ### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
 Azure Disk Encryption jest obsługiwane w podzestawie [dystrybucji systemu Linux z zatwierdzona przez platformę Azure](endorsed-distros.md), które jest samym podzbiorem wszystkich możliwych dystrybucji serwerów z systemem Linux.
@@ -56,7 +58,7 @@ Azure Disk Encryption jest obsługiwane w podzestawie [dystrybucji systemu Linux
 
 Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platformę Azure, nie obsługują Azure Disk Encryption; z tych, które są zatwierdzone, obsługiwane są tylko następujące dystrybucje i wersje Azure Disk Encryption:
 
-| Publisher | Oferta | SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
+| Publisher | Oferta | Jednostka SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 18,04 – LTS | Kanoniczny: UbuntuServer: 18.04-LTS: Najnowsza | System operacyjny i dysk z danymi |
 | Canonical | Ubuntu 18.04 | 18,04 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 18.04-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |
@@ -135,7 +137,7 @@ Poniższa tabela zawiera definicje typowych terminów używanych w dokumentacji 
 
 | Terminologia | Definicja |
 | --- | --- |
-| W usłudze Azure Key Vault | Key Vault to kryptograficzna usługa zarządzania kluczami oparta na sprawdzonych modułach zabezpieczeń (FIPS) Te standardy pomagają chronić klucze kryptograficzne i poufne wpisy tajne. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |
+| Azure Key Vault | Key Vault to kryptograficzna usługa zarządzania kluczami oparta na sprawdzonych modułach zabezpieczeń (FIPS) Te standardy pomagają chronić klucze kryptograficzne i poufne wpisy tajne. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Interfejs wiersza polecenia platformy Azure | [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) jest zoptymalizowany pod kątem zarządzania zasobami platformy Azure i administrowania nimi z wiersza poleceń.|
 | DM-Crypt |[Dm-crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) to oparty na systemie Linux, przezroczysty podsystem szyfrowania dysków używany do włączania szyfrowania dysków na maszynach wirtualnych z systemem Linux. |
 | Klucz szyfrowania klucza (KEK) | Klucz asymetryczny (RSA 2048), którego można użyć do ochrony lub zawijania klucza tajnego. Można podać klucz chroniony przez sprzętowy moduł zabezpieczeń (HSM) lub klucz chroniony przez oprogramowanie. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |

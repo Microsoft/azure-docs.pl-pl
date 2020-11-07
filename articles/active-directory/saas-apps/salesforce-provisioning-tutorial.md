@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676745"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353108"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Salesforce do automatycznego aprowizacji użytkowników
 
@@ -65,7 +65,7 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
 
 3. Wybierz wystąpienie usługi Salesforce, a następnie wybierz kartę **aprowizacji** .
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Zrzut ekranu przedstawia stronę aprowizacji usługi Salesforce, z trybem aprowizacji ustawionym na automatyczne i inne wartości, które można ustawić.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -75,11 +75,11 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
 
     b. W polu tekstowym **hasło administratora** wpisz hasło dla tego konta.
 
-6. Aby uzyskać token zabezpieczający usługi Salesforce, Otwórz nową kartę i zaloguj się do tego samego konta administratora usługi Salesforce. W prawym górnym rogu strony kliknij swoją nazwę, a następnie kliknij pozycję **Ustawienia** .
+6. Aby uzyskać token zabezpieczający usługi Salesforce, Otwórz nową kartę i zaloguj się do tego samego konta administratora usługi Salesforce. W prawym górnym rogu strony kliknij swoją nazwę, a następnie kliknij pozycję **Ustawienia**.
 
     ![Zrzut ekranu przedstawia wybrane łącze ustawienia.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
 
-7. W okienku nawigacji po lewej stronie kliknij pozycję **moje dane osobowe** , aby rozwinąć sekcję powiązaną, a następnie kliknij pozycję **Zresetuj mój token zabezpieczający** .
+7. W okienku nawigacji po lewej stronie kliknij pozycję **moje dane osobowe** , aby rozwinąć sekcję powiązaną, a następnie kliknij pozycję **Zresetuj mój token zabezpieczający**.
   
     ![Zrzut ekranu przedstawia Resetowanie mojego tokenu zabezpieczającego wybranego z informacji osobistych.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4a7b6ffc04fea3c7e09bae365a9c148e0ae5a232
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 54dc9d7357e4315c7878ccdacfd3f90809751858
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517943"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353445"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MyDay na potrzeby automatycznego aprowizacji użytkowników
 
@@ -71,7 +71,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-myday-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla MyDay w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -111,25 +111,25 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |preferredLanguage|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|String|
+   |Nazwa. sformatowana|Ciąg|
    |externalId|Ciąg|
-   |addresss [Type EQ "Work"]. Country|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |adresy [typ EQ "Work"]. streetAddress|String|
-   |adresy [Type EQ "Other"]. sformatowane|String|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
    |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
-   |role [podstawowa EQ "true"]. Display|String|
+   |role [podstawowa EQ "true"]. Display|Ciąg|
    |role [podstawowa EQ "true"]. Type|Ciąg|
    |roles[primary eq "True"].value|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Udostępnij Azure Active Directory grupy**.
 
@@ -164,7 +164,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

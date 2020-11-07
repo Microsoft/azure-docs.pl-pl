@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 13ae960f5d259314f00f8f09b2999a36c0919bc5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445704"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353734"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu dla automatycznej aprowizacji użytkowników
 
@@ -49,7 +49,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 ## <a name="set-up-harness-for-provisioning"></a>Konfigurowanie programu dla aprowizacji
 
-1. Zaloguj się do [konsoli administracyjnej](https://app.harness.io/#/login)programu, a następnie przejdź do pozycji **ciągłe**  >  **Zarządzanie dostępem**do zabezpieczeń.
+1. Zaloguj się do [konsoli administracyjnej](https://app.harness.io/#/login)programu, a następnie przejdź do pozycji **ciągłe**  >  **Zarządzanie dostępem** do zabezpieczeń.
 
     ![Konsola administracyjna programu](media/harness-provisioning-tutorial/admin.png)
 
@@ -90,7 +90,7 @@ Przed skonfigurowaniem programu do automatycznej aprowizacji użytkowników przy
 
     ![Przycisk "Nowa aplikacja"](common/add-new-app.png)
 
-1. W polu wyszukiwania wprowadź wartość **zespół**, wybierz pozycję **zespół** na liście wyników, a następnie wybierz przycisk **Dodaj** , aby dodać aplikację.
+1. W polu wyszukiwania wprowadź wartość **zespół** , wybierz pozycję **zespół** na liście wyników, a następnie wybierz przycisk **Dodaj** , aby dodać aplikację.
 
     ![Korzystanie z listy wyników](common/search-new-app.png)
 
@@ -122,7 +122,7 @@ Aby skonfigurować automatyczną obsługę administracyjną dla programu obsług
 
     ![Lista rozwijana "tryb aprowizacji"](common/provisioning-automatic.png)
 
-1. W obszarze **poświadczenia administratora**wykonaj następujące czynności:
+1. W obszarze **poświadczenia administratora** wykonaj następujące czynności:
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
  
@@ -136,29 +136,29 @@ Aby skonfigurować automatyczną obsługę administracyjną dla programu obsług
 
 1. Wybierz pozycję **Zapisz**.
 
-1. W obszarze **mapowania**wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby uzyskać**dostęp.
+1. W obszarze **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby uzyskać** dostęp.
 
     ![Łącze "Synchronizuj Azure Active Directory użytkowników do zespołu"](media/harness-provisioning-tutorial/usermappings.png)
 
-1. W obszarze **mapowania atrybutów**Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do programu. Atrybuty wybrane jako *zgodne* są używane do dopasowywania do kont użytkowników w programie dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
+1. W obszarze **mapowania atrybutów** Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do programu. Atrybuty wybrane jako *zgodne* są używane do dopasowywania do kont użytkowników w programie dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
     ![Okienko "Mapowanie atrybutów" użytkownika](media/harness-provisioning-tutorial/userattributes.png)
 
-1. W obszarze **mapowania**wybierz pozycję **Synchronizuj grupy Azure Active Directory, aby uzyskać**dostęp.
+1. W obszarze **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory, aby uzyskać** dostęp.
 
     ![Łącze "Synchronizuj grupy Azure Active Directory do zespołu"](media/harness-provisioning-tutorial/groupmappings.png)
 
-1. W obszarze **mapowania atrybutów**Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do programu. Atrybuty wybrane jako *pasujące* właściwości są używane do dopasowania do grup w programie dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
+1. W obszarze **mapowania atrybutów** Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do programu. Atrybuty wybrane jako *pasujące* właściwości są używane do dopasowania do grup w programie dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
     ![Okienko "Mapowanie atrybutów" grupy](media/harness-provisioning-tutorial/groupattributes.png)
 
 1. Aby skonfigurować filtry określania zakresu, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. W obszarze **Ustawienia**, aby włączyć usługę Azure AD Provisioning dla programu, Przełącz przełącznik **stanu aprowizacji** na **włączony**.
+1. W obszarze **Ustawienia** , aby włączyć usługę Azure AD Provisioning dla programu, Przełącz przełącznik **stanu aprowizacji** na **włączony**.
 
     ![Przełącznik stanu aprowizacji jest przełączany do "on"](common/provisioning-toggle-on.png)
 
-1. W obszarze **Ustawienia**wybierz z listy rozwijanej **zakres** , w jaki sposób chcesz synchronizować użytkowników lub grupy, które są używane do obsługi.
+1. W obszarze **Ustawienia** wybierz z listy rozwijanej **zakres** , w jaki sposób chcesz synchronizować użytkowników lub grupy, które są używane do obsługi.
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7b4a5e76ec8dad66bf300cc3e1d55471383f83ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7e0db1b0bc1e7aef68ee06f3bdd5e5e0f83b73e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285846"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354720"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi firmy Symantec w sieci Web Security (WSS) do automatycznej aprowizacji użytkowników
 
@@ -64,7 +64,7 @@ Przed skonfigurowaniem usługi firmy Symantec w sieci Web Security (WSS) do auto
 
     ![Zrzut ekranu przedstawiający opcję Synchronizacja grup & użytkowników innych firm.](media/symantec-web-security-service/third-party-users.png)
 
-4.  Skopiuj **adres URL** i **token**Standard scim. Te wartości zostaną wprowadzone w polu **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji Symantec Web Security Service (WSS) w Azure Portal.
+4.  Skopiuj **adres URL** i **token** Standard scim. Te wartości zostaną wprowadzone w polu **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji Symantec Web Security Service (WSS) w Azure Portal.
 
     ![Zrzut ekranu przedstawiający okno dialogowe Nowa integracja z polami tekstowymi S i w języku R L i tokenem.](media/symantec-web-security-service/scim.png)
 
@@ -78,7 +78,7 @@ Aby skonfigurować usługę Symantec Web Security Service (WSS) do automatycznej
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ Aby skonfigurować usługę Symantec Web Security Service (WSS) do automatycznej
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź wartość **Symantec Web Security**, wybierz pozycję **Symantec Web Security Service** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź wartość **Symantec Web Security** , wybierz pozycję **Symantec Web Security Service** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Usługa Symantec Web Security Service (WSS) na liście wyników](common/search-new-app.png)
 
@@ -99,7 +99,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-symantec-web-security-service-wss-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w usłudze Microsoft Web Security Service (WSS) w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -159,7 +159,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w usłudze zabezpieczeń internetowych firmy Symantec. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

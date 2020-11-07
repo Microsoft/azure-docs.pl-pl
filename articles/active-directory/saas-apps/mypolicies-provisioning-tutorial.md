@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55f7b64c9ade91bb2923161d60568e3ea14ee034
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850505"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353523"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zasad dla automatycznego aprowizacji użytkowników
 
@@ -66,7 +66,7 @@ Aby skonfigurować zasady dla automatycznego aprowizacji użytkowników w usłud
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -74,7 +74,7 @@ Aby skonfigurować zasady dla automatycznego aprowizacji użytkowników w usłud
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź moje **zasady**, wybierz pozycję Moje **zasady** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź moje **zasady** , wybierz pozycję Moje **zasady** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![moje zasady na liście wyników](common/search-new-app.png)
 
@@ -87,7 +87,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -106,7 +106,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 5. W sekcji **poświadczenia administratora** wprowadź `https://<myPoliciesCustomDomain>.mypolicies.com/scim` **adres URL dzierżawy** , gdzie `<myPoliciesCustomDomain>` jest domeną niestandardową dla zasad. Możesz pobrać domenę klienta moje zasady z adresu URL.
 Przykład: `<demo0-qa>` . mypolicies.com.
 
-6. W polu **token tajny**wprowadź wartość tokenu, która została pobrana wcześniej. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z regułami. Jeśli połączenie nie powiedzie się, upewnij się, że konto moje zasady ma uprawnienia administratora, a następnie spróbuj ponownie.
+6. W polu **token tajny** wprowadź wartość tokenu, która została pobrana wcześniej. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z regułami. Jeśli połączenie nie powiedzie się, upewnij się, że konto moje zasady ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -155,14 +155,14 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* moje zasady zawsze wymagają **nazwy użytkownika**, **adresu e-mail** i **externalid**.
+* moje zasady zawsze wymagają **nazwy użytkownika** , **adresu e-mail** i **externalid**.
 * moje zasady nie obsługują stałych usunięć dla atrybutów użytkownika.
 
 ## <a name="change-log"></a>Dziennik zmian
 
 * 09/15/2020 — dodano obsługę atrybutu "Country" dla użytkowników.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

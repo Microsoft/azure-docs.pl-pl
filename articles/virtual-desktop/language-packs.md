@@ -3,15 +3,15 @@ title: Instalowanie pakietów językowych na maszynach wirtualnych z systemem Wi
 description: Jak zainstalować pakiety językowe dla maszyn wirtualnych z systemem Windows 10 dla wielu sesji na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 11/06/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084213"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354040"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Dodawanie pakietów językowych do obrazu wielosesyjnego systemu Windows 10
 
@@ -43,6 +43,11 @@ Aby dostosować obrazy wielosesyjne dla systemu Windows 10 Enterprise, należy w
      - Plik ISO aplikacji skrzynki odbiorczej:
         - [Windows 10, wersja 1903 lub 1909 — aplikacje skrzynki odbiorczej — ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, wersja 2004 — aplikacje skrzynki odbiorczej — ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Windows 10, wersja 20H2 Skrzynka odbiorcza aplikacji w wersji ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     
+     - Jeśli używasz systemu Windows 10 w wersji 2004 lub 20H2, możesz pobrać nowe języki przy użyciu pakietu Local Experience Pack (LXP) obrazów ISO. Skorzystaj z informacji w temacie [Dodawanie języków w systemie Windows 10: znane problemy](/windows-hardware/manufacture/desktop/language-packs-known-issue) , aby ustalić, czy należy pobrać wersję 9B lub 9c:
+        - [Windows 10, wersja 2004 lub 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+        - [Windows 10, wersja 2004 lub 20H2 **9c** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
 
 - Udział Azure Files lub udział plików na maszynie wirtualnej serwera plików z systemem Windows
 
@@ -59,7 +64,7 @@ Aby utworzyć repozytorium zawartości dla pakietów językowych i FODs oraz rep
 
 3. Przejdź do pakietu językowego ISO i skopiuj zawartość z folderów **LocalExperiencePacks** i **x64 \\ Langpacks** , a następnie wklej zawartość do udziału plików.
 
-4. Przejdź do **pliku ISO FDZ**, Skopiuj całą jego zawartość, a następnie wklej go do udziału plików.
+4. Przejdź do **pliku ISO FDZ** , Skopiuj całą jego zawartość, a następnie wklej go do udziału plików.
 5. Przejdź do folderu **amd64fre** w pliku ISO aplikacji skrzynki odbiorczej i skopiuj zawartość repozytorium dla aplikacji skrzynki odbiorczej, które zostały przygotowane.
 
      >[!NOTE]

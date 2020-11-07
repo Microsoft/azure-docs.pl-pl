@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1bc1d455e5597e86a3d5c8d1690fa2daa9097865
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85940420"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94340980"
 ---
 Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją języka Python. Z tego przewodnika Szybki start dowiesz się, jak wysłać żądanie, odebrać odpowiedź JSON oraz filtrować i analizować wyniki.
 
@@ -169,7 +169,7 @@ Jeśli odpowiedź zawiera strony internetowe, obrazy, wiadomości lub wideo, zos
 
 1. Zastąp ciąg `YOUR_ENDPOINT` adresem URL punktu końcowego w portalu i Usuń sekcję "Bing/v 7.0" z punktu końcowego.
 
-1. Uruchomisz program. Przykład: `python your_program.py`.
+1. Uruchomisz program. Na przykład: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definiowanie funkcji i filtrowanie wyników
 
@@ -309,7 +309,7 @@ W tym przykładzie użyto `answer_count` `promote` parametrów, i `safe_search` 
 
 1. Uruchomisz program.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Pamiętaj, aby po zakończeniu pracy z tym projektem usunąć klucz subskrypcji z kodu programu i zdezaktywować swoje środowisko wirtualne.
 
@@ -320,4 +320,4 @@ Pamiętaj, aby po zakończeniu pracy z tym projektem usunąć klucz subskrypcji 
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Dokumentacja zestawu Azure Python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)
+* [Dokumentacja zestawu Azure Python SDK](/python/api/azure-cognitiveservices-search-websearch/?view=azure-python)

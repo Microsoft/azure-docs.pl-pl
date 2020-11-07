@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 8bd7d3e5dc4c263ff2a2ff03c077b59196c3413b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 915133210c9797db7446bf30391635fd36b73bf0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520748"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352816"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie RingCentral na potrzeby automatycznego aprowizacji użytkowników
 
@@ -78,7 +78,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-ringcentral-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla RingCentral w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -115,15 +115,15 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |aktywne|Wartość logiczna|
    |title|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |addresss [Type EQ "Work"]. Country|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
    |adresy [typ EQ "Work"]. streetAddress|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -152,7 +152,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 
 * 09/10/2020 — usunięto obsługę atrybutów "displayName" i "Manager".
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

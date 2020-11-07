@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520034"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354310"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Wrike na potrzeby automatycznego aprowizacji użytkowników
 
@@ -72,7 +72,7 @@ Przed skonfigurowaniem usługi Wrike do automatycznej aprowizacji użytkowników
 
     ![Utwórz token Wrike](media/Wrike-provisioning-tutorial/password.png)
 
-6.  Skopiuj **token tajny**i wklej go w usłudze Azure AD. Wybierz pozycję **Zapisz** , aby zakończyć konfigurację aprowizacji w systemie Wrike.
+6.  Skopiuj **token tajny** i wklej go w usłudze Azure AD. Wybierz pozycję **Zapisz** , aby zakończyć konfigurację aprowizacji w systemie Wrike.
 
     ![Stały token dostępu](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
 
@@ -87,7 +87,7 @@ Aby dodać Wrike z galerii aplikacji usługi Azure AD, wykonaj następujące kro
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -95,7 +95,7 @@ Aby dodać Wrike z galerii aplikacji usługi Azure AD, wykonaj następujące kro
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **Wrike**, wybierz pozycję **Wrike** w panelu wyników, a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **Wrike** , wybierz pozycję **Wrike** w panelu wyników, a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
 
     ![Wrike na liście wyników](common/search-new-app.png)
 
@@ -109,7 +109,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Konfigurowanie automatycznej aprowizacji użytkowników dla Wrike w usłudze Azure AD
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
+1. Zaloguj się do [Azure portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Wszystkie aplikacje](common/enterprise-applications.png)
 
@@ -161,7 +161,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników lub
 
 Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w systemie Wrike. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

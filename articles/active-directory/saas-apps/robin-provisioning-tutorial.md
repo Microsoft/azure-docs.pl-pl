@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6ef4558cc0cbbacb372fc4a4c2b52859517a2635
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520731"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353530"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie działania automatycznej aprowizacji użytkowników
 
@@ -72,7 +72,7 @@ Przed skonfigurowaniem działania automatycznej aprowizacji użytkowników w us�
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Przed skonfigurowaniem działania automatycznej aprowizacji użytkowników w us�
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz " **Robin**", wybierz polecenie **Robin** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz " **Robin** ", wybierz polecenie **Robin** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Na liście wyników](common/search-new-app.png)
 
@@ -93,7 +93,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla działania w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -117,9 +117,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
-8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do**działania.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do** działania.
 
     ![obsługiwane mapowania użytkowników](media/robin-provisioning-tutorial/robin-user-mapping.png)
 
@@ -127,7 +127,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![obsługiwane atrybuty użytkownika](media/robin-provisioning-tutorial/robin-user-attribute-mapping.png)
 
-10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy do**działania.
+10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy do** działania.
 
     ![Mapowania grup z włączonym działaniem](media/robin-provisioning-tutorial/robin-group-mapping.png)
 
@@ -155,7 +155,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
