@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 6415ead09c98d85191440fc8d8fd5900ad44b85e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0113ea684b9b2fb26eac1fb5ceec5b53aef677f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520115"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359752"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników
 
@@ -71,7 +71,7 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
 
 * Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -108,21 +108,21 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
    |userName|Ciąg|
    |displayName|Ciąg|
    |aktywne|Wartość logiczna|
-   |tytuł|Boolean|
+   |tytuł|Wartość logiczna|
    |emails[type eq "work"].value|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
-   |adresy [typ EQ "Work"]. streetAddress|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |addresss [Type EQ "Work"]. Country|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |Nazwa. sformatowana|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
    |adresy [Type EQ "Other"]. sformatowane|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
    |externalId|Ciąg|
    |preferredLanguage|Ciąg|
    |urn:scim:schemas:extension:enterprise:1.0.manager|Ciąg|
@@ -131,8 +131,8 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
    |urn:scim:schemas:extension:enterprise:1.0.organization|Ciąg|
    |urn:scim:schemas:extension:enterprise:1.0.costCenter|Ciąg|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Facebook: auth_method: 1.0: auth_method|String|
-   |urn: Standard scim: schematy: rozszerzenie: Facebook: teraźniejszości: 1.0.is_frontline|Boolean|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: auth_method: 1.0: auth_method|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: teraźniejszości: 1.0.is_frontline|Wartość logiczna|
    |urn: Standard scim: schematy: rozszerzenie: Facebook: starttermdates: 1.0. startDate|Liczba całkowita|
 
 
@@ -166,7 +166,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 
 * 09/10/2020 — dodano obsługę atrybutów przedsiębiorstwa "dzielenie", "organizacja", "costCenter" i "employeeNumber". Dodano obsługę atrybutów niestandardowych "startDate", "auth_method" i "teraźniejszości"
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

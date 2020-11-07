@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7f34eca7ce92a2f465cc34bdde48ada15b21860d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 92aeedd25a4a60b49de54aaaa90ee4a31490c444
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515699"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359837"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznego aprowizacji użytkowników
 
@@ -90,7 +90,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla konsoli infrastruktury chmury firmy Oracle w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -130,20 +130,20 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
       |preferredLanguage|Ciąg|
       |name.givenName|Ciąg|
       |name.familyName|Ciąg|
-      |adresy [typ EQ "Work"]. sformatowane|String|
-      |adresy [typ EQ "Work"]. locale|String|
-      |addresss [Type EQ "Work"]. region|String|
-      |addresss [Type EQ "Work"]. KodPocztowy|String|
-      |addresss [Type EQ "Work"]. Country|String|
-      |adresy [typ EQ "Work"]. streetAddress|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+      |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+      |adresy [typ EQ "Work"]. locale|Ciąg|
+      |addresss [Type EQ "Work"]. region|Ciąg|
+      |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+      |addresss [Type EQ "Work"]. Country|Ciąg|
+      |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
       |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
-      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Boolean|
-      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Boolean|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Wartość logiczna|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Wartość logiczna|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do konsoli infrastruktury w chmurze firmy Oracle**.
 
@@ -178,7 +178,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 * Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 * Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

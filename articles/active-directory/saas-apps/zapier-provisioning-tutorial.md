@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: 86cb23a25bb55bfebd126f02236d60166a289219
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d567985cba35647654d3ec47340979fcf9411132
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519060"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359463"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapier na potrzeby automatycznego aprowizacji użytkowników
 
@@ -50,7 +50,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
     ![Konsola administracyjna zapier](media/zapier-provisioning-tutorial/admin.png)
 
-2. W obszarze **Ustawienia firmy**wybierz pozycję **Inicjowanie obsługi użytkowników**.
+2. W obszarze **Ustawienia firmy** wybierz pozycję **Inicjowanie obsługi użytkowników**.
 
     ![Zapier Dodaj Standard scim](media/zapier-provisioning-tutorial/user.png)
 
@@ -77,7 +77,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-zapier-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla zapier w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -148,7 +148,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 - Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 - Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5f7ed8a905aad873ecfc878979ac32af1e21730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee656f147bd27ff782121f088a239a7337d81075
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312247"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359769"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Workgrid na potrzeby automatycznego aprowizacji użytkowników
 
@@ -56,7 +56,7 @@ Przed skonfigurowaniem usługi Workgrid na potrzeby automatycznego inicjowania o
 
     ![Zrzut ekranu Workgrid U I z opcjami aprowizacji użytkowników i użytkowników o nazwie wychodzącej.](media/Workgrid-provisioning-tutorial/user.png)
 
-2. W obszarze **interfejs API zarządzania kontami**kliknij pozycję **Utwórz poświadczenia**.
+2. W obszarze **interfejs API zarządzania kontami** kliknij pozycję **Utwórz poświadczenia**.
 
     ![Zrzut ekranu przedstawiający zarządzanie kontami w sekcji P z opcją Utwórz poświadczenia o nazwie out.](media/Workgrid-provisioning-tutorial/scim.png)
 
@@ -75,7 +75,7 @@ Aby skonfigurować Workgrid automatycznej aprowizacji użytkowników w usłudze 
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Aby skonfigurować Workgrid automatycznej aprowizacji użytkowników w usłudze 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **Workgrid**, wybierz pozycję **Workgrid** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **Workgrid** , wybierz pozycję **Workgrid** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Workgrid na liście wyników](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-workgrid--in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Workgrid w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -156,7 +156,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w systemie Workgrid. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 26f12b18e2199fb45e6eb94f2a136d2af2b1576c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2670dc0cb56805a2afa966bee1d2aa52b6c8e46a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317603"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358987"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Menedżera haseł programu opiekuna & magazynem cyfrowym dla automatycznej aprowizacji użytkowników
 
@@ -45,7 +45,7 @@ Przed skonfigurowaniem usługi Menedżer haseł programu opiekuna & magazynem cy
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Przed skonfigurowaniem usługi Menedżer haseł programu opiekuna & magazynem cy
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź wartość **Menedżer haseł programu opiekuna & magazynie cyfrowym**, wybierz pozycję **Menedżer haseł opiekuna & magazyn cyfrowy** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź wartość **Menedżer haseł programu opiekuna & magazynie cyfrowym** , wybierz pozycję **Menedżer haseł opiekuna & magazyn cyfrowy** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Usługa Keeper Password Manager & Digital Vault na liście wyników](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Menedżera haseł programu opiekuna & magazynie cyfrowym w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -163,7 +163,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Menedżer haseł programu opiekuna & magazyn cyfrowy wymaga, aby **wiadomości e-mail** i **Nazwa użytkownika** miały taką samą wartość Source, ponieważ wszystkie aktualizacje atrybutów spowodują modyfikację drugiej wartości.
 * Menedżer haseł programu opiekuna & magazyn cyfrowy nie obsługuje usuwania użytkowników, należy wyłączyć. Użytkownicy niepełnosprawni będą wyświetlani jako Zablokowani w interfejsie użytkownika konsoli administracyjnej programu opiekuna.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

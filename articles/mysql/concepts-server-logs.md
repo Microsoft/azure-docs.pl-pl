@@ -5,29 +5,31 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/6/2020
+ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81271985"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359004"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Dzienniki wolnych zapytań w usłudze Azure Database for MySQL
 W Azure Database for MySQL dziennik wolnych zapytań jest dostępny dla użytkowników. Dostęp do dziennika transakcji nie jest obsługiwany. Dziennik wolnych zapytań może służyć do identyfikowania wąskich gardeł wydajności w celu rozwiązywania problemów.
 
 Aby uzyskać więcej informacji na temat dziennika wolnych zapytań programu MySQL, zobacz [sekcję dziennik wolnych zapytań](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)dotyczących usługi MySQL Reference.
 
+Gdy [Magazyn zapytań](concepts-query-store.md) jest włączony na serwerze, mogą pojawić się zapytania takie jak " `CALL mysql.az_procedure_collect_wait_stats (900, 30);` " zarejestrowane w dziennikach wolnych zapytań. To zachowanie jest oczekiwane, ponieważ funkcja magazynu zapytań zbiera dane statystyczne dotyczące zapytań. 
+
 ## <a name="configure-slow-query-logging"></a>Skonfiguruj rejestrowanie wolnych zapytań 
 Domyślnie dziennik wolnych zapytań jest wyłączony. Aby włączyć tę opcję, ustaw wartość `slow_query_log` na na. Tę funkcję można włączyć za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure. 
 
 Inne parametry, które można dostosować, obejmują:
 
-- **long_query_time**: Jeśli zapytanie trwa dłużej niż long_query_time (w sekundach), rejestrowane jest zapytanie. Wartość domyślna to 10 sekund.
-- **log_slow_admin_statements**: Jeśli on zawiera instrukcje administracyjne, takie jak ALTER_TABLE i ANALYZE_TABLE w instrukcjach zapisanych do slow_query_log.
-- **log_queries_not_using_indexes**: określa, czy zapytania, które nie używają indeksów są rejestrowane w slow_query_log
-- **log_throttle_queries_not_using_indexes**: ten parametr ogranicza liczbę zapytań, które nie są indeksami, które można zapisać w dzienniku wolnych zapytań. Ten parametr zacznie obowiązywać, gdy log_queries_not_using_indexes jest ustawiona na wartość włączone.
-- **log_output**: Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. Jeśli jest to opcja „None”, dziennik wolnych zapytań zostanie zapisany wyłącznie w dziennikach diagnostycznych usługi Azure Monitor. 
+- **long_query_time** : Jeśli zapytanie trwa dłużej niż long_query_time (w sekundach), rejestrowane jest zapytanie. Wartość domyślna to 10 sekund.
+- **log_slow_admin_statements** : Jeśli on zawiera instrukcje administracyjne, takie jak ALTER_TABLE i ANALYZE_TABLE w instrukcjach zapisanych do slow_query_log.
+- **log_queries_not_using_indexes** : określa, czy zapytania, które nie używają indeksów są rejestrowane w slow_query_log
+- **log_throttle_queries_not_using_indexes** : ten parametr ogranicza liczbę zapytań, które nie są indeksami, które można zapisać w dzienniku wolnych zapytań. Ten parametr zacznie obowiązywać, gdy log_queries_not_using_indexes jest ustawiona na wartość włączone.
+- **log_output** : Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. Jeśli jest to opcja „None”, dziennik wolnych zapytań zostanie zapisany wyłącznie w dziennikach diagnostycznych usługi Azure Monitor. 
 
 > [!IMPORTANT]
 > Jeśli tabele nie są indeksowane, ustawienie `log_queries_not_using_indexes` parametrów i na wartość `log_throttle_queries_not_using_indexes` on może wpłynąć na wydajność programu MySQL, ponieważ wszystkie zapytania uruchomione względem tych nieindeksowanych tabel zostaną zazapisywane w dzienniku wolnych zapytań.<br><br>
@@ -143,4 +145,4 @@ Po powolnych dziennikach zapytań do Azure Monitor dzienników za poorednictwem 
     
 ## <a name="next-steps"></a>Następne kroki
 - [Jak skonfigurować dziennik wolnych zapytań z Azure Portal](howto-configure-server-logs-in-portal.md)
-- [Jak konfigurować dzienniki wolnych zapytań z poziomu interfejsu wiersza polecenia platformy Azure](howto-configure-server-logs-in-cli.md).
+- [Jak konfigurować dzienniki wolnych zapytań z poziomu interfejsu wiersza polecenia platformy Azure](howto-configure-server-logs-in-cli.md)

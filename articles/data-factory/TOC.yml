@@ -203,6 +203,8 @@
       href: concepts-roles-permissions.md
     - name: Reguły nazewnictwa
       href: naming-rules.md
+    - name: Nadmiarowość danych
+      href: concepts-data-redundancy.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Autor

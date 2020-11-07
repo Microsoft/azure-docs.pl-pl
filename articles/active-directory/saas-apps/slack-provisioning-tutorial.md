@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515926"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359480"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: konfigurowanie usługi Slack pod kątem automatycznej aprowizacji użytkowników
 
@@ -63,7 +63,7 @@ Ta sekcja zawiera instrukcje łączenia usługi Azure AD z interfejsem API aprow
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Aby skonfigurować automatyczną aprowizację kont użytkowników usługi Slack w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -88,7 +88,7 @@ Ta sekcja zawiera instrukcje łączenia usługi Azure AD z interfejsem API aprow
 
     ![Okno dialogowe autoryzacji](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. W witrynie Azure Portal kliknij polecenie **Testuj połączenie**, aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Slack. Jeśli połączenie nie powiedzie się, sprawdź, czy użyte konto usługi Slack ma uprawnienia Team Admin i ponownie spróbuj wykonać krok dotyczący autoryzacji.
+7. W witrynie Azure Portal kliknij polecenie **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Slack. Jeśli połączenie nie powiedzie się, sprawdź, czy użyte konto usługi Slack ma uprawnienia Team Admin i ponownie spróbuj wykonać krok dotyczący autoryzacji.
 
 8. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 

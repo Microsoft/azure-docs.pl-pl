@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 52c71e06b33ef29c2ef0628d651c7f72e41b87ff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671898"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358817"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors
 Celem tego samouczka jest przedstawienie kroków związanych z zapisywaniem atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors Employee Central. 
@@ -61,7 +61,7 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
 
    ![Zarządzanie rolami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
 
-1. Na liście rola uprawnień kliknij pozycję **Utwórz nową** .
+1. Na liście rola uprawnień kliknij pozycję **Utwórz nową**.
 
    > [!div class="mx-imgBorder"]
    > ![Utwórz nową rolę uprawnienia](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
@@ -71,17 +71,17 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
    > [!div class="mx-imgBorder"]
    > ![Szczegóły roli uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
 
-1. W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...** , a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji** . Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego** .
+1. W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...** , a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
 
    > [!div class="mx-imgBorder"]
    > ![Zarządzanie narzędziami integracji](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
 
-1. Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API** . Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego z SuccessFactors. 
+1. Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego z SuccessFactors. 
 
    > [!div class="mx-imgBorder"]
    > ![Odczyt uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
-1. Kliknij przycisk **gotowe** . Kliknij przycisk **Zapisz zmiany** .
+1. Kliknij przycisk **gotowe**. Kliknij przycisk **Zapisz zmiany**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Tworzenie grupy uprawnień dla użytkownika interfejsu API
 
@@ -90,7 +90,7 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
    > [!div class="mx-imgBorder"]
    > ![Zarządzaj grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
 
-1. W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe** .
+1. W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe**.
 
    > [!div class="mx-imgBorder"]
    > ![Dodaj nową grupę](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
@@ -121,7 +121,7 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
    > [!div class="mx-imgBorder"]
    > ![Szczegóły roli i grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 
-1. Kliknij przycisk **Zapisz zmiany** .
+1. Kliknij przycisk **Zapisz zmiany**.
 
 ## <a name="preparing-for-successfactors-writeback"></a>Przygotowywanie do zapisywania zwrotnego SuccessFactors
 
@@ -134,7 +134,7 @@ Aplikacja do obsługi funkcji zapisywania zwrotnego SuccessFactors używa pewnyc
 
 W programie SAP SuccessFactors *Lista wyboru* jest konfigurowalnym zestawem opcji, z których użytkownik może dokonać wyboru. Różne typy poczty e-mail i numeru telefonu (np. Business, Personal, Other) są reprezentowane przy użyciu listy wyboru. W tym kroku określimy listę wyboru skonfigurowanych w dzierżawie SuccessFactors do przechowywania wartości poczty e-mail i numerów telefonów. 
  
-1. W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzanie konfiguracją biznesową* . 
+1. W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzanie konfiguracją biznesową*. 
 
    > [!div class="mx-imgBorder"]
    > ![Zarządzanie konfiguracją biznesową](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
@@ -144,7 +144,7 @@ W programie SAP SuccessFactors *Lista wyboru* jest konfigurowalnym zestawem opcj
    > [!div class="mx-imgBorder"]
    > ![Pobierz informacje e-mail](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. Na stronie Szczegóły **typu wiadomości e-mail** Zanotuj nazwę listy wyboru skojarzonej z tym polem. Domyślnie jest to **ecEmailType** . Może się jednak różnić w dzierżawie. 
+1. Na stronie Szczegóły **typu wiadomości e-mail** Zanotuj nazwę listy wyboru skojarzonej z tym polem. Domyślnie jest to **ecEmailType**. Może się jednak różnić w dzierżawie. 
 
    > [!div class="mx-imgBorder"]
    > ![Zidentyfikuj listę wyboru wiadomości e-mail](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
@@ -154,14 +154,14 @@ W programie SAP SuccessFactors *Lista wyboru* jest konfigurowalnym zestawem opcj
    > [!div class="mx-imgBorder"]
    > ![Uzyskaj informacje o telefonie](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
 
-1. Na stronie Szczegóły **typu telefonu** Zanotuj nazwę listy wyboru skojarzonej z tym polem. Domyślnie jest to **ecPhoneType** . Może się jednak różnić w dzierżawie. 
+1. Na stronie Szczegóły **typu telefonu** Zanotuj nazwę listy wyboru skojarzonej z tym polem. Domyślnie jest to **ecPhoneType**. Może się jednak różnić w dzierżawie. 
 
    > [!div class="mx-imgBorder"]
    > ![Zidentyfikuj listę wyboru telefonu](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
 
 ### <a name="retrieve-constant-value-for-emailtype"></a>Pobieranie stałej wartości dla elementu poczty e-mail
 
-1. W centrum administracyjnym SuccessFactors, Wyszukaj i Otwórz *centrum list wyboru* . 
+1. W centrum administracyjnym SuccessFactors, Wyszukaj i Otwórz *centrum list wyboru*. 
 1. Użyj nazwy listy wyboru wiadomości e-mail przechwyconej w poprzedniej sekcji (np. ecEmailType), aby znaleźć listę wyboru wiadomości e-mail. 
 
    > [!div class="mx-imgBorder"]
@@ -187,7 +187,7 @@ W programie SAP SuccessFactors *Lista wyboru* jest konfigurowalnym zestawem opcj
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>Pobieranie stałej wartości dla telefonutype
 
-1. W centrum administracyjnym SuccessFactors, Wyszukaj i Otwórz *centrum list wyboru* . 
+1. W centrum administracyjnym SuccessFactors, Wyszukaj i Otwórz *centrum list wyboru*. 
 1. Użyj nazwy listy wyboru telefonu przechwyconej w poprzedniej sekcji, aby znaleźć listę wyboru telefonu. 
 
    > [!div class="mx-imgBorder"]
@@ -198,7 +198,7 @@ W programie SAP SuccessFactors *Lista wyboru* jest konfigurowalnym zestawem opcj
    > [!div class="mx-imgBorder"]
    > ![Otwórz listę wyboru aktywnego typu telefonu](./media/sap-successfactors-inbound-provisioning/open-active-phone-type-picklist.png)
 
-1. Na stronie listy wyboru typu telefonu Przejrzyj różne typy telefonów wymienione w obszarze **wartości listy wyboru** .
+1. Na stronie listy wyboru typu telefonu Przejrzyj różne typy telefonów wymienione w obszarze **wartości listy wyboru**.
 
    > [!div class="mx-imgBorder"]
    > ![Przejrzyj typy telefonów](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
@@ -233,7 +233,7 @@ Ta sekcja zawiera kroki dla programu
 
 2. Na lewym pasku nawigacyjnym wybierz pozycję **Azure Active Directory**
 
-3. Wybierz **aplikacje przedsiębiorstwa** , a następnie **wszystkie aplikacje** .
+3. Wybierz **aplikacje przedsiębiorstwa** , a następnie **wszystkie aplikacje**.
 
 4. Wybierz pozycję **Dodaj aplikację** , a następnie wybierz kategorię **wszystkie** .
 
@@ -265,7 +265,7 @@ Ta sekcja zawiera kroki dla programu
 
 W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z SuccessFactors do Active Directory.
 
-1. Na karcie aprowizacji w obszarze **mapowania** kliknij pozycję **Udostępnij Azure Active Directory użytkownikom** .
+1. Na karcie aprowizacji w obszarze **mapowania** kliknij pozycję **Udostępnij Azure Active Directory użytkownikom**.
 
 1. W polu **Zakres obiektu źródłowego** możesz wybrać, które zestawy użytkowników w usłudze Azure AD mają być uwzględniane do zapisu przez zdefiniowanie zestawu filtrów opartych na atrybutach. Zakresem domyślnym jest "Wszyscy użytkownicy w usłudze Azure AD". 
    > [!TIP]
@@ -297,12 +297,12 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z Succe
     >![Mapowanie atrybutu zapisywania zwrotnego](./media/sap-successfactors-inbound-provisioning/writeback-attribute-mapping.png)
 
 1. Kliknij przycisk **Zapisz** , aby zapisać mapowania. Następnie zaktualizujemy wyrażenia interfejsu API ścieżki JSON, aby używać kodów telefonutype w wystąpieniu usługi SuccessFactors. 
-1. Wybierz pozycję **Pokaż opcje zaawansowane** . 
+1. Wybierz pozycję **Pokaż opcje zaawansowane**. 
 
     >[!div class="mx-imgBorder"]
     >![Pokaż opcje zaawansowane](./media/sap-successfactors-inbound-provisioning/show-advanced-options.png)
 
-1. Kliknij pozycję **Edytuj listę atrybutów dla SuccessFactors** . 
+1. Kliknij pozycję **Edytuj listę atrybutów dla SuccessFactors**. 
 
    > [!NOTE] 
    > Jeśli opcja **Edytuj listę atrybutów dla opcji SuccessFactors** nie jest wyświetlana w Azure Portal, użyj adresu URL, *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* Aby uzyskać dostęp do strony. 
@@ -322,10 +322,10 @@ Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi a
 > [!TIP]
 > Domyślnie po włączeniu usługi aprowizacji zostaną zainicjowane operacje aprowizacji dla wszystkich użytkowników w zakresie. Jeśli występują błędy związane z mapowaniem lub błędami danych, zadanie aprowizacji może się nie powieść i przejść do stanu kwarantanny. Aby tego uniknąć, najlepszym rozwiązaniem jest zalecamy skonfigurowanie filtru **zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów z kilkoma użytkownikami testowymi przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, czy mapowania działają i dają odpowiednie wyniki, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
 
-1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone** .
+1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-1. Wybierz **zakres** . Można wybrać jedną z następujących opcji: 
-   * **Synchronizuj wszystkich użytkowników i grupy** : Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty wszystkich użytkowników z usługi Azure AD do SuccessFactors, z zastrzeżeniem reguł określania zakresu zdefiniowanego w obszarze **mapowania**  ->  **obiektów źródłowych** . 
+1. Wybierz **zakres**. Można wybrać jedną z następujących opcji: 
+   * **Synchronizuj wszystkich użytkowników i grupy** : Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty wszystkich użytkowników z usługi Azure AD do SuccessFactors, z zastrzeżeniem reguł określania zakresu zdefiniowanego w obszarze **mapowania**  ->  **obiektów źródłowych**. 
    * **Synchronizuj tylko przypisanych użytkowników i grupy** : Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty tylko dla użytkowników przypisanych do tej aplikacji w **Application**  ->  **Manage**  ->  opcji menu Zarządzanie **użytkownikami i grupami** aplikacji. Ci użytkownicy podlegają także regułom określania zakresu zdefiniowanym **Mappings** w obszarze  ->  **zakres obiektów źródłowych** mapowania.
 
    > [!div class="mx-imgBorder"]
@@ -334,7 +334,7 @@ Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi a
    > [!NOTE]
    > Aplikacja inicjowania obsługi SuccessFactors zapisywania zwrotnego nie obsługuje "przypisania grupy". Obsługiwane jest tylko "przypisanie użytkownika". 
 
-1. Kliknij pozycję **Zapisz** .
+1. Kliknij przycisk **Zapisz**.
 
 1. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie usługi Azure AD i zakresu zdefiniowanego dla tej operacji. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 

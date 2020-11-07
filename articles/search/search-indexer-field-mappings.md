@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532504"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358936"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapowania pól i przekształcenia przy użyciu indeksatorów usługi Azure Wyszukiwanie poznawcze
 
@@ -28,7 +28,7 @@ Niektóre sytuacje, w których mapowania pól są użyteczne:
 * Źródło danych ma pole o nazwie `_id` , ale usługa Azure wyszukiwanie poznawcze nie zezwala na używanie nazw pól, które zaczynają się od znaku podkreślenia. Mapowanie pól pozwala efektywnie zmienić nazwę pola.
 * Chcesz wypełnić kilka pól w indeksie z tych samych danych źródła danych. Na przykład możesz chcieć zastosować różne analizatory do tych pól.
 * Chcesz wypełnić pole indeksu danymi z więcej niż jednego źródła danych, a źródła danych używają różnych nazw pól.
-* Musisz zakodować lub zdekodować dane w formacie base64. Mapowania pól obsługują kilka **funkcji mapowania**, w tym funkcje kodowania i dekodowania Base64.
+* Musisz zakodować lub zdekodować dane w formacie base64. Mapowania pól obsługują kilka **funkcji mapowania** , w tym funkcje kodowania i dekodowania Base64.
 
 > [!NOTE]
 > Mapowania pól w indeksatorach to prosty sposób mapowania pól danych do pól indeksu, z możliwością konwersji lekkich danych. Bardziej złożone dane mogą wymagać wstępnego przetwarzania, aby przetworzyć je w postaci, która jest w trakcie indeksowania. Jedna z opcji, którą można rozważyć, to [Azure Data Factory](../data-factory/index.yml).
@@ -81,7 +81,7 @@ Do pola źródłowego można odwoływać się w wielu mapowaniach pól. Poniższ
 
 ## <a name="map-fields-using-the-net-sdk"></a>Mapowanie pól przy użyciu zestawu .NET SDK
 
-Mapowania pól można definiować w zestawie .NET SDK przy użyciu klasy [fieldmapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , która ma właściwości `SourceFieldName` i `TargetFieldName` i opcjonalne `MappingFunction` odwołanie.
+Mapowania pól można definiować w zestawie .NET SDK przy użyciu klasy [fieldmapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , która ma właściwości `SourceFieldName` i `TargetFieldName` i opcjonalne `MappingFunction` odwołanie.
 
 Można określić mapowania pól podczas konstruowania indeksatora lub później przez bezpośrednie ustawienie `Indexer.FieldMappings` właściwości.
 

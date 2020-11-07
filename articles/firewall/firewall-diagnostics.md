@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348771"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358851"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorowanie dzienników i metryk usługi Azure Firewall
 
@@ -50,74 +50,55 @@ Od wykonania tej procedury w celu włączenia rejestrowania diagnostycznego moż
 8. Wybierz subskrypcję.
 9. Wybierz pozycję **Zapisz**.
 
-## <a name="enable-logging-with-powershell"></a>Włączanie rejestrowania przy użyciu programu PowerShell
+## <a name="enable-diagnostic-logging-by-using-powershell"></a>Włączanie rejestrowania diagnostycznego przy użyciu programu PowerShell
 
 Rejestrowanie aktywności jest automatycznie włączone dla wszystkich zasobów usługi Resource Manager. Aby rozpocząć zbieranie danych dostępnych za pośrednictwem tych dzienników, należy włączyć rejestrowanie diagnostyczne.
 
-Aby włączyć rejestrowanie diagnostyczne, wykonaj następujące kroki:
+Aby włączyć rejestrowanie diagnostyczne przy użyciu programu PowerShell, wykonaj następujące czynności:
 
-1. Zanotuj identyfikator zasobu konta magazynu, w ramach którego są przechowywane dane dzienników. Ta wartość ma postać: */subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Storage/storageAccounts/ \<storage account name\>*.
+1. Zanotuj identyfikator zasobu obszaru roboczego Log Analytics, w którym są przechowywane dane dziennika. Ta wartość ma postać: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>` .
 
-   Użyć możesz dowolnego konta magazynu w ramach subskrypcji. Te informacje możesz znaleźć w witrynie Azure Portal. Znajdują się one na stronie **Właściwości** zasobu.
+   Możesz użyć dowolnego obszaru roboczego w ramach subskrypcji. Te informacje możesz znaleźć w witrynie Azure Portal. Informacje znajdują się na stronie **Właściwości** zasobu.
 
-2. Zanotuj identyfikator zasobu zapory, dla której rejestrowanie jest włączane. Ta wartość ma postać: */subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Network/azureFirewalls/ \<Firewall name\>*.
+2. Zanotuj identyfikator zasobu zapory, dla której rejestrowanie jest włączane. Ta wartość ma postać: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
    Te informacje możesz znaleźć w portalu.
 
-3. Włącz rejestrowanie diagnostyczne przy użyciu następującego polecenia cmdlet programu PowerShell:
+3. Włącz rejestrowanie diagnostyczne dla wszystkich dzienników i metryk przy użyciu następującego polecenia cmdlet programu PowerShell:
 
-    ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
-   -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
-   -Enabled $true     
-    ```
+   ```powershell
+   $diagSettings = @{
+      Name = 'toLogAnalytics'
+      ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      Enabled = $true
+   }
+   Set-AzDiagnosticSetting  @diagSettings 
+   ```
 
-> [!TIP]
->Dzienniki diagnostyczne nie wymagają oddzielnego konta magazynu. Użycie magazynu na potrzeby rejestrowania danych o dostępie i wydajności powoduje naliczenie opłat za usługę.
-
-## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>Włączanie rejestrowania diagnostycznego przy użyciu interfejsu wiersza polecenia platformy Azure
+## <a name="enable-diagnostic-logging-by-using-the-azure-cli"></a>Włączanie rejestrowania diagnostycznego przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Rejestrowanie aktywności jest automatycznie włączone dla wszystkich zasobów usługi Resource Manager. Aby rozpocząć zbieranie danych dostępnych za pośrednictwem tych dzienników, należy włączyć rejestrowanie diagnostyczne.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+Aby włączyć rejestrowanie diagnostyczne przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj następujące czynności:
 
-### <a name="enable-diagnostic-logging"></a>Włączanie rejestrowania diagnostycznego
+1. Zanotuj identyfikator zasobu obszaru roboczego Log Analytics, w którym są przechowywane dane dziennika. Ta wartość ma postać: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-Użyj następujących poleceń, aby włączyć rejestrowanie diagnostyczne.
+   Możesz użyć dowolnego obszaru roboczego w ramach subskrypcji. Te informacje możesz znaleźć w witrynie Azure Portal. Informacje znajdują się na stronie **Właściwości** zasobu.
 
-1. Uruchom polecenie [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) , aby włączyć rejestrowanie diagnostyczne:
+2. Zanotuj identyfikator zasobu zapory, dla której rejestrowanie jest włączane. Ta wartość ma postać: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-   ```azurecli
-   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
-     --resource Firewall07 --storage-account MyStorageAccount
+   Te informacje możesz znaleźć w portalu.
+
+3. Włącz rejestrowanie diagnostyczne dla wszystkich dzienników i metryk przy użyciu następującego polecenia platformy Azure CLI:
+
+   ```azurecli-interactive
+   az monitor diagnostic-settings create -n 'toLogAnalytics'
+      --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
+      --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
    ```
-
-   Uruchom polecenie [AZ monitor Diagnostic-Settings List](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) , aby wyświetlić ustawienia diagnostyczne dla zasobu:
-
-   ```azurecli
-   az monitor diagnostic-settings list --resource Firewall07
-   ```
-
-   Użyj [AZ monitor Diagnostic-Settings show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) , aby wyświetlić aktywne ustawienia diagnostyczne dla zasobu:
-
-   ```azurecli
-   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-1. Uruchom polecenie [AZ monitor Diagnostic-Settings Update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) , aby zaktualizować ustawienia.
-
-   ```azurecli
-   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
-   ```
-
-   Użyj polecenia [AZ monitor Diagnostic-Settings Delete](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) , aby usunąć ustawienie diagnostyki.
-
-   ```azurecli
-   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-> [!TIP]
->Dzienniki diagnostyczne nie wymagają oddzielnego konta magazynu. Użycie magazynu na potrzeby rejestrowania danych o dostępie i wydajności powoduje naliczenie opłat za usługę.
 
 ## <a name="view-and-analyze-the-activity-log"></a>Wyświetlanie i analizowanie dziennika aktywności
 
@@ -133,6 +114,8 @@ Dane dziennika aktywności można wyświetlać i analizować przy użyciu dowoln
 
 Przykładowe zapytania analizy dzienników w usłudze Azure Firewall można znaleźć w temacie [Przykłady analizy dzienników w usłudze Azure Firewall](log-analytics-samples.md).
 
+[Skoroszyt zapory platformy Azure](firewall-workbook.md) zapewnia elastyczną kanwę do analizy danych w zaporze platformy Azure. Można go użyć do tworzenia rozbudowanych raportów wizualnych w Azure Portal. Możesz wybrać wiele zapór wdrożonych na platformie Azure i połączyć je w ujednolicone interaktywne środowiska.
+
 Ponadto możesz połączyć się z kontem magazynu i pobrać wpisy dziennika JSON dotyczące dostępu i wydajności. Po pobraniu plików JSON możesz je przekonwertować do formatu CSV i wyświetlać w programie Excel, usłudze Power BI lub innym narzędziu do wizualizacji danych.
 
 > [!TIP]
@@ -144,5 +127,7 @@ Przejdź do zapory platformy Azure, w obszarze **monitorowanie** wybierz pozycj�
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy skonfigurowano zaporę na potrzeby zbierania dzienników, możesz eksplorować dzienniki usługi Azure Monitor, aby wyświetlać dane.
+
+[Monitorowanie dzienników przy użyciu skoroszytu zapory platformy Azure](firewall-workbook.md)
 
 [Rozwiązania do monitorowania sieci w dziennikach usługi Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937048"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359548"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Koncepcje wysokiej dostępności na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -43,7 +43,7 @@ Kondycja konfiguracji wysokiej dostępności jest stale monitorowana i raportowa
 
 PostgreSQL aplikacje klienckie są połączone z serwerem podstawowym przy użyciu nazwy serwera bazy danych. Odczyty aplikacji są obsługiwane bezpośrednio z serwera podstawowego, podczas gdy zatwierdzenia i zapisy są potwierdzane do aplikacji dopiero po utrwaleniu danych zarówno na serwerze podstawowym, jak i w replice gotowości. Ze względu na to, że to dodatkowe wymaganie dotyczące rundy, aplikacje mogą oczekiwać na podwyższony czas oczekiwania na zapisy i zatwierdzenia. Możesz monitorować kondycję wysokiej dostępności w portalu.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności — stan stały"::: 
 
 1. Klienci łączą się z serwerem elastycznym i wykonują operacje zapisu.
 2. Zmiany są replikowane do lokacji w stanie wstrzymania.
@@ -64,7 +64,7 @@ W przypadku innych operacji zainicjowanych przez użytkownika, takich jak skalow
 
 Nieplanowane przestoje obejmują błędy oprogramowania lub składniki infrastruktury mające wpływ na dostępność bazy danych. W przypadku wykrycia niedostępności serwera w systemie monitorowania replikacja do repliki w stanie wstrzymania jest poważna, a replika rezerwy jest aktywowana jako podstawowy serwer bazy danych. Klienci mogą ponownie połączyć się z serwerem bazy danych przy użyciu tych samych parametrów połączenia i wznowić ich operacje. Oczekiwany czas pracy w trybie failover wynosi 60 120s. Jednak w zależności od działania w podstawowym serwerze baz danych w czasie pracy w trybie failover, takim jak duże transakcje i czas odzyskiwania, praca awaryjna może trwać dłużej.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności — tryb failover"::: 
 
 1. Serwer podstawowej bazy danych nie działa, a klienci utracą łączność z bazą danych. 
 2. Serwer rezerwy został aktywowany, aby stał się nowym serwerem podstawowym. Klient nawiązuje połączenie z nowym serwerem podstawowym przy użyciu tych samych parametrów połączenia. Posiadanie aplikacji klienckiej w tej samej strefie co serwer podstawowej bazy danych zmniejsza opóźnienia i zwiększa wydajność.
@@ -112,6 +112,8 @@ Elastyczne serwery z konfiguracją wysokiej dostępności umożliwiają replikac
 -   Konfigurowanie zadań zarządzania inicjowanych przez klienta nie można zaplanować podczas zarządzanego okna obsługi.
 
 -   Zdarzenia planowane, takie jak skalowanie zasobów obliczeniowych i skalowanie magazynu, najpierw odbywają się na serwerze rezerwowym, a następnie na serwerze podstawowym. Usługa nie jest przełączana w tryb failover. 
+
+-  W przypadku skonfigurowania logicznego dekodowania lub replikacji logicznej przy użyciu serwera elastycznego z konfiguracją HA w przypadku przejścia w tryb failover do serwera rezerwowego gniazda replikacji logicznej nie są kopiowane do serwera rezerwowego.  
 
 ## <a name="next-steps"></a>Następne kroki
 

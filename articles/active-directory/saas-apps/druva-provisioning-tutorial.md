@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5579a9d96828caa1453547e7c2e11b8f0d717d2a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851156"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359310"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Druva na potrzeby automatycznego aprowizacji użytkowników
 
@@ -62,11 +62,11 @@ Przed skonfigurowaniem usługi Druva na potrzeby automatycznego inicjowania obs�
 
 3.  Przejdź do **ustawień**. Kliknij przycisk **Generuj token**.
 
-    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Druva. Polecenie Zarządzaj jest wyróżnione i widoczne jest menu Zarządzaj. W tym menu, w obszarze wdrożenia, wyróżniono użytkowników." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Zrzut ekranu strony w konsoli administracyjnej Druva. Ustawienia są wyróżnione, a karta Ustawienia jest otwarta. Przycisk Generuj token jest wyróżniony." border="false":::
 
 4.  Skopiuj wartość **tokenu uwierzytelniania** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Druva w Azure Portal.
     
-    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Druva. Polecenie Zarządzaj jest wyróżnione i widoczne jest menu Zarządzaj. W tym menu, w obszarze wdrożenia, wyróżniono użytkowników." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie tokenu w konsoli administracyjnej Druva. W celu skopiowania wartości tokenu uwierzytelniania jest dostępny link z etykietą kopiowania." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Dodaj Druva z galerii
 
@@ -78,7 +78,7 @@ Aby skonfigurować Druva automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ Aby skonfigurować Druva automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **Druva**, wybierz pozycję **Druva** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **Druva** , wybierz pozycję **Druva** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja Druva na liście wyników](common/search-new-app.png)
 
@@ -99,7 +99,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-druva-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Druva w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -156,7 +156,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 * Druva wymaga **wiadomości e-mail** jako obowiązkowego atrybutu. 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

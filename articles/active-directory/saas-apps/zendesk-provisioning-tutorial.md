@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c038cc309d8f1f13a04de01ed83e04afa70ba6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dd8fd586352ebeaf097a8f870a606f8e06c01
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546172"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359718"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie systemu Zendesk na potrzeby automatycznego aprowizacji użytkowników
 
@@ -43,7 +43,7 @@ Aby dodać systemu Zendesk z portalu Marketplace, wykonaj następujące kroki.
 
     ![Ikona Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -78,7 +78,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Konfigurowanie automatycznej aprowizacji użytkowników dla systemu Zendesk w usłudze Azure AD
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **systemu Zendesk**.
+1. Zaloguj się do [Azure portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **systemu Zendesk**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    * W polu **domena** Wypełnij poddomenę dzierżawy systemu Zendesk. Na przykład w przypadku konta z adresem URL dzierżawy dla `https://my-tenant.zendesk.com` domeny podrzędnej jest **moja dzierżawa**.
 
-6. Token tajny dla konta usługi systemu Zendesk znajduje się w **Admin**obszarze  >  **Ustawienia interfejsu API**administratora  >  **Settings**. Upewnij się, że **dostęp do tokenu** jest ustawiony na **włączone**.
+6. Token tajny dla konta usługi systemu Zendesk znajduje się w **Admin** obszarze  >  **Ustawienia interfejsu API** administratora  >  **Settings**. Upewnij się, że **dostęp do tokenu** jest ustawiony na **włączone**.
 
     ![Ustawienia administratora systemu Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 
@@ -158,9 +158,9 @@ Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji us
 
 * Systemu Zendesk obsługuje używanie grup tylko dla użytkowników z rolami **agentów** . Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją systemu Zendesk](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
 
-* Gdy rola niestandardowa zostanie przypisana do użytkownika lub grupy, usługa automatycznego aprowizacji użytkowników w usłudze Azure AD przypisze również domyślnego **agenta**roli. Tylko agenci mogą mieć przypisaną rolę niestandardową. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API systemu Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
+* Gdy rola niestandardowa zostanie przypisana do użytkownika lub grupy, usługa automatycznego aprowizacji użytkowników w usłudze Azure AD przypisze również domyślnego **agenta** roli. Tylko agenci mogą mieć przypisaną rolę niestandardową. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API systemu Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

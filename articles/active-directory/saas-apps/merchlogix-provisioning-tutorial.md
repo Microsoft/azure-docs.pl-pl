@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d0a52f06a751fba57a00615e2d57485ff740d04
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273351"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359701"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MerchLogix na potrzeby automatycznego aprowizacji użytkowników
 
@@ -53,7 +53,7 @@ Przed skonfigurowaniem usługi MerchLogix do automatycznego aprowizacji użytkow
 
 4. W polu wyszukiwania wpisz **MerchLogix**.
 
-5. W panelu wyników wybierz pozycję **MerchLogix**, a następnie kliknij przycisk **Dodaj** , aby dodać MerchLogix do listy aplikacji SaaS.
+5. W panelu wyników wybierz pozycję **MerchLogix** , a następnie kliknij przycisk **Dodaj** , aby dodać MerchLogix do listy aplikacji SaaS.
 
     ![Zrzut ekranu przedstawiający dodanie z sekcji Korekta szpaltowa z polem tekstowym wprowadź nazwę o nazwie.][4]
 
@@ -118,7 +118,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

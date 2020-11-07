@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06a31e61583ac28218b34195dd6e5b7f92776dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b10cf314bc9394f3297839d45d3497f9f5d3b0e0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541241"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358834"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Jak monitorować stan i wyniki usługi Azure Wyszukiwanie poznawcze indeksator
 
@@ -51,7 +51,7 @@ Bieżący stan wszystkich indeksatorów znajduje się na liście **indeksatorów
 
    ![Lista indeksatorów](media/search-monitor-indexers/indexers-list.png "Lista indeksatorów")
 
-Gdy indeksator jest wykonywany, stan na liście jest **w toku**, a wartość w polu **Dokumentacja zakończona pomyślnie** pokazuje liczbę dokumentów przetworzonych do tej pory. Aktualizacja wartości stanu indeksatora i liczby dokumentów przez portal może potrwać kilka minut.
+Gdy indeksator jest wykonywany, stan na liście jest **w toku** , a wartość w polu **Dokumentacja zakończona pomyślnie** pokazuje liczbę dokumentów przetworzonych do tej pory. Aktualizacja wartości stanu indeksatora i liczby dokumentów przez portal może potrwać kilka minut.
 
 Indeksator, którego ostatnie uruchomienie zakończyło się pomyślnie, pokazuje **powodzenie**. Uruchomienie indeksatora może się powieść, nawet jeśli pojedyncze dokumenty mają Błędy, jeśli liczba błędów jest mniejsza niż wartość ustawienia **Maksymalny element elementów zakończonych niepowodzeniem** indeksatora.
 
@@ -122,7 +122,7 @@ Historia wykonywania zawiera maksymalnie 50 ostatnich przebiegów, które są so
 
 Należy pamiętać, że istnieją dwie różne wartości stanu. Stan najwyższego poziomu jest przeznaczony dla samego indeksatora. Stan indeksatora **oznacza, że indeksator** jest prawidłowo skonfigurowany i dostępny do uruchomienia, ale nie jest aktualnie uruchomiony.
 
-Każdy przebieg indeksatora ma również swój własny stan, który wskazuje, czy określone wykonanie jest**wykonywane (uruchomione**), czy już zakończone **powodzeniem**, **transientFailure**lub **persistentFailure** . 
+Każdy przebieg indeksatora ma również swój własny stan, który wskazuje, czy określone wykonanie jest **wykonywane (uruchomione** ), czy już zakończone **powodzeniem** , **transientFailure** lub **persistentFailure** . 
 
 Gdy indeksator zostanie zresetowany w celu odświeżenia stanu śledzenia zmian, zostanie dodany oddzielny wpis historii wykonania ze stanem **Reset** .
 
@@ -181,7 +181,7 @@ Latest run
 
 Należy pamiętać, że istnieją dwie różne wartości stanu. Stan najwyższego poziomu to stan samego indeksatora. Stan indeksatora **oznacza,** że indeksator jest prawidłowo skonfigurowany i dostępny do wykonania, ale nie jest aktualnie wykonywany.
 
-Każdy przebieg indeksatora ma również swój własny stan dla tego, czy określone wykonanie jest w toku (**uruchomione**) czy zostało już wykonane z użyciem stanu **sukcesu** lub **TransientError** . 
+Każdy przebieg indeksatora ma również swój własny stan dla tego, czy określone wykonanie jest w toku ( **uruchomione** ) czy zostało już wykonane z użyciem stanu **sukcesu** lub **TransientError** . 
 
 Gdy indeksator zostanie zresetowany w celu odświeżenia stanu śledzenia zmian, zostanie dodany oddzielny wpis historii ze stanem **Reset** .
 

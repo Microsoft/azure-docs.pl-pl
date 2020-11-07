@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851275"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359803"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie katalogu federacyjnego dla automatycznej aprowizacji użytkowników
 
@@ -57,20 +57,20 @@ Przed skonfigurowaniem katalogu federacyjnego do automatycznego aprowizacji uży
 
 2. Przejdź do **katalogu > katalogi użytkowników** i wybierz swoją dzierżawę. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego z wyróżnioną pozycją katalogi i katalog federacyjny Azure A D." border="false":::
 
 3.  Aby wygenerować trwały token okaziciela, przejdź do **katalogu klucze > Utwórz nowy klucz.** 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Zrzut ekranu przedstawiający stronę klucze katalogu w konsoli administracyjnej katalogu federacyjnego. Przycisk Utwórz nowy klucz jest wyróżniony." border="false":::
 
 4. Utwórz klucz katalogu. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie klucza katalogu w konsoli administracyjnej katalogu federacyjnego przy użyciu pól Nazwa i opis oraz przycisk Utwórz klucz." border="false":::
     
 
 5. Skopiuj wartość **tokenu dostępu** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji katalogu federacyjnego w Azure Portal. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Zrzut ekranu strony w konsoli administracyjnej katalogu federacyjnego. Widoczny jest symbol zastępczy tokenu dostępu oraz nazwa klucza, opis i wystawca." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Dodawanie katalogu federacyjnego z galerii
 
@@ -82,7 +82,7 @@ Aby skonfigurować katalog federacyjny do automatycznej aprowizacji użytkownik�
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -90,21 +90,21 @@ Aby skonfigurować katalog federacyjny do automatycznej aprowizacji użytkownik�
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **katalog federacyjny**, a następnie wybierz pozycję **katalog federacyjny** w panelu wyniki.
+4. W polu wyszukiwania wprowadź **katalog federacyjny** , a następnie wybierz pozycję **katalog federacyjny** w panelu wyniki.
 
     ![Katalog federacyjny na liście wyników](common/search-new-app.png)
 
 5. Przejdź do **adresu URL** wyróżnionego poniżej w oddzielnej przeglądarce. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Zrzut ekranu przedstawiający stronę w Azure Portal, która wyświetla informacje w katalogu federacyjnym. Wartość U R L jest wyróżniona." border="false":::
 
 6. Kliknij przycisk **Zaloguj**.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Zrzut ekranu przedstawiający menu główne w lokacji katalogu federacyjnego. Przycisk Zaloguj jest wyróżniony." border="false":::
 
 7.  Ponieważ katalog federacyjny jest aplikacją OpenIDConnect, wybierz logowanie do katalogu federacyjnego przy użyciu konta służbowego firmy Microsoft.
     
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Zrzut ekranu przedstawiający stronę testową S C I D w lokacji katalogu federacyjnego. Zaloguj się przy użyciu konto Microsoft zostanie wyróżniony." border="false":::
  
 8. Po pomyślnym uwierzytelnieniu Zaakceptuj monit o zgodę na stronie zgody. Aplikacja zostanie następnie automatycznie dodana do dzierżawy i nastąpi przekierowanie do konta katalogu federacyjnego.
 
@@ -118,7 +118,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej dla katalogu federacyjnego w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -146,12 +146,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników z katalogiem federacyjnym**.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Zrzut ekranu przedstawiający sekcję mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkowników z katalogiem federacyjnym." border="false":::
     
     
 11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do katalogu federacyjnego w sekcji **Mapowanie atrybutu** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w katalogu federacyjnym dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Zrzut ekranu przedstawiający stronę mapowania atrybutów. W tabeli wymieniono Azure Active Directory i atrybuty katalogu federacyjnego oraz stan pasujący." border="false":::
     
 
 12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -171,7 +171,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w katalogu federacyjnym.
 
 Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md)
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

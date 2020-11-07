@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: ee2eced63b8f06f1d54973a603dabaeb14ee7f7e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 43b430ffe1eb9b074eedea3d977523589bc4606a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457881"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359284"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Menedżera szkoły firmy Apple w celu automatycznego aprowizacji użytkowników
 
@@ -76,7 +76,7 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-apple-school-manager"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników w programie Apple szkoln Manager
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -103,7 +103,7 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników w programie Apple szkoły Manager**.
 

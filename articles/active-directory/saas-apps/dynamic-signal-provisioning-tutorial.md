@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851224"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359021"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie sygnału dynamicznego dla automatycznej aprowizacji użytkowników
 
@@ -45,7 +45,7 @@ Przed skonfigurowaniem sygnału dynamicznego automatycznej aprowizacji użytkown
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Przed skonfigurowaniem sygnału dynamicznego automatycznej aprowizacji użytkown
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **dynamiczny sygnał**, wybierz pozycję **sygnał dynamiczny** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **dynamiczny sygnał** , wybierz pozycję **sygnał dynamiczny** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja Dynamic Signal na liście wyników](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej dla sygnału dynamicznego w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -104,7 +104,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     Skopiuj **adres URL interfejsu API Standard scim** do **adresu URL dzierżawy**. Kliknij pozycję **Generuj nowy token** w celu wygenerowania **tokenu okaziciela** i skopiuj wartość do **tokenu Secret**.
 
-    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Zrzut ekranu konsoli administracyjnej sygnału dynamicznego. Polecenie Zaawansowane jest wyróżnione w menu administratora. Menu Zaawansowane jest również widoczne z wyróżnioną P." border="false":::
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Zrzut ekranu strony tokenów z pozycjami S C I M A P I U R L, Wygeneruj nowy token i token okaziciela oraz symbol zastępczy w polu token okaziciela." border="false":::
 
 7. Po wypełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z sygnałem dynamicznym. Jeśli połączenie nie powiedzie się, upewnij się, że konto sygnału dynamicznego ma uprawnienia administratora i spróbuj ponownie.
 
@@ -147,7 +147,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Sygnał dynamiczny nie obsługuje trwałych usunięć użytkowników z usługi Azure AD. Aby trwale usunąć użytkownika w dynamicznym sygnale, należy wykonać operację za pomocą interfejsu użytkownika konsoli administracyjnej sygnału dynamicznego. 
 * Sygnał dynamiczny nie obsługuje obecnie grup.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

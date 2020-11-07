@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072037"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359735"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do produktu Workday
 Celem tego samouczka jest wyświetlenie czynności, które należy wykonać w celu przeprowadzenia zapisywania atrybutów zapisu z usługi Azure AD do produktu Workday. Aplikacja do obsługi funkcji zapisywania zwrotnego dla produktu Workday obsługuje Przypisywanie wartości do następujących atrybutów produktu Workday:
@@ -56,11 +56,11 @@ Postępuj zgodnie z tymi instrukcjami, aby skonfigurować Stornowanie adresów e
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
-3. Wybierz **aplikacje przedsiębiorstwa**, a następnie **wszystkie aplikacje**.
+3. Wybierz **aplikacje przedsiębiorstwa** , a następnie **wszystkie aplikacje**.
 
-4. Wybierz pozycję **Dodaj aplikację**, a następnie wybierz kategorię **wszystkie** .
+4. Wybierz pozycję **Dodaj aplikację** , a następnie wybierz kategorię **wszystkie** .
 
-5. Wyszukaj funkcję **zapisywania zwrotnego dla produktu Workday**i Dodaj tę aplikację z galerii.
+5. Wyszukaj funkcję **zapisywania zwrotnego dla produktu Workday** i Dodaj tę aplikację z galerii.
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **Inicjowanie obsługi**.
 
@@ -82,7 +82,7 @@ Postępuj zgodnie z tymi instrukcjami, aby skonfigurować Stornowanie adresów e
 
 W tej sekcji skonfigurujesz sposób przepływu atrybutów zapisywania zwrotnego z usługi Azure AD do produktu Workday. 
 
-1. Na karcie Inicjowanie obsługi w obszarze **mapowania**kliknij nazwę mapowania.
+1. Na karcie Inicjowanie obsługi w obszarze **mapowania** kliknij nazwę mapowania.
 
 2. W polu **Zakres obiektu źródłowego** można opcjonalnie odfiltrować, które zestawy użytkowników w Azure Active Directory powinny być częścią funkcji zapisywania zwrotnego. Zakresem domyślnym jest "Wszyscy użytkownicy w usłudze Azure AD".
 
@@ -153,7 +153,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
    > Aplikacja do inicjowania obsługi zwrotnego produktu Workday nie obsługuje opcji **Synchronizuj tylko przypisanych użytkowników i grupy**.
  
 
-2. Kliknij pozycję **Zapisz**.
+2. Kliknij przycisk **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w katalogu źródłowym. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 

@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
-ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4abc117ae0e983cf684f0e70a363758f9be196aa
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549470"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359430"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Asana na potrzeby automatycznego aprowizacji użytkowników
 
@@ -54,7 +54,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi konta użytkownika w usłudze Azure AD Asana
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory**aplikacje dla  >  **Enterprise Apps**  >  **wszystkich aplikacji** w przedsiębiorstwie.
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory** aplikacje dla  >  **Enterprise Apps**  >  **wszystkich aplikacji** w przedsiębiorstwie.
 
 1. Jeśli już skonfigurowano Asana do logowania jednokrotnego, Wyszukaj wystąpienie elementu Asana przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Asana** w galerii aplikacji. Wybierz pozycję **Asana** z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
@@ -64,7 +64,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
     ![Inicjowanie obsługi Asana](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-1. W sekcji **poświadczenia administratora** postępuj zgodnie z poniższymi instrukcjami, aby wygenerować token i wprowadzić go w  **tokenie tajnym**:
+1. W sekcji **poświadczenia administratora** postępuj zgodnie z poniższymi instrukcjami, aby wygenerować token i wprowadzić go w  **tokenie tajnym** :
 
     a. Zaloguj się do usługi [Asana](https://app.asana.com) przy użyciu konta administratora.
 
@@ -74,7 +74,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
     d. Wybierz pozycję **Dodaj konto usługi**.
 
-    e. W razie konieczności zaktualizuj **nazwę** **oraz zdjęcie i profil** . Skopiuj token w **tokenie**i wybierz go w obszarze **Zapisz zmiany**.
+    e. W razie konieczności zaktualizuj **nazwę** **oraz zdjęcie i profil** . Skopiuj token w **tokenie** i wybierz go w obszarze **Zapisz zmiany**.
 
 1. W Azure Portal wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Asana. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Asana ma uprawnienia administratora, a następnie spróbuj ponownie wykonać krok **połączenia testowego** .
 
@@ -94,7 +94,7 @@ Teraz początkowa synchronizacja jest uruchamiana dla wszystkich użytkowników 
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [raport dotyczący automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

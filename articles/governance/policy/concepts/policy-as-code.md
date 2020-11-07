@@ -1,16 +1,16 @@
 ---
-title: Projektuj Azure Policy jako przepływy pracy kodu
+title: Projektowanie przepływów pracy typu „zasady platformy Azure jako kod”
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320611"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359684"
 ---
-# <a name="design-azure-policy-as-code-workflows"></a>Projektuj Azure Policy jako przepływy pracy kodu
+# <a name="design-azure-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu „zasady platformy Azure jako kod”
 
 W miarę postępów związanych z zarządzaniem chmurą należy zmienić ręczną procedurę zarządzania wszystkimi definicjami zasad w Azure Portal lub za pośrednictwem różnych zestawów SDK, aby łatwiej zarządzać i powtarzać się w skali przedsiębiorstwa. Dwa z dominujących metod zarządzania systemami na dużą skalę w chmurze to:
 
@@ -38,8 +38,6 @@ Przykłady tych formatów plików są dostępne w [repozytorium Azure Policy Git
 
 - Definicja zasad: [Dodawanie znacznika do zasobów](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definicja inicjatywy: [Tagi rozliczeń](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-Zapoznaj się również z tematem [eksportowanie Azure Policy zasobów](../how-to/export-resources.md) , aby uzyskać istniejące definicje i przypisania do środowiska zarządzania kodem źródłowym w serwisie [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Omówienie przepływu pracy
 
@@ -73,6 +71,8 @@ Definicje zasad są tworzone przy użyciu formatu JSON i przechowywane w kontrol
 ```
 
 Po dodaniu nowych zasad lub zaktualizowaniu istniejącego, przepływ pracy powinien automatycznie aktualizować definicję zasad na platformie Azure. Przetestowanie nowej lub zaktualizowanej definicji zasad znajduje się w późniejszym kroku.
+
+Zapoznaj się również z tematem [eksportowanie Azure Policy zasobów](../how-to/export-resources.md) , aby uzyskać istniejące definicje i przypisania do środowiska zarządzania kodem źródłowym w serwisie [GitHub](https://www.github.com).
 
 ### <a name="create-and-update-initiative-definitions"></a>Tworzenie i aktualizowanie definicji inicjatywy
 
@@ -129,7 +129,7 @@ Testowanie zarówno zaktualizowanych wyników oceny zasad, jak i środowiska bez
 
 ### <a name="update-to-enforced-assignments"></a>Aktualizuj, aby wymuszać przypisania
 
-Po zakończeniu wszystkich bram walidacji zaktualizuj przypisanie, aby używać _włączonego_elementu **wymuszania** . Zaleca się, aby ta zmiana była początkowo w tym samym środowisku, daleko od środowiska produkcyjnego. Po sprawdzeniu poprawności tego środowiska zgodnie z oczekiwaniami należy zmienić zakres, aby uwzględnić następne środowisko itd., dopóki zasady nie zostaną wdrożone w zasobach produkcyjnych.
+Po zakończeniu wszystkich bram walidacji zaktualizuj przypisanie, aby używać _włączonego_ elementu **wymuszania** . Zaleca się, aby ta zmiana była początkowo w tym samym środowisku, daleko od środowiska produkcyjnego. Po sprawdzeniu poprawności tego środowiska zgodnie z oczekiwaniami należy zmienić zakres, aby uwzględnić następne środowisko itd., dopóki zasady nie zostaną wdrożone w zasobach produkcyjnych.
 
 ## <a name="process-integrated-evaluations"></a>Przetwarzaj zintegrowane oceny
 
