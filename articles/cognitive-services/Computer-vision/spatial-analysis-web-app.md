@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496076"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357100"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Instrukcje: wdrażanie aplikacji sieci Web zliczanie osób
 
@@ -64,6 +64,8 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Wdróż kontener na Azure IoT Edge na komputerze hosta
 
 Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze hosta przy użyciu interfejsu wiersza polecenia platformy Azure. Proces wdrażania wymaga pliku manifestu wdrożenia, który zawiera opis wymaganych kontenerów, zmiennych i konfiguracji dla danego wdrożenia. Można znaleźć przykładowy [Azure Stack krawędź określonego manifestu wdrożenia](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , a także [nieAzure Stacky manifest wdrożenia określony](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) w witrynie GitHub, który obejmuje podstawową konfigurację wdrożenia dla kontenera *analizy przestrzennej* . 
+
+Możesz również użyć rozszerzeń usługi Azure IoT, aby Visual Studio Code do wykonywania operacji w usłudze IoT Hub. Przejdź do pozycji [wdróż Azure IoT Edge modułów z Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) , aby dowiedzieć się więcej.
 
 > [!NOTE] 
 > Kontenery diagnostyki *telegraf* i *analizy przestrzennej* są opcjonalne. Możesz zdecydować się na ich usunięcie z *DeploymentManifest.js* pliku. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [telemetrii i rozwiązywania problemów](./spatial-analysis-logging.md) . Dwie przykładowe *DeploymentManifest.jsw* plikach w usłudze GitHub można znaleźć dla [Azure Stack urządzeń brzegowych](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
@@ -170,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Aby zainstalować kontener, Utwórz nowy Web App for Containers platformy Azure i Wypełnij wymagane parametry. Następnie przejdź do karty **Docker** i wybierz pozycję **pojedynczy kontener**, a następnie **Azure Container Registry**. Użyj wystąpienia Azure Container Registry, na którym wypchnięciem Powyższy obraz.
+Aby zainstalować kontener, Utwórz nowy Web App for Containers platformy Azure i Wypełnij wymagane parametry. Następnie przejdź do karty **Docker** i wybierz pozycję **pojedynczy kontener** , a następnie **Azure Container Registry**. Użyj wystąpienia Azure Container Registry, na którym wypchnięciem Powyższy obraz.
 
 ![Wprowadź szczegóły obrazu](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -190,6 +192,9 @@ Po dodaniu tych 2 ustawień kliknij przycisk **Zapisz**. Następnie w menu nawig
 Przejdź do aplikacji sieci Web platformy Azure i sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja sieci Web jest uruchomiona. Przejdź do skonfigurowanego adresu URL: `<yourapp>.azurewebsites.net` Aby wyświetlić uruchomioną aplikację.
 
 ![Testowanie wdrożenia](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>Pobierz kod źródłowy PersonCount
+Jeśli chcesz wyświetlić lub zmodyfikować kod źródłowy dla tej aplikacji, możesz go znaleźć [w serwisie GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## <a name="next-steps"></a>Następne kroki
 

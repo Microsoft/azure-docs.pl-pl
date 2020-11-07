@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165610"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358715"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
 
@@ -34,7 +34,7 @@ Funkcja rozpoznawania jednostek nazwanych (NER) to możliwość identyfikowania 
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Cecha                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 2 |
+| Cechy                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 2 |
 |-----------------------------------------------------------------|--------|----------|
 | Metody dla żądań pojedynczych i wsadowych                          | X      | X        |
 | Rozbudowane rozpoznawanie jednostek w kilku kategoriach           | X      | X        |
@@ -70,7 +70,7 @@ Utwórz żądanie POST. Można [użyć programu Poster](text-analytics-how-to-ca
 
 #### <a name="version-31-preview2"></a>[Wersja 3,1-Preview. 2](#tab/version-3-preview)
 
-Rozpoznawanie jednostek nazwanych `v3.1-preview.2` używa oddzielnych punktów końcowych dla żądań ner i konsolidacji jednostek. Użyj poniższego formatu adresu URL na podstawie Twojego żądania:
+Rozpoznawanie jednostek nazwanych `v3.1-preview.2` używa oddzielnych punktów końcowych dla żądań ner, dane osobowe i powiązania jednostek. Użyj poniższego formatu adresu URL na podstawie Twojego żądania:
 
 Łączenie jednostek
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -82,6 +82,7 @@ NER
 
 [Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+Identyfikowalne dane osobowe
 * Personal ( `PII` ) — informacje — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 Można również użyć opcjonalnego `domain=phi` parametru do wykrywania informacji o kondycji ( `PHI` ) w tekście. 

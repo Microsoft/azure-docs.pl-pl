@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359854"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357081"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -37,7 +37,7 @@ Platforma Azure oferuje dwie metody wdrażania dysków VHD w usłudze Azure Stan
 Aby uzyskać listę typów magazynu i ich umowy SLA w przypadku operacji we/wy i przepływności magazynu, zapoznaj się z [dokumentacją platformy Azure dla dysków zarządzanych](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!IMPORTANT]
-> Niezależnie od wybranego typu usługi Azure Storage System plików, który jest używany w tym magazynie, musi być obsługiwany przez SAP dla danego systemu operacyjnego i DBMS. [Uwaga dotycząca pomocy technicznej SAP #405827](https://launchpad.support.sap.com/#/notes/405827) zawiera listę obsługiwanych systemów plików dla różnych systemów operacyjnych i baz danych, w tym SAP HANA. Dotyczy to wszystkich woluminów, SAP HANA mogą uzyskać dostęp do odczytu i zapisu dla każdego zadania. W przypadku korzystania z systemu plików NFS na platformie Azure SAP HANA dodatkowe ograniczenia dotyczące wersji systemu plików NFS mają zastosowanie zgodnie z opisem w dalszej części tego artykułu. 
+> Niezależnie od wybranego typu usługi Azure Storage System plików, który jest używany w tym magazynie, musi być obsługiwany przez SAP dla danego systemu operacyjnego i DBMS. [Uwaga dotycząca pomocy technicznej SAP #2972496](https://launchpad.support.sap.com/#/notes/2972496) zawiera listę obsługiwanych systemów plików dla różnych systemów operacyjnych i baz danych, w tym SAP HANA. Dotyczy to wszystkich woluminów, SAP HANA mogą uzyskać dostęp do odczytu i zapisu dla każdego zadania. W przypadku korzystania z systemu plików NFS na platformie Azure SAP HANA dodatkowe ograniczenia dotyczące wersji systemu plików NFS mają zastosowanie zgodnie z opisem w dalszej części tego artykułu. 
 
 
 Minimalny SAP HANA warunki certyfikowania dla różnych typów magazynu to: 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 37a446d721b7353c647d7d7e26de79e7038d1a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299996"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357066"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie współdziałania oprogramowania do rekrutacji w celu automatycznego aprowizacji użytkowników
 
@@ -45,7 +45,7 @@ Przed skonfigurowaniem oprogramowania do rekrutacji w celu automatycznego aprowi
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Przed skonfigurowaniem oprogramowania do rekrutacji w celu automatycznego aprowi
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **współspełnienie oprogramowania do rekrutacji**, wybierz pozycję **Obpoznaj oprogramowanie rekrutacji** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **współspełnienie oprogramowania do rekrutacji** , wybierz pozycję **Obpoznaj oprogramowanie rekrutacji** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja Comeet Recruiting Software na liście wyników](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w przypadku współspełnienia oprogramowania rekrutacji w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -98,7 +98,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **klucz tajny** Współspełnionego konta oprogramowania do rekrutacji zgodnie z opisem w kroku 6.
 
-6. W [konsoli administracyjnej oprogramowania do obsługi rekrutacji](https://app.comeet.co/)przejdź do pola  **Współspełniają > ustawienia > uwierzytelnianie > Microsoft Azure**i skopiuj **token tajny dla wartości firmowej** w polu **token tajny** w usłudze Azure AD.
+6. W [konsoli administracyjnej oprogramowania do obsługi rekrutacji](https://app.comeet.co/)przejdź do pola  **Współspełniają > ustawienia > uwierzytelnianie > Microsoft Azure** i skopiuj **token tajny dla wartości firmowej** w polu **token tajny** w usłudze Azure AD.
 
     ![Współdziałanie z obsługą oprogramowania rekrutacji](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
@@ -142,7 +142,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * Oprogramowanie do rekrutacji nie obsługuje obecnie grup.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

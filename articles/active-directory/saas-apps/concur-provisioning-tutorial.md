@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455424"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358216"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Concur na potrzeby automatycznego aprowizacji użytkowników
 
@@ -58,11 +58,11 @@ Aby włączyć aplikacje w usłudze wydatków, trzeba mieć odpowiednią konfigu
 
 Concur konsultanci lub administrator klienta musi utworzyć unikatowy profil administratora usługi sieci Web, a administrator klienta musi używać tego profilu dla funkcji administratora usług sieci Web (na przykład Włączanie aplikacji). Te profile muszą być oddzielone od dziennego profilu administratora usługi T&E administratora klienta (profil administratora T&E nie powinien mieć przypisanej roli WSAdmin).
 
-Podczas tworzenia profilu, który ma być używany do włączania aplikacji, wprowadź nazwę administratora klienta w polach profil użytkownika. Spowoduje to przypisanie własności do profilu. Po utworzeniu jednego lub większej liczby profilów klient musi zalogować się przy użyciu tego profilu, aby kliknąć przycisk "*Włącz*" dla aplikacji partnerskiej w menu usługi sieci Web.
+Podczas tworzenia profilu, który ma być używany do włączania aplikacji, wprowadź nazwę administratora klienta w polach profil użytkownika. Spowoduje to przypisanie własności do profilu. Po utworzeniu jednego lub większej liczby profilów klient musi zalogować się przy użyciu tego profilu, aby kliknąć przycisk " *Włącz* " dla aplikacji partnerskiej w menu usługi sieci Web.
 
 Z następujących powodów ta akcja nie powinna być wykonywana przy użyciu profilu do normalnej administracji T&E.
 
-* Klient musi być jednym kliknięciem przycisku "*tak*" w oknie dialogowym, które jest wyświetlane po włączeniu aplikacji. Kliknięcie tego przycisku potwierdzi klientowi chęć do uzyskiwania dostępu do danych przez aplikację Partnerskią, przez co ty lub partner nie może kliknąć przycisk Tak.
+* Klient musi być jednym kliknięciem przycisku " *tak* " w oknie dialogowym, które jest wyświetlane po włączeniu aplikacji. Kliknięcie tego przycisku potwierdzi klientowi chęć do uzyskiwania dostępu do danych przez aplikację Partnerskią, przez co ty lub partner nie może kliknąć przycisk Tak.
 
 * Jeśli administrator klienta, który włączył aplikację korzystającą z profilu administratora T&E, opuści firmę (w wyniku dezaktywacji profilu), wszystkie aplikacje z włączonym tym profilem nie działają, dopóki aplikacja nie zostanie włączona z innym aktywnym profilem administratora usługi WS. Dlatego należy utworzyć odrębne profile administratora usługi WS.
 
@@ -80,7 +80,7 @@ Z następujących powodów ta akcja nie powinna być wykonywana przy użyciu pro
    
     ![Włącz aplikację partnera](./media/concur-provisioning-tutorial/ic721730.png "Włącz aplikację partnera")
 
-4. Z listy **Włącz aplikację** wybierz pozycję **Azure Active Directory**, a następnie kliknij pozycję **Włącz**.
+4. Z listy **Włącz aplikację** wybierz pozycję **Azure Active Directory** , a następnie kliknij pozycję **Włącz**.
    
     ![Usługa Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Usługi Active Directory systemu Microsoft Azure")
 

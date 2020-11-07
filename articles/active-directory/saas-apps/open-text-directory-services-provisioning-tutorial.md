@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: c0858c2e5b1ada866d252e45113f0f90b73caaf8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c023d9b79b81257419814c3087b78f65e1cb6dd5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428964"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355995"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usług OpenText Directory dla automatycznej aprowizacji użytkowników
 
@@ -78,7 +78,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
       ![Przycisk autoryzacji](media/open-text-directory-services-provisioning-tutorial/authorization.png)
 
-6. Wybierz **client_credentials** dla grant_type i kliknij przycisk **Execute (wykonaj**).
+6. Wybierz **client_credentials** dla grant_type i kliknij przycisk **Execute (wykonaj** ).
 
       ![Wykonaj Buton](media/open-text-directory-services-provisioning-tutorial/execute.png)
 
@@ -105,7 +105,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-opentext-directory-services-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników dla usług katalogowych OpenText w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

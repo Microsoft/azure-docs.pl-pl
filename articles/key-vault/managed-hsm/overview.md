@@ -4,17 +4,18 @@ description: Moduł HSM zarządzany przez platformę Azure to usługa w chmurze,
 services: key-vault
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: d2d5d6ad23f5e6a2cac2dc97904154d5912573b0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787928"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357576"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Co to jest Azure Key Vault zarządzanym modułem HSM (wersja zapoznawcza)?
 

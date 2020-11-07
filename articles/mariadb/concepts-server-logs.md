@@ -5,29 +5,31 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/6/2020
+ms.openlocfilehash: 2f9c4cc5bac27e4734c9aabe7895002a045d583d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272087"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357015"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Wolne dzienniki zapytań w Azure Database for MariaDB
 W Azure Database for MariaDB dziennik wolnych zapytań jest dostępny dla użytkowników. Dostęp do dziennika transakcji nie jest obsługiwany. Dziennik wolnych zapytań może służyć do identyfikowania wąskich gardeł wydajności w celu rozwiązywania problemów.
 
 Aby uzyskać więcej informacji na temat długiego dziennika zapytań, zobacz dokumentację MariaDB dla [wolnego dziennika zapytań](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
+Gdy [Magazyn zapytań](concepts-query-store.md) jest włączony na serwerze, mogą pojawić się zapytania takie jak " `CALL mysql.az_procedure_collect_wait_stats (900, 30);` " zarejestrowane w dziennikach wolnych zapytań. To zachowanie jest oczekiwane, ponieważ funkcja magazynu zapytań zbiera dane statystyczne dotyczące zapytań. 
+
 ## <a name="configure-slow-query-logging"></a>Skonfiguruj rejestrowanie wolnych zapytań
 Domyślnie dziennik wolnych zapytań jest wyłączony. Aby włączyć tę opcję, ustaw wartość `slow_query_log` na na. Tę funkcję można włączyć za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure. 
 
 Inne parametry, które można dostosować, obejmują:
 
-- **long_query_time**: Jeśli zapytanie trwa dłużej niż long_query_time (w sekundach), rejestrowane jest zapytanie. Wartość domyślna to 10 sekund.
-- **log_slow_admin_statements**: Jeśli on zawiera instrukcje administracyjne, takie jak ALTER_TABLE i ANALYZE_TABLE w instrukcjach zapisanych do slow_query_log.
-- **log_queries_not_using_indexes**: określa, czy zapytania, które nie używają indeksów są rejestrowane w slow_query_log
-- **log_throttle_queries_not_using_indexes**: ten parametr ogranicza liczbę zapytań, które nie są indeksami, które można zapisać w dzienniku wolnych zapytań. Ten parametr zacznie obowiązywać, gdy log_queries_not_using_indexes jest ustawiona na wartość włączone.
-- **log_output**: Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. Jeśli jest to opcja „None”, dziennik wolnych zapytań zostanie zapisany wyłącznie w dziennikach diagnostycznych usługi Azure Monitor. 
+- **long_query_time** : Jeśli zapytanie trwa dłużej niż long_query_time (w sekundach), rejestrowane jest zapytanie. Wartość domyślna to 10 sekund.
+- **log_slow_admin_statements** : Jeśli on zawiera instrukcje administracyjne, takie jak ALTER_TABLE i ANALYZE_TABLE w instrukcjach zapisanych do slow_query_log.
+- **log_queries_not_using_indexes** : określa, czy zapytania, które nie używają indeksów są rejestrowane w slow_query_log
+- **log_throttle_queries_not_using_indexes** : ten parametr ogranicza liczbę zapytań, które nie są indeksami, które można zapisać w dzienniku wolnych zapytań. Ten parametr zacznie obowiązywać, gdy log_queries_not_using_indexes jest ustawiona na wartość włączone.
+- **log_output** : Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. Jeśli jest to opcja „None”, dziennik wolnych zapytań zostanie zapisany wyłącznie w dziennikach diagnostycznych usługi Azure Monitor. 
 
 > [!IMPORTANT]
 > Jeśli tabele nie są indeksowane, ustawienie `log_queries_not_using_indexes` parametrów i na wartość `log_throttle_queries_not_using_indexes` on może mieć wpływ na wydajność MariaDB, ponieważ wszystkie zapytania uruchomione względem tych nieindeksowanych tabel zostaną zazapisywane w dzienniku wolnych zapytań.<br><br>

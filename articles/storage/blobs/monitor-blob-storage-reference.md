@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b51b219daec01d0bce3bbfb71c29e9374363665d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711594"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357542"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Dokumentacja monitorowania magazynu obiektów blob platformy Azure
 
@@ -26,7 +26,7 @@ W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure
 
 ### <a name="capacity-metrics"></a>Metryki pojemności
 
-Wartości metryk pojemności są wysyłane do Azure Monitor co godzinę. Wartości są odświeżane codziennie. Ziarno czasu określa przedział czasu, dla którego są prezentowane wartości metryk. Obsługiwane ziarno czasu dla wszystkich metryk pojemności wynosi godzinę (PT1H).
+Wartości metryk pojemności są odświeżane codziennie (do 24 godzin). Ziarno czasu określa przedział czasu, dla którego są prezentowane wartości metryk. Obsługiwane ziarno czasu dla wszystkich metryk pojemności wynosi godzinę (PT1H).
 
 Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Monitor.
 
@@ -40,8 +40,8 @@ W tej tabeli przedstawiono [metryki magazynu obiektów BLOB](https://docs.micros
 
 | Metryka | Opis |
 | ------------------- | ----------------- |
-| BlobCapacity | Łączna liczba magazynów obiektów BLOB używanych na koncie magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype**i **BlobTier** ([Definicja](#metrics-dimensions)) |
-| BlobCount    | Liczba obiektów BLOB przechowywanych na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype**i **BlobTier** ([Definicja](#metrics-dimensions)) |
+| BlobCapacity | Łączna liczba magazynów obiektów BLOB używanych na koncie magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype** i **BlobTier** ( [Definicja](#metrics-dimensions)) |
+| BlobCount    | Liczba obiektów BLOB przechowywanych na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype** i **BlobTier** ( [Definicja](#metrics-dimensions)) |
 | BlobProvisionedSize | Ilość miejsca do magazynowania obsługiwana na koncie magazynu. Ta Metryka ma zastosowanie tylko do kont magazynu w warstwie Premium. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia |
 | ContainerCount    | Liczba kontenerów na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 | IndexCapacity     | Ilość miejsca do magazynowania używanego przez ADLS Gen2 indeks hierarchiczny <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
@@ -66,8 +66,8 @@ Usługa Azure Storage obsługuje następujące wymiary dla metryk w Azure Monito
 
 | Nazwa wymiaru | Opis |
 | ------------------- | ----------------- |
-| **Obiekt blobtype** | Typ obiektu BLOB tylko dla metryk obiektów BLOB. Obsługiwane wartości to **BlockBlob**, **PageBlob**i **Azure Data Lake Storage**. Dołączane obiekty blob są zawarte w **BlockBlob**. |
-| **BlobTier** | Usługa Azure Storage oferuje różne warstwy dostępu, dzięki którym można przechowywać dane obiektów BLOB w najbardziej opłacalny sposób. Zobacz więcej w [warstwie obiektów BLOB usługi Azure Storage](../blobs/storage-blob-storage-tiers.md). Obsługiwane są następujące wartości: <br/> <li>**Gorąca**: warstwa gorąca</li> <li>**Chłodna**: warstwa chłodna</li> <li>**Archiwum**: warstwa Archiwum</li> <li>**Premium**: warstwa Premium dla blokowego obiektu BLOB</li> <li>**P4/P6/P10/P15/P20**/P30/P40/P50/P60: typy warstw dla obiektów BLOB na stronie Premium</li> <li>**Standardowa**: typ warstwy dla standardowego obiektu BLOB strony</li> <li>**Niewarstwowy**: typ warstwy dla konta magazynu ogólnego przeznaczenia w wersji 1</li> |
+| **Obiekt blobtype** | Typ obiektu BLOB tylko dla metryk obiektów BLOB. Obsługiwane wartości to **BlockBlob** , **PageBlob** i **Azure Data Lake Storage**. Dołączane obiekty blob są zawarte w **BlockBlob**. |
+| **BlobTier** | Usługa Azure Storage oferuje różne warstwy dostępu, dzięki którym można przechowywać dane obiektów BLOB w najbardziej opłacalny sposób. Zobacz więcej w [warstwie obiektów BLOB usługi Azure Storage](../blobs/storage-blob-storage-tiers.md). Obsługiwane są następujące wartości: <br/> <li>**Gorąca** : warstwa gorąca</li> <li>**Chłodna** : warstwa chłodna</li> <li>**Archiwum** : warstwa Archiwum</li> <li>**Premium** : warstwa Premium dla blokowego obiektu BLOB</li> <li>**P4/P6/P10/P15/P20** /P30/P40/P50/P60: typy warstw dla obiektów BLOB na stronie Premium</li> <li>**Standardowa** : typ warstwy dla standardowego obiektu BLOB strony</li> <li>**Niewarstwowy** : typ warstwy dla konta magazynu ogólnego przeznaczenia w wersji 1</li> |
 
 W przypadku wymiarów pomocniczych metryk należy określić wartość wymiaru, aby wyświetlić odpowiednie wartości metryk. Jeśli na przykład przeszukiwane są wartości  **transakcji** dla udanych odpowiedzi, należy filtrować wymiar **responsetype** z **sukcesem**. Jeśli zobaczysz wartość **BlobCount** dla blokowych obiektów blob, musisz filtrować wymiar **blobtype** z **BlockBlob**.
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940399"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357185"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limity na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -66,17 +66,19 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 
 - Automatyczna Migracja między wersjami aparatu głównej bazy danych nie jest obecnie obsługiwana. Jeśli chcesz uaktualnić do następnej wersji głównej, zrób [zrzut i Przywróć](../howto-migrate-using-dump-and-restore.md) go na serwerze, który został utworzony przy użyciu nowej wersji aparatu.
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 - Przechodzenie do i z sieci wirtualnej nie jest obecnie obsługiwane.
 - Łączenie publicznego dostępu przy użyciu wdrożenia w sieci wirtualnej nie jest obecnie obsługiwane.
 - Reguły zapory nie są obsługiwane w sieci wirtualnej, zamiast tego można użyć sieciowych grup zabezpieczeń.
 - Serwery baz danych dostępu publicznego mogą łączyć się z publiczną siecią Internet, na przykład przez `postgres_fdw` program, a dostęp tego nie jest ograniczony. Serwery oparte na sieci wirtualnej mogą mieć ograniczony dostęp wychodzący przy użyciu sieciowych grup zabezpieczeń.
 
-### <a name="high-availability"></a>Wysoka dostępność
+### <a name="high-availability-ha"></a>Wysoka dostępność (HA)
 
 - Zone-Redundant HA nie jest obecnie obsługiwana w przypadku serwerów z możliwością naszeregowania.
 - Adres IP serwera bazy danych zmienia się, gdy serwer przejdzie w tryb failover w trybie rezerwy HA. Upewnij się, że używasz rekordu DNS zamiast adresu IP serwera.
+- W przypadku skonfigurowania replikacji logicznej przy użyciu elastycznego serwera z konfiguracją HA w przypadku przejścia w tryb failover do serwera rezerwowego gniazda replikacji logicznej nie są kopiowane do serwera rezerwowego. 
+- Dodatkowe ograniczenia dotyczące HA można znaleźć na stronie z [dokumentacją dotyczącą pojęć](concepts-high-availability.md) .
 
 ### <a name="availability-zones"></a>Strefy dostępności
 

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, urządzenia Kinect, SDK, Pobierz aktualizację, Najnowsza, dostępna, zainstaluj
-ms.openlocfilehash: 48cdd35a80d68a7ec0d900639c0fca3a2c66787e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48a3df3962796cf561057e8ec85b754c974200f4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171792"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358509"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Pobieranie zestawu SDK czujnika usługi Azure urządzenia Kinect
 
@@ -39,7 +39,7 @@ Poprzednie wersje zestawu SDK i oprogramowania układowego czujnika urządzenia 
 
 Obecnie jedyna obsługiwana dystrybucja to Ubuntu 18,04. Aby zażądać obsługi innych dystrybucji, zobacz [Tę stronę](https://aka.ms/azurekinectfeedback).
 
-Najpierw musisz skonfigurować [repozytorium pakietów firmy Microsoft](https://packages.microsoft.com/), postępując zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+Najpierw musisz skonfigurować [repozytorium pakietów firmy Microsoft](https://packages.microsoft.com/), postępując zgodnie z instrukcjami znajdującymi się [tutaj](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
 Teraz można zainstalować wymagane pakiety. `k4a-tools`Pakiet obejmuje [usługę Azure urządzenia Kinect Viewer](azure-kinect-viewer.md), [usługę Azure urządzenia Kinect Recorder](record-sensor-streams-file.md)i [Narzędzie oprogramowania układowego Azure urządzenia Kinect](azure-kinect-firmware-tool.md). Aby go zainstalować, uruchom polecenie
 

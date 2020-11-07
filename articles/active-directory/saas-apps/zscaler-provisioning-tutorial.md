@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519728"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357695"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler na potrzeby automatycznego aprowizacji użytkowników
 
@@ -55,7 +55,7 @@ Przed skonfigurowaniem usługi rozwiązania Zscaler do automatycznego aprowizacj
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **rozwiązania Zscaler**, wybierz pozycję **rozwiązania Zscaler** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **rozwiązania Zscaler** , wybierz pozycję **rozwiązania Zscaler** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Rozwiązania Zscaler na liście wyników](common/search-new-app.png)
 
@@ -82,7 +82,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla rozwiązania Zscaler w usłudze Azure AD:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **rozwiązania Zscaler**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **rozwiązania Zscaler**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -100,7 +100,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **klucz tajny** konta rozwiązania Zscaler, zgodnie z opisem w kroku 6.
 
-6. Aby uzyskać **adres URL dzierżawy** i **token tajny**, przejdź do pozycji **Administracja > ustawienia uwierzytelniania** w interfejsie użytkownika portalu rozwiązania Zscaler, a następnie kliknij pozycję **SAML** w obszarze **Typ uwierzytelniania**.
+6. Aby uzyskać **adres URL dzierżawy** i **token tajny** , przejdź do pozycji **Administracja > ustawienia uwierzytelniania** w interfejsie użytkownika portalu rozwiązania Zscaler, a następnie kliknij pozycję **SAML** w obszarze **Typ uwierzytelniania**.
 
     ![Zrzut ekranu strony ustawień uwierzytelniania.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
@@ -108,7 +108,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający okno dialogowe Konfigurowanie S A M L z polami tekstowymi podstawowe U i tokenem okaziciela.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    Wybierz pozycję **Włącz obsługę SCIM-Based** , aby pobrać **podstawowy adres URL** i **token okaziciela**, a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy**i token **okaziciela**  do **tokenu tajnego** w Azure Portal.
+    Wybierz pozycję **Włącz obsługę SCIM-Based** , aby pobrać **podstawowy adres URL** i **token okaziciela** , a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy** i token **okaziciela**  do **tokenu tajnego** w Azure Portal.
 
 7. Po zapełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą rozwiązania Zscaler. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi rozwiązania Zscaler ma uprawnienia administratora, a następnie spróbuj ponownie.
 
@@ -118,7 +118,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający pole tekstowe powiadomienia E-mail.](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do rozwiązania Zscaler**.
 
@@ -154,7 +154,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

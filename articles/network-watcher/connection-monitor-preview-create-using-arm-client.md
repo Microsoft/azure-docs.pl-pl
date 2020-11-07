@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 7d35799cd73ff4d065cb58189f2325dc4dac6840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a30b5c225bcbcb7ca0febad5ae23bce522d2135
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87567933"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357525"
 ---
 # <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Tworzenie monitora połączeń (wersja zapoznawcza) przy użyciu ARMClient
 
 Dowiedz się, jak utworzyć monitor połączeń (wersja zapoznawcza) w celu monitorowania komunikacji między zasobami przy użyciu ARMClient. Obsługuje wdrożenia w chmurze hybrydowej i platformy Azure.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz 
+## <a name="before-you-begin"></a>Przed rozpoczęciem 
 
 W monitorach połączeń utworzonych w monitorze połączeń (wersja zapoznawcza) można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 
@@ -60,40 +60,92 @@ properties: {
 
 endpoints: [{
 
-name: 'workspace',
+name: 'endpoint_workspace_machine',
+
+type: 'MMAWorkspaceMachine',
 
 resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
 
-filter: {
+//Example 1: Choose a machine
 
- items: [{
-
-type: 'AgentAddress',
-
-address: '<FQDN of your on-premises agent>'
-
-}]
-
+address : '<non-Azure machine FQDN>'
 }
 
-          },
+//Example 2: Select IP from chosen machines
 
- {
+address : '<non-Azure machine FQDN>
 
-name: 'vm1',
+"scope": {
+      "include": [
+            {
+                  "address": "<IP belonging to machine chosen above>"  
+        }
+       ]
+      }
+   }    
+   
+name: 'endpoint_workspace_network',
+
+type: 'MMAWorkspaceNetwork',
+
+resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
+
+ coverage level : 'high', //Optional
+ 
+ //Include subnets. You can also exclude IPs from subnet to exclude from monitoring
+ 
+ scope: {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28
+            },
+            {
+                  "address": "<subnet 2 mask>" 
+            }
+      ],
+      "exclude": [
+            { 
+            "address" : "<ip-from-included-subnets-that-should-be-excluded>"
+        }
+      ]
+     }
+},
+
+//Use a Azure VM as an endpoint
+{
+
+name: 'endpoint_virtualmachine',
 
 resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
 
 },
 
+//Use an Azure VNET or Subnet as an endpoint
+
  {
 
-name: 'vm2',
+name: 'endpoint_vnet_subnet',
 
-resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
+resourceId: '<resource id of VNET or subnet'
+coverage level: 'high' //Optional
 
+//Scope is optional.
+
+  "scope": {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28 .This subnet should match with any existing subnet in vnet
+            }
+      ],
+    "exclude": [
+            {
+                  "address": "<ip-from-included-subnets-that-should-be-excluded>" // If used with include, IP should be part of the subnet defined above. Without include, this could be any address within vnet range or any specific subnet range as a whole.
+            }
+      ]
+  }
    },
 
+//Endpoint as a URL
 {
 
 name: 'azure portal'
@@ -102,6 +154,7 @@ address: '<URL>'
 
    },
 
+//Endpoint as an IP 
  {
 
     name: 'ip',
@@ -167,9 +220,24 @@ address: '<URL>'
     protocol: 'HTTP',
 
     httpConfiguration: {
-
-     preferHTTPS: true
-
+    
+     port: '<port of choice>'
+  
+    preferHTTPS: true // If port chosen is not 80 or 443
+    
+    method: 'GET', //Choose GET or POST
+    
+    path: '/', //Specify path for request
+         
+    requestHeaders: [
+            {
+              "name": "Content-Type",
+              "value": "appication/json"
+            }
+          ],
+          
+    validStatusCodeRanges: [ "102", "200-202", "3xx" ], //Samples
+          
     },
 
     successThreshold: {
@@ -180,7 +248,8 @@ address: '<URL>'
 
     }
 
-   }, {
+   }, 
+   {
 
     name: 'tcpEnabled',
 
@@ -307,9 +376,15 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
     * Nazwa — nazwa konfiguracji testu.
     * testFrequencySec — Określ, jak często źródła będą wysyłać polecenia ping do określonych protokołów i portów. Możesz wybrać 30 sekund, 1 minutę, 5 minut, 15 minut lub 30 minut. Źródła przetestują łączność do miejsc docelowych na podstawie wybranej wartości. Jeśli na przykład wybierzesz 30 sekund, źródła będą sprawdzać łączność z miejscem docelowym co najmniej raz w okresie 30 sekund.
     * Protokół — można wybrać TCP, ICMP, HTTP lub HTTPS. W zależności od protokołu można wykonać kilka konfiguracji specyficznych dla protokołu
-        * preferHTTPS — Określ, czy używać protokołu HTTPS przez HTTP
+    
+        * preferHTTPS — Określ, czy używać protokołu HTTPS przez HTTP, gdy port jest używany nie 80 ani 443
         * Port — określ wybrany port docelowy.
-        * disableTraceRoute — dotyczy grup testów, których protokół to TCP lub ICMP. Uniemożliwia ona źródłem odnajdywania topologii i RTT przeskoków przez przeskok.
+        * disableTraceRoute — dotyczy to konfiguracji testów, których protokół to TCP lub ICMP. Uniemożliwia ona źródłem odnajdywania topologii i RTT przeskoków przez przeskok.
+        * Metoda — dotyczy to konfiguracji testów, których protokół to HTTP. Wybierz metodę żądania HTTP — Pobierz lub Opublikuj
+        * ścieżka — Określ parametry ścieżki do dołączenia do adresu URL
+        * validStatusCodes — wybierz odpowiednie kody stanu. Jeśli kod odpowiedzi nie jest zgodny z tą listą, otrzymasz komunikat diagnostyczny
+        * requestHeaders — określ niestandardowe ciągi nagłówka żądania, które zostaną przesłane do miejsca docelowego
+        
     * successThreshold — można ustawić progi dla następujących parametrów sieci:
         * checksFailedPercent — Ustaw procent kontroli, które mogą zakończyć się niepowodzeniem, gdy źródła sprawdzają łączność z lokalizacjami docelowymi przy użyciu określonych kryteriów. W przypadku protokołu TCP lub ICMP wartość procentowa nieudanych testów może być równa wartości procentowej utraty pakietów. W przypadku protokołu HTTP to pole reprezentuje procent żądań HTTP, które nie otrzymały odpowiedzi.
         * roundTripTimeMs — Ustaw czas RTT w milisekundach, przez jaki źródła mogą być wykonywane w celu nawiązania połączenia z miejscem docelowym za pośrednictwem konfiguracji testu.

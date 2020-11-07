@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85f14329359eaf051b992f657ac0e4e634d504cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb8d578c05166f88ed7e91681dd6b5f15b1e3e5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020834"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358647"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Jak zarządzać współbieżnością w usłudze Azure Wyszukiwanie poznawcze
 
@@ -30,7 +30,7 @@ Współbieżność optymistyczna jest implementowana za poorednictwem sprawdzani
 Wszystkie zasoby mają [*tag jednostki (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) , który zawiera informacje o wersji obiektu. Sprawdzając najpierw element ETag, można uniknąć współbieżnych aktualizacji w typowym przepływie pracy (Get, Modify lokalnie, Update), upewniając się, że element ETag zasobu jest zgodny z lokalną kopią.
 
 + Interfejs API REST używa elementu [ETag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w nagłówku żądania.
-+ Zestaw SDK platformy .NET ustawia element ETag za pomocą obiektu accessCondition, ustawiając opcję [if-Match | Nagłówek if-Match-none](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w zasobie. Każdy obiekt dziedziczenia z [IResourceWithETag (.NET SDK)](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) ma obiekt accessCondition.
++ Zestaw SDK platformy .NET ustawia element ETag za pomocą obiektu accessCondition, ustawiając opcję [if-Match | Nagłówek if-Match-none](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w zasobie. Obiekty, które używają elementów ETag, takich jak [SynonymMap. ETag](/dotnet/api/azure.search.documents.indexes.models.synonymmap.etag) i [SearchIndex. ETag](/dotnet/api/azure.search.documents.indexes.models.searchindex.etag), mają obiekt accessCondition.
 
 Za każdym razem, gdy aktualizujesz zasób, jego element ETag zmienia się automatycznie. W przypadku zaimplementowania zarządzania współbieżnością wszystkie wykonywane czynności są wykonywane w ramach żądania aktualizacji, które wymaga, aby zasób zdalny miał ten sam element ETag, jak kopia zasobu zmodyfikowanego na kliencie. Jeśli zasób zdalny został już zmieniony przez proces współbieżny, element ETag nie będzie zgodny z warunkiem wstępnym, a żądanie zakończy się niepowodzeniem z użyciem protokołu HTTP 412. Jeśli używasz zestawu SDK platformy .NET, te manifesty jako lokalizacji, w `CloudException` której `IsAccessConditionFailed()` Metoda rozszerzania zwraca wartość true.
 

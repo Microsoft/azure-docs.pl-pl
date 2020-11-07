@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 235572cc4d697e7488765c464b12f9349c1e012b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994173"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356454"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Usługa Azure monitor dla dostawców rozwiązań SAP (wersja zapoznawcza)
 
 ## <a name="overview"></a>Omówienie  
 
-W kontekście Azure Monitor dla rozwiązań SAP *Typ dostawcy* odnosi się do określonego *dostawcy*. Na przykład *SAP HANA*, który jest skonfigurowany dla określonego składnika w oprogramowaniu SAP, takich jak SAP HANA Database. Dostawca zawiera informacje o połączeniu dla odpowiedniego składnika i pomaga zbierać dane telemetryczne z tego składnika. Jeden Azure Monitor dla zasobu rozwiązań SAP (znany również jako zasób monitora SAP) można skonfigurować przy użyciu wielu dostawców tego samego typu dostawcy lub wielu dostawców z wieloma typami dostawcy.
+W kontekście Azure Monitor dla rozwiązań SAP *Typ dostawcy* odnosi się do określonego *dostawcy*. Na przykład *SAP HANA* , który jest skonfigurowany dla określonego składnika w oprogramowaniu SAP, takich jak SAP HANA Database. Dostawca zawiera informacje o połączeniu dla odpowiedniego składnika i pomaga zbierać dane telemetryczne z tego składnika. Jeden Azure Monitor dla zasobu rozwiązań SAP (znany również jako zasób monitora SAP) można skonfigurować przy użyciu wielu dostawców tego samego typu dostawcy lub wielu dostawców z wieloma typami dostawcy.
    
 Klienci mogą konfigurować różne typy dostawców, aby umożliwić zbieranie danych z odpowiedniego składnika w systemie SAP. Na przykład klienci mogą skonfigurować jednego dostawcę dla typu dostawcy SAP HANA, innego dostawcę dla typu dostawcy klastrów o wysokiej dostępności i tak dalej.  
 
@@ -53,13 +53,24 @@ W publicznej wersji zapoznawczej klienci mogą oczekiwać, że zobaczysz następ
 
 ![Azure Monitor dla dostawców rozwiązań SAP — klaster o wysokiej dostępności](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-Aby skonfigurować dostawcę klastrów o wysokiej dostępności, należy wykonać dwa podstawowe kroki: 
-1. Zainstaluj [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) w *każdym* węźle w klastrze Pacemaker 
-    - Klienci mogą używać skryptów Azure Automation do wdrożenia klastra o wysokiej dostępności. Skrypty zainstalują [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) na każdym węźle klastra.  
-    - Klienci mogą przeprowadzić instalację ręczną, wykonując czynności opisane na [tej stronie](https://github.com/ClusterLabs/ha_cluster_exporter) 
-2. Konfigurowanie dostawcy klastrów o wysokiej dostępności w *każdym* węźle w klastrze Pacemaker  
-  Aby można było skonfigurować dostawcę klastrów o wysokiej dostępności, wymagany jest adres URL Prometheus, nazwa klastra, nazwa hosta i identyfikator systemu.   
-  Klienci są zalecani do skonfigurowania jednego dostawcy dla każdego węzła klastra.   
+Aby skonfigurować dostawcę klastrów o wysokiej dostępności, należy wykonać dwa podstawowe czynności:
+
+1. Zainstaluj [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) w *każdym* węźle w klastrze Pacemaker.
+
+   Dostępne są dwie opcje instalacji ha_cluster_exporter:
+   
+   - Użyj skryptów Azure Automation do wdrożenia klastra o wysokiej dostępności. Skrypty instalują [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) na każdym węźle klastra.  
+   - Wykonaj [instalację ręczną](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build). 
+
+2. Skonfiguruj dostawcę klastrów o wysokiej dostępności dla *każdego* węzła w klastrze Pacemaker.
+
+   Aby skonfigurować dostawcę klastrów o wysokiej dostępności, wymagane są następujące informacje:
+   
+   - **Nazwa**. Nazwa tego dostawcy. Dla tego Azure Monitor dla wystąpienia rozwiązań SAP powinna być unikatowa.
+   - **Prometheus punkt końcowy**. Zwykle http \: // \<servername or ip address\> : 9664/Metrics.
+   - **Identyfikator SID**. W przypadku systemów SAP Użyj identyfikatora SID SAP. W przypadku innych systemów (na przykład klastrów NFS) Użyj nazwy klastra o trzech znakach. Identyfikator SID musi być różny od innych monitorowanych klastrów.   
+   - **Nazwa klastra**. Nazwa klastra użyta podczas tworzenia klastra. Nazwę klastra można znaleźć we właściwości klastra `cluster-name` .
+   - **Nazwa hosta**. Nazwa hosta maszyny wirtualnej z systemem Linux.  
 
 ## <a name="provider-type-microsoft-sql-server"></a>Typ dostawcy programu Microsoft SQL Server
 

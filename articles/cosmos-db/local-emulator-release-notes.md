@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: e87985154226369cd47cc6437fc82c59602a78d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6ffd5670a8b84f0f4a5b7d3dee8a7a5080be26f5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085585"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357321"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos emulator — informacje o wersji i pobrania
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,10 @@ W tym artykule przedstawiono informacje o wersji emulatora usługi Azure Cosmos 
 |**Wprowadzenie**|[Opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Informacje o wersji
+
+### <a name="2118-6-november-2020"></a>2.11.8 (6 listopada 2020)
+
+ - Ta wersja zawiera aktualizację Eksplorator danych emulatora usługi Cosmos i rozwiązuje problem polegający na tym, że klienci protokołu TLS 1,3 próbują otworzyć Eksplorator danych.
 
 ### <a name="2116-6-october-2020"></a>2.11.6 (6 października 2020)
 

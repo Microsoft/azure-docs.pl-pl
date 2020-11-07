@@ -5,13 +5,13 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
-ms.date: 10/22/2020
-ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/06/2020
+ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128883"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357610"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorowanie IoT Hub platformy Azure
 
@@ -65,13 +65,13 @@ W Azure Portal można wybrać **Ustawienia diagnostyczne** w obszarze **monitoro
 
 Poniższy zrzut ekranu przedstawia ustawienie diagnostyczne dla routingu typ dziennika zasobów *operacje połączenia* i wszystkie metryki platformy do obszaru roboczego log Analytics.
 
-:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Domyślne wykresy metryk na stronie omówienia usługi IoT Hub.":::
+:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Okienko ustawień diagnostycznych Centrum IoT.":::
 
 Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](/azure/azure-monitor/platform/diagnostic-settings) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell. Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane. Kategorie IoT Hub platformy Azure znajdują się w obszarze [dzienniki zasobów w temacie monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#resource-logs).
 
 Podczas routingu IoT Hub metryki platformy do innych lokalizacji należy pamiętać, że:
 
-- Następujące metryki platformy nie są eksportowane za pośrednictwem ustawień diagnostycznych: *urządzenia połączone (wersja zapoznawcza)* i *łączna liczba urządzeń (wersja zapoznawcza)* .
+- Następujące metryki platformy nie są eksportowane za pośrednictwem ustawień diagnostycznych: *urządzenia połączone (wersja zapoznawcza)* i *łączna liczba urządzeń (wersja zapoznawcza)*.
 
 - Metryki wielowymiarowe, na przykład niektóre [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są obecnie eksportowane jako spłaszczone metryki jednowymiarowe zagregowane w obrębie wartości wymiarów. Aby uzyskać więcej szczegółów, zobacz [Eksportowanie metryk platformy do innych lokalizacji](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -81,7 +81,7 @@ Metryki dla IoT Hub platformy Azure można analizować za pomocą metryk z innyc
 
 W Azure Portal można wybrać **metryki** w obszarze **monitorowanie** w okienku po lewej stronie Centrum IoT, aby otworzyć Eksploratora metryk z zakresem domyślnie do metryk platformy emitowanych przez Centrum IoT Hub:
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Domyślne wykresy metryk na stronie omówienia usługi IoT Hub.":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Strona Eksploratora metryk dla Centrum IoT Hub.":::
 
 Listę metryk platformy zebranych dla usługi Azure IoT Hub można znaleźć w temacie [Metrics (monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#metrics)). Aby zapoznać się z listą metryk platformy zebranych dla wszystkich usług platformy Azure, zobacz temat [obsługiwane metryki w Azure monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -97,7 +97,7 @@ Aby przekierować dane do dzienników Azure Monitor, należy utworzyć ustawieni
 
 W Azure Portal można wybrać pozycję **dzienniki** w obszarze **monitorowanie** w okienku po lewej stronie Centrum IoT hub, aby przeLog Analytics zapytania o zakres, domyślnie do dzienników i metryk zebranych w Azure monitor dzienników dla Centrum IoT.
 
-:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Domyślne wykresy metryk na stronie omówienia usługi IoT Hub.":::
+:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Strona dzienników Centrum IoT.":::
 
 Aby uzyskać listę tabel używanych przez Azure Monitor dzienników i Queryable przez Log Analytics, zobacz [dzienniki dzienników Azure monitor w temacie monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
@@ -107,7 +107,7 @@ Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie po
 
 Podczas routingu IoT Hub metryki platformy do dzienników Azure Monitor należy pamiętać, że:
 
-- Następujące metryki platformy nie są eksportowane za pośrednictwem ustawień diagnostycznych: *urządzenia połączone (wersja zapoznawcza)* i *łączna liczba urządzeń (wersja zapoznawcza)* .
+- Następujące metryki platformy nie są eksportowane za pośrednictwem ustawień diagnostycznych: *urządzenia połączone (wersja zapoznawcza)* i *łączna liczba urządzeń (wersja zapoznawcza)*.
 
 - Metryki wielowymiarowe, na przykład niektóre [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są obecnie eksportowane jako spłaszczone metryki jednowymiarowe zagregowane w obrębie wartości wymiarów. Aby uzyskać więcej szczegółów, zobacz [Eksportowanie metryk platformy do innych lokalizacji](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -291,6 +291,14 @@ class Program
 Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](/azure/azure-monitor/platform/alerts-metric-overview), [dzienników](/azure/azure-monitor/platform/alerts-unified-log)i [dziennika aktywności](/azure/azure-monitor/platform/activity-log-alerts). Różne typy alertów mają zalety i wady.
 
 Podczas tworzenia reguły alertu na podstawie metryk platformy należy pamiętać, że w przypadku metryk IoT Hub platformy, które są zbierane w jednostkach zliczania, niektóre agregacje mogą nie być dostępne ani użyteczne. Aby dowiedzieć się więcej, zobacz temat [obsługiwane agregacje w temacie monitorowanie danych usługi Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
+
+## <a name="monitor-per-device-disconnects-with-event-grid"></a>Monitoruj rozłączanie dla poszczególnych urządzeń za pomocą Event Grid
+
+Azure Monitor zapewnia metrykę i *połączone urządzenia* , za pomocą których można monitorować liczbę urządzeń podłączonych do IoT Hub i wyzwalać alert, gdy liczba połączonych urządzeń spadnie poniżej wartości progowej. Chociaż może to być wystarczające w niektórych scenariuszach, [Azure Event Grid](/azure/event-grid/) zapewnia rozwiązanie do monitorowania o małym opóźnieniu i na urządzenie, za pomocą którego można śledzić połączenia urządzeń dla kluczowych urządzeń i infrastruktury.
+
+Za pomocą Event Grid można subskrybować zdarzenia IoT Hub [ **DeviceConnected** i **DeviceDisconnected**](iot-hub-event-grid.md#event-types) w celu wyzwalania alertów i monitorowania stanu połączenia urządzenia. Event Grid zapewnia znacznie małe opóźnienia zdarzeń niż Azure Monitor i można monitorować dla poszczególnych urządzeń, a nie dla łącznej liczby połączonych urządzeń. Te czynniki sprawiają, Event Grid preferowaną metodę monitorowania połączeń dla krytycznych urządzeń i infrastruktury. Zdecydowanie zalecamy używanie Event Grid do monitorowania połączeń urządzeń w środowiskach produkcyjnych.
+
+Aby uzyskać bardziej szczegółowe informacje na temat monitorowania połączeń urządzeń z Event Grid i Azure Monitor, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

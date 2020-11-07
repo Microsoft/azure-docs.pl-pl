@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453932"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358749"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integracja Azure Active Directory z programem E Sales Manager Remix
 
@@ -68,7 +68,7 @@ Aby skonfigurować integrację usługi Azure AD z programem E Sales Manager remi
 
     ![Przycisk Nowa aplikacja][3]
 
-1. W polu wyszukiwania wpisz **e Sales Manager Remix**, wybierz pozycję **e Sales Manager Remix** na liście wyników, a następnie wybierz pozycję **Dodaj**.
+1. W polu wyszukiwania wpisz **e Sales Manager Remix** , wybierz pozycję **e Sales Manager Remix** na liście wyników, a następnie wybierz pozycję **Dodaj**.
 
     ![E Sales Manager Remix na liście wyników](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -92,20 +92,20 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
  
     ![Okno "Logowanie jednokrotne"](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-1. W obszarze **E Sales Manager Remix domenę i adresy URL**wykonaj następujące czynności:
+1. W obszarze **E Sales Manager Remix domenę i adresy URL** wykonaj następujące czynności:
 
     ![E Sales Manager Remix informacje logowania jednokrotnego w domenie i adresach URL](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
     a. W polu **adres URL logowania** wpisz adres URL w następującym formacie: *https:// \<Server-Based-URL> / \<sub-domain> /eSales-PC*.
 
-    b. W polu **Identyfikator** wpisz adres URL w następującym formacie: *https:// \<Server-Based-URL> / \<sub-domain> / *.
+    b. W polu **Identyfikator** wpisz adres URL w następującym formacie: *https:// \<Server-Based-URL> / \<sub-domain> /*.
 
     c. Zanotuj wartość **identyfikatora** do późniejszego użycia w tym samouczku.
     
     > [!NOTE] 
     > Podane wyżej wartości nie są rzeczywiste. Zaktualizuj je za pomocą rzeczywistego adresu URL logowania i identyfikatora. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej Remix Sales Manager](mailto:esupport@softbrain.co.jp).
 
-1. W obszarze **certyfikat podpisywania SAML**wybierz pozycję **certyfikat (base64)**, a następnie Zapisz plik certyfikatu na komputerze.
+1. W obszarze **certyfikat podpisywania SAML** wybierz pozycję **certyfikat (base64)** , a następnie Zapisz plik certyfikatu na komputerze.
 
     ![Link do pobierania certyfikatu (base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
@@ -119,7 +119,7 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
 
     ![Edytowanie okna atrybutów](./media/esalesmanagerremix-tutorial/configure2.png)
 
-1. W obszarze **E Sales Manager Remix Configuration (Konfiguracja**) wybierz pozycję **Konfiguruj E Sales Manager Remix**.
+1. W obszarze **E Sales Manager Remix Configuration (Konfiguracja** ) wybierz pozycję **Konfiguruj E Sales Manager Remix**.
 
     ![Zrzut ekranu przedstawiający sekcję "Konfiguracja Remixa Menedżera sprzedaży" z wybraną pozycją "Konfiguruj E Sales Manager Remix".](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
@@ -145,7 +145,7 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
 
     ![Okno "Współpraca z systemem zewnętrznym"](./media/esalesmanagerremix-tutorial/configure6.png)
 
-1. W obszarze **Ustawienia uwierzytelniania SAML**wykonaj następujące czynności:
+1. W obszarze **Ustawienia uwierzytelniania SAML** wykonaj następujące czynności:
 
     ![Sekcja "ustawienie uwierzytelniania SAML"](./media/esalesmanagerremix-tutorial/configure3.png)
     
@@ -199,7 +199,7 @@ W tej sekcji utworzysz użytkownika testowego Britta Simon w Azure Portal, wykon
 
     c. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
 
-    d. Wybierz pozycję **Utwórz**.
+    d. Wybierz przycisk **Utwórz**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Utwórz użytkownika testowego programu E Sales Manager Remix
 
@@ -209,7 +209,7 @@ W tej sekcji utworzysz użytkownika testowego Britta Simon w Azure Portal, wykon
 
     ![Remix konfiguracja programu E Sales Manager](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Wybierz **Ustawienia firmy**  >  **konserwacja działów i pracowników**, a następnie wybierz pozycję **pracownicy zarejestrowani**.
+1. Wybierz **Ustawienia firmy**  >  **konserwacja działów i pracowników** , a następnie wybierz pozycję **pracownicy zarejestrowani**.
 
     ![Karta "pracownicy zarejestrowani"](./media/esalesmanagerremix-tutorial/user1.png)
 
@@ -217,7 +217,7 @@ W tej sekcji utworzysz użytkownika testowego Britta Simon w Azure Portal, wykon
     
     ![Sekcja "Nowa rejestracja pracownika"](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. W polu **Nazwa pracownika** wpisz nazwę użytkownika (na przykład **Britta**).
+    a. W polu **Nazwa pracownika** wpisz nazwę użytkownika (na przykład **Britta** ).
 
     b. Wypełnij pozostałe wymagane pola.
     

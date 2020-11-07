@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530565"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358630"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością usługi Azure SQL i indeksowanie jej przy użyciu usługi Azure Wyszukiwanie poznawcze Indexer
 
@@ -39,7 +39,7 @@ Pojedynczy indeksator może korzystać tylko z jednej tabeli lub widoku, ale mo�
 Można skonfigurować i skonfigurować indeksator usługi Azure SQL przy użyciu:
 
 * Kreator importu danych w [Azure Portal](https://portal.azure.com)
-* Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
+* Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 * [Interfejs API REST](/rest/api/searchservice/indexer-operations) usługi Azure wyszukiwanie poznawcze
 
 W tym artykule będziemy używać interfejsu API REST do tworzenia **indeksatorów** i **źródeł danych**.
@@ -327,8 +327,8 @@ Korzystając z techniki usuwania nietrwałego, można określić zasady usuwania
 | smalldatetime, DateTime, datetime2, Date, DateTimeOffset |EDM. DateTimeOffset, EDM. String | |
 | uniqueidentifer |Edm.String | |
 | geograficzne |Edm.GeographyPoint |Obsługiwane są tylko wystąpienia typu Geografia z SRID 4326 (co jest ustawieniem domyślnym) |
-| rowversion |Nie dotyczy |Kolumny wiersza — wersja nie mogą być przechowywane w indeksie wyszukiwania, ale mogą być używane do śledzenia zmian |
-| Time, TimeSpan, Binary, varbinary, Image, XML, geometria, typy CLR |Nie dotyczy |Nieobsługiwane |
+| rowversion |Brak |Kolumny wiersza — wersja nie mogą być przechowywane w indeksie wyszukiwania, ale mogą być używane do śledzenia zmian |
+| Time, TimeSpan, Binary, varbinary, Image, XML, geometria, typy CLR |Brak |Nieobsługiwane |
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 Program SQL indeksator uwidacznia kilka ustawień konfiguracji:
@@ -348,7 +348,7 @@ Te ustawienia są używane w `parameters.configuration` obiekcie w definicji ind
     }
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **P: Czy można używać usługi Azure SQL Indexer z bazami danych SQL działającymi na maszynach wirtualnych IaaS na platformie Azure?**
 

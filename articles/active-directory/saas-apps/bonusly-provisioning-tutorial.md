@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33329fc30d1c20b4e20901d06a061accb2aeceb0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d8c3f64e5cb5269bfe7e555615f874ac3443c6eb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456905"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357831"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie dodatkowych funkcji automatycznej aprowizacji użytkowników
 
@@ -81,7 +81,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej dla użytkowników w usłudze Azure AD:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **dodatkowe**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **dodatkowe**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -95,57 +95,57 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Zrzut ekranu przedstawiający pole listy Tryb aprowizacji z automatycznym zaznaczeniem i wyróżnionym." border="false":::
 
 5. W sekcji **poświadczenia administratora** wprowadź **klucz tajny** konta z premią, zgodnie z opisem w kroku 6.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Zrzut ekranu przedstawiający sekcję poświadczenia administratora. Pole tokenu tajnego jest puste, ale pole jest wyróżnione." border="false":::
 
 6. **Token tajny** dla konta z premią znajduje się w obszarze **administrator > integracji > firmy**. W sekcji **Jeśli chcesz wykonać kod** , kliknij pozycję **interfejs API > Utwórz nowy token dostępu interfejsu API** , aby utworzyć nowy token klucza tajnego.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Zrzut ekranu przedstawiający menu z dodatkowymi. W obszarze Administrator wyróżniono firmę. W obszarze firma są wyróżniane integracje." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Zrzut ekranu przedstawiający sekcję Jeśli chcesz uzyskać dodatkową część witryny z wyróżnioną pozycją P." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Zrzut ekranu przedstawiający dodatkową lokację. Karta usługi jest otwarta. W obszarze tokeny dostępu P I Utwórz nowy token dostępu P I jest wyróżniony." border="false":::
 
 7. Na poniższym ekranie wpisz nazwę tokenu dostępu w podanym polu tekstowym, a następnie naciśnij pozycję **Utwórz klucz interfejsu API**. Nowy token dostępu zostanie wyświetlony przez kilka sekund w wyskakującym okienku.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Zrzut ekranu przedstawiający nową stronę tokenu dostępu w witrynie. Pole bez etykiety zawiera mój token, a przycisk Utwórz klucz P I został wyróżniony." border="false":::
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Zrzut ekranu przedstawiający dodatkową lokację. Jest widoczne powiadomienie z informacją, że został utworzony nowy token dostępu, po którym następuje nierozpoznawalny token." border="false":::
 
 8. Po wypełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać dodatkowe połączenie. Jeśli połączenie nie powiedzie się, upewnij się, że konto z dodatkowymi uprawnieniami administratora i spróbuj ponownie.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Zrzut ekranu przedstawiający sekcję poświadczenia administratora Azure Portal. Przycisk połączenia tekstu jest wyróżniony." border="false":::
 
 9. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Zrzut ekranu przedstawiający puste pole e-mail powiadomienia. Opcja jest widoczna, która jest oznaczona etykietą Wyślij powiadomienie e-mail w przypadku wystąpienia błędu." border="false":::
 
-10. Kliknij pozycję **Zapisz**.
+10. Kliknij przycisk **Zapisz**.
 
 11. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy, aby uzyskać premię**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Zrzut ekranu przedstawiający sekcję mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkowników, aby uzyskać premię." border="false":::
 
 12. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługą Azure AD, aby uzyskać dodatkową wartość w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu uzyskania dodatkowych odpowiedników kont użytkowników w przypadku operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Zrzut ekranu przedstawiający stronę mapowania atrybutów. W tabeli wymieniono atrybuty Azure Active Directory, odpowiadające im dodatkowe atrybuty i stan pasujący." border="false":::
 
 13. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. Aby włączyć usługę Azure AD Provisioning w celu zapewnienia premii, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Zrzut ekranu przedstawiający sekcję ustawień. Przełącznik stanu aprowizacji jest ustawiony na wyłączony." border="false":::
 
 15. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Zrzut ekranu przedstawiający pole listy zakres. W polu jest wybrana synchronizacja tylko przypisanych użytkowników i grup." border="false":::
 
 16. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
-    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Zrzut ekranu przedstawiający kartę z dodatkową obsługą. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Zrzut ekranu przedstawiający stronę z dodatkową obsługą, z wyróżnionym przyciskiem Zapisz." border="false":::
 
 Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i postępować zgodnie z raportem o aktywności aprowizacji, który opisuje wszystkie akcje wykonywane w ramach usługi Azure AD Provisioning.
 

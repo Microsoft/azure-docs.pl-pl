@@ -3,12 +3,13 @@ title: Analizuj wideo na żywo dzięki usłudze Live Video Analytics na IoT Edge
 description: Dowiedz się, jak za pomocą usługi Azure Custom Vision utworzyć model z kontenerem, który może wykrywać wózek i korzystać z rozszerzalności zawartości platformy Azure na żywo na platformie Azure IoT Edge, aby wdrożyć model na brzegu na potrzeby wykrywania wózków Zabawka z poziomu strumienia wideo na żywo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 52678d66bd4a91c9308a3cc48fbf784e89a5cfe8
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+zone_pivot_groups: ams-lva-edge-programming-languages
+ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171513"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358319"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -16,7 +17,13 @@ W ramach tego samouczka dowiesz się, jak za pomocą usługi Azure [Custom Visio
 
 Pokażemy Ci, jak połączyć się z możliwością Custom Vision, aby kompilować i uczenie modelu przetwarzania obrazów przez przekazywanie i etykietowanie kilku obrazów. Nie potrzebujesz żadnej wiedzy o nauce danych, uczeniu maszynowym ani AI. Zapoznaj się również z możliwościami usługi Analiza filmów wideo na żywo, aby łatwo wdrożyć niestandardowy model jako kontener na krawędzi i analizować symulowane kanały wideo na żywo.
 
-Ten samouczek korzysta z maszyny wirtualnej platformy Azure jako urządzenia IoT Edge i jest oparty na przykładowym kodzie zapisanym w języku C#. Informacje przedstawione w tym samouczku kompilują się z przewodnika Szybki Start dotyczący [wykrywania ruchu i emisji](detect-motion-emit-events-quickstart.md) .
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [header](includes/custom-vision-tutorial/csharp/header.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [header](includes/custom-vision-tutorial/python/header.md)]
+::: zone-end
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -29,7 +36,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="suggested-pre-reading"></a>Sugerowane przed odczytem
+## <a name="suggested-pre-reading"></a>Sugerowane przed odczytem  
 
 Przed rozpoczęciem Przeczytaj następujące artykuły:
 
@@ -44,21 +51,18 @@ Przed rozpoczęciem Przeczytaj następujące artykuły:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wymagania wstępne dotyczące tego samouczka:
 
-* [Visual Studio Code](https://code.visualstudio.com/) na swoim komputerze deweloperskim przy użyciu narzędzi i rozszerzeń [języka C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) [usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) .
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
+::: zone-end
 
-    > [!TIP]
-    > Może zostać wyświetlony monit o zainstalowanie platformy Docker. Zignoruj ten monit.
-* [Zestaw SDK platformy .NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) na komputerze deweloperskim.
-* Upewnij się, że masz:
-    
-    * [Konfigurowanie zasobów platformy Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Konfigurowanie środowiska projektowego](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
-
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
+::: zone-end
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 
-W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz **kombinację klawiszy CTRL + N**, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Gdy oglądasz film wideo, pamiętaj, że w filmie o 36-sekundowym znakiem wózka zabawki. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
+
+W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz **kombinację klawiszy CTRL + N** , a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Gdy oglądasz film wideo, pamiętaj, że w filmie o 36-sekundowym znakiem wózka zabawki. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
 
 ## <a name="overview"></a>Omówienie
 
@@ -69,7 +73,7 @@ Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł g
 
 Węzeł rozszerzenia HTTP pełni rolę serwera proxy. Konwertuje ramki wideo na określony typ obrazu. Następnie przekazuje obraz za pośrednictwem REST do innego modułu krawędzi, który uruchamia model AI za punktem końcowym HTTP. W tym przykładzie moduł Edge jest modelem wykrywacza samochodów, który został utworzony przy użyciu Custom Vision. Węzeł procesora rozszerzenia HTTP zbiera wyniki wykrywania i publikuje zdarzenia w węźle [ujścia usługi Azure IoT Hub](media-graph-concept.md#iot-hub-message-sink) . Następnie węzeł wysyła te zdarzenia do [centrum IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
-## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Kompilowanie i wdrażanie Custom Vision model wykrywania zabawki
+## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Kompilowanie i wdrażanie modelu wykrywania zabawki Custom Vision 
 
 Jak nazwa Custom Vision sugeruje, możesz użyć jej do utworzenia własnego niestandardowego detektora obiektów lub klasyfikatora w chmurze. Zapewnia prosty, łatwy w użyciu i intuicyjny interfejs do kompilowania modeli Custom Vision, które można wdrożyć w chmurze lub na brzegu za pośrednictwem kontenerów.
 
@@ -83,7 +87,33 @@ Dodatkowe uwagi:
 Po zakończeniu możesz wyeksportować model do kontenera Docker za pomocą przycisku **Eksportuj** na karcie **wydajność** . Upewnij się, że jako typ platformy kontenera wybrano system Linux. Jest to platforma, na której zostanie uruchomiony kontener. Komputer, na którym pobierany jest kontener, może być w systemie Windows lub Linux. Poniższe instrukcje zostały oparte na pliku kontenera pobranym na komputer z systemem Windows.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Diagram przedstawiający Custom Vision przegląd."   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Zostanie wyświetlony ekran z wybraną pozycją pliku dockerfile.":::
+ 
+1. Plik zip powinien zostać pobrany na komputer lokalny o nazwie `<projectname>.DockerFile.Linux.zip` . 
+1. Sprawdź, czy zainstalowano platformę Docker. Jeśli nie, zainstaluj [platformę Docker](https://docs.docker.com/get-docker/) na pulpicie systemu Windows.
+1. Rozpakuj pobrany plik w wybranej lokalizacji. Użyj wiersza polecenia, aby przejść do katalogu niespakowanego folderu.
+    
+    Uruchom następujące polecenia:
+    
+    1. `docker build -t cvtruck` 
+    
+        To polecenie pobiera wiele pakietów, kompiluje obraz platformy Docker i Tagi jako `cvtruck:latest` .
+    
+        > [!NOTE]
+        > Jeśli to się powiedzie, powinny pojawić się następujące komunikaty: `Successfully built <docker image id>` i `Successfully tagged cvtruck:latest` . Jeśli polecenie kompilacji nie powiedzie się, spróbuj ponownie. Czasami pakiety zależności nie są pobierane po raz pierwszy.
+    1. `docker  image ls`
+
+        To polecenie sprawdza, czy nowy obraz znajduje się w rejestrze lokalnym.
+    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
+    
+        To polecenie powinno opublikować port uwidoczniony platformy Docker (80) na porcie komputera lokalnego (80).
+    1. `docker container ls`
+    
+        To polecenie sprawdza mapowania portów i jeśli kontener platformy Docker działa prawidłowo na komputerze. Dane wyjściowe powinny wyglądać następująco:
+
+        ```
+        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
+        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -97,20 +127,15 @@ Po zakończeniu możesz wyeksportować model do kontenera Docker za pomocą przy
 
 ## <a name="examine-the-sample-files"></a>Sprawdzanie plików przykładowych
 
-1. W Visual Studio Code przejdź do węzła src/Edge. Zobaczysz plik ENV, który został utworzony wraz z kilkoma plikami szablonu wdrożenia.
 
-    Szablon wdrożenia odwołuje się do manifestu wdrożenia urządzenia brzegowego z niektórymi wartościami zastępczymi. Plik ENV ma wartości dla tych zmiennych.
-1. Następnie przejdź do folderu src/Cloud-to-Device-Console-App. Tutaj zobaczysz appsettings.jsw utworzonym pliku wraz z kilkoma innymi plikami:
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
+::: zone-end
 
-    * C2D-Console-App. csproj: jest to plik projektu dla Visual Studio Code.
-    * operations.js: ten plik zawiera listę różnych operacji, które program ma uruchomić.
-    * Program.cs: Ten przykładowy kod programu:
+::: zone pivot="programming-language-python"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/python/examine-sample-files.md)]
+::: zone-end
 
-        * Ładuje ustawienia aplikacji.
-        * Wywołuje funkcję analizy filmów wideo na żywo na IoT Edge metod bezpośrednich modułu w celu utworzenia topologii, utworzenia wystąpienia grafu i aktywowania grafu.
-        * Wstrzymuje pracę, aby przeanalizować dane wyjściowe grafu w oknie **terminalu** oraz zdarzenia wysyłane do centrum IoT w oknie **danych wyjściowych** .
-        * Dezaktywuje wystąpienie grafu, usuwa wystąpienie grafu i usuwa topologię grafu.
-        
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Generowanie i wdrażanie manifestu wdrożenia
 
 1. W Visual Studio Code przejdź do pozycji src/Cloud-to-Device-App/operations.json.
@@ -124,7 +149,7 @@ Po zakończeniu możesz wyeksportować model do kontenera Docker za pomocą przy
 1. Kliknij prawym przyciskiem myszy plik SRC/Edge/deployment.customvision.template.jsw pliku, a następnie wybierz polecenie **generuj IoT Edge manifest wdrożenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Diagram przedstawiający Custom Vision przegląd.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Zrzut ekranu przedstawiający generowanie manifestu wdrażania IoT Edge.":::
   
     Ta akcja powinna utworzyć plik manifestu w folderze src/Edge/config o nazwie deployment.customvision.amd64.json.
 1. Otwórz plik SRC/Edge/deployment.customvision.template.jsw pliku i Znajdź `registryCredentials` blok JSON. W tym bloku znajdziesz adres usługi Azure Container Registry wraz z nazwą użytkownika i hasłem.
@@ -146,11 +171,11 @@ Po zakończeniu możesz wyeksportować model do kontenera Docker za pomocą przy
 1. Ustaw parametry połączenia IoT Hub, wybierając ikonę **więcej akcji** obok okienka **Azure IoT Hub** w lewym dolnym rogu. Można skopiować ciąg z appsettings.jspliku. (Oto inne zalecane podejście, aby upewnić się, że skonfigurowano odpowiednie Centrum IoT Hub w ramach Visual Studio Code za pomocą [polecenia wybierz IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Diagram przedstawiający Custom Vision przegląd.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Zrzut ekranu przedstawiający Ustawianie parametrów połączenia IoT Hub.":::
 1. Następnie kliknij prawym przyciskiem myszy pozycję src/Edge/config/deployment.customvision.amd64.jsna, a następnie wybierz pozycję **Utwórz wdrożenie dla jednego urządzenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Diagram przedstawiający Custom Vision przegląd.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Zrzut ekranu przedstawiający tworzenie wdrożenia dla jednego urządzenia.":::
 1. Zostanie wyświetlony monit o wybranie urządzenia IoT Hub. Z listy rozwijanej wybierz pozycję **LVA-Sample-Device** .
 1. W ciągu około 30 sekund Odśwież usługę Azure IoT Hub w lewej dolnej części. Urządzenie brzegowe powinno być wdrożone przy użyciu następujących modułów:
 
@@ -163,21 +188,52 @@ Po zakończeniu możesz wyeksportować model do kontenera Docker za pomocą przy
 Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następnie wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. Ten krok jest wymagany do monitorowania zdarzeń IoT Hub w oknie **danych wyjściowych** Visual Studio Code.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Diagram przedstawiający Custom Vision przegląd.":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Zrzut ekranu pokazujący Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia.":::
 
 ## <a name="run-the-sample-program"></a>Uruchamianie przykładowego programu
 
 Jeśli otworzysz topologię grafu dla tego samouczka w przeglądarce, zobaczysz, że wartość `inferencingUrl` została ustawiona na `http://cv:80/image` . To ustawienie oznacza, że serwer wnioskowania zwróci wyniki po rozpoczęciu wykrywania wózków zabawka (jeśli istnieją) w wideo na żywo.
 
-1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub wybierz **kombinację klawiszy Ctrl + Shift + X**) i Wyszukaj pozycję Azure IoT Hub.
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub wybierz **kombinację klawiszy Ctrl + Shift + X** ) i Wyszukaj pozycję Azure IoT Hub.
 1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Diagram przedstawiający Custom Vision przegląd.":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Zrzut ekranu pokazujący ustawienia rozszerzenia.":::
 1. Wyszukaj i Włącz opcję **Pokaż pełny komunikat**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Diagram przedstawiający Custom Vision przegląd."
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Zrzut ekranu pokazujący Wyświetlanie pełnego komunikatu.":::
+1. Aby rozpocząć sesję debugowania, wybierz klawisz **F5** . W oknie **terminalu** są wyświetlane komunikaty.
+1. operations.jsw kodzie zaczyna się od wywołania metod bezpośrednich `GraphTopologyList` i `GraphInstanceList` . Jeśli wyczyszczono zasoby po ukończeniu poprzednich przewodników Szybki Start, proces ten spowoduje zwrócenie pustych list, a następnie wstrzymanie. Aby kontynuować, wybierz klawisz **Enter** .
+    
+   W oknie **terminalu** zostanie wyświetlony następny zestaw wywołań metod bezpośrednich:
+    
+   * Wywołanie `GraphTopologySet` , które używa poprzedniego `topologyUrl` .
+   * Wywołanie `GraphInstanceSet` , które używa następującej treści:
+        
+   ```
+        {
+          "@apiVersion": "1.0",
+          "name": "Sample-Graph-1",
+          "properties": {
+            "topologyName": "CustomVisionWithHttpExtension",
+            "description": "Sample graph description",
+            "parameters": [
+              { 
+                "name": "inferencingUrl",
+                "value": "http://cv:80/image"
+              },
+              {
+                "name": "rtspUrl",
+                "value": "rtsp://rtspsim:554/media/t2.mkv"
+              },
+              {
+                "name": "rtspUserName",
+                "value": "testuser"
+              },
+              {
+                "name": "rtspPassword",
+                "value": "testpassword"
               }
             ]
           }
@@ -326,7 +382,7 @@ Zwróć uwagę na następujące informacje w poprzednich komunikatach:
 * Treść zawiera dane dotyczące zdarzenia analizy. W takim przypadku zdarzenie jest zdarzeniem wnioskowania, dlatego treść zawiera tablicę wniosków o nazwie przewidywania.
 * Sekcja przewidywania zawiera listę prognoz, w których w ramce zostanie znaleziony ciężar dostawy zabawki (tag "wózek dostawczy"). W miarę odwoływania "wózek dostawczy" jest niestandardowym tagiem dostarczonym do niestandardowego, przeszkolonego modelu dla wózka zabawki. Model wnioskuje i identyfikuje wózka zabawki w wejściowym wideo z różnymi wynikami pewności dopasowania prawdopodobieństwa.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zamierzasz wypróbować inne samouczki lub Przewodniki Szybki Start, zaczekaj na utworzone zasoby. W przeciwnym razie przejdź do obszaru Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten samouczek, i Usuń wszystkie zasoby.
 

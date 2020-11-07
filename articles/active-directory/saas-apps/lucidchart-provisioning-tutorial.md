@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: d92db526e0fa3f3f8898ac2ea264d0b8f37be071
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e0b98f15e03552f27cdd1c9683bdd7e74a1c02df
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458323"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358695"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Lucidchart na potrzeby automatycznego aprowizacji użytkowników
 
@@ -53,7 +53,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 2. Przejdź do **Standard scim**.
 
-      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Lucidchart. Menu zespołu jest wyróżnione i otwarte. W obszarze Administrator jest wyróżniona integracja aplikacji." border="false":::
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Lucidchart. W ramach dużego przycisku S I M jest wyróżniony tekst S C I M i widoczny transparent." border="false":::
 
 3. Przewiń w dół, aby zobaczyć **token okaziciela** i **podstawowy adres URL Lucidchart**. Skopiuj i Zapisz **token okaziciela**. Ta wartość zostanie wprowadzona w polu **Secret token** * na karcie aprowizacji aplikacji LucidChart w Azure Portal. 
 
@@ -78,7 +78,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-lucidchart-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Lucidchart w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

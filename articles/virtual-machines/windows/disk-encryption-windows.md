@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e0409f289289aaebc760473f1f74130b34fbdd39
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746221"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357729"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -123,7 +123,7 @@ Użyj polecenia [AZ VM Encryption Enable](/cli/azure/vm/encryption#az-vm-encrypt
 Szyfrowanie dysków można włączyć na istniejących lub uruchomionych maszynach wirtualnych z systemem IaaS na platformie Azure przy użyciu [szablonu Menedżer zasobów, aby zaszyfrować działającą maszynę wirtualną](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)z systemem Windows.
 
 
-1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure** .
+1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure**.
 
 2. Wybierz subskrypcję, grupę zasobów, lokalizację, ustawienia, warunki prawne i umowę. Kliknij przycisk **Kup** , aby włączyć szyfrowanie na istniejącej lub URUCHOMIONEJ maszynie wirtualnej IaaS.
 
@@ -135,7 +135,7 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego należy przekazać klucz funkcji BitLocker. Można to zrobić za pomocą polecenia cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` lub interfejsu CLI platformy Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nazwa grupy zasobów zawierającej Magazyn kluczy|
 |  keyEncryptionKeyURL | Adres URL klucza szyfrowania klucza w formacie https://nazwa magazynu kluczy. &lt; &gt; Vault.Azure.NET/Key/ &lt; &gt; . Jeśli nie chcesz używać elementu KEK, pozostaw to pole puste. |
-| liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe wartości to _system operacyjny_ , _dane_ i _wszystkie_ . 
+| liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe wartości to _system operacyjny_ , _dane_ i _wszystkie_. 
 | forceUpdateTag | Przekazuj unikatową wartość, taką jak identyfikator GUID za każdym razem, gdy operacja musi zostać wymuszona. |
 | resizeOSDisk | Należy zmienić rozmiar partycji systemu operacyjnego w celu zajmowania całego wirtualnego dysku twardego systemu operacyjnego przed podziałem woluminu systemowego. |
 | location | Lokalizacja dla wszystkich zasobów. |
@@ -266,6 +266,7 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
 - Zastosowanie elementu ADE do maszyny wirtualnej z dyskami zaszyfrowanymi za pomocą [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](disk-encryption.md) (SSE + CMK). Stosowanie instrukcji SSE i CMK do dysku danych na maszynie wirtualnej zaszyfrowanej przy użyciu programu ADE jest również nieobsługiwanym scenariuszem.
 - Migrowanie maszyny wirtualnej, która jest zaszyfrowana przy użyciu programu ADE lub **kiedykolwiek** została zaszyfrowana za pomocą programu ADE, do [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](disk-encryption.md).
+- [Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](../azure-vms-no-temp-disk.md); w Dv4, Dsv4, Ev4 i Esv4.
 
 ## <a name="next-steps"></a>Następne kroki
 

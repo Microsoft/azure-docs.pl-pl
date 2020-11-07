@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4b77208ca7869288ac13e28c6535b1b3972aa22c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f50c8d612ca088c97754b1eb90ed049113e33c6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928760"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358268"
 ---
 # <a name="tutorial-configure-blogin-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie blogu w celu automatycznego aprowizacji użytkowników
 
@@ -52,8 +52,8 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 Aby skonfigurować Inicjowanie obsługi użytkowników w **blogu** , zaloguj się do swojego konta blogu i wykonaj następujące czynności:
 
-1. Przejdź do **ustawień**  >  **uwierzytelnianie użytkownika**  >  **Konfiguracja Logowanie jednokrotne & Inicjowanie obsługi użytkowników** .
-2. Przejdź do karty **Inicjowanie obsługi użytkowników** i Zmień stan aprowizacji użytkownika na **włączone** .
+1. Przejdź do **ustawień**  >  **uwierzytelnianie użytkownika**  >  **Konfiguracja Logowanie jednokrotne & Inicjowanie obsługi użytkowników**.
+2. Przejdź do karty **Inicjowanie obsługi użytkowników** i Zmień stan aprowizacji użytkownika na **włączone**.
 3. Kliknij przycisk **Zapisz zmiany** . Po pierwszym zapisaniu zostanie wygenerowany **token tajny (Bearer)** .
 4. Kopiuj **adresy URL (dzierżawy)** i **klucz tajny (Bearer)** . Te wartości zostaną wprowadzone w polach adres URL dzierżawy i klucz tajny tokenu na karcie aprowizacji aplikacji blogu w Azure Portal.
 
@@ -67,7 +67,7 @@ Dodaj blog z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie ap
 
 Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podstawie przypisania do aplikacji lub na podstawie atrybutów użytkownika/grupy. Jeśli zdecydujesz się na określenie zakresu aprowizacji w aplikacji na podstawie przypisania, możesz skorzystać z następujących [instrukcji](../manage-apps/assign-user-or-group-access-portal.md) w celu przypisania użytkowników i grup do aplikacji. Jeśli zdecydujesz się na określenie zakresu aprowizacji wyłącznie na podstawie atrybutów użytkownika lub grupy, możesz użyć filtra zakresu zgodnie z opisem zamieszczonym [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Podczas przypisywania użytkowników i grup do blogu należy wybrać rolę inną niż **domyślny dostęp** . Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról. 
+* Podczas przypisywania użytkowników i grup do blogu należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról. 
 
 * Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -78,19 +78,19 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-blogin-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników dla blogu w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje** .
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **blog** .
+2. Na liście Aplikacje wybierz pozycję **blog**.
 
     ![Link do blogu na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Aprowizacja** .
+3. Wybierz kartę **Aprowizacja**.
 
     ![Karta Aprowizacja](common/provisioning.png)
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
 
@@ -98,13 +98,13 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu** .
+6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Wybierz pozycję **Zapisz** .
+7. Wybierz pozycję **Zapisz**.
 
-8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do blogu** .
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do blogu**.
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do blogu w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w blogu na potrzeby operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), musisz się upewnić, że interfejs API blogu obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -119,7 +119,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |Nazwa. sformatowana|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
 
-10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do blogu** .
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do blogu**.
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do blogu w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w blogu dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -138,11 +138,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz** .
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
 Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:

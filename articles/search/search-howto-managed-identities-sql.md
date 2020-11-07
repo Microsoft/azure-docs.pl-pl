@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519575"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358426"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora w celu Azure SQL Database przy użyciu tożsamości zarządzanej
 
@@ -81,7 +81,7 @@ Wykonaj poniższe kroki, aby przypisać uprawnienie usługi wyszukiwania do odcz
 W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczytywania danych z SQL Server.
 
 1. W Azure Portal przejdź do strony SQL Server platformy Azure.
-2. Wybieranie **kontroli dostępu (IAM)**
+2. Wybierz pozycję **Kontrola dostępu (Zarządzanie dostępem i tożsamościami)**
 3. Wybierz pozycję **Dodaj** , a następnie **Dodaj przypisanie roli**
 
     ![Dodaj przypisanie roli](./media/search-managed-identities/add-role-assignment-sql-server.png "Dodaj przypisanie roli")
@@ -94,7 +94,7 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="5---create-the-data-source"></a>5 — Tworzenie źródła danych
 
-[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Azure SQL Database przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Azure SQL Database przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
 
 Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source), źródło danych musi mieć następujące wymagane właściwości:
 
@@ -103,7 +103,7 @@ Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](/rest/api/
 * **uwierzytelniające**
     * Podczas uwierzytelniania przy użyciu tożsamości zarządzanej format **poświadczeń** różni się od czasu, gdy nie jest używana zarządzana tożsamość. Tutaj utworzysz katalog początkowy lub nazwę bazy danych oraz identyfikator zasobu, który nie ma klucza konta ani hasła. ResourceId musi zawierać identyfikator subskrypcji Azure SQL Database, grupę zasobów SQL Database i nazwę bazy danych SQL. 
     * Format parametrów połączenia tożsamości zarządzanej:
-        * *Katalog początkowy | Baza danych =**Nazwa bazy**danych; ResourceId =/subscriptions/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.SQL/Servers/**swoją nazwę SQL Server**/; Limit czasu połączenia =**Długość limitu czasu połączenia**;*
+        * *Katalog początkowy | Baza danych = **Nazwa bazy** danych; ResourceId =/subscriptions/ **Identyfikator subskrypcji** /resourceGroups/ **nazwę grupy zasobów** /Providers/Microsoft.SQL/Servers/ **swoją nazwę SQL Server** /; Limit czasu połączenia = **Długość limitu czasu połączenia** ;*
 * **kontener** określa nazwę tabeli lub widoku, który ma być indeksowany.
 
 Przykład sposobu tworzenia obiektu źródła danych SQL Azure przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source):

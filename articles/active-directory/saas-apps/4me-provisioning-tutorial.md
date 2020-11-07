@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851292"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357593"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 4me na potrzeby automatycznego aprowizacji użytkowników
 
@@ -45,7 +45,7 @@ Przed skonfigurowaniem usługi 4me do automatycznego aprowizacji użytkowników 
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Przed skonfigurowaniem usługi 4me do automatycznego aprowizacji użytkowników 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **4me**, wybierz pozycję **4me** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **4me** , wybierz pozycję **4me** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja 4me na liście wyników](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla 4me w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -126,11 +126,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
     
 11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do 4me w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie 4me for Updates. Upewnij się, że [4me obsługuje filtrowanie](https://developer.4me.com/v1/scim/users/) według wybranego pasującego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Zrzut ekranu strony mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkownicy z FourMe jest wyróżniony." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Zrzut ekranu przedstawiający stronę mapowania atrybutów. W tabeli wymieniono atrybuty Azure Active Directory, odpowiednie atrybuty FourMe i pasujący stan." border="false":::
     
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do 4me**.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Zrzut ekranu strony mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkownicy z FourMe jest wyróżniony." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Zrzut ekranu strony mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory grupy do FourMe." border="false":::
     
 13. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do 4me w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w 4me dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -160,7 +160,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Tokeny wygenerowanego klucza tajnego 4me mają datę wygaśnięcia miesiąca od wygenerowania.
 * 4me nie obsługuje operacji **usuwania**
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

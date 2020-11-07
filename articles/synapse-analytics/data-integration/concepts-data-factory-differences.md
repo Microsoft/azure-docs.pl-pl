@@ -5,15 +5,15 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/06/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: be098977ba51e529aaecfb5dc3b7a03444f55a7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345166"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357653"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integracja danych w usłudze Azure Synapse Analytics a Azure Data Factory
 
@@ -27,27 +27,26 @@ Aby sprawdzić, czy Azure Data Factory funkcja lub artykuł dotyczy usługi Azur
 
 Poniższe funkcje są dostępne w Azure Data Factory, ale nie są planowane dla usługi Azure Synapse.
 
-* Możliwość podnoszenia i przesunięcia pakietów SSIS.
-* Płatka śniegu jako ujścia w przepływie danych działania kopiowania i mapowania.
-* Ustawienie czas przepływu danych mapowania na żywo w środowisku Azure Integration Runtime.
+* **Pakiety SSIS i Shift w okresie życia:** W Azure Data Factory istnieje możliwość podnoszenia i przesunięcia pakietów SSIS przy użyciu programu SSIS Integration Runtime. Działanie programu SSIS Integration Runtime i wykonywanie pakietu SSIS nie jest dostępne w obszarze roboczym usługi Synapse. 
+* **Czas wygaśnięcia:** Czas wygaśnięcia to ustawienie w środowisku uruchomieniowym platformy Azure, które umożliwia klastrowi Spark mapowanie przepływów danych *na bieżąco przez* pewien czas po zakończeniu przepływu danych. Ta funkcja jest niedostępna w obszarze roboczym Synapse.
 
 ## <a name="azure-synapse-features-not-supported-in-azure-data-factory"></a>Funkcje usługi Azure Synapse nie są obsługiwane w Azure Data Factory
 
 Następujące funkcje są dostępne w usłudze Azure Synapse, ale nie są planowane dla Azure Data Factory.
 
-* Monitorowanie zadań w usłudze Spark dla mapowania przepływów danych jest dostępne tylko w Synapse. W programie Synapse aparat Spark jest zawarty w subskrypcji użytkownika, aby użytkownicy mogli wyświetlać szczegółowe dzienniki platformy Spark. W Azure Data Factory wykonywanie zadania odbywa się na zarządzanym przez Azure Data Factory klastrze Spark. 
+* **Monitorowanie zadań w usłudze Spark dotyczące mapowania przepływów danych:** W programie Synapse aparat Spark jest zawarty w subskrypcji użytkownika, aby użytkownicy mogli wyświetlać szczegółowe dzienniki platformy Spark. W Azure Data Factory wykonywanie zadania odbywa się na zarządzanym przez Azure Data Factory klastrze Spark i te informacje nie są dostępne. 
 
 ## <a name="azure-data-factory-features-that-behave-differently-in-synapse"></a>Azure Data Factory funkcje, które działają inaczej w Synapse
 
 Poniższe funkcje zachowywać się inaczej lub nie są obecnie dostępne w usłudze Azure Synapse. 
 
-* Przetwarzanie przepływy danych
-* Galeria szablonów rozwiązań
-* Integracja z usługą git i natywne rozwiązanie CI/CD
-* Integracja z usługą Azure monitor
-* Zmiana nazwy zasobów po opublikowaniu
-* Konfiguracja hybrydowego środowiska Integration Runtime w obszarze roboczym Synapse. Użytkownik nie może mieć zarządzanej sieci wirtualnej i Azure IR.
-* Udostępnianie środowiska Integration Runtime między obszarami roboczymi Synapse
+* **Przetwarzanie przepływy danych:** Działanie przepływu danych przetwarzanie jest teraz dostępne tylko w Azure Data Factory.
+* **Galeria szablonów rozwiązań:** W Azure Data Factory użytkownicy mogą znaleźć szablony potoku w galerii szablonów rozwiązań. W obszarze roboczym Synapse centrum wiedzy zawiera inny zestaw szablonów wraz z dodatkowymi zestawami danych i skryptami SQL. 
+* **Integracja z usługą git i natywne rozwiązanie Ci/CD:** Obecnie obszar roboczy Synapse nie może nawiązać połączenia z repozytorium git ani nie działa w ramach tego samego procesu ciągłej integracji i dostarczania co Azure Data Factory.
+* **Integracja z usługą Azure Monitor:** Obszary robocze Synapse nie są integrowane z Azure Monitor jak Azure Data Factory.
+* **Konfiguracja hybrydowego środowiska uruchomieniowego integracji:** W obszarze roboczym Synapse użytkownik nie może mieć zarządzanej sieci wirtualnej i Azure IR. Ta funkcja jest obsługiwana w Azure Data Factory.
+* **Udostępnianie środowiska Integration Runtime:** Własne środowiska Integration Runtime nie mogą być współużytkowane przez obszary robocze Synapse. Ta funkcja jest obsługiwana w Azure Data Factory.
+* **Środowiska Integration Runtime dla przepływów danych:** Przepływy danych nie mogą być uruchamiane w ramach środowiska Integration Runtime w różnych regionach niż obszar roboczy Synapse. Ta funkcja jest obsługiwana w Azure Data Factory.
 
 ## <a name="next-steps"></a>Następne kroki
 

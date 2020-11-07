@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496123"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357117"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -99,19 +99,19 @@ Analiza przestrzenna korzysta z funkcji obliczeniowych Azure Stack Edge, aby uru
   1. Włącz funkcję COMPUTE na urządzeniu Azure Stack Edge. Aby włączyć obliczenia, przejdź na stronę **obliczenia** w interfejsie sieci Web urządzenia. 
   2. Wybierz interfejs sieciowy, który chcesz włączyć dla obliczeń, a następnie kliknij pozycję **Włącz**. Spowoduje to utworzenie przełącznika wirtualnego na urządzeniu, w tym interfejsie sieciowym.
   3. Pozostaw puste adresy IP węzła testowego Kubernetes i adresy IP usług zewnętrznych Kubernetes.
-  4. Kliknij pozycję **Zastosuj**. Ta operacja może potrwać około dwie minuty. 
+  4. Kliknij przycisk **Zastosuj**. Ta operacja może potrwać około dwie minuty. 
 
 ![Konfigurowanie obliczeń](media/spatial-analysis/configure-compute.png)
 
 ### <a name="set-up-an-edge-compute-role-and-create-an-iot-hub-resource"></a>Konfigurowanie roli obliczeniowej Edge i tworzenie zasobu IoT Hub
 
-W [Azure Portal](https://portal.azure.com/)przejdź do zasobu Azure Stack Edge. Na stronie **Przegląd** lub na liście nawigacji kliknij przycisk **wprowadzenie** do obliczeń krawędzi. Na kafelku **konfigurowania obliczeń brzegowych**   kliknij przycisk **Konfiguruj**. 
+W [Azure Portal](https://portal.azure.com/)przejdź do zasobu Azure Stack Edge. Na stronie **Przegląd** lub na liście nawigacji kliknij przycisk **wprowadzenie** do obliczeń krawędzi. Na kafelku  **konfigurowania obliczeń brzegowych**   kliknij przycisk **Konfiguruj**. 
 
-![Link](media/spatial-analysis/configure-edge-compute-tile.png)
+![Łącze](media/spatial-analysis/configure-edge-compute-tile.png)
 
 Na stronie **Konfigurowanie obliczeń krawędzi**   Wybierz istniejący IoT Hub lub wybierz opcję utworzenia nowego. Domyślnie warstwa cenowa standardowa (S1) jest używana do tworzenia zasobów IoT Hub. Aby użyć zasobu warstwy Bezpłatna IoT Hub, utwórz go, a następnie wybierz. Zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge 
 
-Kliknij przycisk **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
+Kliknij pozycję **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
 
 Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe Azure IoT Edge będzie już uruchomione na urządzeniu IoT Edge.            
 
@@ -289,7 +289,7 @@ sudo apt-get update
 Zainstaluj wersję 1.0.9:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
 Następnie zarejestruj komputer hosta jako urządzenie IoT Edge w wystąpieniu IoT Hub, używając [parametrów połączenia](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -381,7 +381,7 @@ Możesz użyć analizy przestrzennej z zarówno zarejestrowanym, jak i wideo na 
     1. Zmiana **bezpiecznego transferu wymaganego** do **wyłączenia**
     2. Zmień **Zezwalaj na dostęp publiczny do obiektu BLOB** **Enabled**
 
-Przejdź do sekcji **kontenera** , a następnie utwórz nowy kontener lub Użyj istniejącego. Następnie Przekaż plik wideo do kontenera. Rozwiń Ustawienia pliku dla przekazanego pliku, a następnie wybierz pozycję **Generuj sygnaturę dostępu współdzielonego**. Pamiętaj o ustawieniu **daty wygaśnięcia** wystarczająco długo, aby uwzględnić okres testowania. Ustaw **dozwolone protokoły** *http* (*https* nie jest obsługiwane).
+Przejdź do sekcji **kontenera** , a następnie utwórz nowy kontener lub Użyj istniejącego. Następnie Przekaż plik wideo do kontenera. Rozwiń Ustawienia pliku dla przekazanego pliku, a następnie wybierz pozycję **Generuj sygnaturę dostępu współdzielonego**. Pamiętaj o ustawieniu **daty wygaśnięcia** wystarczająco długo, aby uwzględnić okres testowania. Ustaw **dozwolone protokoły** *http* ( *https* nie jest obsługiwane).
 
 Kliknij pozycję **Generuj token SAS i adres URL** , a następnie skopiuj adres URL sygnatury dostępu współdzielonego obiektu BLOB. Zastąp ciąg rozpoczynający `https` się od `http` i Przetestuj adres URL w przeglądarce, która obsługuje odtwarzanie wideo.
 

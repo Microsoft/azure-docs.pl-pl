@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Rozwiązywanie problemów, aktualizacja, usterka, urządzenia Kinect, opinie, odzyskiwanie, rejestrowanie, porady
-ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277606"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356386"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Znane problemy i rozwiązywanie problemów z platformą Azure urządzenia Kinect
 
-Ta strona zawiera znane problemy i wskazówki dotyczące rozwiązywania problemów podczas korzystania z zestawu SDK czujnika z platformą Azure urządzenia Kinect DK. Zobacz też [strony pomocy technicznej](https://aka.ms/kinectsupport) dotyczącej problemów dotyczących sprzętu.
+Ta strona zawiera znane problemy i wskazówki dotyczące rozwiązywania problemów podczas korzystania z zestawu SDK czujnika z platformą Azure urządzenia Kinect DK. Zobacz też [strony pomocy technicznej](./index.yml) dotyczącej problemów dotyczących sprzętu.
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -144,7 +144,7 @@ Wywołanie ```k4a_device_set_color_control``` może tymczasowo wywołać zmiany 
 
 Jeśli urządzenie nie jest wyliczane w Menedżerze urządzeń, może to być spowodowane tym, że jest on podłączony do nieobsługiwanego kontrolera USB3. 
 
-W przypadku platformy Azure urządzenia Kinect DK w systemach **Windows, Intel**, **Texas Instruments (TI)** i **Renesas** są *jedynymi obsługiwanymi kontrolerami hosta*. Zestaw Azure urządzenia Kinect SDK na platformach systemu Windows korzysta z ujednoliconego identyfikatora kontenera i musi obejmować urządzenia USB 2,0 i 3,0, aby zestaw SDK mógł znaleźć głębokość, kolor i urządzenia audio, które znajdują się fizycznie na tym samym urządzeniu. W systemie Linux może być obsługiwane więcej kontrolerów hosta, ponieważ platforma ta jest zależna od identyfikatora kontenera i większej liczby numerów seryjnych urządzeń. 
+W przypadku platformy Azure urządzenia Kinect DK w systemach **Windows, Intel** , **Texas Instruments (TI)** i **Renesas** są *jedynymi obsługiwanymi kontrolerami hosta*. Zestaw Azure urządzenia Kinect SDK na platformach systemu Windows korzysta z ujednoliconego identyfikatora kontenera i musi obejmować urządzenia USB 2,0 i 3,0, aby zestaw SDK mógł znaleźć głębokość, kolor i urządzenia audio, które znajdują się fizycznie na tym samym urządzeniu. W systemie Linux może być obsługiwane więcej kontrolerów hosta, ponieważ platforma ta jest zależna od identyfikatora kontenera i większej liczby numerów seryjnych urządzeń. 
 
 Temat kontrolerów hosta USB jest jeszcze bardziej skomplikowany, gdy na komputerze jest zainstalowany więcej niż jeden kontroler hosta. Gdy kontrolery hosta są mieszane, użytkownik może napotkać problemy, w których niektóre porty działają prawidłowo i inne nie działają. W zależności od tego, jak porty są połączone z przypadkiem, mogą zostać wyświetlone wszystkie porty frontonu z usługą Azure urządzenia Kinect
 

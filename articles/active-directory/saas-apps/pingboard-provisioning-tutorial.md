@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 29e28e20bd9b471604a450ddb36ef867f0608e06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac36f5d6d1f57fd8453c54bcc8cf19dd964f47f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553766"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357899"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Pingboard na potrzeby automatycznego aprowizacji użytkowników
 
@@ -53,7 +53,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi konta użytkownika w usłudze Azure AD Pingboard
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory**aplikacje dla  >  **Enterprise Apps**  >  **wszystkich aplikacji** w przedsiębiorstwie.
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory** aplikacje dla  >  **Enterprise Apps**  >  **wszystkich aplikacji** w przedsiębiorstwie.
 
 1. Jeśli już skonfigurowano Pingboard do logowania jednokrotnego, Wyszukaj wystąpienie elementu Pingboard przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Pingboard** w galerii aplikacji. Wybierz pozycję **Pingboard** z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
@@ -65,15 +65,15 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 1. W sekcji **poświadczenia administratora** wykonaj następujące czynności:
 
-    a. W polu **adres URL dzierżawy**wpisz `https://your_domain.pingboard.com/scim/v2` i Zastąp ciąg "your_domain" rzeczywistą domeną.
+    a. W polu **adres URL dzierżawy** wpisz `https://your_domain.pingboard.com/scim/v2` i Zastąp ciąg "your_domain" rzeczywistą domeną.
 
     b. Zaloguj się do usługi [Pingboard](https://pingboard.com/) przy użyciu konta administratora.
 
-    c. Wybierz **Add-Ons**opcję  >  **integracje**dodatków  >  **Azure Active Directory**.
+    c. Wybierz **Add-Ons** opcję  >  **integracje** dodatków  >  **Azure Active Directory**.
 
     d. Przejdź na kartę **Konfiguracja** i wybierz pozycję **Włącz Inicjowanie obsługi użytkowników na platformie Azure**.
 
-    e. Skopiuj token w **tokenie okaziciela OAuth**i wprowadź go w **tokenie tajnym**.
+    e. Skopiuj token w **tokenie okaziciela OAuth** i wprowadź go w **tokenie tajnym**.
 
 1. W Azure Portal wybierz pozycję **Testuj połączenie** , aby sprawdzić, czy usługa Azure AD może nawiązać połączenie z aplikacją Pingboard. Jeśli połączenie nie powiedzie się, sprawdź, czy konto usługi Pingboard ma uprawnienia administratora, a następnie spróbuj ponownie wykonać krok **połączenia testowego** .
 
@@ -93,7 +93,7 @@ Synchronizacja początkowa trwa dłużej niż następujące synchronizacje, któ
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [raport dotyczący automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

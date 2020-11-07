@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319164"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357219"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 15Five na potrzeby automatycznego aprowizacji użytkowników
 
@@ -58,15 +58,15 @@ Przed skonfigurowaniem usługi 15Five na potrzeby automatycznego inicjowania obs
 
 2.  Kliknij pozycję **standard scim 2,0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną 15Five. Integracja jest wyświetlana w obszarze funkcje w menu, a obie funkcje i integracje są wyróżnione." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Zrzut ekranu strony integracji w konsoli administracyjnej 15Five. W obszarze Narzędzie S C I M 2,0 jest wyróżniony." border="false":::
 
 3.  Przejdź do **Standard scim integration > wygenerowania tokenu OAuth**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną 15Five. Integracja jest wyświetlana w obszarze funkcje w menu, a obie funkcje i integracje są wyróżnione." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Zrzut ekranu strony integracji S C I M w konsoli administracyjnej 15Five. Wygeneruj token OAuth jest wyróżniony." border="false":::
 
 4.  Skopiuj wartości dla **podstawowego adresu URL standard scim 2,0** i **tokenu dostępu**. Ta wartość zostanie wprowadzona w polu **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji 15Five w Azure Portal.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną 15Five. Integracja jest wyświetlana w obszarze funkcje w menu, a obie funkcje i integracje są wyróżnione." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Zrzut ekranu przedstawiający stronę integracji S C I M. W tabeli tokenów wartości, które znajdują się obok pozycji S C I M 2,0 Base U R L i token dostępu są wyróżnione." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie 15Five z galerii aplikacji usługi Azure AD
 
@@ -86,7 +86,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-15five-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla 15Five w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -110,7 +110,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do 15Five**.
 

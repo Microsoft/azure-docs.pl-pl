@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8238b9902aafcabc079c551a0eabc7170042209a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255849"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357627"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie TheOrgWiki na potrzeby automatycznego aprowizacji użytkowników
 
@@ -65,7 +65,7 @@ Przed skonfigurowaniem usługi TheOrgWiki na potrzeby automatycznego inicjowania
 
     ![Zrzut ekranu strony konta usług w konsoli administracyjnej typu wiki organizacji.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi**wybierz pozycję **oparty na tokenach**. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi** wybierz pozycję **oparty na tokenach**. Kliknij przycisk **Zapisz**.
 
     ![Zrzut ekranu przedstawiający okno dialogowe nowe konto usługi z opcjami typ konta usługi, oparte na tokenach i Zapisz.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -81,7 +81,7 @@ Aby skonfigurować TheOrgWiki automatycznej aprowizacji użytkowników w usłudz
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -89,7 +89,7 @@ Aby skonfigurować TheOrgWiki automatycznej aprowizacji użytkowników w usłudz
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **TheOrgWiki**, a następnie wybierz pozycję **TheOrgWiki** w panelu wyniki. 
+4. W polu wyszukiwania wpisz **TheOrgWiki** , a następnie wybierz pozycję **TheOrgWiki** w panelu wyniki. 
 
     ![TheOrgWiki na liście wyników](common/search-new-app.png)
 
@@ -116,7 +116,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla TheOrgWiki w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -175,7 +175,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w systemie TheOrgWiki. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

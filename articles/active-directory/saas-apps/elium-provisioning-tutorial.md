@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544234"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356777"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Elium na potrzeby automatycznego aprowizacji użytkowników
 
@@ -49,13 +49,13 @@ Podczas przypisywania użytkownika do Elium należy wybrać prawidłową rolę s
 
 ## <a name="set-up-elium-for-provisioning"></a>Konfigurowanie Elium na potrzeby aprowizacji
 
-Przed skonfigurowaniem usługi Elium na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć opcję System na potrzeby aprowizacji międzydomenowego zarządzania tożsamościami (standard scim) na Elium. Wykonaj następujące kroki:
+Przed skonfigurowaniem usługi Elium na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć opcję System na potrzeby aprowizacji międzydomenowego zarządzania tożsamościami (standard scim) na Elium. Wykonaj następujące czynności:
 
-1. Zaloguj się do Elium i przejdź do pozycji **Moje**  >  **Ustawienia**profilu.
+1. Zaloguj się do Elium i przejdź do pozycji **Moje**  >  **Ustawienia** profilu.
 
     ![Element menu Ustawienia w Elium](media/Elium-provisioning-tutorial/setting.png)
 
-1. W lewym dolnym rogu w obszarze **Zaawansowane**wybierz pozycję **zabezpieczenia**.
+1. W lewym dolnym rogu w obszarze **Zaawansowane** wybierz pozycję **zabezpieczenia**.
 
     ![Link zabezpieczeń w Elium](media/Elium-provisioning-tutorial/security.png)
 
@@ -65,13 +65,13 @@ Przed skonfigurowaniem usługi Elium na potrzeby automatycznego inicjowania obs�
 
 ## <a name="add-elium-from-the-gallery"></a>Dodaj Elium z galerii
 
-Aby skonfigurować Elium automatycznej aprowizacji użytkowników w usłudze Azure AD, należy również dodać Elium z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji typu "oprogramowanie jako usługa" (SaaS). Wykonaj następujące kroki:
+Aby skonfigurować Elium automatycznej aprowizacji użytkowników w usłudze Azure AD, należy również dodać Elium z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji typu "oprogramowanie jako usługa" (SaaS). Wykonaj następujące czynności:
 
 1. W [Azure Portal](https://portal.azure.com)w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Element menu Azure Active Directory](common/select-azuread.png)
 
-1. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
      ![Blok aplikacji Azure AD Enterprise](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Aby skonfigurować Elium automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Link nowej aplikacji](common/add-new-app.png)
 
-1. W polu wyszukiwania wpisz **Elium**, na liście wyników wybierz pozycję **Elium** , a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
+1. W polu wyszukiwania wpisz **Elium** , na liście wyników wybierz pozycję **Elium** , a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
 
     ![Pole wyszukiwania galerii](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w usłudze Azure AD, wykonaj następujące kroki:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok aplikacji Azure AD Enterprise](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w 
 
     ![Ustawienie automatyczne dla trybu aprowizacji](common/provisioning-automatic.png)
 
-1. W sekcji **poświadczenia administratora** wpisz ** \<tenantURL\> /scim/v2** w polu **adres URL dzierżawy** . ( **TenantURL** jest wartością pobieraną wcześniej z konsoli administracyjnej Elium). W polu **token tajny** wpisz również wartość **token Elium Secret** . Na koniec wybierz pozycję **Testuj połączenie** , aby sprawdzić, czy usługa Azure AD może nawiązać połączenie z usługą Elium. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Elium ma uprawnienia administratora, a następnie spróbuj ponownie.
+1. W sekcji **poświadczenia administratora** wpisz **\<tenantURL\> /scim/v2** w polu **adres URL dzierżawy** . ( **TenantURL** jest wartością pobieraną wcześniej z konsoli administracyjnej Elium). W polu **token tajny** wpisz również wartość **token Elium Secret** . Na koniec wybierz pozycję **Testuj połączenie** , aby sprawdzić, czy usługa Azure AD może nawiązać połączenie z usługą Elium. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Elium ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Pola adresu URL dzierżawy i klucza tajnego w poświadczeniach administratora](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -144,7 +144,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i g
 
 Użyj **bieżącej sekcji stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji. Raport dotyczący działań aprowizacji opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w systemie Elium. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

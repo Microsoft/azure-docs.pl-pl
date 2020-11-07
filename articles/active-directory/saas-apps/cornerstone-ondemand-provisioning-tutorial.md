@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4200bc9879aba5e18282123be03576cc617a5e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549232"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358460"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie OnDemand kamień dla automatycznej aprowizacji użytkowników
 
@@ -46,7 +46,7 @@ Aby dodać OnDemand kamień z portalu Marketplace, wykonaj następujące kroki.
 
     ![Ikona Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -76,7 +76,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla OnDemandu kamień w usłudze Azure AD, wykonaj następujące kroki.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **kamień OnDemand**.
+1. Zaloguj się do [Azure portal](https://portal.azure.com). Wybierz kolejno pozycje **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **kamień OnDemand**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -148,7 +148,7 @@ OnDemandowy atrybut **położenia** jest oczekiwany wartości, która odnosi si�
 
 ![Lista pozycji udostępniania OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

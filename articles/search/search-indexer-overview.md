@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 305682812896bb74474b5065cfd56a071a73ed15
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397899"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358783"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indeksatory w usłudze Azure Cognitive Search
 
@@ -32,7 +32,7 @@ Możesz tworzyć indeksatory i zarządzać nimi przy użyciu tych metod:
 
 * [Kreator importu danych > portalu](search-import-data-portal.md)
 * [Interfejs API REST usługi](/rest/api/searchservice/Indexer-operations)
-* [Zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [Zestaw SDK platformy .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 Początkowo nowy indeksator jest ogłaszany jako funkcja w wersji zapoznawczej. Funkcje w wersji zapoznawczej są wprowadzane w interfejsach API (REST i .NET), a następnie integrowane z portalem po przejściu do poziomu ogólnej dostępności. Jeśli oceniasz nowy indeksator, zaplanuj napisanie kodu.
 
@@ -52,7 +52,7 @@ Indeksatory przeszukują magazyny danych na platformie Azure.
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Wystąpienie zarządzane SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
-* [SQL Server na platformie Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Program SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
 ## <a name="indexer-stages"></a>Etapy indeksatora
 
@@ -88,19 +88,19 @@ Podobnie jak mapowania pól, które kojarzą wartości Verbatim z pól źródło
 
 Na następnym obrazie przedstawiono reprezentację etapów [debugowania](cognitive-search-debug-session.md) z przykładowym indeksatorem: łamanie dokumentów, mapowania pól, wykonywanie zestawu umiejętności oraz mapowania pól danych wyjściowych.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Etapy indeksatora" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="przykładowa sesja debugowania" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Podstawowe kroki konfiguracji
 
 Indeksatory oferują funkcje, które są unikatowe dla źródła danych. W związku z tym niektóre aspekty konfiguracji indeksatora lub źródła danych różnią się w zależności od typu indeksatora. Wszystkie indeksatory korzystają jednak z takich samych kompozycji i wymagań. Kroki, które są wspólne dla wszystkich indeksatorów, znajdują się poniżej.
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
-Indeksator uzyskuje połączenie ze źródłem danych z obiektu *źródła danych* . Definicja źródła danych zawiera parametry połączenia i prawdopodobnie poświadczenia. Wywołaj interfejs API REST [tworzenia źródła danych](/rest/api/searchservice/create-data-source) lub [klasę DataSource](/dotnet/api/microsoft.azure.search.models.datasource) , aby utworzyć zasób.
+Indeksator uzyskuje połączenie ze źródłem danych z obiektu *źródła danych* . Definicja źródła danych zawiera parametry połączenia i prawdopodobnie poświadczenia. Wywołaj interfejs API REST [Create DataSource](/rest/api/searchservice/create-data-source) lub [SearchIndexerDataSourceConnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) , aby utworzyć zasób.
 
 Źródła danych są konfigurowane i zarządzane niezależnie od indeksatorów, które z nich korzystają. Oznacza to, że jedno źródło może być używane przez wiele indeksatorów w celu jednoczesnego ładowania kilku indeksów.
 
 ### <a name="step-2-create-an-index"></a>Krok 2. Tworzenie indeksu
-Indeksator automatyzuje niektóre zadania związane z pozyskiwaniem danych, ale tworzenie indeksu na ogół nie należy do tych zadań. Jako warunek wstępny należy posiadać wstępnie zdefiniowany indeks z polami, które odpowiadają polom w zewnętrznym źródle danych. Pola muszą być zgodne według nazwy i typu danych. Aby uzyskać więcej informacji o tworzeniu struktury indeksu, zobacz [Tworzenie indeksu (interfejs API REST platformy Azure wyszukiwanie poznawcze)](/rest/api/searchservice/Create-Index) lub [klasy indeksów](/dotnet/api/microsoft.azure.search.models.index). Aby uzyskać pomoc dotyczącą skojarzeń pól, zobacz [mapowania pól w usłudze Azure wyszukiwanie poznawcze indeksatory](search-indexer-field-mappings.md).
+Indeksator automatyzuje niektóre zadania związane z pozyskiwaniem danych, ale tworzenie indeksu na ogół nie należy do tych zadań. Jako warunek wstępny należy posiadać wstępnie zdefiniowany indeks z polami, które odpowiadają polom w zewnętrznym źródle danych. Pola muszą być zgodne według nazwy i typu danych. Aby uzyskać więcej informacji na temat tworzenia struktury indeksu, zobacz [Tworzenie indeksu (interfejs API REST platformy Azure wyszukiwanie poznawcze)](/rest/api/searchservice/Create-Index) lub [klasy SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex). Aby uzyskać pomoc dotyczącą skojarzeń pól, zobacz [mapowania pól w usłudze Azure wyszukiwanie poznawcze indeksatory](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Chociaż indeksatory nie generują automatycznie indeksu, kreator **Importowanie danych** w portalu może pomóc w wykonaniu tego zadania. W większości przypadków kreator może rozpoznać schemat indeksu na podstawie istniejących metadanych w źródle i przedstawić wstępny schemat indeksu, który można edytować przy użyciu funkcji wbudowanych w tym kreatorze. Po utworzeniu indeksu w usłudze możliwość dalszej edycji w portalu jest w większości ograniczona do dodawania nowych pól. Należy rozważyć użycie kreatora do tworzenia indeksu, ale nie do jego poprawiania. Aby nauczyć się wykonywania tych zadań w praktyce, skorzystaj z [przewodnika po portalu](search-get-started-portal.md).

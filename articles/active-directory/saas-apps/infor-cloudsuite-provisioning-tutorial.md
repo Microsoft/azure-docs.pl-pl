@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 171a96f37d4c1e740e23cc766566d3c1756b6d08
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a62afa9469caa886d86814036017427c0cc0d193
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460190"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357440"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie infor CloudSuite dla automatycznej aprowizacji użytkowników
 
@@ -72,7 +72,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 5. Aby wygenerować token okaziciela, skopiuj **Identyfikator użytkownika** i **hasło Standard scim**. Wklej je w Notatniku + + oddzielone dwukropkiem. Zakoduj wartość ciągu, przechodząc do **wtyczek > narzędzia MIME > kodowanie Basic64**. 
 
-    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną infor CloudSuite z wyróżnionym wierszem tabeli. Ten wiersz zawiera identyfikator użytkownika, hasła i sygnaturę czasową." border="false":::
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający dokument programu Notatnik + +. W menu wtyczki narzędzia MIME są wyróżnione. W menu Narzędzia MIME kodowanie Base64 jest wyróżnione." border="false":::
 
 3.  Skopiuj token okaziciela. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji infor CloudSuite w Azure Portal.
 
@@ -86,7 +86,7 @@ Przed skonfigurowaniem usługi infor CloudSuite w celu automatycznego aprowizacj
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -94,7 +94,7 @@ Przed skonfigurowaniem usługi infor CloudSuite w celu automatycznego aprowizacj
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **infor CloudSuite**, wybierz pozycję **infor CloudSuite** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **infor CloudSuite** , wybierz pozycję **infor CloudSuite** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Infor CloudSuite na liście wyników](common/search-new-app.png)
 
@@ -110,7 +110,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-infor-cloudsuite-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla infor CloudSuite w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -134,7 +134,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby infor CloudSuite**.
 

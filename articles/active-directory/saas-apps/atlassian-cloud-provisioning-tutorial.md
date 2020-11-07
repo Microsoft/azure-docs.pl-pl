@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d242fa5ac7257908b4f70d97531a9a1c9c88832
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cee9544dbc2deecafa67d73d3bdea804937c1d7a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457558"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356318"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie chmury Atlassian na potrzeby automatycznego aprowizacji użytkowników
 
@@ -47,7 +47,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-atlassian-cloud-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie chmury Atlassian w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. Przejdź do programu [Atlassian Organization Manager](https://admin.atlassian.com) ** ,> wybierz katalog > organizacji**.
+1. Przejdź do programu [Atlassian Organization Manager](https://admin.atlassian.com) **,> wybierz katalog > organizacji**.
 
     ![Zrzut ekranu przedstawiający stronę Administracja z opcją katalogową o nazwie out.](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 
@@ -76,7 +76,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w chmurze Atlassian w usłudze Azure AD:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **chmura Atlassian**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **chmura Atlassian**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -100,7 +100,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy z chmurą Atlassian**.
 

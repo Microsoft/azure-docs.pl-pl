@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329265"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358171"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
 
@@ -37,7 +37,9 @@ W usłudze Azure Resource Manager [publiczny adres IP](virtual-network-public-ip
 
 Publiczne adresy IP są tworzone przy użyciu adresu IPv4 lub IPv6. 
 
-## <a name="sku"></a>SKU
+## <a name="sku"></a>Jednostka SKU
+
+Aby dowiedzieć się więcej o uaktualnieniu jednostki SKU, zapoznaj się z tematem [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md).
 
 Publiczne adresy IP są tworzone przy użyciu jednej z następujących jednostek SKU:
 
@@ -96,7 +98,7 @@ Na przykład zasób publicznego adresu IP jest publikowany z zasobu o nazwie **R
 Adres IP jest wydawany, gdy metoda alokacji jest zmieniana z **statyczne** na **dynamiczny**. Aby zapewnić, że adres IP skojarzonego zasobu pozostaje taki sam, ustaw metodę alokacji jawnie na **statyczną**. Statyczny adres IP jest przypisywany natychmiast.
 
 > [!NOTE]
-> Nawet gdy ustawisz metodę alokacji jako **statyczną**, nie możesz określić rzeczywistego adresu IP przypisanego do publicznego zasobu adresu IP. Platforma Azure przypisuje adres IP z puli adresów IP dostępnych w lokalizacji platformy Azure, w której zasób jest tworzony.
+> Nawet gdy ustawisz metodę alokacji jako **statyczną** , nie możesz określić rzeczywistego adresu IP przypisanego do publicznego zasobu adresu IP. Platforma Azure przypisuje adres IP z puli adresów IP dostępnych w lokalizacji platformy Azure, w której zasób jest tworzony.
 >
 
 Statyczne publiczne adresy IP są powszechnie używane w następujących scenariuszach:

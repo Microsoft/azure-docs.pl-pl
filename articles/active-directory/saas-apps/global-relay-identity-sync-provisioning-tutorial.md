@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: bdbda77c45e3b1f1533326483ee19aa8ff4af515
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927995"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358341"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie globalnej synchronizacji tożsamości przekaźnika dla automatycznej aprowizacji użytkowników
 
@@ -71,19 +71,19 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla synchronicznej synchronizacji tożsamości przekaźnika w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje** .
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **globalna synchronizacja tożsamości przekaźnika** .
+2. Na liście Aplikacje wybierz pozycję **globalna synchronizacja tożsamości przekaźnika**.
 
     ![Link do synchronicznej synchronizacji tożsamości przekaźnika na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Aprowizacja** .
+3. Wybierz kartę **Aprowizacja**.
 
     ![Karta Aprowizacja](common/provisioning.png)
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
 
@@ -91,13 +91,13 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Przycisk autoryzacji](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
-6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu** .
+6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Wybierz pozycję **Zapisz** .
+7. Wybierz pozycję **Zapisz**.
 
-8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy z synchronizacją globalną tożsamość przekaźnika** .
+8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy z synchronizacją globalną tożsamość przekaźnika**.
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do synchronicznej synchronizacji tożsamości przekaźnika w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w globalnej synchronizacji tożsamości przekaźnika dla operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), musisz się upewnić, że interfejs API synchronizacji tożsamości przekaźnika globalnego obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -110,18 +110,18 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |preferredLanguage|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
+   |Nazwa. sformatowana|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
    |adresy [typ EQ "Work"]. streetAddress|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
-   |addresss [Type EQ "Work"]. Country|String|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
    |adresy [Type EQ "Other"]. sformatowane|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
    |externalId|Ciąg|
    |name.honorificPrefix|Ciąg|
    |Name. honorificSuffix|Ciąg|
@@ -129,51 +129,51 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |userType|Ciąg|
    |locale|Ciąg|
    |timezone|Ciąg|
-   |wiadomości e-mail [Type EQ "Home"]. Value|String|
-   |wiadomości e-mail [Type EQ "Other"]. Value|String|
-   |numer telefonu [typ EQ "Home"]. Value|String|
-   |braky [Type EQ "Other"]. Value|String|
-   |numer telefonu [typ EQ "pager"]. wartość|String|
-   |adresy [Type EQ "Home"]. streetAddress|String|
-   |adresy [Type EQ "Home"]. locale|String|
-   |adresy [Type EQ "Home"]. region|String|
-   |adresy [Type EQ "Home"]. KodPocztowy|String|
-   |adresy [Type EQ "Home"]. Country|String|
-   |adresy [Type EQ "Home"]. sformatowane|String|
-   |adresy [Type EQ "Other"]. streetAddress|String|
-   |adresy [Type EQ "Other"]. locale|String|
-   |addresss [Type EQ "Other"]. region|String|
-   |adresy [Type EQ "Other"]. KodPocztowy|String|
-   |adresy [Type EQ "Other"]. Country|String|
-   |role [podstawowa EQ "true"]. Display|String|
+   |wiadomości e-mail [Type EQ "Home"]. Value|Ciąg|
+   |wiadomości e-mail [Type EQ "Other"]. Value|Ciąg|
+   |numer telefonu [typ EQ "Home"]. Value|Ciąg|
+   |braky [Type EQ "Other"]. Value|Ciąg|
+   |numer telefonu [typ EQ "pager"]. wartość|Ciąg|
+   |adresy [Type EQ "Home"]. streetAddress|Ciąg|
+   |adresy [Type EQ "Home"]. locale|Ciąg|
+   |adresy [Type EQ "Home"]. region|Ciąg|
+   |adresy [Type EQ "Home"]. KodPocztowy|Ciąg|
+   |adresy [Type EQ "Home"]. Country|Ciąg|
+   |adresy [Type EQ "Home"]. sformatowane|Ciąg|
+   |adresy [Type EQ "Other"]. streetAddress|Ciąg|
+   |adresy [Type EQ "Other"]. locale|Ciąg|
+   |addresss [Type EQ "Other"]. region|Ciąg|
+   |adresy [Type EQ "Other"]. KodPocztowy|Ciąg|
+   |adresy [Type EQ "Other"]. Country|Ciąg|
+   |role [podstawowa EQ "true"]. Display|Ciąg|
    |role [podstawowa EQ "true"]. Type|Ciąg|
    |roles[primary eq "True"].value|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: proxyAddresses|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute1|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute2|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute3|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute4|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute5|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute6|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute7|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute8|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute9|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute10|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute11|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute12|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute13|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute14|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute15|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: proxyAddresses|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute1|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute2|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute3|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute4|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute5|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute6|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute7|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute8|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute9|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute10|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute11|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute12|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute13|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute14|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute15|Ciąg|
 
 
 
-10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy do synchronizowania tożsamości przekaźnika globalnego** .
+10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy do synchronizowania tożsamości przekaźnika globalnego**.
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do synchronicznej synchronizacji tożsamości przekaźnika w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w globalnej synchronizacji tożsamości przekaźnika dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -192,11 +192,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz** .
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
 Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:

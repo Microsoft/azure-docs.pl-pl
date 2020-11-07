@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b877ff912470cc19082410fddab64c84824eb269
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519558"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358375"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Konfigurowanie połączenia z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej
 
@@ -43,7 +43,7 @@ Po wybraniu pozycji **Zapisz** zostanie wyświetlony identyfikator obiektu przyp
 W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczytywania danych z konta magazynu.
 
 1. W Azure Portal przejdź do konta magazynu zawierającego dane, które chcesz zindeksować.
-2. Wybieranie **kontroli dostępu (IAM)**
+2. Wybierz pozycję **Kontrola dostępu (Zarządzanie dostępem i tożsamościami)**
 3. Wybierz pozycję **Dodaj** , a następnie **Dodaj przypisanie roli**
 
     ![Dodaj przypisanie roli](./media/search-managed-identities/add-role-assignment-storage.png "Dodaj przypisanie roli")
@@ -65,7 +65,7 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="3---create-the-data-source"></a>3 — Tworzenie źródła danych
 
-[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z konta magazynu przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z konta magazynu przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
 
 W przypadku indeksowania z konta magazynu źródło danych musi mieć następujące wymagane właściwości:
 
@@ -77,7 +77,7 @@ W przypadku indeksowania z konta magazynu źródło danych musi mieć następuj�
 * **uwierzytelniające**
     * Podczas uwierzytelniania przy użyciu tożsamości zarządzanej format **poświadczeń** różni się od czasu, gdy nie jest używana tożsamość zarządzana. Tutaj utworzysz identyfikator zasobu, który nie ma klucza konta ani hasła. ResourceId musi zawierać identyfikator subskrypcji konta magazynu, grupę zasobów konta magazynu oraz nazwę konta magazynu.
     * Format tożsamości zarządzanej: 
-        * *ResourceId =/subscriptions/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.Storage/storageAccounts/**nazwy konta magazynu**/;*
+        * *ResourceId =/subscriptions/ **Identyfikator subskrypcji** /resourceGroups/ **nazwę grupy zasobów** /Providers/Microsoft.Storage/storageAccounts/ **nazwy konta magazynu** /;*
 * **kontener** określa nazwę kontenera lub tabeli na koncie magazynu. Domyślnie można pobrać wszystkie obiekty blob w kontenerze. Jeśli chcesz tylko indeksować obiekty blob w konkretnym katalogu wirtualnym, możesz określić ten katalog przy użyciu opcjonalnego parametru **zapytania** .
 
 Przykład sposobu tworzenia obiektu źródła danych obiektu BLOB przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source):

@@ -3,12 +3,12 @@ title: Tworzenie tunelu IPSec w rozwiązaniu VMware platformy Azure
 description: Dowiedz się, jak utworzyć wirtualny koncentrator sieci WAN, aby nawiązać tunel IPSec z rozwiązaniami VMware platformy Azure.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: 74cc31abf432954008cbb20bf64825d199732dab
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 63318b9fdd0de5e0ce102fafe332f40f595f38f1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951132"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357848"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Tworzenie tunelu IPSec w rozwiązaniu VMware platformy Azure
 
@@ -36,12 +36,12 @@ Aby utworzyć tunel VPN typu lokacja-lokacja, należy utworzyć publiczny adres 
    | **Grupa zasobów** | Wirtualna sieć WAN jest zasobem globalnym i nie jest ograniczona do określonego regionu.  |
    | **Lokalizacja grupy zasobów** | Aby utworzyć koncentratora wirtualnego sieci WAN, należy ustawić lokalizację dla grupy zasobów.  |
    | **Nazwa** |   |
-   | **Typ** | Wybierz opcję **Standardowy**, co pozwoli na więcej niż tylko ruch bramy sieci VPN.  |
+   | **Typ** | Wybierz opcję **Standardowy** , co pozwoli na więcej niż tylko ruch bramy sieci VPN.  |
 
 
     :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Utwórz sieć WAN.":::
 
-3. W Azure Portal wybierz wirtualną sieć WAN utworzoną w poprzednim kroku, wybierz pozycję **Utwórz koncentrator wirtualny**, wprowadź wymagane pola, a następnie wybierz pozycję **Dalej: lokacja**. 
+3. W Azure Portal wybierz wirtualną sieć WAN utworzoną w poprzednim kroku, wybierz pozycję **Utwórz koncentrator wirtualny** , wprowadź wymagane pola, a następnie wybierz pozycję **Dalej: lokacja**. 
 
    | Pole | Wartość |
    | --- | --- |
@@ -49,7 +49,7 @@ Aby utworzyć tunel VPN typu lokacja-lokacja, należy utworzyć publiczny adres 
    | **Nazwa** |    |
    | **Prywatna przestrzeń adresowa koncentratora** | Wprowadź podsieć przy użyciu `/24` (minimum).  |
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Utwórz sieć WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Tworzenie koncentratora wirtualnego.":::
 
 4. Na karcie **lokacja-lokacja** Zdefiniuj bramę lokacja-lokacja, ustawiając zagregowaną przepływność z listy rozwijanej **jednostki skalowania bramy** . 
 
@@ -67,10 +67,10 @@ Aby utworzyć tunel VPN typu lokacja-lokacja, należy utworzyć publiczny adres 
 
 1. W obszarze **ostatnie zasoby** w Azure Portal wybierz wirtualną sieć WAN utworzoną w poprzedniej sekcji.
 
-2. W oknie **Omówienie** centrum wirtualnego wybierz pozycję **łączność**  >  **VPN (lokacja-lokacja)**, a następnie wybierz pozycję **Utwórz nową witrynę sieci VPN**.
+2. W oknie **Omówienie** centrum wirtualnego wybierz pozycję **łączność**  >  **VPN (lokacja-lokacja)** , a następnie wybierz pozycję **Utwórz nową witrynę sieci VPN**.
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Utwórz sieć WAN.":::  
+    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Utwórz witrynę sieci VPN.":::  
  
 3. Na karcie **podstawowe** wprowadź wymagane pola, a następnie wybierz pozycję **Dalej: linki**. 
 
@@ -89,18 +89,18 @@ Aby utworzyć tunel VPN typu lokacja-lokacja, należy utworzyć publiczny adres 
 
 Ta sekcja dotyczy tylko sieci VPN opartych na zasadach. Konfiguracje sieci VPN oparte na zasadach (lub statycznej, opartej na trasach) są oparte na możliwościach lokalnych urządzeń sieci VPN w większości przypadków. Wymagają one określenia lokalnych i sieci rozwiązań VMware platformy Azure. W przypadku rozwiązania VMware platformy Azure z wirtualnym Centrum sieci WAN platformy Azure nie można wybrać *żadnej* sieci. Zamiast tego należy określić wszystkie odpowiednie lokalne i wirtualne rozwiązanie VMware platformy Azure. Te zakresy centrów służą do określania domeny szyfrowania podstawowego tunelu sieci VPN w lokalnym punkcie końcowym. Po stronie rozwiązania VMware dla platformy Azure wymagane jest włączenie wskaźnika selektora ruchu opartego na zasadach. 
 
-1. W Azure Portal przejdź do witryny wirtualnego centrum sieci WAN; w obszarze **łączność**wybierz pozycję **VPN (lokacja-lokacja)**.
+1. W Azure Portal przejdź do witryny wirtualnego centrum sieci WAN; w obszarze **łączność** wybierz pozycję **VPN (lokacja-lokacja)**.
 
-2. Wybierz nazwę witryny sieci VPN, a następnie wielokropek (...) po prawej stronie; następnie wybierz pozycję **Edytuj sieć VPN do tego centrum**.
+2. Wybierz nazwę witryny sieci VPN, a następnie wielokropek (...) po prawej stronie; następnie wybierz pozycję **Edytuj połączenie sieci VPN z tym centrum**.
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Utwórz sieć WAN." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Edytuj połączenie sieci VPN z tym centrum." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Edytuj połączenie między lokacją sieci VPN a centrum, a następnie wybierz pozycję **Zapisz**.
    - Zabezpieczenia protokołu internetowego (IPSec), wybierz opcję **niestandardowy**.
    - Użyj selektora ruchu opartego na zasadach, wybierz pozycję **Włącz**
    - Określ szczegóły dla **usługi IKE phase 1** i **IKE Phase 2 (IPSec)**. 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Utwórz sieć WAN."::: 
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Edytowanie połączenia sieci VPN"::: 
  
     Selektory ruchu lub podsieci, które są częścią domeny szyfrowania opartej na zasadach, powinny mieć następujące wartości:
     
@@ -122,14 +122,14 @@ Ta sekcja dotyczy tylko sieci VPN opartych na zasadach. Konfiguracje sieci VPN o
 
     Przejdź do sekcji **łączność** w chmurze prywatnej rozwiązania Azure VMware. Na karcie **ExpressRoute** wybierz pozycję **+ Zażądaj klucza autoryzacji**. Nadaj jej nazwę i wybierz pozycję **Utwórz**. (Utworzenie klucza może potrwać około 30 sekund). Skopiuj identyfikator ExpressRoute i klucz autoryzacji. 
 
-    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Utwórz sieć WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Skopiuj identyfikator trasy ekspresowej i klucz autoryzacji.":::
 
     > [!NOTE]
     > Klucz autoryzacji będzie znikał po pewnym czasie, więc skopiuj go tak szybko, jak zostanie wyświetlony.
 
 4. Następnie połączymy rozwiązanie VMware platformy Azure i bramę sieci VPN ze sobą w wirtualnym koncentratorze sieci WAN. W Azure Portal Otwórz utworzoną wcześniej wirtualną sieć WAN. Wybierz utworzony wirtualny koncentrator sieci WAN, a następnie wybierz pozycję **ExpressRoute** w lewym okienku. Wybierz pozycję **+ Zrealizuj klucz autoryzacji**.
 
-    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Utwórz sieć WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Zrealizuj klucz autoryzacji.":::
 
     Wklej klucz autoryzacji do pola klucz autoryzacji i identyfikator ExpressRoute w polu Identyfikator **URI obwodu równorzędnego** . Upewnij się, że wybrano opcję **automatycznie skojarz ten obwód ExpressRoute z centrum.** Wybierz pozycję **Dodaj** , aby nawiązać połączenie. 
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 001d139e7fc140f41fa94ea0c6f32d0b08036a9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: de42230639351c0dc1e7986156a33b178386d1a4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519780"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357746"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler beta dla automatycznej aprowizacji użytkowników
 
@@ -56,7 +56,7 @@ Przed skonfigurowaniem programu rozwiązania Zscaler beta do automatycznego apro
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Zscaler Beta**, wybierz pozycję **Zscaler Beta** na panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Zscaler Beta** , wybierz pozycję **Zscaler Beta** na panelu wyników i kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Usługa Zscaler Beta na liście wyników](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla programu rozwiązania Zscaler beta w usłudze Azure AD:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **rozwiązania Zscaler beta**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **rozwiązania Zscaler beta**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -101,7 +101,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **klucz tajny** konta rozwiązania Zscaler beta, zgodnie z opisem w kroku 6.
 
-6. Aby uzyskać **adres URL dzierżawy** i **token tajny**, przejdź do pozycji **Administracja > ustawienia uwierzytelniania** w interfejsie użytkownika portalu rozwiązania Zscaler beta i kliknij pozycję **SAML** w obszarze **Typ uwierzytelniania**.
+6. Aby uzyskać **adres URL dzierżawy** i **token tajny** , przejdź do pozycji **Administracja > ustawienia uwierzytelniania** w interfejsie użytkownika portalu rozwiązania Zscaler beta i kliknij pozycję **SAML** w obszarze **Typ uwierzytelniania**.
 
     ![Inicjowanie obsługi wersji beta rozwiązania Zscaler](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 
@@ -109,7 +109,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Inicjowanie obsługi wersji beta rozwiązania Zscaler](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Wybierz pozycję **Włącz obsługę SCIM-Based** , aby pobrać **podstawowy adres URL** i **token okaziciela**, a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy**i token **okaziciela**  do **tokenu tajnego** w Azure Portal.
+    Wybierz pozycję **Włącz obsługę SCIM-Based** , aby pobrać **podstawowy adres URL** i **token okaziciela** , a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy** i token **okaziciela**  do **tokenu tajnego** w Azure Portal.
 
 7. Po wypełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z rozwiązania Zscaler wersją beta. Jeśli połączenie nie powiedzie się, upewnij się, że konto rozwiązania Zscaler beta ma uprawnienia administratora, a następnie spróbuj ponownie.
 
@@ -119,7 +119,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Inicjowanie obsługi wersji beta rozwiązania Zscaler](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby rozwiązania Zscaler wersję beta**.
 
@@ -155,7 +155,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

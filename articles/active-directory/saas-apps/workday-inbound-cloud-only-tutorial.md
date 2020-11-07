@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015487"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358596"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie obsługi administracyjnej użytkowników w usłudze Azure AD
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać, aby udostępnić dane procesu roboczego z produktu Workday do Azure Active Directory. 
@@ -95,11 +95,11 @@ W poniższych sekcjach opisano kroki konfigurowania aprowizacji użytkowników z
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
-3. Wybierz **aplikacje przedsiębiorstwa**, a następnie **wszystkie aplikacje**.
+3. Wybierz **aplikacje przedsiębiorstwa** , a następnie **wszystkie aplikacje**.
 
-4. Wybierz pozycję **Dodaj aplikację**, a następnie wybierz kategorię **wszystkie** .
+4. Wybierz pozycję **Dodaj aplikację** , a następnie wybierz kategorię **wszystkie** .
 
-5. Wyszukaj pozycję **Workday do aprowizacji użytkowników usługi Azure AD**i Dodaj tę aplikację z galerii.
+5. Wyszukaj pozycję **Workday do aprowizacji użytkowników usługi Azure AD** i Dodaj tę aplikację z galerii.
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **Inicjowanie obsługi**.
 
@@ -134,7 +134,7 @@ W poniższych sekcjach opisano kroki konfigurowania aprowizacji użytkowników z
 
 W tej sekcji opisano sposób przepływu danych przez użytkowników z produktu Workday do Azure Active Directory dla użytkowników korzystających tylko z chmury.
 
-1. Na karcie Inicjowanie obsługi w obszarze **mapowania**kliknij pozycję **Synchronizuj procesy robocze do usługi Azure AD**.
+1. Na karcie Inicjowanie obsługi w obszarze **mapowania** kliknij pozycję **Synchronizuj procesy robocze do usługi Azure AD**.
 
 2. W polu **Zakres obiektu źródłowego** możesz wybrać, które zestawy użytkowników w dniach roboczych powinny znajdować się w zakresie dla aprowizacji do usługi Azure AD, definiując zestaw filtrów opartych na atrybutach. Zakresem domyślnym jest "Wszyscy użytkownicy w usłudze Workday". Przykładowe filtry:
 

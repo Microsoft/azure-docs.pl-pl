@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91296841"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357780"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault klucze, wpisy tajne i certyfikaty — Omówienie
 
@@ -45,10 +46,10 @@ Wpisy tajne|/secrets|Obsługiwane|Nieobsługiwane
 Certyfikaty|/certificates|Obsługiwane|Nieobsługiwane
 Klucze kont magazynu|/storageaccount|Obsługiwane|Nieobsługiwane
 |||
-- **Klucze kryptograficzne**: obsługuje wiele typów kluczy i algorytmów oraz umożliwia korzystanie z kluczy chronionych przez moduł HSM i chronionych przez moduł zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach](../keys/about-keys.md).
-- Wpisy **tajne**: zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych. Aby uzyskać więcej informacji, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md).
-- **Certyfikaty**: obsługuje certyfikaty, które są oparte na kluczach i wpisach tajnych i dodają funkcję automatycznego odnawiania. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md).
-- **Klucze konta usługi Azure Storage**: mogą zarządzać kluczami konta usługi Azure Storage. Wewnętrznie Key Vault mogą wyświetlać (synchronizować) klucze przy użyciu konta usługi Azure Storage i ponownie generować (obrócić) klucze okresowo. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault](../secrets/overview-storage-keys.md).
+- **Klucze kryptograficzne** : obsługuje wiele typów kluczy i algorytmów oraz umożliwia korzystanie z kluczy chronionych przez moduł HSM i chronionych przez moduł zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach](../keys/about-keys.md).
+- Wpisy **tajne** : zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych. Aby uzyskać więcej informacji, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md).
+- **Certyfikaty** : obsługuje certyfikaty, które są oparte na kluczach i wpisach tajnych i dodają funkcję automatycznego odnawiania. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md).
+- **Klucze konta usługi Azure Storage** : mogą zarządzać kluczami konta usługi Azure Storage. Wewnętrznie Key Vault mogą wyświetlać (synchronizować) klucze przy użyciu konta usługi Azure Storage i ponownie generować (obrócić) klucze okresowo. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault](../secrets/overview-storage-keys.md).
 
 Aby uzyskać więcej ogólnych informacji na temat Key Vault, zobacz [Informacje o Azure Key Vault](overview.md). Aby uzyskać więcej informacji na temat zarządzanych pul modułów HSM, zobacz co to jest [Azure Key Vault zarządzany moduł HSM?](../managed-hsm/overview.md)
 
@@ -80,9 +81,9 @@ Aby uzyskać więcej informacji, zobacz [uwierzytelnianie, żądania i odpowiedz
 
 Identyfikator obiektu ma następujący format ogólny (w zależności od typu kontenera):  
 
-- **W przypadku magazynów**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **W przypadku magazynów** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **W przypadku zarządzanych pul modułu HSM**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **W przypadku zarządzanych pul modułu HSM** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Zobacz [Obsługa typu obiektu](#object-types) dla typów obiektów obsługiwanych przez każdy typ kontenera.

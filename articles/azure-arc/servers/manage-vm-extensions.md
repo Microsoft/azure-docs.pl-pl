@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie rozszerzeniami maszyny wirtualnej za pomocą serwerów z obsługą usługi Azure Arc
 description: Serwery z obsługą usługi Azure Arc mogą zarządzać wdrożeniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9865761fd3e5897ee3f01cd3d6ca620d5ea2f4b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460890"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358035"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Zarządzanie rozszerzeniami maszyn wirtualnych za pomocą serwerów z obsługą usługi Azure Arc
 
@@ -33,6 +33,8 @@ Obsługa rozszerzenia maszyny wirtualnej z obsługą usługi Azure Arc zapewnia 
 
 - Pobieranie i wykonywanie skryptów na maszynach połączonych hybrydowo przy użyciu niestandardowego rozszerzenia skryptu. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalacji oprogramowania lub innych zadań związanych z konfiguracją lub zarządzaniem.
 
+- Automatyczne odświeżanie certyfikatów przechowywanych w [Azure Key Vault](../../key-vault/general/overview.md).
+
 ## <a name="availability"></a>Dostępność
 
 Funkcjonalność rozszerzenia maszyny wirtualnej jest dostępna tylko na liście [obsługiwanych regionów](overview.md#supported-regions). Upewnij się, że Twoja maszyna została dołączona do jednego z tych regionów.
@@ -47,10 +49,12 @@ W tej wersji obsługiwane są następujące rozszerzenia maszyn wirtualnych na k
 |DSC |Windows |Microsoft. PowerShell|[Rozszerzenie DSC środowiska Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
 |Agent usługi Log Analytics |Windows |Microsoft. EnterpriseCloud. Monitoring |[Log Analytics rozszerzenie maszyny wirtualnej dla systemu Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Agent zależności firmy Microsoft | Windows |Microsoft.Compute | [Rozszerzenie maszyny wirtualnej agenta zależności dla systemu Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|Key Vault | Windows | Microsoft.Compute | [Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |CustomScript|Linux |Microsoft. Azure. Extension |[Rozszerzenie niestandardowego skryptu systemu Linux w wersji 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Linux |Microsoft. OSTCExtensions |[Rozszerzenie DSC programu PowerShell dla systemu Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |Agent usługi Log Analytics |Linux |Microsoft. EnterpriseCloud. Monitoring |[Log Analytics rozszerzenie maszyny wirtualnej dla systemu Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Agent zależności firmy Microsoft | Linux |Microsoft.Compute | [Rozszerzenie maszyny wirtualnej agenta zależności dla systemu Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|Key Vault | Linux | Microsoft.Compute | [Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 
 Aby dowiedzieć się więcej na temat pakietu agenta połączonego z platformą Azure i szczegółowych informacji o składniku agenta rozszerzeń, zobacz [Omówienie agenta](agent-overview.md#agent-component-details).
 
@@ -63,7 +67,29 @@ Ta funkcja jest zależna od następujących dostawców zasobów platformy Azure 
 
 Jeśli nie zostały one jeszcze zarejestrowane, wykonaj kroki opisane w sekcji [Rejestrowanie dostawców zasobów platformy Azure](agent-overview.md#register-azure-resource-providers).
 
+### <a name="log-analytics-vm-extension"></a>Log Analytics rozszerzenie maszyny wirtualnej
+
 Rozszerzenie maszyny wirtualnej agenta Log Analytics dla systemu Linux wymaga zainstalowania języka Python 2. x na maszynie docelowej.
+
+### <a name="azure-key-vault-vm-extension-preview"></a>Rozszerzenie maszyny wirtualnej Azure Key Vault (wersja zapoznawcza)
+
+Rozszerzenie maszyny wirtualnej Key Vault (wersja zapoznawcza) nie obsługuje następujących systemów operacyjnych Linux:
+
+- CentOS Linux 7 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Amazon Linux 2 (x64)
+
+Wdrażanie rozszerzenia maszyny wirtualnej Key Vault (wersja zapoznawcza) jest obsługiwane tylko przy użyciu:
+
+- Interfejs wiersza polecenia platformy Azure
+- Azure PowerShell
+- Szablon usługi Azure Resource Manager
+
+Przed wdrożeniem rozszerzenia należy wykonać następujące czynności:
+
+1. [Utwórz magazyn i certyfikat](../../key-vault/certificates/quick-create-portal.md) (z podpisem własnym lub importem).
+
+2. Przyznaj serwerowi usługi Azure Arc dostęp do klucza tajnego certyfikatu. Jeśli korzystasz z [wersji zapoznawczej RBAC](../../key-vault/general/rbac-guide.md), wyszukaj nazwę zasobu usługi Azure Arc i przypisz ją do roli **użytkownika Key Vault Secret (wersja zapoznawcza)** . W przypadku korzystania z [zasad dostępu Key Vault](../../key-vault/general/assign-access-policy-portal.md)należy przypisać uprawnienia do **pobierania** klucza tajnego do tożsamości przypisanej do systemu usługi Azure Arc.
 
 ### <a name="connected-machine-agent"></a>Agent połączonej maszyny
 
@@ -75,4 +101,4 @@ Aby uaktualnić maszynę do wymaganej wersji agenta, zobacz [upgrade Agent](mana
 
 ## <a name="next-steps"></a>Następne kroki
 
-Można wdrażać i usuwać rozszerzenia maszyn wirtualnych oraz zarządzać nimi przy użyciu [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md), [programu PowerShell](manage-vm-extensions-powershell.md), z poziomu szablonów [Azure Portal](manage-vm-extensions-portal.md)lub [Azure Resource Manager](manage-vm-extensions-template.md).
+Można wdrażać i usuwać rozszerzenia maszyn wirtualnych oraz zarządzać nimi przy użyciu [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md), [Azure PowerShell](manage-vm-extensions-powershell.md), z [Azure Portal](manage-vm-extensions-portal.md)lub [szablonów Azure Resource Manager](manage-vm-extensions-template.md).

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534798"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355988"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtry na platformie Azure Wyszukiwanie poznawcze 
 
@@ -98,13 +98,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 Poniższe przykłady ilustrują kilka wzorców użycia dla scenariuszy filtrowania. Aby uzyskać więcej sugestii, zobacz [przykłady składni wyrażeń OData >](./search-query-odata-filter.md#examples).
 
-+ Autonomiczna **$Filter**bez ciągu zapytania, przydatna, gdy wyrażenie filtru jest w stanie w pełni kwalifikować dokumenty. Bez ciągu zapytania nie ma żadnej leksykalnej ani analizy językowej, nie oceniania ani klasyfikacji. Zwróć uwagę, że ciąg wyszukiwania jest tylko gwiazdką, co oznacza, że pasuje do wszystkich dokumentów.
++ Autonomiczna **$Filter** bez ciągu zapytania, przydatna, gdy wyrażenie filtru jest w stanie w pełni kwalifikować dokumenty. Bez ciągu zapytania nie ma żadnej leksykalnej ani analizy językowej, nie oceniania ani klasyfikacji. Zwróć uwagę, że ciąg wyszukiwania jest tylko gwiazdką, co oznacza, że pasuje do wszystkich dokumentów.
 
    ```
    search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ Kombinacja ciągu zapytania i **$Filter**, gdzie filtr tworzy podzestaw, a ciąg zapytania zawiera dane wejściowe dla wyszukiwania pełnotekstowego w filtrowanym podzbiorze. Dodanie warunków ("drogi odległości") wprowadza wyniki wyszukiwania w wynikach, gdzie dokumenty, które najlepiej pasują do warunków, są bardziej klasyfikowane. Użycie filtru z ciągiem zapytania jest najbardziej typowym wzorcem użycia.
++ Kombinacja ciągu zapytania i **$Filter** , gdzie filtr tworzy podzestaw, a ciąg zapytania zawiera dane wejściowe dla wyszukiwania pełnotekstowego w filtrowanym podzbiorze. Dodanie warunków ("drogi odległości") wprowadza wyniki wyszukiwania w wynikach, gdzie dokumenty, które najlepiej pasują do warunków, są bardziej klasyfikowane. Użycie filtru z ciągiem zapytania jest najbardziej typowym wzorcem użycia.
 
    ```
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
@@ -138,11 +138,11 @@ Zapoznaj się z następującymi artykułami, aby uzyskać kompleksowe wskazówki
 
 W interfejsie API REST filtrowanie jest domyślnie *włączone* w przypadku pól prostych. Pola z możliwością filtrowania zwiększają rozmiar indeksu; Upewnij się `"filterable": false` , że ustawiono pola, które nie są planowane do użycia w filtrze. Aby uzyskać więcej informacji na temat ustawień definicji pól, zobacz [create index](/rest/api/searchservice/create-index).
 
-W zestawie SDK platformy .NET filtr jest domyślnie *wyłączony* . Można ustawić pole jako możliwe do filtrowania, ustawiając [Właściwość IsFiltered](/dotnet/api/microsoft.azure.search.models.field.isfilterable) obiektu [pola](/dotnet/api/microsoft.azure.search.models.field) na `true` . Można to również zrobić deklaratywnie przy użyciu [atrybutu IsFiltered](/dotnet/api/microsoft.azure.search.isfilterableattribute). W poniższym przykładzie atrybut jest ustawiany we `BaseRate` właściwości klasy modelu, która jest mapowana na definicję indeksu.
+W zestawie SDK platformy .NET filtr jest domyślnie *wyłączony* . Można ustawić pole do filtrowania, ustawiając [Właściwość IsFiltered](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) odpowiedniego obiektu [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) na `true` . W poniższym przykładzie atrybut jest ustawiany we `BaseRate` właściwości klasy modelu, która jest mapowana na definicję indeksu.
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>Tworzenie istniejącego pola do filtrowania
@@ -160,7 +160,7 @@ Ciągi tekstowe są rozróżniane wielkości liter. Nie istnieje małe litery wy
 | Podejście | Opis | Kiedy stosować |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Funkcja, która dopasowuje pole do rozdzielanej listy ciągów. | Zalecane dla [filtrów zabezpieczeń](search-security-trimming-for-azure-search.md) oraz filtrów, w których wiele wartości tekstowych musi być dopasowanych do pola ciągu. Funkcja **Search.in** została zaprojektowana w celu przyspieszenia i jest znacznie szybsza niż jawne porównanie pola z każdym ciągiem przy użyciu `eq` i `or` . | 
-| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funkcja, która umożliwia mieszanie operacji wyszukiwania pełnotekstowego z ścisłymi operacjami filtru logicznego w tym samym wyrażeniu filtru. | Użyj pozycji **Wyszukaj. IsMatch** (lub jej równoważnej ocenie **Wyszukaj. ismatchscoring**), jeśli chcesz, aby wiele kombinacji filtru wyszukiwania w jednym żądaniu. Można go również użyć dla filtru *zawiera* filtr, aby odfiltrować ciąg częściowy w większym ciągu. |
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funkcja, która umożliwia mieszanie operacji wyszukiwania pełnotekstowego z ścisłymi operacjami filtru logicznego w tym samym wyrażeniu filtru. | Użyj pozycji **Wyszukaj. IsMatch** (lub jej równoważnej ocenie **Wyszukaj. ismatchscoring** ), jeśli chcesz, aby wiele kombinacji filtru wyszukiwania w jednym żądaniu. Można go również użyć dla filtru *zawiera* filtr, aby odfiltrować ciąg częściowy w większym ciągu. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Wyrażenie zdefiniowane przez użytkownika składające się z pól, operatorów i wartości. | Użyj tego, jeśli chcesz znaleźć dokładne dopasowania między polem ciągu a wartością ciągu. |
 
 ## <a name="numeric-filter-fundamentals"></a>Podstawy filtru liczbowego

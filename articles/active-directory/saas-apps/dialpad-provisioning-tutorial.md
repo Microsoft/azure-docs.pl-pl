@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b88e618da3f8a23c0517aaeb251e54bf559fc468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848963"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358494"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Dialpad na potrzeby automatycznego aprowizacji użytkowników
 
@@ -58,9 +58,9 @@ Przed skonfigurowaniem usługi Dialpad do automatycznego aprowizacji użytkownik
 
 2. Wygeneruj nowy klucz, klikając pozycję **Dodaj klucz** i konfigurując właściwości tokenu tajnego.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Zrzut ekranu przedstawiający stronę klawiszy P I w konsoli administracyjnej Dialpad. Dodaj klucz jest wyróżniony." border="false":::
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Zrzut ekranu strony edytowanie klucza P I w konsoli administracyjnej Dialpad. Przycisk Zapisz jest wyróżniony." border="false":::
 
 3. Kliknij przycisk **kliknij, aby pokazać wartość** dla ostatnio utworzonego klucza interfejsu API i skopiuj pokazaną wartość. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Dialpad w Azure Portal. 
 
@@ -76,7 +76,7 @@ Aby skonfigurować Dialpad do automatycznego aprowizacji użytkowników w usłud
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -84,24 +84,24 @@ Aby skonfigurować Dialpad do automatycznego aprowizacji użytkowników w usłud
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Dialpad**, a następnie wybierz pozycję **Dialpad** w panelu wyniki.
+4. W polu wyszukiwania wpisz **Dialpad** , a następnie wybierz pozycję **Dialpad** w panelu wyniki.
     ![Dialpad na liście wyników](common/search-new-app.png)
 
 5. Przejdź do **adresu URL** wyróżnionego poniżej w oddzielnej przeglądarce. 
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Zrzut ekranu przedstawiający stronę wyświetlającą informacje o aplikacji Dialpad. W obszarze U R L adres znajduje się na liście i jest wyróżniony." border="false":::
 
 6. W prawym górnym rogu wybierz pozycję **Zaloguj się > Użyj Dialpad online**.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Zrzut ekranu witryny sieci Web Dialpad. Logowanie jest wyróżnione, a karta logowanie jest otwarta. Użyj opcji Dialpad online jest również wyróżniona." border="false":::
 
 7. Ponieważ Dialpad jest aplikacją OpenIDConnect, wybierz logowanie do Dialpad przy użyciu konta służbowego firmy Microsoft.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Zrzut ekranu przedstawiający stronę Rozpoczynanie wywołań w witrynie sieci Web Dialpad. Zostanie wyróżniony przycisk Zaloguj się przy użyciu pakietu Office 365." border="false":::
 
 8. Po pomyślnym uwierzytelnieniu Zaakceptuj monit o zgodę na stronie zgody. Aplikacja zostanie następnie automatycznie dodana do dzierżawy i nastąpi przekierowanie do konta Dialpad.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Zrzut ekranu przedstawiający stronę uwierzytelniania firmy Microsoft z informacją, że aplikacja Dialpad zażądała dostępu do niektórych danych. Przycisk Akceptuj jest wyróżniony." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Konfigurowanie automatycznej aprowizacji użytkowników do Dialpad
 
@@ -109,7 +109,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-dialpad-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Dialpad w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -163,7 +163,7 @@ Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizacji us
 ##  <a name="connector-limitations"></a>Ograniczenia łącznika
 * Dialpad nie obsługuje już dzisiaj nazw grup. Oznacza to, że wszelkie zmiany wartości **DisplayName** grupy w usłudze Azure AD nie zostaną zaktualizowane i odzwierciedlone w Dialpad.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

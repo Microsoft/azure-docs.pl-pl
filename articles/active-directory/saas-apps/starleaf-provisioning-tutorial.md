@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: bf75c4fe2053483b94c5f645816422909645854a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c476c0de644ac63c577d466f4691b5cf415334
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285985"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357942"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie StarLeaf na potrzeby automatycznego aprowizacji użytkowników
 
@@ -54,7 +54,7 @@ Przed skonfigurowaniem usługi StarLeaf do automatycznego aprowizacji użytkowni
 
     ![Zrzut ekranu przedstawiający konsolę administracyjną StarLeaf z opcjami integracji i dodawania integracji o nazwie out.](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Wybierz **Typ** , który ma zostać Microsoft Azure Active Directory. Wprowadź odpowiednią nazwę w polu **Nazwa**. Kliknij pozycję **Zastosuj**.
+2. Wybierz **Typ** , który ma zostać Microsoft Azure Active Directory. Wprowadź odpowiednią nazwę w polu **Nazwa**. Kliknij przycisk **Zastosuj**.
 
     ![Zrzut ekranu przedstawiający okno dialogowe Dodaj integrację z polami tekstowymi typu i nazwa o nazwie.](media/starleaf-provisioning-tutorial/image01.png)
 
@@ -72,7 +72,7 @@ Aby skonfigurować StarLeaf do automatycznego aprowizacji użytkowników w usłu
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -80,14 +80,14 @@ Aby skonfigurować StarLeaf do automatycznego aprowizacji użytkowników w usłu
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **StarLeaf**, a następnie wybierz pozycję **StarLeaf** w panelu wyniki.
+4. W polu wyszukiwania wpisz **StarLeaf** , a następnie wybierz pozycję **StarLeaf** w panelu wyniki.
     ![StarLeaf na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-automatic-user-provisioning-to-starleaf"></a>Konfigurowanie automatycznej aprowizacji użytkowników do StarLeaf
 
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie StarLeaf na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -146,7 +146,7 @@ Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizacji us
 * StarLeaf nie obsługuje obecnie aprowizacji grup. 
 * StarLeaf wymaga wartości **adresu e-mail** i **nazwy użytkownika** , aby mieć taką samą wartość źródłową.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

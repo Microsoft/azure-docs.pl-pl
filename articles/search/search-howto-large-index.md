@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403572"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358396"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Jak indeksować duże zestawy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -27,7 +27,7 @@ W poniższych sekcjach opisano techniki indeksowania dużych ilości danych przy
 
 ## <a name="use-the-push-api"></a>Korzystanie z interfejsu API wypychania
 
-Podczas wypychania danych do indeksu przy użyciu [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index)istnieje kilka kluczowych zagadnień, które wpływają na szybkość indeksowania. Te czynniki opisano w poniższej sekcji, a zakres od ustawiania pojemności usługi na optymalizacje kodu.
+Podczas wypychania danych do indeksu przy użyciu [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments)istnieje kilka kluczowych zagadnień, które wpływają na szybkość indeksowania. Te czynniki opisano w poniższej sekcji, a zakres od ustawiania pojemności usługi na optymalizacje kodu.
 
 Aby uzyskać więcej informacji i przykładów kodu, które ilustrują indeksowanie modelu wypychania, zobacz [Samouczek: Optymalizowanie szybkości indeksowania](tutorial-optimize-indexing-push-api.md).
 
@@ -45,14 +45,14 @@ Po spełnieniu warstwy, następnym krokiem może być zwiększenie liczby partyc
 
 ### <a name="review-index-schema"></a>Przegląd schematu indeksu
 
-Schemat indeksu odgrywa ważną rolę w indeksowaniu danych. Im więcej pól i ustawionych przez siebie właściwości (takich jak *Wyszukiwanie*, tworzenie i *filtrowanie* *),* przyczyniają się do zwiększenia czasu indeksowania. Ogólnie rzecz biorąc należy tworzyć i określać pola, które są potrzebne w indeksie wyszukiwania.
+Schemat indeksu odgrywa ważną rolę w indeksowaniu danych. Im więcej pól i ustawionych przez siebie właściwości (takich jak *Wyszukiwanie* , tworzenie i *filtrowanie* *),* przyczyniają się do zwiększenia czasu indeksowania. Ogólnie rzecz biorąc należy tworzyć i określać pola, które są potrzebne w indeksie wyszukiwania.
 
 > [!NOTE]
 > Aby zachować rozmiar dokumentu w dół, Unikaj dodawania danych innych niż Queryable do indeksu. Obrazy i inne dane binarne nie są bezpośrednio przeszukiwane i nie powinny być przechowywane w indeksie. Aby zintegrować dane niequeryablene z wynikami wyszukiwania, należy zdefiniować pole, które nie jest możliwe do przeszukania, które przechowuje odwołanie do tego zasobu.
 
 ### <a name="check-the-batch-size"></a>Sprawdzanie rozmiaru partii
 
-Jednym z najprostszych mechanizmów indeksowania większego zestawu danych jest przesyłanie wielu dokumentów lub rekordów w jednym żądaniu. Tak długo, jak cały ładunek przekracza 16 MB, żądanie może obsłużyć do 1000 dokumentów w operacji ładowania zbiorczego. Te limity mają zastosowanie w przypadku korzystania z [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) w zestawie SDK platformy .NET. Dla obu interfejsów API w treści każdego żądania należy spakować 1000 dokumentów.
+Jednym z najprostszych mechanizmów indeksowania większego zestawu danych jest przesyłanie wielu dokumentów lub rekordów w jednym żądaniu. Tak długo, jak cały ładunek przekracza 16 MB, żądanie może obsłużyć do 1000 dokumentów w operacji ładowania zbiorczego. Te limity mają zastosowanie w przypadku korzystania z [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) w zestawie .NET SDK. Dla obu interfejsów API w treści każdego żądania należy spakować 1000 dokumentów.
 
 Użycie partii do indeksowania dokumentów znacznie poprawi wydajność indeksowania. Określenie optymalnego rozmiaru partii danych jest kluczowym elementem optymalizacji szybkości indeksowania. Dwa podstawowe czynniki wpływające na optymalny rozmiar partii to:
 

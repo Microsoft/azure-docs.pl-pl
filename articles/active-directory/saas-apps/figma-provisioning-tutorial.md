@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850910"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357032"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Figma na potrzeby automatycznego aprowizacji użytkowników
 
@@ -57,19 +57,19 @@ Przed skonfigurowaniem usługi Figma do automatycznego aprowizacji użytkownikó
 
 2. Przejdź do **ogólne > Aktualizuj logowanie w ustawieniach**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Zrzut ekranu przedstawiający kartę Ogólne w konsoli administracyjnej Figma. W obszarze Logowanie i Inicjowanie obsługi administracyjnej są wyróżnione aktualizacje logowania w ustawieniach." border="false":::
 
 3. Skopiuj **Identyfikator dzierżawy**. Ta wartość zostanie użyta do skonstruowania adresu URL punktu końcowego Standard scim, który zostanie wprowadzony do pola **adresu URL dzierżawy** na karcie aprowizacji aplikacji Figma w Azure Portal.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Zrzut ekranu przedstawiający sekcję S A M L s S w konsoli administracyjnej Figma. Etykieta identyfikatora dzierżawy i sąsiadujące łącze, które wyświetlają kopię są wyróżnione." border="false":::
 
 4. Przewiń w dół i kliknij pozycję **Generuj token interfejsu API**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający sekcję C Provisioning języka S w konsoli administracyjnej Figma. Link z etykietą Generuj token P I jest wyróżniony." border="false":::
 
 5. Skopiuj wartość  **tokenu interfejsu API** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Figma w Azure Portal. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Zrzut ekranu strony w konsoli administracyjnej Figma. W ramach aprowizacji tokenu P I zostanie wyróżniony symbol zastępczy dla tokenu." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Dodaj Figma z galerii
 
@@ -79,7 +79,7 @@ Aby skonfigurować Figma automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -87,7 +87,7 @@ Aby skonfigurować Figma automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **Figma**, wybierz pozycję **Figma** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **Figma** , wybierz pozycję **Figma** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Figma na liście wyników](common/search-new-app.png)
 
@@ -100,7 +100,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-figma--in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Figma w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -152,7 +152,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

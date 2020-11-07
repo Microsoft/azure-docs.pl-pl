@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427377"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357916"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych czynności w celu lepszego zdiagnozowania i zautomatyzowania kroków rozwiązania:
@@ -146,6 +146,23 @@ Podczas dodawania tej aplikacji jako aplikacji spoza galerii usługa Azure Activ
 Usuń nieużywane adresy URL odpowiedzi skonfigurowane dla aplikacji.
 
 Na stronie Konfiguracja logowania jednokrotnego opartego na protokole SAML w sekcji **adres URL odpowiedzi (adres URL usługi konsumenckej potwierdzenia)** Usuń nieużywane lub domyślne adresy URL odpowiedzi utworzone przez system. Na przykład `https://127.0.0.1:444/applications/default.aspx`.
+
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>Metoda uwierzytelniania, za pomocą której użytkownik uwierzytelniony przy użyciu usługi nie jest zgodna z żądaną metodą uwierzytelniania
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Możliwa przyczyna**
+
+`RequestedAuthnContext`Znajduje się w ŻĄDANIU SAML. Oznacza to, że aplikacja oczekuje `AuthnContext` określonego przez `AuthnContextClassRef` . Jednak użytkownik został już uwierzytelniony przed uzyskaniem dostępu do aplikacji, a `AuthnContext` (metoda uwierzytelniania) użyta w przypadku tego poprzedniego uwierzytelniania różni się od żądania. Na przykład użytkownik federacyjny ma dostęp do aplikacji Moje aplikacje i WIA. `AuthnContextClassRef`Będzie `urn:federation:authentication:windows` . Usługa AAD nie będzie wykonywać nowego żądania uwierzytelnienia, będzie używać kontekstu uwierzytelniania, który został przekazano przez dostawcy tożsamości (ADFS lub inną usługę federacyjną w tym przypadku). W związku z tym wystąpi niezgodność, jeśli żądania aplikacji są inne niż `urn:federation:authentication:windows` . Inny scenariusz jest używany, gdy użyto wieloskładnikowego: `'X509, MultiFactor` .
+
+**Rozwiązanie**
+
+
+`RequestedAuthnContext` jest wartością opcjonalną. Następnie, jeśli to możliwe, poproszenie aplikacji o jej usunięcie.
+
+Inną opcją jest upewnienie się, że `RequestedAuthnContext` będzie to możliwe. Zostanie to zrobione przez zażądanie nowego uwierzytelniania. Dzięki temu, gdy żądanie SAML zostanie przetworzone, zostanie wykonane nowe uwierzytelnianie i `AuthnContext` zostanie uznane. Aby zażądać nowego uwierzytelniania, żądanie SAML ma większość wartości `forceAuthn="true"` . 
+
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem podczas dostosowywania oświadczeń SAML wysyłanych do aplikacji
 Aby dowiedzieć się, jak dostosować oświadczenia atrybutu SAML wysyłane do aplikacji, zobacz [Mapowanie oświadczeń w Azure Active Directory](../develop/active-directory-claims-mapping.md).
