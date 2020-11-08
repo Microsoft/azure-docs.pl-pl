@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527296"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369549"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Samouczek: Integracja usługi Power BI z usługą Cognitive Service analizy tekstu
 
@@ -103,15 +103,15 @@ Możesz również rozważyć odfiltrowanie pustych wiadomości, używając filtr
 Teraz możesz przystąpić do tworzenia funkcji niestandardowej, która zintegruje usługę Power BI z funkcją analizy tekstu. Funkcja otrzymuje tekst do przetworzenia w formie parametru. Konwertuje ona dane na i z wymaganego dokumentu w formacie JSON, a następnie wysyła żądanie HTTP do interfejsu API fraz kluczowych. Następnie funkcja analizuje odpowiedź z interfejsu API i zwraca ciąg zawierający rozdzielaną przecinkami listę wyodrębnionych fraz kluczowych.
 
 > [!NOTE]
-> Funkcje niestandardowe programu Power BI Desktop pisze się w [języku formuł Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference), w skrócie „M”. M to funkcjonalny język programowania oparty na języku [F#](https://docs.microsoft.com/dotnet/fsharp/). Jednak nie trzeba być programistą, aby ukończyć ten samouczek. Wymagany kod znajduje się poniżej.
+> Funkcje niestandardowe programu Power BI Desktop pisze się w [języku formuł Power Query M](/powerquery-m/power-query-m-reference), w skrócie „M”. M to funkcjonalny język programowania oparty na języku [F#](/dotnet/fsharp/). Jednak nie trzeba być programistą, aby ukończyć ten samouczek. Wymagany kod znajduje się poniżej.
 
-W aplikacji Power BI Desktop upewnij się, że nadal jesteś w oknie edytora zapytań. W przeciwnym razie wybierz wstążkę **Narzędzia główne**, a następnie w grupie **Dane zewnętrzne** kliknij pozycję **Edytuj zapytania**.
+W aplikacji Power BI Desktop upewnij się, że nadal jesteś w oknie edytora zapytań. W przeciwnym razie wybierz wstążkę **Narzędzia główne** , a następnie w grupie **Dane zewnętrzne** kliknij pozycję **Edytuj zapytania**.
 
 Teraz na wstążce **Narzędzia główne** w grupie **Nowe zapytanie** otwórz menu rozwijane **Nowe źródło** i wybierz pozycję **Puste zapytanie**. 
 
 Na liście Zapytania zostanie wyświetlone nowe zapytanie, początkowo noszące nazwę `Query1`. Kliknij dwukrotnie ten wpis i nadaj mu nazwę `KeyPhrases`.
 
-Teraz na wstążce **Narzędzia główne** w grupie **Zapytanie** kliknij pozycję **Edytor zaawansowany**, aby otworzyć okno Edytora zaawansowanego. Usuń kod, który znajduje się już w tym oknie, a następnie wklej poniższy kod. 
+Teraz na wstążce **Narzędzia główne** w grupie **Zapytanie** kliknij pozycję **Edytor zaawansowany** , aby otworzyć okno Edytora zaawansowanego. Usuń kod, który znajduje się już w tym oknie, a następnie wklej poniższy kod. 
 
 > [!NOTE]
 > Zastąp przykładowy punkt końcowy poniżej (zawierający `<your-custom-subdomain>` ) punkt końcowy wygenerowany dla zasobu analiza tekstu. Ten punkt końcowy można znaleźć, logując się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/), wybierając subskrypcję analiza tekstu i wybierając opcję `Quick start` .
@@ -160,7 +160,7 @@ Po zamknięciu okna dialogowego Wywołaj funkcję niestandardową może zostać 
 
 ![[transparent poświadczeń]](../media/tutorials/power-bi/credentials-banner.png)
 
-Kliknij pozycję **Edytuj poświadczenia**, upewnij się, że w oknie dialogowym jest wybrana opcja `Anonymous`, a następnie kliknij pozycję **Połącz**. 
+Kliknij pozycję **Edytuj poświadczenia** , upewnij się, że w oknie dialogowym jest wybrana opcja `Anonymous`, a następnie kliknij pozycję **Połącz**. 
 
 > [!NOTE]
 > Opcja `Anonymous` została wybrana, ponieważ usługa analizy tekstu uwierzytelnia Cię przy użyciu Twojego klucza dostępu, dzięki czemu usługa Power BI nie musi podawać poświadczeń dla samego żądania HTTP.
@@ -190,7 +190,7 @@ Teraz za pomocą tej kolumny wygenerujesz chmurę słów. Aby rozpocząć, klikn
 > [!NOTE]
 > Dlaczego lepiej wygenerować chmurę słów przy użyciu wyodrębnionych fraz kluczowych, a nie pełnego tekstu poszczególnych komentarzy? Frazy kluczowe dostarczają nam *ważnych* słów z komentarzy naszych klientów, a nie po prostu *najpopularniejszych* słów. Ponadto liczba słów w chmurze wynikowej nie jest zniekształcona przez częste użycie słowa w stosunkowo małej liczbie komentarzy.
 
-Jeśli nie masz jeszcze zainstalowanej wizualizacji niestandardowej Word Cloud, zainstaluj ją. W panelu Wizualizacje po prawej stronie obszaru roboczego kliknij przycisk z wielokropkiem (**...**) i wybierz pozycję **Zaimportuj ze sklepu**. Następnie wyszukaj słowo „cloud” i kliknij przycisk **Dodaj** obok wizualizacji Word Cloud. Usługa Power BI zainstaluje wizualizację Word Cloud i poinformuje Cię o jej pomyślnym zainstalowaniu.
+Jeśli nie masz jeszcze zainstalowanej wizualizacji niestandardowej Word Cloud, zainstaluj ją. W panelu Wizualizacje po prawej stronie obszaru roboczego kliknij przycisk z wielokropkiem ( **...** ) i wybierz pozycję **Zaimportuj ze sklepu**. Następnie wyszukaj słowo „cloud” i kliknij przycisk **Dodaj** obok wizualizacji Word Cloud. Usługa Power BI zainstaluje wizualizację Word Cloud i poinformuje Cię o jej pomyślnym zainstalowaniu.
 
 ![[dodawanie wizualizacji niestandardowej]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Najpierw kliknij ikonę Word Cloud w panelu Wizualizacje.
 
 W obszarze roboczym zostanie wyświetlony nowy raport. Przeciągnij pole `keyphrases` z panelu Pola do pola Kategoria w panelu Wizualizacje. Wewnątrz raportu pojawi się chmura słów.
 
-Teraz przełącz na stronę Format panelu Wizualizacje. W kategorii Słowa ignorowane włącz opcję **Domyślne słowa ignorowane**, aby wyeliminować z chmury krótkie, popularne słowa, takie jak „z”. 
+Teraz przełącz na stronę Format panelu Wizualizacje. W kategorii Słowa ignorowane włącz opcję **Domyślne słowa ignorowane** , aby wyeliminować z chmury krótkie, popularne słowa, takie jak „z”. 
 
 ![[aktywowanie domyślnych słów ignorowanych]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -296,7 +296,7 @@ Dowiedz się więcej na temat usługi analizy tekstu, języka formuł Power Quer
 > [Dokumentacja interfejsu API analizy tekstu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
 
 > [!div class="nextstepaction"]
-> [Informacje dotyczące Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Informacje dotyczące Power Query M](/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Dokumentacja usługi Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

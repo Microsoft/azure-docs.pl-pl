@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017628"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368648"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Samouczek: wizualizacja anomalii przy użyciu wykrywania partii i Power BI
 
@@ -48,7 +48,7 @@ W oknie głównym Power BI Desktop kliknij Wstążkę **Narzędzia główne** . 
 
 ![Obraz przycisku "Pobierz dane" w Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-Po wyświetleniu okna dialogowego przejdź do folderu, w którym został pobrany przykładowy plik. xlsx, i zaznacz go. Po wyświetleniu okna dialogowego **nawigatora** kliknij opcję **Arkusz1**, a następnie pozycję **Edytuj**.
+Po wyświetleniu okna dialogowego przejdź do folderu, w którym został pobrany przykładowy plik. xlsx, i zaznacz go. Po wyświetleniu okna dialogowego **nawigatora** kliknij opcję **Arkusz1** , a następnie pozycję **Edytuj**.
 
 ![Obraz ekranu "Nawigator" źródła danych w Power BI](../media/tutorials/navigator-dialog-box.png)
 
@@ -112,20 +112,20 @@ W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębni�
  in results
 ```
 
-Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr**, a następnie kliknij pozycję **Wywołaj**.
+Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr** , a następnie kliknij pozycję **Wywołaj**.
 
 ![Obraz funkcji Invoke](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Prywatność i uwierzytelnianie źródła danych
 
 > [!NOTE]
-> Należy pamiętać o zasadach organizacji dotyczących prywatności i dostępu do danych. Aby uzyskać więcej informacji, zobacz [Power BI Desktop poziomów prywatności](https://docs.microsoft.com/power-bi/desktop-privacy-levels) .
+> Należy pamiętać o zasadach organizacji dotyczących prywatności i dostępu do danych. Aby uzyskać więcej informacji, zobacz [Power BI Desktop poziomów prywatności](/power-bi/desktop-privacy-levels) .
 
 Podczas próby uruchomienia zapytania może zostać wyświetlony komunikat ostrzegawczy, ponieważ korzysta on z zewnętrznego źródła danych.
 
 ![Obraz przedstawiający ostrzeżenie utworzone przez Power BI](../media/tutorials/blocked-function.png)
 
-Aby rozwiązać ten problem, kliknij menu **plik**, a następnie **Opcje i ustawienia**. Następnie kliknij pozycję **Opcje**. Poniżej **bieżącego pliku**wybierz opcję **prywatność**i **zignoruj poziomy prywatności i potencjalnie poprawić wydajność**.
+Aby rozwiązać ten problem, kliknij menu **plik** , a następnie **Opcje i ustawienia**. Następnie kliknij pozycję **Opcje**. Poniżej **bieżącego pliku** wybierz opcję **prywatność** i **zignoruj poziomy prywatności i potencjalnie poprawić wydajność**.
 
 Ponadto może zostać wyświetlony komunikat z prośbą o określenie, w jaki sposób chcesz połączyć się z interfejsem API.
 
@@ -137,7 +137,7 @@ Następnie kliknij przycisk **zamknij & Zastosuj** na Wstążce **Narzędzia gł
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Wizualizuj odpowiedź interfejsu API wykrywania anomalii
 
-Na ekranie głównym Power BI Zacznij korzystać z kwerend utworzonych powyżej, aby wizualizować dane. Najpierw wybierz **Wykres liniowy** w **wizualizacjach**. Następnie Dodaj sygnaturę czasową z wywoływanej funkcji do **osi**wykresu liniowego. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **sygnatura czasowa**.
+Na ekranie głównym Power BI Zacznij korzystać z kwerend utworzonych powyżej, aby wizualizować dane. Najpierw wybierz **Wykres liniowy** w **wizualizacjach**. Następnie Dodaj sygnaturę czasową z wywoływanej funkcji do **osi** wykresu liniowego. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **sygnatura czasowa**.
 
 ![Kliknij prawym przyciskiem myszy wartość sygnatury czasowej](../media/tutorials/timestamp-right-click.png)
 
@@ -156,7 +156,7 @@ Po dodaniu pól kliknij wykres i zmień jego rozmiar, aby pokazać wszystkie pun
 
 ### <a name="display-anomaly-data-points"></a>Wyświetlanie nietypowych punktów danych
 
-Po prawej stronie okna Power BI, poniżej okienka **pola** , kliknij prawym przyciskiem myszy **wartość** w obszarze **zapytania wywoływanej funkcji**, a następnie kliknij pozycję **Nowa szybka miara**.
+Po prawej stronie okna Power BI, poniżej okienka **pola** , kliknij prawym przyciskiem myszy **wartość** w obszarze **zapytania wywoływanej funkcji** , a następnie kliknij pozycję **Nowa szybka miara**.
 
 ![Obraz nowego ekranu szybkiej miary](../media/tutorials/new-quick-measure.png)
 
@@ -164,7 +164,7 @@ Na wyświetlonym ekranie wybierz pozycję **przefiltrowana wartość** jako obli
 
 ![Drugi obraz nowego ekranu szybkiej miary](../media/tutorials/new-quick-measure-2.png)
 
-Po kliknięciu przycisku **OK** `Value for True` w dolnej części listy pól pojawi się pole. Kliknij go prawym przyciskiem myszy i zmień jego nazwę na **anomalie**. Dodaj go do **wartości**wykresu. Następnie wybierz narzędzie **Format** i ustaw typ osi X na **kategorii**.
+Po kliknięciu przycisku **OK** `Value for True` w dolnej części listy pól pojawi się pole. Kliknij go prawym przyciskiem myszy i zmień jego nazwę na **anomalie**. Dodaj go do **wartości** wykresu. Następnie wybierz narzędzie **Format** i ustaw typ osi X na **kategorii**.
 
 ![Obraz formatu osi x](../media/tutorials/format-x-axis.png)
 

@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132844"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368869"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
 Cognitive Services zapewnia możliwości uczenia maszynowego w celu rozwiązywania ogólnych problemów, takich jak analizowanie tekstu emocjonalnej tonacji lub analizowanie obrazów w celu rozpoznawania obiektów lub twarzy. Korzystanie z tych usług nie wymaga specjalnej wiedzy z zakresu uczenia maszynowego ani nauki o danych. 
 
-[Cognitive Services](welcome.md) jest grupą usług, z których każda obsługuje różne, uogólnione funkcje prognozowania. Usługi są podzielone na różne kategorie, aby pomóc w znalezieniu odpowiedniej usługi. 
+[Cognitive Services](./what-are-cognitive-services.md) jest grupą usług, z których każda obsługuje różne, uogólnione funkcje prognozowania. Usługi są podzielone na różne kategorie, aby pomóc w znalezieniu odpowiedniej usługi. 
 
 |Kategoria usługi|Przeznaczenie|
 |--|--|
@@ -44,7 +44,7 @@ Uczenie maszynowe to koncepcja, w której można połączyć dane i algorytm, ab
 
 Proces tworzenia systemu uczenia maszynowego wymaga pewnej znajomości uczenia maszynowego lub nauki dotyczącej danych.
 
-Uczenie maszynowe jest dostępne przy użyciu [produktów i usług Azure Machine Learning (AML)](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
+Uczenie maszynowe jest dostępne przy użyciu [produktów i usług Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Co to jest usługa poznawcze?
 
@@ -91,9 +91,9 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |--|--|--|--|
 |[Narzędzie do wykrywania anomalii](./Anomaly-Detector/overview.md)|x|x|x|
 |Wyszukiwanie Bing |x|||
-|[Przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
+|[Przetwarzanie obrazów](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Rozpoznawanie twarzy](./Face/Overview.md)|x|x||
 |[Rozpoznawanie formularzy](./form-recognizer/overview.md)||x||
 |[Czytnik immersyjny](./immersive-reader/overview.md)|x|||
@@ -101,7 +101,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizacja](./personalizer/what-is-personalizer.md)|y|y|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Aparat rozpoznawania osoby mówiącej](./speaker-recognition/home.md)||x||
+|[Aparat rozpoznawania osoby mówiącej](./speech-service/speaker-recognition-overview.md)||x||
 |[Zamiana tekstu na mowę (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Zamiana mowy na mowę na tekst (monitora STT)](speech-service/speech-to-text.md)|x|x||
 |[Tłumaczenie mowy](speech-service/speech-translation.md)|x|||
@@ -127,16 +127,16 @@ Cognitive Services, które udostępniają eksportowane modele dla innych narzęd
 
 |Usługa poznawcze|Informacje o modelu|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
+|[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
-* [Przewodnik po architekturze — jakie są produkty uczenia maszynowego w firmie Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Przewodnik po architekturze — jakie są produkty uczenia maszynowego w firmie Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Uczenie maszynowe — wprowadzenie do uczenia głębokiego i uczenia maszynowego](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Utwórz konto usługi poznawczej w [Azure Portal](cognitive-services-apis-create-account.md) lub przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Utwórz konto usługi poznawczej w [Azure Portal](cognitive-services-apis-create-account.md) lub przy użyciu [interfejsu wiersza polecenia platformy Azure](./cognitive-services-apis-create-account-cli.md).
 * Dowiedz się, jak [uwierzytelniać](authentication.md) się w usłudze poznawczej.
 * [Rejestrowanie diagnostyczne](diagnostic-logging.md) służy do identyfikowania problemów i debugowania. 
 * Wdróż usługę poznawczej w [kontenerze](cognitive-services-container-support.md)platformy Docker.

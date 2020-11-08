@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090566"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367390"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurowanie środowiska hostowanego interfejsu użytkownika
 
@@ -45,7 +45,7 @@ Aby skonfigurować hostowany interfejs użytkownika dla aplikacji sieci Web, wyk
     - Tylko wyniki: wyświetla tylko wyniki wyszukiwania, bez pola wyszukiwania. W przypadku korzystania z tego układu należy podać zapytanie wyszukiwania ( `&q=<query string>` ). Dodaj parametr zapytania do adresu URL żądania w fragmencie kodu JavaScript lub linku do punktu końcowego HTML.
     - Wyskakujące okienko: zawiera pole wyszukiwania i wyświetla wyniki wyszukiwania w przesuwanej nakładce.
 
-5. Wybierz motyw kolorów. Kolory można dostosować w celu dopasowania do aplikacji przez kliknięcie przycisku **Dostosuj motyw** . Aby zmienić kolor, wprowadź wartość SZESNASTKOWą RGB koloru (na przykład `#366eb8` ) lub kliknij Podgląd koloru.
+5. Wybierz motyw kolorów. Kolory można dostosować w celu dopasowania do aplikacji przez kliknięcie przycisku **Dostosuj motyw**. Aby zmienić kolor, wprowadź wartość SZESNASTKOWą RGB koloru (na przykład `#366eb8` ) lub kliknij Podgląd koloru.
 
    Zmiany można wyświetlić w podglądzie po prawej stronie portalu. Kliknięcie przycisku **Resetuj do ustawień domyślnych** spowoduje przywrócenie domyślnych kolorów dla wybranego motywu.
 
@@ -54,7 +54,7 @@ Aby skonfigurować hostowany interfejs użytkownika dla aplikacji sieci Web, wyk
 
 6. W obszarze **dodatkowe konfiguracje** podaj wartości odpowiednie dla aplikacji. Te ustawienia są opcjonalne. Aby zobaczyć efekt zastosowania lub usunięcia tych elementów, zobacz okienko podglądu po prawej stronie. Dostępne opcje konfiguracji:  
 
-7. Wprowadź klucz subskrypcji wyszukiwania lub wybierz jeden z listy rozwijanej. Lista rozwijana zawiera klucze z subskrypcji konta platformy Azure. Zobacz [Cognitive Services konta interfejsu API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Wprowadź klucz subskrypcji wyszukiwania lub wybierz jeden z listy rozwijanej. Lista rozwijana zawiera klucze z subskrypcji konta platformy Azure. Zobacz [Cognitive Services konta interfejsu API](../cognitive-services-apis-create-account.md).  
 
 8. Jeśli włączono automatyczne sugerowanie, wprowadź klucz subskrypcji autosugeruj lub wybierz jeden z listy rozwijanej. Lista rozwijana zawiera klucze z subskrypcji konta platformy Azure. Niestandardowe automatyczne sugerowanie wymaga określonej warstwy subskrypcji, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -82,7 +82,7 @@ Aby korzystać z hostowanego interfejsu użytkownika:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > W razie potrzeby dodaj następujące parametry zapytania do adresu URL. Informacje o tych parametrach znajdują się w temacie [interfejs API wyszukiwania niestandardowego](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) Reference.
+  > W razie potrzeby dodaj następujące parametry zapytania do adresu URL. Informacje o tych parametrach znajdują się w temacie [interfejs API wyszukiwania niestandardowego](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) Reference.
   >
   > - q
   > - mkt
@@ -153,4 +153,4 @@ Następujące konfiguracje mają zastosowanie tylko wtedy, gdy korzystasz z host
 ## <a name="next-steps"></a>Następne kroki
 
 - [Wyróżnianie tekstu za pomocą znaczników dekoracji](../bing-web-search/hit-highlighting.md)
-- [Dzielenie na strony wyników wyszukiwania stron internetowych](./page-webpages.md)
+- [Dzielenie na strony wyników wyszukiwania stron internetowych](../bing-web-search/paging-search-results.md)

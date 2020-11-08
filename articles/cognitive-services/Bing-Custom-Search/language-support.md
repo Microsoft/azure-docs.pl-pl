@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 3519c9d6a62eaff036cf8f7006a0b443383f5131
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2579d24e1a1754e873c6591b6d86ec12dd0dfa60
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090498"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367322"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania niestandardowego Bing
 
@@ -26,11 +26,11 @@ ms.locfileid: "93090498"
 
 Interfejs API wyszukiwania niestandardowego Bing obsługuje więcej niż trzy dziesiątki krajów/regionów, wiele z więcej niż jednym językiem.
 
-Chociaż jest to opcjonalne, żądanie powinno określać parametr zapytania [MKT](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) , który identyfikuje rynek, z którego mają pochodzić wyniki. Aby uzyskać listę opcjonalnych parametrów zapytania, zobacz [parametry zapytania](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
+Chociaż jest to opcjonalne, żądanie powinno określać parametr zapytania [MKT](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) , który identyfikuje rynek, z którego mają pochodzić wyniki. Aby uzyskać listę opcjonalnych parametrów zapytania, zobacz [parametry zapytania](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
 Możesz określić kraj/region przy użyciu `cc` parametru zapytania. W przypadku określenia kraju/regionu należy również określić jeden lub więcej kodów języka przy użyciu `Accept-Language` nagłówka. Obsługiwane języki różnią się w zależności od kraju/regionu; są one przyznawane dla każdego kraju/regionu w tabeli **rynków** .
 
-`Accept-Language`Nagłówek i `setLang` parametr zapytania wzajemnie się wykluczają — nie należy określać obu tych wartości. Aby uzyskać szczegółowe informacje, zobacz [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
+`Accept-Language`Nagłówek i `setLang` parametr zapytania wzajemnie się wykluczają — nie należy określać obu tych wartości. Aby uzyskać szczegółowe informacje, zobacz [Accept-Language](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## <a name="countriesregions"></a>Kraje/regiony
 

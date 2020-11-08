@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ce9f7e922b9a168205ea1d193830dd654691998a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6477432636db9592d9b0d9c1f90f5eee7d6e00db
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510814"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369005"
 ---
 # <a name="what-are-parallel-documents"></a>Co to są dokumenty równoległe?
 
@@ -23,7 +23,7 @@ Nie ma znaczenia, który język jest oznaczony jako "Źródło" i który język 
 
 ## <a name="requirements"></a>Wymagania
 
-Do uczenia systemu wymagane są co najmniej 10 000 unikatowe, wyrównane do siebie zdania równoległe. To ograniczenie jest środkiem bezpieczeństwa, aby upewnić się, że zdania równoległe zawierają wystarczającą liczbę unikatowych słownictwa, aby pomyślnie szkolić model tłumaczenia. Najlepszym rozwiązaniem jest ciągłe dodawanie bardziej równoległych zawartości i ponowne uczenie w celu poprawy jakości systemu tłumaczenia. Zapoznaj się z [wyrównaniem zdania](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+Do uczenia systemu wymagane są co najmniej 10 000 unikatowe, wyrównane do siebie zdania równoległe. To ograniczenie jest środkiem bezpieczeństwa, aby upewnić się, że zdania równoległe zawierają wystarczającą liczbę unikatowych słownictwa, aby pomyślnie szkolić model tłumaczenia. Najlepszym rozwiązaniem jest ciągłe dodawanie bardziej równoległych zawartości i ponowne uczenie w celu poprawy jakości systemu tłumaczenia. Zapoznaj się z [wyrównaniem zdania](./sentence-alignment.md).
 
 Firma Microsoft wymaga, aby dokumenty przekazane do translatora niestandardowego nie naruszają praw autorskich lub własności intelektualnych osób trzecich. Aby uzyskać więcej informacji, zobacz [warunki użytkowania](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Przekazywanie dokumentu przy użyciu portalu nie zmienia własności własności intelektualnej w samym dokumencie.

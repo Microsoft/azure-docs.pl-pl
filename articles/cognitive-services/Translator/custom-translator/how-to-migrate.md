@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 64c449bdefe6fb067a7c0e26b155b58b6f00c399
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220877"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368291"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
 
@@ -27,7 +27,7 @@ Te akcje są wykonywane podczas migracji:
 * W dowolnym momencie Ocena BLEU migrowana z szkoleń centrum znajduje się na stronie TrainingDetails modelu w nagłówku "Bleu score in MT Hub".
 
 > [!Note] 
-> Aby szkolenie zakończyło się pomyślnie, translator niestandardowy wymaga co najmniej 10 000 unikatowych rozpakowanych zdań. Translator niestandardowy nie może przeprowadzić szkolenia z mniejszą ilością niż [Sugerowana wartość minimalna](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+> Aby szkolenie zakończyło się pomyślnie, translator niestandardowy wymaga co najmniej 10 000 unikatowych rozpakowanych zdań. Translator niestandardowy nie może przeprowadzić szkolenia z mniejszą ilością niż [Sugerowana wartość minimalna](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Znajdowanie identyfikatora obszaru roboczego usługi tłumaczenia niestandardowego
 
@@ -122,7 +122,7 @@ Jeśli chcesz uzyskać bardziej szczegółowy raport migracji o projektach, szko
 * Systemy z parami języka, które nie są jeszcze dostępne w usłudze translatora niestandardowego, będą dostępne tylko w celu uzyskania dostępu do danych lub ich rozmieszczenia za pomocą translatora niestandardowego. Te projekty zostaną oznaczone jako "niedostępne" na stronie projekty. Po włączeniu nowych par językowych przy użyciu translatora niestandardowego projekty staną się aktywne do uczenia i wdrożenia. 
 * Migrowanie projektu z centrum do translatora niestandardowego nie będzie miało żadnego wpływu na szkolenia lub projekty w centrum. Nie są usuwane projekty ani dokumenty z centrum podczas migracji i nie są dewdrażane modele.
 * Migracja jest dozwolona tylko raz dla każdego projektu. Jeśli musisz powtórzyć migrację projektu, skontaktuj się z nami.
-* Translator niestandardowy obsługuje pary językowe NMT do i z języka angielskiego. [Zapoznaj się z pełną listą obsługiwanych języków](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Centrum nie wymaga modeli bazowych i w związku z tym obsługuje kilka tysięcy języków. Można migrować nieobsługiwaną parę języka, ale tylko przeprowadzimy migrację dokumentów i definicji projektu. Nie będziemy mogli nauczyć się nowego modelu. Ponadto te dokumenty i projekty będą wyświetlane jako nieaktywne w celu wskazania, że nie mogą być używane w tym momencie. Jeśli dla tych projektów i/lub dokumentów zostanie dodana obsługa, staną się one aktywne i przeszkolene.
+* Translator niestandardowy obsługuje pary językowe NMT do i z języka angielskiego. [Zapoznaj się z pełną listą obsługiwanych języków](../language-support.md#customization). Centrum nie wymaga modeli bazowych i w związku z tym obsługuje kilka tysięcy języków. Można migrować nieobsługiwaną parę języka, ale tylko przeprowadzimy migrację dokumentów i definicji projektu. Nie będziemy mogli nauczyć się nowego modelu. Ponadto te dokumenty i projekty będą wyświetlane jako nieaktywne w celu wskazania, że nie mogą być używane w tym momencie. Jeśli dla tych projektów i/lub dokumentów zostanie dodana obsługa, staną się one aktywne i przeszkolene.
 * Usługa Custom Translator nie obsługuje obecnie danych szkoleniowych dotyczących wielojęzycznych. Podobnie jak w przypadku nieobsługiwanych par językowych, można migrować dokumenty w języku, ale są one wyświetlane jako nieaktywne do momentu, w którym jest obsługiwane dane.
 * W celu uczenia się niestandardowym translatorem wymagane są 10 równoległych zdań. Centrum firmy Microsoft może nauczyć się na mniejszym zestawie danych. Jeśli przeprowadzono migrację szkoleń, która nie spełnia tego wymagania, nie zostanie ona przeszkolony.
 
@@ -130,7 +130,7 @@ Jeśli chcesz uzyskać bardziej szczegółowy raport migracji o projektach, szko
 
 Ta tabela zawiera porównanie funkcji usługi Microsoft Translator Hub i translatora niestandardowego.
 
-| Cecha | Koncentrator | Custom Translator |
+| Cechy | Koncentrator | Custom Translator |
 | ------- | :-: | :---------------: |
 | Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
 | Wersja interfejsu API tekstu    | Wersja 2     | Czytanie  |
@@ -146,4 +146,4 @@ Jeśli jesteś społecznością lub organizacją, która pracuje nad tworzeniem 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](how-to-train-model.md).
-- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [translatora v3](../reference/v3-0-translate.md?tabs=curl).

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13a2d887b17ff319fb3a0f2bb0d5d0ff04629088
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051597"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369107"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST aparatu rozpoznawania atramentu i języka C #
 
@@ -99,7 +99,7 @@ Uruchom aplikację. Pomyślna odpowiedź jest zwracana w formacie JSON. Odpowied
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [Dokumentacja interfejsu API REST](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 Aby zobaczyć, jak działa interfejs API rozpoznawania pisma odręcznego w aplikacji do cyfrowego odkróla, zapoznaj się z następującymi przykładowymi aplikacjami w witrynie GitHub:

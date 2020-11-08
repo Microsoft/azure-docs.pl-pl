@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337563"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369243"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Rozwiązywanie problemów z pulami pojemności
 
@@ -34,6 +34,10 @@ W tym artykule opisano rozwiązania problemów, które mogą wystąpić podczas 
 | Tworzenie lub modyfikowanie woluminu kończy się niepowodzeniem z `Requested throughput not available` powodu błędu | Dostępna przepływność dla woluminu jest określana na podstawie rozmiaru puli pojemności i poziomu usługi. Jeśli nie masz wystarczającej przepływności, Zwiększ rozmiar puli lub Dostosuj istniejącą przepływność woluminu. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>Problemy z przesuwaniem puli pojemności 
+
+> [!IMPORTANT] 
+> [Dynamiczna zmiana poziomu usługi](dynamic-change-volume-service-level.md) rejestracji w publicznej wersji zapoznawczej jest wstrzymana do momentu dalszej uwagi.
+
 |     Błąd    |     Rozwiązanie    |
 |-|-|
 | Zmiana puli pojemności dla woluminu nie jest dozwolona. | Być może nie masz jeszcze autoryzacji do korzystania z tej funkcji. <br> Funkcja przenoszenia woluminu do innej puli pojemności jest obecnie w wersji zapoznawczej. Jeśli ta funkcja jest używana po raz pierwszy, należy najpierw zarejestrować funkcję i ustawić ją `-FeatureName ANFTierChange` . Zapoznaj się z procedurą rejestracji w celu [dynamicznego zmiany poziomu usługi woluminu](dynamic-change-volume-service-level.md). |

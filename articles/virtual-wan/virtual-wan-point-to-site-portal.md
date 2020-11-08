@@ -5,36 +5,34 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 645d5beb19b738e2269c0ec9e5b84fb140c7deb8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0671e41703ecc4b8580c8439eec5bac954b4dbe0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359519"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368835"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Samouczek: Tworzenie połączenia sieci VPN użytkownika przy użyciu wirtualnej sieci WAN platformy Azure
 
-W tym samouczku pokazano, w jaki sposób przy użyciu usługi Azure Virtual WAN utworzyć połączenie z zasobami na platformie Azure za pośrednictwem połączenia sieci VPN protokołu IPsec/IKE (IKEv2) lub OpenVPN. Ten typ połączenia wymaga skonfigurowania klienta na komputerze klienckim. Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [Omówienie wirtualnej sieci WAN](virtual-wan-about.md)
+W tym samouczku pokazano, w jaki sposób przy użyciu usługi Azure Virtual WAN utworzyć połączenie z zasobami na platformie Azure za pośrednictwem połączenia sieci VPN protokołu IPsec/IKE (IKEv2) lub OpenVPN. Ten typ połączenia wymaga, aby klient sieci VPN był skonfigurowany na komputerze klienckim. Aby uzyskać więcej informacji na temat usługi Virtual WAN, zobacz [Omówienie usługi Virtual WAN](virtual-wan-about.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie sieci WAN
+> * Tworzenie wirtualnej sieci WAN
 > * Tworzenie konfiguracji P2S
-> * Tworzenie koncentratora
+> * Tworzenie koncentratora wirtualnego
 > * Określ serwery DNS
-> * Pobieranie profilu klienta VPN
+> * Generowanie i instalowanie pakietu konfiguracyjnego profilu klienta sieci VPN
 > * Wyświetlanie wirtualnej sieci WAN
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
-
-[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="wan"></a>Tworzenie wirtualnej sieci WAN
 
@@ -44,27 +42,27 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 Konfiguracja typu punkt-lokacja (P2S) definiuje parametry połączenia klientów zdalnych.
 
-[!INCLUDE [Create client profiles](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 
-## <a name="create-hub-with-point-to-site-gateway"></a><a name="hub"></a>Tworzenie centrum z bramą punkt-lokacja
+## <a name="create-virtual-hub-and-gateway"></a><a name="hub"></a>Tworzenie koncentratora wirtualnego i bramy
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
 ## <a name="specify-dns-server"></a><a name="dns"></a>Określ serwer DNS
 
-Wirtualne bramy sieci VPN użytkownika sieci WAN umożliwiają określanie maksymalnie 5 serwerów DNS. Można to skonfigurować w trakcie procesu tworzenia centrum lub zmodyfikować go w późniejszym czasie. Aby to zrobić, zlokalizuj koncentrator wirtualny. W obszarze **Sieć VPN użytkownika (wskaż lokację)** wybierz pozycję **Konfiguruj** i wprowadź adresy IP serwera DNS w polu tekstowym **niestandardowe serwery DNS** .
+To ustawienie można skonfigurować podczas tworzenia centrum lub w późniejszym czasie. Aby zmodyfikować, zlokalizuj centrum wirtualne. W obszarze **Sieć VPN użytkownika (wskaż lokację)** wybierz pozycję **Konfiguruj** i wprowadź adresy IP serwera DNS w polu tekstowym **niestandardowe serwery DNS** . Można określić maksymalnie 5 serwerów DNS.
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="niestandardowy serwer DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
-## <a name="download-vpn-profile"></a><a name="download"></a>Pobieranie profilu sieci VPN
+## <a name="generate-and-install-client-profile-package"></a><a name="download"></a>Generowanie i instalowanie pakietu profilu klienta
 
-Użyj profilu sieci VPN, aby skonfigurować klientów.
+Wygeneruj pakiet profilu klienta sieci VPN, aby skonfigurować klientów sieci VPN.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
-### <a name="configure-user-vpn-clients"></a>Konfigurowanie klientów VPN użytkowników
+### <a name="configure-vpn-clients"></a>Konfigurowanie klientów sieci VPN
 
-Użyj pobranego profilu, aby skonfigurować klientów zdalnego dostępu. Procedura dla każdego systemu operacyjnego jest inna, postępuj zgodnie z instrukcjami dotyczącymi systemu.
+Użyj pobranego profilu, aby skonfigurować klientów sieci VPN dostępu zdalnego. Procedura dla każdego systemu operacyjnego jest inna. Postępuj zgodnie z instrukcjami odnoszącymi się do systemu.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 

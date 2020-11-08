@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41586b2ec96d30fd583cbc9a746493ed9206548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510746"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368971"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Co to jest obszar roboczy usługi tłumaczenia niestandardowego?
 
@@ -25,7 +25,7 @@ Obszar roboczy jest prywatny dla Ciebie i zapraszanych osób do obszaru roboczeg
 
 ## <a name="what-is-a-custom-translator-project"></a>Co to jest projekt translatora niestandardowego?
 
-Projekt jest otoką dla modelu, dokumentów i testów. Każdy projekt automatycznie zawiera wszystkie dokumenty, które są przekazywane do tego obszaru roboczego, który ma poprawną parę językową. Na przykład, jeśli istnieje zarówno język angielski dla projektu hiszpańskiego, jak i projekt hiszpański dla języka angielskiego, te same dokumenty zostaną uwzględnione w obu projektach. Każdy projekt ma skojarzony z nim IDKategorii, który jest używany podczas wykonywania zapytań do [interfejsu API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) w celu tłumaczenia. IDKategorii jest parametrem używanym do uzyskiwania tłumaczeń z dostosowanego systemu utworzonego za pomocą translatora niestandardowego.
+Projekt jest otoką dla modelu, dokumentów i testów. Każdy projekt automatycznie zawiera wszystkie dokumenty, które są przekazywane do tego obszaru roboczego, który ma poprawną parę językową. Na przykład, jeśli istnieje zarówno język angielski dla projektu hiszpańskiego, jak i projekt hiszpański dla języka angielskiego, te same dokumenty zostaną uwzględnione w obu projektach. Każdy projekt ma skojarzony z nim IDKategorii, który jest używany podczas wykonywania zapytań do [interfejsu API v3](../reference/v3-0-translate.md?tabs=curl) w celu tłumaczenia. IDKategorii jest parametrem używanym do uzyskiwania tłumaczeń z dostosowanego systemu utworzonego za pomocą translatora niestandardowego.
 
 ## <a name="project-categories"></a>Kategorie projektu
 

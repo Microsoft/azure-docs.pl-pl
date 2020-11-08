@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381071"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368699"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Jak skonfigurować szczegóły aukcji oferty SaaS
 
@@ -24,24 +24,26 @@ Informacje podane na stronie z **listą ofert** dla oferty oprogramowanie jako u
 
 ## <a name="marketplace-details"></a>Szczegóły witryny Marketplace
 
-Na stronie z **listą ofert** w obszarze **szczegóły witryny Marketplace**wykonaj następujące czynności. Aby dowiedzieć się więcej na temat tych wymaganych informacji, zobacz [szczegóły oferty](plan-saas-offer.md#offer-listing-details).
+Na stronie z **listą ofert** w obszarze **szczegóły witryny Marketplace** wykonaj następujące czynności. Aby dowiedzieć się więcej na temat tych wymaganych informacji, zobacz [szczegóły oferty](plan-azure-application-offer.md#offer-listing-details).
 
 1. **Nazwa** pola jest wstępnie wypełniana nazwą wprowadzoną wcześniej w oknie dialogowym **Nowa oferta** . Nazwę można zmienić w dowolnym momencie.
 1. W polu **podsumowania wyników wyszukiwania** wprowadź do 50 znaków tekstu. To podsumowanie służy do wyświetlania wyników wyszukiwania na liście w portalu Marketplace.
 1. W polu **Opis** wprowadź opis oferty. To pole tekstowe zawiera kontrolki edytora tekstu sformatowanego, których można użyć, aby dowiedzieć się więcej. Możesz również użyć tagów HTML do sformatowania opisu. W tym polu można wprowadzić do 3 000 znaków tekstu, w tym znaczniki HTML i spacje. Aby uzyskać informacje na temat formatowania HTML, zobacz [tagi HTML obsługiwane w opisach oferty komercyjnej witryny Marketplace](supported-html-tags.md).
 1. W polu **instrukcje wprowadzenia** Podaj instrukcje ułatwiające klientom nawiązywanie połączenia z ofertą SaaS. Możesz dodać do 3 000 znaków tekstu i linki do bardziej szczegółowej dokumentacji online.
-1. Obowiązkowe W polach **wyszukiwania słów kluczowych** wpisz do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty na komercyjnym rynku. Nie musisz zawierać **nazwy** oferty i **opisu**: ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
+1. Obowiązkowe W polach **wyszukiwania słów kluczowych** wpisz do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty na komercyjnym rynku. Nie musisz zawierać **nazwy** oferty i **opisu** : ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
 1. W polu **link zasad ochrony prywatności** wprowadź link (począwszy od protokołu HTTPS) do zasad zachowania poufności informacji organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz podawanie prawidłowych zasad zachowania poufności informacji.
 
-## <a name="add-links-to-supplemental-online-documentation-optional"></a>Dodaj linki do dokumentacji uzupełniającej online (opcjonalnie)
+## <a name="add-supplemental-links-optional"></a>Dodaj linki uzupełniające (opcjonalnie)
 
-1. Aby dodać opcjonalne uzupełniające dokumenty online dotyczące aplikacji lub powiązanych usług, w obszarze **przydatne linki**wybierz pozycję **Dodaj link**.
+Wykonaj te kroki, aby dodać linki do uzupełniającej dokumentacji online.
+
+1. Aby dodać opcjonalne uzupełniające dokumenty online dotyczące aplikacji lub powiązanych usług, w obszarze **przydatne linki** wybierz pozycję **Dodaj link**.
 1. W wyświetlonych polach Wprowadź tytuł (do 255 znaków) i link (począwszy od protokołu HTTPS) do dokumentu online.
 1. Aby wprowadzić kolejne łącze, powtórz kroki od 1 do 2.
 
 ## <a name="enter-your-contact-information"></a>Wprowadź informacje kontaktowe
 
-W obszarze **informacje kontaktowe**podaj informacje o następujących kontaktach:
+W obszarze **informacje kontaktowe** podaj informacje o następujących kontaktach:
 
 - **Kontakt z pomocą techniczną**  (wymagany) — w przypadku ogólnych pytań.
 - **Kontakt inżynieryjny**  (wymagany) — w przypadku pytań technicznych. Będziemy używać tych informacji, aby skontaktować się z Tobą w przypadku problemów z ofertą, w tym problemów z certyfikacją.
@@ -61,7 +63,7 @@ Dla każdej osoby kontaktowej Podaj nazwę, numer telefonu i adres e-mail (nie b
 
 Musisz dodać co najmniej jeden i maksymalnie trzy dokumenty marketingowe dla swojej oferty. Te dokumenty muszą znajdować się w. Format PDF.
 
-1. W obszarze **dokumenty pomocnicze**przeciągnij i upuść plik PDF do szarego pola.
+1. W obszarze **dokumenty pomocnicze** przeciągnij i upuść plik PDF do szarego pola.
 1. W wyświetlonym polu **Nazwa** wprowadź nazwę tego dokumentu. Klienci będą widzieli tę nazwę na karcie Szczegóły oferty.
 1. Powtórz te kroki, aby dodać dodatkowy dokument pomocniczy.
 
@@ -69,20 +71,20 @@ Musisz dodać co najmniej jeden i maksymalnie trzy dokumenty marketingowe dla sw
 
 ### <a name="add-logos"></a>Dodaj logo
 
-W obszarze **logo**Prześlij **duże** logo w formacie PNG między 216 x 216 i 350 x 350 pikseli. Centrum partnerskie automatycznie utworzy **małe** logo (48 x 48) i **średnie** (90 x 90), które można później zamienić.
+W obszarze **logo** Prześlij **duże** logo w formacie PNG między 216 x 216 i 350 x 350 pikseli. Centrum partnerskie automatycznie utworzy **małe** logo (48 x 48) i **średnie** (90 x 90), które można później zamienić.
 
 Wszystkie trzy rozmiary logo są używane w różnych miejscach w sklepach online.
 
 - **Średnie** logo pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
 - **Duże** logo pojawia się na stronie aukcji oferty w witrynie Azure Marketplace i Microsoft AppSource.
 - **Małe** logo pojawia się w wynikach wyszukiwania Azure Marketplace i na stronie głównej Microsoft AppSource i na stronach wyników wyszukiwania.
-   
+
 ### <a name="add-screenshots"></a>Dodaj zrzuty ekranu
 
 Należy dodać co najmniej jeden i maksymalnie pięć zrzutów ekranu, które demonstrują Twoją ofertę. Wszystkie obrazy muszą mieć 1280 x 720 pikseli w rozmiarze i w. Format PNG.
 
-1. W obszarze **zrzuty ekranu**przeciągnij i upuść. Plik PNG w polu **zrzut ekranu** .
-2. Obok pozycji **Dodaj podpis obrazu**kliknij ikonę Edytuj.
+1. W obszarze **zrzuty ekranu** przeciągnij i upuść. Plik PNG w polu **zrzut ekranu** .
+2. Obok pozycji **Dodaj podpis obrazu** kliknij ikonę Edytuj.
 3. W wyświetlonym oknie dialogowym wprowadź podpis.
 4. Powtórz kroki od 1 do 3, aby dodać dodatkowe zrzuty ekranu.
 

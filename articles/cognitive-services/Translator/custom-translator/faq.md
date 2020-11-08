@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 06caafe75682a2375a8023787f9905ca1e8117c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f3d8131635fae55fd8dc2fd2649ae5dda1e62ae
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507233"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368240"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Często zadawane pytania dotyczące translatora niestandardowego
 
@@ -41,7 +41,7 @@ Wdrożenie zazwyczaj trwa krócej niż godzinę.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Jak uzyskać dostęp do wdrożonego systemu?
 
-Do wdrożonych systemów można uzyskać dostęp za pośrednictwem programu Microsoft interfejs API tłumaczenia tekstu w usłudze Translator v3, określając IDKategorii. Więcej informacji na temat interfejs API tłumaczenia tekstu w usłudze Translator można znaleźć na stronie sieci Web [dokumentacji interfejsu API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+Do wdrożonych systemów można uzyskać dostęp za pośrednictwem programu Microsoft interfejs API tłumaczenia tekstu w usłudze Translator v3, określając IDKategorii. Więcej informacji na temat interfejs API tłumaczenia tekstu w usłudze Translator można znaleźć na stronie sieci Web [dokumentacji interfejsu API](../reference/v3-0-reference.md) .
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Jak mogę pominąć wyrównywanie i przerywanie zdania, jeśli moje dane są już wyrównane do zdania?
 

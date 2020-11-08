@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, usługa translator, tłumaczenie tekstu, zatransliteracja tekstu, wykrywanie języka
-ms.openlocfilehash: 8250141c2baa92478c5929a300ec7b17b8ed7131
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322517"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369532"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Szybki Start: Rozpoczynanie pracy z usługą translator
 
@@ -58,7 +58,7 @@ W tym przewodniku szybki start nauczysz się używać usługi translatora za po�
 
 # <a name="java"></a>[Java](#tab/java)
 
-* Utwórz katalog roboczy dla projektu. Przykład: `mkdir sample-project`.
+* Utwórz katalog roboczy dla projektu. Na przykład: `mkdir sample-project`.
 * Zainicjuj projekt przy użyciu Gradle: `gradle init --type basic` . Po wyświetleniu monitu wybierz pozycję **Język DSL** , a następnie **Kotlin**.
 * Aktualizacja `build.gradle.kts` . Pamiętaj, że musisz zaktualizować w `mainClassName` zależności od przykładu.
   ```java
@@ -85,14 +85,14 @@ W tym przewodniku szybki start nauczysz się używać usługi translatora za po�
 * Utwórz nowy projekt w ulubionym środowisku IDE lub edytorze.
 * Skopiuj kod z jednego z przykładów do projektu.
 * Ustaw klucz subskrypcji.
-* Uruchomisz program. Przykład: `node Translate.js`.
+* Uruchomisz program. Na przykład: `node Translate.js`.
 
 # <a name="python"></a>[Python](#tab/python)
 
 * Utwórz nowy projekt w ulubionym środowisku IDE lub edytorze.
 * Skopiuj kod z jednego z przykładów do projektu.
 * Ustaw klucz subskrypcji.
-* Uruchomisz program. Przykład: `python translate.py`.
+* Uruchomisz program. Na przykład: `python translate.py`.
 
 ---
 
@@ -105,7 +105,7 @@ Podczas wywoływania usługi translatora za pośrednictwem protokołu REST nale�
   <th>Opis</th>
   <tr>
     <td>Nagłówki uwierzytelniania</td>
-    <td><em>Wymagany nagłówek żądania</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Wymagany nagłówek żądania w przypadku korzystania z zasobu Cognitive Services. Opcjonalne w przypadku używania zasobu usługi Translator.</em><br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>.</td>
+    <td><em>Wymagany nagłówek żądania</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Wymagany nagłówek żądania w przypadku korzystania z zasobu Cognitive Services. Opcjonalne w przypadku używania zasobu usługi Translator.</em><br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Zobacz <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -123,7 +123,7 @@ Podczas wywoływania usługi translatora za pośrednictwem protokołu REST nale�
 
 ## <a name="keys-and-endpoints"></a>Keys and endpoints (Klucze i punkty końcowe)
 
-Przykłady na tej stronie używają zakodowanych kluczy i punktów końcowych dla uproszczenia. Pamiętaj, aby **usunąć klucz z kodu, gdy** skończysz, i **nigdy nie Publikuj go publicznie**. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) Cognitive Services.
+Przykłady na tej stronie używają zakodowanych kluczy i punktów końcowych dla uproszczenia. Pamiętaj, aby **usunąć klucz z kodu, gdy** skończysz, i **nigdy nie Publikuj go publicznie**. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](../cognitive-services-security.md) Cognitive Services.
 
 ## <a name="translate-text"></a>Tłumaczenie tekstu 
 
@@ -686,7 +686,7 @@ Po pomyślnym wywołaniu powinna zostać wyświetlona następująca odpowiedź:
 
 ### <a name="detect-source-language-without-translation"></a>Wykrywanie języka źródłowego bez tłumaczenia
 
-Można użyć usługi Translator do wykrywania języka tekstu źródłowego bez przeprowadzenia tłumaczenia. W tym celu należy użyć [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) punktu końcowego. 
+Można użyć usługi Translator do wykrywania języka tekstu źródłowego bez przeprowadzenia tłumaczenia. W tym celu należy użyć [`/detect`](./reference/v3-0-detect.md) punktu końcowego. 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -2675,7 +2675,7 @@ Jeśli występują problemy z połączeniem, być może certyfikat SSL wygasł. 
 * [Dowiedz się, jak interfejsy API zliczają znaki](character-counts.md)
 * [Dostosuj i Popraw tłumaczenie](customization.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja interfejsu API usługi Translator v3](reference/v3-0-reference.md)
 * [Obsługa języków](language-support.md)

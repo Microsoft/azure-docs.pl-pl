@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: a19f0a204bec1c0a43a84d93c2dc4b70ef6ecbe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a27199930587c1a096dd99462ebd0c9d65054ee
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069916"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369362"
 ---
 # <a name="personalizer-service-encryption-of-data-at-rest"></a>Szyfrowanie usługi dla danych w spoczynku
 
@@ -30,4 +30,4 @@ Usługa personalizacji automatycznie szyfruje dane po utrwaleniu jej w chmurze. 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Formularz żądania klucza Customer-Managed usługi personalizacji](https://aka.ms/cogsvc-cmk)
-* [Dowiedz się więcej o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Dowiedz się więcej o Azure Key Vault](../../key-vault/general/overview.md)

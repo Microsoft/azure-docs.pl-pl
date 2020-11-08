@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221200"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369039"
 ---
 # <a name="unsupported-language-deployments"></a>Wdrożenia w nieobsługiwanych językach
 
@@ -57,4 +57,4 @@ W przeciwieństwie do standardowych modeli translatora niestandardowego modele c
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](how-to-train-model.md).
-- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](../reference/v3-0-translate.md?tabs=curl).

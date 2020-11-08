@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220860"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369328"
 ---
 # <a name="view-system-test-results"></a>Wyświetlanie wyników testu systemu
 
@@ -102,6 +102,6 @@ Aby zaktualizować ustawienia wdrożenia:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](../reference/v3-0-translate.md?tabs=curl).
 - Dowiedz się, [jak zarządzać ustawieniami](how-to-manage-settings.md) w celu udostępniania obszaru roboczego, zarządzania kluczem subskrypcji.
 - Dowiedz się [, jak przeprowadzić migrację obszaru roboczego i projektu](how-to-migrate.md) z usługi [Microsoft Translator Hub](https://hub.microsofttranslator.com)

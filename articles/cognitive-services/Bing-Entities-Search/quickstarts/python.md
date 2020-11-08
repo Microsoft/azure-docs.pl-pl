@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 569b9b8b7141c767e8ec7e813029b73c8485dcbd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b7c19c06e663fc959389a26710c5c748a9654e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084682"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369141"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu języka Python
 
@@ -152,5 +152,5 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Czym jest interfejs API wyszukiwania jednostek Bing?](../search-the-web.md)
-* [Odwołanie interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Czym jest interfejs API wyszukiwania jednostek Bing?](../overview.md)
+* [Odwołanie interfejs API wyszukiwania jednostek Bing](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

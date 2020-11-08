@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4490142a278d5e724fade42e697d8cf2206c0da8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077344"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367339"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Co to jest interfejs API wyszukiwania niestandardowego Bing?
 
@@ -50,16 +50,15 @@ Aby szybko rozpocząć pracę, zobacz [Tworzenie pierwszego wystąpienia usługi
 
 Aby uzyskać szczegółowe informacje na temat dostosowywania wystąpienia wyszukiwania, zobacz [Define a custom search instance (Definiowanie wystąpienia wyszukiwania niestandardowego)](define-your-custom-view.md).
 
-Pamiętaj o przeczytaniu [wymagań dotyczących używania i wyświetlania usługi Bing](./use-and-display-requirements.md) w celu korzystania z wyników wyszukiwania w Twoich usługach i aplikacjach.
+Pamiętaj o przeczytaniu [wymagań dotyczących używania i wyświetlania usługi Bing](../bing-web-search/use-display-requirements.md) w celu korzystania z wyników wyszukiwania w Twoich usługach i aplikacjach.
 
-Odwiedź [stronę centrum interfejsu API wyszukiwanie Bing](../bing-web-search/search-the-web.md) , aby poznać inne dostępne interfejsy API.
+Odwiedź [stronę centrum interfejsu API wyszukiwanie Bing](../bing-web-search/overview.md) , aby poznać inne dostępne interfejsy API.
 
 Zapoznaj się z dokumentacją poszczególnych punktów końcowych wyszukiwania niestandardowego. Dokumentacja zawiera listę punktów końcowych, nagłówków i parametrów zapytań, które są stosowane w żądaniach wyników wyszukiwania. Zawiera także definicje obiektów odpowiedzi.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [Interfejs API wyszukiwania niestandardowego](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-- [Interfejs API wyszukiwania niestandardowego obrazów](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
-- [Niestandardowy interfejs API wideo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
-- [Interfejs API niestandardowego automatycznego sugerowania](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
-
+- [Interfejs API wyszukiwania niestandardowego](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [Interfejs API wyszukiwania niestandardowego obrazów](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [Niestandardowy interfejs API wideo](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [Interfejs API niestandardowego automatycznego sugerowania](/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)

@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590642"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368818"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Niestandardowe nazwy domen poddomen dla Cognitive Services
 
-Platforma Azure Cognitive Services używać niestandardowych nazw poddomen dla każdego zasobu utworzonego za pomocą [Azure Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). W przeciwieństwie do regionalnych punktów końcowych, które były wspólne dla wszystkich klientów w określonym regionie świadczenia usługi Azure, niestandardowe nazwy domen poddomen są unikatowe dla zasobu. Niestandardowe nazwy domen poddomen są wymagane do włączenia funkcji, takich jak Azure Active Directory (Azure AD) do uwierzytelniania.
+Platforma Azure Cognitive Services używać niestandardowych nazw poddomen dla każdego zasobu utworzonego za pomocą [Azure Portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). W przeciwieństwie do regionalnych punktów końcowych, które były wspólne dla wszystkich klientów w określonym regionie świadczenia usługi Azure, niestandardowe nazwy domen poddomen są unikatowe dla zasobu. Niestandardowe nazwy domen poddomen są wymagane do włączenia funkcji, takich jak Azure Active Directory (Azure AD) do uwierzytelniania.
 
 ## <a name="how-does-this-impact-existing-resources"></a>Jak ma to wpływ na istniejące zasoby?
 
@@ -68,9 +68,9 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 > [!NOTE]
 > Usługa translator i interfejsy API wyszukiwania Bing używać globalnych punktów końcowych.
 
-| Typ punktu końcowego | Region | Punkt końcowy |
+| Typ punktu końcowego | Region (Region) | Punkt końcowy |
 |---------------|--------|----------|
-| Public | Globalne (translator & Bing) | `https://api.cognitive.microsoft.com` |
+| Publiczne | Globalne (translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia Wschodnia | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brazil South | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Kanada Środkowa | `https://canadacentral.api.cognitive.microsoft.com` |
@@ -89,7 +89,7 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 | | Southeast Asia | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Południowe Zjednoczone Królestwo | `https://uksouth.api.cognitive.microsoft.com` |
 | | Zachodnio-środkowe stany USA | `https://westcentralus.api.cognitive.microsoft.com` |
-| | West Europe | `https://westeurope.api.cognitive.microsoft.com` |
+| | Europa Zachodnia | `https://westeurope.api.cognitive.microsoft.com` |
 | | Zachodnie stany USA | `https://westus.api.cognitive.microsoft.com` |
 | | Zachodnie stany USA 2 | `https://westus2.api.cognitive.microsoft.com` |
 | US Gov | US Gov Wirginia | `https://virginia.api.cognitive.microsoft.us` |
@@ -98,5 +98,5 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Co to jest Cognitive Services?](Welcome.md)
+* [Co to jest Cognitive Services?](./what-are-cognitive-services.md)
 * [Authentication](authentication.md)

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 886f04d2ea143b7c6c22aa2e746de179fcf7e7dd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c29e83f7851bc9be1688f3828373942c0e31f4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090651"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367475"
 ---
 # <a name="get-images-from-your-custom-view"></a>Pobierz obrazy z widoku niestandardowego
 
@@ -26,7 +26,7 @@ ms.locfileid: "93090651"
 
 Wyszukiwanie obrazów niestandardowych Bing umożliwia wzbogacanie funkcji wyszukiwania niestandardowego z obrazami. Podobnie jak w przypadku wyników z Internetu interfejs API wyszukiwania niestandardowego obsługuje wyszukiwanie obrazów w witrynach internetowych uwzględnionych na liście w Twoim wystąpieniu. Obrazy można pobrać przy użyciu interfejsu API wyszukiwania obrazów niestandardowych w usłudze Bing lub przy użyciu funkcji hostowanego interfejsu użytkownika. Korzystanie z funkcji hostowanego interfejsu użytkownika jest proste i zalecane w przypadku uruchamiania wyszukiwania w krótkiej kolejności.  Aby uzyskać informacje o konfigurowaniu hostowanego interfejsu użytkownika w celu dołączania obrazów, zobacz [Konfigurowanie środowiska interfejsu użytkownika hostowanego](hosted-ui.md).
 
-Jeśli chcesz mieć większą kontrolę nad wyświetlaniem wyników wyszukiwania, możesz użyć interfejsu API wyszukiwania obrazów niestandardowych w usłudze Bing. Ponieważ wywołanie interfejsu API jest podobne do wywoływania interfejs API wyszukiwania obrazów Bing, wyewidencjonowanie [Wyszukiwanie obrazów Bing](../Bing-Image-Search/overview.md) na potrzeby przykładów wywoływania interfejsu API. Jednak wcześniej zapoznaj się z zawartością [interfejsu API wyszukiwania obrazów niestandardowych](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) . Główne różnice są obsługiwanymi parametrami zapytania (należy uwzględnić parametr zapytania customConfig) i punkt końcowy, do którego wysyłane są żądania.
+Jeśli chcesz mieć większą kontrolę nad wyświetlaniem wyników wyszukiwania, możesz użyć interfejsu API wyszukiwania obrazów niestandardowych w usłudze Bing. Ponieważ wywołanie interfejsu API jest podobne do wywoływania interfejs API wyszukiwania obrazów Bing, wyewidencjonowanie [Wyszukiwanie obrazów Bing](../Bing-Image-Search/overview.md) na potrzeby przykładów wywoływania interfejsu API. Jednak wcześniej zapoznaj się z zawartością [interfejsu API wyszukiwania obrazów niestandardowych](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) . Główne różnice są obsługiwanymi parametrami zapytania (należy uwzględnić parametr zapytania customConfig) i punkt końcowy, do którego wysyłane są żądania.
 
 <!--
 ## Next steps

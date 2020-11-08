@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: lokalna, Docker, kontener, Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677431"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368852"
 ---
 # <a name="azure-cognitive-services-containers"></a>Kontenery usługi Azure Cognitive Services
 
@@ -71,11 +71,11 @@ Kontenery usługi Azure Cognitive Services oferują następujący zestaw kontene
 | [Analiza tekstu][ta-containers-keyphrase] | F0, S | **Wyodrębnianie kluczowych fraz** ( [obraz](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Wyodrębnia kluczowe frazy do identyfikowania głównych punktów. Na przykład dla tekstu wejściowego „Jedzenie było pyszne, a serwowała je doskonała obsługa” interfejs API zwraca główne tematy wypowiedzi: „jedzenie” i „doskonała obsługa”. |
 | [Analiza tekstu][ta-containers-language] | F0, S | **Wykrywanie języka** ( [obraz](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | W przypadku do 120 języków program wykrywa język, w którym wprowadzany jest tekst wejściowy, i raportuje jeden kod języka dla każdego dokumentu przesłanego w żądaniu. Kod języka jest powiązany z oceną, co wskazuje siłę oceny. |
 | [Analiza tekstu][ta-containers-sentiment] | F0, S | **Analiza tonacji v3** ( [obraz](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizuje nieprzetworzony tekst, aby uzyskać wskazówki dotyczące tonacji pozytywnej lub ujemnej. Ta wersja analizy tonacji zwraca etykiety tonacji (na przykład *dodatnie* lub *ujemne* ) dla każdego dokumentu i zdania w nim. |
-| [Analiza tekstu][ta-containers-health] | F0, S | **analiza tekstu dla kondycji** | Wyodrębnij i Oznacz informacje medyczne z niestrukturalnego tekstu klinicznego. |
+| [Analiza tekstu][ta-containers-health] | F0, S | **Analiza tekstu dla opieki zdrowotnej** | Wyodrębnij i Oznacz informacje medyczne z niestrukturalnego tekstu klinicznego. |
 | [Analiza przestrzenna][spa-containers] | S0 | **Analiza przestrzenna** | Analizuje wideo w czasie rzeczywistym, aby zrozumieć relacje przestrzenne między osobami, ich przenoszeniem i interakcją z obiektami w środowiskach fizycznych. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 Ponadto niektóre kontenery są obsługiwane w Cognitive Services wszystkich kluczy zasobów dostępnych [**w ramach jednej oferty**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) . Można utworzyć jeden Cognitive Services pojedynczym zasobem i korzystać z tego samego klucza rozliczania dla następujących usług:
@@ -132,7 +132,7 @@ Zainstaluj i Eksploruj funkcje udostępniane przez kontenery w usłudze Azure Co
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

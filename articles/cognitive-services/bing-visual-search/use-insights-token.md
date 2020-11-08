@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6f4068ece2b08937188397317844a126a9699aee
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ed2c8b4b6dae8713d3ce1c6755c559cda9a9dfb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102109"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368886"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Korzystanie z tokenu Insights w celu uzyskania szczegółowych informacji dotyczących obrazu
 
@@ -87,7 +87,7 @@ Aby zapoznać się z przykładami korzystającymi z tokenu usługi Insights, zob
 ### <a name="c-prerequisites"></a>Wymagania wstępne języka C#
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 * Dowolna wersja programu [Visual Studio 2019](https://www.visualstudio.com/downloads/) , aby uzyskać ten kod uruchomiony w systemie Windows.
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
@@ -261,8 +261,8 @@ namespace VisualSearchInsightsToken
 ### <a name="java-prerequisites"></a>Wymagania wstępne dotyczące języka Java
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
-* [JDK 7 lub 8](https://aka.ms/azure-jdks) , aby skompilować i uruchomić ten kod. Możesz użyć środowiska IDE języka Java, jeśli masz Ulubione, ale wystarczy Edytor tekstu.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* [JDK 7 lub 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) , aby skompilować i uruchomić ten kod. Możesz użyć środowiska IDE języka Java, jeśli masz Ulubione, ale wystarczy Edytor tekstu.
 
 
 ## <a name="run-the-java-application"></a>Uruchamianie aplikacji Java
@@ -377,7 +377,7 @@ public class InsightsToken {
 ### <a name="nodejs-prerequisites"></a>Wymagania wstępne Node.js
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 * Aby uruchomić ten kod, musisz mieć [Node.js 6](https://nodejs.org/en/download/) .
 
 ## <a name="run-the-javascript-application"></a>Uruchamianie aplikacji JavaScript
@@ -442,7 +442,7 @@ function requestCallback(err, res, body) {
 ### <a name="python-prerequisites"></a>Wymagania wstępne języka Python
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 * Aby uruchomić ten kod, musisz mieć język [Python 3](https://www.python.org/) .
 
 ## <a name="run-the-python-application"></a>Uruchamianie aplikacji języka Python
@@ -536,4 +536,4 @@ if __name__ == '__main__':
 [Tworzenie wyszukiwanie wizualne jednostronicowej aplikacji sieci Web](tutorial-bing-visual-search-single-page-app.md)  
 [Co to jest interfejs API wyszukiwania wizualnego Bing?](overview.md)  
 [Wypróbuj usługi Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[Obrazy — wyszukiwanie wizualne](https://aka.ms/bingvisualsearchreferencedoc)
+[Obrazy — wyszukiwanie wizualne](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)

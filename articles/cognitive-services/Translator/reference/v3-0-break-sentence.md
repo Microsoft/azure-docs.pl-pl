@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27069cf38da2567a3af3ed0fb65baead43665186
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904007"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369481"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
 
@@ -43,7 +43,7 @@ Nagłówki żądań obejmują:
 
 | Nagłówki | Opis |
 | ------- | ----------- |
-| Nagłówki uwierzytelniania <img width=200/>  | **Wymagany nagłówek żądania**.<br/>Zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>. |
+| Nagłówki uwierzytelniania <img width=200/>  | **Wymagany nagłówek żądania**.<br/>Zobacz <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>. |
 | Content-Type | **Wymagany nagłówek żądania**.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json` . |
 | Długość zawartości    | **Wymagany nagłówek żądania**.<br/>Długość treści żądania.  | 
 | X-ClientTraceId   | **Opcjonalne**.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Należy pamiętać, że ten nagłówek można pominąć, jeśli w ciągu zapytania zostanie uwzględniony identyfikator śledzenia, przy użyciu parametru zapytania o nazwie `ClientTraceId` .  | 
@@ -141,7 +141,7 @@ Oto możliwe kody stanu HTTP zwracane przez żądanie.
   </tr>
 </table> 
 
-Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie referencyjnej translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie referencyjnej translatora v3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Przykłady
 
@@ -150,4 +150,3 @@ Poniższy przykład pokazuje, jak uzyskać granice zdania dla pojedynczego zdani
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-

@@ -4,15 +4,15 @@ description: Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, j
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 147e646738df9d70355f379a9e64a52116e9f16f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233597"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368665"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell
 
@@ -153,8 +153,9 @@ W tej sekcji utworzysz prywatny punkt końcowy i połączenie za pomocą polecen
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{
@@ -271,7 +272,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 13. Zamknij połączenie z usługą **myVM**.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów 
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
 Gdy skończysz korzystać z prywatnego punktu końcowego i maszyny wirtualnej, użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) , aby usunąć grupę zasobów i wszystkie jej zasoby:
 
 ```azurepowershell-interactive

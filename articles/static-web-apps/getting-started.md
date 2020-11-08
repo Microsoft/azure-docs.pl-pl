@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: db3836e6171d187539b8615efcb5ab782c368020
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88752403"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369566"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web
 
@@ -35,7 +35,7 @@ Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** ,
 
 ## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji internetowej
 
-1. W programie Visual Studio Code na pasku Activity Bar wybierz logo platformy Azure, aby otworzyć okno rozszerzenia platformy Azure.
+1. W programie Visual Studio Code na pasku Activity Bar wybierz logo platformy Azure, aby otworzyć okno rozszerzeń platformy Azure.
 
     :::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Logo platformy Azure":::
 
@@ -44,77 +44,77 @@ Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** ,
 
 1. Umieść kursor myszy na etykiecie usługi _Static Web Apps_ i wybierz **znak plus**.
 
-    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nazwa aplikacji":::
 
 1. W górnej części edytora zostanie otwarte polecenie palate i zostanie wyświetlony komunikat z prośbą o nazwę aplikacji.
 
     Wpisz ciąg **my-first-static-web-app** i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Tworzenie statycznej aplikacji internetowej":::
 
 1. Wybierz gałąź **główną** i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nazwa gałęzi":::
 
 1. Wybierz **/** jako lokalizację kodu aplikacji, a następnie naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Lokalizacja kodu aplikacji":::
 
 1. Rozszerzenie wyszukuje lokalizację interfejsu API w aplikacji. Ten artykuł nie omawia implementowania interfejsu API.
 
     Wybierz pozycję **Pomiń teraz** i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Lokalizacja interfejsu API":::
 
-1. Wybierz lokalizację, w której będą kompilowane pliki dla aplikacji produkcyjnej.
+1. Wybierz lokalizację, w której będą kompilowane pliki do wersji produkcyjnej w aplikacji.
 
     # <a name="no-framework"></a>[Brak struktury](#tab/vanilla-javascript)
 
     Wyczyść pole i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Ścieżka plików aplikacji":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
     Wpisz **dist/kątowy — podstawowy** i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Ścieżka plików aplikacji platformy Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 
     Wpisz **build** i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Ścieżka plików aplikacji platformy React":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
     Wpisz **dist** i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Ścieżka plików aplikacji platformy Vue":::
 
     ---
 
 1. Wybierz najbliższą lokalizację i naciśnij klawisz **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Lokalizacja zasobu":::
 
 1. Po utworzeniu aplikacji w programie Visual Studio Code zostanie wyświetlone powiadomienie zawierające potwierdzenie.
 
-    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Utworzone potwierdzenie":::
 
-1. W oknie Eksploratora Visual Studio Code Wróć do sekcji _statyczne Web Apps_ i kliknij prawym przyciskiem myszy pozycję **produkcja** i wybierz polecenie **Otwórz w portalu** , aby wyświetlić aplikację w Azure Portal.
+1. W oknie Eksplorator Visual Studio Code przejdź do węzła, który ma swoją nazwę subskrypcji, i rozwiń go. Należy pamiętać, że ukończenie wdrożenia może potrwać kilka minut. Następnie wróć do sekcji statyczne Web Apps i wybierz nazwę aplikacji, a następnie kliknij prawym przyciskiem myszy pozycję My-static-Web-App, a następnie wybierz polecenie Otwórz w portalu, aby wyświetlić aplikację w Azure Portal.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Logo platformy Azure":::
+    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Otwieranie portalu":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć wystąpienie Web Apps statycznej platformy Azure za pomocą rozszerzenia.
 
 W oknie Eksploratora Visual Studio Code Wróć do sekcji _statyczne Web Apps_ i kliknij prawym przyciskiem myszy pozycję **My-static-Web-App** , a następnie wybierz polecenie **Usuń**.
 
-:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Logo platformy Azure":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Usuń aplikację":::
 
 ## <a name="next-steps"></a>Następne kroki
 

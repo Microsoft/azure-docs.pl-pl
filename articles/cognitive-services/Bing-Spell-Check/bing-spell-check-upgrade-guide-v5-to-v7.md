@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 43086c245f1d16975eae6951b1e8c2cb56fe5241
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ac581b96ba4e29837570ab8c01bf6c927eb34a28
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098335"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367526"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Podręcznik uaktualnienia interfejs API sprawdzania pisowni
 
@@ -77,4 +77,4 @@ Zablokowane|InvalidRequest. zablokowane
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wymagania dotyczące użycia i wyświetlania](./UseAndDisplayRequirements.md)
+> [Wymagania dotyczące użycia i wyświetlania](../bing-web-search/use-display-requirements.md)

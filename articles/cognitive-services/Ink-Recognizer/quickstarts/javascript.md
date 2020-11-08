@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 13e094b0f5d59e070a96ab4b45dcd37315c46c60
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ca1c18fd1ea8507c8b6a58b5f786b9686b1f3a34
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327368"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369078"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST aparatu rozpoznawania farb i języka JavaScript
 
@@ -167,7 +167,7 @@ Ta aplikacja może być uruchamiana w przeglądarce internetowej. Pomyślna odpo
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [Dokumentacja interfejsu API REST](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 Aby zobaczyć, jak działa interfejs API rozpoznawania pisma odręcznego w aplikacji do cyfrowego odkróla, zapoznaj się z następującymi przykładowymi aplikacjami w witrynie GitHub:
 * [C# i platforma uniwersalna systemu Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  

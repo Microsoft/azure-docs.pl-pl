@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9e1b666e8929309778fc7b72e034a425c841fc2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8d5352a79d2920701c96289f6162c1466f0f9f75
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095921"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367577"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Samouczek: uzyskiwanie sugestii wyszukiwania na stronie sieci Web
 
@@ -124,7 +124,7 @@ Funkcja pomocnicza getSubscriptionKeyLocalStorage najpierw podejmuje próbę uzy
     }
 ```
 
-Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate** . Jeśli parametr **invalidate** ma wartość **true** , funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API automatycznego sugerowania Bing. Jeśli parametr **invalidate** ma wartość **false** , funkcja getSubscriptionKey zwraca wartość klucza interfejsu API automatycznego sugerowania Bing.
+Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate**. Jeśli parametr **invalidate** ma wartość **true** , funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API automatycznego sugerowania Bing. Jeśli parametr **invalidate** ma wartość **false** , funkcja getSubscriptionKey zwraca wartość klucza interfejsu API automatycznego sugerowania Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -238,7 +238,7 @@ Dodaj też obsługę potencjalnych zdarzeń błędów z obiektu XMLHttpRequest.
     });
 ```
 
-Wyślij żądanie. Zamknij funkcję bingAutosuggest, tag **script** oraz tag **head** .
+Wyślij żądanie. Zamknij funkcję bingAutosuggest, tag **script** oraz tag **head**.
 
 ```html
     request.send();
@@ -272,7 +272,7 @@ Utwórz formularz HTML z polem tekstowym. Obsłuż `oninput` zdarzenie i Wywoła
 </form>
 ```
 
-Dodaj tag HTML **div** , używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div** .
+Dodaj tag HTML **div** , używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div**.
 
 ```html
 <h2>Results</h2>
@@ -358,4 +358,4 @@ Otwórz utworzoną stronę internetową w przeglądarce. Gdy zostanie wyświetlo
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wymagania dotyczące użycia i wyświetlania](../UseAndDisplayRequirements.md)
+> [Wymagania dotyczące użycia i wyświetlania](../../bing-web-search/use-display-requirements.md)

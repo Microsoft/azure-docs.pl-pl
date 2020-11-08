@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080978"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367594"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Skonfiguruj niestandardowe środowisko automatycznego sugerowania
 
@@ -41,7 +41,7 @@ Aby włączyć sugestie Bing, przełącz suwak **automatycznych sugestii Bing** 
 
 ## <a name="add-your-own-suggestions"></a>Dodawanie własnych sugestii
 
-Aby dodać własne sugestie ciągu zapytania, Dodaj je do listy w obszarze **sugestie zdefiniowane przez użytkownika** . Po dodaniu sugestii na liście naciśnij klawisz ENTER lub kliknij **+** ikonę. Możesz określić sugestię w dowolnym języku. Można dodać maksymalnie 5 000 sugestii ciągu zapytania.
+Aby dodać własne sugestie ciągu zapytania, Dodaj je do listy w obszarze **sugestie zdefiniowane przez użytkownika**. Po dodaniu sugestii na liście naciśnij klawisz ENTER lub kliknij **+** ikonę. Możesz określić sugestię w dowolnym języku. Można dodać maksymalnie 5 000 sugestii ciągu zapytania.
 
 ## <a name="upload-suggestions"></a>Przekaż sugestie
 
@@ -53,7 +53,7 @@ Aby usunąć sugestię ciągu zapytania, kliknij ikonę Usuń obok sugestii, kt�
 
 ## <a name="block-suggestions"></a>Zablokuj sugestie
 
-Jeśli dołączysz sugestie usługi Bing, możesz dodać listę ciągów zapytań wyszukiwania, które nie mają być zwracane przez usługę Bing. Aby dodać zablokowane ciągi zapytań, kliknij przycisk **Pokaż zablokowane sugestie** . Dodaj ciąg zapytania do listy, a następnie naciśnij klawisz ENTER lub kliknij **+** ikonę. Można dodać maksymalnie 50 zablokowanych ciągów zapytań.
+Jeśli dołączysz sugestie usługi Bing, możesz dodać listę ciągów zapytań wyszukiwania, które nie mają być zwracane przez usługę Bing. Aby dodać zablokowane ciągi zapytań, kliknij przycisk **Pokaż zablokowane sugestie**. Dodaj ciąg zapytania do listy, a następnie naciśnij klawisz ENTER lub kliknij **+** ikonę. Można dodać maksymalnie 50 zablokowanych ciągów zapytań.
 
 
 
@@ -65,7 +65,7 @@ Jeśli dołączysz sugestie usługi Bing, możesz dodać listę ciągów zapyta�
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Włączanie automatycznego sugerowania w hostowanym interfejsie użytkownika
 
-Aby włączyć sugestie ciągu zapytania dla hostowanego interfejsu użytkownika, kliknij pozycję **hostowany interfejs użytkownika** . Przewiń w dół do sekcji **dodatkowa konfiguracja** . W obszarze **Wyszukiwanie w sieci Web** **Wybierz pozycję włączone,** aby **włączyć automatyczne sugerowanie** . Aby włączyć automatyczne sugerowanie, należy wybrać układ, który zawiera pole wyszukiwania.
+Aby włączyć sugestie ciągu zapytania dla hostowanego interfejsu użytkownika, kliknij pozycję **hostowany interfejs użytkownika**. Przewiń w dół do sekcji **dodatkowa konfiguracja** . W obszarze **Wyszukiwanie w sieci Web** **Wybierz pozycję włączone,** aby **włączyć automatyczne sugerowanie**. Aby włączyć automatyczne sugerowanie, należy wybrać układ, który zawiera pole wyszukiwania.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Wywoływanie interfejsu API automatycznego sugerowania
@@ -93,6 +93,6 @@ Jeśli użytkownik wybierze sugerowany ciąg zapytania z listy rozwijanej, użyj
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pobieranie niestandardowych sugestii](./get-custom-suggestions.md)
+- [Pobieranie niestandardowych sugestii]()
 - [Przeszukiwanie wystąpienia niestandardowego](./search-your-custom-view.md)
 - [Konfigurowanie i korzystanie z niestandardowego interfejsu hosta hostowanego](./hosted-ui.md)

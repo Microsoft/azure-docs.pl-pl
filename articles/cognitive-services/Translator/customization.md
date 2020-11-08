@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523999"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368937"
 ---
 # <a name="customize-your-text-translations"></a>Dostosowywanie tłumaczenia tekstu
 
 Translator niestandardowy jest funkcją usługi translator, która umożliwia użytkownikom dostosowanie zaawansowanego tłumaczenia maszynowego neuronowych w usłudze Microsoft Translator podczas tłumaczenia tekstu przy użyciu translatora (tylko wersja 3).
 
-Funkcja ta może również służyć do dostosowywania tłumaczenia mowy, gdy jest używany z [Cognitive Services mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Funkcja ta może również służyć do dostosowywania tłumaczenia mowy, gdy jest używany z [Cognitive Services mowy](../speech-service/index.yml).
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -37,7 +37,7 @@ Dostosowany system jest następnie dostępny za pośrednictwem zwykłego wywoła
 
 Uwzględniając odpowiedni typ i ilość danych szkoleniowych, nie zdarza się, że występuje różnica między 5 a 10, lub jeszcze więcej punktów BLEU dotyczących jakości tłumaczenia przy użyciu translatora niestandardowego.
 
-Więcej szczegółowych informacji na temat różnych poziomów dostosowywania opartych na dostępnych danych można znaleźć w [podręczniku użytkownika usługi tłumaczenia niestandardowego](https://aka.ms/CustomTranslatorDocs).
+Więcej szczegółowych informacji na temat różnych poziomów dostosowywania opartych na dostępnych danych można znaleźć w [podręczniku użytkownika usługi tłumaczenia niestandardowego](./custom-translator/overview.md).
 
 
 ## <a name="microsoft-translator-hub"></a>Centrum usługi Microsoft Translator
@@ -47,7 +47,7 @@ Więcej szczegółowych informacji na temat różnych poziomów dostosowywania o
 
 ## <a name="custom-translator-versus-hub"></a>Translator niestandardowy a centrum
 
-| Cecha | Koncentrator | Custom Translator |
+| Cechy | Koncentrator | Custom Translator |
 | ------- | :-: | :---------------: |
 |Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
 | Wersja interfejsu API tekstu    | Tylko wersja 2    | Tylko wersja 3 |
@@ -64,4 +64,4 @@ Więcej szczegółowych informacji na temat różnych poziomów dostosowywania o
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Skonfiguruj dostosowany system językowy przy użyciu translatora niestandardowego](https://aka.ms/CustomTranslatorDocs)
+> [Skonfiguruj dostosowany system językowy przy użyciu translatora niestandardowego](./custom-translator/overview.md)

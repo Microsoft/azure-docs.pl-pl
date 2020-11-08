@@ -8,14 +8,14 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 05d3ca7cf532b739b943e2a87d5ab29ae66cabd7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548575"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368801"
 ---
-# <a name="cognitive-services-development-options"></a>Opcje deweloperskie Cognitive Services
+# <a name="cognitive-services-development-options"></a>Opcje programowania usług Cognitive Services
 
 Ten dokument zawiera ogólne omówienie opcji programowania i wdrażania, które ułatwiają rozpoczęcie pracy z usługą Azure Cognitive Services.
 
@@ -69,7 +69,7 @@ Jeśli chcesz dowiedzieć się więcej na temat danych Big Data dla Cognitive Se
 
 ### <a name="azure-functions-and-azure-service-web-jobs"></a>Azure Functions i zadania usługi Azure Service Web
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) i [Azure App Service zadania sieci Web](https://docs.microsoft.com/azure/app-service/) udostępniają usługi integracji w pierwszej kolejności, które są przeznaczone dla deweloperów i są oparte na [usłudze Azure App Services](https://docs.microsoft.com/azure/app-service/). Te produkty zapewniają infrastrukturę bezserwerową do pisania kodu. W tym kodzie można wykonywać wywołania naszych usług, korzystając z naszych bibliotek klientów i interfejsów API REST. 
+[Azure Functions](../azure-functions/index.yml) i [Azure App Service zadania sieci Web](../app-service/index.yml) udostępniają usługi integracji w pierwszej kolejności, które są przeznaczone dla deweloperów i są oparte na [usłudze Azure App Services](../app-service/index.yml). Te produkty zapewniają infrastrukturę bezserwerową do pisania kodu. W tym kodzie można wykonywać wywołania naszych usług, korzystając z naszych bibliotek klientów i interfejsów API REST. 
 
 * **Użytkownicy docelowi** : deweloperzy i analityki danych
 * **Zalety** : bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu wyzwalanego przez zdarzenia. 
@@ -78,7 +78,7 @@ Jeśli chcesz dowiedzieć się więcej na temat danych Big Data dla Cognitive Se
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps 
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) korzystać z tego samego projektanta przepływów pracy i łączników, co zapewnia automatyzację, ale oferuje bardziej zaawansowane i kontrolki, w tym integracje z programem Visual Studio i DevOps. Automatyzacja i wyłączanie ułatwia integrację z zasobami usług poznawczych za pomocą łączników specyficznych dla usługi, które zapewniają serwer proxy lub otokę obejmującą interfejsy API. Są to te same łączniki, które są dostępne w automatyzacji. 
+[Azure Logic Apps](../logic-apps/index.yml) korzystać z tego samego projektanta przepływów pracy i łączników, co zapewnia automatyzację, ale oferuje bardziej zaawansowane i kontrolki, w tym integracje z programem Visual Studio i DevOps. Automatyzacja i wyłączanie ułatwia integrację z zasobami usług poznawczych za pomocą łączników specyficznych dla usługi, które zapewniają serwer proxy lub otokę obejmującą interfejsy API. Są to te same łączniki, które są dostępne w automatyzacji. 
 
 * **Użytkownicy docelowi** : deweloperzy, Integratory, specjaliści IT, DevOps
 * **Zalety** : model programistyczny w pierwszej kolejności (deklaracyjne) zapewniający zaawansowane opcje i integrację w rozwiązaniu z niską ilością kodu
@@ -87,7 +87,7 @@ Jeśli chcesz dowiedzieć się więcej na temat danych Big Data dla Cognitive Se
 
 ### <a name="power-automate"></a>Power Automate 
 
-Automatyzacja i wyłączanie usługi jest usługą na [platformie](https://docs.microsoft.com/power-platform/) , która pomaga tworzyć zautomatyzowane przepływy pracy między aplikacjami i usługami bez pisania kodu. Oferujemy kilka łączników, które ułatwiają współpracę z zasobem Cognitive Services w rozwiązaniu do automatyzacji. Automatyzacja jest oparta na Logic Apps. 
+Automatyzacja i wyłączanie usługi jest usługą na [platformie](/power-platform/) , która pomaga tworzyć zautomatyzowane przepływy pracy między aplikacjami i usługami bez pisania kodu. Oferujemy kilka łączników, które ułatwiają współpracę z zasobem Cognitive Services w rozwiązaniu do automatyzacji. Automatyzacja jest oparta na Logic Apps. 
 
 * **Użytkownik docelowy** : użytkownicy biznesowi (analityków) i Administratorzy programu SharePoint
 * **Korzyści** : Automatyzowanie powtarzalnych zadań ręcznych po prostu przez nagrywanie kliknięć myszą, naciśnięcie klawiszy i kopiowanie kroków wklejania z pulpitu!
@@ -96,7 +96,7 @@ Automatyzacja i wyłączanie usługi jest usługą na [platformie](https://docs.
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[Konstruktor AI](https://docs.microsoft.com/ai-builder/overview) to funkcja platformy Microsoft, która pozwala zwiększyć wydajność biznesową dzięki automatyzacji procesów i przewidywania wyników. Konstruktor AI umożliwia korzystanie z możliwości systemu AI w rozwiązaniach za pomocą środowiska i kliknięcia. Wiele usług poznawczych, takich jak aparat rozpoznawania formularzy, analiza tekstu i przetwarzanie obrazów, zostały bezpośrednio zintegrowane w tym miejscu i nie musisz tworzyć własnych Cognitive Services. 
+[Konstruktor AI](/ai-builder/overview) to funkcja platformy Microsoft, która pozwala zwiększyć wydajność biznesową dzięki automatyzacji procesów i przewidywania wyników. Konstruktor AI umożliwia korzystanie z możliwości systemu AI w rozwiązaniach za pomocą środowiska i kliknięcia. Wiele usług poznawczych, takich jak aparat rozpoznawania formularzy, analiza tekstu i przetwarzanie obrazów, zostały bezpośrednio zintegrowane w tym miejscu i nie musisz tworzyć własnych Cognitive Services. 
 
 * **Użytkownik docelowy** : użytkownicy biznesowi (analityków) i Administratorzy programu SharePoint
 * **Korzyści** : rozwiązanie gotowe, które umożliwia korzystanie z możliwości systemu AI za pomocą środowiska i kliknięcia. Nie są wymagane żadne umiejętności kodowania ani analizy danych.
@@ -124,24 +124,24 @@ Narzędzia, które będą używane do uczenia i konfiguracji modeli, są inne ni
 
 | Filar | Usługa | Interfejs użytkownika dostosowywania | Szybki start |
 |--------|---------|------------------|------------|
-| Obraz | Niestandardowe przetwarzanie obrazów | https://www.customvision.ai/ | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
-| Obraz | Rozpoznawanie formularzy | Przykładowe narzędzie do etykietowania | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| Decyzja | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
-| Decyzja | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
-| Decyzja | Personalizacja | Interfejs użytkownika jest dostępny w Azure Portal w obszarze zasobu narzędzia Personalizacja. | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| Obraz | Niestandardowe przetwarzanie obrazów | https://www.customvision.ai/ | [Szybki start](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
+| Obraz | Rozpoznawanie formularzy | Przykładowe narzędzie do etykietowania | [Szybki start](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Decyzja | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Szybki start](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
+| Decyzja | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Szybki start](./metrics-advisor/quickstarts/web-portal.md) |
+| Decyzja | Personalizacja | Interfejs użytkownika jest dostępny w Azure Portal w obszarze zasobu narzędzia Personalizacja. | [Szybki start](./personalizer/quickstart-personalizer-sdk.md) |
 | Język | Language Understanding (LUIS) | https://www.luis.ai/ | |
-| Język | QnA Maker | https://www.qnamaker.ai/ | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
-| Język | Translator/translator niestandardowy | https://portal.customtranslator.azure.ai/ | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
-| Mowa | Polecenia niestandardowe | https://speech.microsoft.com/ | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
-| Mowa | Custom Speech | https://speech.microsoft.com/ | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
-| Mowa | Niestandardowy głos | https://speech.microsoft.com/ | [Szybki start](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
+| Język | QnA Maker | https://www.qnamaker.ai/ | [Szybki start](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
+| Język | Translator/translator niestandardowy | https://portal.customtranslator.azure.ai/ | [Szybki start](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| Mowa | Polecenia niestandardowe | https://speech.microsoft.com/ | [Szybki start](./speech-service/custom-commands.md) |
+| Mowa | Custom Speech | https://speech.microsoft.com/ | [Szybki start](./speech-service/how-to-custom-speech.md) |
+| Mowa | Niestandardowy głos | https://speech.microsoft.com/ | [Szybki start](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>Ciągła integracja i dostarczanie dzięki akcjom DevOps i GitHub
 
 Language Understanding i usługa mowy oferuje rozwiązania ciągłej integracji i ciągłego wdrażania, które są obsługiwane przez działania usługi Azure DevOps i GitHub. Narzędzia te służą do zautomatyzowanego szkolenia, testowania i wydania zarządzania modelami niestandardowymi. 
 
-* [Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-* [Ciągłej integracji/ciągłego dostarczania LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
+* [Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [Ciągłej integracji/ciągłego dostarczania LUIS](./luis/luis-concept-devops-automation.md)
 
 ## <a name="on-prem-containers"></a>Kontenery Premium 
 
@@ -150,4 +150,4 @@ Wiele Cognitive Services można wdrożyć w kontenerach na potrzeby dostępu pre
 ## <a name="next-steps"></a>Następne kroki
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [Utwórz zasób Cognitive Services i Rozpocznij Kompilowanie](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [Utwórz zasób Cognitive Services i Rozpocznij Kompilowanie](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

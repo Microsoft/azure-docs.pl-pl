@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7dbd9f609944fc63c186ca150d5b9921f3e86622
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0184d1765052510d42337b34094f66b2536c9ec
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090583"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367543"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Pobierz wideo z widoku niestandardowego
 
@@ -26,7 +26,7 @@ ms.locfileid: "93090583"
 
 Wyszukiwanie niestandardowych filmów wideo Bing pozwala wzbogacać niestandardowe środowisko wyszukiwania za pomocą filmów wideo. Podobnie jak w przypadku wyników z Internetu interfejs API wyszukiwania niestandardowego obsługuje wyszukiwanie wideo w witrynach internetowych uwzględnionych na liście w Twoim wystąpieniu. Filmy wideo można pobrać przy użyciu niestandardowego interfejsu API wyszukiwania wideo w usłudze Bing lub przy użyciu funkcji hostowanego interfejsu użytkownika. Korzystanie z funkcji hostowanego interfejsu użytkownika jest proste i zalecane w przypadku uruchamiania wyszukiwania w krótkiej kolejności. Aby uzyskać informacje o konfigurowaniu hostowanego interfejsu użytkownika do dołączania wideo, zobacz [Konfigurowanie środowiska interfejsu użytkownika hostowanego](hosted-ui.md).
 
-Jeśli chcesz mieć większą kontrolę nad wyświetlaniem wyników wyszukiwania, możesz użyć niestandardowego interfejsu API wyszukiwania wideo w usłudze Bing. Ponieważ wywołanie interfejsu API jest podobne do wywoływania interfejs API wyszukiwania wideo Bing, wyewidencjonowanie [Wyszukiwanie wideo Bing](../Bing-Video-Search/search-the-web.md) na potrzeby przykładów wywoływania interfejsu API. Jednak wcześniej zapoznaj się z zawartością [interfejsu API wyszukiwania niestandardowych filmów wideo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) . Główne różnice są obsługiwanymi parametrami zapytania (należy uwzględnić parametr zapytania customConfig) i punkt końcowy, do którego wysyłane są żądania.
+Jeśli chcesz mieć większą kontrolę nad wyświetlaniem wyników wyszukiwania, możesz użyć niestandardowego interfejsu API wyszukiwania wideo w usłudze Bing. Ponieważ wywołanie interfejsu API jest podobne do wywoływania interfejs API wyszukiwania wideo Bing, wyewidencjonowanie [Wyszukiwanie wideo Bing](../bing-video-search/overview.md) na potrzeby przykładów wywoływania interfejsu API. Jednak wcześniej zapoznaj się z zawartością [interfejsu API wyszukiwania niestandardowych filmów wideo](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) . Główne różnice są obsługiwanymi parametrami zapytania (należy uwzględnić parametr zapytania customConfig) i punkt końcowy, do którego wysyłane są żądania.
 
 <!--
 ## Next steps

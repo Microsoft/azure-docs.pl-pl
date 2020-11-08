@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152282"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368784"
 ---
 # <a name="azure-cognitive-services-security"></a>Zabezpieczenia usługi Azure Cognitive Services
 
@@ -60,7 +60,7 @@ Utwórz i przypisz utrwaloną zmienną środowiskową, uwzględniając wartość
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-W nowym wystąpieniu **wiersza polecenia**Przeczytaj zmienną środowiskową.
+W nowym wystąpieniu **wiersza polecenia** Przeczytaj zmienną środowiskową.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ Utwórz i przypisz utrwaloną zmienną środowiskową, uwzględniając wartość
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-W nowym wystąpieniu środowiska **Windows PowerShell**Przeczytaj zmienną środowiskową.
+W nowym wystąpieniu środowiska **Windows PowerShell** Przeczytaj zmienną środowiskową.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ Utwórz i przypisz utrwaloną zmienną środowiskową, uwzględniając wartość
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-W nowym wystąpieniu **bash**, przeczytaj zmienną środowiskową.
+W nowym wystąpieniu **bash** , przeczytaj zmienną środowiskową.
 
 ```Bash
 # Prints the env var value
@@ -183,7 +183,7 @@ import os
 value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objective-c)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objective-c)
 
 Aby uzyskać więcej informacji, zobacz <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -211,7 +211,7 @@ W przypadku następujących usług inżynierowie firmy Microsoft nie będą mie�
 * Personalizacja
 
 > [!IMPORTANT]
-> W przypadku **aparatu rozpoznawania formularzy**inżynierowie firmy Microsoft nie będą mieć dostępu do żadnych danych klienta w zasobach utworzonych po 10 lipca 2020.
+> W przypadku **aparatu rozpoznawania formularzy** inżynierowie firmy Microsoft nie będą mieć dostępu do żadnych danych klienta w zasobach utworzonych po 10 lipca 2020.
 
 Aby zażądać możliwości korzystania z jednostki SKU E0, Wypełnij i Prześlij ten [formularz żądania](https://aka.ms/cogsvc-cmk). Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z jednostki SKU E0 z LUIS należy utworzyć nowy zasób na podstawie Azure Portal i wybrać E0 jako warstwę cenową. Użytkownicy nie będą mogli przeprowadzić uaktualnienia z F0 do nowej jednostki SKU E0.
 
@@ -222,5 +222,5 @@ Usługa mowy nie obsługuje obecnie Skrytka klienta. Dane klienta mogą jednak b
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj różne [Cognitive Services](welcome.md)
+* Poznaj różne [Cognitive Services](./what-are-cognitive-services.md)
 * Dowiedz się więcej na temat [Cognitive Services sieci wirtualnych](cognitive-services-virtual-networks.md)

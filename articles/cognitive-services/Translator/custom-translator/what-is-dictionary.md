@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f4c3d23f6abbdc20d210e5ddda6c527d27654bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ff76e090e628a880290bb0e9f90026260de0c7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510763"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368988"
 ---
 # <a name="what-is-a-dictionary"></a>Co to jest słownik?
 
 Słownik jest wyrównanym parę dokumentów, które określają listę fraz lub zdań i odpowiadające im tłumaczenia. Użyj słownika w ramach szkolenia, jeśli chcesz, aby program Microsoft Translator zawsze przetłumaczy wszystkie wystąpienia frazy źródłowej lub zdania przy użyciu tłumaczenia podanego w słowniku. Słowniki są czasami nazywane glossariesami lub terminami. Słownik można traktować jako "Kopiuj i Zamień" dla wszystkich wystawianych terminów. Ponadto usługa translatora niestandardowego firmy Microsoft kompiluje i korzysta z własnych słowników ogólnego przeznaczenia, aby zwiększyć jakość tłumaczenia. Niemniej jednak słownik dostarczony przez klienta jest poprzedni i będzie przeszukiwany w pierwszej kolejności w poszukiwaniu słów lub zdań.
 
-Słowniki działają tylko w przypadku projektów w parach języka, które mają w pełni obsługiwany model sieci Microsoft General neuronowych Network. [Zapoznaj się z pełną listą języków](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Słowniki działają tylko w przypadku projektów w parach języka, które mają w pełni obsługiwany model sieci Microsoft General neuronowych Network. [Zapoznaj się z pełną listą języków](../language-support.md#customization).
 
 ## <a name="phrase-dictionary"></a>Słownik fraz
 W słowniku fraz jest rozróżniana wielkość liter. Jest to dokładna operacja znajdowania i zamieniania. Po dołączeniu słownika wyrazów w ramach szkolenia modelu wszystkie wymienione wyrazy lub frazy są tłumaczone w określony sposób. Pozostałe zdanie jest tłumaczone w zwykły sposób. Możesz użyć słownika frazy, aby określić frazy, które nie powinny być tłumaczone przez podanie tej samej nieprzetłumaczonej frazy w pliku źródłowym i docelowym w słowniku.

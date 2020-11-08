@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: cdb4a174ee5d33270b89e34ce9b80d997486978a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bbb1009fb45f1f1040dbab1c7be7edb6603c2a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101803"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367628"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Szybki Start: Sugeruj zapytania wyszukiwania za pomocą interfejsu API REST automatyczne sugerowanie Bing i języka Ruby
 
@@ -43,7 +43,7 @@ Postępuj zgodnie z tym przewodnikiem Szybki Start, aby dowiedzieć się, jak wy
     require 'json'
     ```
 
-2. Utwórz zmienne dla hosta i ścieżki interfejsu API, [kodu rynku](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)i częściowego zapytania wyszukiwania. Użyj globalnego punktu końcowego w poniższym kodzie lub Użyj niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz zmienne dla hosta i ścieżki interfejsu API, [kodu rynku](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)i częściowego zapytania wyszukiwania. Użyj globalnego punktu końcowego w poniższym kodzie lub Użyj niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -159,4 +159,4 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 ## <a name="see-also"></a>Zobacz też
 
 - [Czym jest funkcja automatycznego sugerowania Bing?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference (Dokumentacja dotycząca automatycznego sugerowania Bing w wersji 7)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference (Dokumentacja dotycząca automatycznego sugerowania Bing w wersji 7)](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

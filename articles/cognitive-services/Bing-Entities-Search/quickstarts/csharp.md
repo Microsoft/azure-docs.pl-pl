@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b0cac94ac3a0c8dff24cf154e4dd7ab7ddf4dd9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084854"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368427"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu języka C #
 
@@ -43,8 +43,8 @@ Mimo że aplikacja jest zapisywana w języku C#, interfejs API jest usługą sie
 
 1. Utwórz nowe rozwiązanie konsolowe dla języka C# w programie Visual Studio. 
 1. Dodaj [Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/) do pakietu NuGet.
-    1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** .
-    2. Wybierz pozycję **Zarządzaj pakietami NuGet** .
+    1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**.
+    2. Wybierz pozycję **Zarządzaj pakietami NuGet**.
     3. Wyszukaj i wybierz pozycję *Newtonsoft.Json* , a następnie zainstaluj pakiet.
 1. Następnie Dodaj następujące przestrzenie nazw do głównego pliku kodu:
     
@@ -185,4 +185,4 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Czym jest interfejs API wyszukiwania jednostek Bing?](../overview.md )
-* [Odwołanie interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Odwołanie interfejs API wyszukiwania jednostek Bing](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

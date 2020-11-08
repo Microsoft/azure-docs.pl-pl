@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757031"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368342"
 ---
 # <a name="how-to-manage-settings"></a>Jak zarządzać ustawieniami
 
@@ -33,7 +33,7 @@ Aby uczenie lub wdrożenie modeli było możliwe, musisz dysponować kluczem sub
 
 Jeśli nie masz subskrypcji, wykonaj następujące czynności:
 
-1. Subskrybuj, aby utworzyć zasób usługi Translator. Postępuj zgodnie z instrukcjami, [Aby zarejestrować się w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) , aby subskrybować i uzyskać klucz usługi Translator.
+1. Subskrybuj, aby utworzyć zasób usługi Translator. Postępuj zgodnie z instrukcjami, [Aby zarejestrować się w usłudze translator](../translator-how-to-signup.md) , aby subskrybować i uzyskać klucz usługi Translator.
 2. Zanotuj klucz subskrypcji usługi Translator. Klucz1 lub klucz2 są akceptowalne.
 3. Wróć do portalu usługi Custom translator.
 
@@ -52,7 +52,7 @@ Jeśli nie masz subskrypcji, wykonaj następujące czynności:
     ![Okno dialogowe Tworzenie nowego obszaru roboczego](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->Usługa translatora niestandardowego nie obsługuje tworzenia obszaru roboczego dla zasobu interfejs API tłumaczenia tekstu w usłudze Translator (vel Klucz subskrypcji platformy Azure), który został utworzony w ramach [włączonej sieci wirtualnej](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Usługa translatora niestandardowego nie obsługuje tworzenia obszaru roboczego dla zasobu interfejs API tłumaczenia tekstu w usłudze Translator (vel Klucz subskrypcji platformy Azure), który został utworzony w ramach [włączonej sieci wirtualnej](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Modyfikuj istniejący klucz
 

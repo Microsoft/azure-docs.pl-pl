@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090821"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367560"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Skonfiguruj środowisko wyszukiwanie niestandardowe Bing
 
@@ -79,16 +79,16 @@ Po dodaniu wycinków internetowych do **aktywnej** listy Portal wyszukiwanie nie
 
 ## <a name="search-for-images-and-videos"></a>Wyszukaj obrazy i filmy wideo
 
-Obrazy i filmy wideo można wyszukiwać podobnie jak w przypadku zawartości sieci Web przy użyciu [niestandardowego interfejsu api wyszukiwanie obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) lub [interfejsu API niestandardowego wyszukiwanie wideo Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Możesz wyświetlić te wyniki przy użyciu [hostowanego interfejsu użytkownika](hosted-ui.md)lub interfejsów API. 
+Obrazy i filmy wideo można wyszukiwać podobnie jak w przypadku zawartości sieci Web przy użyciu [niestandardowego interfejsu api wyszukiwanie obrazów Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) lub [interfejsu API niestandardowego wyszukiwanie wideo Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Możesz wyświetlić te wyniki przy użyciu [hostowanego interfejsu użytkownika](hosted-ui.md)lub interfejsów API. 
 
-Te interfejsy API są podobne do nieniestandardowych [Wyszukiwanie obrazów Bing](../Bing-Image-Search/overview.md) i [Wyszukiwanie wideo Bing](../Bing-Video-Search/search-the-web.md) interfejsów API, ale przeszukiwane są całe sieci Web i nie wymagają `customConfig` parametru zapytania. Więcej informacji na temat pracy z obrazami i filmami można znaleźć w tych zestawach dokumentacji. 
+Te interfejsy API są podobne do nieniestandardowych [Wyszukiwanie obrazów Bing](../Bing-Image-Search/overview.md) i [Wyszukiwanie wideo Bing](../bing-video-search/overview.md) interfejsów API, ale przeszukiwane są całe sieci Web i nie wymagają `customConfig` parametru zapytania. Więcej informacji na temat pracy z obrazami i filmami można znaleźć w tych zestawach dokumentacji. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Testowanie wystąpienia wyszukiwania za pomocą okienka podglądu
 
 Możesz przetestować wystąpienie wyszukiwania, korzystając z okienka podglądu po prawej stronie portalu, aby przesłać zapytania wyszukiwania i wyświetlić wyniki. 
 
-1. Poniżej pola wyszukiwania wybierz pozycję **moje wystąpienie** . Wyniki wyszukiwania można porównać z usługą Bing, wybierając pozycję **Bing** . 
-2. Wybierz filtr wyszukiwania bezpiecznego i szukany rynek (zobacz [parametry zapytania](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
+1. Poniżej pola wyszukiwania wybierz pozycję **moje wystąpienie**. Wyniki wyszukiwania można porównać z usługą Bing, wybierając pozycję **Bing**. 
+2. Wybierz filtr wyszukiwania bezpiecznego i szukany rynek (zobacz [parametry zapytania](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Wprowadź zapytanie i naciśnij klawisz ENTER lub kliknij ikonę wyszukiwania, aby wyświetlić wyniki z bieżącej konfiguracji. Typ wyszukiwania można zmienić, klikając pozycję **Sieć Web** , **obraz** lub **wideo** , aby uzyskać odpowiednie wyniki. 
 
 <a name="adjustrank"></a>
@@ -125,7 +125,7 @@ Stronę sieci Web można przypiąć do góry na dwa sposoby:
 
 * Na **przypiętej** karcie wprowadź adres URL strony sieci Web, aby przypiąć do góry i odpowiadającą jej kwerendą.
 
-* W okienku **podglądu** wprowadź zapytanie wyszukiwania, a następnie kliknij przycisk Wyszukaj. Znajdź stronę sieci Web, którą chcesz przypiąć dla zapytania, a następnie kliknij pozycję **Przypnij do góry** . Strona sieci Web i zapytanie zostaną dodane do listy **przypiętych** .
+* W okienku **podglądu** wprowadź zapytanie wyszukiwania, a następnie kliknij przycisk Wyszukaj. Znajdź stronę sieci Web, którą chcesz przypiąć dla zapytania, a następnie kliknij pozycję **Przypnij do góry**. Strona sieci Web i zapytanie zostaną dodane do listy **przypiętych** .
 
 ### <a name="specify-the-pins-match-condition"></a>Określ warunek dopasowania numeru PIN
 
@@ -165,4 +165,4 @@ Jeśli zasubskrybujesz wyszukiwanie niestandardowe na odpowiednim poziomie (zoba
 - [Wywoływanie wyszukiwania niestandardowego](./search-your-custom-view.md)
 - [Konfigurowanie środowiska hostowanego interfejsu użytkownika](./hosted-ui.md)
 - [Wyróżnianie tekstu za pomocą znaczników dekoracji](../bing-web-search/hit-highlighting.md)
-- [Dzielenie na strony wyników wyszukiwania stron internetowych](./page-webpages.md)
+- [Dzielenie na strony wyników wyszukiwania stron internetowych](../bing-web-search/paging-search-results.md)

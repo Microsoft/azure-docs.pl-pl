@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 11/06/2020
+ms.openlocfilehash: 7532366d533aa957525235511a1f29649d6f8828
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360041"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369214"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -137,13 +137,57 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 
 | Nazwa | Limit | Uwagi |
 | ---- | ----- | ----- |
-| Akcja: wykonania na 5 minut | 100 000 jest limitem domyślnym, ale 300 000 jest maksymalnym limitem. | Aby zmienić domyślny limit, zobacz [Uruchamianie aplikacji logiki w trybie "Wysoka przepływność"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), która jest w wersji zapoznawczej. Można też rozłożyć obciążenie na więcej niż jedną aplikację logiki w razie potrzeby. |
+| Akcja: wykonania na 5 minut | 100 000 jest limitem domyślnym, ale 300 000 jest maksymalnym limitem. | Aby podnieść domyślny limit dla aplikacji logiki, zobacz [przebieg w trybie wysokiej przepływności](#run-high-throughput-mode), który jest w wersji zapoznawczej. Można też [rozłożyć obciążenie na więcej niż jedną aplikację logiki](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) w razie potrzeby. |
 | Akcja: współbieżne wywołania wychodzące | ~2500 | Możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania w razie potrzeby. |
 | Punkt końcowy środowiska uruchomieniowego: współbieżne wywołania przychodzące | ~ 1 000 | Możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania w razie potrzeby. |
 | Punkt końcowy środowiska uruchomieniowego: wywołania odczytu na 5 minut  | 60 000 | Ten limit dotyczy wywołań, które pobierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby można rozłożyć obciążenie na więcej niż jedną aplikację. |
 | Punkt końcowy środowiska uruchomieniowego: wywołania wywołań na 5 minut | 45 000 | W razie potrzeby można dystrybuować obciążenia w więcej niż jednej aplikacji. |
 | Przepływność zawartości na 5 minut | 600 MB | W razie potrzeby można dystrybuować obciążenia w więcej niż jednej aplikacji. |
 ||||
+
+<a name="run-high-throughput-mode"></a>
+
+#### <a name="run-in-high-throughput-mode"></a>Uruchom w trybie wysokiej przepływności
+
+W przypadku pojedynczej definicji aplikacji logiki liczba akcji wykonywanych co 5 minut ma [domyślny limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aby podnieść domyślny limit do wartości maksymalnej dla aplikacji logiki, można włączyć tryb wysokiej przepustowości, który jest w wersji zapoznawczej. Można też [rozłożyć obciążenie na więcej niż jedną aplikację logiki](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) w razie potrzeby.
+
+1. W Azure Portal w menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia przepływu pracy**.
+
+1. W obszarze **Opcje środowiska uruchomieniowego**  >  **o wysokiej przepływności** Zmień ustawienie na **włączone**.
+
+   ![Zrzut ekranu pokazujący menu aplikacji logiki w Azure Portal z opcją "Ustawienia przepływu pracy" i "Wysoka przepływność" ustawione na "włączone".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+
+Aby włączyć to ustawienie w szablonie ARM na potrzeby wdrażania aplikacji logiki, w `properties` obiekcie definicji zasobu aplikacji logiki Dodaj `runtimeConfiguration` obiekt z `operationOptions` właściwością ustawioną na `OptimizedForHighThroughput` :
+
+```json
+{
+   <template-properties>
+   "resources": [
+      // Start logic app resource definition
+      {
+         "properties": {
+            <logic-app-resource-definition-properties>,
+            <logic-app-workflow-definition>,
+            <more-logic-app-resource-definition-properties>,
+            "runtimeConfiguration": {
+               "operationOptions": "OptimizedForHighThroughput"
+            }
+         },
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {},
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+         ]
+      }
+      // End logic app resource definition
+   ],
+   "outputs": {}
+}
+```
+
+Aby uzyskać więcej informacji na temat definicji zasobu aplikacji logiki, zobacz [Omówienie: Automatyzowanie wdrażania dla Azure Logic Apps przy użyciu szablonów Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition).
 
 ### <a name="integration-service-environment-ise"></a>Środowisko usługi integracji (ISE)
 

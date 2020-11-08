@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843145"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369379"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych usług Azure Cognitive Services
 
@@ -75,7 +75,7 @@ Domyślnie zasoby Cognitive Services akceptują połączenia od klientów w dowo
 
 Można zarządzać domyślnymi regułami dostępu do sieci dla zasobów Cognitive Services za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. Przejdź do zasobu Cognitive Services, który chcesz zabezpieczyć.
 
@@ -154,7 +154,7 @@ Można zarządzać domyślnymi regułami dostępu do sieci dla zasobów Cognitiv
         --default-action Allow
     ```
 
-***
+**_
 
 ## <a name="grant-access-from-a-virtual-network"></a>Udzielanie dostępu z sieci wirtualnej
 
@@ -166,7 +166,7 @@ Każdy zasób Cognitive Services obsługuje do 100 reguł sieci wirtualnej, któ
 
 ### <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby zastosować regułę sieci wirtualnej do zasobu Cognitive Services, użytkownik musi mieć odpowiednie uprawnienia do dodawanych podsieci. Wymagane uprawnienie jest domyślną rolą *współautor* lub *Cognitive Services rolą współautor* . Wymagane uprawnienia można także dodać do niestandardowych definicji ról.
+Aby zastosować regułę sieci wirtualnej do zasobu Cognitive Services, użytkownik musi mieć odpowiednie uprawnienia do dodawanych podsieci. Wymagane uprawnienie jest domyślną rolą _Contributor * lub *Cognitive Services rolą współautor* . Wymagane uprawnienia można także dodać do niestandardowych definicji ról.
 
 Zasób Cognitive Services i sieci wirtualne z udzielonym dostępem mogą znajdować się w różnych subskrypcjach, w tym w przypadku subskrypcji należących do innej dzierżawy usługi Azure AD.
 
@@ -177,7 +177,7 @@ Zasób Cognitive Services i sieci wirtualne z udzielonym dostępem mogą znajdow
 
 Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. Przejdź do zasobu Cognitive Services, który chcesz zabezpieczyć.
 
@@ -185,7 +185,7 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
 
 1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do sieci wirtualnej przy użyciu istniejącej reguły sieci, w obszarze **sieci wirtualne**wybierz pozycję **Dodaj istniejącą sieć wirtualną**.
+1. Aby udzielić dostępu do sieci wirtualnej przy użyciu istniejącej reguły sieci, w obszarze **sieci wirtualne** wybierz pozycję **Dodaj istniejącą sieć wirtualną**.
 
    ![Dodaj istniejącą sieć wirtualną](media/vnet/virtual-network-add-existing.png)
 
@@ -322,10 +322,10 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
         --subnet $subnetid
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
+> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) _ * Odmów * * lub reguły sieciowe nie mają żadnego efektu.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Udzielanie dostępu z zakresu internetowych adresów IP
 
@@ -353,7 +353,7 @@ Jeśli używasz [ExpressRoute](../expressroute/expressroute-introduction.md) lok
 
 Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 1. Przejdź do zasobu Cognitive Services, który chcesz zabezpieczyć.
 
@@ -361,7 +361,7 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
 
 1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w [formacie CIDR](https://tools.ietf.org/html/rfc4632)) w obszarze **Firewall**  >  **zakres adresów**zapory. Akceptowane są tylko prawidłowe publiczne adresy IP (niezarezerwowane).
+1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w [formacie CIDR](https://tools.ietf.org/html/rfc4632)) w obszarze **Firewall**  >  **zakres adresów** zapory. Akceptowane są tylko prawidłowe publiczne adresy IP (niezarezerwowane).
 
    ![Dodaj zakres adresów IP](media/vnet/virtual-network-add-ip-range.png)
 
@@ -472,10 +472,10 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
         --ip-address "16.17.18.0/24"
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) na **odrzucanie**, lub reguły sieciowe nie mają żadnego efektu.
+> Pamiętaj, aby [ustawić regułę domyślną](#change-the-default-network-access-rule) _ * Odmów * * lub reguły sieciowe nie mają żadnego efektu.
 
 ## <a name="use-private-endpoints"></a>Używanie prywatnych punktów końcowych
 
@@ -497,7 +497,7 @@ Prywatne punkty końcowe można utworzyć w podsieciach, które korzystają z [p
 
 Gdy utworzysz prywatny punkt końcowy dla zasobu Cognitive Services w sieci wirtualnej, żądanie zgody jest wysyłane do zatwierdzenia dla Cognitive Services właściciela zasobu. Jeśli użytkownik żądający utworzenia prywatnego punktu końcowego jest również właścicielem zasobu, to żądanie zgody jest automatycznie zatwierdzane.
 
-Właściciele zasobów Cognitive Services mogą zarządzać żądaniami zgody i prywatnymi punktami końcowymi za pomocą karty "*prywatne punkty końcowe*" dla zasobu Cognitive Services w [Azure Portal](https://portal.azure.com).
+Właściciele zasobów Cognitive Services mogą zarządzać żądaniami zgody i prywatnymi punktami końcowymi za pomocą karty " *prywatne punkty końcowe* " dla zasobu Cognitive Services w [Azure Portal](https://portal.azure.com).
 
 ### <a name="private-endpoints"></a>Prywatne punkty końcowe
 
@@ -519,7 +519,7 @@ W przypadku korzystania z prywatnych punktów końcowych z usługą mowy należy
 
 ### <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
 
-Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla zasobu Cognitive Services zostanie zaktualizowany do aliasu w poddomenie z prefiksem "*privatelink*". Domyślnie tworzymy również [prywatną strefę DNS](../dns/private-dns-overview.md), odpowiadającą poddomeną "*privatelink*", z rekordem zasobów DNS dla prywatnych punktów końcowych.
+Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla zasobu Cognitive Services zostanie zaktualizowany do aliasu w poddomenie z prefiksem " *privatelink* ". Domyślnie tworzymy również [prywatną strefę DNS](../dns/private-dns-overview.md), odpowiadającą poddomeną " *privatelink* ", z rekordem zasobów DNS dla prywatnych punktów końcowych.
 
 W przypadku rozpoznania adresu URL punktu końcowego spoza sieci wirtualnej przy użyciu prywatnego punktu końcowego jest on rozpoznawany jako publiczny punkt końcowy zasobu Cognitive Services. Po rozwiązaniu problemu z siecią wirtualną, w której jest przechowywany prywatny punkt końcowy, adres URL punktu końcowego jest rozpoznawany jako adres IP prywatnego punktu końcowego.
 
@@ -532,8 +532,8 @@ Jeśli używasz niestandardowego serwera DNS w sieci, klienci muszą być w stan
 
 Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do obsługi prywatnych punktów końcowych, zapoznaj się z następującymi artykułami:
 
-* [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [Konfiguracja DNS dla prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [Konfiguracja DNS dla prywatnych punktów końcowych](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### <a name="pricing"></a>Cennik
 
@@ -541,5 +541,5 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj różne [Cognitive Services platformy Azure](welcome.md)
+* Poznaj różne [Cognitive Services platformy Azure](./what-are-cognitive-services.md)
 * Dowiedz się więcej o [punktach końcowych usługi Azure Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md)

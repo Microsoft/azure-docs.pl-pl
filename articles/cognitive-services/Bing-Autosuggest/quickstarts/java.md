@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: c8eca53f118fe0b2012ff0b687a939842ebc8576
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 70576017c0ab304c83f70b6c48b12836f2f537b2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101871"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367866"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Szybki Start: Sugeruj zapytania wyszukiwania za pomocą interfejsu API REST automatyczne sugerowanie Bing i środowiska Java
 
@@ -49,7 +49,7 @@ Postępuj zgodnie z tym przewodnikiem Szybki Start, aby dowiedzieć się, jak wy
     import com.google.gson.JsonParser;
     ```
 
-2. Utwórz zmienne dla klucza subskrypcji, hosta interfejsu API i ścieżki, [kodu rynku](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)oraz zapytania wyszukiwania. Użyj poniższego globalnego punktu końcowego lub Użyj niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz zmienne dla klucza subskrypcji, hosta interfejsu API i ścieżki, [kodu rynku](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)oraz zapytania wyszukiwania. Użyj poniższego globalnego punktu końcowego lub Użyj niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -212,4 +212,4 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorials/autosuggest.md)
 
 - [Czym jest funkcja automatycznego sugerowania Bing?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference (Dokumentacja dotycząca automatycznego sugerowania Bing w wersji 7)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference (Dokumentacja dotycząca automatycznego sugerowania Bing w wersji 7)](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
