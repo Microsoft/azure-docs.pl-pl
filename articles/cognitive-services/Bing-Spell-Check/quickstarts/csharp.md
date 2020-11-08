@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 060b648a0d1ee963b44c25e45a7de2888f662335
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3229091a0effda7837b8e58fe8764910e3b6636d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084140"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366999"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzanie pisowni Bing i C #
 
@@ -37,7 +37,7 @@ Mimo że aplikacja jest zapisywana w języku C#, interfejs API jest usługą sie
    Aby zainstalować ten pakiet w programie Visual Studio:
 
      1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy plik rozwiązania.
-     1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania** .
+     1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
      1. Wyszukaj *Newtonsoft.Js* i zainstaluj pakiet.
 
 * Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację za pomocą narzędzia [mono](https://www.mono-project.com/).
@@ -205,4 +205,4 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorials/spellcheck.md)
 
 - [Czym jest interfejs API sprawdzania pisowni Bing?](../overview.md)
-- [Dokumentacja wersji 7 interfejsu API sprawdzanie pisowni Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Dokumentacja wersji 7 interfejsu API sprawdzanie pisowni Bing](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357185"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366642"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limity na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -78,7 +78,7 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 - Zone-Redundant HA nie jest obecnie obsługiwana w przypadku serwerów z możliwością naszeregowania.
 - Adres IP serwera bazy danych zmienia się, gdy serwer przejdzie w tryb failover w trybie rezerwy HA. Upewnij się, że używasz rekordu DNS zamiast adresu IP serwera.
 - W przypadku skonfigurowania replikacji logicznej przy użyciu elastycznego serwera z konfiguracją HA w przypadku przejścia w tryb failover do serwera rezerwowego gniazda replikacji logicznej nie są kopiowane do serwera rezerwowego. 
-- Dodatkowe ograniczenia dotyczące HA można znaleźć na stronie z [dokumentacją dotyczącą pojęć](concepts-high-availability.md) .
+- Aby uzyskać więcej informacji na temat strefowo nadmiarowej wysokiej dostępności, w tym ograniczeń, zapoznaj się ze stroną [dokumentacji dotyczącej wysokiej dostępności](concepts-high-availability.md) .
 
 ### <a name="availability-zones"></a>Strefy dostępności
 

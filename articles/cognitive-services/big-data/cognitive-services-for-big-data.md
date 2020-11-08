@@ -8,59 +8,59 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 1b08925db12edffdaf5c85f1fa6f5934a412d81f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776633"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363310"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Cognitive Services platformy Azure dla danych Big Data
 
 ![Cognitive Services platformy Azure dla danych Big Data](media/cognitive-services-big-data-overview.svg)
 
-Cognitive Services platformy Azure dla danych Big Data umożliwia użytkownikom kanał terabajtów danych za pośrednictwem Cognitive Services przy użyciu [Apache Spark &trade; ](https://docs.microsoft.com/dotnet/spark/what-is-spark). Za pomocą Cognitive Services dla danych Big Data można łatwo tworzyć inteligentne aplikacje o dużej skali przy użyciu dowolnego magazynu danych.
+Cognitive Services platformy Azure dla danych Big Data umożliwia użytkownikom kanał terabajtów danych za pośrednictwem Cognitive Services przy użyciu [Apache Spark &trade; ](/dotnet/spark/what-is-spark). Za pomocą Cognitive Services dla danych Big Data można łatwo tworzyć inteligentne aplikacje o dużej skali przy użyciu dowolnego magazynu danych.
 
 Za pomocą Cognitive Services dla danych Big Data można osadzić ciągłe ulepszanie, inteligentnych modeli bezpośrednio do Apache Spark &trade; i obliczeń SQL. Te narzędzia wykorzystają deweloperów z szczegółów sieci niskiego poziomu, dzięki czemu mogą skupić się na tworzeniu inteligentnych, rozproszonych aplikacji.
 
 ## <a name="features-and-benefits"></a>Funkcje i korzyści
 
-Cognitive Services dla danych Big Data mogą korzystać z usług z dowolnego regionu na świecie oraz do [Cognitive Services kontenerów](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support). Kontenery obsługują małe lub bezpłatne wdrożenia łączności z odpowiedziami o bardzo małych opóźnieniach. Cognitive Services kontenerów można uruchamiać lokalnie, bezpośrednio w węzłach procesu roboczego klastra Spark lub na zewnętrznym serwerze Orchestrator, takim jak Kubernetes.
+Cognitive Services dla danych Big Data mogą korzystać z usług z dowolnego regionu na świecie oraz do [Cognitive Services kontenerów](../cognitive-services-container-support.md). Kontenery obsługują małe lub bezpłatne wdrożenia łączności z odpowiedziami o bardzo małych opóźnieniach. Cognitive Services kontenerów można uruchamiać lokalnie, bezpośrednio w węzłach procesu roboczego klastra Spark lub na zewnętrznym serwerze Orchestrator, takim jak Kubernetes.
 
 ## <a name="supported-services"></a>Obsługiwane usługi
 
-[Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), do których można uzyskać dostęp za pomocą interfejsów API i zestawów SDK, ułatwiają deweloperom tworzenie inteligentnych aplikacji bez posiadania umiejętności AI lub nauki o danych. Dzięki Cognitive Services można sprawić, aby aplikacje widziały, słyszeć, mówić, zrozumieć i powód. Aby można było korzystać z Cognitive Services, aplikacja musi wysyłać dane do usługi za pośrednictwem sieci. Po odebraniu usługa wysyła inteligentną odpowiedź w programie Return. Następujące usługi są dostępne dla obciążeń danych Big Data:
+[Cognitive Services](../index.yml), do których można uzyskać dostęp za pomocą interfejsów API i zestawów SDK, ułatwiają deweloperom tworzenie inteligentnych aplikacji bez posiadania umiejętności AI lub nauki o danych. Dzięki Cognitive Services można sprawić, aby aplikacje widziały, słyszeć, mówić, zrozumieć i powód. Aby można było korzystać z Cognitive Services, aplikacja musi wysyłać dane do usługi za pośrednictwem sieci. Po odebraniu usługa wysyła inteligentną odpowiedź w programie Return. Następujące usługi są dostępne dla obciążeń danych Big Data:
 
 ### <a name="vision"></a>Obraz
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Przetwarzanie obrazów")| Usługa przetwarzanie obrazów zapewnia dostęp do zaawansowanych algorytmów przetwarzania obrazów i zwracania informacji. |
-|[Rozpoznawanie twarzy](https://docs.microsoft.com/azure/cognitive-services/face/ "Rozpoznawanie twarzy")| Usługa kroju obsługi zapewnia dostęp do zaawansowanych algorytmów, co umożliwia wykrywanie i rozpoznawanie atrybutów. |
+|[Przetwarzanie obrazów](../computer-vision/index.yml "Przetwarzanie obrazów")| Usługa przetwarzanie obrazów zapewnia dostęp do zaawansowanych algorytmów przetwarzania obrazów i zwracania informacji. |
+|[Rozpoznawanie twarzy](../face/index.yml "Rozpoznawanie twarzy")| Usługa kroju obsługi zapewnia dostęp do zaawansowanych algorytmów, co umożliwia wykrywanie i rozpoznawanie atrybutów. |
 
 ### <a name="speech"></a>Mowa
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Usługa mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Usługa rozpoznawania mowy")|Usługa mowy zapewnia dostęp do funkcji, takich jak rozpoznawanie mowy, synteza mowy, Tłumaczenie mowy oraz weryfikacja i identyfikacja prelegenta.|
+|[Usługa rozpoznawania mowy](../speech-service/index.yml "Usługa rozpoznawania mowy")|Usługa mowy zapewnia dostęp do funkcji, takich jak rozpoznawanie mowy, synteza mowy, Tłumaczenie mowy oraz weryfikacja i identyfikacja prelegenta.|
 
 ### <a name="decision"></a>Decyzja
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Narzędzie do wykrywania anomalii](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Narzędzie do wykrywania anomalii") | Usługa wykrywania anomalii (wersja zapoznawcza) umożliwia monitorowanie i wykrywanie nieprawidłowych danych szeregów czasowych.|
+|[Narzędzie do wykrywania anomalii](../anomaly-detector/index.yml "Narzędzie do wykrywania anomalii") | Usługa wykrywania anomalii (wersja zapoznawcza) umożliwia monitorowanie i wykrywanie nieprawidłowych danych szeregów czasowych.|
 
 ### <a name="language"></a>Język
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Analiza tekstu")| Usługa analiza tekstu zapewnia przetwarzanie języka naturalnego w tekście nieprzetworzonym w celu analizy tonacji, wyodrębniania kluczowych fraz i wykrywania języka.|
+|[Analiza tekstu](../text-analytics/index.yml "Analiza tekstu")| Usługa analiza tekstu zapewnia przetwarzanie języka naturalnego w tekście nieprzetworzonym w celu analizy tonacji, wyodrębniania kluczowych fraz i wykrywania języka.|
 
 ### <a name="search"></a>Wyszukiwanie
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Wyszukiwanie obrazów w usłudze Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Wyszukiwanie obrazów w usłudze Bing")|Usługa wyszukiwanie obrazów Bing zwraca wyświetlanie obrazów określonych jako istotne dla kwerendy użytkownika.|
+|[Wyszukiwanie obrazów w usłudze Bing](/azure/cognitive-services/bing-image-search "Wyszukiwanie obrazów w usłudze Bing")|Usługa wyszukiwanie obrazów Bing zwraca wyświetlanie obrazów określonych jako istotne dla kwerendy użytkownika.|
 
 ## <a name="supported-programming-languages-for-cognitive-services-for-big-data"></a>Obsługiwane języki programowania dla Cognitive Services danych Big Data
 
@@ -80,19 +80,19 @@ Cognitive Services dla danych Big Data wymaga Apache Spark. Istnieje kilka Apach
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) to platforma analizy oparta na usłudze Apache Spark i zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure. Udostępnia on konfigurację jednego kliknięcia, usprawnione przepływy pracy i interaktywny obszar roboczy, który obsługuje współpracę między analitykami danych, inżynierami danych i specjalistami biznesowymi.
+[Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to platforma analizy oparta na usłudze Apache Spark i zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure. Udostępnia on konfigurację jednego kliknięcia, usprawnione przepływy pracy i interaktywny obszar roboczy, który obsługuje współpracę między analitykami danych, inżynierami danych i specjalistami biznesowymi.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-[Usługa Azure Synapse Analytics](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/synapse-analytics) (dawniej SQL Data Warehouse) to magazyn danych przedsiębiorstwa, który używa ogromnego przetwarzania równoległego. Dzięki Synapse Analytics można szybko uruchamiać złożone zapytania na petabajtów danych. Usługa Azure Synapse Analytics udostępnia zarządzane pule platformy Spark umożliwiające uruchamianie zadań platformy Spark za pomocą intuicyjnego interfejsu Jupyter Notebook.
+[Usługa Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) (dawniej SQL Data Warehouse) to magazyn danych przedsiębiorstwa, który używa ogromnego przetwarzania równoległego. Dzięki Synapse Analytics można szybko uruchamiać złożone zapytania na petabajtów danych. Usługa Azure Synapse Analytics udostępnia zarządzane pule platformy Spark umożliwiające uruchamianie zadań platformy Spark za pomocą intuicyjnego interfejsu Jupyter Notebook.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-[Usługa Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) organizuje kontenery platformy Docker i aplikacje rozproszone w ogromnej skali. AKS to zarządzana oferta Kubernetes, która upraszcza korzystanie z Kubernetes na platformie Azure. Kubernetes może umożliwić precyzyjne sterowanie skalowalnością, opóźnieniem i siecią usługi poznawczej. Zalecamy jednak korzystanie z usługi Azure Databricks lub Synapse Analytics, jeśli nie masz doświadczenia z Apache Spark.
+[Usługa Azure Kubernetes Service (AKS)](../../aks/index.yml) organizuje kontenery platformy Docker i aplikacje rozproszone w ogromnej skali. AKS to zarządzana oferta Kubernetes, która upraszcza korzystanie z Kubernetes na platformie Azure. Kubernetes może umożliwić precyzyjne sterowanie skalowalnością, opóźnieniem i siecią usługi poznawczej. Zalecamy jednak korzystanie z usługi Azure Databricks lub Synapse Analytics, jeśli nie masz doświadczenia z Apache Spark.
 
 ### <a name="data-connectors"></a>Łączniki danych
 
-Gdy masz klaster Spark, następnym krokiem jest nawiązanie połączenia z danymi. Apache Spark ma szeroką kolekcję łączników baz danych. Te łączniki umożliwiają aplikacjom współpracują z dużymi zestawami danych bez znaczenia, gdzie są przechowywane. Aby uzyskać więcej informacji na temat obsługiwanych baz danych i łączników, zapoznaj się z [listą obsługiwanych elementów DataSources dla Azure Databricks](https://docs.microsoft.com/azure/databricks/data/data-sources/).
+Gdy masz klaster Spark, następnym krokiem jest nawiązanie połączenia z danymi. Apache Spark ma szeroką kolekcję łączników baz danych. Te łączniki umożliwiają aplikacjom współpracują z dużymi zestawami danych bez znaczenia, gdzie są przechowywane. Aby uzyskać więcej informacji na temat obsługiwanych baz danych i łączników, zapoznaj się z [listą obsługiwanych elementów DataSources dla Azure Databricks](/azure/databricks/data/data-sources/).
 
 ## <a name="concepts"></a>Pojęcia
 

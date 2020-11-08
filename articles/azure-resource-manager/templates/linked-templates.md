@@ -2,19 +2,19 @@
 title: Łączenie szablonów do wdrożenia
 description: Opisuje, jak używać połączonych szablonów w szablonie Azure Resource Manager, aby utworzyć modularne rozwiązanie szablonów. Pokazuje, jak przekazać wartości parametrów, określić plik parametrów i dynamicznie tworzone adresy URL.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369318"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366341"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure
 
 Aby wdrożyć złożone rozwiązania, możesz przerwać szablon w wielu powiązanych szablonach, a następnie wdrożyć je przy użyciu szablonu głównego. Powiązane szablony mogą być osobnymi plikami lub składnią szablonów, które są osadzone w szablonie głównym. W tym artykule jest używany **połączony szablon** termin do odwoływania się do oddzielnego pliku szablonu, do którego odwołuje się link z głównego szablonu. Używa warunkowego **szablonu** , aby odwołać się do składni szablonu osadzonego w szablonie głównym.
 
-W przypadku małych i średnich rozwiązań jeden szablon jest łatwiejszy do zrozumienia i utrzymania. Wszystkie zasoby i wartości są widoczne w jednym pliku. W przypadku zaawansowanych scenariuszy połączone Szablony umożliwiają rozbicie rozwiązania na składniki przeznaczone do realizacji. Można łatwo ponownie wykorzystać te szablony dla innych scenariuszy.
+W przypadku małych i średnich rozwiązań łatwiej jest zrozumieć i utrzymywać jeden szablon. Wszystkie zasoby i wartości są widoczne w jednym pliku. W przypadku zaawansowanych scenariuszy połączone szablony umożliwiają podzielenie rozwiązania na składniki przeznaczone do realizacji. Można łatwo ponownie wykorzystać te szablony dla innych scenariuszy.
 
 Aby zapoznać się z samouczkiem, zobacz [Samouczek: Tworzenie połączonych Azure Resource Manager szablonów](./deployment-tutorial-linked-template.md).
 
@@ -96,7 +96,7 @@ Poniższy przykład służy do wdrażania konta magazynu za pomocą szablonu zag
 
 ### <a name="expression-evaluation-scope-in-nested-templates"></a>Zakres oceny wyrażeń w zagnieżdżonych szablonach
 
-Korzystając z szablonu zagnieżdżonego, można określić, czy wyrażenia szablonów są oceniane w zakresie szablonu nadrzędnego, czy szablonu zagnieżdżonego. Zakres określa, jak są rozwiązywane parametry, zmienne i funkcje, takie jak [resourceName](template-functions-resource.md#resourcegroup) i [Subscription](template-functions-resource.md#subscription) .
+Podczas korzystania z szablonu zagnieżdżonego można określić, czy wyrażenia szablonów mają być oceniane w zakresie szablonu nadrzędnego, czy szablonu zagnieżdżonego. Zakres określa, jak są rozwiązywane parametry, zmienne i funkcje, takie jak [resourceName](template-functions-resource.md#resourcegroup) i [Subscription](template-functions-resource.md#subscription) .
 
 Należy ustawić zakres za pomocą `expressionEvaluationOptions` właściwości. Domyślnie `expressionEvaluationOptions` Właściwość jest ustawiona na `outer` , co oznacza, że używa zakresu szablonu nadrzędnego. Ustaw wartość na, aby spowodować, że `inner` wyrażenia mają być oceniane w zakresie szablonu zagnieżdżonego.
 
@@ -281,9 +281,9 @@ Poniższy przykład wdraża program SQL Server i pobiera wpis tajny magazynu klu
 >
 > Gdy zakres jest ustawiony na `outer` , nie można użyć `reference` funkcji w sekcji dane wyjściowe szablonu zagnieżdżonego dla zasobu wdrożonego w zagnieżdżonym szablonie. Aby zwrócić wartości dla wdrożonego zasobu w zagnieżdżonym szablonie, użyj `inner` zakresu lub przekonwertuj zagnieżdżony szablon na połączony szablon.
 
-## <a name="linked-template"></a>Połączony szablon
+## <a name="linked-template"></a>Szablon połączony
 
-Aby połączyć szablon, Dodaj [zasób wdrożenia](/azure/templates/microsoft.resources/deployments) do szablonu głównego. We właściwości **templateLink** Określ identyfikator URI szablonu do uwzględnienia. Poniższy przykład łączy się z szablonem, który wdraża nowe konto magazynu.
+Aby połączyć szablon, Dodaj [zasób wdrożenia](/azure/templates/microsoft.resources/deployments) do szablonu głównego. We właściwości **templateLink** Określ identyfikator URI szablonu do uwzględnienia. Poniższy przykład łączy się z szablonem znajdującym się na koncie magazynu.
 
 ```json
 {
@@ -310,13 +310,17 @@ Aby połączyć szablon, Dodaj [zasób wdrożenia](/azure/templates/microsoft.re
 }
 ```
 
-W przypadku odwoływania się do połączonego szablonu wartość `uri` nie może być plikiem lokalnym ani plikiem, który jest dostępny tylko w sieci lokalnej. Należy podać wartość identyfikatora URI, którą można pobrać z **protokołu HTTP** lub **https**.
+W przypadku odwoływania się do połączonego szablonu wartość `uri` nie może być plikiem lokalnym ani plikiem, który jest dostępny tylko w sieci lokalnej. Azure Resource Manager musi mieć możliwość uzyskania dostępu do szablonu. Podaj wartość identyfikatora URI pobieraną jako **http** lub **https**. 
 
-> [!NOTE]
->
-> Można odwoływać się do szablonów przy użyciu parametrów, które ostatecznie rozwiązują się do elementu, który używa **protokołu HTTP** lub **https**, na przykład przy użyciu tego `_artifactsLocation` parametru, takiego jak: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+Możesz odwoływać się do szablonów przy użyciu parametrów, które obejmują **protokół http** lub **https**. Na przykład typowym wzorcem jest użycie `_artifactsLocation` parametru. Możesz ustawić połączony szablon z wyrażeniem takim jak:
 
-Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+Jeśli łączysz się z szablonem w usłudze GitHub, użyj pierwotnego adresu URL. Link ma format: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` . Aby uzyskać link nieprzetworzony, wybierz opcję **RAW**.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Wybierz nieprzetworzony adres URL":::
 
 ### <a name="parameters-for-linked-template"></a>Parametry połączonego szablonu
 
@@ -384,7 +388,7 @@ Nie musisz podawać `contentVersion` właściwości `templateLink` lub `paramete
 
 Poprzednie przykłady wykazywały zakodowane wartości adresu URL dla linków szablonów. Takie podejście może obsłużyć prosty szablon, ale nie działa prawidłowo w przypadku dużego zestawu szablonów modułowych. Zamiast tego można utworzyć zmienną statyczną, która przechowuje podstawowy adres URL dla szablonu głównego, a następnie dynamicznie tworzy adresy URL dla połączonych szablonów z tego podstawowego adresu URL. Zaletą tego podejścia jest możliwość łatwego przenoszenia szablonu lub rozwidlenia go, ponieważ należy zmienić tylko zmienną statyczną w szablonie głównym. Główny szablon przekazuje poprawne identyfikatory URI w całym rozłożonym szablonie.
 
-Poniższy przykład pokazuje, jak użyć podstawowego adresu URL, aby utworzyć dwa adresy URL dla połączonych szablonów (**sharedTemplateUrl** i **vmTemplate**).
+Poniższy przykład pokazuje, jak użyć podstawowego adresu URL, aby utworzyć dwa adresy URL dla połączonych szablonów ( **sharedTemplateUrl** i **vmTemplate** ).
 
 ```json
 "variables": {
@@ -799,7 +803,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 W poniższych przykładach przedstawiono typowe zastosowania połączonych szablonów.
 
-|Szablon główny  |Połączony szablon |Opis  |
+|Szablon główny  |Szablon połączony |Opis  |
 |---------|---------| ---------|
 |[Witaj, świecie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[połączony szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Zwraca ciąg z połączonego szablonu. |
 |[Load Balancer z publicznym adresem IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[połączony szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Zwraca publiczny adres IP z połączonego szablonu i ustawia tę wartość w module równoważenia obciążenia. |

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 37239f9c7857a8e72bb293cfa3caeb429962a542
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324689"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363344"
 ---
 # <a name="getting-started"></a>Wprowadzenie
 
@@ -31,7 +31,7 @@ Aby używać Cognitive Services danych Big Data, należy najpierw utworzyć usł
 
 ### <a name="cloud-services"></a>Usługi w chmurze
 
-Cognitive Services oparte na chmurze to inteligentne algorytmy hostowane na platformie Azure. Te usługi są gotowe do użycia bez uczenia się, że wystarczy tylko połączenie internetowe. [Usługę poznawczej można utworzyć w Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) lub przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Cognitive Services oparte na chmurze to inteligentne algorytmy hostowane na platformie Azure. Te usługi są gotowe do użycia bez uczenia się, że wystarczy tylko połączenie internetowe. [Usługę poznawczej można utworzyć w Azure Portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) lub przy użyciu [interfejsu wiersza polecenia platformy Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ### <a name="containerized-services-optional"></a>Usługi kontenerowe (opcjonalnie)
 
@@ -45,7 +45,7 @@ Jeśli w aplikacji lub obciążeniu są używane duże zestawy danych, wymagana 
 
 * **Wysoka skalowalność** : usługi kontenerowe nie mają "limitów szybkości" i działają na komputerach zarządzanych przez użytkownika. Dzięki temu można skalować Cognitive Services bez końca do obsługi znacznie większych obciążeń.
 
-Postępuj zgodnie z [tym przewodnikiem](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) , aby utworzyć kontener usługi poznawczej.
+Postępuj zgodnie z [tym przewodnikiem](../cognitive-services-container-support.md?tabs=luis) , aby utworzyć kontener usługi poznawczej.
 
 ## <a name="create-an-apache-spark-cluster"></a>Tworzenie klastra platformy Apache Spark
 
@@ -55,8 +55,8 @@ Postępuj zgodnie z [tym przewodnikiem](https://docs.microsoft.com/azure/cogniti
 
 Azure Databricks to platforma analityczna oparta na Apache Spark z jednym kliknięciem, usprawnione przepływy pracy i interaktywny obszar roboczy. Często są one używane do współpracy między analitykami danych, inżynierami i specjalistami biznesowymi. Aby użyć Cognitive Services danych Big Data na Azure Databricks, wykonaj następujące kroki:
 
-1. [Tworzenie obszaru roboczego usługi Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
-1. [Tworzenie klastra Spark w usłudze Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
+1. [Tworzenie obszaru roboczego usługi Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
+1. [Tworzenie klastra Spark w usłudze Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
 1. Zainstaluj Cognitive Services danych Big Data
     * Utwórz nową bibliotekę w obszarze roboczym datakosteks  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
@@ -69,8 +69,8 @@ Azure Databricks to platforma analityczna oparta na Apache Spark z jednym klikni
 
 Opcjonalnie możesz użyć Synapse Analytics, aby utworzyć klaster Spark. Usługa Azure Synapse Analytics umożliwia łączenie z magazynem danych w przedsiębiorstwie i analizą danych Big Data. Zapewnia to swobodę wykonywania zapytań dotyczących danych na Twoich warunkach przy użyciu niezależnych od serwera zasobów na żądanie lub aprowizacji. Aby rozpocząć korzystanie z usługi Synapse Analytics, wykonaj następujące kroki:
 
-1. [Utwórz obszar roboczy Synapse (wersja zapoznawcza)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Utwórz nową pulę Apache Spark bezserwerową (wersja zapoznawcza) przy użyciu Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Utwórz obszar roboczy Synapse (wersja zapoznawcza)](../../synapse-analytics/quickstart-create-workspace.md).
+1. [Utwórz nową pulę Apache Spark bezserwerową (wersja zapoznawcza) przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
 W programie Synapse Analytics domyślnie instalowane są dane big data dla Cognitive Services.
 
@@ -80,9 +80,9 @@ Jeśli używasz kontenerów Cognitive Services, jedną popularną opcją wdroże
 
 Aby rozpocząć pracę z usługą Azure Kubernetes, wykonaj następujące kroki:
 
-1. [wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu witryny Azure Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
+1. [wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu witryny Azure Portal](../../aks/kubernetes-walkthrough-portal.md)
 1. [Instalowanie wykresu Apache Spark 2.4.0 Helm](https://hub.helm.sh/charts/microsoft/spark)
-1. [Instalowanie kontenera usługi poznawczej przy użyciu Helm](https://docs.microsoft.com/azure/cognitive-services/computer-vision/deploy-computer-vision-on-premises)
+1. [Instalowanie kontenera usługi poznawczej przy użyciu Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## <a name="try-a-sample"></a>Wypróbuj przykład
 

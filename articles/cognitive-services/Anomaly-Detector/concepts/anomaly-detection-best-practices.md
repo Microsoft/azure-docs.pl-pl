@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6bf00d8b5327ddd539190b6e990c7edb35c876f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018393"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363654"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Najlepsze rozwiązania dotyczące korzystania z interfejsu API wykrywania anomalii
 
@@ -52,7 +52,7 @@ Poniżej znajduje się ten sam zestaw danych, który korzysta z wykrywania anoma
 
 ## <a name="data-preparation"></a>Przygotowywanie danych
 
-Interfejs API wykrywania anomalii akceptuje dane szeregów czasowych sformatowane w obiekcie żądania JSON. Szeregi czasowe mogą być wszelkimi danymi liczbowymi zarejestrowanymi w czasie w kolejności sekwencyjnej. Możesz wysyłać okna danych szeregów czasowych do punktu końcowego interfejsu API wykrywania anomalii, aby zwiększyć wydajność interfejsu API. Minimalna liczba punktów danych, które można wysłać wynosi 12, a maksymalna to 8640 punktów. [Stopień szczegółowości](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) jest definiowany jako częstotliwość próbkowania danych. 
+Interfejs API wykrywania anomalii akceptuje dane szeregów czasowych sformatowane w obiekcie żądania JSON. Szeregi czasowe mogą być wszelkimi danymi liczbowymi zarejestrowanymi w czasie w kolejności sekwencyjnej. Możesz wysyłać okna danych szeregów czasowych do punktu końcowego interfejsu API wykrywania anomalii, aby zwiększyć wydajność interfejsu API. Minimalna liczba punktów danych, które można wysłać wynosi 12, a maksymalna to 8640 punktów. [Stopień szczegółowości](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) jest definiowany jako częstotliwość próbkowania danych. 
 
 Punkty danych wysyłane do interfejsu API wykrywania anomalii muszą mieć prawidłową sygnaturę czasową skoordynowanego czasu uniwersalnego (UTC) i wartość numeryczną. 
 

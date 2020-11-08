@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fe9511df5fb290853dbd6cb8d39fed4e289fca4d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100205"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366421"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Przewodnik uaktualniania wyszukiwanie wiadomości API
 
@@ -75,24 +75,24 @@ Zablokowane|InvalidRequest. zablokowane
 
 ### <a name="object-changes"></a>Zmiany obiektów
 
-- Dodano `contractualRules` pole do obiektu [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) . `contractualRules`Pole zawiera listę reguł, które należy wykonać (na przykład przypisanie artykułu). Należy zastosować przypisanie podane w `contractualRules` zamiast przy użyciu `provider` . Artykuł zawiera `contractualRules` informacje tylko wtedy, gdy odpowiedź [interfejsu API wyszukiwanie w sieci Web](../bing-web-search/search-the-web.md) zawiera odpowiedź na wiadomości.
+- Dodano `contractualRules` pole do obiektu [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) . `contractualRules`Pole zawiera listę reguł, które należy wykonać (na przykład przypisanie artykułu). Należy zastosować przypisanie podane w `contractualRules` zamiast przy użyciu `provider` . Artykuł zawiera `contractualRules` informacje tylko wtedy, gdy odpowiedź [interfejsu API wyszukiwanie w sieci Web](../bing-web-search/overview.md) zawiera odpowiedź na wiadomości.
 
 ## <a name="non-breaking-changes"></a>Niekrytyczne zmiany
 
 ### <a name="query-parameters"></a>Parametry zapytania
 
-- Dodano produkty jako możliwe wartości, dla których można ustawić parametr zapytania [Category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) . Zobacz [kategorie według rynków](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+- Dodano produkty jako możliwe wartości, dla których można ustawić parametr zapytania [Category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) . Zobacz [kategorie według rynków](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Dodano parametr zapytania [SortBy —](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) , który zwraca tematy trendów posortowane według daty z ostatnim pierwszym.
+- Dodano parametr zapytania [SortBy —](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) , który zwraca tematy trendów posortowane według daty z ostatnim pierwszym.
 
-- Dodano parametr [od](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) zapytania, który zwraca tematy trendów, które zostały odnalezione przez usługę Bing w lub po określonej sygnaturze czasowej epoki z systemem UNIX.
+- Dodano parametr [od](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) zapytania, który zwraca tematy trendów, które zostały odnalezione przez usługę Bing w lub po określonej sygnaturze czasowej epoki z systemem UNIX.
 
 ### <a name="object-changes"></a>Zmiany obiektów
 
-- Dodano `mentions` pole do obiektu [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) . `mentions`Pole zawiera listę jednostek (osób lub miejsc), które zostały znalezione w artykule.
+- Dodano `mentions` pole do obiektu [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) . `mentions`Pole zawiera listę jednostek (osób lub miejsc), które zostały znalezione w artykule.
 
-- Dodano `video` pole do obiektu [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) . `video`Pole zawiera film wideo dotyczący artykułu z wiadomościami. Film wideo to element \<iframe\> , który można osadzić lub miniaturę ruchu.
+- Dodano `video` pole do obiektu [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) . `video`Pole zawiera film wideo dotyczący artykułu z wiadomościami. Film wideo to element \<iframe\> , który można osadzić lub miniaturę ruchu.
 
-- Dodano `sort` pole do obiektu [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) . W tym `sort` polu jest wyświetlana kolejność sortowania artykułów. Na przykład artykuły są sortowane według istotności (wartość domyślna) lub daty.
+- Dodano `sort` pole do obiektu [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) . W tym `sort` polu jest wyświetlana kolejność sortowania artykułów. Na przykład artykuły są sortowane według istotności (wartość domyślna) lub daty.
 
-- Dodano obiekt [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) , który definiuje porządek sortowania. `isSelected`Pole wskazuje, czy odpowiedź była używana w kolejności sortowania. W przypadku **wartości true** odpowiedź była używana w kolejności sortowania. Jeśli `isSelected` ma **wartość false** , możesz użyć adresu URL w `url` polu, aby zażądać innej kolejności sortowania.
+- Dodano obiekt [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) , który definiuje porządek sortowania. `isSelected`Pole wskazuje, czy odpowiedź była używana w kolejności sortowania. W przypadku **wartości true** odpowiedź była używana w kolejności sortowania. Jeśli `isSelected` ma **wartość false** , możesz użyć adresu URL w `url` polu, aby zażądać innej kolejności sortowania.

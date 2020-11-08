@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6b715d4b801159b451957c30ee9ef7b406f3a2f4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ee31eac55298c86a7bdd784ea54c9a0c8caa47a4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095377"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364619"
 ---
 # <a name="what-is-bing-local-business-search"></a>Co to jest lokalne wyszukiwanie w biznesie Bing?
 
@@ -35,7 +35,7 @@ Lokalny interfejs API wyszukiwania biznesowego Bing to usługa RESTful, która u
 ## <a name="workflow"></a>Przepływ pracy
 Wywołaj interfejs API wyszukiwania w usłudze Bing Local Business Search z dowolnego języka programowania, który może wykonywać żądania HTTP i analizować odpowiedzi JSON. Ta usługa jest dostępna przy użyciu interfejsu API REST.
  
-1. Utwórz [konto interfejsu API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  z dostępem do interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).   
+1. Utwórz [konto interfejsu API Cognitive Services](../cognitive-services-apis-create-account.md)  z dostępem do interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).   
 2. Kodowanie w adresie URL wyszukiwanych terminów dla `q=""` parametru zapytania. Na przykład: `q=nearby+restaurant` lub `q=nearby%20restaurant`. W razie konieczności Ustaw również stronicowanie. 
 3. Wyślij [żądanie do interfejsu API wyszukiwania lokalnego usługi Bing](quickstarts/local-quickstart.md) 
 4. Analizowanie odpowiedzi w formacie JSON 
@@ -49,4 +49,4 @@ Wywołaj interfejs API wyszukiwania w usłudze Bing Local Business Search z dowo
 - [Zapytanie i odpowiedź](local-search-query-response.md)
 - [Lokalne wyszukiwanie biznesowe — Szybki Start](quickstarts/local-quickstart.md)
 - [Dokumentacja interfejsu API wyszukiwania lokalnych firm Bing](local-search-reference.md)
-- [Wymagania dotyczące użycia i wyświetlania](use-display-requirements.md)
+- [Wymagania dotyczące użycia i wyświetlania](../bing-web-search/use-display-requirements.md)

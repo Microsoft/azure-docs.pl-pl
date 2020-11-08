@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132776"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365520"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funkcje to informacje o akcjach i kontekście
 
 Usługa personalizowania działa przez uczenie się, co aplikacja powinna pokazać użytkownikom w danym kontekście.
 
-Personalizacja używa **funkcji**, które są informacjami o **bieżącym kontekście** , aby wybrać najlepszą **akcję**. Funkcje reprezentują wszystkie informacje, które mogą pomóc spersonalizować, aby osiągnąć wyższy poziom korzyści. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu. 
+Personalizacja używa **funkcji** , które są informacjami o **bieżącym kontekście** , aby wybrać najlepszą **akcję**. Funkcje reprezentują wszystkie informacje, które mogą pomóc spersonalizować, aby osiągnąć wyższy poziom korzyści. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu. 
 
 Na przykład może być dostępna **Funkcja** :
 
@@ -41,8 +41,8 @@ Personalizacja obsługuje funkcje typu String, numeric i Boolean.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Jak wybór typu funkcji ma wpływ na Machine Learning w programie Personalizacja
 
-* **Ciągi**: dla typów ciągów każda kombinacja klucza i wartości tworzy nowe wagi w modelu uczenia maszynowego. 
-* Wartość **liczbowa**: należy używać wartości liczbowych, gdy liczba powinna proporcjonalnie wpłynąć na wynik personalizacji. Jest to bardzo zależne. W uproszczonym przykładzie, np. w przypadku personalizowania środowiska sprzedaży detalicznej, NumberOfPetsOwned może być funkcją, która jest wartością numeryczną, ponieważ osoby mające 2 lub 3 zwierzęta domowe mają wpływ na wynik personalizacji dwa razy lub trzy razy dziennie tak samo, jak w przypadku 1 PET. Funkcje, które są oparte na jednostkach liczbowych, ale których znaczenie nie jest liniowe, takie jak wiek, temperatura lub wysokość osoby — są najlepiej kodowane jako ciągi, a jakość funkcji można zazwyczaj zwiększyć przy użyciu zakresów. Na przykład wiek może być zakodowany jako "wiek": "0-5", "wiek": "6-10" itd.
+* **Ciągi** : dla typów ciągów każda kombinacja klucza i wartości tworzy nowe wagi w modelu uczenia maszynowego. 
+* Wartość **liczbowa** : należy używać wartości liczbowych, gdy liczba powinna proporcjonalnie wpłynąć na wynik personalizacji. Jest to bardzo zależne. W uproszczonym przykładzie, np. w przypadku personalizowania środowiska sprzedaży detalicznej, NumberOfPetsOwned może być funkcją, która jest wartością numeryczną, ponieważ osoby mające 2 lub 3 zwierzęta domowe mają wpływ na wynik personalizacji dwa razy lub trzy razy dziennie tak samo, jak w przypadku 1 PET. Funkcje, które są oparte na jednostkach liczbowych, ale których znaczenie nie jest liniowe, takie jak wiek, temperatura lub wysokość osoby — są najlepiej kodowane jako ciągi, a jakość funkcji można zazwyczaj zwiększyć przy użyciu zakresów. Na przykład wiek może być zakodowany jako "wiek": "0-5", "wiek": "6-10" itd.
 * Wartości **logiczne** wysyłane z wartością "false" działają tak, jakby nie zostały wysłane.
 
 Nieobecne funkcje powinny być pominięte w żądaniu. Należy unikać wysyłania funkcji o wartości null, ponieważ zostaną one przetworzone jako istniejące i mają wartość "null" podczas uczenia modelu.
@@ -54,7 +54,7 @@ Personalizacja wykonuje funkcje zorganizowane w przestrzenie nazw. W aplikacji n
 Poniżej przedstawiono przykłady przestrzeni nazw funkcji używanych przez aplikacje:
 
 * User_Profile_from_CRM
-* Godzina
+* Czas
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -152,10 +152,10 @@ Na przykład:
 
 Możesz użyć kilku innych [Cognitive Services platformy Azure](https://www.microsoft.com/cognitive-services), takich jak
 
-* [Łączenie jednostek](../entitylinking/home.md)
+* [Łączenie jednostek](../text-analytics/index.yml)
 * [Analiza tekstu](../text-analytics/overview.md)
-* [Emocja](../emotion/home.md)
-* [Przetwarzanie obrazów](../computer-vision/home.md)
+* [Emocja](../face/overview.md)
+* [Przetwarzanie obrazów](../computer-vision/overview.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>Akcje reprezentują listę opcji
 
@@ -322,4 +322,4 @@ Obiekty JSON mogą zawierać zagnieżdżone obiekty JSON oraz proste właściwo�
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Uczenie przez wzmacnianie](concepts-reinforcement-learning.md) 
+[Uczenie przez wzmacnianie](concepts-reinforcement-learning.md)

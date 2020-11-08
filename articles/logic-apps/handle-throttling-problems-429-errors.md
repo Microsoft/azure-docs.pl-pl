@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086443"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366057"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Obsłuż problemy związane z ograniczaniem (429-"zbyt wiele żądań") w Azure Logic Apps
 
@@ -35,9 +35,9 @@ Aby znaleźć zdarzenia ograniczania przepustowości na tym poziomie, Sprawdź o
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **metryki**.
+1. W menu aplikacji logiki w obszarze **monitorowanie** wybierz pozycję **metryki**.
 
-1. W obszarze **tytuł wykresu**wybierz pozycję **Dodaj metrykę** , aby dodać kolejną metrykę do istniejącej.
+1. W obszarze **tytuł wykresu** wybierz pozycję **Dodaj metrykę** , aby dodać kolejną metrykę do istniejącej.
 
 1. Na pierwszym pasku metryki z listy **metryk** wybierz pozycję **Akcja ograniczenia zdarzeń**. Na drugim pasku metryki z listy **metryk** wybierz pozycję **Wyzwalaj zdarzenia ograniczone**.
 
@@ -51,7 +51,7 @@ Aby obsłużyć ograniczenie przepustowości na tym poziomie, dostępne są nast
 
 * Włącz tryb wysokiej przepustowości.
 
-  Aplikacja logiki ma [domyślny limit liczby akcji, które można uruchomić w ciągu 5-minutowego interwału](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aby zgłosić ten limit do maksymalnej liczby akcji, Włącz [tryb wysokiej przepływności](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) w aplikacji logiki.
+  Aplikacja logiki ma [domyślny limit liczby akcji, które można uruchomić w ciągu 5-minutowego interwału](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aby zgłosić ten limit do maksymalnej liczby akcji, Włącz [tryb wysokiej przepływności](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) w aplikacji logiki.
 
 * Wyłącz zachowanie podczas tworzenia partii tablic ("Podziel na") w wyzwalaczach.
 
@@ -59,7 +59,7 @@ Aby obsłużyć ograniczenie przepustowości na tym poziomie, dostępne są nast
 
 * Akcje refaktoryzacji w mniejszych aplikacjach logiki.
 
-  Jak wspomniano wcześniej, aplikacja logiki jest ograniczona do [domyślnej liczby akcji, które można uruchomić w ciągu 5 minut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Chociaż można zwiększyć ten limit, włączając [tryb wysokiej przepustowości](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), można również rozważyć, czy chcesz podzielić działania aplikacji logiki na mniejsze Aplikacje logiki, tak aby liczba akcji, które są uruchamiane w każdej aplikacji logiki, pozostawała poniżej limitu. Dzięki temu można zmniejszyć obciążenie pojedynczego zasobu aplikacji logiki i rozpowszechnić obciążenie w wielu aplikacjach logiki. To rozwiązanie działa lepiej w przypadku akcji obsługujących duże zbiory danych lub uruchamiania wielu współbieżnie uruchomionych akcji, iteracji pętli lub akcji wewnątrz każdej iteracji pętli, która przekracza limit wykonywania akcji.
+  Jak wspomniano wcześniej, aplikacja logiki jest ograniczona do [domyślnej liczby akcji, które można uruchomić w ciągu 5 minut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Chociaż można zwiększyć ten limit, włączając [tryb wysokiej przepustowości](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode), można również rozważyć, czy chcesz podzielić działania aplikacji logiki na mniejsze Aplikacje logiki, tak aby liczba akcji, które są uruchamiane w każdej aplikacji logiki, pozostawała poniżej limitu. Dzięki temu można zmniejszyć obciążenie pojedynczego zasobu aplikacji logiki i rozpowszechnić obciążenie w wielu aplikacjach logiki. To rozwiązanie działa lepiej w przypadku akcji obsługujących duże zbiory danych lub uruchamiania wielu współbieżnie uruchomionych akcji, iteracji pętli lub akcji wewnątrz każdej iteracji pętli, która przekracza limit wykonywania akcji.
 
   Na przykład ta aplikacja logiki wykonuje wszystkie czynności w celu pobrania tabel z bazy danych SQL Server i pobiera wiersze z każdej tabeli. Pętla **for each** jednocześnie wykonuje iterację w każdej tabeli, tak aby Akcja **Pobierz wiersze** zwraca wiersze dla każdej tabeli. Na podstawie ilości danych w tych tabelach akcje te mogą przekroczyć limit wykonywania akcji.
 

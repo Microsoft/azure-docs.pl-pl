@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7abd67ef072303b7f8156a18c2e3ac34758c03dd
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099865"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364738"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Samouczek: tworzenie klienta sprawdzania pisowni w postaci strony internetowej
 
@@ -128,7 +128,7 @@ Funkcja pomocnicza getSubscriptionKeyLocalStorage najpierw podejmuje próbę uzy
     }
 ```
 
-Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate** . Jeśli parametr **invalidate** ma wartość **true** , funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API sprawdzania pisowni Bing. Jeśli parametr **invalidate** ma wartość **false** , funkcja getSubscriptionKey zwraca wartość klucza interfejsu API sprawdzania pisowni Bing.
+Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate**. Jeśli parametr **invalidate** ma wartość **true** , funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API sprawdzania pisowni Bing. Jeśli parametr **invalidate** ma wartość **false** , funkcja getSubscriptionKey zwraca wartość klucza interfejsu API sprawdzania pisowni Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -242,7 +242,7 @@ Dodaj też obsługę potencjalnych zdarzeń błędów z obiektu XMLHttpRequest.
     });
 ```
 
-Wyślij żądanie. Zamknij funkcję bingSpellCheck, tag **script** oraz tag **head** .
+Wyślij żądanie. Zamknij funkcję bingSpellCheck, tag **script** oraz tag **head**.
 
 ```html
     request.send();
@@ -276,7 +276,7 @@ Utwórz formularz HTML z polem tekstowym. Obsłuż `onsubmit` zdarzenie i wywoł
 </form>
 ```
 
-Dodaj tag HTML **div** , używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div** .
+Dodaj tag HTML **div** , używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div**.
 
 ```html
 <h2>Results</h2>
@@ -293,7 +293,7 @@ Zapisz plik.
 
 ## <a name="display-results"></a>Wyświetlanie wyników
 
-Otwórz utworzoną stronę internetową w przeglądarce. Gdy zostanie wyświetlony monit, wprowadź klucz subskrypcji interfejsu API sprawdzania pisowni Bing. Wprowadź zapytanie (na przykład „Hollo, wlrd!”) w polu tekstowym **Spell Check** (Sprawdzanie pisowni) i naciśnij **Enter** . Na stronie internetowej zostaną wyświetlone wyniki zapytania.
+Otwórz utworzoną stronę internetową w przeglądarce. Gdy zostanie wyświetlony monit, wprowadź klucz subskrypcji interfejsu API sprawdzania pisowni Bing. Wprowadź zapytanie (na przykład „Hollo, wlrd!”) w polu tekstowym **Spell Check** (Sprawdzanie pisowni) i naciśnij **Enter**. Na stronie internetowej zostaną wyświetlone wyniki zapytania.
 
 ```json
 {
@@ -332,4 +332,4 @@ Otwórz utworzoną stronę internetową w przeglądarce. Gdy zostanie wyświetlo
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wymagania dotyczące użycia i wyświetlania](../UseAndDisplayRequirements.md)
+> [Wymagania dotyczące użycia i wyświetlania](../../bing-web-search/use-display-requirements.md)

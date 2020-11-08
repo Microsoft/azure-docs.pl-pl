@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73837119"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364942"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Często zadawane pytania dotyczące usługi analiza tekstu poznawczej
 
@@ -29,11 +29,11 @@ W analizie tonacji zawsze występuje pewien stopień niedokładności, ale model
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>Czy mogę dodać własne dane szkoleniowe lub modele?
 
-Nie, modele są przedszkolene. Jedyne operacje dostępne dla przekazanych danych to Punktacja, wyodrębnianie kluczowych fraz i wykrywanie języka. Nie obsługujemy modeli niestandardowych. Jeśli chcesz utworzyć i hostować niestandardowe modele uczenia maszynowego, weź pod uwagę [możliwości uczenia maszynowego w Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Nie, modele są przedszkolene. Jedyne operacje dostępne dla przekazanych danych to Punktacja, wyodrębnianie kluczowych fraz i wykrywanie języka. Nie obsługujemy modeli niestandardowych. Jeśli chcesz utworzyć i hostować niestandardowe modele uczenia maszynowego, weź pod uwagę [możliwości uczenia maszynowego w Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## <a name="can-i-request-additional-languages"></a>Czy mogę zażądać dodatkowych języków?
 
-Analiza tonacji i wyodrębnianie kluczowych fraz są dostępne dla [wybranej liczby języków](text-analytics-supported-languages.md). Przetwarzanie języka naturalnego jest skomplikowane i wymaga poważnej testów przed wydaniem nowych funkcji. Z tego powodu unikamy wstępnego ogłaszania pomocy technicznej, aby nikt nie przeprowadził zależności od funkcjonalności wymagającej większego czasu. 
+Analiza tonacji i wyodrębnianie kluczowych fraz są dostępne dla [wybranej liczby języków](./language-support.md). Przetwarzanie języka naturalnego jest skomplikowane i wymaga poważnej testów przed wydaniem nowych funkcji. Z tego powodu unikamy wstępnego ogłaszania pomocy technicznej, aby nikt nie przeprowadził zależności od funkcjonalności wymagającej większego czasu. 
 
 Aby pomóc nam określić priorytety języków, które mają być wykonywane po następnym, zagłosuj na określone języki na [głos użytkownika](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 

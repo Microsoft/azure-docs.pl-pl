@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051104"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365367"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Wysyłanie danych pisma odręcznego do interfejsu API rozpoznawania pisma odręcznego 
 
@@ -64,7 +64,7 @@ Interfejs API rozpoznawania pisma odręcznego zwraca odpowiedź analizy na temat
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Kształty rozpoznawane przez interfejs API rozpoznawania pisma odręcznego
 
-Interfejs API rozpoznawania pisma odręcznego może identyfikować najczęściej używane kształty w notatce. Na poniższym obrazie przedstawiono niektóre podstawowe przykłady. Aby uzyskać pełną listę kształtów i inne treści odręczne rozpoznawane przez interfejs API, zobacz [artykuł dotyczący interfejsu API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+Interfejs API rozpoznawania pisma odręcznego może identyfikować najczęściej używane kształty w notatce. Na poniższym obrazie przedstawiono niektóre podstawowe przykłady. Aby uzyskać pełną listę kształtów i inne treści odręczne rozpoznawane przez interfejs API, zobacz [artykuł dotyczący interfejsu API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![Lista kształtów rozpoznanych przez interfejs API rozpoznawania pisma odręcznego](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Posiadanie wyników rozpoznawania zapewnia informacje o cechach pociągnięć od
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrowanie interfejsu API rozpoznawania pisma odręcznego z programem Windows Ink
 
-Program [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) udostępnia narzędzia i technologie umożliwiające obsługę cyfrowego pisma odręcznego na różnych urządzeniach. Możesz połączyć platformę Windows Ink z interfejsem API rozpoznawania pisma odręcznego, aby tworzyć aplikacje, które wyświetlają i interpretują cyfrowe pociągnięcia atramentu.
+Program [Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) udostępnia narzędzia i technologie umożliwiające obsługę cyfrowego pisma odręcznego na różnych urządzeniach. Możesz połączyć platformę Windows Ink z interfejsem API rozpoznawania pisma odręcznego, aby tworzyć aplikacje, które wyświetlają i interpretują cyfrowe pociągnięcia atramentu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Co to jest interfejs API rozpoznawania pisma odręcznego?](../overview.md)
-* [Dokumentacja interfejsu API REST aparatu rozpoznawania atramentu](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Dokumentacja interfejsu API REST aparatu rozpoznawania atramentu](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Rozpocznij wysyłanie danych pociągnięcia cyfrowego atramentu przy użyciu:
     * [C#](../quickstarts/csharp.md)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90524967"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363276"
 ---
 # <a name="quick-examples"></a>Szybkie przykłady
 
@@ -49,7 +49,7 @@ val location = "eastus"
 
 ## <a name="text-analytics"></a>Analiza tekstu
 
-Usługa [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) udostępnia kilka algorytmów służących do wyodrębniania inteligentnych analiz z tekstu. Na przykład możemy znaleźć tonacji danego tekstu wejściowego. Usługa zwróci wynik z przedziału `0.0` , `1.0` gdzie niskie wyniki wskazują negatywną tonacji, a wysoka Punktacja wskazuje pozytywną tonacji.  Poniższy przykład używa trzech prostych zdań i zwraca wynik tonacji dla każdego z nich.
+Usługa [Analiza tekstu](../text-analytics/index.yml) udostępnia kilka algorytmów służących do wyodrębniania inteligentnych analiz z tekstu. Na przykład możemy znaleźć tonacji danego tekstu wejściowego. Usługa zwróci wynik z przedziału `0.0` , `1.0` gdzie niskie wyniki wskazują negatywną tonacji, a wysoka Punktacja wskazuje pozytywną tonacji.  Poniższy przykład używa trzech prostych zdań i zwraca wynik tonacji dla każdego z nich.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -81,7 +81,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## <a name="computer-vision"></a>Przetwarzanie obrazów
 
-[Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analizuje obrazy w celu zidentyfikowania struktury, takiej jak twarze, obiekty i opisy języka naturalnego.
+[Przetwarzanie obrazów](../computer-vision/index.yml) analizuje obrazy w celu zidentyfikowania struktury, takiej jak twarze, obiekty i opisy języka naturalnego.
 W tym przykładzie oznaczmy listę obrazów. Tagi to jednowyrazowe opisy elementów na obrazie, takich jak rozpoznawalne obiekty, ludzie, scenerii i akcje.
 
 ```scala
@@ -118,7 +118,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## <a name="bing-image-search"></a>Wyszukiwanie obrazów w usłudze Bing
 
-[Wyszukiwanie obrazów Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) przeszukuje sieć Web, aby pobrać obrazy powiązane z zapytaniem w języku naturalnym użytkownika. W tym przykładzie używamy zapytania tekstowego, które wyszukuje obrazy z cudzysłowami. Zwraca listę adresów URL obrazów, które zawierają zdjęcia powiązane z naszym zapytaniem.
+[Wyszukiwanie obrazów Bing](../bing-image-search/overview.md) przeszukuje sieć Web, aby pobrać obrazy powiązane z zapytaniem w języku naturalnym użytkownika. W tym przykładzie używamy zapytania tekstowego, które wyszukuje obrazy z cudzysłowami. Zwraca listę adresów URL obrazów, które zawierają zdjęcia powiązane z naszym zapytaniem.
 
 
 ```scala
@@ -163,7 +163,7 @@ display(pipeline.fit(df).transform(df))
 
 ## <a name="speech-to-text"></a>Zamiana mowy na tekst
 
-Usługa [zamiany mowy na tekst](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) konwertuje strumienie lub pliki głosowego dźwięku na tekst. W tym przykładzie transkrypcjamy dwa pliki audio. Pierwszy plik jest łatwy do zrozumienia, a drugi jest trudniejszy.
+Usługa [zamiany mowy na tekst](../speech-service/index-speech-to-text.yml) konwertuje strumienie lub pliki głosowego dźwięku na tekst. W tym przykładzie transkrypcjamy dwa pliki audio. Pierwszy plik jest łatwy do zrozumienia, a drugi jest trudniejszy.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -196,7 +196,7 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 ## <a name="anomaly-detector"></a>Narzędzie do wykrywania anomalii
 
-[Detektor anomalii](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) doskonale nadaje się do wykrywania niezgodności w danych szeregów czasowych. W tym przykładzie używamy usługi, aby znaleźć anomalie w całej szeregu czasowym.
+[Detektor anomalii](../anomaly-detector/index.yml) doskonale nadaje się do wykrywania niezgodności w danych szeregów czasowych. W tym przykładzie używamy usługi, aby znaleźć anomalie w całej szeregu czasowym.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

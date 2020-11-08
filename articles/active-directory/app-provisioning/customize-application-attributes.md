@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233887"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364296"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -110,7 +110,7 @@ Aplikacje i systemy obsługujące Dostosowywanie listy atrybutów obejmują:
 - Dzień roboczy do Active Directory/Workday do Azure Active Directory
 - SuccessFactors do Azure Active Directory Active Directory/SuccessFactors
 - Azure Active Directory (obsługiwane są[domyślne atrybuty usługi Azure AD interfejs API programu Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) i niestandardowe rozszerzenia katalogu)
-- Aplikacje obsługujące [standard scim 2,0](https://tools.ietf.org/html/rfc7643), w których atrybuty zdefiniowane w [podstawowym schemacie](https://tools.ietf.org/html/rfc7643) muszą być dodane
+- Aplikacje obsługujące [standard scim 2,0](https://tools.ietf.org/html/rfc7643)
 - W przypadku Azure Active Directory zapisywania zwrotnego w dniach Workday lub SuccessFactors jest obsługiwane aktualizowanie odpowiednich metadanych dla obsługiwanych atrybutów (XPATH i wykryto), ale nie jest to obsługiwane w przypadku dodawania nowych atrybutów Workday lub SuccessFactors poza tymi zawartymi w schemacie domyślnym
 
 
@@ -146,7 +146,7 @@ W przypadku aplikacji Standard scim nazwa atrybutu musi być zgodna ze wzorcem p
 
 Te instrukcje dotyczą tylko aplikacji z obsługą Standard scim. Aplikacje, takie jak usługi ServiceNow i Salesforce, nie są zintegrowane z usługą Azure AD przy użyciu Standard scim i dlatego nie wymagają tej konkretnej przestrzeni nazw podczas dodawania atrybutu niestandardowego.
 
-Atrybuty niestandardowe nie mogą być atrybutami referencyjnymi ani atrybutami wielowartościowymi. Niestandardowe atrybuty rozszerzenia wielowartościowego są obecnie obsługiwane tylko w przypadku aplikacji w galerii.  
+Atrybuty niestandardowe nie mogą być atrybutami referencyjnymi, atrybutami wielowartościowymi lub o typie złożonym. Niestandardowe atrybuty rozszerzenia wielowartościowego i złożonego są obecnie obsługiwane tylko w przypadku aplikacji w galerii.  
  
 **Przykładowa reprezentacja użytkownika z atrybutem rozszerzenia:**
 

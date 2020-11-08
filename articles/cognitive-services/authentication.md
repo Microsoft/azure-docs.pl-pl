@@ -1,5 +1,5 @@
 ---
-title: Uwierzytelnianie
+title: Authentication
 titleSuffix: Azure Cognitive Services
 description: 'Istnieją trzy sposoby uwierzytelniania żądania do zasobu usługi Azure Cognitive Services: klucza subskrypcji, tokenu okaziciela lub subskrypcji wielousługowej. Ten artykuł zawiera informacje o każdej z tych metod oraz o sposobie wykonywania żądania.'
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7aeb9e9f4de7b4de62f9b5a8da6d997e32a2399
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232750"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363327"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Uwierzytelnianie żądań w usłudze Azure Cognitive Services
 
@@ -75,7 +75,7 @@ Klucz subskrypcji jest udostępniany w każdym żądaniu jako `Ocp-Apim-Subscrip
 
 ### <a name="supported-regions"></a>Obsługiwane regiony
 
-W przypadku korzystania z klucza subskrypcji wieloserviceowej w celu zgłoszenia żądania do programu `api.cognitive.microsoft.com` należy uwzględnić region w adresie URL. Przykład: `westus.api.cognitive.microsoft.com`.
+W przypadku korzystania z klucza subskrypcji wieloserviceowej w celu zgłoszenia żądania do programu `api.cognitive.microsoft.com` należy uwzględnić region w adresie URL. Na przykład: `westus.api.cognitive.microsoft.com`.
 
 W przypadku korzystania z wielousługowego klucza subskrypcji z usługą translatora należy określić region subskrypcji z `Ocp-Apim-Subscription-Region` nagłówkiem.
 
@@ -177,6 +177,6 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Co to są usługi poznawcze Cognitive Services?](welcome.md)
+* [Co to są usługi poznawcze Cognitive Services?](./what-are-cognitive-services.md)
 * [Cennik usług Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [Niestandardowe poddomeny](cognitive-services-custom-subdomains.md)

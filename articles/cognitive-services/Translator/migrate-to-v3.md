@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523982"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364279"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migracja z usługi Translator do wersji v3
 
@@ -37,7 +37,7 @@ Na końcu tego dokumentu znajdują się przydatne linki umożliwiające uzyskani
 * Transliteracja — Metoda transliteracji została dodana do interfejsu API. Ta metoda spowoduje przekonwertowanie słów i zdań w jednym skrypcie (np. Arabski) do innego skryptu (np. Łaciński).
 * Języki — Nowa metoda "Języki" dostarcza informacje o języku w formacie JSON, do użycia z metodami "tłumaczyć", "dictionary" i "transliteracji".
 * Nowe do przetłumaczenia — nowe możliwości zostały dodane do metody "Przetłumacz" w celu obsługi niektórych funkcji w interfejsie API v2 jako oddzielnych metod. Przykładem jest TranslateArray.
-* Mówiąc z metody — funkcja zamiany tekstu na mowę nie jest już obsługiwana w usłudze Microsoft Translator. Funkcja zamiany tekstu na mowę jest dostępna w [usłudze Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Mówiąc z metody — funkcja zamiany tekstu na mowę nie jest już obsługiwana w usłudze Microsoft Translator. Funkcja zamiany tekstu na mowę jest dostępna w [usłudze Microsoft Speech Service](../speech-service/text-to-speech.md).
 
 Poniższa lista metod v2 i V3 identyfikuje metody v3 i interfejsy API, które będą dostarczać funkcje dołączone do wersji 2.
 
@@ -47,8 +47,8 @@ Poniższa lista metod v2 i V3 identyfikuje metody v3 i interfejsy API, które b�
 | `TranslateArray`      | [Przetłumacz](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Języki](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Języki](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Usługa Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Usługa Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Usługa Microsoft Speech](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Usługa Microsoft Speech](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Powinny](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Powinny](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Funkcja nie jest już obsługiwana       |

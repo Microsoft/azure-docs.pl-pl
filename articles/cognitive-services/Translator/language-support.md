@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669630"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364429"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
@@ -347,7 +347,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Walijski | `cy` |
 
 ## <a name="speech-translation"></a>Tłumaczenie mowy
-Tłumaczenie mowy jest dostępne za pomocą usługi Translator z Cognitive Services mowy. Zobacz [dokumentację usługi mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/) , aby dowiedzieć się więcej o korzystaniu z tłumaczenia mowy i wyświetlić wszystkie [dostępne opcje języka](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Tłumaczenie mowy jest dostępne za pomocą usługi Translator z Cognitive Services mowy. Zobacz [dokumentację usługi mowy](../speech-service/index.yml) , aby dowiedzieć się więcej o korzystaniu z tłumaczenia mowy i wyświetlić wszystkie [dostępne opcje języka](../speech-service/language-support.md).
 
 ### <a name="speech-to-text"></a>Zamiana mowy na tekst
 Konwertuj mowę na tekst, aby przetłumaczyć na wybrany język tekstu. Funkcja zamiany mowy na tekst umożliwia tłumaczenie mowy na tekst lub tłumaczenie mowy na mowę w przypadku użycia w połączeniu z syntezą mowy.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a2b41ac32f8c887d7a8ffd33d51baebaa0e2482e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146181"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366489"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Podręcznik publikowania dla różnych typów ofert
 
@@ -30,9 +30,8 @@ W poniższej tabeli przedstawiono typy ofert komercyjnych portalu Marketplace w 
 
 | **Typ oferty**    | **Opis**  |
 | :------------------- | :-------------------|
-| [Aplikacja platformy Azure: **aplikacja zarządzana**](marketplace-managed-apps.md) | Użyj aplikacji platformy Azure: typ oferty aplikacji zarządzanej, gdy są wymagane następujące warunki: <br> <ul> <li>Rozwiązanie oparte na subskrypcji można wdrożyć dla klienta przy użyciu maszyny wirtualnej lub całego rozwiązania opartego na IaaS. </li> <li>Ty lub Twój klient wymaga, aby rozwiązanie było zarządzane przez partnera. </li> <ul> |
-| [Aplikacja platformy Azure: **szablon rozwiązania**](marketplace-solution-templates.md) | Użyj aplikacji platformy Azure: typ oferty szablonu rozwiązania, gdy rozwiązanie wymaga dodatkowego wdrożenia i automatyzacji konfiguracji poza jedną maszyną wirtualną. Szablony rozwiązań mogą korzystać z wielu różnych rodzajów zasobów platformy Azure, w tym między innymi maszyn wirtualnych.  |
-  | [**Kontener platformy Azure**](marketplace-containers.md) | Użyj typu oferty kontenera platformy Azure, jeśli Twoje rozwiązanie jest obrazem kontenera Docker, który został zainicjowany jako usługa kontenera platformy Azure oparta na Kubernetes. |
+| [**Azure Application**](plan-azure-application-offer.md) | Istnieją dwa rodzaje planów aplikacji platformy Azure: _szablon rozwiązania_ i _aplikacja zarządzana_. Oba typy planów obsługują Automatyzowanie wdrażania i konfigurowania rozwiązania poza jedną maszyną wirtualną. Można zautomatyzować proces udostępniania wielu zasobów, w tym maszyn wirtualnych, sieci i zasobów magazynu, aby zapewnić złożone rozwiązania, takie jak rozwiązania IaaS. Oba typy planów mogą korzystać z wielu różnych rodzajów zasobów platformy Azure, w tym między innymi maszyn wirtualnych.<ul><li>Plany **szablonów rozwiązań** to jeden z głównych sposobów publikowania rozwiązania na rynku komercyjnym. Plany szablonów rozwiązań nie są transakcyjne w komercyjnej witrynie Marketplace, ale mogą służyć do wdrażania płatnych ofert maszyn wirtualnych, które są rozliczane za pomocą komercyjnej witryny Marketplace. Użyj typu planu szablonu rozwiązania, gdy klient będzie zarządzać rozwiązaniem, a transakcje są rozliczane za pomocą innego planu.</li><br><li>Plany **aplikacji zarządzanych** umożliwiają łatwe tworzenie i dostarczanie w pełni zarządzanych aplikacji gotowe dla klientów. Mają one te same możliwości co plany szablonów rozwiązań, z niektórymi różnicami między kluczami:</li><ul><li> Zasoby są wdrażane w grupie zasobów i są zarządzane przez wydawcę aplikacji. Grupa zasobów znajduje się w subskrypcji klienta, ale tożsamość w dzierżawie wydawcy ma dostęp do tej grupy zasobów.</li><li>Jako wydawca należy określić koszt dla ciągłej pomocy technicznej rozwiązania, a transakcje są obsługiwane za pomocą komercyjnej witryny Marketplace.</li></ul>Użyj typu planu aplikacji zarządzanej, gdy użytkownik lub klient wymaga, aby rozwiązanie było zarządzane przez partnera, lub wdrożyć rozwiązanie oparte na subskrypcji.</ul> |
+| [**Kontener platformy Azure**](marketplace-containers.md) | Użyj typu oferty kontenera platformy Azure, jeśli Twoje rozwiązanie jest obrazem kontenera Docker, który został zainicjowany jako usługa kontenera platformy Azure oparta na Kubernetes. |
 | [**Maszyna wirtualna platformy Azure**](marketplace-virtual-machines.md) | Podczas wdrażania urządzenia wirtualnego w ramach subskrypcji skojarzonej z klientem Użyj typu oferty maszyny wirtualnej. |
 | [**Usługa doradcza**](consulting-services.md) | Usługi doradcze ułatwiają łączenie się z usługami w celu wspierania i zwiększania użytkowania usług Azure, Dynamics 365 i pakietów usługi.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Możesz publikować oferty AppSource, które kompilują lub rozszerą program Dynamics 365 Business Central, Dynamics 365 Customer Engagement, aplikacje zaawansowane i aplikacje finansowe i operacyjne.|

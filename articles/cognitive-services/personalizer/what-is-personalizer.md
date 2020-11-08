@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: Personalizacja, Personalizacja platformy Azure, uczenie maszynowe
-ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777245"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363905"
 ---
 # <a name="what-is-personalizer"></a>Co to jest usługa Personalizacja?
 
@@ -29,14 +29,14 @@ Zanim zaczniesz, możesz wypróbować program [Personalizuj przy użyciu tego in
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Jak Personalizował wybór najlepszego elementu zawartości?
 
-Personalizacja korzysta z **uczenia wzmacniania** , aby wybrać najlepszy element (_akcję_) w oparciu o wspólne zachowanie i nagrody dla wszystkich użytkowników. Akcje to elementy zawartości, takie jak artykuły z wiadomościami, określone filmy lub produkty.
+Personalizacja korzysta z **uczenia wzmacniania** , aby wybrać najlepszy element ( _akcję_ ) w oparciu o wspólne zachowanie i nagrody dla wszystkich użytkowników. Akcje to elementy zawartości, takie jak artykuły z wiadomościami, określone filmy lub produkty.
 
 Wywołanie **rangi** przyjmuje element akcji, a także funkcje akcji i funkcji kontekstu, aby wybrać górny element akcji:
 
 * **Akcje z funkcjami** — elementy zawartości z funkcjami specyficznymi dla każdego elementu
 * **Funkcje kontekstu** — funkcje użytkowników, ich kontekst lub środowisko w przypadku korzystania z aplikacji
 
-Wywołanie rangi zwraca identyfikator, dla którego element zawartości, __akcję__, która ma być wyświetlana użytkownikowi, w polu **Identyfikator akcji nagrody** .
+Wywołanie rangi zwraca identyfikator, dla którego element zawartości, __akcję__ , która ma być wyświetlana użytkownikowi, w polu **Identyfikator akcji nagrody** .
 
 __Akcja__ pokazywana użytkownikowi jest wybierana z modelami uczenia maszynowego, które próbują zmaksymalizować łączną ilość korzyści w czasie.
 
@@ -57,7 +57,7 @@ Personalizacja wykorzystuje uczenie wzmacniające, aby wybrać jedną najlepszą
 
 ## <a name="when-to-use-personalizer"></a>Kiedy używać personalizacji
 
-[Interfejs API](https://go.microsoft.com/fwlink/?linkid=2092082) **rangi** personalizacji jest wywoływany za każdym razem, gdy aplikacja wyświetla zawartość. Jest to znane jako **zdarzenie**z _identyfikatorem zdarzenia_.
+[Interfejs API](https://go.microsoft.com/fwlink/?linkid=2092082) **rangi** personalizacji jest wywoływany za każdym razem, gdy aplikacja wyświetla zawartość. Jest to znane jako **zdarzenie** z _identyfikatorem zdarzenia_.
 
 [Interfejs API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **nagradzania** personalizacji może być wywoływany w czasie rzeczywistym lub w celu lepszego dopasowania do infrastruktury. Możesz określić wynik nagrody w zależności od potrzeb firmy. Wynik nagrody jest z zakresu od 0 do 1. Może to być pojedyncza wartość, taka jak 1 dla dobra, i 0 dla nieprawidłowych lub liczba generowana przez algorytm, który ma wpływ na cele biznesowe i metryki.
 
@@ -87,14 +87,14 @@ Ponieważ program Personalizujer używa informacji zbiorczych niemal w czasie rz
 
 1. Dodaj personalizację do swojej aplikacji, witryny sieci Web lub systemu:
     1. Dodaj wywołanie **rangi** do personalizacji w aplikacji, w witrynie sieci Web lub w systemie, aby określić najlepsze, pojedyncze elementy _zawartości_ przed wyświetleniem zawartości dla użytkownika.
-    1. Wyświetlaj najlepsze, pojedyncze elementy _zawartości_ , które są ZWRÓCONYm _identyfikatorem akcji z wynagrodzeniem_do użytkownika.
+    1. Wyświetlaj najlepsze, pojedyncze elementy _zawartości_ , które są ZWRÓCONYm _identyfikatorem akcji z wynagrodzeniem_ do użytkownika.
     1. Zastosuj _logikę biznesową_ do zebranych informacji o sposobie zachowania użytkownika, aby określić wynik **nagrody** , taki jak:
 
     |Zachowanie|Obliczony wynik nagrody|
     |--|--|
     |Wybrany użytkownik: najlepszy, pojedynczy element _zawartości_ (Identyfikator akcji nagradzania)|**1**|
     |Użytkownik zaznaczył inną zawartość|**0**|
-    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0,5**|
+    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0.5**|
 
     1. Dodaj wywołanie **zarobkowe** wysyłające wynik nagrody z zakresu od 0 do 1
         * Natychmiast po pokazywania zawartości
@@ -105,7 +105,7 @@ Ponieważ program Personalizujer używa informacji zbiorczych niemal w czasie rz
 
 Oferujemy Przewodniki Szybki Start w językach C#, JavaScript i Python. Każdy Przewodnik Szybki Start został zaprojektowany w celu pouczenia podstawowych wzorców projektowych i uruchomienia kodu w mniej niż 10 minut. 
 
-* [Szybki Start: jak używać biblioteki klienckiej personalizacji](sdk-learning-loop.md)
+* [Szybki Start: jak używać biblioteki klienckiej personalizacji](./quickstart-personalizer-sdk.md)
 
 Gdy masz okazję do rozpoczęcia pracy z usługą personalizacji, wypróbuj nasze samouczki i Dowiedz się, jak używać funkcji personalizacji w aplikacjach sieci Web, rozmowy botów lub notesu platformy Azure.
 
@@ -115,10 +115,10 @@ Gdy masz okazję do rozpoczęcia pracy z usługą personalizacji, wypróbuj nasz
 
 ## <a name="reference"></a>Dokumentacja 
 
-* [Personalizacja C#/.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalizacja C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
 * [Zestaw SDK go personalizacji](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [Personalizacja JavaScript SDK](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Zestaw SDK języka Python dla personalizacji](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalizacja JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
+* [Zestaw SDK języka Python dla personalizacji](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
 * [Interfejsy API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Następne kroki

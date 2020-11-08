@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761583"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366064"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Szybki start: Tworzenie, wdrażanie i używanie niestandardowego modelu tłumaczenia
 
@@ -22,14 +22,14 @@ Ten artykuł zawiera szczegółowe instrukcje tworzenia systemu tłumaczenia za 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Aby używać portalu [Custom Translator](https://portal.customtranslator.azure.ai), musisz zalogować się na [konto Microsoft](https://signup.live.com) lub [konto usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (konto organizacji hostowane na platformie Azure).
+1. Aby używać portalu [Custom Translator](https://portal.customtranslator.azure.ai), musisz zalogować się na [konto Microsoft](https://signup.live.com) lub [konto usługi Azure AD](../../../active-directory/fundamentals/active-directory-whatis.md) (konto organizacji hostowane na platformie Azure).
 
-2. Subskrypcja interfejsu API tłumaczenia tekstu w usłudze Translator — w witrynie Azure Portal. Klucz subskrypcji interfejsu API tłumaczenia tekstu w usłudze Translator musisz skojarzyć z obszarem roboczym w rozszerzeniu Custom Translator. Zobacz instrukcje dotyczące [tworzenia konta umożliwiającego korzystanie z interfejsu API tłumaczenia tekstu w usłudze Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Subskrypcja interfejsu API tłumaczenia tekstu w usłudze Translator — w witrynie Azure Portal. Klucz subskrypcji interfejsu API tłumaczenia tekstu w usłudze Translator musisz skojarzyć z obszarem roboczym w rozszerzeniu Custom Translator. Zobacz instrukcje dotyczące [tworzenia konta umożliwiającego korzystanie z interfejsu API tłumaczenia tekstu w usłudze Translator](../translator-how-to-signup.md).
 
 3. Jeśli masz oba powyższe funkcje, zaloguj się do portalu usługi  [Custom translator](https://portal.customtranslator.azure.ai) , aby utworzyć obszary robocze, projekty, przekazać pliki i utworzyć/wdrożyć modele.
 
 >[!Note]
->Usługa translatora niestandardowego nie obsługuje tworzenia obszaru roboczego dla zasobu interfejs API tłumaczenia tekstu w usłudze Translator, który został utworzony w ramach [włączonej sieci wirtualnej](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Usługa translatora niestandardowego nie obsługuje tworzenia obszaru roboczego dla zasobu interfejs API tłumaczenia tekstu w usłudze Translator, który został utworzony w ramach [włączonej sieci wirtualnej](../../../api-management/api-management-using-with-vnet.md).
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
@@ -92,7 +92,7 @@ Aby zamienić wdrożony model na inny w ramach projektu, kliknij przycisk "swap"
 
 ## <a name="use-a-deployed-model"></a>Korzystanie z wdrożonego modelu
 
-Dostęp do wdrożonych modeli można uzyskać za pośrednictwem [interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator w wersji 3, podając identyfikator kategorii](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Więcej informacji na temat interfejsu API tłumaczenia tekstu w usłudze Translator można znaleźć na stronie internetowej z [dokumentacją interfejsu API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Dostęp do wdrożonych modeli można uzyskać za pośrednictwem [interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator w wersji 3, podając identyfikator kategorii](../reference/v3-0-translate.md?tabs=curl). Więcej informacji na temat interfejsu API tłumaczenia tekstu w usłudze Translator można znaleźć na stronie internetowej z [dokumentacją interfejsu API](../reference/v3-0-reference.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

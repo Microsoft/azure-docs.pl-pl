@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
-ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a62c7dc8238b642aeaa59a7b470266378832e26e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87133082"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363888"
 ---
 # <a name="whats-new-in-personalizer"></a>Co nowego w programie Personalizacja
 
@@ -31,7 +31,7 @@ Dowiedz się, co nowego w usłudze. Te elementy mogą zawierać informacje o wer
 
 ### <a name="may-2020---build-conference"></a>2020 — Konferencja Build
 
-W **publicznej wersji zapoznawczej**są dostępne następujące elementy:
+W **publicznej wersji zapoznawczej** są dostępne następujące elementy:
 
  * [Tryb](concept-apprentice-mode.md) współdziałania jako zachowanie uczenia się.
 
@@ -62,5 +62,5 @@ Następujące funkcje w wersji zapoznawczej zostały wydane na konferencji Build
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki Start: tworzenie pętli opinii w języku C #](csharp-quickstart-commandline-feedback-loop.md)
+* [Szybki Start: tworzenie pętli opinii w języku C #](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Korzystanie z demonstracji interaktywnej](https://personalizationdemo.azurewebsites.net/)

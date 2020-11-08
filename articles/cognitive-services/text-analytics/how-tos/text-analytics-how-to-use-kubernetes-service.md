@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: b7a5953edd9aec96a7f75e747c39e8f07f7210bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 744be742d9f638df14f9d6720c9dad9678685af0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88243772"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366897"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Wdrażanie kontenera analiza tekstu w usłudze Azure Kubernetes Service
 
-Dowiedz się, jak wdrożyć obraz kontenera [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) usługi Azure Cognitive Services w usłudze Azure Kubernetes Service (AKS). W tej procedurze pokazano, jak utworzyć zasób analiza tekstu, sposób tworzenia skojarzonego obrazu analizy tonacji oraz jak korzystać z tej aranżacji dwóch z przeglądarki. Korzystanie z kontenerów może przesunąć uwagę na zarządzanie infrastrukturą, aby zamiast tego koncentrować się na tworzeniu aplikacji.
+Dowiedz się, jak wdrożyć obraz kontenera [Analiza tekstu](./text-analytics-how-to-install-containers.md) usługi Azure Cognitive Services w usłudze Azure Kubernetes Service (AKS). W tej procedurze pokazano, jak utworzyć zasób analiza tekstu, sposób tworzenia skojarzonego obrazu analizy tonacji oraz jak korzystać z tej aranżacji dwóch z przeglądarki. Korzystanie z kontenerów może przesunąć uwagę na zarządzanie infrastrukturą, aby zamiast tego koncentrować się na tworzeniu aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ Ta procedura wymaga kilku narzędzi, które muszą być zainstalowane i uruchomi
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services).
 * Edytor tekstu, na przykład [Visual Studio Code](https://code.visualstudio.com/download).
-* Zainstalowano [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+* Zainstalowano [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) .
 * Zainstalowano [interfejs wiersza polecenia Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) .
 * Zasób platformy Azure z poprawną warstwą cenową. Nie wszystkie warstwy cenowe pracują z tym kontenerem:
     * Zasób **platformy Azure analiza tekstu** tylko przy użyciu warstw cenowych F0 lub standard.
@@ -55,9 +55,9 @@ Ta procedura wymaga kilku narzędzi, które muszą być zainstalowane i uruchomi
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-***
+**_
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Użyj więcej [kontenerów Cognitive Services](../../cognitive-services-container-support.md)
-* Korzystanie z [Analiza tekstu połączonej usługi](../vs-text-connected-service.md)
+_ Użyj więcej [kontenerów Cognitive Services](../../cognitive-services-container-support.md)
+* Korzystanie z [Analiza tekstu połączonej usługi](../index.yml)

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88258275"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363837"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limity danych i szybkości dla interfejs API analizy tekstu
 <a name="data-limits"></a>
@@ -31,7 +31,7 @@ Skorzystaj z tego artykułu, aby znaleźć limity rozmiaru i stawek, które umo�
 
 | Limit | Wartość |
 |------------------------|---------------|
-| Maksymalny rozmiar pojedynczego dokumentu | 5 120 znaków mierzona przez [StringInfo. lengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Ma również zastosowanie do analiza tekstu kontenera kondycji. |
+| Maksymalny rozmiar pojedynczego dokumentu | 5 120 znaków mierzona przez [StringInfo. lengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Ma również zastosowanie do analiza tekstu kontenera kondycji. |
 | Maksymalny rozmiar całego żądania | 1 MB. Ma również zastosowanie do analiza tekstu kontenera kondycji. |
 
 Maksymalna liczba dokumentów, które można wysłać w ramach pojedynczego żądania, będzie zależeć od używanej wersji interfejsu API i funkcji.
@@ -41,7 +41,7 @@ Maksymalna liczba dokumentów, które można wysłać w ramach pojedynczego żą
 W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniższych limitów spowoduje wygenerowanie kodu błędu HTTP 400.
 
 
-| Cecha | Maksymalna liczba dokumentów na żądanie | 
+| Cechy | Maksymalna liczba dokumentów na żądanie | 
 |----------|-----------|
 | Wykrywanie języka | 1000 |
 | Analiza tonacji | 10 |
@@ -51,7 +51,7 @@ W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniż
 | analiza tekstu dla kontenera kondycji | 1000 |
 #### <a name="version-2"></a>[Wersja 2](#tab/version-2)
 
-| Cecha | Maksymalna liczba dokumentów na żądanie | 
+| Cechy | Maksymalna liczba dokumentów na żądanie | 
 |----------|-----------|
 | Wykrywanie języka | 1000 |
 | Analiza tonacji | 1000 |

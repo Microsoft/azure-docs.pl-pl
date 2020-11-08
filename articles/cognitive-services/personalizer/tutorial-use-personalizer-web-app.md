@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777262"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363922"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Samouczek: Dodawanie personalizacji do aplikacji sieci Web platformy .NET
 
@@ -158,7 +158,7 @@ Aplikacja sieci Web używa personalizacji, aby wybrać najlepszą akcję z listy
 * **Akcje** z ich funkcjami, takimi jak `taste` i `spiceLevel`
 * funkcje **kontekstu** , takie jak `time` dzień, `taste` preferencja użytkownika i informacje o agencie użytkownika przeglądarki oraz funkcje kontekstu
 * **akcje do wykluczenia** , takie jak sok
-* **EventID**, który różni się dla każdego wywołania interfejsu API rangi.
+* **EventID** , który różni się dla każdego wywołania interfejsu API rangi.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Funkcje modelu narzędzia Personalizacja w aplikacji sieci Web
 
@@ -216,7 +216,7 @@ Zainstaluj następujące oprogramowanie:
 
 * [.Net core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.1) — przykładowy serwer zaplecza używa platformy .NET Core
 * [Node.js](https://nodejs.org/) — klient/fronton są zależne od tej aplikacji
-* [Program Visual studio 2019](https://visualstudio.microsoft.com/vs/)lub [interfejs wiersza polecenia platformy .NET Core](https://docs.microsoft.com/dotnet/core/tools/) — używanie środowiska deweloperskiego programu visual Studio 2019 lub interfejs wiersza polecenia platformy .NET Core do kompilowania i uruchamiania aplikacji
+* [Program Visual studio 2019](https://visualstudio.microsoft.com/vs/)lub [interfejs wiersza polecenia platformy .NET Core](/dotnet/core/tools/) — używanie środowiska deweloperskiego programu visual Studio 2019 lub interfejs wiersza polecenia platformy .NET Core do kompilowania i uruchamiania aplikacji
 
 ### <a name="set-up-the-sample"></a>Konfigurowanie przykładu
 1. Sklonuj repozytorium przykładów narzędzia Personalizacja platformy Azure.
@@ -235,7 +235,7 @@ Zainstaluj następujące oprogramowanie:
 
 1. W Azure Portal Znajdź `Endpoint` i albo `Key1` `Key2` (będzie działał) na karcie **klucze i punkty końcowe** . Są to Twoje `PersonalizerServiceEndpoint` i Twoje Twoje `PersonalizerApiKey` .
 1. Wypełnij pola `PersonalizerServiceEndpoint` w **appsettings.js**.
-1. Skonfiguruj `PersonalizerApiKey` jako wpisy [tajne aplikacji](https://docs.microsoft.com/aspnet/core/security/app-secrets) w jeden z następujących sposobów:
+1. Skonfiguruj `PersonalizerApiKey` jako wpisy [tajne aplikacji](/aspnet/core/security/app-secrets) w jeden z następujących sposobów:
 
     * Jeśli używasz interfejs wiersza polecenia platformy .NET Core, możesz użyć `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` polecenia.
     * Jeśli używasz programu Visual Studio, kliknij prawym przyciskiem myszy projekt i wybierz opcję Zarządzaj wpisami **tajnymi użytkownika** , aby skonfigurować klucze personalizacji. Dzięki temu program Visual Studio otworzy `secrets.json` plik, w którym można dodać klucze w następujący sposób:
@@ -283,7 +283,7 @@ W poniższych sekcjach opisano części serwera i klienta, które Deweloper musi
 
 ## <a name="rank-api-client-application-sends-context-to-server"></a>Interfejs API rangi: aplikacja kliencka wysyła kontekst do serwera
 
-Aplikacja kliencka zbiera _agenta użytkownika_przeglądarki.
+Aplikacja kliencka zbiera _agenta użytkownika_ przeglądarki.
 
 > [!div class="mx-imgBorder"]
 > ![Kompiluj i uruchamiaj projekt HTTPRequestFeaturesExample. Otworzy się okno przeglądarki, aby wyświetlić aplikację jednostronicową.](./media/tutorial-web-app/user-agent.png)
@@ -294,7 +294,7 @@ Jest to typowa aplikacja sieci Web platformy .NET z aplikacją kliencką. jest d
 
 ### <a name="create-personalizer-client"></a>Utwórz klienta personalizacji
 
-W **Startup.cs**serwera, punkt końcowy i klucz personalizacji są używane do tworzenia klienta personalizacji. Aplikacja kliencka nie musi komunikować się z personalizacją w tej aplikacji, zamiast polegać na serwerze, aby wykonać te wywołania zestawu SDK.
+W **Startup.cs** serwera, punkt końcowy i klucz personalizacji są używane do tworzenia klienta personalizacji. Aplikacja kliencka nie musi komunikować się z personalizacją w tej aplikacji, zamiast polegać na serwerze, aby wykonać te wywołania zestawu SDK.
 
 Kod uruchomienia platformy .NET serwera sieci Web:
 
@@ -340,7 +340,7 @@ namespace HttpRequestFeaturesExample
 
 ### <a name="select-best-action"></a>Wybierz najlepszą akcję
 
-W **PersonalizerController.cs**serwera interfejs API serwera **GenerateRank** podsumowuje przygotowanie do wywołania interfejsu API rangi
+W **PersonalizerController.cs** serwera interfejs API serwera **GenerateRank** podsumowuje przygotowanie do wywołania interfejsu API rangi
 
 * Utwórz nową `eventId` dla wywołania rangi
 * Pobierz listę akcji
@@ -582,7 +582,7 @@ Dodatkowe ustawienia do odtworzenia przy użyciu programu obejmują:
 * Procent eksploracji
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Oczyść następujące zasoby:
 

@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084633"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366537"
 ---
 # <a name="tutorial-single-page-web-app"></a>Samouczek: jednostronicowa aplikacja internetowa
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejs API wyszukiwania jednostek Bing umożliwia wyszukiwanie w Internecie informacji o *jednostkach* i *miejscach.* W danym zapytaniu można zażądać dowolnego z tych dwóch rodzajów wyników lub obu. Poniżej znajdują się definicje miejsc i jednostek.
 
@@ -57,7 +57,7 @@ Aplikacja samouczka ilustruje sposób wykonywania następujących czynności:
 
 Strona samouczka jest całkowicie niezależna. Nie używa żadnych zewnętrznych struktur, arkuszy stylów ani nawet plików obrazów. Korzysta jedynie z powszechnie obsługiwanych funkcji języka JavaScript i działa w aktualnych wersjach wszystkich popularnych przeglądarek internetowych.
 
-W tym samouczku omówimy tylko wybrane części kodu źródłowego. Pełny kod źródłowy jest dostępny [na oddzielnej stronie](tutorial-bing-entities-search-single-page-app-source.md). Skopiuj ten kod i wklej go do edytora tekstu, a następnie zapisz go jako plik `bing.html`.
+W tym samouczku omówimy tylko wybrane części kodu źródłowego. Pełny kod źródłowy jest dostępny [na oddzielnej stronie](). Skopiuj ten kod i wklej go do edytora tekstu, a następnie zapisz go jako plik `bing.html`.
 
 > [!NOTE]
 > Ten samouczek jest bardzo podobny do [samouczka dotyczącego jednostronicowej aplikacji wyszukiwania w Internecie Bing](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), ale dotyczy tylko wyników wyszukiwania jednostek.
@@ -68,8 +68,8 @@ Aby wykonać kroki opisane w samouczku, musisz dysponować kluczami subskrypcji 
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * Gdy masz subskrypcję platformy Azure:
-  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Utwórz zasób Wyszukiwanie Bing "  target="_blank"> Utwórz zasób wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
-  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Przetwarzanie obrazów Utwórz zasób usługi "  target="_blank"> mapy Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Utwórz zasób Wyszukiwanie Bing "  target="_blank"> Utwórz zasób wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Przetwarzanie obrazów Utwórz zasób usługi "  target="_blank"> mapy Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 
 ## <a name="app-components"></a>Składniki aplikacji
 
@@ -405,7 +405,7 @@ Błędy są obsługiwane przez wywołanie funkcji `renderErrorMessage()` z wszys
 
 ## <a name="displaying-search-results"></a>Wyświetlanie wyników wyszukiwania
 
-Interfejs API wyszukiwania jednostek Bing [wymaga wyświetlania wyników w określonej kolejności](use-display-requirements.md). Ponieważ interfejs API może zwracać dwa różne rodzaje odpowiedzi, nie wystarczy wykonać iteracji przez najwyższy poziom `Entities` lub `Places` kolekcję w odpowiedzi JSON i wyświetlić te wyniki. (Aby uzyskać tylko jeden typ wyniku, należy użyć parametru zapytania `responseFilter`).
+Interfejs API wyszukiwania jednostek Bing [wymaga wyświetlania wyników w określonej kolejności](../bing-web-search/use-display-requirements.md). Ponieważ interfejs API może zwracać dwa różne rodzaje odpowiedzi, nie wystarczy wykonać iteracji przez najwyższy poziom `Entities` lub `Places` kolekcję w odpowiedzi JSON i wyświetlić te wyniki. (Aby uzyskać tylko jeden typ wyniku, należy użyć parametru zapytania `responseFilter`).
 
 Zamiast tego używamy kolekcji `rankingResponse` w wynikach wyszukiwania, aby uporządkować wyniki do wyświetlenia. Ten obiekt odwołuje się do elementów w kolekcjach `Entitiess` i/lub `Places`.
 

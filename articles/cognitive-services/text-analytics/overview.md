@@ -12,18 +12,18 @@ ms.date: 11/02/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289692"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365299"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
 Interfejs API analizy tekstu to usługa oparta na chmurze, która zapewnia funkcje przetwarzania języka naturalnego (NLP) na potrzeby wyszukiwania tekstu i analizy tekstu, w tym: Analiza tonacji, wyszukiwanie opinii, wyodrębnianie kluczowych fraz, wykrywanie języka i rozpoznawanie nazw jednostek.
 
-Interfejs API jest częścią usług [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Tych funkcji można używać z [interfejsem API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)lub z [biblioteką klienta](quickstarts/text-analytics-sdk.md)programu.
+Interfejs API jest częścią usług [Azure Cognitive Services](../index.yml), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Tych funkcji można używać z [interfejsem API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)lub z [biblioteką klienta](quickstarts/text-analytics-sdk.md)programu.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
@@ -73,18 +73,18 @@ Możesz rozpocząć korzystanie z interfejs API analizy tekstu w swoich procesac
 
 * Wymagane jest minimalne programowanie:
     * [Wyodrębnij informacje w programie Excel przy użyciu analiza tekstu i automatyzacji](tutorials/extract-excel-information.md)
-    * [Użyj interfejs API analizy tekstu i usługi MS Flow, aby zidentyfikować tonacji komentarzy w grupie usługi Yammer](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Użyj interfejs API analizy tekstu i usługi MS Flow, aby zidentyfikować tonacji komentarzy w grupie usługi Yammer](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
     * [Integruj Power BI z interfejs API analizy tekstu, aby analizować Opinie klientów](tutorials/tutorial-power-bi-key-phrases.md)
 * Zalecane środowisko programistyczne:
-    * [Analiza tonacji na strumieniu danych przy użyciu usługi Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
-    * [Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i synteza mowy](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Analiza tonacji na strumieniu danych przy użyciu usługi Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
+    * [Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i synteza mowy](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
 
 
 <a name="supported-languages"></a>
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 
-Ta sekcja została przeniesiona do oddzielnego artykułu, aby zapewnić lepszą czytelność. Zapoznaj się z [obsługiwanymi językami w interfejs API analizy tekstu](text-analytics-supported-languages.md) tej zawartości.
+Ta sekcja została przeniesiona do oddzielnego artykułu, aby zapewnić lepszą czytelność. Zapoznaj się z [obsługiwanymi językami w interfejs API analizy tekstu](./language-support.md) tej zawartości.
 
 <a name="data-limits"></a>
 
@@ -94,7 +94,7 @@ Wszystkie punkty końcowe interfejsu API analizy tekstu akceptują dane w postac
 
 ## <a name="unicode-encoding"></a>Kodowanie Unicode
 
-Interfejs API analizy tekstu używa kodowania Unicode na potrzeby przedstawiania tekstu oraz obliczeń w zakresie liczby znaków. Żądania można przesyłać w kodowaniu UTF-8 oraz UTF-16, bez żadnych mierzalnych różnic w liczbie znaków. Punkty kodu Unicode są używane jako heurystyka dla długości znaków i są uznawane za równoważne dla celów związanych z limitami danych analizy tekstu. Jeśli używasz [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) , aby uzyskać liczbę znaków, używana jest ta sama metoda, która służy do mierzenia rozmiaru danych.
+Interfejs API analizy tekstu używa kodowania Unicode na potrzeby przedstawiania tekstu oraz obliczeń w zakresie liczby znaków. Żądania można przesyłać w kodowaniu UTF-8 oraz UTF-16, bez żadnych mierzalnych różnic w liczbie znaków. Punkty kodu Unicode są używane jako heurystyka dla długości znaków i są uznawane za równoważne dla celów związanych z limitami danych analizy tekstu. Jeśli używasz [`StringInfo.LengthInTextElements`](/dotnet/api/system.globalization.stringinfo.lengthintextelements) , aby uzyskać liczbę znaków, używana jest ta sama metoda, która służy do mierzenia rozmiaru danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -104,6 +104,6 @@ Interfejs API analizy tekstu używa kodowania Unicode na potrzeby przedstawiania
 
 + Aby uzyskać informacje o nowych wersjach i funkcjach [, zobacz co nowego w interfejs API analizy tekstu](whats-new.md) .
 
-+ Dig w nieco bardziej szczegółowym [samouczku dotyczącym analizy tonacji](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) przy użyciu Azure Databricks.
++ Dig w nieco bardziej szczegółowym [samouczku dotyczącym analizy tonacji](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services) przy użyciu Azure Databricks.
 
 + Zapoznaj się z naszą listą wpisów w blogu i Dowiedz się więcej na temat korzystania z interfejs API analizy tekstu z innymi narzędziami i technologiami na naszej [stronie zawartości społeczności zewnętrznej &](text-analytics-resource-external-community.md).

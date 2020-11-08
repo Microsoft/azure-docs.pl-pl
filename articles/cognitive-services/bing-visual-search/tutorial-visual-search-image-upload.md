@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102208"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366132"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Samouczek: przekazywanie obrazów do interfejs API wyszukiwania wizualnego Bing
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Wyświetlanie szczegółowych informacji dla różnych akcji
 
-Następujące funkcje wyświetlają szczegółowe informacje dla różnych akcji. Funkcje zapewniają klikalny obraz albo klikalny link, który prowadzi do strony internetowej z dodatkowymi informacjami na temat obrazu. Ta strona jest hostowana w witrynie Bing.com albo w pierwotnej witrynie internetowej obrazu. W tej aplikacji nie są wyświetlane wszystkie dane ze szczegółowych informacji. Aby wyświetlić wszystkie pola dostępne do wglądu w szczegółowe informacje, zobacz informacje o [obrazach Wyszukiwanie wizualne](https://aka.ms/bingvisualsearchreferencedoc) .
+Następujące funkcje wyświetlają szczegółowe informacje dla różnych akcji. Funkcje zapewniają klikalny obraz albo klikalny link, który prowadzi do strony internetowej z dodatkowymi informacjami na temat obrazu. Ta strona jest hostowana w witrynie Bing.com albo w pierwotnej witrynie internetowej obrazu. W tej aplikacji nie są wyświetlane wszystkie dane ze szczegółowych informacji. Aby wyświetlić wszystkie pola dostępne do wglądu w szczegółowe informacje, zobacz informacje o [obrazach Wyszukiwanie wizualne](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) .
 
 > [!NOTE]
 > Obowiązuje minimalna ilość szczegółowych informacji, którą należy wyświetlić na stronie. Więcej informacji można znaleźć w temacie [wyszukiwanie Bing API use i Display Requirements](../bing-web-search/use-display-requirements.md) .

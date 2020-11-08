@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91349127"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363395"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
 
@@ -45,9 +45,9 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
-* [Microsoft. CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): tworzy zasób Cognitive Services.
+* [Microsoft. CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): tworzy zasób Cognitive Services.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
@@ -60,7 +60,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
     |Wartość  |Opis  |
     |---------|---------|
     | **Subskrypcja** | Wybierz subskrypcję platformy Azure. |
-    | **Grupa zasobów** | Wybierz pozycję **Utwórz nowy**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**. |
+    | **Grupa zasobów** | Wybierz pozycję **Utwórz nowy** , wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**. |
     | **Region** | Wybierz region.  Na przykład **Wschodnie stany USA** |
     | **Nazwa usługi poznawczej** | Zamień na unikatową nazwę zasobu. Podczas sprawdzania poprawności wdrożenia będzie potrzebna nazwa w następnej sekcji. |
     | **Lokalizacja** | Zamień na region używany powyżej. |
@@ -68,14 +68,14 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Ekran tworzenia zasobów.":::
 
-3. Wybierz pozycję **Przeglądanie + tworzenie**, a następnie pozycję **Utwórz**. Po pomyślnym zakończeniu wdrażania zasobu zostanie wyróżniony przycisk **Przejdź do zasobu** .
+3. Wybierz pozycję **Przeglądanie + tworzenie** , a następnie pozycję **Utwórz**. Po pomyślnym zakończeniu wdrażania zasobu zostanie wyróżniony przycisk **Przejdź do zasobu** .
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` Tworzenie wymaga interfejsu wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby wyświetlić typ wersji `az --version` . Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/cli/azure/deployment/group).
+> `az deployment group` Tworzenie wymaga interfejsu wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby wyświetlić typ wersji `az --version` . Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](/cli/azure/deployment/group).
 
-Uruchom następujący skrypt przy użyciu interfejsu wiersza polecenia platformy Azure [na komputerze lokalnym](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)lub w przeglądarce z przyciskiem **Wypróbuj** . Wprowadź nazwę i lokalizację (na przykład `centralus` ) dla nowej grupy zasobów, a szablon ARM zostanie użyty do wdrożenia w nim zasobu Cognitive Services. Zapamiętaj nazwę, której używasz. Będzie on używany później do weryfikacji wdrożenia.
+Uruchom następujący skrypt przy użyciu interfejsu wiersza polecenia platformy Azure [na komputerze lokalnym](/cli/azure/install-azure-cli?view=azure-cli-latest)lub w przeglądarce z przyciskiem **Wypróbuj** . Wprowadź nazwę i lokalizację (na przykład `centralus` ) dla nowej grupy zasobów, a szablon ARM zostanie użyty do wdrożenia w nim zasobu Cognitive Services. Zapamiętaj nazwę, której używasz. Będzie on używany później do weryfikacji wdrożenia.
 
 
 ```azurecli-interactive
@@ -115,13 +115,13 @@ az cognitiveservices account list -g $resourceGroupName
 ---
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich innych zasobów znajdujących się w grupie.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję **Grupy zasobów**, aby wyświetlić listę grup zasobów.
+1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję **Grupy zasobów** , aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów zawierającą zasób do usunięcia
 3. Kliknij prawym przyciskiem myszy na liście grup zasobów. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
 
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uwierzytelnianie żądań w usłudze Azure Cognitive Services](authentication.md)
-* [Co to jest platforma Azure Cognitive Services?](Welcome.md)
+* [Co to jest platforma Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Obsługa języka naturalnego](language-support.md)
 * [Obsługa kontenerów platformy Docker](cognitive-services-container-support.md)

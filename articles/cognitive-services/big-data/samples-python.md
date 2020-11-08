@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 1a4fe2492433aa793d1a7e4be41c5f93043848a5
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 590ddef27315f37719da5b28c68b6c402371e986
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337869"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363259"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Przykłady języka Python dla Cognitive Services danych Big Data
 
@@ -56,7 +56,7 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 
 ## <a name="text-analytics-sample"></a>Przykład analiza tekstu
 
-Usługa [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) udostępnia kilka algorytmów służących do wyodrębniania inteligentnych analiz z tekstu. Na przykład możemy znaleźć tonacji danego tekstu wejściowego. Usługa zwróci wynik z przedziału od 0,0 do 1,0, gdzie niskie wyniki wskazują, że wartość ujemna tonacji i wysoka Ocena wskazuje pozytywną tonacji.  Ten przykład używa trzech prostych zdań i zwraca tonacji dla każdego z nich.
+Usługa [Analiza tekstu](../text-analytics/index.yml) udostępnia kilka algorytmów służących do wyodrębniania inteligentnych analiz z tekstu. Na przykład możemy znaleźć tonacji danego tekstu wejściowego. Usługa zwróci wynik z przedziału od 0,0 do 1,0, gdzie niskie wyniki wskazują, że wartość ujemna tonacji i wysoka Ocena wskazuje pozytywną tonacji.  Ten przykład używa trzech prostych zdań i zwraca tonacji dla każdego z nich.
 
 ```python
 from pyspark.sql.functions import col
@@ -91,7 +91,7 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sent
 
 ## <a name="computer-vision-sample"></a>Przykład przetwarzanie obrazów
 
-[Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analizuje obrazy w celu zidentyfikowania struktury, takiej jak twarze, obiekty i opisy języka naturalnego. W tym przykładzie oznaczmy listę obrazów. Tagi to jednowyrazowe opisy elementów na obrazie, takich jak rozpoznawalne obiekty, ludzie, scenerii i akcje.
+[Przetwarzanie obrazów](../computer-vision/index.yml) analizuje obrazy w celu zidentyfikowania struktury, takiej jak twarze, obiekty i opisy języka naturalnego. W tym przykładzie oznaczmy listę obrazów. Tagi to jednowyrazowe opisy elementów na obrazie, takich jak rozpoznawalne obiekty, ludzie, scenerii i akcje.
 
 ```python
 
@@ -126,7 +126,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## <a name="bing-image-search-sample"></a>Przykład wyszukiwanie obrazów Bing
 
-[Wyszukiwanie obrazów Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) przeszukuje sieć Web, aby pobrać obrazy powiązane z zapytaniem w języku naturalnym użytkownika. W tym przykładzie używamy zapytania tekstowego, które wyszukuje obrazy z cudzysłowami. Zwraca listę adresów URL obrazów, które zawierają zdjęcia powiązane z naszym zapytaniem.
+[Wyszukiwanie obrazów Bing](../bing-image-search/overview.md) przeszukuje sieć Web, aby pobrać obrazy powiązane z zapytaniem w języku naturalnym użytkownika. W tym przykładzie używamy zapytania tekstowego, które wyszukuje obrazy z cudzysłowami. Zwraca listę adresów URL obrazów, które zawierają zdjęcia powiązane z naszym zapytaniem.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -171,7 +171,7 @@ display(pipeline.transform(bingParameters))
 
 
 ## <a name="speech-to-text-sample"></a>Przykład zamiany mowy na tekst
-Usługa [zamiany mowy na tekst](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) konwertuje strumienie lub pliki głosowego dźwięku na tekst. W tym przykładzie transkrypcjamy dwa pliki audio. Pierwszy plik jest łatwy do zrozumienia, a drugi jest trudniejszy.
+Usługa [zamiany mowy na tekst](../speech-service/index-speech-to-text.yml) konwertuje strumienie lub pliki głosowego dźwięku na tekst. W tym przykładzie transkrypcjamy dwa pliki audio. Pierwszy plik jest łatwy do zrozumienia, a drugi jest trudniejszy.
 
 ```python
 
@@ -205,7 +205,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 ## <a name="anomaly-detector-sample"></a>Przykład wykrywania anomalii
 
-[Detektor anomalii](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) doskonale nadaje się do wykrywania niezgodności w danych szeregów czasowych. W tym przykładzie używamy usługi, aby znaleźć anomalie w całej szeregu czasowym.
+[Detektor anomalii](../anomaly-detector/index.yml) doskonale nadaje się do wykrywania niezgodności w danych szeregów czasowych. W tym przykładzie używamy usługi, aby znaleźć anomalie w całej szeregu czasowym.
 
 ```python
 from pyspark.sql.functions import lit

@@ -10,22 +10,27 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/06/2020
 ms.author: daberry
-ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc043a991404a3ee9da954b9639bf1a41f2c51
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509362"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365877"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Rozwiązywanie problemów związanych z błędami alokacji występującymi podczas tworzenia lub ponownego uruchamiania maszyn wirtualnych na platformie Azure bądź zmieniania ich rozmiaru
 
 Podczas tworzenia maszyny wirtualnej, ponownego uruchamiania zatrzymanej (cofniętej) maszyn wirtualnych lub zmiany rozmiaru maszyny wirtualnej Microsoft Azure przydziela zasoby obliczeniowe do subskrypcji. Firma Microsoft stale inwestuje w dodatkowe infrastruktury i funkcje, aby upewnić się, że wszystkie typy maszyn wirtualnych są dostępne do obsługi popytu klientów. Czasami mogą wystąpić błędy alokacji zasobów z powodu niespotykanego wzrostu popytu dla usług platformy Azure w określonych regionach. Ten problem może wystąpić podczas próby tworzenia lub uruchamiania maszyn wirtualnych w regionie, gdy maszyny wirtualne wyświetlają następujący kod błędu i komunikat:
 
-**Kod błędu**: AllocationFailed lub ZonalAllocationFailed
+**Kod błędu** : AllocationFailed lub ZonalAllocationFailed
 
-**Komunikat o błędzie**: "Alokacja nie powiodła się. Nie ma wystarczającej pojemności dla żądanego rozmiaru maszyny wirtualnej w tym regionie. Przeczytaj więcej o tym, jak zwiększyć prawdopodobieństwo sukcesu alokacji przy użyciu protokołu https: \/ /aka.MS/Allocation-Guidance "
+**Komunikat o błędzie** : "Alokacja nie powiodła się. Nie ma wystarczającej pojemności dla żądanego rozmiaru maszyny wirtualnej w tym regionie. Przeczytaj więcej o tym, jak zwiększyć prawdopodobieństwo sukcesu alokacji przy użyciu protokołu https: \/ /aka.MS/Allocation-Guidance "
+
+> [!NOTE]
+> W przypadku rozwiązywania problemów z zestawem skalowania maszyn wirtualnych (VMSS) proces ten jest taki sam jak w przypadku standardowej maszyny wirtualnej. Aby rozwiązać ten problem, należy postępować zgodnie z instrukcjami w tym artykule.
+> 
+>**Komunikat o błędzie** : "Alokacja nie powiodła się. Jeśli próbujesz dodać nową MASZYNę wirtualną do zestawu skalowania maszyn wirtualnych przy użyciu pojedynczej grupy umieszczania lub zaktualizować/zmienić rozmiar istniejącej maszyny wirtualnej w zestawie skalowania maszyn wirtualnych za pomocą pojedynczej grupy umieszczania, należy pamiętać, że taka alokacja jest objęta zakresem pojedynczego klastra i istnieje możliwość braku możliwości klastra. Przeczytaj więcej na temat zwiększania prawdopodobieństwa sukcesu alokacji na http: \/ /aka.MS/Allocation-Guidance. "
 
 W tym artykule wyjaśniono przyczyny niektórych typowych niepowodzeń alokacji i zaproponowano możliwe środki zaradcze.
 

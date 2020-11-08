@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 89bbb16f96d06d1861dabdf89cf690e69c10735c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348920"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364483"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów na platformie Azure
 
@@ -153,7 +153,7 @@ Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriac
 
 *Nie można zmienić właściwości "galleryImageVersion. Properties. obszarze storageprofile. <diskImage \> . Source.ID".*  
 **Przyczyna** : nie można zmienić identyfikatora źródła wersji obrazu galerii po utworzeniu.  
-**Obejście** : Upewnij się, że identyfikator źródła jest taki sam jak istniejący identyfikator źródła lub Zmień numer wersji obrazu.
+**Obejście** : Upewnij się, że identyfikator źródła jest taki sam jak identyfikator już istniejącego źródła, Zmień numer wersji obrazu lub Usuń bieżącą wersję obrazu i spróbuj ponownie.
 
 *Na dyskach danych wejściowych wykryto zduplikowane numery LUN. Numer LUN musi być unikatowy dla każdego dysku z danymi.*  
 **Przyczyna** : podczas tworzenia wersji obrazu przy użyciu listy dysków i/lub migawek dysku, co najmniej dwa dyski lub migawki dysków mają te same numery LUN.  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855644"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363786"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Przesunięcie tekstu w danych wyjściowych interfejs API analizy tekstu
 
@@ -34,9 +34,9 @@ Za każdym razem, gdy przesunięcia są zwracane odpowiedzi interfejsu API, taki
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Wyodrębnianie podciągów z tekstu z przesunięciami
 
-Przesunięcia mogą spowodować problemy podczas korzystania z metod podciągów opartych na znakach, na przykład w przypadku metody [podciągu .NET ()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) . Jeden z problemów polega na tym, że przesunięcie może spowodować zakończenie metody podciągu w środku wieloznakowego kodowania Grapheme zamiast na końcu.
+Przesunięcia mogą spowodować problemy podczas korzystania z metod podciągów opartych na znakach, na przykład w przypadku metody [podciągu .NET ()](/dotnet/api/system.string.substring?view=netframework-4.8) . Jeden z problemów polega na tym, że przesunięcie może spowodować zakończenie metody podciągu w środku wieloznakowego kodowania Grapheme zamiast na końcu.
 
-W programie .NET Rozważ użycie klasy [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , która umożliwia współpracę z ciągiem jako serią elementów tekstowych, a nie pojedynczymi obiektami znaków. Możesz również wyszukać biblioteki rozdzielacza Grapheme w preferowanym środowisku oprogramowania. 
+W programie .NET Rozważ użycie klasy [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , która umożliwia współpracę z ciągiem jako serią elementów tekstowych, a nie pojedynczymi obiektami znaków. Możesz również wyszukać biblioteki rozdzielacza Grapheme w preferowanym środowisku oprogramowania. 
 
 Interfejs API analizy tekstu zwraca te elementy tekstowe również dla wygody.
 

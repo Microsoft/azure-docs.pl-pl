@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173963"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363871"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -84,7 +84,7 @@ Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https
 Istnieje wiele sposobów instalowania i uruchamiania kontenera. 
 
 - Użyj [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) , aby utworzyć zasób analiza tekstu i użyć platformy Docker do pobrania kontenera.
-- Aby zautomatyzować konfigurację kontenera wdrażania zasobów, należy użyć następujących skryptów [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) programu PowerShell i platformy Azure.
+- Aby zautomatyzować konfigurację kontenera wdrażania zasobów, należy użyć następujących skryptów [interfejsu wiersza polecenia](/cli/azure/?view=azure-cli-latest) programu PowerShell i platformy Azure.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Instalowanie kontenera przy użyciu usługi Azure Web App for Containers
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 Możesz również użyć wystąpienia kontenera platformy Azure (ACI), aby ułatwić wdrażanie. ACI to zasób, który umożliwia uruchamianie kontenerów platformy Docker na żądanie w zarządzanym, bezserwerowym środowisku platformy Azure. 
 
 Zapoznaj się z tematem [jak używać Azure Container Instances](text-analytics-how-to-use-container-instances.md) kroków dotyczących wdrażania zasobu ACI przy użyciu Azure Portal. Możesz też użyć poniższego skryptu programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, który spowoduje utworzenie ACI w subskrypcji przy użyciu obrazu kontenera.  Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.  Ze względu na limit maksymalnej liczby procesorów CPU na ACI zasób nie należy zaznaczać tej opcji, jeśli oczekuje się przesłania więcej niż 5 dużych dokumentów (około 5000 znaków) na żądanie.
-Aby uzyskać informacje o dostępności, zobacz artykuł dotyczący [pomocy regionalnej ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) . 
+Aby uzyskać informacje o dostępności, zobacz artykuł dotyczący [pomocy regionalnej ACI](../../../container-instances/container-instances-region-availability.md) . 
 
 > [!NOTE] 
 > Azure Container Instances nie Uwzględniaj obsługi protokołu HTTPS dla domen wbudowanych. Jeśli potrzebujesz protokołu HTTPS, konieczne będzie jego ręczne skonfigurowanie, w tym utworzenie certyfikatu i zarejestrowanie domeny. Instrukcje można znaleźć w NGINX poniżej.

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359548"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366727"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Koncepcje wysokiej dostępności na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -101,17 +101,17 @@ Elastyczne serwery z konfiguracją wysokiej dostępności umożliwiają replikac
 -   Wysoka dostępność jest obsługiwana tylko w regionach, w których jest dostępnych wiele stref.
 -   Ze względu na replikację synchroniczną do innej strefy dostępności aplikacje mogą mieć podwyższony czas oczekiwania na zapis i zatwierdzenie.
 
--   Nie można użyć repliki rezerwowej dla zapytań tylko do odczytu.
+-   Nie można użyć repliki rezerwowej dla zapytań odczytu.
 
--   W zależności od działania na serwerze podstawowym w momencie przejścia w tryb failover może upłynąć nawet dwie minuty lub dłużej, aby można było ukończyć pracę w trybie failover.
+-   W zależności od obciążenia i aktywności na serwerze podstawowym proces trybu failover może trwać dłużej niż 120 sekund.
 
--   Ponowne uruchomienie podstawowego serwera bazy danych w celu pobrania zmian parametrów statycznych spowoduje również ponowne uruchomienie repliki gotowości.
+-   Ponowne uruchomienie podstawowego serwera bazy danych spowoduje również ponowne uruchomienie repliki w stanie wstrzymania. 
 
 -   Konfigurowanie dodatkowych replik odczytu nie jest obsługiwane.
 
 -   Konfigurowanie zadań zarządzania inicjowanych przez klienta nie można zaplanować podczas zarządzanego okna obsługi.
 
--   Zdarzenia planowane, takie jak skalowanie zasobów obliczeniowych i skalowanie magazynu, najpierw odbywają się na serwerze rezerwowym, a następnie na serwerze podstawowym. Usługa nie jest przełączana w tryb failover. 
+-   Zdarzenia planowane, takie jak skalowanie zasobów obliczeniowych i skalowanie magazynu, najpierw odbywają się na serwerze rezerwowym, a następnie na serwerze podstawowym. Serwer nie przekroczy trybu failover dla tych planowanych operacji. 
 
 -  W przypadku skonfigurowania logicznego dekodowania lub replikacji logicznej przy użyciu serwera elastycznego z konfiguracją HA w przypadku przejścia w tryb failover do serwera rezerwowego gniazda replikacji logicznej nie są kopiowane do serwera rezerwowego.  
 

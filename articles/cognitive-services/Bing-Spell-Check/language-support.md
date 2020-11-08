@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2b4e4eb84cecf2f68c50f0a40630cc2e6f34554f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38bf38f47e4430c847e54bd89f6bf3cd7be50527
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084210"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367084"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Obsługa języka i regionu sprawdzanie pisowni Bing API
 
@@ -26,7 +26,7 @@ ms.locfileid: "93084210"
 
 Te języki są obsługiwane przez interfejs API sprawdzanie pisowni Bing (tylko w `spell` trybie).
 
-Należy pamiętać, że aby korzystać z dowolnego innego języka niż `en-US` , `mkt` powinien być ustawiony i albo `Accept-Language` `setLang` musi być ustawiony, ponieważ został opisany w [interfejs API sprawdzania pisowni odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Należy pamiętać, że aby korzystać z dowolnego innego języka niż `en-US` , `mkt` powinien być ustawiony i albo `Accept-Language` `setLang` musi być ustawiony, ponieważ został opisany w [interfejs API sprawdzania pisowni odwołanie wersji 7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Język    | Kod języka |
 |:----------- |:-------------:|
@@ -73,5 +73,5 @@ Należy pamiętać, że aby korzystać z dowolnego innego języka niż `en-US` ,
 
 ## <a name="see-also"></a>Zobacz też
 
-- [Strona dokumentacji usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+- [Strona dokumentacji usług Cognitive Services](../index.yml)
 - [Strona produktu usług Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

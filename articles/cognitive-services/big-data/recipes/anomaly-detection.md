@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324608"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366285"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Przepis: konserwacja predykcyjna z Cognitive Servicesami dla danych Big Data
 
@@ -31,13 +31,13 @@ Dane można wyróżnić losowo z częstotliwości. W takich sytuacjach wartości
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
-* [Obszar roboczy usługi Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) skonfigurowany przy użyciu [puli Apache Spark bezserwerowej](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Obszar roboczy usługi Azure Synapse](../../../synapse-analytics/quickstart-create-workspace.md) skonfigurowany przy użyciu [puli Apache Spark bezserwerowej](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-## <a name="setup"></a>Konfiguracja
+## <a name="setup"></a>Konfigurowanie
 
 ### <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
 
-Usługa Azure Cognitive Services jest reprezentowana przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla translatora przy użyciu [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Możesz również wykonać następujące czynności:
+Usługa Azure Cognitive Services jest reprezentowana przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla translatora przy użyciu [Azure Portal](../../cognitive-services-apis-create-account.md) lub [interfejsu wiersza polecenia platformy Azure](../../cognitive-services-apis-create-account-cli.md). Możesz również wykonać następujące czynności:
 
 - Wyświetl istniejący zasób w  [Azure Portal](https://portal.azure.com/).
 

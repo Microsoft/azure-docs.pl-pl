@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166934"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366761"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Instrukcje: wykrywanie tonacji przy użyciu interfejs API analizy tekstu
 
@@ -23,13 +23,13 @@ Funkcja analiza tonacji interfejs API analizy tekstu ocenia tekst i zwraca wynik
 
 Po wysłaniu żądania analizy tonacji interfejs API zwraca etykiety tonacji (na przykład "negatyw", "neutralny" i "pozytywna") oraz wyniki zaufania na poziomie zdania i dokumentu.
 
-Analiza tonacji obsługuje szeroką gamę języków z więcej w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz listę [obsługiwanych języków](../text-analytics-supported-languages.md).
+Analiza tonacji obsługuje szeroką gamę języków z więcej w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz listę [obsługiwanych języków](../language-support.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>analiza tonacji wersje i funkcje
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Cecha                                   | analiza tonacji v3 | Analiza tonacji v 3.1 (wersja zapoznawcza) |
+| Cechy                                   | analiza tonacji v3 | Analiza tonacji v 3.1 (wersja zapoznawcza) |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Metody dla żądań pojedynczych i wsadowych    | X                     | X                                 |
 | Tonacji oceny i etykietowania             | X                     | X                                 |
@@ -40,7 +40,7 @@ Analiza tonacji obsługuje szeroką gamę języków z więcej w wersji zapoznawc
 
 Analiza tonacji w wersji 3 stosuje etykiety tonacji do tekstu, które są zwracane na poziomie zdania i dokumentu, z wynikiem pewności dla każdej z nich. 
 
-Etykiety są *dodatnie*, *ujemne*i *neutralne*. Na poziomie dokumentu może być również zwracana etykieta *mieszany* tonacji. Tonacji dokumentu jest określana poniżej:
+Etykiety są *dodatnie* , *ujemne* i *neutralne*. Na poziomie dokumentu może być również zwracana etykieta *mieszany* tonacji. Tonacji dokumentu jest określana poniżej:
 
 | Tonacji zdania                                                                            | Etykieta zwracanego dokumentu |
 |-----------------------------------------------------------------------------------------------|-------------------------|

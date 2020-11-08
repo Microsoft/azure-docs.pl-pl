@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 489a158c49bc6695a460fdef5b92606335a07ef6
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085126"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365996"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Wyszukiwanie jednostek za pomocą interfejsu API jednostek Bing
 
@@ -28,9 +28,9 @@ ms.locfileid: "93085126"
 
 Jeśli udostępniasz pole wyszukiwania, w którym użytkownik wprowadza wyszukiwany termin, użyj [interfejsu API automatycznego sugerowania Bing](../../bing-autosuggest/get-suggested-search-terms.md) w celu ulepszenia jego działania. Interfejs API zwraca sugerowane ciągi zapytań na podstawie częściowych wyszukiwanych terminów w miarę wpisywania ich przez użytkownika.
 
-Gdy użytkownik wprowadzi wyszukiwany termin, zakoduj go w formacie URL przed ustawieniem parametru zapytania [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Jeśli na przykład użytkownik wprowadzi termin *Marcus Appel* , należy ustawić parametr `q` na *Marcus+Appel* lub *Marcus%20Appel* .
+Gdy użytkownik wprowadzi wyszukiwany termin, zakoduj go w formacie URL przed ustawieniem parametru zapytania [q](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Jeśli na przykład użytkownik wprowadzi termin *Marcus Appel* , należy ustawić parametr `q` na *Marcus+Appel* lub *Marcus%20Appel*.
 
-Jeśli wyszukiwany termin zawiera błąd pisowni, odpowiedź wyszukiwania zawiera obiekt [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext). Obiekt ten zawiera pierwotną pisownię oraz poprawioną pisownię użytą przez usługę Bing podczas wyszukiwania.
+Jeśli wyszukiwany termin zawiera błąd pisowni, odpowiedź wyszukiwania zawiera obiekt [QueryContext](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext). Obiekt ten zawiera pierwotną pisownię oraz poprawioną pisownię użytą przez usługę Bing podczas wyszukiwania.
 
 ```json
 "queryContext": {
@@ -43,15 +43,15 @@ Jeśli wyszukiwany termin zawiera błąd pisowni, odpowiedź wyszukiwania zawier
 
 ## <a name="the-bing-entity-search-api-response"></a>Odpowiedź interfejsu API wyszukiwania jednostek Bing
 
-Odpowiedź interfejsu API zawiera obiekt [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse). Jeśli wyszukiwarka Bing znajdzie dopasowane jednostki lub miejsca, ten obiekt będzie zawierał pole `entities`, pole `places` lub oba te pola. W przeciwnym razie obiekt odpowiedzi nie będzie zawierał żadnego z tych pól.
+Odpowiedź interfejsu API zawiera obiekt [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse). Jeśli wyszukiwarka Bing znajdzie dopasowane jednostki lub miejsca, ten obiekt będzie zawierał pole `entities`, pole `places` lub oba te pola. W przeciwnym razie obiekt odpowiedzi nie będzie zawierał żadnego z tych pól.
 > [!NOTE]
 > Odpowiedzi dotyczące jednostek są obsługiwane na wielu rynkach, ale odpowiedzi dotyczące miejsc są obsługiwane tylko w przypadku lokalizacji firmowych w USA. 
 
-Pole `entities` to obiekt [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) zawierający listę obiektów [Entity](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity) (zobacz pole `value`). Lista może zawierać jedną jednostkę dominującą, wiele jednostek uściślających lub oba te elementy. 
+Pole `entities` to obiekt [EntityAnswer](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) zawierający listę obiektów [Entity](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity) (zobacz pole `value`). Lista może zawierać jedną jednostkę dominującą, wiele jednostek uściślających lub oba te elementy. 
 
 Jednostka dominująca jest zwracana, gdy zostanie uznana przez usługę Bing za jedyną jednostkę spełniającą kryteria żądania (można jednoznacznie stwierdzić, jaka jednostka spełnia kryteria żądania). Jeśli kryteria żądania spełnia wiele jednostek, lista zawiera większą liczbę jednostek uściślających. Na przykład jeśli w żądaniu użyto ogólnego tytułu serii filmów, lista będzie najprawdopodobniej zawierała jednostki uściślające. Jeśli jednak w żądaniu użyto tytułu konkretnego filmu z serii, lista będzie najprawdopodobniej zawierała jedną jednostkę dominującą.
 
-Jednostki mogą obejmować znane osobistości, na przykład piosenkarzy, aktorki, sportowców, modelki itp.; miejsca i obiekty, takie jak Mount Rainier czy Mauzoleum Abrahama Lincolna; a także inne obiekty, takie jak banan, goldendoodle albo tytuł książki lub filmu. Pole [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) zawiera wskazówki określające typ jednostki. Mogą wskazywać na przykład, że jest to osoba, film, zwierzę lub atrakcja. Aby zapoznać się z listą możliwych typów, zobacz [Entity types (Typy jednostek)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
+Jednostki mogą obejmować znane osobistości, na przykład piosenkarzy, aktorki, sportowców, modelki itp.; miejsca i obiekty, takie jak Mount Rainier czy Mauzoleum Abrahama Lincolna; a także inne obiekty, takie jak banan, goldendoodle albo tytuł książki lub filmu. Pole [entityPresentationInfo](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) zawiera wskazówki określające typ jednostki. Mogą wskazywać na przykład, że jest to osoba, film, zwierzę lub atrakcja. Aby zapoznać się z listą możliwych typów, zobacz [Entity types (Typy jednostek)](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -179,9 +179,9 @@ W przypadku wyświetlania informacji dotyczących jednostki (nazwy, opisu i obra
 
 ## <a name="find-places"></a>Znajdowanie miejsc
 
-Pole `places` to obiekt [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) zawierający listę obiektów [Place](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place). Zobacz [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types) (Typy jednostek), aby uzyskać więcej informacji. Lista zawiera co najmniej jedną lokalną jednostkę spełniającą kryteria żądania.
+Pole `places` to obiekt [LocalEntityAnswer](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) zawierający listę obiektów [Place](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place). Zobacz [Entity Types](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types) (Typy jednostek), aby uzyskać więcej informacji. Lista zawiera co najmniej jedną lokalną jednostkę spełniającą kryteria żądania.
 
-Miejsca to między innymi restauracje, hotele, czy lokalne firmy. Pole [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) zawiera wskazówki określające typ jednostki lokalnej. Lista zawiera listę wskazówek, takich jak Place (miejsce), LocalBusiness (lokalna firma), czy Restaurant (restauracja). Każda kolejne wskazówka w tablicy powoduje zawężenie typu jednostki. Aby zapoznać się z listą możliwych typów, zobacz [Entity types (Typy jednostek)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
+Miejsca to między innymi restauracje, hotele, czy lokalne firmy. Pole [entityPresentationInfo](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) zawiera wskazówki określające typ jednostki lokalnej. Lista zawiera listę wskazówek, takich jak Place (miejsce), LocalBusiness (lokalna firma), czy Restaurant (restauracja). Każda kolejne wskazówka w tablicy powoduje zawężenie typu jednostki. Aby zapoznać się z listą możliwych typów, zobacz [Entity types (Typy jednostek)](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -194,7 +194,7 @@ Miejsca to między innymi restauracje, hotele, czy lokalne firmy. Pole [entityPr
 > [!NOTE]
 > Odpowiedzi dotyczące jednostek są obsługiwane na wielu rynkach, ale odpowiedzi dotyczące miejsc są obsługiwane tylko w przypadku lokalizacji firmowych w USA. 
 
-Zapytania dotyczące jednostek uwzględniające lokalizację, na przykład *restaurants near me* (restauracje w pobliżu), wymagają lokalizacji użytkownika do znalezienia dokładnych wyników. W zapytaniach należy zawsze używać nagłówków X-Search-Location i X-MSEdge-ClientIP w celu określenia lokalizacji użytkownika. Jeśli usługa Bing uzna, że użycie lokalizacji użytkownika będzie korzystne podczas wykonywania zapytania, ustawi w polu `askUserForLocation` obiektu [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) wartość **true** . 
+Zapytania dotyczące jednostek uwzględniające lokalizację, na przykład *restaurants near me* (restauracje w pobliżu), wymagają lokalizacji użytkownika do znalezienia dokładnych wyników. W zapytaniach należy zawsze używać nagłówków X-Search-Location i X-MSEdge-ClientIP w celu określenia lokalizacji użytkownika. Jeśli usługa Bing uzna, że użycie lokalizacji użytkownika będzie korzystne podczas wykonywania zapytania, ustawi w polu `askUserForLocation` obiektu [QueryContext](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) wartość **true**. 
 
 ```json
 {
@@ -295,7 +295,7 @@ W poniższym przykładzie reguła `LinkAttribution` zawiera pole `targetProperty
 
 ### <a name="license-attribution"></a>Określanie licencji
 
-Jeśli lista reguł umownych zawiera regułę [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#licenseattribution), należy w wierszu następującym tuż po zawartości objętej licencją dodać odpowiednią informację. Reguła `LicenseAttribution` korzysta z pola `targetPropertyName`, aby określić właściwość, której dotyczy licencja.
+Jeśli lista reguł umownych zawiera regułę [LicenseAttribution](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#licenseattribution), należy w wierszu następującym tuż po zawartości objętej licencją dodać odpowiednią informację. Reguła `LicenseAttribution` korzysta z pola `targetPropertyName`, aby określić właściwość, której dotyczy licencja.
 
 Poniżej pokazano przykład, który zawiera regułę `LicenseAttribution`.
 
@@ -305,7 +305,7 @@ Wyświetlana informacja dotycząca licencji musi zawierać hiperlink do witryny 
 
 ### <a name="link-and-text-attribution"></a>Określanie autorstwa linków i tekstu
 
-Reguły [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#linkattribution) i [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#textattribution) są zwykle używane do identyfikowania dostawcy danych. Pole `targetPropertyName` określa pole, którego dotyczy reguła.
+Reguły [LinkAttribution](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#linkattribution) i [TextAttribution](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#textattribution) są zwykle używane do identyfikowania dostawcy danych. Pole `targetPropertyName` określa pole, którego dotyczy reguła.
 
 Aby określić dostawców, należy dodać odpowiedni wiersz tuż po zawartości, której dotyczy (na przykład po polu docelowym). Ten wiersz powinien być czytelnie oznaczony, aby wskazać, że określeni dostawcy są źródłem danych. Na przykład „Źródło danych: contoso.com”. W przypadku reguł `LinkAttribution`, należy utworzyć hiperlink do witryny internetowej dostawcy.
 
@@ -315,7 +315,7 @@ Poniżej pokazano przykład, który zawiera reguły `LinkAttribution` i `TextAtt
 
 ### <a name="media-attribution"></a>Określanie autorstwa multimediów
 
-Jeśli jednostka zawiera obraz, który wyświetlasz, musisz dołączyć link do witryny dostawcy, który można kliknąć. Jeśli jednostka zawiera regułę [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mediaattribution), należy do utworzenia tego linku użyć adresu URL określonego przez regułę. W przeciwnym razie do utworzenia tego linku użyj adresu URL zawartego w polu `provider` obrazu.
+Jeśli jednostka zawiera obraz, który wyświetlasz, musisz dołączyć link do witryny dostawcy, który można kliknąć. Jeśli jednostka zawiera regułę [MediaAttribution](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mediaattribution), należy do utworzenia tego linku użyć adresu URL określonego przez regułę. W przeciwnym razie do utworzenia tego linku użyj adresu URL zawartego w polu `provider` obrazu.
 
 Poniżej przedstawiono przykład, który zawiera pole `provider` obrazu i reguły umowne. Ponieważ przykład zawiera reguły umowne, należy zignorować pole `provider` obrazu i zastosować regułę `MediaAttribution`.
 
