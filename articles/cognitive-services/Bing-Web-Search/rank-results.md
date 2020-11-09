@@ -11,23 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6c328c681874ba171eab1341a16cf059e359feea
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076282"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380453"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Jak używać klasyfikacji do wyświetlania wyników interfejs API wyszukiwania w sieci Web Bing  
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Każda odpowiedź wyszukiwania zawiera odpowiedź [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) , która określa, jak należy wyświetlić wyniki wyszukiwania. Grupy odpowiedzi rankingu są wynikiem według zawartości linii głównej i zawartości paska bocznego dla tradycyjnej strony wyników wyszukiwania. Jeśli wyniki nie są wyświetlane w tradycyjnym formacie linii głównej i paska bocznego, należy udostępnić zawartość linii głównej wyższą widoczność niż zawartość paska bocznego.  
+Każda odpowiedź wyszukiwania zawiera odpowiedź [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) , która określa, jak należy wyświetlić wyniki wyszukiwania. Grupy odpowiedzi rankingu są wynikiem według zawartości linii głównej i zawartości paska bocznego dla tradycyjnej strony wyników wyszukiwania. Jeśli wyniki nie są wyświetlane w tradycyjnym formacie linii głównej i paska bocznego, należy udostępnić zawartość linii głównej wyższą widoczność niż zawartość paska bocznego.  
 
-W każdej grupie (linii głównej lub Sidebar) tablica [Items](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) identyfikuje kolejność, w której zawartość musi być wyświetlana. Każdy element zawiera następujące dwa sposoby identyfikacji wyniku w odpowiedzi.  
+W każdej grupie (linii głównej lub Sidebar) tablica [Items](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) identyfikuje kolejność, w której zawartość musi być wyświetlana. Każdy element zawiera następujące dwa sposoby identyfikacji wyniku w odpowiedzi.  
 
 -   `answerType` i `resultIndex` — `answerType` pole Identyfikuje odpowiedź (na przykład stronę sieci Web lub wiadomości) i `resultIndex` identyfikuje wynik w odpowiedzi (na przykład artykuł wiadomości). Indeks jest oparty na zero.  
 
@@ -35,11 +35,11 @@ W każdej grupie (linii głównej lub Sidebar) tablica [Items](https://docs.micr
 
 Korzystanie z tego identyfikatora jest prostsze, ponieważ wystarczy dopasować identyfikator klasyfikacji z IDENTYFIKATORem odpowiedzi lub jednym z jej wyników. Jeśli obiekt odpowiedzi zawiera `id` pole, Wyświetl wszystkie wyniki odpowiedzi ze sobą. Na przykład jeśli `News` obiekt zawiera `id` pole, Wyświetl wszystkie artykuły z wiadomościami ze sobą. Jeśli `News` obiekt nie zawiera `id` pola, każdy artykuł z wiadomości zawiera `id` pole, a odpowiedź dotycząca rankingu łączy artykuły z wiadomościami z wynikami z innych odpowiedzi.  
 
-Korzystanie z `answerType` i `resultIndex` jest nieco bardziej skomplikowane. Służy `answerType` do identyfikowania odpowiedzi, która zawiera wyniki do wyświetlenia. Następnie użyj `resultIndex` do indeksowania wyników odpowiedzi, aby uzyskać wynik do wyświetlenia. ( `answerType` Wartość jest nazwą pola w obiekcie [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) ). Jeśli chcesz wyświetlić wszystkie wyniki odpowiedzi razem, element odpowiedzi rankingu nie zawiera `resultIndex` pola.  
+Korzystanie z `answerType` i `resultIndex` jest nieco bardziej skomplikowane. Służy `answerType` do identyfikowania odpowiedzi, która zawiera wyniki do wyświetlenia. Następnie użyj `resultIndex` do indeksowania wyników odpowiedzi, aby uzyskać wynik do wyświetlenia. ( `answerType` Wartość jest nazwą pola w obiekcie [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) ). Jeśli chcesz wyświetlić wszystkie wyniki odpowiedzi razem, element odpowiedzi rankingu nie zawiera `resultIndex` pola.  
 
 ## <a name="ranking-response-example"></a>Przykład klasyfikacji odpowiedzi
 
-Poniżej przedstawiono przykład [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Ponieważ odpowiedź sieci Web nie zawiera `id` pola, wszystkie strony internetowe są wyświetlane indywidualnie na podstawie klasyfikacji (każda Strona sieci Web zawiera `id` pole). Ponieważ obrazy, klipy wideo i powiązane wyszukiwania odpowiedzi zawierają `id` pole, wyniki każdej z tych odpowiedzi są wyświetlane razem na podstawie klasyfikacji.
+Poniżej przedstawiono przykład [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Ponieważ odpowiedź sieci Web nie zawiera `id` pola, wszystkie strony internetowe są wyświetlane indywidualnie na podstawie klasyfikacji (każda Strona sieci Web zawiera `id` pole). Ponieważ obrazy, klipy wideo i powiązane wyszukiwania odpowiedzi zawierają `id` pole, wyniki każdej z tych odpowiedzi są wyświetlane razem na podstawie klasyfikacji.
 
 ```json
 {  

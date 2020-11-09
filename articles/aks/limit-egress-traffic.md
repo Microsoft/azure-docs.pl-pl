@@ -4,15 +4,14 @@ description: Dowiedz się, jakie porty i adresy są wymagane do sterowania ruche
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900475"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380215"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -39,7 +38,7 @@ Wartości graniczne adresów IP dotyczą ruchu innego niż HTTP/S (ruch TCP i UD
 * Punkty końcowe HTTP/HTTPS w nazwie FQDN można umieścić na urządzeniu zapory.
 * Symbole wieloznaczne protokołu HTTP/HTTPS są zależnościami, które mogą się różnić w stosunku do klastra AKS w oparciu o wiele kwalifikatorów.
 * AKS korzysta z kontrolera przyjmowania, aby wstrzyknąć nazwę FQDN jako zmienną środowiskową do wszystkich wdrożeń w obszarze polecenia-system i strażnik-system, który zapewnia, że cała komunikacja systemu między węzłami i serwerem interfejsu API używa nazwy FQDN serwera interfejsu API, a nie adresu IP serwera interfejsu API. 
-* Jeśli masz aplikację lub rozwiązanie, które musi komunikować się z serwerem interfejsu API, musisz dodać **dodatkową** regułę sieci, aby umożliwić *komunikację TCP z portem 443 serwera interfejsu API* .
+* Jeśli masz aplikację lub rozwiązanie, które musi komunikować się z serwerem interfejsu API, musisz dodać **dodatkową** regułę sieci, aby umożliwić *komunikację TCP z portem 443 serwera interfejsu API*.
 * W rzadkich przypadkach, jeśli istnieje operacja konserwacji, adres IP serwera interfejsu API może ulec zmianie. Planowane operacje konserwacji, które mogą zmienić adres IP serwera interfejsu API, są zawsze przekazywane z wyprzedzeniem.
 
 
@@ -63,7 +62,6 @@ Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Wymagane w celu uzyskania dostępu do obrazów w programie Microsoft Container Registry (MCR). Ten Rejestr zawiera obrazy i wykresy pierwszej strony (na przykład coreDNS itp.). Te obrazy są wymagane do prawidłowego utworzenia i działania klastra, w tym operacji skalowania i uaktualniania.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Wymagane dla magazynu MCR obsługiwanego przez usługę Azure Content Delivery Network (CDN). |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Wymagane dla magazynu MCR obsługiwanego przez usługę Azure Content Delivery Network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Wymagane dla operacji Kubernetes w odniesieniu do interfejsu API platformy Azure. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Wymagane na potrzeby uwierzytelniania Azure Active Directory. |
@@ -92,7 +90,6 @@ Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Wymagane w celu uzyskania dostępu do obrazów w programie Microsoft Container Registry (MCR). Ten Rejestr zawiera obrazy i wykresy pierwszej strony (na przykład coreDNS itp.). Te obrazy są wymagane do prawidłowego utworzenia i działania klastra, w tym operacji skalowania i uaktualniania. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Wymagane dla magazynu MCR obsługiwanego przez usługę Azure Content Delivery Network (CDN). |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Wymagane dla magazynu MCR obsługiwanego przez usługę Azure Content Delivery Network (CDN). |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Wymagane dla operacji Kubernetes w odniesieniu do interfejsu API platformy Azure. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Wymagane na potrzeby uwierzytelniania Azure Active Directory. |
@@ -119,7 +116,6 @@ Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Wymagane w celu uzyskania dostępu do obrazów w programie Microsoft Container Registry (MCR). Ten Rejestr zawiera obrazy i wykresy pierwszej strony (na przykład coreDNS itp.). Te obrazy są wymagane do prawidłowego utworzenia i działania klastra, w tym operacji skalowania i uaktualniania. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Wymagane dla magazynu MCR obsługiwanego przez usługę Azure Content Delivery Network (CDN). |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Wymagane dla magazynu MCR obsługiwanego przez usługę Azure Content Delivery Network (CDN). |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Wymagane dla operacji Kubernetes w odniesieniu do interfejsu API platformy Azure. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Wymagane na potrzeby uwierzytelniania Azure Active Directory. |

@@ -3,12 +3,12 @@ title: Uprawnienia do repozytoriów w Azure Container Registry
 description: Utwórz token z uprawnieniami objętymi zakresem określonych repozytoriów w rejestrze Premium w celu ściągania lub wypychania obrazów lub wykonywania innych akcji
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84509410"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381239"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Tworzenie tokenu z uprawnieniami do zakresu repozytorium
 
@@ -150,16 +150,16 @@ Za pomocą Azure Portal można tworzyć tokeny i mapy zakresów. Podobnie jak w 
 Poniższy przykład tworzy token i tworzy mapę zakresu z następującymi uprawnieniami w `samples/hello-world` repozytorium: `content/write` i `content/read` .
 
 1. W portalu przejdź do rejestru kontenerów.
-1. W obszarze **uprawnienia repozytorium**wybierz pozycję **tokeny (wersja zapoznawcza) > + Dodaj**.
+1. W obszarze **uprawnienia repozytorium** wybierz pozycję **tokeny (wersja zapoznawcza) > + Dodaj**.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Utwórz token w portalu":::
 1. Wprowadź nazwę tokenu.
-1. W obszarze **Mapa zakresu**wybierz pozycję **Utwórz nowy**.
+1. W obszarze **Mapa zakresu** wybierz pozycję **Utwórz nowy**.
 1. Skonfiguruj mapę zakresu:
     1. Wprowadź nazwę i opis mapy zakresu. 
-    1. W obszarze **repozytoria**wprowadź i `samples/hello-world` w obszarze **uprawnienia**wybierz pozycję  `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.  
+    1. W obszarze **repozytoria** wprowadź i `samples/hello-world` w obszarze **uprawnienia** wybierz pozycję  `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Utwórz token w portalu":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Tworzenie mapy zakresu w portalu":::
 
     1. Po dodaniu repozytoriów i uprawnień wybierz pozycję **Dodaj** , aby dodać mapę zakresu.
 1. Zaakceptuj domyślny **status** tokenu **włączone** , a następnie wybierz pozycję **Utwórz**.
@@ -171,12 +171,12 @@ Po sprawdzeniu poprawności i utworzeniu tokenu na ekranie **tokeny** pojawią s
 Aby użyć tokenu utworzonego w portalu, należy wygenerować hasło. Można wygenerować jedno lub dwa hasła i ustawić datę wygaśnięcia dla każdej z nich. 
 
 1. W portalu przejdź do rejestru kontenerów.
-1. W obszarze **uprawnienia repozytorium**wybierz pozycję **tokeny (wersja zapoznawcza)**, a następnie wybierz token.
-1. W obszarze Szczegóły tokenu wybierz pozycję **password1** lub **password2**, a następnie wybierz ikonę Generuj.
+1. W obszarze **uprawnienia repozytorium** wybierz pozycję **tokeny (wersja zapoznawcza)** , a następnie wybierz token.
+1. W obszarze Szczegóły tokenu wybierz pozycję **password1** lub **password2** , a następnie wybierz ikonę Generuj.
 1. Na ekranie hasła opcjonalnie Ustaw datę wygaśnięcia hasła i wybierz pozycję **Generuj**. Zalecane jest ustawienie daty wygaśnięcia.
 1. Po wygenerowaniu hasła skopiuj je i Zapisz w bezpiecznej lokalizacji. Nie można pobrać wygenerowanego hasła po zamknięciu ekranu, ale można wygenerować nowy.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Utwórz token w portalu":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Tworzenie hasła tokenu w portalu":::
 
 ## <a name="authenticate-with-token"></a>Uwierzytelnianie za pomocą tokenu
 
@@ -204,7 +204,7 @@ W poniższych przykładach można ściągnąć `hello-world` i pobrać `alpine` 
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag alpine myregistry.azurecr.io/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Uwierzytelnianie przy użyciu tokenu
@@ -259,9 +259,9 @@ az acr scope-map update \
 W witrynie Azure Portal:
 
 1. Przejdź do rejestru kontenerów.
-1. W obszarze **uprawnienia repozytorium**wybierz pozycję **mapy zakresu (wersja zapoznawcza)**, a następnie wybierz mapę zakresu do zaktualizowania.
-1. W obszarze **repozytoria**wprowadź i `samples/alpine` w obszarze **uprawnienia**wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.
-1. W obszarze **repozytoria**wybierz pozycję `samples/hello-world` i w obszarze **uprawnienia**Usuń zaznaczenie `content/write` . Następnie wybierz przycisk **Zapisz**.
+1. W obszarze **uprawnienia repozytorium** wybierz pozycję **mapy zakresu (wersja zapoznawcza)** , a następnie wybierz mapę zakresu do zaktualizowania.
+1. W obszarze **repozytoria** wprowadź i `samples/alpine` w obszarze **uprawnienia** wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.
+1. W obszarze **repozytoria** wybierz pozycję `samples/hello-world` i w obszarze **uprawnienia** Usuń zaznaczenie `content/write` . Następnie wybierz pozycję **Zapisz**.
 
 Po zaktualizowaniu mapy zakresu następujące wypychanie zakończy się pomyślnie:
 
@@ -397,7 +397,7 @@ az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-W portalu na ekranie **tokeny (wersja zapoznawcza)** wybierz token i w obszarze **Mapa zakresu**wybierz inną mapę zakresu.
+W portalu na ekranie **tokeny (wersja zapoznawcza)** wybierz token i w obszarze **Mapa zakresu** wybierz inną mapę zakresu.
 
 > [!TIP]
 > Po zaktualizowaniu tokenu przy użyciu nowej mapy zakresu można generować nowe hasła tokenu. Użyj polecenia [AZ ACR token Credential Generate][az-acr-token-credential-generate] lub ponownie Wygeneruj hasło tokenu w Azure Portal.

@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078700"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381120"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uaktualnianie z wersji interfejs API wyszukiwania w sieci Web Bing V5 do wersji 7
 
@@ -80,14 +80,14 @@ Zablokowane|InvalidRequest. zablokowane
 
 ### <a name="headers"></a>Nagłówki
 
-- Dodano opcjonalny nagłówek żądania [pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) . Usługa Bing domyślnie zwraca zawartość buforowaną, jeśli jest dostępna. Aby zapobiec zwracaniu zawartości buforowanej przez usługę Bing, dla nagłówka Pragma ustaw wartość no-cache (na przykład Pragma: no-cache).
+- Dodano opcjonalny nagłówek żądania [pragma](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) . Usługa Bing domyślnie zwraca zawartość buforowaną, jeśli jest dostępna. Aby zapobiec zwracaniu zawartości buforowanej przez usługę Bing, dla nagłówka Pragma ustaw wartość no-cache (na przykład Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Parametry zapytania
 
-- Dodano parametr zapytania [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) . Użyj tego parametru, aby określić liczbę odpowiedzi, które ma uwzględnić odpowiedź. Odpowiedzi są wybierane na podstawie klasyfikacji. Na przykład, jeśli ustawisz ten parametr na trzy (3), odpowiedź zawiera trzy pierwsze odpowiedzi z rangą.  
+- Dodano parametr zapytania [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) . Użyj tego parametru, aby określić liczbę odpowiedzi, które ma uwzględnić odpowiedź. Odpowiedzi są wybierane na podstawie klasyfikacji. Na przykład, jeśli ustawisz ten parametr na trzy (3), odpowiedź zawiera trzy pierwsze odpowiedzi z rangą.  
 
-- Dodano parametr [podwyższanie poziomu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) zapytania. Użyj tego parametru wraz z `answerCount` , aby jawnie uwzględnić jeden lub więcej typów odpowiedzi niezależnie od ich klasyfikacji. Na przykład w celu promowania wideo i obrazów w odpowiedzi należy ustawić opcję Podwyższ poziom do *filmów wideo* . Lista odpowiedzi, które chcesz podwyższyć, nie jest uwzględniana w `answerCount` limicie. Na przykład jeśli wartość `answerCount` jest równa 2 i `promote` jest ustawiona na *wideo, obrazy* , odpowiedź może zawierać strony sieci Web, wiadomości, wideo i obrazy.
+- Dodano parametr [podwyższanie poziomu](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) zapytania. Użyj tego parametru wraz z `answerCount` , aby jawnie uwzględnić jeden lub więcej typów odpowiedzi niezależnie od ich klasyfikacji. Na przykład w celu promowania wideo i obrazów w odpowiedzi należy ustawić opcję Podwyższ poziom do *filmów wideo*. Lista odpowiedzi, które chcesz podwyższyć, nie jest uwzględniana w `answerCount` limicie. Na przykład jeśli wartość `answerCount` jest równa 2 i `promote` jest ustawiona na *wideo, obrazy* , odpowiedź może zawierać strony sieci Web, wiadomości, wideo i obrazy.
 
 ### <a name="object-changes"></a>Zmiany obiektów
 
-- Dodano `someResultsRemoved` pole do obiektu [webodpowiedź](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) . Pole zawiera wartość logiczną wskazującą, czy odpowiedź wyklucza niektóre wyniki z odpowiedzi w sieci Web.  
+- Dodano `someResultsRemoved` pole do obiektu [webodpowiedź](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) . Pole zawiera wartość logiczną wskazującą, czy odpowiedź wyklucza niektóre wyniki z odpowiedzi w sieci Web.

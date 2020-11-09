@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii oprogramowania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwania po awarii lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359802"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379994"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
 
@@ -176,7 +176,7 @@ W przypadku replikacji oprogramowania VMware na platformę Azure można modyfiko
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Czy można przeprowadzić migrację maszyn lokalnych do nowego vCenter Server bez wpływu na trwającą replikację?
 
-Nie. Zmiana programu VMware vCenter lub migracji będzie miała wpływ na trwającą replikację. Skonfiguruj Site Recovery z nowym vCenter Server i ponownie Włącz replikację maszyn.
+Zapoznaj się z naszymi [wskazówkami dotyczącymi](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) migrowania maszyn do nowego programu vCenter
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Czy można przeprowadzić replikację do pamięci podręcznej lub docelowego konta magazynu, dla którego skonfigurowano sieć wirtualną (z zaporami platformy Azure)?
 
@@ -286,7 +286,7 @@ Tak, ale należy zauważyć, że maszyna fizyczna może się nie powracać do ma
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Gdzie można pobrać klucze rejestracji magazynu?
 
-W magazynie Recovery Services wybierz pozycję **serwery konfiguracji** w obszarze **Site Recovery zarządzanie infrastrukturą**  >  **Manage**. Następnie w obszarze **serwery**wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
+W magazynie Recovery Services wybierz pozycję **serwery konfiguracji** w obszarze **Site Recovery zarządzanie infrastrukturą**  >  **Manage**. Następnie w obszarze **serwery** wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Czy można użyć jednego serwera konfiguracji do ochrony wielu wystąpień programu vCenter?
 

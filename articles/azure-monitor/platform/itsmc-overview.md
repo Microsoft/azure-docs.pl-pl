@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ecafc0c81a6614a914d8cad3d2c35fd04544b8f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102024"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380882"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -57,7 +57,7 @@ Aby można było utworzyć połączenie, należy dodać ITSMC.
 
 3. W sekcji **obszar roboczy pakietu OMS** wybierz obszar roboczy usługi Azure log Analytics, w którym chcesz zainstalować ITSMC.
    >[!NOTE]
-   > * W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako *log Analytics obszary robocze* .
+   > * W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako *log Analytics obszary robocze*.
    > * ITSMC można zainstalować tylko w obszarze roboczym Log Analytics w następujących regionach: Wschodnie stany USA, zachodnie stany USA 2, Południowo-środkowe stany USA, zachodnie stany USA, US Gov Arizona, US Gov Wirginia, Kanada środkowa, Europa Zachodnia, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Wschodniej, Indie Środkowe i Australia Południowo-Wschodnia.
 
 
@@ -65,9 +65,9 @@ Aby można było utworzyć połączenie, należy dodać ITSMC.
 
    ![Zrzut ekranu przedstawiający sekcję Log Analytics obszaru roboczego.](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
-   >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako *log Analytics obszary robocze* .
+   >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako *log Analytics obszary robocze*.
 
-5. Wybierz pozycję **OK** .
+5. Wybierz przycisk **OK**.
 
 Po wdrożeniu zasobu ITSMC w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -95,7 +95,7 @@ Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć po�
 
    ![Zrzut ekranu pokazujący element menu Narzędzia ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
    Na tej stronie zostanie wyświetlona lista połączeń.
-1. Wybierz pozycję **Dodaj połączenie** .
+1. Wybierz pozycję **Dodaj połączenie**.
 
 4. Określ ustawienia połączenia zgodnie z opisem w temacie [Konfigurowanie połączenia usługi ITSMC z produktami/usługami narzędzia ITSM](./itsmc-connections.md).
 
@@ -111,7 +111,7 @@ Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć po�
 
 ## <a name="template-definitions"></a>Definicje szablonów
    Istnieją typy elementów roboczych, które mogą używać szablonów, które są zdefiniowane przez narzędzie narzędzia ITSM.
-Za pomocą szablonów można zdefiniować pola, które będą automatycznie wypełniane zgodnie z ustalonymi wartościami, które są zdefiniowane jako część grupy akcji. Szablony można definiować w narzędziu narzędzia ITSM.
+Za pomocą szablonów można zdefiniować pola, które będą automatycznie wypełniane zgodnie z ustalonymi wartościami, które są zdefiniowane jako część grupy akcji. Szablony można definiować w narzędziu narzędzia ITSM. Można zdefiniować szablon, który ma być używany jako część definicji grupy akcji.
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure
 
@@ -125,32 +125,34 @@ Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcj
 
 Użyj następującej procedury, aby utworzyć elementy robocze:
 
-1. W Azure Portal wybierz pozycję  **alerty** .
+1. W Azure Portal wybierz pozycję  **alerty**.
 2. W menu w górnej części ekranu wybierz pozycję **Zarządzaj akcjami** :
 
     ![Zrzut ekranu pokazujący element menu Zarządzaj akcjami.](media/itsmc-overview/action-groups-selection-big.png)
 
    Zostanie wyświetlone okno **Tworzenie grupy akcji** .
 
-3. Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz utworzyć grupę akcji. Podaj **nazwę grupy akcji** i **nazwę wyświetlaną** dla grupy akcji. Wybierz pozycję **Dalej: powiadomienia** .
+3. Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz utworzyć grupę akcji. Podaj **nazwę grupy akcji** i **nazwę wyświetlaną** dla grupy akcji. Wybierz pozycję **Dalej: powiadomienia**.
 
     ![Zrzut ekranu przedstawiający okno Tworzenie grupy akcji.](media/itsmc-overview/action-groups-details.png)
 
-4. Na liście powiadomień wybierz pozycję **Dalej: akcje** .
-5. Na liście Akcje wybierz pozycję **Narzędzia ITSM** na liście **Typ akcji** . Podaj **nazwę** akcji. Wybierz przycisk pióra reprezentujący **szczegóły edycji** .
+4. Na liście powiadomień wybierz pozycję **Dalej: akcje**.
+5. Na liście Akcje wybierz pozycję **Narzędzia ITSM** na liście **Typ akcji** . Podaj **nazwę** akcji. Wybierz przycisk pióra reprezentujący **szczegóły edycji**.
 6. Na liście **subskrypcja** wybierz subskrypcję, w której znajduje się obszar roboczy log Analytics. Na liście **połączenie** wybierz swoją nazwę łącznika narzędzia ITSM. Zostanie nadana nazwa obszaru roboczego. Na przykład MyITSMConnector (mój obszar roboczy).
 
 7. Wybierz typ **elementu pracy** .
 
-8. Jeśli chcesz wypełnić pola z ustalonymi wartościami, wybierz opcję **Użyj szablonu niestandardowego** . W przeciwnym razie wybierz istniejący [szablon](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) na liście **szablon** i wprowadź wartości ustalone w polach szablon.
+8. Jeśli chcesz wypełnić pola z ustalonymi wartościami, wybierz opcję **Użyj szablonu niestandardowego**. W przeciwnym razie wybierz istniejący [szablon](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) na liście **szablon** i wprowadź wartości ustalone w polach szablon.
 
 9. W przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy element konfiguracji będzie miał własny element roboczy. Dla każdego elementu konfiguracji będzie istniał jeden element roboczy. Zostanie ona zaktualizowana zgodnie z alertami, które zostaną utworzone.
 
-   Jeśli wyczyścisz pole wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** , każdy alert utworzy nowy element roboczy. Może istnieć więcej niż jeden alert dla każdego elementu konfiguracji.
+   * W przypadku wybrania opcji na liście rozwijanej element roboczy "zdarzenie" lub "Alert": w przypadku wyczyszczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy alert utworzy nowy element roboczy. Może istnieć więcej niż jeden alert dla każdego elementu konfiguracji.
 
    ![Zrzut ekranu przedstawiający okno biletu narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy: w przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego wpisu dziennika** w wyborze przycisków radiowych każdy alert utworzy nowy element roboczy. W przypadku wybrania opcji **Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji** w zaznaczeniu przycisków radiowych każdy element konfiguracji będzie miał własny element roboczy. 
 
-10. Wybierz pozycję **OK** .
+10. Wybierz przycisk **OK**.
 
 Gdy tworzysz lub edytujesz regułę alertu platformy Azure, Użyj grupy akcji, która ma akcję narzędzia ITSM. Po wyzwoleniu alertu element roboczy jest tworzony lub aktualizowany w narzędziu narzędzia ITSM.
 

@@ -2,15 +2,15 @@
 title: Włącz Update Management Azure Automation z konta usługi Automation
 description: W tym artykule opisano sposób włączania Update Management na koncie usługi Automation.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348835"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380542"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Włączanie rozwiązania Update Management z poziomu konta usługi Automation
 
@@ -49,7 +49,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-non-azure-vms"></a>Włączanie maszyn wirtualnych spoza platformy Azure
 
-Nie trzeba ręcznie dodawać maszyn, które nie są na platformie Azure.
+W przypadku maszyn lub serwerów hostowanych poza platformą Azure, w tym tych zarejestrowanych przy użyciu serwerów z obsługą usługi Azure ARC, wykonaj następujące kroki, aby włączyć je w Update Management.  
 
 1. Z poziomu konta usługi Automation wybierz pozycję **Update Management** w obszarze **Update Management**.
 

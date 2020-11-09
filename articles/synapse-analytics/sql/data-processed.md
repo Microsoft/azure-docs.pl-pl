@@ -1,6 +1,6 @@
 ---
-title: Dane przetworzone z użyciem puli SQL bez serwera
-description: W tym dokumencie opisano sposób obliczania przetworzonych danych podczas wykonywania zapytań dotyczących danych w usłudze Azure Storage przy użyciu puli SQL bezserwerowej.
+title: Dane przetworzone przy użyciu puli SQL bezserwerowej
+description: W tym dokumencie opisano sposób obliczania ilości danych przetwarzanych podczas wykonywania zapytań dotyczących danych w usłudze Data Lake.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,76 +9,82 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06eb02aa3dd4d5fc8bd3605dac480d5afa52d5fa
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424218"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381205"
 ---
-# <a name="data-processed-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Dane przetworzone z użyciem puli SQL bezserwerowej w usłudze Azure Synapse Analytics
+# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dane przetwarzane przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
-Przetworzone dane to ilość danych tymczasowo przechowywanych w systemie podczas wykonywania zapytania i składa się z:
+*Przetworzone dane* to ilość danych, które system tymczasowo przechowuje w czasie wykonywania zapytania. Przetwarzane dane składają się z następujących ilości:
 
-- Ilość danych odczytanych z magazynu — w tym:
-  - Ilość danych odczytanych podczas odczytywania danych
-  - Ilość danych odczytanych podczas odczytywania metadanych (dla formatów plików zawierających metadane, takich jak parquet)
-- Ilość danych w wynikach pośrednich — dane przesyłane między węzłami podczas wykonywania zapytania, w tym transfer danych do punktu końcowego, w formacie nieskompresowanym. 
-- Ilość danych zapisywana w magazynie — Jeśli używasz CETAS do eksportowania zestawu wyników do magazynu, zostanie naliczona opłata za bajty nadane i ilość danych przetworzonych dla wybranych części CETAS.
+- Ilość danych odczytanych z magazynu. Ta kwota obejmuje:
+  - Dane są odczytywane podczas odczytywania danych.
+  - Dane są odczytywane podczas odczytywania metadanych (dla formatów plików zawierających metadane, takie jak parquet).
+- Ilość danych w wynikach pośrednich. Te dane są przenoszone między węzłami, gdy zapytanie działa. Obejmuje on transfer danych do punktu końcowego w nieskompresowanym formacie. 
+- Ilość danych zapisywana w magazynie. Jeśli używasz CETAS do eksportowania zestawu wyników do magazynu, ilość danych wypisanych jest dodawana do ilości danych przetworzonych dla wybranej części CETAS.
 
-Odczytywanie plików z magazynu jest wysoce zoptymalizowane i stosowane:
+Odczytywanie plików z magazynu jest wysoce zoptymalizowane. Proces używa:
 
-- Wstępne pobieranie — co może spowodować niewielkie obciążenie ilością odczytywanych danych. Jeśli zapytanie odczytuje cały plik, nie będą naliczane żadne dodatkowe koszty. Jeśli plik jest odczytywany częściowo, podobnie jak w przypadku pierwszych N zapytań, dane zostaną odczytane przy użyciu pobierania z wyprzedzeniem.
-- Zoptymalizowany Analizator CSV — Jeśli używasz PARSER_VERSION = "2.0" do odczytywania plików CSV, spowoduje to nieco większe ilości danych odczytywanych z magazynu.  Zoptymalizowany Analizator CSV odczytuje pliki równolegle w fragmentach o równym rozmiarze. Nie ma gwarancji, że fragmenty nie będą zawierać całych wierszy. Aby upewnić się, że wszystkie wiersze są analizowane, można także odczytać małe fragmenty sąsiadujących fragmentów, co spowoduje dodanie niewielkiego nakładu pracy.
+- Pobieranie z wyprzedzeniem, co może spowodować zwiększenie nakładu pracy na ilość odczytywanych danych. Jeśli zapytanie odczytuje cały plik, nie ma żadnych nakładów. Jeśli plik jest odczytywany częściowo, podobnie jak w pierwszych N kwerendach, to dane są odczytywane przy użyciu funkcji pobierania z wyprzedzeniem.
+- Zoptymalizowany Analizator wartości rozdzielanych przecinkami (CSV). Jeśli używasz PARSER_VERSION = "2.0" do odczytywania plików CSV, ilości danych odczytywane z magazynu nieco rosną. Zoptymalizowany Analizator CSV odczytuje pliki równolegle, w fragmentach o równym rozmiarze. Fragmenty nie muszą zawierać całych wierszy. Aby zapewnić przeanalizowanie wszystkich wierszy, zoptymalizowany Analizator CSV odczytuje również małe fragmenty sąsiadujących fragmentów. Ten proces powoduje dodanie niewielkiej ilości kosztów.
 
 ## <a name="statistics"></a>Statystyki
 
-Optymalizator zapytań puli SQL bezserwerowej opiera się na statystyce do generowania optymalnych planów wykonywania zapytań. Statystyki można utworzyć ręcznie lub zostaną one utworzone automatycznie przez pulę SQL bezserwerową. W obu przypadkach statystyki są tworzone przez wykonanie oddzielnego zapytania, które zwraca określoną kolumnę przy podanej szybkości próbkowania. To zapytanie ma skojarzoną ilość przetworzonych danych.
+Optymalizator zapytań puli SQL bezserwerowej opiera się na statystyce do generowania optymalnych planów wykonywania zapytań. Statystyki można tworzyć ręcznie. W przeciwnym razie Pula SQL bezserwerowa tworzy je automatycznie. W obu przypadkach statystyki są tworzone przez uruchomienie oddzielnego zapytania, które zwraca określoną kolumnę w podanej szybkości próbkowania. To zapytanie ma skojarzoną ilość przetworzonych danych.
 
-W przypadku uruchomienia tego samego lub innego zapytania, które byłyby korzystne dla utworzonych statystyk, statystyki będą ponownie używane, jeśli jest to możliwe, a żadne dodatkowe dane nie będą przetwarzane na potrzeby tworzenia statystyk.
+W przypadku uruchomienia tego samego lub innego zapytania, które byłyby korzystne dla utworzonych statystyk, statystyki są ponownie używane, jeśli jest to możliwe. Nie są przetwarzane żadne dodatkowe dane na potrzeby tworzenia statystyk.
 
-Tworzenie statystyk dla kolumny Parquet spowoduje odczytanie tylko odpowiedniej kolumny z plików. Tworzenie statystyk dla kolumny CSV spowoduje odczyt i przeanalizowanie całych plików.
+W przypadku tworzenia statystyk dla kolumny Parquet tylko odpowiednia kolumna jest odczytywana z plików. W przypadku tworzenia statystyk dla kolumny CSV wszystkie pliki są odczytywane i analizowane.
 
 ## <a name="rounding"></a>Zaokrąglanie
 
-Ilość przetworzonych danych zostanie zaokrąglona do najbliższych MB na zapytanie, a co najmniej 10 MB danych zostanie przetworzonych na zapytanie.
+Ilość przetworzonych danych jest zaokrąglana do najbliższej liczby MB na zapytanie. Każde zapytanie ma co najmniej 10 MB przetworzonych danych.
 
-## <a name="what-is-not-included-in-data-processed"></a>Co nie jest uwzględniane w przetworzonych danych
+## <a name="what-data-processed-doesnt-include"></a>Przetworzone dane nie obejmują
 
-- Metadane na poziomie serwera (takie jak nazwy logowania, role, poświadczenia na poziomie serwera)
-- Bazy danych tworzone w punkcie końcowym, w których te bazy danych zawierają tylko metadane (takie jak użytkownicy, role, schematy, widoki, TVFs wbudowane, procedury składowane, poświadczenia z zakresem bazy danych, zewnętrzne źródła danych, zewnętrzne formaty plików, tabele zewnętrzne)
-  - Jeśli używasz wnioskowania schematu, fragmenty plików zostaną odczytane do nazw kolumn i typów danych
-- Instrukcje języka DDL z wyjątkiem instrukcji CREATE STATISTICs, ponieważ będą przetwarzać dane z magazynu na podstawie określonego procentu próbki
-- Zapytania zawierające tylko metadane
+- Metadane na poziomie serwera (takie jak nazwy logowania, role i poświadczenia na poziomie serwera).
+- Bazy danych tworzone w punkcie końcowym. Te bazy danych zawierają tylko metadane (takie jak użytkownicy, role, schematy, widoki, wbudowane funkcje z wartościami przechowywanymi w tabeli [TVFs], procedury składowane, poświadczenia w zakresie bazy danych, zewnętrzne źródła danych, zewnętrzne formaty plików i tabele zewnętrzne).
+  - Jeśli używasz wnioskowania schematu, fragmenty plików są odczytywane do nazw kolumn i typów danych, a ilość odczytanych danych jest dodawana do ilości przetworzonych danych.
+- Instrukcje języka definicji danych (DDL), z wyjątkiem instrukcji CREATE STATISTICs, ponieważ przetwarzają dane z magazynu na podstawie podanego procentu próbki.
+- Zapytania zawierające tylko metadane.
 
-## <a name="reduce-amount-of-data-processed"></a>Zmniejsz ilość przetworzonych danych
+## <a name="reducing-the-amount-of-data-processed"></a>Zmniejszenie ilości przetworzonych danych
 
-Możesz zoptymalizować ilość przetworzonych danych i uzyskać lepszą wydajność dzięki partycjonowaniu i konwertowaniu danych do skompresowanego formatu kolumn, takiego jak Parquet.
+Możesz zoptymalizować ilość przetworzonych danych i poprawić wydajność, partycjonowanie i konwertowanie danych na skompresowany format oparty na kolumnie, taki jak Parquet.
 
 ## <a name="examples"></a>Przykłady
 
-Załóżmy, że istnieją dwie tabele, z których każda ma te same dane w pięciu kolumnach o równym rozmiarze:
+Wyobraź sobie trzy tabele.
 
-- population_csv tabelę podutworzoną przez 5 TB plików CSV
-- population_parquet tabelę, której kopia zapasowa jest następująca: 1 TB plików Parquet — ta tabela jest mniejsza niż poprzednia, ponieważ Parquet zawiera dane skompresowane
-- very_small_csv tabelę objętą 100 KB plików CSV
+- Tabela population_csv jest obsługiwana przez 5 TB plików CSV. Pliki są zorganizowane w pięć kolumn o równym rozmiarze.
+- Tabela population_parquet ma te same dane co tabela population_csv. Jest ona obsługiwana przez 1 TB plików Parquet. Ta tabela jest mniejsza niż poprzednia, ponieważ dane są kompresowane w formacie Parquet.
+- Very_small_csv tabeli jest obsługiwane przez 100 KB plików CSV.
 
-**#1 kwerendy** : wybierz pozycję sum (populacja) z population_csv
+**Zapytanie 1** : wybór sum (populacji) z population_csv
 
-To zapytanie będzie odczytywać i analizować całe pliki, aby uzyskać wartości dla kolumny populacji. Węzły będą przetwarzać fragmenty tej tabeli, suma populacji dla każdego fragmentu zostanie przeniesiona między węzłami, a końcowa suma zostanie przeniesiona do punktu końcowego. To zapytanie będzie przetwarzać 5 TB danych i niewielkie obciążenie związane z transferem sum fragmentów.
+To zapytanie odczytuje i analizuje całe pliki, aby uzyskać wartości dla kolumny populacji. Węzły przetwarzają fragmenty tej tabeli i łączną populacją dla każdego fragmentu są przesyłane między węzłami. Końcowa suma jest transferowana do punktu końcowego. 
 
-**#2 kwerendy** : wybierz pozycję sum (populacja) z population_parquet
+To zapytanie przetwarza 5 TB danych i niewielkie obciążenie związane z transferem sum fragmentów.
 
-Wykonywanie zapytań dotyczących formatów skompresowanych i zorientowanych na kolumny, takich jak Parquet, umożliwia odczytywanie mniejszej ilości danych niż w poprzedniej kwerendzie, ponieważ bezserwerowa Pula SQL odczytuje pojedynczą skompresowaną kolumnę zamiast całego pliku. W tym przypadku 0,2 TB zostanie odczytane (pięć kolumn o równym rozmiarze, 0,2 TB). Węzły będą przetwarzać fragmenty tej tabeli, suma populacji dla każdego fragmentu zostanie przeniesiona między węzłami, a końcowa suma zostanie przeniesiona do punktu końcowego. To zapytanie będzie przetwarzać 0,2 TB i niewielkie obciążenie związane z transferem sum fragmentów.
+**Zapytanie 2** : wybór sum (populacji) z population_parquet
 
-**#3 kwerendy** : select * from population_parquet
+Podczas wykonywania zapytań o formaty skompresowane i oparte na kolumnach, takie jak Parquet, mniejsze dane są odczytywane niż w zapytaniu 1. Zobaczysz ten wynik, ponieważ pula SQL bezserwerowa odczytuje pojedynczą skompresowaną kolumnę zamiast całego pliku. W tym przypadku jest odczytywane 0,2 TB. (Pięć kolumn o równym rozmiarze jest 0,2 TB dla każdej z nich). Węzły przetwarzają fragmenty tej tabeli i łączną populacją dla każdego fragmentu są przesyłane między węzłami. Końcowa suma jest transferowana do punktu końcowego. 
 
-To zapytanie odczytaje wszystkie kolumny i przeniesie wszystkie dane w nieskompresowanym formacie. Jeśli format kompresji to 5:1, zostanie przetworzony 6 TB, ponieważ odczyta 1 TB + transfer 5 TB nieskompresowanych danych.
+To zapytanie przetwarza 0,2 TB oraz niewielką ilość kosztów związanych z transferem sum fragmentów.
 
-**#4 kwerendy** : Wybierz liczbę (*) z very_small_csv
+**Zapytanie 3** : select * from population_parquet
 
-To zapytanie odczyta całe pliki. Łączny rozmiar plików w magazynie dla tej tabeli to 100 KB. Węzły będą przetwarzać fragmenty tej tabeli, suma dla każdego fragmentu zostanie przeniesiona między węzłami, a końcowa suma zostanie przetransferowana do punktu końcowego. To zapytanie będzie przetwarzać nieco więcej niż 100 KB danych. Ilość danych przetworzonych dla tego zapytania zostanie zaokrąglona do 10 MB, jak określono w [zaokrągleniu](#rounding).
+To zapytanie odczytuje wszystkie kolumny i przesyła wszystkie dane w nieskompresowanym formacie. Jeśli format kompresji to 5:1, zapytanie przetwarza 6 TB, ponieważ odczytuje 1 TB i transferuje 5 TB nieskompresowanych danych.
+
+**Zapytanie 4** : wybór liczby (*) z very_small_csv
+
+To zapytanie odczytuje całe pliki. Łączny rozmiar plików w magazynie dla tej tabeli to 100 KB. Węzły przetwarzają fragmenty tej tabeli i łączą dla każdego fragmentu są przenoszone między węzłami. Końcowa suma jest transferowana do punktu końcowego. 
+
+To zapytanie przetwarza nieco więcej niż 100 KB danych. Ilość danych przetworzonych dla tego zapytania jest zaokrąglana do 10 MB, jak określono w sekcji [Zaokrąglenie](#rounding) tego artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak zoptymalizować zapytania pod kątem wydajności, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi puli SQL bezserwerowej](best-practices-sql-on-demand.md).
+Aby dowiedzieć się, jak zoptymalizować zapytania pod kątem wydajności, zobacz [najlepsze rozwiązania dotyczące puli SQL bezserwerowej](best-practices-sql-on-demand.md).

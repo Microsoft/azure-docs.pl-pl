@@ -2,14 +2,14 @@
 title: Opcje konfiguracji — Azure Monitor Application Insights Java
 description: Opcje konfiguracji Azure Monitor Application Insights Java
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331910"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381035"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opcje konfiguracji Azure Monitor Application Insights Java
 
@@ -48,7 +48,7 @@ W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem 
 
 ## <a name="connection-string"></a>Parametry połączenia
 
-Jest to wymagane. Parametry połączenia można znaleźć w zasobie Application Insights:
+Parametry połączenia są wymagane. Parametry połączenia można znaleźć w zasobie Application Insights:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights parametry połączenia":::
 
@@ -105,7 +105,7 @@ Próbkowanie jest wykonywane jako funkcja w IDENTYFIKATORze operacji (znanym tak
 
 Jeśli na przykład ustawisz próbkowanie do 10%, zobaczysz tylko 10% transakcji, ale każdy z nich będzie miał pełne szczegółowe informacje o transakcjach.
 
-Oto przykład sposobu ustawiania próbkowania do przechwytywania około **1/3 wszystkich transakcji** — upewnij się, że ustawiono częstotliwość próbkowania poprawną dla przypadku użycia:
+Oto przykład sposobu ustawiania próbkowania w celu przechwycenia około **1/3 wszystkich transakcji** — upewnij się, że ustawiono częstotliwość próbkowania poprawną dla przypadku użycia:
 
 ```json
 {
@@ -169,18 +169,18 @@ Jeśli chcesz dodać wymiary niestandardowe do wszystkich danych telemetrycznych
 
 ## <a name="telemetry-processors-preview"></a>Procesory telemetrii (wersja zapoznawcza)
 
-Jest to funkcja w wersji zapoznawczej.
+Ta funkcja jest dostępna w wersji zapoznawczej.
 
-Umożliwia konfigurowanie reguł, które będą stosowane do żądania, zależności i danych telemetrycznych śledzenia, np.
+Umożliwia konfigurowanie reguł, które będą stosowane do żądania, zależności i danych telemetrycznych śledzenia, na przykład:
  * Maskowanie danych poufnych
  * Warunkowe dodawanie wymiarów niestandardowych
  * Aktualizowanie nazwy telemetrii używanej do agregacji i wyświetlania
 
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors.md) .
 
-## <a name="auto-collected-logging"></a>Rejestrowanie z autozbieraniem
+## <a name="autocollected-logging"></a>Rejestrowanie autozbierane
 
-Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane z autogromadzeniem.
+Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane z autozbieraniem.
 
 Domyślnie rejestrowanie jest zbierane tylko wtedy, gdy rejestrowanie odbywa się na `INFO` poziomie lub wyższym.
 
@@ -213,13 +213,16 @@ Są to prawidłowe `level` wartości, które można określić w `applicationins
 | TRACE (lub FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Zbierane metryki Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
+## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metryki z autozbieranymi Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
 
-Jeśli aplikacja używa [Micrometer](https://micrometer.io), metryki, które są wysyłane do rejestru globalnego Micrometer, są zbierane na podstawie autodostrajania.
+Jeśli aplikacja korzysta z [Micrometer](https://micrometer.io), wówczas metryki wysyłane do rejestru globalnego Micrometer są gromadzone w sposób autozbierany.
 
-Ponadto, jeśli aplikacja korzysta z [uruchamiającego uruchamianie sprężynowe](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), metryki skonfigurowane przez siłownik rozruchu sprężyny są również zbierane domyślnie.
+Ponadto, jeśli aplikacja korzysta z [uruchamiającego uruchamianie sprężynowe](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), metryki skonfigurowane przez siłownik rozruchu sprężynowe są również zbierane domyślnie.
 
 Aby wyłączyć autozbieranie metryk Micrometer (w tym metryki uruchamiającego uruchamianie sprężynowe):
+
+> [!NOTE]
+> Metryki niestandardowe są rozliczane osobno i mogą generować dodatkowe koszty. Sprawdź szczegółowe [Informacje o cenach](https://azure.microsoft.com/pricing/details/monitor/). Aby wyłączyć metryki siłownika Micrometer i sprężyny, Dodaj poniższą konfigurację do pliku konfiguracji.
 
 ```json
 {
@@ -244,7 +247,7 @@ Domyślnie Application Insights Java 3,0 wysyła metrykę pulsu co 15 minut. Je�
 ```
 
 > [!NOTE]
-> Nie można zmniejszyć częstotliwości tego pulsu, ponieważ dane pulsu są również używane do śledzenia użycia Application Insights.
+> Nie można zmniejszyć częstotliwości pulsu, ponieważ dane pulsu są również używane do śledzenia użycia Application Insights.
 
 ## <a name="http-proxy"></a>Serwer proxy HTTP
 
@@ -279,7 +282,7 @@ Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośre
 
 "Samodiagnostyka" odnosi się do rejestrowania wewnętrznego z Application Insights Java 3,0.
 
-Może to być przydatne w przypadku wykrywania trendów i diagnozowania problemów Application Insights samego siebie.
+Ta funkcja może być przydatna w przypadku wykrywania trendów i diagnozowania problemów Application Insights samego siebie.
 
 Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` zarówno do pliku, `applicationinsights.log` jak i konsoli programu, odpowiadającej tej konfiguracji:
 

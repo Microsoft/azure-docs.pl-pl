@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88924371"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379977"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Szybki Start: Tworzenie sklepu z bazami danych Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -21,7 +21,7 @@ Magazyn wiedzy to funkcja Wyszukiwanie poznawcze platformy Azure, która utrzymu
 
 Potok akceptuje niestrukturalną zawartość tekstu i obrazu, stosuje AI obsługiwane przez Cognitive Services (na przykład OCR i przetwarzanie języka naturalnego), a także wyprowadza nowe struktury i informacje, które jeszcze nie istniały. Jednym z artefaktów fizycznych utworzonych w potoku jest [Magazyn wiedzy](knowledge-store-concept-intro.md), do którego można uzyskać dostęp za pomocą narzędzi, aby analizować i eksplorować zawartość.
 
-W tym przewodniku szybki start utworzysz usługi i dane w chmurze platformy Azure w celu utworzenia sklepu z bazami informacji. Gdy wszystko będzie na miejscu, uruchom kreatora **importowania danych** w portalu, aby ściągnąć wszystkie te elementy. Wynik końcowy to oryginalna zawartość tekstowa oraz zawartość wygenerowana przez AI, którą można wyświetlić w portalu ([Eksplorator magazynu](knowledge-store-view-storage-explorer.md)).
+W tym przewodniku szybki start utworzysz usługi i dane w chmurze platformy Azure w celu utworzenia sklepu z bazami informacji. Gdy wszystko będzie na miejscu, uruchom kreatora **importowania danych** w portalu, aby ściągnąć wszystkie te elementy. Wynik końcowy to oryginalna zawartość tekstowa oraz zawartość wygenerowana przez AI, którą można wyświetlić w portalu ([Eksplorator usługi Storage](knowledge-store-view-storage-explorer.md)).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -70,15 +70,15 @@ Teraz można przystąpić do przenoszenia kreatora **importu danych** .
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 
-1. W obszarze **Nawiązywanie połączenia z danymi** wybierz opcję **Magazyn obiektów blob Azure**, a następnie wybierz konto i utworzony kontener. 
+1. W obszarze **Nawiązywanie połączenia z danymi** wybierz opcję **Magazyn obiektów blob Azure** , a następnie wybierz konto i utworzony kontener. 
 
 1. Wpisz **nazwę** `hotel-reviews-ds` .
 
-1. W obszarze **tryb analizy**wybierz pozycję **Tekst rozdzielany**, a następnie zaznacz pole wyboru **pierwszy wiersz zawiera nagłówek** . Upewnij się, że **znak ogranicznika** jest przecinkiem (,).
+1. W obszarze **tryb analizy** wybierz pozycję **Tekst rozdzielany** , a następnie zaznacz pole wyboru **pierwszy wiersz zawiera nagłówek** . Upewnij się, że **znak ogranicznika** jest przecinkiem (,).
 
-1. W polu **Parametry połączenia**wklej parametry połączenia skopiowane ze strony **klucze dostępu** w usłudze Azure Storage.
+1. W polu **Parametry połączenia** wklej parametry połączenia skopiowane ze strony **klucze dostępu** w usłudze Azure Storage.
 
-1. W polu **kontenery**wprowadź nazwę kontenera obiektów BLOB przechowującego dane.
+1. W polu **kontenery** wprowadź nazwę kontenera obiektów BLOB przechowującego dane.
 
     Strona powinna wyglądać podobnie do poniższego zrzutu ekranu.
 
@@ -94,14 +94,14 @@ W tym kroku kreatora utworzysz zestawu umiejętności z wzbogacaniem umiejętno�
 
 1. Rozwiń pozycję **Dodaj wzbogacania**.
 
-1. W obszarze **Nazwa zestawu umiejętności**wprowadź `hotel-reviews-ss` .
+1. W obszarze **Nazwa zestawu umiejętności** wprowadź `hotel-reviews-ss` .
 
-1. W **polu Źródło danych**wybierz pozycję **reviews_text**.
+1. W **polu Źródło danych** wybierz pozycję **reviews_text**.
 
-1. Aby uzyskać **poziom szczegółowości wzbogacenia**, wybierz pozycję **strony (fragmenty: 5000 znaków).**
+1. Aby uzyskać **poziom szczegółowości wzbogacenia** , wybierz pozycję **strony (fragmenty: 5000 znaków).**
 
 1. Wybierz następujące umiejętności poznawcze:
-    + **Wyodrębnianie kluczowych fraz**
+    + **Wyodrębnij kluczowe frazy**
     + **Tłumaczenie tekstu**
     + **Wykrywanie tonacji**
 
@@ -109,7 +109,7 @@ W tym kroku kreatora utworzysz zestawu umiejętności z wzbogacaniem umiejętno�
 
 1. Rozwiń pozycję **Zapisz wzbogacanie do sklepu merytorycznego**.
 
-1. Wybierz następujące **projekcje tabeli platformy Azure**:
+1. Wybierz następujące **projekcje tabeli platformy Azure** :
     + **Dokumenty**
     + **Strony**
     + **Kluczowe frazy**
@@ -126,7 +126,7 @@ W tym kroku kreatora utworzysz zestawu umiejętności z wzbogacaniem umiejętno�
 
 W tym kroku kreatora skonfigurujesz indeks opcjonalnych zapytań wyszukiwania pełnotekstowego. Kreator posłuży do próbkowania źródła danych w celu wywnioskowania pól i typów danych. Musisz tylko wybrać atrybuty żądanego zachowania. Na przykład atrybut możliwy do **pobierania** zezwoli usłudze wyszukiwania na zwrócenie wartości pola, podczas gdy **przeszukiwanie** spowoduje włączenie wyszukiwania pełnotekstowego w polu.
 
-1. W obszarze **Nazwa indeksu**wprowadź `hotel-reviews-idx` .
+1. W obszarze **Nazwa indeksu** wprowadź `hotel-reviews-idx` .
 
 1. W przypadku atrybutów Zaakceptuj wybór **domyślny: pobieranie** i **Wyszukiwanie** nowych pól tworzonych przez potok.
 
@@ -140,9 +140,9 @@ W tym kroku kreatora skonfigurujesz indeks opcjonalnych zapytań wyszukiwania pe
 
 W tym kroku kreatora skonfigurujesz indeksator, który będzie ściągał źródło danych, zestawu umiejętności i indeks zdefiniowany w poprzednich krokach kreatora.
 
-1. W obszarze **Nazwa**wprowadź `hotel-reviews-idxr` .
+1. W obszarze **Nazwa** wprowadź `hotel-reviews-idxr` .
 
-1. W polu **harmonogram**Zachowaj wartość domyślną **jeden raz**.
+1. W polu **harmonogram** Zachowaj wartość domyślną **jeden raz**.
 
 1. Kliknij przycisk **Prześlij** , aby uruchomić indeksator. W tym kroku jest wyodrębnianie danych, indeksowanie i stosowanie umiejętności poznawczych.
 

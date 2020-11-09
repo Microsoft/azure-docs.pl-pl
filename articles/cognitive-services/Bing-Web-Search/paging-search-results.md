@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1a52471240ca80335690568faed7849eabc30baf
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074101"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381069"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Jak uzyskać stronę za pośrednictwem wyników z interfejsy API wyszukiwania Bing
 
@@ -27,7 +27,7 @@ ms.locfileid: "93074101"
 
 W przypadku wysyłania wywołania do interfejsów API sieci Web, niestandardowych, obrazów, wiadomości lub wyszukiwanie wideo, Bing zwraca podzestaw łącznej liczby wyników, które mogą być odpowiednie dla zapytania. Aby uzyskać szacowaną łączną liczbę dostępnych wyników, uzyskaj dostęp do pola obiektu odpowiedzi `totalEstimatedMatches` . 
 
-Przykład: 
+Na przykład: 
 
 ```json
 {
@@ -73,15 +73,15 @@ Host: api.cognitive.microsoft.com
 Korzystając z obrazów Bing i interfejsów API wideo, można użyć wartości, `nextOffset` Aby uniknąć zduplikowanych wyników wyszukiwania. Pobierz wartość z `Images` `Videos` obiektów Response lub, a następnie użyj jej w żądaniach z `offset` parametrem.  
 
 > [!NOTE]
-> Interfejs API wyszukiwania w sieci Web Bing zwraca wyniki wyszukiwania, które mogą obejmować strony sieci Web, obrazy, filmy wideo i wiadomości. Podczas przeglądania wyników wyszukiwania w interfejs API wyszukiwania w sieci Web Bing są stronicowane tylko [strony sieci Web](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage), a nie inne typy odpowiedzi, takie jak obrazy lub wiadomości. Wyniki wyszukiwania w `WebPage` obiektach mogą zawierać również wyniki, które są wyświetlane w innych typach odpowiedzi.
+> Interfejs API wyszukiwania w sieci Web Bing zwraca wyniki wyszukiwania, które mogą obejmować strony sieci Web, obrazy, filmy wideo i wiadomości. Podczas przeglądania wyników wyszukiwania w interfejs API wyszukiwania w sieci Web Bing są stronicowane tylko [strony sieci Web](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage), a nie inne typy odpowiedzi, takie jak obrazy lub wiadomości. Wyniki wyszukiwania w `WebPage` obiektach mogą zawierać również wyniki, które są wyświetlane w innych typach odpowiedzi.
 >
 > Jeśli używasz `responseFilter` parametru zapytania bez określenia żadnych wartości filtru, nie używaj `count` `offset` parametrów i. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Jakie są wyszukiwanie w sieci Web Bing interfejsy API?](bing-api-comparison.md)
-* [Dokumentacja interfejsu API wyszukiwania w sieci Web Bing w wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [interfejs API wyszukiwania niestandardowego Bing odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [interfejs API wyszukiwania wiadomości Bing odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [interfejs API wyszukiwania wideo Bing odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [interfejs API wyszukiwania obrazów Bing odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Dokumentacja interfejsu API wyszukiwania w sieci Web Bing w wersji 7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [interfejs API wyszukiwania niestandardowego Bing odwołanie wersji 7](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [interfejs API wyszukiwania wiadomości Bing odwołanie wersji 7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [interfejs API wyszukiwania wideo Bing odwołanie wersji 7](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [interfejs API wyszukiwania obrazów Bing odwołanie wersji 7](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

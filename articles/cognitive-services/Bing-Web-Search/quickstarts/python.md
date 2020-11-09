@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 9d6de9b29f0e68d48eab0b2c4081470858d3d69c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 63706eefd4f46c055e8bcbd58a86fdded6f3527d
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076439"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381052"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Szybki start: wywoływanie interfejsu API wyszukiwania w sieci Web Bing za pomocą języka Python  
 
@@ -62,7 +62,7 @@ Ten przykład działa jako notes Jupyter w usłudze [MyBinder](https://mybinder.
 
 Ten kod używa `requests` biblioteki do wywoływania interfejs API wyszukiwania w sieci Web Bing i zwracania wyników jako obiektu JSON. Klucz interfejsu API jest przekazywany do słownika `headers`, a wyszukiwany termin i parametry zapytania są przekazywane do słownika `params`. 
 
-Aby uzyskać pełną listę opcji i parametrów, zobacz [interfejs API wyszukiwania w sieci Web Bing wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
+Aby uzyskać pełną listę opcji i parametrów, zobacz [interfejs API wyszukiwania w sieci Web Bing wersji 7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests

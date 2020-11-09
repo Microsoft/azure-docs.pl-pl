@@ -4,22 +4,22 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5c45c01e34c4663657dbeee803fe0bb5cdae6a3c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143087"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380576"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
-W klastrze prywatnym płaszczyzna kontroli lub serwer interfejsu API ma wewnętrzne adresy IP, które są zdefiniowane w [alokacji RFC1918-Address dla prywatnych Internetu](https://tools.ietf.org/html/rfc1918) dokumentów. Za pomocą klastra prywatnego można zapewnić, że ruch sieciowy między serwerem interfejsu API a pulami węzłów pozostanie tylko w sieci prywatnej.
+W klastrze prywatnym płaszczyzna kontroli lub serwer interfejsu API ma wewnętrzne adresy IP, które są zdefiniowane w [alokacji RFC1918-Address dla prywatnego dokumentu internetowego](https://tools.ietf.org/html/rfc1918) . Za pomocą klastra prywatnego można zapewnić, że ruch sieciowy między serwerem interfejsu API a pulami węzłów pozostanie tylko w sieci prywatnej.
 
 Płaszczyzna kontroli lub serwer interfejsu API znajduje się w subskrypcji platformy Azure zarządzanej przez usługę Azure Kubernetes Service (AKS). Klaster klienta lub Pula węzłów znajduje się w subskrypcji klienta. Serwer i Pula węzłów mogą komunikować się ze sobą za pomocą [usługi Azure Private link][private-link-service] w sieci wirtualnej serwera interfejsu API i prywatnego punktu końcowego, który jest udostępniany w podsieci klastra AKS klienta.
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Klaster prywatny jest dostępny w regionach publicznych, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Klaster prywatny jest dostępny w regionach publicznych, Azure Government i w Chinach, w których [są obsługiwane AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
 > [!NOTE]
 > Obsługiwane są Azure Government witryny, ale US Gov Teksas nie są obecnie obsługiwane z powodu braku obsługi linku prywatnego.
@@ -43,7 +43,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Where *--enable-Private-Cluster* jest obowiązkową flagą dla klastra prywatnego. 
+Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatnego. 
 
 ### <a name="advanced-networking"></a>Zaawansowane sieci  
 
@@ -59,7 +59,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Where *--enable-Private-Cluster* jest obowiązkową flagą dla klastra prywatnego. 
+Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatnego. 
 
 > [!NOTE]
 > Jeśli adres CIDR (172.17.0.1/16) mostka platformy Docker koliduje z maską CIDR podsieci, należy odpowiednio zmienić adres mostka platformy Docker.
@@ -76,17 +76,17 @@ Najłatwiej jest utworzyć maszynę wirtualną w tej samej sieci wirtualnej, co 
 
 ## <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
-Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby użyć komunikacji równorzędnej sieci wirtualnej, musisz skonfigurować łącze między siecią wirtualną i prywatną strefą DNS.
+Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby użyć komunikacji równorzędnej sieci wirtualnej, należy skonfigurować połączenie między siecią wirtualną i prywatną strefą DNS.
     
 1. Przejdź do grupy zasobów węzła w Azure Portal.  
 2. Wybierz prywatną strefę DNS.   
 3. W lewym okienku wybierz łącze **Sieć wirtualna** .  
 4. Utwórz nowy link, aby dodać sieć wirtualną maszyny wirtualnej do prywatnej strefy DNS. Udostępnienie linku strefy DNS może potrwać kilka minut.  
 5. W Azure Portal przejdź do grupy zasobów zawierającej sieć wirtualną klastra.  
-6. W prawym okienku wybierz sieć wirtualną. Nazwa sieci wirtualnej ma postać *AKS-VNET- \* *.  
+6. W prawym okienku wybierz sieć wirtualną. Nazwa sieci wirtualnej ma postać *AKS-VNET- \**.  
 7. W lewym okienku wybierz pozycję **Komunikacja równorzędna**.  
-8. Wybierz pozycję **Dodaj**, Dodaj sieć wirtualną maszyny wirtualnej, a następnie utwórz komunikację równorzędną.  
-9. Przejdź do sieci wirtualnej, w której znajduje się maszyna wirtualna, wybierz pozycję **Komunikacja równorzędna**, wybierz sieć wirtualną AKS, a następnie utwórz komunikację równorzędną. Jeśli zakresy adresów w sieci wirtualnej AKS i konflikty sieci wirtualnej maszyn wirtualnych są niepowodzeniem, Komunikacja równorzędna nie powiedzie się. Aby uzyskać więcej informacji, zobacz  [wirtualne sieci równorzędne][virtual-network-peering].
+8. Wybierz pozycję **Dodaj** , Dodaj sieć wirtualną maszyny wirtualnej, a następnie utwórz komunikację równorzędną.  
+9. Przejdź do sieci wirtualnej, w której znajduje się maszyna wirtualna, wybierz pozycję **Komunikacja równorzędna** , wybierz sieć wirtualną AKS, a następnie utwórz komunikację równorzędną. Jeśli zakresy adresów w sieci wirtualnej AKS i konflikty sieci wirtualnej maszyn wirtualnych są niepowodzeniem, Komunikacja równorzędna nie powiedzie się. Aby uzyskać więcej informacji, zobacz  [wirtualne sieci równorzędne][virtual-network-peering].
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Koncentrator i szprycha z niestandardowym systemem DNS
 

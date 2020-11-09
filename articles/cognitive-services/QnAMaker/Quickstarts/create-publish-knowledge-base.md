@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 68cde1be5f1a1cb0e8757f3143cac9363c6d9ddd
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5759cd80278d20ee383fbe5922e43d250babe09f
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376046"
+ms.locfileid: "94380678"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -117,7 +117,7 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 
 ## <a name="test-the-knowledge-base"></a>Testowanie bazy wiedzy
 
-# <a name="qnamaker-v1"></a>[QnAMaker v1](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
 1. W portalu QnA Maker w prawym górnym rogu wybierz pozycję **test** , aby sprawdzić, czy wprowadzone zmiany zostały wprowadzone.
 2. Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.
@@ -130,7 +130,7 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 
 4. Ponownie wybierz **test** , aby zamknąć panel **testu** .
 
-# <a name="qnamaker-v2-preview"></a>[QnAMaker v2 (wersja zapoznawcza)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
 1. W portalu QnA Maker w prawym górnym rogu wybierz pozycję **test** , aby sprawdzić, czy wprowadzone zmiany zostały wprowadzone.
 2. Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.

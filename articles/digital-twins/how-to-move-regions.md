@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: cb532098cda290654d6bdebe9cec2edab8ccbf99
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355791"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381154"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Przenoszenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji do innego regionu platformy Azure
 
@@ -120,7 +120,7 @@ Następnie Zakończ "Przenoszenie" wystąpienia, tworząc nowe wystąpienie w re
 
 ### <a name="create-a-new-instance"></a>Utwórz nowe wystąpienie
 
-Najpierw utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym. Wykonaj kroki opisane w temacie [Konfigurowanie wystąpienia i uwierzytelniania](how-to-set-up-instance-portal.md). Należy pamiętać o następujących wskaźnikach:
+Najpierw utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym. Wykonaj kroki opisane w temacie [How to: Konfiguracja wystąpienia i uwierzytelniania](how-to-set-up-instance-portal.md). Należy pamiętać o następujących wskaźnikach:
 
 * Tę samą nazwę można zachować, *Jeśli* znajduje się ona w innej grupie zasobów. Jeśli musisz użyć tej samej grupy zasobów, która zawiera oryginalne wystąpienie, nowe wystąpienie będzie potrzebować własnej odrębnej nazwy.
 * Wprowadź nowy region docelowy po wyświetleniu monitu o lokalizację.

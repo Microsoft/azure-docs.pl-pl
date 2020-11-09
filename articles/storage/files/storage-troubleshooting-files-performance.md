@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 52615a968ce831a9a5a487f7422ad13bc58ecf6d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9dfdbbd982503acc063ff88c74dfccde8677eaac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426470"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380236"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Rozwiązywanie problemów z wydajnością Azure Files
 
@@ -26,15 +26,11 @@ W tym artykule wymieniono niektóre typowe problemy związane z udziałami plik�
 
 Aby potwierdzić, że Twój udział jest ograniczany, możesz skorzystać z metryk platformy Azure w portalu.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. W Azure Portal przejdź do konta magazynu.
 
-1. Wybierz pozycję **wszystkie usługi** , a następnie wyszukaj **metryki**.
+1. W menu po lewej stronie w obszarze **monitorowanie** wybierz pozycję **metryki**.
 
-1. Wybierz pozycję **Metryki**.
-
-1. Wybierz swoje konto magazynu jako zasób.
-
-1. Wybierz pozycję **plik** jako przestrzeń nazw metryki.
+1. Wybierz pozycję **plik** jako przestrzeń nazw metryki dla zakresu konta magazynu.
 
 1. Wybierz **transakcje** jako metrykę.
 
@@ -54,7 +50,7 @@ Aby potwierdzić, że Twój udział jest ograniczany, możesz skorzystać z metr
 
 Jeśli większość żądań jest skoncentrowana na metadanych, (na przykład onfile/OpenFile/CloseFile/QueryInfo/querydirectory), opóźnienie będzie gorszyć w porównaniu do operacji odczytu i zapisu.
 
-Aby sprawdzić, czy większość żądań jest skoncentrowana na metadanych, można użyć tych samych kroków jak powyżej. Oprócz dodawania filtru dla elementu **responsetype**Dodaj filtr dla **nazwy interfejsu API**.
+Aby sprawdzić, czy większość żądań jest skoncentrowana na metadanych, można użyć tych samych kroków jak powyżej. Oprócz dodawania filtru dla elementu **responsetype** Dodaj filtr dla **nazwy interfejsu API**.
 
 ![Filtrowanie nazw interfejsów API w metrykach](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
@@ -103,7 +99,7 @@ Jest to znany problem z implementacją klienta SMB w systemie Linux.
 
 - Rozłożenie obciążenia na wiele maszyn wirtualnych.
 - Na tej samej maszynie wirtualnej Użyj wielu punktów instalacji z opcją **nosharesock** i rozłożyć obciążenie na te punkty instalacji.
-- W systemie Linux spróbuj zainstalować przy użyciu opcji **nostrictsync** , aby uniknąć wymuszania opróżniania SMB dla każdego wywołania **fsync** . W przypadku Azure Files ta opcja nie zakłóca spójności danych, ale może spowodować powstanie starych metadanych plików na liście katalogów (polecenie**ls-l** ). Bezpośrednie zapytanie o metadane pliku (**stat** polecenie) zwróci najbardziej aktualne metadane pliku.
+- W systemie Linux spróbuj zainstalować przy użyciu opcji **nostrictsync** , aby uniknąć wymuszania opróżniania SMB dla każdego wywołania **fsync** . W przypadku Azure Files ta opcja nie zakłóca spójności danych, ale może spowodować powstanie starych metadanych plików na liście katalogów (polecenie **ls-l** ). Bezpośrednie zapytanie o metadane pliku ( **stat** polecenie) zwróci najbardziej aktualne metadane pliku.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Duże opóźnienia w przypadku dużych obciążeń metadanych obejmujących liczne operacje otwierania/zamykania.
 
@@ -114,7 +110,7 @@ Brak obsługi dzierżaw katalogów.
 ### <a name="workaround"></a>Obejście
 
 - Jeśli to możliwe, unikaj nadmiernego dojścia otwierającego/zamykającego w tym samym katalogu w krótkim czasie.
-- W przypadku maszyn wirtualnych z systemem Linux Zwiększ limit czasu pamięci podręcznej wpisów w katalogu, określając **actimeo = \<sec> ** jako opcję instalacji. Domyślnie jest to jedna sekunda, więc większa wartość, taka jak trzy lub pięć, może pomóc.
+- W przypadku maszyn wirtualnych z systemem Linux Zwiększ limit czasu pamięci podręcznej wpisów w katalogu, określając **actimeo = \<sec>** jako opcję instalacji. Domyślnie jest to jedna sekunda, więc większa wartość, taka jak trzy lub pięć, może pomóc.
 - W przypadku maszyn wirtualnych z systemem Linux Uaktualnij jądro do wersji 4,20 lub nowszej.
 
 ## <a name="low-iops-on-centosrhel"></a>Niska liczba operacji we/wy na sekundę w CentOS/RHEL
@@ -177,25 +173,25 @@ Większe niż oczekiwane opóźnienie dostępu Azure Files do obciążeń intens
 
 1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
 2. W sekcji monitorowanie kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
-3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
+3. Kliknij pozycję **Edytuj zasób** , wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
 4. Kliknij pozycję **Wybierz warunek** , aby dodać warunek.
 5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **transakcji** .
 6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **Typ odpowiedzi**.
 7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz pozycję **SuccessWithThrottling** (dla protokołu SMB) lub **ClientThrottlingError** (dla opcji REST).
 
-  > [!NOTE]
-  > Jeśli wartość wymiaru SuccessWithThrottling lub ClientThrottlingError nie znajduje się na liście, oznacza to, że zasób nie został ograniczony. Aby dodać wartość wymiaru, kliknij pozycję **Dodaj wartość niestandardową** obok listy rozwijanej **wartości wymiaru** , wpisz **SuccessWithThrottling** lub **ClientThrottlingError**, kliknij przycisk **OK** , a następnie powtórz krok #7.
+   > [!NOTE]
+   > Jeśli wartość wymiaru SuccessWithThrottling lub ClientThrottlingError nie znajduje się na liście, oznacza to, że zasób nie został ograniczony. Aby dodać wartość wymiaru, kliknij pozycję **Dodaj wartość niestandardową** obok listy rozwijanej **wartości wymiaru** , wpisz **SuccessWithThrottling** lub **ClientThrottlingError** , kliknij przycisk **OK** , a następnie powtórz krok #7.
 
 8. Kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
 9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
 
-  > [!NOTE]
-  > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > [!NOTE]
+   > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
 
 10. Zdefiniuj **Parametry alertu** (wartość progowa, operator, stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **gotowe**.
 
-  > [!TIP]
-  > Jeśli jest używany próg statyczny, wykres metryk może pomóc w ustaleniu rozsądnej wartości progowej, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryki wyświetli obliczone progi na podstawie ostatnich danych.
+    > [!TIP]
+    > Jeśli jest używany próg statyczny, wykres metryk może pomóc w ustaleniu rozsądnej wartości progowej, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryki wyświetli obliczone progi na podstawie ostatnich danych.
 
 11. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 12. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
@@ -207,29 +203,29 @@ Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [
 
 1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
 2. W sekcji monitorowanie kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
-3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
+3. Kliknij pozycję **Edytuj zasób** , wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
 4. Kliknij pozycję **Wybierz warunek** , aby dodać warunek.
 5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **ruchu** wychodzącego.
 
-  > [!NOTE]
-  > Należy utworzyć 3 oddzielne alerty, aby otrzymywać alerty w przypadku, gdy wartości przychodzące, wychodzące lub transakcje przekroczą ustawioną wartość progową. Wynika to z faktu, że alert jest uruchamiany tylko wtedy, gdy wszystkie warunki są spełnione. Dlatego jeśli wszystkie warunki zostaną umieszczone w jednym alercie, zostanie wykorzystana tylko alert, jeśli ruch przychodzący, wychodzący i transakcje przekroczyły ich wartości progowe.
+   > [!NOTE]
+   > Należy utworzyć 3 oddzielne alerty, aby otrzymywać alerty w przypadku, gdy wartości przychodzące, wychodzące lub transakcje przekroczą ustawioną wartość progową. Wynika to z faktu, że alert jest uruchamiany tylko wtedy, gdy wszystkie warunki są spełnione. Dlatego jeśli wszystkie warunki zostaną umieszczone w jednym alercie, zostanie wykorzystana tylko alert, jeśli ruch przychodzący, wychodzący i transakcje przekroczyły ich wartości progowe.
 
 6. Przewiń w dół. Kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
 7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
 8. Zdefiniuj **Parametry alertu** (wartość progowa, operator, stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **gotowe**.
 
-  > [!NOTE]
-  > Metryki ruch wychodzący, ruch przychodzący i transakcje są na minutę, chociaż są obsługiwane ruch wychodzący, ruch przychodzący i liczby operacji we/wy na sekundę. (Porozmawiaj o szczegółowości agregacji — > na minutę = więcej szumów, a następnie wybierz pozycję diff jeden) W związku z tym na przykład, jeśli przychodzący ruch wychodzący jest 90 MiB/sekundę i chcesz, aby próg miał 80% zainicjowanych danych wychodzących, należy wybrać następujące parametry alertu: 75497472 dla **wartości progowej**, większe niż lub równe **operatorowi**for oraz średnia dla **typu agregacji**. W zależności od tego, jak zakłócenia ma być Twój alert, możesz wybrać wartości, które zostaną wybrane do podsumowania oraz częstotliwość obliczania. Na przykład jeśli chcę, aby mój alert wyszukał średnią informację w okresie czasu o godzinie i chcę, aby moja reguła alertów była uruchamiana co godzinę, wybieram wartość 1 godzinę dla **stopnia szczegółowości agregacji** i 1 godzinę w przypadku **częstotliwości oceny**.
+   > [!NOTE]
+   > Metryki ruch wychodzący, ruch przychodzący i transakcje są na minutę, chociaż są obsługiwane ruch wychodzący, ruch przychodzący i liczby operacji we/wy na sekundę. (Porozmawiaj o szczegółowości agregacji — > na minutę = więcej szumów, a następnie wybierz pozycję diff jeden) W związku z tym na przykład, jeśli przychodzący ruch wychodzący jest 90 MiB/sekundę i chcesz, aby próg miał 80% zainicjowanych danych wychodzących, należy wybrać następujące parametry alertu: 75497472 dla **wartości progowej** , większe niż lub równe **operatorowi** for oraz średnia dla **typu agregacji**. W zależności od tego, jak zakłócenia ma być Twój alert, możesz wybrać wartości, które zostaną wybrane do podsumowania oraz częstotliwość obliczania. Na przykład jeśli chcę, aby mój alert wyszukał średnią informację w okresie czasu o godzinie i chcę, aby moja reguła alertów była uruchamiana co godzinę, wybieram wartość 1 godzinę dla **stopnia szczegółowości agregacji** i 1 godzinę w przypadku **częstotliwości oceny**.
 
 9. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 10. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 11. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
 
-  > [!NOTE]
-  > Aby otrzymywać powiadomienia, jeśli udział plików w warstwie Premium jest bliski ograniczenia z powodu zainicjowanej obsługi administracyjnej, wykonaj te same czynności, z wyjątkiem kroku 5, **zamiast tego wybierz metrykę** transferu danych przychodzących.
+    > [!NOTE]
+    > Aby otrzymywać powiadomienia, jeśli udział plików w warstwie Premium jest bliski ograniczenia z powodu zainicjowanej obsługi administracyjnej, wykonaj te same czynności, z wyjątkiem kroku 5, **zamiast tego wybierz metrykę** transferu danych przychodzących.
 
-  > [!NOTE]
-  > Aby otrzymywać powiadomienia, jeśli udział plików w warstwie Premium jest bliski ograniczania z powodu aprowizacji operacji we/wy na sekundę, trzeba będzie wprowadzić kilka zmian. W kroku 5 Wybierz metrykę **transakcji** . Ponadto dla kroku 10 jedyną opcją dla opcji **typ agregacji** jest suma. W związku z tym wartość progowa będzie zależna od wybranego stopnia szczegółowości agregacji. Na przykład jeśli chcesz, aby wartość progowa była równa 80% liczby operacji we/wy na sekundę, a wybrano 1 godzinę dla **stopnia szczegółowości agregacji**, **wartość progowa** będzie liczba operacji we/wy na sekundę (w bajtach) x 0,8 x 3600. Poza tymi zmianami wykonaj te same kroki, które wymieniono powyżej. 
+    > [!NOTE]
+    > Aby otrzymywać powiadomienia, jeśli udział plików w warstwie Premium jest bliski ograniczania z powodu aprowizacji operacji we/wy na sekundę, trzeba będzie wprowadzić kilka zmian. W kroku 5 Wybierz metrykę **transakcji** . Ponadto dla kroku 10 jedyną opcją dla opcji **typ agregacji** jest suma. W związku z tym wartość progowa będzie zależna od wybranego stopnia szczegółowości agregacji. Na przykład jeśli chcesz, aby wartość progowa była równa 80% liczby operacji we/wy na sekundę, a wybrano 1 godzinę dla **stopnia szczegółowości agregacji** , **wartość progowa** będzie liczba operacji we/wy na sekundę (w bajtach) x 0,8 x 3600. Poza tymi zmianami wykonaj te same kroki, które wymieniono powyżej. 
 
 Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

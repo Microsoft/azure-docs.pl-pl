@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215964"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379790"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Omówienie tokenów w Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Następujące właściwości są używane do [zarządzania okresami istnienia to
 
 - **Okres istnienia tokenu odświeżania (w dniach)** — maksymalny przedział czasu, w którym można użyć tokenu odświeżania w celu uzyskania nowego tokenu dostępu lub identyfikatora. Okres obejmuje również Uzyskiwanie nowego tokenu odświeżania, jeśli Twoja aplikacja uzyskała `offline_access` zakres. Wartość domyślna to 14 dni. Minimalny (włącznie) to jeden dzień. Wartość maksymalna (włącznie) to 90 dni.
 
-- Okres istnienia przenoszonego **okna tokenu odświeżania (w dniach)** — po upływie tego czasu użytkownik jest zmuszony do ponownego uwierzytelnienia, niezależnie od okresu ważności ostatniego tokenu odświeżania uzyskanego przez aplikację. Można ją podać tylko wtedy, gdy przełącznik jest ustawiony na wartość **bounded**. Musi być większa lub równa wartości **okresu istnienia tokenu odświeżania (w dniach)** . Jeśli przełącznik jest ustawiony na **niepowiązane**, nie można podać określonej wartości. Wartość domyślna to 90 dni. Minimalny (włącznie) to jeden dzień. Wartość maksymalna (włącznie) to 365 dni.
+- Okres istnienia przenoszonego **okna tokenu odświeżania (w dniach)** — po upływie tego czasu użytkownik jest zmuszony do ponownego uwierzytelnienia, niezależnie od okresu ważności ostatniego tokenu odświeżania uzyskanego przez aplikację. Można ją podać tylko wtedy, gdy przełącznik jest ustawiony na wartość **bounded**. Musi być większa lub równa wartości **okresu istnienia tokenu odświeżania (w dniach)** . Jeśli przełącznik jest ustawiony na **niepowiązane** , nie można podać określonej wartości. Wartość domyślna to 90 dni. Minimalny (włącznie) to jeden dzień. Wartość maksymalna (włącznie) to 365 dni.
 
 Następujące przypadki użycia są włączone przy użyciu tych właściwości:
 
@@ -91,7 +91,7 @@ Do [zarządzania zgodnością tokenów](configure-tokens.md)służą następują
 
 - **Wystawcy (ISS)** — ta właściwość identyfikuje dzierżawę Azure AD B2C, która wystawił token. Wartość domyślna to `https://<domain>/{B2C tenant GUID}/v2.0/`. Wartość `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` obejmuje identyfikatory zarówno dla dzierżawy Azure AD B2C, jak i przepływu użytkownika, który został użyty w żądaniu tokenu. Jeśli aplikacja lub biblioteka musi Azure AD B2C być zgodna ze [specyfikacją OpenID Connect Connect Discovery 1,0](https://openid.net/specs/openid-connect-discovery-1_0.html), Użyj tej wartości.
 
-- **Zastrzeżenie podmiotu (Sub)** — ta właściwość identyfikuje jednostkę, dla której token potwierdza informacje. Wartość domyślna to **objectid**, który wypełnia zakres `sub` w tokenie identyfikatorem obiektu użytkownika. Wartość nie jest **obsługiwana** tylko pod kątem zgodności z poprzednimi wersjami. Zaleca się przełączenie do **identyfikatora objectid** , gdy tylko będzie możliwe.
+- **Zastrzeżenie podmiotu (Sub)** — ta właściwość identyfikuje jednostkę, dla której token potwierdza informacje. Wartość domyślna to **objectid** , który wypełnia zakres `sub` w tokenie identyfikatorem obiektu użytkownika. Wartość nie jest **obsługiwana** tylko pod kątem zgodności z poprzednimi wersjami. Zaleca się przełączenie do **identyfikatora objectid** , gdy tylko będzie możliwe.
 
 - **Żądanie reprezentujące identyfikator zasad** — ta właściwość identyfikuje typ typu, w którym zostanie wypełniona Nazwa zasad używana w żądaniu tokenu. Wartość domyślna to `tfp`. Wartość `acr` jest zapewniana tylko w celu zapewnienia zgodności z poprzednimi wersjami.
 
@@ -107,7 +107,7 @@ Aby sprawdzić poprawność tokenu, aplikacja powinna sprawdzić zarówno podpis
 
 ### <a name="validate-signature"></a>Weryfikuj sygnaturę
 
-Token JWT zawiera trzy segmenty, *nagłówek*, *treść*i *podpis*. Segment podpisu może służyć do weryfikowania autentyczności tokenu, aby mógł być zaufany przez aplikację. Tokeny Azure AD B2C są podpisane przy użyciu standardowych algorytmów szyfrowania asymetrycznego, takich jak RSA 256.
+Token JWT zawiera trzy segmenty, *nagłówek* , *treść* i *podpis*. Segment podpisu może służyć do weryfikowania autentyczności tokenu, aby mógł być zaufany przez aplikację. Tokeny Azure AD B2C są podpisane przy użyciu standardowych algorytmów szyfrowania asymetrycznego, takich jak RSA 256.
 
 Nagłówek tokenu zawiera informacje na temat metody klucza i szyfrowania użytej do podpisania tokenu:
 
@@ -121,7 +121,7 @@ Nagłówek tokenu zawiera informacje na temat metody klucza i szyfrowania użyte
 
 Wartość **alg** jest algorytmem, który został użyty do podpisania tokenu. Wartość **żądania jest** kluczem publicznym, który został użyty do podpisania tokenu. W dowolnym momencie Azure AD B2C może podpisać token przy użyciu dowolnego zestawu par kluczy publiczny-prywatny. Azure AD B2C okresowo obracać możliwy zestaw kluczy. Aplikacja powinna być zapisywana, aby automatycznie obsługiwać te zmiany kluczy. Rozsądna częstotliwość sprawdzania dostępności aktualizacji kluczy publicznych używanych przez Azure AD B2C wynosi co 24 godziny. Aby obsłużyć nieoczekiwane zmiany w kluczach, aplikacja powinna zostać zapisywana w celu ponownego pobrania kluczy publicznych, Jeśli odbierze nieoczekiwaną wartość dla **dzieci** .
 
-Azure AD B2C ma punkt końcowy metadanych połączenia OpenID Connect. Za pomocą tego punktu końcowego aplikacje mogą zażądać informacji o Azure AD B2C w czasie wykonywania. Te informacje obejmują punkty końcowe, zawartość tokenu i klucze podpisywania tokenu. Dzierżawca Azure AD B2C zawiera dokument metadanych JSON dla każdej zasady. Dokument metadanych jest obiektem JSON, który zawiera kilka przydatnych informacji. Metadane zawierają **jwks_uri**, które dają lokalizację zestawu kluczy publicznych, które są używane do podpisywania tokenów. Ta lokalizacja jest tutaj dostępna, ale najlepiej jest pobrać lokalizację dynamicznie przy użyciu dokumentu metadanych i analizy **jwks_uri**:
+Azure AD B2C ma punkt końcowy metadanych połączenia OpenID Connect. Za pomocą tego punktu końcowego aplikacje mogą zażądać informacji o Azure AD B2C w czasie wykonywania. Te informacje obejmują punkty końcowe, zawartość tokenu i klucze podpisywania tokenu. Dzierżawca Azure AD B2C zawiera dokument metadanych JSON dla każdej zasady. Dokument metadanych jest obiektem JSON, który zawiera kilka przydatnych informacji. Metadane zawierają **jwks_uri** , które dają lokalizację zestawu kluczy publicznych, które są używane do podpisywania tokenów. Ta lokalizacja jest tutaj dostępna, ale najlepiej jest pobrać lokalizację dynamicznie przy użyciu dokumentu metadanych i analizy **jwks_uri** :
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
@@ -134,7 +134,7 @@ Dokument metadanych `B2C_1_signupsignin1` zasad w dzierżawie znajduje się `con
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Aby określić, które zasady zostały użyte do podpisania tokena (i gdzie należy przeznaczyć żądanie metadanych), dostępne są dwie opcje. Najpierw Nazwa zasad jest uwzględniona w `acr` poroście tokenu. Można analizować oświadczenia z treści JWT przez Base-64 dekodowanie treści i deserializacji ciągu JSON, który jest wynikiem. To `acr` jest nazwa zasad, które zostały użyte do wystawienia tokenu. Druga opcja polega na zakodowaniu zasad w wartości `state` parametru podczas wysyłania żądania, a następnie zdekodowaniu go w celu określenia, które zasady zostały użyte. Każda metoda jest prawidłowa.
+Aby określić, które zasady zostały użyte do podpisania tokena (i gdzie należy przeznaczyć żądanie metadanych), dostępne są dwie opcje. Najpierw Nazwa zasad jest uwzględniona w `tfp` (domyślne) lub `acr` w ramach żądania (zgodnie z konfiguracją) w tokenie. Można analizować oświadczenia z treści JWT przez Base-64 dekodowanie treści i deserializacji ciągu JSON, który jest wynikiem. `tfp`Lub `acr` to nazwa zasad, które zostały użyte do wystawienia tokenu. Druga opcja polega na zakodowaniu zasad w wartości `state` parametru podczas wysyłania żądania, a następnie zdekodowaniu go w celu określenia, które zasady zostały użyte. Każda metoda jest prawidłowa.
 
 Opis sposobu wykonywania walidacji podpisu znajduje się poza zakresem tego dokumentu. Dostępnych jest wiele bibliotek typu "open source", które ułatwiają sprawdzanie poprawności tokenu.
 

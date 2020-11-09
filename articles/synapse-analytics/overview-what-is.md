@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3043cd5f8cb27197048bd84c7181c2b42c4ad5c9
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376905"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380933"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
 
@@ -74,6 +74,11 @@ Usługa Azure Synapse umożliwia przedsiębiorstwom zarządzanie zasobami analit
 * Tworzenie kompleksowego rozwiązania do analizy w jednym miejscu: pozyskiwanie, eksplorowanie, przygotowywanie, organizowanie, wizualizowanie
 * Wiodąca w branży wydajność inżynierów danych pisząc kod SQL lub Spark: Tworzenie, debugowanie i Optymalizacja wydajności
 * Integracja z procesami ciągłej integracji/ciągłego wdrażania
+
+## <a name="engage-with-the-synapse-engineering-team"></a>Zaangażuj się z zespołem inżynierów Synapse
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): zadawaj pytania dotyczące programowania.
+- [Microsoft Q&stronie pytania](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): zadawaj pytania techniczne.
 
 ## <a name="next-steps"></a>Następne kroki
 

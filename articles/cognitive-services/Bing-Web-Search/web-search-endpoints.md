@@ -10,21 +10,21 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
-ms.openlocfilehash: 25ecd1a753cb9a401408f7ed6605d53e5310df2b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c882e3e4d0cd6ba594a700f4fd53c14103a8d1d1
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075674"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381256"
 ---
 # <a name="web-search-endpoint"></a>wyszukiwanie w sieci Web punkt końcowy
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-**Interfejs API wyszukiwanie w sieci Web** zwraca strony sieci Web, wiadomości, obrazy, wideo i [jednostki](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Jednostki zawierają informacje podsumowujące dotyczące osoby, miejsca lub tematu.
+**Interfejs API wyszukiwanie w sieci Web** zwraca strony sieci Web, wiadomości, obrazy, wideo i [jednostki](../bing-entities-search/overview.md). Jednostki zawierają informacje podsumowujące dotyczące osoby, miejsca lub tematu.
 
 ## <a name="endpoint"></a>Punkt końcowy
 
@@ -36,15 +36,15 @@ Aby uzyskać wyniki wyszukiwania w sieci Web przy użyciu interfejsu API Bing, W
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Punkt końcowy: Aby uzyskać szczegółowe informacje o nagłówkach, parametrach, kodach rynku, obiektach odpowiedzi, błędach i innych, zobacz Dokumentacja [interfejsu API sieci Web Bing wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) .
+Punkt końcowy: Aby uzyskać szczegółowe informacje o nagłówkach, parametrach, kodach rynku, obiektach odpowiedzi, błędach i innych, zobacz Dokumentacja [interfejsu API sieci Web Bing wersji 7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) .
 
 ## <a name="response-json"></a>KOD JSON odpowiedzi
 
-Odpowiedź na żądanie wyszukiwania w sieci Web obejmuje wszystkie wyniki jako obiekty JSON. Analizowanie wyniku wymaga procedur, które obsługują elementy każdego typu. Przykłady można znaleźć w [samouczku](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) i [kodzie źródłowym](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) .
+Odpowiedź na żądanie wyszukiwania w sieci Web obejmuje wszystkie wyniki jako obiekty JSON. Analizowanie wyniku wymaga procedur, które obsługują elementy każdego typu. Przykłady można znaleźć w [samouczku](./tutorial-bing-web-search-single-page-app.md) i [kodzie źródłowym](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) .
 
 ## <a name="next-steps"></a>Następne kroki
 
 Interfejsy API **Bing** obsługują akcje wyszukiwania, które zwracają wyniki zgodnie z ich typem. Wszystkie punkty końcowe wyszukiwania zwracają wyniki jako obiekty odpowiedzi JSON.  Wszystkie punkty końcowe obsługują zapytania, które zwracają określony język i lokalizację według długości geograficznej, szerokości geograficznej i usługi wyszukiwania.
 
 Aby uzyskać pełne informacje na temat parametrów obsługiwanych przez poszczególne punkty końcowe, zobacz strony referencyjne dla każdego typu.
-Przykłady podstawowych żądań za pomocą interfejsu API wyszukiwania w sieci Web można znaleźć [w temacie wyszukiwanie w sieci Web — szybki start](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).
+Przykłady podstawowych żądań za pomocą interfejsu API wyszukiwania w sieci Web można znaleźć [w temacie wyszukiwanie w sieci Web — szybki start](./overview.md).

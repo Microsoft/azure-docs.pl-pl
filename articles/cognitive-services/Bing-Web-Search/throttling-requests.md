@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 1031f35112607fa137735077d553508c83a27e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 09b76e4b067841f77818375c62f27b2696b60404
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100511"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380848"
 ---
 # <a name="throttling-requests-to-the-bing-web-search-api"></a>Ograniczanie żądań do interfejs API wyszukiwania w sieci Web Bing
 
@@ -29,4 +29,4 @@ ms.locfileid: "93100511"
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Informacje interfejs API wyszukiwania w sieci Web Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Informacje interfejs API wyszukiwania w sieci Web Bing](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2fab4a57a939f9516140562cb8b8508b2ba69dc0
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102228"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379892"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Wyszukiwanie wideo za pomocą interfejsu API wyszukiwania wideo Bing
 
@@ -44,13 +44,13 @@ Wszystkie żądania muszą pochodzić z serwera.
 
 Jeśli jest to Twoje pierwsze wywoływanie dowolnego z interfejsów API Bing, nie dołączaj nagłówka identyfikatora klienta. Identyfikator klienta należy uwzględnić tylko wtedy, gdy interfejs API Bing został już wywołany i usługa Bing zwróciła identyfikator klienta dla kombinacji użytkownika i urządzenia.
 
-Aby uzyskać filmy wideo z określonej domeny, należy użyć operatora [site:](https://msdn.microsoft.com/library/ff795613.aspx) zapytania.
+Aby uzyskać filmy wideo z określonej domeny, należy użyć operatora [site:](/previous-versions/bing/search/ff795613(v=msdn.10)) zapytania.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Odpowiedź zawiera obiekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) z listą filmów wideo, które usługa Bing uznała za odpowiednie dla zapytania. Każdy obiekt [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) na liście zawiera adres URL filmu wideo, a także jego czas trwania, wymiary i format kodowania oraz inne atrybuty. Obiekt wideo zawiera także adres URL miniatury wideo i wymiary tej miniatury.
+Odpowiedź zawiera obiekt [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) z listą filmów wideo, które usługa Bing uznała za odpowiednie dla zapytania. Każdy obiekt [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) na liście zawiera adres URL filmu wideo, a także jego czas trwania, wymiary i format kodowania oraz inne atrybuty. Obiekt wideo zawiera także adres URL miniatury wideo i wymiary tej miniatury.
 
 ```json
 {
@@ -103,9 +103,9 @@ Odpowiedź zawiera obiekt [Videos](https://docs.microsoft.com/rest/api/cognitive
 
 ## <a name="video-thumbnails"></a>Miniatury wideo
 
-Możesz wyświetlić wszystkie miniatury wideo zwracane przez interfejs API wyszukiwania wideo Bing lub ich podzbiór. Jeśli wyświetlisz podzestaw, udostępnij użytkownikowi opcję wyświetlenia pozostałych filmów wideo. W ramach [wymagań dotyczących użycia i wyświetlania](../UseAndDisplayRequirements.md) dla interfejsu API wyszukiwania Bing filmy wideo należy wyświetlać w kolejności podanej w odpowiedzi. Aby uzyskać informacje na temat zmieniania rozmiaru miniatur, zobacz [Zmiana rozmiaru i przycinanie miniatur](../../bing-web-search/resize-and-crop-thumbnails.md). 
+Możesz wyświetlić wszystkie miniatury wideo zwracane przez interfejs API wyszukiwania wideo Bing lub ich podzbiór. Jeśli wyświetlisz podzestaw, udostępnij użytkownikowi opcję wyświetlenia pozostałych filmów wideo. W ramach [wymagań dotyczących użycia i wyświetlania](../../bing-web-search/use-display-requirements.md) dla interfejsu API wyszukiwania Bing filmy wideo należy wyświetlać w kolejności podanej w odpowiedzi. Aby uzyskać informacje na temat zmieniania rozmiaru miniatur, zobacz [Zmiana rozmiaru i przycinanie miniatur](../../bing-web-search/resize-and-crop-thumbnails.md). 
 
-Gdy użytkownik umieści kursor na miniaturze, można użyć elementu [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) do odtworzenia miniatury filmu wideo. Pamiętaj o nadaniu atrybutu wyświetlonej miniaturze ruchu.
+Gdy użytkownik umieści kursor na miniaturze, można użyć elementu [motionThumbnailUrl](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) do odtworzenia miniatury filmu wideo. Pamiętaj o nadaniu atrybutu wyświetlonej miniaturze ruchu.
 
 <!-- Removing until the images can be sanitized.
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -113,27 +113,27 @@ Gdy użytkownik umieści kursor na miniaturze, można użyć elementu [motionThu
 
 Po kliknięciu miniatury istnieją trzy opcje wyświetlenia wideo:
 
-- Użyj elementu [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl), aby wyświetlić film wideo w witrynie internetowej hosta (na przykład YouTube)
-- Użyj elementu [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl), aby wyświetlić film wideo w przeglądarce wideo Bing
-- Użyj elementu [embdedHtml](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-embedhtml), aby osadzić film wideo w swoim środowisku 
+- Użyj elementu [hostPageUrl](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl), aby wyświetlić film wideo w witrynie internetowej hosta (na przykład YouTube)
+- Użyj elementu [webSearchUrl](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl), aby wyświetlić film wideo w przeglądarce wideo Bing
+- Użyj elementu [embdedHtml](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-embedhtml), aby osadzić film wideo w swoim środowisku 
 
 Pamiętaj, aby użyć wydawcy i autora do nadania atrybutu odtwarzanemu filmowi wideo.
 
-Szczegóły użycia elementu [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) do uzyskiwania szczegółowych informacji na temat filmu wideo można znaleźć w temacie [Video Insights (Szczegółowe informacje o filmie wideo)](../video-insights.md).
+Szczegóły użycia elementu [videoId](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) do uzyskiwania szczegółowych informacji na temat filmu wideo można znaleźć w temacie [Video Insights (Szczegółowe informacje o filmie wideo)](../video-insights.md).
 
 ## <a name="filtering-videos"></a>Filtrowanie filmów wideo
 
 Domyślnie interfejs API wyszukiwania wideo zwraca wszystkie filmy wideo odpowiednie dla zapytania. Jeśli chcesz znaleźć tylko bezpłatne filmy wideo lub filmy wideo krótsze niż pięć minut, użyj następujących parametrów w zapytaniu filtru:
 
-- [Cennik](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; Filtrowanie filmów wideo według cen (na przykład bezpłatnych materiałów wideo lub opłat za korzystanie z nich)
-- [rozwiązanie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; Filtrowanie filmów wideo według rozdzielczości (na przykład wideo z rozdzielczością 720 lub wyższą)
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrowanie filmów wideo według długości wideo (na przykład wideo o długości mniejszej niż pięć minut)
-- [świeżość](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtrowanie filmów wideo według wieku (na przykład wideo odnalezione przez usługę Bing w ciągu ostatniego tygodnia)
+- [Cennik](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; Filtrowanie filmów wideo według cen (na przykład bezpłatnych materiałów wideo lub opłat za korzystanie z nich)
+- [rozwiązanie](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; Filtrowanie filmów wideo według rozdzielczości (na przykład wideo z rozdzielczością 720 lub wyższą)
+- [videoLength](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrowanie filmów wideo według długości wideo (na przykład wideo o długości mniejszej niż pięć minut)
+- [świeżość](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtrowanie filmów wideo według wieku (na przykład wideo odnalezione przez usługę Bing w ciągu ostatniego tygodnia)
 
-Aby uzyskać filmy wideo z określonej domeny, należy uwzględnić operatora [site:](https://msdn.microsoft.com/library/ff795613.aspx) zapytania w ciągu zapytania.
+Aby uzyskać filmy wideo z określonej domeny, należy uwzględnić operatora [site:](/previous-versions/bing/search/ff795613(v=msdn.10)) zapytania w ciągu zapytania.
 
 > [!NOTE]
-> W zależności od zapytania, jeśli używasz operatora zapytania `site:`, istnieje ryzyko, że odpowiedź będzie zawierać zawartość dla dorosłych niezależnie od ustawienia [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). Operatora `site:` używaj tylko wtedy, gdy znasz zawartość witryny i w swoim scenariuszu uwzględniasz możliwość pojawienia się zawartości dla dorosłych.
+> W zależności od zapytania, jeśli używasz operatora zapytania `site:`, istnieje ryzyko, że odpowiedź będzie zawierać zawartość dla dorosłych niezależnie od ustawienia [safeSearch](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). Operatora `site:` używaj tylko wtedy, gdy znasz zawartość witryny i w swoim scenariuszu uwzględniasz możliwość pojawienia się zawartości dla dorosłych.
 
 Poniższy przykład pokazuje, jak z witryny ContosoSailing.com uzyskać bezpłatne filmy wideo o rozdzielczości co najmniej 720p, które usługa Bing odnalazła w ostatnim miesiącu.
 
@@ -149,9 +149,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Rozwijanie zapytania
 
-Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) zawiera pole `queryExpansions`. Jeśli na przykład zapytanie to *Cleaning Gutters* (Czyszczenie rynien), potencjalnymi rozwiniętymi zapytaniami mogą być: Gutter Cleaning **Tools** (Czyszczenie rynien — narzędzia), Cleaning Gutters **From the Ground** (Czyszczenie rynien — z poziomu gruntu), Gutter Cleaning **Machine** (Czyszczenie rynien — maszyna) oraz **Easy** Gutter Cleaning (Proste czyszczenie rynien).
+Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) zawiera pole `queryExpansions`. Jeśli na przykład zapytanie to *Cleaning Gutters* (Czyszczenie rynien), potencjalnymi rozwiniętymi zapytaniami mogą być: Gutter Cleaning **Tools** (Czyszczenie rynien — narzędzia), Cleaning Gutters **From the Ground** (Czyszczenie rynien — z poziomu gruntu), Gutter Cleaning **Machine** (Czyszczenie rynien — maszyna) oraz **Easy** Gutter Cleaning (Proste czyszczenie rynien).
 
-W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Cleaning Gutters* .
+W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Cleaning Gutters*.
 
 ```json
 {
@@ -176,13 +176,13 @@ W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Cleaning Gut
 }
 ```
 
-Pole `queryExpansions` zawiera listę obiektów [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj). Pole `text` zawiera rozwinięte zapytanie, a pole `displayText` zawiera termin będący rozwinięciem. Pól tekstu i miniatury można użyć do wyświetlenia rozwiniętych ciągów zapytania użytkownikowi w przypadku, gdy rozwinięte ciągi zapytania naprawdę są tym, czego użytkownik szuka. Zmień miniatury i tekst w elementy klikalne za pomocą adresu URL `webSearchUrl` lub adresu URL `searchLink`. Użyj parametru `webSearchUrl`, aby odesłać użytkownika do wyników wyszukiwania w usłudze Bing, albo parametru `searchLink`, jeśli udostępniasz własną stronę z wynikami.
+Pole `queryExpansions` zawiera listę obiektów [Query](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj). Pole `text` zawiera rozwinięte zapytanie, a pole `displayText` zawiera termin będący rozwinięciem. Pól tekstu i miniatury można użyć do wyświetlenia rozwiniętych ciągów zapytania użytkownikowi w przypadku, gdy rozwinięte ciągi zapytania naprawdę są tym, czego użytkownik szuka. Zmień miniatury i tekst w elementy klikalne za pomocą adresu URL `webSearchUrl` lub adresu URL `searchLink`. Użyj parametru `webSearchUrl`, aby odesłać użytkownika do wyników wyszukiwania w usłudze Bing, albo parametru `searchLink`, jeśli udostępniasz własną stronę z wynikami.
 
 ## <a name="pivoting-the-query"></a>Stosowanie elementów bazowych zapytania
 
-Jeśli usługa Bing może podzielić oryginalne zapytanie wyszukiwania na segmenty, obiekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) zawiera pole `pivotSuggestions`. Jeśli na przykład oryginalnym zapytaniem była fraza *Cleaning Gutters* (Czyszczenie rynien), usługa Bing może podzielić zapytanie na segmenty *Cleaning* i *Gutters* .
+Jeśli usługa Bing może podzielić oryginalne zapytanie wyszukiwania na segmenty, obiekt [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) zawiera pole `pivotSuggestions`. Jeśli na przykład oryginalnym zapytaniem była fraza *Cleaning Gutters* (Czyszczenie rynien), usługa Bing może podzielić zapytanie na segmenty *Cleaning* i *Gutters*.
 
-W poniższym przykładzie przedstawiono propozycje elementów bazowych dla zapytania *Cleaning Gutters* .
+W poniższym przykładzie przedstawiono propozycje elementów bazowych dla zapytania *Cleaning Gutters*.
 
 ```json
 {
@@ -227,7 +227,7 @@ W poniższym przykładzie przedstawiono propozycje elementów bazowych dla zapyt
 }
 ```
 
-Dla każdego elementu bazowego odpowiedź zawiera listę obiektów [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj) zawierających sugerowane zapytania. Pole `text` zawiera sugerowane zapytanie, a pole `displayText` zawiera termin, który zastępuje element bazowy w oryginalnym zapytaniu. Na przykład „Window Cleaning” (Czyszczenie okien).
+Dla każdego elementu bazowego odpowiedź zawiera listę obiektów [Query](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj) zawierających sugerowane zapytania. Pole `text` zawiera sugerowane zapytanie, a pole `displayText` zawiera termin, który zastępuje element bazowy w oryginalnym zapytaniu. Na przykład „Window Cleaning” (Czyszczenie okien).
 
 Pól `text` i `thumbnail` można użyć do wyświetlenia rozwiniętych ciągów zapytania użytkownikowi w przypadku, gdy rozwinięte ciągi zapytania naprawdę są tym, czego użytkownik szuka. Zmień miniatury i tekst w elementy klikalne za pomocą adresu URL `webSearchUrl` lub adresu URL `searchLink`. Użyj parametru `webSearchUrl`, aby odesłać użytkownika do wyników wyszukiwania w usłudze Bing, albo parametru `searchLink`, jeśli udostępniasz własną stronę z wynikami.
 

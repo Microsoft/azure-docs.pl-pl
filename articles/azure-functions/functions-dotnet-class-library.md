@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać Azure Functions przy użyciu języka
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167750"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380967"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions C#
 
@@ -160,7 +160,7 @@ Wygenerowany *function.jsw* pliku zawiera `configurationSource` Właściwość, 
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft. NET. Sdk. Functions
 
-*function.jspodczas* generowania plików jest wykonywane przez pakiet NuGet [ \. funkcje Microsoft .NET \. SDK \. ](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+*function.jspodczas* generowania plików jest wykonywane przez pakiet NuGet [ \. funkcje Microsoft .NET \. SDK \.](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 Ten sam pakiet jest używany zarówno w wersji 1. x, jak i 2. x środowiska uruchomieniowego usługi Functions. Platforma docelowa to odróżnia projekt 1. x z projektu 2. x. Poniżej przedstawiono odpowiednie części plików *. csproj* , które pokazują różne platformy docelowe i ten sam `Sdk` pakiet:
 
@@ -313,7 +313,7 @@ public static class CancellationTokenExample
 
 ## <a name="logging"></a>Rejestrowanie
 
-W kodzie funkcji można napisać dane wyjściowe do dzienników, które są wyświetlane jako ślady w Application Insights. Zalecanym sposobem zapisu w dziennikach jest dołączenie parametru typu [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), który zwykle nosi nazwę `log` . Wersja 1. x środowiska uruchomieniowego funkcji `TraceWriter` , która również zapisuje w Application Insights, ale nie obsługuje rejestrowania strukturalnego. Nie używa `Console.Write` się do pisania dzienników, ponieważ te dane nie są przechwytywane przez Application Insights. 
+W kodzie funkcji można napisać dane wyjściowe do dzienników, które są wyświetlane jako ślady w Application Insights. Zalecanym sposobem zapisu w dziennikach jest dołączenie parametru typu [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), który zwykle nosi nazwę `log` . Wersja 1. x środowiska uruchomieniowego funkcji `TraceWriter` , która również zapisuje w Application Insights, ale nie obsługuje rejestrowania strukturalnego. Nie używaj `Console.Write` do pisania dzienników, ponieważ te dane nie są przechwytywane przez Application Insights. 
 
 ### <a name="ilogger"></a>ILogger
 

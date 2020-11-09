@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207737"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381006"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
@@ -28,26 +28,26 @@ Na przykład rozważmy model samochodu i chcesz przełączyć cały samochód, a
 
 Stały zestaw Stanów, które mogą zostać zastąpione, to:
 
-* **`Hidden`**: Odpowiednie siatki w grafie sceny są ukryte lub pokazywane.
-* **`Tint color`**: Renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
+* **`Hidden`** : Odpowiednie siatki w grafie sceny są ukryte lub pokazywane.
+* **`Tint color`** : Renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
   
   ![Kolor odcienia używany do przekształcania obiektu na zielony](./media/color-tint.png)
 
-* **`See-through`**: Geometria jest renderowany częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
+* **`See-through`** : Geometria jest renderowany częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
 
   ![Tryb wyświetlania, używany do przezroczystości wybranych obiektów](./media/see-through.png)
 
   > [!IMPORTANT]
   > Efekt uboczny działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
-* **`Selected`**: Geometria jest renderowana z [konturem zaznaczenia](outlines.md).
+* **`Selected`** : Geometria jest renderowana z [konturem zaznaczenia](outlines.md).
 
   ![Opcja konspektu używana do wyróżnienia wybranej części](./media/selection-outline.png)
 
-* **`DisableCollision`**: Geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). **`Hidden`** Flaga nie ma wpływu na flagę stanu kolizji, dlatego te dwie flagi są często ustawiane razem.
+* **`DisableCollision`** : Geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). **`Hidden`** Flaga nie ma wpływu na flagę stanu kolizji, dlatego te dwie flagi są często ustawiane razem.
 
-* **`UseCutPlaneFilterMask`**: Użyj pojedynczej maski bitów filtru, aby kontrolować zaznaczenie opcji wycinania. Ta flaga określa, czy dana maska filtru powinna być używana, czy dziedziczona od jej elementu nadrzędnego. Sama maska bitów filtru jest ustawiana za pośrednictwem `CutPlaneFilterMask` właściwości. Aby uzyskać szczegółowe informacje na temat sposobu działania filtrowania, zapoznaj się z [akapitem selektywne wycinanie płaszczyzn](cut-planes.md#selective-cut-planes).
-![Selektywne wycinanie płaszczyzn](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : Użyj pojedynczej maski bitów filtru, aby kontrolować zaznaczenie opcji wycinania. Ta flaga określa, czy dana maska filtru powinna być używana, czy dziedziczona od jej elementu nadrzędnego. Sama maska bitów filtru jest ustawiana za pośrednictwem `CutPlaneFilterMask` właściwości. Aby uzyskać szczegółowe informacje na temat sposobu działania filtrowania, zapoznaj się z [akapitem selektywne wycinanie płaszczyzn](cut-planes.md#selective-cut-planes). Zapoznaj się z poniższym przykładem, gdy tylko opona i brzeg są obcinane, gdy pozostała część sceny pozostaje bez zmian.
+![Selektywne wycinanie płaszczyzn](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +101,7 @@ component->SetState(
 
 Wystąpienie `HierarchicalStateOverrideComponent` samego siebie nie dodaje znacznie obciążenia środowiska uruchomieniowego. Jest jednak zawsze dobrym sposobem, aby zachować liczbę aktywnych składników. Na przykład podczas implementowania systemu wyboru, który podświetla wybrany obiekt, zaleca się usunięcie składnika po usunięciu wyróżnienia. Utrzymywanie składników z neutralnymi funkcjami może szybko dodać.
 
-Renderowanie przezroczyste zwiększa obciążenie procesora GPU serwera niż w przypadku renderowania standardowego. Jeśli duże części wykresu sceny są przełączane do *wyświetlania, a*wiele warstw geometrii jest widocznych, może stać się wąskim gardłem wydajności. Ta sama wartość jest prawidłowa dla obiektów z [konturami wyboru](../../overview/features/outlines.md#performance).
+Renderowanie przezroczyste zwiększa obciążenie procesora GPU serwera niż w przypadku renderowania standardowego. Jeśli duże części wykresu sceny są przełączane do *wyświetlania, a* wiele warstw geometrii jest widocznych, może stać się wąskim gardłem wydajności. Ta sama wartość jest prawidłowa dla obiektów z [konturami wyboru](../../overview/features/outlines.md#performance).
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 

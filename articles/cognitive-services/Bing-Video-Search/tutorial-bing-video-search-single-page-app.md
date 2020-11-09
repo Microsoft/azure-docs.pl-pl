@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099001"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379875"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Samouczek: jednostronicowa aplikacja wyszukiwania wideo
 
@@ -47,7 +47,7 @@ Ta aplikacja samouczka ilustruje sposób wykonywania następujących czynności:
 
 Strona samouczka jest całkowicie niezależna. Nie używa żadnych zewnętrznych struktur, arkuszy stylów ani plików obrazów. Korzysta jedynie z powszechnie obsługiwanych funkcji języka JavaScript i działa w aktualnych wersjach wszystkich popularnych przeglądarek internetowych.
 
-W tym samouczku omówimy wybrane części kodu źródłowego. Dostępny jest także pełny [kod źródłowy](tutorial-bing-video-search-single-page-app-source.md). Aby uruchomić przykład, skopiuj i wklej kod źródłowy do edytora tekstu i zapisz go jako plik `bing.html`.
+W tym samouczku omówimy wybrane części kodu źródłowego. Dostępny jest także pełny [kod źródłowy](). Aby uruchomić przykład, skopiuj i wklej kod źródłowy do edytora tekstu i zapisz go jako plik `bing.html`.
 
 ## <a name="app-components"></a>Składniki aplikacji
 Podobnie jak każda inna aplikacja internetowa, aplikacja w tym samouczku zawiera trzy części:
@@ -312,7 +312,7 @@ Wyniki wyszukiwania są zwracane jako obiekt `value` najwyższego poziomu w odpo
 }
 ```
 
-Interfejs API wyszukiwania wiadomości Bing zwraca maksymalnie cztery różne rodzaje powiązanych wyników, każdy we własnym obiekcie najwyższego poziomu. Oto one:
+Interfejs API wyszukiwania wiadomości Bing zwraca maksymalnie cztery różne rodzaje powiązanych wyników, każdy we własnym obiekcie najwyższego poziomu. Są to:
 
 |Relacja|Opis|
 |-|-|

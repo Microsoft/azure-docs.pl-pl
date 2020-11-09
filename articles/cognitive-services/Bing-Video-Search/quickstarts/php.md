@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8362f5b4d3436e83cbd033fcc3cd088d52122b58
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094102"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379858"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i języka PHP
 
@@ -36,7 +36,7 @@ Mimo że aplikacja jest zapisywana w języku PHP, interfejs API jest usługą si
 
 ## <a name="running-the-application"></a>Uruchamianie aplikacji
 
-[Interfejs API wyszukiwania wideo Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) zwraca wyniki wideo z wyszukiwarki Bing.
+[Interfejs API wyszukiwania wideo Bing](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) zwraca wyniki wideo z wyszukiwarki Bing.
 
 1. Włącz bezpieczną obsługę protokołu HTTP w `php.ini` pliku przez usunięcie komentarza do `;extension=php_openssl.dll` wiersza, zgodnie z opisem w poniższym kodzie.
 2. Utwórz nowy projekt PHP w ulubionym środowisku IDE lub edytorze.

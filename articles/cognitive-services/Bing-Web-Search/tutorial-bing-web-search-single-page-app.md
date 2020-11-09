@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095445"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381290"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania w sieci Web Bing
 
@@ -36,14 +36,14 @@ Ta przykładowa aplikacja może wykonywać następujące czynności:
 > * Zarządzanie kluczami subskrypcji
 > * Obsługa błędów
 
-Do używania tej aplikacji wymagane jest konto w usłudze [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z interfejsami API wyszukiwania Bing.
+Do używania tej aplikacji wymagane jest konto w usłudze [Azure Cognitive Services](../cognitive-services-apis-create-account.md) z interfejsami API wyszukiwania Bing.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Składniki wymagane do uruchomienia aplikacji:
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 
 * Środowisko Node.js 8 lub nowsze
 
@@ -86,7 +86,7 @@ W tym samouczku skoncentrowano się na `scripts.js` i logice wymaganych do wywo�
 
 ## <a name="query-options"></a>Opcje zapytań
 
-Formularz HTML zawiera opcje, które mapują do parametrów zapytań w [interfejsie API wyszukiwania w sieci Web Bing w wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). W tej tabeli przedstawiono poszczególne czynności, które użytkownicy mogą wykonać w celu filtrowania wyników wyszukiwania przy użyciu przykładowej aplikacji:
+Formularz HTML zawiera opcje, które mapują do parametrów zapytań w [interfejsie API wyszukiwania w sieci Web Bing w wersji 7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). W tej tabeli przedstawiono poszczególne czynności, które użytkownicy mogą wykonać w celu filtrowania wyników wyszukiwania przy użyciu przykładowej aplikacji:
 
 | Parametr | Opis |
 |-----------|-------------|
@@ -99,7 +99,7 @@ Formularz HTML zawiera opcje, które mapują do parametrów zapytań w [interfej
 | `offset` | Ukryte pole. Przesunięcie pierwszego wyniku wyszukiwania w żądaniu używane na potrzeby stronicowania. Jest resetowane do wartości `0` dla każdego nowego żądania. |
 
 > [!NOTE]
-> Interfejs API wyszukiwania w sieci Web Bing oferuje dodatkowe parametry zapytania, które mogą pomóc uściślić wyniki wyszukiwania. W tym przykładzie użyto tylko kilku. Aby uzyskać pełną listę dostępnych parametrów, zobacz [informacje dotyczące interfejsu API wyszukiwania w sieci Web Bing w wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
+> Interfejs API wyszukiwania w sieci Web Bing oferuje dodatkowe parametry zapytania, które mogą pomóc uściślić wyniki wyszukiwania. W tym przykładzie użyto tylko kilku. Aby uzyskać pełną listę dostępnych parametrów, zobacz [informacje dotyczące interfejsu API wyszukiwania w sieci Web Bing w wersji 7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 Funkcja `bingSearchOptions()` konwertuje te opcje, aby dostosować je do formatu wymaganego przez interfejs API wyszukiwania Bing.
 
@@ -303,7 +303,7 @@ Błędy są obsługiwane przez wywołanie metody `renderErrorMessage()`. Jeśli 
 
 ## <a name="display-search-results"></a>Wyświetlanie wyników wyszukiwania
 
-Dla wyników zwracanych przez interfejs API wyszukiwania w sieci Web Bing istnieją [wymagania dotyczące użycia i wyświetlania](useanddisplayrequirements.md). Ze względu na to, że odpowiedź może zawierać wyniki różnego typu, nie wystarczy wykonać iteracji w kolekcji `WebPages` najwyższego poziomu. Zamiast tego przykładowa aplikacja używa `RankingResponse`, aby uporządkować wyniki do specyfikacji.
+Dla wyników zwracanych przez interfejs API wyszukiwania w sieci Web Bing istnieją [wymagania dotyczące użycia i wyświetlania](./use-display-requirements.md). Ze względu na to, że odpowiedź może zawierać wyniki różnego typu, nie wystarczy wykonać iteracji w kolekcji `WebPages` najwyższego poziomu. Zamiast tego przykładowa aplikacja używa `RankingResponse`, aby uporządkować wyniki do specyfikacji.
 
 > [!NOTE]
 > Jeśli potrzebujesz wyników tylko jednego typu, użyj parametru zapytania `responseFilter` lub rozważ użycie jednego z pozostałych punktów końcowych interfejsu API wyszukiwania Bing, np. interfejsu API wyszukiwania obrazów Bing.
