@@ -50,13 +50,13 @@
   items:
     - name: Przewodniki Szybki start
       items:
-        - name: Tworzenie obszaru roboczego usługi Synapse za pomocą witryny Azure Portal
+        - name: Tworzenie obszaru roboczego za pomocą witryny Azure Portal
           href: quickstart-create-workspace.md
           displayName: quickstart
-        - name: Tworzenie obszaru roboczego usługi Synapse za pomocą interfejsu wiersza polecenia platformy Azure
+        - name: Tworzenie obszaru roboczego za pomocą interfejsu wiersza polecenia platformy Azure
           href: quickstart-create-workspace-cli.md
           displayName: quickstart
-        - name: Tworzenie obszaru roboczego usługi Synapse za pomocą programu Azure PowerShell
+        - name: Tworzenie obszaru roboczego za pomocą programu Azure PowerShell
           href: quickstart-create-workspace-powershell.md
           displayName: quickstart
         - name: Wdrażanie za pomocą szablonu
@@ -338,6 +338,12 @@
               displayname: 'workload, management'
     - name: Przewodniki z instrukcjami
       items:
+        - name: Tworzenie kopii zapasowej i przywracanie
+          items:
+            - name: Tworzenie punktów przywracania
+              href: ./backuprestore/sqlpool-create-restore-point.md
+            - name: Przywracanie puli SQL usługi Synapse
+              href: ./backuprestore/restore-sql-pool.md
         - name: Zarządzanie i monitorowanie
           items:
             - name: Monitorowanie pamięci podręcznej Gen2

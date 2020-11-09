@@ -81,12 +81,36 @@
       href: publisher-guide-by-offer-type.md
     - name: Oferta aplikacji platformy Azure
       items:
-        - name: Planowanie oferty szablonu rozwiązania
-          href: marketplace-solution-templates.md
-        - name: Planowanie oferty aplikacji zarządzanej
-          href: marketplace-managed-apps.md
+        - name: Planowanie ofert aplikacji platformy Azure
+          items:
+            - name: Planowanie oferty aplikacji platformy Azure
+              href: plan-azure-application-offer.md
+            - name: Planowanie szablonu rozwiązania
+              href: plan-azure-app-solution-template.md
+            - name: Planowanie aplikacji zarządzanej
+              href: plan-azure-app-managed-app.md
         - name: Tworzenie i publikowanie oferty aplikacji platformy Azure
-          href: partner-center-portal/create-new-azure-apps-offer.md
+          items:
+            - name: Tworzenie oferty aplikacji platformy Azure
+              href: create-new-azure-apps-offer.md
+            - name: Konfigurowanie właściwości oferty aplikacji platformy Azure
+              href: create-new-azure-apps-offer-properties.md
+            - name: Konfigurowanie wpisu oferty aplikacji platformy Azure
+              href: create-new-azure-apps-offer-listing.md
+            - name: Dodawanie odbiorców w wersji zapoznawczej
+              href: create-new-azure-apps-offer-preview.md
+            - name: Dodawanie szczegółów technicznych
+              href: create-new-azure-apps-offer-technical.md
+            - name: Tworzenie planów
+              href: create-new-azure-apps-offer-plans.md
+            - name: Tworzenie planu szablonu rozwiązania
+              href: create-new-azure-apps-offer-solution.md
+            - name: Tworzenie planu aplikacji zarządzanej
+              href: create-new-azure-apps-offer-managed.md
+            - name: Testowanie i publikowanie oferty aplikacji platformy Azure
+              href: create-new-azure-apps-offer-test-publish.md
+        - name: Wprowadzanie oferty aplikacji platformy Azure na rynek
+          href: create-new-azure-apps-offer-marketing.md
         - name: Rozliczenia taryfowe aplikacji platformy Azure
           href: partner-center-portal/azure-app-metered-billing.md
         - name: Obsługa opinii dla przeglądu

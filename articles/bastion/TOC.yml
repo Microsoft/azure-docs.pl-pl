@@ -19,6 +19,8 @@
       href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
     - name: Korzystanie z usługi Bastion do pracy zdalnej
       href: work-remotely-support.md
+    - name: Usługa Bastion i wirtualne sieci równorzędne
+      href: vnet-peering.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie hosta
