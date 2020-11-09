@@ -36,18 +36,20 @@
       href: tutorial-virtual-network.md
     - name: 9 — Tworzenie kopii zapasowych maszyn wirtualnych
       href: tutorial-backup-vms.md
-    - name: 10 — Zarządzanie maszynami wirtualnymi
+    - name: 10 — Włączanie odzyskiwania po awarii
+      href: tutorial-disaster-recovery.md
+    - name: 11 — Zarządzanie maszynami wirtualnymi
       displayName: scope policy RBAC lock tag
       href: tutorial-govern-resources.md
-    - name: 11 — Śledzenie i aktualizowanie maszyn wirtualnych
+    - name: 12 — Śledzenie i aktualizowanie maszyn wirtualnych
       href: tutorial-config-management.md
-    - name: 12 — Monitorowanie maszyn wirtualnych
+    - name: 13 — Monitorowanie maszyn wirtualnych
       href: tutorial-monitor.md
-    - name: 13 — Zarządzanie zabezpieczeniami maszyn wirtualnych
+    - name: 14 — Zarządzanie zabezpieczeniami maszyn wirtualnych
       href: tutorial-azure-security.md
-    - name: 14 — Instalowanie stosu \.NET SQL\IIS
+    - name: 15 — Instalowanie stosu SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 15 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
+    - name: 16 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
       href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -270,7 +272,7 @@
         - name: Wystąpienia zarezerwowane
           items:
             - name: Opłacanie maszyn wirtualnych z góry
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Opłacanie dedykowanych hostów z góry
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Co to są rezerwacje platformy Azure?

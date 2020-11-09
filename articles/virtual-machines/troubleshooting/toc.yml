@@ -109,6 +109,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad zabezpieczeń
           href: unresponsive-vm-apply-security-policy.md
+        - name: Maszyna wirtualna nie odpowiada podczas oczekiwania na Menedżera sesji lokalnej
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: 'Błąd menedżera rozruchu systemu Windows — stan: nieprawidłowy skrót obrazu'
           href: windows-boot-error-invalid-image-hash.md
         - name: Błąd zatrzymania systemu Windows — nieprawidłowe informacje o konfiguracji systemu
@@ -117,6 +119,8 @@
           href: troubleshoot-windows-stop-error.md
         - name: Błąd zatrzymania systemu Windows — przerwano proces systemowy
           href: windows-stop-error-system-process-terminated.md
+        - name: Błąd zatrzymania systemu Windows — nie obsłużono wyjątku wątku systemu
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Nie można nawiązać połączenia z maszyną wirtualną
   items:
     - name: RDP

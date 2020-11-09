@@ -140,8 +140,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: Zestaw Azure SDK dla języka JavaScript
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: Interfejs API REST
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Zarządzanie funkcjami
       items:
         - name: Biblioteka platformy .NET Core
@@ -156,6 +154,52 @@
           href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: Interfejs API REST
+      items:
+        - name: Omówienie
+          href: rest-api.md
+        - name: Zasoby
+          items:
+            - name: Klucze
+              href: ./rest-api-keys.md
+            - name: Klucze/wartości
+              href: ./rest-api-key-value.md
+            - name: Etykiety
+              href: ./rest-api-labels.md
+            - name: Blokady
+              href: ./rest-api-locks.md
+            - name: Poprawki
+              href: ./rest-api-revisions.md
+        - name: Protokół
+          items:
+            - name: Authentication
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Uwierzytelnianie za pomocą usługi Azure Active Directory
+                  href: rest-api-authentication-azure-ad.md
+                - name: Uwierzytelnianie HMAC
+                  href: rest-api-authentication-hmac.md
+            - name: Autoryzacja
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Autoryzacja usługi Azure Active Directory
+                  href: rest-api-authorization-azure-ad.md
+                - name: Autoryzacja HMAC
+                  href: rest-api-authorization-hmac.md
+            - name: Model spójności
+              href: ./rest-api-consistency.md
+            - name: Wspólne nagłówki
+              href: ./rest-api-headers.md
+            - name: Ograniczanie przepływności
+              href: ./rest-api-throttling.md
+            - name: Przechowywanie wersji
+              href: ./rest-api-versioning.md
+        - name: Opracowywanie zawartości
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: Postman
+              href: ./rest-api-postman.md
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

@@ -266,8 +266,10 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Dokumentacja
   items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/apim
     - name: Azure PowerShell
-      href: /powershell/module/az.apimanagement/?view=azps-2.6.0
+      href: /powershell/module/az.apimanagement/
     - name: REST
       href: /rest/api/apimanagement/
     - name: REST (oryginalny)
@@ -277,6 +279,8 @@
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Schemat dziennika zasobów
+      href: gateway-log-schema-reference.md
 - name: Zasoby
   items:
     - name: Często zadawane pytania

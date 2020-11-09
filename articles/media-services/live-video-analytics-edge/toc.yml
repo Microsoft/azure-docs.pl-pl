@@ -95,6 +95,8 @@
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Wdrażanie usługi Azure Stack Edge
       href: deploy-azure-stack-edge-how-to.md
+    - name: Konfigurowanie bramy sygnału
+      href: configure-signal-gate-how-to.md
     - name: Rozwiązywanie problemów
       href: troubleshoot-how-to.md
 - name: Dokumentacja

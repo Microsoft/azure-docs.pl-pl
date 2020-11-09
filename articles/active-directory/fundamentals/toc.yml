@@ -120,6 +120,8 @@
           href: customize-branding.md
         - name: Konfigurowanie opcji „Nie wylogowuj?”
           href: keep-me-signed-in.md
+        - name: Jak znaleźć identyfikator dzierżawy
+          href: active-directory-how-to-find-tenant.md
         - name: Kojarzenie subskrypcji platformy Azure
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Dodawanie własnych informacje o prywatności

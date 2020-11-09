@@ -64,6 +64,8 @@
           href: cdn-create-endpoint-how-to.md
         - name: Zarządzanie przy użyciu programu Azure PowerShell
           href: cdn-manage-powershell.md
+        - name: Dołączanie domeny katalogu głównego lub domeny wierzchołkowej
+          href: onboard-apex-domain.md
         - name: Ograniczanie dostępu według kraju lub regionu
           href: cdn-restrict-access-by-country.md
         - name: Poprawianie wydajności poprzez kompresowanie plików

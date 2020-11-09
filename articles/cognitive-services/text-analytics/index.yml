@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 2a736f611c4237884b6a482311e47136cbf97e07
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 57d59798d9bcfaf4b540bf2889a2167cd451e391
+  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92369239"
+  ms.lasthandoff: 11/08/2020
+  ms.locfileid: "94369311"
 landingContent:
 - title: Informacje o interfejsie API analizy tekstu
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     - text: Integracja usługi Power BI w celu analizy tonacji klientów
       url: tutorials/tutorial-power-bi-key-phrases.md
     - text: Tłumaczenie tekstu, analizowanie tonacji i syntetyzowanie mowy za pomocą platformy Flask
-      url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json
   - linkListType: how-to-guide
     links:
     - text: Analiza tonacji
@@ -121,19 +121,19 @@ landingContent:
     - text: Interfejs API REST
       url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
     - text: Biblioteka klienta platformy .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
+      url: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
     - text: Biblioteka klienta języka Python
-      url: https://docs.microsoft.com/python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+      url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
     - text: Biblioteka klienta języka JavaScript
-      url: https://docs.microsoft.com/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
+      url: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
     - text: Biblioteka klienta języka Java
-      url: https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
+      url: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
     - text: Biblioteka klienta języka Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+      url: /powershell/module/az.cognitiveservices
     - text: Interfejs wiersza polecenia platformy Azure
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Używanie kontenerów platformy Docker
   linkLists:
   - linkListType: how-to-guide

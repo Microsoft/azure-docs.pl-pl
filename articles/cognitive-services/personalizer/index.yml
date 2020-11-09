@@ -12,12 +12,12 @@ metadata:
   title: Dokumentacja usługi Personalizacja
   titleSuffix: Azure Cognitive Services
   description: Usługa Personalizacja platformy Azure to chmurowa usługa interfejsu API, która pozwala wybrać najlepsze środowiska dla użytkowników na podstawie ich zachowania w czasie rzeczywistym.
-  ms.openlocfilehash: 51aba4941eb1e1e575e6d33a48a8fe1552eb4d47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: f4d263e551360b326fbe849e4cb62347e8125849
+  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92371141"
+  ms.lasthandoff: 11/08/2020
+  ms.locfileid: "94368138"
 landingContent:
 - title: Informacje o usłudze Personalizacja
   linkLists:
@@ -58,27 +58,27 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Używanie zestawu SDK
-      url: sdk-learning-loop.md
+      url: ./quickstart-personalizer-sdk.md
 - title: Tworzenie zawartości przy użyciu usługi Personalizacja
   linkLists:
   - linkListType: get-started
     links:
     - text: Tworzenie pętli usługi Personalizacja przy użyciu platformy .NET
-      url: sdk-learning-loop.md?pivots=programming-language-csharp
+      url: ./quickstart-personalizer-sdk.md?pivots=programming-language-csharp
     - text: Pakiet NuGet
       url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
     - text: Dokumentacja referencyjna narzędzia NuGet
-      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
   - linkListType: get-started
     links:
     - text: Tworzenie pętli usługi Personalizacja przy użyciu środowiska Node.js
-      url: sdk-learning-loop.md?pivots=programming-language-javascript
+      url: ./quickstart-personalizer-sdk.md?pivots=programming-language-javascript
     - text: Pakiet NPM
       url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
   - linkListType: get-started
     links:
     - text: Tworzenie pętli usługi Personalizacja przy użyciu środowiska Python
-      url: sdk-learning-loop.md?pivots=programming-language-python
+      url: ./quickstart-personalizer-sdk.md?pivots=programming-language-python
     - text: Pakiet PyPI
       url: https://pypi.org/project/azure-cognitiveservices-personalizer/
   - linkListType: get-started

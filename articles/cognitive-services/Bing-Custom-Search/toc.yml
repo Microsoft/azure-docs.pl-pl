@@ -62,28 +62,28 @@
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu API niestandardowego automatycznego sugerowania Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference'
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
     - name: Dokumentacja interfejsu API niestandardowego wyszukiwania obrazów Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference'
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
     - name: Dokumentacja interfejsu API wyszukiwania niestandardowego Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference'
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
     - name: Dokumentacja interfejsu API wyszukiwania niestandardowego wideo Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference'
+      href: /rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
     - name: Wymagania dotyczące użycia i wyświetlania interfejsu API wyszukiwania Bing
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
     - name: Zestawy SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
         - name: Java — wyszukiwanie niestandardowe
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable'
+          href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
         - name: Java — niestandardowe wyszukiwanie obrazów
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable'
+          href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
         - name: Python
           href: /python/api/azure-cognitiveservices-search-customsearch/?view=azure-python
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest'
+          href: /javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
         - name: Go — wyszukiwanie niestandardowe
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch'
         - name: Go — niestandardowe wyszukiwanie obrazów

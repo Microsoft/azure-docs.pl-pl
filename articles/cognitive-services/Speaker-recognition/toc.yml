@@ -1,9 +1,9 @@
 - name: Dokumentacja funkcji rozpoznawania osoby mówiącej
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: Omówienie
   items:
     - name: Informacje na temat funkcji rozpoznawania osoby mówiącej
-      href: Home.md
+      href: ../speech-service/speaker-recognition-overview.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu API

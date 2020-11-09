@@ -36,29 +36,31 @@
       href: tutorial-virtual-network.md
     - name: 9 — Tworzenie kopii zapasowych maszyn wirtualnych
       href: tutorial-backup-vms.md
-    - name: 10 — Zarządzanie maszynami wirtualnymi
+    - name: 10 — Włączanie odzyskiwania po awarii
+      href: tutorial-disaster-recovery.md
+    - name: 11 — Zarządzanie maszynami wirtualnymi
       href: tutorial-govern-resources.md
-    - name: 11 — Śledzenie i aktualizowanie maszyn wirtualnych
+    - name: 12 — Śledzenie i aktualizowanie maszyn wirtualnych
       href: tutorial-config-management.md
-    - name: 12 — Monitorowanie maszyn wirtualnych
+    - name: 13 — Monitorowanie maszyn wirtualnych
       href: tutorial-monitor.md
-    - name: 13 — Zarządzanie zabezpieczeniami maszyn wirtualnych
+    - name: 14 — Zarządzanie zabezpieczeniami maszyn wirtualnych
       href: tutorial-azure-security.md
-    - name: 14a — Kompilowanie za pomocą usługi Jenkins
+    - name: 15a — Kompilowanie za pomocą usługi Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: 14b — Integrowanie rozwiązania Jenkins z usługą Azure DevOps
+    - name: 15b — Integrowanie rozwiązania Jenkins z usługą Azure DevOps
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: 15a — Konfigurowanie strategii wdrażania stopniowego
+    - name: 16a — Konfigurowanie strategii wdrażania stopniowego
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15b — Konfigurowanie strategii wdrażania kanarkowego
+    - name: 16b — Konfigurowanie strategii wdrażania kanarkowego
       href: tutorial-azure-devops-canary-strategy.md
-    - name: 15c — Konfigurowanie strategii wdrażania w środowisku niebieskim i zielonym
+    - name: 16c — Konfigurowanie strategii wdrażania w środowisku niebieskim i zielonym
       href: tutorial-azure-devops-blue-green-strategy.md
-    - name: 15d — Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure Pipelines (YAML)
+    - name: 16d — Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16 — Tworzenie stosu LAMP
+    - name: 17 — Tworzenie stosu LAMP
       href: tutorial-lamp-stack.md
-    - name: 17 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
+    - name: 18 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
       href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -285,7 +287,7 @@
         - name: Wystąpienia zarezerwowane
           items:
             - name: Opłacanie maszyn wirtualnych z góry
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Opłacanie dedykowanych hostów z góry
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Co to są rezerwacje platformy Azure?

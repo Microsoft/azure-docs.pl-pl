@@ -399,6 +399,9 @@
         - name: Używanie miejsc docelowych obliczania zdalnego
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Używanie zautomatyzowanego uczenia maszynowego z usługą Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Automatyczne trenowanie modelu prognozy
           displayName: time series
           href: how-to-auto-train-forecast.md
