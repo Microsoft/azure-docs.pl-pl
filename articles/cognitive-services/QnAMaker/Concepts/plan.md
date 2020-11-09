@@ -4,13 +4,13 @@ description: Dowiedz się, jak planować aplikację QnA Makerową. Dowiedz się,
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/2/2020
-ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776939"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376681"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planowanie aplikacji QnA Maker
 
@@ -20,6 +20,8 @@ Aby zaplanować aplikację QnA Maker, musisz zrozumieć, jak QnA Maker działa i
 
 Każdy [zasób platformy Azure](azure-resources.md#resource-purposes) utworzony przy użyciu QNA Maker ma określony cel. Każdy zasób ma własne przeznaczenie, limity i [warstwę cenową](azure-resources.md#pricing-tier-considerations). Ważne jest, aby zrozumieć funkcję tych zasobów, dzięki czemu można użyć tej wiedzy w procesie planowania.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 | Zasób | Przeznaczenie |
 |--|--|
 | Zasób [QNA Maker](azure-resources.md#qna-maker-resource) | Tworzenie i prognozowanie zapytań |
@@ -27,6 +29,14 @@ Każdy [zasób platformy Azure](azure-resources.md#resource-purposes) utworzony 
 | Zasób [usługi App Service zasób i plan aplikacji](azure-resources.md#app-service-and-app-service-plan) | Punkt końcowy przewidywania zapytania |
 | Zasób [Application Insights](azure-resources.md#application-insights) | Dane telemetryczne przewidywania zapytań |
 
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+| Zasób | Przeznaczenie |
+|--|--|
+| Zasób [QNA Maker](azure-resources.md#qna-maker-resource) | Tworzenie, przepowiadanie zapytania i Telemetria|
+| Zasób [Wyszukiwanie poznawcze](azure-resources.md#cognitive-search-resource) | Przechowywanie i wyszukiwanie danych |
+
+---
 ### <a name="resource-planning"></a>Planowanie zasobów
 
 Warstwa Bezpłatna, `F0` każdy zasób działa i może zapewnić zarówno środowisko tworzenia, jak i prognozowania zapytań. Możesz użyć tej warstwy, aby poznać tworzenie i prognozowanie zapytań. Po przejściu do scenariusza produkcyjnego lub na żywo Oceń wybrane zasoby.
@@ -65,9 +75,22 @@ Baza wiedzy jest bezpośrednio związana z jej zasobem QnA Maker. Przechowuje pa
 
 ### <a name="language-considerations"></a>Zagadnienia dotyczące języka
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 Pierwsza baza wiedzy utworzona w ramach zasobu QnA Maker ustawia język dla zasobu. Dla zasobu QnA Maker można korzystać tylko z jednego języka.
 
 Możesz utworzyć strukturę zasobów QnA Maker według języka lub użyć [translatora](../../translator/translator-info-overview.md) do zmiany zapytania z innego języka do języka bazy wiedzy przed wysłaniem zapytania do punktu końcowego przewidywania zapytań.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+Teraz możesz mieć bazy wiedzy w różnych językach w ramach tego samego QnA Makergo zasobu. Podczas tworzenia pierwszej bazy wiedzy możesz zdecydować, czy chcesz używać zasobu dla baz wiedzy w jednym języku, czy w wielu językach.
+
+![QnA Maker zarządzane (wersja zapoznawcza) wybór bazy wiedzy dla wielu języków](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+> [!NOTE]
+> W przypadku włączenia ustawień języka dla bazy wiedzy nie można utworzyć tylu baz wiedzy w zasobie QnA Maker. Aby uzyskać [więcej informacji na temat ograniczeń dotyczących ustawień języka](./azure-resources.md).
+
+---
 
 ### <a name="ingest-data-sources"></a>Pozyskiwanie źródeł danych
 
@@ -152,7 +175,15 @@ Istnieje [dwufazowe klasyfikowanie odpowiedzi](query-knowledge-base.md#how-qna-m
 
 ### <a name="service-updates"></a>Aktualizacje usług
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 Zastosuj [najnowsze aktualizacje środowiska uruchomieniowego](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) , aby automatycznie zarządzać aktualizacjami usługi.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+W QnA Maker Managed (wersja zapoznawcza) środowisko uruchomieniowe jest zarządzane przez usługę QnA Maker. Dlatego aktualizacje usługi nie mają zastosowania.
+
+---
 
 ### <a name="scaling-throughput-and-resiliency"></a>Skalowanie, przepływność i odporność
 
@@ -160,7 +191,16 @@ Skalowanie, przepływność i odporność są określane przez [zasoby platformy
 
 ### <a name="analytics-with-application-insights"></a>Analiza za pomocą Application Insights
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 Wszystkie zapytania do bazy wiedzy są przechowywane w Application Insights. Użyj naszych [najpopularniejszych zapytań](../how-to/get-analytics-knowledge-base.md) , aby zrozumieć metryki.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+W zarządzanym wdrożeniu dane telemetryczne są oferowane w ramach [usługi Azure monitor](https://docs.microsoft.com/azure/azure-monitor/). Użyj naszych [najpopularniejszych zapytań](../how-to/get-analytics-knowledge-base.md) , aby zrozumieć metryki.
+
+
+---
 
 ## <a name="development-lifecycle"></a>Cykl projektowania oprogramowania
 

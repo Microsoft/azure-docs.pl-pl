@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: e744423e00377ef763824f6e39865e6b3e8ee475
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ee3c3942ee7d01fa174947f5d9c278cddaf0424
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073543"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376919"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker szyfrowanie danych magazynowanych
 
@@ -22,9 +22,17 @@ QnA Maker automatycznie szyfruje dane, gdy zostaną utrwalone w chmurze, pomagaj
 
 ## <a name="about-encryption-key-management"></a>Informacje o zarządzaniu kluczami szyfrowania
 
-Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Istnieje również możliwość zarządzania subskrypcją przy użyciu własnych kluczy o nazwie klucze zarządzane przez klienta (CMK). CMK zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych. Jeśli CMK jest skonfigurowany dla Twojej subskrypcji, zapewniane jest podwójne szyfrowanie, które oferuje drugą warstwę ochrony, a jednocześnie pozwala kontrolować klucz szyfrowania za pomocą Azure Key Vault.
+Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Istnieje również możliwość zarządzania subskrypcją przy użyciu własnych kluczy o nazwie klucze zarządzane przez klienta (CMK). CMK zapewnia większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych. Jeśli CMK jest skonfigurowany dla Twojej subskrypcji, zapewniane jest podwójne szyfrowanie, które oferuje drugą warstwę ochrony, a jednocześnie pozwala kontrolować klucz szyfrowania za pomocą Azure Key Vault.
 
-QnA Maker używa obsługi CMK z usługi Azure Search. Należy utworzyć [CMK w Azure Search przy użyciu Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). To wystąpienie platformy Azure powinno być skojarzone z usługą QnA Maker, aby można było włączyć CMK IT.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
+QnA Maker używa obsługi CMK z usługi Azure Search. Skonfiguruj [CMK w Azure Search przy użyciu Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). To wystąpienie platformy Azure powinno być skojarzone z usługą QnA Maker, aby można było włączyć CMK IT.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+QnA Maker używa [obsługi CMK z usługi Azure Search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)i automatycznie kojarzy podaną CMK do szyfrowania danych przechowywanych w indeksie usługi Azure Search.
+
+---
 
 > [!IMPORTANT]
 > Zasób usługi Azure Search musi zostać utworzony po styczniu 2019 i nie może znajdować się w warstwie Bezpłatna (współdzielona). W Azure Portal nie jest obsługiwane Konfigurowanie kluczy zarządzanych przez klienta.
@@ -33,21 +41,40 @@ QnA Maker używa obsługi CMK z usługi Azure Search. Należy utworzyć [CMK w A
 
 Usługa QnA Maker używa programu CMK z usługi Azure Search. Wykonaj następujące kroki, aby włączyć CMKs:
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 1. Utwórz nowe wystąpienie Azure Search i Włącz wymagania wstępne określone w [wymaganiach wstępnych dotyczących klucza zarządzanego przez klienta dla usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites).
 
    ![Wyświetl ustawienia szyfrowania 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
-2. Podczas tworzenia zasobu QnA Maker jest on automatycznie kojarzony z wystąpieniem Azure Search. Nie można go używać z CMK. Aby użyć CMK, musisz skojarzyć nowo utworzone wystąpienie Azure Search, które zostało utworzone w kroku 1. W tym celu należy zaktualizować `AzureSearchAdminKey` i `AzureSearchName` w ramach zasobu QNA Maker.
+2. Podczas tworzenia zasobu QnA Maker jest on automatycznie kojarzony z wystąpieniem Azure Search. To wystąpienie nie może być używane z CMK. Aby użyć CMK, musisz skojarzyć nowo utworzone wystąpienie Azure Search, które zostało utworzone w kroku 1. W tym celu należy zaktualizować `AzureSearchAdminKey` i `AzureSearchName` w ramach zasobu QNA Maker.
 
    ![Wyświetl ustawienia szyfrowania 2](../media/cognitive-services-encryption/qna-encryption-2.png)
 
 3. Następnie utwórz nowe ustawienie aplikacji:
-   * **Nazwa**: Ustaw tę wartość na `CustomerManagedEncryptionKeyUrl`
-   * **Wartość**: jest to wartość uzyskana w kroku 1 podczas tworzenia wystąpienia Azure Search.
+   * **Nazwa** : Ustaw na `CustomerManagedEncryptionKeyUrl`
+   * **Wartość** : Użyj wartości, która została pobrana w kroku 1 podczas tworzenia wystąpienia Azure Search.
 
    ![Wyświetl ustawienia szyfrowania 3](../media/cognitive-services-encryption/qna-encryption-3.png)
 
 4. Po zakończeniu uruchom ponownie środowisko uruchomieniowe. Teraz usługa QnA Maker jest włączona.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+1.  Przejdź do karty **szyfrowanie** usługi Managed QNA Maker (wersja zapoznawcza).
+2.  Wybierz opcję **klucze zarządzane przez klienta** . Podaj szczegóły [kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal) i kliknij pozycję **Zapisz**.
+
+     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="Ustawienie CMK zarządzane (wersja zapoznawcza) QnA Maker" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
+
+3.  Po pomyślnym zapisaniu CMK będzie używany do szyfrowania danych przechowywanych w indeksie Azure Search.
+
+> [!IMPORTANT]
+> Zalecane jest ustawienie CMK w nowej usłudze Azure Wyszukiwanie poznawcze przed utworzeniem jakichkolwiek baz wiedzy. Jeśli ustawisz CMK w usłudze QnA Maker z istniejącymi bazami wiedzy, możesz utracić dostęp do nich. Przeczytaj więcej na temat [pracy z zaszyfrowaną zawartością](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#work-with-encrypted-content) w usłudze Azure poznawcze wyszukiwanie.
+
+> [!NOTE]
+> Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij [formularz żądania klucza Cognitive Services Customer-Managed](https://aka.ms/cogsvc-cmk).
+
+---
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
@@ -55,7 +82,7 @@ Klucze zarządzane przez klienta są dostępne we wszystkich regionach Azure Sea
 
 ## <a name="encryption-of-data-in-transit"></a>Szyfrowanie danych podczas przesyłania
 
-Portal QnA Maker jest uruchamiany w przeglądarce użytkownika. Każde działanie wyzwala bezpośrednie wywołanie odpowiedniego interfejsu API usługi poznawczej. W związku z tym QnA Maker jest zgodny do przesyłania danych.
+Portal QnA Maker jest uruchamiany w przeglądarce użytkownika. Każda akcja wyzwala bezpośrednie wywołanie odpowiedniego interfejsu API usługi poznawczej. W związku z tym QnA Maker jest zgodny do przesyłania danych.
 Jednak ponieważ usługa Portal QnA Maker jest hostowana w regionie zachodnie stany USA, nadal nie jest idealnym rozwiązaniem dla klientów innych niż USA. 
 
 ## <a name="next-steps"></a>Następne kroki

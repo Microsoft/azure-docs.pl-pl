@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321003"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375508"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Uzyskaj odpowiedź przy użyciu interfejsu API GenerateAnswer i metadanych
 
@@ -46,11 +46,19 @@ Po opublikowaniu bazy wiedzy z poziomu [portalu QNA Maker](https://www.qnamaker.
 
 Aby uzyskać szczegółowe informacje o punkcie końcowym:
 1. Zaloguj się do witryny [https://www.qnamaker.ai](https://www.qnamaker.ai).
-1. W obszarze **Moje bazy wiedzy**wybierz pozycję **Wyświetl kod** dla bazy wiedzy.
+1. W obszarze **Moje bazy wiedzy** wybierz pozycję **Wyświetl kod** dla bazy wiedzy.
     ![Zrzut ekranu przedstawiający moje bazy wiedzy](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Pobierz szczegóły punktu końcowego GenerateAnswer.
 
+    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
     ![Zrzut ekranu przedstawiający szczegóły punktu końcowego](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+    ![Zrzut ekranu z zarządzanymi szczegółami punktu końcowego](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 Możesz również uzyskać szczegółowe informacje o punkcie końcowym z karty **Ustawienia** bazy wiedzy.
 
@@ -128,7 +136,7 @@ Powyższy kod JSON odpowiedział z odpowiedzią z wynikiem 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Używanie QnA Maker z bot w języku C #
 
-Bot Framework zapewnia dostęp do właściwości QnA Maker za pomocą [interfejsu API getanswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+Bot Framework zapewnia dostęp do właściwości QnA Maker za pomocą [interfejsu API getanswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -147,7 +155,7 @@ Poprzedni kod JSON zażądał tylko odpowiedzi o wartości co najmniej 30% lub w
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Użyj QnA Maker z bot w Node.js
 
-Bot Framework zapewnia dostęp do właściwości QnA Maker za pomocą [interfejsu API getanswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+Bot Framework zapewnia dostęp do właściwości QnA Maker za pomocą [interfejsu API getanswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -267,7 +275,7 @@ Możesz przeszukiwać opublikowaną KB, używając `isTest=false` lub test KB pr
 
 ## <a name="common-http-errors"></a>Typowe błędy HTTP
 
-|Kod|Objaśnienie|
+|Kod|Wyjaśnienie|
 |:--|--|
 |2xx|Powodzenie|
 |400|Parametry żądania są niepoprawne, co oznacza, że brakuje wymaganych parametrów, są źle sformułowane lub zbyt duże|

@@ -4,19 +4,21 @@ description: Testowanie bazy wiedzy QnA Maker jest ważną częścią procesu it
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776837"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376195"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Przetestuj bazę wiedzy w QnA Maker
 
 Testowanie bazy wiedzy QnA Maker jest ważną częścią procesu iteracyjnego, aby poprawić dokładność zwracanych odpowiedzi. Bazę wiedzy można przetestować za pośrednictwem rozszerzonego interfejsu czatu, który umożliwia również edycję.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Interaktywny test w portalu QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
 1. Uzyskaj dostęp do bazy wiedzy, wybierając jej nazwę na stronie **Moje bazy wiedzy** .
 1. Aby uzyskać dostęp do panelu slajdu testu, wybierz opcję **test** w górnym panelu aplikacji.
@@ -37,7 +39,7 @@ Sprawdzasz szczegóły wyniku testu w panelu Inspekcja.
 
 1.  Po otwarciu panelu slajdu testowego wybierz pozycję **Sprawdź** , aby uzyskać więcej informacji na temat tej odpowiedzi.
 
-    ![Inspekcja odpowiedzi](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspekcja odpowiedzi](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  Zostanie wyświetlony panel Inspekcja. Panel zawiera górne przeznaczenie oceny, a także wszystkie zidentyfikowane jednostki. Panel pokazuje wynik wybranego wypowiedźu.
 
@@ -45,13 +47,13 @@ Sprawdzasz szczegóły wyniku testu w panelu Inspekcja.
 
 Jeśli Górna odpowiedź oceniania jest niepoprawna, wybierz odpowiednią odpowiedź z listy i wybierz pozycję **Zapisz i pouczenie**.
 
-![Popraw górną odpowiedź oceniania](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Popraw górną odpowiedź oceniania](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Dodaj alternatywne pytania
 
-Możesz dodać alternatywne formy pytania do danej odpowiedzi. Wpisz alternatywne odpowiedzi w polu tekstowym, a następnie kliknij klawisz ENTER, aby je dodać. Wybierz pozycję **Zapisz i pouczenie** , aby zapisać aktualizacje.
+Możesz dodać alternatywne formy pytania do danej odpowiedzi. Wpisz alternatywne odpowiedzi w polu tekstowym i wybierz klawisz ENTER, aby je dodać. Wybierz pozycję **Zapisz i pouczenie** , aby zapisać aktualizacje.
 
-![Dodaj alternatywne pytania](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Dodaj alternatywne pytania](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### <a name="add-a-new-answer"></a>Dodaj nową odpowiedź
 
@@ -64,11 +66,62 @@ Wybierz pozycję **Zapisz i poszkol,** aby zachować tę odpowiedź. Nowa para p
 > [!NOTE]
 > Wszystkie zmiany w bazie wiedzy są zapisywane tylko po naciśnięciu przycisku **Zapisz i pouczenie** .
 
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+1. Uzyskaj dostęp do bazy wiedzy, wybierając jej nazwę na stronie **Moje bazy wiedzy** .
+1. Aby uzyskać dostęp do panelu slajdu testu, wybierz opcję **test** w górnym panelu aplikacji. 
+1. Zobaczysz pole wyboru u góry **Wyświetl krótką odpowiedź** , która jest zaznaczona domyślnie. Ta opcja służy do włączania wykrywania zakresów odpowiedzi na podstawie MRC w panelu testowania. 
+1. Wprowadź zapytanie w polu tekstowym i wybierz klawisz ENTER. 
+1. Dla każdego zapytania, jeśli istnieje dokładna odpowiedź/krótka odpowiedź, która znajduje się w odniesieniu do odpowiedzi, a następnie z najlepszym dopasowanym przedostaniem odpowiedzi, który znajduje się w bazie wiedzy, będzie również dostępna krótka odpowiedź na zapytanie.
+    ![Okienko testów z włączonym zarządzaniem](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Jeśli anulujesz zaznaczenie opcji **Wyświetl krótką odpowiedź** , jako odpowiedź zostanie zwrócona tylko Najlepsza dopasuje odpowiedź z bazy wiedzy.
+
+### <a name="clear-test-panel"></a>Wyczyść panel testu
+
+Aby wyczyścić wszystkie wprowadzone zapytania testowe i ich wyniki z konsoli testowej, wybierz pozycję **Rozpocznij** w lewym górnym rogu panelu test.
+
+### <a name="close-test-panel"></a>Zamknij Panel testu
+
+Aby zamknąć Panel test, ponownie wybierz przycisk **Testuj** . Gdy Panel testowy jest otwarty, nie można edytować zawartości bazy wiedzy.
+
+### <a name="inspect-score"></a>Sprawdź ocenę
+
+Sprawdzasz szczegóły wyniku testu w panelu Inspekcja.
+
+1.  Po otwarciu panelu slajdu testowego wybierz pozycję **Sprawdź** , aby uzyskać więcej informacji na temat tej odpowiedzi.
+
+    ![Sprawdź podgląd odpowiedzi](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
+
+2.  Zostanie wyświetlony panel Inspekcja. Panel zawiera górne przeznaczenie oceny, a także wszystkie zidentyfikowane jednostki. Panel pokazuje wynik wybranego wypowiedźu.
+3. Panel pokazuje wynik pewności odnoszącej się do odpowiedzi wraz z wykrytym wynikiem zakresu odpowiedzi.
+
+### <a name="correct-the-top-scoring-answer"></a>Popraw górną odpowiedź oceniania
+
+Jeśli Górna odpowiedź oceniania jest niepoprawna, wybierz odpowiednią odpowiedź z listy i wybierz pozycję **Zapisz i pouczenie**.
+
+![Popraw górną wersję zapoznawczą odpowiedzi na ocenianie](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+
+### <a name="add-alternate-questions"></a>Dodaj alternatywne pytania
+
+Możesz dodać alternatywne formy pytania do danej odpowiedzi. Wpisz alternatywne odpowiedzi w polu tekstowym i wybierz klawisz ENTER, aby je dodać. Wybierz pozycję **Zapisz i pouczenie** , aby zapisać aktualizacje.
+
+![Dodaj alternatywne pytania w wersji zapoznawczej](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+
+### <a name="add-a-new-answer"></a>Dodaj nową odpowiedź
+
+Można dodać nową odpowiedź, jeśli którykolwiek z dopasowanych odpowiedzi jest nieprawidłowy lub odpowiedź nie istnieje w bazie wiedzy (nie znaleziono dobrego dopasowania w KB).
+
+W dolnej części listy odpowiedzi Użyj pola tekstowego, aby wprowadzić nową odpowiedź, i naciśnij klawisz ENTER, aby go dodać.
+
+Wybierz pozycję **Zapisz i poszkol,** aby zachować tę odpowiedź. Nowa para pytań i odpowiedzi została teraz dodana do bazy wiedzy.
+
+---
+
 ### <a name="test-the-published-knowledge-base"></a>Testowanie opublikowanej bazy wiedzy
 
 Opublikowaną wersję bazy wiedzy można testować w okienku testów. Po opublikowaniu bazy wiedzy wybierz pole **opublikowana baza wiedzy** i Wyślij zapytanie w celu uzyskania wyników z opublikowanej bazy wiedzy.
 
-![Testuj względem opublikowanej bazy wiedzy](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Testuj względem opublikowanej bazy wiedzy](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## <a name="batch-test-with-tool"></a>Test wsadowy z narzędziem
 
@@ -98,7 +151,7 @@ Użyj narzędzia testowania wsadowego, gdy chcesz:
     * Język — język angielski
 1. Wprowadź nazwę `Multi-turn batch test quickstart` jako nazwę bazy wiedzy.
 
-1. W **kroku 4**Skonfiguruj ustawienia w następującej tabeli:
+1. W **kroku 4** Skonfiguruj ustawienia w następującej tabeli:
 
     |Ustawienie|Wartość|
     |--|--|
@@ -107,7 +160,7 @@ Użyj narzędzia testowania wsadowego, gdy chcesz:
     |**+ Dodaj plik**|Wybierz listę pobranego `.docx` pliku w sekcji wymagania wstępne.|
     |**Pogawędka**|Wybierz **profesjonalne**|
 
-1. W **kroku 5**wybierz pozycję **Utwórz swoją KB**.
+1. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
 
     Po zakończeniu procesu tworzenia w portalu zostanie wyświetlona edytowalna baza wiedzy.
 
@@ -130,11 +183,11 @@ Aby użyć narzędzia Test Batch, Utwórz plik o nazwie `batch-test-data-1.tsv` 
 |--|--|--|
 |Identyfikator bazy wiedzy|Identyfikator bazy wiedzy został znaleziony na stronie publikowanie. Przetestuj kilka baz wiedzy w jednej usłudze jednocześnie w pojedynczym pliku przy użyciu różnych identyfikatorów bazy wiedzy w pojedynczym pliku.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (ciąg znaków 36 wyświetlany jako część `POST` ) |
 |Pytanie|Tekst pytania, który użytkownik wprowadzi. maksymalnie 1 000 znaków.|`How do I sign out?`|
-|Tagi metadanych|optional|`topic:power`używa formatu _wartości klucz: wartość_|
+|Tagi metadanych|optional|`topic:power` używa `key:value` formatu|
 |Górny parametr|optional|`25`|
 |Oczekiwany identyfikator odpowiedzi|optional|`13`|
 
-W przypadku tego bazy wiedzy Dodaj 3 wiersze tylko dwóch wymaganych kolumn do pliku. Pierwszą kolumną jest identyfikator bazy wiedzy, a druga kolumna powinna być następującą listą pytań:
+W przypadku tej bazy wiedzy Dodaj trzy wiersze tylko dwóch wymaganych kolumn do pliku. Pierwszą kolumną jest identyfikator bazy wiedzy, a druga kolumna powinna być następującą listą pytań:
 
 |Kolumna 2 — pytania|
 |--|
@@ -144,7 +197,7 @@ W przypadku tego bazy wiedzy Dodaj 3 wiersze tylko dwóch wymaganych kolumn do p
 
 Te pytania są dokładnymi wyrazami z bazy wiedzy i powinny zwracać 100 jako wynik pewności.
 
-Następnie Dodaj kilka pytań, podobnie jak te pytania, ale nie dokładnie na trzy wiersze, używając tego samego identyfikatora bazy wiedzy:
+Następnie Dodaj kilka pytań, podobnie jak te pytania, ale nie dokładnie te same w trzech kolejnych wierszach przy użyciu tego samego identyfikatora bazy wiedzy:
 
 |Kolumna 2 — pytania|
 |--|
@@ -176,7 +229,7 @@ Test zakończy się i wygeneruje `out.tsv` plik:
 
 Identyfikator bazy wiedzy został zastąpiony `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` przez zabezpieczenia. W przypadku własnego testu wsadowego w kolumnie zostanie wyświetlony Identyfikator bazy wiedzy.
 
-Test danych wyjściowych oceny ufności, w czwartej kolumnie, pokazuje 3 pierwsze pytania, które zwróciły wynik 100 zgodnie z oczekiwaniami, ponieważ każde pytanie jest dokładnie takie samo, jak w bazie wiedzy. Ostatnie 3 pytania z nowym sformułowaniem pytania nie zwracają 100 jako wyniku pewności. Aby zwiększyć wynik zarówno dla testu, jak i użytkowników, musisz dodać bardziej alternatywne pytania do bazy wiedzy.
+Test danych wyjściowych oceny ufności w czwartej kolumnie pokazuje trzy pierwsze pytania, które zwróciły wynik 100 zgodnie z oczekiwaniami, ponieważ każde pytanie jest dokładnie takie samo, jak w bazie wiedzy. Ostatnie trzy pytania z nowym sformułowaniem pytania nie zwracają 100 jako wyniku pewności. Aby zwiększyć wynik zarówno dla testu, jak i użytkowników, musisz dodać bardziej alternatywne pytania do bazy wiedzy.
 
 ### <a name="testing-with-the-optional-fields"></a>Testowanie przy użyciu pól opcjonalnych
 
@@ -192,7 +245,7 @@ Skorzystaj z poniższej tabeli, aby zrozumieć, jak znaleźć wartości pól dla
 
 |Numer kolumny|Opcjonalna kolumna|Lokalizacja danych|
 |--|--|--|
-|3|metadane|Eksportuj istniejącą bazę wiedzy dla istniejących _kluczy: par wartości_ .|
+|3|metadane|Wyeksportuj istniejącą bazę wiedzy dla istniejących `key:value` par.|
 |4|top (pierwsze)|`25`Zalecaną wartością domyślną jest.|
 |5|Identyfikator pytania i odpowiedzi|Wyeksportuj istniejącą bazę wiedzy dla wartości identyfikatora. Zauważ również, że identyfikatory zostały zwrócone w pliku wyjściowym.|
 
@@ -210,7 +263,7 @@ Skorzystaj z poniższej tabeli, aby zrozumieć, jak znaleźć wartości pól dla
     > [!TIP]
     > Aby wyświetlić metadane i identyfikatory QnA każdego zestawu, wyeksportuj bazę wiedzy. Wybierz stronę **Ustawienia** , a następnie wybierz pozycję **Eksportuj** jako `.xls` plik. Znajdź ten pobrany plik i otwórz go w programie Excel przegląd dla metadanych i identyfikatora.
 
-1. Wybierz pozycję **Zapisz i pouczenie**, a następnie wybierz stronę **Publikowanie** , a następnie wybierz przycisk **Publikuj** . Te akcje sprawiają, że zmiany są dostępne dla testu wsadowego. Pobierz bazę wiedzy ze strony **ustawień** .
+1. Wybierz pozycję **Zapisz i pouczenie** , a następnie wybierz stronę **Publikowanie** , a następnie wybierz przycisk **Publikuj** . Te akcje sprawiają, że zmiany są dostępne dla testu wsadowego. Pobierz bazę wiedzy ze strony **ustawień** .
 
     Pobrany plik ma prawidłowy format dla metadanych oraz prawidłowy identyfikator pytania i odpowiedzi. Użyj tych pól w następnej sekcji
 
@@ -225,7 +278,7 @@ Istnieją dwa główne scenariusze testowania wsadowego:
 
 W poniższej procedurze przyjęto założenie, że scenariusz polega na przetwarzaniu dzienników rozmowy przy użyciu
 
-1. Utwórz nowy plik testu wsadowego, aby uwzględnić opcjonalne dane `batch-test-data-2.tsv` . Dodaj 6 wierszy z oryginalnego pliku wejściowego testu wsadowego, a następnie Dodaj identyfikator pary metadanych, Top i QnA dla każdego wiersza.
+1. Utwórz nowy plik testu wsadowego, aby uwzględnić opcjonalne dane `batch-test-data-2.tsv` . Dodaj sześć wierszy z oryginalnego pliku wejściowego testu wsadowego, a następnie Dodaj identyfikator pary metadanych, Top i QnA dla każdego wiersza.
 
     Aby zasymulować zautomatyzowany proces sprawdzania nowego tekstu z dzienników rozmowy względem bazy wiedzy, należy ustawić metadane dla każdej kolumny na taką samą wartość: `topic:power` .
 
@@ -241,7 +294,7 @@ W poniższej procedurze przyjęto założenie, że scenariusz polega na przetwar
 
 Ten testowy plik wyjściowy można analizować jako część zautomatyzowanego potoku testów ciągłych.
 
-Te konkretne dane wyjściowe testu powinny być odczytane jako: każdy wiersz został przefiltrowany przy użyciu metadanych, a ponieważ każdy wiersz nie jest zgodny z metadanymi w bazie wiedzy, odpowiedź domyślna dla tych niezgodnych wierszy ("brak dobrego dopasowania znalezionych w KB"). W tych wierszach, które były zgodne, zostały zwrócone identyfikatory i oceny QnA.
+Te konkretne dane wyjściowe testu powinny być odczytane jako: każdy wiersz został przefiltrowany przy użyciu metadanych, a ponieważ każdy wiersz nie jest zgodny z metadanymi w bazie wiedzy, odpowiedź domyślna dla tych niezgodnych wierszy ("brak dobrego dopasowania znalezionych w KB"). W tych wierszach, które były zgodne, zwrócono identyfikator QnA i ocenę.
 
 Wszystkie wiersze zwróciły etykietę nieprawidłową, ponieważ żaden wiersz nie jest zgodny z oczekiwanym IDENTYFIKATORem odpowiedzi.
 

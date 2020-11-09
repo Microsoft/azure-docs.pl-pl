@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fd09b5e2c2540cbc1608558800e7897a6cf839
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898545"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375367"
 ---
 # <a name="decision-forest-regression-module"></a>Moduł regresji lasu decyzyjnego
 
@@ -42,15 +42,15 @@ Aby uzyskać więcej informacji o architekturze teoretycznej dla tego algorytmu 
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurowanie modelu regresji lasu decyzyjnego
 
-1. Dodaj moduł **regresji lasu decyzji** do potoku. Moduł można znaleźć w projektancie w obszarze **Machine Learning**, **zainicjuj model**i **regresję**.
+1. Dodaj moduł **regresji lasu decyzji** do potoku. Moduł można znaleźć w projektancie w obszarze **Machine Learning** , **zainicjuj model** i **regresję**.
 
-2. Otwórz właściwości modułu i dla **metody ponownej próbkowania**wybierz metodę użytą do utworzenia poszczególnych drzew.  Możesz wybrać jedną z opcji **Working** lub **replikacja**.
+2. Otwórz właściwości modułu i dla **metody ponownej próbkowania** wybierz metodę użytą do utworzenia poszczególnych drzew.  Możesz wybrać jedną z opcji **Working** lub **replikacja**.
 
-    - **Working**: w workach jest również wywoływana *agregacja Bootstrap*. Każde drzewo w lesie z decyzją regresji wyprowadza rozkład gaussowskie w drodze przewidywania. Agregacją jest znalezienie gaussowskie, którego pierwsze dwa momenty są zgodne z chwilą mieszaniny rozkładów gaussowskie przyznanych przez połączenie wszystkich dystrybucji zwracanych przez poszczególne drzewa.
+    - **Working** : w workach jest również wywoływana *agregacja Bootstrap*. Każde drzewo w lesie z decyzją regresji wyprowadza rozkład gaussowskie w drodze przewidywania. Agregacją jest znalezienie gaussowskie, którego pierwsze dwa momenty są zgodne z chwilą mieszaniny rozkładów gaussowskie przyznanych przez połączenie wszystkich dystrybucji zwracanych przez poszczególne drzewa.
 
          Aby uzyskać więcej informacji, zobacz wpis Wikipedia na potrzeby [agregowania Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replikacja**: w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, a drzewa będą różne.
+    - **Replikacja** : w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, a drzewa będą różne.
 
          Aby uzyskać więcej informacji na temat procesu szkolenia z opcją **replikacja** , zobacz [lasy decyzyjne dla przetwarzanie obrazów i analizy obrazu medycznego. Criminisi i J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/)..
 
@@ -60,29 +60,29 @@ Aby uzyskać więcej informacji o architekturze teoretycznej dla tego algorytmu 
 
       Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty. Te wartości mogą być uzyskane przez eksperymentowanie lub otrzymywanie jako wskazówki.
 
-    - **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki. 
+    - **Zakres parametrów** : Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki. 
 
 
 
-4. W przypadku **liczby drzew decyzyjnych**należy wskazać łączną liczbę drzew decyzyjnych do utworzenia w całości. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale zwiększy się czas uczenia.
+4. W przypadku **liczby drzew decyzyjnych** należy wskazać łączną liczbę drzew decyzyjnych do utworzenia w całości. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale zwiększy się czas uczenia.
 
     > [!TIP]
-    > Ta wartość kontroluje również liczbę drzew wyświetlanych podczas wizualizacji przeszkolonego modelu. Jeśli chcesz zobaczyć lub wydrukować pojedyncze drzewo, możesz ustawić wartość 1. oznacza to jednak, że zostanie utworzone tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i żadna kolejna iteracja nie zostanie wykonana.
+    > Jeśli wartość jest ustawiona na 1; oznacza to jednak, że zostanie utworzone tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i żadna kolejna iteracja nie zostanie wykonana.
 
-5. W celu uzyskania **maksymalnej głębokości drzew decyzyjnych**wpisz liczbę, aby ograniczyć maksymalną głębokość każdego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję w przypadku ryzyka pewnego przekroczenia i zwiększenia czasu uczenia się.
+5. W celu uzyskania **maksymalnej głębokości drzew decyzyjnych** wpisz liczbę, aby ograniczyć maksymalną głębokość każdego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję w przypadku ryzyka pewnego przekroczenia i zwiększenia czasu uczenia się.
 
-6. Dla **liczby losowych podziałów na węzeł**wpisz liczbę podziałów, która ma być używana podczas kompilowania każdego węzła drzewa. *Podział* oznacza, że funkcje na każdym poziomie drzewa (węzeł) są losowo podzielone.
+6. Dla **liczby losowych podziałów na węzeł** wpisz liczbę podziałów, która ma być używana podczas kompilowania każdego węzła drzewa. *Podział* oznacza, że funkcje na każdym poziomie drzewa (węzeł) są losowo podzielone.
 
-7. Dla **minimalnej liczby próbek na węzeł liścia**wskaż minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminalu (liścia) w drzewie.
+7. Dla **minimalnej liczby próbek na węzeł liścia** wskaż minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminalu (liścia) w drzewie.
 
      Zwiększenie tej wartości spowoduje zwiększenie wartości progowej tworzenia nowych reguł. Na przykład, z wartością domyślną 1, nawet pojedynczy przypadek może spowodować utworzenie nowej reguły. W przypadku zwiększenia wartości do 5 dane szkoleniowe muszą zawierać co najmniej pięć przypadków, które spełniają te same warunki.
 
 
 9. Uczenie modelu:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

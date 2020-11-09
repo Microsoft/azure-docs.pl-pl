@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985323"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376994"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurowanie pulpitu nawigacyjnego aplikacji
 
@@ -23,17 +23,17 @@ ms.locfileid: "90985323"
 
 ## <a name="add-tiles"></a>Dodaj kafelki
 
-Poniższy zrzut ekranu przedstawia pulpit nawigacyjny w aplikacji utworzonej na podstawie **niestandardowego szablonu aplikacji** . Aby dostosować bieżący pulpit nawigacyjny, wybierz pozycję **Edytuj**, aby dodać niestandardowy osobisty lub udostępniony pulpit nawigacyjny, wybierz pozycję **Nowy**:
+Poniższy zrzut ekranu przedstawia pulpit nawigacyjny w aplikacji utworzonej na podstawie **niestandardowego szablonu aplikacji** . Aby dostosować bieżący pulpit nawigacyjny, wybierz pozycję **Edytuj** , aby dodać niestandardowy osobisty lub udostępniony pulpit nawigacyjny, wybierz pozycję **Nowy** :
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
-Po wybraniu opcji **Edytuj** lub **Nowy**pulpit nawigacyjny jest w trybie *edycji* . Za pomocą narzędzi dostępnych w panelu **Edytowanie pulpitu nawigacyjnego** można dodawać kafelki do pulpitu nawigacyjnego oraz dostosowywać i usuwać kafelki na pulpicie nawigacyjnym. Na przykład, aby dodać kafelek **telemetrii** w celu wyświetlenia bieżącej temperatury zgłoszonej przez co najmniej jedno urządzenie:
+Po wybraniu opcji **Edytuj** lub **Nowy** pulpit nawigacyjny jest w trybie *edycji* . Za pomocą narzędzi dostępnych w panelu **Edytowanie pulpitu nawigacyjnego** można dodawać kafelki do pulpitu nawigacyjnego oraz dostosowywać i usuwać kafelki na pulpicie nawigacyjnym. Na przykład, aby dodać kafelek **telemetrii** w celu wyświetlenia bieżącej temperatury zgłoszonej przez co najmniej jedno urządzenie:
 
 1. Na panelu **Edytowanie pulpitu nawigacyjnego** wybierz **grupę urządzeń**.
 1. Wybierz co najmniej jedno urządzenie na liście rozwijanej **urządzenia** , które ma być wyświetlane na kafelku. Teraz widzisz dostępne dane telemetryczne, właściwości i polecenia z urządzeń.
 1. Wybierz pozycję **temperatura** w sekcji Telemetria, a następnie wybierz pozycję **Dodaj kafelek**. Kafelek jest teraz widoczny na pulpicie nawigacyjnym, w którym można zmienić wizualizację, zmienić rozmiar kafelka i skonfigurować go:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Dodawanie kafelka telemetrii dla temperatury do pulpitu nawigacyjnego":::
 
 Po zakończeniu dodawania i dostosowywania kafelków na pulpicie nawigacyjnym wybierz pozycję **Zapisz**.
 
@@ -54,7 +54,7 @@ W poniższej tabeli opisano różne typy kafelków, które można dodać do pulp
 | Kafelek             | Opis |
 | ---------------- | ----------- |
 | Znaczniki języka Markdown         | Kafelki promocji są kafelkami, które wyświetlają tekst nagłówka i opisu sformatowane przy użyciu promocji. Adres URL może być łączem względnym do innej strony w aplikacji lub bezwzględnym łączem do zewnętrznej witryny.|
-| Obraz            | Kafelki obrazu wyświetlają obraz niestandardowy i można go kliknąć. Adres URL może być łączem względnym do innej strony w aplikacji lub bezwzględnym łączem do zewnętrznej witryny.|
+| Image (Obraz)            | Kafelki obrazu wyświetlają obraz niestandardowy i można go kliknąć. Adres URL może być łączem względnym do innej strony w aplikacji lub bezwzględnym łączem do zewnętrznej witryny.|
 | Etykieta            | Kafelki etykiet wyświetlają niestandardowy tekst na pulpicie nawigacyjnym. Możesz wybrać rozmiar tekstu. Użyj kafelka etykiety, aby dodać odpowiednie informacje do pulpitu nawigacyjnego, takie opisy, szczegóły kontaktu lub pomoc.|
 | Liczba            | Liczba kafelków przedstawia liczbę urządzeń w grupie urządzeń.|
 | Mapa              | Kafelki mapy przedstawiają lokalizację co najmniej jednego urządzenia na mapie. Można również wyświetlić do 100 punktów historii lokalizacji urządzenia. Można na przykład wyświetlić przykładową trasę, w której znajduje się urządzenie w ubiegłym tygodniu.|
@@ -71,27 +71,31 @@ Obecnie można dodać do 10 urządzeń do kafelków, które obsługują wiele ur
 
 ### <a name="customizing-visualizations"></a>Dostosowywanie wizualizacji
 
+Domyślnie wykresy liniowe wyświetlają dane w danym zakresie czasu. Wybrany zakres czasu jest podzielony na 50 o równym rozmiarze, a dane urządzenia są agregowane w ramach przedziału, aby dać 50 punktów danych w wybranym zakresie czasu. Jeśli chcesz wyświetlić dane pierwotne, możesz zmienić wybór, aby wyświetlić ostatnie 100 wartości. Aby zmienić zakres czasu lub wybrać niesformatowaną wizualizację danych, Użyj listy rozwijanej zakres wyświetlania w panelu **Konfiguruj wykres** .
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Zmień zakres wyświetlania wykresu liniowego":::
+
 W przypadku kafelków, które wyświetlają wartości zagregowane, wybierz ikonę koła zębatego obok pozycji Typ telemetrii w panelu **Konfiguruj wykres** , aby wybrać agregację. Można wybrać jedną z średnich, sum, maksimum, minimum i Count.
 
 W przypadku wykresów liniowych, wykresów słupkowych i wykresów kołowych można dostosować kolor różnych wartości telemetrii. Wybierz ikonę palety obok danych telemetrycznych, które chcesz dostosować:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Zmiana koloru wartości telemetrii":::
 
 W przypadku kafelków pokazujących właściwości ciągu lub wartości telemetryczne możesz wybrać sposób wyświetlania tekstu. Na przykład jeśli urządzenie przechowuje adres URL we właściwości ciągu, można go wyświetlić jako link do kliknięcia. Jeśli adres URL odwołuje się do obrazu, można renderować obraz w ostatniej znanej wartości lub kafelku właściwości. Aby zmienić sposób wyświetlania ciągu, w obszarze Konfiguracja kafelka wybierz ikonę koła zębatego obok pozycji Typ telemetrii lub właściwość:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Zmień sposób wyświetlania ciągu na kafelku":::
 
-W przypadku liczbowych **wskaźników KPI**, **ostatniej znanej wartości**i kafelków **Właściwości** można użyć formatowania warunkowego, aby dostosować kolor kafelka na podstawie jego bieżącej wartości. Aby dodać formatowanie warunkowe, wybierz pozycję **Konfiguruj** na kafelku, a następnie wybierz ikonę **Formatowanie warunkowe** obok wartości, która ma zostać dostosowana:
+W przypadku liczbowych **wskaźników KPI** , **ostatniej znanej wartości** i kafelków **Właściwości** można użyć formatowania warunkowego, aby dostosować kolor kafelka na podstawie jego bieżącej wartości. Aby dodać formatowanie warunkowe, wybierz pozycję **Konfiguruj** na kafelku, a następnie wybierz ikonę **Formatowanie warunkowe** obok wartości, która ma zostać dostosowana:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Zrzut ekranu przedstawiający sposób znalezienia opcji konfigurowania dla kafelka, a następnie ikony formatowania warunkowego":::
 
 Dodaj reguły formatowania warunkowego:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Zrzut ekranu przedstawiający reguły formatowania warunkowego dla średniego przepływu. Istnieją trzy reguły — mniej określona 20 to kolor zielony, mniejszy niż 50 50":::
 
 Poniższy zrzut ekranu przedstawia efekt reguły formatowania warunkowego:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Zrzut ekranu przedstawiający żółty kolor tła na kafelku średniego przepływu wody. Liczba na kafelku to 40,84":::
 
 ## <a name="next-steps"></a>Następne kroki
 

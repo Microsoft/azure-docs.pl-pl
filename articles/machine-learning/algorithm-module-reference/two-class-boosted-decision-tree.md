@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420618"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375931"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Two-Class moduł drzewa podwyższania decyzji
 
@@ -56,7 +56,7 @@ Możesz przeszkolić model tego typu przy użyciu [modelu uczenia](././train-mod
   
 6.  Dla **liczby skonstruowanych drzew** wskazuje łączną liczbę drzew decyzyjnych do utworzenia w całości. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale zwiększy się czas uczenia.
   
-     Ta wartość kontroluje również liczbę drzew wyświetlanych podczas wizualizacji przeszkolonego modelu. Jeśli chcesz zobaczyć lub wydrukować pojedyncze drzewo, ustaw wartość na 1. Jednak w takim przypadku tworzone jest tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i nie są wykonywane żadne dalsze iteracje.
+     Jeśli wartość zostanie ustawiona na 1, tworzone jest tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i żadne dalsze iteracje nie są wykonywane.
   
 7.  W przypadku **liczby losowej inicjatora** , opcjonalnie wpisz nieujemną liczbę całkowitą do użycia jako losową wartość inicjatora. Określenie inicjatora zapewnia odtwarzalność w przebiegach, które mają te same dane i parametry.  
   

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 1c37742b7ed31d8253f7908c3adac35ca0b4d5d8
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170324"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376557"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Szybki Start: Dodawanie symulowanego urządzenia do aplikacji IoT Central
 
@@ -21,7 +21,7 @@ ms.locfileid: "92170324"
 
 Szablon urządzenia definiuje możliwości urządzenia, które nawiązują połączenie z aplikacją IoT Central. Możliwości obejmują dane telemetryczne wysyłane przez urządzenie, właściwości urządzenia i polecenia, na które urządzenie reaguje. Z szablonu urządzenia Konstruktor lub operator mogą dodawać do aplikacji zarówno rzeczywiste, jak i symulowane urządzenia. Symulowane urządzenia są przydatne do testowania zachowania aplikacji IoT Central przed połączeniem rzeczywistych urządzeń.
 
-W tym przewodniku szybki start dodasz szablon urządzenia do tablicy usługi *zestawu deweloperskiego IoT DevKit* (DevKit) i utworzysz symulowane urządzenie. Aby ukończyć ten przewodnik Szybki Start, nie jest potrzebne rzeczywiste urządzenie, pracujesz z symulacją urządzenia. Urządzenie DevKit:
+W tym przewodniku szybki start dodasz szablon urządzenia do tablicy usługi [ *zestawu deweloperskiego IoT DevKit* (DevKit)](https://aka.ms/iot-devkit-purchase) i utworzysz symulowane urządzenie. Aby ukończyć ten przewodnik Szybki Start, nie jest potrzebne rzeczywiste urządzenie, pracujesz z symulacją urządzenia. Urządzenie DevKit:
 
 * Wysyła dane telemetryczne, takie jak temperatura.
 * Raportuje właściwości specyficzne dla urządzenia, takie jak poziom jasności.
@@ -60,7 +60,7 @@ Poniższe kroki pokazują, jak używać katalogu urządzeń do importowania mode
 
     ![Szablon urządzenia zestawu deweloperskiego IoT DevKit](./media/quick-create-simulated-device/devkit-template.png)
 
-    Model możliwości zestawu deweloperskiego IoT DevKit obejmuje interfejsy, takie jak **mxchip_sensor**, **Mxchip_settings**i **Informacje o urządzeniu**. Interfejsy definiują możliwości urządzenia zestawu deweloperskiego IoT DevKit. Możliwości obejmują dane telemetryczne wysyłane przez urządzenie, właściwości urządzenia i polecenia, na które urządzenie reaguje.
+    Model możliwości zestawu deweloperskiego IoT DevKit obejmuje interfejsy, takie jak **mxchip_sensor** , **Mxchip_settings** i **Informacje o urządzeniu**. Interfejsy definiują możliwości urządzenia zestawu deweloperskiego IoT DevKit. Możliwości obejmują dane telemetryczne wysyłane przez urządzenie, właściwości urządzenia i polecenia, na które urządzenie reaguje.
 
 ### <a name="add-cloud-properties"></a>Dodawanie właściwości chmury
 
@@ -70,7 +70,7 @@ Szablon urządzenia może zawierać właściwości chmury. Właściwości chmury
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
-    | Data ostatniego serwisowania | Brak          | Date   |
+    | Data ostatniego serwisowania | Brak          | Data   |
     | Nazwa klienta     | Brak          | Ciąg |
 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany:
@@ -100,7 +100,7 @@ Aby dodać nowy formularz **zarządzania urządzeniem** , którego operator moż
 
 1. Zmień nazwę formularza na, aby **zarządzać urządzeniem**.
 
-1. Wybierz **nazwę klienta** i właściwości chmury **Data ostatniej usługi** oraz Właściwość **szybkość wentylatora** . Następnie wybierz pozycję **Dodaj sekcję**:
+1. Wybierz **nazwę klienta** i właściwości chmury **Data ostatniej usługi** oraz Właściwość **szybkość wentylatora** . Następnie wybierz pozycję **Dodaj sekcję** :
 
     ![Utwórz nowy formularz](media/quick-create-simulated-device/new-form.png)
 
@@ -114,7 +114,7 @@ Aby opublikować szablon urządzenia:
 
 1. Przejdź do szablonu urządzenia ze strony **Szablony urządzeń** .
 
-1. Wybierz pozycję **Publikuj**:
+1. Wybierz pozycję **Publikuj** :
 
     ![Opublikowany model](media/quick-create-simulated-device/published-model.png)
 
@@ -154,7 +154,7 @@ Po utworzeniu nowego symulowanego urządzenia, Konstruktor może używać tego u
 
 1. W lewym okienku wybierz pozycję **Szablony urządzeń** , a następnie wybierz szablon **zestawu deweloperskiego IoT DevKit** .
 
-1. Wybierz dowolne z widoków, które chcesz edytować, lub Utwórz nowy widok. Wybierz pozycję **Konfiguruj urządzenie w wersji zapoznawczej**, a następnie **Wybierz pozycję z uruchomionego urządzenia**. W tym miejscu możesz wybrać opcję braku urządzenia do wyświetlania podglądu, rzeczywistego urządzenia skonfigurowanego do testowania lub istniejącego urządzenia, które zostało dodane do IoT Central.
+1. Wybierz dowolne z widoków, które chcesz edytować, lub Utwórz nowy widok. Wybierz pozycję **Konfiguruj urządzenie w wersji zapoznawczej** , a następnie **Wybierz pozycję z uruchomionego urządzenia**. W tym miejscu możesz wybrać opcję braku urządzenia do wyświetlania podglądu, rzeczywistego urządzenia skonfigurowanego do testowania lub istniejącego urządzenia, które zostało dodane do IoT Central.
 
 1. Na liście Wybierz swoje symulowane urządzenie. Następnie wybierz przycisk **Zastosuj**. Teraz można zobaczyć to samo symulowane urządzenie w widokach szablonów urządzeń. Ten widok jest przydatny w przypadku wykresów i innych wizualizacji.
 

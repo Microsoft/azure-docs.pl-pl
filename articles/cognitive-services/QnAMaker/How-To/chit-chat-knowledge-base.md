@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330642"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376654"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Dodawanie Chit-Chat do bazy wiedzy
 
@@ -60,7 +60,15 @@ Podczas tworzenia bazy wiedzy po dodaniu źródłowych adresów URL i plików do
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Dodawanie Chit-Chat do istniejącej bazy wiedzy
 Wybierz swoją KB i przejdź do strony **ustawień** . Istnieje link do wszystkich zestawów danych Chit-Chat w odpowiednim formacie **TSV** . Pobierz żądaną osobowość, a następnie przekaż ją jako źródło pliku. Nie należy edytować formatu ani metadanych podczas pobierania i przekazywania pliku.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 ![Dodaj Chit-Chat do istniejącej bazy wiedzy](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+![Dodaj Chit — czat do istniejącej wersji zapoznawczej KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+
+---
 
 ## <a name="edit-your-chit-chat-questions-and-answers"></a>Edytuj swoje pytania i odpowiedzi dotyczące rozmowy Chit
 Gdy edytujesz swoją KB, zobaczysz nowe źródło dla Chit-Chat w oparciu o wybraną osobowość. Możesz teraz dodawać zmienione pytania lub edytować odpowiedzi, podobnie jak w przypadku innych źródeł.

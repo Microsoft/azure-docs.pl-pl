@@ -4,13 +4,13 @@ description: Migrowanie bazy wiedzy wymaga eksportowania z jednej bazy wiedzy, a
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 03/25/2020
-ms.openlocfilehash: 9ba5f1d3d240867a8f6da52b9666c500c5b6446e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 78e22a9ec150435c1bc83873a2fcf0a00560c0c1
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777383"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375962"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrowanie bazy wiedzy przy użyciu eksportu i importu
 
@@ -22,6 +22,9 @@ Migracja jest procesem tworzenia nowej bazy wiedzy na podstawie istniejącej baz
 
 Migrowanie bazy wiedzy wymaga eksportowania z istniejącej bazy wiedzy, a następnie importowania do innej.
 
+> [!NOTE]
+> Postępuj zgodnie z poniższymi instrukcjami, aby przeprowadzić migrację istniejącej bazy wiedzy do nowej QnA Maker zarządzanej (wersja zapoznawcza).
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zanim rozpoczniesz, utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
@@ -31,7 +34,7 @@ Migrowanie bazy wiedzy wymaga eksportowania z istniejącej bazy wiedzy, a nastę
 1. Zaloguj się do [portalu QNA Maker](https://qnamaker.ai).
 1. Wybierz bazę wiedzy źródłowej, którą chcesz zmigrować.
 
-1. Na stronie **Ustawienia** wybierz pozycję **Eksportuj bazę wiedzy** , aby pobrać plik. tsv, który zawiera zawartość bazy wiedzy o pochodzeniu, odpowiedzi, metadane, monity monitujące oraz nazwy źródeł danych, z których zostały wyodrębnione.
+1. Na stronie **Ustawienia** wybierz pozycję **Eksportuj bazę wiedzy** , aby pobrać plik. tsv, który zawiera zawartość bazy wiedzy o pochodzeniu, odpowiedzi, metadane, monity monitujące oraz nazwy źródeł danych, z których zostały wyodrębnione. Identyfikatory QnA eksportowane z pytaniami i odpowiedziami mogą być używane do aktualizowania określonej pary QnA przy użyciu [interfejsu API aktualizacji](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). Identyfikator QnA dla określonej pary QnA pozostaje niezmieniony w wielu operacjach eksportu.
 
 1. Wybierz pozycję **Utwórz bazę wiedzy** z górnego menu, a następnie Utwórz _pustą_ bazę wiedzy. Jest ona pusta, ponieważ podczas jej tworzenia nie będzie można dodawać żadnych adresów URL ani plików. Są one dodawane podczas kroku importowania po utworzeniu.
 
@@ -41,7 +44,7 @@ Migrowanie bazy wiedzy wymaga eksportowania z istniejącej bazy wiedzy, a nastę
 
 1. W kroku 5 wybierz pozycję **Utwórz**.
 
-1. W tej nowej bazie wiedzy Otwórz kartę **Ustawienia** , a następnie wybierz pozycję **Importuj bazę wiedzy**. Spowoduje to zaimportowanie pytań, odpowiedzi, metadanych, monitów, a następnie zachowanie nazw źródeł danych, z których zostały wyodrębnione.
+1. W tej nowej bazie wiedzy Otwórz kartę **Ustawienia** , a następnie wybierz pozycję **Importuj bazę wiedzy**. Spowoduje to zaimportowanie pytań, odpowiedzi, metadanych, monitów, a następnie zachowanie nazw źródeł danych, z których zostały wyodrębnione. **Pary QNA utworzone w nowej bazie wiedzy mają taki sam identyfikator QNA jak obecny w wyeksportowanym pliku**. Dzięki temu można utworzyć dokładną replikę bazy wiedzy.
 
    > [!div class="mx-imgBorder"]
    > [![Importuj bazę wiedzy](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
@@ -58,7 +61,7 @@ Proces migracji jest programowo dostępny przy użyciu następujących interfejs
 
 * [Pobierz interfejs API bazy wiedzy](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
 
-**Import**
+**Importuj**
 
 * [Zastąp interfejs API (Załaduj ponownie z tym samym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
 * [Utwórz interfejs API (Załaduj z nowym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)

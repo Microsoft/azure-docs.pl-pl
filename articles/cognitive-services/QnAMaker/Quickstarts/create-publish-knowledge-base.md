@@ -4,13 +4,13 @@ description: Na podstawie własnej zawartości, takiej jak często zadawane pyta
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 05/26/2020
-ms.openlocfilehash: 1646666244eb2247d6e7127c4d4e8d39cb0af5ff
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.date: 11/09/2020
+ms.openlocfilehash: 68cde1be5f1a1cb0e8757f3143cac9363c6d9ddd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777692"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376046"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -24,36 +24,75 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Tworzenie pierwszej QnA Maker bazy wiedzy
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 1. Zaloguj się do portalu [QnAMaker.AI](https://QnAMaker.ai) przy użyciu poświadczeń platformy Azure.
 
-1. W portalu QnA Maker wybierz pozycję **Utwórz bazę wiedzy**.
+2. W portalu QnA Maker wybierz pozycję **Utwórz bazę wiedzy**.
 
-1. Na stronie **Tworzenie** przejdź do **kroku 1** , jeśli masz już zasób QNA Maker.
+3. Na stronie **Tworzenie** przejdź do **kroku 1** , jeśli masz już zasób QNA Maker.
 
     Jeśli jeszcze nie utworzono zasobu, wybierz pozycję **Utwórz usługę QNA**. Nastąpi przekierowanie do witryny [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) w celu skonfigurowania usługi QnA Maker w ramach subskrypcji. Pamiętaj o IDENTYFIKATORze Azure Active Directory, subskrypcji, nazwie zasobu QnA wybranym podczas tworzenia zasobu.
 
     Po zakończeniu tworzenia zasobu w Azure Portal Wróć do portalu QnA Maker, Odśwież stronę przeglądarki i przejdź do **kroku 2**.
 
-1. W **kroku 3**wybierz pozycję Active Directory, subskrypcję, usługę (zasób) i język dla wszystkich baz wiedzy utworzonych w usłudze.
+4. W **kroku 2** wybierz pozycję Active Directory, subskrypcję, usługę (zasób) i język dla wszystkich baz wiedzy utworzonych w usłudze.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
 
-1. W **kroku 3**nazwij swoją bazę wiedzy **QNA KB**.
+5. W **kroku 3** nazwij swoją bazę wiedzy **QNA KB**.
 
-1. W **kroku 4**Skonfiguruj ustawienia w następującej tabeli:
+6. W **kroku 4** Skonfiguruj ustawienia w następującej tabeli:
 
     |Ustawienie|Wartość|
     |--|--|
     |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
-    |**Domyślny tekst odpowiedzi**| `Quickstart - default answer not found.`|
+    |**Tekst domyślny z obsługą wielodostępności**| Wybierz opcję i|
     |**+ Dodaj adres URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Pogawędka**|Wybierz **profesjonalne**|
 
-1. W **kroku 5**wybierz pozycję **Utwórz swoją KB**.
+7. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
 
     Proces wyodrębniania zajmuje kilka chwil, aby odczytać dokument i zidentyfikować pytania i odpowiedzi.
 
     Po pomyślnym utworzeniu bazy wiedzy przez QnA Maker zostanie otwarta strona **bazy wiedzy** . Zawartość bazy wiedzy można edytować na tej stronie.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+1. Zaloguj się do portalu [QnAMaker.AI](https://QnAMaker.ai) przy użyciu poświadczeń platformy Azure.
+
+2. W portalu QnA Maker wybierz pozycję **Utwórz bazę wiedzy**.
+
+3. Na stronie **Tworzenie** przejdź do **kroku 1** , jeśli masz już zasób QNA Maker.
+
+    Jeśli jeszcze nie utworzono zasobu, wybierz pozycję **Utwórz usługę QNA**. Nastąpi przekierowanie do witryny [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) w celu skonfigurowania usługi QnA Maker w ramach subskrypcji. Pamiętaj o IDENTYFIKATORze Azure Active Directory, subskrypcji, nazwie zasobu QnA wybranym podczas tworzenia zasobu.
+
+    Po zakończeniu tworzenia zasobu w Azure Portal Wróć do portalu QnA Maker, Odśwież stronę przeglądarki i przejdź do **kroku 2**.
+
+4. W **kroku 2** wybierz pozycję Active Directory, subskrypcję, usługę (zasób) i język dla wszystkich baz wiedzy utworzonych w usłudze.
+
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Zrzut ekranu przedstawiający wybór zarządzanej wersji zapoznawczej bazy wiedzy usługi QnA Maker Service":::
+
+5. W **kroku 2** , jeśli tworzysz pierwszą bazę wiedzy dla usługi, będziesz mieć możliwość ustawienia języka dla każdej bazy wiedzy. Po zdefiniowaniu ustawienia języka dla pierwszej bazy wiedzy nie będzie można później modyfikować ustawień usługi.
+
+6. W **kroku 3** nazwij swoją bazę wiedzy **QNA KB**. 
+
+7. W **kroku 4** Skonfiguruj ustawienia w następującej tabeli:
+
+    |Ustawienie|Wartość|
+    |--|--|
+    |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
+    |**Tekst domyślny z obsługą wielodostępności**| Wybierz opcję i|
+    |**+ Dodaj adres URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**Pogawędka**|Wybierz **profesjonalne**|
+
+8. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
+
+    Proces wyodrębniania zajmuje kilka chwil, aby odczytać dokument i zidentyfikować pytania i odpowiedzi.
+
+    Po pomyślnym utworzeniu bazy wiedzy przez QnA Maker zostanie otwarta strona **bazy wiedzy** . Zawartość bazy wiedzy można edytować na tej stronie.
+
+---
 
 ## <a name="add-a-new-question-and-answer-set"></a>Dodaj nowe pytanie i zestaw odpowiedzi
 
@@ -62,11 +101,11 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 
     `How many Azure services are used by a knowledge base?`
 
-1. Dodaj odpowiedź sformatowaną z uwzględnieniem _promocji_:
+1. Dodaj odpowiedź sformatowaną z uwzględnieniem _promocji_ :
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Dodaj pytanie jako tekst i odpowiedź sformatowaną z uwzględnieniem promocji.":::
 
     Symbol promocji, `*` ,, jest używany dla punktów punktorów. `\n`Służy do nowego wiersza.
 
@@ -78,16 +117,35 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 
 ## <a name="test-the-knowledge-base"></a>Testowanie bazy wiedzy
 
+# <a name="qnamaker-v1"></a>[QnAMaker v1](#tab/v1)
+
 1. W portalu QnA Maker w prawym górnym rogu wybierz pozycję **test** , aby sprawdzić, czy wprowadzone zmiany zostały wprowadzone.
-1. Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.
+2. Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.
 
     `How many Azure services are used by a knowledge base?`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.":::
 
-1. Wybierz pozycję **Zbadaj**, aby bardziej szczegółowo sprawdzić odpowiedź. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy.
+3. Wybierz pozycję **Zbadaj** , aby bardziej szczegółowo sprawdzić odpowiedź. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy.
 
-1. Ponownie wybierz **test** , aby zamknąć panel **testu** .
+4. Ponownie wybierz **test** , aby zamknąć panel **testu** .
+
+# <a name="qnamaker-v2-preview"></a>[QnAMaker v2 (wersja zapoznawcza)](#tab/v2)
+
+1. W portalu QnA Maker w prawym górnym rogu wybierz pozycję **test** , aby sprawdzić, czy wprowadzone zmiany zostały wprowadzone.
+2. Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.
+
+    `How many Azure services are used by a knowledge base?`
+
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe interfejsu użytkownika rozmowy: ile stron będzie zawierać paszport pomocniczy? Odpowiedź: tylko 36 stron paszportów usługi Passport są wystawiane dla małoletnich.":::
+
+3. Jeśli włączysz funkcję MRC dla bazy wiedzy, wybierając pozycję **Włącz krótką odpowiedź (eksperymentalne)** , zobaczysz również dokładną odpowiedź (jeśli jest dostępna) wraz z odciskiem odpowiedzi w okienku testów. 
+
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer-checked.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe interfejsu użytkownika rozmowy: ile stron będzie zawierać paszport pomocniczy? i odpowiedź: 36. w jednym wierszu, po którym następuje drugi wiersz zawierający: tylko 36 stron paszportów usługi Passport są wystawiane dla małoletnich.":::
+
+4. Wybierz pozycję Sprawdź, aby sprawdzić, czy odpowiedź jest bardziej szczegółowo. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy. 
+5. Ponownie wybierz **test** , aby zamknąć panel **testu** .
+---
 
 ## <a name="publish-the-knowledge-base"></a>Publikowanie bazy wiedzy
 
@@ -126,14 +184,14 @@ Po wprowadzeniu zmian w bazie wiedzy i ponownym opublikowaniu nie trzeba podejmo
 
 
 1. Po utworzeniu bot Otwórz zasób **usługi bot** .
-1. W obszarze **Zarządzanie bot**wybierz pozycję **Testuj w rozmowie w sieci Web**.
-1. Po wyświetleniu monitu czatu o **wpisanie komunikatu**wpisz:
+1. W obszarze **Zarządzanie bot** wybierz pozycję **Testuj w rozmowie w sieci Web**.
+1. Po wyświetleniu monitu czatu o **wpisanie komunikatu** wpisz:
 
     `Azure services?`
 
     Bot rozmowy reaguje na odpowiedź z bazy wiedzy.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Wprowadź zapytanie użytkownika do programu testowego rozmowy w sieci Web.":::
 
 ## <a name="what-did-you-accomplish"></a>Co zostało wykonane?
 
@@ -156,5 +214,4 @@ Więcej informacji:
 
 * [Format promocji w odpowiedziach](../reference-markdown-format.md)
 * QnA Maker [źródła danych](../concepts/knowledge-base.md).
-
 

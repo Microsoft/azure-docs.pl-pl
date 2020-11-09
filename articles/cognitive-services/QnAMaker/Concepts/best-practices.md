@@ -4,13 +4,13 @@ description: Skorzystaj z tych najlepszych rozwiązań, aby ulepszyć bazę wied
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777024"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376761"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Najlepsze rozwiązania dotyczące QnA Maker bazy wiedzy
 
@@ -116,11 +116,17 @@ Domyślnie QnA Maker przeszukuje pytania i odpowiedzi. Jeśli chcesz wyszukać t
 [Metadane](../How-To/edit-knowledge-base.md) umożliwiają aplikacji klienckiej, aby wiedzieć, że nie powinna przyjmować wszystkich odpowiedzi, ale zamiast tego zawęża wyniki zapytania użytkownika w oparciu o Tagi metadanych. Odpowiedź bazy wiedzy może się różnić w zależności od tagu metadanych, nawet jeśli zapytanie jest takie samo. Na przykład *"gdzie znajduje się parking"* może mieć inną odpowiedź, jeśli lokalizacja gałęzi restauracji jest inna — to oznacza, że metadane są *lokalizacją: Seattle* a *Lokalizacja: Redmond*.
 
 ### <a name="use-synonyms"></a>Użyj synonimów
-W przypadku niektórych rodzajów synonimów w języku angielskim należy użyć zmian wyrazów bez uwzględniania wielkości liter za pośrednictwem [interfejsu API Alters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) , aby dodać synonimy do słów kluczowych, które mają inną formę. Synonimy są dodawane na poziomie usługi QnA Maker i udostępniane przez wszystkie bazy wiedzy w usłudze.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+W przypadku niektórych rodzajów synonimów w języku angielskim należy użyć zmian wyrazów bez uwzględniania wielkości liter za pośrednictwem [interfejsu API zmian](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) , aby dodać synonimy do słów kluczowych, które mają różne formy. Synonimy są dodawane na poziomie usługi QnA Maker i **udostępniane przez wszystkie bazy wiedzy w usłudze**.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+W przypadku niektórych rodzajów synonimów w języku angielskim należy użyć zmian wyrazów bez uwzględniania wielkości liter za pośrednictwem [interfejsu API zmian](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) , aby dodać synonimy do słów kluczowych, które mają różne formy. Synonimy w QnA Maker zarządzane (wersja zapoznawcza) są **dodawane dla bazy wiedzy**.
 
 |Oryginalne słowo|Synonimy|
 |--|--|
 |kupna|zakup<br>Sieć — bankowość<br>Bankowość netto|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Korzystanie z odrębnych słów w celu odróżnienia pytań
 Algorytm klasyfikacji QnA Maker, który pasuje do zapytania użytkownika z pytaniem w bazie wiedzy, najlepiej sprawdza się, jeśli każde pytanie odniesie się do różnych potrzeb. Powtarzanie tego samego wyrazu między pytaniami zmniejsza prawdopodobieństwo wybrania odpowiedniej odpowiedzi dla danego zapytania użytkownika z tymi wyrazami.
@@ -132,7 +138,7 @@ Na przykład możesz mieć dwa osobne bazami z następującymi pytaniami:
 |gdzie jest *Lokalizacja* parkingów|
 |gdzie jest *Lokalizacja* ATM|
 
-Ponieważ te dwa bazami są oznaczane podobnymi wyrazami, taka podobieństwo może spowodować bardzo podobne wyniki dla wielu zapytań użytkowników, których frazy są podobne do  *"gdzie jest `<x>` lokalizacją"*. Zamiast tego spróbuj wyraźnie odróżnić się od zapytań, takich jak  *"gdzie jest to parkingi"* i *"gdzie jest ATM"*, unikając słów takich jak "lokalizacja", które mogą mieć wiele pytań w KB.
+Ponieważ te dwa bazami są oznaczane podobnymi wyrazami, taka podobieństwo może spowodować bardzo podobne wyniki dla wielu zapytań użytkowników, których frazy są podobne do  *"gdzie jest `<x>` lokalizacją"*. Zamiast tego spróbuj wyraźnie odróżnić się od zapytań, takich jak  *"gdzie jest to parkingi"* i *"gdzie jest ATM"* , unikając słów takich jak "lokalizacja", które mogą mieć wiele pytań w KB.
 
 ## <a name="collaborate"></a>Współpraca
 QnA Maker umożliwia użytkownikom [współpracę](../How-to/collaborate-knowledge-base.md) w bazie wiedzy. Aby uzyskać dostęp do baz wiedzy, użytkownicy muszą mieć dostęp do grupy zasobów usługi Azure QnA Maker. Niektóre organizacje mogą chcieć uzyskać informacje o edycji i obsłudze bazy wiedzy oraz nadal mieć możliwość ochrony dostępu do zasobów platformy Azure. Ten model zatwierdzania przez Edytor jest wykonywany przez skonfigurowanie dwóch identycznych [usług QNA Maker](../How-to/set-up-qnamaker-service-azure.md) w różnych subskrypcjach i wybranie jednej z nich dla cyklu edycji. Po zakończeniu testowania zawartość bazy wiedzy zostanie przetransferowana z procesem [importu eksportu](../Tutorials/migrate-knowledge-base.md) do usługi QNA Maker osoby zatwierdzającej, która ostatecznie opublikuje bazę wiedzy i zaktualizuje punkt końcowy.

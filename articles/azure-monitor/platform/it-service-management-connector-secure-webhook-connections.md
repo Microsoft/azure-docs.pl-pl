@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 5976b70825ac2854e67ddad968752fc87d9e8cea
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377143"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376540"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
 
@@ -117,7 +117,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 ### <a name="configure-the-servicenow-connection"></a>Konfigurowanie połączenia usługi usługi ServiceNow
 
-1. Użyj linku <https:// <instance name> . service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> identyfikator URI dla definicji bezpiecznego eksportu.
+1. Użyj linku https://(nazwa wystąpienia). Service-teraz. com/API/sn_em_connector/em/inbound_event? Source = azuremonitor identyfikator URI dla definicji bezpiecznego eksportu.
 
 2. Postępuj zgodnie z instrukcjami w zależności od wersji:
    * [Paryż](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)

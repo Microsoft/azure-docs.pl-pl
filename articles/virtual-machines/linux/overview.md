@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 71de48c8ac0f74ed4afbe0fafcdbfdf3f34d6654
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 95e4ac884e0eda3b4f469484226962e3fd2e2eea
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422420"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375384"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Linux na platformie Azure
 
@@ -110,11 +110,16 @@ Platforma Azure obsługuje funkcję [Cloud-init](https://cloud-init.io/) w więk
 * [Dodawanie dysku do maszyny wirtualnej systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure](add-disk.md)
 * [Jak dołączyć dysk danych do maszyny wirtualnej w witrynie Azure Portal?](attach-disk-portal.md)
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 * [Przegląd Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../virtual-network/public-ip-addresses.md)
 * [Otwieranie portów dla maszyny wirtualnej systemu Linux na platformie Azure](nsg-quickstart.md)
 * [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](portal-create-fqdn.md)
+
+
+## <a name="data-residency"></a>Rezydencja danych
+
+Na platformie Azure funkcja umożliwiająca przechowywanie danych klienta w jednym regionie jest obecnie dostępna tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik regionie geograficznym i Brazylia Południowa (stan Świętego Paulo) regionu Brazylia. W przypadku wszystkich innych regionów dane klienta są przechowywane w lokalizacji geograficznej. Aby uzyskać więcej informacji, zobacz [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,16 +1,16 @@
 ---
 title: Aktywne sugestie dotyczące uczenia — QnA Maker
-description: Aktywne sugestie dotyczące uczenia umożliwiają poprawienie jakości bazy wiedzy przez zasugerowanie alternatywnych pytań na podstawie przesłanych użytkowników do pary pytania i odpowiedzi.
+description: Aktywne sugestie dotyczące uczenia umożliwiają zwiększenie jakości bazy wiedzy, sugerując pytania alternatywne, na podstawie przesłanych przez użytkowników do pary pytań i odpowiedzi.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: e8cdb1d471ceef2aef790c426424b9224faac5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 707f4c098eacb0b72a7e12ebf79f9389b91095cc
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777041"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376523"
 ---
 # <a name="active-learning-suggestions"></a>Aktywne sugestie dotyczące uczenia
 
@@ -37,10 +37,18 @@ Po wybraniu pytań w portalu QnA Maker należy przejrzeć i zaakceptować lub od
 
 ## <a name="turn-on-active-learning"></a>Włącz uczenie aktywne
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 Domyślnie aktywna nauka jest **wyłączona**.
 Aby korzystać z usługi Active Learning:
 * Musisz [włączyć aktywne uczenie](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) , aby QNA Maker zbierać alternatywne pytania dotyczące bazy wiedzy.
 * Aby wyświetlić sugerowane pytania alternatywne, [Użyj opcji wyświetlania](../How-To/improve-knowledge-base.md#view-suggested-questions) na stronie Edycja.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+Domyślnie usługa Active Learning jest **włączona** w QNA Maker Managed (wersja zapoznawcza). Aby wyświetlić sugerowane pytania alternatywne, [Użyj opcji wyświetlania](../How-To/improve-knowledge-base.md#view-suggested-questions) na stronie Edycja.
+
+---
 
 ## <a name="how-qna-makers-implicit-feedback-works"></a>Jak działa niejawna opinia QnA Maker
 

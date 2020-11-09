@@ -1,16 +1,14 @@
 ---
 title: Badanie bazy wiedzy — QnA Maker
 description: Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana w punkcie końcowym przewidywania środowiska uruchomieniowego przy użyciu interfejsu API generateAnswer.
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776922"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376730"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Zapytanie dotyczące odpowiedzi z bazy wiedzy
 
@@ -18,9 +16,11 @@ Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana 
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Jak QnA Maker przetwarza zapytanie użytkownika w celu wybrania najlepszej odpowiedzi
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 Przeszkolony i [opublikowany](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker baza wiedzy otrzymuje zapytanie użytkownika z bot lub innej aplikacji klienckiej w [interfejsie API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Na poniższym diagramie przedstawiono proces po odebraniu zapytania użytkownika.
 
-![Proces modelu klasyfikowania dla zapytania użytkownika](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+![Proces modelu klasyfikowania dla zapytania użytkownika](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
 ### <a name="ranker-process"></a>Proces rangi
 
@@ -38,6 +38,30 @@ Ten proces został wyjaśniony w poniższej tabeli.
 |||
 
 Używane funkcje obejmują, ale nie są ograniczone do semantyki na poziomie wyrazów, ważności na poziomie terminu w korpus i głębokiego uczenia się modeli semantycznych w celu określenia podobieństwa i zgodności między dwoma ciągami tekstowymi.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+Przeszkolony i [opublikowany](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker baza wiedzy otrzymuje zapytanie użytkownika z bot lub innej aplikacji klienckiej w [interfejsie API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Na poniższym diagramie przedstawiono proces po odebraniu zapytania użytkownika.
+
+![Proces modelu klasyfikowania dla podglądu zapytania użytkownika](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
+
+### <a name="ranker-process"></a>Proces rangi
+
+Ten proces został wyjaśniony w poniższej tabeli.
+
+|Krok|Przeznaczenie|
+|--|--|
+|1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|2|QnA Maker wstępnie przetworzy zapytanie użytkownika przy użyciu wykrywania języka, modułu sprawdzania pisowni i wyłączników słów.|
+|3|Przetwarzanie wstępne jest podejmowane w celu zmiany zapytania użytkownika w celu uzyskania najlepszych wyników wyszukiwania.|
+|4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań.|
+|5|QnA Maker korzysta z modelu opartego na funkcji przekształcania grafiki, aby określić podobieństwo między zapytania użytkownika a wynikami sugestii QnA pobranych z usługi Azure Wyszukiwanie poznawcze. Model oparty na przekształcaniu to model wielojęzykowy uczenia głębokiego, który działa w poziomie dla wszystkich języków, aby określić wyniki zaufania i nową kolejność klasyfikacyjną.|
+|6|Nowe wyniki są zwracane do aplikacji klienckiej w kolejności uporządkowanej.|
+|||
+
+Funkcja rank działa na wszystkich alternatywnych pytaniach i odpowiedzi, aby znaleźć najlepsze dopasowane pary QnA dla zapytania użytkownika. Użytkownicy mają elastyczność, aby skonfigurować rangę tylko do rangi. 
+
+---
 
 ## <a name="http-request-and-response-with-endpoint"></a>Żądanie HTTP i odpowiedź z punktem końcowym
 Po opublikowaniu bazy wiedzy Usługa tworzy punkt końcowy HTTP oparty na protokole REST, który można zintegrować z aplikacją, zazwyczaj bot rozmowy.

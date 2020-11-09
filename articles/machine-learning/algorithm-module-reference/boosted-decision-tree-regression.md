@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664943fc5535883b3df77b2795383e5c0586a71c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898838"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375333"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Moduł regresji drzewa decyzyjnego
 
@@ -52,39 +52,39 @@ Metodę zwiększania gradientu można również użyć w przypadku problemów z 
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Jak skonfigurować regresję drzewa decyzyjnej podwyższania
 
-1.  Dodaj do potoku moduł **podwyższający decyzje** . Ten moduł można znaleźć w obszarze **Machine Learning**, **zainicjować**, w kategorii **regresja** . 
+1.  Dodaj do potoku moduł **podwyższający decyzje** . Ten moduł można znaleźć w obszarze **Machine Learning** , **zainicjować** , w kategorii **regresja** . 
   
 2.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    -   **Pojedynczy parametr**: zaznacz tę opcję, Jeśli wiesz, jak chcesz skonfigurować model i udostępnić określony zestaw wartości jako argumenty. 
+    -   **Pojedynczy parametr** : zaznacz tę opcję, Jeśli wiesz, jak chcesz skonfigurować model i udostępnić określony zestaw wartości jako argumenty. 
      
-    -   **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.    
+    -   **Zakres parametrów** : Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.    
    
   
-3. **Maksymalna liczba liści na drzewo**: wskazuje maksymalną liczbę węzłów terminalu (liści), które można utworzyć w dowolnym drzewie.  
+3. **Maksymalna liczba liści na drzewo** : wskazuje maksymalną liczbę węzłów terminalu (liści), które można utworzyć w dowolnym drzewie.  
 
     Zwiększając tę wartość, można zwiększyć rozmiar drzewa i uzyskać lepszą precyzję w przypadku ryzyka przekroczenia i dłuższego czasu uczenia się.  
 
-4. **Minimalna liczba próbek na węzeł liścia**: wskazuje minimalną liczbę przypadków wymaganych do utworzenia dowolnego węzła terminalu w drzewie.
+4. **Minimalna liczba próbek na węzeł liścia** : wskazuje minimalną liczbę przypadków wymaganych do utworzenia dowolnego węzła terminalu w drzewie.
 
     Zwiększenie tej wartości spowoduje zwiększenie wartości progowej tworzenia nowych reguł. Na przykład, z wartością domyślną 1, nawet pojedynczy przypadek może spowodować utworzenie nowej reguły. W przypadku zwiększenia wartości do 5 dane szkoleniowe muszą zawierać co najmniej 5 przypadków, które spełniają te same warunki.
 
-5. **Szybkość uczenia**: wpisz liczbę z zakresu od 0 do 1, która definiuje rozmiar kroku podczas uczenia się. Szybkość uczenia określa, jak szybko lub wolno dowiedzieć się zbieżność z optymalnym rozwiązaniem. Jeśli rozmiar tego kroku jest zbyt duży, można przekroczyć optymalne rozwiązanie. Jeśli rozmiar tego kroku jest zbyt mały, szkolenie trwa dłużej niż w przypadku najlepszego rozwiązania.
+5. **Szybkość uczenia** : wpisz liczbę z zakresu od 0 do 1, która definiuje rozmiar kroku podczas uczenia się. Szybkość uczenia określa, jak szybko lub wolno dowiedzieć się zbieżność z optymalnym rozwiązaniem. Jeśli rozmiar tego kroku jest zbyt duży, można przekroczyć optymalne rozwiązanie. Jeśli rozmiar tego kroku jest zbyt mały, szkolenie trwa dłużej niż w przypadku najlepszego rozwiązania.
 
-6. **Liczba skonstruowanych drzew**: wskazuje całkowitą liczbę drzew decyzyjnych do utworzenia w całości. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale wydłużyć czas uczenia.
+6. **Liczba skonstruowanych drzew** : wskazuje całkowitą liczbę drzew decyzyjnych do utworzenia w całości. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale wydłużyć czas uczenia.
 
-    Ta wartość kontroluje również liczbę drzew wyświetlanych podczas wizualizacji przeszkolonego modelu. Jeśli chcesz zobaczyć lub wydrukować pojedyncze drzewo, możesz ustawić wartość 1. jednak tworzone jest tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i nie są wykonywane żadne dalsze iteracje.
+    Jeśli wartość jest ustawiona na 1; jednak tworzone jest tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i nie są wykonywane żadne dalsze iteracje.
 
-7. **Inicjator liczb losowych**: wpisz opcjonalną nieujemną liczbę całkowitą, która ma być używana jako wartość inicjatora losowego. Określenie inicjatora zapewnia odtwarzalność w przebiegach, które mają te same dane i parametry.
+7. **Inicjator liczb losowych** : wpisz opcjonalną nieujemną liczbę całkowitą, która ma być używana jako wartość inicjatora losowego. Określenie inicjatora zapewnia odtwarzalność w przebiegach, które mają te same dane i parametry.
 
     Domyślnie losowy inicjator jest ustawiony na 0, co oznacza, że początkowa wartość inicjatora jest uzyskiwana z zegara systemowego.
   
 
 9. Uczenie modelu:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420686"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376336"
 ---
 # <a name="one-vs-all-multiclass"></a>moduł wieloklasowy „jeden przeciw wszystkim”
 
@@ -26,7 +26,7 @@ Ten moduł jest przydatny do tworzenia modeli predykcyjnych trzy lub więcej wyn
 
 Niektóre algorytmy klasyfikacji umożliwiają użycie więcej niż dwóch klas według konstrukcji. Inne ograniczają możliwe wyniki do jednej z dwóch wartości (binarny lub dwuklasowy model). Jednak nawet binarne algorytmy klasyfikacji można dostosować do wieloklasowych zadań klasyfikacji za pomocą różnych strategii. 
 
-Ten moduł implementuje metodę "one-a-All", w której jest tworzony model binarny dla każdej klasy danych wyjściowych. Moduł ocenia każdy z tych modeli binarnych dla poszczególnych klas przed jego uzupełnieniem (wszystkie inne klasy w modelu), tak jakby był to binarny problem z klasyfikacją. Następnie moduł wykonuje prognozowanie, uruchamiając te klasyfikatory binarne i wybierając prognozę z najwyższym wynikiem ufności.  
+Ten moduł implementuje metodę "one-a-All", w której jest tworzony model binarny dla każdej klasy danych wyjściowych. Moduł ocenia każdy z tych modeli binarnych dla poszczególnych klas przed jego uzupełnieniem (wszystkie inne klasy w modelu), tak jakby był to binarny problem z klasyfikacją. Oprócz wydajności obliczeniowej ( `n_classes` wymaga się tylko klasyfikatorów), jedną z zalet tego podejścia jest jego możliwość interpretowania. Ponieważ każda klasa jest reprezentowana przez jeden i tylko jeden klasyfikator, można uzyskać wiedzę na temat klasy, sprawdzając odpowiedni klasyfikator. Jest to najczęściej stosowana strategia klasyfikacji wieloklasowej i jest uczciwym wyborem domyślnym. Następnie moduł wykonuje prognozowanie, uruchamiając te klasyfikatory binarne i wybierając prognozę z najwyższym wynikiem ufności. 
 
 W zasadzie moduł tworzy kompletność poszczególnych modeli, a następnie scala wyniki, aby utworzyć jeden model, który przewiduje wszystkie klasy. Dowolny klasyfikator binarny może być używany jako podstawa dla modelu typu jeden-do-wszystkich.  
 

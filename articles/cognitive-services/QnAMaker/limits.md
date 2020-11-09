@@ -4,13 +4,13 @@ description: QnA Maker ma limity meta dla części bazy wiedzy i usługi. Ważne
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776259"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375622"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limity i granice bazy wiedzy QnA Maker
 
@@ -20,7 +20,7 @@ Podane poniżej limity QnA Maker są kombinacją [limitów warstwy cenowej platf
 
 Maksymalna liczba baz wiedzy zależy od [limitów warstwy wyszukiwanie poznawcze platformy Azure](../../search/search-limits-quotas-capacity.md).
 
-|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowe** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
+|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowa** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
 |---|---|---|---|---|---|----|
 |Dozwolona maksymalna liczba opublikowanych baz wiedzy|2|14|49|199|199|2 999|
 
@@ -51,6 +51,9 @@ Nazwy plików nie mogą zawierać następujących znaków:
 
 Maksymalna liczba plików, które można wyodrębnić, i maksymalny rozmiar pliku opiera się na **[QNA Maker limitów warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
+> [!NOTE]
+> QnA Maker Managed (wersja zapoznawcza) to bezpłatna usługa, która nie ma ograniczeń dotyczących liczby źródeł, które można dodać. Przepływność jest obecnie ograniczona do 10 transakcji na sekundę dla interfejsów API zarządzania i interfejsów API przewidywania.
+
 ### <a name="maximum-number-of-deep-links-from-url"></a>Maksymalna liczba linków głębokiego adresu URL
 
 Maksymalna liczba linków głębokiego, które mogą być przeszukiwane w celu wyodrębnienia bazami ze strony adresu URL, to **20**.
@@ -63,7 +66,7 @@ Metadane są prezentowane jako para kluczowa: wartość, na przykład `product:w
 
 Maksymalna liczba pól metadanych na bazę wiedzy zależy od **[limitów warstwy wyszukiwanie poznawcze platformy Azure](../../search/search-limits-quotas-capacity.md)**.
 
-|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowe** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
+|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowa** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
 |---|---|---|---|---|---|----|
 |Maksymalna liczba pól metadanych na usługę QnA Maker (w ramach wszystkich artykułów bazy wiedzy)|1000|100 *|1000|1000|1000|1000|
 

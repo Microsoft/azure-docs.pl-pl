@@ -7,44 +7,76 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 09/24/2019
-ms.openlocfilehash: c990b6980dea871679b0b301e293e4fb94748db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650906"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375644"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Obsługa języka dla zasobów QnA Maker i baz wiedzy
+
+W tym artykule opisano opcje pomocy technicznej dotyczące języka dla QnA Maker zasobów i baz wiedzy. 
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
 Język dla usługi jest wybierany podczas tworzenia pierwszej bazy wiedzy w zasobie. Wszystkie dodatkowe bazy wiedzy w zasobie muszą znajdować się w tym samym języku. 
 
 Język określa przydatność wyników QnA Maker zapewnia odpowiedzi na zapytania użytkownika. Zasób QnA Maker i wszystkie bazy wiedzy w tym zasobie obsługują jeden język. Pojedynczy język jest niezbędny do dostarczenia najlepszych wyników odpowiedzi na zapytanie.
 
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+W QnA Maker zarządzanych można wybrać opcję Ustawienia języka na indywidualnym poziomie bazy wiedzy. To ustawienie można włączyć tylko w bazie wiedzy usługi. Po ustawieniu ustawień języka nie można zmienić dla usługi. 
+
+Jeśli wybierzesz opcję Ustawienia językowe jako specyficzne dla bazy wiedzy, możesz utworzyć bazę wiedzy dla różnych języków w samej usłudze. 
+
+---
+
 ## <a name="single-language-per-resource"></a>Pojedynczy język na zasób
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
 Rozważ następujące źródła:
 
+* Usługa QnA Maker i wszystkie jej bazy wiedzy obsługują tylko jeden język.
+* Język jest jawnie ustawiany podczas tworzenia pierwszej bazy wiedzy usługi.
+* Język jest określany na podstawie plików i adresów URL dodanych podczas tworzenia bazy wiedzy.
+* Nie można zmienić języka dla żadnych innych baz wiedzy w usłudze.
+* Język jest używany przez usługę Wyszukiwanie poznawcze (ranga #1) i usługę QnA Maker (ranga #2) do generowania najlepszej odpowiedzi na zapytanie.
+
+# <a name="qnamaker-managed-preview"></a>[Zarządzane QnAMaker (wersja zapoznawcza)](#tab/v2)
+![Ustawienie języka w QnA Maker zarządzanym](../media/language-support/language-setting-managed.png)
+
+Jeśli **nie zaznaczysz pola wyboru, aby włączyć ustawienie języka dla bazy wiedzy** , weź pod uwagę następujące kwestie: 
 * Usługa QnA Maker i wszystkie jej bazy wiedzy obsługują tylko jeden język.
 * Język jest jawnie ustawiany podczas tworzenia pierwszej bazy wiedzy usługi
 * Język jest określany na podstawie plików i adresów URL dodanych podczas tworzenia bazy wiedzy
 * Nie można zmienić języka dla żadnych innych baz wiedzy w usłudze
 * Język jest używany przez usługę Wyszukiwanie poznawcze (ranga #1) i usługę QnA Maker (ranga #2) do generowania najlepszej odpowiedzi na zapytanie
 
-## <a name="supporting-multiple-languages"></a>Obsługa wielu języków
+---
+
+## <a name="supporting-multiple-languages-in-one-qna-maker-resource"></a>Obsługa wielu języków w jednym QnA Maker zasobów
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+Ta funkcja nie jest obsługiwana w obecnej, ogólnie dostępnej wersji. Wyewidencjonuj QnA Maker zarządzane, aby przetestować tę funkcję. 
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+* Podczas tworzenia pierwszej bazy wiedzy w usłudze uzyskasz możliwość włączenia ustawienia języka dla bazy wiedzy. Zaznacz pole wyboru, aby utworzyć bazy wiedzy należące do różnych języków w ramach jednej usługi.
+* Nie można zmodyfikować opcji ustawień języka dla usługi, gdy zostanie utworzona pierwsza baza wiedzy.
+* W przypadku włączenia ustawień języka właściwych dla każdej bazy wiedzy, a nie dla usługi, należy użyć jednego indeksu testowego na bazę wiedzy. 
+
+![Ustawienie języka w QnA Maker zarządzanym](../media/language-support/language-setting-managed.png)
+
+---
+
+## <a name="supporting-multiple-languages-in-one-knowledge-base"></a>Obsługa wielu języków w jednej bazie wiedzy
 
 Jeśli musisz obsługiwać system bazy wiedzy, który zawiera kilka języków, możesz:
 
 * Użyj [usługi Translator](../../translator/translator-info-overview.md) , aby przetłumaczyć pytanie na jeden język przed wysłaniem pytania do bazy wiedzy. Pozwala to skupić się na jakości jednego języka i jakości alternatywnych pytań i odpowiedzi.
 * Utwórz zasób QnA Maker i bazę wiedzy w tym zasobie dla każdego języka. Pozwala to na zarządzanie oddzielnymi innymi pytaniami i tekstem odpowiedzi, który jest bardziej złożonych dla każdego języka. Zapewnia to znacznie większą elastyczność, ale wymaga znacznie większego kosztu konserwacji, gdy pytania lub odpowiedzi zmieniają się we wszystkich językach.
-
-Przejrzyj [języki obsługiwane](../overview/language-support.md) przez QNA Maker.
-
-### <a name="support-each-language-with-a-qna-maker-resource"></a>Obsługa każdego języka za pomocą zasobu QnA Maker
-
-* Utwórz zasób QnA Maker dla każdego języka
-* Dodaj tylko pliki i adresy URL dla tego języka
-* Użyj konwencji nazewnictwa dla zasobu, aby zidentyfikować język. Przykład dotyczy `qna-maker-fr` wszystkich baz wiedzy dla dokumentów francuskich
 
 
 ## <a name="languages-supported"></a>Obsługiwane języki
