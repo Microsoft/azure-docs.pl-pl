@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342199"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372765"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami
 
@@ -41,7 +41,7 @@ Firma Microsoft śledzi również same standardy prawne i automatycznie ulepsza 
 
 Możesz dodać standardy, takie jak NIST SP 800-53 R4, SWIFT CSP CSCF-V2020, Zjednoczone Królestwo brytyjskie i Zjednoczone Królestwo, NHS, Kanada Federal PBMM i Azure CIS 1.1.0 (NOWOŚĆ) — dokładniejszą reprezentację usługi Azure CIS 1.1.0. 
 
-Ponadto możesz dodać **test wydajności Azure Security**, opracowane przez firmę Microsoft, wytyczne dotyczące zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. ([Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)).
+Ponadto możesz dodać **test wydajności Azure Security** , opracowane przez firmę Microsoft, wytyczne dotyczące zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. ([Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)).
 
 Dodatkowe standardy będą obsługiwane na pulpicie nawigacyjnym, gdy staną się dostępne. 
 
@@ -68,6 +68,7 @@ Poniższe kroki wyjaśniają, jak dodać pakiet do monitorowania zgodności z je
 
     - **Test porównawczy zabezpieczeń platformy Azure**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-V2020**
     - **UKO i Wielka Brytania NHS**
     - **Kanada PBMM**
@@ -105,7 +106,7 @@ Aby usunąć standard:
 
 1. Dla standardu, który chcesz usunąć, wybierz pozycję **Wyłącz**. Zostanie wyświetlone okno potwierdzenia.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Usuwanie normy regulacyjnej z pulpitu nawigacyjnego zgodności z przepisami w Azure Security Center":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Potwierdź, że na pewno chcesz usunąć wybrany Standard regulacji":::
 
 1. Wybierz pozycję **Tak**. Standard zostanie usunięty. 
 

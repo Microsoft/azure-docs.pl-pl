@@ -7,14 +7,14 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 347d5ac9de164f2e96340df71fd3b1b908e607c1
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532554"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372748"
 ---
-# <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Zwalnianie zasobu z rekomendacji i bezpiecznego oceny
+# <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Zwalnianie zasobu z zaleceń i wskaźnika bezpieczeństwa
 
 Podstawowy priorytet każdego zespołu ds. zabezpieczeń próbuje zapewnić analitykom możliwość skoncentrowania się na zadaniach i zdarzeniach, które odnoszą się do organizacji. Security Center ma wiele funkcji służących do dostosowywania informacji, które są bardziej priorytetowe i zapewniają, że bezpieczny wynik jest ważnym odbiciem decyzji w zakresie bezpieczeństwa organizacji. Wykluczone zasoby to jedna z tych funkcji.
 
@@ -30,7 +30,7 @@ Zasób będzie wyświetlany jako nie dotyczy i powód zostanie wyświetlony jako
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza|
+|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Jest to funkcja Premium platformy Azure oferowana dla klientów usługi Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być stosowane w przyszłości.|
 |Wymagane role i uprawnienia:|**Właściciel subskrypcji** lub **współautor zasad** , aby utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -45,7 +45,7 @@ Zasób będzie wyświetlany jako nie dotyczy i powód zostanie wyświetlony jako
 
     Zostanie otwarte okienko Utwórz wykluczenie.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Utwórz okienko wykluczenia":::
 
 1. Wprowadź kryteria i wybierz kryteria, dla których ten zasób powinien być wykluczony:
     - **Skorygowane** — ten problem nie dotyczy zasobu, ponieważ został obsłużony przez inne narzędzie lub proces niż ten, który jest sugerowany
@@ -56,11 +56,11 @@ Zasób będzie wyświetlany jako nie dotyczy i powód zostanie wyświetlony jako
     - Zasób jest wymieniony na karcie **nie dotyczy** na stronie szczegółów rekomendacji
     - Pasek informacji w górnej części strony Szczegóły rekomendacji zawiera liczbę wykluczonych zasobów:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Liczba wykluczonych zasobów":::
 
 1. Aby przejrzeć wykluczone zasoby, Otwórz kartę **nie dotyczy** .
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modyfikowanie wykluczenia":::
 
     Przyczyną każdego wykluczenia jest dołączenie do tabeli (1).
 
@@ -73,7 +73,7 @@ Reguły wykluczania używają zasad platformy Azure, aby utworzyć wykluczenie d
 
 Za pomocą Azure Policy można śledzić wszystkie wykluczenia na stronie **zwolnienia** :
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Strona wykluczenia Azure Policy":::
 
 
 
@@ -81,4 +81,4 @@ Za pomocą Azure Policy można śledzić wszystkie wykluczenia na stronie **zwol
 
 W tym artykule przedstawiono sposób wykluczenia zasobu z rekomendacji, dzięki czemu nie ma to wpływu na swój Bezpieczny wynik. Aby uzyskać więcej informacji na temat bezpiecznego oceny, zobacz:
 
-- [Zabezpiecz ocenę w Azure Security Center](secure-score-security-controls.md)
+- [Wskaźnik bezpieczeństwa w usłudze Azure Security Center](secure-score-security-controls.md)

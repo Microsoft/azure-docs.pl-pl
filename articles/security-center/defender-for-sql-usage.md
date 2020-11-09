@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f83500e539ff5254db290d156dfcf50ea60de14
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461536"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372561"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -30,7 +30,7 @@ Zobaczysz alerty w przypadku podejrzanych działań bazy danych, potencjalnych l
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza|
+|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Opłaty za **usługi Azure Defender dla serwerów SQL na maszynach** są rozliczane zgodnie z [cennikiem](security-center-pricing.md) .|
 |Chronione wersje programu SQL:|Azure SQL Server (wszystkie wersje objęte pomocą techniczną firmy Microsoft)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
@@ -53,7 +53,7 @@ Oba te elementy zostały opisane poniżej.
 
 - **SQL Server Premium** — Jeśli SQL Server jest hostowana na lokalnym komputerze z systemem Windows bez usługi Azure ARC, dostępne są dwie opcje połączenia z platformą Azure:
     
-    - **Wdrażanie usługi Azure Arc** — można podłączyć dowolną maszynę z systemem Windows do Security Center. Natomiast usługa Azure Arc zapewnia lepszą integrację ze *wszystkimi* środowiskami platformy Azure. W przypadku skonfigurowania usługi Azure Arc zostanie wyświetlona strona **SQL Server — usługa Azure Arc** w portalu, a na tej stronie zostaną wyświetlone **alerty zabezpieczeń.** Dlatego pierwszą i zalecaną opcją jest [skonfigurowanie usługi Azure Arc na hoście](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) i postępuj zgodnie z instrukcjami dotyczącymi **SQL Server w usłudze Azure Arc**powyżej.
+    - **Wdrażanie usługi Azure Arc** — można podłączyć dowolną maszynę z systemem Windows do Security Center. Natomiast usługa Azure Arc zapewnia lepszą integrację ze *wszystkimi* środowiskami platformy Azure. W przypadku skonfigurowania usługi Azure Arc zostanie wyświetlona strona **SQL Server — usługa Azure Arc** w portalu, a na tej stronie zostaną wyświetlone **alerty zabezpieczeń.** Dlatego pierwszą i zalecaną opcją jest [skonfigurowanie usługi Azure Arc na hoście](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) i postępuj zgodnie z instrukcjami dotyczącymi **SQL Server w usłudze Azure Arc** powyżej.
         
     - **Połącz maszynę z systemem Windows bez usługi Azure Arc** — w przypadku wybrania opcji łączenia SQL Server uruchomionego na komputerze z systemem Windows bez korzystania z usługi Azure Arc postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem windows, aby Azure monitor](../azure-monitor/platform/agent-windows.md).
 
@@ -64,7 +64,7 @@ Oba te elementy zostały opisane poniżej.
 
     - Jeśli używasz **domyślnego obszaru roboczego Azure Security Center** (o nazwie "defaultworkspace-[Identyfikator subskrypcji] — [region]"), wybierz odpowiednią **subskrypcję**.
 
-    - Jeśli używasz **obszaru roboczego innego niż domyślny**, wybierz odpowiedni **obszar roboczy** (w razie potrzeby wprowadź nazwę obszaru roboczego w filtrze):
+    - Jeśli używasz **obszaru roboczego innego niż domyślny** , wybierz odpowiedni **obszar roboczy** (w razie potrzeby wprowadź nazwę obszaru roboczego w filtrze):
 
         ![Znajdowanie obszaru roboczego innego niż domyślny według tytułu](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
@@ -97,7 +97,7 @@ Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security
 
     Zostanie wyświetlony szczegółowy widok tego zalecenia.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Oceny luk w zabezpieczeniach na serwerach SQL na maszynach należy skorygować (wersja zapoznawcza)":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Szczegółowy widok rekomendacji":::
 
 1. Aby uzyskać więcej informacji, przechodzenie do szczegółów:
 
@@ -105,7 +105,7 @@ Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security
 
     * Aby zapoznać się z omówieniem luk w zabezpieczeniach pogrupowanych według konkretnej bazy danych SQL, wybierz interesującą bazę danych.
 
-    W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem**, jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
+    W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem** , jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alerty usługi Azure Defender dla programu SQL
 Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane w [sekcji alerty dla SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) na stronie informacje o alertach](alerts-reference.md#alerts-sql-db-and-warehouse).

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3a597b6454b3fb738ca192fa7750ca94fdb873ab
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993341"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372799"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux Przenieś własne obrazy z subskrypcji na platformę Azure
 
@@ -21,14 +21,14 @@ Obrazy Red Hat Enterprise Linux (RHEL) są dostępne na platformie Azure za poś
 >[!NOTE]
 > RHEL BYOS Gold są dostępne w publicznych chmurach platformy Azure (komercyjnych) i Azure Government. Nie są one dostępne na platformie Azure (Chiny) ani w chmurach usługi Azure Blackforest.
 
-## <a name="important-points-to-consider"></a>Ważne kwestie, które należy wziąć pod uwagę
+## <a name="important-points-to-consider"></a>Ważne kwestie, na które należy zwrócić uwagę
 
 - Obrazy Red Hat Gold dostępne w tym programie to gotowe do produkcji obrazy RHEL podobne do obrazów RHEL z opcją płatność zgodnie z rzeczywistym użyciem w witrynie Azure Marketplace.
 - Obrazy są zgodne z bieżącymi zasadami opisanymi w [Red Hat Enterprise Linux obrazów na platformie Azure](./redhat-images.md).
 - Standardowe zasady pomocy technicznej mają zastosowanie do maszyn wirtualnych utworzonych na podstawie tych obrazów.
 - Maszyny wirtualne obsługiwane z obrazów Red Hat Gold nie mają opłat RHEL związanych z obrazami z opcją płatność zgodnie z rzeczywistym użyciem.
 - Obrazy są nieuprawnione. Aby rejestrować i subskrybować maszyny wirtualne w celu uzyskania aktualizacji z firmy Red Hat, należy użyć narzędzia Red Hat Subscription-Manager.
-- Obecnie nie można dynamicznie przełączać modeli rozliczeń BYOS i płatność zgodnie z rzeczywistym użyciem dla obrazów systemu Linux. Aby przełączyć model rozliczeń, należy ponownie wdrożyć maszynę wirtualną z odpowiedniego obrazu.
+- Można przełączać się z obrazów z opcją płatność zgodnie z rzeczywistym użyciem, aby BYOS przy użyciu [korzyść użycia hybrydowego platformy Azure](../../linux/azure-hybrid-benefit-linux.md). Nie jest jednak możliwe przełączenie się ze wstępnie wdrożonych BYOS na modele rozliczania z płatnością zgodnie z rzeczywistym użyciem dla obrazów systemu Linux. Aby zmienić model rozliczeń z BYOS na płatność zgodnie z rzeczywistym użyciem, należy ponownie wdrożyć maszynę wirtualną z odpowiedniego obrazu.
 
 >[!NOTE]
 > Obrazy generacji 2 RHEL BYOS nie są obecnie dostępne w ramach oferty portalu Marketplace. Jeśli potrzebujesz obrazu generacji 2 RHEL BYOS, odwiedź pulpit nawigacyjny dostępu do chmury w usłudze Red Hat Subscription Management. Aby uzyskać więcej informacji, zobacz [dokumentację Red Hat](https://access.redhat.com/articles/4847681).

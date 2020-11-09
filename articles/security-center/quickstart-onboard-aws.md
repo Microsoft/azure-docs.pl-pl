@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428111"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372782"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
 
@@ -39,7 +39,7 @@ Na poniższym zrzucie ekranu można zobaczyć konta AWS wyświetlane na pulpicie
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza|
+|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Wymagane role i uprawnienia:|**Właściciel** lub **współautor** w odpowiedniej subskrypcji platformy Azure|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -70,14 +70,14 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
 - **AWS użytkownika Security Center** -mniej bezpieczna opcja, jeśli nie masz włączonej usługi IAM
 
 #### <a name="create-an-iam-role-for-security-center"></a>Utwórz rolę usługi IAM dla Security Center
-1. Z poziomu konsoli Amazon Web Services w obszarze **zabezpieczenia, tożsamość & zgodność**, wybierz pozycję **IAM**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
+1. Z poziomu konsoli Amazon Web Services w obszarze **zabezpieczenia, tożsamość & zgodność** , wybierz pozycję **IAM**.
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Usługi AWS":::
 
 1. Wybierz **role** i **Utwórz rolę**.
 1. Wybierz **inne konto AWS**.
 1. Wprowadź następujące wartości:
 
-    - **Identyfikator konta** — wprowadź identyfikator konta Microsoft (**158177204117**), jak pokazano na stronie łącznika AWS w Security Center.
+    - **Identyfikator konta** — wprowadź identyfikator konta Microsoft ( **158177204117** ), jak pokazano na stronie łącznika AWS w Security Center.
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
     - **Identyfikator zewnętrzny** — wprowadź identyfikator subskrypcji, jak pokazano na stronie łącznika AWS w Security Center 
 
@@ -130,13 +130,13 @@ Menedżer systemów AWS jest wymagany do automatyzowania zadań w ramach zasobó
 
 1. Z menu Security Center wybierz pozycję **wiele łączników w chmurze**.
 1. Wybierz pozycję **Dodaj konto AWS**.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Przycisk dodawania konta AWS na stronie łączników wielochmurowych Security Center":::
 1. Skonfiguruj opcje na karcie **uwierzytelnianie AWS** :
     1. Wprowadź **nazwę wyświetlaną** dla łącznika.
     1. Upewnij się, że subskrypcja jest poprawna. Jest to subskrypcja obejmująca łącznik i AWS zalecenia dotyczące usługi Centrum zabezpieczeń.
     1. W zależności od opcji uwierzytelniania wybranej w [kroku 2. Skonfiguruj uwierzytelnianie dla Security Center w AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Wybierz pozycję  **przyjmij rolę** i wklej ARN z elementu [Utwórz rolę usługi IAM dla Security Center](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Wklejanie pliku ARN w odpowiednim polu Kreatora połączenia AWS w witrynie Azure Portal":::
 
             LUB
 
@@ -168,7 +168,7 @@ Po pomyślnym utworzeniu łącznika i AWS Centrum zabezpieczeń zostało prawid�
 - Usługa ASC skanuje nowe wystąpienia usługi AWS EC2 co 6 godzin i dołączy je zgodnie z konfiguracją.
 - Standard AWS CIS zostanie wyświetlony na pulpicie nawigacyjnym zgodności z przepisami Security Center.
 - Jeśli zasady Centrum zabezpieczeń są włączone, zalecenia będą wyświetlane w portalu Security Center i na pulpicie nawigacyjnym zgodności z przepisami 5-10 minut po zakończeniu dołączania.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="AWS zasoby i zalecenia na stronie zalecenia dotyczące Security Center":::
 
 
 
@@ -178,7 +178,7 @@ Jak pokazano powyżej, na stronie zalecenia dotyczące zabezpieczeń Azure Secur
 
 Aby wyświetlić wszystkie aktywne zalecenia dotyczące zasobów według typu zasobu, użyj strony spisu środków Security Center i przefiltruj do typu zasobu AWS, w którym jesteś zainteresowani:
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtr typu zasobu strony spisu zasobów przedstawiający opcje AWS"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>AWS w Security Center często zadawane pytania

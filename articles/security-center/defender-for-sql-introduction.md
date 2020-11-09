@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342029"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372539"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Wprowadzenie do usługi Azure Defender dla programu SQL
 
@@ -23,7 +23,7 @@ Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defende
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|**Usługa Azure Defender dla serwerów usługi Azure SQL Database** — ogólnie dostępna (ga)<br>**Usługa Azure Defender dla serwerów SQL na komputerach** — wersja zapoznawcza|
+|Stan wydania:|**Usługa Azure Defender dla serwerów usługi Azure SQL Database** — ogólnie dostępna (ga)<br>**Usługa Azure Defender dla serwerów SQL na komputerach** — wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Na [stronie cennika](security-center-pricing.md) są naliczane opłaty za dwa plany tworzące **usługę Azure Defender for SQL** .|
 |Chronione wersje programu SQL:|Azure SQL Database <br>Wystąpienie zarządzane Azure SQL<br>Azure Synapse Analytics (dawniej SQL DW)<br>SQL Server (wszystkie obsługiwane wersje)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
@@ -34,7 +34,7 @@ Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defende
 **Usługa Azure Defender dla programu SQL** obejmuje dwa oddzielne plany usługi Azure Defender:
 
 - **Usługa Azure Defender dla serwerów usługi Azure SQL Database** chroni:
-  - [Baza danych SQL Azure](../azure-sql/database/sql-database-paas-overview.md)
+  - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
   - [Wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
   - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 

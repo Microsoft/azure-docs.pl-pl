@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39486b076f9284436207f823ea48fddc98bb48a0
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320629"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372850"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importuj klucze chronione przez moduł HSM do zarządzanego modułu HSM (BYOK)
 
@@ -67,6 +67,9 @@ Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem inter
 |Fortanix|Instrukcj<br/>Moduł HSM jako usługa|<ul><li>Usługa zarządzania kluczami Self-Defending (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Eksportowanie kluczy SDKMS do dostawców chmury dla BYOK-Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Firmy|Producent|Wszystkie LiquidSecurity sprzętowych modułów zabezpieczeń with<ul><li>Oprogramowanie układowe w wersji 2.0.4 lub nowszej</li><li>Oprogramowanie układowe w wersji 3,2 lub nowszej</li></ul>|[Narzędzie i dokumentacja BYOK firmy Marvell](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|Niezależnego dostawcy oprogramowania (system zarządzania kluczami przedsiębiorstwa)|Wiele marek i modeli modułu HSM, w tym<ul><li>Oprogramowanie wspomagające nCipher</li><li>Firmy Thales</li><li>Utimaco</li></ul>[Aby uzyskać szczegółowe informacje, zobacz witrynę Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK — narzędzie i dokumentacja](https://www.cryptomathic.com/azurebyok)|
+|Securosys SA|Producent, moduł HSM jako usługa|Rodzina modułów HSM Primus, moduł HSM chmur Securosys|[Primus BYOK — narzędzie i dokumentacja](https://www.securosys.com/primus-azure-byok)|
+||||
+
 
 ## <a name="supported-key-types"></a>Obsługiwane typy kluczy
 
@@ -124,7 +127,7 @@ Prześlij plik BYOK na podłączonym komputerze.
 > [!NOTE] 
 > Importowanie kluczy RSA 1 024-bitowe nie jest obsługiwane. Obecnie Importowanie klucza krzywej eliptyczna (EC) nie jest obsługiwane.
 >
-> **Znany problem**: Importowanie klucza docelowego RSA 4K z Luna sprzętowych modułów zabezpieczeń jest obsługiwane tylko przy użyciu oprogramowania układowego 7.4.0 lub nowszego.
+> **Znany problem** : Importowanie klucza docelowego RSA 4K z Luna sprzętowych modułów zabezpieczeń jest obsługiwane tylko przy użyciu oprogramowania układowego 7.4.0 lub nowszego.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>Krok 4. przeniesienie klucza do zarządzanego modułu HSM
 

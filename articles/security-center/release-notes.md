@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 6de06e4ab9a302517a09b34de56c1b5535b245a9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357814"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372345"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -31,7 +31,13 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 > Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
 
 
-## <a name="november-2020"></a>Listopad 2020
+## <a name="november-2020"></a>Listopad 2020 r.
+
+Aktualizacje w listopadzie obejmują:
+
+- [29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [NIST SP 800 171 R2 dodano do Security Center pulpitu nawigacyjnego zgodności z przepisami](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
 
@@ -61,10 +67,21 @@ Powiązane linki:
 - [Dowiedz się więcej o Azure Database for PostgreSQL](../postgresql/overview.md)
 
 
+### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>NIST SP 800 171 R2 dodano do Security Center pulpitu nawigacyjnego zgodności z przepisami
+
+Standard NIST SP 800-171 R2 jest teraz dostępny jako wbudowana inicjatywa do używania z pulpitem nawigacyjnym zgodności z przepisami Azure Security Center. Mapowania dla formantów są opisane [szczegółowo w artykule NIST SP 800-171 R2 zgodność z przepisami](../governance/policy/samples/nist-sp-800-171-r2.md). 
+
+Aby zastosować Standard do subskrypcji i stale monitorować stan zgodności, użyj instrukcji w temacie [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Standard NIST SP 800 171 R2 na pulpicie nawigacyjnym zgodności z przepisami Security Center":::
+
+Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+
 
 
 ## <a name="october-2020"></a>Październik 2020 r.
 
+Aktualizacje w październiku obejmują:
 - [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych (wersja zapoznawcza)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Dodane zalecenie dotyczące zapory platformy Azure (wersja zapoznawcza)](#azure-firewall-recommendation-added-preview)
 - [Autoryzowane zakresy adresów IP powinny być zdefiniowane w zaleceniu usług Kubernetes Services zaktualizowanym z opcją szybkie rozwiązanie.](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
@@ -253,7 +270,7 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)

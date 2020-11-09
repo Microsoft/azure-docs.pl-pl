@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9b3353d3ba1af572b118001691e38af497f6f1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290045"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372385"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Jak indeksować dane usługi Cosmos DB przy użyciu indeksatora usługi Azure Cognitive Search 
 
@@ -32,7 +32,7 @@ Ze względu na to, że terminologia może być myląca, warto zauważyć, że [A
 
 Indeksator Cosmos DB w usłudze Azure Wyszukiwanie poznawcze umożliwia przeszukiwanie [Azure Cosmos DB elementów](../cosmos-db/databases-containers-items.md#azure-cosmos-items) dostępnych za pomocą różnych protokołów. 
 
-+ W przypadku [interfejsu SQL API](../cosmos-db/sql-query-getting-started.md), który jest ogólnie dostępny, można użyć [portalu](#cosmos-indexer-portal), [interfejsu API REST](/rest/api/searchservice/indexer-operations)lub [zestawu .NET SDK](/dotnet/api/microsoft.azure.search.models.indexer) do utworzenia źródła danych i indeksatora.
++ W przypadku [interfejsu SQL API](../cosmos-db/sql-query-getting-started.md), który jest ogólnie dostępny, można użyć [portalu](#cosmos-indexer-portal), [interfejsu API REST](/rest/api/searchservice/indexer-operations)lub [zestawu .NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer) do utworzenia źródła danych i indeksatora.
 
 + W przypadku [interfejsu API MongoDB (wersja zapoznawcza)](../cosmos-db/mongodb-introduction.md)można użyć [portalu](#cosmos-indexer-portal) lub [interfejsu API REST w wersji 2020-06-30-Preview](search-api-preview.md) , aby utworzyć źródło danych i indeksator.
 
@@ -68,7 +68,7 @@ Kreatora można [uruchomić](search-import-data-portal.md) na pasku poleceń na 
 
 ### <a name="3---set-the-data-source"></a>3 — Ustawianie źródła danych
 
-Na stronie **Źródło danych** Źródło musi być **Cosmos DB**z następującymi specyfikacjami:
+Na stronie **Źródło danych** Źródło musi być **Cosmos DB** z następującymi specyfikacjami:
 
 + **Nazwa** to nazwa obiektu źródła danych. Po utworzeniu można wybrać go dla innych obciążeń.
 
@@ -151,7 +151,7 @@ Te wartości można znaleźć w portalu:
 
 2. W okienku nawigacji po lewej stronie kliknij pozycję **klucze** , a następnie skopiuj klucz podstawowy lub pomocniczy (są one równoważne).
 
-3. Przejdź do strony portalu dla konta magazynu Cosmos. W okienku nawigacji po lewej stronie w obszarze **Ustawienia**kliknij pozycję **klucze**. Ta strona zawiera identyfikator URI, dwa zestawy parametrów połączenia i dwa zestawy kluczy. Skopiuj jeden z parametrów połączenia do Notatnika.
+3. Przejdź do strony portalu dla konta magazynu Cosmos. W okienku nawigacji po lewej stronie w obszarze **Ustawienia** kliknij pozycję **klucze**. Ta strona zawiera identyfikator URI, dwa zestawy parametrów połączenia i dwa zestawy kluczy. Skopiuj jeden z parametrów połączenia do Notatnika.
 
 ### <a name="2---create-a-data-source"></a>2 — Tworzenie źródła danych
 
@@ -185,8 +185,8 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 |---------|-------------|
 | **Nazwij** | Wymagane. Wybierz dowolną nazwę reprezentującą obiekt źródła danych. |
 |**Wprowadź**| Wymagane. Musi być `cosmosdb` . |
-|**uwierzytelniające** | Wymagane. Musi być zgodna z formatem parametrów połączenia Cosmos DB lub formatem parametrów połączenia zarządzanej tożsamości.<br/><br/>W przypadku **kolekcji SQL**parametry połączenia mogą mieć jeden z następujących formatów: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Parametry połączenia tożsamości zarządzanej o następującym formacie, który nie zawiera klucza konta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Aby użyć tego formatu parametrów połączenia, postępuj zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia indeksatora z bazą danych Cosmos dB przy użyciu tożsamości zarządzanej](search-howto-managed-identities-cosmos-db.md).<br/><br/>W przypadku wersji 3,2 i w wersji 3,6 **kolekcje MongoDB** używają jednego z następujących formatów parametrów połączenia: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Parametry połączenia tożsamości zarządzanej o następującym formacie, który nie zawiera klucza konta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Aby użyć tego formatu parametrów połączenia, postępuj zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia indeksatora z bazą danych Cosmos dB przy użyciu tożsamości zarządzanej](search-howto-managed-identities-cosmos-db.md).<br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku **wykresów Gremlin i tabel Cassandra**.<br/><br/>Należy unikać numerów portów w adresie URL punktu końcowego. Jeśli dołączysz numer portu, usługa Azure Wyszukiwanie poznawcze nie będzie w stanie indeksować bazy danych Azure Cosmos DB.|
-| **kontener** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
+|**uwierzytelniające** | Wymagane. Musi być zgodna z formatem parametrów połączenia Cosmos DB lub formatem parametrów połączenia zarządzanej tożsamości.<br/><br/>W przypadku **kolekcji SQL** parametry połączenia mogą mieć jeden z następujących formatów: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Parametry połączenia tożsamości zarządzanej o następującym formacie, który nie zawiera klucza konta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Aby użyć tego formatu parametrów połączenia, postępuj zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia indeksatora z bazą danych Cosmos dB przy użyciu tożsamości zarządzanej](search-howto-managed-identities-cosmos-db.md).<br/><br/>W przypadku wersji 3,2 i w wersji 3,6 **kolekcje MongoDB** używają jednego z następujących formatów parametrów połączenia: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Parametry połączenia tożsamości zarządzanej o następującym formacie, który nie zawiera klucza konta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Aby użyć tego formatu parametrów połączenia, postępuj zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia indeksatora z bazą danych Cosmos dB przy użyciu tożsamości zarządzanej](search-howto-managed-identities-cosmos-db.md).<br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku **wykresów Gremlin i tabel Cassandra**.<br/><br/>Należy unikać numerów portów w adresie URL punktu końcowego. Jeśli dołączysz numer portu, usługa Azure Wyszukiwanie poznawcze nie będzie w stanie indeksować bazy danych Azure Cosmos DB.|
+| **wbudowane** | Zawiera następujące elementy: <br/>**Nazwa** : wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie** : opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
 | **dataChangeDetectionPolicy** | Rekomendowane. Zobacz sekcję [indeksowanie zmienionych dokumentów](#DataChangeDetectionPolicy) .|
 |**dataDeletionDetectionPolicy** | Opcjonalny. Zobacz sekcję [indeksowanie usuniętych dokumentów](#DataDeletionDetectionPolicy) .|
 
@@ -194,7 +194,7 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 Możesz określić zapytanie SQL do spłaszczania zagnieżdżonych właściwości lub tablic, właściwości JSON projektu i przefiltrować dane, które mają być indeksowane. 
 
 > [!WARNING]
-> Zapytania niestandardowe nie są obsługiwane w przypadku **interfejsu API MongoDB**, **interfejsu api Gremlin**i **interfejs API Cassandra**: `container.query` parametr musi mieć wartość null lub być pominięty. Jeśli musisz użyć zapytania niestandardowego, poinformuj nas o [głosowaniu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
+> Zapytania niestandardowe nie są obsługiwane w przypadku **interfejsu API MongoDB** , **interfejsu api Gremlin** i **interfejs API Cassandra** : `container.query` parametr musi mieć wartość null lub być pominięty. Jeśli musisz użyć zapytania niestandardowego, poinformuj nas o [głosowaniu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
 
 Przykładowy dokument:
 
@@ -278,7 +278,7 @@ Upewnij się, że schemat indeksu docelowego jest zgodny ze schematem źródłow
 | Tablice typów pierwotnych, na przykład ["a", "b", "c"] |Collection(Edm.String) |
 | Ciągi, które wyglądają jak daty |EDM. DateTimeOffset, EDM. String |
 | Obiekty GEOJSON, na przykład {"Type": "Point", "współrzędne": [Long, lat]} |Edm.GeographyPoint |
-| Inne obiekty JSON |Nie dotyczy |
+| Inne obiekty JSON |Brak |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 — Konfigurowanie i uruchamianie indeksatora
 
@@ -307,16 +307,16 @@ Aby uzyskać więcej informacji o definiowaniu harmonogramów indeksatora, zobac
 
 Ogólnie dostępny zestaw .NET SDK ma pełną zgodność z ogólnie dostępnym interfejsem API REST. Zalecamy zapoznanie się z poprzednią sekcją interfejsu API REST, aby poznać koncepcje, przepływ pracy i wymagania. Następnie można zapoznać się z następującą dokumentacją interfejsu API platformy .NET, aby zaimplementować indeksator JSON w kodzie zarządzanym.
 
-+ [Microsoft. Azure. Search. models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [Microsoft. Azure. Search. models. DataSourceType](/dotnet/api/microsoft.azure.search.models.datasourcetype)
-+ [Microsoft. Azure. Search. models. index](/dotnet/api/microsoft.azure.search.models.index)
-+ [Microsoft. Azure. Search. models. indeksator](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents. indexes. models. searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents. indexes. models. searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype)
++ [azure.search.documents. indexes. models. searchindex](/dotnet/api/azure.search.documents.indexes.models.searchindex)
++ [azure.search.documents. indexes. models. searchindexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="DataChangeDetectionPolicy"></a>
 
 ## <a name="indexing-changed-documents"></a>Indeksowanie zmienionych dokumentów
 
-Celem zasad wykrywania zmian danych jest efektywne zidentyfikowanie zmienionych elementów danych. Obecnie jedyną obsługiwaną zasadą jest [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) użycie `_ts` właściwości (Sygnatura czasowa) dostarczonej przez Azure Cosmos DB, która jest określona w następujący sposób:
+Celem zasad wykrywania zmian danych jest efektywne zidentyfikowanie zmienionych elementów danych. Obecnie jedyną obsługiwaną zasadą jest [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) użycie `_ts` właściwości (Sygnatura czasowa) dostarczonej przez Azure Cosmos DB, która jest określona w następujący sposób:
 
 ```http
     {

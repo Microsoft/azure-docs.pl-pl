@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4d98323ebe973f13e654324f463ae01a8f1268c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 66e2f70a5d55d263f7da343c0987e77a9f60c3b0
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629225"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372680"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Obrazy Red Hat Enterprise Linux (RHEL) dostępne na platformie Azure
 Platforma Azure oferuje różne obrazy RHEL dla różnych przypadków użycia.
@@ -28,10 +28,10 @@ Jest to lista obrazów RHEL dostępnych na platformie Azure. O ile nie określon
 
 Oferta| Jednostka SKU | Partycjonowanie | Inicjowanie obsługi | Uwagi
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | SUROWCÓW    | Agent systemu Linux | 
-|             | 6.8      | SUROWCÓW    | Agent systemu Linux | 
-|             | 6,9      | SUROWCÓW    | Agent systemu Linux | 
-|             | 6,10     | SUROWCÓW    | Agent systemu Linux | 
+RHEL          | 6.7      | SUROWCÓW    | Agent systemu Linux | Rozszerzona obsługa cyklu życia dostępna od 1 grudnia. [Więcej informacji znajdziesz tutaj.](redhat-extended-lifecycle-support.md)
+|             | 6.8      | SUROWCÓW    | Agent systemu Linux | Rozszerzona obsługa cyklu życia dostępna od 1 grudnia. [Więcej informacji znajdziesz tutaj.](redhat-extended-lifecycle-support.md)
+|             | 6,9      | SUROWCÓW    | Agent systemu Linux | Rozszerzona obsługa cyklu życia dostępna od 1 grudnia. [Więcej informacji znajdziesz tutaj.](redhat-extended-lifecycle-support.md)
+|             | 6,10     | SUROWCÓW    | Agent systemu Linux | Rozszerzona obsługa cyklu życia dostępna od 1 grudnia. [Więcej informacji znajdziesz tutaj.](redhat-extended-lifecycle-support.md)
 |             | 7 — NIEPRZETWORZONY    | SUROWCÓW    | Agent systemu Linux | Rodzina obrazów RHEL 7. x. <br> Domyślnie dołączone do zwykłych repozytoriów (nie EUS).
 |             | 7 — LVM    | LVM    | Agent systemu Linux | Rodzina obrazów RHEL 7. x. <br> Domyślnie dołączone do zwykłych repozytoriów (nie EUS). Jeśli szukasz standardowego obrazu RHEL do wdrożenia, użyj tego zestawu obrazów i/lub jego odpowiednika generacji 2.
 |             | 7lvm — Gen2| LVM    | Agent systemu Linux | Rodzina obrazów generacji 2, RHEL 7. x. <br> Domyślnie dołączone do zwykłych repozytoriów (nie EUS). Jeśli szukasz standardowego obrazu RHEL do wdrożenia, użyj tego zestawu obrazów i/lub jego odpowiednika generacji 1.
@@ -67,9 +67,9 @@ RHEL — SAP      | 7,4      | LVM    | Agent systemu Linux | RHEL SAP HANA 7,4 
 |             | 7,6       | LVM    | Agent systemu Linux | RHEL SAP HANA 7,6 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
 |             | 76sap — Gen2| LVM    | Agent systemu Linux | RHEL SAP HANA 7,6 i aplikacje biznesowe. Obraz generacji 2. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
 |             | 7,7       | LVM    | Agent systemu Linux | RHEL SAP HANA 7,7 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
-RHEL — SAP-HANA (do usunięcia z portalu Marketplace w październiku 2020) | 6.7       | SUROWCÓW    | Agent systemu Linux | RHEL 6,7 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP. Ten obraz zostanie usunięty z usługi Azure Martketplace w październiku 2020. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).
-|             | 7.2       | LVM    | Agent systemu Linux | RHEL 7,2 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP. Ten obraz zostanie usunięty z usługi Azure Martketplace w październiku 2020. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).
-|             | 7.3       | LVM    | Agent systemu Linux | RHEL 7,3 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP. Ten obraz zostanie usunięty z usługi Azure Martketplace w październiku 2020. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).
+RHEL-SAP-HANA (do usunięcia w listopadzie 2020) | 6.7       | SUROWCÓW    | Agent systemu Linux | RHEL 6,7 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP. Ten obraz zostanie usunięty w listopadzie 2020. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Agent systemu Linux | RHEL 7,2 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP. Ten obraz zostanie usunięty w listopadzie 2020. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Agent systemu Linux | RHEL 7,3 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP. Ten obraz zostanie usunięty w listopadzie 2020. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).
 RHEL — SAP-APPS | 6.8       | SUROWCÓW    | Agent systemu Linux | RHEL 6,8 dla oprogramowania SAP Business Applications. Nieaktualna korzyść dla obrazów RHEL-SAP.
 |             | 7.3       | LVM    | Agent systemu Linux | RHEL 7,3 dla oprogramowania SAP Business Applications. Nieaktualna korzyść dla obrazów RHEL-SAP.
 |             | 7,4       | LVM    | Agent systemu Linux | RHEL 7,4 dla oprogramowania SAP Business Applications.

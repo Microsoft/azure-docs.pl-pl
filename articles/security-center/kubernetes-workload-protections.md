@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091155"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372635"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -35,7 +35,7 @@ Security Center oferuje więcej funkcji zabezpieczeń kontenerów po włączeniu
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza|
+|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Właściciel** lub **administrator zabezpieczeń** , który edytuje przypisanie<br>**Czytnik** do wyświetlania zaleceń|
 |Obsługiwane klastry:|Wymagany jest Kubernetes w wersji 1.14 (lub nowszej)<br>Brak zasobu PodSecurityPolicy (stary model PSP) w klastrach<br>Węzły systemu Windows nie są obsługiwane|
@@ -58,12 +58,12 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
 
     1. Z dowolnego z formantów zabezpieczeń wybierz zalecenie, aby zobaczyć zasoby, na których można zainstalować dodatek, a następnie wybierz pozycję **Koryguj**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Zalecenie * * Azure Policy dodatku dla Kubernetes powinny być zainstalowane i włączone w klastrach * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Strona szczegółów rekomendacji dla * * Azure Policy dodatku dla Kubernetes powinna być zainstalowana i włączona w klastrach * *":::
 
 1. Około 30 minut po zakończeniu instalacji dodatku Security Center pokazuje stan kondycji klastrów dla następujących zaleceń, każdy w odpowiedniej kontroli zabezpieczeń, jak pokazano poniżej:
 
     > [!TIP]
-    > Niektóre zalecenia mają parametry, które muszą być dostosowane za pośrednictwem Azure Policy, aby efektywnie korzystać z nich. Na przykład aby skorzystać z **obrazów kontenerów rekomendacji, należy wdrożyć tylko z zaufanych rejestrów**, należy zdefiniować zaufane rejestry.
+    > Niektóre zalecenia mają parametry, które muszą być dostosowane za pośrednictwem Azure Policy, aby efektywnie korzystać z nich. Na przykład aby skorzystać z **obrazów kontenerów rekomendacji, należy wdrożyć tylko z zaufanych rejestrów** , należy zdefiniować zaufane rejestry.
     > 
     > Jeśli nie wprowadzisz wymaganych parametrów dla zaleceń, które wymagają konfiguracji, Twoje obciążenia będą wyświetlane jako w złej kondycji.
 
@@ -97,9 +97,9 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
 
 1. Aby wymusić dowolne zalecenia, 
 
-    1. Otwórz stronę szczegóły rekomendacji i wybierz pozycję **Odmów**:
+    1. Otwórz stronę szczegóły rekomendacji i wybierz pozycję **Odmów** :
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Zalecenie * * Azure Policy dodatku dla Kubernetes powinny być zainstalowane i włączone w klastrach * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opcja odmowy dla parametru Azure Policy":::
 
         Spowoduje to otwarcie okienka, w którym ustawisz zakres. 
 
@@ -113,7 +113,7 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
 
 1. Podczas wyświetlania rekomendacji z zestawu ochrony obciążeń zobaczysz liczbę uwzględnionych zasobników ("Kubernetes Components") na liście obok klastra. Aby zapoznać się z listą określonych zasobników, wybierz klaster, a następnie wybierz pozycję **podejmij akcję**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Zalecenie * * Azure Policy dodatku dla Kubernetes powinny być zainstalowane i włączone w klastrach * *"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Wyświetlanie odpowiednich zasobników dla rekomendacji K8s"::: 
 
 1. Aby przetestować wymuszanie, użyj dwóch poniższych wdrożeń Kubernetes:
 

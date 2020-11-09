@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.custom: devx-track-java, devx-track-csharp
 ms.author: aahi
-ms.openlocfilehash: 5ac80cad20e89a7870c26960aedb58f34fa21380
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: afac19a6debb3804c99492338428669928f1118b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934423"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371696"
 ---
 Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pobieranie szczegółowych informacji o obrazach z usługi wyszukiwanie wizualne Bing przy użyciu biblioteki klienckiej języka Java. Chociaż wyszukiwanie wizualne Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
 
@@ -23,7 +23,7 @@ Użyj biblioteki klienta wyszukiwanie wizualne Bing dla języka Java, aby:
 * Przekaż obraz, aby wysłać żądanie wyszukiwania wizualnego.
 * Pobierz token Insights i Tagi wyszukiwania wizualnego.
 
-[Dokumentacja](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch)  |  źródłowy biblioteki [Artefakt (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Dokumentacja](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch)  |  źródłowy biblioteki [Artefakt (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +33,7 @@ Użyj biblioteki klienta wyszukiwanie wizualne Bing dla języka Java, aby:
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-Po otrzymaniu klucza z zasobu [Utwórz zmienną środowiskową](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza o nazwie `BING_SEARCH_V7_SUBSCRIPTION_KEY` .
+Po otrzymaniu klucza z zasobu [Utwórz zmienną środowiskową](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla klucza o nazwie `BING_SEARCH_V7_SUBSCRIPTION_KEY` .
 
 ### <a name="create-a-new-gradle-project"></a>Utwórz nowy projekt Gradle
 
@@ -49,7 +49,7 @@ Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utw
 gradle init --type basic
 ```
 
-Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
+Po wyświetleniu monitu wybierz pozycję **Język DSL** , a następnie **Kotlin**.
 
 Znajdź element *Build. Gradle. KTS* i otwórz go za pomocą PREFEROWANEGO środowiska IDE lub edytora tekstu. Następnie skopiuj go do tej konfiguracji kompilacji:
 
@@ -124,10 +124,10 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań przy
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 > [!NOTE]
-> W tym przewodniku szybki start przyjęto założenie, że dla klucza wyszukiwanie wizualne Bing została [utworzona zmienna środowiskowa](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) o nazwie `BING_SEARCH_V7_SUBSCRIPTION_KEY` .
+> W tym przewodniku szybki start przyjęto założenie, że dla klucza wyszukiwanie wizualne Bing została [utworzona zmienna środowiskowa](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) o nazwie `BING_SEARCH_V7_SUBSCRIPTION_KEY` .
 
 
-W metodzie Main upewnij się, że używasz klucza subskrypcji, aby utworzyć wystąpienie obiektu [BingVisualSearchAPI](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) .
+W metodzie Main upewnij się, że używasz klucza subskrypcji, aby utworzyć wystąpienie obiektu [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) .
 
 ```csharp
 BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKey);
@@ -135,13 +135,13 @@ BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKe
 
 ## <a name="send-a-visual-search-request"></a>Wyślij żądanie wyszukiwania wizualnego
 
-W nowej metodzie należy wysłać tablicę bajtową obrazu (która została utworzona w `main()` metodzie) przy użyciu metody [bingImages (). visualSearch (](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) ) klienta. 
+W nowej metodzie należy wysłać tablicę bajtową obrazu (która została utworzona w `main()` metodzie) przy użyciu metody [bingImages (). visualSearch (](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) ) klienta. 
 
 [!code-java[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
 ## <a name="print-the-image-insight-token-and-visual-search-tags"></a>Drukuj token wglądu w obraz i Tagi wyszukiwania wizualnego
 
-Sprawdź, czy obiekt [ImageKnowledge](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) ma wartość null. W przeciwnym razie należy wydrukować token Insights, liczbę tagów, liczbę akcji i typ pierwszego działania.
+Sprawdź, czy obiekt [ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) ma wartość null. W przeciwnym razie należy wydrukować token Insights, liczbę tagów, liczbę akcji i typ pierwszego działania.
 
 [!code-java[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 
@@ -159,7 +159,7 @@ Uruchom aplikację z `run` celem:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

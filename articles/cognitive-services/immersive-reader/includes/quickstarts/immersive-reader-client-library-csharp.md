@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116723"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371842"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Możesz użyć czytnika immersyjny w aplikacjach, aby odizolować tekst, aby zwiększyć fokus, wyświetlić obrazy dla często używanych wyrazów, wyróżnić części mowy, odczytywać zaznaczone fragmenty tekstu na głos, tłumaczyć słowa i frazy w czasie rzeczywistym i nie tylko.
 
@@ -42,7 +42,7 @@ Utwórz nowy projekt w programie Visual Studio przy użyciu szablonu aplikacji s
 
 ### <a name="configure-authentication-values"></a>Konfigurowanie wartości uwierzytelniania
 
-Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz polecenie **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to otwarcie pliku o nazwie _secrets.jsna_. Ten plik nie jest sprawdzany w kontroli źródła. Dowiedz się więcej [tutaj](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Zastąp zawartość _secrets.js_ przy użyciu poniższego, podając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
+Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz polecenie **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to otwarcie pliku o nazwie _secrets.jsna_. Ten plik nie jest sprawdzany w kontroli źródła. Dowiedz się więcej [tutaj](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Zastąp zawartość _secrets.js_ przy użyciu poniższego, podając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
 
 ```json
 {
@@ -65,7 +65,7 @@ Otwórz konsolę Menedżera pakietów NuGet z **menu Narzędzia — > Menedżer 
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>Aktualizowanie kontrolera w celu uzyskania tokenu 
 
-Otwórz _Controllers\HomeController.cs_i Dodaj następujący kod po instrukcjach _using_ w górnej części pliku.
+Otwórz _Controllers\HomeController.cs_ i Dodaj następujący kod po instrukcjach _using_ w górnej części pliku.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -218,9 +218,9 @@ Zwróć uwagę, że cały tekst ma atrybut **lang** , który opisuje Języki tek
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Dodaj kod JavaScript do obsługi uruchamiania czytnika immersyjny
 
-Biblioteka czytników immersyjny udostępnia funkcje, takie jak uruchamianie czytnika Immersyjnygo i renderowanie przycisków czytnika szczegółowego. Dowiedz się więcej [tutaj](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+Biblioteka czytników immersyjny udostępnia funkcje, takie jak uruchamianie czytnika Immersyjnygo i renderowanie przycisków czytnika szczegółowego. Dowiedz się więcej [tutaj](../../reference.md).
 
-W dolnej części _Views\Home\Index.cshtml_Dodaj następujący kod:
+W dolnej części _Views\Home\Index.cshtml_ Dodaj następujący kod:
 
 ```html
 @section Scripts
@@ -292,7 +292,7 @@ W dolnej części _Views\Home\Index.cshtml_Dodaj następujący kod:
 
 ## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
-Na pasku menu wybierz kolejno opcje **debuguj > Rozpocznij debugowanie**lub naciśnij klawisz **F5** , aby uruchomić aplikację.
+Na pasku menu wybierz kolejno opcje **debuguj > Rozpocznij debugowanie** lub naciśnij klawisz **F5** , aby uruchomić aplikację.
 
 W przeglądarce powinny zostać wyświetlone następujące tematy:
 

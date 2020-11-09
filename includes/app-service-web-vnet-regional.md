@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082227"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94372020"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -23,8 +23,8 @@ Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
 W przypadku korzystania z integracji sieci wirtualnej z usługą sieci wirtualnych w tym samym regionie można korzystać z następujących funkcji sieciowych platformy Azure:
 
-* **Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)**: można zablokować ruch wychodzący z sieciowej grupy zabezpieczeń, który znajduje się w podsieci integracji. Reguły ruchu przychodzącego nie mają zastosowania, ponieważ nie można używać integracji sieci wirtualnej w celu zapewnienia dostępu do aplikacji w ramach ruchu przychodzącego.
-* **Tabele tras (UDR)**: można umieścić tabelę tras w podsieci integracji w celu wysłania ruchu wychodzącego w dowolnym miejscu.
+* **Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)** : można zablokować ruch wychodzący z sieciowej grupy zabezpieczeń, który znajduje się w podsieci integracji. Reguły ruchu przychodzącego nie mają zastosowania, ponieważ nie można używać integracji sieci wirtualnej w celu zapewnienia dostępu do aplikacji w ramach ruchu przychodzącego.
+* **Tabele tras (UDR)** : można umieścić tabelę tras w podsieci integracji w celu wysłania ruchu wychodzącego w dowolnym miejscu.
 
 Domyślnie aplikacja kieruje tylko ruch RFC1918 do sieci wirtualnej. Jeśli chcesz skierować cały ruch wychodzący do sieci wirtualnej, Zastosuj ustawienie aplikacji WEBSITE_VNET_ROUTE_ALL do aplikacji. Aby skonfigurować ustawienie aplikacji:
 
@@ -42,7 +42,7 @@ Domyślnie aplikacja kieruje tylko ruch RFC1918 do sieci wirtualnej. Jeśli chce
 Istnieją pewne ograniczenia dotyczące używania integracji sieci wirtualnej z usługą sieci wirtualnych w tym samym regionie:
 
 * Nie można uzyskać dostępu do zasobów w ramach globalnych połączeń komunikacji równorzędnej.
-* Funkcja jest dostępna tylko z nowszych Azure App Service jednostek skalowania, które obsługują plany App Service PremiumV2. Należy zauważyć, że nie *oznacza to, że aplikacja musi działać w warstwie cenowej PremiumV2*, ale musi być uruchomiona w planie App Service, w którym dostępna jest opcja PremiumV2 (która oznacza, że jest to nowsza jednostka skalowania, w której ta funkcja integracji sieci wirtualnej jest również dostępna).
+* Funkcja jest dostępna tylko z nowszych Azure App Service jednostek skalowania, które obsługują plany App Service PremiumV2. Należy zauważyć, że nie *oznacza to, że aplikacja musi działać w warstwie cenowej PremiumV2* , ale musi być uruchomiona w planie App Service, w którym dostępna jest opcja PremiumV2 (która oznacza, że jest to nowsza jednostka skalowania, w której ta funkcja integracji sieci wirtualnej jest również dostępna).
 * Podsieć integracji może być używana tylko przez jeden plan App Service.
 * Funkcja nie może być używana przez aplikacje planu izolowanego, które znajdują się w App Service Environment.
 * Ta funkcja wymaga nieużywanej podsieci, która jest/27 z co najmniej 32 adresów w sieci wirtualnej Azure Resource Manager.
@@ -66,7 +66,7 @@ Integracja z regionalną siecią wirtualną umożliwia korzystanie z punktów ko
 1. Konfigurowanie integracji regionalnej sieci wirtualnej z aplikacją internetową
 1. Przejdź do usługi docelowej i skonfiguruj punkty końcowe usługi dla podsieci używanej do integracji
 
-### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
+### <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń
 
 Za pomocą sieciowych grup zabezpieczeń można blokować ruch przychodzący i wychodzący do zasobów w sieci wirtualnej. Aplikacja, która korzysta z integracji regionalnej sieci wirtualnej, może używać [sieciowej grupy zabezpieczeń][VNETnsg] do blokowania ruchu wychodzącego do zasobów w sieci wirtualnej lub w Internecie. Aby zablokować ruch do adresów publicznych, musisz mieć ustawienie aplikacji WEBSITE_VNET_ROUTE_ALL ustawione na 1. Reguły ruchu przychodzącego w sieciowej grupy zabezpieczeń nie mają zastosowania do Twojej aplikacji, ponieważ Integracja sieci wirtualnej ma wpływ tylko na ruch wychodzący z aplikacji.
 
@@ -82,12 +82,17 @@ Trasy Border Gateway Protocol (BGP) wpływają również na ruch aplikacji. Jeś
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego serwera DNS, z którym jest skonfigurowana Sieć wirtualna. Domyślnie aplikacja nie będzie działała z Azure DNS Private Zones. Aby móc korzystać z Azure DNS Private Zones należy dodać następujące ustawienia aplikacji:
+Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego serwera DNS, z którym jest skonfigurowana Sieć wirtualna. Domyślnie aplikacja nie będzie działała z Azure DNS Private Zones. Aby można było korzystać z Azure DNS Private Zones, należy dodać następujące ustawienia aplikacji:
 
-1. WEBSITE_DNS_SERVER z wartością 168.63.129.16 
+1. WEBSITE_DNS_SERVER z wartością 168.63.129.16
 1. WEBSITE_VNET_ROUTE_ALL z wartością 1
 
-Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej, a ponadto umożliwia korzystanie z aplikacji Azure DNS stref prywatnych.
+Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej. Ponadto umożliwi ona korzystanie z Azure DNS przez wysyłanie zapytań do strefy Prywatna strefa DNS na poziomie procesu roboczego. Ta funkcja jest używana, gdy uruchomiona aplikacja uzyskuje dostęp do strefy Prywatna strefa DNS.
+
+> [!NOTE]
+>Nie można dodać domeny niestandardowej do aplikacji sieci Web przy użyciu strefy Prywatna strefa DNS z Integracja z siecią wirtualną. Walidacja domeny niestandardowej odbywa się na poziomie kontrolera, a nie na poziomie procesu roboczego, co uniemożliwia wyświetlanie rekordów DNS. Aby można było używać domeny niestandardowej ze strefy Prywatna strefa DNS, walidacja powinna zostać pominięta przy użyciu Application Gateway lub ILB App Service Environment.
+
+
 
 ### <a name="private-endpoints"></a>Prywatne punkty końcowe
 

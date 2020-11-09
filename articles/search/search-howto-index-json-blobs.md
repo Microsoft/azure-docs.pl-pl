@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403640"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372386"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie JSON za pomocą indeksatora obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
@@ -49,11 +49,11 @@ Na stronie Przegląd usługi wyszukiwania można [uruchomić Kreatora](search-im
 
 ### <a name="3---set-the-data-source"></a>3 — Ustawianie źródła danych
 
-Na stronie **Źródło danych** Źródło musi być **BLOB Storage platformy Azure**z następującymi specyfikacjami:
+Na stronie **Źródło danych** Źródło musi być **BLOB Storage platformy Azure** z następującymi specyfikacjami:
 
 + **Dane do wyodrębnienia** powinny być *zawartością i metadanymi*. Wybranie tej opcji umożliwia kreatorowi wywnioskowanie schematu indeksu i zamapowanie pól do zaimportowania.
    
-+ **Tryb analizowania** powinien mieć wartość *JSON*, *tablicę JSON* lub *linie JSON*. 
++ **Tryb analizowania** powinien mieć wartość *JSON* , *tablicę JSON* lub *linie JSON*. 
 
   W formacie *JSON* każdy obiekt BLOB jest określany jako pojedynczy dokument wyszukiwania, wyświetlany jako niezależny element w wynikach wyszukiwania. 
 
@@ -63,7 +63,7 @@ Na stronie **Źródło danych** Źródło musi być **BLOB Storage platformy Azu
    
 + **Kontener magazynu** musi określać Twoje konto magazynu i kontener albo parametry połączenia, które są rozpoznawane jako kontener. Parametry połączenia można uzyskać na stronie portalu Blob service.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Importuj dane — polecenie w portalu" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definicja źródła danych obiektu BLOB" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 — pomijanie strony "wzbogacanie zawartości" w Kreatorze
 
@@ -81,7 +81,7 @@ Przejrzyj opis [atrybutów indeksu](/rest/api/searchservice/create-index#bkmk_in
 
 Poświęć chwilę, aby przejrzeć wybrane opcje. Po uruchomieniu kreatora są tworzone fizyczne struktury danych i nie będzie można edytować tych pól bez porzucania i ponownego tworzenia wszystkich obiektów.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Importuj dane — polecenie w portalu" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definicja indeksu obiektów BLOB" border="false":::
 
 ### <a name="6---create-indexer"></a>6 — Tworzenie indeksatora
 
@@ -89,7 +89,7 @@ W pełni określony Kreator tworzy trzy odrębne obiekty w usłudze wyszukiwania
 
 Jeśli nie znasz indeksatorów, *indeksator* jest zasobem w usłudze Azure wyszukiwanie poznawcze, który przeszukuje zewnętrzne źródło danych w celu przeszukiwania zawartości. Dane wyjściowe kreatora **importu danych** to indeksator, który przeszukuje źródło danych JSON, wyodrębnia zawartość z możliwością przeszukiwania i importuje go do indeksu na platformie Azure wyszukiwanie poznawcze.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Importuj dane — polecenie w portalu" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definicja indeksatora obiektów BLOB" border="false":::
 
 Kliknij przycisk **OK** , aby uruchomić kreatora i utworzyć wszystkie obiekty. Indeksowanie rozpocznie się natychmiast.
 
@@ -120,9 +120,9 @@ Obiekty blob JSON w usłudze Azure Blob Storage są zwykle pojedynczym dokumente
 
 | Dokument JSON | przeanalizowanie | Opis | Dostępność |
 |--------------|-------------|--------------|--------------|
-| Jeden na obiekt BLOB | `json` | Analizuje obiekty blob JSON jako pojedynczy fragment tekstu. Każdy obiekt BLOB JSON stał się pojedynczym dokumentem Wyszukiwanie poznawcze platformy Azure. | Ogólnie dostępne zarówno w interfejsie API [rest](/rest/api/searchservice/indexer-operations) , jak i w zestawie SDK [platformy .NET](/dotnet/api/microsoft.azure.search.models.indexer) . |
-| Wiele na obiekt BLOB | `jsonArray` | Analizuje tablicę JSON w obiekcie blob, gdzie każdy element tablicy zostaje oddzielnym dokumentem Wyszukiwanie poznawcze platformy Azure.  | Ogólnie dostępne zarówno w interfejsie API [rest](/rest/api/searchservice/indexer-operations) , jak i w zestawie SDK [platformy .NET](/dotnet/api/microsoft.azure.search.models.indexer) . |
-| Wiele na obiekt BLOB | `jsonLines` | Analizuje obiekt BLOB, który zawiera wiele jednostek JSON ("Array") rozdzielonych znakami nowego wiersza, gdzie każda jednostka zostaje oddzielnym dokumentem Wyszukiwanie poznawcze platformy Azure. | Ogólnie dostępne zarówno w interfejsie API [rest](/rest/api/searchservice/indexer-operations) , jak i w zestawie SDK [platformy .NET](/dotnet/api/microsoft.azure.search.models.indexer) . |
+| Jeden na obiekt BLOB | `json` | Analizuje obiekty blob JSON jako pojedynczy fragment tekstu. Każdy obiekt BLOB JSON stał się pojedynczym dokumentem Wyszukiwanie poznawcze platformy Azure. | Ogólnie dostępne zarówno w interfejsie API [rest](/rest/api/searchservice/indexer-operations) , jak i w zestawie SDK [platformy .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) . |
+| Wiele na obiekt BLOB | `jsonArray` | Analizuje tablicę JSON w obiekcie blob, gdzie każdy element tablicy zostaje oddzielnym dokumentem Wyszukiwanie poznawcze platformy Azure.  | Ogólnie dostępne zarówno w interfejsie API [rest](/rest/api/searchservice/indexer-operations) , jak i w zestawie SDK [platformy .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) . |
+| Wiele na obiekt BLOB | `jsonLines` | Analizuje obiekt BLOB, który zawiera wiele jednostek JSON ("Array") rozdzielonych znakami nowego wiersza, gdzie każda jednostka zostaje oddzielnym dokumentem Wyszukiwanie poznawcze platformy Azure. | Ogólnie dostępne zarówno w interfejsie API [rest](/rest/api/searchservice/indexer-operations) , jak i w zestawie SDK [platformy .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) . |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 — Tworzenie danych wejściowych dla żądania
 
@@ -141,7 +141,7 @@ Te wartości można znaleźć w portalu:
 
 2. W okienku nawigacji po lewej stronie kliknij pozycję **klucze** , a następnie skopiuj klucz podstawowy lub pomocniczy (są one równoważne).
 
-3. Przejdź do strony portalu dla konta magazynu. W okienku nawigacji po lewej stronie w obszarze **Ustawienia**kliknij pozycję **klucze dostępu**. Ta strona zawiera zarówno nazwę konta, jak i klucz. Skopiuj nazwę konta magazynu i jeden z kluczy do Notatnika.
+3. Przejdź do strony portalu dla konta magazynu. W okienku nawigacji po lewej stronie w obszarze **Ustawienia** kliknij pozycję **klucze dostępu**. Ta strona zawiera zarówno nazwę konta, jak i klucz. Skopiuj nazwę konta magazynu i jeden z kluczy do Notatnika.
 
 ### <a name="2---create-a-data-source"></a>2 — Tworzenie źródła danych
 
@@ -280,10 +280,10 @@ Tworzenie indeksatora w ramach importu danych wyzwalaczy usługi Azure Wyszukiwa
 
 Zestaw SDK platformy .NET ma pełną zgodność z interfejsem API REST. Zalecamy zapoznanie się z poprzednią sekcją interfejsu API REST, aby poznać koncepcje, przepływ pracy i wymagania. Następnie można zapoznać się z następującą dokumentacją interfejsu API platformy .NET, aby zaimplementować indeksator JSON w kodzie zarządzanym.
 
-+ [Microsoft. Azure. Search. models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [Microsoft. Azure. Search. models. DataSourceType](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
-+ [Microsoft. Azure. Search. models. index](/dotnet/api/microsoft.azure.search.models.index) 
-+ [Microsoft. Azure. Search. models. indeksator](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents. indexes. models. searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents. indexes. models. searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 
++ [azure.search.documents. indexes. models. searchindex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 
++ [azure.search.documents. indexes. models. searchindexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="parsing-modes"></a>
 
@@ -329,7 +329,7 @@ Jak wspomniano, mapowania pól nie są wymagane. Mając indeks z polami "text", 
 
 ## <a name="parse-json-arrays"></a>Analizowanie tablic JSON
 
-Alternatywnie możesz użyć opcji tablicy JSON. Ta opcja jest przydatna, gdy obiekty blob zawierają *tablicę poprawnie sformułowanych obiektów JSON*i chcesz, aby każdy element stał się osobnym dokumentem wyszukiwanie poznawcze platformy Azure. Na przykład, mając następujący obiekt BLOB JSON, można wypełnić indeks Wyszukiwanie poznawcze platformy Azure, używając trzech oddzielnych dokumentów, z których każdy ma pola "ID" i "text".  
+Alternatywnie możesz użyć opcji tablicy JSON. Ta opcja jest przydatna, gdy obiekty blob zawierają *tablicę poprawnie sformułowanych obiektów JSON* i chcesz, aby każdy element stał się osobnym dokumentem wyszukiwanie poznawcze platformy Azure. Na przykład, mając następujący obiekt BLOB JSON, można wypełnić indeks Wyszukiwanie poznawcze platformy Azure, używając trzech oddzielnych dokumentów, z których każdy ma pola "ID" i "text".  
 
 ```text
     [

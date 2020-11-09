@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340043"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372731"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ Inspekcji SQL Database można użyć do:
 - **Analizuj** raporty. Można znaleźć podejrzane zdarzenia, nietypową aktywność i trendy.
 
 > [!IMPORTANT]
-> Inspekcja Azure SQL Database jest zoptymalizowana pod kątem dostępności i wydajności. Podczas bardzo dużego działania Azure SQL Database lub usługa Azure Synapse umożliwia wykonywanie operacji i może nie rejestrować niektórych zdarzeń poddawanych inspekcji.
+> Inspekcja dla Azure SQL Database i usługi Azure Synapse jest zoptymalizowana pod kątem dostępności i wydajności. Podczas bardzo dużego działania lub dużego obciążenia sieciowego, Azure SQL Database i Azure Synapse umożliwiają wykonywanie operacji i może nie rejestrować niektórych zdarzeń poddawanych inspekcji.
 
 ### <a name="auditing-limitations"></a>Ograniczenia inspekcji
 
