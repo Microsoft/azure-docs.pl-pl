@@ -1,6 +1,6 @@
 ---
 title: Bezpieczny dostęp do zarządzanego modułu HSM Azure Key Vault zarządzanego modułu HSM
-description: Dowiedz się, jak zabezpieczyć dostęp do zarządzanego modułu HSM przy użyciu usług Azure RBAC i lokalnego zarządzanego modułu HSM RBAC
+description: Dowiedz się, jak zabezpieczyć dostęp do zarządzanego modułu HSM przy użyciu funkcji RBAC platformy Azure i zarządzanej kontroli RBAC modułu HSM
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 18ffa0f878effda8888200c13ab312851aaebdcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000782"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445323"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Bezpieczny dostęp do zarządzanego sprzętowych modułów zabezpieczeń
 
 Azure Key Vault zarządzany moduł HSM to usługa w chmurze, która chroni klucze szyfrowania. Ponieważ te dane są poufne i krytyczne dla działania firmy, należy zabezpieczyć dostęp do zarządzanego sprzętowych modułów zabezpieczeń, zezwalając na dostęp do niego tylko autoryzowanym aplikacjom i użytkownikom. Ten artykuł zawiera omówienie modelu kontroli dostępu zarządzanego modułu HSM. W tym artykule wyjaśniono uwierzytelnianie i autoryzację oraz opisano sposób zabezpieczania dostępu do zarządzanego sprzętowych modułów zabezpieczeń.
 
-Ten samouczek przeprowadzi Cię przez prosty przykład pokazujący, jak osiągnąć Rozdzielenie obowiązków i kontroli dostępu przy użyciu funkcji RBAC platformy Azure i lokalnego zarządzanego modułu HSM. Zobacz [zarządzana kontrola dostępu modułu HSM](access-control.md) , aby dowiedzieć się więcej o zarządzanym modelu kontroli dostępu modułu HSM.
+Ten samouczek przeprowadzi Cię przez prosty przykład pokazujący, jak uzyskać Rozdzielenie obowiązków i kontroli dostępu za pomocą funkcji RBAC platformy Azure oraz lokalnego RBAC modułu HSM. Zobacz [zarządzana kontrola dostępu modułu HSM](access-control.md) , aby dowiedzieć się więcej o zarządzanym modelu kontroli dostępu modułu HSM.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,9 +48,9 @@ W tym przykładzie tworzymy aplikację, która używa klucza RSA 2 048-bitowego 
 
 Zidentyfikowano następujące role, które zarządzają, wdrażają i przeprowadźą inspekcję aplikacji:
 
-- **Zespół ds. zabezpieczeń**: personel działu IT z biura firmy CSO (Dyrektor ds. zabezpieczeń) lub podobnych współautorów. Zespół ds. zabezpieczeń jest odpowiedzialny za odpowiednie przechowywanie kluczy. Klucze RSA lub klucze we do podpisywania oraz klucze RSA lub AES na potrzeby szyfrowania danych.
-- **Deweloperzy i operatorzy**: pracownicy, którzy opracowują aplikację i wdrażają ją na platformie Azure. Członkowie tego zespołu nie są częścią personelu zabezpieczeń. Nie powinny mieć dostępu do poufnych danych, takich jak klucze RSA. Tylko wdrażana aplikacja powinna mieć dostęp do danych poufnych.
-- **Audytorzy**: Ta rola jest dla współautorów, którzy nie są członkami rozwoju ani ogólnego personelu IT. Zapoznają się z użyciem i konserwacją certyfikatów, kluczy i wpisów tajnych w celu zapewnienia zgodności ze standardami zabezpieczeń.
+- **Zespół ds. zabezpieczeń** : personel działu IT z biura firmy CSO (Dyrektor ds. zabezpieczeń) lub podobnych współautorów. Zespół ds. zabezpieczeń jest odpowiedzialny za odpowiednie przechowywanie kluczy. Klucze RSA lub klucze we do podpisywania oraz klucze RSA lub AES na potrzeby szyfrowania danych.
+- **Deweloperzy i operatorzy** : pracownicy, którzy opracowują aplikację i wdrażają ją na platformie Azure. Członkowie tego zespołu nie są częścią personelu zabezpieczeń. Nie powinny mieć dostępu do poufnych danych, takich jak klucze RSA. Tylko wdrażana aplikacja powinna mieć dostęp do danych poufnych.
+- **Audytorzy** : Ta rola jest dla współautorów, którzy nie są członkami rozwoju ani ogólnego personelu IT. Zapoznają się z użyciem i konserwacją certyfikatów, kluczy i wpisów tajnych w celu zapewnienia zgodności ze standardami zabezpieczeń.
 
 Istnieje inna rola, która jest poza zakresem naszej aplikacji: Administrator subskrypcji (lub grupy zasobów). Administrator subskrypcji konfiguruje uprawnienia dostępu początkowego do zespołu ds. zabezpieczeń. Przyznają one dostęp do zespołu ds. zabezpieczeń przy użyciu grupy zasobów, która zawiera zasoby wymagane przez aplikację.
 

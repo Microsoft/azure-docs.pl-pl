@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
-ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314764"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445408"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w usłudze Azure Machine Learning
 
@@ -61,7 +61,7 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
      
 * **Nie ma gwarancji, że pakiet jest instalowany podczas instalowania programu Azure-pociąg-automl-Client:** 
    
-   W przypadku uruchamiania zdalnego AutoML z włączonym wyjaśnieniem modelu zostanie wyświetlony komunikat o błędzie "Zainstaluj pakiet Azure-Wyjaśnij model dla wyjaśnień modelu". To jest znany problem. Jako obejście wykonaj jedną z poniższych czynności:
+   W przypadku uruchamiania zdalnego AutoML z włączonym wyjaśnieniem modelu zostanie wyświetlony komunikat o błędzie "Zainstaluj pakiet Azure-Wyjaśnij model dla wyjaśnień modelu". Jest to znany problem. Jako obejście wykonaj jedną z poniższych czynności:
   
   1. Zainstaluj usługę Azure — Wyjaśnij model lokalnie.
    ```
@@ -258,7 +258,20 @@ Ograniczenia i znane problemy dotyczące monitorów dryfowania danych:
 
 ## <a name="azure-machine-learning-designer"></a>Projektant usługi Azure Machine Learning
 
-* **Długi czas przygotowania obliczeń:**
+### <a name="dataset-visualization-in-the-designer"></a>Wizualizacja zestawu danych w projektancie
+
+Po zarejestrowaniu zestawu danych na **stronie elementów zawartości** lub przy użyciu zestawu SDK można go znaleźć w kategorii **zestawy danych** na liście po lewej stronie do kanwy projektanta.
+
+Jednak po przeciągnięciu zestawu danych do kanwy i wizualizacji może być niemożliwe Wizualizacja z następujących powodów:
+
+- Obecnie można wizualizować tylko tabelaryczny zestaw danych w projektancie. Po zarejestrowaniu zestawu danych pliku poza projektantem nie można go wizualizować na kanwie projektanta.
+- Zestaw danych jest przechowywany w sieci wirtualnej (VNet). Jeśli chcesz wizualizować, musisz włączyć zarządzanie tożsamościami obszaru roboczego dla magazynu danych.
+    1. Przejdź do powiązanego magazynu danych, a następnie kliknij przycisk **Aktualizuj** poświadczenia 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Aktualizuj"::: poświadczenia
+    1. Wybierz pozycję **tak** , aby włączyć tożsamość zarządzaną w obszarze roboczym.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Włącz tożsamość zarządzaną w obszarze roboczym":::
+
+### <a name="long-compute-preparation-time"></a>Długi czas przygotowania obliczeń
 
 Może to potrwać kilka minut, a nawet dłużej przy pierwszym połączeniu z lub utworzyć obiekt docelowy obliczeń. 
 
@@ -269,7 +282,7 @@ import time
 time.sleep(600)
 ```
 
-* **Rejestruj punkty końcowe w czasie rzeczywistym:**
+### <a name="log-for-real-time-endpoints"></a>Rejestruj punkty końcowe w czasie rzeczywistym
 
 Dzienniki punktów końcowych w czasie rzeczywistym to dane klientów. W przypadku rozwiązywania problemów z punktem końcowym w czasie rzeczywistym można użyć poniższego kodu, aby włączyć dzienniki. 
 

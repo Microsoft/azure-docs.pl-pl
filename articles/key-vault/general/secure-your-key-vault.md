@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 585f5998eb953c8ed90a47922d76f32897c0f915
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285834"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445493"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -26,7 +26,7 @@ Aby uzyskać więcej informacji na temat Key Vault, zobacz [Informacje o Azure K
 
 Dostęp do magazynu kluczy jest kontrolowany przez dwa interfejsy: **płaszczyzny zarządzania** i **płaszczyzny danych**. Płaszczyzny zarządzania to miejsce, w którym zarządza się Key Vault. Operacje na tej płaszczyźnie obejmują tworzenie i usuwanie magazynów kluczy, pobieranie Key Vault właściwości i aktualizowanie zasad dostępu. Płaszczyzna danych to miejsce, w którym można korzystać z danych przechowywanych w magazynie kluczy. Możesz dodawać, usuwać i modyfikować klucze, wpisy tajne i certyfikaty.
 
-Obie płaszczyzny używają [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) do uwierzytelniania. W przypadku autoryzacji płaszczyzna zarządzania używa [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md) i płaszczyzny danych używa [zasad dostępu Key Vault](./assign-access-policy-portal.md) i [usługi Azure RBAC na potrzeby operacji Key Vault płaszczyzny danych (wersja zapoznawcza)](./rbac-guide.md).
+Obie płaszczyzny używają [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) do uwierzytelniania. W przypadku autoryzacji płaszczyzna zarządzania używa [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) i płaszczyzny danych korzysta z [zasad dostępu Key Vault](./assign-access-policy-portal.md) i [usługi Azure RBAC na potrzeby operacji Key Vault płaszczyzny danych (wersja zapoznawcza)](./rbac-guide.md).
 
 Aby uzyskać dostęp do magazynu kluczy w jednej z płaszczyzn, wszyscy wywołujący (Użytkownicy lub aplikacje) muszą mieć odpowiednie uwierzytelnianie i autoryzację. Uwierzytelnianie ustanawia tożsamość obiektu wywołującego. Autoryzacja określa, które operacje mogą zostać wykonane przez obiekt wywołujący. Uwierzytelnianie za pomocą Key Vault działa w połączeniu z usługą [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), która jest odpowiedzialna za uwierzytelnianie tożsamości dowolnego danego **podmiotu zabezpieczeń**.
 
@@ -58,7 +58,7 @@ Model jednego mechanizmu uwierzytelniania w obu płaszczyznach ma kilka zalet:
 
 ## <a name="resource-endpoints"></a>Punkty końcowe zasobów
 
-Aplikacje uzyskują dostęp do płaszczyzn za pomocą punktów końcowych. Kontrole dostępu dla dwóch płaszczyzn działają niezależnie. Aby udzielić aplikacji dostępu do korzystania z kluczy w magazynie kluczy, Udziel dostępu do płaszczyzny danych przy użyciu zasad dostępu Key Vault lub kontroli RBAC platformy Azure (wersja zapoznawcza). Aby udzielić użytkownikowi dostępu do odczytu do Key Vault właściwości i tagów, ale nie dostępu do danych (kluczy, wpisów tajnych lub certyfikatów), Udziel dostępu do płaszczyzny zarządzania za pomocą RBAC.
+Aplikacje uzyskują dostęp do płaszczyzn za pomocą punktów końcowych. Kontrole dostępu dla dwóch płaszczyzn działają niezależnie. Aby udzielić aplikacji dostępu do korzystania z kluczy w magazynie kluczy, Udziel dostępu do płaszczyzny danych przy użyciu zasad dostępu Key Vault lub kontroli RBAC platformy Azure (wersja zapoznawcza). Aby udzielić użytkownikowi dostępu do odczytu do Key Vault właściwości i tagów, ale nie do uzyskiwania dostępu do danych (kluczy, wpisów tajnych lub certyfikatów), przyznano dostęp do płaszczyzny zarządzania przy użyciu funkcji RBAC platformy Azure.
 
 W poniższej tabeli przedstawiono punkty końcowe dla punktów zarządzania i płaszczyzny danych.
 
@@ -111,7 +111,7 @@ Gdy rola platformy Azure zostanie przypisana do podmiotu zabezpieczeń usługi A
 
 Najważniejsze zalety korzystania z uprawnień usługi Azure RBAC w ramach zasad dostępu do magazynu to scentralizowane zarządzanie kontrolą dostępu i integrację z usługą [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md). Privileged Identity Management zapewnia aktywację roli opartej na czasie i zatwierdzania, aby ograniczyć ryzyko nadmiernego, niepotrzebnego lub nieużywanego dostępu do zasobów, które Cię interesują.
 
-Aby uzyskać więcej informacji na temat Key Vault płaszczyzny danych z RBAC, zobacz [Key Vault kluczy, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach na platformie Azure (wersja zapoznawcza)](rbac-guide.md)
+Aby uzyskać więcej informacji na temat Key Vault płaszczyzny danych za pomocą usługi Azure RBAC, zobacz [Key Vault kluczy, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>Zapory i sieci wirtualne
 

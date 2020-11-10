@@ -2,13 +2,13 @@
 title: Co nowego w agencie serwerów z włączonym usługą Azure Arc
 description: W tym artykule znajdują się informacje o wersji agenta usługi Azure ARC z obsługą serwerów. W przypadku wielu problemów podsumowujących istnieją linki do dodatkowych szczegółów.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908158"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445289"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Co nowego w agencie serwerów z włączonym usługą Azure Arc
 
@@ -17,6 +17,21 @@ Agent połączonej maszyny z włączonym usługą Azure Arc odbiera usprawnienia
 - Najnowsze wersje
 - Znane problemy
 - Poprawki błędów
+
+## <a name="november-2020"></a>Listopad 2020 r.
+
+### <a name="fixed"></a>Stałe
+
+Rozwiązano problem polegający na tym, że można utracić konfigurację serwera proxy po uaktualnieniu do dystrybucji opartych na RPM.
+
+## <a name="october-2020"></a>Październik 2020 r.
+
+### <a name="fixed"></a>Stałe
+
+- Stały skrypt serwera proxy obsługujący alternatywną lokalizację pliku jednostki demona GC.
+- Zmiany niezawodności agenta GuestConfig.
+- Obsługa agenta GuestConfig dla regionu US Gov Wirginia.
+- Komunikaty o rozszerzeniu agenta GuestConfig w celu uzyskania bardziej szczegółowych informacji w przypadku awarii.
 
 ## <a name="september-2020"></a>Wrzesień 2020
 

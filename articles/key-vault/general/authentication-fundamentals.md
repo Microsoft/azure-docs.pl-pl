@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286218"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445561"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Podstawy uwierzytelniania przy użyciu usługi Key Vault
 
@@ -45,9 +45,9 @@ Skorzystaj z poniższych linków do dokumentacji, aby dowiedzieć się, jak zare
 * Rejestrowanie użytkownika w Azure Active Directory [linku](../../active-directory/fundamentals/add-users-azure-active-directory.md)
 * Rejestrowanie aplikacji w Azure Active Directory [linku](../../active-directory/develop/quickstart-register-app.md)
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Przypisywanie podmiotu zabezpieczeń roli w Azure Active Directory
+## <a name="assign-your-security-principal-a-role"></a>Przypisywanie podmiotu zabezpieczeń roli
 
-Azure Active Directory używa kontroli dostępu opartej na rolach (RBAC) do przypisywania uprawnień do podmiotów zabezpieczeń. Te uprawnienia są nazywane przypisaniami ról.
+Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można przypisać uprawnienia do podmiotów zabezpieczeń. Te uprawnienia są nazywane przypisaniami ról.
 
 W kontekście magazynu kluczy te przypisania ról określają poziom dostępu podmiotu zabezpieczeń do płaszczyzny zarządzania (zwanej również płaszczyzną kontroli) magazynu kluczy. Te przypisania ról nie zapewniają bezpośredniego dostępu do kluczy tajnych płaszczyzny danych, ale zapewniają dostęp do zarządzania właściwościami magazynu kluczy. Na przykład użytkownik lub aplikacja z przypisaną **rolą czytelnika** nie będzie mogła wprowadzać zmian w ustawieniach zapory magazynu kluczy, podczas gdy użytkownik lub aplikacja przypisana do **roli współautor** może wprowadzać zmiany. Żadna rola nie będzie mieć bezpośredniego dostępu do wykonywania operacji na wpisach tajnych, kluczach i certyfikatach, takich jak tworzenie lub pobieranie ich wartości, dopóki nie zostanie przypisany dostęp do płaszczyzny danych magazynu kluczy. Zostało to omówione w następnym kroku.
 
@@ -57,7 +57,7 @@ W kontekście magazynu kluczy te przypisania ról określają poziom dostępu po
 >[!NOTE]
 > Po przypisaniu roli do użytkownika na poziomie dzierżawy Azure Active Directory ten zestaw uprawnień będzie Trickle w dół do wszystkich subskrypcji, grup zasobów i zasobów w zakresie przypisania. Aby obsłużyć najwyższe uprawnienia, można przypisywać tę rolę bardziej szczegółowym zakresem. Na przykład można przypisać użytkownikowi rolę czytelnik na poziomie subskrypcji i rolę właściciela dla jednego magazynu kluczy. Przejdź do ustawień zarządzania dostępem do tożsamości (IAM) subskrypcji, grupy zasobów lub magazynu kluczy, aby przypisywać rolę z bardziej szczegółowym zakresem.
 
-* Aby dowiedzieć się więcej na temat [linku](../../role-based-access-control/built-in-roles.md) role Azure Active Directory
+* Aby dowiedzieć się więcej o usłudze Azure role [link](../../role-based-access-control/built-in-roles.md)
 * Aby dowiedzieć się więcej na temat przypisywania lub usuwania [linku](../../role-based-access-control/role-assignments-portal.md) przypisań ról
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Konfigurowanie zasad dostępu magazynu kluczy dla podmiotu zabezpieczeń
@@ -91,7 +91,7 @@ Dostęp do płaszczyzny danych lub dostęp do wykonywania operacji dotyczących 
 Zasady dostępu magazynu kluczy umożliwiają użytkownikom i aplikacjom dostęp do wykonywania operacji na płaszczyznach danych w magazynie kluczy.
 
 > [!NOTE]
-> Ten model dostępu nie jest zgodny z funkcją RBAC magazynu kluczy (opcja 2) udokumentowaną poniżej. Musisz wybrać jeden z nich. Możesz wybrać tę opcję po kliknięciu karty zasady dostępu w magazynie kluczy.
+> Ten model dostępu nie jest zgodny z usługą Azure RBAC dla magazynu kluczy (opcja 2) udokumentowaną poniżej. Musisz wybrać jeden z nich. Możesz wybrać tę opcję po kliknięciu karty zasady dostępu w magazynie kluczy.
 
 Zasady dostępu klasycznego są szczegółowe, co oznacza, że można zezwolić lub zablokować możliwość wykonywania indywidualnych operacji przez poszczególnych użytkowników lub aplikacji w ramach magazynu kluczy. Oto kilka przykładów:
 
@@ -104,25 +104,25 @@ Jednak klasyczne zasady dostępu nie zezwalają na uprawnienia na poziomie obiek
 > [!IMPORTANT]
 > Zasady dostępu do magazynu kluczy klasycznych i przypisania ról Azure Active Directory są niezależne od siebie nawzajem. Przypisanie podmiotu zabezpieczeń roli "Współautor" na poziomie subskrypcji nie spowoduje automatycznego zezwolenia podmiotowi zabezpieczeń na wykonywanie operacji w obrębie poszczególnych magazynów kluczy w ramach subskrypcji. Podmiot zabezpieczeń musi być nadal musi być udzielony lub udzielić sobie uprawnień dostępu, aby wykonywać operacje płaszczyzny danych.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>Opcja dostępu do płaszczyzny danych 2: Key Vault RBAC (wersja zapoznawcza)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opcja dostępu do płaszczyzny danych 2: Azure RBAC dla Key Vault (wersja zapoznawcza)
 
-Nowy sposób udzielania dostępu do płaszczyzny danych magazynu kluczy polega na użyciu kontroli dostępu opartej na rolach (RBAC) magazynu kluczy.
+Nowy sposób udzielenia dostępu do płaszczyzny danych magazynu kluczy polega na użyciu kontroli dostępu opartej na rolach (Azure RBAC) dla magazynu kluczy.
 
 > [!NOTE]
 > Ten model dostępu nie jest zgodny z klasycznymi zasadami dostępu magazynu kluczy podanymi powyżej. Musisz wybrać jeden z nich. Możesz wybrać tę opcję po kliknięciu karty zasady dostępu w magazynie kluczy.
 
 Przypisania ról Key Vault są zestawem wbudowanych przypisań ról platformy Azure, które obejmują wspólne zestawy uprawnień używane do uzyskiwania dostępu do kluczy, wpisów tajnych i certyfikatów. Ten model uprawnień umożliwia również dodatkowe możliwości, które nie są dostępne w modelu zasad dostępu do magazynu kluczy klasycznych.
 
-* Uprawnieniami RBAC można zarządzać w odpowiedniej skali, umożliwiając użytkownikom ich przypisanie do subskrypcji, grupy zasobów lub poszczególnych poziomów magazynów kluczy. Użytkownik będzie miał uprawnienia do płaszczyzny danych dla wszystkich magazynów kluczy w zakresie przypisania kontroli RBAC. Eliminuje to konieczność przypisywania uprawnień poszczególnych zasad dostępu dla użytkownika/aplikacji na magazyn kluczy.
+* Uprawnieniami RBAC platformy Azure można zarządzać w odpowiedniej skali, umożliwiając użytkownikom ich przypisanie do subskrypcji, grupy zasobów lub poszczególnych poziomów magazynów kluczy. Użytkownik będzie miał uprawnienia do płaszczyzny danych dla wszystkich magazynów kluczy w zakresie przypisania kontroli RBAC platformy Azure. Eliminuje to konieczność przypisywania uprawnień poszczególnych zasad dostępu dla użytkownika/aplikacji na magazyn kluczy.
 
-* Uprawnienia RBAC są zgodne z Privileged Identity Management lub PIM. Pozwala to na skonfigurowanie kontroli dostępu just in Time dla ról uprzywilejowanych, takich jak administrator Key Vault. Jest to najlepsze rozwiązanie w zakresie zabezpieczeń, które jest zgodne z najważniejszym poziomem uprawnień, eliminując stały dostęp do Twoich magazynów kluczy.
+* Uprawnienia usługi Azure RBAC są zgodne z programem Privileged Identity Management lub PIM. Pozwala to na skonfigurowanie kontroli dostępu just in Time dla ról uprzywilejowanych, takich jak administrator Key Vault. Jest to najlepsze rozwiązanie w zakresie zabezpieczeń, które jest zgodne z najważniejszym poziomem uprawnień, eliminując stały dostęp do Twoich magazynów kluczy.
 
-* Uprawnienia RBAC są zgodne z uprawnieniami szczegółowymi dla poszczególnych obiektów, dzięki czemu można ograniczyć użytkownika tylko do wykonywania operacji na niektórych obiektach magazynu kluczy. Dzięki temu wiele aplikacji może współużytkować jeden magazyn kluczy, a jednocześnie izolować dostęp między aplikacjami.
+* Uprawnienia usługi Azure RBAC są zgodne z uprawnieniami szczegółowymi dla poszczególnych obiektów, dzięki czemu można ograniczyć użytkownika tylko do wykonywania operacji na niektórych obiektach magazynu kluczy. Dzięki temu wiele aplikacji może współużytkować jeden magazyn kluczy, a jednocześnie izolować dostęp między aplikacjami.
 
-Aby dowiedzieć się więcej o Key Vault RBAC, zobacz następujące dokumenty:
+Aby dowiedzieć się więcej o usłudze Azure RBAC dla Key Vault, zobacz następujące dokumenty:
 
-* Azure Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac) RBAC
-* [Link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) Azure Key Vault ról RBAC (wersja zapoznawcza)
+* [Link](./secure-your-key-vault.md#management-plane-and-azure-rbac) RBAC platformy Azure dla Key Vault
+* [Link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) RBAC platformy Azure dla ról Key Vault (wersja zapoznawcza)
 
 ## <a name="configure-key-vault-firewall"></a>Konfigurowanie zapory Key Vault
 

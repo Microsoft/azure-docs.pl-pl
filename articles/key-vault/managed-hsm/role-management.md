@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149102"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445646"
 ---
 # <a name="managed-hsm-role-management"></a>Zarządzanie rolami zarządzanego modułu HSM
 
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem inter
 
 ### <a name="assign-roles-for-all-keys"></a>Przypisz role dla wszystkich kluczy
 
-Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika ** \@ contoso.com** dla wszystkich  **kluczy** (zakres `/keys` ) w ContosoHSM.
+Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika **\@ contoso.com** dla wszystkich  **kluczy** (zakres `/keys` ) w ContosoHSM.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Przypisywanie roli dla określonego klucza
 
-Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika o nazwie ** \@ contoso.com** dla określonego klucza o nazwie **myrsakey**.
+Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika o nazwie **\@ contoso.com** dla określonego klucza o nazwie **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -82,7 +82,7 @@ Wszystkie przypisania ról na poziomie modułu HSM dla określonego użytkownika
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
-Wszystkie przypisania ról dla określonego użytkownika **user2@contoso.com** dla określonego **myrsakey**usługi Key.
+Wszystkie przypisania ról dla określonego użytkownika **user2@contoso.com** dla określonego **myrsakey** usługi Key.
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Usuwanie przypisania roli
 
-Użyj `az keyvault role assignment delete` polecenia, aby usunąć **zarządzaną rolę oficera kryptograficznego modułu HSM** przypisaną do użytkownika ** \@ contoso.com** dla usługi Key **myrsakey2**.
+Użyj `az keyvault role assignment delete` polecenia, aby usunąć **zarządzaną rolę oficera kryptograficznego modułu HSM** przypisaną do użytkownika **\@ contoso.com** dla usługi Key **myrsakey2**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2
@@ -113,7 +113,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz Omówienie [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md).
+- Zapoznaj się z omówieniem [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md).
 - Zobacz Samouczek dotyczący [zarządzanego zarządzania rolami modułu HSM](role-management.md)
 - Dowiedz się więcej o [modelu kontroli dostępu zarządzanego modułu HSM](access-control.md)
 - Zobacz wszystkie [wbudowane role dla zarządzanego modułu HSM Local RBAC](built-in-roles.md)

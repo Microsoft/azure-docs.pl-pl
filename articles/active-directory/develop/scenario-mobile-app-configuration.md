@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204222"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444065"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurowanie aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
@@ -148,9 +148,9 @@ Aby uzyskać więcej informacji, zobacz [uwagi dotyczące platformy UWP z MSAL.N
 
 W systemach Android i iOS brokerzy umożliwiają włączenie:
 
-- **Logowanie**jednokrotne: możesz użyć logowania jednokrotnego dla urządzeń zarejestrowanych w usłudze Azure Active Directory (Azure AD). W przypadku korzystania z logowania jednokrotnego użytkownicy nie muszą logować się do poszczególnych aplikacji.
-- **Identyfikacja urządzenia**: to ustawienie włącza zasady dostępu warunkowego, które są powiązane z urządzeniami usługi Azure AD. Proces uwierzytelniania używa certyfikatu urządzenia, który został utworzony, gdy urządzenie zostało dołączone do miejsca pracy.
-- **Weryfikacja identyfikacji aplikacji**: gdy aplikacja wywołuje brokera, przekazuje adres URL przekierowania. Następnie Broker weryfikuje.
+- **Logowanie** jednokrotne: możesz użyć logowania jednokrotnego dla urządzeń zarejestrowanych w usłudze Azure Active Directory (Azure AD). W przypadku korzystania z logowania jednokrotnego użytkownicy nie muszą logować się do poszczególnych aplikacji.
+- **Identyfikacja urządzenia** : to ustawienie włącza zasady dostępu warunkowego, które są powiązane z urządzeniami usługi Azure AD. Proces uwierzytelniania używa certyfikatu urządzenia, który został utworzony, gdy urządzenie zostało dołączone do miejsca pracy.
+- **Weryfikacja identyfikacji aplikacji** : gdy aplikacja wywołuje brokera, przekazuje adres URL przekierowania. Następnie Broker weryfikuje.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Włączanie brokera w środowisku Xamarin
 
@@ -367,5 +367,4 @@ Aby uzyskać informacje na temat włączania brokera w systemie Android, zobacz 
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Uzyskiwanie tokenu](scenario-mobile-acquire-token.md)
+Przejdź do następnego artykułu w tym scenariuszu, [przejmując token](scenario-mobile-acquire-token.md).

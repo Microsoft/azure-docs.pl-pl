@@ -9,19 +9,19 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2a0202c5259ccebedf03ade217f57b6305b9fa1b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786075"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444932"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Tworzenie definicji SAS i pobieranie tokenów sygnatury dostępu współdzielonego w kodzie
 
 Kontem magazynu można zarządzać za pomocą tokenów sygnatury dostępu współdzielonego (SAS) przechowywanych w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> Zalecamy używanie [Access Control opartej na rolach (RBAC)](../../storage/common/storage-auth-aad.md) , aby zabezpieczyć konto magazynu w celu zapewnienia bezpieczeństwa i łatwość użycia w ramach autoryzacji klucza współużytkowanego.
+> Zalecamy używanie [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](../../storage/common/storage-auth-aad.md) w celu zabezpieczenia konta magazynu w celu zapewnienia bezpieczeństwa i łatwość użycia w ramach autoryzacji klucza współużytkowanego.
 
 Ten artykuł zawiera przykłady kodu platformy .NET, który tworzy definicję sygnatury dostępu współdzielonego i pobiera tokeny sygnatury dostępu współdzielonego. Zapoznaj się z naszym Przykładem [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) , aby uzyskać pełne szczegóły, w tym wygenerowany klient dla kont magazynu zarządzanych przez Key Vault. Aby uzyskać informacje na temat tworzenia i przechowywania tokenów SAS, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure](overview-storage-keys.md) lub [Zarządzanie kluczami konta magazynu za pomocą Key Vault i Azure PowerShell](overview-storage-keys-powershell.md).
 

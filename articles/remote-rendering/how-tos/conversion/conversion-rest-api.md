@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201787"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445612"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Używanie interfejsu API REST konwersji modelu
 
@@ -26,7 +26,7 @@ Zapoznaj się z [listą regionów dostępnych](../../reference/regions.md) dla p
 
 Te nagłówki muszą być określone dla wszystkich żądań:
 
-- Nagłówek **autoryzacji** musi mieć wartość "Bearer [*token*]", gdzie [*token*] to [token dostępu do usługi](../tokens.md).
+- Nagłówek **autoryzacji** musi mieć wartość "Bearer [ *token* ]", gdzie [ *token* ] to [token dostępu do usługi](../tokens.md).
 
 ### <a name="common-response-headers"></a>Typowe nagłówki odpowiedzi
 
@@ -47,7 +47,7 @@ Twoje konto renderowania zdalnego platformy Azure musi mieć dostęp do podanego
 
 | Punkt końcowy | Metoda |
 |-----------|:-----------|
-| /V1/accounts/**accountID**/conversions/Create | POST |
+| /V1/accounts/ **accountID** /conversions/Create | POST |
 
 Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola to "conversionId".
 
@@ -79,7 +79,7 @@ Jeśli konto ARR nie jest połączone z kontem magazynu, ten interfejs REST umo�
 
 | Punkt końcowy | Metoda |
 |-----------|:-----------|
-| /V1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
+| /V1/accounts/ **accountID** /conversions/createWithSharedAccessSignature | POST |
 
 Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola to `conversionId` .
 
@@ -120,7 +120,7 @@ Stan trwającej konwersji rozpoczętej z jednym z powyższych wywołań REST mo�
 
 | Punkt końcowy | Metoda |
 |-----------|:-----------|
-| /V1/accounts/**accountID**/conversions/**conversionId** | GET |
+| /V1/accounts/ **accountID** /conversions/ **conversionId** | GET |
 
 Zwraca dokument JSON z polem "status", które może mieć następujące wartości:
 
@@ -130,6 +130,21 @@ Zwraca dokument JSON z polem "status", które może mieć następujące wartośc
 - Spraw
 
 Jeśli stan ma wartość "Niepowodzenie", będzie istnieć dodatkowe pole "Error" z podpolem "Message" zawierającym informacje o błędzie. Dodatkowe dzienniki zostaną przekazane do kontenera danych wyjściowych.
+
+## <a name="list-conversions"></a>Konwersje list
+
+Aby uzyskać listę wszystkich konwersji dla konta, użyj interfejsu:
+
+| Punkt końcowy | Metoda |
+|-----------|:-----------|
+| /V1/accounts/ **accountID** /conversions? skiptoken = **skiptoken** | GET |
+
+| Parametr | Wymagane |
+|-----------|:-----------|
+| accountID | Tak |
+| skiptoken | Nie |
+
+Zwraca dokument JSON zawierający tablicę konwersji i ich szczegóły. To zapytanie zwraca maksymalnie 50 konwersji naraz. W sytuacji, gdy istnieje więcej konwersji do pobrania, odpowiedź będzie zawierać właściwość **nextLink** zawierającą skipToken, do której można wykonać zapytanie w celu pobrania następnego zestawu wyników.
 
 ## <a name="next-steps"></a>Następne kroki
 

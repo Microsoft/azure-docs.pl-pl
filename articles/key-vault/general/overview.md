@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932009"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445102"
 ---
 # <a name="about-azure-key-vault"></a>Informacje o usłudze Azure Key Vault
 
@@ -39,7 +39,7 @@ Twoje aplikacje mogą bezpiecznie uzyskiwać dostęp do potrzebnych informacji z
 
 Udzielenie dostępu do magazynu kluczy wywołującemu użytkownikowi lub aplikacji wymaga odpowiedniego uwierzytelnienia i autoryzacji. Uwierzytelnianie ustala tożsamość elementu wywołującego, a autoryzacja określa, jakie operacje może on wykonywać.
 
-Uwierzytelnianie jest wykonywane za pośrednictwem usługi Azure Active Directory. Autoryzacja może odbywać się przy użyciu funkcji kontroli dostępu na podstawie ról (RBAC, role-based access control) lub zasad dostępu usługi Key Vault. Funkcja RBAC jest używana do obsługi zarządzania magazynami, a zasady dostępu do magazynu kluczy są używane podczas próby uzyskania dostępu do danych przechowywanych w magazynie.
+Uwierzytelnianie jest wykonywane za pośrednictwem usługi Azure Active Directory. Autoryzację można przeprowadzić za pomocą kontroli dostępu opartej na rolach (Azure RBAC) lub Key Vault zasad dostępu. Kontrola dostępu do platformy Azure jest używana podczas rozwiązywania problemów z zarządzaniem magazynami, a przy próbie uzyskania dostępu do danych przechowywanych w magazynie jest używana.
 
 Magazyny kluczy platformy Azure mogą być chronione przez oprogramowanie lub, w Azure Key Vault warstwy Premium, chronione sprzętowo przez sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). Klucze chronione przez oprogramowanie, wpisy tajne i certyfikaty są zabezpieczane przez platformę Azure przy użyciu standardowych algorytmów i długości kluczy.  W sytuacjach, gdy wymagana jest dodatkowa gwarancja, można importować lub generować klucze w sprzętowych modułów zabezpieczeń, które nigdy nie pozostawiają granicy modułu HSM. Azure Key Vault korzysta z oprogramowanie wspomagające nCipher sprzętowych modułów zabezpieczeń, które są zweryfikowane w trybie FIPS (Federal Information Processing Standards) 140-2 Level 2. Za pomocą narzędzi oprogramowanie wspomagające nCipher można przenieść klucz z modułu HSM do Azure Key Vault.
 

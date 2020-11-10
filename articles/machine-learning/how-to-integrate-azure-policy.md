@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 22901c4e8409fc4846c1566a57b2679f4fa92396
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325491"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444572"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Inspekcja i zarządzanie Azure Machine Learning przy użyciu Azure Policy
 
@@ -42,11 +42,11 @@ Zasady można także przypisywać przy użyciu [Azure PowerShell](../governance/
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>Szyfrowanie obszarów roboczych z kluczem zarządzanym przez klienta
 
-Określa, czy obszary robocze powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK), czy też przy użyciu klucza zarządzanego przez firmę Microsoft do szyfrowania metryk i metadanych. Aby uzyskać więcej informacji na temat korzystania z programu CMK, zobacz sekcję [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) w artykule dotyczącym zabezpieczeń przedsiębiorstwa.
+Określa, czy obszary robocze powinny być szyfrowane za pomocą klucza zarządzanego przez klienta, czy też przy użyciu klucza zarządzanego przez firmę Microsoft do szyfrowania metryk i metadanych. Aby uzyskać więcej informacji na temat korzystania z klucza zarządzanego przez klienta, zapoznaj się z sekcją [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) artykułu szyfrowanie danych.
 
-Aby skonfigurować te zasady, należy ustawić dla parametru efektu wartość __Inspekcja__ lub __odmowa__. Jeśli ustawiono opcję __Inspekcja__ , można utworzyć obszary robocze bez CMK i w dzienniku aktywności zostanie utworzone zdarzenie ostrzegawcze.
+Aby skonfigurować te zasady, należy ustawić dla parametru efektu wartość __Inspekcja__ lub __odmowa__. Jeśli ustawiono opcję __Inspekcja__ , można utworzyć obszary robocze bez klucza zarządzanego przez klienta i w dzienniku aktywności zostanie utworzone zdarzenie ostrzegawcze.
 
-Jeśli zasady są ustawione na __Odmów__ , nie można utworzyć obszaru roboczego, chyba że określi CMK. Próba utworzenia obszaru roboczego bez CMK powoduje wystąpienie błędu podobnego do `Resource 'clustername' was disallowed by policy` i powoduje utworzenie błędu w dzienniku aktywności. Identyfikator zasad jest również zwracany w ramach tego błędu.
+Jeśli zasady są ustawione na __Odmów__ , nie można utworzyć obszaru roboczego, chyba że określi klucz zarządzany przez klienta. Próba utworzenia obszaru roboczego bez klucza zarządzanego przez klienta spowoduje wystąpienie błędu podobnego do `Resource 'clustername' was disallowed by policy` i powoduje utworzenie błędu w dzienniku aktywności. Identyfikator zasad jest również zwracany w ramach tego błędu.
 
 ## <a name="workspaces-should-use-private-link"></a>Obszary robocze powinny używać linku prywatnego
 

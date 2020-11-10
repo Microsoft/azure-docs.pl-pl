@@ -4,16 +4,16 @@ description: Opracowywanie modułów niestandardowych dla Azure IoT Edge, które
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/22/2019
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eae36f6b4baabdcc9831b084602d340a299a7bac
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8907af07fff7b315eec263d38b686c17218ed9d2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047628"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445476"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Opracowywanie własnych modułów IoT Edge
 
@@ -22,50 +22,109 @@ Moduły Azure IoT Edge mogą łączyć się z innymi usługami platformy Azure i
 ## <a name="iot-edge-runtime-environment"></a>Środowisko uruchomieniowe IoT Edge
 
 Środowisko uruchomieniowe IoT Edge zapewnia infrastrukturę do integrowania funkcji wielu modułów IoT Edge i wdrażania ich na urządzeniach IoT Edge. Każdy program może być spakowany jako moduł IoT Edge. Aby w pełni wykorzystać możliwości IoT Edge funkcji komunikacji i zarządzania programu, program uruchomiony w module może użyć zestawu SDK urządzenia usługi Azure IoT do nawiązania połączenia z lokalnym centrum IoT Edge.
+::: moniker range=">=iotedge-2020-11"
+Moduły mogą również używać dowolnego klienta MQTT do nawiązywania połączenia z lokalnym brokerem centrum MQTT IoT Edge.
+::: moniker-end
+
+### <a name="packaging-your-program-as-an-iot-edge-module"></a>Pakowanie programu jako modułu IoT Edge
+
+Aby wdrożyć program na urządzeniu IoT Edge, należy najpierw go umieścić w kontenerze i uruchomić go za pomocą aparatu zgodnego z platformą Docker. IoT Edge używa [Moby](https://github.com/moby/moby), projektu Open Source za platformą Docker, jako aparatu zgodnego z platformą Docker. Te same parametry, które są używane z platformą Docker, można przesłać do modułów IoT Edge. Aby uzyskać więcej informacji, zobacz [jak skonfigurować opcje tworzenia kontenerów dla modułów IoT Edge](how-to-use-create-options.md).
 
 ## <a name="using-the-iot-edge-hub"></a>Korzystanie z Centrum IoT Edge
 
 Centrum IoT Edge oferuje dwie główne funkcje: proxy do IoT Hub i komunikacji lokalnej.
 
+### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Nawiązywanie połączenia z Centrum IoT Edge z poziomu modułu
+
+Połączenie z lokalnym centrum IoT Edge z modułu obejmuje te same kroki połączenia, jak dla wszystkich klientów. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z centrum IoT Edge](iot-edge-runtime.md#connecting-to-the-iot-edge-hub).
+
+Aby użyć usługi IoT Edge Routing za pośrednictwem AMQP lub MQTT, możesz użyć ModuleClient z zestawu Azure IoT SDK. Utwórz wystąpienie ModuleClient, aby połączyć moduł z Centrum IoT Edge uruchomionego na urządzeniu, podobnie jak wystąpienia DeviceClient połączą urządzenia IoT z IoT Hub. Aby uzyskać więcej informacji na temat klasy ModuleClient i jej metod komunikacji, zobacz Dokumentacja interfejsu API dla preferowanego języka SDK: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)lub [Node.js](/javascript/api/azure-iot-device/moduleclient).
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+Aby korzystać z IoT Edge brokera MQTT, musisz dysponować własnym klientem MQTT i samodzielnie inicjować połączenie z informacjami pobranymi z interfejsu API obciążeń IoT Edge demona. <!--Need to add details here-->
+
+Aby uzyskać więcej informacji na temat wybierania tras routingu lub publikowania/subskrybowania z brokerem MQTT, zobacz [komunikacja lokalna](iot-edge-runtime.md#local-communication).
+
+### <a name="mqtt-broker-primitives"></a>Elementy podstawowe brokera MQTT
+
+#### <a name="send-a-message-on-a-user-defined-topic"></a>Wyślij wiadomość w temacie zdefiniowanym przez użytkownika
+
+Za pomocą IoT Edge brokera MQTT można publikować komunikaty we wszystkich tematach zdefiniowanych przez użytkownika. W tym celu Autoryzuj moduł do publikowania w określonych tematach, a następnie uzyskaj token z interfejsu API obciążenia, który będzie używany jako hasło podczas nawiązywania połączenia z brokerem usługi MQTT, a następnie Publikuj komunikaty w autoryzowanych tematach z wybranym przez klienta MQTT.
+
+#### <a name="receive-messages-on-a-user-defined-topic"></a>Odbieranie komunikatów w temacie zdefiniowanym przez użytkownika
+
+W przypadku IoT Edge brokera MQTT komunikaty są podobne. Najpierw upewnij się, że moduł jest autoryzowany do subskrybowania określonych tematów, a następnie uzyskaj token z interfejsu API obciążenia, który będzie używany jako hasło podczas nawiązywania połączenia z brokerem usługi MQTT, i wreszcie Subskrybuj wiadomości w autoryzowanych tematach z wybranym przez klienta MQTT.
+
+::: moniker-end
+
 ### <a name="iot-hub-primitives"></a>IoT Hub elementy podstawowe
 
 IoT Hub widzi wystąpienie modułu analogicznie do urządzenia, w tym sensie:
 
-* ma dwuosiowy moduł, który jest odrębny i odizolowany od [sznurka urządzenia](../iot-hub/iot-hub-devguide-device-twins.md) i innego modułu bliźniaczych reprezentacji tego urządzenia;
 * może wysyłać [komunikaty z urządzenia do chmury](../iot-hub/iot-hub-devguide-messaging.md);
 * może otrzymywać [bezpośrednie metody](../iot-hub/iot-hub-devguide-direct-methods.md) ukierunkowane na jego tożsamość.
+* ma dwuosiowy moduł, który jest odrębny i odizolowany od [sznurka urządzenia](../iot-hub/iot-hub-devguide-device-twins.md) i innego modułu bliźniaczych reprezentacji tego urządzenia;
 
 Obecnie moduły nie mogą odbierać komunikatów z chmury do urządzenia ani używać funkcji przekazywania plików.
 
-Podczas pisania modułu można użyć [zestawu SDK urządzeń Azure IoT](../iot-hub/iot-hub-devguide-sdks.md) , aby nawiązać połączenie z Centrum IoT Edge i użyć powyższych funkcji, tak jak w przypadku korzystania z IoT Hub z aplikacją urządzenia. Jedyną różnicą między modułami IoT Edge i aplikacjami urządzeń IoT jest konieczność odwoływania się do tożsamości modułu zamiast tożsamości urządzenia.
+Podczas pisania modułu można nawiązać połączenie z Centrum IoT Edge i używać IoT Hub podstawowych, tak jak w przypadku używania IoT Hub z aplikacją urządzenia. Jedyną różnicą między modułami IoT Edge i aplikacjami urządzeń IoT jest konieczność odwoływania się do tożsamości modułu zamiast tożsamości urządzenia.
 
-### <a name="device-to-cloud-messages"></a>Komunikaty z urządzenia do chmury
+#### <a name="device-to-cloud-messages"></a>Komunikaty z urządzenia do chmury
 
-Aby włączyć złożone przetwarzanie komunikatów przesyłanych z urządzeń do chmury, usługa IoT Edge Hub zapewnia deklaratywny Routing komunikatów między modułami oraz między modułami i IoT Hub. Routing deklaratywny umożliwia modułom przechwytywanie i przetwarzanie komunikatów wysyłanych przez inne moduły i propagowanie ich do złożonych potoków. Aby uzyskać więcej informacji, zobacz [wdrażanie modułów i ustanawianie tras w IoT Edge](module-composition.md).
+Moduł IoT Edge może wysyłać komunikaty do chmury za pośrednictwem Centrum IoT Edge, które działa jako Broker lokalny i propaguje komunikaty do chmury. Aby włączyć złożone przetwarzanie komunikatów z urządzenia do chmury, moduł IoT Edge może również przechwycić i przetworzyć komunikaty wysyłane przez inne moduły lub urządzenia do swojego lokalnego centrum IoT Edge i wysyłać nowe komunikaty z przetworzonymi danymi. W tym celu można utworzyć łańcuchy modułów IoT Edge, aby tworzyć potoki przetwarzania lokalnego.
 
-Moduł IoT Edge, w przeciwieństwie do normalnej aplikacji urządzenia IoT Hub, może odbierać komunikaty z urządzenia do chmury, które są używane przez jego lokalnego centrum IoT Edge, aby przetworzyć je.
+Aby wysyłać komunikaty telemetryczne z urządzenia do chmury przy użyciu routingu, użyj ModuleClient zestawu SDK usługi Azure IoT. W zestawie SDK usługi Azure IoT każdy moduł ma koncepcję punktów końcowych *danych wejściowych* i *wyjściowych* modułu, które są mapowane na specjalne tematy MQTT. Użyj metody, która wyśle `ModuleClient.sendMessageAsync` komunikaty w wyjściowym punkcie końcowym modułu. Następnie skonfiguruj trasę w edgeHub, aby wysłać ten wyjściowy punkt końcowy do IoT Hub.
 
-IoT Edge Hub propaguje komunikaty do modułu w oparciu o trasy deklaratywne opisane w [manifeście wdrożenia](module-composition.md). Podczas tworzenia modułu IoT Edge można odbierać te komunikaty przez ustawienie programów obsługi komunikatów.
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
 
-Aby uprościć tworzenie tras, IoT Edge dodaje koncepcję punktów końcowych *danych wejściowych* i *wyjściowych* modułu. Moduł może odbierać wszystkie komunikaty przesyłane z urządzenia do chmury bez określania danych wejściowych, a także wysyłać komunikaty z urządzenia do chmury bez konieczności określania danych wyjściowych. Używanie jawnych danych wejściowych i wyjść sprawia, że reguły routingu są prostsze do zrozumienia.
+Wysyłanie komunikatów telemetrycznych z urządzenia do chmury przy użyciu brokera usługi MQTT jest podobne do publikowania komunikatów w tematach zdefiniowanych przez użytkownika, ale przy użyciu następującego IoT Hub specjalnego tematu dla modułu: `devices/<device_name>/<module_name>/messages/events` . Autoryzacje muszą być odpowiednio skonfigurowane. Mostek MQTT musi być również skonfigurowany do przesyłania dalej komunikatów z tego tematu do chmury.
 
-Na koniec komunikaty z urządzenia do chmury obsługiwane przez centrum brzegowe są znakowane przy użyciu następujących właściwości systemu:
+::: moniker-end
 
-| Właściwość | Opis |
-| -------- | ----------- |
-| $connectionDeviceId | Identyfikator urządzenia klienta, który wysłał komunikat |
-| $connectionModuleId | Identyfikator modułu, który wysłał komunikat |
-| $inputName | Dane wejściowe, które odebrały tę wiadomość. Może być pusty. |
-| $outputName | Dane wyjściowe użyte do wysłania wiadomości. Może być pusty. |
+Aby przetwarzać komunikaty przy użyciu routingu, należy najpierw skonfigurować trasę do wysyłania komunikatów pochodzących z innego punktu końcowego (modułu lub urządzenia) do wejściowego punktu końcowego modułu, a następnie nasłuchiwać komunikatów w wejściowym punkcie końcowym modułu. Za każdym razem, gdy nowa wiadomość wraca do tyłu, funkcja wywołania zwrotnego jest wyzwalana przez zestaw SDK usługi Azure IoT. Przetwarzaj wiadomości za pomocą tej funkcji wywołania zwrotnego i opcjonalnie wysyłaj nowe wiadomości w kolejce punktów końcowych modułu.
 
-### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Nawiązywanie połączenia z Centrum IoT Edge z poziomu modułu
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
 
-Podłączanie do lokalnego centrum IoT Edge z modułu obejmuje dwie czynności:
+Przetwarzanie komunikatów przy użyciu brokera MQTT jest podobne do subskrybowania komunikatów w tematach zdefiniowanych przez użytkownika, ale przy użyciu IoT Edge specjalnych tematów w kolejce wyjściowej modułu: `devices/<device_name>/<module_name>/messages/events` . Autoryzacje muszą być odpowiednio skonfigurowane. Opcjonalnie możesz wysyłać nowe wiadomości w wybranych tematach.
 
-1. Utwórz wystąpienie ModuleClient w aplikacji.
-2. Upewnij się, że aplikacja akceptuje certyfikat przedstawiony przez Centrum IoT Edge na tym urządzeniu.
+::: moniker-end
 
-Utwórz wystąpienie ModuleClient, aby połączyć moduł z Centrum IoT Edge uruchomionego na urządzeniu, podobnie jak wystąpienia DeviceClient połączą urządzenia IoT z IoT Hub. Aby uzyskać więcej informacji na temat klasy ModuleClient i jej metod komunikacji, zobacz Dokumentacja interfejsu API dla preferowanego języka SDK: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)lub [Node.js](/javascript/api/azure-iot-device/moduleclient).
+#### <a name="twins"></a>Bliźniaczych reprezentacji
+
+Bliźniaczych reprezentacji jest jednym z elementów podstawowych dostarczonych przez IoT Hub. Istnieją dokumenty JSON, które przechowują informacje o stanie, w tym metadane, konfiguracje i warunki. Każdy moduł lub urządzenie ma swój własny sznurek.
+
+Aby uzyskać splot modułu z zestawem SDK usługi Azure IoT, wywołaj `ModuleClient.getTwin` metodę.
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+Aby uzyskać sznurki modułowe z dowolnym klientem MQTT, jest uwzględniana nieco większa ilość pracy, ponieważ uzyskanie sznurka nie jest typowym wzorcem MQTT. Moduł musi najpierw subskrybować IoT Hub specjalny temat `$iothub/twin/res/#` . Ta nazwa tematu jest dziedziczona po IoT Hub, a wszystkie urządzenia/moduły muszą subskrybować ten sam temat. Nie oznacza to, że urządzenia odbierają sznury siebie nawzajem. IoT Hub i edgeHub wiedzą, które sznurki powinny być dostarczone, nawet jeśli wszystkie urządzenia nasłuchują tej samej nazwy tematu. Po dokonaniu subskrypcji moduł musi poprosić o dwuosiową publikację, publikując wiadomość w następującym IoT Hub specjalnym temacie z IDENTYFIKATORem żądania `$iothub/twin/GET/?$rid=1234` . Ten identyfikator żądania jest dowolnym IDENTYFIKATORem (czyli identyfikatorem GUID), który zostanie wysłany z powrotem przez IoT Hub wraz z żądanymi danymi. Jest to sposób, w jaki klient może sparować swoje żądania z odpowiedziami. Kod wyniku jest kodem stanu podobnym do HTTP, gdzie pomyślne kodowanie jest 200.
+
+::: moniker-end
+
+Aby otrzymać poprawkę w module z zestawem SDK usługi Azure IoT, zaimplementuj funkcję wywołania zwrotnego i zarejestruj ją za pomocą `ModuleClient.moduleTwinCallback` metody z zestawu SDK usługi Azure IoT, aby funkcja wywołania zwrotnego była wyzwalana za każdym razem, gdy zostanie wyświetlona poprawka przędzy.
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+Aby otrzymać poprawkę MQTT modułu z dowolnego klienta programu, proces jest bardzo podobny do otrzymywania pełnego bliźniaczych reprezentacjiu: Klient musi subskrybować specjalny temat IoT Hub `$iothub/twin/PATCH/properties/desired/#` . Po dokonaniu subskrypcji, gdy IoT Hub wysyła zmianę odpowiedniej sekcji z sznurka, klient otrzymuje tę wiadomość.
+
+::: moniker-end
+
+#### <a name="receive-direct-methods"></a>Otrzymywanie metod bezpośrednich
+
+Aby otrzymać metodę bezpośrednią z zestawem SDK usługi Azure IoT, zaimplementuj funkcję wywołania zwrotnego i zarejestruj ją za pomocą `ModuleClient.methodCallback` metody z zestawu SDK usługi Azure IoT, aby funkcja wywołania zwrotnego była wywoływana za każdym razem, gdy zostanie wyświetlona bezpośrednia Metoda.
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+Aby otrzymać metodę bezpośrednią z dowolnego klienta MQTT, proces jest bardzo podobny do odbierania poprawek bliźniaczych. Klient musi potwierdzić, że odebrał wywołanie i może wysłać kilka informacji w tym samym czasie. Specjalny IoT Hub tematu subskrybowania usługi `$iothub/methods/POST/#` .
+
+::: moniker-end
 
 ## <a name="language-and-architecture-support"></a>Obsługa języków i architektury
 

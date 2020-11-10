@@ -1,30 +1,30 @@
 ---
 title: Instalowanie i używanie programu Azure IoT Explorer | Microsoft Docs
-description: Zainstaluj narzędzie Azure IoT Explorer i użyj go do współpracy z urządzeniami Plug and Play IoT podłączonymi do usługi IoT Hub.
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: Zainstaluj narzędzie Azure IoT Explorer i użyj go do współpracy z urządzeniami Plug and Play IoT podłączonymi do usługi IoT Hub. Mimo że ten artykuł koncentruje się na pracy z urządzeniami Plug and Play IoT, można użyć narzędzia z dowolnym urządzeniem podłączonym do centrum.
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019158"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445306"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalowanie i korzystanie z programu Azure IoT Explorer
 
-Program Azure IoT Explorer jest graficznym narzędziem do współdziałania z urządzeniami Plug and Play IoT i ich testowania. Po zainstalowaniu narzędzia na komputerze lokalnym można używać go do nawiązywania połączenia z koncentratorem. Można użyć narzędzia, aby wyświetlić dane telemetryczne wysyłane przez urządzenia, korzystać z właściwości urządzenia i wywoływać polecenia.
+Program Azure IoT Explorer jest graficznym narzędziem do współdziałania z usługami i urządzeniami podłączonymi do centrum IoT Hub. Ten artykuł koncentruje się na używaniu narzędzia do testowania urządzeń Plug and Play IoT. Po zainstalowaniu narzędzia na komputerze lokalnym można używać go do nawiązywania połączenia z koncentratorem. Można użyć narzędzia, aby wyświetlić dane telemetryczne wysyłane przez urządzenia, korzystać z właściwości urządzenia i wywoływać polecenia.
 
 W tym artykule wyjaśniono, jak:
 
 - Zainstaluj i skonfiguruj narzędzie Azure IoT Explorer.
-- Użyj narzędzia, aby korzystać z i testować urządzenia.
+- Użyj narzędzia, aby korzystać z i testować urządzenia Plug and Play IoT.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+Aby uzyskać ogólne informacje na temat korzystania z narzędzia, zobacz [plik Readme](https://github.com/Azure/azure-iot-explorer/blob/master/README.md)usługi GitHub.
 
 Aby korzystać z narzędzia Azure IoT Explorer, potrzebne są:
 
@@ -40,13 +40,13 @@ Przejdź do [wersji programu Azure IoT Explorer](https://github.com/Azure/azure-
 
 ## <a name="use-azure-iot-explorer"></a>Korzystanie z programu Azure IoT Explorer
 
-W przypadku urządzenia można podłączyć własne urządzenie lub użyć jednego z przykładowych symulowanych urządzeń. Wykonaj [te instrukcje](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) , aby uruchomić przykład symulowanego urządzenia.
+W przypadku urządzenia można podłączyć własne urządzenie lub użyć jednego z przykładowych symulowanych urządzeń. W przypadku niektórych przykładowych symulowanych urządzeń zapisanych w różnych językach zapoznaj się z [aplikacją Connect a sample Plug and Play Device, aby IoT Hub](quickstart-connect-device-node.md) przewodników Szybki Start.
 
 ### <a name="connect-to-your-hub"></a>Nawiązywanie połączenia z centrum
 
 Przy pierwszym uruchomieniu programu Azure IoT Explorer zostanie wyświetlony monit o podanie parametrów połączenia Centrum IoT. Po dodaniu parametrów połączenia wybierz pozycję **Połącz**. Możesz użyć ustawień narzędzia, aby przełączyć się do innego Centrum IoT Hub przez zaktualizowanie parametrów połączenia.
 
-Definicje modeli dla urządzenia IoT Plug and Play są przechowywane w repozytorium publicznym, podłączonym urządzeniu lub w folderze lokalnym. Domyślnie narzędzie szuka definicji modelu w repozytorium publicznym i podłączonym urządzeniu. Możesz dodawać i usuwać źródła albo konfigurować priorytety źródeł w **ustawieniach**:
+Definicje modeli dla urządzenia IoT Plug and Play są przechowywane w repozytorium publicznym, podłączonym urządzeniu lub w folderze lokalnym. Domyślnie narzędzie szuka definicji modelu w repozytorium publicznym i podłączonym urządzeniu. Możesz dodawać i usuwać źródła albo konfigurować priorytety źródeł w **ustawieniach** :
 
 Aby dodać Źródło:
 
@@ -78,7 +78,7 @@ Na stronie lista **urządzeń** wybierz wartość w kolumnie **Identyfikator urz
 
 ### <a name="device"></a>Urządzenie
 
-Ta sekcja obejmuje **tożsamość urządzenia**,  **sznurki urządzenia**, **dane telemetryczne**, **metodę bezpośrednią**, **komunikat z chmury do urządzenia**, karty **tożsamości modułów**  .
+Ta sekcja obejmuje **tożsamość urządzenia** ,  **sznurki urządzenia** , **dane telemetryczne** , **metodę bezpośrednią** , **komunikat z chmury do urządzenia** , karty **tożsamości modułów**  .
 
 - Informacje o [tożsamości urządzenia](../iot-hub/iot-hub-devguide-identity-registry.md) można wyświetlić i zaktualizować na karcie **tożsamość urządzenia** .
 - Dostęp do informacji o [bliźniaczych urządzeniach](../iot-hub/iot-hub-devguide-device-twins.md) można uzyskać na karcie **sznurki urządzenia** .
@@ -89,7 +89,7 @@ Ta sekcja obejmuje **tożsamość urządzenia**,  **sznurki urządzenia**, **dan
 
 ### <a name="iot-plug-and-play-components"></a>Składniki Plug and Play IoT
 
-Jeśli urządzenie jest połączone z centrum przy użyciu **identyfikatora modelu**, narzędzie wyświetli kartę **składniki Plug and Play IoT** "", w której można zobaczyć **Identyfikator modelu**.
+Jeśli urządzenie jest połączone z centrum przy użyciu **identyfikatora modelu** , narzędzie wyświetli kartę **składniki Plug and Play IoT** , w której można zobaczyć **Identyfikator modelu**.
 
 Jeśli **Identyfikator modelu** jest dostępny w jednym ze skonfigurowanych źródeł — publicznego repozytorium lub folderu lokalnego, zostanie wyświetlona lista składników. Wybranie składnika powoduje wyświetlenie dostępnych właściwości, poleceń i danych telemetrycznych.
 
@@ -99,7 +99,7 @@ Na stronie **składnik** można wyświetlić właściwości tylko do odczytu, za
 
 #### <a name="properties"></a>Właściwości
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Wyświetlanie składników w programie Azure IoT Explorer":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Wyświetlanie właściwości w programie Azure IoT Explorer":::
 
 Właściwości tylko do odczytu zdefiniowane w interfejsie można wyświetlić na karcie **właściwości (tylko do odczytu)** . Można zaktualizować zapisywalne właściwości zdefiniowane w interfejsie na karcie **właściwości (zapisywalne)** :
 
@@ -109,7 +109,7 @@ Właściwości tylko do odczytu zdefiniowane w interfejsie można wyświetlić n
 1. Wyświetlenie podglądu ładunku do wysłania na urządzenie.
 1. Prześlij zmianę.
 
-Po przesłaniu zmiany można śledzić stan aktualizacji: **Synchronizacja**, **sukces**lub **błąd**. Po zakończeniu synchronizacji zostanie wyświetlona nowa wartość właściwości w kolumnie **raportowana Właściwość** . Jeśli przejdziesz do innych stron przed ukończeniem synchronizacji, narzędzie będzie nadal powiadamiane po zakończeniu aktualizacji. Możesz również użyć Centrum powiadomień narzędzia, aby wyświetlić historię powiadomień.
+Po przesłaniu zmiany można śledzić stan aktualizacji: **Synchronizacja** , **sukces** lub **błąd**. Po zakończeniu synchronizacji zostanie wyświetlona nowa wartość właściwości w kolumnie **raportowana Właściwość** . Jeśli przejdziesz do innych stron przed ukończeniem synchronizacji, narzędzie będzie nadal powiadamiane po zakończeniu aktualizacji. Możesz również użyć Centrum powiadomień narzędzia, aby wyświetlić historię powiadomień.
 
 #### <a name="commands"></a>Polecenia
 
@@ -126,13 +126,7 @@ Aby wyświetlić dane telemetryczne dla wybranego interfejsu, przejdź do karty 
 
 #### <a name="known-issues"></a>Znane problemy
 
-- Obsługa IoT Edge: bieżąca wersja nie pokazuje urządzeń IoT Edge na liście urządzeń.
-- Funkcje języka DTDL: program IoT Explorer 0.12. x nie jest w pełni zgodny z protokołem v2, ale funkcje nie są obsługiwane:
-  - Dziedziczenie interfejsu za pomocą `extends`
-  - Mapowanie w mapie (mapa zagnieżdżona)
-  - Typ tablicy
-  - Schematy niestandardowe
-  - Niestandardowe typy semantyczne
+Aby zapoznać się z listą funkcji IoT obsługiwanych przez najnowszą wersję narzędzia, zobacz [Lista funkcji](https://github.com/Azure/azure-iot-explorer/wiki).
 
 ## <a name="next-steps"></a>Następne kroki
 

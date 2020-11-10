@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dbc426144678f5bd7382b0961bf9bc3f5339b97a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409811"
+ms.locfileid: "94444881"
 ---
 # <a name="azure-tls-certificate-changes"></a>Zmiany certyfikatu protokołu TLS platformy Azure  
 
@@ -22,12 +22,15 @@ Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów 
 
 ## <a name="when-will-this-change-happen"></a>Kiedy to nastąpi zmiana?
 
+Istniejące punkty końcowe platformy Azure przeszły w sposób fazowy od 13 sierpnia 2020. Wszystkie nowo utworzone punkty końcowe protokołu TLS/SSL usługi Azure zawierają zaktualizowane certyfikaty łańcucha do nowych głównych urzędów certyfikacji.
+
+Szczegóły dotyczące usługi:
+
 - Usługi [Azure Active Directory](../../active-directory/index.yml) (Azure AD) zaczęły to przechodzenie od 7 lipca 2020.
-- Wszystkie nowo utworzone punkty końcowe protokołu TLS/SSL usługi Azure zawierają zaktualizowane certyfikaty łańcucha do nowych głównych urzędów certyfikacji.
-- Istniejące punkty końcowe platformy Azure będą przenoszone w sposób fazowy od 13 sierpnia 2020.
 - [Usługi Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) i [DPS](../../iot-dps/index.yml) POzostaną w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Usługa Azure Storage](../../storage/index.yml) pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Usługa Azure cache for Redis](../../azure-cache-for-redis/index.yml) pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](../../azure-cache-for-redis/cache-whats-new.md).
+
 > [!IMPORTANT]
 > Aby uniknąć błędów łączności podczas próby nawiązania połączenia z usługami platformy Azure, klienci mogą wymagać aktualizacji aplikacji po tej zmianie.
 

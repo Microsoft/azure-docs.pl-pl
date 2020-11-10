@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ed7b61e9e0379462e0dfbcdcc93acfccf470d95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427041"
+ms.locfileid: "94445340"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
@@ -26,9 +26,9 @@ Poniższy zrzut ekranu przedstawiający [Tworzenie pierwszej aplikacji w języku
 
 Tych funkcji można używać osobno lub razem. Aby zaimplementować te zachowania w usłudze Azure Wyszukiwanie poznawcze, istnieje indeks i składnik zapytania. 
 
-+ W indeksie Dodaj sugestię do indeksu. Możesz użyć portalu, [CREATE INDEX (REST) (/REST/API/SearchService/create-index) lub dla [Właściwości sugerowałs](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters). Pozostała część tego artykułu koncentruje się na tworzeniu sugestii.
++ Dodaj sugestię do definicji indeksu wyszukiwania. Pozostała część tego artykułu koncentruje się na tworzeniu sugestii.
 
-+ W żądaniu zapytania Zadzwoń do jednego z [interfejsów API wymienionych poniżej](#how-to-use-a-suggester).
++ Wywołaj zapytanie z włączoną sugestią, w formie żądania sugestii lub żądania autouzupełniania, używając jednego z [interfejsów API wymienionych poniżej](#how-to-use-a-suggester).
 
 Obsługa wyszukiwania jako typu jest włączana dla poszczególnych pól dla pól ciągów. Można zaimplementować oba zachowania typeahead w ramach tego samego rozwiązania wyszukiwania, jeśli chcesz, aby środowisko było podobne do określonego na zrzucie ekranu. Oba żądania są kierowane do kolekcji *dokumenty* określonego indeksu i odpowiedzi są zwracane po podaniu przez użytkownika co najmniej trzech ciągów wejściowych znaku.
 
@@ -36,9 +36,9 @@ Obsługa wyszukiwania jako typu jest włączana dla poszczególnych pól dla pó
 
 Program sugerowany jest wewnętrzną strukturą danych, która obsługuje zachowania typu "Wyszukaj jako" przez przechowywanie prefiksów do dopasowania w przypadku zapytań częściowych. Podobnie jak w przypadku terminów z tokenami, prefiksy są przechowywane w odwróconych indeksach, po jednym dla każdego pola określonego w kolekcji pól sugerujących.
 
-## <a name="define-a-suggester"></a>Definiowanie sugestii
+## <a name="how-to-create-a-suggester"></a>Jak utworzyć sugestię
 
-Aby utworzyć sugestię, należy dodać jeden do [schematu indeksu](/rest/api/searchservice/create-index) i [ustawić każdą właściwość](#property-reference). Najlepszym terminem tworzenia sugestii jest określenie pola, które będzie z niego korzystać.
+Aby utworzyć program sugerujący, Dodaj go do [definicji indeksu](/rest/api/searchservice/create-index). Sugerował Pobiera nazwę i kolekcję pól, w których włączono środowisko typeahead. i [ustawić każdą właściwość](#property-reference). Najlepszym terminem tworzenia sugestii jest określenie pola, które będzie z niego korzystać.
 
 + Używaj tylko pól ciągów
 
@@ -60,12 +60,22 @@ Aby zaspokoić zarówno środowiska typu "wyszukiwanie jako dane", Dodaj wszystk
 
 Wybór analizatora decyduje o tym, w jaki sposób pola są tokenami, a następnie prefiksem. Na przykład w przypadku ciągu z łącznikiem, takiego jak "kontekstowe", użycie analizatora języka spowoduje, że te kombinacje tokenu: "kontekst", "poufne", "kontekstowe". Czy użyto standardowego analizatora Lucene, ciąg podzielony na nie istnieje. 
 
-Podczas oceniania analizatorów należy rozważyć użycie [interfejsu API analizy tekstu](/rest/api/searchservice/test-analyzer) do wglądu w sposób, w jaki warunki są tokenami, a następnie prefiksem. Po skompilowaniu indeksu można wypróbować różne analizatory w ciągu, aby wyświetlić dane wyjściowe tokenu.
+Podczas oceniania analizatorów należy rozważyć użycie [interfejsu API analizy tekstu](/rest/api/searchservice/test-analyzer) do wglądu w sposób przetwarzania warunków. Po skompilowaniu indeksu można wypróbować różne analizatory w ciągu, aby wyświetlić dane wyjściowe tokenu.
 
 Pola używające [analizatorów niestandardowych](index-add-custom-analyzers.md) lub [wstępnie zdefiniowanych analizatorów](index-add-custom-analyzers.md#predefined-analyzers-reference) (z wyjątkiem standardowych Lucene) są jawnie niedozwolone, aby zapobiec słabym rezultatom.
 
 > [!NOTE]
 > Jeśli musisz obejść ograniczenie analizatora, na przykład jeśli potrzebujesz słowa kluczowego lub analizatora ngram dla niektórych scenariuszy zapytań, należy użyć dwóch oddzielnych pól dla tej samej zawartości. Pozwoli to jednemu z pól na posiadanie sugestii, podczas gdy drugi można skonfigurować przy użyciu konfiguracji analizatora niestandardowego.
+
+## <a name="create-using-the-portal"></a>Tworzenie przy użyciu portalu
+
+W przypadku tworzenia indeksu przy użyciu kreatora **dodawania indeksu** lub **importowania danych** istnieje możliwość włączenia narzędzia do sugerowania:
+
+1. W definicji indeksu wprowadź nazwę dla sugestii.
+
+1. W każdej definicji pola dla nowych pól zaznacz pole wyboru w kolumnie Sugeruj. Pole wyboru jest dostępne tylko w przypadku pól ciągów. 
+
+Jak wspomniano wcześniej, wybór analizatora ma wpływ na tokenizacji i tworzenie prefiksów. Podczas włączania sugestii należy wziąć pod uwagę całą definicję pola. 
 
 ## <a name="create-using-rest"></a>Tworzenie przy użyciu REST
 
@@ -131,9 +141,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |Właściwość      |Opis      |
 |--------------|-----------------|
-|`name`        |Nazwa sugestii.|
-|`searchMode`  |Strategia używana do wyszukiwania fraz kandydatów. Jedynym obsługiwanym trybem jest `analyzingInfixMatching` , który jest obecnie zgodny na początku okresu.|
-|`sourceFields`|Lista co najmniej jednego pola, które jest źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i `Collection(Edm.String)` . Jeśli analizator jest określony w polu, musi to być nazwany Analizator z [tej listy](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (nie Analizator niestandardowy).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
+|`name`        | Określony w definicji sugerowania, ale również wywoływany na żądanie autouzupełniania lub sugestii. |
+|`sourceFields`| Określony w definicji sugestii. Jest to lista co najmniej jednego pola w indeksie, które są źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i `Collection(Edm.String)` . Jeśli analizator jest określony w polu, musi być nazwany Analizator leksykalny z [tej listy](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (a nie analizatora niestandardowego).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
+|`searchMode`  | Tylko parametr REST, ale również widoczny w portalu. Ten parametr nie jest dostępny w zestawie .NET SDK. Wskazuje ona strategię używaną do wyszukiwania fraz kandydatów. Jedynym obsługiwanym trybem jest `analyzingInfixMatching` , który jest obecnie zgodny na początku okresu.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -160,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Przykładowy kod
 
-+ [Tworzenie pierwszej aplikacji w języku C# (Lekcja 3 — Dodawanie wyszukiwania w trakcie pisania)](tutorial-csharp-type-ahead-and-suggestions.md) pokazuje, że zasugerowana jest konstrukcja, sugerowane zapytania, Autouzupełnianie i nawigacja aspektowa. Ten przykładowy kod jest uruchamiany w usłudze Azure Wyszukiwanie poznawcze piaskownicy i używa wstępnie załadowanego indeksu hoteli, więc wystarczy nacisnąć klawisz F5, aby uruchomić aplikację. Żadna subskrypcja ani logowanie nie są wymagane.
++ [Tworzenie pierwszej aplikacji w języku C# (Lekcja 3 — Dodawanie wyszukiwania w trakcie pisania)](tutorial-csharp-type-ahead-and-suggestions.md) — przykład przedstawia sugerowane zapytania, Autouzupełnianie i nawigację aspektową. Ten przykładowy kod działa w usłudze Azure Wyszukiwanie poznawcze piaskownicy i używa wstępnie załadowanego indeksu hoteli z już utworzonym programem sugerującym, więc wystarczy nacisnąć klawisz F5, aby uruchomić aplikację. Żadna subskrypcja ani logowanie nie są wymagane.
 
 ## <a name="next-steps"></a>Następne kroki
 

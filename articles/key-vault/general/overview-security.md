@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739694"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445034"
 ---
 # <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
@@ -25,7 +25,7 @@ Używasz Azure Key Vault do ochrony kluczy szyfrowania i wpisów tajnych, takich
 Podczas tworzenia magazynu kluczy w ramach subskrypcji platformy Azure jest on automatycznie kojarzony z dzierżawą usługi Azure AD subskrypcji. Każdy użytkownik próbujący zarządzać zawartością lub pobrać ją z magazynu musi być uwierzytelniany przez usługę Azure AD.
 
 - Uwierzytelnianie ustanawia tożsamość obiektu wywołującego.
-- Autoryzacja określa, które operacje mogą zostać wykonane przez obiekt wywołujący. Autoryzacja w Key Vault używa kombinacji [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) (RBAC) i zasad dostępu Azure Key Vault.
+- Autoryzacja określa, które operacje mogą zostać wykonane przez obiekt wywołujący. Autoryzacja w Key Vault korzysta z kombinacji [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) i zasad dostępu Azure Key Vault.
 
 ### <a name="access-model-overview"></a>Przegląd modelu dostępu
 
@@ -34,7 +34,7 @@ Dostęp do magazynów odbywa się za przez dwa interfejsy lub płaszczyzny. Te p
 - *Płaszczyzny zarządzania* to miejsce, w którym zarządza się Key Vault i jest interfejsem używanym do tworzenia i usuwania magazynów. Można także odczytać właściwości magazynu kluczy i zarządzać zasadami dostępu.
 - *Płaszczyzna danych* umożliwia korzystanie z danych przechowywanych w magazynie kluczy. Możesz dodawać, usuwać i modyfikować klucze, wpisy tajne i certyfikaty.
 
-Aby uzyskać dostęp do magazynu kluczy w jednej z płaszczyzn, wszystkie obiekty wywołujące (Użytkownicy i aplikacje) muszą zostać uwierzytelnione i autoryzowane. Obie płaszczyzny używają Azure Active Directory (Azure AD) do uwierzytelniania. W przypadku autoryzacji płaszczyzna zarządzania używa kontroli dostępu opartej na rolach (RBAC), a płaszczyzna danych używa zasad dostępu Key Vault.
+Aby uzyskać dostęp do magazynu kluczy w jednej z płaszczyzn, wszystkie obiekty wywołujące (Użytkownicy i aplikacje) muszą zostać uwierzytelnione i autoryzowane. Obie płaszczyzny używają Azure Active Directory (Azure AD) do uwierzytelniania. W przypadku autoryzacji płaszczyzna zarządzania używa kontroli dostępu opartej na rolach (Azure RBAC) i płaszczyzny danych używa zasad dostępu Key Vault.
 
 Model jednego mechanizmu uwierzytelniania w obu płaszczyznach ma kilka zalet:
 
@@ -46,11 +46,11 @@ Model jednego mechanizmu uwierzytelniania w obu płaszczyznach ma kilka zalet:
 
 Podczas tworzenia magazynu kluczy w grupie zasobów można zarządzać dostępem przy użyciu usługi Azure AD. Użytkownicy lub grupy mogą zarządzać magazynami kluczy w grupie zasobów. Można udzielić dostępu na określonym poziomie zakresu, przypisując odpowiednie role platformy Azure. Aby udzielić użytkownikowi dostępu do zarządzania magazynami kluczy, należy przypisać wstępnie zdefiniowaną `key vault Contributor` rolę do użytkownika w określonym zakresie. Do roli platformy Azure można przypisać następujące poziomy zakresów:
 
-- **Subskrypcja**: rola platformy Azure przypisana na poziomie subskrypcji ma zastosowanie do wszystkich grup zasobów i zasobów w ramach tej subskrypcji.
-- **Grupa zasobów**: rola platformy Azure przypisana na poziomie grupy zasobów ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
-- **Określony zasób**: dla danego zasobu jest stosowana rola platformy Azure przypisana do określonego zasobu. W tym przypadku zasób jest określonym magazynem kluczy.
+- **Subskrypcja** : rola platformy Azure przypisana na poziomie subskrypcji ma zastosowanie do wszystkich grup zasobów i zasobów w ramach tej subskrypcji.
+- **Grupa zasobów** : rola platformy Azure przypisana na poziomie grupy zasobów ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
+- **Określony zasób** : dla danego zasobu jest stosowana rola platformy Azure przypisana do określonego zasobu. W tym przypadku zasób jest określonym magazynem kluczy.
 
-Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola nie spełnia Twoich potrzeb, możesz zdefiniować własną rolę. Aby uzyskać więcej informacji, zobacz [RBAC: role wbudowane](../../role-based-access-control/built-in-roles.md).
+Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola nie spełnia Twoich potrzeb, możesz zdefiniować własną rolę. Aby uzyskać więcej informacji, zobacz [Azure RBAC: role wbudowane](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Jeśli użytkownik ma `Contributor` uprawnienia do płaszczyzny zarządzania magazynu kluczy, użytkownik może udzielić sobie dostępu do płaszczyzny danych przez ustawienie zasad dostępu Key Vault. Należy ściśle kontrolować, kto ma `Contributor` dostęp do roli do Twoich magazynów kluczy. Upewnij się, że tylko autoryzowani osoby mają dostęp do magazynów kluczy, kluczy, wpisów tajnych i certyfikatów oraz nimi zarządzać.
@@ -79,7 +79,7 @@ Aby uzyskać więcej informacji na temat Azure Key Vault adresów sieciowych Spr
 
 *   Fronton Key Vault (płaszczyzna danych) to serwer z wieloma dzierżawami. Oznacza to, że magazyny kluczy pochodzące od różnych klientów mogą współużytkować ten sam publiczny adres IP. W celu uzyskania izolacji każde żądanie HTTP jest uwierzytelniane i autoryzowane niezależnie od innych żądań.
 *   Można zidentyfikować starsze wersje protokołu TLS w celu zgłaszania luk w zabezpieczeniach, ale ponieważ publiczny adres IP jest współużytkowany, nie jest możliwe, aby zespół usługi magazynu kluczy mógł wyłączyć stare wersje protokołu TLS dla poszczególnych magazynów kluczy na poziomie transportu.
-*   Protokół HTTPS pozwala klientowi uczestniczyć w negocjacji protokołu TLS. **Klienci mogą wymusić najnowszą wersję protokołu TLS**i zawsze, gdy klient wykonuje takie działania, całe połączenie będzie używać odpowiedniej ochrony na poziomie. Fakt, że Key Vault nadal obsługuje starsze wersje protokołu TLS, nie będzie zakłócać bezpieczeństwa połączeń przy użyciu nowszych wersji protokołu TLS.
+*   Protokół HTTPS pozwala klientowi uczestniczyć w negocjacji protokołu TLS. **Klienci mogą wymusić najnowszą wersję protokołu TLS** i zawsze, gdy klient wykonuje takie działania, całe połączenie będzie używać odpowiedniej ochrony na poziomie. Fakt, że Key Vault nadal obsługuje starsze wersje protokołu TLS, nie będzie zakłócać bezpieczeństwa połączeń przy użyciu nowszych wersji protokołu TLS.
 *   Pomimo znanych luk w zabezpieczeniach protokołu TLS nie ma znanego ataku, który zezwoli złośliwemu agentowi na Wyodrębnienie informacji z magazynu kluczy, gdy atakujący inicjuje połączenie z wersją protokołu TLS, która ma luki w zabezpieczeniach. Osoba atakująca nadal musi uwierzytelnić się i autoryzować siebie i tak długo, jak legalni klienci zawsze łączą się z najnowszymi wersjami protokołu TLS, nie ma żadnego sposobu, aby poświadczenia mogły zostać ujawnione w przypadku luk w zabezpieczeniach w starych wersjach protokołu TLS.
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
@@ -91,4 +91,4 @@ Aby uzyskać zalecenie dotyczące bezpiecznego zarządzania kontami magazynu, za
 ## <a name="next-steps"></a>Następne kroki
 
 - [Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md)
-- [RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md)
+- [Azure RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md)

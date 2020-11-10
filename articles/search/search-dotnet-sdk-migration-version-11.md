@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539575"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445442"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 11
 
@@ -49,7 +49,7 @@ Jeśli ma to zastosowanie, w poniższej tabeli są mapowane biblioteki klienckie
 |---------------------|------------------------------|------------------------------|
 | Klient używany do wykonywania zapytań i do wypełniania indeksu. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
 | Klient używany na potrzeby indeksów, analizatorów, mapy synonimów | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Klient używany dla indeksatorów, źródeł danych, umiejętności | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**Nowy**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| Klient używany dla indeksatorów, źródeł danych, umiejętności | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient ( **Nowy** )](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` istnieje w obu wersjach, ale obsługuje różne rzeczy. W wersji 10 `SearchIndexClient` Utwórz indeksy i inne obiekty. W wersji 11, `SearchIndexClient` działa z istniejącymi indeksami. Aby uniknąć nieporozumień podczas aktualizowania kodu, należy mieć na uwadze kolejność, w jakiej odwołania do klientów są aktualizowane. Postępując zgodnie z sekwencją [kroków w celu uaktualnienia,](#UpgradeSteps) należy pomóc wyeliminować wszelkie problemy z wymianą ciągów.
@@ -169,6 +169,24 @@ Poniższe kroki ułatwiają rozpoczęcie migracji kodu przez przechodzenie przez
    ```
 
 1. Dodaj nowe odwołania klientów dla obiektów powiązanych z indeksatorem. Jeśli używasz indeksatorów, DataSources lub umiejętności, Zmień odwołania klienta do [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Ten klient jest nowy w wersji 11 i nie ma poprzedzającego go.
+
+1. Odwiedzaj kolekcje. W nowym zestawie SDK wszystkie listy są tylko do odczytu, aby uniknąć problemów podrzędnych, jeśli lista ma zawierać wartości null. Zmiana kodu polega na dodaniu elementów do listy. Na przykład zamiast przypisywania ciągów do właściwości SELECT, należy dodać je w następujący sposób:
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
 
 1. Aktualizowanie odwołań klienta na potrzeby zapytań i importowania danych. Wystąpienia elementu [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) należy zmienić na [SearchClient](/dotnet/api/azure.search.documents.searchclient). Aby uniknąć pomyłek nazw, przed przejściem do następnego kroku upewnij się, że wszystkie wystąpienia są przechwytywane.
 

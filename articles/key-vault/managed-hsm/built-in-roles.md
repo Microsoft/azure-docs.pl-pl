@@ -8,16 +8,16 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000766"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445221"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Zarządzane role lokalnych RBAC modułu HSM
 
-Lokalna RBAC modułu HSM ma kilka wbudowanych ról, które można przypisać do użytkowników, podmiotów usługi, grup i zarządzanych tożsamości. Aby zezwolić podmiotowi zabezpieczeń na wykonanie operacji, należy przypisać im rolę, która przyznaje im uprawnienia do wykonywania tych operacji. Wszystkie te role i operacje umożliwiają tylko Zarządzanie uprawnieniami dla operacji na płaszczyźnie danych. Aby zarządzać uprawnieniami płaszczyzny kontroli dla zarządzanego zasobu modułu HSM (takich jak tworzenie nowego zarządzanego modułu HSM lub aktualizowanie, przenoszenie, Usuwanie istniejącego), należy użyć [kontroli dostępu opartej na rolach (RBAC) platformy Azure](../../role-based-access-control/overview.md).
+Lokalna RBAC modułu HSM ma kilka wbudowanych ról, które można przypisać do użytkowników, podmiotów usługi, grup i zarządzanych tożsamości. Aby zezwolić podmiotowi zabezpieczeń na wykonanie operacji, należy przypisać im rolę, która przyznaje im uprawnienia do wykonywania tych operacji. Wszystkie te role i operacje umożliwiają tylko Zarządzanie uprawnieniami dla operacji na płaszczyźnie danych. Aby zarządzać uprawnieniami płaszczyzny kontroli dla zarządzanego zasobu modułu HSM (na przykład tworzenia nowego zarządzanego modułu HSM lub aktualizacji, przenoszenia, usuwania istniejącego), należy użyć [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles"></a>Wbudowane role
 
@@ -77,5 +77,5 @@ Lokalna RBAC modułu HSM ma kilka wbudowanych ról, które można przypisać do 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz Omówienie [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md).
+- Zapoznaj się z omówieniem [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md).
 - Zobacz Samouczek dotyczący [zarządzanego zarządzania rolami modułu HSM](role-management.md)

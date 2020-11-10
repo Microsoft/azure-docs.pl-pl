@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322315"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444830"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -36,7 +36,7 @@ Obszar roboczy jest scentralizowanym miejscem do:
   * [Pipelines](#ml-pipelines)
   * [Zestawy danych](#datasets-and-datastores)
   * [Modele](#models)
-  * [Punktów końcowych](#endpoints)
+  * [Punkty końcowe](#endpoints)
 
 Obszar roboczy zawiera inne zasoby platformy Azure, które są używane przez obszar roboczy:
 
@@ -46,6 +46,19 @@ Obszar roboczy zawiera inne zasoby platformy Azure, które są używane przez ob
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): przechowuje wpisy tajne, które są używane przez cele obliczeniowe i inne poufne informacje, które są zbędne w obszarze roboczym.
 
 Obszar roboczy można udostępniać innym osobom.
+
+### <a name="create-workspace"></a>Tworzenie obszaru roboczego
+
+Na poniższym diagramie przedstawiono przepływ pracy tworzenia obszaru roboczego.
+
+* Zaloguj się do usługi Azure AD z jednego z obsługiwanych klientów Azure Machine Learning (interfejs wiersza polecenia platformy Azure, zestaw SDK języka Python, Azure Portal) i zażądaj odpowiedniego tokenu Azure Resource Manager.
+* Wywołaj Azure Resource Manager, aby utworzyć obszar roboczy. 
+* Azure Resource Manager skontaktować się z dostawcą zasobów Azure Machine Learning w celu udostępnienia obszaru roboczego.
+* Jeśli nie określisz istniejących zasobów, w subskrypcji zostaną utworzone dodatkowe wymagane zasoby.
+
+W razie potrzeby można również udostępnić innym obiektom docelowym obliczeń, które są dołączone do obszaru roboczego (np. usługi Azure Kubernetes lub maszyn wirtualnych).
+
+[![Przepływ pracy tworzenia obszaru roboczego](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Oblicza
 
@@ -114,6 +127,10 @@ Na przykład Uruchom konfiguracje, zobacz [Konfigurowanie przebiegu szkolenioweg
 
 W przypadku przesyłania przebiegu Azure Machine Learning kompresuje katalog zawierający skrypt jako plik zip i wysyła go do obiektu docelowego obliczeń. Następnie plik zip zostanie wyodrębniony, a skrypt zostanie uruchomiony w tym miejscu. Azure Machine Learning również zapisuje plik zip jako migawkę w ramach rekordu uruchomieniowego. Każda osoba mająca dostęp do obszaru roboczego może przeglądać rekord uruchomienia i pobrać migawkę.
 
+Na poniższym diagramie przedstawiono przepływ pracy migawek kodu.
+
+[![Przepływ pracy migawek kodu](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
+
 ### <a name="logging"></a>Rejestrowanie
 
 Azure Machine Learning automatycznie rejestruje metryki standardowego uruchamiania. Można jednak [użyć zestawu SDK języka Python do rejestrowania arbitralnych metryk](how-to-track-experiments.md).
@@ -129,6 +146,31 @@ Istnieją różne sposoby wyświetlania dzienników: monitorowanie stanu przebie
 Po rozpoczęciu szkolenia w przypadku, gdy katalog źródłowy jest lokalnym repozytorium git, informacje o repozytorium są przechowywane w historii uruchamiania. Działa to z przebiegami przesłanymi przy użyciu konfiguracji uruchamiania skryptu lub potoku ML. Działa również w przypadku przebiegów przesłanych z zestawu SDK lub interfejsu wiersza polecenia Machine Learning.
 
 Aby uzyskać więcej informacji, zobacz Integracja z usługą [git dla Azure Machine Learning](concept-train-model-git-integration.md).
+
+### <a name="training-workflow"></a>Przepływ pracy szkolenia
+
+Po uruchomieniu eksperymentu w celu uczenia modelu należy wykonać następujące czynności. Są one zilustrowane na poniższym diagramie przepływu pracy szkoleniowej:
+
+* Azure Machine Learning jest wywoływana z IDENTYFIKATORem migawki dla migawki kodu zapisanej w poprzedniej sekcji.
+* Azure Machine Learning tworzy identyfikator uruchomienia (opcjonalnie) i token usługi Machine Learning, który jest później używany przez cele obliczeniowe, takie jak środowisko obliczeniowe usługi Machine Learning/VM, do komunikowania się z usługą Machine Learning.
+* Aby uruchamiać zadania szkoleniowe, można wybrać zarządzany obiekt docelowy obliczeń (taki jak środowisko obliczeniowe usługi Machine Learning) lub niezarządzany obiekt docelowy obliczeń (na przykład maszyny wirtualne). Poniżej przedstawiono przepływy danych dla obu scenariuszy:
+   * Maszyny wirtualne/HDInsight, do których dostęp odbywa się przy użyciu poświadczeń SSH w magazynie kluczy w ramach subskrypcji firmy Microsoft. Azure Machine Learning uruchamia kod zarządzania w obiekcie docelowym obliczeń, który:
+
+   1. Przygotowuje środowisko. (Docker to opcja dla maszyn wirtualnych i komputerów lokalnych. Aby dowiedzieć się, jak działają eksperymenty w kontenerach platformy Docker, zobacz następujące środowisko obliczeniowe usługi Machine Learning kroki.
+   1. Pobiera kod.
+   1. Konfiguruje zmienne środowiskowe i konfiguracje.
+   1. Uruchamia skrypty użytkownika (migawka kodu wymieniona w poprzedniej sekcji).
+
+   * Środowisko obliczeniowe usługi Machine Learning dostęp do programu za pomocą tożsamości zarządzanej przez obszar roboczy.
+Ponieważ środowisko obliczeniowe usługi Machine Learning jest zarządzanym elementem docelowym obliczeń (czyli jest zarządzany przez firmę Microsoft), jest uruchamiany w ramach Twojej subskrypcji firmy Microsoft.
+
+   1. Zdalna konstrukcja platformy Docker jest wyłączona, w razie konieczności.
+   1. Kod zarządzania jest zapisywana w udziale Azure Files użytkownika.
+   1. Kontener jest uruchamiany przy użyciu polecenia początkowego. Oznacza to, że kod zarządzania zgodnie z opisem w poprzednim kroku.
+
+* Po zakończeniu przebiegu można wykonywać zapytania o uruchomienia i metryki. Na poniższym diagramie przepływu ten krok występuje, gdy obiekt docelowy obliczeń szkolenia zapisuje metryki uruchamiania z powrotem do Azure Machine Learning z magazynu w bazie danych Cosmos DB. Klienci mogą wywoływać Azure Machine Learning. Machine Learning spowoduje włączenie metryk ściągania z bazy danych Cosmos DB i zwrócenie ich z powrotem do klienta.
+
+[![Przepływ pracy szkolenia](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## <a name="models"></a>Modele
 
@@ -178,9 +220,21 @@ Punkt końcowy to tworzenie wystąpienia modelu w usłudze sieci Web, która mo�
 
 W przypadku wdrażania modelu jako usługi sieci Web punkt końcowy można wdrożyć na Azure Container Instances, usłudze Azure Kubernetes lub FPGA. Usługę można utworzyć z modelu, skryptu i skojarzonych plików. Są one umieszczane w podstawowym obrazie kontenera, który zawiera środowisko wykonawcze dla modelu. Obraz zawiera punkt końcowy HTTP o zrównoważonym obciążeniu, który odbiera żądania oceniania wysyłane do usługi sieci Web.
 
-Aby monitorować usługę sieci Web, można włączyć telemetrię Application Insights lub dane telemetryczne modelu. Dane telemetryczne są dostępne tylko dla Ciebie.  Jest ona przechowywana w Application Insights i wystąpieniach konta magazynu.
+Aby monitorować usługę sieci Web, można włączyć telemetrię Application Insights lub dane telemetryczne modelu. Dane telemetryczne są dostępne tylko dla Ciebie.  Jest ona przechowywana w Application Insights i wystąpieniach konta magazynu. Jeśli włączono automatyczne skalowanie, platforma Azure automatycznie skaluje wdrożenie.
 
-Jeśli włączono automatyczne skalowanie, platforma Azure automatycznie skaluje wdrożenie.
+Na poniższym diagramie przedstawiono przepływ pracy wnioskowania dla modelu wdrożonego jako punkt końcowy usługi sieci Web:
+
+Oto szczegółowe informacje:
+
+* Użytkownik rejestruje model przy użyciu klienta, takiego jak zestaw Azure Machine Learning SDK.
+* Użytkownik tworzy obraz przy użyciu modelu, pliku wynikowego i innych zależności modelu.
+* Obraz platformy Docker jest tworzony i przechowywany w Azure Container Registry.
+* Usługa sieci Web jest wdrażana w obiekcie docelowym obliczeń (Container Instances/AKS) przy użyciu obrazu utworzonego w poprzednim kroku.
+* Szczegóły żądania oceniania są przechowywane w Application Insights, które znajdują się w subskrypcji użytkownika.
+* Dane telemetryczne są również wypychane do subskrypcji Microsoft/Azure.
+
+[![Przepływ pracy wnioskowania](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 Aby zapoznać się z przykładem wdrażania modelu jako usługi sieci Web, zobacz [Wdrażanie modelu klasyfikacji obrazów w Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

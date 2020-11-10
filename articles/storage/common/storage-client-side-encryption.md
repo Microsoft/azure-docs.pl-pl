@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151145"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445068"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side szyfrowanie i Azure Key Vault Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -207,7 +207,7 @@ MemoryStream outputStream = new MemoryStream();
 blob.DownloadTo(outputStream);
 ```
 
-**BlobServiceClient** nie jest konieczna do zastosowania opcji szyfrowania. Mogą być również przesyłane do **BlobContainerClient** / konstruktorów**BlobClient** BlobContainerClient, które akceptują obiekty **BlobClientOptions** .
+**BlobServiceClient** nie jest konieczna do zastosowania opcji szyfrowania. Mogą być również przesyłane do **BlobContainerClient** / konstruktorów **BlobClient** BlobContainerClient, które akceptują obiekty **BlobClientOptions** .
 
 Jeśli żądany obiekt **BlobClient** już istnieje, ale bez opcji szyfrowania po stronie klienta, Metoda rozszerzenia istnieje, aby utworzyć kopię tego obiektu dla danego **ClientSideEncryptionOptions**. Ta metoda rozszerzenia pozwala uniknąć obciążenia tworzenia nowego obiektu **BlobClient** od zera.
 
@@ -223,7 +223,7 @@ BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOpti
 ```
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
-Utwórz obiekt **BlobEncryptionPolicy** i ustaw go w opcjach żądania (na interfejsie API lub na poziomie klienta przy użyciu **DefaultRequestOptions**). Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
+Utwórz obiekt **BlobEncryptionPolicy** i ustaw go w opcjach żądania (na interfejsie API lub na poziomie klienta przy użyciu **DefaultRequestOptions** ). Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
 
 ```csharp
 // Create the IKey used for encryption.
@@ -324,7 +324,7 @@ Debug.Assert(messages.Length == 4)
 ```
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
-Utwórz obiekt **QueueEncryptionPolicy** i ustaw go w opcjach żądania (na interfejsie API lub na poziomie klienta przy użyciu **DefaultRequestOptions**). Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
+Utwórz obiekt **QueueEncryptionPolicy** i ustaw go w opcjach żądania (na interfejsie API lub na poziomie klienta przy użyciu **DefaultRequestOptions** ). Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
 
 ```csharp
 // Create the IKey used for encryption.
@@ -344,7 +344,7 @@ Utwórz obiekt **QueueEncryptionPolicy** i ustaw go w opcjach żądania (na inte
 ---
 
 ### <a name="table-service-encryption-v11-only"></a>Szyfrowanie Table service (tylko v11)
-Oprócz tworzenia zasad szyfrowania i ustawiania ich dla opcji żądania należy określić wartość **EncryptionResolver** w **TableRequestOptions**lub ustawić atrybut [EncryptProperty] w jednostce.
+Oprócz tworzenia zasad szyfrowania i ustawiania ich dla opcji żądania należy określić wartość **EncryptionResolver** w **TableRequestOptions** lub ustawić atrybut [EncryptProperty] w jednostce.
 
 #### <a name="using-the-resolver"></a>Korzystanie z programu rozpoznawania nazw
 

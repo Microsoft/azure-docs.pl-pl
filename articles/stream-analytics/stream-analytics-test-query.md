@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127641"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444966"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testowanie zadania Azure Stream Analytics w portalu
 
@@ -29,7 +29,7 @@ Azure Stream Analytics automatycznie pobiera zdarzenia z danych wejściowych prz
 
 3. Na stronie Stream Analytics zadania w obszarze nagłówek **topologii zadania** wybierz pozycję **zapytanie** , aby otworzyć okno edytora zapytań. 
 
-4. Aby wyświetlić przykładową listę zdarzeń przychodzących, wybierz pozycję dane wejściowe z ikoną pliku, a Przykładowe zdarzenia będą automatycznie wyświetlane w **podglądzie danych wejściowych** .
+4. Aby wyświetlić przykładową listę zdarzeń przychodzących, wybierz pozycję dane wejściowe z ikoną pliku, a Przykładowe zdarzenia będą automatycznie wyświetlane w **podglądzie danych wejściowych**.
 
    a. Typ serializacji dla danych jest wykrywany automatycznie, jeśli jego kod JSON lub CSV. Możesz również ręcznie zmienić ten plik w formacie JSON, CSV, AVRO, zmieniając opcję z menu rozwijanego.
     
@@ -45,15 +45,15 @@ Azure Stream Analytics automatycznie pobiera zdarzenia z danych wejściowych prz
 
    ![Azure Stream Analytics przykładowe dane wejściowe w formacie nieprzetworzonym](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-5. Aby przetestować zapytanie z danymi przychodzącymi, wybierz opcję **zapytanie testowe** . Wyniki są wyświetlane na karcie **wyniki testu** . Możesz również wybrać pozycję **Pobierz wyniki** , aby pobrać wyniki.
+5. Aby przetestować zapytanie z danymi przychodzącymi, wybierz opcję **zapytanie testowe**. Wyniki są wyświetlane na karcie **wyniki testu** . Możesz również wybrać pozycję **Pobierz wyniki** , aby pobrać wyniki.
 
    ![Azure Stream Analytics przykładowe wyniki zapytania testu](./media/stream-analytics-test-query/asa-test-query.png)
 
-6. Aby przetestować zapytanie względem określonego zakresu czasu zdarzeń przychodzących, wybierz **pozycję Wybierz zakres czasu** .
+6. Aby przetestować zapytanie względem określonego zakresu czasu zdarzeń przychodzących, wybierz **pozycję Wybierz zakres czasu**.
    
    ![Azure Stream Analytics zakres czasu dla przychodzących zdarzeń przykładowych](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-7. Ustaw zakres czasu zdarzeń, których chcesz użyć do testowania zapytania, a następnie wybierz pozycję **przykład** . W tym przedziale czasowym można pobrać maksymalnie 1000 zdarzeń lub 1 MB, zależnie od tego, co nastąpi wcześniej.
+7. Ustaw zakres czasu zdarzeń, których chcesz użyć do testowania zapytania, a następnie wybierz pozycję **przykład**. W tym przedziale czasowym można pobrać maksymalnie 1000 zdarzeń lub 1 MB, zależnie od tego, co nastąpi wcześniej.
 
    ![Azure Stream Analytics Ustaw zakres czasu dla przychodzących zdarzeń przykładowych](./media/stream-analytics-test-query/asa-set-time-range.png)
 
@@ -81,7 +81,7 @@ Zamiast korzystać z danych na żywo, można użyć przykładowych danych z plik
 
    ![Zrzut ekranu przedstawia opcję Przekaż przykładowe dane wejściowe.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Przekaż plik lokalny, aby przetestować zapytanie. Można przekazać tylko pliki z formatami JSON, CSV lub AVRO. Wybierz pozycję **OK** .
+5. Przekaż plik lokalny, aby przetestować zapytanie. Można przekazać tylko pliki z formatami JSON, CSV lub AVRO. Wybierz przycisk **OK**.
 
    ![Zrzut ekranu przedstawia okno dialogowe przekazywanie danych przykładowych, w którym można wybrać plik.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
@@ -111,6 +111,19 @@ Zamiast korzystać z danych na żywo, można użyć przykładowych danych z plik
 4.  Limit czasu wynosi jedną minutę. W związku z tym wszelkie zapytania o rozmiarze okna większym niż jedna minuta nie mogą pobierać żadnych danych.
 
 5.  Uczenie maszynowe nie jest obsługiwane.
+
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+1.  Jeśli zostanie wyświetlony ten błąd "Wystąpił problem z łącznością sieciową podczas pobierania wyników. Sprawdź ustawienia sieci i zapory ". wykonaj poniższe kroki:
+
+  * Aby sprawdzić połączenie z usługą, Otwórz [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) w przeglądarce. Jeśli nie możesz otworzyć tego linku, zaktualizuj ustawienia zapory.
+  
+2. Jeśli zostanie wyświetlony komunikat o błędzie "rozmiar żądania jest zbyt duży. Zmniejsz rozmiar danych wejściowych i spróbuj ponownie. ", wykonaj następujące kroki:
+
+  * Zmniejsz rozmiar danych wejściowych — Przetestuj zapytanie z plikiem przykładowym o mniejszym rozmiarze lub z mniejszym zakresem czasu.
+  * Zmniejsz rozmiar zapytania — aby przetestować wybór zapytania, wybierz część zapytania, a następnie kliknij pozycję **Testuj wybrane zapytanie**.
+
 
 ## <a name="next-steps"></a>Następne kroki
 * [Utwórz rozwiązanie IoT przy użyciu Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): ten samouczek przeprowadzi Cię przez proces tworzenia kompleksowego rozwiązania przy użyciu generatora danych, który symuluje ruch w kabinie.

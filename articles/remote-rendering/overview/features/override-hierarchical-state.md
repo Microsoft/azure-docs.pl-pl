@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381006"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445158"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
@@ -39,6 +39,13 @@ Stały zestaw Stanów, które mogą zostać zastąpione, to:
 
   > [!IMPORTANT]
   > Efekt uboczny działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
+
+* **`Shell`** : Geometria jest renderowana jako przezroczysta, nienasyconej powłoki. Ten tryb pozwala zanikać nieważne części sceny przy zachowaniu sensu kształtu i względnego pozycjonowania. Aby zmienić wygląd renderowania powłoki, użyj stanu [ShellRenderingSettings](shell-effect.md) . Zapoznaj się z poniższym obrazem dla modelu samochodu w całości renderowanej powłoki, z wyjątkiem niebieskich sprężyn:
+
+  ![Tryb powłoki używany do zanikania określonych obiektów](./media/shell.png)
+
+  > [!IMPORTANT]
+  > Efekt powłoki działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
 * **`Selected`** : Geometria jest renderowana z [konturem zaznaczenia](outlines.md).
 
@@ -101,7 +108,7 @@ component->SetState(
 
 Wystąpienie `HierarchicalStateOverrideComponent` samego siebie nie dodaje znacznie obciążenia środowiska uruchomieniowego. Jest jednak zawsze dobrym sposobem, aby zachować liczbę aktywnych składników. Na przykład podczas implementowania systemu wyboru, który podświetla wybrany obiekt, zaleca się usunięcie składnika po usunięciu wyróżnienia. Utrzymywanie składników z neutralnymi funkcjami może szybko dodać.
 
-Renderowanie przezroczyste zwiększa obciążenie procesora GPU serwera niż w przypadku renderowania standardowego. Jeśli duże części wykresu sceny są przełączane do *wyświetlania, a* wiele warstw geometrii jest widocznych, może stać się wąskim gardłem wydajności. Ta sama wartość jest prawidłowa dla obiektów z [konturami wyboru](../../overview/features/outlines.md#performance).
+Renderowanie przezroczyste zwiększa obciążenie procesora GPU serwera niż w przypadku renderowania standardowego. Jeśli duże części wykresu sceny są przełączane do *wyświetlania, a* wiele warstw geometrii jest widocznych, może stać się wąskim gardłem wydajności. Ta sama wartość jest prawidłowa dla obiektów z [konturami wyboru](../../overview/features/outlines.md#performance) i dla [renderowania powłoki](../../overview/features/shell-effect.md#performance) . 
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 

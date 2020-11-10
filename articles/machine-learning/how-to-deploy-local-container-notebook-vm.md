@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 1767f149d9935c86281c7b7be3e684aa82a603f9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999038"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444609"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Wdrażanie modelu w celu Azure Machine Learning wystąpień obliczeniowych
 
@@ -63,7 +63,7 @@ Aby przesłać przykładowe dane do uruchomionej usługi, użyj poniższego kodu
 > [!NOTE]
 > Podczas uwierzytelniania w wystąpieniu obliczeniowym uwierzytelnianie jest nawiązywane przy użyciu Azure Active Directory. Wywołanie `interactive_auth.get_authentication_header()` w ramach przykładowego kodu uwierzytelnia użytkownika za pomocą usługi AAD i zwraca nagłówek, którego można następnie użyć do uwierzytelnienia w usłudze w wystąpieniu obliczeniowym. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](how-to-setup-authentication.md#interactive-authentication).
 >
-> W przypadku uwierzytelniania do wdrożenia w usłudze Azure Kubernetes Service lub Azure Container Instances jest używana inna metoda uwierzytelniania. Aby uzyskać więcej informacji na temat, zobacz [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](how-to-setup-authentication.md#web-service-authentication).
+> W przypadku uwierzytelniania do wdrożenia w usłudze Azure Kubernetes Service lub Azure Container Instances jest używana inna metoda uwierzytelniania. Aby uzyskać więcej informacji na temat, zobacz [Konfigurowanie uwierzytelniania dla modeli maszyn platformy Azure wdrożonych jako usługi sieci Web](how-to-authenticate-web-service.md).
 
 ```python
 import requests

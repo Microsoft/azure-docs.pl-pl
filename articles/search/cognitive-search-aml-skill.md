@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924715"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445459"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>AML umiejętność w potoku wzbogacenia Wyszukiwanie poznawcze platformy Azure
 
@@ -58,9 +58,9 @@ W nazwach parametrów jest rozróżniana wielkość liter. Które parametry wybr
 
 Które parametry umiejętności AML są wymagane, zależy od tego, jakiego uwierzytelniania używa Usługa AML (jeśli istnieje). Usługi AML Services oferują trzy opcje uwierzytelniania:
 
-* [Uwierzytelnianie oparte na kluczach](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). Do uwierzytelniania żądań oceniania z poziomu umiejętności AML jest dostarczany klucz statyczny
+* [Uwierzytelnianie oparte na kluczach](../machine-learning/how-to-authenticate-web-service.md#key-based-authentication). Do uwierzytelniania żądań oceniania z poziomu umiejętności AML jest dostarczany klucz statyczny
   * Użyj _identyfikatora URI_ i parametrów _klucza_
-* [Uwierzytelnianie oparte na tokenach](../machine-learning/concept-enterprise-security.md#authentication). Usługa AML jest [wdrażana przy użyciu uwierzytelniania opartego na tokenach](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). [Zarządzana tożsamość](../active-directory/managed-identities-azure-resources/overview.md) usługi Wyszukiwanie poznawcze platformy Azure ma przyznane [rolę czytelnik](../machine-learning/how-to-assign-roles.md) w obszarze roboczym usługi AML. Umiejętność AML używa zarządzanej tożsamości usługi Azure Wyszukiwanie poznawcze do uwierzytelniania w usłudze AML, bez konieczności używania kluczy statycznych.
+* [Uwierzytelnianie oparte na tokenach](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). Usługa AML jest [wdrażana przy użyciu uwierzytelniania opartego na tokenach](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). [Zarządzana tożsamość](../active-directory/managed-identities-azure-resources/overview.md) usługi Wyszukiwanie poznawcze platformy Azure ma przyznane [rolę czytelnik](../machine-learning/how-to-assign-roles.md) w obszarze roboczym usługi AML. Umiejętność AML używa zarządzanej tożsamości usługi Azure Wyszukiwanie poznawcze do uwierzytelniania w usłudze AML, bez konieczności używania kluczy statycznych.
   * Użyj parametru _ResourceID_ .
   * Jeśli usługa Wyszukiwanie poznawcze platformy Azure znajduje się w innym regionie niż obszar roboczy AML, użyj parametru _region_ , aby ustawić region, w którym została wdrożona usługa AML.
 * Brak uwierzytelniania. Do korzystania z usługi AML nie jest wymagane uwierzytelnianie

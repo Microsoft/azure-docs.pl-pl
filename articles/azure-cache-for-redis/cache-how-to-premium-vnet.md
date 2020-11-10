@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: a55db6a9db8cc53da15ba6e818db7b78b72cefc9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f7b4a22c0473acb7da0708f095c25b4f3f78fe66
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927740"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445595"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. Sieć wirtualna jest siecią prywatną w chmurze. Gdy usługa Azure cache for Redis jest skonfigurowana przy użyciu sieci wirtualnej, nie jest ona publicznie adresowana i można uzyskać do niej dostęp tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej. W tym artykule opisano sposób konfigurowania obsługi sieci wirtualnej na potrzeby wystąpienia usługi Redis w warstwie Premium.
@@ -28,19 +28,19 @@ Wdrożenie [usługi azure Virtual Network (VNET)](https://azure.microsoft.com/se
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej
 Obsługa Virtual Network (VNet) jest konfigurowana w **nowym bloku Azure cache for Redis** podczas tworzenia pamięci podręcznej. 
 
-1. Aby utworzyć pamięć podręczną Premium, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób** . Oprócz tworzenia pamięci podręcznych w Azure Portal można je również utworzyć za pomocą szablonów Menedżer zasobów, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej platformy Azure dla usługi Redis, zobacz [Tworzenie pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. Aby utworzyć pamięć podręczną Premium, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. Oprócz tworzenia pamięci podręcznych w Azure Portal można je również utworzyć za pomocą szablonów Menedżer zasobów, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej platformy Azure dla usługi Redis, zobacz [Tworzenie pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Utwórz zasób.":::
    
-2. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis** .
+2. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Utwórz zasób.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
 
 3. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia nowej pamięci podręcznej Premium.
    
    | Ustawienie      | Sugerowana wartość  | Opis |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET* . | 
+   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET*. | 
    | **Subskrypcja** | I wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
    | **Grupa zasobów** | Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
    | **Lokalizacja** | I wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
@@ -76,11 +76,11 @@ Obsługa Virtual Network (VNet) jest konfigurowana w **nowym bloku Azure cache f
 
 9. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
 
-10. Wybierz pozycję **Przejrzyj i utwórz** . Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+10. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
 
-11. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz** .
+11. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
 
-Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony** , pamięć podręczna jest gotowa do użycia. Po utworzeniu pamięci podręcznej można wyświetlić konfigurację sieci wirtualnej, klikając pozycję **Virtual Network** w **menu zasób** .
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony** , pamięć podręczna jest gotowa do użycia. Po utworzeniu pamięci podręcznej można wyświetlić konfigurację sieci wirtualnej, klikając pozycję **Virtual Network** w **menu zasób**.
 
 ![Sieć wirtualna][redis-cache-vnet-info]
 
@@ -159,7 +159,7 @@ Istnieją osiem wymagań zakresu portów przychodzących. Żądania przychodząc
 | 6379, 6380 |Przychodzący |TCP |Komunikacja z klientem do Redis, równoważenie obciążenia platformy Azure | (Podsieć Redis) | (Podsieć Redis), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |Przychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
 | 8500 |Przychodzący |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
-| 10221-10231 |Przychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis), Azure Load Balancer |
+| 10221-10231 |Przychodzący |TCP |Komunikacja z klientami z klastrami Redis, wewnętrzna komunikacja dla Redis | (Podsieć Redis) |(Redis Subnet), Azure Load Balancer, (podsieć klienta) |
 | 13000-13999 |Przychodzący |TCP |Komunikacja klienta z klastrami Redis, usługa równoważenia obciążenia platformy Azure | (Podsieć Redis) |Virtual Network, Azure Load Balancer |
 | 15000-15999 |Przychodzący |TCP |Komunikacja z klientem do klastrów Redis, równoważenia obciążenia platformy Azure i Geo-Replication | (Podsieć Redis) |Virtual Network, Azure Load Balancer, (podsieć równorzędna z repliką geograficzną) |
 | 16001 |Przychodzący |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
@@ -171,15 +171,15 @@ Istnieją osiem wymagań zakresu portów przychodzących. Żądania przychodząc
 
 Istnieją wymagania dotyczące łączności sieciowej dla usługi Azure cache for Redis, które mogą nie być początkowo spełnione w sieci wirtualnej. Usługa Azure cache for Redis wymaga, aby wszystkie następujące elementy funkcjonowały prawidłowo, gdy są używane w sieci wirtualnej.
 
-* Wychodząca łączność sieciowa z punktami końcowymi usługi Azure Storage w świecie. Obejmuje to punkty końcowe znajdujące się w tym samym regionie co usługa Azure cache for Redis oraz punkty końcowe magazynu znajdujące się w **innych** regionach świadczenia usługi Azure. Punkty końcowe usługi Azure Storage są rozwiązywane w następujących domenach DNS: *Table.Core.Windows.NET* , *BLOB.Core.Windows.NET* , *Queue.Core.Windows.NET* i *File.Core.Windows.NET* . 
-* Wychodząca łączność sieciowa z *OCSP.DigiCert.com* , *crl4.DigiCert.com* , *OCSP.msocsp.com* , *mscrl.Microsoft.com* , *crl3.DigiCert.com* , *cacerts.DigiCert.com* , *oneocsp.Microsoft.com* i *CRL.Microsoft.com* . Ta łączność jest wymagana do obsługi funkcji TLS/SSL.
+* Wychodząca łączność sieciowa z punktami końcowymi usługi Azure Storage w świecie. Obejmuje to punkty końcowe znajdujące się w tym samym regionie co usługa Azure cache for Redis oraz punkty końcowe magazynu znajdujące się w **innych** regionach świadczenia usługi Azure. Punkty końcowe usługi Azure Storage są rozwiązywane w następujących domenach DNS: *Table.Core.Windows.NET* , *BLOB.Core.Windows.NET* , *Queue.Core.Windows.NET* i *File.Core.Windows.NET*. 
+* Wychodząca łączność sieciowa z *OCSP.DigiCert.com* , *crl4.DigiCert.com* , *OCSP.msocsp.com* , *mscrl.Microsoft.com* , *crl3.DigiCert.com* , *cacerts.DigiCert.com* , *oneocsp.Microsoft.com* i *CRL.Microsoft.com*. Ta łączność jest wymagana do obsługi funkcji TLS/SSL.
 * Konfiguracja systemu DNS dla sieci wirtualnej musi być w stanie rozwiązać wszystkie punkty końcowe i domeny wymienione w poprzednich punktach. Te wymagania dotyczące usługi DNS można spełnić, upewniając się, że dla sieci wirtualnej jest skonfigurowana i utrzymywana prawidłowa infrastruktura DNS.
-* Wychodząca łączność sieciowa z następującymi Azure Monitor punktami końcowymi, które są rozpoznawane w następujących domenach DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET* , *North-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Black.azglobal.Metrics.nsatc.NET* , *shoebox2-Red.shoebox2.Metrics.nsatc.NET* , *East-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Red.azglobal.Metrics.nsatc.NET* .
+* Wychodząca łączność sieciowa z następującymi Azure Monitor punktami końcowymi, które są rozpoznawane w następujących domenach DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET* , *North-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Black.azglobal.Metrics.nsatc.NET* , *shoebox2-Red.shoebox2.Metrics.nsatc.NET* , *East-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Red.azglobal.Metrics.nsatc.NET*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Jak sprawdzić, czy moja pamięć podręczna działa w sieci wirtualnej?
 
 >[!IMPORTANT]
->W przypadku nawiązywania połączenia z usługą Azure cache for Redis, która jest hostowana w sieci wirtualnej, klienci pamięci podręcznej muszą znajdować się w tej samej sieci wirtualnej lub w sieci wirtualnej z włączoną obsługą sieci wirtualnych w tym samym regionie świadczenia usługi Azure. Globalne Wirtualne sieci równorzędne nie są obecnie obsługiwane. Dotyczy to wszystkich aplikacji testowych lub narzędzi ping diagnostycznych. Bez względu na to, gdzie jest hostowana aplikacja kliencka, grupy zabezpieczeń sieci muszą być skonfigurowane tak, aby ruch sieciowy klienta mógł dotrzeć do wystąpienia Redis.
+>W przypadku nawiązywania połączenia z usługą Azure cache for Redis, która jest hostowana w sieci wirtualnej, klienci pamięci podręcznej muszą znajdować się w tej samej sieci wirtualnej lub w sieci wirtualnej z włączoną obsługą sieci wirtualnych w tym samym regionie świadczenia usługi Azure. Globalne Wirtualne sieci równorzędne nie są obecnie obsługiwane. Dotyczy to wszystkich aplikacji testowych lub narzędzi ping diagnostycznych. Bez względu na to, gdzie jest hostowana aplikacja kliencka, sieciowe grupy zabezpieczeń lub inne warstwy sieci muszą być skonfigurowane tak, aby ruch sieciowy klienta mógł dotrzeć do wystąpienia Redis.
 >
 >
 
@@ -187,7 +187,7 @@ Po skonfigurowaniu wymagań dotyczących portów zgodnie z opisem w poprzedniej 
 
 - [Uruchom ponownie](cache-administration.md#reboot) wszystkie węzły pamięci podręcznej. Jeśli nie można uzyskać dostępu do wszystkich wymaganych zależności pamięci podręcznej (zgodnie z opisem w [wymaganiach dotyczących portów przychodzących](cache-how-to-premium-vnet.md#inbound-port-requirements) i [wymagań dotyczących portów wychodzących](cache-how-to-premium-vnet.md#outbound-port-requirements)), pamięć podręczna nie będzie mogła zostać pomyślnie ponownie uruchomiona.
 - Po ponownym uruchomieniu węzłów pamięci podręcznej (zgodnie z informacjami o stanie pamięci podręcznej w Azure Portal) można wykonać następujące testy:
-  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Przykład:
+  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Na przykład:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -210,7 +210,7 @@ Należy unikać używania adresu IP podobnego do następujących parametrów po�
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Przykład:
+Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Na przykład:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
@@ -256,7 +256,7 @@ Nawiązywanie połączenia z usługą Azure cache for Redis z aplikacji lokalnej
 >Trasy zdefiniowane w UDR **muszą** być wystarczająco odpowiednie, aby mieć pierwszeństwo przed wszelkimi trasami anonsowanymi przez konfigurację ExpressRoute. W poniższym przykładzie użyto szerokiego zakresu adresów 0.0.0.0/0, ponieważ może to spowodować przypadkowe zastąpienie anonsów tras przy użyciu bardziej szczegółowych zakresów adresów.
 
 >[!WARNING]  
->Usługa Azure cache for Redis nie jest obsługiwana w przypadku konfiguracji ExpressRoute, które **niepoprawnie anonsują trasy z publicznej ścieżki komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej** . Konfiguracje ExpressRoute, które mają skonfigurowaną publiczną komunikację równorzędną, odbierają anonse tras od firmy Microsoft w celu uzyskania dużego zestawu Microsoft Azure zakresów adresów IP. Jeśli te zakresy adresów są nieprawidłowo anonsowane krzyżowo w ścieżce prywatnej komunikacji równorzędnej, wynikiem jest to, że wszystkie pakiety sieciowe wychodzące z podsieci wystąpienia usługi Azure cache for Redis są nieprawidłowo wymuszane przez tunelowanie do lokalnej infrastruktury sieciowej klienta. Ten przepływ sieci powoduje uszkodzenie pamięci podręcznej platformy Azure dla Redis. Rozwiązaniem tego problemu jest zatrzymanie tras krzyżowego anonsowania od publicznej ścieżki komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej.
+>Usługa Azure cache for Redis nie jest obsługiwana w przypadku konfiguracji ExpressRoute, które **niepoprawnie anonsują trasy z publicznej ścieżki komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej**. Konfiguracje ExpressRoute, które mają skonfigurowaną publiczną komunikację równorzędną, odbierają anonse tras od firmy Microsoft w celu uzyskania dużego zestawu Microsoft Azure zakresów adresów IP. Jeśli te zakresy adresów są nieprawidłowo anonsowane krzyżowo w ścieżce prywatnej komunikacji równorzędnej, wynikiem jest to, że wszystkie pakiety sieciowe wychodzące z podsieci wystąpienia usługi Azure cache for Redis są nieprawidłowo wymuszane przez tunelowanie do lokalnej infrastruktury sieciowej klienta. Ten przepływ sieci powoduje uszkodzenie pamięci podręcznej platformy Azure dla Redis. Rozwiązaniem tego problemu jest zatrzymanie tras krzyżowego anonsowania od publicznej ścieżki komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej.
 
 
 Ogólne informacje dotyczące tras zdefiniowanych przez użytkownika są dostępne w tym [omówieniu](../virtual-network/virtual-networks-udr-overview.md).

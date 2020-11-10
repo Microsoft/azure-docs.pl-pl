@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425149"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445255"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -35,7 +35,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|✔|✔|✔|Tak|
 |[Alerty zabezpieczeń oparte na sieci](other-threat-protections.md#network-layer)|✔|✔|-|Tak|
 |[Dostęp just in time do maszyny wirtualnej](security-center-just-in-time.md)|✔|-|-|Tak|
-|[Ocena natywnych luk w zabezpieczeniach](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Tak|
+|[Ocena natywnych luk w zabezpieczeniach](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Tak|
 |[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md)|✔|✔|✔|Tak|
 |[Funkcje adaptacyjnego sterowania aplikacjami](security-center-adaptive-application.md)|✔|-|✔|Tak|
 |[Mapa sieci](security-center-network-recommendations.md#network-map)|✔|✔|-|Tak|
@@ -46,7 +46,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
 |[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
 |Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nie|
-|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Nie|
+|Ocena luk w zabezpieczeniach innych firm|✔|-|✔|Nie|
 |[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Nie|
 
 
@@ -59,7 +59,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|-|-|-|Tak|
 |[Alerty zabezpieczeń oparte na sieci](other-threat-protections.md#network-layer)|✔|✔|-|Tak|
 |[Dostęp just in time do maszyny wirtualnej](security-center-just-in-time.md)|✔|-|-|Tak|
-|[Ocena natywnych luk w zabezpieczeniach](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Tak|
+|[Ocena natywnych luk w zabezpieczeniach](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Tak|
 |[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md)|✔|✔|✔|Tak|
 |[Funkcje adaptacyjnego sterowania aplikacjami](security-center-adaptive-application.md)|✔|-|✔|Tak|
 |[Mapa sieci](security-center-network-recommendations.md#network-map)|✔|✔|-|Tak|
@@ -70,7 +70,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
 |[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Nie|
 |Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nie|
-|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Nie|
+|Ocena luk w zabezpieczeniach innych firm|✔|-|✔|Nie|
 |[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Nie|
 
 --- 

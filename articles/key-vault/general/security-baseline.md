@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48a822adc34019ca2f6a39aa70211cae7fbf6030
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289877"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445527"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
-**Wskazówki** : nie dotyczy; Azure Key Vault nie ma koncepcji domyślnych haseł, ponieważ uwierzytelnianie jest zapewniane przez Active Directory i zabezpieczone za pomocą kontroli dostępu opartej na rolach.
+**Wskazówki** : nie dotyczy; Azure Key Vault nie ma koncepcji domyślnych haseł, ponieważ uwierzytelnianie jest zapewniane przez Active Directory i zabezpieczone przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
 
 
 **Monitorowanie Azure Security Center** : nie dotyczy
@@ -445,7 +445,7 @@ Jaki jest warunek lokalizacji w Azure Active Directory dostępu warunkowego?: ht
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki** : Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji dla zasobów platformy Azure, takich jak Key Vault. Umożliwia to kontrolę dostępu opartą na rolach (RBAC) do administrowania poufnymi zasobami.
+**Wskazówki** : Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji dla zasobów platformy Azure, takich jak Key Vault. Umożliwia to kontrolę dostępu opartą na rolach (Azure RBAC) na potrzeby administrowania poufnymi zasobami.
 
  
 

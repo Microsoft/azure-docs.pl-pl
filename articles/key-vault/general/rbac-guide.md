@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286599"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445187"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
 
@@ -79,11 +79,11 @@ Aby dodać przypisania ról, musisz mieć:
 
 1.  Włącz uprawnienia kontroli RBAC platformy Azure dla nowego magazynu kluczy:
 
-    ![Włączanie uprawnień RBAC — nowy magazyn](../media/rbac/image-1.png)
+    ![Włączanie uprawnień RBAC platformy Azure — nowy magazyn](../media/rbac/image-1.png)
 
 2.  Włącz uprawnienia kontroli RBAC platformy Azure dla istniejącego magazynu kluczy:
 
-    ![Włączanie uprawnień RBAC — istniejący magazyn](../media/rbac/image-2.png)
+    ![Włączanie uprawnień RBAC platformy Azure — istniejący magazyn](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>Przypisywanie roli
 
@@ -224,7 +224,7 @@ Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zob
 
 -   Opóźnienie przypisań ról: w bieżącej oczekiwanej wydajności zajmie to 10 minut (600 sekund) po zmianie przypisań ról dla roli do zastosowania
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Przegląd RBAC platformy Azure](../../role-based-access-control/overview.md)
 - [Samouczek ról niestandardowych](../../role-based-access-control/tutorial-custom-role-cli.md)
