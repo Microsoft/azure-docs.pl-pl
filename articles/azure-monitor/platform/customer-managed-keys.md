@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/09/2020
-ms.openlocfilehash: 7f62aade114613261a22a818ab47e096eb16084b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427976"
+ms.locfileid: "94443385"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -27,9 +27,10 @@ Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane
 
 Klucz zarządzany przez klienta jest dostarczany w dedykowanych klastrach Log Analytics. Umożliwia ona ochronę danych za pomocą kontrolki [skrytki](#customer-lockbox-preview) i daje formantowi możliwość odwołania dostępu do danych w dowolnym momencie. Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft niezależnie od konfiguracji klucza zarządzanego przez klienta, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#key-revocation). Pracujemy nad zaszyfrowaniem danych SSD z kluczem Customer-Managed w pierwszej połowie 2021.
 
-Aby sprawdzić, czy masz wymaganą pojemność do aprowizacji dedykowanego klastra w Twoim regionie, wymagamy, aby Twoja subskrypcja była dozwolona wcześniej. Skontaktuj się z osobą kontaktową firmy Microsoft lub Otwórz żądanie pomocy technicznej, aby uzyskać dostęp do subskrypcji przed rozpoczęciem konfiguracji klucza Customer-Managed.
-
 [Model cenowy klastrów log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
+
+> [!IMPORTANT]
+> Ze względu na tymczasowe ograniczenia pojemności firma Microsoft wymaga wstępnego zarejestrowania się przed utworzeniem klastra. Użyj swoich kontaktów do firmy Microsoft lub Otwórz żądanie pomocy technicznej, aby zarejestrować identyfikatory subskrypcji.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Jak działa klucz Customer-Managed w Azure Monitor
 
@@ -40,7 +41,7 @@ Po zakończeniu konfiguracji wszystkie dane pozyskiwane w obszarach roboczych po
 
 ![Przegląd klucza Customer-Managed](media/customer-managed-keys/cmk-overview.png)
 
-1. Usługa Key Vault
+1. Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze połączone z zasobem *klastra* 
@@ -63,11 +64,11 @@ Mają zastosowanie następujące zasady:
 
 ## <a name="customer-managed-key-provisioning-procedure"></a>Procedura inicjowania obsługi klucza Customer-Managed
 
-1. Zezwalanie na subskrypcję — funkcja jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, musisz wcześniej zezwolić na subskrypcję. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać dostęp do subskrypcji.
-2. Tworzenie Azure Key Vault i przechowywanie klucza
-3. Tworzenie klastra
-4. Przyznawanie uprawnień do Key Vault
-5. Łączenie Log Analytics obszarów roboczych
+1. Zarejestruj swoją subskrypcję, aby umożliwić tworzenie klastra
+1. Tworzenie Azure Key Vault i przechowywanie klucza
+1. Tworzenie klastra
+1. Przyznawanie uprawnień do Key Vault
+1. Łączenie Log Analytics obszarów roboczych
 
 Konfiguracja klucza Customer-Managed nie jest obsługiwana w Azure Portal i Inicjowanie obsługi administracyjnej odbywa się za pośrednictwem [programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/monitor/log-analytics) lub żądań [rest](https://docs.microsoft.com/rest/api/loganalytics/) .
 
@@ -149,7 +150,6 @@ Operacja nie powiodła się
 
 > [!IMPORTANT]
 > Funkcja klucza Customer-Managed jest regionalna. Azure Key Vault, klaster i połączone Log Analytics obszary robocze muszą znajdować się w tym samym regionie, ale mogą znajdować się w różnych subskrypcjach.
-> Aby sprawdzić, czy masz wymaganą pojemność do aprowizacji dedykowanego klastra w Twoim regionie, wymagamy, aby Twoja subskrypcja była dozwolona wcześniej. Aby uzyskać dostęp do subskrypcji, przed rozpoczęciem Customer-Managed konfigurację klucza, użyj kontaktu z firmą Microsoft lub Otwórz żądanie pomocy technicznej. 
 
 ### <a name="storing-encryption-key-kek"></a>Przechowywanie klucza szyfrowania (KEK)
 
@@ -200,6 +200,25 @@ az monitor log-analytics cluster update --name "cluster-name" --resource-group "
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
+
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
+}
 ```
 
 **Odpowiedź**
@@ -288,6 +307,11 @@ Gdy przeniesiesz własny magazyn (BYOS) i połączysz go z obszarem roboczym, us
 
 Połącz konto magazynu w celu *wysłania zapytania* do obszaru roboczego — *zapisane zapytania wyszukiwania* są zapisywane na koncie magazynu. 
 
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
@@ -314,6 +338,11 @@ Po zakończeniu konfiguracji wszystkie nowe *zapisane zapytania wyszukiwania* zo
 **Konfigurowanie BYOS na potrzeby zapytań dotyczących alertów dziennika**
 
 Łączenie konta magazynu w celu uzyskania *alertów* w obszarze roboczym — zapytania dotyczące *alertów dziennika* są zapisywane na koncie magazynu. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"

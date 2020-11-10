@@ -4,19 +4,19 @@ description: Skorzystaj z tego artykułu, aby rozwiązać typowe problemy wystę
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82783749"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442365"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Typowe problemy z usługą Azure IoT Edge i ich rozwiązania
 
@@ -222,7 +222,7 @@ Gdy ten błąd jest wyświetlany, można go rozwiązać przez skonfigurowanie na
    ![Skonfiguruj nazwę DNS maszyny wirtualnej](./media/troubleshoot/configure-dns.png)
 
 3. Podaj wartość w obszarze **etykieta nazwy DNS** i wybierz pozycję **Zapisz**.
-4. Skopiuj nową nazwę DNS, która powinna mieć format ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
+4. Skopiuj nową nazwę DNS, która powinna mieć format **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. W ramach maszyny wirtualnej Użyj następującego polecenia, aby skonfigurować środowisko uruchomieniowe IoT Edge przy użyciu nazwy DNS:
 
    * W systemie Linux:
@@ -276,7 +276,7 @@ W przypadku Centrum IoT Edge Ustaw dla zmiennej środowiskowej **OptimizeForPerf
 
 W witrynie Azure Portal:
 
-W IoT Hub wybierz urządzenie IoT Edge i ze strony Szczegóły urządzenia, a następnie wybierz pozycję **Ustaw**  >  **Ustawienia środowiska uruchomieniowego**moduły. Utwórz zmienną środowiskową dla modułu IoT Edge Hub o nazwie *OptimizeForPerformance* , która ma wartość *false*.
+W IoT Hub wybierz urządzenie IoT Edge i ze strony Szczegóły urządzenia, a następnie wybierz pozycję **Ustaw**  >  **Ustawienia środowiska uruchomieniowego** moduły. Utwórz zmienną środowiskową dla modułu IoT Edge Hub o nazwie *OptimizeForPerformance* , która ma wartość *false*.
 
 ![OptimizeForPerformance ustawiona na wartość false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -331,6 +331,25 @@ Jeśli wdrożenie automatyczne jest przeznaczone dla urządzenia, ma wyższy pri
 Należy używać tylko jednego typu mechanizmu wdrażania dla każdego urządzenia, wdrożenia automatycznego lub poszczególnych urządzeń. Jeśli masz wiele wdrożeń automatycznych przeznaczonych dla urządzenia, możesz zmienić priorytet lub opisy elementów docelowych, aby upewnić się, że odpowiednie rozwiązanie dotyczy danego urządzenia. Możesz również zaktualizować sznurek urządzenia, aby nie odpowiadał już opisowi docelowemu wdrożenia automatycznego.
 
 Aby uzyskać więcej informacji, zobacz [opis IoT Edge wdrożenia automatyczne dla pojedynczych urządzeń lub w odpowiedniej skali](module-deployment-monitoring.md).
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>IoT Edge za bramą nie może wykonywać żądań HTTP i uruchamiać modułu edgeAgent
+
+**Obserwowane zachowanie:**
+
+Demon IoT Edge jest aktywny z prawidłowym plikiem konfiguracji, ale nie może uruchomić modułu edgeAgent. Polecenie `iotedge list` zwraca listę pustą. Raport demonów IoT Edge `Could not perform HTTP request` .
+
+**Główna przyczyna:**
+
+IoT Edge urządzeń za bramą Pobierz obrazy modułów z nadrzędnego urządzenia IoT Edge określonego w `parent_hostname` polu pliku config. YAML. `Could not perform HTTP request`Błąd oznacza, że urządzenie podrzędne nie może nawiązać połączenia z urządzeniem nadrzędnym za pośrednictwem protokołu HTTP.
+
+**Rozwiązanie:**
+
+Upewnij się, że nadrzędne urządzenie IoT Edge może odbierać żądania przychodzące z podrzędnego urządzenia IoT Edge. Otwórz ruch sieciowy na portach 443 i 6617 dla żądań pochodzących z urządzenia podrzędnego.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>Następne kroki
 

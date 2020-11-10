@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 853ab82ab40cc7ebee1c74feaf6aad87adf39ece
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257541"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443113"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenariusz: aplikacja mobilna, która wywołuje interfejsy API sieci Web
 
@@ -40,10 +40,10 @@ Spersonalizowane, bezproblemowe środowisko użytkownika jest niezbędne dla apl
 
 Zagadnienia dotyczące aplikacji mobilnych:
 
-- **Środowisko użytkownika jest kluczem**: zezwól użytkownikom na wyświetlanie wartości aplikacji przed zaproszeniem do logowania. Żądaj tylko wymaganych uprawnień.
-- **Obsługa wszystkich konfiguracji użytkowników**: wielu użytkowników pracujących na urządzeniach przenośnych musi być zgodna z zasadami dostępu warunkowego i zasadami zgodności urządzeń. Upewnij się, że te kluczowe scenariusze są obsługiwane.
-- Zaimplementuj Logowanie jednokrotne **(SSO)**: za pomocą usługi MSAL i platformy tożsamości firmy Microsoft można włączyć logowanie jednokrotne za pośrednictwem przeglądarki lub Microsoft Authenticator (i Intune — portal firmy w systemie Android).
-- **Zaimplementuj tryb udostępnionego urządzenia**: umożliwia korzystanie z aplikacji w scenariuszach współużytkowanych urządzeń, na przykład szpitalach, produkcyjnych, detalicznych i finansowych. [Przeczytaj więcej na temat obsługi trybu udostępnionego urządzenia](msal-shared-devices.md).
+- **Środowisko użytkownika jest kluczem** : zezwól użytkownikom na wyświetlanie wartości aplikacji przed zaproszeniem do logowania. Żądaj tylko wymaganych uprawnień.
+- **Obsługa wszystkich konfiguracji użytkowników** : wielu użytkowników pracujących na urządzeniach przenośnych musi być zgodna z zasadami dostępu warunkowego i zasadami zgodności urządzeń. Upewnij się, że te kluczowe scenariusze są obsługiwane.
+- Zaimplementuj Logowanie jednokrotne **(SSO)** : za pomocą usługi MSAL i platformy tożsamości firmy Microsoft można włączyć logowanie jednokrotne za pośrednictwem przeglądarki lub Microsoft Authenticator (i Intune — portal firmy w systemie Android).
+- **Zaimplementuj tryb udostępnionego urządzenia** : umożliwia korzystanie z aplikacji w scenariuszach współużytkowanych urządzeń, na przykład szpitalach, produkcyjnych, detalicznych i finansowych. [Przeczytaj więcej na temat obsługi trybu udostępnionego urządzenia](msal-shared-devices.md).
 
 ## <a name="specifics"></a>Szczegółowych informacji
 
@@ -59,5 +59,4 @@ Podczas tworzenia aplikacji mobilnej na platformie Microsoft Identity należy pa
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](scenario-mobile-app-registration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](scenario-mobile-app-registration.md).

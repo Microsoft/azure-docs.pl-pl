@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6404d00b87b9ee745b9e3a92c646404e574417c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f38755e669a62e9fe74aa6281daccdf39e1f117c
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80881665"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443572"
 ---
 # <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Przenieś do środowiska produkcyjnego
 
@@ -34,8 +34,7 @@ Dowiedz się więcej, pobierając pełny, progresywny samouczek dotyczący ASP.N
 - Obsługuje przyrostową zgodę.
 - Wywołuje własny internetowy interfejs API.
 
-> [!div class="nextstepaction"]
-> [Samouczek aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
+[Samouczek aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
 
 <!--- Removing this diagram as it's already shown from the next step linked tutorial
 

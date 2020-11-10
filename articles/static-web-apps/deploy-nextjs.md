@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: wdrażanie Next.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps'
+title: 'Samouczek: wdrażanie Next.jsych witryn sieci Web renderowanych statycznie w usłudze Azure static Web Apps'
 description: Generuj i wdrażaj Next.js Lokacje dynamiczne przy użyciu statycznego Web Apps platformy Azure.
 services: static-web-apps
 author: christiannwamba
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 835ee926de776b7a25295485d18ce25f883a2c5f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 20a3337ab054ca1feefc2f5f08f8e6398417fb9e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951166"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441617"
 ---
-# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Wdróż Next.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps Preview
+# <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Wdróż statyczne, renderowane Next.js witryny sieci Web w usłudze Azure static Web Apps Preview
 
 W ramach tego samouczka nauczysz się wdrożyć [Next.js](https://nextjs.org) wygenerowaną statyczną witrynę sieci web do [Web Apps statycznej platformy Azure](overview.md). Aby rozpocząć, dowiesz się, jak skonfigurować, skonfigurować i wdrożyć aplikację Next.js. W trakcie tego procesu warto również zapoznać się z typowymi wyzwaniami często spotykanymi podczas generowania stron statycznych przy użyciu Next.js
 
@@ -63,7 +63,7 @@ Przejdź do strony `http://localhost:3000` , aby otworzyć aplikację, w której
 
 Po kliknięciu architektury/biblioteki powinna zostać wyświetlona strona szczegółów wybranego elementu:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Uruchom aplikację Next.js":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Strona szczegółów":::
 
 ## <a name="generate-a-static-website-from-nextjs-build"></a>Generuj statyczną witrynę sieci Web na podstawie kompilacji Next.js
 
@@ -84,7 +84,7 @@ Gdy tworzysz witrynę Next.js przy użyciu programu `npm run build` , aplikacja 
     
       Ta konfiguracja `/` jest mapowana na stronę Next.js, która jest obsługiwana dla `/` trasy, a to jest plik stronicowania _stron/index.js_ .
 
-1. Zaktualizuj _package.jsna_skrypcie kompilacji, aby generować również lokację statyczną po skompilowaniu przy użyciu `next export` polecenia. `export`Polecenie generuje lokację statyczną.
+1. Zaktualizuj _package.jsna_ skrypcie kompilacji, aby generować również lokację statyczną po skompilowaniu przy użyciu `next export` polecenia. `export`Polecenie generuje lokację statyczną.
 
     ```json
     "scripts": {
@@ -141,12 +141,12 @@ Poniższe kroki pokazują, jak połączyć aplikację przekazana do usługi GitH
 1. Kliknij pozycję **Utwórz**
 
 1. Wybierz subskrypcję z listy rozwijanej *subskrypcja* lub użyj wartości domyślnej.
-1. Kliknij link **Nowy** poniżej listy rozwijanej *Grupa zasobów* . W polu *Nazwa nowej grupy zasobów*wpisz **mystaticsite** , a następnie kliknij przycisk **OK** .
+1. Kliknij link **Nowy** poniżej listy rozwijanej *Grupa zasobów* . W polu *Nazwa nowej grupy zasobów* wpisz **mystaticsite** , a następnie kliknij przycisk **OK** .
 1. Podaj globalnie unikatową nazwę aplikacji w polu tekstowym **Nazwa** . Prawidłowe znaki to `a-z` , `A-Z` , `0-9` , i `-` . Ta wartość jest używana jako prefiks adresu URL dla aplikacji statycznej w formacie `https://<APP_NAME>.azurestaticapps.net` .
 1. Z listy rozwijanej *region* wybierz region znajdujący się najbliżej siebie.
 1. Wybierz pozycję **bezpłatnie** z listy rozwijanej jednostka SKU.
 
-   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Uruchom aplikację Next.js":::
+   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Tworzenie statycznej aplikacji internetowej":::
 
 ### <a name="add-a-github-repository"></a>Dodawanie repozytorium GitHub
 
@@ -157,7 +157,7 @@ Nowe konto statyczne Web Apps musi mieć dostęp do repozytorium za pomocą apli
 1. Znajdź i wybierz nazwę utworzonego wcześniej repozytorium.
 1. Wybierz opcję **wzorzec** jako gałąź z listy rozwijanej *rozgałęzienie* .
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Uruchom aplikację Next.js":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Łączenie z usługą GitHub":::
 
 ### <a name="configure-the-build-process"></a>Skonfiguruj proces kompilacji
 
@@ -165,7 +165,7 @@ Usługa Azure static Web Apps jest wbudowana w taki sposób, aby automatycznie w
 
 1. Kliknij kartę **kompilacja** , aby skonfigurować statyczny folder wyjściowy.
 
-   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Uruchom aplikację Next.js":::
+   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Karta kompilacja":::
 
 2. Wpisz **wartość w polu tekstowym** *Lokalizacja artefaktu aplikacji* .
 
@@ -195,7 +195,7 @@ Wróć do terminalu i uruchom następujące polecenie `git pull origin master` .
 
 Przejdź do nowo wdrożonej lokacji i kliknij jeden z logo struktury lub biblioteki. Zamiast pobierania strony szczegółów pojawia się strona błędu 404.
 
-:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="Uruchom aplikację Next.js":::
+:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 na trasach dynamicznych":::
 
 Przyczyną tego błędu jest to, że Next.js wygenerowana tylko Strona główna oparta na konfiguracji aplikacji.
 
@@ -231,7 +231,7 @@ Przyczyną tego błędu jest to, że Next.js wygenerowana tylko Strona główna 
 
 2. Wypchnij nowe zmiany do repozytorium GitHub i poczekaj kilka minut, a akcje usługi GitHub ponownie kompilują lokację. Po zakończeniu kompilacji błąd 404 zniknie.
 
-   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="Uruchom aplikację Next.js":::
+   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 przy stałych trasach dynamicznych":::
 
 > [!div class="nextstepaction"]
 > [Skonfiguruj domenę niestandardową](custom-domain.md)

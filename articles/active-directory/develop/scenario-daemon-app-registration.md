@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80885484"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443334"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — Rejestracja aplikacji
 
@@ -35,14 +35,14 @@ W przypadku, gdy poufna aplikacja kliencka używa *tylko* przepływu poświadcze
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>Uprawnienia interfejsu API — uprawnienia aplikacji i zgoda administratora
 
-Aplikacja demona może żądać tylko uprawnień aplikacji do interfejsów API (nie delegowanych uprawnień). Na stronie **uprawnienia interfejsu API** do rejestracji aplikacji, po wybraniu opcji **Dodaj uprawnienie** i wybraniu rodziny interfejsów API wybierz pozycję **uprawnienia aplikacji**, a następnie wybierz swoje uprawnienia.
+Aplikacja demona może żądać tylko uprawnień aplikacji do interfejsów API (nie delegowanych uprawnień). Na stronie **uprawnienia interfejsu API** do rejestracji aplikacji, po wybraniu opcji **Dodaj uprawnienie** i wybraniu rodziny interfejsów API wybierz pozycję **uprawnienia aplikacji** , a następnie wybierz swoje uprawnienia.
 
 ![Uprawnienia aplikacji i zgoda administratora](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> Internetowy interfejs API, który ma zostać wywołany, musi definiować *uprawnienia aplikacji (Role aplikacji)*, a nie delegowane uprawnienia. Aby uzyskać szczegółowe informacje na temat sposobu ujawniania takiego interfejsu API, zobacz [chroniony internetowy interfejs API: Rejestracja aplikacji — gdy interfejs API sieci Web jest wywoływany przez aplikację demona](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+> Internetowy interfejs API, który ma zostać wywołany, musi definiować *uprawnienia aplikacji (Role aplikacji)* , a nie delegowane uprawnienia. Aby uzyskać szczegółowe informacje na temat sposobu ujawniania takiego interfejsu API, zobacz [chroniony internetowy interfejs API: Rejestracja aplikacji — gdy interfejs API sieci Web jest wywoływany przez aplikację demona](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
-Aplikacje demonów wymagają, aby administrator dzierżawy wstępnie wyraził zgodę na aplikację wywołującą internetowy interfejs API. Administratorzy dzierżawy podają tę zgodę na tej samej stronie **uprawnień interfejsu API** , wybierając pozycję **Udziel zgody administratora na *naszą organizację* **
+Aplikacje demonów wymagają, aby administrator dzierżawy wstępnie wyraził zgodę na aplikację wywołującą internetowy interfejs API. Administratorzy dzierżawy podają tę zgodę na tej samej stronie **uprawnień interfejsu API** , wybierając pozycję **Udziel zgody administratora na *naszą organizację***
 
 Jeśli jesteś niezależnym dostawcą oprogramowania, Kompilując aplikację wielodostępną, należy zapoznać się z sekcją [wdrażanie w przypadku aplikacji wielodostępnych demona](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
@@ -50,5 +50,4 @@ Jeśli jesteś niezależnym dostawcą oprogramowania, Kompilując aplikację wie
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Aplikacja demona — konfiguracja kodu aplikacji](./scenario-daemon-app-configuration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Konfiguracja kodu aplikacji](./scenario-daemon-app-configuration.md).

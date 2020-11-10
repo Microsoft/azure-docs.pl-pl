@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257076"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443589"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenariusz: aplikacja sieci Web, która loguje użytkowników
 
@@ -28,29 +28,25 @@ Dowiedz się, co musisz zrobić, aby utworzyć aplikację sieci Web korzystając
 
 Jeśli chcesz utworzyć swoją pierwszą aplikację sieci Web przenośną (ASP.NET Core), która loguje użytkowników, wykonaj następujące czynności:
 
-> [!div class="nextstepaction"]
-> [Szybki Start: ASP.NET Core aplikacji sieci Web, która loguje użytkowników](quickstart-v2-aspnet-core-webapp.md)
+[Szybki Start: ASP.NET Core aplikacji sieci Web, która loguje użytkowników](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Jeśli chcesz zrozumieć, jak dodać logowanie do istniejącej aplikacji sieci Web ASP.NET, spróbuj wykonać następujące czynności:
 
-> [!div class="nextstepaction"]
-> [Szybki Start: ASP.NET Web App, który loguje użytkowników](quickstart-v2-aspnet-webapp.md)
+[Szybki Start: ASP.NET Web App, który loguje użytkowników](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 Jeśli jesteś deweloperem języka Java, spróbuj wykonać następujące czynności:
 
-> [!div class="nextstepaction"]
-> [Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft](quickstart-v2-java-webapp.md)
+[Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 Jeśli tworzysz przy użyciu języka Python, wypróbuj następujący Przewodnik Szybki Start:
 
-> [!div class="nextstepaction"]
-> [Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python](quickstart-v2-python-webapp.md)
+[Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,22 +77,18 @@ W drugiej fazie można umożliwić aplikacji wywoływanie interfejsów API sieci
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](./scenario-web-app-sign-user-app-registration.md?tabs=python).
 
 ---

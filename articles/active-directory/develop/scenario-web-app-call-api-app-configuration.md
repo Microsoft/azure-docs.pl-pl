@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24b95423adb271b8a4016430e7d2b381c386cd2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403198"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443759"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -99,7 +99,7 @@ Zamiast klucza tajnego klienta można podać certyfikat klienta. Poniższy fragm
 
 ## <a name="startupcs"></a>Startup.cs
 
-Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, której można użyć na stronie kontroler i akcje strony. Jednak jak widać w poniższych dwóch opcjach, można to zrobić dokładniej. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs*:
+Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, której można użyć na stronie kontroler i akcje strony. Jednak jak widać w poniższych dwóch opcjach, można to zrobić dokładniej. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs* :
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -519,5 +519,4 @@ def _build_msal_app(cache=None):
 
 W tym momencie po zalogowaniu się użytkownika token jest przechowywany w pamięci podręcznej tokenów. Zobaczmy, w jaki sposób jest używany w innych częściach aplikacji sieci Web.
 
-> [!div class="nextstepaction"]
-> [Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: usuwanie kont z pamięci podręcznej na globalne wylogowywanie](scenario-web-app-call-api-sign-in.md)
+[Usuwanie kont z pamięci podręcznej na globalne wylogowywanie](scenario-web-app-call-api-sign-in.md)

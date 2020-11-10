@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119219"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443317"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — pozyskiwanie tokenu
 
@@ -57,7 +57,7 @@ Zakres używany na potrzeby poświadczeń klienta zawsze powinien być IDENTYFIK
 
 > [!IMPORTANT]
 > Gdy MSAL żąda tokenu dostępu dla zasobu, który akceptuje token dostępu w wersji 1,0, usługa Azure AD analizuje żądanych odbiorców od żądanego zakresu, pobierając wszystko przed ostatnim ukośnikiem i używając go jako identyfikatora zasobu.
-> Tak więc jeśli, podobnie jak Azure SQL Database (**https: \/ /Database.Windows.NET**), zasób oczekuje odbiorców kończących się ukośnikiem (dla Azure SQL Database `https://database.windows.net/` ), należy zażądać zakresu `https://database.windows.net//.default` . (Należy pamiętać o podwójnym ukośniku). Zobacz również #747 problemu MSAL.NET [: zostanie pominięty końcowy ukośnik adresu URL zasobu, co spowodowało błąd uwierzytelniania SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Tak więc jeśli, podobnie jak Azure SQL Database ( **https: \/ /Database.Windows.NET** ), zasób oczekuje odbiorców kończących się ukośnikiem (dla Azure SQL Database `https://database.windows.net/` ), należy zażądać zakresu `https://database.windows.net//.default` . (Należy pamiętać o podwójnym ukośniku). Zobacz również #747 problemu MSAL.NET [: zostanie pominięty końcowy ukośnik adresu URL zasobu, co spowodowało błąd uwierzytelniania SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>Interfejs API AcquireTokenForClient
 
@@ -202,7 +202,7 @@ Aby uzyskać więcej informacji, zobacz dokumentację protokołu: [Microsoft Ide
 
 ## <a name="application-token-cache"></a>Pamięć podręczna tokenów aplikacji
 
-W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken*XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient` sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
+W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken *XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient` sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Aplikacja demona — wywoływanie internetowego interfejsu API](./scenario-daemon-call-api.md?tabs=dotnet)
+Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Aplikacja demona — wywoływanie internetowego interfejsu API](./scenario-daemon-call-api.md?tabs=python)
+Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Aplikacja demona — wywoływanie internetowego interfejsu API](./scenario-daemon-call-api.md?tabs=java)
+Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](./scenario-daemon-call-api.md?tabs=java).
 
 ---

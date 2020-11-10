@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b71f66dfcbd33cdecc1a6fea46871ba0cda687d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80882135"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442892"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplikacja jednostronicowa: wywoływanie interfejsu API sieci Web
 
@@ -52,5 +52,4 @@ Otoka kątowa MSAL wykorzystuje Interceptor HTTP, aby automatycznie uzyskiwać t
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Przenoszenie do środowiska produkcyjnego](scenario-spa-production.md)
+Przejdź do następnego artykułu w tym scenariuszu, [Przejdź do środowiska produkcyjnego](scenario-spa-production.md).

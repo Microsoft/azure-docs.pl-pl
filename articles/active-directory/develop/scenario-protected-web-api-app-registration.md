@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518278"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443946"
 ---
 # <a name="protected-web-api-app-registration"></a>Chroniony internetowy interfejs API: Rejestracja aplikacji
 
@@ -31,7 +31,7 @@ Punkt końcowy platformy tożsamości firmy Microsoft może wystawiać tokeny 1.
 
 Wersja tokenu, która może być akceptowana przez interfejs API, zależy od **obsługiwanego wyboru typów kont** podczas tworzenia rejestracji aplikacji internetowego interfejsu api w Azure Portal.
 
-- Jeśli wartość **obsługiwanych typów kont** to **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**, zaakceptowana wersja tokenu musi mieć wartość v 2.0.
+- Jeśli wartość **obsługiwanych typów kont** to **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)** , zaakceptowana wersja tokenu musi mieć wartość v 2.0.
 - W przeciwnym razie zaakceptowany token może być w wersji 1.0.
 
 Po utworzeniu aplikacji możesz określić lub zmienić zaakceptowaną wersję tokenu, wykonując następujące czynności:
@@ -40,7 +40,7 @@ Po utworzeniu aplikacji możesz określić lub zmienić zaakceptowaną wersję t
 1. Znajdź właściwość **accessTokenAcceptedVersion** w manifeście.
 1. Wartość określa Azure Active Directory (Azure AD), która wersja tokenu akceptuje interfejs API sieci Web.
     - Jeśli wartość jest równa 2, internetowy interfejs API akceptuje tokeny v 2.0.
-    - Jeśli wartość jest **równa null**, internetowy interfejs API akceptuje tokeny v 1.0.
+    - Jeśli wartość jest **równa null** , internetowy interfejs API akceptuje tokeny v 1.0.
 1. Jeśli została zmieniona wersja tokenu, wybierz pozycję **Zapisz**.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Podczas rejestracji aplikacji należy zdefiniować następujące parametry:
 - Co najmniej jeden zakres
 - Co najmniej jedna rola aplikacji
 
-Domyślnie Portal rejestracji aplikacji zaleca użycie identyfikatora URI zasobu `api://{clientId}` . Ten identyfikator URI jest unikatowy, ale nie jest możliwy do odczytania przez człowieka. Jeśli zmienisz identyfikator URI, upewnij się, że nowa wartość jest unikatowa. Portal rejestracji aplikacji zapewni użycie [skonfigurowanej domeny wydawcy](howto-configure-publisher-domain.md)
+Domyślnie Portal rejestracji aplikacji zaleca użycie identyfikatora URI zasobu `api://{clientId}` . Ten identyfikator URI jest unikatowy, ale nie jest możliwy do odczytania przez człowieka. Jeśli zmienisz identyfikator URI, upewnij się, że nowa wartość jest unikatowa. Portal rejestracji aplikacji zapewni użycie [skonfigurowanej domeny wydawcy](howto-configure-publisher-domain.md).
 
 W przypadku aplikacji klienckich zakresy są wyświetlane jako uprawnienia *delegowane* i role aplikacji są wyświetlane jako *uprawnienia aplikacji* dla internetowego interfejsu API.
 
@@ -132,7 +132,7 @@ Interfejs API sieci Web sprawdza rolę aplikacji. Ta rola jest programistą opro
 Aby dodać zwiększone zabezpieczenia:
 
 1. Przejdź do strony **Przegląd** aplikacji dotyczącej rejestracji aplikacji.
-1. W obszarze **aplikacja zarządzana w katalogu lokalnym**wybierz łącze z nazwą aplikacji. Etykieta dla tego zaznaczenia może zostać obcięta. Na przykład **aplikacja zarządzana może być widoczna w...**
+1. W obszarze **aplikacja zarządzana w katalogu lokalnym** wybierz łącze z nazwą aplikacji. Etykieta dla tego zaznaczenia może zostać obcięta. Na przykład **aplikacja zarządzana może być widoczna w...**
 
    > [!NOTE]
    >
@@ -143,9 +143,9 @@ Aby dodać zwiększone zabezpieczenia:
 
    > [!IMPORTANT]
    >
-   > Jeśli ustawisz **przypisanie użytkownika jako wymagane?** na **tak**, usługa Azure AD sprawdzi przypisania roli aplikacji klienta, gdy zażąda tokenu dostępu do interfejsu API sieci Web. Jeśli klient nie jest przypisany do żadnych ról aplikacji, usługa Azure AD zwróci komunikat o błędzie "invalid_client: AADSTS501051: aplikacja \<application name\> nie jest przypisana do roli dla \<web API\> ".
+   > Jeśli ustawisz **przypisanie użytkownika jako wymagane?** na **tak** , usługa Azure AD sprawdzi przypisania roli aplikacji klienta, gdy zażąda tokenu dostępu do interfejsu API sieci Web. Jeśli klient nie jest przypisany do żadnych ról aplikacji, usługa Azure AD zwróci komunikat o błędzie "invalid_client: AADSTS501051: aplikacja \<application name\> nie jest przypisana do roli dla \<web API\> ".
    >
-   > Jeśli jest **wymagane przypisanie użytkownika?** wartość **nie**, usługa Azure AD nie będzie sprawdzać przypisań roli aplikacji, gdy klient zażąda tokenu dostępu dla internetowego interfejsu API. Każdy klient demona, który oznacza dowolnego klienta używający przepływu poświadczeń klienta, może uzyskać token dostępu dla interfejsu API tylko przez określenie jego odbiorców. Każda aplikacja może uzyskać dostęp do interfejsu API bez konieczności żądania uprawnień do niego.
+   > Jeśli jest **wymagane przypisanie użytkownika?** wartość **nie** , usługa Azure AD nie będzie sprawdzać przypisań roli aplikacji, gdy klient zażąda tokenu dostępu dla internetowego interfejsu API. Każdy klient demona, który oznacza dowolnego klienta używający przepływu poświadczeń klienta, może uzyskać token dostępu dla interfejsu API tylko przez określenie jego odbiorców. Każda aplikacja może uzyskać dostęp do interfejsu API bez konieczności żądania uprawnień do niego.
    >
    > Jednak zgodnie z opisem w poprzedniej sekcji internetowy interfejs API może zawsze sprawdzić, czy aplikacja ma odpowiednią rolę, która jest autoryzowana przez administratora dzierżawy. Interfejs API wykonuje tę weryfikację, sprawdzając, czy token dostępu ma rolę i czy wartość tego żądania jest poprawna. W poprzednim przykładzie JSON wartość jest `access_as_application` .
 
@@ -153,5 +153,4 @@ Aby dodać zwiększone zabezpieczenia:
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Konfiguracja kodu aplikacji](scenario-protected-web-api-app-configuration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Konfiguracja kodu aplikacji](scenario-protected-web-api-app-configuration.md).

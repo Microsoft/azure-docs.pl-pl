@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b71c78f484eef0fc4d9c34a2f218a177dbffa0a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787380dbf6f739d4b88f18a836da2146b06024c3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257518"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443147"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji
 
@@ -48,8 +48,8 @@ Identyfikatory URI przekierowania do użycia w aplikacji klasycznej zależą od 
 - Jeśli aplikacja używa tylko zintegrowanego uwierzytelniania systemu Windows lub nazwy użytkownika i hasła, nie trzeba rejestrować identyfikatora URI przekierowania dla aplikacji. Te przepływy umożliwiają przeprowadzenie rundy w punkcie końcowym Microsoft Identity platform v 2.0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
 - Aby rozróżnić [przepływ kodu urządzenia](scenario-desktop-acquire-token.md#device-code-flow), [zintegrowane uwierzytelnianie systemu Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)oraz [nazwę użytkownika i hasło](scenario-desktop-acquire-token.md#username-and-password) z poufnej aplikacji klienckiej przy użyciu przepływu poświadczeń klienta używanego w [aplikacjach demonów](scenario-daemon-overview.md), żadna z tych elementów nie wymaga identyfikatora URI przekierowania, należy ją skonfigurować jako publiczną aplikację klienta. Aby osiągnąć tę konfigurację:
 
-    1. W [Azure Portal](https://portal.azure.com)wybierz aplikację w **rejestracje aplikacji**, a następnie wybierz pozycję **uwierzytelnianie**.
-    1. W obszarze **Ustawienia zaawansowane**  >  **domyślny typ klienta**  >  **Traktuj aplikację jako klienta publicznego**, wybierz opcję **tak**.
+    1. W [Azure Portal](https://portal.azure.com)wybierz aplikację w **rejestracje aplikacji** , a następnie wybierz pozycję **uwierzytelnianie**.
+    1. W obszarze **Ustawienia zaawansowane**  >  **domyślny typ klienta**  >  **Traktuj aplikację jako klienta publicznego** , wybierz opcję **tak**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Włącz publiczne ustawienie klienta w okienku uwierzytelnianie w Azure Portal":::
 
@@ -59,5 +59,4 @@ Aplikacje klasyczne wywoływanie interfejsów API dla zalogowanego użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Aplikacja klasyczna: Konfiguracja aplikacji](scenario-desktop-app-configuration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Konfiguracja kodu aplikacji](scenario-desktop-app-configuration.md).

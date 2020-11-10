@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 181cae525845e7cae5e8f6f178b01ee33999b8b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312482"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442144"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -72,8 +72,8 @@ Obszar roboczy Azure Machine Learning opiera się na następujących usługach l
 | ---- | ---- |
 | **Grupa zasobów platformy Azure** | `-g <resource-group-name>`
 | **Konto usługi Azure Storage** | `--storage-account <service-id>` |
-| **Application Insights platformy Azure** | `--application-insights <service-id>` |
-| **Azure Key Vault** | `--keyvault <service-id>` |
+| **Azure Application Insights** | `--application-insights <service-id>` |
+| **Usługa Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -177,7 +177,7 @@ Aby ograniczyć ilość danych zbieranych przez firmę Microsoft w obszarze robo
 > [!IMPORTANT]
 > Wybór dużego wpływu na działalność biznesową można wykonać tylko podczas tworzenia obszaru roboczego. Tego ustawienia nie można zmienić po utworzeniu obszaru roboczego.
 
-Aby uzyskać więcej informacji na temat kluczy zarządzanych przez klienta i obszarów roboczych o dużym znaczeniu biznesowym, zobacz [zabezpieczenia przedsiębiorstwa dla Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+Aby uzyskać więcej informacji na temat kluczy zarządzanych przez klienta i obszarów roboczych o dużym znaczeniu biznesowym, zobacz [zabezpieczenia przedsiębiorstwa dla Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Korzystanie z istniejących zasobów
 

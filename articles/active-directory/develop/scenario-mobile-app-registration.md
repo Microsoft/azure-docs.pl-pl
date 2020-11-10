@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442738"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443096"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web
 
@@ -44,7 +44,7 @@ Aby uzyskać więcej informacji, zobacz [scenariusze i obsługiwane przepływy u
 
 ### <a name="interactive-authentication"></a>Uwierzytelnianie interakcyjne
 
-Podczas kompilowania aplikacji mobilnej, która korzysta z uwierzytelniania interaktywnego, najważniejszym krokiem rejestracji jest identyfikator URI przekierowania. Uwierzytelnianie interaktywne można ustawić za pomocą [konfiguracji platformy w bloku **uwierzytelnianie** ](https://aka.ms/MobileAppReg).
+Podczas kompilowania aplikacji mobilnej, która korzysta z uwierzytelniania interaktywnego, najważniejszym krokiem rejestracji jest identyfikator URI przekierowania. Uwierzytelnianie interaktywne można ustawić za pomocą [konfiguracji platformy w bloku **uwierzytelnianie**](https://aka.ms/MobileAppReg).
 
 To środowisko umożliwi aplikacji uzyskanie rejestracji jednokrotnej (SSO) za pomocą Microsoft Authenticator (i Intune — Portal firmy w systemie Android). Obsługuje również zasady zarządzania urządzeniami.
 
@@ -72,16 +72,16 @@ Po wykonaniu tych kroków identyfikator URI przekierowania zostanie obliczony dl
 
 Jeśli wolisz ręcznie skonfigurować identyfikator URI przekierowania, możesz to zrobić za pomocą manifestu aplikacji. Oto zalecany format manifestu:
 
-- System **iOS**:`msauth.<BUNDLE_ID>://auth`
+- System **iOS** :`msauth.<BUNDLE_ID>://auth`
   - Na przykład wprowadź `msauth.com.yourcompany.appName://auth`
-- System **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- System **Android** :`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Można wygenerować skrót sygnatury systemu Android przy użyciu klucza wydania lub klucza debugowania za pomocą polecenia narzędzia.
 
 ### <a name="username-password-authentication"></a>Nazwa użytkownika — uwierzytelnianie hasła
 
 Jeśli Twoja aplikacja używa tylko uwierzytelniania przy użyciu hasła użytkownika, nie musisz rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ wykonuje rundy do punktu końcowego Microsoft Identity platform w wersji 2,0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
 
-Należy jednak zidentyfikować aplikację jako publiczną aplikację kliencką. Aby to zrobić, Zacznij od sekcji **uwierzytelnianie** w aplikacji. W podsekcji **Ustawienia zaawansowane** w obszarze **domyślny typ klienta** dla pytania **Traktuj aplikację jako klienta publicznego**wybierz pozycję **tak**.
+Należy jednak zidentyfikować aplikację jako publiczną aplikację kliencką. Aby to zrobić, Zacznij od sekcji **uwierzytelnianie** w aplikacji. W podsekcji **Ustawienia zaawansowane** w obszarze **domyślny typ klienta** dla pytania **Traktuj aplikację jako klienta publicznego** wybierz pozycję **tak**.
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 
@@ -91,5 +91,4 @@ Statycznie rejestrowanie uprawnień pozwala administratorom łatwo zatwierdzać 
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Konfiguracja kodu](scenario-mobile-app-configuration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Konfiguracja kodu aplikacji](scenario-mobile-app-configuration.md).

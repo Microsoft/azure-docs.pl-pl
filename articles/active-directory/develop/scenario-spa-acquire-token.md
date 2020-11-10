@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d91e69d7d9eac9f8cae1a1a122a13afd19ef631
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80882322"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443878"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplikacja jednostronicowa: uzyskiwanie tokenu do wywoływania interfejsu API
 
@@ -198,5 +198,4 @@ Ten kod jest taki sam, jak opisano wcześniej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Wywoływanie internetowego interfejsu API](scenario-spa-call-api.md)
+Przejdź do następnego artykułu w tym scenariuszu, [wywołując interfejs API sieci Web](scenario-spa-call-api.md).

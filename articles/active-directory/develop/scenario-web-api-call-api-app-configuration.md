@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 993e1a513fae726e00a29c4b9927a0a039572f74
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365939"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443793"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -88,7 +88,7 @@ Microsoft. Identity. Web oferuje kilka sposobów opisywania certyfikatów, zaró
 
 ## <a name="startupcs"></a>Startup.cs
 
-Interfejs API sieci Web będzie musiał uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, która może być używana w akcjach kontrolera/stron. Jednak jak widać w następnych dwóch punktach punktorów, można to jeszcze prostsze. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs*:
+Interfejs API sieci Web będzie musiał uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, która może być używana w akcjach kontrolera/stron. Jednak jak widać w następnych dwóch punktach punktorów, można to jeszcze prostsze. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs* :
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -256,5 +256,4 @@ Aby uzyskać więcej informacji na temat protokołu OBO, zobacz [Microsoft Ident
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji](scenario-web-api-call-api-acquire-token.md)
+Przejdź do następnego artykułu w tym scenariuszu, [Uzyskaj token dla aplikacji](scenario-web-api-call-api-acquire-token.md).

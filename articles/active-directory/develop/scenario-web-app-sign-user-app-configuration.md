@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728339"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443657"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplikacja internetowa, która loguje użytkowników: Konfiguracja kodu
 
@@ -245,7 +245,7 @@ Aby dodać uwierzytelnianie za pomocą platformy tożsamości firmy Microsoft (d
      }).AddMicrosoftIdentityUI();
     ```
 
-3. W `Configure` metodzie w *Startup.cs*Włącz uwierzytelnianie z wywołaniem do `app.UseAuthentication();`
+3. W `Configure` metodzie w *Startup.cs* Włącz uwierzytelnianie z wywołaniem do `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -344,22 +344,18 @@ W następnym artykule dowiesz się, jak wyzwolić logowanie i wylogować.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Logowanie i wylogowywanie](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Przejdź do następnego artykułu w tym scenariuszu, [Zaloguj się i Wyloguj](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)się.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Logowanie i wylogowywanie](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Przejdź do następnego artykułu w tym scenariuszu, [Zaloguj się i Wyloguj](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)się.
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Logowanie i wylogowywanie](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Przejdź do następnego artykułu w tym scenariuszu, [Zaloguj się i Wyloguj](./scenario-web-app-sign-user-sign-in.md?tabs=java)się.
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Logowanie i wylogowywanie](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Przejdź do następnego artykułu w tym scenariuszu, [Zaloguj się i Wyloguj](./scenario-web-app-sign-user-sign-in.md?tabs=python)się.
 
 ---

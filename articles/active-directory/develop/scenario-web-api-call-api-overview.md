@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee9d879849a94ac255a0967ad4fbc762417f8cd4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257167"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442654"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenariusz: internetowy interfejs API, który wywołuje interfejsy API sieci Web
 
@@ -40,5 +40,4 @@ Część rejestracji aplikacji, która jest powiązana z uprawnieniami interfejs
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](scenario-web-api-call-api-app-registration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](scenario-web-api-call-api-app-registration.md).

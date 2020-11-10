@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4123b0424e52c6a2919de4b60bcc6158062b0f1
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257133"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442637"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenariusz: aplikacja sieci Web, która wywołuje interfejsy API sieci Web
 
@@ -30,7 +30,7 @@ W tym scenariuszu przyjęto założenie, że scenariusz został już ukończony 
 
 Należy dodać uwierzytelnianie do aplikacji sieci Web, aby umożliwić użytkownikom logowanie się i wywoływanie internetowego interfejsu API w imieniu zalogowanego użytkownika.
 
-![Aplikacja internetowa wywołująca internetowe interfejsy API](./media/scenario-webapp/web-app.svg)
+![Aplikacja internetowa, która wywołuje internetowe interfejsy API](./media/scenario-webapp/web-app.svg)
 
 Aplikacje sieci Web, które wywołują interfejsy API sieci Web, są poufnymi aplikacjami klienckimi.
 Dlatego rejestrujemy wpis tajny (hasło aplikacji lub certyfikat) z Azure Active Directory (Azure AD). Ten wpis tajny jest przesyłany podczas wywołania usługi Azure AD w celu uzyskania tokenu.
@@ -53,5 +53,4 @@ Opracowywanie tego scenariusza obejmuje następujące zadania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji](scenario-web-app-call-api-app-registration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](scenario-web-app-call-api-app-registration.md).

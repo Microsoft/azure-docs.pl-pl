@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336976"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442025"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
 
@@ -102,7 +102,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |---------|---------|
     |Konto magazynu     | Konto usługi Azure Storage, z którego chcesz wyeksportować dane. |
     |Typ eksportu     | Określa typ danych do wyeksportowania ze **wszystkich obiektów** i **Użyj pliku XML**.<ul><li> **Wszystkie obiekty** — określa, że zadanie eksportuje wszystkie dane w zależności od wyboru **opcji transferu**.</li><li> **Użyj pliku XML** — określa plik XML, który zawiera zestaw ścieżek i prefiksów obiektów blob i/lub plików, które mają zostać wyeksportowane z konta magazynu. Plik XML musi znajdować się w kontenerze wybranego konta magazynu, a wybieranie z udziałów plików nie jest obecnie obsługiwane. Plik musi być niepustym plikiem XML.</li></ul>        |
-    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko** , **wszystkie obiekty blob** i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że eksportowane są wszystkie obiekty blob i pliki platformy Azure. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko** , **wszystkie obiekty blob** i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że wszystkie obiekty blob i Azure Files są eksportowane. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Dołącz pełny dziennik     | Wskazuje, czy chcesz uzyskać pełny plik dziennika zawierający listę wszystkich plików, które zostały pomyślnie wyeksportowane.        |
 
     > [!NOTE]
@@ -183,11 +183,11 @@ W przypadku wybrania opcji **Użyj pliku XML** można określić określone kont
 
    ![Wyświetl szczegóły kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. Dwukrotne kliknięcie kontenera spowoduje wyświetlenie widoku właściwości kontenera. Teraz chcesz dołączyć (lub przeszukać) plik XML zawierający listę obiektów blob i/lub plików platformy Azure, które mają zostać wyeksportowane. Wybierz pozycję **Przekaż**.
+6. Dwukrotne kliknięcie kontenera spowoduje wyświetlenie widoku właściwości kontenera. Teraz chcesz dołączyć (lub przeszukać) plik XML, który zawiera listę obiektów blob i/lub Azure Files, które mają zostać wyeksportowane. Wybierz pozycję **Przekaż**.
 
    ![Przekaż obiekt BLOB do kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
-7. Plik XML został pomyślnie dodany do kontenera. Eksportowane są tylko obiekty blob i pliki platformy Azure określone w tym formacie XML.
+7. Plik XML został pomyślnie dodany do kontenera. Eksportowane są tylko obiekty blob i Azure Files określone w tym kodzie XML.
 
    ![Plik XML został dodany do kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
@@ -227,7 +227,7 @@ Aby usunąć anulowaną kolejność, przejdź do **omówienia** i wybierz pozycj
 
 ## <a name="sample-xml-file"></a>Przykładowy plik XML
 
-Poniższy kod XML przedstawia przykład nazw obiektów blob, prefiksów obiektów blob i plików platformy Azure zawartych w formacie XML, który jest używany przez zamówienie eksportu po wybraniu opcji **Użyj pliku XML** :
+Poniższy kod XML przedstawia przykład nazw obiektów blob, prefiksów obiektów blob i Azure Files zawartych w formacie XML, który jest używany przez zamówienie eksportu po wybraniu opcji **Użyj pliku XML** :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

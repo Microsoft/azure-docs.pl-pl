@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318168"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441991"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa internetowa
 
@@ -119,7 +119,7 @@ Azure Machine Learning zapewnia dwa sposoby kontroli dostępu do usług sieci We
 
 Podczas wysyłania żądania do usługi, która jest zabezpieczona za pomocą klucza lub tokenu, użyj nagłówka __autoryzacji__ w celu przekazania klucza lub tokenu. Klucz lub token musi być sformatowany jako `Bearer <key-or-token>` , gdzie `<key-or-token>` jest wartością klucza lub tokenu.
 
-Podstawowa różnica między kluczami i tokenami polega na tym, że **klucze są statyczne i mogą być ponownie generowane ręcznie** , a **tokeny muszą być odświeżane po wygaśnięciu**. Uwierzytelnianie oparte na kluczach jest obsługiwane dla wystąpień kontenerów platformy Azure i wdrożonych usług sieci Web usługi Azure Kubernetes, a uwierzytelnianie oparte na tokenach jest dostępne **tylko** dla wdrożeń usługi Azure Kubernetes. Zobacz instrukcje [dotyczące](how-to-setup-authentication.md#web-service-authentication) uwierzytelniania, aby uzyskać więcej informacji i przykłady kodu.
+Podstawowa różnica między kluczami i tokenami polega na tym, że **klucze są statyczne i mogą być ponownie generowane ręcznie** , a **tokeny muszą być odświeżane po wygaśnięciu**. Uwierzytelnianie oparte na kluczach jest obsługiwane dla wystąpień kontenerów platformy Azure i wdrożonych usług sieci Web usługi Azure Kubernetes, a uwierzytelnianie oparte na tokenach jest dostępne **tylko** dla wdrożeń usługi Azure Kubernetes. Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania, zobacz [Konfigurowanie uwierzytelniania dla modeli wdrożonych jako usługi sieci Web](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Uwierzytelnianie przy użyciu kluczy

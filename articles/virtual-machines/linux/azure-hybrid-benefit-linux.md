@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: mathapli
+ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413109"
+ms.locfileid: "94443436"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Wersja zapoznawcza: Korzyść użycia hybrydowego platformy Azure — jak ma to zastosowanie do Linux Virtual Machines
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Publiczna wersja zapoznawcza: Korzyść użycia hybrydowego platformy Azure — jak ma to zastosowanie do Linux Virtual Machines
 
 ## <a name="overview"></a>Omówienie
 
@@ -45,30 +45,26 @@ Wystąpienia zarezerwowane, dedykowane hosty i korzyści z używania hybrydowej 
 
 ## <a name="how-to-get-started"></a>Jak zacząć
 
-Korzyść użycia hybrydowego platformy Azure jest obecnie w fazie wersji zapoznawczej dla maszyn wirtualnych z systemem Linux. Po uzyskaniu dostępu do wersji zapoznawczej można włączyć korzystanie z Azure Portal lub interfejsu wiersza polecenia platformy Azure.
+Korzyść użycia hybrydowego platformy Azure jest obecnie w fazie wersji zapoznawczej dla maszyn wirtualnych z systemem Linux. Po uzyskaniu dostępu do wersji zapoznawczej możesz włączyć korzystanie z interfejsu wiersza polecenia platformy Azure.
 
-### <a name="preview"></a>Wersja zapoznawcza
+### <a name="public-preview"></a>Publiczna wersja zapoznawcza
 
-W tej fazie można uzyskać dostęp do korzyści, wypełniając formularz w [tym miejscu](https://aka.ms/ahb-linux-form). Po wypełnieniu formularza subskrypcja platformy Azure zostanie włączona z korzyścią, a użytkownik otrzyma potwierdzenie od firmy Microsoft w ciągu trzech dni roboczych.
+Korzyść użycia hybrydowego platformy Azure (dla systemu Linux) jest teraz w fazie publicznej wersji zapoznawczej. Poniższe kroki umożliwiają skorzystanie z zalet dystrybucji Red Hat i SUSE. 
 
 ### <a name="red-hat-customers"></a>Klienci firmy Red Hat
 
-1.    Wypełnij formularz żądania wersji zapoznawczej powyżej
 1.    Zarejestruj się w [programie Red Hat Cloud Access](https://aka.ms/rhel-cloud-access)
 1.    Włącz subskrypcję platformy Azure na potrzeby dostępu do chmury i Włącz subskrypcje zawierające maszyny wirtualne, dla których chcesz korzystać z usługi
-1.    Zastosuj korzyść dla istniejących maszyn wirtualnych za pośrednictwem Azure Portal lub interfejsu wiersza polecenia platformy Azure
-1.    Opcjonalnie Zarejestruj maszyny wirtualne otrzymujące korzyść przy użyciu oddzielnego źródła aktualizacji (przełączane maszyny wirtualne mogą pozostać dołączone do [RHUI](../workloads/redhat/redhat-rhui.md) lub zarejestrowane za pośrednictwem RHSM)
+1.    Zastosuj korzyść dla istniejących maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
+1.    Zarejestruj swoje maszyny wirtualne otrzymujące korzyść przy użyciu oddzielnego źródła aktualizacji
+
 
 ### <a name="suse-customers"></a>Klienci SUSE
 
-1.    Wypełnij formularz żądania wersji zapoznawczej powyżej
 1.    Rejestrowanie w programie SUSE Public Cloud
-1.    Zastosuj korzyść dla istniejących maszyn wirtualnych za pośrednictwem Azure Portal lub interfejsu wiersza polecenia platformy Azure
+1.    Zastosuj korzyść dla istniejących maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 1.    Zarejestruj swoje maszyny wirtualne otrzymujące korzyść przy użyciu oddzielnego źródła aktualizacji
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Włącz i Wyłącz korzyść w Azure Portal
-
-Możesz włączyć korzyść dla istniejących maszyn wirtualnych, odwiedzając blok **Konfiguracja** i wykonując czynności opisane w tym miejscu. Możesz umożliwić korzystanie z nowych maszyn wirtualnych podczas tworzenia maszyny wirtualnej.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Włączanie i wyłączanie korzyści w interfejsie wiersza polecenia platformy Azure
 
@@ -109,12 +105,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>Sprawdź stan AHB maszyny wirtualnej
-Stan AHB maszyny wirtualnej może być wyświetlany na trzy sposoby: sprawdzanie w portalu, korzystanie z interfejsu wiersza polecenia platformy Azure lub korzystanie z usługi Azure Instance Metadata Service (Azure IMDS).
+Stan AHB maszyny wirtualnej można wyświetlić na dwa sposoby: za pomocą interfejsu wiersza polecenia platformy Azure lub przy użyciu usługi Azure Instance Metadata Service (Azure IMDS).
 
-
-### <a name="portal"></a>Portal
-
-Wyświetl blok konfiguracja i sprawdź stan licencji, aby sprawdzić, czy AHB jest włączony dla maszyny wirtualnej.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -152,9 +144,7 @@ Ta sekcja zawiera listę typowych problemów, które mogą zostać napotkane, or
 
 | Błąd | Ograniczanie ryzyka |
 | ----- | ---------- |
-| "Subskrypcja nie jest zarejestrowana w wersji zapoznawczej systemu Linux dla Korzyść użycia hybrydowego platformy Azure. Aby uzyskać instrukcje krok po kroku, zobacz https://aka.ms/ahb-linux " | Wypełnij formularz, https://aka.ms/ahb-linux-form Aby zarejestrować się w wersji zapoznawczej systemu Linux dla korzyść użycia hybrydowego platformy Azure.
 | "Akcja nie może zostać ukończona, ponieważ nasze rekordy pokazują, że nie udało Ci się pomyślnie włączyć usługi Red Hat Cloud Access w ramach subskrypcji platformy Azure..." | Aby można było korzystać z zalet z maszynami wirtualnymi RHEL, należy najpierw zarejestrować subskrypcje platformy Azure przy użyciu usługi Red Hat Cloud Access. Odwiedź ten link, aby dowiedzieć się więcej o rejestrowaniu subskrypcji platformy Azure na potrzeby usługi Red Hat Cloud Access
-|"Opcja dla Korzyść użycia hybrydowego platformy Azure nie jest wyświetlana w portalu" | Jest to znany problem dotyczący maszyn wirtualnych RHEL i SLES utworzonych z galerii obrazów udostępnionych, migawek lub przechwyconych obrazów PAYG. W takim przypadku należy użyć kroków interfejsu wiersza polecenia opisanych w sekcji "[Włączanie i wyłączanie korzyści w interfejsie wiersza polecenia platformy Azure](#enable-and-disable-the-benefit-in-the-azure-cli)". Aby wyświetlić stan AHB, użyj polecenia ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Następne kroki
-* Zacznij korzystać z wersji zapoznawczej, wypełniając formularz w [tym miejscu](https://aka.ms/ahb-linux-form).
+* Dowiedz się, jak tworzyć i aktualizować maszyny wirtualne oraz dodawać typy licencji (RHEL_BYOS, SLES_BYOS) dla Korzyść użycia hybrydowego platformy Azure przy użyciu [interfejsu wiersza polecenia platformy Azure.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

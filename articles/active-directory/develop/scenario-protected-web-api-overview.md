@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9ff9ae811a29685937b922f04a277e663e26f1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9cc8e6fcc796cfc7a09cf7bc1431646a6603af0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257368"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442977"
 ---
 # <a name="scenario-protected-web-api"></a>Scenariusz: chroniony internetowy interfejs API
 
@@ -42,5 +42,4 @@ Poniżej przedstawiono szczegółowe informacje, które należy znać, aby chron
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](scenario-protected-web-api-app-registration.md)
+Przejdź do następnego artykułu w tym scenariuszu — [Rejestracja aplikacji](scenario-protected-web-api-app-registration.md).

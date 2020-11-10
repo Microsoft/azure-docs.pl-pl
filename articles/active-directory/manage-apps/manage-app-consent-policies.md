@@ -12,18 +12,18 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486926"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442263"
 ---
 # <a name="manage-app-consent-policies"></a>Zarządzanie zasadami wyrażania zgody aplikacji
 
 Za pomocą programu Azure AD PowerShell można wyświetlać zasady zgody aplikacji i zarządzać nimi.
 
-Zasady zgody aplikacji składają się z co najmniej jednego zestawu warunków "Includes" i zero lub więcej zestawów warunków "exclude". W przypadku zdarzenia, które należy wziąć pod uwagę przy użyciu zasad zgody aplikacji, musi on być zgodny z co *najmniej* jednym zestawem warunków "Includes" i nie może mieć wielu *żadnych* zestawów warunków "exclude".
+Zasady zgody aplikacji składają się z co najmniej jednego zestawu warunków "Includes" i zero lub więcej zestawów warunków "exclude". Aby można było rozważyć zdarzenie w zasadach zgody aplikacji, musi ono odpowiadać *co najmniej* jednemu zestawowi warunków "Includes" i nie *może być zgodne* z zestawem warunków "excludes".
 
 Każdy zestaw warunków składa się z kilku warunków. Aby można było dopasować zdarzenie do zestawu warunków, muszą zostać spełnione *wszystkie* warunki w ustawieniu warunek.
 
@@ -133,7 +133,7 @@ Poniższa tabela zawiera listę obsługiwanych warunków zasad wyrażania zgody 
 | Warunek | Opis|
 |:---------------|:----------|
 | PermissionClassification | [Klasyfikacja uprawnień](configure-permission-classifications.md) dla przyznawanego uprawnienia lub "wszystkie", aby dopasować się do klasyfikacji uprawnień (w tym uprawnień, które nie zostały sklasyfikowane). Wartość domyślna to "All". |
-| Uprawnienie | Typ uprawnienia udzielonego uprawnienia. Użyj "aplikacji" dla uprawnień aplikacji (np. ról aplikacji) lub "delegowane" dla uprawnień delegowanych. <br><br>**Uwaga**: wartość "delegatedUserConsentable" wskazuje delegowane uprawnienia, które nie zostały skonfigurowane przez wydawcę interfejsu API w celu wymagania zgody administratora. Ta wartość może być używana w zasadach przyznawania uprawnień wbudowanych, ale nie można jej używać w niestandardowych zasadach przyznawania uprawnień. Wymagane. |
+| Uprawnienie | Typ uprawnienia udzielonego uprawnienia. Użyj "aplikacji" dla uprawnień aplikacji (np. ról aplikacji) lub "delegowane" dla uprawnień delegowanych. <br><br>**Uwaga** : wartość "delegatedUserConsentable" wskazuje delegowane uprawnienia, które nie zostały skonfigurowane przez wydawcę interfejsu API w celu wymagania zgody administratora. Ta wartość może być używana w zasadach przyznawania uprawnień wbudowanych, ale nie można jej używać w niestandardowych zasadach przyznawania uprawnień. Wymagane. |
 | ResourceApplication | **Identyfikator appid** aplikacji zasobów (np. interfejsu API), dla którego przyznano uprawnienia, lub "dowolny", aby dopasować się do dowolnej aplikacji lub interfejsu API zasobów. Wartość domyślna to "any". |
 | Uprawnienia | Lista identyfikatorów uprawnień dla określonych uprawnień, które mają być zgodne z, lub lista z pojedynczą wartością "All", która jest zgodna z dowolnym uprawnieniem. Wartością domyślną jest pojedyncza wartość "All". <ul><li>Identyfikatory uprawnień delegowanych można znaleźć we właściwości **OAuth2Permissions** głównego obiektu interfejsu API.</li><li>Identyfikatory uprawnień aplikacji można znaleźć we właściwości **AppRoles** głównego obiektu interfejsu API.</li></ol> |
 | ClientApplicationIds | Lista wartości **AppID** dla aplikacji klienckich, które mają być zgodne z programem, lub lista z pojedynczą wartością "All" w celu dopasowania do dowolnej aplikacji klienckiej. Wartością domyślną jest pojedyncza wartość "All". |
