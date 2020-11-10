@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 5759cd80278d20ee383fbe5922e43d250babe09f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380678"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427483"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -135,13 +135,12 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 1. W portalu QnA Maker w prawym górnym rogu wybierz pozycję **test** , aby sprawdzić, czy wprowadzone zmiany zostały wprowadzone.
 2. Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.
 
-    `How many Azure services are used by a knowledge base?`
+    `whats the size of the touchscreen`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe interfejsu użytkownika rozmowy: ile stron będzie zawierać paszport pomocniczy? Odpowiedź: tylko 36 stron paszportów usługi Passport są wystawiane dla małoletnich.":::
+3. Jeśli włączysz funkcję MRC dla bazy wiedzy, wybierając pozycję **Wyświetl krótką odpowiedź** , zobaczysz również dokładną odpowiedź (jeśli jest dostępna) wraz z przepustą odpowiedzią w okienku testów. 
 
-3. Jeśli włączysz funkcję MRC dla bazy wiedzy, wybierając pozycję **Włącz krótką odpowiedź (eksperymentalne)** , zobaczysz również dokładną odpowiedź (jeśli jest dostępna) wraz z odciskiem odpowiedzi w okienku testów. 
-
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer-checked.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe interfejsu użytkownika rozmowy: ile stron będzie zawierać paszport pomocniczy? i odpowiedź: 36. w jednym wierszu, po którym następuje drugi wiersz zawierający: tylko 36 stron paszportów usługi Passport są wystawiane dla małoletnich.":::
+    ![Okienko testów z włączonym zarządzaniem](../media/conversational-context/test-pane-with-managed.png)
+    
 
 4. Wybierz pozycję Sprawdź, aby sprawdzić, czy odpowiedź jest bardziej szczegółowo. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy. 
 5. Ponownie wybierz **test** , aby zamknąć panel **testu** .

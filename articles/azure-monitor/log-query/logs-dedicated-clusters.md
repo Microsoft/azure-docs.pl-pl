@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 293a3fc10920a29cd41e4bdb946e5bb06762eb52
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996323"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427500"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -47,9 +47,9 @@ Poziom rezerwacji pojemności klastra jest konfigurowany za pomocą programu pro
 
 Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas konfigurowania klastra. 
 
-1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. 
+1. **Klaster** : w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. 
 
-2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](../../security-center/index.yml) dla każdego obszaru roboczego).
+2. **Obszary robocze** : koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](../../security-center/index.yml) dla każdego obszaru roboczego).
 
 Należy pamiętać, że jeśli obszar roboczy korzysta ze starszej warstwy cenowej na węzeł, gdy jest on połączony z klastrem, będzie rozliczany na podstawie danych pozyskanych w ramach rezerwacji pojemności klastra i nie jest już na węzeł. Alokacje danych na węzeł z Azure Security Center będą nadal stosowane.
 
@@ -62,12 +62,12 @@ Najpierw utwórz zasoby klastra, aby rozpocząć tworzenie dedykowanego klastra.
 
 Należy określić następujące właściwości:
 
-- **ClusterName**: służy do celów administracyjnych. Użytkownicy nie są narażeni na tę nazwę.
-- **ResourceGroupName**: podobnie jak w przypadku dowolnego zasobu platformy Azure, klastry należą do grupy zasobów. Zalecamy korzystanie z centralnej grupy zasobów IT, ponieważ klastry są zwykle udostępniane przez wiele zespołów w organizacji. Aby uzyskać więcej informacji dotyczących projektowania, zapoznaj się z tematem [projektowanie wdrożenia dzienników Azure monitor](../platform/design-logs-deployment.md)
-- **Lokalizacja**: klaster znajduje się w określonym regionie platformy Azure. Tylko obszary robocze znajdujące się w tym regionie mogą być połączone z tym klastrem.
-- **SkuCapacity**: należy określić poziom *rezerwacji zdolności produkcyjnych* (SKU) podczas tworzenia zasobu *klastra* . Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 gb do 3 000 GB dziennie. W razie konieczności można ją zaktualizować w krokach 100 w dalszej części. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 3 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . Aby uzyskać więcej informacji na temat kosztów klastrów, zobacz [Zarządzanie kosztami klastrów log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **ClusterName** : służy do celów administracyjnych. Użytkownicy nie są narażeni na tę nazwę.
+- **ResourceGroupName** : podobnie jak w przypadku dowolnego zasobu platformy Azure, klastry należą do grupy zasobów. Zalecamy korzystanie z centralnej grupy zasobów IT, ponieważ klastry są zwykle udostępniane przez wiele zespołów w organizacji. Aby uzyskać więcej informacji dotyczących projektowania, zapoznaj się z tematem [projektowanie wdrożenia dzienników Azure monitor](../platform/design-logs-deployment.md)
+- **Lokalizacja** : klaster znajduje się w określonym regionie platformy Azure. Tylko obszary robocze znajdujące się w tym regionie mogą być połączone z tym klastrem.
+- **SkuCapacity** : należy określić poziom *rezerwacji zdolności produkcyjnych* (SKU) podczas tworzenia zasobu *klastra* . Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 gb do 3 000 GB dziennie. W razie konieczności można ją zaktualizować w krokach 100 w dalszej części. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 3 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . Aby uzyskać więcej informacji na temat kosztów klastrów, zobacz [Zarządzanie kosztami klastrów log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 
-Po utworzeniu zasobu *klastra* można edytować dodatkowe właściwości, takie jak *SKU*, * keyVaultProperties lub *rozliczeń*. Zobacz więcej szczegółów poniżej.
+Po utworzeniu zasobu *klastra* można edytować dodatkowe właściwości, takie jak *SKU* , * keyVaultProperties lub *rozliczeń*. Zobacz więcej szczegółów poniżej.
 
 > [!WARNING]
 > Tworzenie klastra wyzwala alokację zasobów i Inicjowanie obsługi administracyjnej. Wykonanie tej operacji może potrwać do godziny. Zalecane jest, aby uruchomić go asynchronicznie.
@@ -162,7 +162,7 @@ Identyfikator GUID *principalId* jest generowany przez zarządzaną usługę to�
 
 Po utworzeniu zasobu *klastra* , który jest w pełni zainicjowany, można edytować dodatkowe właściwości na poziomie klastra przy użyciu programu PowerShell lub interfejsu API REST. Oprócz właściwości, które są dostępne podczas tworzenia klastra, dodatkowe właściwości można ustawić tylko po zainicjowaniu obsługi klastra:
 
-- **keyVaultProperties**: służy do konfigurowania Azure Key Vault używany do aprowizacji [Azure monitor kluczem zarządzanym przez klienta](../platform/customer-managed-keys.md#cmk-provisioning-procedure). Zawiera następujące parametry:  *KeyVaultUri*, *KeyName*, *wersja*klucza. 
+- **keyVaultProperties** : służy do konfigurowania Azure Key Vault używany do aprowizacji [Azure monitor kluczem zarządzanym przez klienta](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Zawiera następujące parametry:  *KeyVaultUri* , *KeyName* , *wersja* klucza. 
 - **rozliczenia** — Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
   - **Klaster** (domyślnie) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
   - **Obszary robocze** — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
@@ -180,7 +180,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 **REST**
 
 > [!NOTE]
-> Możesz zaktualizować *jednostkę SKU*zasobu *klastra* , *keyVaultProperties* lub *rozliczeń* przy użyciu poprawki.
+> Możesz zaktualizować *jednostkę SKU* zasobu *klastra* , *keyVaultProperties* lub *rozliczeń* przy użyciu poprawki.
 
 Na przykład: 
 

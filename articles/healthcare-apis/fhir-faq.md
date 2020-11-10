@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8f4d16931f09f94af81dd4e0f178ce6e0f990881
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398100"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426208"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Często zadawane pytania dotyczące interfejsu API platformy Azure dla usługi FHIR
 
@@ -29,6 +29,9 @@ Tak, dane są przechowywane w zarządzanych bazach danych na platformie Azure. I
 ### <a name="what-identity-provider-do-you-support"></a>Jaki dostawca tożsamości jest obsługiwany?
 
 Obecnie obsługujemy Microsoft Azure Active Directory jako dostawcę tożsamości.
+
+### <a name="what-is-the-recovery-point-objective-rpo-for-the-azure-api-for-fhir"></a>Jaki jest cel punktu odzyskiwania (RPO) dla interfejsu API platformy Azure dla usługi FHIR?
+Usługa Azure API for FHIR jest obsługiwana przez Cosmos DB jako nasz dostawca trwałości. W związku z tym cel punktu odzyskiwania dla usługi jest równy [Cosmos dB (pojedynczy region)](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) i jest < 240 minut.
 
 ### <a name="what-fhir-version-do-you-support"></a>Jaka wersja FHIR jest obsługiwana?
 

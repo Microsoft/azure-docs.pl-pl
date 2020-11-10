@@ -2,15 +2,15 @@
 title: Konfigurowanie aplikacji systemu Linux Python
 description: Informacje o konfigurowaniu kontenera języka Python, w którym są uruchamiane aplikacje sieci Web, przy użyciu zarówno Azure Portal, jak i interfejsu wiersza polecenia platformy Azure.
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743813"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425919"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -26,7 +26,7 @@ Do konfiguracji można użyć [Azure Portal](https://portal.azure.com) lub inter
 
 - **Interfejs wiersza polecenia platformy Azure** : masz dwie opcje.
 
-    - Uruchom polecenia w [Azure Cloud Shell](../cloud-shell/overview.md), które można otworzyć za pomocą przycisku **Wypróbuj** w prawym górnym rogu bloków kodu.
+    - Uruchom polecenia w [Azure Cloud Shell](../cloud-shell/overview.md).
     - Uruchom polecenia lokalnie, instalując najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), a następnie zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login).
     
 > [!NOTE]
@@ -40,7 +40,7 @@ Do konfiguracji można użyć [Azure Portal](https://portal.azure.com) lub inter
 
     -  Pokaż bieżącą wersję języka Python za pomocą [AZ webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
         ```
         
@@ -48,13 +48,13 @@ Do konfiguracji można użyć [Azure Portal](https://portal.azure.com) lub inter
     
     - Ustaw wersję języka Python za pomocą [AZ webapp config Set](/cli/azure/webapp/config#az_webapp_config_set)
         
-        ```azurecli-interactive
+        ```azurecli
         az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
         ```
     
     - Pokaż wszystkie wersje języka Python, które są obsługiwane w Azure App Service za pomocą [AZ webapp list-Runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp list-runtimes --linux | grep PYTHON
         ```
     
@@ -69,7 +69,7 @@ System kompilacji App Service o nazwie Oryx, podczas wdrażania aplikacji przy u
 
 1. Uruchom niestandardowy skrypt przed kompilacją, jeśli został określony przez `PRE_BUILD_COMMAND` ustawienie.
 1. Uruchom polecenie `pip install -r requirements.txt`. Plik *requirements.txt* musi znajdować się w folderze głównym projektu. W przeciwnym razie proces kompilacji zgłosi błąd: "nie można znaleźć setup.py lub requirements.txt; Nie uruchomiono instalacji PIP ".
-1. Jeśli *manage.py* znajduje się w katalogu głównym repozytorium (wskazującym aplikację Django), uruchom *manage.py collectstatic* . Jeśli jednak `DISABLE_COLLECTSTATIC` ustawienie ma wartość `true` , ten krok zostanie pominięty.
+1. Jeśli *manage.py* znajduje się w katalogu głównym repozytorium (wskazującym aplikację Django), uruchom *manage.py collectstatic*. Jeśli jednak `DISABLE_COLLECTSTATIC` ustawienie ma wartość `true` , ten krok zostanie pominięty.
 1. Uruchom niestandardowy skrypt po kompilacji, jeśli został określony przez `POST_BUILD_COMMAND` ustawienie.
 
 Domyślnie `PRE_BUILD_COMMAND` `POST_BUILD_COMMAND` Ustawienia, i `DISABLE_COLLECTSTATIC` są puste. 
@@ -81,6 +81,8 @@ Domyślnie `PRE_BUILD_COMMAND` `POST_BUILD_COMMAND` Ustawienia, i `DISABLE_COLLE
 - Aby uruchomić polecenia po kompilacji, należy ustawić `POST_BUILD_COMMAND` opcję, która będzie zawierać polecenie, takie jak `echo Post-build command` , lub ścieżkę do pliku skryptu względem katalogu głównego projektu, na przykład `scripts/postbuild.sh` . Wszystkie polecenia muszą używać ścieżek względnych do folderu głównego projektu.
 
 Aby uzyskać dodatkowe ustawienia, które dostosowują automatyzację kompilacji, zobacz [Konfiguracja Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md). 
+
+Aby uzyskać dostęp do dzienników kompilacji i wdrażania, zobacz [dzienniki wdrażania programu Access](#access-deployment-logs).
 
 Aby uzyskać więcej informacji na temat sposobu uruchamiania App Service i tworzenia aplikacji w języku Python w systemie Linux, zobacz [jak Oryx wykrywa i tworzy aplikacje języka Python](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
@@ -102,7 +104,7 @@ W poniższej tabeli opisano ustawienia produkcyjne odpowiednie dla platformy Azu
 | --- | --- |
 | `SECRET_KEY` | Zapisz wartość w ustawieniu App Service zgodnie z opisem w temacie [dostęp do ustawień aplikacji jako zmiennych środowiskowych](#access-app-settings-as-environment-variables). Możesz również [przechowywać wartości jako "tajne" w Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 | `DEBUG` | Utwórz `DEBUG` ustawienie na App Service z wartością 0 (false), a następnie załaduj wartość jako zmienną środowiskową. W środowisku deweloperskim Utwórz `DEBUG` zmienną środowiskową o wartości 1 (true). |
-| `ALLOWED_HOSTS` | W środowisku produkcyjnym Django wymaga dołączenia adresu URL aplikacji w `ALLOWED_HOSTS` tablicy *Settings.py* . Ten adres URL można pobrać w czasie wykonywania przy użyciu kodu, `os.environ['WEBSITE_HOSTNAME']` . App Service automatycznie ustawia `WEBSITE_HOSTNAME` zmienną środowiskową na adres URL aplikacji. |
+| `ALLOWED_HOSTS` | W środowisku produkcyjnym Django wymaga dołączenia adresu URL aplikacji w `ALLOWED_HOSTS` tablicy *Settings.py*. Ten adres URL można pobrać w czasie wykonywania przy użyciu kodu, `os.environ['WEBSITE_HOSTNAME']` . App Service automatycznie ustawia `WEBSITE_HOSTNAME` zmienną środowiskową na adres URL aplikacji. |
 | `DATABASES` | Zdefiniuj ustawienia w App Service dla połączenia z bazą danych i załaduj je jako zmienne środowiskowe w celu wypełnienia [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) słownika. Można na przykład zapisywać wartości (zwłaszcza nazwę użytkownika i hasło) jako Azure Key Vault wpisy [tajne](/azure/key-vault/secrets/quick-create-python). |
 
 ## <a name="container-characteristics"></a>Właściwości kontenera
@@ -164,9 +166,13 @@ Jeśli główny moduł aplikacji jest zawarty w innym pliku, użyj innej nazwy d
 
 ### <a name="default-behavior"></a>Zachowanie domyślne
 
-Jeśli usługa App Service nie znajdzie polecenia niestandardowego, aplikacji Django ani aplikacji Flask, uruchomi domyślną aplikację dostępną tylko do odczytu, która znajduje się w folderze _opt/defaultsite_ . Aplikacja domyślna wygląda następująco:
+Jeśli App Service nie znajdzie polecenia niestandardowego, aplikacji Django lub aplikacji do przełączenia, zostanie uruchomiona domyślna aplikacja tylko do odczytu znajdująca się w folderze _opt/Defaultsite_ i pokazana na poniższej ilustracji.
 
-![Domyślna strona internetowa usługi App Service w systemie Linux](media/configure-language-python/default-python-app.png)
+Jeśli wdrożono kod i nadal widzisz aplikację domyślną, zobacz [Rozwiązywanie problemów — aplikacja nie jest wyświetlana](#app-doesnt-appear).
+
+[![Domyślna strona internetowa usługi App Service w systemie Linux](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+Jeśli chcesz zobaczyć wdrożoną aplikację zamiast domyślnej aplikacji, zobacz [Rozwiązywanie problemów — aplikacja nie jest wyświetlana](#app-doesnt-appear).
 
 ## <a name="customize-startup-command"></a>Dostosowywanie polecenia uruchamiania
 
@@ -178,11 +184,11 @@ Wszystkie polecenia muszą używać ścieżek względnych do folderu głównego 
 
 Aby określić polecenie uruchamiania lub plik poleceń:
 
-- **Azure Portal** : Wybierz stronę **konfiguracji** aplikacji, a następnie wybierz pozycję **Ustawienia ogólne** . W polu **polecenie uruchamiania** Umieść pełny tekst polecenia uruchamiania lub nazwę pliku poleceń uruchomieniowych. Następnie wybierz pozycję **Zapisz** , aby zastosować zmiany. Zobacz [Konfigurowanie ustawień ogólnych](configure-common.md#configure-general-settings) dla kontenerów systemu Linux.
+- **Azure Portal** : Wybierz stronę **konfiguracji** aplikacji, a następnie wybierz pozycję **Ustawienia ogólne**. W polu **polecenie uruchamiania** Umieść pełny tekst polecenia uruchamiania lub nazwę pliku poleceń uruchomieniowych. Następnie wybierz pozycję **Zapisz** , aby zastosować zmiany. Zobacz [Konfigurowanie ustawień ogólnych](configure-common.md#configure-general-settings) dla kontenerów systemu Linux.
 
 - **Interfejs wiersza polecenia platformy Azure** : Aby ustawić polecenie lub plik, użyj [AZ webapp config Set](/cli/azure/webapp/config#az_webapp_config_set) polecenie z `--startup-file` parametrem:
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
         
@@ -213,7 +219,7 @@ App Service ignoruje wszelkie błędy występujące podczas przetwarzania niesta
 
     Aby uzyskać więcej informacji, zobacz [Gunicorn Logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Moduł główny kolby niestandardowej** : domyślnie App Service zakłada, że moduł główny aplikacji kolby to *Application.py* lub *App.py* . Jeśli Twój główny moduł używa innej nazwy, należy dostosować polecenie uruchamiania. Na przykład YF masz aplikację z kolbą, której moduł główny to *Hello.py* , a obiekt aplikacji do przeszukania w tym pliku jest `myapp` następujący:
+- **Moduł główny kolby niestandardowej** : domyślnie App Service zakłada, że moduł główny aplikacji kolby to *Application.py* lub *App.py*. Jeśli Twój główny moduł używa innej nazwy, należy dostosować polecenie uruchamiania. Na przykład YF masz aplikację z kolbą, której moduł główny to *Hello.py* , a obiekt aplikacji do przeszukania w tym pliku jest `myapp` następujący:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -258,33 +264,81 @@ Popularne platformy internetowe umożliwiają dostęp do informacji `X-Forwarded
 
 Aby uzyskać dostęp do dzienników za pomocą Azure Portal, wybierz pozycję **monitorowanie**  >  **strumienia dzienników** w menu po lewej stronie dla aplikacji.
 
+## <a name="access-deployment-logs"></a>Dzienniki wdrażania dostępu
+
+Podczas wdrażania kodu, App Service wykonuje proces kompilacji opisany wcześniej w sekcji [Dostosowywanie automatyzacji kompilacji](#customize-build-automation). Ponieważ kompilacja jest uruchamiana we własnym kontenerze, dzienniki kompilacji są przechowywane niezależnie od dzienników diagnostycznych aplikacji.
+
+Wykonaj następujące kroki, aby uzyskać dostęp do dzienników wdrożenia:
+
+1. Na Azure Portal aplikacji sieci Web wybierz pozycję **Deployment**  >  **Deployment Center (wersja zapoznawcza)** w menu po lewej stronie.
+1. Na karcie **dzienniki** wybierz **Identyfikator zatwierdzenia** dla ostatniego zatwierdzenia.
+1. Na wyświetlonej stronie **szczegóły dziennika** wybierz link **Pokaż dzienniki...** , który pojawia się obok pozycji "Uruchamianie kompilacji Oryx...".
+
+W tych dziennikach będą wyświetlane problemy z kompilacją, takie jak nieprawidłowe zależności w *requirements.txt* i błędy w skryptach pre-lub po kompilacji. Błędy są również wyświetlane, jeśli plik wymagań nie jest dokładnie nazwany *requirements.txt* lub nie jest wyświetlany w folderze głównym projektu.
+
 ## <a name="open-ssh-session-in-browser"></a>Otwieranie sesji SSH w przeglądarce
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
+Po pomyślnym nawiązaniu połączenia z sesją SSH powinien zostać wyświetlony komunikat "NAWIĄZANO połączenie SSH" w dolnej części okna. Jeśli zostaną wyświetlone błędy, takie jak "SSH_CONNECTION_CLOSED" lub komunikat informujący o ponownym uruchomieniu kontenera, błąd może uniemożliwiać uruchomienie kontenera aplikacji. Aby zbadać możliwe problemy, zobacz [Rozwiązywanie problemów](#troubleshooting) .
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-- **Po wdrożeniu własnego kodu aplikacji wyświetlana jest aplikacja domyślna.** Aplikacja domyślna jest wyświetlana dlatego, że kod Twojej aplikacji nie został wdrożony w usłudze App Service albo usługa App Service nie znalazła kodu aplikacji i zamiast niej uruchomiła aplikację domyślną.
+Ogólnie rzecz biorąc, pierwszy krok rozwiązywania problemów polega na użyciu diagnostyki App Service:
+
+1. Na Azure Portal aplikacji sieci Web wybierz opcję **Diagnozuj i rozwiąż problemy** z menu po lewej stronie.
+1. Wybierz pozycję **dostępność i wydajność**.
+1. Zapoznaj się z informacjami w opcjach **Dzienniki aplikacji** , **awaria kontenera** i **problemy z kontenerem** , w których pojawią się najczęstsze problemy.
+
+Następnie przejrzyj [dzienniki wdrożenia](#access-deployment-logs) i [Dzienniki aplikacji](#access-diagnostic-logs) w poszukiwaniu wszelkich komunikatów o błędach. Te dzienniki często identyfikują konkretne problemy, które mogą uniemożliwić rozmieszczenie aplikacji lub uruchamianie aplikacji. Na przykład kompilacja może zakończyć się niepowodzeniem, jeśli plik *requirements.txt* ma nieprawidłową nazwę pliku lub nie jest obecny w folderze głównym projektu.
+
+Poniższe sekcje zawierają dodatkowe wskazówki dotyczące konkretnych problemów.
+
+- [Aplikacja nie jest wyświetlana — domyślne wyświetlanie aplikacji](#app-doesnt-appear)
+- [Aplikacja nie jest wyświetlana — komunikat "Usługa niedostępna"](#service-unavailable)
+- [Nie można znaleźć setup.py lub requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [Hasła nie są wyświetlane w sesji SSH po wpisaniu](#other-issues)
+- [Polecenia w sesji SSH prawdopodobnie są obcinane](#other-issues)
+- [Statyczne zasoby nie są wyświetlane w aplikacji Django](#other-issues)
+- [Wymagane jest krytyczne połączenie SSL](#other-issues)
+
+#### <a name="app-doesnt-appear"></a>Aplikacja nie jest wyświetlana
+
+- **Po wdrożeniu własnego kodu aplikacji wyświetlana jest aplikacja domyślna.** [Aplikacja domyślna](#default-behavior) zostanie wyświetlona, ponieważ nie wdrożono kodu aplikacji do App Service lub App Service nie można znaleźć kodu aplikacji i zamiast tego uruchomił aplikację domyślną.
 
     - Uruchom ponownie usługę App Service, poczekaj 15–20 sekund i sprawdź ponownie aplikację.
     
-    - Upewnij się, że używasz usługi App Service dla systemu Linux, a nie wystąpienia opartego na systemie Windows. W interfejsie wiersza polecenia platformy Azure uruchom polecenie `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, zastępując zmienne `<resource-group-name>` i `<app-service-name>` odpowiednimi wartościami. Powinny zostać wyświetlone dane wyjściowe `app,linux`. W przeciwnym razie ponownie utwórz usługę App Service i wybierz system Linux.
+    - Upewnij się, że używasz usługi App Service dla systemu Linux, a nie wystąpienia opartego na systemie Windows. W interfejsie wiersza polecenia platformy Azure uruchom polecenie `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, zastępując zmienne `<resource-group-name>` i `<app-name>` odpowiednimi wartościami. Powinny zostać wyświetlone dane wyjściowe `app,linux`. W przeciwnym razie ponownie utwórz usługę App Service i wybierz system Linux.
     
-    - Połącz się bezpośrednio z usługą App Service przy użyciu konsoli SSH lub Kudu, a następnie sprawdź, czy Twoje pliki znajdują się w katalogu *site/wwwroot* . Jeśli pliki nie istnieją, sprawdź proces wdrażania i ponownie wdróż aplikację.
+    - Za pomocą protokołu [SSH](#open-ssh-session-in-browser) Połącz się bezpośrednio z kontenerem App Service i sprawdź, czy pliki znajdują się w obszarze *site/wwwroot*. Jeśli pliki nie istnieją, wykonaj następujące czynności:
+      1. Utwórz ustawienie aplikacji o nazwie `SCM_DO_BUILD_DURING_DEPLOYMENT` z wartością 1, ponownie Wdróż kod, odczekaj kilka minut, a następnie spróbuj uzyskać dostęp do aplikacji. Aby uzyskać więcej informacji na temat tworzenia ustawień aplikacji, zobacz [Konfigurowanie aplikacji App Service w Azure Portal](configure-common.md).
+      1. Przejrzyj proces wdrażania, [Sprawdź dzienniki wdrażania](#access-deployment-logs), Napraw wszystkie błędy i ponownie Wdróż aplikację.
     
     - Jeśli pliki istnieją, oznacza to, że usługa App Service nie mogła zidentyfikować określonego pliku startowego. Sprawdź, czy aplikacja ma strukturę, App Service oczekuje na [Django](#django-app) lub [kolbę](#flask-app), lub Użyj [niestandardowego polecenia uruchamiania](#customize-startup-command).
 
-- **W przeglądarce jest wyświetlany komunikat „Usługa niedostępna”.** W przeglądarce upłynął limit czasu oczekiwania na odpowiedź usługi App Service, co wskazuje, że usługa App Service uruchomiła serwer Gunicorn, ale argumenty określające kod aplikacji są niepoprawne.
+- <a name="service-unavailable"></a>**W przeglądarce zostanie wyświetlony komunikat "Usługa niedostępna".** Przekroczono limit czasu oczekiwania przeglądarki na odpowiedź z App Service, co oznacza, że App Service uruchomiono serwer Gunicorn, ale sama aplikacja nie została uruchomiona. Ten stan może wskazywać, że argumenty Gunicorn są niepoprawne lub wystąpiły błędy w kodzie aplikacji.
 
     - Odśwież okno przeglądarki, zwłaszcza jeśli korzystasz z niższych warstw cenowych w planie usługi App Service. Na przykład podczas korzystania z warstw bezpłatnych aplikacja może być uruchamiana dłużej i zacznie odpowiadać po odświeżeniu okna przeglądarki.
 
     - Sprawdź, czy aplikacja ma strukturę, App Service oczekuje na [Django](#django-app) lub [kolbę](#flask-app), lub Użyj [niestandardowego polecenia uruchamiania](#customize-startup-command).
 
-    - Przejrzyj [strumień dziennika](#access-diagnostic-logs) pod kątem wszystkich komunikatów o błędach.
+    - Przejrzyj [strumień dziennika aplikacji](#access-diagnostic-logs) pod kątem wszystkich komunikatów o błędach. W dziennikach zostaną wyświetlone wszystkie błędy w kodzie aplikacji.
+
+#### <a name="could-not-find-setuppy-or-requirementstxt"></a>Nie można znaleźć setup.py lub requirements.txt
 
 - **Strumień dziennika pokazuje, że nie można znaleźć Setup.py lub requirements.txt; Nie uruchomiono instalacji PIP. "** : proces kompilacji Oryx nie może odnaleźć pliku *requirements.txt* .
 
-    - Użyj protokołu SSH lub konsoli kudu, aby połączyć się bezpośrednio z App Service i sprawdź, czy *requirements.txt* istnieje bezpośrednio w obszarze *site/wwwroot* . Jeśli nie istnieje, Utwórz lokację w repozytorium i jest ona uwzględniona w Twoim wdrożeniu. Jeśli istnieje w oddzielnym folderze, przenieś go do katalogu głównego.
+    - Połącz się z kontenerem aplikacji sieci Web za pośrednictwem protokołu [SSH](#open-ssh-session-in-browser) i sprawdź, czy *requirements.txt* ma nazwę poprawnie i czy istnieje bezpośrednio w obszarze *site/wwwroot*. Jeśli nie istnieje, Utwórz lokację w repozytorium i jest ona uwzględniona w Twoim wdrożeniu. Jeśli istnieje w oddzielnym folderze, przenieś go do katalogu głównego.
+
+#### <a name="other-issues"></a>Inne problemy
+
+- **Hasła nie pojawiają się w sesji SSH po wpisaniu** : ze względów bezpieczeństwa sesja SSH utrzymuje hasło ukryte podczas wpisywania. Znaki są rejestrowane, jednak wpisz hasło w zwykły sposób i naciśnij klawisz **Enter** po zakończeniu.
+
+- **Polecenia w sesji SSH prawdopodobnie są obcinane** : Edytor nie może być poleceniami zawijania słów, ale powinny nadal działać poprawnie.
+
+- **Statyczne zasoby nie są wyświetlane w aplikacji Django** : Upewnij się, że włączono [moduł whitenoise](http://whitenoise.evans.io/en/stable/django.html)
+
+- **Zobaczysz komunikat "wymagane jest krytyczne połączenie SSL"** : Sprawdź wszystkie nazwy użytkowników i hasła używane do uzyskiwania dostępu do zasobów (takich jak bazy danych) w aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

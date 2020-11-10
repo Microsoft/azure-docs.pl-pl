@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44c4427540e1b94ebcaf00e6875723e0a654e9ef
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298837"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425283"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,14 +41,14 @@ Aby można było zainicjować `IntentRecognizer` obiekt, należy utworzyć konfi
 Wstaw ten kod w `quickstart.py` . Upewnij się, że te wartości są aktualizowane:
 
 * Zamień `"YourLanguageUnderstandingSubscriptionKey"` na klucz predykcyjny Luis.
-* Zamień `"YourLanguageUnderstandingServiceRegion"` na lokalizację Luis. Użyj **identyfikatora regionu** z [regionu](https://aka.ms/speech/sdkregion)
+* Zamień `"YourLanguageUnderstandingServiceRegion"` na lokalizację Luis. Użyj **identyfikatora regionu** z [regionu](../../../../regions.md)
 
 >[!TIP]
 > Jeśli potrzebujesz pomocy w znalezieniu tych wartości, zobacz [Tworzenie aplikacji Luis na potrzeby rozpoznawania intencji](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-Ten przykład konstruuje `SpeechConfig` Obiekt przy użyciu klucza Luis i regionu. Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+Ten przykład konstruuje `SpeechConfig` Obiekt przy użyciu klucza Luis i regionu. Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
 Zestaw Speech SDK będzie domyślnie rozpoznawał użycie języka en-us w celu uzyskania informacji na temat wybierania [języka źródłowego.](../../../../how-to-specify-source-language.md)
 

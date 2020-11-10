@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez konieczności modyfikacji kodu. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379773"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426837"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
@@ -18,7 +18,7 @@ Monitorowanie aplikacji bez kodu Java ma wszystkie informacje o prostotie — ni
 
 Dodawanie Application Insights Java SDK do aplikacji nie jest już wymagane, ponieważ agent 3,0 automatycznie zbiera żądania, zależności i dzienniki.
 
-Nadal możesz wysyłać niestandardowe dane telemetryczne z aplikacji. Agent 3,0 będzie śledził i skorelowany wraz z całą zebraną telemetrię.
+Nadal możesz wysyłać niestandardowe dane telemetryczne z aplikacji. Agent 3,0 będzie śledził i skorelowany wraz ze wszystkimi danymi telemetrycznymi, które są zbierane.
 
 Agent 3,0 obsługuje środowisko Java 8 i nowsze.
 
@@ -82,7 +82,7 @@ W `applicationinsights.json` pliku można dodatkowo skonfigurować:
 * Próbkowanie
 * Metryki JMX
 * Wymiary niestandardowe
-* Procesory telemetrii
+* Procesory telemetrii (wersja zapoznawcza)
 * Rejestrowanie z autozbieraniem
 * Zbierane metryki Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
 * Puls
@@ -91,7 +91,7 @@ W `applicationinsights.json` pliku można dodatkowo skonfigurować:
 
 Aby uzyskać szczegółowe informacje, zobacz [Opcje konfiguracji](./java-standalone-config.md) .
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Żądania, zależności, dzienniki i metryki, które są zbierane
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Aplikacje zbierane z autogromadzeniem, zależności, dzienniki i metryki
 
 ### <a name="requests"></a>Żądania
 

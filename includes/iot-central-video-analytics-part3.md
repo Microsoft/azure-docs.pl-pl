@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,37 +8,21 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 60a62733a17d1a3dcc4ba80ed7ceb1c37c8ac5d6
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 5a13993b06d1a7da8ffdb027deb6ade328d48955
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877206"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426754"
 ---
-## <a name="create-the-azure-iot-edge-gateway-device"></a>Tworzenie urządzenia bramy Azure IoT Edge
+## <a name="version-the-device-template"></a>Wersja szablonu urządzenia
 
-Aplikacja do wykrywania filmów wideo — obiekt i ruch zawiera szablon urządzenia **LVA Edge** oraz szablon urządzenia do **wykrywania ruchu brzegowego** . W tej sekcji utworzysz szablon urządzenia bramy przy użyciu manifestu wdrażania i dodasz urządzenie bramy do aplikacji IoT Central.
+Aplikacja do wykrywania filmów wideo — obiekt i ruch zawiera szablon urządzenia **bramy LVA Edge** . Aby użyć zaktualizowanego pliku manifestu wdrożenia z tym szablonem urządzenia, należy utworzyć i opublikować nową wersję szablonu.
 
-### <a name="create-a-device-template-for-the-lva-edge-gateway"></a>Tworzenie szablonu urządzenia dla bramy LVA Edge
+Aby utworzyć nową wersję szablonu:
 
-Aby zaimportować manifest wdrożenia i utworzyć szablon urządzenia **bramy LVA Edge** :
+1. W aplikacji IoT Central przejdź do **szablonów urządzeń** i wybierz szablon urządzenia **bramy LVA Edge** .
 
-1. W aplikacji IoT Central przejdź do **szablonów urządzeń**i wybierz pozycję **+ Nowy**.
+1. Wybierz pozycję **wersja** , aby utworzyć nowy szablon o nazwie **LVA Edge Gateway v2** , a następnie wybierz pozycję **Utwórz**.
 
-1. Na stronie **Wybieranie typu szablonu** wybierz kafelek **Azure IoT Edge** . Następnie wybierz pozycję **Dalej: Dostosuj**.
-
-1. Na stronie **Przekaż manifest wdrożenia Azure IoT Edge** wprowadź *LVA Edge Gateway* jako nazwę szablonu i sprawdź **urządzenie bramy z urządzeniami podrzędnymi**.
-
-    Nie wyszukuj jeszcze manifestu wdrożenia. W takim przypadku Kreator wdrażania oczekuje interfejsu dla każdego modułu, ale musisz tylko uwidocznić interfejs dla **LvaEdgeGatewayModule**. Manifest można przekazać w późniejszym kroku.
-
-    :::image type="content" source="./media/iot-central-video-analytics-part3/upload-deployment-manifest.png" alt-text="Nie przekazuj manifestu wdrożenia":::
-
-    Wybierz opcję **Dalej: Review** (Dalej: przegląd).
-
-1. Na stronie **Przegląd** wybierz pozycję **Utwórz**.
-
-### <a name="import-the-device-capability-model"></a>Importuj model możliwości urządzenia
-
-Szablon urządzenia musi zawierać model możliwości urządzenia. Na stronie **LVA Edge Gateway** wybierz kafelek **model możliwości importowania** . Przejdź do utworzonego wcześniej folderu *LVA-Configuration* i wybierz *LvaEdgeGatewayDcm.jsw* pliku.
-
-Szablon urządzenia **bramy LVA Edge** zawiera teraz **moduł LVA graniczny Gateway** oraz trzy interfejsy: **Informacje o urządzeniu**, **LVAe bramy graniczne**i **LVA**.
+Nowy szablon urządzenia z **bramą LVA Edge w wersji 2** znajduje się teraz na liście szablonów urządzeń.

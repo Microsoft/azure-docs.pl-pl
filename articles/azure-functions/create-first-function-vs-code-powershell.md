@@ -3,12 +3,12 @@ title: Tworzenie funkcji programu PowerShell przy użyciu Visual Studio Code-Azu
 description: Dowiedz się, jak utworzyć funkcję programu PowerShell, a następnie opublikować projekt lokalny do hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 585339f87c89b0fa5a0f50dbef155b0dcffda68e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 73c2de36d3696356289c72d08c29c3870dc91601
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425070"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427398"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji programu PowerShell na platformie Azure przy użyciu Visual Studio Code
 
@@ -31,7 +31,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 + [Program PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.Net core 3,1](https://www.microsoft.com/net/download) i [.NET Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
++ [.Net core 3,1](https://www.microsoft.com/net/download) i [.NET Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
 
 + [Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 

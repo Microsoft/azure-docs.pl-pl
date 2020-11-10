@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786279"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426990"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure
 
@@ -137,29 +137,13 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### <a name="verify-the-shared-access-signature-definition"></a>Weryfikowanie definicji sygnatury dostępu współdzielonego
 
-Możesz sprawdzić, czy definicja sygnatury dostępu współdzielonego została zapisana w magazynie kluczy za pomocą interfejsu wiersza polecenia platformy Azure [AZ Key Secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) i [AZ Key magazynu Secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) Commands.
+Możesz sprawdzić, czy definicja sygnatury dostępu współdzielonego została zapisana w magazynie kluczy przy użyciu interfejsu wiersza polecenia platformy Azure [AZ Key Storage magazyn SAS-Definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) .
 
-Najpierw Znajdź definicję sygnatury dostępu współdzielonego w magazynie kluczy przy użyciu polecenia [AZ Key magazynu Secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) .
-
-```azurecli-interactive
-az keyvault secret list --vault-name <YourKeyVaultName>
-```
-
-Wpis tajny odpowiadający definicji sygnatury dostępu współdzielonego będzie miał następujące właściwości:
-
-```console
-    "contentType": "application/vnd.ms-sastoken-storage",
-    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
-```
-
-Teraz możesz użyć polecenia [AZ typu Secret show klucza](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) i `id` właściwości, aby wyświetlić zawartość tego klucza tajnego.
+Teraz można użyć polecenia [AZ Storage magazynu SAS-Definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) i `id` właściwości, aby wyświetlić zawartość tego klucza tajnego.
 
 ```azurecli-interactive
-az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
 ```
-
-W danych wyjściowych tego polecenia zostanie wyświetlony ciąg definicji sygnatury dostępu współdzielonego `value` .
-
 
 ## <a name="next-steps"></a>Następne kroki
 

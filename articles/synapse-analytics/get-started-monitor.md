@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 924ac3a58a005b84cbf87f833e97862e26a5b8e0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363361"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427415"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorowanie obszaru roboczego Synapse
 
@@ -31,8 +31,7 @@ Otwórz Synapse Studio i przejdź do centrum **monitora** . W tym miejscu można
 ## <a name="integration"></a>Integracja
 
 1. Przejdź do narzędzia **Integration > potoku**. W tym widoku można zobaczyć za każdym razem, gdy potok został uruchomiony w obszarze roboczym. 
-1. Znajdź potok uruchomiony w poprzednim kroku i kliknij jego **nazwę potoku**.
-1. Teraz można zobaczyć, jak działa poszczególne działania w ramach tego potoku.
+1. Znajdź potok uruchomiony w poprzednim kroku i kliknij jego **nazwę potoku** , aby wyświetlić szczegóły.
 1. Kliknij przycisk **pasek nawigacyjny** w górnej części programu Synapse Studio, kliknij pozycję **wszystkie uruchomienia potoków** , aby powrócić do poprzedniego widoku.
 
 ## <a name="apache-spark-activities"></a>Działania Apache Spark

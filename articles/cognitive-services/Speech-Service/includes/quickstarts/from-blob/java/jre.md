@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: trbye
-ms.openlocfilehash: 2a8deaa76c02e86c9304c2221c0617041ae2e138
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1b0f0fdbed20b8ab9a48b3156faf176e8ecfc44b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376301"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425424"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -18,7 +18,7 @@ Przed rozpoczęciem upewnij się, że:
 > [!div class="checklist"]
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
 > * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
-> * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](../../../../../../storage/blobs/storage-quickstart-blobs-portal.md)
 
 
 ## <a name="open-your-project-in-eclipse"></a>Otwórz projekt w programie zaćmienie

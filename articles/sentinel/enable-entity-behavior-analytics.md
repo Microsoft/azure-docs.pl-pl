@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148239"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425783"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Włącz analizę zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik 
 
 > [!IMPORTANT]
 >
-> - Funkcja UEBA jest teraz **ogólnie dostępna** w następującej lokalizacje geograficzne i regionach na platformie Azure:
+> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w następujących regionach i obszarach lokalizacje geograficzne platformy Azure:
 >    - Stany Zjednoczone Geografia
 >    - Region Zachodni Europa
 >    - Geografia Australia
 >
-> - We wszystkich innych lokalizacje geograficzne i regionach ta funkcja jest pozostawać w **publicznej wersji zapoznawczej** i jest udostępniana bez umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - We wszystkich innych lokalizacje geograficzne i regionach te funkcje pozostają na czas w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,13 +48,13 @@ Aby włączyć lub wyłączyć tę funkcję (te wymagania wstępne nie są wymag
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Jak włączyć analizy zachowań użytkowników i jednostek
 
-1. Z menu nawigacyjnego wskaźnikowego platformy Azure wybierz pozycję **zachowanie jednostki** .
+1. Z menu nawigacyjnego wskaźnikowego platformy Azure wybierz pozycję **zachowanie jednostki**.
 
 1. Pod nagłówkiem **Włącz** **opcję Włącz.**
 
 1. Kliknij przycisk **Wybierz źródła danych** .
 
-1. W okienku **Wybór źródła danych** zaznacz pola wyboru obok źródeł danych, dla których chcesz włączyć UEBA, a następnie wybierz pozycję **Zastosuj** .
+1. W okienku **Wybór źródła danych** zaznacz pola wyboru obok źródeł danych, dla których chcesz włączyć UEBA, a następnie wybierz pozycję **Zastosuj**.
 
     > [!NOTE]
     >
@@ -62,7 +62,7 @@ Aby włączyć lub wyłączyć tę funkcję (te wymagania wstępne nie są wymag
     >
     > Po włączeniu usługi UEBA będziesz mieć możliwość nawiązywania połączenia z nowymi źródłami danych, aby włączyć je do UEBA bezpośrednio z okienka Łącznik danych, jeśli są one UEBA.
 
-1. Wybierz pozycję **Przejdź do wyszukiwania jednostek** . Spowoduje to przejście do okienka wyszukiwanie jednostek, które od teraz będzie widoczne w przypadku wybrania **zachowania jednostki** z głównego menu wskaźnikowego platformy Azure.
+1. Wybierz pozycję **Przejdź do wyszukiwania jednostek**. Spowoduje to przejście do okienka wyszukiwanie jednostek, które od teraz będzie widoczne w przypadku wybrania **zachowania jednostki** z głównego menu wskaźnikowego platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób włączania i konfigurowania funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

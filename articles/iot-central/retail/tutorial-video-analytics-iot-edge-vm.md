@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127032"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426549"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (maszyna wirtualna z systemem Linux)
 
@@ -27,7 +27,7 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak przygotować urządzenie IoT Edge na maszynie wirtualnej platformy Azure. W wystąpieniu IoT Edge są uruchamiane moduły analizy wideo na żywo, które są używane przez szablon aplikacji Azure IoT Central Video Analytics — obiekt i ruch.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej platformy Azure z zainstalowanym środowiskiem uruchomieniowym Azure IoT Edge
 > * Przygotuj instalację IoT Edge, aby hostować moduł analizy wideo na żywo i połączyć się z IoT Central
@@ -50,12 +50,12 @@ Skorzystaj z informacji podanych w poniższej tabeli, aby ukończyć formularz *
 | ----- | ----- |
 | Subskrypcja | Wybierz swoją subskrypcję platformy Azure. |
 | Grupa zasobów | *LVA-RG* — Grupa zasobów utworzona w poprzednim samouczku. |
-| Region       | *East US* |
+| Region (Region)       | *East US* |
 | Prefiks etykiety DNS | Wybierz unikatowy prefiks DNS dla maszyny wirtualnej. |
 | Nazwa użytkownika administratora | *AzureUser* |
 | Hasło administratora | Wprowadź hasło. Zanotuj hasło w pliku *scratchpad.txt* , użyjesz go później. |
 | Identyfikator zakresu | **Identyfikator zakresu** zanotowany w pliku *scratchpad.txt* w poprzednim samouczku po dodaniu urządzenia bramy. |
-| Identyfikator urządzenia | *LVA-Gateway-001* -urządzenie bramy utworzone w poprzednim samouczku. |
+| Identyfikator urządzenia | *brama-001* — urządzenie bramy utworzone w poprzednim samouczku. |
 | Klucz urządzenia | Klucz podstawowy urządzenia zanotowano w pliku *scratchpad.txt* w poprzednim samouczku po dodaniu urządzenia bramy. |
 | Host aplikacji IoT Central | **Adres URL aplikacji** zanotowany w pliku *scratchpad.txt* w poprzednim samouczku. Na przykład *Traders.azureiotcentral.com*. |
 | Token interfejsu API aplikacji IoT Central | Token interfejsu API operatora zanotowano w poprzednim samouczku. |

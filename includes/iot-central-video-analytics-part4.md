@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,86 +8,48 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 164f5803b6e9e62447423735e98f6e4c36c73f13
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877209"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426781"
 ---
-### <a name="add-relationships"></a>Dodaj relacje
-
-W szablonie urządzenia **bramy LVA Edge** w obszarze **moduły/LVA krawędź bramy**wybierz pozycję **relacje**. Wybierz pozycję **+ Dodaj relację** i Dodaj następujące dwie relacje:
-
-|Nazwa wyświetlana               |Nazwa          |Cel |
-|-------------------------- |------------- |------ |
-|Detektor ruchu LVA Edge   |Używanie wartości domyślnej   |Urządzenie czujnika ruchu LVA Edge |
-|LVA — detektor obiektów krawędzi   |Używanie wartości domyślnej   |Urządzenie do wykrywania obiektów brzegowych LVA |
-
-Następnie wybierz przycisk **Zapisz**.
-
-:::image type="content" source="media/iot-central-video-analytics-part4/relationships.png" alt-text="Dodaj relacje":::
-
-### <a name="add-views"></a>Dodawanie widoków
-
-Szablon urządzenia **bramy LVA Edge** nie zawiera żadnych definicji widoku.
-
-Aby dodać widok do szablonu urządzenia:
-
-1. W szablonie urządzenia **bramy LVA Edge** przejdź do **widoku widoki** i wybierz kafelek **Wizualizacja urządzenia** .
-
-1. Wprowadź *urządzenie bramy LVA Edge* jako nazwę widoku.
-
-1. Dodaj następujące kafelki do widoku:
-
-    * Kafelek z właściwościami **informacji o urządzeniu** : **model urządzenia**, **producent**, **system operacyjny**, **architektura procesora**, **wersja oprogramowania**, **Łączna ilość pamięci**i **łączny magazyn**.
-    * Kafelek wykresu liniowego z **bezpłatną ilością pamięci** i wartościami telemetrycznymi **pulsu systemowego** .
-    * Kafelek historia zdarzeń z następującymi zdarzeniami: **Tworzenie aparatu**, **usuwanie aparatu**, **Ponowne uruchamianie modułu**, **moduł rozpoczęty**, **moduł został zatrzymany**.
-    * Kafelek "2x1 Ostatnia znana wartość" pokazujący telemetrię **stanu klienta IoT Central** .
-    * Kafelek "2x1 Ostatnia znana wartość" pokazujący telemetrię **stanu modułu** .
-    * Kafelek 1x1 Ostatnia znana wartość przedstawiająca dane telemetryczne **pulsu systemu** .
-    * Kafelek "1x1 Ostatnia znana wartość" pokazujący telemetrię **podłączonych kamer** .
-
-    :::image type="content" source="media/iot-central-video-analytics-part4/gateway-dashboard.png" alt-text="Dodaj relacje":::
-
-1. Wybierz pozycję **Zapisz**.
-
 ### <a name="publish-the-device-template"></a>Publikowanie szablonu urządzenia
 
 Aby można było dodać urządzenie do aplikacji, należy opublikować szablon urządzenia:
 
-1. W szablonie urządzenia **bramy LVA Edge** wybierz pozycję **Publikuj**.
+1. W szablonie urządzenia **bramy LVA Edge w wersji 2** wybierz pozycję **Publikuj**.
 
 1. Na stronie **Publikuj ten szablon urządzenia na potrzeby aplikacji** wybierz pozycję **Publikuj**.
 
-**Brama LVA Edge** jest teraz dostępna jako typ urządzenia do użycia na stronie **urządzenia** w aplikacji.
+**LVA graniczny Gateway v2** jest teraz dostępna jako typ urządzenia do użycia na stronie **urządzenia** w aplikacji.
 
-## <a name="add-a-gateway-device"></a>Dodawanie urządzenia bramy
+## <a name="migrate-the-gateway-device"></a>Migrowanie urządzenia bramy
 
-Aby dodać urządzenie **bramy LVA Edge** do aplikacji:
+Istniejące urządzenie **Gateway-001** używa szablonu urządzenia **bramy LVA Edge** . Aby użyć nowego manifestu wdrożenia, Przeprowadź migrację urządzenia do nowego szablonu urządzenia:
 
-1. Przejdź do strony **urządzenia** i wybierz szablon urządzenia **bramy LVA Edge** .
+Aby przeprowadzić migrację urządzenia z **bramą-001** :
 
-1. Wybierz pozycję **+ Nowe**.
+1. Przejdź do strony **urządzenia** i wybierz urządzenie **bramy-001** w celu wyróżnienia go na liście.
 
-1. W oknie dialogowym **Tworzenie nowego urządzenia** Zmień nazwę urządzenia na *LVA Gateway 001*i zmień identyfikator urządzenia na *LVA-Gateway-001*.
+1. Wybierz pozycję **Migruj**. Jeśli ikona **migracji** nie jest widoczna, wybierz pozycję **...** , aby wyświetlić więcej opcji.
 
-    > [!NOTE]
-    > Identyfikator urządzenia musi być unikatowy w aplikacji.
+    :::image type="content" source="media/iot-central-video-analytics-part4/migrate-device.png" alt-text="Migrowanie urządzenia bramy do nowej wersji":::
 
-1. Wybierz przycisk **Utwórz**.
+1. Na liście w oknie dialogowym **Migrowanie** wybierz pozycję **LVA Edge Gateway v2** , a następnie wybierz pozycję **Migruj**.
 
-Stan urządzenia jest **zarejestrowany**.
+Po kilku sekundach migracja zostanie zakończona. Urządzenie korzysta teraz z szablonu urządzenia **LVA Edge Gateway v2** z dostosowanym manifestem wdrożenia.
 
 ### <a name="get-the-device-credentials"></a>Pobieranie poświadczeń urządzenia
 
 Wymagane są poświadczenia zezwalające urządzeniu na łączenie się z aplikacją IoT Central. Pobierz poświadczenia urządzenia:
 
-1. Na stronie **urządzenia** wybierz utworzone urządzenie **LVA-Gateway-001** .
+1. Na stronie **urządzenia** wybierz urządzenie **bramy-001** .
 
 1. Wybierz pozycję **Połącz**.
 
-1. Na stronie **połączenie urządzenia** zanotuj *scratchpad.txt* pliku z **zakresem identyfikatorów**, **identyfikatorem urządzenia**i **kluczem podstawowym**urządzenia. Te wartości są używane później.
+1. Na stronie **połączenie urządzenia** zanotuj *scratchpad.txt* pliku z **zakresem identyfikatorów** , **identyfikatorem urządzenia** i **kluczem podstawowym** urządzenia. Te wartości są używane później.
 
 1. Upewnij się, że metoda połączenia jest ustawiona na **sygnaturę dostępu współdzielonego**.
 

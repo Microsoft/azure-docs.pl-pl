@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298705"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424785"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,14 +46,14 @@ Aby można było zainicjować `IntentRecognizer` obiekt, należy utworzyć konfi
 Wstaw ten kod w `recognizeIntent()` metodzie. Upewnij się, że te wartości są aktualizowane:
 
 * Zamień `"YourLanguageUnderstandingSubscriptionKey"` na klucz predykcyjny Luis.
-* Zamień `"YourLanguageUnderstandingServiceRegion"` na lokalizację Luis.  Użyj **identyfikatora regionu** z [regionu](https://aka.ms/speech/sdkregion).
+* Zamień `"YourLanguageUnderstandingServiceRegion"` na lokalizację Luis.  Użyj **identyfikatora regionu** z [regionu](../../../../regions.md).
 
 >[!TIP]
 > Jeśli potrzebujesz pomocy w znalezieniu tych wartości, zobacz [Tworzenie aplikacji Luis na potrzeby rozpoznawania intencji](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-Ten przykład używa `FromSubscription()` metody do skompilowania `SpeechConfig` . Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+Ten przykład używa `FromSubscription()` metody do skompilowania `SpeechConfig` . Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](/cpp/cognitive-services/speech/speechconfig).
 
 Zestaw Speech SDK będzie domyślnie rozpoznawał użycie języka en-us w celu uzyskania informacji na temat wybierania [języka źródłowego.](../../../../how-to-specify-source-language.md)
 

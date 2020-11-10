@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 71745243c29fac95fca452f3c907bcf50982ea97
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9c88feca5bf4bdac91af7f88c24cd342dc1b04cf
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425086"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426293"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure z poziomu wiersza polecenia
 
@@ -64,6 +64,50 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 + Uruchom polecenie `python --version` (Linux/macOS) lub `py --version` (Windows), aby sprawdzić raporty wersji języka Python 3.8. x, 3.7. x lub 3.6. x.
 
 ---
+
+## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>Tworzenie i aktywowanie środowiska wirtualnego
+
+W odpowiednim folderze Uruchom następujące polecenia, aby utworzyć i aktywować środowisko wirtualne o nazwie `.venv` . Upewnij się, że używasz języka Python 3,8, 3,7 lub 3,6, który jest obsługiwany przez Azure Functions.
+
+# <a name="bash"></a>[bash](#tab/bash)
+
+```bash
+python -m venv .venv
+```
+
+```bash
+source .venv/bin/activate
+```
+
+Jeśli środowisko Python nie zainstalowało pakietu venv na dystrybucji systemu Linux, uruchom następujące polecenie:
+
+```bash
+sudo apt-get install python3-venv
+```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+```powershell
+py -m venv .venv
+```
+
+```powershell
+.venv\scripts\activate
+```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
+---
+
+Wszystkie kolejne polecenia są uruchamiane w tym aktywowanym środowisku wirtualnym. 
 
 ## <a name="create-a-local-function-project"></a>Utwórz projekt funkcji lokalnej
 

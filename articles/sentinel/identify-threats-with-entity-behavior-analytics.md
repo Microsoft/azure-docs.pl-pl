@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: d3c0ba55541baf3f31952b82a2fa357b48a5f1a9
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148358"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425936"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
@@ -30,7 +30,7 @@ ms.locfileid: "93148358"
 >    - Region Zachodni Europa
 >    - Geografia Australia
 >
-> - We wszystkich innych lokalizacje geograficzne i regionach te funkcje pozostają na czas w **publicznej wersji zapoznawczej** i są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - We wszystkich innych lokalizacje geograficzne i regionach te funkcje pozostają na czas w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [**warunkami użytkowania Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Co to jest Analiza zachowań użytkowników i jednostek (UEBA)?
 
@@ -56,13 +56,15 @@ Inspirowany modelem firmy Gartner dla rozwiązań UEBA, wskaźnik na platformie 
 
 - **Analiza:** Korzystając z różnych algorytmów uczenia maszynowego (ML), wskaźnik Azure wskazują nietypowe działania i prezentuje dowody jasno i zwięzłe w postaci wzbogacania kontekstowego, niektóre przykłady, które są wyświetlane poniżej.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Architektura analizy zachowań jednostek" wskazuje zidentyfikowaną anomalię:
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Analiza zachowań — poza podejściem":::
+
+Wskaźnik na platformie Azure przedstawia artefakty ułatwiające analitykom zabezpieczeń dokładne zrozumienie nietypowych działań w kontekście oraz w porównaniu z profilem linii bazowej użytkownika. Akcje wykonywane przez użytkownika (lub hosta lub adres) są oceniane kontekstowo, gdzie wynik "prawda" wskazuje zidentyfikowaną anomalię:
 - między lokalizacjami geograficznymi, urządzeniami i środowiskami.
 - w Horizons czasu i częstotliwości (w porównaniu do własnej historii użytkownika).
 - w porównaniu z zachowaniem elementów równorzędnych.
 - w porównaniu z zachowaniem organizacji.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Architektura analizy zachowań jednostek":::
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Kontekst jednostki":::
 
 
 ### <a name="scoring"></a>Scoring (Ocenianie)
@@ -118,7 +120,7 @@ Strony jednostki składają się z trzech części:
 
 ### <a name="the-timeline"></a>Oś czasu
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Architektura analizy zachowań jednostek":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Oś czasu stron jednostki":::
 
 Oś czasu jest główną częścią udziału strony jednostki na potrzeby analiz zachowań na platformie Azure. Przedstawia historię zdarzeń związanych z jednostkami, ułatwiając zrozumienie aktywności jednostki w określonym przedziale czasowym.
 
@@ -126,7 +128,7 @@ Możesz wybrać **zakres czasu** spośród kilku opcji predefiniowanych (takich 
 
 Na osi czasu są uwzględniane następujące typy elementów:
 
-- Alerty — wszystkie alerty, w których jednostka jest zdefiniowana jako **zamapowana jednostka** . Należy pamiętać, że jeśli organizacja utworzyła [niestandardowe alerty przy użyciu reguł analizy](./tutorial-detect-threats-custom.md), należy upewnić się, że mapowanie jednostek reguł zostało wykonane prawidłowo.
+- Alerty — wszystkie alerty, w których jednostka jest zdefiniowana jako **zamapowana jednostka**. Należy pamiętać, że jeśli organizacja utworzyła [niestandardowe alerty przy użyciu reguł analizy](./tutorial-detect-threats-custom.md), należy upewnić się, że mapowanie jednostek reguł zostało wykonane prawidłowo.
 
 - Zakładki — wszystkie zakładki, które zawierają konkretną jednostkę widoczną na stronie.
 
@@ -146,7 +148,7 @@ Usługi Entity Insights to zapytania zdefiniowane przez badaczy zabezpieczeń fi
 
 Strony jednostki zostały zaprojektowane jako części wielu scenariuszy użycia i można uzyskać do nich dostęp z zarządzania zdarzeniami, wykresu badawczego, zakładek lub bezpośrednio ze strony wyszukiwania jednostek w obszarze **Analiza zachowań jednostek** w menu głównym wskaźnikiem na platformie Azure.
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Architektura analizy zachowań jednostek":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Przypadki użycia stron jednostki":::
 
 
 ## <a name="data-schema"></a>Schemat danych
@@ -195,7 +197,7 @@ Metadane elementów równorzędnych użytkownika udostępniają ważne konteksty
 
 Usługa Azure — wskaźnik oblicza i ustala rangę elementów równorzędnych użytkownika, na podstawie przynależności do grupy zabezpieczeń usługi Azure AD użytkownika, listy adresowej i zadanie, a następnie przechowuje elementy równorzędne 1-20 w tabeli **UserPeerAnalytics** . Zrzut ekranu poniżej przedstawia schemat tabeli UserPeerAnalytics i wyświetla górne osiem rang elementów równorzędnych użytkownika Kendall Collins. W przypadku korzystania z platformy Azure wskaźnikowego jest używany algorytm *częstotliwości bezpowrotnego dokumentu* (TF-IDF) do normalizacji ważenia do obliczenia rangi: mniejsza grupa, im wyższa waga. 
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Architektura analizy zachowań jednostek":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Zrzut ekranu przedstawiający tabelę metadanych elementów równorzędnych użytkownika":::
 
 Do wizualizacji metadanych elementów równorzędnych użytkownika można użyć [notesu Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) dostępnego w repozytorium Azure wskaźnikowego usługi GitHub. Szczegółowe instrukcje dotyczące korzystania z notesu znajdują się w artykule [Analiza z przewodnikiem — metadane zabezpieczeń użytkownika](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 
@@ -205,7 +207,7 @@ Analiza uprawnień pomaga określić potencjalny wpływ naruszenia zasobów orga
 
 Wskaźnik oceny platformy Azure określa bezpośrednie i przechodnie prawa dostępu przechowywane przez danego użytkownika do zasobów platformy Azure, oceniając subskrypcje platformy Azure, do których użytkownik może uzyskiwać dostęp bezpośrednio lub za pośrednictwem grup lub jednostek usługi. Te informacje, a także pełna lista przynależności do grupy zabezpieczeń użytkownika usługi Azure AD, są następnie przechowywane w tabeli **UserAccessAnalytics** . Zrzut ekranu poniżej przedstawia przykładowy wiersz w tabeli UserAccessAnalytics, dla którego użytkownik Alexuje Johnsonem. **Jednostka źródłowa** jest kontem użytkownika lub usługi, a **jednostką docelową** jest zasób, do którego jednostka źródłowa ma dostęp. Wartości **poziomu dostępu** i **typu dostępu** są zależne od modelu kontroli dostępu jednostki docelowej. Zobaczysz, że Alex ma dostęp współautora do *dzierżawy* usługi Azure Subscription contoso. Model kontroli dostępu subskrypcji to RBAC.   
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Architektura analizy zachowań jednostek":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Zrzut ekranu przedstawiający tabelę analizy dostępu użytkowników":::
 
 Aby wizualizować dane analizy uprawnień, można użyć [notesu Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) (opisanego powyżej) w repozytorium GitHub na platformie Azure. Szczegółowe instrukcje dotyczące korzystania z notesu znajdują się w artykule [Analiza z przewodnikiem — metadane zabezpieczeń użytkownika](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 

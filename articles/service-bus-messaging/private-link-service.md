@@ -5,37 +5,30 @@ author: spelluru
 ms.author: spelluru
 ms.date: 10/07/2020
 ms.topic: article
-ms.openlocfilehash: 54649c47a896937a512a6041e485abfb03ca88dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824977"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427151"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus za pośrednictwem prywatnych punktów końcowych
-
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Service Bus, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
+
+> [!IMPORTANT]
+> Ta funkcja jest obsługiwana w warstwie **premium** Azure Service Bus. Aby uzyskać więcej informacji na temat warstwy Premium, zobacz artykuł [Service Bus warstwy Premium i Standard Messaging](service-bus-premium-messaging.md) .
 
 Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
 
 Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?](../private-link/private-link-overview.md)
 
 >[!WARNING]
-> Implementacja prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Service Bus.
+> Implementacja prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Service Bus. Jako wyjątek, można zezwolić na dostęp do Service Bus zasobów z niektórych zaufanych usług nawet wtedy, gdy są włączone prywatne punkty końcowe. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
 >
-> Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku korzystania z sieci wirtualnych.
->
-> Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
-> - Integracja z usługą Azure Event Grid
-> - Trasy usługi Azure IoT Hub
-> - Device Explorer usługi Azure IoT
->
-> Poniższe usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
+> Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
 > - Azure App Service
 > - Azure Functions
 
-> [!IMPORTANT]
-> Ta funkcja jest obsługiwana w warstwie **premium** Azure Service Bus. Aby uzyskać więcej informacji na temat warstwy Premium, zobacz artykuł [Service Bus warstwy Premium i Standard Messaging](service-bus-premium-messaging.md) .
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Dodawanie prywatnego punktu końcowego przy użyciu Azure Portal
@@ -79,23 +72,23 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
     3. Wprowadź **nazwę** prywatnego punktu końcowego. 
     5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się sieć wirtualna, ale może znajdować się w innym regionie niż zasób link prywatny, z którym nawiązujesz połączenie. 
-    6. Wybierz pozycję **Dalej: przycisk >zasobu ** w dolnej części strony.
+    6. Wybierz pozycję **Dalej: przycisk >zasobu** w dolnej części strony.
 
         ![Tworzenie prywatnego punktu końcowego — Strona podstawy](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Na stronie **zasób** wykonaj następujące kroki:
-    1. W przypadku metody połączenia w przypadku wybrania opcji **Połącz z zasobem platformy Azure w katalogu my**wykonaj następujące czynności:   
+    1. W przypadku metody połączenia w przypadku wybrania opcji **Połącz z zasobem platformy Azure w katalogu my** wykonaj następujące czynności:   
         1. Wybierz **subskrypcję platformy Azure** , w której znajduje się **przestrzeń nazw Service Bus** . 
-        2. W polu **Typ zasobu**wybierz pozycję **Microsoft. ServiceBus/Namespaces** dla **typu zasobu**.
-        3. W obszarze **zasób**wybierz Service Bus przestrzeń nazw z listy rozwijanej. 
+        2. W polu **Typ zasobu** wybierz pozycję **Microsoft. ServiceBus/Namespaces** dla **typu zasobu**.
+        3. W obszarze **zasób** wybierz Service Bus przestrzeń nazw z listy rozwijanej. 
         4. Upewnij się, że **docelowy podzasób** jest ustawiony na **przestrzeń nazw**.
-        5. Wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
+        5. Wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
         
             ![Tworzenie prywatnego punktu końcowego — Strona zasobów](./media/private-link-service/create-private-endpoint-resource-page.png)
-    2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
+    2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu** wykonaj następujące kroki:
         1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Service Bus w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/` . Przykład można znaleźć na poniższym obrazie. 
-        2. W przypadku **docelowego zasobu podrzędnego**wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp. 
+        2. W przypadku **docelowego zasobu podrzędnego** wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp. 
         3. obowiązkowe Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego. 
-        4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
+        4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
 
             ![Tworzenie prywatnego punktu końcowego — Łączenie przy użyciu identyfikatora zasobu](./media/private-link-service/connect-resource-id.png)
 9. Na stronie **Konfiguracja** wybierz podsieć w sieci wirtualnej, w której chcesz wdrożyć prywatny punkt końcowy. 
@@ -105,12 +98,14 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
 
         ![Tworzenie prywatnego punktu końcowego — Strona konfiguracji](./media/private-link-service/create-private-endpoint-configuration-page.png)
 10. Na stronie **Tagi** Utwórz dowolne Tagi (nazwy i wartości), które chcesz skojarzyć z prywatnym zasobem punktu końcowego. Następnie wybierz przycisk **Przegląd + Utwórz** u dołu strony. 
-11. Na stronie **Przegląd i tworzenie**Przejrzyj wszystkie ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy.
+11. Na stronie **Przegląd i tworzenie** Przejrzyj wszystkie ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy.
     
     ![Tworzenie prywatnego punktu końcowego — przegląd i Tworzenie strony](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. Upewnij się, że został utworzony prywatny punkt końcowy. Jeśli jesteś właścicielem zasobu i wybrano opcję **Połącz z zasobem platformy Azure w katalogu my** dla **metody połączenia**, połączenie punktu końcowego powinno być **zatwierdzane**domyślnie. Jeśli jest w stanie **oczekiwania** , zobacz sekcję [zarządzanie prywatnymi punktami końcowymi przy użyciu Azure Portal](#manage-private-endpoints-using-azure-portal) .
+12. Upewnij się, że został utworzony prywatny punkt końcowy. Jeśli jesteś właścicielem zasobu i wybrano opcję **Połącz z zasobem platformy Azure w katalogu my** dla **metody połączenia** , połączenie punktu końcowego powinno być **zatwierdzane** domyślnie. Jeśli jest w stanie **oczekiwania** , zobacz sekcję [zarządzanie prywatnymi punktami końcowymi przy użyciu Azure Portal](#manage-private-endpoints-using-azure-portal) .
 
     ![Utworzono prywatny punkt końcowy](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Dodawanie prywatnego punktu końcowego przy użyciu programu PowerShell
 W poniższym przykładzie pokazano, jak za pomocą Azure PowerShell utworzyć połączenie prywatnego punktu końcowego z przestrzenią nazw Service Bus.
@@ -180,7 +175,7 @@ Podczas tworzenia prywatnego punktu końcowego należy zatwierdzić połączenie
 
 Istnieją cztery Stany aprowizacji:
 
-| Akcja usługi | Stan prywatnego punktu końcowego klienta usługi | Opis |
+| Akcja w usłudze | Stan prywatnego punktu końcowego klienta usługi | Opis |
 |--|--|--|
 | Brak | Oczekiwanie | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
 | Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
@@ -189,7 +184,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 1. Na pasku wyszukiwania wpisz w **Service Bus**.
 1. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 1. Wybierz kartę **Sieć** .
@@ -202,7 +197,7 @@ Istnieją cztery Stany aprowizacji:
 3. Wybierz przycisk **Zatwierdź** .
 
     ![Zatwierdź prywatny punkt końcowy](./media/private-link-service/private-endpoint-approve.png)
-4. Na stronie **zatwierdzanie połączenia** wprowadź opcjonalny **komentarz**, a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
+4. Na stronie **zatwierdzanie połączenia** wprowadź opcjonalny **komentarz** , a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie** , nic się nie dzieje. 
 
     ![Zatwierdź stronę połączenia](./media/private-link-service/approve-connection-page.png)
 5. Powinien zostać wyświetlony stan połączenia na liście zmieniono na **zatwierdzone**. 
@@ -214,7 +209,7 @@ Istnieją cztery Stany aprowizacji:
 1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, czy jest to oczekujące żądanie lub istniejące połączenie, które zostało zatwierdzone wcześniej, wybierz połączenie punktu końcowego, a następnie kliknij przycisk **Odrzuć** .
 
     ![Przycisk Odrzuć](./media/private-link-service/private-endpoint-reject.png)
-2. Na stronie **Odrzuć połączenie** wprowadź opcjonalny komentarz, a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
+2. Na stronie **Odrzuć połączenie** wprowadź opcjonalny komentarz, a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie** , nic się nie dzieje. 
 
     ![Odrzuć stronę połączenia](./media/private-link-service/reject-connection-page.png)
 3. Stan połączenia powinien zostać wyświetlony na liście zmieniono **odrzucone**. 
@@ -227,7 +222,7 @@ Istnieją cztery Stany aprowizacji:
 1. Aby usunąć połączenie z prywatnym punktem końcowym, wybierz je z listy i wybierz pozycję **Usuń** na pasku narzędzi. 
 
     ![Przycisk Usuń](./media/private-link-service/remove-endpoint.png)
-2. Na stronie **Usuwanie połączenia** wybierz pozycję **tak** , aby potwierdzić usunięcie prywatnego punktu końcowego. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
+2. Na stronie **Usuwanie połączenia** wybierz pozycję **tak** , aby potwierdzić usunięcie prywatnego punktu końcowego. Jeśli wybierzesz opcję **nie** , nic się nie dzieje. 
 
     ![Usuń stronę połączenia](./media/private-link-service/delete-connection-page.png)
 3. Powinien zostać wyświetlony stan zmieniono na **rozłączony**. Następnie punkt końcowy zostanie wyświetlony na liście. 
@@ -242,8 +237,8 @@ Na karcie **Sieć** :
 
 1. Określ **sieć wirtualną** i **podsieć**. Musisz wybrać Virtual Network, na którym został wdrożony prywatny punkt końcowy.
 2. Określ zasób **publicznego adresu IP** .
-3. Dla **sieciowej grupy zabezpieczeń karty sieciowej**wybierz **Brak**.
-4. W obszarze **równoważenie obciążenia**wybierz pozycję **nie**.
+3. Dla **sieciowej grupy zabezpieczeń karty sieciowej** wybierz **Brak**.
+4. W obszarze **równoważenie obciążenia** wybierz pozycję **nie**.
 
 Połącz się z maszyną wirtualną, Otwórz wiersz polecenia i uruchom następujące polecenie:
 
@@ -262,11 +257,11 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Ograniczenia i zagadnienia dotyczące projektowania
 
-**Cennik**: Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
+**Cennik** : Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Ograniczenia**: Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
+**Ograniczenia** : Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
 
-**Maksymalna liczba prywatnych punktów końcowych na Service Bus przestrzeń nazw**: 120.
+**Maksymalna liczba prywatnych punktów końcowych na Service Bus przestrzeń nazw** : 120.
 
 Aby uzyskać więcej informacji, zobacz [usługa Azure Private Link Service: ograniczenia](../private-link/private-link-service-overview.md#limitations)
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 05cf63f741e287112ace76a5249ae2ca8d01f34f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0e8b38f4760bf9e9adf8d26dfd6b7a15c904eab
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376613"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425150"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -19,7 +19,7 @@ Przed rozpoczęciem upewnij się, że:
 > [!div class="checklist"]
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
 > * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
-> * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](../../../../../../storage/blobs/storage-quickstart-blobs-portal.md)
 
 ## <a name="open-your-project-in-visual-studio"></a>Otwieranie projektu w programie Visual Studio
 
