@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533907"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410581"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
 
@@ -86,11 +86,11 @@ Niektóre inne możliwości Azure Active Directory obejmują:
 
 - Usługa Azure AD umożliwia logowanie jednokrotne do aplikacji SaaS, niezależnie od lokalizacji hostowania. Niektóre aplikacje są sfederowane z usługą Azure AD, a inne korzystają z logowania jednokrotnego z użyciem hasła. Aplikacje federacyjne mogą również obsługiwać obsługę administracyjną użytkowników i przechowywanie [haseł](https://www.techopedia.com/definition/31415/password-vault).
 
-- Dostęp do danych w usłudze [Azure Storage](https://azure.microsoft.com/services/storage/) jest kontrolowany za pośrednictwem uwierzytelniania. Każde konto magazynu ma klucz podstawowy ([klucz konta magazynu](../../storage/common/storage-create-storage-account.md)lub SAK) oraz pomocniczy klucz tajny (Sygnatura dostępu współdzielonego lub SAS).
+- Dostęp do danych w usłudze [Azure Storage](https://azure.microsoft.com/services/storage/) jest kontrolowany za pośrednictwem uwierzytelniania. Każde konto magazynu ma klucz podstawowy ([klucz konta magazynu](../../storage/common/storage-account-create.md)lub SAK) oraz pomocniczy klucz tajny (Sygnatura dostępu współdzielonego lub SAS).
 
-- Usługa Azure AD zapewnia tożsamość jako usługę za pośrednictwem Federacji przy użyciu [Active Directory Federation Services](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), synchronizacji i replikacji z katalogami lokalnymi.
+- Usługa Azure AD zapewnia tożsamość jako usługę za pośrednictwem Federacji przy użyciu [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronizacji i replikacji z katalogami lokalnymi.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) to usługa wieloskładnikowego uwierzytelniania, która wymaga od użytkowników weryfikacji logowania przy użyciu aplikacji mobilnej, połączenia telefonicznego lub wiadomości SMS. Może być używany z usługą Azure AD, aby pomóc w zabezpieczeniu zasobów lokalnych za pomocą serwera usługi Azure Multi-Factor Authentication, a także z niestandardowymi aplikacjami i katalogami przy użyciu zestawu SDK.
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) to usługa wieloskładnikowego uwierzytelniania, która wymaga od użytkowników weryfikacji logowania przy użyciu aplikacji mobilnej, połączenia telefonicznego lub wiadomości SMS. Może być używany z usługą Azure AD, aby pomóc w zabezpieczeniu zasobów lokalnych za pomocą serwera usługi Azure Multi-Factor Authentication, a także z niestandardowymi aplikacjami i katalogami przy użyciu zestawu SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) umożliwia dołączanie maszyn wirtualnych platformy Azure do domeny Active Directory bez wdrażania kontrolerów domeny. Możesz zalogować się na tych maszynach wirtualnych za pomocą poświadczeń firmowych Active Directory i zarządzać maszynami wirtualnymi przyłączonymi do domeny, używając zasady grupy, aby wymusić podstawy zabezpieczeń na wszystkich maszynach wirtualnych platformy Azure.
 
@@ -119,7 +119,7 @@ Microsoft Azure oferuje różne usługi obliczeniowe oparte na chmurze, które o
 
 ### <a name="dedicated-hosts"></a>Dedykowane hosty
 
-Oprócz izolowanych hostów opisanych w poprzedniej sekcji platforma Azure oferuje również dedykowane hosty. Dedykowane hosty na platformie Azure to usługa udostępniająca serwery fizyczne, które mogą hostować co najmniej jedną maszynę wirtualną, które są przeznaczone dla jednej subskrypcji platformy Azure. Dedykowane hosty zapewniają izolację sprzętową na poziomie serwera fizycznego. Żadne inne maszyny wirtualne nie zostaną umieszczone na hostach. Dedykowane hosty są wdrażane w tych samych centrach danych i korzystają z tej samej sieci i podstawowej infrastruktury magazynu, co inne, nieizolowane hosty. Aby uzyskać więcej informacji, Zobacz szczegółowe omówienie [dedykowanych hostów platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+Oprócz izolowanych hostów opisanych w poprzedniej sekcji platforma Azure oferuje również dedykowane hosty. Dedykowane hosty na platformie Azure to usługa udostępniająca serwery fizyczne, które mogą hostować co najmniej jedną maszynę wirtualną, które są przeznaczone dla jednej subskrypcji platformy Azure. Dedykowane hosty zapewniają izolację sprzętową na poziomie serwera fizycznego. Żadne inne maszyny wirtualne nie zostaną umieszczone na hostach. Dedykowane hosty są wdrażane w tych samych centrach danych i korzystają z tej samej sieci i podstawowej infrastruktury magazynu, co inne, nieizolowane hosty. Aby uzyskać więcej informacji, Zobacz szczegółowe omówienie [dedykowanych hostów platformy Azure](../../virtual-machines/dedicated-hosts.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Izolacja głównej systemu operacyjnego funkcji Hyper-V & między głównymi maszynami wirtualnymi & Gości
 
@@ -194,7 +194,7 @@ W związku z tym usługa Azure Storage działa na osobnym sprzęcie bez łączno
 
 ![Izolacja przy użyciu kontroli dostępu do magazynu](./media/isolation-choices/azure-isolation-fig9.png)
 
-**Dostęp do danych usługi Azure Storage (w tym tabel)** można kontrolować za pomocą tokenu sygnatury [dostępu współdzielonego](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) , który zapewnia dostęp z zakresu. Sygnatura dostępu współdzielonego jest tworzona za pomocą szablonu zapytania (URL) podpisanego przy użyciu [SAK (klucza konta magazynu)](https://msdn.microsoft.com/library/azure/ee460785.aspx). [Podpisany adres URL](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) można podać innemu procesowi (delegowanemu), który następnie może wypełnić szczegóły zapytania i przekazać żądanie usługi magazynu. Sygnatura dostępu współdzielonego umożliwia przyznanie klientom dostęp oparty na czasie bez ujawniania klucza tajnego konta magazynu.
+**Dostęp do danych usługi Azure Storage (w tym tabel)** można kontrolować za pomocą tokenu sygnatury [dostępu współdzielonego](../../storage/common/storage-sas-overview.md) , który zapewnia dostęp z zakresu. Sygnatura dostępu współdzielonego jest tworzona za pomocą szablonu zapytania (URL) podpisanego przy użyciu [SAK (klucza konta magazynu)](/previous-versions/azure/reference/ee460785(v=azure.100)). [Podpisany adres URL](../../storage/common/storage-sas-overview.md) można podać innemu procesowi (delegowanemu), który następnie może wypełnić szczegóły zapytania i przekazać żądanie usługi magazynu. Sygnatura dostępu współdzielonego umożliwia przyznanie klientom dostęp oparty na czasie bez ujawniania klucza tajnego konta magazynu.
 
 Sygnatura dostępu współdzielonego oznacza, że można udzielić klientowi ograniczonych uprawnień do obiektów w naszym koncie magazynu przez określony czas i z określonym zestawem uprawnień. Firma Microsoft może przyznać te ograniczone uprawnienia bez konieczności udostępniania kluczy dostępu do konta.
 
@@ -225,13 +225,13 @@ W przypadku wielu organizacji [szyfrowanie danych w spoczynku](isolation-choices
 
 - [Szyfrowanie usługi Storage](../../storage/blobs/security-recommendations.md) pozwala na zażądanie, aby usługa magazynu automatycznie szyfruje dane podczas ich zapisywania do usługi Azure Storage.
 - [Szyfrowanie po stronie klienta](../../storage/blobs/security-recommendations.md) udostępnia również funkcję szyfrowania w stanie spoczynku.
-- [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) umożliwia szyfrowanie dysków systemu operacyjnego i dysków danych używanych przez maszynę wirtualną IaaS.
+- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) umożliwia szyfrowanie dysków systemu operacyjnego i dysków danych używanych przez maszynę wirtualną IaaS.
 
 #### <a name="azure-disk-encryption"></a>Usługa Azure Disk Encryption
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) dla maszyn wirtualnych pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji przez szyfrowanie dysków maszyny wirtualnej (w tym dysków rozruchowych i danych) przy użyciu kluczy i zasad, które można kontrolować w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) dla maszyn wirtualnych pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji przez szyfrowanie dysków maszyny wirtualnej (w tym dysków rozruchowych i danych) przy użyciu kluczy i zasad, które można kontrolować w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-Rozwiązanie do szyfrowania dysków dla systemu Windows jest oparte na [szyfrowanie dysków funkcją BitLocker firmy Microsoft](https://technet.microsoft.com/library/cc732774.aspx), a rozwiązanie Linux opiera się na usłudze [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+Rozwiązanie do szyfrowania dysków dla systemu Windows jest oparte na [szyfrowanie dysków funkcją BitLocker firmy Microsoft](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)), a rozwiązanie Linux opiera się na usłudze [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 Rozwiązanie obsługuje następujące scenariusze dla maszyn wirtualnych IaaS, gdy są one włączone w Microsoft Azure:
 
@@ -243,7 +243,7 @@ Rozwiązanie obsługuje następujące scenariusze dla maszyn wirtualnych IaaS, g
 - Włączanie szyfrowania na maszynach wirtualnych IaaS, na których działa klient systemu operacyjnego Windows
 - Włączanie szyfrowania woluminów z ścieżkami instalacji
 - Włączanie szyfrowania na maszynach wirtualnych z systemem Linux, które są skonfigurowane przy użyciu funkcji rozkładania dysku (RAID) za pomocą [mdadm](https://en.wikipedia.org/wiki/Mdadm)
-- Włączanie szyfrowania na maszynach wirtualnych z systemem Linux przy użyciu programu [LVM (Menedżer woluminów logicznych)](https://msdn.microsoft.com/library/windows/desktop/bb540532) dla dysków danych
+- Włączanie szyfrowania na maszynach wirtualnych z systemem Linux przy użyciu programu [LVM (Menedżer woluminów logicznych)](/windows/win32/fileio/about-volume-management) dla dysków danych
 - Włączanie szyfrowania na maszynach wirtualnych z systemem Windows skonfigurowanych przy użyciu funkcji miejsca do magazynowania
 - Wszystkie publiczne regiony platformy Azure są obsługiwane
 
@@ -273,7 +273,7 @@ Logiczne serwery i bazy danych SQL są pojęciami specyficznymi dla SQL Database
 
 Serwery w SQL Database nie są wystąpieniami fizycznymi ani MASZYNami wirtualnymi, a nie są kolekcjami baz danych, współużytkowania i zasad zabezpieczeń, które są przechowywane w taki sam sposób zwane "logicznymi bazami danych".
 
-![Baza danych SQL](./media/isolation-choices/azure-isolation-fig11.png)
+![SQL Database](./media/isolation-choices/azure-isolation-fig11.png)
 
 Logiczne główne bazy danych to:
 

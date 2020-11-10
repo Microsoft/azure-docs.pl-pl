@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b8b4b56693023ede2ccf8ae7eeac7ed5e16824
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c1cdeaa41dda11f2ab520cf8d31ddb2116587082
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216865"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409573"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files
 
@@ -75,7 +75,10 @@ W przykładach w tej sekcji użyto następującej nazwy domeny i adresu IP:
     Na przykład: 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    Upewnij się, że `default_realm` jest ustawiony na podany obszar w `/etc/krb5.conf` .  Jeśli nie, Dodaj ją do `[libdefaults]` sekcji w pliku, jak pokazano w następującym przykładzie:
+    
+    `default_realm = CONTOSO.COM`
 
 7. Uruchom ponownie wszystkie usługi NFS:  
  
@@ -199,7 +202,7 @@ W przykładach w tej sekcji użyto następującej nazwy domeny i adresu IP:
 
 5. Ubuntu 18,04 domyślnie używa chrony. Zgodnie z zaleceniami dotyczącymi konfiguracji w [Ubuntu Bionic: używanie chrony do KONFIGUROWANIA NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
-6. Dołącz do domena usługi Active Directory:   
+6. Dołącz do domeny Active Directory:   
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  

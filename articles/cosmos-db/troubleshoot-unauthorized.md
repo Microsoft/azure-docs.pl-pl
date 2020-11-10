@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: dce956b932274a44e98a28b4c6567a5e98771613
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: aa9bf1fd706ccf6064893f1141be5e5b2f185ff3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340009"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411171"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-unauthorized-exceptions"></a>Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB nieautoryzowanych wyjątków
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,3 +53,5 @@ Istnieje sytuacja wyścigu z tworzeniem kontenera. Wystąpienie aplikacji próbu
 ## <a name="next-steps"></a>Następne kroki
 * [Diagnozowanie i rozwiązywanie](troubleshoot-dot-net-sdk.md) problemów podczas korzystania z zestawu SDK Azure Cosmos DB platformy .NET.
 * Poznaj wskazówki dotyczące wydajności dla [platform .NET v3](performance-tips-dotnet-sdk-v3-sql.md) i [.NET V2](performance-tips.md).
+* [Diagnozowanie i rozwiązywanie](troubleshoot-java-sdk-v4-sql.md) problemów w przypadku używania Azure Cosmos DB Java v4 SDK.
+* Poznaj wskazówki dotyczące wydajności dla [zestawu SDK dla języka Java v4](performance-tips-java-sdk-v4-sql.md).

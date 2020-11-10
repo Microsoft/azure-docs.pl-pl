@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f95d7ae38ece2a2ad939d2b3c829aed2c676d0f7
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354006"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410814"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -75,6 +75,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | RedHat | RHEL 7,2 | 7.2 | RedHat: RHEL: 7.2: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 6,8 | 6.8 | RedHat: RHEL: 6,8: Najnowsze | Dysk danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 6,7 | 6.7 | RedHat: RHEL: 6.7. Najnowsza | Dysk danych (patrz Uwaga poniżej) |
+| OpenLogic | CentOS 7,8 | 7,8 | OpenLogic: CentOS: 7_8: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,7 | 7,7 | OpenLogic: CentOS: 7.7: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,7 | 7 — LVM | OpenLogic: CentOS: 7-LVM: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,6 | 7,6 | OpenLogic: CentOS: 7.6: Najnowsza | System operacyjny i dysk z danymi |
@@ -137,7 +138,7 @@ Poniższa tabela zawiera definicje typowych terminów używanych w dokumentacji 
 
 | Terminologia | Definicja |
 | --- | --- |
-| Azure Key Vault | Key Vault to kryptograficzna usługa zarządzania kluczami oparta na sprawdzonych modułach zabezpieczeń (FIPS) Te standardy pomagają chronić klucze kryptograficzne i poufne wpisy tajne. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |
+| W usłudze Azure Key Vault | Key Vault to kryptograficzna usługa zarządzania kluczami oparta na sprawdzonych modułach zabezpieczeń (FIPS) Te standardy pomagają chronić klucze kryptograficzne i poufne wpisy tajne. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Interfejs wiersza polecenia platformy Azure | [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) jest zoptymalizowany pod kątem zarządzania zasobami platformy Azure i administrowania nimi z wiersza poleceń.|
 | DM-Crypt |[Dm-crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) to oparty na systemie Linux, przezroczysty podsystem szyfrowania dysków używany do włączania szyfrowania dysków na maszynach wirtualnych z systemem Linux. |
 | Klucz szyfrowania klucza (KEK) | Klucz asymetryczny (RSA 2048), którego można użyć do ochrony lub zawijania klucza tajnego. Można podać klucz chroniony przez sprzętowy moduł zabezpieczeń (HSM) lub klucz chroniony przez oprogramowanie. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |

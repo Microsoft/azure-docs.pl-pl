@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 975933a97b089cb208ecd7ff4461a893364262ff
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: da3ae5e86833eb3e7eb71d7e47cb6f963d37b9cf
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422369"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410729"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 
@@ -35,7 +35,7 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 | Wymaganie | Opis |
 | --- | --- |
 | Usługa Azure AD — wersja Premium |Azure AD Connect Health to funkcja usługi Azure AD w wersji Premium, dlatego wymaga tej usługi. <br /><br />Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md) <br />Aby skorzystać z bezpłatnej 30-dniowej wersji próbnej, zobacz [Włączanie wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/). |
-| Aby rozpocząć pracę z programem Azure AD Connect Health, musisz być administratorem globalnym usługi Azure AD |Domyślnie tylko administratorzy globalni mogą instalować i konfigurować agentów kondycji, aby rozpoczynać pracę z programem Azure AD Connect Health, uzyskiwać dostęp do portalu i wykonywać dowolne operacje w programie. Aby więcej informacji, zobacz [Administering your Azure AD directory](../fundamentals/active-directory-administer.md) (Administrowanie katalogiem usługi Azure AD). <br /><br /> Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można zezwolić na dostęp do Azure AD Connect Health innym użytkownikom w organizacji. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC) dla Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-azure-rbac) <br /><br />**Ważne:** Konto używane podczas instalowania agentów musi być kontem służbowym. Nie może być kontem Microsoft. Aby uzyskać więcej informacji, zobacz [Tworzenie konta na platformie Azure jako organizacja](../fundamentals/sign-up-organization.md) |
+| Aby rozpocząć pracę z programem Azure AD Connect Health, musisz być administratorem globalnym usługi Azure AD |Domyślnie tylko administratorzy globalni mogą instalować i konfigurować agentów kondycji, aby rozpoczynać pracę z programem Azure AD Connect Health, uzyskiwać dostęp do portalu i wykonywać dowolne operacje w programie. Aby więcej informacji, zobacz [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md) (Administrowanie katalogiem usługi Azure AD). <br /><br /> Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można zezwolić na dostęp do Azure AD Connect Health innym użytkownikom w organizacji. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC) dla Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-azure-rbac) <br /><br />**Ważne:** Konto używane podczas instalowania agentów musi być kontem służbowym. Nie może być kontem Microsoft. Aby uzyskać więcej informacji, zobacz [Tworzenie konta na platformie Azure jako organizacja](../fundamentals/sign-up-organization.md) |
 | Na każdym serwerze docelowym jest zainstalowany agent programu Azure AD Connect Health | Program Azure AD Connect Health wymaga zainstalowania i skonfigurowania agentów kondycji na serwerach docelowych w celu umożliwienia odbioru danych i zapewnienia możliwości monitorowania i analizy. <br /><br />Na przykład aby uzyskać dane z infrastruktury usług AD FS, musisz zainstalować agenta na serwerach proxy usług AD FS i aplikacji internetowej. Podobnie, aby uzyskać dane dotyczące lokalnej infrastruktury usług AD DS, agent musi być zainstalowany na kontrolerach domeny. <br /><br /> |
 | Łączność wychodząca z punktami końcowymi usług Azure | Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli łączność wychodząca jest blokowana przy użyciu zapór, nie zapomnij dodać następujących punktów końcowych do listy lokalizacji dozwolonych. Zobacz sekcję dotyczącą [punktów końcowych łączności wychodzącej](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Łączność wychodząca na podstawie adresów IP | W przypadku filtrowania zapory opartego na adresach IP zapoznaj się z [zakresem adresów IP platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).|

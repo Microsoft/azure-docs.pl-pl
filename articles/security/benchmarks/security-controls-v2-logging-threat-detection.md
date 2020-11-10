@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360857"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408706"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Kontrola zabezpieczeń v2: rejestrowanie i wykrywanie zagrożeń
 
@@ -30,7 +30,7 @@ Użyj Azure Security Center wbudowanej funkcji wykrywania zagrożeń, która jes
 
 Ponadto przy użyciu wskaźnikowego platformy Azure można tworzyć reguły analityczne, które wskazują na zagrożenia, które pasują do określonych kryteriów w danym środowisku. Reguły generują zdarzenia w przypadku dopasowania kryteriów, aby można było zbadać każde zdarzenie. Na platformie Azure można także zaimportować analizę zagrożeń innych firm, aby zwiększyć możliwości wykrywania zagrożeń. 
 
-- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../../security-center/threat-protection.md)
+- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../../security-center/azure-defender.md)
 
 - [Przewodnik dotyczący podręcznika Azure Security Center alertów zabezpieczeń](../../security-center/alerts-reference.md)
 
@@ -73,7 +73,7 @@ Azure Security Center może również otrzymywać alerty dotyczące niektórych 
 
 - [Włącz usługę Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../../security-center/threat-protection.md)
+- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../../security-center/azure-defender.md)
 
 **Odpowiedzialność** : klient
 
@@ -230,4 +230,3 @@ Wszystkie dzienniki wygenerowane przez zasoby w ramach platformy Azure zapewniaj
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

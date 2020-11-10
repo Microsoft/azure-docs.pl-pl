@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096202"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410508"
 ---
 # <a name="localization-string-ids"></a>Identyfikatory ciągów lokalizacji
 
@@ -33,7 +33,7 @@ Następujące identyfikatory są używane dla definicji zawartości z IDENTYFIKA
 | **logonIdentifier_email** | Adres e-mail |
 | **requiredField_email** | Wprowadź swój adres e-mail |
 | **invalid_email** | Wprowadź prawidłowy adres e-mail |
-| **email_pattern** | ^ [a-za-Z0-9.! # $% & ""*+/=? ^ _ \` { \| } ~-] + @ [a-za-Z0-9-] + (?: \\ . [ a-za-Z0-9-] +)*$ |
+| **email_pattern** | ^ [a-za-Z0-9.! # $% & "" *+/=? ^ _ \` { \| } ~-] + @ [a-za-Z0-9-] + (?: \\ . [ a-za-Z0-9-] +)*$ |
 | **local_intro_username** | Zaloguj się przy użyciu nazwy użytkownika |
 | **logonIdentifier_username** | Nazwa użytkownika |
 | **requiredField_username** | Wprowadź swoją nazwę użytkownika |
@@ -87,6 +87,7 @@ Poniższy przykład lokalizuje dostawcę tożsamości w serwisie Facebook do ję
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Hasło jest niepoprawne. |
+| **UserMessageIfPasswordExpired**| Twoje hasło wygasło.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Nie możemy znaleźć Twojego konta. |
 | **UserMessageIfOldPasswordUsed** | Wygląda na to, że użyto starego hasła. |
 | **DefaultMessage** | Nieprawidłowa nazwa użytkownika lub hasło. |
@@ -122,6 +123,7 @@ Poniższy przykład lokalizuje dostawcę tożsamości w serwisie Facebook do ję
     <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
@@ -149,14 +151,14 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORe
 | **verifying_blurb** | Zaczekaj na przetworzenie informacji. |
 | **button_cancel** | Anuluj |
 | **ver_fail_no_retry** | Wykonano zbyt wiele nieudanych prób. Spróbuj ponownie później. |
-| **bieżącym** | Miesiąc |
+| **bieżącym** | Month (Miesiąc) |
 | **ver_success_msg** | Zweryfikowano adres E-mail. Teraz można kontynuować. |
 | **months** | Styczeń, luty, Marzec, Kwiecień, maj, czerwiec, Lipiec, sierpień, wrzesień, październik, listopad, grudzień |
 | **ver_fail_server** | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Wprowadź prawidłowy adres e-mail i spróbuj ponownie. |
 | **error_requiredFieldMissing** | Brak wymaganego pola. Wypełnij wszystkie wymagane pola i spróbuj ponownie. |
 | **initial_intro** | Podaj następujące informacje. |
 | **ver_but_resend** | Wyślij nowy kod |
-| **button_continue** | Przycisk Utwórz |
+| **button_continue** | Utwórz |
 | **error_passwordEntryMismatch** | Pola wprowadzania hasła nie są zgodne. Wprowadź to samo hasło w obu polach i spróbuj ponownie. |
 | **ver_incorrect_format** | Niepoprawny format. |
 | **ver_but_edit** | Zmień adres e-mail |
@@ -263,7 +265,7 @@ Poniżej znajdują się identyfikatory definicji zawartości z IDENTYFIKATORem `
 | **invalid_code** | Wprowadź otrzymany 6-cyfrowy kod |
 | **button_cancel** | Anuluj |
 | **local_number_input_placeholder_text** | Numer telefonu |
-| **button_retry** | Ponawianie próby |
+| **button_retry** | Ponów próbę |
 | **alternative_text** | Nie mam mojego telefonu |
 | **intro_phone_p** | W rekordach są dostępne następujące numery. Wybierz numer telefonu, z którym możemy się uwierzytelnić. |
 | **intro_phone** | Mamy dla Ciebie następujący numer rekordu. Będziemy telefonować. |

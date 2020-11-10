@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168039"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409879"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -46,9 +46,9 @@ Microsoft Azure udostępnia usługi, które pomagają sprostać wymaganiom zwią
 
 Platforma Azure pomaga w ochronie danych firmowych i osobistych, umożliwiając Zarządzanie tożsamościami i poświadczeniami użytkowników oraz kontrolę dostępu.
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
-Rozwiązania do zarządzania tożsamościami i dostępem firmy Microsoft ułatwiają ochronę dostępu do aplikacji i zasobów w centrum danych firmy oraz w chmurze, co pozwala na dodatkowe poziomy weryfikacji, takie jak uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Monitorowanie podejrzanej aktywności przy użyciu zaawansowanych raportów zabezpieczeń, inspekcji i alertów umożliwia rozwiązywanie potencjalnych problemów z zabezpieczeniami. [Azure Active Directory — wersja Premium](../../active-directory/active-directory-whatis.md) zapewnia Logowanie jednokrotne do tysięcy aplikacji w chmurze i dostęp do aplikacji sieci Web uruchamianych lokalnie.
+Rozwiązania do zarządzania tożsamościami i dostępem firmy Microsoft ułatwiają ochronę dostępu do aplikacji i zasobów w centrum danych firmy oraz w chmurze, co pozwala na dodatkowe poziomy weryfikacji, takie jak uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Monitorowanie podejrzanej aktywności przy użyciu zaawansowanych raportów zabezpieczeń, inspekcji i alertów umożliwia rozwiązywanie potencjalnych problemów z zabezpieczeniami. [Azure Active Directory — wersja Premium](../../active-directory/fundamentals/active-directory-whatis.md) zapewnia Logowanie jednokrotne do tysięcy aplikacji w chmurze i dostęp do aplikacji sieci Web uruchamianych lokalnie.
 
 Zalety zabezpieczeń Azure Active Directory (Azure AD) obejmują:
 
@@ -62,7 +62,7 @@ Zalety zabezpieczeń Azure Active Directory (Azure AD) obejmują:
 
 [Portal Azure Active Directory](https://aad.portal.azure.com/) jest dostępny w ramach Azure Portal. Z tego pulpitu nawigacyjnego można zapoznać się z omówieniem stanu organizacji oraz łatwo zarządzać dostępem do katalogu, użytkowników lub aplikacji.
 
-![Usługa Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
 Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management:
 
@@ -78,7 +78,7 @@ Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management
 
 - Privileged Identity Management
 
-- Identity Protection
+- Ochrona tożsamości
 
 #### <a name="single-sign-on"></a>Logowanie jednokrotne
 
@@ -88,17 +88,17 @@ Wiele organizacji korzysta z aplikacji SaaS (Software as a Service), takich jak 
 
 [Usługa Azure AD rozszerza Active Directory lokalne na chmurę](../../active-directory/manage-apps/what-is-single-sign-on.md), umożliwiając użytkownikom używanie ich podstawowych kont organizacyjnych do logowania się do urządzeń przyłączonych do domeny i zasobów firmy, ale także wszystkich aplikacji sieci Web i SaaS wymaganych dla ich zadań.
 
-Nie tylko użytkownicy nie muszą zarządzać wieloma zestawami nazw użytkowników i haseł. dostęp do aplikacji może być inicjowany automatycznie lub nieobsługiwany w oparciu o grupy organizacyjne i ich stan jako pracownika. [Usługa Azure AD wprowadza kontrolę zabezpieczeń i dostępu](../../active-directory/active-directory-enterprise-apps-manage-sso.md) , która umożliwia centralne zarządzanie dostępem użytkowników w aplikacjach SaaS.
+Nie tylko użytkownicy nie muszą zarządzać wieloma zestawami nazw użytkowników i haseł. dostęp do aplikacji może być inicjowany automatycznie lub nieobsługiwany w oparciu o grupy organizacyjne i ich stan jako pracownika. [Usługa Azure AD wprowadza kontrolę zabezpieczeń i dostępu](../../active-directory/manage-apps/view-applications-portal.md) , która umożliwia centralne zarządzanie dostępem użytkowników w aplikacjach SaaS.
 
 #### <a name="multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe
 
-[Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) to metoda uwierzytelniania, która wymaga użycia więcej niż jednej metody weryfikacji i dodaje krytyczną drugą warstwę zabezpieczeń do logowania i transakcji użytkownika. Usługa [MFA pomaga w zabezpieczeniu](../../active-directory/authentication/concept-mfa-howitworks.md) dostępu do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji weryfikacji — połączenie telefoniczne, wiadomość SMS lub powiadomienie aplikacji mobilnej lub kod weryfikacyjny oraz tokeny OAuth innych firm.
+[Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) to metoda uwierzytelniania, która wymaga użycia więcej niż jednej metody weryfikacji i dodaje krytyczną drugą warstwę zabezpieczeń do logowania i transakcji użytkownika. Usługa [MFA pomaga w zabezpieczeniu](../../active-directory/authentication/concept-mfa-howitworks.md) dostępu do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji weryfikacji — połączenie telefoniczne, wiadomość SMS lub powiadomienie aplikacji mobilnej lub kod weryfikacyjny oraz tokeny OAuth innych firm.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym
 
 Monitorowanie zabezpieczeń i alerty oraz raporty oparte na uczeniu maszynowym, które identyfikują niespójne wzorce dostępu, mogą pomóc w ochronie Twojej firmy. Możesz użyć raportów dotyczących dostępu i użycia Azure Active Directory, aby uzyskać wgląd w integralność i bezpieczeństwo katalogu organizacji. Dzięki tym informacjom administrator katalogu może lepiej określić, gdzie mogą być dostępne zagrożenia bezpieczeństwa, tak aby mogły one być odpowiednio zaplanowane w celu ograniczenia ryzyka.
 
-W Azure Portal lub za pomocą [portalu Azure Active Directory](https://aad.portal.azure.com/) [raporty](../../active-directory/active-directory-reporting-azure-portal.md) są podzielone na następujące sposoby:
+W Azure Portal lub za pomocą [portalu Azure Active Directory](https://aad.portal.azure.com/) [raporty](../../active-directory/reports-monitoring/overview-reports.md) są podzielone na następujące sposoby:
 
 - Raporty anomalii — zawierają zdarzenia logowania, które okazały się nietypowe. Naszym celem jest świadome tego działania i umożliwienie podjęcia decyzji o tym, czy zdarzenie jest podejrzane.
 
@@ -140,9 +140,9 @@ Azure AD Privileged Identity Management pozwala:
 
 - Uzyskiwanie alertów dotyczących dostępu do roli uprzywilejowanej
 
-#### <a name="identity-protection"></a>Identity Protection
+#### <a name="identity-protection"></a>Ochrona tożsamości
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) to usługa zabezpieczeń, która zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach wpływających na tożsamości organizacji. Usługa Identity Protection używa istniejących funkcji wykrywania anomalii w Azure Active Directory (dostępnych za pośrednictwem raportów o nietypowych działaniach w usłudze Azure AD) i wprowadza nowe typy wykrywania ryzyka, które mogą wykrywać anomalie w czasie rzeczywistym.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) to usługa zabezpieczeń, która zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach wpływających na tożsamości organizacji. Usługa Identity Protection używa istniejących funkcji wykrywania anomalii w Azure Active Directory (dostępnych za pośrednictwem raportów o nietypowych działaniach w usłudze Azure AD) i wprowadza nowe typy wykrywania ryzyka, które mogą wykrywać anomalie w czasie rzeczywistym.
 
 ## <a name="secure-resource-access"></a>Bezpieczny dostęp do zasobów
 
@@ -167,7 +167,7 @@ Jednym z kluczy ochrony danych w chmurze jest uwzględnienie możliwych stanów,
 - W spoczynku: obejmuje to wszystkie obiekty magazynu informacji, kontenery i typy, które znajdują się statycznie na nośniku fizycznym, jako dysk magnetyczny lub optyczny.
 - W tranzycie: w przypadku przesyłania danych między składnikami, lokalizacjami lub programami, takimi jak sieć, przez magistralę usług (od lokalnego do chmury i na odwrót, łącznie z połączeniami hybrydowymi, takimi jak ExpressRoute) lub w procesie wejścia/wyjścia, uważa się, że jest on ruchem.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
+### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
 Szyfrowanie w spoczynku zostało szczegółowo omówione w temacie [szyfrowanie danych na platformie Azure](encryption-atrest.md).
 
@@ -183,35 +183,35 @@ W przypadku organizacji, które muszą zabezpieczyć dostęp z jednej stacji rob
 
 Większe zestawy danych można przenieść za pomocą dedykowanego, szybkiego łącza sieci WAN, takiego jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). W przypadku wybrania opcji używania ExpressRoute można także szyfrować dane na poziomie aplikacji przy użyciu [protokołu SSL/TLS](https://support.microsoft.com/kb/257591) lub innych protokołów w celu zapewnienia dodatkowej ochrony.
 
-W przypadku korzystania z usługi Azure Storage za pośrednictwem witryny Azure Portal wszystkie transakcje odbywają się za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](https://msdn.microsoft.com/library/azure/dd179355.aspx) za pośrednictwem protokołu HTTPS może być również używany do współpracy z [usługą Azure Storage](https://azure.microsoft.com/services/storage/) i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+W przypadku korzystania z usługi Azure Storage za pośrednictwem witryny Azure Portal wszystkie transakcje odbywają się za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](/rest/api/storageservices/) za pośrednictwem protokołu HTTPS może być również używany do współpracy z [usługą Azure Storage](https://azure.microsoft.com/services/storage/) i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Organizacje, które nie chronią przesyłanych danych, są bardziej podatne na [ataki typu man-in-the-Middle](https://technet.microsoft.com/library/gg195821.aspx), [podsłuchiwanie](https://technet.microsoft.com/library/gg195641.aspx)i przejmowanie sesji. Takie ataki mogą być pierwszym krokiem do uzyskania dostępu do poufnych danych.
+Organizacje, które nie chronią przesyłanych danych, są bardziej podatne na [ataki typu man-in-the-Middle](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [podsłuchiwanie](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))i przejmowanie sesji. Takie ataki mogą być pierwszym krokiem do uzyskania dostępu do poufnych danych.
 
 Więcej informacji na temat opcji sieci VPN platformy Azure można znaleźć w artykule [Planowanie i projektowanie VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="enforce-file-level-data-encryption"></a>Wymuś szyfrowanie danych na poziomie plików
 
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) używa zasad szyfrowania, tożsamości i autoryzacji, aby ułatwić Zabezpieczanie plików i wiadomości e-mail. Azure RMS działa na wielu urządzeniach — telefonach, tabletach i komputerach, chroniąc je zarówno w ramach organizacji, jak i poza nią. Jest to możliwe, ponieważ Azure RMS dodaje poziom ochrony, który pozostanie wraz z danymi nawet wtedy, gdy opuszcza granice organizacji.
+[Azure RMS](/azure/information-protection/what-is-azure-rms) używa zasad szyfrowania, tożsamości i autoryzacji, aby ułatwić Zabezpieczanie plików i wiadomości e-mail. Azure RMS działa na wielu urządzeniach — telefonach, tabletach i komputerach, chroniąc je zarówno w ramach organizacji, jak i poza nią. Jest to możliwe, ponieważ Azure RMS dodaje poziom ochrony, który pozostanie wraz z danymi nawet wtedy, gdy opuszcza granice organizacji.
 
 Jeśli używasz Azure RMS do ochrony plików, korzystasz z kryptografii Standard Industry z pełną obsługą [standardu FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). W przypadku korzystania z Azure RMS na potrzeby ochrony danych użytkownik ma pewność, że ochrona jest pozostawać w pliku, nawet jeśli jest ona kopiowana do magazynu nieobjętego kontrolą IT, takiego jak usługa magazynu w chmurze. Taka sama występuje w przypadku plików udostępnianych za pośrednictwem poczty e-mail, a plik jest chroniony jako załącznik do wiadomości e-mail, z instrukcjami dotyczącymi sposobu otwierania chronionego załącznika.
 Planując wdrożenie Azure RMS zalecamy wykonanie następujących czynności:
 
-- Zainstaluj [aplikację RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Ta aplikacja integruje się z aplikacjami pakietu Office, instalując dodatek dla pakietu Office, dzięki czemu użytkownicy mogą łatwo chronić pliki bezpośrednio.
+- Zainstaluj [aplikację RMS sharing](/azure/information-protection/rms-client/sharing-app-windows). Ta aplikacja integruje się z aplikacjami pakietu Office, instalując dodatek dla pakietu Office, dzięki czemu użytkownicy mogą łatwo chronić pliki bezpośrednio.
 
 - Skonfiguruj aplikacje i usługi do obsługi Azure RMS
 
-- Utwórz [Szablony niestandardowe](https://technet.microsoft.com/library/dn642472.aspx) odzwierciedlające wymagania biznesowe. Na przykład: szablon najważniejszych danych tajnych, który powinien zostać zastosowany we wszystkich najważniejszych wiadomościach e-mail związanych z kluczami tajnymi.
+- Utwórz [Szablony niestandardowe](/azure/information-protection/configure-policy-templates) odzwierciedlające wymagania biznesowe. Na przykład: szablon najważniejszych danych tajnych, który powinien zostać zastosowany we wszystkich najważniejszych wiadomościach e-mail związanych z kluczami tajnymi.
 
 Organizacje, które mają słaby dostęp do [klasyfikacji danych](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) i ochrony plików, mogą być bardziej podatne na wycieki danych. Bez odpowiedniej ochrony plików organizacje nie będą w stanie uzyskać wglądu w dane biznesowe, monitorować pod kątem nadużycia i zapobiegać złośliwemu dostępowi do plików.
 
 > [!Note]
-> Więcej informacji na temat Azure RMS można uzyskać, czytając artykuł [wprowadzenie z usługą Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+> Więcej informacji na temat Azure RMS można uzyskać, czytając artykuł [wprowadzenie z usługą Azure Rights Management](/azure/information-protection/requirements).
 
 ## <a name="secure-your-application"></a>Zabezpieczanie aplikacji
 Mimo że platforma Azure jest odpowiedzialna za Zabezpieczanie infrastruktury i platformy, na której działa aplikacja, jest odpowiedzialna za zabezpieczenie samej aplikacji. Innymi słowy, należy w bezpieczny sposób opracowywać i wdrażać kod i zawartość aplikacji oraz zarządzać nimi. Bez tego, kod aplikacji lub zawartość nadal mogą być narażone na zagrożenia.
 
 ### <a name="web-application-firewall"></a>Zapora aplikacji internetowej
-[Zapora aplikacji sieci Web (WAF)](../../application-gateway/waf-overview.md) to funkcja [Application Gateway](../../application-gateway/overview.md) , która zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach.
+[Zapora aplikacji sieci Web (WAF)](../../web-application-firewall/ag/ag-overview.md) to funkcja [Application Gateway](../../application-gateway/overview.md) , która zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach.
 
 Zapora aplikacji internetowej zapewnia ochronę na podstawie reguł z [podstawowych zestawów reguł OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) w wersji 3.0 lub 2.2.9. Aplikacje internetowe coraz częściej stają się obiektami złośliwych ataków wykorzystujących znane luki w zabezpieczeniach. Wśród nich często zdarzają się np. ataki polegające na iniekcji SQL i ataki z użyciem skryptów wykorzystywanych w wielu witrynach. Zapobieganie takim atakom z poziomu kodu aplikacji może być trudne. Może też wymagać rygorystycznego przestrzegania harmonogramu konserwacji, poprawek i monitorowania na poziomie wielu warstw topologii aplikacji. Scentralizowana zapora aplikacji internetowej ułatwia zarządzanie zabezpieczeniami oraz zapewnia lepszą ochronę administratorów aplikacji przed zagrożeniami i intruzami. Zapora aplikacji internetowej może reagować na zagrożenia bezpieczeństwa szybciej — poprzez wdrażanie poprawek zapobiegających wykorzystaniu znanych luk w zabezpieczeniach w centralnej lokalizacji zamiast w poszczególnych aplikacjach internetowych. Istniejące bramy Application Gateway można łatwo przekonwertować na bramę Application Gateway obsługującą zaporę aplikacji internetowej.
 
@@ -232,7 +232,7 @@ Oto niektóre typowe luki w zabezpieczeniach w Internecie, przed którymi chroni
 - Wykrywanie typowych niespotykanych konfiguracji aplikacji (czyli Apache, IIS itp.)
 
 > [!Note]
-> Aby zapoznać się z bardziej szczegółową listą reguł i ich ochrony, zobacz następujące [podstawowe zestawy reguł](../../application-gateway/waf-overview.md):
+> Aby zapoznać się z bardziej szczegółową listą reguł i ich ochrony, zobacz następujące [podstawowe zestawy reguł](../../web-application-firewall/ag/ag-overview.md):
 
 Platforma Azure udostępnia również kilka łatwych w użyciu funkcji, które ułatwiają Zabezpieczanie ruchu przychodzącego i wychodzącego dla aplikacji. Platforma Azure pomaga również klientom zabezpieczyć kod aplikacji, dostarczając zewnętrznie dostępne funkcje skanowania aplikacji sieci Web pod kątem luk w zabezpieczeniach.
 
@@ -265,7 +265,7 @@ Azure App Service korzysta z tego samego rozwiązania chroniącego przed złośl
 ## <a name="secure-your-network"></a>Zabezpieczanie sieci
 Microsoft Azure obejmuje niezawodną infrastrukturę sieciową do obsługi wymagań dotyczących łączności aplikacji i usług. Możliwe jest połączenie sieciowe między zasobami znajdującymi się na platformie Azure, między zasobami lokalnymi i hostowanymi przez platformę Azure oraz z Internetu i platformy Azure.
 
-[Infrastruktura sieci platformy Azure](../../virtual-machines/windows/infrastructure-example.md) umożliwia bezpieczne łączenie zasobów platformy Azure ze sobą przy użyciu [sieci wirtualnych (sieci wirtualnych)](../../virtual-network/virtual-networks-overview.md). Sieć wirtualna jest reprezentacją własnej sieci w chmurze. Sieć wirtualna jest logiczną izolacją sieci w chmurze platformy Azure dedykowaną dla Twojej subskrypcji. Możesz połączyć sieci wirtualnych z sieciami lokalnymi.
+[Infrastruktura sieci platformy Azure](/previous-versions/azure/virtual-machines/windows/infrastructure-example) umożliwia bezpieczne łączenie zasobów platformy Azure ze sobą przy użyciu [sieci wirtualnych (sieci wirtualnych)](../../virtual-network/virtual-networks-overview.md). Sieć wirtualna jest reprezentacją własnej sieci w chmurze. Sieć wirtualna jest logiczną izolacją sieci w chmurze platformy Azure dedykowaną dla Twojej subskrypcji. Możesz połączyć sieci wirtualnych z sieciami lokalnymi.
 
 ![Zabezpieczanie sieci (ochrona)](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
@@ -335,7 +335,7 @@ Ta metoda umożliwia konsolidowanie danych z różnych źródeł, dzięki czemu 
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Usługa [Azure Security Center](../../security-center/security-center-intro.md) ułatwia zapobieganie zagrożeniom, ich wykrywanie i reagowanie na nie, a przy tym zapewnia lepszy wgląd i większą kontrolę w zakresie bezpieczeństwa zasobów na platformie Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań z zakresu zabezpieczeń.
+Usługa [Azure Security Center](../../security-center/security-center-introduction.md) ułatwia zapobieganie zagrożeniom, ich wykrywanie i reagowanie na nie, a przy tym zapewnia lepszy wgląd i większą kontrolę w zakresie bezpieczeństwa zasobów na platformie Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań z zakresu zabezpieczeń.
 
 Centrum zabezpieczeń analizuje stan zabezpieczeń zasobów platformy Azure w celu identyfikowania potencjalnych luk w zabezpieczeniach. Lista zaleceń prowadzi użytkownika przez proces konfigurowania wymaganych elementów sterujących.
 
@@ -378,7 +378,7 @@ Inspekcja zabezpieczeń sieci jest konieczna do wykrywania luk w zabezpieczeniac
 
 ### <a name="storage-analytics"></a>Analityka magazynu
 
-[Analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) mogą przechowywać metryki, które obejmują zagregowane statystyki transakcji oraz dane pojemności dotyczące żądań do usługi magazynu. Transakcje są raportowane zarówno na poziomie operacji interfejsu API, jak i na poziomie usługi magazynu, a pojemność jest raportowana na poziomie usługi magazynu. Dane metryk umożliwiają analizowanie użycia usługi magazynu, diagnozowanie problemów z żądaniami dotyczącymi usługi Storage oraz Poprawianie wydajności aplikacji korzystających z usługi.
+[Analityka magazynu](/rest/api/storageservices/fileservices/storage-analytics) mogą przechowywać metryki, które obejmują zagregowane statystyki transakcji oraz dane pojemności dotyczące żądań do usługi magazynu. Transakcje są raportowane zarówno na poziomie operacji interfejsu API, jak i na poziomie usługi magazynu, a pojemność jest raportowana na poziomie usługi magazynu. Dane metryk umożliwiają analizowanie użycia usługi magazynu, diagnozowanie problemów z żądaniami dotyczącymi usługi Storage oraz Poprawianie wydajności aplikacji korzystających z usługi.
 
 ### <a name="application-insights"></a>Application Insights
 

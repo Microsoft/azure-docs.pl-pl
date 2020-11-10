@@ -16,15 +16,15 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57990fda7475b95bd6582fa5a495ac8d24aa55d5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "64918439"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408536"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Określanie wymagań dotyczących zarządzania zawartością dla rozwiązania do tworzenia tożsamości hybrydowej
-Zrozumienie wymagań związanych z zarządzaniem zawartością dla Twojej firmy może bezpośrednio wpłynąć na decyzję, na której będzie używane rozwiązanie do obsługi tożsamości hybrydowej. W przypadku rozprzestrzeniania się wielu urządzeń i możliwości użytkowników do przynoszenia własnych urządzeń ([BYOD](https://aka.ms/byodcg)) firma musi chronić własne dane, ale również musi utrzymywać prywatność użytkownika bez zmian. Zwykle gdy użytkownik ma własne urządzenie, może mieć także wiele poświadczeń, które będą się zmieniać w zależności od używanej aplikacji. Ważne jest, aby odróżnić zawartość, która została utworzona przy użyciu poświadczeń osobistych, a także tych, które zostały utworzone przy użyciu poświadczeń firmowych. Rozwiązanie do obsługi tożsamości powinno być w stanie współdziałać z usługami w chmurze, aby zapewnić użytkownikom końcowym bezproblemowe środowisko i zapewnić ich prywatność oraz zwiększyć ochronę przed wyciekami danych. 
+Zrozumienie wymagań związanych z zarządzaniem zawartością dla Twojej firmy może bezpośrednio wpłynąć na decyzję, na której będzie używane rozwiązanie do obsługi tożsamości hybrydowej. W przypadku rozprzestrzeniania się wielu urządzeń i możliwości użytkowników do przynoszenia własnych urządzeń ([BYOD](/mem/intune/fundamentals/byod-technology-decisions)) firma musi chronić własne dane, ale również musi utrzymywać prywatność użytkownika bez zmian. Zwykle gdy użytkownik ma własne urządzenie, może mieć także wiele poświadczeń, które będą się zmieniać w zależności od używanej aplikacji. Ważne jest, aby odróżnić zawartość, która została utworzona przy użyciu poświadczeń osobistych, a także tych, które zostały utworzone przy użyciu poświadczeń firmowych. Rozwiązanie do obsługi tożsamości powinno być w stanie współdziałać z usługami w chmurze, aby zapewnić użytkownikom końcowym bezproblemowe środowisko i zapewnić ich prywatność oraz zwiększyć ochronę przed wyciekami danych. 
 
 Twoje rozwiązanie do obsługi tożsamości będzie używane przez różne kontrole techniczne w celu zapewnienia zarządzania zawartością, jak pokazano na poniższej ilustracji:
 
@@ -69,4 +69,3 @@ Planując rozwiązanie do obsługi tożsamości hybrydowej, upewnij się, że od
 
 ## <a name="see-also"></a>Zobacz też
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
-

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395774"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410338"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Omówienie zarządzania i monitorowania zabezpieczeń platformy Azure
 Ten artykuł zawiera omówienie funkcji zabezpieczeń i usług oferowanych przez platformę Azure w celu ułatwienia zarządzania i monitorowania usług Azure Cloud Services i Virtual Machines.
@@ -48,8 +48,8 @@ Więcej informacji:
 
 * [Wdrażanie rozwiązań do ochrony przed złośliwym kodem na maszynach wirtualnych platformy Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft Cloud Services i Virtual Machines](antimalware.md)
-* [Jak zainstalować i skonfigurować Trend Micro głębokiego zabezpieczenia jako usługi na maszynie wirtualnej z systemem Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Jak zainstalować i skonfigurować Trend Micro głębokiego zabezpieczenia jako usługi na maszynie wirtualnej z systemem Windows](../../virtual-machines/extensions/trend.md)
+* [Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows](../../virtual-machines/extensions/symantec.md)
 * [Nowe opcje chroniące przed złośliwym kodem na potrzeby ochrony Virtual Machines platformy Azure](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -61,7 +61,7 @@ Multi-Factor Authentication pomaga chronić dostęp do danych i aplikacji, a jed
 Więcej informacji:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Co to jest usługa Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
+* [Co to jest usługa Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Jak działa usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -112,7 +112,7 @@ Dostarczając powiadomienia i zalecaną korektę, Ochrona tożsamości pomaga w 
 
 Więcej informacji:
 
-* [Ochrona tożsamości w usłudze Azure Active Directory](/azure/active-directory/active-directory-identityprotection)
+* [Ochrona tożsamości w usłudze Azure Active Directory](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: usługa Azure AD i tożsamość show: wersja zapoznawcza usługi Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
@@ -129,8 +129,8 @@ Security Center pomaga zoptymalizować i monitorować zabezpieczenia zasobów pl
 
 Więcej informacji:
 
-* [Wprowadzenie do usługi Azure Security Center](../../security-center/security-center-intro.md)
-* [Popraw swój Bezpieczny wynik w Azure Security Center](../../security-center/security-center-secure-score.md)
+* [Wprowadzenie do usługi Azure Security Center](../../security-center/security-center-introduction.md)
+* [Popraw swój Bezpieczny wynik w Azure Security Center](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

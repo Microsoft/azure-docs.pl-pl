@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458624"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410219"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie szyfrowania na platformie Azure
 
@@ -45,15 +45,15 @@ Dzięki szyfrowaniu po stronie klienta dostawcy usług w chmurze nie mają dost�
 
 Trzy modele szyfrowania po stronie serwera oferują różne charakterystyki zarządzania kluczami, które można wybrać zgodnie z wymaganiami:
 
-- **Klucze zarządzane przez usługę**: zapewniają kombinację kontroli i wygody z niskim obciążeniem.
+- **Klucze zarządzane przez usługę** : zapewniają kombinację kontroli i wygody z niskim obciążeniem.
 
-- **Klucze zarządzane przez klienta**: zapewnia kontrolę nad kluczami, w tym przeprowadzenie obsługi własnych kluczy (BYOK), lub umożliwia generowanie nowych.
+- **Klucze zarządzane przez klienta** : zapewnia kontrolę nad kluczami, w tym przeprowadzenie obsługi własnych kluczy (BYOK), lub umożliwia generowanie nowych.
 
-- **Klucze zarządzane przez klienta**: umożliwiają zarządzanie kluczami w repozytorium zastrzeżonym poza kontrolą firmy Microsoft. Ta cecha jest nazywana własnym kluczem hosta (HYOK). Jednak konfiguracja jest złożona i większość usług platformy Azure nie obsługuje tego modelu.
+- **Klucze zarządzane przez klienta** : umożliwiają zarządzanie kluczami w repozytorium zastrzeżonym poza kontrolą firmy Microsoft. Ta cecha jest nazywana własnym kluczem hosta (HYOK). Jednak konfiguracja jest złożona i większość usług platformy Azure nie obsługuje tego modelu.
 
 ### <a name="azure-disk-encryption"></a>Szyfrowanie dysków Azure
 
-Maszyny wirtualne z systemem Windows i Linux można chronić za pomocą [usługi Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), która korzysta z technologii [Windows BitLocker i systemu](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) do ochrony zarówno dysków systemu operacyjnego, jak i dysków danych z pełnym szyfrowaniem woluminów.
+Maszyny wirtualne z systemem Windows i Linux można chronić za pomocą [usługi Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md), która korzysta z technologii [Windows BitLocker i systemu](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) do ochrony zarówno dysków systemu operacyjnego, jak i dysków danych z pełnym szyfrowaniem woluminów.
 
 Klucze szyfrowania i wpisy tajne są chronione w [subskrypcji Azure Key Vault](../../key-vault/general/overview.md). Za pomocą usługi Azure Backup można tworzyć kopie zapasowe i przywracać zaszyfrowane maszyny wirtualne (VM) korzystające z konfiguracji klucza szyfrowania kluczy (KEK).
 
@@ -83,13 +83,13 @@ Na koniec można także użyć biblioteki klienta usługi Azure Storage dla jęz
 
 #### <a name="transparent-data-encryption"></a>Niewidoczne szyfrowanie danych
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) jest używany do szyfrowania plików danych programu [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)i [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w czasie rzeczywistym przy użyciu klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) jest używany do szyfrowania plików danych programu [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)i [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w czasie rzeczywistym przy użyciu klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania.
 
 TDE chroni pliki danych i dziennika przy użyciu algorytmów szyfrowania AES i Triple Data Encryption Standard (3DES). Szyfrowanie pliku bazy danych odbywa się na poziomie strony. Strony w zaszyfrowanej bazie danych są szyfrowane przed zapisaniem ich na dysku i są odszyfrowywane, gdy są one odczytywane w pamięci. Funkcja TDE jest teraz domyślnie włączona w nowo utworzonych bazach danych SQL platformy Azure.
 
 #### <a name="always-encrypted-feature"></a>Funkcja Always Encrypted
 
-Funkcja [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) w usłudze Azure SQL umożliwia szyfrowanie danych w aplikacjach klienckich przed ich przechowywaniem w Azure SQL Database. Można także włączyć delegowanie lokalnego administrowania bazą danych do stron trzecich i zachować rozdzielenie między tymi, które są właścicielami i mogą wyświetlać dane oraz tymi, które zarządzają nimi, ale nie powinni mieć do nich dostępu.
+Funkcja [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) w usłudze Azure SQL umożliwia szyfrowanie danych w aplikacjach klienckich przed ich przechowywaniem w Azure SQL Database. Można także włączyć delegowanie lokalnego administrowania bazą danych do stron trzecich i zachować rozdzielenie między tymi, które są właścicielami i mogą wyświetlać dane oraz tymi, które zarządzają nimi, ale nie powinni mieć do nich dostępu.
 
 #### <a name="cell-level-or-column-level-encryption"></a>Szyfrowanie na poziomie komórki lub na poziomie kolumny
 
@@ -125,9 +125,9 @@ Firma Microsoft zapewnia klientom możliwość korzystania z protokołu [Transpo
 
 W przypadku korzystania z usługi Azure Storage za pośrednictwem Azure Portal wszystkie transakcje odbywają się za pośrednictwem protokołu HTTPS. Możesz również użyć interfejsu API REST usługi Storage za pośrednictwem protokołu HTTPS, aby współdziałać z usługą Azure Storage. Można wymusić użycie protokołu HTTPS podczas wywoływania interfejsów API REST w celu uzyskania dostępu do obiektów w kontach magazynu, włączając bezpieczny transfer wymagany dla konta magazynu.
 
-Sygnatury dostępu współdzielonego ([SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)), które mogą służyć do delegowania dostępu do obiektów usługi Azure Storage, obejmują opcję określającą, że podczas korzystania z sygnatur dostępu współdzielonego można używać tylko protokołu HTTPS. Takie podejście zapewnia, że każdy, który wysyła linki z tokenami SAS, używa odpowiedniego protokołu.
+Sygnatury dostępu współdzielonego ([SAS](../../storage/common/storage-sas-overview.md)), które mogą służyć do delegowania dostępu do obiektów usługi Azure Storage, obejmują opcję określającą, że podczas korzystania z sygnatur dostępu współdzielonego można używać tylko protokołu HTTPS. Takie podejście zapewnia, że każdy, który wysyła linki z tokenami SAS, używa odpowiedniego protokołu.
 
-Protokół [SMB 3,0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption), który służy do uzyskiwania dostępu do Azure Files udziałów, obsługuje szyfrowanie i jest dostępny w systemie windows Server 2012 R2, Windows 8, Windows 8.1 i Windows 10. Umożliwia dostęp między regionami, a nawet dostęp na pulpicie.
+Protokół [SMB 3,0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption), który służy do uzyskiwania dostępu do Azure Files udziałów, obsługuje szyfrowanie i jest dostępny w systemie windows Server 2012 R2, Windows 8, Windows 8.1 i Windows 10. Umożliwia dostęp między regionami, a nawet dostęp na pulpicie.
 
 Szyfrowanie po stronie klienta szyfruje dane przed wysłaniem ich do wystąpienia usługi Azure Storage, dzięki czemu jest zaszyfrowana w sieci.
 
@@ -143,7 +143,7 @@ Dane przesyłane do, z i między maszynami wirtualnymi z systemem Windows, mogą
 
 ### <a name="rdp-sessions"></a>Sesje protokołu RDP
 
-Można nawiązać połączenie z maszyną wirtualną i zalogować się do niej przy użyciu [Remote Desktop Protocol (RDP)](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) z komputera klienckiego z systemem Windows lub z komputerów Mac z zainstalowanym klientem RDP. Dane przesyłane przez sieć w ramach sesji protokołu RDP mogą być chronione przy użyciu protokołu TLS.
+Można nawiązać połączenie z maszyną wirtualną i zalogować się do niej przy użyciu [Remote Desktop Protocol (RDP)](/windows/win32/termserv/remote-desktop-protocol) z komputera klienckiego z systemem Windows lub z komputerów Mac z zainstalowanym klientem RDP. Dane przesyłane przez sieć w ramach sesji protokołu RDP mogą być chronione przy użyciu protokołu TLS.
 
 Możesz również użyć Pulpit zdalny, aby nawiązać połączenie z maszyną wirtualną z systemem Linux na platformie Azure.
 
@@ -163,7 +163,7 @@ Sieci VPN typu lokacja-lokacja używają [protokołu IPSec](https://en.wikipedia
 
 ### <a name="point-to-site-vpns"></a>Sieci VPN typu punkt-lokacja
 
-Sieci VPN typu punkt-lokacja umożliwiają indywidualnym komputerom klienckim dostęp do sieci wirtualnej platformy Azure. [Protokół SSTP (Secure Socket Tunneling Protocol)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) służy do tworzenia tunelu sieci VPN. Może przechodzić przez zapory (tunel jest wyświetlany jako połączenie HTTPS). Do połączeń punkt-lokacja można użyć własnego głównego urzędu certyfikacji infrastruktury kluczy publicznych (PKI).
+Sieci VPN typu punkt-lokacja umożliwiają indywidualnym komputerom klienckim dostęp do sieci wirtualnej platformy Azure. [Protokół SSTP (Secure Socket Tunneling Protocol)](/previous-versions/technet-magazine/cc162322(v=msdn.10)) służy do tworzenia tunelu sieci VPN. Może przechodzić przez zapory (tunel jest wyświetlany jako połączenie HTTPS). Do połączeń punkt-lokacja można użyć własnego głównego urzędu certyfikacji infrastruktury kluczy publicznych (PKI).
 
 Można skonfigurować połączenie sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu Azure Portal z uwierzytelnianiem certyfikatu lub programem PowerShell.
 
@@ -201,9 +201,9 @@ Usługa Key Vault pozwala organizacjom zrezygnować z konfigurowania, poprawiani
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd zabezpieczeń platformy Azure](get-started-overview.md)
+- [Przegląd zabezpieczeń platformy Azure](./overview.md)
 - [Omówienie zabezpieczeń sieci platformy Azure](network-overview.md)
-- [Omówienie zabezpieczeń usługi Azure Database](database-security-overview.md)
+- [Omówienie zabezpieczeń usługi Azure Database](../../azure-sql/database/security-overview.md)
 - [Omówienie zabezpieczeń usługi Azure Virtual Machines](virtual-machines-overview.md)
 - [Szyfrowanie danych w spoczynku](encryption-atrest.md)
 - [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych](data-encryption-best-practices.md)

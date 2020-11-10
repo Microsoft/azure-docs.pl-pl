@@ -3,12 +3,12 @@ title: Skalowanie klastra Service Fabric lub wychodzącego
 description: Skalowanie klastra Service Fabric w celu dopasowania do zapotrzebowania przez ustawienie reguł automatycznego skalowania dla każdego typu węzła/zestawu skalowania maszyn wirtualnych. Dodawanie lub usuwanie węzłów do klastra Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246490"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409964"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Skalowanie klastra w poziomie lub w pionie
 
@@ -54,7 +54,6 @@ Postępuj zgodnie [z tymi instrukcjami, aby skonfigurować automatyczne skalowan
 > [!NOTE]
 > W scenariuszu w skali, chyba że typ węzła ma [poziom trwałości][durability] Gold lub Silver, należy wywołać [polecenie cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) z odpowiednią nazwą węzła. W przypadku trwałości Bronze nie zaleca się skalowania w więcej niż jednym węźle jednocześnie.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Ręcznie Dodaj maszyny wirtualne do typu węzła/zestawu skalowania maszyn wirtualnych
 
@@ -97,6 +96,9 @@ W przypadku usługi stanowej potrzebna jest pewna liczba węzłów, aby zawsze z
 ### <a name="remove-the-service-fabric-node"></a>Usuwanie węzła usługi Service Fabric
 
 Procedura ręcznego usuwania stanu węzła ma zastosowanie tylko do typów węzłów z warstwą trwałości *Bronze* .  W przypadku warstwy trwałości *Silver* i *Gold* te kroki są wykonywane automatycznie przez platformę. Aby uzyskać więcej informacji o trwałości, zobacz [Planowanie pojemności klastra usługi Service Fabric][durability].
+
+>[!NOTE]
+> Należy zachować minimalną liczbę pięciu węzłów dla dowolnego zestawu skalowania maszyn wirtualnych z włączonym poziomem trwałości Gold lub Silver. W przypadku skalowania poniżej tego progu klaster przejdzie w stan błędu i konieczne będzie ręczne oczyszczenie usuniętych węzłów.
 
 Aby zachować równe rozłożenie węzłów klastra w domenach uaktualniania i błędów, a tym samym umożliwić ich równomierne wykorzystywanie, najpierw należy usunąć ostatnio utworzony węzeł. Innymi słowy węzły należy usuwać w kolejności odwrotnej niż były tworzone. Ostatnio utworzony węzeł to ten, który ma największą wartość właściwości `virtual machine scale set InstanceId`. Poniższe przykłady kodu zwracają ostatnio utworzony węzeł.
 
@@ -239,6 +241,9 @@ Aby mieć pewność, że węzeł zostanie usunięty po usunięciu maszyny wirtua
 
 1. Wybierz poziom trwałości Gold lub Silver dla typów węzłów w klastrze, który zapewnia integrację infrastruktury. Po skalowaniu w poziomie program automatycznie usunie węzły z naszego stanu usług systemowych (FM).
 Szczegóły dotyczące [poziomów trwałości](service-fabric-cluster-capacity.md) można znaleźć tutaj.
+
+> [!NOTE]
+> Należy zachować minimalną liczbę pięciu węzłów dla dowolnego zestawu skalowania maszyn wirtualnych z włączonym poziomem trwałości Gold lub Silver. W przypadku skalowania poniżej tego progu klaster przejdzie w stan błędu i konieczne będzie ręczne oczyszczenie usuniętych węzłów.
 
 2. Po skalowaniu wystąpienia maszyny wirtualnej w programie należy wywołać [polecenie cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 

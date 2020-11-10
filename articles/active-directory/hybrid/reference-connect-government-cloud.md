@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219893859d05eb419bc862484a9083abf8c26db7
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276188"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409301"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
 
@@ -36,7 +36,7 @@ Poniższe informacje opisują implementację uwierzytelniania przekazywanego i c
 Przed wdrożeniem agenta uwierzytelniania przekazywanego Sprawdź, czy istnieje Zapora między serwerami i usługą Azure AD. Jeśli zapora lub serwer proxy zezwala na dostęp do systemu nazw domen (DNS) blokowanych lub bezpiecznych dla programów, Dodaj następujące połączenia.
 
 > [!NOTE]
-> Poniższe wskazówki dotyczą także instalowania [łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](https://aka.ms/whyappproxy) dla środowisk Azure Government.
+> Poniższe wskazówki dotyczą także instalowania [łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/what-is-application-proxy.md) dla środowisk Azure Government.
 
 |Adres URL |Zastosowanie|
 |-----|-----|

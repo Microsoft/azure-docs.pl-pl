@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322125"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408944"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Kontrola zabezpieczeń v2: kopia zapasowa i odzyskiwanie
 
@@ -32,13 +32,13 @@ Aby zapewnić wyższy poziom ochrony, można włączyć opcję magazynu geografi
 
 - [Ciągłość działalności biznesowej i odzyskiwanie po awarii w skali przedsiębiorstwa](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-- [Jak włączyć Azure Backup](/azure/backup/)
+- [Jak włączyć Azure Backup](../../backup/index.yml)
 
-- [Jak włączyć przywracanie między regionami](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore)
+- [Jak włączyć przywracanie między regionami](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zasady i standardy](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -60,17 +60,17 @@ W przypadku lokalnych kopii zapasowych przy użyciu Azure Backup szyfrowanie jes
 
 Użyj kontroli dostępu opartej na rolach w Azure Backup, Azure Key Vault lub innych zasobów, aby chronić kopie zapasowe i klucze zarządzane przez klienta. Dodatkowo można włączyć zaawansowane funkcje zabezpieczeń, aby wymagać uwierzytelniania wieloskładnikowego, zanim będzie można zmienić lub usunąć kopie zapasowe.
 
-- [Omówienie funkcji zabezpieczeń w programie Azure Backup](/azure/backup/security-overview)
+- [Omówienie funkcji zabezpieczeń w programie Azure Backup](../../backup/security-overview.md)
 
-- [Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta](/azure/backup/encryption-at-rest-with-cmk) 
+- [Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Jak utworzyć kopię zapasową kluczy Key Vault na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak utworzyć kopię zapasową kluczy Key Vault na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-- [Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe przed atakami](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe przed atakami](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -86,13 +86,13 @@ Użyj kontroli dostępu opartej na rolach w Azure Backup, Azure Key Vault lub in
 
 Okresowe wykonywanie przywracania danych kopii zapasowej. Upewnij się, że można przywrócić kopie zapasowe kluczy zarządzanych przez klienta.
 
-- [Jak odzyskać pliki z kopii zapasowej maszyny wirtualnej platformy Azure](/azure/backup/backup-azure-restore-files-from-vm)
+- [Jak odzyskać pliki z kopii zapasowej maszyny wirtualnej platformy Azure](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Jak przywrócić klucze Key Vault na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak przywrócić klucze Key Vault na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -106,15 +106,14 @@ Okresowe wykonywanie przywracania danych kopii zapasowej. Upewnij się, że moż
 
 Upewnij się, że masz środki, aby zapobiec utracie kluczy i je odzyskać. Włącz trwałe usuwanie i przeczyszczanie ochrony w Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.  
 
-- [Jak włączyć funkcję usuwania nietrwałego i przeczyszczania w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Jak włączyć funkcję usuwania nietrwałego i przeczyszczania w programie Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Bezpieczeństwo danych](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

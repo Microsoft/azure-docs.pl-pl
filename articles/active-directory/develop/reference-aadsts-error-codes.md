@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241331"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410933"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -74,7 +74,7 @@ Oto przykładowa odpowiedź na błąd:
 ## <a name="lookup-current-error-code-information"></a>Wyszukaj bieżące informacje o kodzie błędu
 Kody błędów i komunikaty mogą ulec zmianie.  Aby uzyskać najbardziej aktualne informacje, zapoznaj się ze [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) stroną, aby znaleźć AADSTS opisów błędów, poprawek i sugerowanych rozwiązań.  
 
-Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wystąpił kod błędu "AADSTS16000", wykonaj wyszukiwanie w [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "16000".  Możesz również połączyć się bezpośrednio z określonym błędem, dodając numer kodu błędu do adresu URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
+Na przykład jeśli wystąpił kod błędu "AADSTS50058", wykonaj wyszukiwanie w [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "50058".  Możesz również połączyć się bezpośrednio z określonym błędem, dodając numer kodu błędu do adresu URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058) .
 
 ## <a name="aadsts-error-codes"></a>Kody błędów AADSTS
 

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0671e41703ecc4b8580c8439eec5bac954b4dbe0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368835"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411205"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Samouczek: Tworzenie połączenia sieci VPN użytkownika przy użyciu wirtualnej sieci WAN platformy Azure
 
@@ -25,7 +25,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie konfiguracji P2S
 > * Tworzenie koncentratora wirtualnego
 > * Określ serwery DNS
-> * Generowanie i instalowanie pakietu konfiguracyjnego profilu klienta sieci VPN
+> * Generuj pakiet konfiguracyjny profilu klienta sieci VPN
+> * Konfigurowanie klientów sieci VPN
 > * Wyświetlanie wirtualnej sieci WAN
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
@@ -54,15 +55,16 @@ To ustawienie można skonfigurować podczas tworzenia centrum lub w późniejszy
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="niestandardowy serwer DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
-## <a name="generate-and-install-client-profile-package"></a><a name="download"></a>Generowanie i instalowanie pakietu profilu klienta
+## <a name="generate-vpn-client-profile-package"></a><a name="download"></a>Generuj pakiet profilu klienta VPN
 
-Wygeneruj pakiet profilu klienta sieci VPN, aby skonfigurować klientów sieci VPN.
+Wygeneruj i Pobierz pakiet profilu klienta sieci VPN, aby skonfigurować klientów sieci VPN.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
-### <a name="configure-vpn-clients"></a>Konfigurowanie klientów sieci VPN
+## <a name="configure-vpn-clients"></a><a name="configure-client"></a>Konfigurowanie klientów sieci VPN
 
-Użyj pobranego profilu, aby skonfigurować klientów sieci VPN dostępu zdalnego. Procedura dla każdego systemu operacyjnego jest inna. Postępuj zgodnie z instrukcjami odnoszącymi się do systemu.
+Użyj pobranego pakietu profilu, aby skonfigurować klientów sieci VPN dostępu zdalnego. Procedura dla każdego systemu operacyjnego jest inna. Postępuj zgodnie z instrukcjami odnoszącymi się do systemu.
+Po zakończeniu konfigurowania klienta można nawiązać połączenie.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 
@@ -72,7 +74,7 @@ Użyj pobranego profilu, aby skonfigurować klientów sieci VPN dostępu zdalneg
 1. Na stronie **Przegląd** każdy punkt na mapie reprezentuje centrum.
 1. W sekcji **centra i połączenia** można wyświetlić stan centrum, lokację, region, stan połączenia sieci VPN oraz liczbę bajtów do i wychodzące.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
 

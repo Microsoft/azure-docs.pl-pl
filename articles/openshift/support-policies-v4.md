@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049965"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408417"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Zasady pomocy technicznej usługi Azure Red Hat OpenShift
 
@@ -30,6 +30,7 @@ Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć w
 * Wszystkie maszyny wirtualne klastra muszą mieć bezpośredni dostęp do Internetu, co najmniej do punktów końcowych Azure Resource Manager (ARM) i rejestrowania usług (Genewa).  Nie jest obsługiwany żaden formularz proxy protokołu HTTPS.
 * Nie należy modyfikować konfiguracji DNS sieci wirtualnej klastra. Należy użyć domyślnego programu rozpoznawania Azure DNS.
 * Nie Przesłoń żadnego z obiektów MachineConfig klastra (na przykład konfiguracja kubelet) w jakikolwiek sposób.
+* Nie ustawiaj żadnych opcji unsupportedConfigOverrides. Ustawienie tych opcji uniemożliwia uaktualnienia wersji pomocniczej.
 * Usługa Azure Red Hat OpenShift uzyskuje dostęp do klastra za pośrednictwem usługi linku prywatnego.  Nie usuwaj ani nie Modyfikuj dostępu do usługi.
 * Węzły obliczeniowe inne niż RHCOS nie są obsługiwane. Na przykład nie można użyć węzła obliczeniowego RHEL.
 

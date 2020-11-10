@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba7391b3b524f7532101083a444aab6059e8a10
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326392"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408759"
 ---
 # <a name="security-control-v2-incident-response"></a>Kontrola zabezpieczeń v2: odpowiedź na zdarzenie
 
@@ -26,13 +26,13 @@ Reagowanie na zdarzenia obejmuje kontrolę w cyklu życia odpowiedzi na zdarzeni
 
 Upewnij się, że organizacja ma procesy reagowania na zdarzenia związane z bezpieczeństwem, Zaktualizowano te procesy na platformie Azure i regularnie wykonuje je w celu zapewnienia gotowości.
 
-- [Implementowanie zabezpieczeń w środowisku przedsiębiorstwa](https://aka.ms/AzSec4)
+- [Implementowanie zabezpieczeń w środowisku przedsiębiorstwa](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Przewodnik odwołuje się do odpowiedzi na zdarzenia](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -50,9 +50,9 @@ Skonfiguruj informacje kontaktowe dotyczące zdarzenia zabezpieczeń w Azure Sec
 
 - [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../../security-center/security-center-provide-security-contact-details.md)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -76,9 +76,9 @@ Eksportuj alerty i zalecenia dotyczące Azure Security Center przy użyciu funkc
 
 - [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](../../sentinel/connect-azure-security-center.md)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -116,9 +116,9 @@ Platforma Azure — wskaźnik przedstawia szeroką analizę danych w praktycznie
 
 - [Zbadaj zdarzenia za pomocą platformy Azure — wskaźnik](../../sentinel/tutorial-investigate-cases.md)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -140,11 +140,11 @@ Ponadto należy oznaczyć zasoby przy użyciu tagów i utworzyć system nazewnic
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../../security-center/security-center-alerts-overview.md)
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../../azure-resource-manager/management/tag-resources.md)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -166,13 +166,12 @@ Automatyzuj ręczne powtarzające się zadania w celu przyspieszenia czasu reakc
 
 - [Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność** : klient
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Analiza zagrożeń](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
-

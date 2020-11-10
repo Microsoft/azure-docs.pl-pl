@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402fc1b0b436e7e2061cb2e1a922a75c82ac5235
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87925808"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408060"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Najlepsze rozwiązania dotyczące zabezpieczania aplikacji PaaS Web i Mobile przy użyciu usługi Azure Storage
 W tym artykule omówiono zbiór najlepszych rozwiązań z zakresu bezpieczeństwa usługi Azure Storage na potrzeby zabezpieczania aplikacji internetowych i mobilnych platformy jako usługi (PaaS). Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z platformą Azure i klientami.
 
 Platforma Azure umożliwia wdrażanie i Używanie magazynu w sposób niełatwo osiągalny w środowisku lokalnym. Usługa Azure Storage pozwala uzyskać wysoką skalowalność i dostępność przy stosunkowo małym wysiłku. Usługa Azure Storage jest nietylko podstawą dla systemu Windows i Linux Azure Virtual Machines, ale może również obsługiwać duże aplikacje rozproszone.
 
-Usługa Azure Storage udostępnia następujące cztery usługi: BLOB Storage, Table Storage, queue storage i File Storage. Aby dowiedzieć się więcej, zobacz [wprowadzenie do Microsoft Azure Storage](/azure/storage/common/storage-introduction).
+Usługa Azure Storage udostępnia następujące cztery usługi: BLOB Storage, Table Storage, queue storage i File Storage. Aby dowiedzieć się więcej, zobacz [wprowadzenie do Microsoft Azure Storage](../../storage/common/storage-introduction.md).
 
-[Przewodnik po zabezpieczeniach usługi Azure Storage](/azure/storage/common/storage-security-guide) to doskonałe źródło dla szczegółowych informacji o usłudze Azure Storage i zabezpieczeniach. W artykule dotyczącym najlepszych rozwiązań znajdują się na wysokim poziomie niektóre koncepcje dotyczące zabezpieczeń oraz linki do przewodnika zabezpieczeń, a także inne źródła, aby uzyskać więcej informacji.
+[Przewodnik po zabezpieczeniach usługi Azure Storage](../../storage/blobs/security-recommendations.md) to doskonałe źródło dla szczegółowych informacji o usłudze Azure Storage i zabezpieczeniach. W artykule dotyczącym najlepszych rozwiązań znajdują się na wysokim poziomie niektóre koncepcje dotyczące zabezpieczeń oraz linki do przewodnika zabezpieczeń, a także inne źródła, aby uzyskać więcej informacji.
 
 W tym artykule opisano następujące najlepsze rozwiązania:
 
@@ -53,10 +53,10 @@ Nadal potrzebny jest sposób zapewnienia dostępu do obiektów w magazynie. Aby 
 
 Sygnatura dostępu współdzielonego umożliwia udostępnianie zawartości w taki sposób, w jaki chcesz udostępnić ją bez podawania kluczy konta magazynu. Zawsze używanie sygnatury dostępu współdzielonego w aplikacji jest bezpiecznym sposobem udostępniania zasobów magazynu bez naruszania kluczy konta magazynu.
 
-Aby dowiedzieć się więcej na temat sygnatury dostępu współdzielonego, zobacz [Używanie sygnatur dostępu współdzielonego](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
+Aby dowiedzieć się więcej na temat sygnatury dostępu współdzielonego, zobacz [Używanie sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md). 
 
 ## <a name="use-role-based-access-control"></a>Korzystanie z kontroli dostępu opartej na rolach
-Innym sposobem zarządzania dostępem jest użycie [kontroli dostępu opartej na rolach (Azure RBAC)](/azure/role-based-access-control/overview). Dzięki RBAC można skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień w oparciu o konieczność znajomości i najniższych zasad zabezpieczeń. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. Kontrola RBAC pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem na platformie Azure. Jest to konieczne w przypadku organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych.
+Innym sposobem zarządzania dostępem jest użycie [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md). Dzięki RBAC można skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień w oparciu o konieczność znajomości i najniższych zasad zabezpieczeń. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. Kontrola RBAC pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem na platformie Azure. Jest to konieczne w przypadku organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych.
 
 Do przypisywania uprawnień użytkownikom można używać wbudowanych ról platformy Azure na platformie Azure. Na przykład współautor konta magazynu dla operatorów chmury, które muszą zarządzać kontami magazynu i rolą współautor klasycznego konta magazynu, aby zarządzać kontami klasycznego magazynu. W przypadku operatorów chmury, które muszą zarządzać maszynami wirtualnymi, ale nie z siecią wirtualną lub kontem magazynu, z którym są połączone, można je dodać do roli współautor maszyny wirtualnej.
 
@@ -64,19 +64,19 @@ Organizacje, które nie wymuszają kontroli dostępu do danych za pomocą funkcj
 
 Aby dowiedzieć się więcej na temat RBAC, zobacz:
 
-- [Manage access using RBAC and the Azure portal (Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal)](/azure/role-based-access-control/role-assignments-portal)
-- [Role wbudowane platformy Azure](/azure/role-based-access-control/built-in-roles)
-- [Azure Storage security guide](/azure/storage/common/storage-security-guide) (Przewodnik po zabezpieczeniach usługi Azure Storage) 
+- [Manage access using RBAC and the Azure portal (Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal)](../../role-based-access-control/role-assignments-portal.md)
+- [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)
+- [Azure Storage security guide](../../storage/blobs/security-recommendations.md) (Przewodnik po zabezpieczeniach usługi Azure Storage) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Korzystanie z szyfrowania po stronie klienta dla danych o wysokiej wartości
 Szyfrowanie po stronie klienta umożliwia programowe szyfrowanie danych podczas przesyłania przed przekazaniem ich do usługi Azure Storage oraz programowo odszyfrowywanie danych podczas ich pobierania. Zapewnia to szyfrowanie danych w trakcie przesyłania, ale również zapewnia szyfrowanie danych przechowywanych w spoczynku. Szyfrowanie po stronie klienta to najbezpieczniejsza Metoda szyfrowania danych, ale wymaga to wprowadzenia programistycznych zmian w aplikacji oraz umieszczenia procesów zarządzania kluczami.
 
-Szyfrowanie po stronie klienta umożliwia również kontrolę nad kluczami szyfrowania. Można generować własne klucze szyfrowania i zarządzać nimi. Wykorzystuje technikę koperty, w której Biblioteka klienta usługi Azure Storage generuje klucz szyfrowania zawartości (CEK), który jest następnie opakowany (zaszyfrowany) przy użyciu klucza szyfrowania klucza (KEK). KEK jest identyfikowany przez identyfikator klucza i może być parę kluczy asymetrycznych lub kluczem symetrycznym i może być zarządzany lokalnie lub przechowywany w [Azure Key Vault](/azure/key-vault/key-vault-overview).
+Szyfrowanie po stronie klienta umożliwia również kontrolę nad kluczami szyfrowania. Można generować własne klucze szyfrowania i zarządzać nimi. Wykorzystuje technikę koperty, w której Biblioteka klienta usługi Azure Storage generuje klucz szyfrowania zawartości (CEK), który jest następnie opakowany (zaszyfrowany) przy użyciu klucza szyfrowania klucza (KEK). KEK jest identyfikowany przez identyfikator klucza i może być parę kluczy asymetrycznych lub kluczem symetrycznym i może być zarządzany lokalnie lub przechowywany w [Azure Key Vault](../../key-vault/general/overview.md).
 
-Szyfrowanie po stronie klienta jest wbudowane w środowisko Java i biblioteki klienckie programu .NET Storage. Zapoznaj się z tematem [szyfrowanie po stronie klienta i Azure Key Vault dla Microsoft Azure Storage](/azure/storage/common/storage-client-side-encryption) , aby uzyskać informacje dotyczące szyfrowania danych w aplikacjach klienckich oraz generowania własnych kluczy szyfrowania i zarządzania nimi.
+Szyfrowanie po stronie klienta jest wbudowane w środowisko Java i biblioteki klienckie programu .NET Storage. Zapoznaj się z tematem [szyfrowanie po stronie klienta i Azure Key Vault dla Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md) , aby uzyskać informacje dotyczące szyfrowania danych w aplikacjach klienckich oraz generowania własnych kluczy szyfrowania i zarządzania nimi.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Włącz szyfrowanie usługi Storage dla danych przechowywanych w spoczynku
-Po włączeniu [szyfrowanie usługi Storage](/azure/storage/common/storage-service-encryption) dla usługi File Storage dane są szyfrowane automatycznie przy użyciu szyfrowania AES-256. Firma Microsoft obsługuje wszystkie szyfrowanie, odszyfrowywanie i zarządzanie kluczami. Ta funkcja jest dostępna dla typów nadmiarowości LRS i GRS.
+Po włączeniu [szyfrowanie usługi Storage](../../storage/common/storage-service-encryption.md) dla usługi File Storage dane są szyfrowane automatycznie przy użyciu szyfrowania AES-256. Firma Microsoft obsługuje wszystkie szyfrowanie, odszyfrowywanie i zarządzanie kluczami. Ta funkcja jest dostępna dla typów nadmiarowości LRS i GRS.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314321"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408926"
 ---
 # <a name="security-control-v2-data-protection"></a>Kontrola zabezpieczeń v2: Ochrona danych
 
@@ -32,11 +32,11 @@ Możesz użyć usługi Azure SQL Information Protection, aby pomóc w klasyfikac
 
 - [Otaguj informacje poufne przy użyciu Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [Jak wdrożyć usługę Azure SQL Data Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Jak wdrożyć usługę Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność** : udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -60,9 +60,9 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 - [Zrozumienie ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność** : udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -86,11 +86,11 @@ Jeśli jest to wymagane do zapewnienia zgodności ochrony przed utratą danych (
 
 - [Włączanie usługi Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Włączanie usługi Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Włączanie usługi Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność** : udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ Domyślnie platforma Azure zapewnia szyfrowanie danych przesyłanych między cen
 
 - [Podwójne szyfrowanie danych na platformie Azure podczas przesyłania](../fundamentals/double-encryption.md#data-in-transit)
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność** : udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -140,15 +140,15 @@ Platforma Azure zapewnia szyfrowanie danych przechowywanych domyślnie. W przypa
 
 - [Informacje o szyfrowaniu na platformie Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [Jak skonfigurować klucze szyfrowania zarządzane przez klienta](../../storage/common/storage-encryption-keys-portal.md)
+- [Jak skonfigurować klucze szyfrowania zarządzane przez klienta](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Model szyfrowania i tabela zarządzania kluczami](../fundamentals/encryption-models.md)
 
 - [Szyfrowanie danych przy podwójnej obspoczynku na platformie Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność** : udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -157,4 +157,3 @@ Platforma Azure zapewnia szyfrowanie danych przechowywanych domyślnie. W przypa
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Bezpieczeństwo danych](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

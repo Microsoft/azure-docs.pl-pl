@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87b9e4a3ca7151b3666928b00add175eddeea050
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82127776"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409386"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Wybierz domenę dla projektu Custom Vision
 
@@ -23,7 +23,7 @@ W bloku ustawienia dla projektu Custom Vision możesz wybrać domenę dla projek
 
 ## <a name="image-classification"></a>Klasyfikacja obrazów
 
-|Obszar|Przeznaczenie|
+|Domena|Przeznaczenie|
 |---|---|
 |__Ogólny__| Optymalizacja pod kątem szerokiego zakresu zadań klasyfikacji obrazów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę generyczną.|
 |__Żywności__|Optymalizacja pod kątem zdjęć naczyń w postaci widocznej w menu restauracji. Jeśli chcesz sklasyfikować fotografie poszczególnych owoców lub warzyw, użyj domeny żywności.|
@@ -33,7 +33,7 @@ W bloku ustawienia dla projektu Custom Vision możesz wybrać domenę dla projek
 
 ## <a name="object-detection"></a>Wykrywanie obiektów
 
-|Obszar|Przeznaczenie|
+|Domena|Przeznaczenie|
 |---|---|
 |__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań wykrywania obiektów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę generyczną.|
 |__Logo__|Optymalizacja pod kątem znajdowania logo marki w obrazach.|
@@ -42,27 +42,15 @@ W bloku ustawienia dla projektu Custom Vision możesz wybrać domenę dla projek
 
 ## <a name="compact-domains"></a>Domeny kompaktowe
 
-Modele generowane przez domeny kompaktowe mogą być eksportowane do lokalnego uruchamiania. Wydajność modelu różni się w zależności od wybranej domeny. W poniższej tabeli zgłaszamy rozmiar modelu i czas wnioskowania w procesorach Intel Desktop CPU i NVidia GPU \[ 1 \] . 
+Modele generowane przez domeny kompaktowe mogą być eksportowane do lokalnego uruchamiania. W interfejsie API publicznej wersji zapoznawczej Custom Vision 3,4 można uzyskać listę platform przeznaczonych do eksportu dla domen kompaktowych, wywołując interfejs API getdomen.
 
-> [!NOTE]
-> Te numery nie obejmują przetwarzania wstępnego i czasu dostosujesz.
+Wydajność modelu różni się w zależności od wybranej domeny. W poniższej tabeli zgłaszamy rozmiar modelu i czas wnioskowania w procesorach Intel Desktop CPU i NVidia GPU \[ 1 \] . Te numery nie obejmują przetwarzania wstępnego i czasu dostosujesz.
 
-|Zadanie|Obszar|Rozmiar modelu|Czas wnioskowania procesora CPU|Czas wnioskowania procesora GPU|
+|Zadanie|Domena|Rozmiar modelu|Czas wnioskowania procesora CPU|Czas wnioskowania procesora GPU|
 |---|---|---|---|---|
 |Klasyfikacja|General (compact) (Ogólne (kompaktowe))|5 MB|13 MS|5 ms|
 |Wykrywanie obiektów|General (compact) (Ogólne (kompaktowe))|45 MB|35 MS|5 ms|
 |Wykrywanie obiektów|Ogólne (kompaktowe) [S1]|14 MB|27 MS|7 MS|
-
-## <a name="vaidk-vision-ai-dev-kit"></a>VAIDK (Vision Kit
-
-W przypadku wybrania domeny kompaktowej dostępna jest dodatkowa opcja "możliwości eksportu" umożliwiająca rozróżnienie między elementami "podstawowe platformy" i "wizja".
-
-W obszarze _możliwości eksportu_ są dostępne dwie opcje:
-
-- Platformy podstawowe (Tensorflow, CoreML, ONNX itp.)
-- Vision Kit.
-
-W przypadku wybrania _zestawu AI_ , _terenu_i _sprzedaży detalicznej_ , ale nie _domen kompaktowych_ w postaci kompaktowej, są dostępne dla klasyfikacji _obrazów, podczas_gdy zarówno _Ogólne (kompaktowe)_ , jak i _Ogólne (kompaktowe) [S1]_ są dostępne do wykrywania obiektów.
 
 >[!NOTE]
 >__Ogólna (kompaktowa)__ domena do wykrywania obiektów wymaga specjalnej logiki dostosujesz. Aby uzyskać szczegółowe informacje, zobacz przykładowy skrypt w wyeksportowanym pakiecie zip. Jeśli potrzebujesz modelu bez logiki dostosujesz, użyj __ogólnego (kompaktowego) [S1]__.

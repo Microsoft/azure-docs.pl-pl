@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322061"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410559"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Tworzenie stanowych lub bezstanowych przepływów pracy w programie Visual Studio Code za pomocą rozszerzenia usługi Azure Logic Apps (wersja zapoznawcza)
 
@@ -110,8 +110,6 @@ W przypadku tej publicznej wersji zapoznawczej te funkcje nie są dostępne lub 
 
 * Nowy typ zasobu **aplikacji logiki (wersja zapoznawcza)** można wdrożyć tylko [w planie usług w warstwie Premium lub App Service na platformie Azure](#publish-azure) lub w [kontenerze platformy Docker](#deploy-docker), a nie w [środowiskach usługi integracji (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Plany hostingu **zużycia** nie są obsługiwane ani nie są dostępne do wdrożenia tego typu zasobu.
 
-* W Azure Portal nie można tworzyć nowych aplikacji logiki przy użyciu nowego typu zasobu **aplikacji logiki (wersja zapoznawcza)** . Te aplikacje logiki można tworzyć tylko w Visual Studio Code. Jednak po wdrożeniu aplikacji logiki przy użyciu tego typu zasobu z Visual Studio Code na platformie Azure można [dodać do nich Nowe przepływy pracy](#add-workflows).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="access-and-connectivity"></a>Dostęp i łączność
@@ -135,7 +133,7 @@ W przypadku tej publicznej wersji zapoznawczej te funkcje nie są dostępne lub 
    >
    > ![Zrzut ekranu pokazujący emulator usługi Azure Storage z systemem.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
-### <a name="tools"></a>narzędzia
+### <a name="tools"></a>Narzędzia
 
 * [Visual Studio Code 1.30.1 (styczeń 2019) lub nowszy](https://code.visualstudio.com/), który jest bezpłatny. Ponadto Pobierz i zainstaluj te dodatkowe narzędzia dla Visual Studio Code, jeśli nie są jeszcze:
 
@@ -530,8 +528,8 @@ Aby przetestować aplikację logiki, wykonaj następujące kroki, aby rozpoczą�
    | **Zostało przerwane** | Przebieg został zatrzymany lub nie został zakończony z powodu problemów zewnętrznych, na przykład awarii systemu lub subskrypcji platformy Azure. |
    | **Zerwan** | Uruchomienie zostało wyzwolone i uruchomione, ale Odebrano żądanie anulowania. |
    | **Niepowodzenie** | Co najmniej jedna akcja w przebiegu nie powiodła się. Nie skonfigurowano żadnych kolejnych akcji w przepływie pracy w celu obsłużenia błędu. |
-   | **Uruchomienie** | Uruchomienie zostało wyzwolone i jest w toku, ale ten stan może również pojawić się dla przebiegu, który jest ograniczany ze względu na [limity akcji](logic-apps-limits-and-config.md) lub [bieżący plan cenowy](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Porada** : w przypadku skonfigurowania [rejestrowania diagnostycznego](monitor-logic-apps-log-analytics.md)można uzyskać informacje o wszelkich zdarzeniach związanych z ograniczaniem. |
-   | **Powiodło się** | Przebieg zakończył się pomyślnie. Jeśli jakakolwiek akcja zakończyła się niepowodzeniem, kolejna Akcja w przepływie pracy obsłuży ten błąd. |
+   | **Uruchomiono** | Uruchomienie zostało wyzwolone i jest w toku, ale ten stan może również pojawić się dla przebiegu, który jest ograniczany ze względu na [limity akcji](logic-apps-limits-and-config.md) lub [bieżący plan cenowy](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Porada** : w przypadku skonfigurowania [rejestrowania diagnostycznego](monitor-logic-apps-log-analytics.md)można uzyskać informacje o wszelkich zdarzeniach związanych z ograniczaniem. |
+   | **Powodzenie** | Przebieg zakończył się pomyślnie. Jeśli jakakolwiek akcja zakończyła się niepowodzeniem, kolejna Akcja w przepływie pracy obsłuży ten błąd. |
    | **Przekroczono limit czasu** | Przekroczono limit czasu uruchamiania, ponieważ bieżący czas trwania przekracza limit czasu trwania przebiegu, który jest kontrolowany przez [ustawienie **przechowywania historii uruchamiania w dniach**](logic-apps-limits-and-config.md#run-duration-retention-limits). Czas trwania przebiegu jest obliczany przy użyciu limitu czasu rozpoczęcia i czas trwania uruchomienia w tym czasie. <p><p>**Uwaga** : Jeśli czas trwania przebiegu przekracza *Limit przechowywania bieżącej historii przebiegów* , który jest również kontrolowany przez ustawienie trwa [ **przechowywanie historii uruchamiania w dniach**](logic-apps-limits-and-config.md#run-duration-retention-limits), uruchomienie jest usuwane z historii uruchamiania przez codzienne zadanie oczyszczania. Bez względu na to, czy czas trwania lub zakończeniu przebiegu, okres przechowywania jest zawsze obliczany przy użyciu czasu rozpoczęcia i *bieżącego* limitu przechowywania. W związku z tym, jeśli skracasz limit czasu trwania dla uruchomienia w locie, przekroczenie limitu czasu przebiegu. Jednak przebieg jest wyświetlany lub zostaje usunięty z historii uruchamiania w zależności od tego, czy czas trwania przebiegu przekroczył limit przechowywania. |
    | **Oczekiwanie** | Uruchomienie nie zostało uruchomione lub zostało wstrzymane, na przykład z powodu wcześniejszego wystąpienia przepływu pracy, które nadal działa. |
    |||
@@ -551,9 +549,9 @@ Aby przetestować aplikację logiki, wykonaj następujące kroki, aby rozpoczą�
    | Zostało przerwane | ![Ikona stanu akcji "przerwane"][aborted-icon] | Akcja została zatrzymana lub nie została zakończona z powodu problemów zewnętrznych, na przykład awarii systemu lub subskrypcji platformy Azure. |
    | Anulowano | ![Ikona stanu akcji "anulowana"][cancelled-icon] | Akcja była uruchomiona, ale odebrała żądanie anulowania. |
    | Niepowodzenie | ![Ikona stanu akcji "Niepowodzenie"][failed-icon] | Akcja nie powiodła się. |
-   | Uruchomienie | ![Ikona stanu akcji "uruchomiona"][running-icon] | Akcja jest obecnie uruchomiona. |
+   | Uruchomiono | ![Ikona stanu akcji "uruchomiona"][running-icon] | Akcja jest obecnie uruchomiona. |
    | Pominięto | ![Ikona stanu akcji "pominięto"][skipped-icon] | Akcja została pominięta, ponieważ Poprzednia akcja nie powiodła się. Akcja ma `runAfter` warunek, który wymaga, aby poprzednia akcja została zakończona pomyślnie, zanim będzie można uruchomić bieżącą akcję. |
-   | Sukces | ![Ikona stanu akcji "powodzenie"][succeeded-icon] | Akcja zakończyła się pomyślnie. |
+   | Powodzenie | ![Ikona stanu akcji "powodzenie"][succeeded-icon] | Akcja zakończyła się pomyślnie. |
    | Powodzenie z ponownymi próbami | ![Ikona stanu akcji "powodzenie z ponownymi próbami"][succeeded-with-retries-icon] | Akcja zakończyła się powodzeniem, ale tylko po wykonaniu jednej lub kilku ponownych prób. Aby przejrzeć historię ponownych prób, w widoku szczegółów historii uruchamiania wybierz tę akcję, aby wyświetlić dane wejściowe i wyjściowe. |
    | Przekroczono limit czasu | ![Ikona stanu akcji "Przekroczono limit czasu"][timed-out-icon] | Akcja została zatrzymana z powodu przekroczenia limitu czasu określonego przez ustawienia tej akcji. |
    | Oczekiwanie | ![Ikona stanu akcji "oczekiwanie"][waiting-icon] | Dotyczy akcji elementu webhook, która oczekuje na żądanie przychodzące od wywołującego. |
@@ -774,12 +772,7 @@ W Visual Studio Code można wyświetlić wszystkie wdrożone Aplikacje logiki w 
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Znajdowanie wdrożonych aplikacji logiki i zarządzanie nimi w portalu
 
-W Azure Portal można wyświetlić wszystkie wdrożone Aplikacje logiki, które znajdują się w subskrypcji platformy Azure, niezależnie od tego, czy są one oryginalnym typem zasobu **Logic Apps** czy typu zasobu **aplikacja logiki (wersja zapoznawcza)** . Obecnie każdy typ zasobu jest zorganizowany i zarządzany jako osobne kategorie na platformie Azure.
-
-> [!NOTE]
-> W publicznej wersji zapoznawczej można wyświetlić tylko zasoby wdrożonych **aplikacji logiki (wersja zapoznawcza)** w Azure Portal nie tworzyć nowych zasobów **aplikacji logiki (wersja zapoznawcza)** . Te aplikacje logiki można tworzyć tylko w Visual Studio Code. Można jednak [dodać przepływy pracy](#add-workflows) do wdrożonych aplikacji logiki przy użyciu tego typu zasobu.
-
-Aby znaleźć aplikacje logiki, które mają typ zasobu **aplikacja logiki (wersja zapoznawcza)** , wykonaj następujące kroki:
+W Azure Portal można wyświetlić wszystkie wdrożone Aplikacje logiki, które znajdują się w subskrypcji platformy Azure, niezależnie od tego, czy są one oryginalnym typem zasobu **Logic Apps** czy typu zasobu **aplikacja logiki (wersja zapoznawcza)** . Obecnie każdy typ zasobu jest zorganizowany i zarządzany jako osobne kategorie na platformie Azure. Aby znaleźć aplikacje logiki, które mają typ zasobu **aplikacja logiki (wersja zapoznawcza)** , wykonaj następujące kroki:
 
 1. W polu wyszukiwania Azure Portal wprowadź wartość `logic app preview` . Gdy zostanie wyświetlona lista wyników, w obszarze **usługi** wybierz pozycję **aplikacja logiki (wersja zapoznawcza)**.
 
@@ -876,7 +869,7 @@ Jeśli projekt został już wdrożony na Azure Portal, wykonaj następujące kro
 
 1. W polu **wartość** Wprowadź następującą wartość: `WithStatelessRunHistory`
 
-   Przykład:
+   Na przykład:
 
    ![Zrzut ekranu pokazujący zasób Azure Portal i Logic App (wersja zapoznawcza) z otwartym okienkiem "Konfiguracja" > "nowe ustawienie aplikacji" < "Dodaj/Edytuj ustawienie aplikacji" i "przepływy pracy". {yourWorkflowName}. Opcja "OperationOptions" ma wartość "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 

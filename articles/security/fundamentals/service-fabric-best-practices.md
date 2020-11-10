@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461654"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410016"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Service Fabric
 Wdrażanie aplikacji na platformie Azure jest szybkie, łatwe i ekonomiczne. Przed wdrożeniem aplikacji w chmurze w środowisku produkcyjnym zapoznaj się z naszą listą najważniejszych i zalecanych najlepszych rozwiązań dotyczących implementowania bezpiecznych klastrów w aplikacji.
@@ -132,7 +132,7 @@ Certyfikat musi spełniać następujące wymagania dotyczące certyfikatów SSL/
 -   Nazwa podmiotu certyfikatu musi być zgodna z nazwą domeny używaną w celu uzyskania dostępu do usługi w chmurze.
 
     - Uzyskaj niestandardową nazwę domeny, która ma być używana do uzyskiwania dostępu do usługi w chmurze.
-    - Zażądaj certyfikatu od urzędu certyfikacji z nazwą podmiotu zgodną z niestandardową nazwą domeny usługi. Na przykład jeśli niestandardowa nazwa domeny to __contoso__**. com**, certyfikat z urzędu certyfikacji powinien mieć nazwę podmiotu **. contoso.com** lub __www__**. contoso.com**.
+    - Zażądaj certyfikatu od urzędu certyfikacji z nazwą podmiotu zgodną z niestandardową nazwą domeny usługi. Na przykład jeśli niestandardowa nazwa domeny to __contoso__**. com** , certyfikat z urzędu certyfikacji powinien mieć nazwę podmiotu **. contoso.com** lub __www__**. contoso.com**.
 
     >[!NOTE]
     >Nie można uzyskać certyfikatu SSL/TLS z urzędu certyfikacji dla domeny __cloudapp__**.NET** .
@@ -178,6 +178,6 @@ Usługa Azure Service Fabric obsługuje dwa typy kontroli dostępu dla klientów
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Lista kontrolna zabezpieczeń Service Fabric](service-fabric-checklist.md)
+- [Lista kontrolna zabezpieczeń Service Fabric](../../service-fabric/service-fabric-best-practices-security.md)
 - Skonfiguruj [środowisko deweloperskie](../../service-fabric/service-fabric-get-started.md)Service Fabric.
 - Dowiedz się więcej o [opcjach pomocy technicznej Service Fabric](../../service-fabric/service-fabric-support.md).

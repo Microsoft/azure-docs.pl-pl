@@ -16,23 +16,23 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db5dbef2b57fb89b33ea116d0373184cdade0ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 261ab5d0f039705a2566b7c28ff4c06778bb661a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85356767"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410542"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funkcje usługi synchronizacji programu Azure AD Connect
 
 Funkcja synchronizacji Azure AD Connect ma dwa składniki:
 
-* Składnik lokalny o nazwie **Azure AD Connect Sync**, nazywany także **aparatem synchronizacji**.
+* Składnik lokalny o nazwie **Azure AD Connect Sync** , nazywany także **aparatem synchronizacji**.
 * Usługa, która znajduje się w usłudze Azure AD, znana także jako **usługa synchronizacji Azure AD Connect**
 
 W tym temacie wyjaśniono, jak działa następujące funkcje **usługi synchronizacji Azure AD Connect** oraz jak można je skonfigurować za pomocą programu Windows PowerShell.
 
-Te ustawienia są konfigurowane przez [moduł Azure Active Directory dla środowiska Windows PowerShell](https://aka.ms/aadposh). Pobierz i zainstaluj go niezależnie od Azure AD Connect. Polecenia cmdlet udokumentowane w tym temacie zostały wprowadzone w [wersji 2016 marca (kompilacja 9031,1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Jeśli nie masz poleceń cmdlet opisanych w tym temacie lub nie generują one tego samego wyniku, upewnij się, że uruchamiasz najnowszą wersję.
+Te ustawienia są konfigurowane przez [moduł Azure Active Directory dla środowiska Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)). Pobierz i zainstaluj go niezależnie od Azure AD Connect. Polecenia cmdlet udokumentowane w tym temacie zostały wprowadzone w [wersji 2016 marca (kompilacja 9031,1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Jeśli nie masz poleceń cmdlet opisanych w tym temacie lub nie generują one tego samego wyniku, upewnij się, że uruchamiasz najnowszą wersję.
 
 Aby wyświetlić konfigurację w katalogu usługi Azure AD, uruchom polecenie `Get-MsolDirSyncFeatures` .  
 ![Wynik Get-MsolDirSyncFeatures](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)

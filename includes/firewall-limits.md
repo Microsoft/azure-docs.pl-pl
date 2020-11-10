@@ -1,19 +1,19 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 07/30/2020
+ms.date: 11/06/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 59699d493880034ad1d26a56c63a9ed8401ef371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d479c3087b971aa17cf145e0111890da07381eab
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507336"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386537"
 ---
 | Zasób | Limit |
 | --- | --- |
@@ -25,5 +25,6 @@ ms.locfileid: "87507336"
 |Publiczne adresy IP|250 maksymalnie. Wszystkie publiczne adresy IP mogą być używane w regułach DNAT i wszystkie współtworzą dostęp do dostępnych portów.|
 |Adresy IP w grupach IP|Maksymalnie 100 grup adresów IP na zaporę.<br>Maksymalna 5000 pojedynczych adresów IP lub prefiksów IP dla każdej grupy adresów IP.
 |Tabela tras|Domyślnie AzureFirewallSubnet ma trasę 0.0.0.0/0 z wartością NextHopType ustawioną na wartość **Internet**.<br><br>Usługa Azure Firewall musi mieć bezpośrednie połączenie z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić wartość przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** , aby zachować bezpośrednią łączność z Internetem. Domyślnie Zapora platformy Azure nie obsługuje wymuszonego tunelowania do sieci lokalnej.<br><br>Jeśli jednak konfiguracja wymaga wymuszonego tunelowania do sieci lokalnej, firma Microsoft będzie obsługiwać ją w przypadku poszczególnych przypadków. Skontaktuj się z pomocą techniczną, aby umożliwić nam zapoznanie się z Twoim przypadkiem. Jeśli zostanie zaakceptowana, zezwolimy na subskrypcję i upewnimy się, że jest utrzymywana wymagana łączność internetowa zapory.|
+|Nazwy FQDN w regułach sieciowych|Aby uzyskać dobrą wydajność, nie przekraczaj więcej niż 1000 nazw FQDN dla wszystkich reguł sieci na zaporę.|
 
 <sup>1</sup> Jeśli musisz zwiększyć te limity, skontaktuj się z pomocą techniczną platformy Azure.

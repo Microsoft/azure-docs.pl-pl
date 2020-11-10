@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b74baebd964ee43658f74e0050dff838e29f9b8a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82193126"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409063"
 ---
 # <a name="security-control-network-security"></a>Kontrola zabezpieczeń: zabezpieczenia sieci
 
@@ -28,15 +28,15 @@ Upewnij się, że wszystkie wdrożenia podsieci Virtual Network mają grupę zab
 
 Alternatywnie, jeśli masz określony przypadek użycia, wymagania mogą być spełnione przez zaimplementowanie zapory platformy Azure.
 
-- [Informacje o punktach końcowych usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Informacje o punktach końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-- [Opis linku prywatnego platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Opis linku prywatnego platformy Azure](../../private-link/private-link-overview.md)
 
-- [Jak utworzyć Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Jak utworzyć Virtual Network](../../virtual-network/quick-create-portal.md)
 
-- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](../../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Jak wdrożyć i skonfigurować zaporę platformy Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Jak wdrożyć i skonfigurować zaporę platformy Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
 ## <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: Monitoruj i Rejestruj konfigurację oraz ruch sieci wirtualnych, podsieci i kart sieciowych
 
@@ -46,11 +46,11 @@ Alternatywnie, jeśli masz określony przypadek użycia, wymagania mogą być sp
 
 Użyj Azure Security Center i postępuj zgodnie z zaleceniami dotyczącymi ochrony sieci, aby pomóc w zabezpieczeniu zasobów sieciowych na platformie Azure. Włącz dzienniki przepływu sieciowej grupy zabezpieczeń i Wyślij dzienniki do konta magazynu na potrzeby inspekcji ruchu. Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do obszaru roboczego Log Analytics i użyć Analiza ruchu, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. Niektóre zalety Analiza ruchu to możliwość wizualizacji aktywności sieciowej i identyfikowania aktywnych punktów, identyfikowania zagrożeń bezpieczeństwa, zrozumienia wzorców przepływu ruchu i wyznaczania konfiguracji sieci.
 
-- [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Jak włączyć i używać Analiza ruchu](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Jak włączyć i używać Analiza ruchu](../../network-watcher/traffic-analytics.md)
 
-- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](../../security-center/security-center-network-recommendations.md)
 
 ## <a name="13-protect-critical-web-applications"></a>1,3: Ochrona krytycznych aplikacji sieci Web
 
@@ -60,7 +60,7 @@ Użyj Azure Security Center i postępuj zgodnie z zaleceniami dotyczącymi ochro
 
 Wdróż zaporę aplikacji sieci Web platformy Azure (WAF) przed krytycznymi aplikacjami sieci Web, aby uzyskać dodatkową inspekcję ruchu przychodzącego. Włącz ustawienie diagnostyczne dla WAF i pobierania dzienników do konta magazynu, centrum zdarzeń lub Log Analytics obszaru roboczego.
 
-- [Jak wdrożyć usługę Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Jak wdrożyć usługę Azure WAF](../../web-application-firewall/ag/create-waf-policy-ag.md)
 
 ## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
 
@@ -76,15 +76,15 @@ Użyj Azure Security Center dostęp do sieci w czasie w celu skonfigurowania sie
 
 Aby zalecać sieciowej grupy zabezpieczeń konfiguracje, które ograniczają porty i źródłowe adresy IP w oparciu o rzeczywisty ruch i analizę zagrożeń, należy użyć Azure Security Center.
 
-- [Jak skonfigurować ochronę DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Jak skonfigurować ochronę DDoS](../../virtual-network/manage-ddos-protection.md)
 
-- [Jak wdrożyć zaporę platformy Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Jak wdrożyć zaporę platformy Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Opis Azure Security Center zintegrowanej analizy zagrożeń](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Opis Azure Security Center zintegrowanej analizy zagrożeń](../../security-center/azure-defender.md)
 
-- [Informacje o Azure Security Center adaptacyjnej ograniczania przepustowości sieci](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Informacje o Azure Security Center adaptacyjnej ograniczania przepustowości sieci](../../security-center/security-center-adaptive-network-hardening.md)
 
-- [Informacje o Azure Security Center Access Control sieci w czasie](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Informacje o Azure Security Center Access Control sieci w czasie](../../security-center/security-center-just-in-time.md)
 
 ## <a name="15-record-network-packets"></a>1,5: rejestrowanie pakietów sieciowych
 
@@ -94,7 +94,7 @@ Aby zalecać sieciowej grupy zabezpieczeń konfiguracje, które ograniczają por
 
 Włącz przechwytywanie pakietów Network Watcher, aby zbadać nietypowe działania.
 
-- [Jak włączyć Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Jak włączyć Network Watcher](../../network-watcher/network-watcher-create.md)
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Wdróż systemy zapobiegania wykrywaniu dostępu do sieci/dostępu intruzów (identyfikatory/adresy IP)
 
@@ -108,9 +108,9 @@ Wdrażaj wybrane rozwiązanie zapory w każdej z granic sieci organizacji, aby w
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [Jak wdrożyć zaporę platformy Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Jak wdrożyć zaporę platformy Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Jak skonfigurować alerty za pomocą zapory platformy Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [Jak skonfigurować alerty za pomocą zapory platformy Azure](../../firewall/threat-intel.md)
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1,7: zarządzanie ruchem do aplikacji sieci Web
 
@@ -120,11 +120,11 @@ Wdrażaj wybrane rozwiązanie zapory w każdej z granic sieci organizacji, aby w
 
 Wdróż Application Gateway platformy Azure dla aplikacji sieci Web z włączonym protokołem HTTPS/TLS dla zaufanych certyfikatów.
 
-- [Jak wdrożyć Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- [Jak wdrożyć Application Gateway](../../application-gateway/quick-create-portal.md)
 
-- [Jak skonfigurować Application Gateway do korzystania z protokołu HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+- [Jak skonfigurować Application Gateway do korzystania z protokołu HTTPS](../../application-gateway/create-ssl-portal.md)
 
-- [Omówienie równoważenia obciążenia warstwy 7 za pomocą bram aplikacji sieci Web platformy Azure](https://docs.microsoft.com/azure/application-gateway/overview)
+- [Omówienie równoważenia obciążenia warstwy 7 za pomocą bram aplikacji sieci Web platformy Azure](../../application-gateway/overview.md)
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: Minimalizacja złożoności i kosztów administracyjnych reguł zabezpieczeń sieci
 
@@ -136,9 +136,9 @@ Użyj tagów usługi Virtual Network, aby zdefiniować kontrolę dostępu do sie
 
 Aby uprościć konfigurację zabezpieczeń, można również użyć grup zabezpieczeń aplikacji. Grupy zabezpieczeń aplikacji umożliwiają skonfigurowanie zabezpieczeń sieci jako naturalnego rozszerzenia struktury aplikacji, co pozwala na grupowanie maszyn wirtualnych i definiowanie zasad zabezpieczeń sieci na podstawie tych grup.
 
-- [Zrozumienie i używanie tagów usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Zrozumienie i używanie tagów usługi](../../virtual-network/service-tags-overview.md)
 
-- [Zrozumienie i używanie grup zabezpieczeń aplikacji](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+- [Zrozumienie i używanie grup zabezpieczeń aplikacji](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
@@ -150,11 +150,11 @@ Zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla zasobów siec
 
 Możesz również użyć planów platformy Azure, aby uprościć duże wdrożenia platformy Azure przez spakowanie kluczowych artefaktów środowiska, takich jak szablony Menedżera zasobów platformy Azure, kontrolki RBAC i zasady, w ramach jednej definicji planu. Możesz zastosować plan do nowych subskrypcji i dostosować kontrolę i zarządzanie przy użyciu wersji.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Przykłady Azure Policy dla sieci](../../governance/policy/samples/built-in-policies.md#network)
 
-- [Jak utworzyć Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Jak utworzyć Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
 ## <a name="110-document-traffic-configuration-rules"></a>1,10: udokumentowanie reguł konfiguracji ruchu
 
@@ -168,11 +168,11 @@ Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakiem, takic
 
 Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów.
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
-- [Jak utworzyć Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Jak utworzyć Virtual Network](../../virtual-network/quick-create-portal.md)
 
-- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](../../virtual-network/tutorial-filter-network-traffic.md)
 
 ## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Użyj zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
 
@@ -182,9 +182,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów i wykrywania zmian w zasobach platformy Azure. Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w zasobach krytycznych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

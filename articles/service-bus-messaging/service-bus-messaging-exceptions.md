@@ -3,12 +3,12 @@ title: Azure Service Bus — wyjątki komunikatów | Microsoft Docs
 description: Ten artykuł zawiera listę wyjątków Azure Service Bus komunikatów i sugerowanych akcji do wykonania w przypadku wystąpienia wyjątku.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 45f18d16aaeee0017bd4d219b6dc9e6beab515af
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: e4aa6d82c20e21caabf0205d7446cf88ed8b7f34
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027520"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409318"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus wyjątki komunikatów
 W tym artykule wymieniono wyjątki platformy .NET wygenerowane przez interfejsy API .NET Framework. 
@@ -33,8 +33,7 @@ Poniższa tabela zawiera listę typów wyjątków komunikatów i ich przyczyny o
 | [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[Wyjątku ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) |Jeden lub więcej argumentów dostarczonych do metody są nieprawidłowe.<br /> Identyfikator URI podany w [przestrzeni nazwmanager](/dotnet/api/microsoft.servicebus.namespacemanager) lub [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) zawiera segmenty ścieżki.<br /> Schemat identyfikatora URI dostarczony do [przestrzeni nazwmanager](/dotnet/api/microsoft.servicebus.namespacemanager) lub [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) jest nieprawidłowy. <br />Wartość właściwości jest większa niż 32 KB. |Sprawdź kod wywołujący i upewnij się, że argumenty są poprawne. |Ponowienie nie pomaga. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |Jednostka skojarzona z operacją nie istnieje lub została usunięta. |Upewnij się, że jednostka istnieje. |Ponowienie nie pomaga. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Spróbuj odebrać komunikat z określonym numerem sekwencyjnym. Nie znaleziono tego komunikatu. |Upewnij się, że wiadomość nie została już odebrana. Sprawdź kolejkę utraconych wiadomości, aby sprawdzić, czy wiadomość została deadlettered. |Ponowienie nie pomaga. |
-| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Klient nie może nawiązać połączenia z Service Bus. |Upewnij się, że podana nazwa hosta jest poprawna i że host jest osiągalny. <p>Jeśli kod jest uruchamiany w środowisku z zaporą/serwerem proxy, upewnij się, że ruch do Service Bus domeny/adresu IP i portów nie jest zablokowany.
-</p>|Ponowienie próby może pomóc w przypadku sporadycznych problemów z łącznością. |
+| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Klient nie może nawiązać połączenia z Service Bus. |Upewnij się, że podana nazwa hosta jest poprawna i że host jest osiągalny. <p>Jeśli kod jest uruchamiany w środowisku z zaporą/serwerem proxy, upewnij się, że ruch do Service Bus domeny/adresu IP i portów nie jest zablokowany.</p>|Ponowienie próby może pomóc w przypadku sporadycznych problemów z łącznością. |
 | [Wyjątek serverbusyexception](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Usługa nie może w tej chwili przetworzyć żądania. |Klient może czekać przez pewien czas, a następnie ponowić próbę wykonania operacji. |Klient może ponowić próbę po pewnym interwale. Jeśli ponowienie próby spowoduje inny wyjątek, sprawdź ponowienie tego wyjątku. |
 | [Komunikatexception](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Ogólny wyjątek komunikatów, który może być zgłaszany w następujących przypadkach:<p>Podjęto próbę utworzenia [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) przy użyciu nazwy lub ścieżki, która należy do innego typu jednostki (na przykład tematu).</p><p>Podjęto próbę wysłania komunikatu o rozmiarze większym niż 256 KB. </p>Serwer lub usługa napotkała błąd podczas przetwarzania żądania. Aby uzyskać szczegółowe informacje, zobacz komunikat o wyjątku. Zwykle jest to wyjątek przejściowy.</p><p>Żądanie zostało przerwane, ponieważ trwa ograniczanie jednostki. Kod błędu: 50001, 50002, 50008. </p> | Sprawdź kod i upewnij się, że tylko obiekty możliwe do serializacji są używane dla treści wiadomości (lub użyj serializatora niestandardowego). <p>Zapoznaj się z dokumentacją dla obsługiwanych typów wartości właściwości i używaj tylko obsługiwanych typów.</p><p> Sprawdź Właściwość [Isprzejściową](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Jeśli jest to **prawdziwe** , można ponowić próbę wykonania operacji. </p>| Jeśli wyjątek jest spowodowany ograniczeniem, poczekaj kilka sekund, a następnie spróbuj ponownie wykonać operację. Zachowanie przy ponowieniu próby jest niezdefiniowane i może nie pomóc w innych scenariuszach.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Podjęto próbę utworzenia jednostki o nazwie, która jest już używana przez inną jednostkę w tej przestrzeni nazw usługi. |Usuń istniejącą jednostkę lub wybierz inną nazwę dla jednostki, która ma zostać utworzona. |Ponowienie nie pomaga. |
@@ -66,7 +65,7 @@ Komunikat informuje o tym, że temat przekroczył swój limit rozmiaru, w tym pr
 
 ### <a name="namespaces"></a>Przestrzenie nazw
 
-W przypadku przestrzeni nazw [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) może wskazywać, że aplikacja przekroczyła maksymalną liczbę połączeń z przestrzenią nazw. Przykład:
+W przypadku przestrzeni nazw [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) może wskazywać, że aplikacja przekroczyła maksymalną liczbę połączeń z przestrzenią nazw. Na przykład:
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -81,7 +80,7 @@ Istnieją dwie typowe przyczyny tego błędu: Kolejka utraconych wiadomości i n
 1. **[Kolejka utraconych wiadomości](service-bus-dead-letter-queues.md)** Czytnik kończy się niepowodzeniem, a komunikaty są zwracane do kolejki/tematu, gdy blokada wygaśnie. Może się tak zdarzyć, jeśli czytnik napotka wyjątek, który uniemożliwia jego wywołanie [BrokeredMessage. Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete). Gdy wiadomość zostanie odczytana 10 razy, domyślnie przechodzi do kolejki utraconych wiadomości. Takie zachowanie jest kontrolowane przez właściwość [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) i ma wartość domyślną 10. Jako że komunikaty są ustawiane w kolejce utraconych wiadomości, zajmują miejsce.
    
     Aby rozwiązać ten problem, należy odczytać i zakończyć komunikaty z kolejki utraconych wiadomości, tak jak w przypadku każdej innej kolejki. Można użyć metody [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) , aby ułatwić formatowanie ścieżki kolejki utraconych wiadomości.
-2. **Odbiornik został zatrzymany** . Odbiornik przestał odbierać komunikaty z kolejki lub subskrypcji. Aby zidentyfikować ten sposób, należy sprawdzić Właściwość [QueueDescription. MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) , która pokazuje pełny podział komunikatów. Jeśli właściwość [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) jest wysoka lub rosnąca, wiadomości nie są odczytywane tak szybko, jak są zapisywane.
+2. **Odbiornik został zatrzymany**. Odbiornik przestał odbierać komunikaty z kolejki lub subskrypcji. Aby zidentyfikować ten sposób, należy sprawdzić Właściwość [QueueDescription. MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) , która pokazuje pełny podział komunikatów. Jeśli właściwość [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) jest wysoka lub rosnąca, wiadomości nie są odczytywane tak szybko, jak są zapisywane.
 
 ## <a name="timeoutexception"></a>TimeoutException
 [Limit czasu](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) wskazuje, że operacja inicjowana przez użytkownika trwa dłużej niż limit czasu operacji. 
@@ -111,7 +110,7 @@ W przypadku **MessageLockLostException** aplikacja kliencka nie może już przet
 
 Ponieważ blokada wiadomości wygasła, może ona wrócić do kolejki (lub subskrypcji) i będzie mogła zostać przetworzona przez następną aplikację kliencką, która wywołuje odbieranie.
 
-W przypadku przekroczenia **MaxDeliveryCount** komunikat może zostać przeniesiony do **DeadLetterQueue** .
+W przypadku przekroczenia **MaxDeliveryCount** komunikat może zostać przeniesiony do **DeadLetterQueue**.
 
 ## <a name="sessionlocklostexception"></a>SessionLockLostException
 
@@ -169,7 +168,7 @@ Jeśli rozpoznawanie nazw **działa zgodnie z oczekiwaniami** , sprawdź, czy po
 
 **Messagingexception** to ogólny wyjątek, który może być zgłoszony z różnych powodów. Poniżej wymieniono niektóre z przyczyn.
 
-   * Podjęto próbę utworzenia **QueueClient** w **temacie** lub **subskrypcji** .
+   * Podjęto próbę utworzenia **QueueClient** w **temacie** lub **subskrypcji**.
    * Rozmiar wysyłanej wiadomości jest większy niż limit dla danej warstwy. Przeczytaj więcej na temat [przydziałów i limitów](service-bus-quotas.md)Service Bus.
    * Żądanie określonej płaszczyzny danych (wysyłanie, odbieranie, zakończenie, Porzuć) zostało przerwane z powodu ograniczenia.
    * Przejściowe problemy spowodowane uaktualnieniem i ponownym uruchomieniem usług.

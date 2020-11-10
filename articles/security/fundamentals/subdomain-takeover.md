@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911396"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409896"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -27,7 +27,7 @@ W tym artykule opisano typowe zagrożenie bezpieczeństwa związane z przejmowan
 
 ## <a name="what-is-subdomain-takeover"></a>Co to jest przejęcie poddomeny?
 
-Przejęcia poddomen są typowymi zagrożeniami o wysokim znaczeniu dla organizacji, które regularnie tworzą i usuwają wiele zasobów. Przejęcie poddomeny może wystąpić, gdy istnieje [rekord DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) wskazujący na niezainicjowany zasób platformy Azure. Takie rekordy DNS są również znane jako wpisy "zawieszonego DNS". Rekordy CNAME są szczególnie zagrożone tym zagrożeniem. Przejęcia domen podrzędnych umożliwiają złośliwym podmiotom przekierowywanie ruchu przeznaczonego dla domeny organizacji do lokacji wykonującej złośliwe działanie.
+Przejęcia poddomen są typowymi zagrożeniami o wysokim znaczeniu dla organizacji, które regularnie tworzą i usuwają wiele zasobów. Przejęcie poddomeny może wystąpić, gdy istnieje [rekord DNS](../../dns/dns-zones-records.md#dns-records) wskazujący na niezainicjowany zasób platformy Azure. Takie rekordy DNS są również znane jako wpisy "zawieszonego DNS". Rekordy CNAME są szczególnie zagrożone tym zagrożeniem. Przejęcia domen podrzędnych umożliwiają złośliwym podmiotom przekierowywanie ruchu przeznaczonego dla domeny organizacji do lokacji wykonującej złośliwe działanie.
 
 Typowy scenariusz przejęcia domeny podrzędnej:
 

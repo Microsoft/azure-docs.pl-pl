@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 8ff70c14310dd81a051ac27c1d6d59bb3d1deb7b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677609"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409658"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie testowania kodu w usłudze Azure Functions
 
@@ -37,9 +37,9 @@ W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji języka C#
 Aby skonfigurować środowisko, Utwórz funkcję i aplikację testową. Poniższe kroki ułatwiają tworzenie aplikacji i funkcji wymaganych do obsługi testów:
 
 1. [Utwórz nową aplikację funkcji](./functions-create-first-azure-function.md) i nadaj jej nazwę **Functions**
-2. [Utwórz funkcję http z szablonu](./functions-create-first-azure-function.md) i nadaj jej nazwę **MyHttpTrigger** .
-3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę **MyTimerTrigger** .
-4. [Utwórz aplikację testową xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w rozwiązaniu i nadaj jej nazwę **Functions. Tests** .
+2. [Utwórz funkcję http z szablonu](./functions-create-first-azure-function.md) i nadaj jej nazwę **MyHttpTrigger**.
+3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę **MyTimerTrigger**.
+4. [Utwórz aplikację testową xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w rozwiązaniu i nadaj jej nazwę **Functions. Tests**.
 5. Użyj NuGet, aby dodać odwołanie z aplikacji testowej do [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Odwołuje się do aplikacji *Functions*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. Tests* .
 
@@ -251,17 +251,17 @@ Członkowie zaimplementowani w tej klasie są:
 
 - **Timer_should_log_message** : ten test tworzy wystąpienie `ListLogger` i przekazuje je do funkcji timer. Po uruchomieniu funkcji, Dziennik zostanie sprawdzony w celu upewnienia się, że oczekiwany komunikat jest obecny.
 
-Jeśli chcesz uzyskać dostęp do ustawień aplikacji w testach, możesz użyć metody [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Jeśli chcesz uzyskać dostęp do ustawień aplikacji w testach, można [wstrzyknąć](./functions-dotnet-dependency-injection.md) wystąpienie z nieprawidłowymi `IConfiguration` wartościami zmiennych środowiskowych do funkcji.
 
 ### <a name="run-tests"></a>Uruchom testy
 
-Aby uruchomić testy, przejdź do **Eksploratora testów** i kliknij przycisk **Uruchom wszystkie** .
+Aby uruchomić testy, przejdź do **Eksploratora testów** i kliknij przycisk **Uruchom wszystkie**.
 
 ![Testowanie Azure Functions przy użyciu języka C# w programie Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>Debuguj testy
 
-Aby debugować testy, ustaw punkt przerwania w teście, przejdź do **Eksploratora testów** i kliknij przycisk **Uruchom > Debuguj ostatnie uruchomienie** .
+Aby debugować testy, ustaw punkt przerwania w teście, przejdź do **Eksploratora testów** i kliknij przycisk **Uruchom > Debuguj ostatnie uruchomienie**.
 
 ## <a name="javascript-in-vs-code"></a>Język JavaScript w VS Code
 
@@ -315,7 +315,7 @@ module.exports = {
 
 Ten moduł implementuje `IsPastDue` Właściwość, która ma stanowić wystąpienie fałszywego czasomierza. Konfiguracje czasomierza, takie jak wyrażenia NCRONTAB, nie są wymagane w tym miejscu, ponieważ zespół testów ma po prostu wywołanie funkcji bezpośrednio w celu przetestowania wyniku.
 
-Następnie użyj rozszerzenia funkcji VS Code, aby [utworzyć nową funkcję http języka JavaScript](/azure/developer/javascript/tutorial-vscode-serverless-node-01) i nadaj jej nazwę *HttpTrigger* . Po utworzeniu funkcji Dodaj nowy plik w tym samym folderze o nazwie **index.test.js** i Dodaj następujący kod:
+Następnie użyj rozszerzenia funkcji VS Code, aby [utworzyć nową funkcję http języka JavaScript](/azure/developer/javascript/tutorial-vscode-serverless-node-01) i nadaj jej nazwę *HttpTrigger*. Po utworzeniu funkcji Dodaj nowy plik w tym samym folderze o nazwie **index.test.js** i Dodaj następujący kod:
 
 ```javascript
 const httpFunction = require('./index');
@@ -336,7 +336,7 @@ test('Http trigger should return known text', async () => {
 
 Funkcja HTTP z szablonu zwraca ciąg "Hello" połączonego z nazwą podaną w ciągu zapytania. Ten test tworzy fałszywe wystąpienie żądania i przekazuje je do funkcji HTTP. Test sprawdza, czy metoda *log* jest wywoływana jednokrotnie, a zwracany tekst jest równy "Hello Bill".
 
-Następnie użyj rozszerzenia funkcji VS Code, aby utworzyć nową funkcję czasomierza JavaScript i nadaj jej nazwę *TimerTrigger* . Po utworzeniu funkcji Dodaj nowy plik w tym samym folderze o nazwie **index.test.js** i Dodaj następujący kod:
+Następnie użyj rozszerzenia funkcji VS Code, aby utworzyć nową funkcję czasomierza JavaScript i nadaj jej nazwę *TimerTrigger*. Po utworzeniu funkcji Dodaj nowy plik w tym samym folderze o nazwie **index.test.js** i Dodaj następujący kod:
 
 ```javascript
 const timerFunction = require('./index');
@@ -379,7 +379,7 @@ Aby debugować testy, Dodaj następującą konfigurację do *launch.jsw* pliku:
 }
 ```
 
-Następnie ustaw punkt przerwania w teście i naciśnij klawisz **F5** .
+Następnie ustaw punkt przerwania w teście i naciśnij klawisz **F5**.
 
 ## <a name="next-steps"></a>Następne kroki
 

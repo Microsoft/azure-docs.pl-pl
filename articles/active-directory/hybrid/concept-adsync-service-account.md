@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144714"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410899"
 ---
 # <a name="adsync-service-account"></a>Konto usługi ADSync
 Azure AD Connect instaluje usługę lokalną, która organizuje synchronizację między Active Directory i Azure Active Directory.  Usługa synchronizacji synchronizacji Microsoft Azure AD (ADSync) jest uruchamiana na serwerze w środowisku lokalnym.  Poświadczenia usługi są domyślnie ustawiane w instalacjach ekspresowych, ale mogą być dostosowane do wymagań bezpieczeństwa organizacji.  Te poświadczenia nie są używane do nawiązywania połączeń z lokalnymi lasami lub Azure Active Directory.
@@ -61,7 +61,7 @@ Nie można odnaleźć kluczy szyfrowania usługi AdSync i zostały one ponownie 
 
 Rozwiązywanie problemów z tym problemem, Microsoft Azure AD klucze szyfrowania synchronizacji staną się niedostępne, jeśli zostaną zmienione poświadczenia logowania usługi AdSync.  Jeśli poświadczenia zostały zmienione, użyj aplikacji usług, aby zmienić pierwotne konto logowania z powrotem na jego oryginalnie skonfigurowaną wartość (np. NT SERVICE\AdSync) i uruchom ponownie usługę.  Spowoduje to natychmiastowe przywrócenie prawidłowej operacji usługi AdSync.
 
-Więcej informacji można znaleźć w następującym [artykule](https://go.microsoft.com/fwlink/?linkid=2086764) .
+Więcej informacji można znaleźć w następującym [artykule](./whatis-hybrid-identity.md) .
 
 ### <a name="example-2"></a>Przykład 2
 
@@ -69,7 +69,7 @@ Nie można uruchomić usługi, ponieważ nie można nawiązać połączenia z lo
 
 Rozwiązywanie problemów z tym problemem usługa synchronizacji Microsoft Azure AD utraci uprawnienia dostępu do lokalnego dostawcy bazy danych w przypadku zmiany poświadczeń logowania usługi AdSync.  Jeśli poświadczenia zostały zmienione, użyj aplikacji usług, aby zmienić konto logowania z powrotem na oryginalnie skonfigurowaną wartość (np. NT SERVICE\AdSync) i uruchom ponownie usługę.  Spowoduje to natychmiastowe przywrócenie prawidłowej operacji usługi AdSync.
 
-Więcej informacji można znaleźć w następującym [artykule](https://go.microsoft.com/fwlink/?linkid=2086764) .
+Więcej informacji można znaleźć w następującym [artykule](./whatis-hybrid-identity.md) .
 
 Dostawca zwrócił więcej szczegółowych informacji o następujących informacjach o błędzie:
  

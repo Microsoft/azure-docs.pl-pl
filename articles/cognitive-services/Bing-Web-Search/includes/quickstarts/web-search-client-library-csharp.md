@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217591"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386652"
 ---
 Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją w języku C#. Z tego przewodnika Szybki start dowiesz się, jak utworzyć wystąpienie klienta, wysłać żądanie i wyświetlić odpowiedź.
 
@@ -36,7 +36,7 @@ Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szyb
 > [!TIP]
 > Pobierz najnowszy kod jako rozwiązanie programu Visual Studio z usługi [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-Pierwszym krokiem jest utworzenie nowego projektu konsoli. Jeśli potrzebujesz pomocy przy konfigurowaniu projektu konsoli, zobacz [Hello World — pierwszy program (Przewodnik programowania w języku C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Aby korzystać z zestawu SDK wyszukiwania w Internecie Bing w aplikacji, musisz zainstalować element `Microsoft.Azure.CognitiveServices.Search.WebSearch` przy użyciu Menedżera pakietów NuGet.
+Pierwszym krokiem jest utworzenie nowego projektu konsoli. Jeśli potrzebujesz pomocy przy konfigurowaniu projektu konsoli, zobacz [Hello World — pierwszy program (Przewodnik programowania w języku C#)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Aby korzystać z zestawu SDK wyszukiwania w Internecie Bing w aplikacji, musisz zainstalować element `Microsoft.Azure.CognitiveServices.Search.WebSearch` przy użyciu Menedżera pakietów NuGet.
 
 [Pakiet zestawu SDK wyszukiwania w Internecie](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) instaluje także następujące elementy:
 
@@ -424,4 +424,3 @@ Pamiętaj, aby po zakończeniu pracy z tym projektem usunąć klucz subskrypcji 
 
 > [!div class="nextstepaction"]
 > [Przykłady zastosowania zestawu SDK dla platformy Node.js usług Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

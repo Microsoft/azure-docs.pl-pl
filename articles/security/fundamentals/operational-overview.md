@@ -15,71 +15,71 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0ea9cc1788065a92e168e41a0c293bb1f4ea9b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87925315"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409361"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
 
-[Zabezpieczenia operacyjne platformy Azure](/azure/security/fundamentals/operational-security) odnoszą się do usług, formantów i funkcji dostępnych dla użytkowników w celu ochrony danych, aplikacji i innych zasobów w Microsoft Azure. Jest to platforma, która obejmuje wiedzę uzyskaną za pomocą różnych możliwości, które są unikatowe dla firmy Microsoft. Do tych funkcji należą Microsoft Security Development Lifecycle (SDL), program Microsoft Security Response Center i szczegółowa świadomość zagrożeń cyberbezpieczeństwa.
+[Zabezpieczenia operacyjne platformy Azure](./operational-security.md) odnoszą się do usług, formantów i funkcji dostępnych dla użytkowników w celu ochrony danych, aplikacji i innych zasobów w Microsoft Azure. Jest to platforma, która obejmuje wiedzę uzyskaną za pomocą różnych możliwości, które są unikatowe dla firmy Microsoft. Do tych funkcji należą Microsoft Security Development Lifecycle (SDL), program Microsoft Security Response Center i szczegółowa świadomość zagrożeń cyberbezpieczeństwa.
 
 ## <a name="azure-management-services"></a>Usługi zarządzania platformy Azure
 
 Zespół ds. operacyjnych jest odpowiedzialny za zarządzanie infrastrukturą, aplikacjami i danymi centrum danych, w tym stabilnością i bezpieczeństwem tych systemów. Jednak uzyskanie szczegółowych informacji o zabezpieczeniach w coraz bardziej złożonych środowiskach IT często wymaga, aby organizacje Cobble dane z wielu systemów zabezpieczeń i zarządzania.
 
-[Dzienniki monitora Microsoft Azure](/azure/operations-management-suite/operations-management-suite-overview) to oparte na chmurze rozwiązanie do zarządzania działem IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Podstawowe funkcje są udostępniane przez następujące usługi, które działają na platformie Azure. Platforma Azure obejmuje wiele usług, które ułatwiają zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Każda usługa zapewnia konkretną funkcję zarządzania. Możesz połączyć usługi, aby osiągnąć różne scenariusze zarządzania. 
+[Dzienniki monitora Microsoft Azure](../../azure-monitor/overview.md) to oparte na chmurze rozwiązanie do zarządzania działem IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Podstawowe funkcje są udostępniane przez następujące usługi, które działają na platformie Azure. Platforma Azure obejmuje wiele usług, które ułatwiają zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Każda usługa zapewnia konkretną funkcję zarządzania. Możesz połączyć usługi, aby osiągnąć różne scenariusze zarządzania. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure monitor](/azure/azure-monitor/overview) zbiera dane z zarządzanych źródeł do centralnych magazynów danych. Te dane mogą obejmować zdarzenia, dane dotyczące wydajności lub dane niestandardowe udostępniane za pomocą interfejsu API. Po zebraniu danych są one dostępne dla alertów, analiz i eksportu.
+[Azure monitor](../../azure-monitor/overview.md) zbiera dane z zarządzanych źródeł do centralnych magazynów danych. Te dane mogą obejmować zdarzenia, dane dotyczące wydajności lub dane niestandardowe udostępniane za pomocą interfejsu API. Po zebraniu danych są one dostępne dla alertów, analiz i eksportu.
 
 Dane można skonsolidować z różnych źródeł i połączyć dane z usług platformy Azure z istniejącym środowiskiem lokalnym. Dzienniki Azure Monitor również wyraźnie oddzielają kolekcję danych od akcji podjętej na tych danych, dzięki czemu wszystkie akcje są dostępne dla wszystkich rodzajów danych.
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
-[Azure Automation](/azure/automation/automation-intro) zapewnia sposób automatyzacji ręcznych, długotrwałych, podatnych na błędy i często powtarzanych zadań, które są często wykonywane w chmurze i środowisku przedsiębiorstwa. Oszczędza czas i zwiększa niezawodność zadań administracyjnych. Program planuje również automatyczne wykonywanie tych zadań w regularnych odstępach czasu. Procesy można zautomatyzować za pomocą elementów Runbook lub automatyzując zarządzanie konfiguracją przy użyciu konfiguracji żądanego stanu.
+[Azure Automation](../../automation/automation-intro.md) zapewnia sposób automatyzacji ręcznych, długotrwałych, podatnych na błędy i często powtarzanych zadań, które są często wykonywane w chmurze i środowisku przedsiębiorstwa. Oszczędza czas i zwiększa niezawodność zadań administracyjnych. Program planuje również automatyczne wykonywanie tych zadań w regularnych odstępach czasu. Procesy można zautomatyzować za pomocą elementów Runbook lub automatyzując zarządzanie konfiguracją przy użyciu konfiguracji żądanego stanu.
 
 ### <a name="backup"></a>Backup
 
-[Azure Backup](/azure/backup/backup-introduction-to-azure-backup) jest usługą opartą na platformie Azure, za pomocą której można tworzyć kopie zapasowe (lub chronić) i przywracać dane w Microsoft Cloud. Azure Backup zastępuje istniejące rozwiązanie do tworzenia kopii zapasowych w środowisku lokalnym lub poza lokacją przy użyciu rozwiązania opartego na chmurze, które jest niezawodne, bezpieczne i konkurencyjne.
+[Azure Backup](../../backup/backup-overview.md) jest usługą opartą na platformie Azure, za pomocą której można tworzyć kopie zapasowe (lub chronić) i przywracać dane w Microsoft Cloud. Azure Backup zastępuje istniejące rozwiązanie do tworzenia kopii zapasowych w środowisku lokalnym lub poza lokacją przy użyciu rozwiązania opartego na chmurze, które jest niezawodne, bezpieczne i konkurencyjne.
 
 Azure Backup oferuje składniki pobierane i wdrażane na odpowiednim komputerze lub serwerze albo w chmurze. Wdrażany składnik lub agent zależy od tego, co ma być chronione. Wszystkie składniki Azure Backup (niezależnie od tego, czy dane są chronione lokalnie, czy w chmurze) mogą służyć do tworzenia kopii zapasowych danych w magazynie usługi Azure Recovery Services na platformie Azure.
 
-Aby uzyskać więcej informacji, zobacz [tabelę składników Azure Backup](/azure/backup/backup-overview#what-can-i-back-up).
+Aby uzyskać więcej informacji, zobacz [tabelę składników Azure Backup](../../backup/backup-overview.md#what-can-i-back-up).
 
 ### <a name="site-recovery"></a>Site Recovery
 
 [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) zapewnia ciągłość działania przez organizowanie replikacji lokalnych maszyn wirtualnych i fizycznych na platformę Azure lub do lokacji dodatkowej. Jeśli lokacja główna jest niedostępna, przełączenie w tryb failover do lokalizacji dodatkowej spowoduje, że użytkownicy będą mogli kontynuować pracę. Powrót po awarii, gdy system wróci do kolejności roboczej. Użyj Azure Security Center, aby wykonywać bardziej inteligentne i efektywne wykrywanie zagrożeń.
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-enable-sso-scenario) to kompleksowa usługa tożsamości:
+[Azure Active Directory (Azure AD)](../../active-directory/manage-apps/what-is-application-management.md) to kompleksowa usługa tożsamości:
 
 -   Umożliwia zarządzanie tożsamościami i dostępem (IAM) jako usługą w chmurze.
 -   Zapewnia centralne zarządzanie dostępem, logowanie jednokrotne (SSO) i raportowanie.
 -   Obsługa zintegrowanego zarządzania dostępem dla [tysięcy aplikacji](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) w portalu Azure Marketplace, w tym usług Salesforce, Google Apps, Box i Concur.
 
-Usługa Azure AD zawiera również pełen pakiet [funkcji zarządzania tożsamościami](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), w tym:
+Usługa Azure AD zawiera również pełen pakiet [funkcji zarządzania tożsamościami](./identity-management-overview.md#security-monitoring-alerts-and-machine-learning-based-reports), w tym:
 
-- [Uwierzytelnianie wieloskładnikowe](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Uwierzytelnianie wieloskładnikowe](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [Samoobsługowe zarządzanie hasłami](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
-- [Samoobsługowe zarządzanie grupami](/azure/active-directory/active-directory-passwords-update-your-own-password)
-- [Zarządzanie kontami uprzywilejowanymi](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](/azure/role-based-access-control/overview)
-- [Monitorowanie użycia aplikacji](/azure/active-directory/connect-health/active-directory-aadconnect-health)
-- [Zaawansowana Inspekcja](/azure/active-directory/active-directory-reporting-activity-audit-logs)
-- [Monitorowanie zabezpieczeń i alerty](/azure/operations-management-suite/oms-security-responding-alerts)
+- [Samoobsługowe zarządzanie grupami](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
+- [Zarządzanie kontami uprzywilejowanymi](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../../role-based-access-control/overview.md)
+- [Monitorowanie użycia aplikacji](../../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Zaawansowana Inspekcja](../../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Monitorowanie zabezpieczeń i alerty](../../security-center/security-center-managing-and-responding-alerts.md)
 
 Dzięki Azure Active Directory wszystkie aplikacje publikowane dla partnerów i klientów (firma lub konsument) mają takie same możliwości zarządzania tożsamościami i dostępem. Pozwala to znacznie zmniejszyć koszty operacyjne.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](/azure/security-center/security-center-intro) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie dzięki zwiększonej widoczności i kontroli nad bezpieczeństwem zasobów platformy Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji. Pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby być niezauważalne, i współpracuje z szeroką ekosystemem rozwiązań w zakresie zabezpieczeń.
+[Azure Security Center](../../security-center/security-center-introduction.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie dzięki zwiększonej widoczności i kontroli nad bezpieczeństwem zasobów platformy Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji. Pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby być niezauważalne, i współpracuje z szeroką ekosystemem rozwiązań w zakresie zabezpieczeń.
 
-[Ochrona danych maszyny wirtualnej](/azure/security-center/security-center-linux-virtual-machine) na platformie Azure, zapewniając wgląd w ustawienia zabezpieczeń maszyny wirtualnej i monitorowanie zagrożeń. Usługa Security Center może monitorować maszyny wirtualne pod kątem następujących elementów:
+[Ochrona danych maszyny wirtualnej](../../security-center/security-center-introduction.md) na platformie Azure, zapewniając wgląd w ustawienia zabezpieczeń maszyny wirtualnej i monitorowanie zagrożeń. Usługa Security Center może monitorować maszyny wirtualne pod kątem następujących elementów:
 
 - Ustawienia zabezpieczeń systemu operacyjnego z zalecanymi regułami konfiguracji.
 - Brak zabezpieczeń systemu i krytycznych aktualizacji.
@@ -87,20 +87,20 @@ Dzięki Azure Active Directory wszystkie aplikacje publikowane dla partnerów i 
 - Walidacja szyfrowania dysku.
 - Ataki sieciowe.
 
-Security Center używa [kontroli dostępu opartej na rolach (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC zawiera [wbudowane role](../../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług na platformie Azure.
+Security Center używa [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). RBAC zawiera [wbudowane role](../../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług na platformie Azure.
 
 Security Center ocenia konfigurację zasobów w celu zidentyfikowania problemów i luk w zabezpieczeniach. W Security Center informacje dotyczące zasobu są wyświetlane tylko wtedy, gdy przypiszesz rolę właściciela, współautora lub czytelnika dla subskrypcji lub grupy zasobów, do której należy zasób.
 
 >[!Note]
->Aby dowiedzieć się więcej o rolach i dozwolonych akcjach w Security Center, zobacz [uprawnienia w Azure Security Center](/azure/security-center/security-center-permissions).
+>Aby dowiedzieć się więcej o rolach i dozwolonych akcjach w Security Center, zobacz [uprawnienia w Azure Security Center](../../security-center/security-center-permissions.md).
 
-Security Center używa Microsoft Monitoring Agent. Jest to ten sam Agent, którego używa usługa Azure Monitor. Dane zbierane z tego agenta są przechowywane w istniejącym [obszarze roboczym](/azure/log-analytics/log-analytics-manage-access) log Analytics skojarzonym z subskrypcją platformy Azure lub nowym obszarem roboczym, biorąc pod uwagę GEOLOKALIZACJĘ maszyny wirtualnej.
+Security Center używa Microsoft Monitoring Agent. Jest to ten sam Agent, którego używa usługa Azure Monitor. Dane zbierane z tego agenta są przechowywane w istniejącym [obszarze roboczym](../../azure-monitor/platform/manage-access.md) log Analytics skojarzonym z subskrypcją platformy Azure lub nowym obszarem roboczym, biorąc pod uwagę GEOLOKALIZACJĘ maszyny wirtualnej.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
 Problemy z wydajnością w aplikacji w chmurze mogą mieć wpływ na Twoją firmę. Z wieloma połączonymi składnikami i częstymi wersjami w dowolnym momencie mogą wystąpić obniżenie wydajności. Jeśli tworzysz aplikację, użytkownicy zazwyczaj odkrywają problemy, które nie zostały odnalezione w testowaniu. Informacje o tych problemach powinny być natychmiast znane i należy dysponować narzędziami do diagnozowania i rozwiązywania problemów.
 
-[Azure monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to podstawowe narzędzie do monitorowania usług działających na platformie Azure. Zapewnia ona dane na poziomie infrastruktury dotyczące przepływności usługi i otoczenia. Jeśli zarządzasz aplikacjami na platformie Azure i zdecydujesz, czy chcesz skalować zasoby w górę czy w dół, Azure Monitor to miejsce do rozpoczęcia.
+[Azure monitor](../../azure-monitor/overview.md) to podstawowe narzędzie do monitorowania usług działających na platformie Azure. Zapewnia ona dane na poziomie infrastruktury dotyczące przepływności usługi i otoczenia. Jeśli zarządzasz aplikacjami na platformie Azure i zdecydujesz, czy chcesz skalować zasoby w górę czy w dół, Azure Monitor to miejsce do rozpoczęcia.
 
 Dane monitorowania można także wykorzystać do uzyskania szczegółowych informacji o aplikacji. Ta wiedza może pomóc w zwiększeniu wydajności aplikacji lub utrzymaniu lub zautomatyzowaniu działań, które w przeciwnym razie wymagają ręcznej interwencji.
 
@@ -108,29 +108,29 @@ Azure Monitor obejmuje następujące składniki.
 
 ### <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 
-[Dziennik aktywności platformy Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Wcześniej była znana jako "dziennik inspekcji" lub "dziennik operacyjny", ponieważ zgłasza zdarzenia płaszczyzny kontroli dla subskrypcji.
+[Dziennik aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Wcześniej była znana jako "dziennik inspekcji" lub "dziennik operacyjny", ponieważ zgłasza zdarzenia płaszczyzny kontroli dla subskrypcji.
 
 ### <a name="azure-diagnostic-logs"></a>Dzienniki diagnostyczne platformy Azure
 
-[Dzienniki diagnostyczne platformy Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) są emitowane przez zasób i zapewniają rozbudowane, częste dane dotyczące operacji tego zasobu. Zawartość tych dzienników różni się w zależności od typu zasobu.
+[Dzienniki diagnostyczne platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) są emitowane przez zasób i zapewniają rozbudowane, częste dane dotyczące operacji tego zasobu. Zawartość tych dzienników różni się w zależności od typu zasobu.
 
 Dzienniki systemu zdarzeń systemu Windows to jedna kategoria dzienników diagnostycznych dla maszyn wirtualnych. Dzienniki obiektów blob, tabel i kolejek są kategoriami dzienników diagnostycznych dla kont magazynu.
 
-Dzienniki diagnostyczne różnią się od [dziennika aktywności](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Dziennik aktywności zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób.
+Dzienniki diagnostyczne różnią się od [dziennika aktywności](../../azure-monitor/platform/platform-logs-overview.md). Dziennik aktywności zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób.
 
 ### <a name="metrics"></a>Metryki
 
-Azure Monitor udostępnia dane telemetryczne, które zapewniają wgląd w wydajność i kondycję obciążeń na platformie Azure. Najważniejszym typem danych telemetrii platformy Azure jest [metryki](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (nazywane również licznikami wydajności) emitowane przez większość zasobów platformy Azure. Azure Monitor oferuje kilka sposobów konfigurowania i używania tych metryk do monitorowania i rozwiązywania problemów.
+Azure Monitor udostępnia dane telemetryczne, które zapewniają wgląd w wydajność i kondycję obciążeń na platformie Azure. Najważniejszym typem danych telemetrii platformy Azure jest [metryki](../../azure-monitor/platform/data-platform.md) (nazywane również licznikami wydajności) emitowane przez większość zasobów platformy Azure. Azure Monitor oferuje kilka sposobów konfigurowania i używania tych metryk do monitorowania i rozwiązywania problemów.
 
 ### <a name="azure-diagnostics"></a>Diagnostyka Azure
 
-Diagnostyka Azure umożliwia zbieranie danych diagnostycznych we wdrożonej aplikacji. Można użyć rozszerzenia diagnostyki z różnych źródeł. Obecnie obsługiwane są [role usługi w chmurze platformy Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service), [maszyny wirtualne platformy Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service) z systemem Microsoft Windows i [Service Fabric platformy Azure](/azure/monitoring-and-diagnostics/azure-diagnostics).
+Diagnostyka Azure umożliwia zbieranie danych diagnostycznych we wdrożonej aplikacji. Można użyć rozszerzenia diagnostyki z różnych źródeł. Obecnie obsługiwane są [role usługi w chmurze platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [maszyny wirtualne platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) z systemem Microsoft Windows i [Service Fabric platformy Azure](../../azure-monitor/platform/diagnostics-extension-overview.md).
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
 Klienci tworzą kompleksową sieć na platformie Azure dzięki aranżacji i tworzeniu poszczególnych zasobów sieciowych, takich jak sieci wirtualne, Azure ExpressRoute, Azure Application Gateway i równoważenia obciążenia. Monitorowanie jest dostępne w każdym z zasobów sieciowych.
 
-Sieć kompleksowa może mieć złożone konfiguracje i interakcje między zasobami. W wyniku tego powstaje skomplikowane scenariusze, które wymagają monitorowania opartego na scenariuszu za pośrednictwem [usługi Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+Sieć kompleksowa może mieć złożone konfiguracje i interakcje między zasobami. W wyniku tego powstaje skomplikowane scenariusze, które wymagają monitorowania opartego na scenariuszu za pośrednictwem [usługi Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
 
 Network Watcher upraszcza monitorowanie i diagnozowanie sieci platformy Azure. Narzędzi diagnostycznych i wizualizacji programu można użyć w Network Watcher do:
 
@@ -140,17 +140,17 @@ Network Watcher upraszcza monitorowanie i diagnozowanie sieci platformy Azure. N
 
 Network Watcher obecnie ma następujące możliwości:
 
-- [Topologia](/azure/network-watcher/network-watcher-topology-overview): zawiera widok różnych połączeń i skojarzeń między zasobami sieci w grupie zasobów.
-- [Przechwytywanie pakietów zmiennych](/azure/network-watcher/network-watcher-packet-capture-overview): przechwytuje dane pakietów do i z maszyny wirtualnej. Bardzo przydatne są zaawansowane opcje filtrowania i dostosowywania ustawień, takie jak określanie czasu i limitów rozmiaru. Dane pakietu mogą być przechowywane w magazynie obiektów blob lub na dysku lokalnym w formacie. Cap.
-- [Weryfikowanie przepływu adresów IP](/azure/network-watcher/network-watcher-ip-flow-verify-overview): sprawdza, czy pakiet jest dozwolony, czy odrzucany na podstawie parametrów pakietu 5-spoiny dla informacji o przepływie (docelowy adres IP, źródłowy adres IP, port docelowy, port źródłowy i protokół). Jeśli grupa zabezpieczeń nie zezwala na pakiet, zwracane są reguły i grupy, które odrzuciły pakiet.
-- [Następny przeskok](/azure/network-watcher/network-watcher-next-hop-overview): określa następny przeskok dla pakietów przesyłanych w sieci szkieletowej platformy Azure, dzięki czemu można zdiagnozować wszelkie nieprawidłowo skonfigurowane trasy zdefiniowane przez użytkownika.
-- [Widok grupy zabezpieczeń](/azure/network-watcher/network-watcher-security-group-view-overview): Pobiera obowiązujące i stosowane reguły zabezpieczeń stosowane na maszynie wirtualnej.
-- [Dzienniki przepływu sieciowej grupy zabezpieczeń dla sieciowych grup zabezpieczeń](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): umożliwiają przechwytywanie dzienników związanych z ruchem, które są dozwolone lub odrzucane przez reguły zabezpieczeń w grupie. Przepływ jest definiowany przy użyciu 5-informacje o spójnej kolekcji: źródłowy adres IP, docelowy adres IP, port źródłowy, port docelowy i protokół.
-- [Rozwiązywanie problemów z bramą sieci wirtualnej i połączeniem](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): umożliwia rozwiązywanie problemów z bramami i połączeniami sieci wirtualnej.
-- [Limity dotyczące subskrypcji sieci](/azure/network-watcher/network-watcher-monitoring-overview): umożliwiają wyświetlanie użycia zasobów sieciowych względem limitów.
-- [Dzienniki diagnostyczne](/azure/network-watcher/network-watcher-monitoring-overview): zawiera pojedyncze okienko do włączania lub wyłączania dzienników diagnostycznych dla zasobów sieciowych w grupie zasobów.
+- [Topologia](../../network-watcher/view-network-topology.md): zawiera widok różnych połączeń i skojarzeń między zasobami sieci w grupie zasobów.
+- [Przechwytywanie pakietów zmiennych](../../network-watcher/network-watcher-packet-capture-overview.md): przechwytuje dane pakietów do i z maszyny wirtualnej. Bardzo przydatne są zaawansowane opcje filtrowania i dostosowywania ustawień, takie jak określanie czasu i limitów rozmiaru. Dane pakietu mogą być przechowywane w magazynie obiektów blob lub na dysku lokalnym w formacie. Cap.
+- [Weryfikowanie przepływu adresów IP](../../network-watcher/network-watcher-ip-flow-verify-overview.md): sprawdza, czy pakiet jest dozwolony, czy odrzucany na podstawie parametrów pakietu 5-spoiny dla informacji o przepływie (docelowy adres IP, źródłowy adres IP, port docelowy, port źródłowy i protokół). Jeśli grupa zabezpieczeń nie zezwala na pakiet, zwracane są reguły i grupy, które odrzuciły pakiet.
+- [Następny przeskok](../../network-watcher/network-watcher-next-hop-overview.md): określa następny przeskok dla pakietów przesyłanych w sieci szkieletowej platformy Azure, dzięki czemu można zdiagnozować wszelkie nieprawidłowo skonfigurowane trasy zdefiniowane przez użytkownika.
+- [Widok grupy zabezpieczeń](../../network-watcher/network-watcher-security-group-view-overview.md): Pobiera obowiązujące i stosowane reguły zabezpieczeń stosowane na maszynie wirtualnej.
+- [Dzienniki przepływu sieciowej grupy zabezpieczeń dla sieciowych grup zabezpieczeń](../../network-watcher/network-watcher-nsg-flow-logging-overview.md): umożliwiają przechwytywanie dzienników związanych z ruchem, które są dozwolone lub odrzucane przez reguły zabezpieczeń w grupie. Przepływ jest definiowany przy użyciu 5-informacje o spójnej kolekcji: źródłowy adres IP, docelowy adres IP, port źródłowy, port docelowy i protokół.
+- [Rozwiązywanie problemów z bramą sieci wirtualnej i połączeniem](../../network-watcher/network-watcher-troubleshoot-manage-rest.md): umożliwia rozwiązywanie problemów z bramami i połączeniami sieci wirtualnej.
+- [Limity dotyczące subskrypcji sieci](../../network-watcher/network-watcher-monitoring-overview.md): umożliwiają wyświetlanie użycia zasobów sieciowych względem limitów.
+- [Dzienniki diagnostyczne](../../network-watcher/network-watcher-monitoring-overview.md): zawiera pojedyncze okienko do włączania lub wyłączania dzienników diagnostycznych dla zasobów sieciowych w grupie zasobów.
 
-Aby uzyskać więcej informacji, zobacz [konfigurowanie Network Watcher](/azure/network-watcher/network-watcher-create).
+Aby uzyskać więcej informacji, zobacz [konfigurowanie Network Watcher](../../network-watcher/network-watcher-create.md).
 
 ## <a name="cloud-service-provider-access-transparency"></a>Przezroczystość dostępu dostawcy usług w chmurze
 
@@ -160,7 +160,7 @@ Firma Microsoft zawsze uzyskała zgodę klienta na dostęp, Skrytka klienta tera
 
 ## <a name="standardized-and-compliant-deployments"></a>Standardowe i zgodne wdrożenia
 
-[Plany platformy Azure](/azure/governance/blueprints/overview) umożliwiają architektom chmury i centralnym grupom technologii informatycznych Definiowanie powtarzalnych zestawów zasobów platformy Azure, które implementują i stosują się do standardów, wzorców i wymagań organizacji.  
+[Plany platformy Azure](../../governance/blueprints/overview.md) umożliwiają architektom chmury i centralnym grupom technologii informatycznych Definiowanie powtarzalnych zestawów zasobów platformy Azure, które implementują i stosują się do standardów, wzorców i wymagań organizacji.  
 Dzięki temu zespoły DevOps mogą szybko tworzyć i wdrażać nowe środowiska oraz ufać, że kompilują je z infrastrukturą, która utrzymuje zgodność organizacji.
 Plany zapewniają deklaratywny sposób organizowania wdrożenia różnych szablonów zasobów i innych artefaktów, takich jak:
 
@@ -192,5 +192,5 @@ Praktykujący lekarze DevOps przyjmuje kilka z poniższych praktyk. Te praktyki 
 Aby dowiedzieć się więcej na temat rozwiązania Security and Audit, zobacz następujące artykuły:
 
 - [Zabezpieczenia i zgodność](https://azure.microsoft.com/overview/trusted-cloud/)
-- [Azure Security Center](/azure/security-center/security-center-intro)
-- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure Security Center](../../security-center/security-center-introduction.md)
+- [Azure Monitor](../../azure-monitor/overview.md)

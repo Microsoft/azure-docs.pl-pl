@@ -1,27 +1,27 @@
 ---
 title: Monitorowanie operacji IoT Hub platformy Azure (przestarzałe) | Microsoft Docs
 description: Jak używać monitorowania operacji IoT Hub platformy Azure do monitorowania stanu operacji w centrum IoT w czasie rzeczywistym.
-author: nberdy
-manager: briz
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: nberdy
+ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538497"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408128"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorowanie operacji IoT Hub (przestarzałe)
 
 Monitorowanie operacji IoT Hub umożliwia monitorowanie stanu operacji w centrum IoT w czasie rzeczywistym. IoT Hub śledzi zdarzenia w kilku kategoriach operacji. Możesz zrezygnować z wysyłania zdarzeń z jednej lub kilku kategorii do punktu końcowego Centrum IoT Hub w celu przetworzenia. Można monitorować dane pod kątem błędów lub konfigurować bardziej złożone przetwarzanie na podstawie wzorców danych.
 
 >[!NOTE]
->**Monitorowanie operacji IoT Hub jest przestarzałe i zostało usunięte z IoT Hub 10 marca 2019** . Aby monitorować operacje i kondycję IoT Hub, zobacz [IoT Hub monitorowania](monitor-iot-hub.md). Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>**Monitorowanie operacji IoT Hub jest przestarzałe i zostało usunięte z IoT Hub 10 marca 2019**. Aby monitorować operacje i kondycję IoT Hub, zobacz [IoT Hub monitorowania](monitor-iot-hub.md). Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub monitoruje sześć kategorii zdarzeń:
 
@@ -39,11 +39,11 @@ IoT Hub monitoruje sześć kategorii zdarzeń:
 
 1. Utwórz centrum IoT. Instrukcje dotyczące sposobu tworzenia Centrum IoT można znaleźć [w przewodniku wprowadzenie.](quickstart-send-telemetry-dotnet.md)
 
-2. Otwórz blok Centrum IoT. W tym miejscu kliknij pozycję **monitorowanie operacji** .
+2. Otwórz blok Centrum IoT. W tym miejscu kliknij pozycję **monitorowanie operacji**.
 
     ![Dostęp do konfiguracji monitorowania operacji w portalu](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Wybierz kategorie monitorowania, które chcesz monitorować, a następnie kliknij przycisk **Zapisz** . Zdarzenia są dostępne do odczytu z punktu końcowego zgodnego z centrum zdarzeń wymienionym w obszarze **ustawienia monitorowania** . IoT Hub punkt końcowy jest wywoływany `messages/operationsmonitoringevents` .
+3. Wybierz kategorie monitorowania, które chcesz monitorować, a następnie kliknij przycisk **Zapisz**. Zdarzenia są dostępne do odczytu z punktu końcowego zgodnego z centrum zdarzeń wymienionym w obszarze **ustawienia monitorowania**. IoT Hub punkt końcowy jest wywoływany `messages/operationsmonitoringevents` .
 
     ![Konfigurowanie monitorowania operacji w centrum IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
@@ -97,7 +97,7 @@ Kategoria telemetrii urządzenia śledzi błędy występujące w centrum IoT i s
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Polecenia z chmury do urządzenia
+### <a name="cloud-to-device-commands"></a>Polecenia chmura-urządzenie
 
 Kategoria poleceń z chmury do urządzenia śledzi błędy występujące w centrum IoT Hub i powiązane z potokiem komunikatów z chmury do urządzenia. Ta kategoria zawiera błędy występujące podczas wysyłania komunikatów z chmury do urządzeń (takich jak nieautoryzowany nadawca), otrzymywania komunikatów z chmury do urządzeń (takich jak liczba przekroczeń) i otrzymywania opinii z chmury do urządzeń (takich jak wygasłe informacje zwrotne). Ta kategoria nie przechwytuje błędów z urządzenia, które nieprawidłowo obsługuje komunikat z chmury do urządzenia, jeśli komunikat z chmury do urządzenia został pomyślnie dostarczony.
 
@@ -201,7 +201,7 @@ Aby nawiązać połączenie z punktem końcowym monitorowania, potrzebne są par
 
     ![Wartości punktów końcowych zgodnych z centrum zdarzeń](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Wybierz pozycję **zasady dostępu współdzielonego** , a następnie wybierz pozycję **Usługa** . Zanotuj wartość **klucza podstawowego** :
+3. Wybierz pozycję **zasady dostępu współdzielonego** , a następnie wybierz pozycję **Usługa**. Zanotuj wartość **klucza podstawowego** :
 
     ![Klucz podstawowy zasad dostępu współdzielonego usługi](./media/iot-hub-operations-monitoring/service-key.png)
 
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
+Aby dowiedzieć się więcej o używaniu Azure Monitor do monitorowania IoT Hub, zobacz:
 
-* [Przewodnik dla deweloperów IoT Hub](iot-hub-devguide.md)
+* [Monitorowanie usługi IoT Hub](monitor-iot-hub.md)
 
-* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/quickstart-linux.md)
+* [Migrowanie z monitorowania IoT Hub operacji do Azure Monitor](iot-hub-migrate-to-diagnostics-settings.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2ee92a9eaf9316cbd453ea1ec4def58bb543a5a6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3d80ff9f5f96bbc642aed6598c86cb682d606695
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321138"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410678"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Eksplorowanie danych w usłudze Azure Blob Storage za pomocą Pandas
 
@@ -69,7 +69,7 @@ Poniżej przedstawiono kilka przykładów sposobu eksplorowania danych przy uży
 1. Sprawdzanie **liczby wierszy i kolumn**
 
     ```python
-    print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
+    print('the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape)
     ```
 
 1. **Sprawdź** pierwsze lub ostatnie **wiersze** w następującym zestawie danych:
@@ -84,7 +84,7 @@ Poniżej przedstawiono kilka przykładów sposobu eksplorowania danych przy uży
 
     ```python
     for col in dataframe_blobdata.columns:
-        print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
+        print(dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype)
     ```
 
 1. Sprawdź **podstawowe dane statystyczne** kolumn w zestawie danych w następujący sposób:
@@ -103,7 +103,7 @@ Poniżej przedstawiono kilka przykładów sposobu eksplorowania danych przy uży
 
     ```python
     miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-    print miss_num
+    print(miss_num)
     ```
 
 1. Jeśli w danych **brakuje wartości** dla konkretnej kolumny, można je upuścić w następujący sposób:

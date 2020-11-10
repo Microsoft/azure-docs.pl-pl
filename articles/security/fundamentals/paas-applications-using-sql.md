@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462534"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408077"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Najlepsze rozwiązania dotyczące zabezpieczania baz danych PaaS na platformie Azure
 
@@ -40,7 +40,7 @@ Azure SQL Database można skonfigurować tak, aby korzystała z jednego z dwóch
 
 - **Uwierzytelnianie Azure Active Directory** używa tożsamości zarządzanych przez Azure Active Directory i jest obsługiwane w przypadku domen zarządzanych i zintegrowanych. Aby użyć uwierzytelniania Azure Active Directory, należy utworzyć innego administratora serwera o nazwie "administrator usługi Azure AD", który może administrować użytkownikami i grupami usługi Azure AD. Ten administrator może również wykonywać wszystkie operacje, które może wykonać zwykły administrator serwera.
 
-[Uwierzytelnianie Azure Active Directory](../../active-directory/develop/authentication-scenarios.md) to mechanizm łączenia się z usługami Azure SQL Database i Azure Synapse Analytics przy użyciu tożsamości w Azure Active Directory (AD). Usługa Azure AD zapewnia alternatywę dla SQL Server uwierzytelniania, dzięki czemu można zatrzymać proliferację tożsamości użytkowników na serwerach baz danych. Uwierzytelnianie usługi Azure AD umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie tożsamościami oznacza jedną lokalizację do zarządzania użytkownikami bazy danych i prostsze zarządzanie uprawnieniami.  
+[Uwierzytelnianie Azure Active Directory](../../active-directory/develop/authentication-vs-authorization.md) to mechanizm łączenia się z usługami Azure SQL Database i Azure Synapse Analytics przy użyciu tożsamości w Azure Active Directory (AD). Usługa Azure AD zapewnia alternatywę dla SQL Server uwierzytelniania, dzięki czemu można zatrzymać proliferację tożsamości użytkowników na serwerach baz danych. Uwierzytelnianie usługi Azure AD umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie tożsamościami oznacza jedną lokalizację do zarządzania użytkownikami bazy danych i prostsze zarządzanie uprawnieniami.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Zalety korzystania z usługi Azure AD zamiast uwierzytelniania SQL
 
@@ -50,7 +50,7 @@ Azure SQL Database można skonfigurować tak, aby korzystała z jednego z dwóch
 - Używa użytkowników zawartej bazy danych do uwierzytelniania tożsamości na poziomie bazy danych.
 - Obsługuje uwierzytelnianie oparte na tokenach dla aplikacji łączących się z SQL Database.
 - Obsługuje Federacji domeny z Active Directory Federation Services (ADFS) lub natywne uwierzytelnianie użytkownika/hasła dla lokalnej usługi Azure AD bez synchronizacji z domeną.
-- Obsługuje połączenia z SQL Server Management Studio, które używają Active Directory uwierzytelniania uniwersalnego, w tym [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). Usługa MFA obejmuje silne uwierzytelnianie z szerokim zakresem prostych opcji weryfikacji, takich jak połączenia telefoniczne, wiadomości SMS, karty inteligentne z numerem PIN lub powiadomienia przez aplikacje mobilne. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie uniwersalne przy użyciu SQL Database i usługi Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Obsługuje połączenia z SQL Server Management Studio, które używają Active Directory uwierzytelniania uniwersalnego, w tym [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). Usługa MFA obejmuje silne uwierzytelnianie z szerokim zakresem prostych opcji weryfikacji, takich jak połączenia telefoniczne, wiadomości SMS, karty inteligentne z numerem PIN lub powiadomienia przez aplikacje mobilne. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie uniwersalne przy użyciu SQL Database i usługi Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
 
 Aby dowiedzieć się więcej o uwierzytelnianiu usługi Azure AD, zobacz:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127063"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410066"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
@@ -42,13 +42,13 @@ Zalecenia zawarte w tym dokumencie są wyrównane z [wynikiem bezpiecznego tożs
 ![Ocena bezpiecznego tożsamości](./media/steps-secure-identity/azure-ad-sec-steps0.png)
 
 > [!NOTE]
-> Wiele funkcji opisanych w tym miejscu wymaga subskrypcji Azure AD — wersja Premium, a niektóre z nich są bezpłatne. Aby uzyskać więcej informacji, zapoznaj się z naszymi [Azure Active Directory cennikami](https://azure.microsoft.com/pricing/details/active-directory/) i [listą kontrolną wdrożenia usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2) .
+> Wiele funkcji opisanych w tym miejscu wymaga subskrypcji Azure AD — wersja Premium, a niektóre z nich są bezpłatne. Aby uzyskać więcej informacji, zapoznaj się z naszymi [Azure Active Directory cennikami](https://azure.microsoft.com/pricing/details/active-directory/) i [listą kontrolną wdrożenia usługi Azure AD](../../active-directory/fundamentals/active-directory-deployment-checklist-p2.md) .
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Przed rozpoczęciem: Ochrona kont uprzywilejowanych za pomocą usługi MFA
 
 Przed rozpoczęciem korzystania z tej listy kontrolnej upewnij się, że nie nastąpiło naruszenie zabezpieczeń podczas odczytywania tej listy kontrolnej. Najpierw musisz chronić Twoje konta uprzywilejowane.
 
-Osoby atakujące, które uzyskują kontrolę nad kontami uprzywilejowanymi, mogą mieć ogromne szkody, dlatego należy zapewnić ochronę tych kont jako pierwsze. Włącz i wymagaj [usługi azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) dla wszystkich administratorów w organizacji przy użyciu [domyślnych ustawień zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) lub [dostępu warunkowego](../../active-directory/conditional-access/plan-conditional-access.md). Jeśli nie zaimplementowano usługi MFA, zrób to teraz! Jest to ważne.
+Osoby atakujące, które uzyskują kontrolę nad kontami uprzywilejowanymi, mogą mieć ogromne szkody, dlatego należy zapewnić ochronę tych kont jako pierwsze. Włącz i wymagaj [usługi azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) dla wszystkich administratorów w organizacji przy użyciu [domyślnych ustawień zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) lub [dostępu warunkowego](../../active-directory/conditional-access/plan-conditional-access.md). Jeśli nie zaimplementowano usługi MFA, zrób to teraz! Jest to ważne.
 
 Czy wszystko jest ustawione? Zacznijmy od listy kontrolnej.
 
@@ -59,7 +59,7 @@ Większość naruszeń zabezpieczeń przedsiębiorstwa pochodzi z konta złamane
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Upewnij się, że Twoja organizacja używa silnego uwierzytelniania
 
-Uwzględniając częstotliwość, w której hasła są zgadywanie, phishing, skradziony i złośliwe oprogramowanie, ma krytyczne znaczenie dla hasła przy użyciu jakiejś formy silnego poświadczenia — Dowiedz się więcej o [usłudze Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+Uwzględniając częstotliwość, w której hasła są zgadywanie, phishing, skradziony i złośliwe oprogramowanie, ma krytyczne znaczenie dla hasła przy użyciu jakiejś formy silnego poświadczenia — Dowiedz się więcej o [usłudze Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Aby w prosty sposób włączyć podstawowy poziom zabezpieczeń tożsamości, można użyć opcji włączenia jednego kliknięcia z [wartościami domyślnymi zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Domyślne ustawienia zabezpieczeń wymuszają usługę Azure MFA dla wszystkich użytkowników w dzierżawie i blokują logowania ze starszych protokołów w całej dzierżawie.
 
@@ -75,14 +75,14 @@ Firma Microsoft zaleca stosowanie następujących nowoczesnych zasad haseł opar
 2. Wyłącz reguły wygasania, które umożliwiają użytkownikom łatwe odgadnięcie haseł, takich jak **Spring2019!**
 3. Wyłącz wymagania dotyczące kompozycji znaków i uniemożliwiaj użytkownikom wybranie często zaatakowanych haseł, ponieważ powodują one, że użytkownicy wybierają przewidywalną podstawienia znaków w hasłach.
 
-Możesz użyć [programu PowerShell, aby zapobiec wygaśnięciu haseł](../../active-directory/authentication/concept-sspr-policy.md) dla użytkowników w przypadku bezpośredniego tworzenia tożsamości w usłudze Azure AD. Organizacje hybrydowe powinny zaimplementować te zasady przy użyciu [ustawień zasad grupy domeny](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) lub [programu Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Możesz użyć [programu PowerShell, aby zapobiec wygaśnięciu haseł](../../active-directory/authentication/concept-sspr-policy.md) dla użytkowników w przypadku bezpośredniego tworzenia tożsamości w usłudze Azure AD. Organizacje hybrydowe powinny zaimplementować te zasady przy użyciu [ustawień zasad grupy domeny](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) lub [programu Windows PowerShell](/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Ochrona przed nieujawnionymi poświadczeniami i zwiększanie odporności przed awarią
 
 Jeśli Twoja organizacja korzysta z rozwiązania do obsługi tożsamości hybrydowej z uwierzytelnianiem przekazującym lub federacyjnym, należy włączyć synchronizację skrótów haseł z następujących dwóch przyczyn:
 
-* Raport [Użytkownicy z ujawnionymi poświadczeniami](../../active-directory/reports-monitoring/concept-risk-events.md) w usłudze Azure AD Management ostrzega użytkownika o parach nazw i hasła, które zostały uwidocznione w "ciemnej sieci Web". Niezwykła ilość haseł jest wycieka za pośrednictwem wyłudzania informacji, złośliwego oprogramowania i ponownego użycia haseł w witrynach innych firm, które zostały później naruszone. Firma Microsoft odszuka wiele z tych nieujawnionych poświadczeń i poinformuje użytkownika, że w tym raporcie są one zgodne z poświadczeniami w organizacji, ale tylko w przypadku [włączenia synchronizacji skrótów haseł](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
-* W przypadku awarii lokalnej (na przykład w przypadku ataku z wykorzystaniem oprogramowania wymuszającego okup) można przełączyć się na używanie [uwierzytelniania w chmurze przy użyciu funkcji synchronizacji skrótów haseł](choose-ad-authn.md). Ta metoda uwierzytelniania kopii zapasowej umożliwi kontynuowanie dostępu do aplikacji skonfigurowanych do uwierzytelniania za pomocą Azure Active Directory, w tym Microsoft 365. W takim przypadku pracownicy działu IT nie muszą korzystać z osobistych kont e-mail w celu udostępniania danych, dopóki nie zostanie rozwiązane lokalne przestoje.
+* Raport [Użytkownicy z ujawnionymi poświadczeniami](../../active-directory/identity-protection/overview-identity-protection.md) w usłudze Azure AD Management ostrzega użytkownika o parach nazw i hasła, które zostały uwidocznione w "ciemnej sieci Web". Niezwykła ilość haseł jest wycieka za pośrednictwem wyłudzania informacji, złośliwego oprogramowania i ponownego użycia haseł w witrynach innych firm, które zostały później naruszone. Firma Microsoft odszuka wiele z tych nieujawnionych poświadczeń i poinformuje użytkownika, że w tym raporcie są one zgodne z poświadczeniami w organizacji, ale tylko w przypadku [włączenia synchronizacji skrótów haseł](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
+* W przypadku awarii lokalnej (na przykład w przypadku ataku z wykorzystaniem oprogramowania wymuszającego okup) można przełączyć się na używanie [uwierzytelniania w chmurze przy użyciu funkcji synchronizacji skrótów haseł](../../active-directory/hybrid/choose-ad-authn.md). Ta metoda uwierzytelniania kopii zapasowej umożliwi kontynuowanie dostępu do aplikacji skonfigurowanych do uwierzytelniania za pomocą Azure Active Directory, w tym Microsoft 365. W takim przypadku pracownicy działu IT nie muszą korzystać z osobistych kont e-mail w celu udostępniania danych, dopóki nie zostanie rozwiązane lokalne przestoje.
 
 Dowiedz się więcej o tym, jak działa [Synchronizacja skrótów haseł](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) .
 
@@ -91,11 +91,11 @@ Dowiedz się więcej o tym, jak działa [Synchronizacja skrótów haseł](../../
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementowanie blokady inteligentnej AD FS ekstranetu
 
-Organizacje, które konfigurują aplikacje do uwierzytelniania bezpośrednio w usłudze Azure AD z poziomu [inteligentnego blokowania usługi Azure AD](../../active-directory/authentication/concept-sspr-howitworks.md). Jeśli używasz AD FS w systemie Windows Server 2012R2, zaimplementuj AD FS [Ochrona blokowania ekstranetu](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Jeśli używasz AD FS w systemie Windows Server 2016, zaimplementuj [inteligentne blokady ekstranetu](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS inteligentnego blokowania ekstranetu chroni przed atakami polegającymi na rozdziałach, które są ukierunkowane AD FS, uniemożliwiając zablokowanie użytkowników w Active Directory.
+Organizacje, które konfigurują aplikacje do uwierzytelniania bezpośrednio w usłudze Azure AD z poziomu [inteligentnego blokowania usługi Azure AD](../../active-directory/authentication/concept-sspr-howitworks.md). Jeśli używasz AD FS w systemie Windows Server 2012R2, zaimplementuj AD FS [Ochrona blokowania ekstranetu](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Jeśli używasz AD FS w systemie Windows Server 2016, zaimplementuj [inteligentne blokady ekstranetu](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS inteligentnego blokowania ekstranetu chroni przed atakami polegającymi na rozdziałach, które są ukierunkowane AD FS, uniemożliwiając zablokowanie użytkowników w Active Directory.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Korzystaj z zalet bezpiecznego, łatwiejszego w użyciu poświadczeń
 
-Za pomocą funkcji [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)można zastąpić hasła silnym uwierzytelnianiem dwuskładnikowym na komputerach i urządzeniach przenośnych. To uwierzytelnianie obejmuje nowy typ poświadczeń użytkownika, które są bezpiecznie powiązane z urządzeniem i używa biometrycznych lub PIN.
+Za pomocą funkcji [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification)można zastąpić hasła silnym uwierzytelnianiem dwuskładnikowym na komputerach i urządzeniach przenośnych. To uwierzytelnianie obejmuje nowy typ poświadczeń użytkownika, które są bezpiecznie powiązane z urządzeniem i używa biometrycznych lub PIN.
 
 ## <a name="step-2---reduce-your-attack-surface"></a>Krok 2. zredukowanie obszaru ataków
 
@@ -105,8 +105,8 @@ Z uwagi na niebezpieczeństwo hasła, zminimalizowanie obszaru ataków w organiz
 
 Aplikacje korzystające z własnych starszych metod do uwierzytelniania w usłudze Azure AD i uzyskiwania dostępu do danych firmowych stanowią inne ryzyko dla organizacji. Przykładami aplikacji korzystających ze starszego uwierzytelniania są klienci POP3, IMAP4 lub SMTP. Starsze aplikacje uwierzytelniania uwierzytelniają się w imieniu użytkownika i uniemożliwiają usłudze Azure AD wykonywanie zaawansowanych ocen zabezpieczeń. Alternatywna, nowoczesne uwierzytelnianie zmniejsza zagrożenie bezpieczeństwa, ponieważ obsługuje uwierzytelnianie wieloskładnikowe i dostęp warunkowy. Zalecamy następujące trzy akcje:
 
-1. Blokuj [starsze uwierzytelnianie, jeśli używasz AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
-2. Skonfiguruj [SharePoint Online i usługi Exchange Online do korzystania z nowoczesnego uwierzytelniania](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
+1. Blokuj [starsze uwierzytelnianie, jeśli używasz AD FS](/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
+2. Skonfiguruj [SharePoint Online i usługi Exchange Online do korzystania z nowoczesnego uwierzytelniania](../../active-directory/conditional-access/block-legacy-authentication.md).
 3. Jeśli masz Azure AD — wersja Premium, użyj zasad dostępu warunkowego, aby [zablokować starsze uwierzytelnianie](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md), w przeciwnym razie użyj [domyślnych ustawień zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blokuj nieprawidłowe punkty wejścia uwierzytelniania
@@ -143,13 +143,13 @@ Azure Active Directory ma wiele funkcji, które automatycznie przechwytuje ataki
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementowanie zasad zabezpieczeń dotyczących ryzyka użytkownika przy użyciu Azure AD Identity Protection
 
-Ryzyko związane z użytkownikiem wskazuje, że prawdopodobieństwo naruszenia tożsamości użytkownika zostało naruszone i jest obliczane na podstawie [wykrycia ryzyka użytkownika](../../active-directory/identity-protection/overview.md) , które są skojarzone z tożsamością użytkownika. Zasady ryzyka dla użytkowników to zasady dostępu warunkowego, które szacują poziom ryzyka dla określonego użytkownika lub grupy. W oparciu o niski, średni i wysoki poziom ryzyka zasady można skonfigurować w taki sposób, aby blokować dostęp lub wymagały bezpiecznej zmiany hasła przy użyciu usługi uwierzytelniania wieloskładnikowego. Zalecenie firmy Microsoft to wymaganie bezpiecznej zmiany hasła dla użytkowników na wysokim ryzyku.
+Ryzyko związane z użytkownikiem wskazuje, że prawdopodobieństwo naruszenia tożsamości użytkownika zostało naruszone i jest obliczane na podstawie [wykrycia ryzyka użytkownika](../../active-directory/identity-protection/overview-identity-protection.md) , które są skojarzone z tożsamością użytkownika. Zasady ryzyka dla użytkowników to zasady dostępu warunkowego, które szacują poziom ryzyka dla określonego użytkownika lub grupy. W oparciu o niski, średni i wysoki poziom ryzyka zasady można skonfigurować w taki sposób, aby blokować dostęp lub wymagały bezpiecznej zmiany hasła przy użyciu usługi uwierzytelniania wieloskładnikowego. Zalecenie firmy Microsoft to wymaganie bezpiecznej zmiany hasła dla użytkowników na wysokim ryzyku.
 
 ![Zrzut ekranu przedstawia użytkowników oflagowanych w celu ryzyka z wybranym użytkownikiem.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementowanie zasad dotyczących ryzyka związanego z logowaniem przy użyciu Azure AD Identity Protection
 
-Ryzyko związane z logowaniem to prawdopodobieństwo, że ktoś inny niż właściciel konta podejmuje próbę zalogowania się przy użyciu tożsamości. [Zasady dotyczące ryzyka związanego z logowaniem](../../active-directory/identity-protection/overview.md) to zasady dostępu warunkowego, które szacują poziom ryzyka dla określonego użytkownika lub grupy. W oparciu o poziom ryzyka (wysoki/średni/niski) zasady można skonfigurować w taki sposób, aby blokować dostęp lub wymuszać uwierzytelnianie wieloskładnikowe. Upewnij się, że wymuszsz uwierzytelnianie wieloskładnikowe na średnim lub wyższym ryzyku.
+Ryzyko związane z logowaniem to prawdopodobieństwo, że ktoś inny niż właściciel konta podejmuje próbę zalogowania się przy użyciu tożsamości. [Zasady dotyczące ryzyka związanego z logowaniem](../../active-directory/identity-protection/overview-identity-protection.md) to zasady dostępu warunkowego, które szacują poziom ryzyka dla określonego użytkownika lub grupy. W oparciu o poziom ryzyka (wysoki/średni/niski) zasady można skonfigurować w taki sposób, aby blokować dostęp lub wymuszać uwierzytelnianie wieloskładnikowe. Upewnij się, że wymuszsz uwierzytelnianie wieloskładnikowe na średnim lub wyższym ryzyku.
 
 ![Logowanie się z anonimowych adresów IP](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
@@ -169,7 +169,7 @@ Usługi Microsoft Azure i funkcje udostępniają konfigurowalne opcje inspekcji 
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Monitorowanie zdarzeń Azure AD Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) to narzędzie do powiadamiania, monitorowania i raportowania, których można użyć do wykrywania potencjalnych luk w zabezpieczeniach, które mają wpływ na tożsamości w organizacji. Wykrywa ona wykrywanie ryzyka, takie jak nieujawnione poświadczenia, niemożliwa podróż i logowania z zainfekowanych urządzeń, anonimowe adresy IP, adresy IP skojarzone z podejrzanymi działaniami oraz nieznane lokalizacje. Włącz alerty powiadomień, aby otrzymywać wiadomości e-mail użytkowników z ryzykiem i/lub tygodniową pocztą e-mail.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) to narzędzie do powiadamiania, monitorowania i raportowania, których można użyć do wykrywania potencjalnych luk w zabezpieczeniach, które mają wpływ na tożsamości w organizacji. Wykrywa ona wykrywanie ryzyka, takie jak nieujawnione poświadczenia, niemożliwa podróż i logowania z zainfekowanych urządzeń, anonimowe adresy IP, adresy IP skojarzone z podejrzanymi działaniami oraz nieznane lokalizacje. Włącz alerty powiadomień, aby otrzymywać wiadomości e-mail użytkowników z ryzykiem i/lub tygodniową pocztą e-mail.
 
 Azure AD Identity Protection oferuje dwa ważne raporty, które należy monitorować codziennie:
 1. Ryzykowne raporty logowania to działania związane z logowaniem użytkownika, które należy zbadać, ale uprawniony właściciel może nie wykonać logowania.
@@ -179,9 +179,9 @@ Azure AD Identity Protection oferuje dwa ważne raporty, które należy monitoro
 
 ### <a name="audit-apps-and-consented-permissions"></a>Inspekcja aplikacji i przyzwoleń do nich
 
-Użytkownicy mogą dochodzić do nawigowania do witryny lub aplikacji sieci Web, które będą uzyskiwać dostęp do informacji o profilu i danych użytkownika, takich jak ich wiadomości e-mail. Złośliwy aktor może korzystać z uzyskanych uprawnień, które otrzymały w celu zaszyfrowania zawartości skrzynki pocztowej, i uzyskania dostępu do oprogramowania wymuszającego okup w celu odzyskania danych skrzynki pocztowej. [Administratorzy powinni przeglądać i przeprowadzać inspekcję](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) uprawnień określonych przez użytkowników lub wyłączać możliwość udzielania zgody użytkownikom.
+Użytkownicy mogą dochodzić do nawigowania do witryny lub aplikacji sieci Web, które będą uzyskiwać dostęp do informacji o profilu i danych użytkownika, takich jak ich wiadomości e-mail. Złośliwy aktor może korzystać z uzyskanych uprawnień, które otrzymały w celu zaszyfrowania zawartości skrzynki pocztowej, i uzyskania dostępu do oprogramowania wymuszającego okup w celu odzyskania danych skrzynki pocztowej. [Administratorzy powinni przeglądać i przeprowadzać inspekcję](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) uprawnień określonych przez użytkowników lub wyłączać możliwość udzielania zgody użytkownikom.
 
-Oprócz inspekcji uprawnień określonych przez użytkowników można [lokalizować ryzykowne lub niepożądane aplikacje OAuth](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) w środowiskach Premium.
+Oprócz inspekcji uprawnień określonych przez użytkowników można [lokalizować ryzykowne lub niepożądane aplikacje OAuth](/cloud-app-security/investigate-risky-oauth) w środowiskach Premium.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Krok 5 — Włączanie samoobsługowego użytkownika końcowego
 
@@ -189,7 +189,7 @@ Tak dużo, jak to możliwe, należy zrównoważyć zabezpieczenia z wydajności�
 
 ### <a name="implement-self-service-password-reset"></a>Implementowanie samoobsługowego resetowania hasła
 
-Funkcja samoobsługowego resetowania haseł w usłudze Azure AD [(SSPR)](../../active-directory/authentication/quickstart-sspr.md) umożliwia administratorom IT łatwe Resetowanie lub odblokowanie haseł lub kont bez pomocy technicznej ani interwencji administratora. System zawiera szczegółowe raporty, które są śledzone, gdy użytkownicy zresetują swoje hasła, wraz z powiadomieniami o alertach dotyczących nieprawidłowego lub nadużycia.
+Funkcja samoobsługowego resetowania haseł w usłudze Azure AD [(SSPR)](../../active-directory/authentication/tutorial-enable-sspr.md) umożliwia administratorom IT łatwe Resetowanie lub odblokowanie haseł lub kont bez pomocy technicznej ani interwencji administratora. System zawiera szczegółowe raporty, które są śledzone, gdy użytkownicy zresetują swoje hasła, wraz z powiadomieniami o alertach dotyczących nieprawidłowego lub nadużycia.
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementowanie dostępu do grup i aplikacji samoobsługowej
 
@@ -213,6 +213,6 @@ Doceniamy, jak poważnie ponosisz bezpieczeństwo tożsamości i mamy nadzieję,
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz pomocy w zaplanowaniu i wdrożeniu zaleceń, zapoznaj się z [planami wdrażania projektu usługi Azure AD](https://aka.ms/deploymentplans) , aby uzyskać pomoc.
+Jeśli potrzebujesz pomocy w zaplanowaniu i wdrożeniu zaleceń, zapoznaj się z [planami wdrażania projektu usługi Azure AD](../../active-directory/fundamentals/active-directory-deployment-plans.md) , aby uzyskać pomoc.
 
 Jeśli masz pewność, że wszystkie te kroki są kompletne, Skorzystaj z [bezpiecznego wyniku tożsamości](../../active-directory/fundamentals/identity-secure-score.md)firmy Microsoft, co pozwoli na uzyskanie Aktualności przy użyciu [najnowszych najlepszych](identity-management-best-practices.md) rozwiązań i zagrożeń bezpieczeństwa.

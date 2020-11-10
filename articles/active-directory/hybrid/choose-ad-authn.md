@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602374"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410296"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Wybierz właściwą metodę uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej
 
@@ -97,7 +97,7 @@ Szczegółowe informacje na temat decyzji:
 > [!NOTE]
 > Dostęp warunkowy usługi Azure AD wymaga [Azure AD — wersja Premium licencji P1](https://azure.microsoft.com/pricing/details/active-directory/) .
 
-* **Ciągłość**działania. Używanie synchronizacji skrótów haseł z uwierzytelnianiem w chmurze jest wysoce dostępne jako usługa w chmurze, która skaluje się do wszystkich centrów danych firmy Microsoft. Aby upewnić się, że synchronizacja skrótów haseł nie zostanie wyłączona przez Rozszerzone okresy, wdróż drugi Azure AD Connect serwer w trybie przejściowym w konfiguracji gotowości.
+* **Ciągłość** działania. Używanie synchronizacji skrótów haseł z uwierzytelnianiem w chmurze jest wysoce dostępne jako usługa w chmurze, która skaluje się do wszystkich centrów danych firmy Microsoft. Aby upewnić się, że synchronizacja skrótów haseł nie zostanie wyłączona przez Rozszerzone okresy, wdróż drugi Azure AD Connect serwer w trybie przejściowym w konfiguracji gotowości.
 
 * **Zagadnienia**. Obecnie synchronizacja skrótów haseł nie wymusza natychmiast zmian w Stanach kont lokalnych. W takiej sytuacji użytkownik ma dostęp do aplikacji w chmurze, dopóki stan konta użytkownika nie zostanie zsynchronizowany z usługą Azure AD. Organizacje mogą chcieć przezwyciężyć to ograniczenie, uruchamiając nowy cykl synchronizacji, gdy Administratorzy przeprowadzają zbiorcze aktualizacje lokalnych Stanów kont użytkowników. Przykładem jest wyłączenie kont.
 
@@ -118,7 +118,7 @@ Zapoznaj się z artykułem [implementowanie synchronizacji skrótów haseł](../
 
     Organizacje, które wymagają uwierzytelniania wieloskładnikowego z uwierzytelnianiem przekazującym, muszą używać niestandardowych kontrolek usługi Azure Multi-Factor Authentication (MFA) lub [dostępu warunkowego](../../active-directory/conditional-access/controls.md#custom-controls-preview). Organizacje te nie mogą korzystać z metody uwierzytelniania wieloskładnikowego innej firmy ani lokalnej, która opiera się na Federacji. Funkcje zaawansowane wymagają, aby synchronizacja skrótów haseł była wdrażana niezależnie od tego, czy wybrano opcję uwierzytelnianie przekazywane. Przykładem jest raport dotyczący przecieków poświadczeń programu Identity Protection.
 
-* **Ciągłość**działania. Zalecamy wdrożenie dwóch dodatkowych agentów uwierzytelniania Pass-through. Te dodatki są uzupełnieniem pierwszego agenta na serwerze Azure AD Connect. To dodatkowe wdrożenie zapewnia wysoką dostępność żądań uwierzytelniania. Po wdrożeniu trzech agentów jeden Agent może nadal kończyć się niepowodzeniem, gdy inny agent nie działa do konserwacji.
+* **Ciągłość** działania. Zalecamy wdrożenie dwóch dodatkowych agentów uwierzytelniania Pass-through. Te dodatki są uzupełnieniem pierwszego agenta na serwerze Azure AD Connect. To dodatkowe wdrożenie zapewnia wysoką dostępność żądań uwierzytelniania. Po wdrożeniu trzech agentów jeden Agent może nadal kończyć się niepowodzeniem, gdy inny agent nie działa do konserwacji.
 
     Oprócz uwierzytelniania przekazywanego istnieje inna korzyść w zakresie wdrażania synchronizacji skrótów haseł. Działa jako metoda uwierzytelniania kopii zapasowej, gdy podstawowa metoda uwierzytelniania nie jest już dostępna.
 
@@ -141,7 +141,7 @@ Zapoznaj się z artykułem [implementacja uwierzytelniania przekazywanego](../..
   * Uwierzytelnianie przy użyciu rozwiązań uwierzytelniania innych firm. Zobacz [listę zgodności Federacji usługi Azure AD](../../active-directory/hybrid/how-to-connect-fed-compatibility.md).
   * Logowanie, które wymaga konta sAMAccountName, na przykład domena \ nazwa_użytkownika, zamiast głównej nazwy użytkownika (UPN), na przykład user@domain.com .
 
-* **Ciągłość**działania. Systemy federacyjne zwykle wymagają tablicy serwerów o zrównoważonym obciążeniu, znanej jako Farma. Ta farma jest konfigurowana w wewnętrznej sieci i topologii sieci obwodowej w celu zapewnienia wysokiej dostępności żądań uwierzytelniania.
+* **Ciągłość** działania. Systemy federacyjne zwykle wymagają tablicy serwerów o zrównoważonym obciążeniu, znanej jako Farma. Ta farma jest konfigurowana w wewnętrznej sieci i topologii sieci obwodowej w celu zapewnienia wysokiej dostępności żądań uwierzytelniania.
 
     Wdróż synchronizację skrótów haseł oraz uwierzytelnianie federacyjne jako metodę uwierzytelniania kopii zapasowej, gdy podstawowa metoda uwierzytelniania nie jest już dostępna. Przykładem jest to, że serwery lokalne nie są dostępne. Niektóre duże organizacje korporacyjne wymagają rozwiązania federacyjnego do obsługi wielu punktów przychodzących z Internetu skonfigurowanych przy użyciu geograficznego systemu DNS dla żądań uwierzytelniania o małym opóźnieniu.
 
@@ -174,7 +174,7 @@ Na poniższym diagramie przedstawiono składniki architektury wysokiego poziomu 
 
 |Kwestie do rozważenia|Synchronizacja skrótów haseł + bezproblemowe logowanie jednokrotne|Uwierzytelnianie przekazywane i bezproblemowe logowanie jednokrotne|Federacja z usługami AD FS|
 |:-----|:-----|:-----|:-----|
-|Gdzie jest wykonywane uwierzytelnianie?|W chmurze|W chmurze po bezpiecznej weryfikacji hasła przy użyciu lokalnego agenta uwierzytelniania|Środowiska lokalne|
+|Gdzie jest wykonywane uwierzytelnianie?|W chmurze|W chmurze po bezpiecznej weryfikacji hasła przy użyciu lokalnego agenta uwierzytelniania|Magazyn lokalny|
 |Jakie są wymagania dotyczące serwera lokalnego poza systemem aprowizacji: Azure AD Connect?|Brak|Jeden serwer dla każdego dodatkowego agenta uwierzytelniania|Co najmniej dwa serwery AD FS<br><br>Dwa lub więcej serwerów WAP w sieci obwodowej/strefy DMZ|
 |Jakie są wymagania dotyczące lokalnego Internetu i sieci poza systemem aprowizacji?|Brak|[Wychodzący dostęp do Internetu](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) z serwerów z uruchomionymi agentami uwierzytelniania|[Przychodzący dostęp do Internetu](/windows-server/identity/ad-fs/overview/ad-fs-requirements) do serwerów WAP na obrzeżu<br><br>Dostęp do sieci przychodzącej do serwerów AD FS z serwerów WAP na obrzeżu<br><br>Równoważenie obciążenia sieciowego|
 |Czy istnieje wymagania dotyczące certyfikatu TLS/SSL?|Nie|Nie|Tak|
@@ -221,4 +221,4 @@ W dzisiejszym świecie zagrożenia są obecne przez 24 godziny dziennie i pochod
 
 [Rozpocznij pracę](../fundamentals/active-directory-whatis.md) z usługą Azure AD i Wdróż odpowiednie rozwiązanie uwierzytelniania dla swojej organizacji.
 
-Jeśli myślisz o migracji z Federacji do uwierzytelniania w chmurze, Dowiedz się więcej [na temat zmiany metody logowania](../../active-directory/hybrid/plan-connect-user-signin.md). Aby ułatwić planowanie i implementowanie migracji, należy użyć [tych planów wdrażania projektu](https://aka.ms/deploymentplans) lub rozważyć użycie nowej funkcji wdrożenia [etapowego](../../active-directory/hybrid/how-to-connect-staged-rollout.md) w celu przeprowadzenia migracji użytkowników federacyjnych do korzystania z uwierzytelniania w chmurze w podejściu przygotowanym.
+Jeśli myślisz o migracji z Federacji do uwierzytelniania w chmurze, Dowiedz się więcej [na temat zmiany metody logowania](../../active-directory/hybrid/plan-connect-user-signin.md). Aby ułatwić planowanie i implementowanie migracji, należy użyć [tych planów wdrażania projektu](../fundamentals/active-directory-deployment-plans.md) lub rozważyć użycie nowej funkcji wdrożenia [etapowego](../../active-directory/hybrid/how-to-connect-staged-rollout.md) w celu przeprowadzenia migracji użytkowników federacyjnych do korzystania z uwierzytelniania w chmurze w podejściu przygotowanym.

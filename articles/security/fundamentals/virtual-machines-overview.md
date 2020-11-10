@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229367"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409794"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Omówienie zabezpieczeń usługi Azure Virtual Machines
 Ten artykuł zawiera omówienie podstawowych funkcji zabezpieczeń platformy Azure, które mogą być używane z maszynami wirtualnymi.
@@ -51,13 +51,13 @@ Dowiedz się więcej o [programie Microsoft chroniącym przed złośliwym kodem 
 Dowiedz się więcej o oprogramowaniu chroniącym przed złośliwym kodem, aby pomóc w ochronie maszyn wirtualnych:
 
 * [Wdrażanie rozwiązań do ochrony przed złośliwym kodem na maszynach wirtualnych platformy Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Jak zainstalować i skonfigurować Trend Micro głębokiego zabezpieczenia jako usługi na maszynie wirtualnej z systemem Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Jak zainstalować i skonfigurować Trend Micro głębokiego zabezpieczenia jako usługi na maszynie wirtualnej z systemem Windows](../../virtual-machines/extensions/trend.md)
+* [Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows](../../virtual-machines/extensions/symantec.md)
 * [Rozwiązania zabezpieczeń w portalu Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-W celu zapewnienia jeszcze bardziej zaawansowanej ochrony należy rozważyć użycie funkcji [zaawansowanej ochrony przed zagrożeniami w usłudze Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Usługa Windows Defender ATP zapewnia następujące korzyści:
+W celu zapewnienia jeszcze bardziej zaawansowanej ochrony należy rozważyć użycie funkcji [zaawansowanej ochrony przed zagrożeniami w usłudze Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Usługa Windows Defender ATP zapewnia następujące korzyści:
 
-* [Zmniejszanie obszaru ataków](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Zmniejszenie obszaru ataków](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Ochrona nowej generacji](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint Protection i odpowiedź](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Zautomatyzowane badanie i korygowanie](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
@@ -75,22 +75,22 @@ Więcej informacji:
 
 Zwiększenie bezpieczeństwa klucza może zwiększyć ochronę szyfrowania i uwierzytelniania. Można uprościć zarządzanie i zabezpieczanie kluczowych kluczy tajnych i kluczy, przechowując je w Azure Key Vault.
 
-Key Vault udostępnia opcję przechowywania kluczy w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń) certyfikowanych do standardów standardu FIPS 140-2 Level 2. Klucze szyfrowania SQL Server na potrzeby tworzenia kopii zapasowej lub [przezroczystego szyfrowania danych](https://msdn.microsoft.com/library/bb934049.aspx) mogą być przechowywane w Key Vault z użyciem dowolnych kluczy lub wpisów tajnych aplikacji. Uprawnienia i dostęp do tych chronionych elementów są zarządzane za poorednictwem [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault udostępnia opcję przechowywania kluczy w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń) certyfikowanych do standardów standardu FIPS 140-2 Level 2. Klucze szyfrowania SQL Server na potrzeby tworzenia kopii zapasowej lub [przezroczystego szyfrowania danych](/sql/relational-databases/security/encryption/transparent-data-encryption) mogą być przechowywane w Key Vault z użyciem dowolnych kluczy lub wpisów tajnych aplikacji. Uprawnienia i dostęp do tych chronionych elementów są zarządzane za poorednictwem [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Więcej informacji:
 
-* [Co to jest usługa Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [Blog Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
+* [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)
+* [Blog Azure Key Vault](/archive/blogs/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Szyfrowanie dysku maszyny wirtualnej
 
-Azure Disk Encryption to nowa funkcja szyfrowania dysków maszyn wirtualnych z systemami Windows i Linux. Azure Disk Encryption używa standardowej funkcji [funkcji BitLocker](https://technet.microsoft.com/library/cc732774.aspx) systemu Windows i funkcji [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) w systemie Linux, aby zapewnić szyfrowanie woluminów dla systemu operacyjnego i dysków danych.
+Azure Disk Encryption to nowa funkcja szyfrowania dysków maszyn wirtualnych z systemami Windows i Linux. Azure Disk Encryption używa standardowej funkcji [funkcji BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) systemu Windows i funkcji [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) w systemie Linux, aby zapewnić szyfrowanie woluminów dla systemu operacyjnego i dysków danych.
 
 Rozwiązanie jest zintegrowane z Azure Key Vault, które ułatwiają sterowanie kluczami szyfrowania dysków i wpisami tajnymi w ramach subskrypcji magazynu kluczy oraz zarządzanie nimi. Gwarantuje to, że wszystkie dane na dyskach maszyn wirtualnych są szyfrowane w usłudze Azure Storage.
 
 Więcej informacji:
 
-* [Azure Disk Encryption maszyn wirtualnych IaaS](/azure/security/azure-security-disk-encryption-overview)
+* [Azure Disk Encryption maszyn wirtualnych IaaS](./azure-disk-encryption-vms-vmss.md)
 * [Szybki start: szyfrowanie maszyny wirtualnej IaaS z systemem Windows za pomocą programu Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Kopia zapasowa maszyny wirtualnej
@@ -99,8 +99,8 @@ Azure Backup to skalowalne rozwiązanie, które pomaga chronić dane aplikacji b
 
 Więcej informacji:
 
-* [Co to jest Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
-* [Często zadawane pytania dotyczące usługi Azure Backup](/azure/backup/backup-azure-backup-faq)
+* [Co to jest Azure Backup?](../../backup/backup-overview.md)
+* [Często zadawane pytania dotyczące usługi Azure Backup](../../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -108,17 +108,17 @@ Istotną częścią strategii BCDR organizacji jest ustalenie, jak utrzymywać o
 
 Site Recovery:
 
-* **Upraszcza strategię BCDR**: Site Recovery ułatwia obsługę replikacji, trybu failover i odzyskiwania wielu obciążeń i aplikacji firmowych z jednej lokalizacji. Site Recovery organizuje replikację i pracę w trybie failover, ale nie przechwytuje danych aplikacji ani nie zawiera żadnych informacji o nim.
-* **Zapewnia elastyczną replikację**: korzystając z Site Recovery, można replikować obciążenia uruchomione na maszynach wirtualnych funkcji Hyper-V, maszynach wirtualnych VMware oraz serwerach fizycznych z systemem Windows/Linux.
-* **Obsługuje tryb failover i odzyskiwanie**: Site Recovery umożliwia testowanie pracy w trybie failover w celu obsługi szczegółów odzyskiwania po awarii bez wpływu na środowiska produkcyjne. Możesz również uruchomić planowane tryby failover (brak utraty danych) w przypadku przewidywanych przerw w działaniu lub nieplanowane tryby failover (minimalna utrata danych, zależna od częstotliwości replikacji) w przypadku nieoczekiwanych awarii. Po przejściu w tryb failover można wrócić do lokacji głównych. Usługa Site Recovery zapewnia plany odzyskiwania, które mogą uwzględniać skrypty i skoroszyty automatyzacji platformy Azure. Dzięki nim możesz dostosować tryb failover i odzyskiwanie dla aplikacji wielowarstwowych.
-* **Eliminuje dodatkowe centra**danych: można przeprowadzić replikację do dodatkowej lokacji lokalnej lub do platformy Azure. Korzystanie z platformy Azure jako miejsca docelowego do odzyskiwania po awarii eliminuje koszt i złożoność utrzymywania lokacji dodatkowej. Zreplikowane dane są przechowywane w usłudze Azure Storage.
-* **Integruje się z istniejącymi technologiami BCDR**: Partnerzy Site Recovery z funkcjami BCDR innych aplikacji. Na przykład można użyć Site Recovery, aby pomóc w ochronie SQL Server zaplecza obciążeń firmowych. Obejmuje to natywną obsługę usługi SQL Server, która jest zawsze włączona, aby zarządzać trybem failover grup dostępności.
+* **Upraszcza strategię BCDR** : Site Recovery ułatwia obsługę replikacji, trybu failover i odzyskiwania wielu obciążeń i aplikacji firmowych z jednej lokalizacji. Site Recovery organizuje replikację i pracę w trybie failover, ale nie przechwytuje danych aplikacji ani nie zawiera żadnych informacji o nim.
+* **Zapewnia elastyczną replikację** : korzystając z Site Recovery, można replikować obciążenia uruchomione na maszynach wirtualnych funkcji Hyper-V, maszynach wirtualnych VMware oraz serwerach fizycznych z systemem Windows/Linux.
+* **Obsługuje tryb failover i odzyskiwanie** : Site Recovery umożliwia testowanie pracy w trybie failover w celu obsługi szczegółów odzyskiwania po awarii bez wpływu na środowiska produkcyjne. Możesz również uruchomić planowane tryby failover (brak utraty danych) w przypadku przewidywanych przerw w działaniu lub nieplanowane tryby failover (minimalna utrata danych, zależna od częstotliwości replikacji) w przypadku nieoczekiwanych awarii. Po przejściu w tryb failover można wrócić do lokacji głównych. Usługa Site Recovery zapewnia plany odzyskiwania, które mogą uwzględniać skrypty i skoroszyty automatyzacji platformy Azure. Dzięki nim możesz dostosować tryb failover i odzyskiwanie dla aplikacji wielowarstwowych.
+* **Eliminuje dodatkowe centra** danych: można przeprowadzić replikację do dodatkowej lokacji lokalnej lub do platformy Azure. Korzystanie z platformy Azure jako miejsca docelowego do odzyskiwania po awarii eliminuje koszt i złożoność utrzymywania lokacji dodatkowej. Zreplikowane dane są przechowywane w usłudze Azure Storage.
+* **Integruje się z istniejącymi technologiami BCDR** : Partnerzy Site Recovery z funkcjami BCDR innych aplikacji. Na przykład można użyć Site Recovery, aby pomóc w ochronie SQL Server zaplecza obciążeń firmowych. Obejmuje to natywną obsługę usługi SQL Server, która jest zawsze włączona, aby zarządzać trybem failover grup dostępności.
 
 Więcej informacji:
 
-* [Co to jest usługa Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [W jaki sposób działa usługa Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
-* [Jakie obciążenia są chronione przez Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
+* [Co to jest Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [W jaki sposób działa usługa Azure Site Recovery?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [Jakie obciążenia są chronione przez Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Sieć wirtualna
 
@@ -129,7 +129,7 @@ Usługa Azure Virtual Network to konstrukcja logiczna oparta na fizycznej sieci 
 Więcej informacji:
 
 * [Omówienie zabezpieczeń sieci platformy Azure](network-overview.md)
-* [Przegląd Virtual Network](/azure/virtual-network/virtual-networks-overview)
+* [Przegląd Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Funkcje sieciowe i partnerstwo dla scenariuszy dla przedsiębiorstw](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Zarządzanie zasadami zabezpieczeń i raportowanie
@@ -138,14 +138,14 @@ Usługa Azure Security Center pomaga w zapobieganiu zagrożeniom, wykrywaniu ich
 
 Security Center pomaga zoptymalizować i monitorować zabezpieczenia maszyn wirtualnych, wykonując następujące działania:
 
-* Zapewnianie [zaleceń dotyczących zabezpieczeń](/azure/security-center/security-center-recommendations) dla maszyn wirtualnych. Przykładowe zalecenia: Zastosuj aktualizacje systemu, skonfiguruj punkty końcowe list kontroli dostępu, Włącz ochronę przed złośliwym kodem, Włącz grupy zabezpieczeń sieci i Zastosuj szyfrowanie dysków.
+* Zapewnianie [zaleceń dotyczących zabezpieczeń](../../security-center/security-center-recommendations.md) dla maszyn wirtualnych. Przykładowe zalecenia: Zastosuj aktualizacje systemu, skonfiguruj punkty końcowe list kontroli dostępu, Włącz ochronę przed złośliwym kodem, Włącz grupy zabezpieczeń sieci i Zastosuj szyfrowanie dysków.
 * Monitorowanie stanu maszyn wirtualnych.
 
 Więcej informacji:
 
-* [Wprowadzenie do usługi Azure Security Center](/azure/security-center/security-center-intro)
-* [Azure Security Center często zadawane pytania](/azure/security-center/security-center-faq)
-* [Azure Security Center planowanie i operacje](/azure/security-center/security-center-planning-and-operations-guide)
+* [Wprowadzenie do usługi Azure Security Center](../../security-center/security-center-introduction.md)
+* [Azure Security Center często zadawane pytania](../../security-center/faq-general.md)
+* [Azure Security Center planowanie i operacje](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Zgodność
 
