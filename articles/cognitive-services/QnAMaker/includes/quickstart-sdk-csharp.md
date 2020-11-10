@@ -3,12 +3,12 @@ title: 'Szybki Start: QnA Makera Biblioteka kliencka dla platformy .NET'
 description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką klienta QnA Maker dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: eecbf162f3bd043bf4aabe9796ee095667e0cc39
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6170d9fc7f630d44fd7c1f3bfff5ed581dbf9cdd
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88246367"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386662"
 ---
 Użyj biblioteki klienta QnA Maker dla platformy .NET, aby:
 
@@ -37,7 +37,7 @@ Użyj biblioteki klienta QnA Maker dla platformy .NET, aby:
 
 #### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
 
-Za pomocą programu Visual Studio Utwórz aplikację .NET Core i zainstaluj bibliotekę kliencką, klikając rozwiązanie prawym przyciskiem myszy w **Eksplorator rozwiązań** i wybierając pozycję **Zarządzaj pakietami NuGet**. W Menedżerze pakietów, który otwiera Wybierz pozycję **Przeglądaj**, zaznacz pozycję **Uwzględnij wersję wstępną**i Wyszukaj `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker` . Wybierz wersję `2.0.0-preview.1` , a następnie **Zainstaluj**.
+Za pomocą programu Visual Studio Utwórz aplikację .NET Core i zainstaluj bibliotekę kliencką, klikając rozwiązanie prawym przyciskiem myszy w **Eksplorator rozwiązań** i wybierając pozycję **Zarządzaj pakietami NuGet**. W Menedżerze pakietów, który otwiera Wybierz pozycję **Przeglądaj** , zaznacz pozycję **Uwzględnij wersję wstępną** i Wyszukaj `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker` . Wybierz wersję `2.0.0-preview.1` , a następnie **Zainstaluj**.
 
 #### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
 
@@ -138,10 +138,10 @@ Utwórz wystąpienie obiektu klienta z kluczem i użyj go razem z zasobem, aby u
 
 Baza wiedzy zapisuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.createkbdto?view=azure-dotnet) z trzech źródeł:
 
-* W przypadku **zawartości redakcyjnej**Użyj obiektu [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-dotnet) .
+* W przypadku **zawartości redakcyjnej** Użyj obiektu [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-dotnet) .
     * Aby użyć metadanych i monitów uzupełniających, użyj kontekstu redakcyjnego, ponieważ te dane są dodawane na indywidualnym poziomie pary QnA.
-* Dla **plików**Użyj obiektu [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet) . FileDTO zawiera nazwę pliku, a także publiczny adres URL w celu uzyskania dostępu do pliku.
-* W przypadku **adresów URL**Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
+* Dla **plików** Użyj obiektu [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet) . FileDTO zawiera nazwę pliku, a także publiczny adres URL w celu uzyskania dostępu do pliku.
+* W przypadku **adresów URL** Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
 
 Krok tworzenia obejmuje również właściwości bazy wiedzy:
 * `defaultAnswerUsedForExtraction` -co jest zwracane, gdy nie zostanie znaleziona żadna odpowiedź
@@ -202,11 +202,21 @@ Użyj QnAMakerRuntimeClient do:
 
 ## <a name="generate-an-answer-from-the-knowledge-base"></a>Generowanie odpowiedzi z bazy wiedzy
 
+### <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
 Generuj odpowiedź z opublikowanej bazy wiedzy przy użyciu [RuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase). [GenerateAnswerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions.generateanswerasync?view=azure-dotnet) . Ta metoda akceptuje identyfikator bazy wiedzy i [QueryDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto?view=azure-dotnet). Uzyskuj dostęp do dodatkowych właściwości QueryDTO, takich jak [Top](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.top?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_Top) i [Context](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.context?view=azure-dotnet) , które mają być używane w rozmowie bot.
 
 [!code-csharp[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=GenerateAnswer&highlight=3)]
 
+
+### <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+Generuj odpowiedź z opublikowanej bazy wiedzy przy użyciu [QnAMakerClient.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet-preview)Knowledge Base. [GenerateAnswerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.generateanswerasync?view=azure-dotnet-preview) . Ta metoda akceptuje identyfikator bazy wiedzy i [QueryDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto?view=azure-dotnet-preview). Uzyskuj dostęp do dodatkowych właściwości QueryDTO, takich jak [Top](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.top?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_Top), [Context](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.context?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_Context) i [AnswerSpanRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.answerspanrequest?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_AnswerSpanRequest) , które mają być używane w programie Chat bot.
+
+[!code-csharp[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/Preview-sdk-based-quickstart/Program.cs?name=GenerateAnswerPreview&highlight=3)]
+
 Jest to prosty przykład zapytania dotyczącego bazy wiedzy. Aby zrozumieć zaawansowane scenariusze zapytań, zapoznaj się z [innymi przykładami zapytań](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
+
 
 ## <a name="delete-a-knowledge-base"></a>Usuwanie bazy wiedzy
 

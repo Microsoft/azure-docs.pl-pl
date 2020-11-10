@@ -1,19 +1,19 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: a078455b7630046a83a9ae1c896d0fc44bf8efad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: cbabfc1ae0c54c4ef20d3c689506e486bf4b6a66
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132902"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386479"
 ---
 Ten przewodnik Szybki Start przeprowadzi Cię przez proces uzyskiwania odpowiedzi z bazy wiedzy.
 
@@ -34,9 +34,17 @@ Skorzystaj z bazy wiedzy z poprzedniej szybkiej kwerendy, aby uzyskać odpowiedz
 1. Na stronie **Ustawienia** bazy wiedzy wybierz kartę **zwinięcie** , aby zobaczyć przykładowe polecenie zwinięcie użyte do wygenerowania odpowiedzi z bazy wiedzy.
 1. Skopiuj polecenie do środowiska do edycji (takiego jak plik tekstowy), aby można było edytować polecenie. Edytuj wartość pytania w następujący sposób, aby metadane `service:qna_maker` są używane jako filtr par QNA.
 
+   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
+
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
+    # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+    
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H   "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
+    ```
+    ---
 
     Pytanie jest tylko pojedynczym słowem, `size` które może zwracać jedną z dwóch par QNA. `strictFilters`Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
 
@@ -89,9 +97,15 @@ Debug: {Enable:true}
 
 1. Edytuj zwinięcie polecenia, aby dołączyć Właściwość Debug, aby wyświetlić więcej informacji.
 
+   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
+    # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
+    ```
+    ---
 
 1. Odpowiedź zawiera odpowiednie informacje dotyczące odpowiedzi. W poniższych danych wyjściowych JSON niektóre szczegóły debugowania zostały zastąpione wielokropkiem dla zwięzłości.
 
@@ -194,11 +208,16 @@ isTest:true
 ```
 
 Zwinięcie polecenia wygląda następująco:
-
+# <a name="qna-maker-ga"></a>[QnA Maker GA](#tab/v1)
 ```bash
 curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
 ```
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+```bash
+curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
+```
 
+---
 Odpowiedź JSON używa tego samego schematu co opublikowana kwerenda bazy wiedzy.
 
 > [!NOTE]
@@ -207,10 +226,17 @@ Odpowiedź JSON używa tego samego schematu co opublikowana kwerenda bazy wiedzy
 ## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Użyj Zwinięciea, aby wykonać zapytanie o odpowiedź Chit-Chat
 
 1. W terminalu z włączoną funkcją wypełniania należy użyć instrukcji bot-kończącej konwersację od użytkownika, na przykład w `Thank you` przypadku pytania. Nie ma żadnych innych właściwości do ustawienia.
+    
+   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
+    # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'thank you'}"
+    ```
+    ---
 
 1. Uruchom polecenie zwinięcie i odbierz odpowiedź JSON, łącznie z oceną i odpowiedzią.
 
@@ -302,9 +328,15 @@ Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie jest spełniony
 
 1. Dodaj `threshold` Właściwość w celu uzyskania odpowiedzi na odpowiedź `size` z progiem równym 80% lub lepszym. Baza wiedzy nie powinna znaleźć tej odpowiedzi, ponieważ Ocena pytania wynosi 71%. Wynik zwraca domyślną odpowiedź podaną podczas tworzenia bazy wiedzy.
 
+   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
+    # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
+    ```
+    ---
 
 1. Uruchom polecenie zwinięcie i odbierz odpowiedź JSON.
 
@@ -328,10 +360,16 @@ Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie jest spełniony
     QnA Maker zwrócił wynik `0` , co oznacza brak pewności. Zwraca również odpowiedź domyślną.
 
 1. Zmień wartość progową na 60% i ponownie Zażądaj zapytania:
-
+    
+   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
+    # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
+    ```
+    ---
 
     Zwrócony kod JSON znalazł odpowiedź.
 

@@ -1,19 +1,19 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132901"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386644"
 ---
 W tym samouczku Szybki start opisano sposób uzyskiwania odpowiedzi z bazy wiedzy przy użyciu narzędzia Postman.
 
@@ -28,6 +28,8 @@ W tym samouczku Szybki start opisano sposób uzyskiwania odpowiedzi z bazy wiedz
 > Gdy wszystko jest gotowe do wygenerowania odpowiedzi na pytanie z bazy wiedzy, należy przeprowadzić [uczenie](../Quickstarts/create-publish-knowledge-base.md#save-and-train) i [opublikować](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) bazę wiedzy. Po opublikowaniu bazy wiedzy na stronie **Publikowanie** zostaną wyświetlone ustawienia żądania HTTP do generowania odpowiedzi. Karta **Poster** zawiera ustawienia wymagane do wygenerowania odpowiedzi.
 
 ## <a name="set-up-postman-for-requests"></a>Skonfiguruj ogłaszanie dla żądań
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
 Ten przewodnik Szybki Start używa tych samych ustawień **dla żądania post programu Poster** , a następnie zostanie SKONFIGUROWANY do ogłaszania w formacie JSON treści wysyłanej do usługi na podstawie tego, co próbujesz wykonać zapytanie.
 
@@ -44,6 +46,25 @@ Użyj tej procedury, aby skonfigurować program, a następnie zapoznaj się z ka
     ||`{"question":"<Your question>"}`|Treść żądania POST jako obiekt JSON. Ta wartość zostanie zmieniona w każdej z poniższych sekcji w zależności od tego, co ma być wykonywane przez zapytanie.|
 
 1. Otwórz program Poster i Utwórz nowe podstawowe żądanie **post** z opublikowanymi ustawieniami bazy wiedzy. W poniższych sekcjach Zmień kod JSON wpisu w celu zmiany zapytania na bazę wiedzy.
+
+# <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
+
+Ten przewodnik Szybki Start używa tych samych ustawień **dla żądania post programu Poster** , a następnie zostanie SKONFIGUROWANY do ogłaszania w formacie JSON treści wysyłanej do usługi na podstawie tego, co próbujesz wykonać zapytanie.
+
+Użyj tej procedury, aby skonfigurować program, a następnie zapoznaj się z każdą kolejną sekcją, aby skonfigurować plik JSON wpisu.
+
+1. Na stronie **Ustawienia** bazy wiedzy wybierz kartę **Ogłoś** , aby wyświetlić konfigurację używaną do generowania odpowiedzi z bazy wiedzy. Skopiuj poniższe informacje do użycia w programie Poster.
+
+    |Nazwa|Ustawienie|Cel i wartość|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Jest to metoda HTTP i trasy dla adresu URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Jest to host adresu URL. Połącz hosta i Opublikuj wartości, aby uzyskać pełny adres URL generateAnswer.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Wartość nagłówka na potrzeby autoryzacji żądania. |
+    |`Content-type`|`application/json`|Wartość nagłówka zawartości.|
+    ||`{"question":"<Your question>"}`|Treść żądania POST jako obiekt JSON. Ta wartość zostanie zmieniona w każdej z poniższych sekcji w zależności od tego, co ma być wykonywane przez zapytanie.|
+
+1. Otwórz program Poster i Utwórz nowe podstawowe żądanie **post** z opublikowanymi ustawieniami bazy wiedzy. W poniższych sekcjach Zmień kod JSON wpisu w celu zmiany zapytania na bazę wiedzy.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Filtrowanie odpowiedzi przy użyciu metadanych
 
