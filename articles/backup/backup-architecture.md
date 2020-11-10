@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173282"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427738"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -22,11 +22,11 @@ Azure Backup kopii zapasowych danych, stanu komputera i obciążeń uruchomionyc
 
 Można utworzyć kopię zapasową maszyn i danych przy użyciu szeregu metod:
 
-- **Tworzenie kopii zapasowych maszyn lokalnych**:
+- **Tworzenie kopii zapasowych maszyn lokalnych** :
   - Można utworzyć kopię zapasową lokalnych maszyn z systemem Windows bezpośrednio na platformie Azure przy użyciu agenta Azure Backup Microsoft Azure Recovery Services (MARS). Maszyny z systemem Linux nie są obsługiwane.
   - Można tworzyć kopie zapasowe maszyn lokalnych na serwerze kopii zapasowych — w programie System Center Data Protection Manager (DPM) lub Microsoft Azure Backup Server (serwera usługi MAB). Następnie można wykonać kopię zapasową serwera kopii zapasowej w magazynie Recovery Services na platformie Azure.
 
-- **Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure**:
+- **Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure** :
   - Możesz bezpośrednio tworzyć kopie zapasowe maszyn wirtualnych platformy Azure. Azure Backup instaluje rozszerzenie kopii zapasowej dla agenta maszyny wirtualnej platformy Azure uruchomionego na maszynie wirtualnej. To rozszerzenie tworzy kopię zapasową całej maszyny wirtualnej.
   - Można utworzyć kopię zapasową określonych plików i folderów na maszynie wirtualnej platformy Azure, uruchamiając agenta MARS.
   - Można utworzyć kopię zapasową maszyn wirtualnych platformy Azure w serwera usługi MAB, który działa na platformie Azure, a następnie utworzyć kopię zapasową serwera usługi MAB do magazynu Recovery Services.
@@ -35,7 +35,7 @@ Dowiedz się więcej o [możliwościach tworzenia kopii zapasowych](backup-overv
 
 ## <a name="where-is-data-backed-up"></a>Gdzie są tworzone kopie zapasowe danych?
 
-Azure Backup przechowuje kopie zapasowe danych w magazynach — Recovery Services magazynach i magazynach kopii zapasowych. Magazyn jest jednostką online magazynu na platformie Azure, która jest używana do przechowywania danych, takich jak kopie zapasowe, punkty odzyskiwania i zasady tworzenia kopii zapasowych.
+Azure Backup przechowuje kopie zapasowe danych w magazynach — Recovery Services magazyny i magazyny kopii zapasowych. Magazyn jest jednostką online magazynu na platformie Azure, która jest używana do przechowywania danych, takich jak kopie zapasowe, punkty odzyskiwania i zasady tworzenia kopii zapasowych.
 
 Magazyny mają następujące funkcje:
 
@@ -43,9 +43,9 @@ Magazyny mają następujące funkcje:
 - Możesz monitorować elementy kopii zapasowej w magazynie, w tym maszyn wirtualnych platformy Azure i maszynach lokalnych.
 - Możesz zarządzać dostępem do magazynu za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Określ sposób replikowania danych w magazynie w celu zapewnienia nadmiarowości:
-  - **Magazyn lokalnie nadmiarowy (LRS)**: aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **Magazyn Geograficznie nadmiarowy (GRS)**: aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Magazyn strefowo nadmiarowy (ZRS)**: replikuje dane w [strefach dostępności](../availability-zones/az-overview.md#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. [Dowiedz się więcej](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Magazyn lokalnie nadmiarowy (LRS)** : aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Magazyn Geograficznie nadmiarowy (GRS)** : aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Magazyn strefowo nadmiarowy (ZRS)** : replikuje dane w [strefach dostępności](../availability-zones/az-overview.md#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. [Dowiedz się więcej](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Domyślnie magazyny Recovery Services używają GRS.
 
 Recovery Services magazyny mają następujące dodatkowe funkcje:
@@ -87,7 +87,7 @@ Użycie magazynu, cel czasu odzyskiwania (RTO) i użycie sieci różnią się w 
 
 - Źródło danych A składa się z 10 bloków magazynu, A1-A10, których kopia zapasowa jest wykonywana miesięcznie.
 - Bloki A2, A3, A4 i A9 zmieniają się w trakcie pierwszego miesiąca, a blok A5 zmienia się w następnym miesiącu.
-- W przypadku różnicowych kopii zapasowych w drugim miesiącu kopia zapasowa zmieniono bloki a2, A3, A4 i A9. W trzecim miesiącu jest ponownie wykonywana kopia zapasowa tych samych bloków, a dodatkowo zmienionego bloku A5. Kopie zapasowe zmienionych bloków będą ciągle wykonywane aż do czasu wykonania kolejnej pełnej kopii zapasowej.
+- W przypadku różnicowych kopii zapasowych w drugim miesiącu tworzone są kopie zapasowe bloków a2, A3, A4 i A9. W trzecim miesiącu jest ponownie wykonywana kopia zapasowa tych samych bloków, a dodatkowo zmienionego bloku A5. Kopie zapasowe zmienionych bloków będą ciągle wykonywane aż do czasu wykonania kolejnej pełnej kopii zapasowej.
 - W przypadku przyrostowych kopii zapasowych w drugim miesiącu bloki a2, A3, A4 i A9 są oznaczane jako zmienione i transferowane. W trzecim miesiącu jest oznaczany i transferowany jedynie zmieniony blok A5.
 
 ![Obraz przedstawiający Porównanie metod tworzenia kopii zapasowej](./media/backup-architecture/backup-method-comparison.png)
@@ -98,10 +98,10 @@ Poniższa tabela zawiera podsumowanie obsługiwanych funkcji dla różnych typó
 
 **Funkcja** | **Bezpośrednie tworzenie kopii zapasowych plików i folderów (przy użyciu agenta MARS)** | **Kopia zapasowa maszyny wirtualnej platformy Azure** | **Maszyny lub aplikacje z programem DPM/serwera usługi MAB**
 --- | --- | --- | ---
-Tworzenie kopii zapasowej w magazynie | ![Yes][green] | ![Yes][green] | ![Yes][green]
-Utwórz kopię zapasową na dysku programu DPM/serwera usługi MAB, a następnie na platformie Azure | | | ![Yes][green]
-Kompresuj dane wysyłane do kopii zapasowej | ![Yes][green] | Podczas przesyłania danych nie jest używana kompresja. Magazyn jest nieco nieznacznie napompowany, ale przywracanie jest szybsze.  | ![Yes][green]
-Uruchom przyrostową kopię zapasową |![Yes][green] |![Yes][green] |![Yes][green]
+Tworzenie kopii zapasowej w magazynie | ![Tak][green] | ![Tak][green] | ![Tak][green]
+Utwórz kopię zapasową na dysku programu DPM/serwera usługi MAB, a następnie na platformie Azure | | | ![Tak][green]
+Kompresuj dane wysyłane do kopii zapasowej | ![Tak][green] | Podczas przesyłania danych nie jest używana kompresja. Magazyn jest nieco nieznacznie napompowany, ale przywracanie jest szybsze.  | ![Tak][green]
+Uruchom przyrostową kopię zapasową |![Tak][green] |![Tak][green] |![Tak][green]
 Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<br/><br/> W przypadku serwerów DPM/serwera usługi MAB wdrożonych tylko lokalnie.
 
 ![Klucz tabeli](./media/backup-architecture/table-key.png)
@@ -123,6 +123,12 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
 - Przechowywanie punktów kopii zapasowych "miesięcznie", "rocznie" jest określane jako długoterminowe przechowywanie (LTR)
 - Po utworzeniu magazynu tworzony jest również "DefaultPolicy" i może służyć do tworzenia kopii zapasowych zasobów.
 - Wszelkie zmiany wprowadzone w okresie przechowywania zasad tworzenia kopii zapasowych będą stosowane z mocą wstecz do wszystkich starszych punktów odzyskiwania od nowych.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Wpływ zmiany zasad w punktach odzyskiwania
+
+- **Zwiększony/zmniejszany czas przechowywania:** Gdy czas przechowywania zostanie zmieniony, nowy czas przechowywania jest stosowany również do istniejących punktów odzyskiwania. W związku z tym niektóre punkty odzyskiwania zostaną oczyszczone. Jeśli okres przechowywania zostanie zwiększony, istniejące punkty odzyskiwania również będą miały większe przechowywanie.
+- **Zmieniono codziennie na cotygodniowo:** Gdy zaplanowane kopie zapasowe są zmieniane codziennie na cotygodniowo, istniejące codzienne punkty odzyskiwania są czyszczone.
+- **Zmieniono od tygodnia do dziennie:** Istniejące cotygodniowe kopie zapasowe zostaną zachowane na podstawie liczby dni pozostałej zgodnie z bieżącymi zasadami przechowywania.
 
 ### <a name="additional-reference"></a>Dodatkowa dokumentacja
 
@@ -204,7 +210,7 @@ Aby uzyskać więcej informacji o magazynie dyskowym i dostępnych typach dyskó
 
 Można utworzyć kopię zapasową maszyn wirtualnych platformy Azure przy użyciu usługi Premium Storage z Azure Backup:
 
-- Podczas tworzenia kopii zapasowych maszyn wirtualnych w usłudze Premium Storage usługa Backup tworzy tymczasową lokalizację przejściową o nazwie *AzureBackup-*, na koncie magazynu. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania.
+- Podczas tworzenia kopii zapasowych maszyn wirtualnych w usłudze Premium Storage usługa Backup tworzy tymczasową lokalizację przejściową o nazwie *AzureBackup-* , na koncie magazynu. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania.
 - Upewnij się, że na koncie magazynu w warstwie Premium jest wystarczająca ilość wolnego miejsca, aby pomieścić tymczasową lokalizację przemieszczania. Aby uzyskać więcej informacji, zobacz [elementy docelowe skalowalności dla kont usługi BLOB Storage na stronie Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Nie należy modyfikować lokalizacji tymczasowej.
 - Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostanie usunięta.
 - Cena magazynu używana w lokalizacji tymczasowej jest spójna z [cenami usługi Premium Storage](../virtual-machines/disks-types.md#billing).

@@ -4,12 +4,12 @@ description: Opcje konfiguracji Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381035"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427704"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opcje konfiguracji Azure Monitor Application Insights Java
 
@@ -178,9 +178,9 @@ Umożliwia konfigurowanie reguł, które będą stosowane do żądania, zależno
 
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors.md) .
 
-## <a name="autocollected-logging"></a>Rejestrowanie autozbierane
+## <a name="auto-collected-logging"></a>Rejestrowanie z autozbieraniem
 
-Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane z autozbieraniem.
+Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane z autogromadzeniem.
 
 Domyślnie rejestrowanie jest zbierane tylko wtedy, gdy rejestrowanie odbywa się na `INFO` poziomie lub wyższym.
 
@@ -213,11 +213,11 @@ Są to prawidłowe `level` wartości, które można określić w `applicationins
 | TRACE (lub FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metryki z autozbieranymi Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Zbierane metryki Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
 
-Jeśli aplikacja korzysta z [Micrometer](https://micrometer.io), wówczas metryki wysyłane do rejestru globalnego Micrometer są gromadzone w sposób autozbierany.
+Jeśli aplikacja używa [Micrometer](https://micrometer.io), metryki, które są wysyłane do rejestru globalnego Micrometer, są zbierane na podstawie autodostrajania.
 
-Ponadto, jeśli aplikacja korzysta z [uruchamiającego uruchamianie sprężynowe](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), metryki skonfigurowane przez siłownik rozruchu sprężynowe są również zbierane domyślnie.
+Ponadto, jeśli aplikacja korzysta z [uruchamiającego uruchamianie sprężynowe](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), metryki skonfigurowane przez siłownik rozruchu sprężyny są również zbierane domyślnie.
 
 Aby wyłączyć autozbieranie metryk Micrometer (w tym metryki uruchamiającego uruchamianie sprężynowe):
 

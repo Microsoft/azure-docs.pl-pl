@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380882"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428044"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -28,6 +28,9 @@ ITSMC obsługuje połączenia z następującymi narzędziami narzędzia ITSM:
 -   System Center Service Manager
 -   Provance
 -   Cherwell
+
+   >[!NOTE]
+> Od 1 do 2020 Cherwell i Provance narzędzia ITSM integracji z usługą Azure alert nie będą już dostępne dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane. Istniejące połączenia narzędzia ITSM będą obsługiwane.
 
 Za pomocą ITSMC można:
 
@@ -150,7 +153,8 @@ Użyj następującej procedury, aby utworzyć elementy robocze:
 
    ![Zrzut ekranu przedstawiający okno biletu narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration.png)
    
-   * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy: w przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego wpisu dziennika** w wyborze przycisków radiowych każdy alert utworzy nowy element roboczy. W przypadku wybrania opcji **Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji** w zaznaczeniu przycisków radiowych każdy element konfiguracji będzie miał własny element roboczy. 
+   * W przypadku wybrania opcji "zdarzenie" w menu rozwijanym elementu pracy: w przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego wpisu dziennika** w wyborze przycisków radiowych każdy alert utworzy nowy element roboczy. W przypadku wybrania opcji **Utwórz indywidualne elementy robocze dla każdego elementu konfiguracji** w zaznaczeniu przycisków radiowych każdy element konfiguracji będzie miał własny element roboczy.
+   ![Zrzut ekranu przedstawiający okno biletu narzędzia ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Wybierz przycisk **OK**.
 

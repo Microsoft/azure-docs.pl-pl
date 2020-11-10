@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380130"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427806"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -58,7 +58,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 ## <a name="data-completeness"></a>Kompletność danych
 Eksport danych będzie nadal ponawiać próbę wysłania danych przez maksymalnie 30 minut w przypadku, gdy miejsce docelowe jest niedostępne. Jeśli nadal nie jest dostępna po 30 minutach, dane zostaną odrzucone do momentu udostępnienia lokalizacji docelowej.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Cost (Koszt)
 Nie są obecnie naliczane dodatkowe opłaty za funkcję eksportowania danych. Cennik dotyczący eksportu danych zostanie ogłoszony w przyszłości oraz powiadomienie podane przed rozpoczęciem rozliczania. Jeśli zdecydujesz się na kontynuowanie korzystania z eksportu danych po upływie okresu wypowiedzenia, zostanie naliczona stawka ze stosowną stawką.
 
 ## <a name="export-destinations"></a>Eksportuj miejsca docelowe
@@ -77,8 +77,9 @@ Log Analytics eksportu danych może pisać Dodawanie obiektów BLOB do niezmienn
 ### <a name="event-hub"></a>Centrum zdarzeń
 Dane są wysyłane do centrum zdarzeń niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Centrum zdarzeń jest tworzone dla każdego typu danych, który jest eksportowany *z nazwą i nazwą tabeli* . Na przykład tabela *SecurityEvent* będzie wysyłana do centrum zdarzeń o nazwie *am-SecurityEvent*. Jeśli chcesz, aby wyeksportowane dane miały dostęp do określonego centrum zdarzeń, lub jeśli masz tabelę o nazwie przekraczającej limit znaków 47, możesz podać własną nazwę centrum zdarzeń i wyeksportować wszystkie dane do określonych tabel.
 
-Ilość wyeksportowanych danych często rośnie wraz z upływem czasu, a skalowanie centrum zdarzeń należy zwiększyć, aby obsługiwać większe szybkości transferu i uniknąć opóźnień i opóźnienia danych. Należy użyć funkcji automatycznego rozbudowy Event Hubs, aby automatycznie skalować w górę i zwiększyć liczbę jednostek przepływności oraz spełnić wymagania dotyczące użycia. Aby uzyskać szczegółowe informacje, zobacz [Automatyczne skalowanie jednostek przepływności usługi Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) .
-
+Zagadnienia do rozważenia:
+1. Jednostka SKU centrum zdarzeń "Basic" obsługuje dolny [Limit](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) rozmiaru zdarzenia, a niektóre dzienniki w obszarze roboczym mogą przekraczać tę wartość i zostać porzucone. Zalecamy używanie "standardowego" lub "dedykowanego" centrum zdarzeń jako miejsca docelowego eksportu.
+2. Ilość wyeksportowanych danych często rośnie wraz z upływem czasu, a skalowanie centrum zdarzeń należy zwiększyć, aby obsługiwać większe szybkości transferu i uniknąć opóźnień i opóźnienia danych. Należy użyć funkcji automatycznego rozbudowy Event Hubs, aby automatycznie skalować w górę i zwiększyć liczbę jednostek przepływności oraz spełnić wymagania dotyczące użycia. Aby uzyskać szczegółowe informacje, zobacz [Automatyczne skalowanie jednostek przepływności usługi Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Poniżej podano wymagania wstępne, które należy wykonać przed skonfigurowaniem eksportu danych Log Analytics.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369067"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427789"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -50,11 +50,11 @@ Log Analytics dedykowane klastry to kolekcje obszarów roboczych w jednym zarzą
 
 Poziom rezerwacji pojemności klastra jest konfigurowany za pomocą programu programistycznego za pomocą Azure Resource Manager przy użyciu `Capacity` parametru w obszarze `Sku` . Wartość `Capacity` jest określona w jednostkach GB i może mieć wartości 1000 GB/dzień lub więcej w przyrostach wynoszących 100 GB/dzień. Jest to szczegółowo opisany w [Azure monitor kluczu zarządzanym przez klienta](customer-managed-keys.md#create-cluster). Jeśli klaster wymaga rezerwacji powyżej 2000 GB/dzień, skontaktuj się z nami pod adresem [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
-Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas [konfigurowania klastra](customer-managed-keys.md#cmk-management). Dwa tryby są: 
+Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas [konfigurowania klastra](customer-managed-keys.md#customer-managed-key-operations). Dwa tryby są: 
 
-1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł [Azure Security Center](../../security-center/index.yml) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. 
+1. **Klaster** : w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł [Azure Security Center](../../security-center/index.yml) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. 
 
-2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](../../security-center/index.yml) dla każdego obszaru roboczego). Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest mniejsza niż rezerwacja pojemności, w każdym obszarze roboczym zostanie naliczona opłata za pobrane dane z zastosowaniem stawki za ilość zarezerwowaną za GB, rozliczenie ich na część rezerwacji pojemności, a niewykorzystana część rezerwacji pojemności jest rozliczana z zasobem klastra. Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest większa niż rezerwacja pojemności, w każdym obszarze roboczym jest naliczana część rezerwacji zdolności produkcyjnych na podstawie jej ułamka za dane pobranego dnia i każdego obszaru roboczego dla części pozyskanych danych powyżej rezerwacji pojemności. Nie są naliczane opłaty za zasób klastra, jeśli całkowita ilość danych pozyskana do obszaru roboczego na dzień przekracza rezerwację pojemności.
+2. **Obszary robocze** : koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](../../security-center/index.yml) dla każdego obszaru roboczego). Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest mniejsza niż rezerwacja pojemności, w każdym obszarze roboczym zostanie naliczona opłata za pobrane dane z zastosowaniem stawki za ilość zarezerwowaną za GB, rozliczenie ich na część rezerwacji pojemności, a niewykorzystana część rezerwacji pojemności jest rozliczana z zasobem klastra. Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest większa niż rezerwacja pojemności, w każdym obszarze roboczym jest naliczana część rezerwacji zdolności produkcyjnych na podstawie jej ułamka za dane pobranego dnia i każdego obszaru roboczego dla części pozyskanych danych powyżej rezerwacji pojemności. Nie są naliczane opłaty za zasób klastra, jeśli całkowita ilość danych pozyskana do obszaru roboczego na dzień przekracza rezerwację pojemności.
 
 W opcjach rozliczania klastra przechowywanie danych jest rozliczane w poszczególnych obszarach roboczych. Należy pamiętać, że podczas tworzenia klastra rozliczenia są rozliczane, niezależnie od tego, czy obszary robocze zostały skojarzone z klastrem. Należy również pamiętać, że obszary robocze skojarzone z klastrem nie mają już warstwy cenowej.
 
@@ -98,7 +98,7 @@ Możesz również [ustawić warstwę cenową za pośrednictwem Azure Resource Ma
 
 ## <a name="legacy-pricing-tiers"></a>Starsze warstwy cenowe
 
-Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Application Insights zasobów, przed 2 kwietnia 2018 lub połączone z Umowa Enterprise, które zostały uruchomione przed 1 lutego 2019, nadal będą miały dostęp do korzystania ze starszych warstw cenowych: **bezpłatna**, **autonomiczna (za GB)** i **na węzeł (OMS)**.  Obszary robocze w warstwie cenowej bezpłatna będą mieć dzienne pozyskiwanie danych ograniczone do 500 MB (z wyjątkiem typów danych zabezpieczeń zbieranych przez [Azure Security Center](../../security-center/index.yml)), a przechowywanie danych jest ograniczone do 7 dni. Warstwa cenowa bezpłatna jest przeznaczona tylko do celów ewaluacyjnych. Obszary robocze w warstwach autonomicznych lub na węzeł są dostępne przez użytkownika w sposób konfigurowalny od 30 do 730 dni.
+Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Application Insights zasobów, przed 2 kwietnia 2018 lub połączone z Umowa Enterprise, które zostały uruchomione przed 1 lutego 2019, nadal będą miały dostęp do korzystania ze starszych warstw cenowych: **bezpłatna** , **autonomiczna (za GB)** i **na węzeł (OMS)**.  Obszary robocze w warstwie cenowej bezpłatna będą mieć dzienne pozyskiwanie danych ograniczone do 500 MB (z wyjątkiem typów danych zabezpieczeń zbieranych przez [Azure Security Center](../../security-center/index.yml)), a przechowywanie danych jest ograniczone do 7 dni. Warstwa cenowa bezpłatna jest przeznaczona tylko do celów ewaluacyjnych. Obszary robocze w warstwach autonomicznych lub na węzeł są dostępne przez użytkownika w sposób konfigurowalny od 30 do 730 dni.
 
 Użycie w ramach autonomicznej warstwy cenowej jest rozliczane przez pozyskiwany wolumin danych. Jest on raportowany w usłudze **log Analytics** i miernik ma nazwę "dane analizowane". 
 
@@ -393,7 +393,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Ilość danych według zasobu platformy Azure, grupy zasobów lub subskrypcji
 
-W przypadku danych z węzłów hostowanych na platformie Azure można uzyskać **rozmiar** pobieranych danych __na komputer__, używając [Właściwości](./log-standard-columns.md#_resourceid)_ResourceId, która zapewnia pełną ścieżkę do zasobu:
+W przypadku danych z węzłów hostowanych na platformie Azure można uzyskać **rozmiar** pobieranych danych __na komputer__ , używając [Właściwości](./log-standard-columns.md#_resourceid)_ResourceId, która zapewnia pełną ścieżkę do zasobu:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -401,7 +401,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-W przypadku danych z węzłów hostowanych na platformie Azure możesz uzyskać **rozmiar** pozyskanych danych __na subskrypcję platformy Azure__, pobrać identyfikator subskrypcji `_ResourceId` właściwości jako:
+W przypadku danych z węzłów hostowanych na platformie Azure możesz uzyskać **rozmiar** pozyskanych danych __na subskrypcję platformy Azure__ , pobrać identyfikator subskrypcji `_ResourceId` właściwości jako:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -432,7 +432,7 @@ Możesz również przeanalizować `_ResourceId` bardziej szczegółowo, jeśli j
 > Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](../log-query/query-optimization.md#query-performance-pane) . Jeśli nie potrzebujesz wyników na subskrypcję, grupę zasobów lub nazwę zasobu, a następnie wykonaj zapytanie dotyczące typu danych użycia.
 
 > [!WARNING]
-> Niektóre pola typu danych użycia, ale nadal w schemacie, są przestarzałe i ich wartości nie będą już wypełnione. Są to **komputery** , a także pola związane z pozyskiwaniem (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** i **AverageProcessingTimeMs**.
+> Niektóre pola typu danych użycia, ale nadal w schemacie, są przestarzałe i ich wartości nie będą już wypełnione. Są to **komputery** , a także pola związane z pozyskiwaniem ( **TotalBatches** , **BatchesWithinSla** , **BatchesOutsideSla** , **BatchesCapped** i **AverageProcessingTimeMs**.
 
 
 ### <a name="querying-for-common-data-types"></a>Wykonywanie zapytań dotyczących typowych typów danych
@@ -601,7 +601,7 @@ Aby alertować, jeśli ilość danych do rozliczenia w ostatnich 24 godzinach by
 - **Kryteria alertu** — określ następujące informacje:
    - **Nazwa sygnału** — wybierz pozycję **Przeszukiwanie dzienników niestandardowych**
    - **Wyszukaj zapytanie** do `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Jeśli chcesz użyć innego 
-   - **Alert logiki****opiera się na** *liczbie wyników*, a **warunek** jest *większy niż ***próg ** wynoszący *0*
+   - **Alert logiki****opiera się na** *liczbie wyników* , a **warunek** jest *większy niż***próg** wynoszący *0*
    - **Okres** wynoszący *1440* minut i **częstotliwość alertów** do co *1440* minut, które mają być uruchamiane raz dziennie.
 - **Zdefiniuj szczegóły alertu** — określ następujące informacje:
    - **Nazwa** z *ilością danych do rozliczenia większa niż 50 GB w ciągu 24 godzin*

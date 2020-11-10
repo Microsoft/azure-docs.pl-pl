@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748643"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427993"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (Intel NUC)
 
@@ -117,9 +117,9 @@ Skonfiguruj IoT Edge, aby zarejestrować aplikację IoT Central i nawiązać z n
 
 1. Zamień na `{scope_id}` **zakres identyfikatorów** , które zostały zanotowane w pliku *scratchpad.txt* w poprzednim samouczku.
 
-1. Zamień `{registration_id}` na urządzenie *LVA-Gateway-001* , które zostało utworzone w poprzednim samouczku.
+1. Zastąp `{registration_id}` *ciąg opcją Gateway-001* , czyli urządzeniem utworzonym w poprzednim samouczku.
 
-1. Zamień na `{symmetric_key}` **klucz podstawowy** urządzenia **LVA-Gateway-001** zanotowano w pliku *scratchpad.txt* w poprzednim samouczku.
+1. Zamień na `{symmetric_key}` **klucz podstawowy** urządzenia **brama-001** zanotowano w pliku *scratchpad.txt* w poprzednim samouczku.
 
 1. Uruchom następujące polecenie, aby ponownie uruchomić demona IoT Edge:
 

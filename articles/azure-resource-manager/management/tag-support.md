@@ -3,12 +3,12 @@ title: Obsługa tagów dla zasobów
 description: Pokazuje, które typy zasobów platformy Azure obsługują Tagi. Zawiera szczegółowe informacje dotyczące wszystkich usług platformy Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370291"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427772"
 ---
 # <a name="tag-support-for-azure-resources"></a>Obsługa tagów dla zasobów platformy Azure
 W tym artykule opisano, czy typ zasobu obsługuje [Tagi](tag-resources.md). Kolumna z etykietą **obsługuje znaczniki** wskazuje, czy typ zasobu ma właściwość dla tagu. Kolumna **tag z etykietą w raporcie koszt** wskazuje, czy ten typ zasobu przekazuje tag do raportu kosztów. Możesz wyświetlić koszty według tagów w [Cost Management analiza kosztów](../../cost-management-billing/costs/group-filter.md) oraz [dane dotyczące rozliczeń i dziennego użycia na platformie Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -284,7 +284,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | Tak | Tak |
+> | configurationStores | Tak | Nie |
 > | configurationStores / eventGridFilters | Nie | Nie |
 > | configurationStores/wartości | Nie | Nie |
 
@@ -838,7 +838,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Prognozy | Nie | Nie |
 > | ilości | Nie | Nie |
 > | Platform handlowych | Nie | Nie |
-> | Pricesheets | Nie | Nie |
+> | Arkusze cen | Nie | Nie |
 > | wyrobów | Nie | Nie |
 > | ReservationDetails | Nie | Nie |
 > | ReservationRecommendationDetails | Nie | Nie |
@@ -847,7 +847,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ReservationTransactions | Nie | Nie |
 > | Tagi | Nie | Nie |
 > | dzierżaw | Nie | Nie |
-> | Terminologia | Nie | Nie |
+> | Warunki | Nie | Nie |
 > | UsageDetails (Szczegóły użycia) | Nie | Nie |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance

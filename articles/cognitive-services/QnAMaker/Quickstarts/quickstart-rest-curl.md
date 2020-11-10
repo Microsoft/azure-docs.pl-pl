@@ -7,12 +7,12 @@ ms.date: 11/09/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: b619b258084b457621ad1a5650aaf621df9677a7
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 021628b92f1068743b097a455306df742f308f86
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376506"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427687"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Szybki Start: używanie zawieszania i REST do zarządzania bazą wiedzy
 
@@ -414,8 +414,8 @@ Stan odpowiedzi to 204 bez wyników. Użyj `-v` parametru wiersza polecenia, aby
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Tworzenie](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) Dokumentacja referencyjna
-* [Środowisko uruchomieniowe](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) Dokumentacja referencyjna
+* [Tworzenie](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Dokumentacja referencyjna
+* [Środowisko uruchomieniowe](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime) Dokumentacja referencyjna
 * [Przykładowe skrypty BASH korzystające z zwinięcie](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## <a name="next-steps"></a>Następne kroki
