@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837638"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413075"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Często zadawane pytania dotyczące zapory aplikacji sieci Web platformy Azure w usłudze Azure Front-drzwiczk
 
@@ -64,7 +64,7 @@ Obecnie reguły ModSec KSR 2.2.9, KSR 3,0 i KSR 3,1 są obsługiwane tylko w App
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>Czy ochrona DDoS jest zintegrowana z przednimi drzwiami? 
 
-Ogólnie dystrybuowane na krawędziach sieci platformy Azure, drzwi frontonu platformy Azure mogą wchłonąć i geograficznie izolować duże ataki. Można utworzyć niestandardowe zasady WAF, aby automatycznie blokować i ograniczać liczbę ataków http (s), które mają znane sygnatury. Więcej informacji można DDoS Protection włączyć w sieci wirtualnej, w której zostaną wdrożone zaplecza. Klienci w Azure DDoS Protection standard otrzymują dodatkowe korzyści, w tym ochronę kosztów, gwarancję SLA i dostęp do ekspertów z zespołu szybkiego reagowania na DDoS w celu uzyskania natychmiastowej pomocy w trakcie ataku.
+Ogólnie dystrybuowane na krawędziach sieci platformy Azure, drzwi frontonu platformy Azure mogą wchłonąć i geograficznie izolować duże ataki. Można utworzyć niestandardowe zasady WAF, aby automatycznie blokować i ograniczać liczbę ataków http (s), które mają znane sygnatury. Więcej informacji można DDoS Protection włączyć w sieci wirtualnej, w której zostaną wdrożone zaplecza. Klienci w Azure DDoS Protection standard otrzymują dodatkowe korzyści, w tym ochronę kosztów, gwarancję SLA i dostęp do ekspertów z zespołu szybkiego reagowania na DDoS w celu uzyskania natychmiastowej pomocy w trakcie ataku. Aby uzyskać więcej informacji, zobacz [DDoS Protection on the front drzwiczks](../../frontdoor/front-door-ddos.md).
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Dlaczego dodatkowe żądania powyżej progu skonfigurowanego dla reguły limitu szybkości są przenoszone do serwera wewnętrznej bazy danych?
 

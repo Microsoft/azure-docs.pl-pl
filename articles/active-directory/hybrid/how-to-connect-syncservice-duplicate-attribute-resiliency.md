@@ -16,17 +16,17 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e09dd6a127bd04ae698cb6cad2ffd7f35e3b51c3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313318"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413432"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronizacja tożsamości i odporność względem zduplikowanych atrybutów
 Odporność na zduplikowane atrybuty to funkcja w Azure Active Directory, która eliminuje liczbę problemów spowodowanych **przez** wartości **ProxyAddress** i protokołu SMTP podczas uruchamiania jednego z narzędzi do synchronizacji firmy Microsoft.
 
-Te dwa atrybuty zwykle muszą być unikatowe dla wszystkich obiektów **użytkowników**, **grup**lub **kontaktów** w danej dzierżawie Azure Active Directory.
+Te dwa atrybuty zwykle muszą być unikatowe dla wszystkich obiektów **użytkowników** , **grup** lub **kontaktów** w danej dzierżawie Azure Active Directory.
 
 > [!NOTE]
 > Tylko użytkownicy mogą mieć nazwy UPN.
@@ -40,11 +40,11 @@ Jeśli podjęto próbę zainicjowania nowego obiektu z wartością UPN lub Proxy
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Zachowanie z odpornością na zduplikowane atrybuty
 Zamiast całkowicie niepowodzeniem zainicjować lub zaktualizować obiekt ze zduplikowanym atrybutem, Azure Active Directory "Kwarantanna", zduplikowany atrybut, który mógłby naruszać ograniczenia unikatowości. Jeśli ten atrybut jest wymagany do aprowizacji, na przykład UserPrincipalName, usługa przypisuje wartość symbolu zastępczego. Format tych wartości tymczasowych to  
-_** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
+_**\<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
 
 Proces odporności atrybutów obsługuje tylko wartości **ProxyAddress** UPN i SMTP.
 
-Jeśli atrybut nie jest wymagany, taki jak  **ProxyAddress**, Azure Active Directory po prostu przekwarantanna atrybutu konfliktu i kontynuuje proces tworzenia lub aktualizowania obiektu.
+Jeśli atrybut nie jest wymagany, taki jak  **ProxyAddress** , Azure Active Directory po prostu przekwarantanna atrybutu konfliktu i kontynuuje proces tworzenia lub aktualizowania obiektu.
 
 Po poddawania kwarantannie atrybutu informacje o konflikcie są wysyłane w tym samym wiadomości e-mail z raportem o błędzie użytym w starym zachowaniu. Jednak te informacje są wyświetlane tylko w raporcie o błędzie po raz, gdy Kwarantanna przejdzie, nie jest nadal rejestrowane w przyszłych wiadomościach e-mail. Ponadto, ponieważ eksport dla tego obiektu zakończył się pomyślnie, klient synchronizacji nie rejestruje błędu i nie ponawia próby wykonania operacji tworzenia/aktualizacji przy kolejnych cyklach synchronizacji.
 
@@ -75,7 +75,7 @@ Obecnie istnieją dwie metody identyfikacji obiektów, które mają te błędy z
 W przypadku poleceń cmdlet programu PowerShell w tym temacie są spełnione następujące kwestie:
 
 * W przypadku wszystkich następujących poleceń cmdlet jest rozróżniana wielkość liter.
-* Wartość **– ErrorCategory PropertyConflict** musi zawsze być uwzględniona. Obecnie nie ma żadnych innych typów **ErrorCategory**, ale może to zostać przedłużone w przyszłości.
+* Wartość **– ErrorCategory PropertyConflict** musi zawsze być uwzględniona. Obecnie nie ma żadnych innych typów **ErrorCategory** , ale może to zostać przedłużone w przyszłości.
 
 Najpierw Rozpocznij pracę, uruchamiając polecenie **Connect-MsolService** i wprowadzając poświadczenia dla administratora dzierżawy.
 
@@ -106,17 +106,17 @@ Lub
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName ProxyAddresses`
 
 #### <a name="by-conflicting-value"></a>Przez wartość powodującą konflikt
-Aby wyświetlić błędy dotyczące konkretnej właściwości, Dodaj flagę **-PropertyValue** (**-PropertyName** należy również użyć podczas dodawania tej flagi):
+Aby wyświetlić błędy dotyczące konkretnej właściwości, Dodaj flagę **-PropertyValue** ( **-PropertyName** należy również użyć podczas dodawania tej flagi):
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
 #### <a name="using-a-string-search"></a>Używanie wyszukiwania ciągów
-Aby przeszukać wiele ciągów, Użyj flagi **-ciągwyszukiwania** . Można go użyć niezależnie od wszystkich powyższych flag, z wyjątkiem **-ErrorCategory PropertyConflict**, który jest zawsze wymagany:
+Aby przeszukać wiele ciągów, Użyj flagi **-ciągwyszukiwania** . Można go użyć niezależnie od wszystkich powyższych flag, z wyjątkiem **-ErrorCategory PropertyConflict** , który jest zawsze wymagany:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>W ograniczonej ilości lub wszystkich
-1. **MaxResults \<Int> ** może służyć do ograniczania zapytania do określonej liczby wartości.
+1. **MaxResults \<Int>** może służyć do ograniczania zapytania do określonej liczby wartości.
 2. **Wszystkie** te mogą służyć do upewnienia się, że wszystkie wyniki są pobierane w przypadku, gdy istnieje duża liczba błędów.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
@@ -140,21 +140,21 @@ Rozwiązywanie problemów z strategią i rozdzielczością taktykę dla tych bł
 W poniższym artykule opisano różne strategie rozwiązywania problemów i rozwiązań: [zduplikowane lub nieprawidłowe atrybuty uniemożliwiają synchronizację katalogów w pakiecie Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Znane problemy
-Żadna z tych znanych problemów powoduje utratę danych lub spadek wydajności usługi. Niektóre z nich są estetyczne, inne powodują, że standardowe błędy "*wstępnej odporności*" są generowane zamiast poddawania kwarantannie atrybutu konfliktu, a inne powodują pewne błędy, aby wymagać dodatkowej ręcznej poprawki.
+Żadna z tych znanych problemów powoduje utratę danych lub spadek wydajności usługi. Niektóre z nich są estetyczne, inne powodują, że standardowe błędy " *wstępnej odporności* " są generowane zamiast poddawania kwarantannie atrybutu konfliktu, a inne powodują pewne błędy, aby wymagać dodatkowej ręcznej poprawki.
 
 **Podstawowe zachowanie:**
 
 1. Obiekty z określonymi konfiguracjami atrybutów nadal otrzymują błędy eksportu zamiast zduplikowanych atrybutów, które są poddane kwarantannie.  
    Na przykład:
    
-    a. Nowy użytkownik jest tworzony w usłudze AD przy użyciu nazwy UPN Jan ** \@ contoso.com** i ProxyAddress **SMTP: Jan \@ contoso.com**
+    a. Nowy użytkownik jest tworzony w usłudze AD przy użyciu nazwy UPN Jan **\@ contoso.com** i ProxyAddress **SMTP: Jan \@ contoso.com**
    
     b. Właściwości tego obiektu powodują konflikt z istniejącą grupą, gdzie ProxyAddress to **SMTP: jan \@ contoso.com**.
    
     c. Podczas eksportowania jest zgłaszany błąd **konfliktu ProxyAddress** , zamiast mieć atrybuty konfliktów poddane kwarantannie. Operacja jest ponawiana podczas każdego kolejnego cyklu synchronizacji, tak jak przed włączeniem funkcji odporności.
 2. Jeśli dwie grupy są tworzone lokalnie przy użyciu tego samego adresu SMTP, jeden z nich nie zostanie udostępniony przy pierwszej próbie przy użyciu standardowego duplikatu błędu **ProxyAddress** . Jednak duplikat wartości jest prawidłowo poddany kwarantannie w następnym cyklu synchronizacji.
 
-**Raport portalu pakietu Office**:
+**Raport portalu pakietu Office** :
 
 1. Szczegółowy komunikat o błędzie dla dwóch obiektów w zestawie konfliktów nazw UPN jest taki sam. Oznacza to, że mają obie nazwy UPN zmienione/poddane kwarantannie, gdy tylko jeden z nich zmienił dane.
 2. Szczegółowy komunikat o błędzie dotyczący konfliktu nazw UPN przedstawia niewłaściwy element displayName dla użytkownika, który miał nazwę UPN zmieniono/poddane kwarantannie. Na przykład:
@@ -163,19 +163,18 @@ W poniższym artykule opisano różne strategie rozwiązywania problemów i rozw
    
     b. **Użytkownik B** próbuje zsynchronizować się dalej z nazwą **UPN = User \@ contoso.com**.
    
-    c. **Użytkownik B** Nazwa UPN jest zmieniana na **User1234 \@ contoso.onmicrosoft.com** i ** \@ contoso.com użytkownika** zostanie dodana do **DirSyncProvisioningErrors**.
+    c. **Użytkownik B** Nazwa UPN jest zmieniana na **User1234 \@ contoso.onmicrosoft.com** i **\@ contoso.com użytkownika** zostanie dodana do **DirSyncProvisioningErrors**.
    
     d. Komunikat o błędzie dla **użytkownika B** powinien wskazywać, że **użytkownik** ma już **użytkownika \@ contoso.com** jako nazwę UPN, ale wyświetla własną wartość DisplayName **użytkownika B** .
 
-**Synchronizacja tożsamości raport o błędach**:
+**Synchronizacja tożsamości raport o błędach** :
 
 Link do *procedury rozwiązywania tego problemu* jest niepoprawny:  
     ![Aktywni użytkownicy](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktywni użytkownicy")  
 
-Powinno to wskazywać na [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) .
+Powinno to wskazywać na [https://aka.ms/duplicateattributeresiliency]() .
 
 ## <a name="see-also"></a>Zobacz też
 * [Synchronizacja Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 * [Zidentyfikuj błędy synchronizacji katalogów w Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-

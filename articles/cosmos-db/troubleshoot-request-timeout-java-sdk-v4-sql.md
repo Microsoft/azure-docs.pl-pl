@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a805300ac62d0627c9b06188c9764a6887947afe
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340087"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411290"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB wyjątków limitu czasu żądania zestawu SDK Java v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,6 +22,9 @@ Błąd HTTP 408 występuje, jeśli zestaw SDK nie mógł wykonać żądania prze
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 Poniższa lista zawiera znane przyczyny i rozwiązania dla wyjątków limitu czasu żądania.
+
+### <a name="existing-issues"></a>Istniejące problemy
+Jeśli widzisz żądania, które mają być zablokowane przez dłuższy czas lub przekroczenia limitu czasu, Uaktualnij zestaw SDK dla języka Java v4 do najnowszej wersji. Uwaga: zdecydowanie zalecamy użycie wersji 4.7.0 i nowszych. Aby uzyskać więcej informacji, zapoznaj się z [informacjami o wersji zestawu SDK Java v4](sql-api-sdk-java-v4.md) .
 
 ### <a name="high-cpu-utilization"></a>Wysokie wykorzystanie procesora CPU
 Wysokie wykorzystanie procesora CPU jest najpopularniejszym przypadkiem. W celu uzyskania optymalnego opóźnienia użycie procesora CPU powinno wynosić około 40 procent. Użyj 10 sekund jako interwału do monitorowania maksymalnego (nieśredniego) użycia procesora. Większe obciążenia procesora są bardziej typowe w przypadku zapytań między partycjami, w których może istnieć wiele połączeń dla jednego zapytania.

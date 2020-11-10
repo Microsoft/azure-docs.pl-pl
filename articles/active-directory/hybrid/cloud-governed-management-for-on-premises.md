@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369798"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413449"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Jak usługa Azure AD zapewnia zarządzanie zarządzane przez chmurę dla obciążeń lokalnych
 
@@ -39,7 +39,7 @@ Ten dokument przedstawia strategię firmy Microsoft dotyczącą IDaaS hybrydowyc
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Podejście usługi Azure AD do zarządzania tożsamościami zarządzanymi przez chmurę
 
-W miarę jak organizacje przechodzą na chmurę, muszą mieć pewność, że mają kontrolę nad ich pełnym środowiskiem — większym wpływem na działania, które są obsługiwane przez automatyzację i proaktywne szczegółowe informacje. "**Zarządzanie zarządzane przez chmurę**" opisuje, w jaki sposób organizacje zarządzają użytkownikami, aplikacjami, grupami i urządzeniami w chmurze oraz zarządza nimi.
+W miarę jak organizacje przechodzą na chmurę, muszą mieć pewność, że mają kontrolę nad ich pełnym środowiskiem — większym wpływem na działania, które są obsługiwane przez automatyzację i proaktywne szczegółowe informacje. " **Zarządzanie zarządzane przez chmurę** " opisuje, w jaki sposób organizacje zarządzają użytkownikami, aplikacjami, grupami i urządzeniami w chmurze oraz zarządza nimi.
 
 W tym nowoczesnym świecie organizacje muszą mieć możliwość efektywnego zarządzania na dużą skalę z powodu rozprzestrzeniania się aplikacji SaaS oraz rosnącej roli współpracy i tożsamości zewnętrznych. Nowe ryzyko dotyczące krajobrazu w chmurze oznacza, że organizacja musi być wydajniejsza — złośliwy aktor, który zagraża użytkownikowi chmury, może mieć wpływ na aplikacje w chmurze i lokalne.
 
@@ -77,7 +77,7 @@ Współpraca między firmami wymaga bardziej udzielenia dostępu osobom spoza or
 
 Usługa Azure AD może [automatycznie tworzyć konta w usłudze AD dla użytkowników-Gości](../external-identities/hybrid-cloud-to-on-premises.md) zgodnie z potrzebami, umożliwiając gościom biznesowym dostęp do lokalnych aplikacji zintegrowanych z usługą AD bez konieczności stosowania innego hasła. Organizacje mogą konfigurować [zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkowników-Gości](../external-identities/conditional-access.md), więc testy MFA są wykonywane podczas uwierzytelniania serwera proxy aplikacji. Ponadto wszystkie [przeglądy dostępu](../governance/manage-guest-access-with-access-reviews.md) wykonywane przez użytkowników usługi Cloud B2B dotyczą użytkowników lokalnych. Jeśli na przykład użytkownik w chmurze zostanie usunięty za pomocą zasad zarządzania cyklem życia, użytkownik lokalny również zostanie usunięty.
 
-**Zarządzanie poświadczeniami dla kont Active Directory** Funkcja samoobsługowego resetowania haseł w usłudze Azure AD umożliwia użytkownikom, którzy zapominali, że hasła są ponownie uwierzytelniane i resetowanie haseł, ze zmienionymi hasłami [zapisanymi w Active Directory lokalnym](../authentication/concept-sspr-writeback.md). Proces resetowania hasła może również korzystać z lokalnych zasad haseł Active Directory: gdy użytkownik resetuje hasło, sprawdza się, czy przed zatwierdzeniem go do tego katalogu jest zgodna z lokalnymi zasadami Active Directory. [Plan wdrożenia](https://aka.ms/deploymentplans/sspr) samoobsługowego resetowania hasła przedstawia najlepsze rozwiązania w zakresie wdrażania funkcji samoobsługowego resetowania haseł do użytkowników za pośrednictwem sieci Web i zintegrowanych z systemem Windows.
+**Zarządzanie poświadczeniami dla kont Active Directory** Funkcja samoobsługowego resetowania haseł w usłudze Azure AD umożliwia użytkownikom, którzy zapominali, że hasła są ponownie uwierzytelniane i resetowanie haseł, ze zmienionymi hasłami [zapisanymi w Active Directory lokalnym](../authentication/concept-sspr-writeback.md). Proces resetowania hasła może również korzystać z lokalnych zasad haseł Active Directory: gdy użytkownik resetuje hasło, sprawdza się, czy przed zatwierdzeniem go do tego katalogu jest zgodna z lokalnymi zasadami Active Directory. [Plan wdrożenia](../authentication/howto-sspr-deployment.md) samoobsługowego resetowania hasła przedstawia najlepsze rozwiązania w zakresie wdrażania funkcji samoobsługowego resetowania haseł do użytkowników za pośrednictwem sieci Web i zintegrowanych z systemem Windows.
 
 ![Architektura usługi Azure AD SSPR](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ Aby rozpocząć Migrowanie aplikacji federacyjnych do usługi Azure AD jako dost
 
 * Oficjalny dokument [dotyczący migrowania aplikacji do Azure Active Directory](https://aka.ms/migrateapps/whitepaper), który przedstawia zalety migracji i opisuje sposób planowania migracji w czterech jasno dostępnych fazach: odnajdywanie, klasyfikacja, migracja i bieżące zarządzanie. Zapoznaj się z informacjami o tym, jak myśleć o procesie i podzielić projekt na łatwe w użyciu elementy. W dokumencie znajdują się linki do ważnych zasobów, które pomogą Ci w tym czasie.
 
-* Przewodnik po rozwiązaniach [Migrowanie uwierzytelniania aplikacji z programu Active Directory Federation Services do Azure Active Directory](https://aka.ms/migrateapps/adfssolutionguide) Eksploruje bardziej szczegółowo te same cztery etapy planowania i wykonywania projektu migracji aplikacji. W tym przewodniku dowiesz się, jak zastosować te fazy do określonego celu przeniesienia aplikacji z Active Directory Federation Services (AD FS) do usługi Azure AD.
+* Przewodnik po rozwiązaniach [Migrowanie uwierzytelniania aplikacji z programu Active Directory Federation Services do Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) Eksploruje bardziej szczegółowo te same cztery etapy planowania i wykonywania projektu migracji aplikacji. W tym przewodniku dowiesz się, jak zastosować te fazy do określonego celu przeniesienia aplikacji z Active Directory Federation Services (AD FS) do usługi Azure AD.
 
 * [Skrypt gotowości do migracji Active Directory Federation Services](https://aka.ms/migrateapps/adfstools) można uruchomić na istniejących serwerach Active Directory Federation Services lokalnych (AD FS), aby określić gotowość aplikacji do migracji do usługi Azure AD.
 
@@ -111,7 +111,7 @@ Organizacje mogą zautomatyzować proces cyklu życia dostępu za pomocą techno
 
 ## <a name="future-directions"></a>Przyszłe instrukcje
 
-W środowiskach hybrydowych, strategia firmy Microsoft polega na włączeniu wdrożeń, w których **chmura jest płaszczyzną kontroli tożsamości**, a lokalnymi katalogami i innymi systemami tożsamości, takimi jak Active Directory i inne aplikacje lokalne, są celem aprowizacji użytkowników z dostępem. Ta strategia będzie nadal zapewniać prawa, tożsamości i dostęp do tych aplikacji oraz obciążeń, które są na nich zależne. W tym stanie organizacje będą mogły zwiększyć produktywność użytkowników końcowych w całości z chmury.
+W środowiskach hybrydowych, strategia firmy Microsoft polega na włączeniu wdrożeń, w których **chmura jest płaszczyzną kontroli tożsamości** , a lokalnymi katalogami i innymi systemami tożsamości, takimi jak Active Directory i inne aplikacje lokalne, są celem aprowizacji użytkowników z dostępem. Ta strategia będzie nadal zapewniać prawa, tożsamości i dostęp do tych aplikacji oraz obciążeń, które są na nich zależne. W tym stanie organizacje będą mogły zwiększyć produktywność użytkowników końcowych w całości z chmury.
 
 ![Architektura usługi Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 

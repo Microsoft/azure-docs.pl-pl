@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80811080"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413296"
 ---
 # <a name="azure-network-security-overview"></a>Omówienie zabezpieczeń sieci platformy Azure
 
@@ -63,7 +63,7 @@ Platforma Azure obsługuje kilka typów kontroli dostępu do sieci, takich jak:
 Każde bezpieczne wdrożenie wymaga pewnej miary kontroli dostępu do sieci. Celem kontroli dostępu do sieci jest ograniczenie komunikacji maszyny wirtualnej z niezbędnymi systemami. Inne próby komunikacji są blokowane.
 
 > [!NOTE]
-> Zapory magazynu są opisane w artykule [Przegląd zabezpieczeń usługi Azure Storage](storage-overview.md)
+> Zapory magazynu są opisane w artykule [Przegląd zabezpieczeń usługi Azure Storage](../../storage/blobs/security-recommendations.md)
 
 #### <a name="network-security-rules-nsgs"></a>Reguły zabezpieczeń sieci (sieciowych grup zabezpieczeń)
 
@@ -77,11 +77,11 @@ Sieciowych grup zabezpieczeń nie zapewniają kontroli warstwy aplikacji ani kon
 
 Więcej informacji:
 
-* [Sieciowe grupy zabezpieczeń](../../virtual-network/security-overview.md)
+* [Sieciowe grupy zabezpieczeń](../../virtual-network/network-security-groups-overview.md)
 
 #### <a name="asc-just-in-time-vm-access"></a>Dostęp just in Time do maszyny wirtualnej
 
-[Usługa Azure Security Center](../../security-center/security-center-intro.md) może zarządzać sieciowych grup zabezpieczeń na maszynach wirtualnych i blokować dostęp do maszyny wirtualnej do momentu, gdy użytkownik z [odpowiednimi uprawnieniami kontroli](/azure/role-based-access-control/overview) dostępu opartej na rolach żąda dostępu. Gdy użytkownik zostanie pomyślnie autoryzowany, wprowadza modyfikacje sieciowych grup zabezpieczeń, aby zezwolić na dostęp do wybranych portów przez określony czas. Po upływie tego czasu sieciowych grup zabezpieczeń są przywracane do poprzedniego stanu bezpiecznego.
+[Usługa Azure Security Center](../../security-center/security-center-introduction.md) może zarządzać sieciowych grup zabezpieczeń na maszynach wirtualnych i blokować dostęp do maszyny wirtualnej do momentu, gdy użytkownik z [odpowiednimi uprawnieniami kontroli](../../role-based-access-control/overview.md) dostępu opartej na rolach żąda dostępu. Gdy użytkownik zostanie pomyślnie autoryzowany, wprowadza modyfikacje sieciowych grup zabezpieczeń, aby zezwolić na dostęp do wybranych portów przez określony czas. Po upływie tego czasu sieciowych grup zabezpieczeń są przywracane do poprzedniego stanu bezpiecznego.
 
 Więcej informacji:
 
@@ -141,7 +141,7 @@ Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze,
 
 Więcej informacji:
 
-* [Omówienie Zapory platformy Azure](/azure/firewall/overview)
+* [Omówienie Zapory platformy Azure](../../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Bezpieczny dostęp zdalny i łączność między różnymi lokalizacjami
 
@@ -202,7 +202,7 @@ Istnieje możliwość użycia wielu sieci wirtualnych we wdrożeniach. Istnieje 
 
 Jedną z opcji jest usługa w jednej sieci wirtualnej do łączenia się z usługami w innej sieci wirtualnej przez Internet. Połączenie zostanie uruchomione w jednej sieci wirtualnej, przejdzie przez Internet, a następnie powróci do docelowej sieci wirtualnej. Ta opcja udostępnia połączenie z problemami z zabezpieczeniami związanymi z komunikacją internetową.
 
-Lepszym rozwiązaniem może być utworzenie sieci VPN typu lokacja-lokacja, która łączy się między dwiema sieciami wirtualnymi. Ta metoda używa tego samego protokołu [IPSec Tunnel Mode](https://technet.microsoft.com/library/cc786385.aspx) , co powyżej połączenie sieci VPN między lokacjami, określone powyżej.
+Lepszym rozwiązaniem może być utworzenie sieci VPN typu lokacja-lokacja, która łączy się między dwiema sieciami wirtualnymi. Ta metoda używa tego samego protokołu [IPSec Tunnel Mode](/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) , co powyżej połączenie sieci VPN między lokacjami, określone powyżej.
 
 Zaletą tego podejścia jest to, że połączenie sieci VPN jest nawiązywane za pośrednictwem sieci szkieletowej platformy Azure, a nie za pośrednictwem Internetu. Zapewnia to dodatkową warstwę zabezpieczeń w porównaniu z sieciami VPN typu lokacja-lokacja, które łączą się za pośrednictwem Internetu.
 
@@ -237,7 +237,7 @@ Usługa Azure Application Gateway zapewnia równoważenia obciążenia opartego 
 
 Więcej informacji:
 
-* [Application Gateway — omówienie](/azure/application-gateway/application-gateway-introduction)
+* [Application Gateway — omówienie](../../application-gateway/overview.md)
 
 ### <a name="network-level-load-balancing"></a>Równoważenie obciążenia na poziomie sieci
 
@@ -252,8 +252,8 @@ Korzystając z Azure Load Balancer, można uzyskać korzyści wynikające z rów
 
 Więcej informacji:
 
-* [Moduł równoważenia obciążenia dostępny z Internetu między wieloma maszynami wirtualnymi lub usługami](/azure/load-balancer/load-balancer-internet-overview)
-* [Przegląd wewnętrznego modułu równoważenia obciążenia](/azure/load-balancer/load-balancer-internal-overview)
+* [Moduł równoważenia obciążenia dostępny z Internetu między wieloma maszynami wirtualnymi lub usługami](../../load-balancer/load-balancer-overview.md)
+* [Przegląd wewnętrznego modułu równoważenia obciążenia](../../load-balancer/load-balancer-overview.md)
 
 ### <a name="global-load-balancing"></a>Globalne Równoważenie obciążenia
 
@@ -381,7 +381,7 @@ Security Center pomaga zoptymalizować i monitorować zabezpieczenia sieci przez
 
 Więcej informacji:
 
-* [Wprowadzenie do usługi Azure Security Center](../../security-center/security-center-intro.md)
+* [Wprowadzenie do usługi Azure Security Center](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>Virtual Network naciśnij pozycję
 

@@ -1,14 +1,14 @@
 ---
 title: Wdrażanie Azure Policy do delegowanych subskrypcji na dużą skalę
 description: Dowiedz się, jak usługa Azure Lighthouse umożliwia wdrożenie definicji zasad i przypisania zasad dla wielu dzierżawców.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167287"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412072"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Wdrażanie Azure Policy do delegowanych subskrypcji na dużą skalę
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Chociaż można wdrażać zasady dla wielu dzierżawców, obecnie nie można [wyświetlić szczegółów zgodności](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) dla niezgodnych zasobów w tych dzierżawcach.
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat [Azure Policy](../../governance/policy/index.yml).
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](../concepts/cross-tenant-management-experience.md).
+- Dowiedz się [, jak wdrożyć zasady, które można skorygować](deploy-policy-remediation.md) w ramach delegowanej subskrypcji.

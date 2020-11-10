@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460669"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413126"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -104,7 +104,6 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- Migawki zgodności pokazują szczegóły przypisanych zasad w ramach delegowanych subskrypcji
 - Tworzenie i edytowanie definicji zasad w ramach delegowanych subskrypcji
 - Przypisywanie definicji zasad zdefiniowanych przez klienta w ramach delegowanych subskrypcji
 - Klienci widzą zasady utworzone przez dostawcę usług wraz ze wszystkimi utworzonymi przez siebie zasadami
@@ -157,7 +156,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 Żądania obsługi:
 
-- [Otwórz żądania pomocy technicznej z **pomocy i obsługi technicznej** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) w Azure Portal dla delegowanych zasobów (Wybierz plan pomocy technicznej dostępny dla delegowanego zakresu)
+- [Otwórz żądania pomocy technicznej z **pomocy i obsługi technicznej**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) w Azure Portal dla delegowanych zasobów (Wybierz plan pomocy technicznej dostępny dla delegowanego zakresu)
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 

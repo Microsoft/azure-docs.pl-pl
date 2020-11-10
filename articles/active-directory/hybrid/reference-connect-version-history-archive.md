@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0adf548b009ad6fe0c85501b9777ff23723b3e24
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018496"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413415"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: archiwum historii wersji
 
@@ -167,7 +167,7 @@ Uaktualnianie Azure AD Connect kończy się niepowodzeniem, jeśli dla usługi A
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
 
 - Integracja z usługą ping Sfederować w Azure AD Connect jest teraz dostępna do ogólnej dostępności. [Dowiedz się więcej na temat sposobu federacyjnego usługi Azure AD za pomocą polecenia ping Sfederować](./plan-connect-user-signin.md#federation-with-pingfederate)
-- Azure AD Connect teraz tworzy kopię zapasową zaufania usługi Azure AD w AD FS za każdym razem, gdy aktualizacja zostanie wprowadzona i zapisuje ją w osobnym pliku do łatwego przywracania, jeśli jest to wymagane. [Dowiedz się więcej na temat nowych funkcji i zarządzania relacjami zaufania usługi Azure AD w Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- Azure AD Connect teraz tworzy kopię zapasową zaufania usługi Azure AD w AD FS za każdym razem, gdy aktualizacja zostanie wprowadzona i zapisuje ją w osobnym pliku do łatwego przywracania, jeśli jest to wymagane. [Dowiedz się więcej na temat nowych funkcji i zarządzania relacjami zaufania usługi Azure AD w Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - Nowe narzędzia do rozwiązywania problemów ułatwiają rozwiązywanie problemów z zmianą podstawowego adresu e-mail i ukrywaniem konta z globalnej listy adresów
 - Azure AD Connect zaktualizowano w celu uwzględnienia najnowszego klienta SQL Server 2012 Native
 - Po przełączeniu logowania użytkownika do synchronizacji skrótów haseł lub uwierzytelniania przekazywanego w zadaniu "zmiana logowania użytkownika" pole wyboru bezproblemowego pojedynczego Sign-On jest domyślnie włączone.
@@ -212,8 +212,8 @@ Nowe funkcje i ulepszenia
 - Konfiguracja zapisywania zwrotnego urządzeń jest teraz zarządzana wyłącznie w Kreatorze Azure AD Connect.
 - Dodano nowy moduł programu PowerShell o nazwie ADSyncTools. PSM1, który może służyć do rozwiązywania problemów z łącznością SQL i różnych narzędzi do rozwiązywania problemów. Więcej informacji na temat modułu ADSyncTools można znaleźć [tutaj](tshoot-connect-tshoot-sql-connectivity.md). 
 - Dodano nowe zadanie dodatkowe "Konfigurowanie opcji urządzenia". Możesz użyć zadania, aby skonfigurować następujące dwie operacje: 
-  - **Hybrydowe dołączanie do usługi Azure AD**: Jeśli w środowisku znajduje się lokalna usługa AD i chcesz również skorzystać z możliwości zapewnianych przez Azure Active Directory, możesz zaimplementować urządzenia dołączone do hybrydowej usługi Azure AD. Są to urządzenia dołączone do lokalnej usługi Active Directory oraz usługi Azure Active Directory.
-  - **Zapisywanie zwrotne urządzeń**: zapisywanie zwrotne urządzeń służy do włączania dostępu warunkowego opartego na urządzeniach do AD FS (2012 R2 lub nowsze) chronionych urządzeń
+  - **Hybrydowe dołączanie do usługi Azure AD** : Jeśli w środowisku znajduje się lokalna usługa AD i chcesz również skorzystać z możliwości zapewnianych przez Azure Active Directory, możesz zaimplementować urządzenia dołączone do hybrydowej usługi Azure AD. Są to urządzenia dołączone do lokalnej usługi Active Directory oraz usługi Azure Active Directory.
+  - **Zapisywanie zwrotne urządzeń** : zapisywanie zwrotne urządzeń służy do włączania dostępu warunkowego opartego na urządzeniach do AD FS (2012 R2 lub nowsze) chronionych urządzeń
 
     >[!NOTE] 
     > - Opcja włączenia funkcji zapisywania zwrotnego urządzeń z opcji dostosowywania synchronizacji będzie wyszarzona. 
@@ -362,7 +362,7 @@ Zablokuj dostęp do konta AD DS, implementując następujące zmiany uprawnień 
 *   Usuń wszystkie wpisy kontroli dostępu do określonego obiektu, z wyjątkiem ACE określonych dla siebie. Chcemy zachować domyślne uprawnienia, które są niezmienione, gdy nastąpi samodzielne.
 *   Przypisz te określone uprawnienia:
 
-Type     | Nazwa                          | Dostęp               | Dotyczy:
+Typ     | Nazwa                          | Access               | Dotyczy:
 ---------|-------------------------------|----------------------|--------------|
 Zezwalaj    | SYSTEM                        | Pełna kontrola         | Ten obiekt  |
 Zezwalaj    | Enterprise Admins             | Pełna kontrola         | Ten obiekt  |
@@ -425,27 +425,27 @@ Stan: październik 19 2017
 #### <a name="fixed-issues"></a>Naprawione problemy
 * Rozwiązano problem z kreatorem *zmiany zadania logowania użytkownika* w Azure AD Connect:
 
-  * Ten problem występuje, gdy istnieje wdrożenie Azure AD Connect z **włączoną**synchronizacją haseł i podjęto próbę ustawienia metody logowania użytkownika jako *uwierzytelniania przekazywanego*. Przed zastosowaniem zmiany Kreator nieprawidłowo wyświetli monit "*Wyłącz synchronizację haseł*". Jednak synchronizacja haseł pozostaje włączona po zastosowaniu zmiany. W przypadku tej poprawki Kreator nie wyświetla już monitu.
+  * Ten problem występuje, gdy istnieje wdrożenie Azure AD Connect z **włączoną** synchronizacją haseł i podjęto próbę ustawienia metody logowania użytkownika jako *uwierzytelniania przekazywanego*. Przed zastosowaniem zmiany Kreator nieprawidłowo wyświetli monit " *Wyłącz synchronizację haseł* ". Jednak synchronizacja haseł pozostaje włączona po zastosowaniu zmiany. W przypadku tej poprawki Kreator nie wyświetla już monitu.
 
   * Po zaprojektowaniu Kreator nie wyłącza synchronizacji haseł podczas aktualizacji metody logowania użytkownika przy użyciu zadania *zmiany użytkownika* . Ma to na celu uniknięcie zakłócenia klientów, którzy chcą zachować synchronizację haseł, nawet jeśli umożliwiają uwierzytelnianie przekazujące lub Federacji jako podstawową metodę logowania użytkownika.
 
   * Jeśli chcesz wyłączyć synchronizację haseł po aktualizacji metody logowania użytkownika, musisz wykonać zadanie *Dostosuj konfigurację synchronizacji* w kreatorze. Po przejściu do strony *funkcje opcjonalne* Usuń zaznaczenie opcji *Synchronizacja haseł* .
 
-  * Należy zauważyć, że ten sam problem występuje również w przypadku próby włączenia/wyłączenia bezproblemowego logowania jednokrotnego. W każdym przypadku istnieje wdrożenie Azure AD Connect z włączoną synchronizacją haseł, a metoda logowania użytkownika jest już skonfigurowana jako *uwierzytelnianie przekazywane*. Korzystając z zadania *zmiany logowania użytkownika* , spróbuj zaznaczyć/usunąć zaznaczenie opcji *Włącz bezproblemową rejestrację* jednokrotną, gdy metoda logowania użytkownika pozostanie skonfigurowana jako "uwierzytelnianie przekazywane". Przed zastosowaniem zmiany Kreator nieprawidłowo wyświetli monit "*Wyłącz synchronizację haseł*". Jednak synchronizacja haseł pozostaje włączona po zastosowaniu zmiany. W przypadku tej poprawki Kreator nie wyświetla już monitu.
+  * Należy zauważyć, że ten sam problem występuje również w przypadku próby włączenia/wyłączenia bezproblemowego logowania jednokrotnego. W każdym przypadku istnieje wdrożenie Azure AD Connect z włączoną synchronizacją haseł, a metoda logowania użytkownika jest już skonfigurowana jako *uwierzytelnianie przekazywane*. Korzystając z zadania *zmiany logowania użytkownika* , spróbuj zaznaczyć/usunąć zaznaczenie opcji *Włącz bezproblemową rejestrację* jednokrotną, gdy metoda logowania użytkownika pozostanie skonfigurowana jako "uwierzytelnianie przekazywane". Przed zastosowaniem zmiany Kreator nieprawidłowo wyświetli monit " *Wyłącz synchronizację haseł* ". Jednak synchronizacja haseł pozostaje włączona po zastosowaniu zmiany. W przypadku tej poprawki Kreator nie wyświetla już monitu.
 
 * Rozwiązano problem z kreatorem *zmiany zadania logowania użytkownika* w Azure AD Connect:
 
-  * Ten problem występuje, gdy istnieje już wdrożenie Azure AD Connect z **wyłączonym**synchronizacją haseł i podjęto próbę ustawienia metody logowania użytkownika jako *uwierzytelniania przekazywanego*. Gdy zmiana zostanie zastosowana, Kreator włączy zarówno uwierzytelnianie przekazywane, jak i synchronizację haseł. W przypadku tej poprawki Kreator nie umożliwia już synchronizacji haseł.
+  * Ten problem występuje, gdy istnieje już wdrożenie Azure AD Connect z **wyłączonym** synchronizacją haseł i podjęto próbę ustawienia metody logowania użytkownika jako *uwierzytelniania przekazywanego*. Gdy zmiana zostanie zastosowana, Kreator włączy zarówno uwierzytelnianie przekazywane, jak i synchronizację haseł. W przypadku tej poprawki Kreator nie umożliwia już synchronizacji haseł.
 
-  * Wcześniej synchronizacja haseł była warunkiem wstępnym umożliwiającym włączenie uwierzytelniania przekazywanego. Po ustawieniu metody logowania użytkownika jako *uwierzytelniania przekazywanego*Kreator włączy zarówno uwierzytelnianie przekazywane, jak i synchronizację haseł. Ostatnio synchronizacja haseł została usunięta jako wymaganie wstępne. W ramach Azure AD Connect w wersji 1.1.557.0 wprowadzono zmianę Azure AD Connect, aby nie włączać synchronizacji haseł podczas ustawiania metody logowania użytkownika jako *uwierzytelniania przekazywanego*. Jednak zmiana została zastosowana tylko do instalacji Azure AD Connect. W przypadku tej poprawki Ta sama zmiana zostanie również zastosowana do zadania *zmiany logowania użytkownika* .
+  * Wcześniej synchronizacja haseł była warunkiem wstępnym umożliwiającym włączenie uwierzytelniania przekazywanego. Po ustawieniu metody logowania użytkownika jako *uwierzytelniania przekazywanego* Kreator włączy zarówno uwierzytelnianie przekazywane, jak i synchronizację haseł. Ostatnio synchronizacja haseł została usunięta jako wymaganie wstępne. W ramach Azure AD Connect w wersji 1.1.557.0 wprowadzono zmianę Azure AD Connect, aby nie włączać synchronizacji haseł podczas ustawiania metody logowania użytkownika jako *uwierzytelniania przekazywanego*. Jednak zmiana została zastosowana tylko do instalacji Azure AD Connect. W przypadku tej poprawki Ta sama zmiana zostanie również zastosowana do zadania *zmiany logowania użytkownika* .
 
   * Należy zauważyć, że ten sam problem występuje również w przypadku próby włączenia/wyłączenia bezproblemowego logowania jednokrotnego. W tym celu istnieje już istniejące wdrożenie Azure AD Connect z wyłączonym synchronizacją haseł, a metoda logowania użytkownika została skonfigurowana jako *uwierzytelnianie przekazywane*. Korzystając z zadania *zmiany logowania użytkownika* , spróbuj zaznaczyć/usunąć zaznaczenie opcji *Włącz bezproblemową rejestrację* jednokrotną, gdy metoda logowania użytkownika pozostanie skonfigurowana jako "uwierzytelnianie przekazywane". Gdy zmiana zostanie zastosowana, Kreator włączy synchronizację haseł. W przypadku tej poprawki Kreator nie umożliwia już synchronizacji haseł. 
 
-* Rozwiązano problem, który spowodował, że uaktualnienie Azure AD Connect nie powiodło się z powodu błędu "*nie można uaktualnić usługi synchronizacji*". Ponadto usługa synchronizacji nie może już się zaczynać z powodu błędu zdarzenia "*nie można uruchomić usługi, ponieważ wersja bazy danych jest nowsza niż zainstalowana wersja plików binarnych*". Ten problem występuje, gdy administrator przeprowadzający uaktualnienie nie ma uprawnień administratora systemu do programu SQL Server, który jest używany przez Azure AD Connect. Ta poprawka Azure AD Connect wymaga, aby administrator miał uprawnienia db_owner do bazy danych ADSync podczas uaktualniania.
+* Rozwiązano problem, który spowodował, że uaktualnienie Azure AD Connect nie powiodło się z powodu błędu " *nie można uaktualnić usługi synchronizacji* ". Ponadto usługa synchronizacji nie może już się zaczynać z powodu błędu zdarzenia " *nie można uruchomić usługi, ponieważ wersja bazy danych jest nowsza niż zainstalowana wersja plików binarnych* ". Ten problem występuje, gdy administrator przeprowadzający uaktualnienie nie ma uprawnień administratora systemu do programu SQL Server, który jest używany przez Azure AD Connect. Ta poprawka Azure AD Connect wymaga, aby administrator miał uprawnienia db_owner do bazy danych ADSync podczas uaktualniania.
 
 * Rozwiązano problem z uaktualnieniem Azure AD Connect, którego dotyczą Klienci, którzy włączyli [bezproblemowe logowanie jednokrotne](./how-to-connect-sso.md). Po uaktualnieniu Azure AD Connect bezproblemowe pojedyncze Sign-On nieprawidłowo pojawia się jako wyłączone w Kreatorze Azure AD Connect, mimo że funkcja pozostaje włączona i w pełni funkcjonalna. W przypadku tej poprawki funkcja jest teraz wyświetlana prawidłowo w kreatorze.
 
-* Rozwiązano problem, który spowodował, że Kreator Azure AD Connect, aby zawsze wyświetlał monit "*Konfigurowanie zakotwiczenia źródła*" na stronie *gotowe do skonfigurowania* , nawet jeśli nie wprowadzono żadnych zmian związanych z kotwicą źródła.
+* Rozwiązano problem, który spowodował, że Kreator Azure AD Connect, aby zawsze wyświetlał monit " *Konfigurowanie zakotwiczenia źródła* " na stronie *gotowe do skonfigurowania* , nawet jeśli nie wprowadzono żadnych zmian związanych z kotwicą źródła.
 
 * Podczas ręcznego uaktualniania w miejscu Azure AD Connect klient musi podać poświadczenia administratora globalnego odpowiedniej dzierżawy usługi Azure AD. Wcześniej uaktualnienie mogło być kontynuowane, mimo że poświadczenia administratora globalnego należą do innej dzierżawy usługi Azure AD. Po pomyślnym zakończeniu uaktualnienia pewne konfiguracje nie są poprawnie utrwalane po uaktualnieniu. W przypadku tej zmiany Kreator nie zezwala na przeprowadzanie uaktualnienia, jeśli podane poświadczenia nie pasują do dzierżawy usługi Azure AD.
 
@@ -480,7 +480,7 @@ Stan: wrzesień 05 2017
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Znane problemy
-* Istnieje znany problem, który powoduje Niepowodzenie uaktualnienia Azure AD Connect z powodu błędu "*nie można uaktualnić usługi synchronizacji*". Ponadto usługa synchronizacji nie może już się zaczynać z powodu błędu zdarzenia "*nie można uruchomić usługi, ponieważ wersja bazy danych jest nowsza niż zainstalowana wersja plików binarnych*". Ten problem występuje, gdy administrator przeprowadzający uaktualnienie nie ma uprawnień administratora systemu do programu SQL Server, który jest używany przez Azure AD Connect. Uprawnienia dbo nie są wystarczające.
+* Istnieje znany problem, który powoduje Niepowodzenie uaktualnienia Azure AD Connect z powodu błędu " *nie można uaktualnić usługi synchronizacji* ". Ponadto usługa synchronizacji nie może już się zaczynać z powodu błędu zdarzenia " *nie można uruchomić usługi, ponieważ wersja bazy danych jest nowsza niż zainstalowana wersja plików binarnych* ". Ten problem występuje, gdy administrator przeprowadzający uaktualnienie nie ma uprawnień administratora systemu do programu SQL Server, który jest używany przez Azure AD Connect. Uprawnienia dbo nie są wystarczające.
 
 * Istnieje znany problem z uaktualnieniem Azure AD Connect, który ma wpływ na klientów, którzy włączyli [bezproblemowe logowanie jednokrotne](how-to-connect-sso.md). Po uaktualnieniu Azure AD Connect funkcja zostanie wyświetlona jako wyłączona w kreatorze, mimo że funkcja pozostanie włączona. Rozwiązanie tego problemu będzie dostępne w przyszłym wydaniu. Klienci, którzy są zainteresowani tym problemem dotyczącym wyświetlania, mogą ręcznie rozwiązać ten problem, włączając bezproblemowe pojedyncze Sign-On w kreatorze.
 
@@ -705,7 +705,7 @@ Występuje problem polegający na tym, że **opcja Synchronizuj wszystkie domeny
   * CertPublicKeyParametersOid
   * CertVersion
   * CertSignatureAlgorithmOid
-  * Wybierz
+  * Wybierz pozycję
   * CertKeyAlgorithmParams
   * CertHashString
   * Lokalizacja

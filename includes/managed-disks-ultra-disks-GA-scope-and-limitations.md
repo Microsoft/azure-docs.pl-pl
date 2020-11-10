@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441209"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413148"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -34,19 +34,20 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |South Central US    |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |US Gov Arizona     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |US Gov Wirginia     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|US Gov Teksas     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Zachodnie stany USA     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)        |
 |Australia Środkowa    |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Australia Wschodnia     |Trzy strefy dostępności         |
-|Southeast Asia    |Trzy strefy dostępności        |
+|Azja Południowo-Wschodnia    |Trzy strefy dostępności        |
 |Kanada środkowa *     |Trzy strefy dostępności          |
-|Central US     |Trzy strefy dostępności          |
+|Środkowe stany USA     |Trzy strefy dostępności          |
 |East US     |Trzy strefy dostępności          |
 |Wschodnie stany USA 2     |Trzy strefy dostępności         |
 |Francja Środkowa    |Dwie strefy dostępności        |
 |Japan East    |Trzy strefy dostępności        |
 |Europa Północna    |Trzy strefy dostępności        |
 |Południowe Zjednoczone Królestwo    |Trzy strefy dostępności        |
-|West Europe    | Trzy strefy dostępności|
+|Europa Zachodnia    | Trzy strefy dostępności|
 |Zachodnie stany USA 2    |Trzy strefy dostępności|
 
 \* Skontaktuj się z pomocą techniczną platformy Azure, aby uzyskać dostęp do Strefy dostępności w tym regionie.

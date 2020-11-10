@@ -10,16 +10,31 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: a87e76d4a726f7a01b96d602e7f41d60409dae56
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 030b09dae9db11fb14defecde3d14e949b9e6748
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521496"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412735"
 ---
 # <a name="whats-new-in-custom-vision"></a>Co nowego w Custom Vision
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji, klipami wideo, wpisami w blogu i innymi rodzajami informacji. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
+
+
+## <a name="october-2020"></a>Październik 2020 r. 
+
+### <a name="custom-base-model"></a>Niestandardowy model podstawowy
+
+- Niektóre aplikacje mają dużą ilość wspólnych danych szkoleniowych, ale wymagają dokładnego dostosowania ich modeli. skutkuje to lepszą wydajnością obrazów z różnych źródeł z niewielkimi różnicami. W takim przypadku można nauczyć pierwszy model w zwykły sposób z dużą ilością danych szkoleniowych. Następnie Wywołaj **TrainProject** w publicznej wersji zapoznawczej interfejsu API 3,4 z _CustomBaseModelInfo_ w treści żądania, aby użyć modelu przeszkolonego pierwszego etapu jako modelu podstawowego dla projektów podrzędnych. Jeśli projekt źródłowy i docelowy projekt podrzędny mają podobne cechy obrazu, można oczekiwać lepszej wydajności. 
+
+### <a name="new-domain-information"></a>Informacje o nowej domenie
+
+- Informacje o domenie zwrócone z **getdomen** w Custom Vision 3,4 publicznej wersji zapoznawczej obejmują teraz obsługiwane platformy możliwe do eksportowania, Krótki opis architektury modelu oraz rozmiar modelu dla kompaktowych domen.
+
+### <a name="training-divergence-feedback"></a>Opinie dotyczące rozbieżności szkoleniowej
+
+- Interfejs API publicznej wersji zapoznawczej Custom Vision Custom Vision 3,4 teraz zwraca **TrainingErrorDetails** z wywołania **getiteracji** . W przypadku zakończonych niepowodzeniem iteracji pokazuje to, czy przyczyną błędu była rozbieżność szkoleniowa, którą można rozwiązać przy użyciu więcej i większej jakości danych szkoleniowych.
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 

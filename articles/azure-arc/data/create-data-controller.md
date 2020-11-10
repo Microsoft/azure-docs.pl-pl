@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372297"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413228"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
 
@@ -36,7 +36,8 @@ Obecnie obsługiwana Lista usług Kubernetes Services i dystrybucji jest następ
 - Nadrzędna platforma Kubernetes typu open source, zwykle wdrożona za pomocą metody kubeadm
 
 > [!IMPORTANT]
-> * Minimalna obsługiwana wersja Kubernetes to v 1.14.
+> * Minimalna obsługiwana wersja programu Kubernetes to v 1.17.
+> * Minimalna obsługiwana wersja OCP to 4,3.
 > * Zapoznaj się z [wymaganiami dotyczącymi łączności](connectivity.md) , aby zrozumieć, jakie połączenia są wymagane między środowiskiem i platformą Azure.
 > * Zapoznaj się ze [wskazówkami dotyczącymi konfiguracji magazynu](storage-configuration.md) , aby poznać szczegóły dotyczące konfigurowania magazynu trwałego.
 > * W przypadku korzystania z usługi Azure Kubernetes należy mieć co najmniej **Standard_D8s_v3** i korzystać z **dysków w warstwie Premium.** Klaster nie powinien obejmować wielu stref dostępności. 
@@ -45,7 +46,7 @@ Obecnie obsługiwana Lista usług Kubernetes Services i dystrybucji jest następ
 > [!NOTE]
 > Jeśli korzystasz z platformy OpenShift w systemie Red Hat na platformie Azure, zalecamy użycie najnowszej dostępnej wersji.
 
-W zależności od wybranej opcji _wymagane_są pewne narzędzia, ale zaleca się [zainstalowanie wszystkich narzędzi klienta](./install-client-tools.md) przed rozpoczęciem tworzenia kontrolera danych usługi Azure Arc.
+W zależności od wybranej opcji _wymagane_ są pewne narzędzia, ale zaleca się [zainstalowanie wszystkich narzędzi klienta](./install-client-tools.md) przed rozpoczęciem tworzenia kontrolera danych usługi Azure Arc.
 
 Bez względu na wybraną opcję, podczas procesu tworzenia należy podać następujące informacje:
 

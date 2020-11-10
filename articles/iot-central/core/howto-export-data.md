@@ -4,16 +4,16 @@ description: Jak używać nowego eksportu danych do eksportowania danych IoT do 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126707"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413177"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
 
@@ -65,7 +65,7 @@ Jeśli nie masz istniejącej przestrzeni nazw Event Hubs do eksportowania do pro
     - Skopiuj podstawowe lub pomocnicze parametry połączenia. Te parametry połączenia służą do konfigurowania nowego miejsca docelowego w IoT Central.
     - Alternatywnie można wygenerować parametry połączenia dla całej przestrzeni nazw Event Hubs:
         1. Przejdź do przestrzeni nazw Event Hubs w Azure Portal.
-        2. W obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego** .
+        2. W obszarze **Ustawienia** wybierz pozycję **zasady dostępu współdzielonego** .
         3. Utwórz nowy klucz lub wybierz istniejący klucz, który ma uprawnienia do **wysyłania** .
         4. Skopiuj podstawowe lub pomocnicze parametry połączenia
         
@@ -85,7 +85,7 @@ Jeśli nie masz istniejącej przestrzeni nazw Service Bus do eksportowania do pr
     - Skopiuj podstawowe lub pomocnicze parametry połączenia. Te parametry połączenia służą do konfigurowania nowego miejsca docelowego w IoT Central.
     - Alternatywnie można wygenerować parametry połączenia dla całej przestrzeni nazw Service Bus:
         1. Przejdź do przestrzeni nazw Service Bus w Azure Portal.
-        2. W obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego** .
+        2. W obszarze **Ustawienia** wybierz pozycję **zasady dostępu współdzielonego** .
         3. Utwórz nowy klucz lub wybierz istniejący klucz, który ma uprawnienia do **wysyłania** .
         4. Skopiuj podstawowe lub pomocnicze parametry połączenia
 
@@ -102,7 +102,7 @@ Jeśli nie masz istniejącego konta usługi Azure Storage do eksportowania, wyko
     |Standardowa|Blob Storage|
     |Premium|Blokuj Magazyn obiektów BLOB|
 
-1. Aby utworzyć kontener na koncie magazynu, przejdź do konta magazynu. W obszarze **BLOB Service**wybierz pozycję **Przeglądaj obiekty blob**. Wybierz pozycję **+ kontener** u góry, aby utworzyć nowy kontener.
+1. Aby utworzyć kontener na koncie magazynu, przejdź do konta magazynu. W obszarze **BLOB Service** wybierz pozycję **Przeglądaj obiekty blob**. Wybierz pozycję **+ kontener** u góry, aby utworzyć nowy kontener.
 
 1. Wygeneruj parametry połączenia dla konta magazynu, przechodząc do **ustawień > klucze dostępu**. Skopiuj jeden z dwóch parametrów połączenia.
 
@@ -126,7 +126,7 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
 1. Wybierz pozycję **+ Nowy eksport**.
 
-1. Wprowadź nazwę wyświetlaną dla nowego eksportu i upewnij się, że jest **włączony**eksport danych.
+1. Wprowadź nazwę wyświetlaną dla nowego eksportu i upewnij się, że jest **włączony** eksport danych.
 
 1. Wybierz typ danych do wyeksportowania. W poniższej tabeli wymieniono obsługiwane typy eksportu danych:
 
@@ -135,29 +135,33 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
     |  Telemetria | Eksportowanie komunikatów telemetrycznych z urządzeń w czasie niemal rzeczywistym. Każdy wyeksportowany komunikat zawiera pełną zawartość oryginalnego komunikatu urządzenia, znormalizowany.   |  [Format wiadomości telemetrycznych](#telemetry-format)   |
     | Zmiany właściwości | Eksportuj zmiany do właściwości urządzenia i chmury w czasie niemal rzeczywistym. W przypadku właściwości urządzenia tylko do odczytu są eksportowane zmiany raportowanych wartości. Dla właściwości do odczytu i zapisu są eksportowane zarówno raportowane, jak i żądane wartości. | [Format komunikatu zmiany właściwości](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Opcjonalnie dodaj filtry, aby zmniejszyć ilość wyeksportowanych danych. Istnieją różne typy filtrów dostępne dla każdego typu eksportu danych:
 
     Aby odfiltrować dane telemetryczne, możesz:
 
     - **Przefiltruj** wyeksportowany strumień, tak aby zawierał tylko dane telemetryczne z urządzeń, które pasują do nazwy urządzenia, identyfikatora urządzenia i warunku filtru szablonu urządzenia.
     - **Filtruj** możliwości: w przypadku wybrania elementu telemetrii z listy rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne, które spełniają warunek filtru. W przypadku wybrania elementu właściwości urządzenia lub chmury na liście rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne z urządzeń mających właściwości pasujące do warunku filtru.
-    - **Filtr właściwości komunikatów**: urządzenia korzystające z zestawów SDK urządzeń mogą wysyłać *Właściwości komunikatów* lub *właściwości aplikacji* w każdym komunikacie telemetrii. Właściwości są zbiorem par klucz-wartość, które oznaczają komunikat przy użyciu identyfikatorów niestandardowych. Aby utworzyć filtr właściwości wiadomości, wprowadź klucz właściwości komunikatu, którego szukasz, i określ warunek. Eksportowane są tylko komunikaty telemetryczne z właściwościami, które pasują do określonego warunku filtru. Obsługiwane są następujące operatory porównywania ciągów: Equals, nie równa się, zawiera, nie zawiera, istnieje, nie istnieje. [Dowiedz się więcej o właściwościach aplikacji IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md)dokumentach.
+    - **Filtr właściwości komunikatów** : urządzenia korzystające z zestawów SDK urządzeń mogą wysyłać *Właściwości komunikatów* lub *właściwości aplikacji* w każdym komunikacie telemetrii. Właściwości są zbiorem par klucz-wartość, które oznaczają komunikat przy użyciu identyfikatorów niestandardowych. Aby utworzyć filtr właściwości wiadomości, wprowadź klucz właściwości komunikatu, którego szukasz, i określ warunek. Eksportowane są tylko komunikaty telemetryczne z właściwościami, które pasują do określonego warunku filtru. Obsługiwane są następujące operatory porównywania ciągów: Equals, nie równa się, zawiera, nie zawiera, istnieje, nie istnieje. [Dowiedz się więcej o właściwościach aplikacji IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md)dokumentach.
 
     Aby filtrować zmiany właściwości, użyj **filtru możliwości**. Wybierz element właściwości z listy rozwijanej. Wyeksportowany strumień zawiera tylko zmiany wybranej właściwości, które spełniają warunek filtru.
 
+<a name="DataExportEnrichmnents"></a>
 1. Opcjonalnie można wzbogacić wyeksportowany komunikat z dodatkowymi metadanymi pary klucz-wartość. Następujące wzbogacania są dostępne dla typów eksportu danych telemetrii i właściwości:
 
-    - **Ciąg niestandardowy**: dodaje niestandardowy ciąg statyczny do każdego komunikatu. Wprowadź dowolny klucz i wprowadź dowolną wartość ciągu.
-    - **Właściwość**: dodaje bieżącą właściwość lub wartość właściwości Cloud urządzenia do każdego komunikatu. Wprowadź dowolny klucz, a następnie wybierz urządzenie lub właściwość chmury. Jeśli wyeksportowany komunikat pochodzi z urządzenia, które nie ma określonej właściwości, wyeksportowany komunikat nie pobiera wzbogacania.
+    - **Ciąg niestandardowy** : dodaje niestandardowy ciąg statyczny do każdego komunikatu. Wprowadź dowolny klucz i wprowadź dowolną wartość ciągu.
+    - **Właściwość** : dodaje bieżącą właściwość lub wartość właściwości Cloud urządzenia do każdego komunikatu. Wprowadź dowolny klucz, a następnie wybierz urządzenie lub właściwość chmury. Jeśli wyeksportowany komunikat pochodzi z urządzenia, które nie ma określonej właściwości, wyeksportowany komunikat nie pobiera wzbogacania.
 
 1. Dodaj nowe miejsce docelowe lub Dodaj miejsce docelowe, które zostało już utworzone. Wybierz łącze **Utwórz nowe** i Dodaj następujące informacje:
 
-    - **Nazwa miejsca docelowego**: Nazwa wyświetlana miejsca docelowego w IoT Central.
-    - **Typ docelowy**: Wybierz typ lokalizacji docelowej. Jeśli miejsce docelowe nie zostało jeszcze skonfigurowane, zobacz [Konfigurowanie docelowego eksportu](#set-up-export-destination).
+    - **Nazwa miejsca docelowego** : Nazwa wyświetlana miejsca docelowego w IoT Central.
+    - **Typ docelowy** : Wybierz typ lokalizacji docelowej. Jeśli miejsce docelowe nie zostało jeszcze skonfigurowane, zobacz [Konfigurowanie docelowego eksportu](#set-up-export-destination).
     - W przypadku usługi Azure Event Hubs, kolejki lub tematu Azure Service Bus, wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę centrum zdarzeń z uwzględnieniem wielkości liter, kolejki lub tematu.
     - W przypadku usługi Azure Blob Storage wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę kontenera z uwzględnieniem wielkości liter.
-    - W przypadku elementu webhook Wklej adres URL wywołania zwrotnego dla punktu końcowego elementu webhook.
-    - Wybierz pozycję **Utwórz**.
+    - W przypadku elementu webhook Wklej adres URL wywołania zwrotnego dla punktu końcowego elementu webhook. Opcjonalnie można skonfigurować autoryzację elementu webhook (OAuth 2,0 i token autoryzacji) i dodać niestandardowe nagłówki. 
+        - W przypadku protokołu OAuth 2,0 obsługiwane są tylko przepływy poświadczeń klienta. Gdy miejsce docelowe zostanie zapisane, IoT Central będzie komunikować się z dostawcą protokołu OAuth w celu pobrania tokenu autoryzacji. Ten token zostanie dołączony do nagłówka "Authorization" dla każdej wiadomości wysyłanej do tego miejsca docelowego.
+        - W przypadku tokenu autoryzacji można określić wartość tokenu, która zostanie bezpośrednio dołączona do nagłówka "Autoryzacja" dla każdej wiadomości wysyłanej do tego miejsca docelowego.
+    - Wybierz przycisk **Utwórz**.
 
 1. Wybierz pozycję **+ miejsce docelowe** i wybierz lokalizację docelową z listy rozwijanej. Do jednego eksportu można dodać maksymalnie pięć miejsc docelowych.
 

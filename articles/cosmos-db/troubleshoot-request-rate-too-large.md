@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: c985cea24ea772fe9e0c9bcad59f63a66b2489cc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3a692a8df93931bd8fd7982e69fe2f9118444c2
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340111"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411341"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB częstotliwość żądań za duże wyjątki
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,3 +36,5 @@ Wykorzystana przepływność (liczba jednostek żądań na sekundę) przekroczy�
 ## <a name="next-steps"></a>Następne kroki
 * [Diagnozowanie i rozwiązywanie](troubleshoot-dot-net-sdk.md) problemów podczas korzystania z zestawu SDK Azure Cosmos DB platformy .NET.
 * Poznaj wskazówki dotyczące wydajności dla [platform .NET v3](performance-tips-dotnet-sdk-v3-sql.md) i [.NET V2](performance-tips.md).
+* [Diagnozowanie i rozwiązywanie](troubleshoot-java-sdk-v4-sql.md) problemów w przypadku używania Azure Cosmos DB Java v4 SDK.
+* Poznaj wskazówki dotyczące wydajności dla [zestawu SDK dla języka Java v4](performance-tips-java-sdk-v4-sql.md).

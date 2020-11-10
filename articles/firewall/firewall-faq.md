@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611181"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413007"
 ---
 # <a name="azure-firewall-faq"></a>Zapora platformy Azure — często zadawane pytania
 
@@ -40,9 +40,9 @@ Zapora platformy Azure obsługuje reguły i kolekcje reguł. Kolekcja reguł jes
 
 Istnieją trzy typy kolekcji reguł:
 
-* *Reguły aplikacji*: Skonfiguruj w pełni kwalifikowane nazwy domen (FQDN), do których można uzyskać dostęp z podsieci.
-* *Reguły sieci*: Skonfiguruj reguły, które zawierają adresy źródłowe, protokoły, porty docelowe i adresy docelowe.
-* *Reguły NAT*: Konfigurowanie reguł DNAT w celu zezwalania na przychodzące połączenia internetowe.
+* *Reguły aplikacji* : Skonfiguruj w pełni kwalifikowane nazwy domen (FQDN), do których można uzyskać dostęp z podsieci.
+* *Reguły sieci* : Skonfiguruj reguły, które zawierają adresy źródłowe, protokoły, porty docelowe i adresy docelowe.
+* *Reguły NAT* : Konfigurowanie reguł DNAT w celu zezwalania na przychodzące połączenia internetowe.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Czy Zapora platformy Azure obsługuje filtrowanie ruchu przychodzącego?
 
@@ -139,9 +139,9 @@ Nie. Reguły translatora adresów sieciowych niejawnie Dodaj odpowiednią reguł
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Jak działają symbole wieloznaczne w nazwie FQDN docelowej reguły aplikacji?
 
-Obecnie symboli wieloznacznych można używać tylko po lewej stronie nazwy FQDN. Na przykład ***. contoso.com** i ***contoso.com**.
+Obecnie symboli wieloznacznych można używać tylko po lewej stronie nazwy FQDN. Na przykład * *_. contoso.com_* i * *_contoso.com_*.
 
-Skonfigurowanie ***. contoso.com**umożliwia *anyvalue*. contoso.com, ale nie contoso.com (wierzchołk domeny). Jeśli chcesz zezwolić na wierzchołk domeny, musisz jawnie skonfigurować go jako docelową nazwę FQDN.
+Skonfigurowanie * *_. contoso.com_* umożliwia *anyvalue*. contoso.com, ale nie contoso.com (wierzchołk domeny). Jeśli chcesz zezwolić na wierzchołk domeny, musisz jawnie skonfigurować go jako docelową nazwę FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Co to jest *stan aprowizacji: niepowodzenie* ?
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Dlaczego funkcja ping protokołu TCP i podobne narzędzia pomyślnie nawiązują połączenie z docelową nazwą FQDN, nawet jeśli żadna Reguła zapory platformy Azure nie zezwala na ten ruch?
 
-Polecenie ping protokołu TCP nie nawiązuje połączenia z docelową nazwą FQDN. Dzieje się tak, ponieważ przezroczysty serwer proxy zapory platformy Azure nasłuchuje na porcie 80/443 dla ruchu wychodzącego. Polecenie ping protokołu TCP nawiązuje połączenie z zaporą, która następnie odrzuca pakiet i rejestruje połączenie. Takie zachowanie nie ma żadnego wpływu na zabezpieczenia. Jednak aby uniknąć nieporozumień, badamy potencjalne zmiany w tym zachowaniu.
+Polecenie ping protokołu TCP nie nawiązuje połączenia z docelową nazwą FQDN. Dzieje się tak, ponieważ przezroczysty serwer proxy zapory platformy Azure nasłuchuje na porcie 80/443 dla ruchu wychodzącego. Polecenie ping protokołu TCP nawiązuje połączenie z zaporą, która następnie odrzuca pakiet. Takie zachowanie nie ma żadnego wpływu na zabezpieczenia. Jednak aby uniknąć nieporozumień, badamy potencjalne zmiany w tym zachowaniu.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Czy istnieją limity liczby adresów IP obsługiwanych przez grupy adresów IP?
 

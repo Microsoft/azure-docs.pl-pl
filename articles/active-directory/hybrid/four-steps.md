@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369781"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412378"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cztery kroki do silnej wersji programu Identity Foundation z Azure Active Directory
 
@@ -83,7 +83,7 @@ W nowoczesnych przedsiębiorstwach działy IT często nie wiedzą o wszystkich a
 
 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) może pomóc w zidentyfikowaniu użytecznych aplikacji, które są popularne dla użytkowników, którzy mogą zatwierdzono i dodać do galerii aplikacji dla przedsiębiorstw, aby użytkownicy mogli korzystać z takich funkcji, jak logowanie jednokrotne i dostęp warunkowy.
 
-<em>"**Cloud App Security** pomaga nam upewnić się, że nasze osoby prawidłowo korzystają z naszych aplikacji w chmurze i SaaS w sposób, który obsługuje podstawowe zasady zabezpieczeń, które pomagają chronić Accenture".</em> --- [John Blasi, dyrektor naczelny, bezpieczeństwo informacji, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud App Security** pomaga nam upewnić się, że nasze osoby prawidłowo korzystają z naszych aplikacji w chmurze i SaaS w sposób, który obsługuje podstawowe zasady zabezpieczeń, które pomagają chronić Accenture".</em> --- [John Blasi, dyrektor naczelny, bezpieczeństwo informacji, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Oprócz wykrywania cieniowania IT MCAS może również określać poziom ryzyka aplikacji, zapobiegać nieautoryzowanemu dostępowi do danych firmowych, możliwego wycieku danych i innym zagrożeniom związanym z bezpieczeństwem w aplikacjach.
 
@@ -147,7 +147,7 @@ Podobnie można użyć raportu samoobsługowego [zarządzania hasłami](../authe
 
 ### <a name="self-service-app-management"></a>Samoobsługowe zarządzanie aplikacjami
 
-Zanim użytkownicy będą mogli automatycznie wykrywać aplikacje z poziomu ich panelu dostępu, musisz włączyć [dostęp do aplikacji samoobsługowej](../manage-apps/access-panel-manage-self-service-access.md) do wszystkich aplikacji, które mają pozwolić użytkownikom na samodzielne odnajdowanie i żądać dostępu do programu. Samoobsługowy dostęp do aplikacji to doskonały sposób na umożliwienie użytkownikom samodzielnego odnajdywania aplikacji i opcjonalnie Zezwalanie grupie biznesowej na zatwierdzanie dostępu do tych aplikacji. Możesz zezwolić grupie biznesowej na zarządzanie poświadczeniami przypisanymi do tych użytkowników, aby [hasła Single-Sign w aplikacjach](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) bezpośrednio z poziomu panelu dostępu.
+Zanim użytkownicy będą mogli automatycznie wykrywać aplikacje z poziomu ich panelu dostępu, musisz włączyć [dostęp do aplikacji samoobsługowej](../manage-apps/access-panel-manage-self-service-access.md) do wszystkich aplikacji, które mają pozwolić użytkownikom na samodzielne odnajdowanie i żądać dostępu do programu. Samoobsługowy dostęp do aplikacji to doskonały sposób na umożliwienie użytkownikom samodzielnego odnajdywania aplikacji i opcjonalnie Zezwalanie grupie biznesowej na zatwierdzanie dostępu do tych aplikacji. Możesz zezwolić grupie biznesowej na zarządzanie poświadczeniami przypisanymi do tych użytkowników, aby [hasła Single-Sign w aplikacjach](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) bezpośrednio z poziomu panelu dostępu.
 
 ### <a name="self-service-group-management"></a>Samoobsługowe zarządzanie grupami
 
@@ -267,6 +267,6 @@ Zaleca się wydrukowanie poniższej listy kontrolnej w celu uzyskania odniesieni
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak zwiększyć bezpieczeństwo stan przy użyciu możliwości Azure Active Directory i z 5-etapową listą kontrolną [do zabezpieczenia infrastruktury tożsamości](https://aka.ms/securitysteps).
+Dowiedz się, jak zwiększyć bezpieczeństwo stan przy użyciu możliwości Azure Active Directory i z 5-etapową listą kontrolną [do zabezpieczenia infrastruktury tożsamości](../../security/fundamentals/steps-secure-identity.md).
 
-Dowiedz się, jak funkcje tożsamości w usłudze Azure AD mogą pomóc przyspieszyć przejście do zarządzania przez chmurę, dostarczając rozwiązania i możliwości, które umożliwiają organizacjom szybkie wdrażanie i przenoszenie większej ilości zarządzania tożsamościami z tradycyjnych systemów lokalnych do usługi Azure AD — w [jaki sposób usługa Azure AD zapewnia zarządzanie zarządzaną chmurą dla obciążeń lokalnych](https://aka.ms/cloudgoverned).
+Dowiedz się, jak funkcje tożsamości w usłudze Azure AD mogą pomóc przyspieszyć przejście do zarządzania przez chmurę, dostarczając rozwiązania i możliwości, które umożliwiają organizacjom szybkie wdrażanie i przenoszenie większej ilości zarządzania tożsamościami z tradycyjnych systemów lokalnych do usługi Azure AD — w [jaki sposób usługa Azure AD zapewnia zarządzanie zarządzaną chmurą dla obciążeń lokalnych](./cloud-governed-management-for-on-premises.md).

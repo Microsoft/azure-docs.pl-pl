@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895447"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413381"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Jak używać kontrolki mapy usługi Azure Maps
 
@@ -75,7 +75,7 @@ Mapę można osadzić na stronie sieci Web przy użyciu kontrolka mapy bibliotek
     </style>
    ```
 
-4. W treści strony Dodaj `<div>` element i nadaj mu `id` **myMap** .
+4. W treści strony Dodaj `<div>` element i nadaj mu `id` **myMap**.
 
    ```HTML
     <body onload="InitMap()">
@@ -99,8 +99,8 @@ Mapę można osadzić na stronie sieci Web przy użyciu kontrolka mapy bibliotek
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -120,8 +120,8 @@ Mapę można osadzić na stronie sieci Web przy użyciu kontrolka mapy bibliotek
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 

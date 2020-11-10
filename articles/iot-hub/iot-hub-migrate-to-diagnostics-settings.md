@@ -1,6 +1,6 @@
 ---
-title: Migracja IoT Hub platformy Azure do ustawień diagnostycznych | Microsoft Docs
-description: Jak aktualizować IoT Hub platformy Azure, aby używać ustawień diagnostyki platformy Azure zamiast monitorowania operacji do monitorowania stanu operacji w centrum IoT w czasie rzeczywistym.
+title: Migrowanie monitorowania operacji IoT Hub platformy Azure do IoT Hub dzienników zasobów w Azure Monitor | Microsoft Docs
+description: Jak aktualizować IoT Hub platformy Azure, aby używać Azure Monitor zamiast monitorowania operacji do monitorowania stanu operacji w centrum IoT w czasie rzeczywistym.
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -8,43 +8,69 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 40c90142330b0530f1127beae1624ff27d7eb6ca
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541489"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412126"
 ---
-# <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrowanie IoT Hub z monitorowania operacji do ustawień diagnostycznych
+# <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrowanie IoT Hub z monitorowania operacji do Azure Monitor dzienników zasobów
 
-Klienci korzystający z [monitorowania operacji](iot-hub-operations-monitoring.md) do śledzenia stanu operacji w IoT Hub mogą migrować ten przepływ pracy do [ustawień diagnostycznych platformy Azure](../azure-monitor/platform/platform-logs-overview.md), funkcję Azure monitor. Ustawienia diagnostyki dostarczają informacji diagnostycznych na poziomie zasobów dla wielu usług platformy Azure.
+Klienci korzystający z [monitorowania operacji](iot-hub-operations-monitoring.md) do śledzenia stanu operacji w IoT Hub mogą migrować ten przepływ pracy do [Azure monitor dzienników zasobów](../azure-monitor/platform/platform-logs-overview.md), funkcji Azure monitor. Dzienniki zasobów dostarczają informacje diagnostyczne na poziomie zasobów dla wielu usług platformy Azure.
 
-**Funkcja monitorowania operacji IoT Hub jest przestarzała** i została usunięta z portalu. W tym artykule przedstawiono procedurę przenoszenia obciążeń z monitorowania operacji do ustawień diagnostycznych. Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
+**Funkcja monitorowania operacji IoT Hub jest przestarzała** i została usunięta z portalu. W tym artykule przedstawiono procedurę przenoszenia obciążeń z monitorowania operacji do Azure Monitor dzienników zasobów. Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
 ## <a name="update-iot-hub"></a>IoT Hub aktualizacji
 
-Aby zaktualizować IoT Hub w Azure Portal, najpierw włącz ustawienia diagnostyczne, a następnie wyłącz monitorowanie operacji.  
+Aby zaktualizować IoT Hub w Azure Portal, najpierw Utwórz ustawienie diagnostyczne, a następnie wyłącz monitorowanie operacji.  
 
-[!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
+### <a name="create-a--diagnostic-setting"></a>Utwórz ustawienie diagnostyczne
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT Hub.
+
+1. W okienku po lewej stronie w obszarze **monitorowanie** wybierz pozycję **Ustawienia diagnostyki**. Następnie wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/open-diagnostic-settings.png" alt-text="Zrzut ekranu, który wyróżnia ustawienia diagnostyczne w sekcji monitorowanie.":::
+
+1. W okienku **Ustawienia diagnostyczne** Podaj nazwę ustawienia diagnostycznego.
+
+1. W obszarze **szczegóły kategorii** wybierz kategorie dla operacji, które chcesz monitorować. Aby uzyskać więcej informacji na temat kategorii operacji dostępnych w IoT Hub, zobacz [dzienniki zasobów](monitor-iot-hub-reference.md#resource-logs).
+
+1. W obszarze **szczegóły miejsca docelowego** wybierz miejsce, do którego chcesz wysłać dzienniki. Można wybrać dowolną kombinację tych miejsc docelowych:
+
+   * Zarchiwizuj na koncie magazynu
+   * Przesyłaj strumieniowo do centrum zdarzeń
+   * Wysyłanie do dzienników Azure Monitor za pośrednictwem Log Analyticsego obszaru roboczego
+
+   Poniższy zrzut ekranu przedstawia ustawienie diagnostyczne, które kieruje operacje w kategoriach połączenia i dane telemetryczne urządzenia do obszaru roboczego Log Analytics:
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/add-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający zakończone ustawienie diagnostyczne.":::
+
+1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
+
+Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym. Aby uzyskać więcej informacji o konfigurowaniu diagnostyki, zobacz [zbieranie i korzystanie z danych dzienników z zasobów platformy Azure](/azure/azure-monitor/platform/platform-logs-overview).
+
+Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych, w tym programu PowerShell i interfejsu wiersza polecenia platformy Azure, zobacz [Ustawienia diagnostyczne](/azure/azure-monitor/platform/diagnostic-settings) w dokumentacji Azure monitor.
 
 ### <a name="turn-off-operations-monitoring"></a>Wyłącz monitorowanie operacji
 
 > [!NOTE]
-> Od 11 marca 2019 funkcja monitorowania operacji jest usuwana z Azure Portal interfejsu IoT Hub. Poniższe kroki nie mają już zastosowania. Aby przeprowadzić migrację, upewnij się, że w ustawieniach diagnostyki Azure Monitor powyżej są włączone odpowiednie kategorie.
+> Od 11 marca 2019 funkcja monitorowania operacji jest usuwana z Azure Portal interfejsu IoT Hub. Poniższe kroki nie mają już zastosowania. Aby przeprowadzić migrację, upewnij się, że odpowiednie kategorie są kierowane do lokalizacji docelowej z powyższym ustawieniem diagnostyki Azure Monitor.
 
 Po przetestowaniu nowych ustawień diagnostycznych w przepływie pracy można wyłączyć funkcję monitorowania operacji. 
 
-1. W menu IoT Hub wybierz pozycję **monitorowanie operacji** .
+1. W menu IoT Hub wybierz pozycję **monitorowanie operacji**.
 
-2. W obszarze każdej kategorii monitorowania zaznacz opcję **Brak** .
+2. W obszarze każdej kategorii monitorowania zaznacz opcję **Brak**.
 
 3. Zapisz zmiany monitorowania operacji.
 
 ## <a name="update-applications-that-use-operations-monitoring"></a>Aktualizowanie aplikacji korzystających z monitorowania operacji
 
-Schematy dla ustawień monitorowania i diagnostyki operacji różnią się nieznacznie. Ważne jest, aby w celu zamapowania na schemat używany przez ustawienia diagnostyki zaktualizować aplikacje używające monitorowania operacji. 
+Schematy monitorowania operacji i dzienników zasobów różnią się nieco. Ważne jest, aby w celu zamapowania na schemat używany przez dzienniki zasobów zaktualizować aplikacje korzystające z monitorowania operacji.
 
-Ponadto ustawienia diagnostyki oferują pięć nowych kategorii do śledzenia. Po zaktualizowaniu aplikacji dla istniejącego schematu Dodaj również nowe kategorie:
+Ponadto dzienniki zasobów IoT Hub oferują pięć nowych kategorii do śledzenia. Po zaktualizowaniu aplikacji dla istniejącego schematu Dodaj również nowe kategorie:
 
 * Operacje na sznurze z chmury do urządzenia
 * Operacje wieloosiowe między urządzeniami a chmurą
@@ -60,4 +86,4 @@ Aby monitorować zdarzenia łączenia i rozłączania urządzeń w środowisku p
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Monitoruj IoT Hub](monitor-iot-hub.md)
+[Monitorowanie usługi IoT Hub](monitor-iot-hub.md)

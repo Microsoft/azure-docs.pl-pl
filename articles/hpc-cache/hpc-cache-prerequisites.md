@@ -4,14 +4,14 @@ description: Wymagania wstępne dotyczące korzystania z pamięci podręcznej pl
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
-ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344019"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412514"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
@@ -59,9 +59,22 @@ Najlepszym rozwiązaniem jest utworzenie nowej podsieci dla każdej pamięci pod
 Pamięć podręczna potrzebuje systemu DNS, aby uzyskać dostęp do zasobów poza jego siecią wirtualną. W zależności od zasobów, z których korzystasz, może być konieczne skonfigurowanie niestandardowego serwera DNS i skonfigurowanie przekierowania między tym serwerem i serwerami Azure DNS:
 
 * Aby uzyskać dostęp do punktów końcowych usługi Azure Blob Storage i innych zasobów wewnętrznych, wymagany jest serwer DNS oparty na platformie Azure.
-* Aby uzyskać dostęp do magazynu lokalnego, należy skonfigurować niestandardowy serwer DNS, który może rozpoznawać nazwy hostów magazynu.
+* Aby uzyskać dostęp do magazynu lokalnego, należy skonfigurować niestandardowy serwer DNS, który może rozpoznawać nazwy hostów magazynu. Należy to zrobić **przed** utworzeniem pamięci podręcznej.
 
 Jeśli potrzebujesz dostępu do usługi BLOB Storage, możesz użyć domyślnego serwera DNS z systemem Azure dla pamięci podręcznej. Jeśli jednak potrzebujesz dostępu do innych zasobów, należy utworzyć niestandardowy serwer DNS i skonfigurować go tak, aby przesyłał do serwera Azure DNS wszystkie żądania rozpoznawania specyficzne dla platformy Azure.
+
+Aby użyć niestandardowego serwera DNS, należy wykonać następujące czynności konfiguracyjne przed utworzeniem pamięci podręcznej:
+
+* Utwórz sieć wirtualną, która będzie hostować pamięć podręczną platformy Azure HPC.
+* Utwórz serwer DNS.
+* Dodaj serwer DNS do sieci wirtualnej pamięci podręcznej.
+
+  Wykonaj następujące kroki, aby dodać serwer DNS do sieci wirtualnej w Azure Portal:
+
+  1. Otwórz sieć wirtualną w Azure Portal.
+  1. Wybierz pozycję **serwery DNS** z menu **Ustawienia** na pasku bocznym.
+  1. Wybierz **niestandardowe**
+  1. W polu Wprowadź adres IP serwera DNS.
 
 Prosty serwer DNS może być również używany do równoważenia obciążenia połączeń klientów między wszystkimi dostępnymi punktami instalacji pamięci podręcznej.
 
@@ -143,7 +156,7 @@ Więcej informacji znajduje się w temacie [Rozwiązywanie problemów z konfigur
 * **Dostęp do katalogu:** Włącz `showmount` polecenie w systemie magazynu. Pamięć podręczna Azure HPC korzysta z tego polecenia, aby sprawdzić, czy konfiguracja docelowa magazynu wskazuje na prawidłowy eksport, a także upewnić się, że wiele instalacji nie uzyskuje dostępu do tych samych podkatalogów (ryzyko kolizji plików).
 
   > [!NOTE]
-  > Jeśli system magazynu NFS używa systemu operacyjnego NetApp ONTAP 9,2, nie **należy włączać `showmount` **. [Skontaktuj się z pomocą techniczną firmy Microsoft,](hpc-cache-support-ticket.md) Aby uzyskać pomoc.
+  > Jeśli system magazynu NFS używa systemu operacyjnego NetApp ONTAP 9,2, nie **należy włączać `showmount`**. [Skontaktuj się z pomocą techniczną firmy Microsoft,](hpc-cache-support-ticket.md) Aby uzyskać pomoc.
 
   Dowiedz się więcej o dostępie do listy katalogów w [artykule dotyczącym rozwiązywania problemów](troubleshoot-nas.md#enable-export-listing)z miejscem DOCELOWYM magazynu NFS.
 

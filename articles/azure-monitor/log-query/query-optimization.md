@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203487"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411392"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
-Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, w niektórych przypadkach można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
+Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, istnieją przypadki, w których można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
 
 Większość technik jest wspólna dla zapytań, które są uruchamiane bezpośrednio na platformie Azure Eksplorator danych i w dziennikach Azure Monitor, chociaż kilka unikatowych zagadnień dotyczących dzienników Azure Monitor, które zostały omówione w tym miejscu. Aby uzyskać więcej porad dotyczących optymalizacji Eksplorator danych platformy Azure, zobacz [najlepsze rozwiązania dotyczące zapytań](/azure/kusto/query/best-practices).
 
@@ -131,7 +131,7 @@ SecurityEvent
 
 Chociaż niektóre polecenia agregujące, takie jak [Max ()](/azure/kusto/query/max-aggfunction), [sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)i [AVG ()](/azure/kusto/query/avg-aggfunction) mają niski wpływ na procesor CPU ze względu na ich logikę, inne są bardziej skomplikowane i obejmują algorytmy heurystyczne i oszacowania, które umożliwiają ich wydajne wykonywanie. Na przykład, [DCount ()](/azure/kusto/query/dcount-aggfunction) używa algorytmu HyperLogLog, aby zapewnić ścisłe oszacowanie do odrębnej liczby dużych zestawów danych bez faktycznego zliczania każdej wartości; funkcje percentylu są podobne do przybliżania przy użyciu najbliższego algorytmu percentylu rangi. Kilka poleceń zawiera opcjonalne parametry w celu zmniejszenia ich wpływu. Na przykład funkcja [MakeSet ()](/azure/kusto/query/makeset-aggfunction) ma opcjonalny parametr definiujący maksymalny rozmiar zestawu, który znacząco wpływa na procesor i pamięć.
 
-Polecenia [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) i [podsumowujące](/azure/kusto/query/summarizeoperator) mogą spowodować wysokie wykorzystanie procesora CPU podczas przetwarzania dużego zestawu danych. Ich złożoność jest bezpośrednio związana z liczbą możliwych wartości, które są określane jako *Kardynalność*kolumn, które są używane jako `by` podsumowujące lub jako atrybuty sprzężenia. Aby uzyskać wyjaśnienie i optymalizację przyłączania i podsumowywania, zobacz artykuły z dokumentacją i porady dotyczące optymalizacji.
+Polecenia [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) i [podsumowujące](/azure/kusto/query/summarizeoperator) mogą spowodować wysokie wykorzystanie procesora CPU podczas przetwarzania dużego zestawu danych. Ich złożoność jest bezpośrednio związana z liczbą możliwych wartości, które są określane jako *Kardynalność* kolumn, które są używane jako `by` podsumowujące lub jako atrybuty sprzężenia. Aby uzyskać wyjaśnienie i optymalizację przyłączania i podsumowywania, zobacz artykuły z dokumentacją i porady dotyczące optymalizacji.
 
 Na przykład następujące zapytania dają dokładnie ten sam wynik, ponieważ **CounterPath** jest zawsze jeden do jednego zmapowany do **CounterName** i **ObjectName**. Druga z nich jest bardziej wydajna, ponieważ wymiar agregacji jest mniejszy:
 

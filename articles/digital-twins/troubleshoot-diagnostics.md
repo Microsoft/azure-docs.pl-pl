@@ -1,34 +1,38 @@
 ---
-title: Konfigurowanie diagnostyki
+title: Włączanie i wykonywanie zapytań dotyczących dzienników diagnostycznych
 titleSuffix: Azure Digital Twins
-description: Zobacz jak włączyć rejestrowanie przy użyciu ustawień diagnostycznych.
+description: Zobacz jak włączyć rejestrowanie przy użyciu ustawień diagnostycznych i wysyłać zapytania do dzienników w celu natychmiastowego wyświetlenia.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091739"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411769"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
 
-Usługa Azure Digital bliźniaczych reprezentacji zbiera [metryki](troubleshoot-metrics.md) dla wystąpienia usługi, które zawierają informacje o stanie zasobów. Za pomocą tych metryk można ocenić ogólną kondycję usługi Azure Digital bliźniaczych reprezentacji i połączone z nią zasoby. Te dane statystyczne związane z użytkownikiem pomagają zobaczyć, co się dzieje z usługą Azure Digital bliźniaczych reprezentacji, oraz jak przeprowadzić analizę głównych przyczyn problemów bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
+Usługa Azure Digital bliźniaczych reprezentacji może zbierać dzienniki dla wystąpienia usługi, aby monitorować jego wydajność, dostęp i inne dane. Za pomocą tych dzienników można uzyskać informacje o tym, co dzieje się w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, i przeprowadzić analizę głównych przyczyn problemów bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
 
-W tym artykule pokazano, jak włączyć **rejestrowanie diagnostyczne** dla danych metryk z wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Dzienników tych można użyć do rozwiązywania problemów z usługą i konfigurowania ustawień diagnostycznych w celu wysyłania metryk usługi Azure Digital bliźniaczych reprezentacji do różnych miejsc docelowych. Więcej informacji o tych ustawieniach można znaleźć w temacie [*Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych*](../azure-monitor/platform/diagnostic-settings.md).
+W tym artykule opisano sposób [**konfigurowania ustawień diagnostycznych**](#turn-on-diagnostic-settings) w [Azure Portal](https://portal.azure.com) , aby rozpocząć zbieranie dzienników z wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz również określić, gdzie mają być przechowywane dzienniki (na przykład Log Analytics lub wybrane konto magazynu).
 
-## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>Włączanie ustawień diagnostycznych przy użyciu Azure Portal
+Ten artykuł zawiera również listę wszystkich [kategorii dzienników](#log-categories) i [schematów dzienników](#log-schemas) zbieranych przez usługę Azure Digital bliźniaczych reprezentacji.
 
-Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
+Po skonfigurowaniu dzienników można także [**wysyłać zapytania do dzienników**](#view-and-query-logs) , aby szybko zbierać szczegółowe informacje.
+
+## <a name="turn-on-diagnostic-settings"></a>Włączanie ustawień diagnostycznych 
+
+Włącz ustawienia diagnostyczne, aby rozpocząć zbieranie dzienników w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Możesz również wybrać miejsce docelowe, w którym mają być przechowywane eksportowane dzienniki. Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Można go znaleźć, wpisując jego nazwę na pasku wyszukiwania portalu. 
 
-2. Z menu wybierz pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne** .
+2. Z menu wybierz pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Na następnej stronie wypełnij następujące wartości:
      * **Nazwa ustawienia diagnostycznego** : nadaj nazwę ustawień diagnostycznych.
@@ -39,7 +43,7 @@ Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąp
         - Queryoperation obiektu DataService
         - AllMetrics
         
-        Aby uzyskać więcej informacji na temat tych opcji, zobacz sekcję [*szczegóły kategorii*](#category-details) poniżej.
+        Aby uzyskać więcej informacji na temat tych kategorii i zawartych w nich informacji, zobacz sekcję [*kategorie dzienników*](#log-categories) poniżej.
      * **Szczegóły lokalizacji docelowej** : Wybierz miejsce, do którego chcesz wysłać dzienniki. Można wybrać dowolną kombinację trzech opcji:
         - Wysyłanie do usługi Log Analytics
         - Zarchiwizuj na koncie magazynu
@@ -49,13 +53,15 @@ Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąp
     
 4. Zapisz nowe ustawienia. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych, na której użytkownik wypełnił nazwę ustawienia diagnostycznego i wprowadził pewne wybory pola wyboru dla szczegółów kategorii i szczegółów miejsca docelowego. Przycisk Zapisz jest wyróżniony." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym z powrotem na stronie **Ustawienia diagnostyczne** dla danego wystąpienia. 
 
-## <a name="category-details"></a>Szczegóły kategorii
+Aby uzyskać bardziej szczegółowe informacje na temat ustawień diagnostycznych i ich opcji instalacji, można odwiedzić stronę [*Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych*](../azure-monitor/platform/diagnostic-settings.md).
 
-Poniżej znajdują się dodatkowe szczegóły dotyczące kategorii dziennika, które można wybrać w obszarze **szczegóły kategorii** podczas konfigurowania ustawień diagnostycznych.
+## <a name="log-categories"></a>Kategorie dzienników
+
+Poniżej znajdują się więcej szczegółów na temat kategorii dzienników zbieranych przez usługę Azure Digital bliźniaczych reprezentacji.
 
 | Kategoria dziennika | Opis |
 | --- | --- |
@@ -108,19 +114,19 @@ Oto opisy pól i właściwości dzienników interfejsu API.
 
 | Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
-| `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceID` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
-| `OperationVersion` | String | Wersja interfejsu API wykorzystana podczas zdarzenia |
-| `Category` | String | Typ emitowanego zasobu |
-| `ResultType` | String | Wynik zdarzenia |
-| `ResultSignature` | String | Kod stanu HTTP dla zdarzenia |
-| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
-| `DurationMs` | String | Czas trwania zdarzenia w milisekundach |
-| `CallerIpAddress` | String | Maskowany źródłowy adres IP dla zdarzenia |
+| `Time` | Data i godzina | Data i godzina wystąpienia tego zdarzenia (UTC) |
+| `ResourceID` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
+| `OperationVersion` | Ciąg | Wersja interfejsu API wykorzystana podczas zdarzenia |
+| `Category` | Ciąg | Typ emitowanego zasobu |
+| `ResultType` | Ciąg | Wynik zdarzenia |
+| `ResultSignature` | Ciąg | Kod stanu HTTP dla zdarzenia |
+| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
+| `DurationMs` | Ciąg | Czas trwania zdarzenia w milisekundach |
+| `CallerIpAddress` | Ciąg | Maskowany źródłowy adres IP dla zdarzenia |
 | `CorrelationId` | Guid (identyfikator GUID) | Klient dostarczył unikatowy identyfikator dla zdarzenia |
-| `Level` | String | Ważność rejestrowania zdarzenia |
-| `Location` | String | Region, w którym miało miejsce zdarzenie |
+| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
+| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
 | `RequestUri` | Adresu | Punkt końcowy użyty podczas zdarzenia |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
@@ -194,14 +200,14 @@ Jest to schemat `ADTEventRoutesOperation` dzienników. Zawierają one informacje
 
 |Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
-| `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceId` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
-| `Category` | String | Typ emitowanego zasobu |
-| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
-| `Level` | String | Ważność rejestrowania zdarzenia |
-| `Location` | String | Region, w którym miało miejsce zdarzenie |
-| `EndpointName` | String | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
+| `Time` | Data i godzina | Data i godzina wystąpienia tego zdarzenia (UTC) |
+| `ResourceId` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
+| `Category` | Ciąg | Typ emitowanego zasobu |
+| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
+| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
+| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
+| `EndpointName` | Ciąg | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
 
@@ -222,6 +228,34 @@ Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
   }
 }
 ```
+
+## <a name="view-and-query-logs"></a>Wyświetlanie dzienników i wykonywanie zapytań
+
+Wcześniej w tym artykule zostały skonfigurowane typy dzienników do przechowywania i określenia ich lokalizacji przechowywania.
+
+W celu rozwiązywania problemów i generowania szczegółowych informacji z tych dzienników można generować **niestandardowe zapytania**. Aby rozpocząć pracę, możesz również skorzystać z kilku przykładowych zapytań dostarczonych przez usługę, które zawierają odpowiedzi na często zadawane pytania dotyczące ich wystąpienia.
+
+Poniżej przedstawiono sposób wykonywania zapytań dotyczących dzienników dla danego wystąpienia.
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Można go znaleźć, wpisując jego nazwę na pasku wyszukiwania portalu. 
+
+2. Wybierz pozycję **dzienniki** z menu, aby otworzyć stronę zapytania dziennika. Strona zostanie otwarta w oknie o nazwie *zapytania*.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Zrzut ekranu przedstawiający stronę dzienników wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Jest ona nadana za pomocą okna zapytania, w którym wyświetlane są wstępnie skompilowane zapytania o nazwach w różnych opcjach dziennika, takich jak opóźnienie interfejsu API DigitalTwin i opóźnienie interfejsu API modelu." lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    Są to wstępnie zbudowane przykładowe zapytania przeznaczone dla różnych dzienników. Można wybrać jedno z zapytań, aby załadować je do edytora zapytań i uruchomić w celu wyświetlenia tych dzienników dla danego wystąpienia.
+
+    Możesz również zamknąć okno *zapytania* bez uruchamiania niczego, aby przejść bezpośrednio do strony edytora zapytań, gdzie można napisać lub edytować niestandardowy kod zapytania.
+
+3. Po opuszczeniu okna *zapytania* zostanie wyświetlona strona głównej edytora zapytań. W tym miejscu możesz wyświetlać i edytować tekst przykładowych zapytań lub pisać własne zapytania od początku.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Zrzut ekranu przedstawiający stronę dzienników wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Okno zapytania zostało usunięte, a zamiast tego znajduje się lista różnych dzienników, w okienku Edycja wyświetlana jest edytowalny kod zapytania i okienko pokazujące historię zapytań." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    W okienku po lewej stronie 
+    - Karta *tabele* zawiera różne [kategorie dzienników](#log-categories) bliźniaczych reprezentacji cyfrowych platformy Azure, które są dostępne do użycia w zapytaniach. 
+    - Karta *zapytania* zawiera przykładowe zapytania, które można załadować do edytora.
+    - Karta *Filtr* pozwala dostosować filtrowany widok danych zwracanych przez zapytanie.
+
+Aby uzyskać bardziej szczegółowe informacje na temat zapytań dzienników i sposobu ich zapisywania, można odwiedzić [*Przegląd zapytań dzienników w Azure monitor*](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

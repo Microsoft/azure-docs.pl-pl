@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 36673533fbbfc913f742a32bd20cde2b238e2143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c4f7888150446316a04710bc5de5e618cd66eb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397236"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413313"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń sieci na platformie Azure
 W tym artykule omówiono zbiór najlepszych rozwiązań dotyczących platformy Azure w celu zwiększenia bezpieczeństwa sieci. Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z obsługą sieci platformy Azure i klientami.
@@ -49,22 +49,22 @@ Usługi Azure Virtual Networks są podobne do sieci LAN w sieci lokalnej. Pomys�
 
 Najlepsze rozwiązania dotyczące logicznego segmentacji podsieci obejmują:
 
-**Najlepsze rozwiązanie**: Nie przypisuj reguł zezwalania z szeroką liczbą zakresów (na przykład Zezwalaj na 0.0.0.0 – 255.255.255.255).  
-**Szczegóły**: Upewnij się, że procedury rozwiązywania problemów uniemożliwiają skonfigurowanie tych typów reguł. Te reguły umożliwiają wykonywanie fałszywych luk w zabezpieczeniach i są często wykrywane i wykorzystywane przez czerwone zespoły.
+**Najlepsze rozwiązanie** : Nie przypisuj reguł zezwalania z szeroką liczbą zakresów (na przykład Zezwalaj na 0.0.0.0 – 255.255.255.255).  
+**Szczegóły** : Upewnij się, że procedury rozwiązywania problemów uniemożliwiają skonfigurowanie tych typów reguł. Te reguły umożliwiają wykonywanie fałszywych luk w zabezpieczeniach i są często wykrywane i wykorzystywane przez czerwone zespoły.
 
-**Najlepsze rozwiązanie**: segmentowanie większej przestrzeni adresowej w podsieciach.   
-**Szczegóły**: Aby utworzyć podsieci, użyj zasad podsieci opartych na protokole [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+**Najlepsze rozwiązanie** : segmentowanie większej przestrzeni adresowej w podsieciach.   
+**Szczegóły** : Aby utworzyć podsieci, użyj zasad podsieci opartych na protokole [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-**Najlepsze rozwiązanie**: Tworzenie kontroli dostępu do sieci między podsieciami. Routing między podsieciami odbywa się automatycznie i nie trzeba ręcznie konfigurować tabel routingu. Domyślnie nie ma żadnych kontroli dostępu do sieci między podsieciami, które tworzysz w sieci wirtualnej platformy Azure.   
-**Szczegóły**: Użyj [sieciowej grupy zabezpieczeń](/azure/virtual-network/virtual-networks-nsg) , aby chronić przed niechcianym ruchem w podsieciach platformy Azure. Sieciowe grupy zabezpieczeń są prostymi urządzeniami do inspekcji pakietów stanowych, które wykorzystują podejście 5-krotne (źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy i protokół warstwy 4) do tworzenia reguł zezwalania/odmowy dla ruchu sieciowego. Zezwalasz na ruch do i z jednego adresu IP do i z wielu adresów IP, a także do i z całych podsieci.
+**Najlepsze rozwiązanie** : Tworzenie kontroli dostępu do sieci między podsieciami. Routing między podsieciami odbywa się automatycznie i nie trzeba ręcznie konfigurować tabel routingu. Domyślnie nie ma żadnych kontroli dostępu do sieci między podsieciami, które tworzysz w sieci wirtualnej platformy Azure.   
+**Szczegóły** : Użyj [sieciowej grupy zabezpieczeń](../../virtual-network/virtual-network-vnet-plan-design-arm.md) , aby chronić przed niechcianym ruchem w podsieciach platformy Azure. Sieciowe grupy zabezpieczeń są prostymi urządzeniami do inspekcji pakietów stanowych, które wykorzystują podejście 5-krotne (źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy i protokół warstwy 4) do tworzenia reguł zezwalania/odmowy dla ruchu sieciowego. Zezwalasz na ruch do i z jednego adresu IP do i z wielu adresów IP, a także do i z całych podsieci.
 
 W przypadku korzystania z sieciowych grup zabezpieczeń do kontroli dostępu do sieci między podsieciami można umieścić zasoby należące do tej samej strefy zabezpieczeń lub roli w ich własnych podsieciach.
 
-**Najlepsze rozwiązanie**: Unikaj niewielkich sieci wirtualnych i podsieci, aby zapewnić prostotę i elastyczność.   
-**Szczegóły**: Większość organizacji dodaje więcej zasobów niż początkowo zaplanowano, a ponowne przydzielanie adresów jest czasochłonne. Użycie małych podsieci powoduje dodanie ograniczonej wartości zabezpieczeń, a mapowanie sieciowej grupy zabezpieczeń do każdej podsieci dodaje obciążenie. Definiuj podsieci w szerokim stopniu, aby zapewnić elastyczność wzrostu.
+**Najlepsze rozwiązanie** : Unikaj niewielkich sieci wirtualnych i podsieci, aby zapewnić prostotę i elastyczność.   
+**Szczegóły** : Większość organizacji dodaje więcej zasobów niż początkowo zaplanowano, a ponowne przydzielanie adresów jest czasochłonne. Użycie małych podsieci powoduje dodanie ograniczonej wartości zabezpieczeń, a mapowanie sieciowej grupy zabezpieczeń do każdej podsieci dodaje obciążenie. Definiuj podsieci w szerokim stopniu, aby zapewnić elastyczność wzrostu.
 
-**Najlepsze rozwiązanie**: Uprość zarządzanie zasadami grupy zabezpieczeń sieci przez zdefiniowanie [grup zabezpieczeń aplikacji](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
-**Szczegóły**: Zdefiniuj grupę zabezpieczeń aplikacji dla list adresów IP, które mogą ulec zmianie w przyszłości lub które będą używane w wielu sieciowych grupach zabezpieczeń. Pamiętaj o nazwie grup zabezpieczeń aplikacji jasno, aby inni użytkownicy mogli zrozumieć ich zawartość i przeznaczenie.
+**Najlepsze rozwiązanie** : Uprość zarządzanie zasadami grupy zabezpieczeń sieci przez zdefiniowanie [grup zabezpieczeń aplikacji](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
+**Szczegóły** : Zdefiniuj grupę zabezpieczeń aplikacji dla list adresów IP, które mogą ulec zmianie w przyszłości lub które będą używane w wielu sieciowych grupach zabezpieczeń. Pamiętaj o nazwie grup zabezpieczeń aplikacji jasno, aby inni użytkownicy mogli zrozumieć ich zawartość i przeznaczenie.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Przyjęcie nierównego podejścia zaufania
 Sieci obwodowe działają zgodnie z założeniami, że wszystkie systemy w sieci mogą być zaufane. Jednak obecnie pracownicy uzyskują dostęp do zasobów organizacji z dowolnego miejsca na różnych urządzeniach i aplikacjach, co sprawia, że nie ma znaczenia, czy nie są one odpowiednie. Zasady kontroli dostępu, które koncentrują się tylko na tym, kto może uzyskać dostęp do zasobu, są niewystarczające. Aby określić równowagę między zabezpieczeniami i produktywnością, administratorzy zabezpieczeń muszą także wziąć pod uwagę *sposób* uzyskiwania dostępu do zasobu.
@@ -73,14 +73,14 @@ Sieci muszą rozwijać się od tradycyjnych zabezpieczeń, ponieważ sieci mogą
 
 Najlepsze rozwiązania:
 
-**Najlepsze rozwiązanie**: zapewnianie warunkowego dostępu do zasobów na podstawie urządzenia, tożsamości, gwarancji, lokalizacji sieciowej i nie tylko.  
-**Szczegóły**: [dostęp warunkowy usługi Azure AD](../../active-directory/conditional-access/overview.md) umożliwia stosowanie odpowiednich kontroli dostępu, implementując automatyczne decyzje dotyczące kontroli dostępu w zależności od wymaganych warunków. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do usługi Azure Management przy użyciu dostępu warunkowego](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
+**Najlepsze rozwiązanie** : zapewnianie warunkowego dostępu do zasobów na podstawie urządzenia, tożsamości, gwarancji, lokalizacji sieciowej i nie tylko.  
+**Szczegóły** : [dostęp warunkowy usługi Azure AD](../../active-directory/conditional-access/overview.md) umożliwia stosowanie odpowiednich kontroli dostępu, implementując automatyczne decyzje dotyczące kontroli dostępu w zależności od wymaganych warunków. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do usługi Azure Management przy użyciu dostępu warunkowego](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
-**Najlepsze rozwiązanie**: Włącz dostęp do portów tylko po zatwierdzeniu przepływu pracy.  
-**Szczegóły**: można użyć [dostępu just in Time do maszyny wirtualnej w Azure Security Center](../../security-center/security-center-just-in-time.md) do blokowania ruchu przychodzącego na maszynach wirtualnych platformy Azure, co pozwala ograniczyć narażenie na ataki, zapewniając łatwy dostęp do łączenia się z maszynami wirtualnymi w razie potrzeby.
+**Najlepsze rozwiązanie** : Włącz dostęp do portów tylko po zatwierdzeniu przepływu pracy.  
+**Szczegóły** : można użyć [dostępu just in Time do maszyny wirtualnej w Azure Security Center](../../security-center/security-center-just-in-time.md) do blokowania ruchu przychodzącego na maszynach wirtualnych platformy Azure, co pozwala ograniczyć narażenie na ataki, zapewniając łatwy dostęp do łączenia się z maszynami wirtualnymi w razie potrzeby.
 
-**Najlepsze rozwiązanie**: Przyznawanie uprawnień tymczasowych do wykonywania uprzywilejowanych zadań, co uniemożliwia złośliwym lub nieautoryzowanym użytkownikom uzyskanie dostępu po wygaśnięciu uprawnień. Dostęp jest udzielany tylko wtedy, gdy użytkownicy go potrzebują.  
-**Szczegóły**: Użyj dostępu just in time w Azure AD Privileged Identity Management lub rozwiązania innej firmy, aby przyznać uprawnienia do wykonywania uprzywilejowanych zadań.
+**Najlepsze rozwiązanie** : Przyznawanie uprawnień tymczasowych do wykonywania uprzywilejowanych zadań, co uniemożliwia złośliwym lub nieautoryzowanym użytkownikom uzyskanie dostępu po wygaśnięciu uprawnień. Dostęp jest udzielany tylko wtedy, gdy użytkownicy go potrzebują.  
+**Szczegóły** : Użyj dostępu just in time w Azure AD Privileged Identity Management lub rozwiązania innej firmy, aby przyznać uprawnienia do wykonywania uprzywilejowanych zadań.
 
 Zaufanie równe zeru to kolejna ewolucja w zabezpieczeniach sieci. Stan cyberattacks umożliwia organizacjom podejmowanie "założenie naruszenia" sposób myślenia, ale takie podejście nie powinno mieć ograniczenia. Zerowe sieci zaufania chronią dane i zasoby firmowe, zapewniając, że organizacje mogą tworzyć nowoczesne miejsce pracy przy użyciu technologii, które umożliwiają pracownikom wydajne zwiększenie produktywności w dowolnym miejscu i czasie.
 
@@ -114,7 +114,7 @@ Urządzenia zabezpieczeń sieci platformy Azure mogą zapewniać lepsze zabezpie
 Aby znaleźć dostępne urządzenia zabezpieczeń sieci wirtualnej platformy Azure, przejdź do [witryny Azure Marketplace](https://azure.microsoft.com/marketplace/) i wyszukaj ciąg "zabezpieczenia" oraz "zabezpieczenia sieci".
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Wdrażanie sieci obwodowych pod kątem stref zabezpieczeń
-[Sieć obwodowa](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (nazywana również strefą DMZ) jest segmentem sieci fizycznej lub logicznej, który zapewnia dodatkową warstwę zabezpieczeń między zasobami i Internetem. Wyspecjalizowane urządzenia kontroli dostępu do sieci na granicy sieci obwodowej zezwalają tylko na żądany ruch do sieci wirtualnej.
+[Sieć obwodowa](/azure/architecture/vdc/networking-virtual-datacenter) (nazywana również strefą DMZ) jest segmentem sieci fizycznej lub logicznej, który zapewnia dodatkową warstwę zabezpieczeń między zasobami i Internetem. Wyspecjalizowane urządzenia kontroli dostępu do sieci na granicy sieci obwodowej zezwalają tylko na żądany ruch do sieci wirtualnej.
 
 Sieci obwodowe są przydatne, ponieważ możesz skoncentrować się na zarządzaniu, monitorowaniu, rejestrowaniu i raportowaniu kontroli dostępu do sieci na urządzeniach na granicy sieci wirtualnej platformy Azure. Sieć obwodowa polega na tym, że zwykle włączane jest zapobieganie atakom typu "odmowa usługi" (DDoS), Wykrywanie intruzów/systemy zapobiegania włamaniom (identyfikatory/adresy IP), reguły i zasady zapory, filtrowanie sieci Web, ochrona przed złośliwym oprogramowaniem w sieci i wiele innych. Urządzenia zabezpieczeń sieci są dostępne między Internetem a siecią wirtualną platformy Azure i mają interfejs w obu sieciach.
 
@@ -122,7 +122,7 @@ Chociaż jest to podstawowy projekt sieci obwodowej, istnieje wiele różnych pr
 
 Na podstawie wymienionej wcześniej koncepcji zaufania należy rozważyć użycie sieci obwodowej do wszystkich wdrożeń o wysokim poziomie zabezpieczeń, aby zwiększyć poziom bezpieczeństwa sieci i kontroli dostępu do zasobów platformy Azure. Możesz użyć platformy Azure lub rozwiązania innej firmy, aby zapewnić dodatkową warstwę zabezpieczeń między zasobami i Internetem:
 
-- Natywne formanty platformy Azure. Zapora [platformy Azure](/azure/firewall/overview) i [Zapora aplikacji sieci web w programie Application Gateway](../../application-gateway/features.md#web-application-firewall) oferują podstawowe zabezpieczenia za pomocą w pełni bezstanowej zapory jako usługi, wbudowanej wysokiej dostępności, nieograniczonej skalowalności chmury, filtrowania nazw FQDN, obsługi zestawów reguł OWASP Core oraz prostej instalacji i konfiguracji.
+- Natywne formanty platformy Azure. Zapora [platformy Azure](../../firewall/overview.md) i [Zapora aplikacji sieci web w programie Application Gateway](../../application-gateway/features.md#web-application-firewall) oferują podstawowe zabezpieczenia za pomocą w pełni bezstanowej zapory jako usługi, wbudowanej wysokiej dostępności, nieograniczonej skalowalności chmury, filtrowania nazw FQDN, obsługi zestawów reguł OWASP Core oraz prostej instalacji i konfiguracji.
 - Oferty innych firm. Wyszukaj w [witrynie Azure Marketplace usługę](https://azuremarketplace.microsoft.com/) Zapora nowej generacji (zapory następnej generacji) i inne oferty innych firm, które zapewniają znane narzędzia zabezpieczające oraz znacznie ulepszone poziomy zabezpieczeń sieci. Konfiguracja może być bardziej złożona, ale oferta innej firmy może umożliwić korzystanie z istniejących możliwości i umiejętności.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Unikaj ekspozycji z Internetem za pomocą dedykowanych łączy sieci WAN
@@ -133,7 +133,7 @@ W hybrydowym scenariuszu IT zwykle jest kilka typów łączności między lokali
 * [Sieć VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Jest to zaufana, niezawodna i ustanowiona technologia, ale połączenie odbywa się za pośrednictwem Internetu. Przepustowość jest ograniczona do maksymalnie 1,25 GB/s. Sieci VPN typu lokacja-lokacja jest pożądaną opcją w niektórych scenariuszach.
 * **Azure ExpressRoute**. Zalecamy używanie [ExpressRoute](../../expressroute/expressroute-introduction.md) do połączeń obejmujących wiele lokalizacji. Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Azure, Microsoft 365 i Dynamics 365. ExpressRoute to dedykowany link sieci WAN między lokalizacją lokalną lub dostawcą hostingu programu Microsoft Exchange. Ponieważ jest to połączenie odpływ, dane nie podróżują przez Internet, więc nie są narażone na potencjalne ryzyko związane z komunikacją internetową.
 
-Lokalizacja połączenia usługi ExpressRoute może wpłynąć na wydajność zapory, skalowalność, niezawodność i widoczność ruchu sieciowego. Należy określić, gdzie należy zakończyć ExpressRoute w istniejących sieciach (lokalnych). Dostępne możliwości:
+Lokalizacja połączenia usługi ExpressRoute może wpłynąć na wydajność zapory, skalowalność, niezawodność i widoczność ruchu sieciowego. Należy określić, gdzie należy zakończyć ExpressRoute w istniejących sieciach (lokalnych). Można:
 
 - Zakończ poza zaporą (model sieci obwodowej), jeśli potrzebujesz wglądu w ruch, jeśli chcesz kontynuować istniejącą sprawność izolowania centrów danych, lub jeśli nie masz wyłącznie zasobów ekstranetu na platformie Azure.
 - Przerwij wewnątrz zapory (model rozszerzenia sieci). Jest to domyślne zalecenie. We wszystkich innych przypadkach zalecamy traktowanie platformy Azure jako n-ty centrum danych.
@@ -147,30 +147,30 @@ Ta dystrybucja ruchu zwiększa dostępność, ponieważ w przypadku niedostępno
 
 Zalecamy stosowanie równoważenia obciążenia zawsze, gdy tylko jest to możliwe, i zgodnie z potrzebami usług. Poniżej znajdują się scenariusze zarówno na poziomie sieci wirtualnej platformy Azure, jak i na poziomie globalnym, a także opcje równoważenia obciążenia dla każdego z nich.
 
-**Scenariusz**: masz aplikację, która:
+**Scenariusz** : masz aplikację, która:
 
 - Wymaga żądań z tego samego użytkownika/sesji klienta, aby uzyskać dostęp do tej samej maszyny wirtualnej zaplecza. Przykładami są aplikacje koszyka zakupów i serwery poczty sieci Web.
 - Akceptuje tylko bezpieczne połączenie, dlatego nie jest to akceptowalna opcja komunikacji nieszyfrowanej z serwerem.
 - Wymaga wielu żądań HTTP w ramach tego samego długotrwałego połączenia TCP do kierowania lub równoważenia obciążenia do różnych serwerów zaplecza.
 
-**Opcja równoważenia obciążenia**: Użyj [usługi Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), modułu równoważenia obciążenia sieci Web http. Application Gateway obsługuje kompleksowe szyfrowanie protokołu TLS i [zakończenie protokołu TLS](/azure/application-gateway/application-gateway-introduction) na bramie. Serwery sieci Web mogą być następnie wycofywane z obciążeń szyfrowania i odszyfrowywania, a ruch przepływający z niezaszyfrowanych serwerów zaplecza.
+**Opcja równoważenia obciążenia** : Użyj [usługi Azure Application Gateway](../../application-gateway/overview.md), modułu równoważenia obciążenia sieci Web http. Application Gateway obsługuje kompleksowe szyfrowanie protokołu TLS i [zakończenie protokołu TLS](../../application-gateway/overview.md) na bramie. Serwery sieci Web mogą być następnie wycofywane z obciążeń szyfrowania i odszyfrowywania, a ruch przepływający z niezaszyfrowanych serwerów zaplecza.
 
-**Scenariusz**: należy równoważyć obciążenie połączeń przychodzących z Internetu między serwerami znajdującymi się w sieci wirtualnej platformy Azure. Scenariusze są następujące:
+**Scenariusz** : należy równoważyć obciążenie połączeń przychodzących z Internetu między serwerami znajdującymi się w sieci wirtualnej platformy Azure. Scenariusze są następujące:
 
 - Aplikacje bezstanowe, które akceptują żądania przychodzące z Internetu.
 - Nie wymagaj sesji programu Sticky lub odciążania TLS. Sesje usługi Sticky Notes to metoda używana z równoważeniem obciążenia aplikacji w celu osiągnięcia koligacji serwera.
 
-**Opcja równoważenia obciążenia**: Użyj Azure Portal, aby [utworzyć zewnętrzny moduł równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , który rozkłada przychodzące żądania na wiele maszyn wirtualnych, aby zapewnić wyższy poziom dostępności.
+**Opcja równoważenia obciążenia** : Użyj Azure Portal, aby [utworzyć zewnętrzny moduł równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , który rozkłada przychodzące żądania na wiele maszyn wirtualnych, aby zapewnić wyższy poziom dostępności.
 
-**Scenariusz**: należy zrównoważyć obciążenie z maszyn wirtualnych, które nie znajdują się w Internecie. W większości przypadków połączenia akceptowane na potrzeby równoważenia obciążenia są inicjowane przez urządzenia w sieci wirtualnej platformy Azure, takie jak wystąpienia SQL Server lub wewnętrzne serwery sieci Web.   
-**Opcja równoważenia obciążenia**: Użyj Azure Portal, aby [utworzyć wewnętrzny moduł równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , który rozprasza przychodzące żądania na wielu maszynach wirtualnych w celu zapewnienia wyższego poziomu dostępności.
+**Scenariusz** : należy zrównoważyć obciążenie z maszyn wirtualnych, które nie znajdują się w Internecie. W większości przypadków połączenia akceptowane na potrzeby równoważenia obciążenia są inicjowane przez urządzenia w sieci wirtualnej platformy Azure, takie jak wystąpienia SQL Server lub wewnętrzne serwery sieci Web.   
+**Opcja równoważenia obciążenia** : Użyj Azure Portal, aby [utworzyć wewnętrzny moduł równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , który rozprasza przychodzące żądania na wielu maszynach wirtualnych w celu zapewnienia wyższego poziomu dostępności.
 
-**Scenariusz**: wymagane jest globalne Równoważenie obciążenia, ponieważ:
+**Scenariusz** : wymagane jest globalne Równoważenie obciążenia, ponieważ:
 
 - Rozwiązanie w chmurze, które jest szeroko dystrybuowane w wielu regionach i wymaga najwyższego poziomu czasu pracy.
 - Konieczny jest najwyższy możliwy stopień przestoju, aby upewnić się, że usługa jest dostępna, nawet jeśli całe centrum danych przestanie być dostępne.
 
-**Opcja równoważenia obciążenia**: Użyj usługi Azure Traffic Manager. Traffic Manager umożliwia Równoważenie obciążenia połączeń z usługami na podstawie lokalizacji użytkownika.
+**Opcja równoważenia obciążenia** : Użyj usługi Azure Traffic Manager. Traffic Manager umożliwia Równoważenie obciążenia połączeń z usługami na podstawie lokalizacji użytkownika.
 
 Na przykład jeśli użytkownik wysyła żądanie do usługi z UE, połączenie jest kierowane do usług znajdujących się w centrum danych w Unii Europejskiej. Ta część Traffic Manager globalnego równoważenia obciążenia pomaga zwiększyć wydajność, ponieważ połączenie z najbliższym centrum danych jest szybsze niż łączenie z centrami danych, które są daleko od siebie.
 
@@ -181,16 +181,16 @@ Potencjalny problem z zabezpieczeniami związany z korzystaniem z tych protokoł
 
 Zalecamy wyłączenie bezpośredniego dostępu RDP i SSH do maszyn wirtualnych platformy Azure z Internetu. Po wyłączeniu bezpośredniego dostępu do protokołu RDP i SSH z Internetu dostępne są inne opcje umożliwiające dostęp do tych maszyn wirtualnych na potrzeby zdalnego zarządzania.
 
-**Scenariusz**: umożliwia jednemu użytkownikowi łączenie się z siecią wirtualną platformy Azure za pośrednictwem Internetu.   
-**Opcja**: [Sieć VPN typu punkt-lokacja](/azure/vpn-gateway/vpn-gateway-point-to-site-create) jest kolejnym terminem dla połączenia klienta/serwera dostępu zdalnego VPN. Po nawiązaniu połączenia punkt-lokacja użytkownik może używać protokołu RDP lub SSH do łączenia się z maszynami wirtualnymi znajdującymi się w sieci wirtualnej platformy Azure, z którymi użytkownik nawiązał połączenie za pośrednictwem sieci VPN typu punkt-lokacja. Przyjęto założenie, że użytkownik jest autoryzowany do uzyskiwania dostępu do tych maszyn wirtualnych.
+**Scenariusz** : umożliwia jednemu użytkownikowi łączenie się z siecią wirtualną platformy Azure za pośrednictwem Internetu.   
+**Opcja** : [Sieć VPN typu punkt-lokacja](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) jest kolejnym terminem dla połączenia klienta/serwera dostępu zdalnego VPN. Po nawiązaniu połączenia punkt-lokacja użytkownik może używać protokołu RDP lub SSH do łączenia się z maszynami wirtualnymi znajdującymi się w sieci wirtualnej platformy Azure, z którymi użytkownik nawiązał połączenie za pośrednictwem sieci VPN typu punkt-lokacja. Przyjęto założenie, że użytkownik jest autoryzowany do uzyskiwania dostępu do tych maszyn wirtualnych.
 
 Sieć VPN typu punkt-lokacja jest bezpieczniejsza niż bezpośrednie połączenia RDP lub SSH, ponieważ użytkownik musi uwierzytelnić się dwa razy przed nawiązaniem połączenia z maszyną wirtualną. Najpierw użytkownik musi uwierzytelnić się (i być autoryzowany) w celu ustanowienia połączenia sieci VPN typu punkt-lokacja. Następnie użytkownik musi uwierzytelnić się (i być autoryzowany) w celu nawiązania połączenia RDP lub SSH.
 
-**Scenariusz**: Umożliwianie użytkownikom w sieci lokalnej łączenie się z maszynami wirtualnymi w sieci wirtualnej platformy Azure.   
-**Opcja**: Sieć [VPN typu lokacja-lokacja](/azure/vpn-gateway/vpn-gateway-site-to-site-create) łączy całą sieć z inną siecią za pośrednictwem Internetu. Sieci VPN typu lokacja-lokacja można użyć, aby połączyć sieć lokalną z siecią wirtualną platformy Azure. Użytkownicy lokalnej sieci nawiązują połączenie za pomocą protokołu RDP lub SSH za pośrednictwem połączenia sieci VPN typu lokacja-lokacja. Nie trzeba zezwalać na bezpośredni dostęp do protokołu RDP lub SSH przez Internet.
+**Scenariusz** : Umożliwianie użytkownikom w sieci lokalnej łączenie się z maszynami wirtualnymi w sieci wirtualnej platformy Azure.   
+**Opcja** : Sieć [VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) łączy całą sieć z inną siecią za pośrednictwem Internetu. Sieci VPN typu lokacja-lokacja można użyć, aby połączyć sieć lokalną z siecią wirtualną platformy Azure. Użytkownicy lokalnej sieci nawiązują połączenie za pomocą protokołu RDP lub SSH za pośrednictwem połączenia sieci VPN typu lokacja-lokacja. Nie trzeba zezwalać na bezpośredni dostęp do protokołu RDP lub SSH przez Internet.
 
-**Scenariusz**: Użyj dedykowanego LINKu WAN, aby zapewnić funkcjonalność podobną do sieci VPN typu lokacja-lokacja.   
-**Opcja**: Użyj [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Zapewnia funkcjonalność podobną do sieci VPN typu lokacja-lokacja. Główne różnice to:
+**Scenariusz** : Użyj dedykowanego LINKu WAN, aby zapewnić funkcjonalność podobną do sieci VPN typu lokacja-lokacja.   
+**Opcja** : Użyj [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Zapewnia funkcjonalność podobną do sieci VPN typu lokacja-lokacja. Główne różnice to:
 
 - Dedykowany link WAN nie przechodzi przez Internet.
 - Dedykowane linki WAN są zwykle bardziej stabilne i bardziej wydajne.
@@ -200,12 +200,12 @@ Za pomocą punktów końcowych usługi sieci wirtualnej można zwiększyć prywa
 
 Punkty końcowe usługi oferują następujące korzyści:
 
-- **Lepsze zabezpieczenia zasobów usługi platformy Azure**: dzięki punktom końcowym zasoby usługi platformy Azure mogą być chronione w sieci wirtualnej. Zabezpieczenie zasobów usługi w sieci wirtualnej zapewnia większe bezpieczeństwo dzięki całkowitemu uniemożliwieniu dostępu do tych zasobów z publicznego Internetu i zezwoleniu na ruch tylko z Twojej sieci wirtualnej.
-- **Optymalny Routing ruchu usługi platformy Azure z sieci wirtualnej**: wszystkie trasy w sieci wirtualnej, które wymuszają ruch internetowy do urządzeń lokalnych i/lub wirtualnych, znane jako Wymuszone tunelowanie, wymuszają również ruch usługi platformy Azure w taki sam sposób jak ruch internetowy. Punkty końcowe usługi zapewniają optymalny routing ruchu platformy Azure.
+- **Lepsze zabezpieczenia zasobów usługi platformy Azure** : dzięki punktom końcowym zasoby usługi platformy Azure mogą być chronione w sieci wirtualnej. Zabezpieczenie zasobów usługi w sieci wirtualnej zapewnia większe bezpieczeństwo dzięki całkowitemu uniemożliwieniu dostępu do tych zasobów z publicznego Internetu i zezwoleniu na ruch tylko z Twojej sieci wirtualnej.
+- **Optymalny Routing ruchu usługi platformy Azure z sieci wirtualnej** : wszystkie trasy w sieci wirtualnej, które wymuszają ruch internetowy do urządzeń lokalnych i/lub wirtualnych, znane jako Wymuszone tunelowanie, wymuszają również ruch usługi platformy Azure w taki sam sposób jak ruch internetowy. Punkty końcowe usługi zapewniają optymalny routing ruchu platformy Azure.
 
   Punkty końcowe zawsze pobierają ruch bezpośrednio z sieci wirtualnej do usługi w sieci szkieletowej platformy Azure. Utrzymywanie ruchu w sieci szkieletowej platformy Azure umożliwia kontynuowanie inspekcji i monitorowania wychodzącego ruchu internetowego z sieci wirtualnych za pośrednictwem tunelowania wymuszonego bez wpływu na ruch usługi. Dowiedz się więcej na temat [tras zdefiniowanych przez użytkownika i wymuszonego tunelowania](../../virtual-network/virtual-networks-udr-overview.md).
 
-- **Prosta konfiguracja z mniejszym obciążeniem zarządzania**: nie potrzebujesz już zarezerwowanych publicznych adresów IP w sieciach wirtualnych, aby zabezpieczyć zasoby platformy Azure za pomocą zapory IP. Do skonfigurowania punktów końcowych usługi nie jest wymagany translator adresów sieciowych ani urządzenie bramy. Punkty końcowe usługi można skonfigurować za pomocą prostego kliknięcia w podsieci. Obsługa punktów końcowych nie wiąże się z dodatkowymi kosztami.
+- **Prosta konfiguracja z mniejszym obciążeniem zarządzania** : nie potrzebujesz już zarezerwowanych publicznych adresów IP w sieciach wirtualnych, aby zabezpieczyć zasoby platformy Azure za pomocą zapory IP. Do skonfigurowania punktów końcowych usługi nie jest wymagany translator adresów sieciowych ani urządzenie bramy. Punkty końcowe usługi można skonfigurować za pomocą prostego kliknięcia w podsieci. Obsługa punktów końcowych nie wiąże się z dodatkowymi kosztami.
 
 Aby dowiedzieć się więcej o punktach końcowych usług oraz usługach i regionach platformy Azure, dla których są dostępne punkty końcowe usługi, zobacz [punkty końcowe usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md).
 

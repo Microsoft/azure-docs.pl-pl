@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: c817608a9e015c69b252f69000d78437e918b8f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 435cb1d52b5505f4f29bd0c31986a1f7f72208fd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631515"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412871"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection — projektowanie odpornych rozwiązań
 
@@ -42,22 +42,22 @@ Upewnij się, że zabezpieczenia są priorytetem całego cyklu życia aplikacji,
 Aby pomóc w ochronie usługi działającej na Microsoft Azure, należy dobrze zrozumieć swoją architekturę aplikacji i skupić się na [pięciu filarach jakości oprogramowania](/azure/architecture/guide/pillars).
 Należy znać typowe woluminy ruchu, model łączności między aplikacją i innymi aplikacjami oraz punkty końcowe usługi, które są dostępne dla publicznego Internetu.
 
-Upewnienie się, że aplikacja jest wystarczająco odporna na obsługę odmowy usługi, która jest przeznaczona dla samej aplikacji, jest najważniejsza. Zabezpieczenia i prywatność są wbudowane w platformę Azure, począwszy od [cyklu projektowania zabezpieczeń (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL eliminuje bezpieczeństwo w każdej fazie tworzenia i gwarantuje, że platforma Azure jest stale aktualizowana w celu zapewnienia jeszcze większego bezpieczeństwa.
+Upewnienie się, że aplikacja jest wystarczająco odporna na obsługę odmowy usługi, która jest przeznaczona dla samej aplikacji, jest najważniejsza. Zabezpieczenia i prywatność są wbudowane w platformę Azure, począwszy od [cyklu projektowania zabezpieczeń (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL eliminuje bezpieczeństwo w każdej fazie tworzenia i gwarantuje, że platforma Azure jest stale aktualizowana w celu zapewnienia jeszcze większego bezpieczeństwa.
 
 ### <a name="design-for-scalability"></a>Projektowanie pod kątem skalowalności
 
 Skalowalność to szybkość, z jaką system może obsłużyć większe obciążenie. Zaprojektuj aplikacje w celu [skalowania w poziomie](/azure/architecture/guide/design-principles/scale-out) , aby spełnić zapotrzebowanie na rozbudowane obciążenie, w zależności od przypadku ataku DDoS. Jeśli aplikacja zależy od pojedynczego wystąpienia usługi, tworzy single point of failure. Inicjowanie obsługi wielu wystąpień systemu sprawia, że system jest bardziej odporny i bardziej skalowalny.
 
-W obszarze [Azure App Service](/azure/app-service/app-service-value-prop-what-is)wybierz [Plan App Service](/azure/app-service/overview-hosting-plans) , który oferuje wiele wystąpień. W przypadku usługi Azure Cloud Services skonfiguruj każdą rolę, aby użyć [wielu wystąpień](/azure/cloud-services/cloud-services-choose-me). W przypadku [usługi Azure Virtual Machines](../../virtual-machines/index.yml)upewnij się, że architektura maszyny wirtualnej (VM) zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](../../virtual-machines/windows/tutorial-availability-sets.md). Zalecamy używanie [zestawów skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/overview.md) do obsługi funkcji skalowania automatycznego.
+W obszarze [Azure App Service](../../app-service/overview.md)wybierz [Plan App Service](../../app-service/overview-hosting-plans.md) , który oferuje wiele wystąpień. W przypadku usługi Azure Cloud Services skonfiguruj każdą rolę, aby użyć [wielu wystąpień](../../cloud-services/cloud-services-choose-me.md). W przypadku [usługi Azure Virtual Machines](../../virtual-machines/index.yml)upewnij się, że architektura maszyny wirtualnej (VM) zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](../../virtual-machines/windows/tutorial-availability-sets.md). Zalecamy używanie [zestawów skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/overview.md) do obsługi funkcji skalowania automatycznego.
 
 ### <a name="defense-in-depth"></a>Ochrona w głębi systemu
 
 Pomysłem związanym z obroną jest zarządzanie ryzykiem przy użyciu różnorodnych strategii obronnych. Zabezpieczenia warstw zabezpieczeń w aplikacji zmniejszają prawdopodobieństwo pomyślnego ataku. Zalecamy wdrożenie bezpiecznych projektów dla aplikacji przy użyciu wbudowanych funkcji platformy Azure.
 
-Na przykład ryzyko ataku zwiększa się wraz z rozmiarem (*obszar powierzchni*) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy zatwierdzania, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](/azure/virtual-network/security-overview) to inny sposób zmniejszania podatności na ataki.
-Możesz użyć [tagów usługi](/azure/virtual-network/security-overview#service-tags) i [grup zabezpieczeń aplikacji](/azure/virtual-network/security-overview#application-security-groups) , aby zminimalizować złożoność tworzenia reguł zabezpieczeń i konfigurowania zabezpieczeń sieci, jako naturalnego rozszerzenia struktury aplikacji.
+Na przykład ryzyko ataku zwiększa się wraz z rozmiarem ( *obszar powierzchni* ) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy zatwierdzania, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) i [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)). [Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](../../virtual-network/network-security-groups-overview.md) to inny sposób zmniejszania podatności na ataki.
+Możesz użyć [tagów usługi](../../virtual-network/network-security-groups-overview.md#service-tags) i [grup zabezpieczeń aplikacji](../../virtual-network/network-security-groups-overview.md#application-security-groups) , aby zminimalizować złożoność tworzenia reguł zabezpieczeń i konfigurowania zabezpieczeń sieci, jako naturalnego rozszerzenia struktury aplikacji.
 
-W miarę możliwości należy wdrożyć usługi platformy Azure w [sieci wirtualnej](/azure/virtual-network/virtual-networks-overview) . Dzięki temu zasoby usług mogą komunikować się za poorednictwem prywatnych adresów IP. Ruch usługi platformy Azure z sieci wirtualnej domyślnie używa publicznych adresów IP jako źródłowych adresów IP. Korzystanie z [punktów końcowych usługi](/azure/virtual-network/virtual-network-service-endpoints-overview) spowoduje przełączenie ruchu usługi w taki sposób, aby używały prywatnych adresów sieci wirtualnej jako źródłowych adresów IP podczas uzyskiwania dostępu do usługi platformy Azure z sieci wirtualnej.
+W miarę możliwości należy wdrożyć usługi platformy Azure w [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) . Dzięki temu zasoby usług mogą komunikować się za poorednictwem prywatnych adresów IP. Ruch usługi platformy Azure z sieci wirtualnej domyślnie używa publicznych adresów IP jako źródłowych adresów IP. Korzystanie z [punktów końcowych usługi](../../virtual-network/virtual-network-service-endpoints-overview.md) spowoduje przełączenie ruchu usługi w taki sposób, aby używały prywatnych adresów sieci wirtualnej jako źródłowych adresów IP podczas uzyskiwania dostępu do usługi platformy Azure z sieci wirtualnej.
 
 Często widzimy, że zasoby lokalne klientów atakują razem ze swoimi zasobami na platformie Azure. W przypadku łączenia środowiska lokalnego z platformą Azure zalecamy zminimalizowanie zagrożeń zasobów lokalnych do publicznej sieci Internet. Możesz użyć funkcji skalowania i zaawansowanej ochrony DDoS na platformie Azure, wdrażając dobrze znane jednostki publiczne na platformie Azure. Ponieważ te publicznie dostępne jednostki są często celem ataków DDoS, umieszczenie ich na platformie Azure zmniejsza wpływ zasobów lokalnych.
 
@@ -71,13 +71,13 @@ Ochrona podstawowa jest domyślnie zintegrowana z platformą Azure bez dodatkowy
 
 ![Reprezentacja mapy sieci platformy Azure z tekstem "Global DDoSe ograniczenia obecności" i "Wiodąca wydajność DDoS"](./media/ddos-best-practices/image3.png)
 
-Podstawowa ochrona DDoS na platformie Azure obejmuje składniki oprogramowania i sprzętu. Płaszczyzna kontroli oprogramowania decyduje o tym, gdzie i jakiego typu ruch powinien być kierowany przez urządzenia sprzętowe, które analizują i usuwają ruch związany z atakiem. Płaszczyzna kontroli podejmuje niniejszą decyzję na podstawie *zasad*DDoS Protection w całej infrastrukturze. Te zasady są statycznie ustawiane i uniwersalne dla wszystkich klientów platformy Azure.
+Podstawowa ochrona DDoS na platformie Azure obejmuje składniki oprogramowania i sprzętu. Płaszczyzna kontroli oprogramowania decyduje o tym, gdzie i jakiego typu ruch powinien być kierowany przez urządzenia sprzętowe, które analizują i usuwają ruch związany z atakiem. Płaszczyzna kontroli podejmuje niniejszą decyzję na podstawie *zasad* DDoS Protection w całej infrastrukturze. Te zasady są statycznie ustawiane i uniwersalne dla wszystkich klientów platformy Azure.
 
 Na przykład zasady DDoS Protection określają, w jaki sposób ilość ruchu powinna być *wyzwalana.* (Oznacza to, że ruch dzierżawy powinien być kierowany przez urządzenia do szybkiej kontroli). Następnie zasady określają, jak urządzenia do przemywania powinny *ograniczać* ataki.
 
 Podstawowa usługa Azure DDoS Protection jest przeznaczona do ochrony infrastruktury i ochrony platformy Azure. Zmniejsza to ruch, gdy przekracza on stawkę, która jest tak znacząca, że może mieć wpływ na wielu klientów w środowisku wielodostępnym. Nie zapewnia to alertów ani zasad niestandardowych dla klienta.
 
-### <a name="ddos-protection-standard"></a>DDoS Protection Standard
+### <a name="ddos-protection-standard"></a>Usługa DDoS Protection w warstwie Standardowa
 
 Ochrona standardowa zapewnia ulepszone funkcje ograniczenia DDoS. Jest on automatycznie dostosowany do ochrony określonych zasobów platformy Azure w sieci wirtualnej. Ochrona jest prosta do włączenia w przypadku każdej nowej lub istniejącej sieci wirtualnej i nie wymaga żadnych zmian aplikacji ani zasobów. Ma kilka korzyści w porównaniu z usługą podstawową, w tym rejestrowanie, alerty i dane telemetryczne. W poniższych sekcjach przedstawiono najważniejsze funkcje usługi Azure DDoS Protection Standard.
 
@@ -93,11 +93,11 @@ Usługa Azure DDoS Protection Basic pomaga chronić klientów i zapobiega wpływ
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection dane telemetryczne, monitorowanie i alerty
 
-DDoS Protection Standard uwidacznia rozbudowane dane telemetryczne za pośrednictwem [Azure monitor](/azure/azure-monitor/overview) na czas trwania ataku DDoS. Można skonfigurować alerty dla dowolnych metryk Azure Monitor używanych przez DDoS Protection. Możesz zintegrować rejestrowanie z usługą Splunk (Azure Event Hubs), dziennikami Azure Monitor i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure Monitor.
+DDoS Protection Standard uwidacznia rozbudowane dane telemetryczne za pośrednictwem [Azure monitor](../../azure-monitor/overview.md) na czas trwania ataku DDoS. Można skonfigurować alerty dla dowolnych metryk Azure Monitor używanych przez DDoS Protection. Możesz zintegrować rejestrowanie z usługą Splunk (Azure Event Hubs), dziennikami Azure Monitor i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure Monitor.
 
 ##### <a name="ddos-mitigation-policies"></a>Zasady ograniczania DDoS
 
-W Azure Portal wybierz pozycję **Monitoruj**  >  **metryki**. W okienku **metryk** wybierz grupę zasobów, wybierz typ zasobu **publiczny adres IP**, a następnie wybierz publiczny adres IP platformy Azure. Metryki DDoS są widoczne w okienku **Dostępne metryki** .
+W Azure Portal wybierz pozycję **Monitoruj**  >  **metryki**. W okienku **metryk** wybierz grupę zasobów, wybierz typ zasobu **publiczny adres IP** , a następnie wybierz publiczny adres IP platformy Azure. Metryki DDoS są widoczne w okienku **Dostępne metryki** .
 
 DDoS Protection standard stosuje trzy zasady ograniczania ryzyka (TCP SYN, TCP i UDP) dla każdego publicznego adresu IP chronionego zasobu w sieci wirtualnej z włączoną funkcją DDoS. Progi zasad można wyświetlić, wybierając pakiety przychodzące metryczne, **Aby wyzwolić DDoS ograniczenia**.
 
@@ -113,11 +113,11 @@ Jeśli publiczny adres IP jest w trakcie ataku, wartość metryki **w obszarze a
 
 Zalecamy skonfigurowanie alertu dla tej metryki. Następnie otrzymasz powiadomienie, gdy na publicznym adresie IP zostanie wykonane aktywne ograniczenie DDoS.
 
-Aby uzyskać więcej informacji, zobacz [zarządzanie Azure DDoS Protection standard przy użyciu Azure Portal](/azure/virtual-network/ddos-protection-manage-portal).
+Aby uzyskać więcej informacji, zobacz [zarządzanie Azure DDoS Protection standard przy użyciu Azure Portal](../../virtual-network/manage-ddos-protection.md).
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>Zapora aplikacji sieci Web dla ataków zasobów
 
-Specyficzne dla ataków zasobów w warstwie aplikacji należy skonfigurować zaporę aplikacji sieci Web (WAF), aby ułatwić Zabezpieczanie aplikacji sieci Web. WAF sprawdza przychodzący ruch internetowy, aby blokować iniekcje SQL, skrypty między lokacjami, DDoS i inne ataki warstwy 7. Platforma Azure udostępnia [WAF jako funkcję Application Gateway](/azure/application-gateway/application-gateway-web-application-firewall-overview) w celu scentralizowanej ochrony aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach. Dostępne są inne oferty WAF od partnerów platformy Azure, które mogą być bardziej odpowiednie dla Twoich potrzeb za pośrednictwem [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Specyficzne dla ataków zasobów w warstwie aplikacji należy skonfigurować zaporę aplikacji sieci Web (WAF), aby ułatwić Zabezpieczanie aplikacji sieci Web. WAF sprawdza przychodzący ruch internetowy, aby blokować iniekcje SQL, skrypty między lokacjami, DDoS i inne ataki warstwy 7. Platforma Azure udostępnia [WAF jako funkcję Application Gateway](../../web-application-firewall/ag/ag-overview.md) w celu scentralizowanej ochrony aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach. Dostępne są inne oferty WAF od partnerów platformy Azure, które mogą być bardziej odpowiednie dla Twoich potrzeb za pośrednictwem [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
 Nawet zapory aplikacji sieci Web są podatne na ataki na mocy i wyczerpania stanu. Zdecydowanie zalecamy włączenie standardu DDoS Protection w sieci wirtualnej WAF, aby ułatwić ochronę przed atakami typu "i". Aby uzyskać więcej informacji, zobacz sekcję [architektury referencyjne DDoS Protection](#ddos-protection-reference-architectures) .
 
@@ -145,7 +145,7 @@ Współpracujemy z [chmurą BreakingPoint](https://www.ixiacom.com/products/brea
 
 Cyberbezpieczeństwa wymaga stałej innowacji w ramach obrony. Ochrona Standardowa usługi Azure DDoS to najnowocześniejsza oferta z skutecznym rozwiązaniem, które pozwala wyeliminować coraz bardziej złożone ataki DDoS.
 
-## <a name="components-of-a-ddos-response-strategy"></a>Składniki strategii odpowiedzi DDoS
+## <a name="components-of-a-ddos-response-strategy"></a>Składniki strategii reagowania na ataki DDoS
 
 Atak DDoS, który jest przeznaczony dla zasobów platformy Azure, zazwyczaj wymaga minimalnej interwencji z punktu widzenia użytkownika. Nadal, uwzględnianie środków zaradczych DDoS w ramach strategii reagowania na zdarzenia pomaga zminimalizować wpływ na ciągłość działania.
 
@@ -179,7 +179,7 @@ W przypadku zespołu odpowiedzi DDoS zalecamy korzystanie z ćwiczeń symulacji 
 
 ### <a name="alerts-during-an-attack"></a>Alerty w trakcie ataku
 
-Azure DDoS Protection Standard identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika. Aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alert](/azure/virtual-network/ddos-protection-manage-portal) dotyczący metryki w **obszarze atak DDoS**. Można utworzyć alerty dla innych metryk DDoS, aby zrozumieć skalę ataku, pozostały ruch oraz inne szczegóły.
+Azure DDoS Protection Standard identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika. Aby otrzymywać powiadomienia, gdy istnieje aktywne środki zaradcze dla chronionego publicznego adresu IP, można [skonfigurować alert](../../virtual-network/manage-ddos-protection.md) dotyczący metryki w **obszarze atak DDoS**. Można utworzyć alerty dla innych metryk DDoS, aby zrozumieć skalę ataku, pozostały ruch oraz inne szczegóły.
 
 #### <a name="when-to-contact-microsoft-support"></a>Kiedy należy skontaktować się z pomocą techniczną firmy Microsoft
 
@@ -211,7 +211,7 @@ Jeśli podejrzewasz, że jesteś w trakcie ataku DDoS, przeprowadzenie eskalacji
 
 ## <a name="ddos-protection-reference-architectures"></a>Architektury referencyjne DDoS Protection
 
-Standard DDoS Protection jest przeznaczony [dla usług, które są wdrażane w sieci wirtualnej](/azure/virtual-network/virtual-network-for-azure-services). W przypadku innych usług stosowana jest domyślna usługa DDoS Protection podstawowa. Poniższe architektury referencyjne są uporządkowane według scenariuszy, a wzorce architektury pogrupowane razem.
+Standard DDoS Protection jest przeznaczony [dla usług, które są wdrażane w sieci wirtualnej](../../virtual-network/virtual-network-for-azure-services.md). W przypadku innych usług stosowana jest domyślna usługa DDoS Protection podstawowa. Poniższe architektury referencyjne są uporządkowane według scenariuszy, a wzorce architektury pogrupowane razem.
 
 ### <a name="virtual-machine-windowslinux-workloads"></a>Obciążenia maszyn wirtualnych (Windows/Linux)
 
@@ -235,14 +235,14 @@ W tej architekturze w sieci wirtualnej jest włączony DDoS Protection Standard.
 
 #### <a name="paas-web-application"></a>Aplikacja internetowa PaaS
 
-Ta architektura referencyjna pokazuje, jak działa aplikacja Azure App Service w jednym regionie. Ta architektura pokazuje zestaw sprawdzonych rozwiązań dla aplikacji sieci Web, które używają [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)   i [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+Ta architektura referencyjna pokazuje, jak działa aplikacja Azure App Service w jednym regionie. Ta architektura pokazuje zestaw sprawdzonych rozwiązań dla aplikacji sieci Web, które używają [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) i [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 W przypadku scenariuszy trybu failover jest ustawiany region w stanie wstrzymania.
 
 ![Diagram architektury referencyjnej dla aplikacji sieci Web PaaS](./media/ddos-best-practices/image11.png)
 
 Usługa Azure Traffic Manager kieruje żądania przychodzące do Application Gateway w jednym z regionów. Podczas normalnych operacji usługa kieruje żądania do Application Gateway w aktywnym regionie. W przypadku niedostępności tego regionu Traffic Manager przełączenia w tryb failover w celu Application Gateway w regionie gotowości.
 
-Cały ruch z Internetu przeznaczony do aplikacji sieci Web jest kierowany do [Application Gateway publicznego adresu IP](/azure/application-gateway/application-gateway-web-app-overview) za pośrednictwem Traffic Manager. W tym scenariuszu sama usługa App Service (aplikacja sieci Web) nie jest bezpośrednio na zewnątrz i jest chroniona przez Application Gateway. 
+Cały ruch z Internetu przeznaczony do aplikacji sieci Web jest kierowany do [Application Gateway publicznego adresu IP](../../application-gateway/application-gateway-web-app-overview.md) za pośrednictwem Traffic Manager. W tym scenariuszu sama usługa App Service (aplikacja sieci Web) nie jest bezpośrednio na zewnątrz i jest chroniona przez Application Gateway. 
 
 Zalecamy skonfigurowanie Application Gateway jednostki SKU WAF (Zapobiegaj trybowi), aby chronić przed atakami warstwy 7 (HTTP/HTTPS/WebSocket). Ponadto aplikacje sieci Web są skonfigurowane tak, aby [akceptowały tylko ruch z Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) adres IP.
 
@@ -252,7 +252,7 @@ Aby uzyskać więcej informacji na temat architektury referencyjnej, zobacz [ten
 
 #### <a name="hdinsight-on-azure"></a>HDInsight na platformie Azure
 
-W tej architekturze referencyjnej przedstawiono Konfigurowanie DDoS Protection Standard dla [klastra usługi Azure HDInsight](/azure/hdinsight/). Upewnij się, że klaster usługi HDInsight jest połączony z siecią wirtualną i że DDoS Protection jest włączona w sieci wirtualnej.
+W tej architekturze referencyjnej przedstawiono Konfigurowanie DDoS Protection Standard dla [klastra usługi Azure HDInsight](../../hdinsight/index.yml). Upewnij się, że klaster usługi HDInsight jest połączony z siecią wirtualną i że DDoS Protection jest włączona w sieci wirtualnej.
 
 ![Okienka "HDInsight" i "Ustawienia zaawansowane" z ustawieniami sieci wirtualnej](./media/ddos-best-practices/image12.png)
 
@@ -260,7 +260,7 @@ W tej architekturze referencyjnej przedstawiono Konfigurowanie DDoS Protection S
 
 W tej architekturze ruch kierowany do klastra usługi HDInsight z Internetu jest kierowany do publicznego adresu IP skojarzonego z usługą równoważenia obciążenia bramy usługi HDInsight. Moduł równoważenia obciążenia bramy wysyła następnie bezpośrednio ruch do węzłów głównych lub węzłów procesu roboczego. Ponieważ w sieci wirtualnej usługi HDInsight włączono Standard DDoS Protection, wszystkie publiczne adresy IP w sieci wirtualnej uzyskają ochronę DDoSą dla warstwy 3 i 4. Ta architektura referencyjna może być łączona z architekturą referencyjną N-warstwową i wieloregionową.
 
-Więcej informacji na temat tej architektury referencyjnej można znaleźć w dokumentacji usługi [Azure HDInsight przy użyciu usługi azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+Więcej informacji na temat tej architektury referencyjnej można znaleźć w dokumentacji usługi [Azure HDInsight przy użyciu usługi azure Virtual Network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%252fazure%252fvirtual-network%252ftoc.json) .
 
 
 > [!NOTE]
@@ -270,4 +270,4 @@ Więcej informacji na temat tej architektury referencyjnej można znaleźć w do
 
 * [Wspólna odpowiedzialność w chmurze](shared-responsibility.md)
 * [Strona produktu Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
-* [Dokumentacja Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)
+* [Dokumentacja Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)

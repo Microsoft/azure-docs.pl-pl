@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016082"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413194"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronizacja programu Azure AD Connect: atrybuty synchronizowane z usługą Azure Active Directory
 W tym temacie wymieniono atrybuty, które są synchronizowane przez Azure AD Connect Sync.  
@@ -52,7 +52,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | userPrincipalName |X |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | pomocnik |X |X | | |
@@ -64,7 +64,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | company |X |X | | |
 | countryCode |X |X | | |
 | działu, |X |X | | |
-| description | | |X | |
+| description (opis) | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -166,7 +166,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | |synchronizowane tylko raz z usługi Azure AD do usługi Exchange Online, po której usługa Exchange Online będzie źródłem urzędu dla tego atrybutu, a wszelkie późniejsze zmiany nie będą synchronizowane z lokalnego. Aby uzyskać więcej informacji, zobacz ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
-| title |X |X | | |
+| tytuł |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
 | userCertificate |X |X | | |
@@ -175,7 +175,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | authOrig |X |X |X | |
@@ -185,7 +185,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | company |X |X | | |
 | countryCode |X |X | | |
 | działu, |X |X | | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -248,7 +248,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | |synchronizowane tylko raz z usługi Azure AD do usługi Exchange Online, po której usługa Exchange Online będzie źródłem urzędu dla tego atrybutu, a wszelkie późniejsze zmiany nie będą synchronizowane z lokalnego. Aby uzyskać więcej informacji, zobacz ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
-| title |X |X | | |
+| tytuł |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika
@@ -257,7 +257,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Zespoły i Skype dla firm Online
-| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
@@ -265,7 +265,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | co |X |X | | |
 | company |X |X | | |
 | działu, |X |X | | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -299,13 +299,13 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | |synchronizowane tylko raz z usługi Azure AD do usługi Exchange Online, po której usługa Exchange Online będzie źródłem urzędu dla tego atrybutu, a wszelkie późniejsze zmiany nie będą synchronizowane z lokalnego. Aby uzyskać więcej informacji, zobacz ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
-| title |X |X | | |
+| tytuł |X |X | | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
 | userPrincipalName |X | | |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | CN |X | |X |Nazwa pospolita lub alias. Najczęściej jest to prefiks wartości [mail]. |
@@ -320,12 +320,12 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | userPrincipalName |X | | |Ta nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
 | CN |X | |X | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | mail (poczta) |X |X |X | |
 | mailNickname |X |X |X | |
@@ -338,7 +338,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | userPrincipalName |X | | |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
@@ -346,7 +346,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| description (opis) |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -365,7 +365,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| title |X |X | | |
+| tytuł |X |X | | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
 | userPrincipalName |X | | |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 
@@ -373,11 +373,11 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 Ta grupa jest zestawem atrybutów używanych jako minimalne atrybuty, które są zbędne dla ogólnego obciążenia lub aplikacji. Może służyć do obciążenia niewymienionego w innej sekcji lub dla aplikacji innej niż Microsoft. Jest on jawnie używany dla następujących:
 
 * Yammer (tylko użytkownik jest używany)
-* [Hybrydowe scenariusze współpracy między firmami (B2B) między organizacjami oferowane przez zasoby, takie jak SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Hybrydowe scenariusze współpracy między firmami (B2B) między organizacjami oferowane przez zasoby, takie jak SharePoint](/sharepoint/create-b2b-extranet)
 
 Ta grupa jest zestawem atrybutów, których można użyć, jeśli katalog usługi Azure AD nie jest używany do obsługi Microsoft 365, Dynamics lub Intune. Ma niewielki zestaw atrybutów podstawowych. Należy pamiętać, że logowanie jednokrotne lub inicjowanie obsługi administracyjnej w niektórych aplikacjach innych firm wymaga skonfigurowania synchronizacji atrybutów oprócz atrybutów opisanych tutaj. Wymagania dotyczące aplikacji są opisane w [samouczku aplikacji SaaS](../saas-apps/tutorial-list.md) dla każdej aplikacji.
 
-| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | CN |X | |X | |
@@ -422,7 +422,7 @@ Te atrybuty dla **użytkownika** są uzupełnieniem innych wybranych aplikacji.
 ## <a name="exchange-hybrid-writeback"></a>Stornowanie hybrydowe programu Exchange
 Te atrybuty są zapisywane z powrotem z usługi Azure AD do Active Directory lokalnych, gdy wybierzesz opcję włączenia **hybrydowego programu Exchange**. W zależności od wersji programu Exchange można synchronizować mniejszą liczbę atrybutów.
 
-| Nazwa atrybutu (lokalna usługi AD) | Nazwa atrybutu (interfejs użytkownika połączenia) | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
+| Nazwa atrybutu (lokalna usługi AD) | Nazwa atrybutu (interfejs użytkownika połączenia) | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| MS-DS-External-Directory-Object-ID |X | | |Pochodny od cloudAnchor w usłudze Azure AD. Ten atrybut jest nowy w programie Exchange 2016 i Windows Server 2016 AD. |
 | msExchArchiveStatus| MS-ArchiveStatus — wymiany |X | | |Archiwum online: umożliwia klientom archiwizowanie poczty e-mail. |

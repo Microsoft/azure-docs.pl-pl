@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397253"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412786"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych magazynowanych platformy Azure
 
@@ -48,7 +48,7 @@ Szyfrowanie w spoczynku zapewnia ochronę danych przechowywanych danych (w spocz
 
 Szyfrowanie w spoczynku zostało zaprojektowane w taki sposób, aby uniemożliwić osobie atakującej dostęp do niezaszyfrowanych danych, zapewniając szyfrowanie danych na dysku. Jeśli osoba atakująca uzyska dysk twardy z zaszyfrowanymi danymi, ale nie klucze szyfrowania, osoba atakująca musi pokonać szyfrowanie, aby odczytywać dane. Ten atak jest znacznie bardziej skomplikowany i zużywa zasoby niż dostęp do nieszyfrowanych danych na dysku twardym. Z tego powodu szyfrowanie w stanie spoczynku jest zdecydowanie zalecane i jest to wymaganie o wysokim priorytecie dla wielu organizacji.
 
-Szyfrowanie w spoczynku może być również wymagane przez organizację potrzebną do zarządzania danymi i ich zgodnością. Regulacje branżowe i rządowe, takie jak HIPAA, PCI i FedRAMP, stanowią szczegółowe zabezpieczenia dotyczące ochrony danych i wymagań dotyczących szyfrowania. Szyfrowanie w spoczynku jest obowiązkowym środkiem wymaganym do zgodności z niektórymi z tych rozporządzeń. Aby uzyskać więcej informacji na temat podejścia firmy Microsoft do weryfikacji zgodności ze standardem FIPS 140-2, zobacz [publikację Federal Information Processing Standard (FIPS) 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2).
+Szyfrowanie w spoczynku może być również wymagane przez organizację potrzebną do zarządzania danymi i ich zgodnością. Regulacje branżowe i rządowe, takie jak HIPAA, PCI i FedRAMP, stanowią szczegółowe zabezpieczenia dotyczące ochrony danych i wymagań dotyczących szyfrowania. Szyfrowanie w spoczynku jest obowiązkowym środkiem wymaganym do zgodności z niektórymi z tych rozporządzeń. Aby uzyskać więcej informacji na temat podejścia firmy Microsoft do weryfikacji zgodności ze standardem FIPS 140-2, zobacz [publikację Federal Information Processing Standard (FIPS) 140-2](/microsoft-365/compliance/offering-fips-140-2).
 
 Oprócz spełnienia wymagań dotyczących zgodności i przepisów prawnych szyfrowanie w spoczynku zapewnia ochronę kompleksową. Microsoft Azure zapewnia zgodną platformę dla usług, aplikacji i danych. Zapewnia również kompleksowe funkcje i zabezpieczenia fizyczne, kontrolę dostępu do danych i inspekcję. Jednak ważne jest, aby zapewnić dodatkowe "nakładające się" środki zabezpieczeń w przypadku niepowodzenia jednego z pozostałych środków zabezpieczeń, a szyfrowanie w spoczynku zapewnia takie środki bezpieczeństwa.
 
@@ -64,7 +64,7 @@ Jak opisano wcześniej, celem szyfrowania w czasie spoczynku jest to, że dane u
 
 Lokalizacją przechowywania kluczy szyfrowania i kontroli dostępu do tych kluczy jest centralne szyfrowanie w modelu Rest. Klucze muszą być wysoce zabezpieczone, ale mogą być zarządzane przez określonych użytkowników i dostępne dla określonych usług. W przypadku usług Azure Azure Key Vault jest zalecanym rozwiązaniem magazynu kluczy i oferuje wspólne środowisko zarządzania w ramach usług. Klucze są przechowywane i zarządzane w magazynach kluczy, a dostęp do magazynu kluczy można udzielić użytkownikom lub usługom. Azure Key Vault obsługuje tworzenie kluczy lub importowanie kluczy klienta do użytku w scenariuszach z kluczami szyfrowania zarządzanymi przez klienta.
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Uprawnienia do korzystania z kluczy przechowywanych w Azure Key Vault w celu zarządzania nimi lub uzyskiwania do nich dostępu w celu szyfrowania podczas szyfrowania i odszyfrowywania w czasie spoczynku można nadać Azure Active Directory kontom.
 
@@ -115,22 +115,22 @@ Usługi Microsoft Azure Each obsługują co najmniej jedno szyfrowanie w modelac
 
 ### <a name="azure-disk-encryption"></a>Szyfrowanie dysków Azure
 
-Każdy klient korzystający z funkcji infrastruktury jako usługi (IaaS) platformy Azure może uzyskać szyfrowanie w spoczynku dla maszyn wirtualnych IaaS i dysków za pośrednictwem Azure Disk Encryption. Więcej informacji na temat usługi Azure Disk Encryption można znaleźć w [dokumentacji Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
+Każdy klient korzystający z funkcji infrastruktury jako usługi (IaaS) platformy Azure może uzyskać szyfrowanie w spoczynku dla maszyn wirtualnych IaaS i dysków za pośrednictwem Azure Disk Encryption. Więcej informacji na temat usługi Azure Disk Encryption można znaleźć w [dokumentacji Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md).
 
 #### <a name="azure-storage"></a>Azure Storage
 
 Wszystkie usługi Azure Storage (BLOB Storage, queue storage, Table Storage i Azure Files) obsługują szyfrowanie po stronie serwera. Niektóre usługi obsługują dodatkowo klucze zarządzane przez klienta i szyfrowanie po stronie klienta.
 
-- Po stronie serwera: wszystkie usługi magazynu platformy Azure domyślnie umożliwiają szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez usługę, które są niewidoczne dla aplikacji. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku](../../storage/common/storage-service-encryption.md). Usługa Azure Blob Storage i Azure Files obsługują również klucze zarządzane przez klienta RSA 2048-bitowe w programie Azure Key Vault. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Po stronie serwera: wszystkie usługi magazynu platformy Azure domyślnie umożliwiają szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez usługę, które są niewidoczne dla aplikacji. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku](../../storage/common/storage-service-encryption.md). Usługa Azure Blob Storage i Azure Files obsługują również klucze zarządzane przez klienta RSA 2048-bitowe w programie Azure Key Vault. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).
 - Po stronie klienta: obiekty blob, tabele i kolejki platformy Azure obsługują szyfrowanie po stronie klienta. W przypadku korzystania z szyfrowania po stronie klienta program szyfruje dane i przekazuje je jako zaszyfrowany obiekt BLOB. Zarządzanie kluczami jest wykonywane przez klienta. Aby uzyskać więcej informacji, zobacz [szyfrowanie po stronie klienta i Azure Key Vault dla Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database obecnie obsługuje szyfrowanie w stanie spoczynku dla usług zarządzanych przez firmę Microsoft i scenariuszy szyfrowania po stronie klienta.
 
-Obsługa szyfrowania serwera jest obecnie udostępniana za pomocą funkcji SQL o nazwie Transparent Data Encryption. Gdy Azure SQL Database klient włącza klucz TDE, są automatycznie tworzone i zarządzane dla nich. Szyfrowanie w spoczynku można włączyć na poziomie bazy danych i serwera. Od czerwca 2017 [transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) jest domyślnie włączone dla nowo utworzonych baz danych. Azure SQL Database obsługuje RSA 2048-bitowe klucze zarządzane przez klienta w Azure Key Vault. Aby uzyskać więcej informacji, zobacz [transparent Data Encryption z obsługą Bring Your Own Key w przypadku Azure SQL Database i magazynu danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Obsługa szyfrowania serwera jest obecnie udostępniana za pomocą funkcji SQL o nazwie Transparent Data Encryption. Gdy Azure SQL Database klient włącza klucz TDE, są automatycznie tworzone i zarządzane dla nich. Szyfrowanie w spoczynku można włączyć na poziomie bazy danych i serwera. Od czerwca 2017 [transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) jest domyślnie włączone dla nowo utworzonych baz danych. Azure SQL Database obsługuje RSA 2048-bitowe klucze zarządzane przez klienta w Azure Key Vault. Aby uzyskać więcej informacji, zobacz [transparent Data Encryption z obsługą Bring Your Own Key w przypadku Azure SQL Database i magazynu danych](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za pomocą funkcji [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) . Always Encrypted używa klucza utworzonego i przechowywanego przez klienta. Klienci mogą przechowywać klucz główny w magazynie certyfikatów systemu Windows, Azure Key Vault lub lokalnych sprzętowych modułach zabezpieczeń. Za pomocą SQL Server Management Studio użytkownicy SQL wybierają klucz, którego chcesz użyć do zaszyfrowania kolumny.
+Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za pomocą funkcji [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) . Always Encrypted używa klucza utworzonego i przechowywanego przez klienta. Klienci mogą przechowywać klucz główny w magazynie certyfikatów systemu Windows, Azure Key Vault lub lokalnych sprzętowych modułach zabezpieczeń. Za pomocą SQL Server Management Studio użytkownicy SQL wybierają klucz, którego chcesz użyć do zaszyfrowania kolumny.
 
 ## <a name="conclusion"></a>Podsumowanie
 
