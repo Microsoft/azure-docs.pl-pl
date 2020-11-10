@@ -120,6 +120,8 @@
           href: understand/subscription-transfer.md
         - name: Przenoszenie subskrypcji między partnerami (wersja zapoznawcza)
           href: manage/azure-plan-subscription-transfer-partners.md
+        - name: Rozpoczynanie pracy w portalu umowy Enterprise Agreement platformy Azure
+          href: manage/ea-portal-get-started.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie zarządzania kosztami i rozliczeniami
@@ -200,8 +202,6 @@
               href: manage/cancel-azure-subscription.md
         - name: Zarządzanie subskrypcjami umowy Enterprise Agreement
           items:
-            - name: Rozpoczynanie pracy w portalu umowy Enterprise Agreement platformy Azure
-              href: manage/ea-portal-get-started.md
             - name: Role umowy EA na platformie Azure
               href: manage/understand-ea-roles.md
             - name: Administracja przy użyciu witryny Azure EA Portal

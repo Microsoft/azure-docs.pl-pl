@@ -173,7 +173,7 @@
           href: sql/resource-consumption-models.md
         - name: Ilość przetworzonych danych
           href: sql/data-processed.md
-        - name: Najlepsze rozwiązania — SQL na żądanie
+        - name: 'Najlepsze rozwiązania: bezserwerowa pula SQL'
           href: sql/best-practices-sql-on-demand.md
         - name: 'Najlepsze rozwiązania: dedykowana pula SQL'
           href: sql/best-practices-sql-pool.md

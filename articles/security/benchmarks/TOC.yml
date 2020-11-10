@@ -86,7 +86,7 @@
     - name: Punkt odniesienia zabezpieczeń usługi Azure Database for PostgreSQL — Hiperskala
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Databricks
-      href: ../../azure-databricks/security-baseline.md
+      href: /azure/databricks/scenarios/security-baseline
     - name: Punkt odniesienia zabezpieczeń usługi Azure DNS
       href: ../../dns/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure DevTest Labs
@@ -118,7 +118,7 @@
     - name: Punkt odniesienia zabezpieczeń usługi Azure Sentinel
       href: ../../sentinel/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure SQL Database
-      href: ../../sql-database/security-baseline.md
+      href: ../../azure-sql/database/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Storage
       href: ../../storage/common/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Traffic Manager
@@ -154,7 +154,7 @@
     - name: Punkt odniesienia zabezpieczeń usługi HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Key Vault
-      href: ../../key-vault/security-baseline.md
+      href: ../../key-vault/general/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Logic Apps
       href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Network Watcher
