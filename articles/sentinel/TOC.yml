@@ -199,6 +199,8 @@
           href: bookmarks.md
         - name: Wyszukiwanie zagrożeń za pomocą transmisji strumieniowej na żywo
           href: livestream.md
+        - name: Zarządzanie zapytaniami do wyszukiwania zagrożeń za pomocą interfejsu REST-API
+          href: hunting-with-rest-api.md
     - name: Usuwanie usługi Azure Sentinel
       href: offboard.md
 - name: Dokumentacja (nowość!)

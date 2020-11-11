@@ -92,6 +92,8 @@
           href: multiclass-neural-network.md
         - name: Jeden przeciw wszystkim — moduł wieloklasowy
           href: one-vs-all-multiclass.md
+        - name: Jeden przeciw Wiele multiklas
+          href: one-vs-one-multiclass.md
         - name: Dwuklasowy uśredniony perceptron
           href: two-class-averaged-perceptron.md
         - name: Two-Class Boosted Decision Tree (Dwuklasowe wzmocnione drzewo decyzyjne)

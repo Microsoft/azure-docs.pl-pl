@@ -471,7 +471,7 @@
       items:
         - name: Monitorowanie operacji
           href: iot-hub-operations-monitoring.md
-        - name: Migrowanie do ustawień diagnostyki
+        - name: Migracja do usługi Azure Monitor
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: Wycofanie protokołów TLS 1.0 i 1.1
           href: iot-hub-tls-deprecating-1-0-and-1-1.md

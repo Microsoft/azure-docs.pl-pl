@@ -37,6 +37,10 @@
           href: test-drive-technical-configuration.md
         - name: Wersja testowa usługi Azure Resource Manager
           href: azure-resource-manager-test-drive.md
+        - name: Szczegółowa konfiguracja hostowanej wersji testowej
+          href: test-drive-hosted-detailed-config.md
+        - name: Konfigurowanie subskrypcji platformy Azure dla hostowanych wersji testowych
+          href: test-drive-azure-subscription-setup.md
     - name: Udział partnera w zakresie użycia platformy Azure przez klienta
       href: azure-partner-customer-usage-attribution.md
     - name: Opcje wejścia na rynek
@@ -261,7 +265,7 @@
           href: partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
         - name: Marketo
           href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
-        - name: SalesForce
+        - name: Salesforce
           href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Zarządzanie potencjalnymi klientami — często zadawane pytania
           href: lead-management-faq.md
@@ -270,15 +274,15 @@
     - name: Analiza komercyjnej platformy handlowej
       href: partner-center-portal/analytics.md
     - name: Pulpit nawigacyjny Podsumowanie
-      href: partner-center-portal/summary-dashboard.md
+      href: summary-dashboard.md
     - name: Pulpit nawigacyjny Zamówienia
-      href: partner-center-portal/orders-dashboard.md
+      href: orders-dashboard.md
     - name: Pulpit nawigacyjny Użycie
-      href: partner-center-portal/usage-dashboard.md
-    - name: Pulpit nawigacyjny Klient
-      href: partner-center-portal/customer-dashboard.md
+      href: usage-dashboard.md
+    - name: Pulpit nawigacyjny Klienci
+      href: customer-dashboard.md
     - name: Pulpit nawigacyjny Szczegółowe informacje na temat platformy handlowej
-      href: partner-center-portal/insights-dashboard.md
+      href: insights-dashboard.md
     - name: Pulpit nawigacyjny Pobieranie
       href: partner-center-portal/downloads-dashboard.md
     - name: Pulpit nawigacyjny Oceny i recenzje

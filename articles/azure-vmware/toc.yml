@@ -100,7 +100,7 @@
   items:
     - name: Rozwiązywanie problemów
       items:
-        - name: Uzyskiwanie pomocy dotyczącej błędów wdrażania lub aprowizacji
+        - name: Otwieranie wniosku o pomoc techniczną dla niepowodzeń wdrażania
           href: fix-deployment-provisioning-failures.md
     - name: Często zadawane pytania
       href: faq.md
