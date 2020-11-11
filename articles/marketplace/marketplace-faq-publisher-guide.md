@@ -4,15 +4,15 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące platformy
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126723"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491481"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -58,8 +58,8 @@ Aby zarejestrować się jako komercyjny wydawca w portalu Marketplace, przejdź 
 
 Sposoby korzystania z komercyjnej oferty portalu Marketplace zależą od tego, jak tworzysz oferty.
 
-- W przypadku rozwiązań, które są dostępne automatycznie, bez względu na to, czy są one płatne, możesz korzystać z własnej licencji (BYOL), czy bezpłatnie, klienci są zachęcani do *uzyskania teraz* .
-- Oferty obsługujące dysk testowy (Demonstracja) żądają od klienta *przetestowania dysku* . 
+- W przypadku rozwiązań, które są dostępne automatycznie, bez względu na to, czy są one płatne, możesz korzystać z własnej licencji (BYOL), czy bezpłatnie, klienci są zachęcani do *uzyskania teraz*.
+- Oferty obsługujące dysk testowy (Demonstracja) żądają od klienta *przetestowania dysku*. 
 - Oferty oprogramowanie jako usługa (SaaS), które udostępniają *okres próbny* poza komercyjnym rynkiem Marketplace.
 - Proste listy umożliwiają klientowi zażądanie *kontaktu z* nami.
 

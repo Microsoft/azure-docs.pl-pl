@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.openlocfilehash: 127b491da3e01e88c90e689e7dbcc9052ae4392f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: baeb5fbadfaf128c2c491a1fdb7e880b413878d6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099751"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491090"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Szybki Start: Tworzenie konta, bazy danych, kontenera i elementów usługi Azure Cosmos w Azure Portal
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,11 +41,11 @@ Subskrypcja platformy Azure lub bezpłatne Azure Cosmos DB konto wersji próbnej
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
-Przejdź do witryny [Azure Portal](https://portal.azure.com/), aby utworzyć konto usługi Azure Cosmos DB. Wyszukaj i wybierz pozycję **Azure Cosmos DB** .
+Przejdź do witryny [Azure Portal](https://portal.azure.com/), aby utworzyć konto usługi Azure Cosmos DB. Wyszukaj i wybierz pozycję **Azure Cosmos DB**.
 
    :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
 
-1. Wybierz pozycję **Dodaj** .
+1. Wybierz pozycję **Dodaj**.
 1. Na stronie **Tworzenie konta usługi Azure Cosmos DB** wprowadź podstawowe ustawienia nowego konta usługi Azure Cosmos. 
 
     |Ustawienie|Wartość|Opis |
@@ -54,7 +54,7 @@ Przejdź do witryny [Azure Portal](https://portal.azure.com/), aby utworzyć kon
     |Grupa zasobów|Nazwa grupy zasobów|Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź unikatową nazwę nowej grupy zasobów. |
     |Nazwa konta|Unikatowa nazwa|Wprowadź nazwę, która będzie identyfikować konto usługi Azure Cosmos. Ponieważ adres *documents.azure.com* jest dołączany do podanej nazwy w celu utworzenia identyfikatora URI, użyj unikatowej nazwy.<br><br>Nazwa może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi mieć długość od 3 do 31 znaków.|
     |Interfejs API|Typ konta do utworzenia|Wybierz pozycję **Core (SQL)** , aby utworzyć bazę danych dokumentów i wykonać zapytanie przy użyciu składni języka SQL. <br><br>Interfejs API określa typ konta do utworzenia. Usługa Azure Cosmos DB oferuje pięć interfejsów API: Core (SQL) i MongoDB dla danych dokumentów, Gremlin dla danych grafów, Azure Table i Cassandra. Obecnie dla każdego interfejsu API należy utworzyć oddzielne konto. <br><br>[Dowiedz się więcej o interfejsie API SQL](introduction.md).|
-    |Tryb wydajności|Nieobsługiwana przepływność lub bezserwerowy|Wybierz opcję **zainicjowana przepływność** , aby utworzyć konto w trybie [przepływności aprowizacji](set-throughput.md) . Wybierz opcję **Bezserwerowa** , aby utworzyć konto w trybie [bezserwerowym](serverless.md) .<br><br>**Uwaga** : bezserwerowe jest obecnie dostępne tylko dla podstawowych kont interfejsu API (SQL).|
+    |Tryb wydajności|Nieobsługiwana przepływność lub bezserwerowy|Wybierz opcję **zainicjowana przepływność** , aby utworzyć konto w trybie [przepływności aprowizacji](set-throughput.md) . Wybierz opcję **Bezserwerowa** , aby utworzyć konto w trybie [bezserwerowym](serverless.md) .|
     |Zastosuj rabat na podstawie warstwy Bezpłatna|Zastosuj lub nie stosuj|W ramach warstwy Bezpłatna usługi Azure Cosmos DB uzyskasz bezpłatnie pierwsze 400 jednostek RU/s i 5 GB magazynu na koncie. Dowiedz się więcej o [warstwie Bezpłatna](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Lokalizacja|Region najbliżej Twoich użytkowników|Wybierz lokalizację geograficzną, w której będzie hostowane konto usługi Azure Cosmos DB. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.|
     |Typ konta|Produkcyjne lub nieprodukcyjne|Wybierz pozycję **Produkcyjne** , jeśli konto będzie używane w obciążeniu produkcyjnym. Wybierz pozycję **Nieprodukcyjne** , jeśli konto będzie używane na potrzeby nieprodukcyjne, na przykład programowania, testowania, kontroli jakości lub wdrażania przejściowego. Jest to ustawienie tagu zasobu platformy Azure, które dostosowuje środowisko portalu, ale nie wpływa na bazowe konto usługi Azure Cosmos DB. Tę wartość można zmienić w dowolnym momencie.|
@@ -71,28 +71,28 @@ Przejdź do witryny [Azure Portal](https://portal.azure.com/), aby utworzyć kon
 > - Nadmiarowość geograficzna
 > - Moduły zapisujące obsługujące wiele regionów
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Strona nowego konta usługi Azure Cosmos DB":::
 
-1. Wybierz pozycję **Przegląd + utwórz** . Sekcje **Sieć** i **Tagi** możesz pominąć.
+1. Wybierz pozycję **Przegląd + utwórz**. Sekcje **Sieć** i **Tagi** możesz pominąć.
 
-1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz** . Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
+1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Okienko Powiadomienia w witrynie Azure Portal":::
 
 1. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony konta usługi Azure Cosmos DB. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Strona konta usługi Azure Cosmos DB":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Dodawanie bazy danych i kontenera 
 
 Możesz użyć Eksplorator danych w Azure Portal, aby utworzyć bazę danych i kontener. 
 
-1.  Wybierz pozycję **Eksplorator danych** w lewym obszarze nawigacji na stronie konta Azure Cosmos DB, a następnie wybierz pozycję **nowy kontener** . 
+1.  Wybierz pozycję **Eksplorator danych** w lewym obszarze nawigacji na stronie konta Azure Cosmos DB, a następnie wybierz pozycję **nowy kontener**. 
     
     Może być konieczne przewinięcie w prawo, aby wyświetlić okno **Dodawanie kontenera** .
     
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Eksplorator danych w witrynie Azure Portal, okienko Dodawanie kontenera":::
     
 1.  W okienku **Dodaj kontener** wprowadź ustawienia dla nowego kontenera.
     
@@ -106,15 +106,15 @@ Możesz użyć Eksplorator danych w Azure Portal, aby utworzyć bazę danych i k
     
     Nie dodawaj **unikatowych kluczy** dla tego przykładu. Klucze unikatowe umożliwiają dodanie warstwy integralności danych do bazy danych, zapewniając unikatowość jednej lub więcej wartości na klucz partycji. Aby uzyskać więcej informacji, zobacz [unikalne klucze w Azure Cosmos DB](unique-keys.md).
     
-1.  Wybierz pozycję **OK** . W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
+1.  Wybierz przycisk **OK**. W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
 
 ## <a name="add-data-to-your-database"></a>Dodawanie danych do bazy danych
 
 Dodaj dane do nowej bazy danych przy użyciu Eksplorator danych.
 
-1. W **Eksplorator danych** rozwiń bazę danych **todolist** i rozwiń kontener **elementów** . Następnie wybierz pozycję **elementy** , a następnie wybierz pozycję **nowy element** . 
+1. W **Eksplorator danych** rozwiń bazę danych **todolist** i rozwiń kontener **elementów** . Następnie wybierz pozycję **elementy** , a następnie wybierz pozycję **nowy element**. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Tworzenie nowych dokumentów w Eksploratorze danych w witrynie Azure Portal":::
    
 1. Dodaj następującą strukturę do dokumentu po prawej stronie okienka **dokumenty** :
 
@@ -128,9 +128,9 @@ Dodaj dane do nowej bazy danych przy użyciu Eksplorator danych.
      }
      ```
 
-1. Wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Kopiuj w danych JSON i wybierz pozycję Zapisz w Eksplorator danych w Azure Portal":::
    
 1. Ponownie wybierz pozycję **Nowy dokument** , a następnie utwórz i Zapisz inny dokument z unikatowymi wartościami i innymi wybranymi `id` właściwościami. Dokumenty mogą mieć dowolną strukturę, ponieważ Azure Cosmos DB nie nakłada żadnych schematów na dane.
 
@@ -145,7 +145,7 @@ Dodaj dane do nowej bazy danych przy użyciu Eksplorator danych.
 Jeśli chcesz usunąć tylko bazę danych i korzystać z konta usługi Azure Cosmos w przyszłości, możesz usunąć tę bazę danych, wykonując następujące czynności:
 
 * Masz konto usługi Azure Cosmos.
-* Otwórz **Eksplorator danych** , kliknij prawym przyciskiem myszy bazę danych, którą chcesz usunąć, a następnie wybierz polecenie **Usuń bazę danych** .
+* Otwórz **Eksplorator danych** , kliknij prawym przyciskiem myszy bazę danych, którą chcesz usunąć, a następnie wybierz polecenie **Usuń bazę danych**.
 * Wprowadź identyfikator bazy danych/nazwę bazy danych, aby potwierdzić operację usuwania. 
 
 ## <a name="next-steps"></a>Następne kroki

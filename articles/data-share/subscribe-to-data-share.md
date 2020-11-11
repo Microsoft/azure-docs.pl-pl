@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9031ea2d862a23df5d597b790fffc49e624e53fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216576"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491923"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: Akceptowanie i odbieranie danych przy użyciu usługi Azure Data Share  
 
@@ -74,7 +74,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Możesz otworzyć zaproszenie z poczty e-mail lub bezpośrednio z Azure Portal. 
 
-   Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com> udziału danych platformy Azure **. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
+   Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com> udziału danych platformy Azure**. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
 
    Aby otworzyć zaproszenie z Azure Portal bezpośrednio, Wyszukaj **zaproszenia udziału danych** w Azure Portal. Spowoduje to przejście do listy zaproszeń udziału danych.
 
@@ -87,7 +87,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
    ![Warunki użytkowania](./media/terms-of-use.png "Warunki użytkowania") 
 
-1. W obszarze *docelowe konto udziału danych*wybierz subskrypcję i grupę zasobów, w ramach której będziesz wdrażać udział danych. 
+1. W obszarze *docelowe konto udziału danych* wybierz subskrypcję i grupę zasobów, w ramach której będziesz wdrażać udział danych. 
 
    W polu **konto udostępniania danych** wybierz pozycję **Utwórz nową** , jeśli nie masz istniejącego konta udziału danych. W przeciwnym razie wybierz istniejące konto udziału danych, do którego chcesz zaakceptować udział danych. 
 
@@ -125,12 +125,19 @@ Te kroki dotyczą tylko udostępniania opartego na migawce.
 
    ![Wyzwalanie migawki](./media/trigger-snapshot.png "Wyzwalanie migawki") 
 
-1. Po *pomyślnym*zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych**, a następnie kliknij link w ścieżce docelowej. 
+1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych** , a następnie kliknij link w ścieżce docelowej. 
 
    ![Zestawy danych dla odbiorców](./media/consumer-datasets.png "Mapowanie zestawu danych klienta") 
 
 ## <a name="view-history"></a>Wyświetlanie historii
-Ten krok dotyczy tylko udostępniania opartego na migawce. Aby wyświetlić historię migawek, wybierz pozycję Karta **historia** . W tym miejscu znajdziesz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni. 
+Ten krok dotyczy tylko udostępniania opartego na migawce. Aby wyświetlić historię migawek, wybierz pozycję Karta **historia** . W tym miejscu znajdziesz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy zasób nie jest już wymagany, przejdź do strony **Przegląd udziału danych** i wybierz pozycję **Usuń** , aby go usunąć.
 
 ## <a name="next-steps"></a>Następne kroki
-W ramach tego samouczka nauczysz się akceptować i odbierać udział danych platformy Azure. Aby dowiedzieć się więcej o pojęciach dotyczących udziałów danych platformy Azure, przejdź do [pojęcia: Terminologia dotycząca udziałów danych platformy Azure](terminology.md).
+W ramach tego samouczka nauczysz się akceptować i odbierać udział danych platformy Azure. Aby dowiedzieć się więcej na temat pojęć związanych z udostępnianiem danych platformy Azure, przejdź do terminologii dotyczącej udostępniania danych platformy Azure.
+
+> [!div class="nextstepaction"]
+> [Pojęcia dotyczące udziałów danych platformy Azure](terminology.md)

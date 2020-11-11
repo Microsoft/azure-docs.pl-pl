@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421883"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491651"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
@@ -41,7 +41,7 @@ Migawki woluminów można tworzyć na żądanie.
 
     ![Nowa migawka](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. Kliknij pozycję **OK**. 
+4. Kliknij przycisk **OK**. 
 
 ## <a name="manage-snapshot-policies"></a>Zarządzanie zasadami migawek
 
@@ -97,7 +97,7 @@ Zasady migawek umożliwiają określenie częstotliwości tworzenia migawek w cy
 
     ![Zasady migawek miesięcznie](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Kliknij przycisk **Zapisz**.  
+4.  Kliknij pozycję **Zapisz**.  
 
 Jeśli konieczne jest utworzenie dodatkowych zasad migawek, Powtórz krok 3.
 Utworzone zasady są wyświetlane na stronie zasady migawek.
@@ -107,6 +107,8 @@ Jeśli wolumin ma używać zasad migawek, należy [zastosować zasady do wolumin
 ### <a name="apply-a-snapshot-policy-to-a-volume"></a>Stosowanie zasad migawek do woluminu
 
 Jeśli chcesz, aby wolumin używał utworzonych zasad migawek, należy zastosować zasady do woluminu. 
+
+Nie można zastosować zasad migawek do woluminu docelowego w replikacji między regionami.  
 
 1.  Przejdź do strony **woluminy** , kliknij prawym przyciskiem myszy wolumin, do którego chcesz zastosować zasady migawek, a następnie wybierz polecenie **Edytuj**.
 
@@ -172,6 +174,8 @@ Jeśli nie chcesz [przywracać całej migawki do woluminu](#restore-a-snapshot-t
 Zainstalowany wolumin zawiera katalog migawek o nazwie  `.snapshot` (w klientach NFS) lub `~snapshot` (w klientach SMB), który jest dostępny dla klienta. Katalog migawek zawiera podkatalogi odpowiadające migawkom woluminu. Każdy podkatalog zawiera pliki migawki. Jeśli przypadkowo usuniesz lub zastąpisz plik, możesz przywrócić plik do nadrzędnego katalogu do odczytu i zapisu, kopiując plik z podkatalogu migawek do katalogu do odczytu i zapisu. 
 
 W przypadku wybrania pola wyboru Ukryj ścieżkę migawki podczas tworzenia woluminu katalog migawek jest ukryty. Można wyświetlić stan ścieżki Ukryj migawkę woluminu, wybierając wolumin. Opcję Ukryj ścieżkę migawki można edytować, klikając pozycję **Edytuj** na stronie woluminu.  
+
+W przypadku woluminu docelowego w replikacji między regionami Funkcja Ukryj ścieżkę migawki jest domyślnie włączona i nie można zmodyfikować ustawienia.
 
 ![Edycja opcji migawek woluminów](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 

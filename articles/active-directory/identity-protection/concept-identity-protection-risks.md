@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042614"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490614"
 ---
 # <a name="what-is-risk"></a>Co to jest ryzyko?
 
@@ -24,14 +24,14 @@ Wykrycia ryzyka w Azure AD Identity Protection zawierają wszystkie zidentyfikow
 
 Ochrona tożsamości zapewnia organizacjom dostęp do zaawansowanych zasobów i szybkie reagowanie na podejrzane działania. 
 
->**Uwaga:** Ochrona tożsamości generuje wykrycie ryzyka tylko wtedy, gdy są używane poprawne poświadczenia. Jeśli poświadczenia są używane podczas logowania, nie reprezentuje ryzyka naruszenia bezpieczeństwa poświadczeń.
-
 ![Omówienie zabezpieczeń przedstawiające ryzykownych użytkowników i logowania](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> Ochrona tożsamości generuje wykrycie ryzyka tylko wtedy, gdy są używane poprawne poświadczenia. Jeśli poświadczenia są używane podczas logowania, nie reprezentuje ryzyka naruszenia bezpieczeństwa poświadczeń.
 
 ## <a name="risk-types-and-detection"></a>Typy ryzyka i wykrywanie
 
-Istnieją dwa typy **użytkowników** ryzyka i **logowania** oraz dwa typy wykrywania lub obliczeń w czasie **rzeczywistym** i **w trybie offline** .
+Istnieją dwa typy **użytkowników** ryzyka i **logowania** oraz dwa typy wykrywania lub obliczeń w czasie **rzeczywistym** i **w trybie offline**.
 
 Wykrywanie w czasie rzeczywistym może nie być wyświetlane w raporcie przez pięć do dziesięciu minut. Wykrywanie w trybie offline może nie być wyświetlane w raporcie od dwóch do dwudziestu czterech godzin.
 
@@ -77,6 +77,10 @@ Te zagrożenia mogą być obliczane w czasie rzeczywistym lub obliczane w trybie
 Ochrona tożsamości dzieli ryzyko na trzy warstwy: niski, średni i wysoki. 
 
 Firma Microsoft nie udostępnia szczegółowych informacji o sposobie obliczania ryzyka, dlatego będziemy mieć pewność, że każdy z poziomów zapewnia wyższy poziom pewności, że użytkownik lub logowanie zostało naruszone. Na przykład inne wystąpienia nieznanych właściwości logowania użytkownika mogą nie być zagrożone jako zagrożenie dla innego użytkownika.
+
+### <a name="password-hash-synchronization"></a>Synchronizacja skrótów haseł
+
+Wykrywanie ryzyka, takie jak wycieki poświadczeń i rozpylanie hasła, wymagają obecności skrótów haseł na potrzeby wykrywania. Aby uzyskać więcej informacji na temat synchronizacji skrótów haseł, zapoznaj się z artykułem [Implementacja synchronizacji skrótów haseł z synchronizacją Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Ujawnione poświadczenia
 

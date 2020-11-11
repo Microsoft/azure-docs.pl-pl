@@ -3,12 +3,12 @@ title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architektur
 description: Dowiedz się więcej na temat integrowania wdrożenia rozwiązania Azure VMware w architekturze gwiazdy i szprych na platformie Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0895e9c97f79e433b0383f0a99fbeeb124fd9064
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674708"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490818"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
@@ -36,30 +36,29 @@ Na diagramie przedstawiono przykład wdrożenia centrum i szprych na platformie 
 
 Architektura ma następujące główne składniki:
 
--   **Lokacja lokalna:** Lokalne centra danych klienta połączone z platformą Azure za pomocą połączenia ExpressRoute.
+- **Lokacja lokalna:** Lokalne centra danych klienta połączone z platformą Azure za pomocą połączenia ExpressRoute.
 
--   **Chmura prywatna rozwiązania Azure VMware:** Rozwiązanie VMware platformy Azure SDDC utworzone przez co najmniej jeden klaster vSphere, każdy z nich z maksymalnie 16 węzłami.
+- **Chmura prywatna rozwiązania Azure VMware:** Rozwiązanie VMware platformy Azure SDDC utworzone przez co najmniej jeden klaster vSphere, każdy z nich z maksymalnie 16 węzłami.
 
--   **ExpressRoute Gateway:** Umożliwia komunikację między chmurą prywatną rozwiązań VMware platformy Azure, usługami udostępnionymi w sieci wirtualnej Hub i obciążeniami działającymi w sieciach wirtualnych szprych.
+- **ExpressRoute Gateway:** Umożliwia komunikację między chmurą prywatną rozwiązań VMware platformy Azure, usługami udostępnionymi w sieci wirtualnej Hub i obciążeniami działającymi w sieciach wirtualnych szprych.
 
--   **ExpressRoute Global REACH:** Umożliwia łączność między środowiskiem lokalnym i chmurą prywatną rozwiązania VMware platformy Azure.
-
-
-  > [!NOTE]
-  > **Zagadnienia dotyczące sieci VPN S2S:** W przypadku wdrożeń produkcyjnych rozwiązania VMware platformy Azure usługa Azure S2S VPN nie jest obsługiwana z powodu wymagań sieci dla programu VMware HCX. Można go jednak użyć do wdrożenia koncepcji ZK.
+- **ExpressRoute Global REACH:** Umożliwia łączność między środowiskiem lokalnym i chmurą prywatną rozwiązania VMware platformy Azure. Łączność między rozwiązaniem VMware platformy Azure i siecią szkieletową Azure odbywa się wyłącznie za pośrednictwem ExpressRoute Global Reach. Nie można wybrać żadnej opcji poza ExpressRoute szybka ścieżka.  ExpressRoute Direct nie jest obsługiwana.
 
 
--   **Sieć wirtualna centrum:** Działa jako centralny punkt łączności z siecią lokalną i chmurą prywatną rozwiązania VMware platformy Azure.
+- **Zagadnienia dotyczące sieci VPN S2S:** W przypadku wdrożeń produkcyjnych rozwiązania VMware platformy Azure usługa Azure S2S VPN nie jest obsługiwana z powodu wymagań sieci dla programu VMware HCX. Można go jednak użyć do wdrożenia koncepcji ZK.
 
--   **Sieć wirtualna szprych**
 
-    -   **IaaS szprych:** IaaS szpryche obsługuje obciążenia oparte na usłudze Azure IaaS, w tym zestawy dostępności maszyn wirtualnych i zestawy skalowania maszyn sieciowych oraz odpowiednie składniki sieciowe.
+- **Sieć wirtualna centrum:** Działa jako centralny punkt łączności z siecią lokalną i chmurą prywatną rozwiązania VMware platformy Azure.
 
-    -   **PaaS szprych:** PaaS szprychy udostępnia usługi Azure PaaS Services przy użyciu adresów prywatnych, łącząc je z [prywatnym punktem końcowym](../private-link/private-endpoint-overview.md) i [prywatnym](../private-link/private-link-overview.md).
+- **Sieć wirtualna szprych**
 
--   **Zapora platformy Azure:** Działa jako centralny element do segmentacji ruchu między szprychami i rozwiązaniem VMware platformy Azure.
+    - **IaaS szprych:** IaaS szpryche obsługuje obciążenia oparte na usłudze Azure IaaS, w tym zestawy dostępności maszyn wirtualnych i zestawy skalowania maszyn sieciowych oraz odpowiednie składniki sieciowe.
 
--   **Application Gateway:** Udostępnia i chroni aplikacje sieci Web, które są uruchamiane na maszynach wirtualnych Azure IaaS/PaaS lub Azure VMware Solution Machines. Integruje się z innymi usługami, takimi jak API Management.
+    - **PaaS szprych:** PaaS szprychy udostępnia usługi Azure PaaS Services przy użyciu adresów prywatnych, łącząc je z [prywatnym punktem końcowym](../private-link/private-endpoint-overview.md) i [prywatnym](../private-link/private-link-overview.md).
+
+- **Zapora platformy Azure:** Działa jako centralny element do segmentacji ruchu między szprychami i rozwiązaniem VMware platformy Azure.
+
+- **Application Gateway:** Udostępnia i chroni aplikacje sieci Web, które są uruchamiane na maszynach wirtualnych Azure IaaS/PaaS lub Azure VMware Solution Machines. Integruje się z innymi usługami, takimi jak API Management.
 
 ## <a name="network-and-security-considerations"></a>Zagadnienia dotyczące sieci i zabezpieczeń
 
@@ -69,12 +68,12 @@ Ponieważ Brama ExpressRoute nie zapewnia przechodniej routingu między podłąc
 
 * **Przepływ ruchu rozwiązań w środowisku lokalnym do platformy Azure VMware**
 
-  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Przepływ ruchu rozwiązań w środowisku lokalnym do platformy Azure VMware" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Rozwiązanie VMware platformy Azure do centralnego przepływu ruchu w sieci wirtualnej**
 
-  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware — rozwiązanie do przepływu ruchu w sieci wirtualnej Hub" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Więcej informacji na temat rozwiązań dotyczących sieci i łączności VMware firmy Azure można znaleźć w [dokumentacji produktu rozwiązania VMware platformy Azure](./concepts-networking.md).
@@ -85,7 +84,7 @@ Więcej informacji na temat rozwiązań dotyczących sieci i łączności VMware
 
 Utwórz tabele tras, aby skierować ruch do zapory platformy Azure.  W przypadku sieci wirtualnych szprych Utwórz trasę, która ustawia domyślną trasę do wewnętrznego interfejsu zapory platformy Azure. W ten sposób, gdy obciążenie w Virtual Network musi dotrzeć do przestrzeni adresowej rozwiązań VMware platformy Azure, Zapora może ją oszacować i zastosować odpowiednią regułę ruchu w celu zezwolenia lub odmowy.  
 
-:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
+:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Tworzenie tabel tras w celu kierowania ruchu do zapory platformy Azure" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
 
 > [!IMPORTANT]
@@ -93,7 +92,7 @@ Utwórz tabele tras, aby skierować ruch do zapory platformy Azure.  W przypadku
 
 Ustaw trasy dla określonych sieci w odpowiedniej tabeli tras. Na przykład trasy docierające do usługi Azure VMware Solution Management i obciążenia prefiksy adresów IP z obciążeń szprych i inne sposoby.
 
-:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
+:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Ustawianie tras dla określonych sieci w odpowiedniej tabeli tras" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń w szprychach i w centrum do tworzenia bardziej szczegółowych zasad ruchu sieciowego.
 
@@ -106,7 +105,7 @@ Platformy Azure Application Gateway V1 i v2 zostały przetestowane przy użyciu 
 
 Zapoznaj się z artykułami dotyczącymi rozwiązań VMware platformy Azure w [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) , aby uzyskać szczegółowe informacje i wymagania.
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń" border="false":::
 
 
 ### <a name="jump-box-and-azure-bastion"></a>Pole skoku i usługa Azure bastionu
@@ -122,7 +121,7 @@ Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azu
 > Nie należy przydzielić publicznego adresu IP do maszyny wirtualnej z polem skoku ani udostępniać portu 3389/TCP do publicznego Internetu. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Sieć wirtualna usługi Azure bastionu Hub" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Zagadnienia dotyczące rozwiązywania problemów Azure DNS
@@ -139,11 +138,7 @@ Zgodnie z ogólnym zaleceniem projektowym należy używać istniejącej infrastr
 
 Możesz użyć usługi Azure Prywatna strefa DNS, w której strefa Prywatna strefa DNS platformy Azure łączy się z siecią wirtualną.  Serwery DNS są używane jako resolvery hybrydowe z warunkowym przekazywaniem do lokalnego lub rozwiązania VMware platformy Azure, na którym działa system DNS, wykorzystując infrastrukturę usługi Azure Prywatna strefa DNS. 
 
-Istnieje kilka zagadnień, które należy wziąć pod uwagę w przypadku Azure DNS stref prywatnych:
-
-* Należy włączyć autorejestrację, aby Azure DNS automatycznie zarządzać cyklem życia rekordów DNS dla maszyn wirtualnych wdrożonych w sieciach wirtualnych szprych.
-* Maksymalna liczba prywatnych stref DNS, z którymi może być połączona sieć wirtualna, jest tylko jedna.
-* Maksymalna liczba prywatnych stref DNS, z którymi można połączyć sieć wirtualną, to 1000 bez włączonej autorejestracji.
+Aby automatycznie zarządzać cyklem życia rekordów DNS dla maszyn wirtualnych wdrożonych w sieciach wirtualnych szprych, Włącz autorejestrację. Gdy ta funkcja jest włączona, Maksymalna liczba prywatnych stref DNS jest tylko jeden. W przypadku wyłączenia wartość maksymalna to 1000.
 
 Serwery rozwiązań lokalnych i platformy Azure VMware można skonfigurować za pomocą usług przesyłania dalej warunkowego do maszyn wirtualnych programu rozpoznawania nazw na platformie Azure dla strefy Prywatna strefa DNS platformy Azure.
 

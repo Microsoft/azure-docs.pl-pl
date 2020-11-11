@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
-ms.openlocfilehash: 6ac28e430681f35d9935cf0f484529074403bf54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324965"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491702"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Wdrażanie modeli ML do opartych na programowalnych tablic bram (FPGA) z Azure Machine Learning 
 
@@ -362,6 +362,8 @@ converted_model.delete()
 ## <a name="next-steps"></a>Następne kroki
 
 + Dowiedz się, jak [zabezpieczyć dokument usług sieci Web](how-to-secure-web-service.md) .
+
++ Dowiedz się więcej na temat [cen i FPGA Azure Machine Learning i kosztów](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 + [Sprzęt ze skalowaniem: ML na dużą skalę na platformie Azure i FPGA: kompilacja 2018 (wideo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 

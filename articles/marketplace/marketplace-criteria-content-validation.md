@@ -4,15 +4,15 @@ description: W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświ
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126111"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491498"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Wskazówki dotyczące wyświetlania w portalu Azure Marketplace
 
@@ -78,7 +78,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 2 | Opis oferty  |<ul><li>Upewnij się, że odpowiednie użycie [nazw produktów firmy Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Oferty oznaczone jako *Cena: Szacowana* musi mieć uwagi na górze lub u dołu, aby wyjaśnić zmienność (podróż do klienta, liczbę migrowanych serwerów itp.).</li><li>Każdy typ oferty ma wymagania dotyczące opisu w następujący sposób: <ul><li>Niektóre z nich muszą zawierać co najmniej cztery punktory i informacje o tematach, które mają być objęte pomocą.</li><li>Wszystkie warsztaty wymagają planu.</li><li>Wszystkie agendy muszą być podzielone na dzień lub przez tydzień, w zależności od czasu trwania warsztatu.</li><li>Oceny, ZK, warsztaty nieszkoleniowe i wdrożenia wymagają elementów dostarczanych.</li><li>Warsztaty szkoleniowe nie potrzebują elementów dostarczanych, ale potrzebują bardziej szczegółowego planu z tematami, które zostaną omówione.</li></ul></ul> | <ul><li>Każda oferta ma plan i elementy dostarczane.</li><li>Oferta obejmuje akapit z kontekstem dotyczącym firmy dostarczającej usługę w górnej części.</li><li>Oferta zawiera akapit o wartości samej usługi jako górną sekcję. |
 | 3 | Formatowanie promocji  | Wszystkie oferty muszą używać formatowania promocji, aby oferta była prawidłowo renderowana, gdy zostanie przekonwertowana na format HTML.  |  |
 | 4 | Kategorie i branże | Kategorie nie są istotne. |  | 
-| 5 | Stan listy (opcja wyświetlania) | Automatycznie wymienione jako *kontakt ze mną* . |  | 
+| 5 | Stan listy (opcja wyświetlania) | Automatycznie wymienione jako *kontakt ze mną*. |  | 
 | 6 | Obsługa rozwiązań i pomoc  | Obsługa i pomoc nie są wymagane.  | | 
 | 7 | Dostępne są zasady ochrony prywatności i warunki użytkowania  |  Zasady lub warunki nie są wymagane.  | | 
 | 8 | Typy usług | Upewnij się, że typ usługi jest zgodny z tytułem. | |

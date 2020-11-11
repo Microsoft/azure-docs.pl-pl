@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323332"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491464"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi sygnalizującego dla Azure Functions
 
@@ -116,7 +116,7 @@ Przykład function.js:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -126,9 +126,9 @@ Przykład function.js:
 Oto kod języka Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -248,7 +248,7 @@ Przykład function.js:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -258,9 +258,9 @@ Przykład function.js:
 Oto kod języka Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -383,7 +383,7 @@ Przykład function.js:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -393,9 +393,9 @@ Przykład function.js:
 Oto kod języka Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',
@@ -730,11 +730,11 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź**| nie dotyczy | Musi być ustawiony na `signalRConnectionInfo` .|
-|**wskazywa**| nie dotyczy | Musi być ustawiony na `in` .|
-|**Nazwij**| nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
+|**Wprowadź**| n/d | Musi być ustawiony na `signalRConnectionInfo` .|
+|**wskazywa**| n/d | Musi być ustawiony na `in` .|
+|**Nazwij**| n/d | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
 |**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnałów, dla którego są generowane informacje o połączeniu.|
-|**Nazwa**|**UserId**| Opcjonalnie: wartość żądania identyfikatora użytkownika do ustawienia w tokenie klucza dostępu. |
+|**userId**|**Nazwa**| Opcjonalnie: wartość żądania identyfikatora użytkownika do ustawienia w tokenie klucza dostępu. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 
 ### <a name="signalr"></a>SignalR
@@ -743,9 +743,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź**| nie dotyczy | Musi być ustawiony na `signalR` .|
-|**wskazywa**| nie dotyczy | Musi być ustawiony na `out` .|
-|**Nazwij**| nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
+|**Wprowadź**| n/d | Musi być ustawiony na `signalR` .|
+|**wskazywa**| n/d | Musi być ustawiony na `out` .|
+|**Nazwij**| n/d | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
 |**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnałów, dla którego są generowane informacje o połączeniu.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 

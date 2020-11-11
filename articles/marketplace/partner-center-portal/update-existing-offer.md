@@ -4,16 +4,16 @@ description: Jak wprowadzać aktualizacje do istniejącej komercyjnej oferty lub
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperfq2
-ms.openlocfilehash: 376852c214d503867cd938507760e963b9b75e93
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129987"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491957"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Aktualizowanie istniejących ofert w portalu komercyjnym
 
@@ -25,7 +25,7 @@ Wykonaj następujące kroki, aby zaktualizować ofertę, która została pomyśl
 
 1. Wybierz nazwę oferty, którą chcesz zaktualizować. Stan oferty może być wyświetlany jako **wersja zapoznawcza** , na **żywo** , **Publikowanie w toku** , **wersja robocza** , **wymagana Uwaga** lub **niedostępna** (jeśli wcześniej wybrano, aby zrezygnować z sprzedaży oferty). Po wybraniu zostanie otwarta strona **przeglądu oferty** dla tej oferty.
 1. Wybierz stronę oferty, którą chcesz zaktualizować, taką jak **Właściwości** , **Oferta oferty** lub **wersja zapoznawcza** (lub wybierz **aktualizację** z odpowiedniej karty na stronie **przeglądu oferty** ).
-1. Wprowadź zmiany i wybierz pozycję **Zapisz wersję roboczą** . Powtarzaj ten proces, dopóki nie zostaną ukończone wszystkie zmiany.
+1. Wprowadź zmiany i wybierz pozycję **Zapisz wersję roboczą**. Powtarzaj ten proces, dopóki nie zostaną ukończone wszystkie zmiany.
 1. Przejrzyj zmiany na stronie **[PORÓWNAJ](#compare-changes-to-your-offer)** .
 1. Gdy wszystko będzie gotowe do opublikowania zaktualizowanej oferty, wybierz pozycję **Przeglądaj i Opublikuj** na dowolnej stronie. Zostanie otwarta strona **przeglądanie i publikowanie** . Na tej stronie zobaczysz stan ukończenia sekcji zaktualizowanej oferty: 
     - **Nieopublikowane zmiany** : sekcja została zaktualizowana i została ukończona. Wszystkie wymagane dane zostały dostarczone, a aktualizacje nie zostały wprowadzone.
@@ -39,8 +39,8 @@ Wykonaj następujące kroki, aby zaktualizować ofertę, która została pomyśl
 
 Wykonaj te kroki, aby dodać nowy plan do oferty, która została już opublikowana.
 
-1. Na stronie **Przegląd oferty** dla istniejącej oferty przejdź do strony **Przegląd planu** , a następnie wybierz pozycję **Utwórz nowy plan** .
-1. Utwórz nowy plan zgodnie z [wytycznymi](../plans-pricing.md) , korzystając z **istniejącego modelu cen planów** .
+1. Na stronie **Przegląd oferty** dla istniejącej oferty przejdź do strony **Przegląd planu** , a następnie wybierz pozycję **Utwórz nowy plan**.
+1. Utwórz nowy plan zgodnie z [wytycznymi](../plans-pricing.md) , korzystając z **istniejącego modelu cen planów**.
 1. Po zmianie nazwy planu wybierz pozycję **Zapisz wersję roboczą** .
 1. Wybierz pozycję **Opublikuj** , gdy wszystko będzie gotowe do opublikowania aktualizacji. Zostanie otwarta strona **[przeglądanie i publikowanie](../review-publish-offer.md)** , która zawiera informacje o stanie ukończenia aktualizacji.
 
@@ -48,8 +48,8 @@ Wykonaj te kroki, aby dodać nowy plan do oferty, która została już opublikow
 
 Wykonaj następujące kroki, aby wprowadzić zmiany w planie dla oferty, która została już opublikowana.
 
-1. Na stronie **Przegląd oferty** dla istniejącej oferty wybierz plan, który chcesz zmienić. Jeśli plan nie jest dostępny z listy **Przegląd planu** , wybierz pozycję **Zobacz wszystkie plany** .
-1. Wybierz **nazwę** planu, **model cen** lub **dostępność** . *Obecnie plany są dostępne tylko w języku angielskim (Stany Zjednoczone)* .
+1. Na stronie **Przegląd oferty** dla istniejącej oferty wybierz plan, który chcesz zmienić. Jeśli plan nie jest dostępny z listy **Przegląd planu** , wybierz pozycję **Zobacz wszystkie plany**.
+1. Wybierz **nazwę** planu, **model cen** lub **dostępność**. *Obecnie plany są dostępne tylko w języku angielskim (Stany Zjednoczone)*.
 1. Wybierz pozycję **Zapisz wersję roboczą** po wprowadzeniu wszelkich zmian w nazwie planu, opisie lub dostępności odbiorców.
 1. Wybierz pozycję **Przejrzyj i Opublikuj,** gdy wszystko jest gotowe do opublikowania aktualizacji. Zostanie otwarta strona **[przeglądanie i publikowanie](../review-publish-offer.md)** , która zawiera informacje o stanie ukończenia aktualizacji.
 1. Wybierz pozycję **Publikuj** , aby przesłać zaktualizowany plan do opublikowania. Wyślemy wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej zaktualizowanej oferty, którą można przejrzeć i zatwierdzić.
@@ -58,19 +58,19 @@ Wykonaj następujące kroki, aby wprowadzić zmiany w planie dla oferty, która 
 
 Po opublikowaniu planu maszyny wirtualnej nie można zmienić jego ceny. Aby zaoferować ten sam plan przy użyciu innej ceny, należy ukryć plan i utworzyć nowy przy użyciu zaktualizowanej ceny. Najpierw Ukryj plan z ceną, którą chcesz zmienić:
 
-1. Na stronie **Przegląd oferty** dla istniejącej oferty wybierz plan, który chcesz zmienić. Jeśli plan nie jest dostępny z listy **Przegląd planu** , wybierz pozycję **Zobacz wszystkie plany** .
+1. Na stronie **Przegląd oferty** dla istniejącej oferty wybierz plan, który chcesz zmienić. Jeśli plan nie jest dostępny z listy **Przegląd planu** , wybierz pozycję **Zobacz wszystkie plany**.
 1. Zaznacz pole wyboru **Ukryj plan** . Zapisz wersję roboczą przed kontynuowaniem.
 
 Teraz, gdy plan został ukryty przy użyciu starej ceny, Utwórz kopię tego planu przy użyciu zaktualizowanej ceny:
 
-1. W centrum partnerskim Wróć do **omówienia planu** .
-2. Wybierz pozycję **Utwórz nowy plan** . Wprowadź **identyfikator planu** i **nazwę planu** , a następnie wybierz pozycję **Utwórz** .
+1. W centrum partnerskim Wróć do **omówienia planu**.
+2. Wybierz pozycję **Utwórz nowy plan**. Wprowadź **identyfikator planu** i **nazwę planu** , a następnie wybierz pozycję **Utwórz**.
 1. Aby ponownie wykorzystać konfigurację techniczną z planu, który został ukryty, zaznacz pole wyboru **ponownie Użyj konfiguracji technicznej** . Przeczytaj temat [Tworzenie planów dla oferty maszyny wirtualnej](../azure-vm-create-plans.md) , aby dowiedzieć się więcej.
     > [!IMPORTANT]
     > Jeśli wybierzesz opcję **ten plan ponownie używa konfiguracji technicznej z innego planu** , nie będzie można później przestać sprzedawać planu nadrzędnego. Nie używaj tej opcji, jeśli chcesz zrezygnować z sprzedaży planu nadrzędnego.
 3. Ukończ wszystkie wymagane sekcje dla nowego planu, w tym nową cenę.
-1. Wybierz pozycję **Zapisz wersję roboczą** .
-1. Po zakończeniu wszystkich wymaganych sekcji nowego planu wybierz pozycję **Przejrzyj i Opublikuj** . Spowoduje to przesłanie oferty do przeglądu i publikacji. Aby uzyskać więcej informacji, przeczytaj temat [przeglądanie i publikowanie oferty w portalu komercyjnym](../review-publish-offer.md) .
+1. Wybierz pozycję **Zapisz wersję roboczą**.
+1. Po zakończeniu wszystkich wymaganych sekcji nowego planu wybierz pozycję **Przejrzyj i Opublikuj**. Spowoduje to przesłanie oferty do przeglądu i publikacji. Aby uzyskać więcej informacji, przeczytaj temat [przeglądanie i publikowanie oferty w portalu komercyjnym](../review-publish-offer.md) .
 
 ## <a name="sync-private-plan-audiences"></a>Synchronizuj odbiorców planu prywatnego
 
@@ -116,7 +116,7 @@ Pamiętaj, aby ponownie opublikować ofertę po wprowadzeniu aktualizacji, aby z
 Jeśli masz zmiany w wersji zapoznawczej, które nie są na żywo, możesz porównać nowe zmiany z ofertą Marketplace w wersji zapoznawczej.
 
 1. Wybierz pozycję **PORÓWNAJ** na pasku poleceń strony.
-2. Wybierz z listy rozwijanej pozycję **with** i zmień ją z oferty na **żywo** , aby **wyświetlić wersję zapoznawczą** . Jeśli Twoja oferta jeszcze się nie wyłączyła, nie zobaczysz opcji **Live Offer** .
+2. Wybierz z listy rozwijanej pozycję **with** i zmień ją z oferty na **żywo** , aby **wyświetlić wersję zapoznawczą**. Jeśli Twoja oferta jeszcze się nie wyłączyła, nie zobaczysz opcji **Live Offer** .
 3. Strona **PORÓWNAJ** zawiera wersje obok siebie, które pokazują zmiany.
 
 Pamiętaj, aby ponownie opublikować ofertę po wprowadzeniu aktualizacji, aby zmiany zaczęły obowiązywać.

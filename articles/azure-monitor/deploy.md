@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0591825bf187648293d5aabc88597b19ab2436e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033476"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491056"
 ---
 # <a name="deploy-azure-monitor"></a>Wdrażanie usługi Azure Monitor
 Włączenie Azure Monitor monitorowania wszystkich zasobów platformy Azure jest kombinacją konfigurowania składników Azure Monitor i konfigurowania zasobów platformy Azure w celu wygenerowania danych monitorowania dla Azure Monitor do zebrania. W tym artykule opisano różne kroki wymagane do wykonania pełnej implementacji Azure Monitor przy użyciu wspólnej konfiguracji do monitorowania wszystkich zasobów w ramach subskrypcji platformy Azure. Podstawowe opisy poszczególnych kroków są dostępne z linkami do innej dokumentacji dotyczącej szczegółowych wymagań dotyczących konfiguracji.
@@ -118,7 +118,7 @@ Zobacz [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows A
 Azure Monitor monitoruje aplikacje niestandardowe przy użyciu [Application Insights](app/app-insights-overview.md), które należy skonfigurować dla każdej aplikacji, która ma być monitorowana. Proces konfiguracji będzie się różnić w zależności od typu monitorowanej aplikacji i typu monitorowania, które chcesz wykonać. Dane zbierane przez Application Insights są przechowywane w Azure Monitor metrykach, dziennikach Azure Monitor i magazynie obiektów blob platformy Azure, w zależności od funkcji. Dane wydajności są przechowywane zarówno w Azure Monitor metryki, jak i w dziennikach Azure Monitor bez konieczności wykonywania dodatkowych czynności konfiguracyjnych.
 
 ### <a name="create-an-application-resource"></a>Tworzenie zasobu aplikacji
-Należy utworzyć zasób w Application Insights dla każdej aplikacji, która ma być monitorowana. Dane dziennika zbierane przez Application Insights są przechowywane w dziennikach Azure Monitor dla aplikacji opartej na obszarze roboczym. Dane dziennika dla klasycznych aplikacji są przechowywane niezależnie od obszaru roboczego Log Analytics, zgodnie z opisem w temacie [Struktura danych](platform/data-platform-logs.md#structure-of-data).
+Należy utworzyć zasób w Application Insights dla każdej aplikacji, która ma być monitorowana. Dane dziennika zbierane przez Application Insights są przechowywane w dziennikach Azure Monitor dla aplikacji opartej na obszarze roboczym. Dane dziennika dla klasycznych aplikacji są przechowywane niezależnie od obszaru roboczego Log Analytics, zgodnie z opisem w temacie [Struktura danych](platform/data-platform-logs.md#data-structure).
 
  Podczas tworzenia aplikacji należy wybrać, czy używać klasycznego, czy opartego na obszarze roboczym. Zobacz [Tworzenie zasobu Application Insights](app/create-new-resource.md) , aby utworzyć klasyczną aplikację. Zapoznaj się z [zasobami Application Insights opartymi na obszarze roboczym (wersja zapoznawcza)](app/create-workspace-resource.md) w celu utworzenia aplikacji na podstawie obszaru roboczego.
 

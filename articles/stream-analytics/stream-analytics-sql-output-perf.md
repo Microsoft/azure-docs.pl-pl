@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics dane wyjściowe do Azure SQL Database
+title: Zwiększenie wydajności przepływności do Azure SQL Database z Azure Stream Analytics
 description: Dowiedz się więcej na temat wyprowadzania danych do platformy SQL Azure z Azure Stream Analytics i osiągnięcia wyższych stawek przepływności zapisu.
 author: chetanmsft
 ms.author: chetang
@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a902cbc8256e249a608a5da8436a1145ddb0d565
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346336"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490937"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics dane wyjściowe do Azure SQL Database
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Zwiększenie wydajności przepływności do Azure SQL Database z Azure Stream Analytics
 
 W tym artykule omówiono wskazówki pozwalające osiągnąć lepszą wydajność zapisu podczas ładowania danych do Azure SQL Database przy użyciu Azure Stream Analytics.
 

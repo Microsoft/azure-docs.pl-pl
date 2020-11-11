@@ -3,12 +3,12 @@ title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047059"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491804"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -92,7 +92,7 @@ Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie
 
    - Zasoby `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupa zasobów — `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Ramach `/subscriptions/{subId}/`
+   - Ramach `/subscriptions/{subId}`
    - Grupa zarządzania — `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Aby uzyskać więcej informacji na temat zarządzania zasadami zasobów przy użyciu modułu Menedżer zasobów PowerShell, zobacz [AZ. resources](/powershell/module/az.resources/#policies).

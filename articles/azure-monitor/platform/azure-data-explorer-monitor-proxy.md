@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8a503a5456fc28bd1b3ebb69c784fc59b3c6e7df
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050078"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491260"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Wykonywanie zapytań dotyczących danych w Azure Monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)
 Klaster usługi Azure Eksplorator danych proxy umożliwia wykonywanie zapytań między produktami między usługą Azure Eksplorator danych, obszarami roboczymi Log Analytics i klasycznymi aplikacjami Application Insights w Azure Monitor. Obszary robocze Log Analytics można mapować w aplikacjach Azure Monitor i klasycznych Application Insights jako klastrów proxy. Następnie można wykonać zapytanie dotyczące klastra proxy przy użyciu narzędzi usługi Azure Eksplorator danych i odwołać się do niego w zapytaniu między klastrami. W tym artykule pokazano, jak nawiązać połączenie z klastrem proxy, dodać klaster proxy do interfejsu użytkownika sieci Web usługi Azure Eksplorator danych i uruchamiać zapytania względem obszarów roboczych Log Analytics lub klasycznych aplikacji Application Insights z usługi Azure Eksplorator danych.
@@ -28,7 +28,7 @@ Na poniższym diagramie przedstawiono przepływ serwera proxy usługi Azure Eksp
 ## <a name="connect-to-the-proxy"></a>Łączenie z serwerem proxy
 Aby połączyć obszar roboczy Log Analytics lub klasyczną aplikację Application Insights, Otwórz[interfejs użytkownika sieci Web platformy Azure Eksplorator danych](https://dataexplorer.azure.com/clusters). Przed nawiązaniem połączenia z klastrem Log Analytics lub Application Insights należy sprawdzić, czy w menu po lewej stronie jest wyświetlany klaster macierzysty platformy Azure Eksplorator danych (na przykład klaster *pomocy* ).
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Przepływ serwera proxy Eksploratora danych platformy Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Klaster platformy Azure Eksplorator danych Native.":::
 
 Kliknij pozycję **Dodaj klaster** , a następnie Dodaj adres URL Log Analytics lub Application Insights klastra w jednym z następujących formatów. 
     
@@ -37,14 +37,14 @@ Kliknij pozycję **Dodaj klaster** , a następnie Dodaj adres URL Log Analytics 
 
 Kliknij przycisk **Dodaj** , aby nawiązać połączenie.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Przepływ serwera proxy Eksploratora danych platformy Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Dodaj klaster.":::
  
 > [!NOTE]
 > W przypadku dodania połączenia do więcej niż jednego klastra proxy nadaj każdej innej nazwie. W przeciwnym razie wszystkie będą mieć taką samą nazwę w lewym okienku.
 
 Po nawiązaniu połączenia Log Analytics lub klaster Application Insights zostanie wyświetlony w lewym okienku z natywnym klastrem usługi Azure Eksplorator danych. 
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Przepływ serwera proxy Eksploratora danych platformy Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics i klastry Eksplorator danych platformy Azure.":::
  
 > [!NOTE]
 > Liczba obszarów roboczych, które mogą być mapowane Azure Monitor, jest ograniczona do 100.
@@ -70,7 +70,7 @@ Uruchamianie zapytań w klastrze Log Analytics lub Application Insights. Sprawd�
 Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
 ```
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Przepływ serwera proxy Eksploratora danych platformy Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Log Analytics obszarze roboczym zapytań.":::
 
 ### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Krzyżowe zapytania dotyczące Log Analytics lub Application Insights klastra proxy i klastra Azure Eksplorator danych Native
 
@@ -85,7 +85,7 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Użycie [ `join` operatora](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)zamiast Union może wymagać [wskazówki](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) do uruchomienia jej w klastrze usługi Azure Eksplorator danych Native (a nie na serwerze proxy). 
+Użycie [ `join` operatora](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor)zamiast Union może wymagać [wskazówki](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) do uruchomienia jej w klastrze usługi Azure Eksplorator danych Native (a nie na serwerze proxy). 
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Dołączanie danych z klastra Eksplorator danych platformy Azure w jednej dzierżawie przy użyciu zasobu Azure Monitor w innym
 
@@ -113,7 +113,7 @@ Serwer proxy obsługuje następujące polecenia:
 
 Na poniższej ilustracji przedstawiono przykład zapytania dotyczącego funkcji tabelarycznej z internetowego interfejsu użytkownika usługi Azure Eksplorator danych. Aby użyć funkcji, uruchom ją w oknie zapytania.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Przepływ serwera proxy Eksploratora danych platformy Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Wykonaj zapytanie dotyczące funkcji tabelarycznej z internetowego interfejsu użytkownika usługi Azure Eksplorator danych.":::
  
 > [!NOTE]
 > Azure Monitor obsługuje tylko funkcje tabelaryczne, które nie obsługują parametrów.
@@ -124,7 +124,7 @@ Podczas wywoływania Log Analytics lub Application Insights klastrów dostępne 
 
 |Opis składni  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Baza danych w klastrze, która zawiera tylko zdefiniowany zasób w tej subskrypcji (**zalecane w przypadku zapytań między klastrami**) |   klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| Baza danych w klastrze, która zawiera tylko zdefiniowany zasób w tej subskrypcji ( **zalecane w przypadku zapytań między klastrami** ) |   klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | Klaster zawierający wszystkie aplikacje/obszary robocze w tej subskrypcji    |     klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |Klaster zawierający wszystkie aplikacje/obszary robocze w subskrypcji i są członkami tej grupy zasobów    |   klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |Klaster zawierający tylko zdefiniowany zasób w tej subskrypcji      |    klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |

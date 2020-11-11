@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234124"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490886"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Importowanie danych do platformy Azure Blob Storage przy użyciu usługi Azure Import/Export
 
@@ -71,7 +71,7 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 7. Aby przygotować dysk, uruchom następujące polecenie. **W zależności od rozmiaru danych może to potrwać kilka godzin.**
 
     ```powershell
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
     Plik dziennika jest tworzony w tym samym folderze, w którym uruchomiono narzędzie. Tworzone są również dwa inne pliki — plik *XML* (folder, w którym jest uruchamiane narzędzie) i plik *drive-manifest.xml* (folder, w którym znajdują się dane).
@@ -101,17 +101,17 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
 1. Zaloguj się do https://portal.azure.com/ .
-2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania** .
+2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
 
     ![Przejdź do zadań importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Kliknij pozycję **Utwórz zadanie importu/eksportu** .
+3. Kliknij pozycję **Utwórz zadanie importu/eksportu**.
 
     ![Kliknij pozycję Utwórz zadanie importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. **Podstawowe informacje** :
 
-   * Wybierz pozycję **Importuj na platformie Azure** .
+   * Wybierz pozycję **Importuj na platformie Azure**.
    * Wprowadź opisową nazwę zadania importu. Użyj nazwy, aby śledzić postęp zadań.
        * Nazwa może zawierać tylko małe litery, cyfry i łączniki.
        * Nazwa musi rozpoczynać się od litery i nie może zawierać spacji.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4dd592cb1b0037e2e1054bb24d987d4456f15e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380979"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492127"
 ---
 # <a name="how-to-configure-your-saas-offer-properties"></a>Jak skonfigurować właściwości oferty SaaS
 
@@ -23,16 +23,16 @@ Na karcie **Właściwości** zdefiniujesz kategorie i branże, które mają zast
 
 ## <a name="select-a-category-for-your-offer"></a>Wybierz kategorię oferty
 
-W obszarze **Kategoria**wybierz co najmniej jedną i maksymalnie dwie kategorie na potrzeby grupowania oferty w odpowiednie obszary wyszukiwania w portalu Marketplace. W oparciu o wybrane kategorie określisz, w jakich sklepach online ma zostać wystawiona oferta: w witrynie Azure Marketplace, Microsoft AppSource lub obu.
+W obszarze **Kategoria** wybierz co najmniej jedną i maksymalnie dwie kategorie na potrzeby grupowania oferty w odpowiednie obszary wyszukiwania w portalu Marketplace. W oparciu o wybrane kategorie określisz, w jakich sklepach online ma zostać wystawiona oferta: w witrynie Azure Marketplace, Microsoft AppSource lub obu.
 
 ## <a name="select-industries-optional"></a>Wybierz branże (opcjonalnie)
 
-W obszarze **branże**możesz wybrać maksymalnie dwie branże i maksymalnie dwie branże podrzędne (nazywane również pionowymi) dla każdej branży. Te branże są używane do wyświetlania oferty w przypadku, gdy klienci filtrują wyszukiwanie w branżach i gałęziach podrzędnych w sklepie online.
+W obszarze **branże** możesz wybrać maksymalnie dwie branże i maksymalnie dwie branże podrzędne (nazywane również pionowymi) dla każdej branży. Te branże są używane do wyświetlania oferty w przypadku, gdy klienci filtrują wyszukiwanie w branżach i gałęziach podrzędnych w sklepie online.
 
 > [!NOTE]
 > Jeśli Twoja oferta nie jest zależna od branży, pozostaw tę sekcję pustą.
 
-1. W obszarze **branże**wybierz łącze **+ Branża** .
+1. W obszarze **branże** wybierz łącze **+ Branża** .
 1. Wybierz branżę z listy **branżowej** .
 1. Wybierz co najmniej jeden i maksymalnie dwa pionowe wartości z listy **branż podrzędnych** . Użyj klawisza CTRL, aby wybrać wiele branż podrzędnych.
 1. Aby dodać kolejną branżę i pionowo, wybierz pozycję **+ branże** , a następnie powtórz kroki od 1 do 3.
@@ -43,7 +43,7 @@ W obszarze **branże**możesz wybrać maksymalnie dwie branże i maksymalnie dwi
 
 ## <a name="provide-terms-and-conditions"></a>Podaj warunki i postanowienia
 
-W obszarze **prawne**Podaj warunki i postanowienia dotyczące oferty. Dostępne są dwie opcje:
+W obszarze **prawne** Podaj warunki i postanowienia dotyczące oferty. Dostępne są dwie opcje:
 
 - [Użyj standardowej umowy z opcjonalnymi zmianami](#use-the-standard-contract)
 - [Korzystanie z własnych warunków i postanowień](#use-your-own-terms-and-conditions)
@@ -73,7 +73,7 @@ W obszarze **postanowienia dotyczące zmiany uniwersalnej do standardowej umowy 
 
 #### <a name="add-one-or-more-custom-amendments"></a>Dodawanie co najmniej jednej zmiany niestandardowej
 
-1. W obszarze **niestandardowe zmiany warunki do standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft**wybierz łącze **Dodaj termin poprawki niestandardowej (maks. 10)** .
+1. W obszarze **niestandardowe zmiany warunki do standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft** wybierz łącze **Dodaj termin poprawki niestandardowej (maks. 10)** .
 1. W polu **niestandardowe warunki zmiany** wprowadź warunki umowy licencyjnej.
 1. W polu **Identyfikator dzierżawy** wprowadź identyfikator dzierżawy. Tylko klienci powiązani z identyfikatorami dzierżawy określonymi dla tych terminów niestandardowych będą widzieć je w przepływie zakupu oferty w Azure Portal.
    > [!TIP]
@@ -87,12 +87,8 @@ W obszarze **postanowienia dotyczące zmiany uniwersalnej do standardowej umowy 
 
 Możesz określić własne warunki i postanowienia zamiast standardowej umowy. Aby wypróbować ofertę, klienci muszą zaakceptować te warunki.
 
-1. W obszarze **prawne**upewnij się, że pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu firmy Microsoft** jest wyczyszczone.
+1. W obszarze **prawne** upewnij się, że pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu firmy Microsoft** jest wyczyszczone.
 1. W polu **warunki i** postanowienia wprowadź do 10 000 znaków tekstu.
-
-   > [!NOTE]
-   > Jeśli potrzebujesz dłuższego opisu, wprowadź pojedynczy adres internetowy wskazujący, gdzie można znaleźć warunki i postanowienia. Będzie ona wyświetlana klientom jako aktywne łącze.
-
 1. Wybierz opcję **Zapisz wersję roboczą** przed przejściem do następnej karty, na **liście oferty**.
 
 ## <a name="next-steps"></a>Następne kroki

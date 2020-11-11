@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741060"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490750"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -59,7 +59,7 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    Jeśli wystąpi błąd "niewystarczające uprawnienia do ukończenia operacji", prawdopodobnie jest to spowodowane tym, że interfejs wiersza polecenia platformy Azure próbuje odszukać tożsamość osoby przydzielonej w usłudze Azure AD, a jednostka usługi nie może domyślnie odczytać usługi Azure AD.
+    Jeśli zostanie wyświetlony błąd "niewystarczające uprawnienia do ukończenia operacji", prawdopodobnie jest to spowodowane tym, że interfejs wiersza polecenia platformy Azure próbuje wyszukać tożsamość osoby przydzielonej w usłudze Azure AD, a jednostka usługi nie może domyślnie odczytać usługi Azure AD.
 
     Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/roles/permissions-reference.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu.
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Jeśli spróbujesz usunąć przypisanie ostatniego właściciela roli dla subskrypcji, może zostać wyświetlony komunikat o błędzie "nie można usunąć ostatniego przypisania administratora RBAC". Usuwanie przypisania roli ostatniego właściciela subskrypcji nie jest obsługiwane, aby uniknąć oddzielenia subskrypcji. Jeśli chcesz anulować subskrypcję, zobacz sekcję [Anulowanie subskrypcji platformy Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemy z rolami niestandardowymi
 
@@ -120,7 +121,7 @@ Jeśli użytkownik ostatnio zaprosił użytkownika podczas tworzenia przypisania
 
 Jeśli jednak ten podmiot zabezpieczeń nie jest ostatnio zaproszonym użytkownikiem, może być usuniętym podmiotem zabezpieczeń. Jeśli przypiszesz rolę do podmiotu zabezpieczeń, a następnie usuniesz ten podmiot zabezpieczeń bez wcześniejszego usunięcia przypisania roli, podmiot zabezpieczeń będzie wymieniony jako **tożsamość nie zostanie znaleziona** i **nieznany** typ.
 
-Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może być widoczny pusty `DisplayName` i `ObjectType` ustawiony jako **nieznany** . Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
+Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może być widoczny pusty `DisplayName` i `ObjectType` ustawiony jako **nieznany**. Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -239,7 +240,7 @@ Jeśli nie możesz uzyskać dostępu do żadnego z tych kafelków, poprosimy adm
 
 ## <a name="azure-functions-and-write-access"></a>Dostęp Azure Functions i zapisu
 
-Niektóre funkcje [Azure Functions](../azure-functions/functions-overview.md) wymagają dostępu do zapisu. Jeśli na przykład użytkownik ma przypisaną rolę [czytelnik](built-in-roles.md#reader) , nie będzie mógł wyświetlać funkcji w ramach aplikacji funkcji. Zostanie wyświetlony portal **(brak dostępu)** .
+Niektóre funkcje [Azure Functions](../azure-functions/functions-overview.md) wymagają dostępu do zapisu. Jeśli na przykład użytkownik ma przypisaną rolę [czytelnik](built-in-roles.md#reader) , nie będzie mógł wyświetlać funkcji w ramach aplikacji funkcji. Zostanie wyświetlony portal **(brak dostępu)**.
 
 ![Aplikacje funkcji Brak dostępu](./media/troubleshooting/functionapps-noaccess.png)
 

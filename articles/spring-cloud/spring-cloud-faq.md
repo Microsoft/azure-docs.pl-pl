@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900275"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491940"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -73,9 +73,9 @@ Chmura sprężynowa platformy Azure obsługuje środowisko Java 8 i 11. Zobacz [
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Gdzie mogę wyświetlić sprężynowe dzienniki i metryki aplikacji w chmurze?
 
-Znajdź metryki na karcie Przegląd aplikacji i karcie [Azure monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) .
+Znajdź metryki na karcie Przegląd aplikacji i karcie [Azure monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer) .
 
-Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikacji i metryk w chmurze z usługą Azure Storage, centrum EventHub i [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Nazwa tabeli w Log Analytics to *AppPlatformLogsforSpring* . Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [usługi diagnostyczne](diagnostic-services.md).
+Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikacji i metryk w chmurze z usługą Azure Storage, centrum EventHub i [log Analytics](../azure-monitor/platform/data-platform-logs.md). Nazwa tabeli w Log Analytics to *AppPlatformLogsforSpring*. Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [usługi diagnostyczne](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Czy chmura Wiosenna platformy Azure obsługuje śledzenie rozproszone?
 

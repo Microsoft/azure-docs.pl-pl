@@ -2,13 +2,13 @@
 title: Przycisk Wdróż na platformie Azure
 description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z repozytorium GitHub.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675395"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490903"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
 
@@ -35,7 +35,7 @@ Obraz jest wyświetlany jako:
 
 ## <a name="create-url-for-deploying-template"></a>Utwórz adres URL do wdrożenia szablonu
 
-Aby utworzyć adres URL dla szablonu, Zacznij od pierwotnego adresu URL do szablonu w repozytorium. Aby wyświetlić nieprzetworzony adres URL, wybierz opcję **RAW** .
+Aby utworzyć adres URL dla szablonu, Zacznij od pierwotnego adresu URL do szablonu w repozytorium. Aby wyświetlić nieprzetworzony adres URL, wybierz opcję **RAW**.
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Wybierz surowce":::
 
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Masz pełny adres URL linku.
 
+Jeśli korzystasz [z narzędzia Git z Azure Repos](/azure/devops/repos/git/) zamiast repozytorium GitHub, możesz nadal korzystać z przycisku Wdróż na platformie Azure. Upewnij się, że Twoje repozytorium jest publiczne. Użyj [operacji Items](/rest/api/azure/devops/git/items/get) , aby pobrać szablon. Twoje żądanie powinno mieć następujący format:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Koduj ten adres URL żądania.
+
 ## <a name="create-deploy-to-azure-button"></a>Przycisk Utwórz wdrożenie na platformie Azure
 
 Na koniec Umieść link i obraz razem.
@@ -87,6 +95,12 @@ W przypadku języka HTML należy użyć:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+W przypadku usługi git z repozytorium Azure przycisk ma format:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Wdrażanie szablonu

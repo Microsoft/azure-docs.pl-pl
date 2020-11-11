@@ -3,12 +3,12 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102310"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491328"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
@@ -28,7 +28,7 @@ Security Center integruje się z aplikacją funkcji w portalu. Umożliwia ona be
 
 ### <a name="log-and-monitor"></a>Rejestrowanie i monitorowanie
 
-Jeden do wykrywania ataków polega na monitorowaniu działań i analizie rejestrowania. Funkcje integrują się z Application Insights w celu zbierania danych dotyczących dzienników, wydajności i błędów dla aplikacji funkcji. Application Insights automatycznie wykrywa anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie sposobu korzystania z funkcji. Aby dowiedzieć się więcej, zobacz [Monitor Azure Functions](functions-monitoring.md).
+Jednym ze sposobów wykrywania ataków jest przechodzenie przez działanie monitorowania aktywności i analiza rejestrowania. Funkcje integrują się z Application Insights w celu zbierania danych dotyczących dzienników, wydajności i błędów dla aplikacji funkcji. Application Insights automatycznie wykrywa anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie sposobu korzystania z funkcji. Aby dowiedzieć się więcej, zobacz [Monitor Azure Functions](functions-monitoring.md).
 
 Funkcje programu integrują się również z dziennikami Azure Monitor, aby umożliwić konsolidowanie dzienników aplikacji funkcji przy użyciu zdarzeń systemowych w celu łatwiejszej analizy. Za pomocą ustawień diagnostycznych można skonfigurować eksportowanie strumieniowe dzienników platformy i metryki dla swoich funkcji do wybranego miejsca docelowego, na przykład obszaru roboczego analizy dzienników. Aby dowiedzieć się więcej, zobacz [Azure Functions monitorowania z dziennikami Azure monitor](functions-monitor-log-analytics.md). 
 
@@ -60,7 +60,7 @@ Poniższa tabela zawiera porównanie użycia różnych rodzajów kluczy dostępu
 
 | Akcja                                        | Zakres                    | Prawidłowe klucze         |
 |-----------------------------------------------|--------------------------|--------------------|
-| Wykonaj funkcję                            | Określona funkcja        | Funkcja           |
+| Wykonaj funkcję                            | Określona funkcja        | Function           |
 | Wykonaj funkcję                            | Dowolna funkcja             | Funkcja lub host   |
 | Wywoływanie punktu końcowego administratora                        | Aplikacja funkcji             | Host (tylko główny) |
 | Wywoływanie interfejsów API trwałych rozszerzeń zadań              | Aplikacja funkcji<sup>1</sup> | System<sup>2</sup> |

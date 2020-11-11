@@ -3,12 +3,12 @@ title: Limity pojemności w Azure Lab Services
 description: Więcej informacji na temat limitów pojemności (limitów maszyn wirtualnych) znajduje się w Azure Lab Services.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9866628cd11ec8df67e6fe16ae8806f0f30ae9a1
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444101"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491022"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Limity pojemności w Azure Lab Services
 Azure Lab Services ma domyślne limity pojemności dla subskrypcji platformy Azure, które są zgodne z ograniczeniami przydziału obliczeń platformy Azure i ograniczają oszustwo. Wszystkie subskrypcje platformy Azure będą miały początkowy limit pojemności, który może się różnić w zależności od typu subskrypcji, liczby standardowych rdzeni obliczeniowych i rdzeni procesora GPU dostępnych wewnątrz Azure Lab Services. Ogranicza liczbę maszyn wirtualnych, które można utworzyć w laboratoriach, zanim będzie konieczne zażądanie wzrostu limitu.  
@@ -50,4 +50,5 @@ Po przesłaniu żądania pomocy technicznej sprawdzimy żądanie. W razie potrze
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującym artykułem:
+- [Przewodnik administratora-rozmiar maszyny wirtualnej](administrator-guide.md#vm-sizing).
 - [Często zadawane pytania](classroom-labs-faq.md).

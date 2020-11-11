@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7d969392c3245eb81ed07889bd956d2b8e8fb82f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 859325bffe1db9cd6a7afc7e5013681c88209eff
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234102"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491787"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Use Azure Import/Export service to import data to Azure Files (Używanie usługi Azure Import/Export do importowania danych do usługi Azure Files)
 
@@ -51,7 +51,7 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 2. Utwórz pojedynczy wolumin NTFS na każdym dysku. Przypisz literę dysku do woluminu. Nie należy używać mountpoints.
 3. Zmodyfikuj plik *dataset.csv* w folderze głównym, w którym znajduje się narzędzie. W zależności od tego, czy chcesz zaimportować plik, czy folder, należy dodać wpisy w pliku *dataset.csv* podobnie jak w poniższych przykładach.
 
-   - **Aby zaimportować plik** : w poniższym przykładzie dane do skopiowania znajdują się na dysku F:. Plik *MyFile1.txt*  jest kopiowany do katalogu głównego *MyAzureFileshare1* . Jeśli *MyAzureFileshare1* nie istnieje, zostanie on utworzony na koncie usługi Azure Storage. Struktura folderów jest utrzymywana.
+   - **Aby zaimportować plik** : w poniższym przykładzie dane do skopiowania znajdują się na dysku F:. Plik *MyFile1.txt*  jest kopiowany do katalogu głównego *MyAzureFileshare1*. Jeśli *MyAzureFileshare1* nie istnieje, zostanie on utworzony na koncie usługi Azure Storage. Struktura folderów jest utrzymywana.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -97,7 +97,7 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 5. Użyj `PrepImport` opcji, aby skopiować i przygotować dane na dysku. W pierwszej sesji kopiowania do kopiowania katalogów i/lub plików z nową sesją kopiowania Uruchom następujące polecenie:
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    Poniższy przykład importowania jest przedstawiony poniżej.
@@ -119,17 +119,17 @@ Aby uzyskać dodatkowe przykłady, przejdź do [przykładów dla plików dzienni
 
 Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 1. Zaloguj się do https://portal.azure.com/ .
-2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania** .
+2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
 
     ![Przejdź do importowania/eksportowania](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Kliknij pozycję **Utwórz zadanie importu/eksportu** .
+3. Kliknij pozycję **Utwórz zadanie importu/eksportu**.
 
     ![Kliknij przycisk Importuj/Eksportuj zadanie](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. **Podstawowe informacje** :
 
-    - Wybierz pozycję **Importuj na platformie Azure** .
+    - Wybierz pozycję **Importuj na platformie Azure**.
     - Wprowadź opisową nazwę zadania importu. Ta nazwa służy do śledzenia zadań w trakcie ich wykonywania i po ich zakończeniu.
         -  Ta nazwa może zawierać tylko małe litery, cyfry, łączniki i podkreślenia.
         -  Nazwa musi rozpoczynać się od litery i nie może zawierać spacji.
@@ -357,7 +357,7 @@ Install-Module -Name Az.ImportExport
 
 Aby **dodać więcej dysków** , Utwórz nowy plik driveset i uruchom polecenie w następujący sposób.
 
-W przypadku kolejnych sesji kopiowania na różne stacje dysków, które nie są określone w pliku *InitialDriveset. csv* , określ nowy plik driveset *. csv* i podaj go jako wartość parametru `AdditionalDriveSet` . Użyj tej **samej nazwy pliku dziennika** i podaj **nowy identyfikator sesji** . Format pliku CSV AdditionalDriveset jest taki sam jak format InitialDriveSet.
+W przypadku kolejnych sesji kopiowania na różne stacje dysków, które nie są określone w pliku *InitialDriveset. csv* , określ nowy plik driveset *. csv* i podaj go jako wartość parametru `AdditionalDriveSet` . Użyj tej **samej nazwy pliku dziennika** i podaj **nowy identyfikator sesji**. Format pliku CSV AdditionalDriveset jest taki sam jak format InitialDriveSet.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>

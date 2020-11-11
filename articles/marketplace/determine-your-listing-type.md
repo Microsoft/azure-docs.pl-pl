@@ -4,15 +4,15 @@ description: W tym artykule opisano kryteria kwalifikujące i wymagania dotyczą
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 17b53d656d0344e4178b3034a972e26d6aa0bc15
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129001"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492110"
 ---
 # <a name="determine-your-publishing-option"></a>Określanie opcji publikowania
 
@@ -54,9 +54,9 @@ Dostępne opcje aukcji oferują zróżnicowane zaangażowanie klientów, zapewni
 | **Opcja publikowania**    | **Opis**  |
 | :------------------- | :-------------------|
 | **Lista** | Prosta lista aplikacji lub usług umożliwiających komercyjnemu użytkownikowi portalu Marketplace zażądanie połączenia z klientem za pośrednictwem opcji wyświetlania listy **kontaktów** . |
-| **Wersja próbna** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania, dzięki czemu potencjalni użytkownicy mogą bezpłatnie korzystać z usługi SaaS, IaaS lub firmy Microsoft bez opłat przez ograniczony czas przed zakupem. Opcja tworzenia listy dla opcji publikowania wersji próbnej to **bezpłatna wersja próbna** lub **testowa** . |
-| **BYOL** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansowo. Typy ofert BYOL doskonale sprawdzają się w przypadku migracji do chmury. Opcja wystaw to **teraz** .
-| **Transakcja** | Oferty Transact są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Opcja wystaw to **teraz** .|
+| **Wersja próbna** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania, dzięki czemu potencjalni użytkownicy mogą bezpłatnie korzystać z usługi SaaS, IaaS lub firmy Microsoft bez opłat przez ograniczony czas przed zakupem. Opcja tworzenia listy dla opcji publikowania wersji próbnej to **bezpłatna wersja próbna** lub **testowa**. |
+| **BYOL** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansowo. Typy ofert BYOL doskonale sprawdzają się w przypadku migracji do chmury. Opcja wystaw to **teraz**.
+| **Transakcja** | Oferty Transact są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Opcja wystaw to **teraz**.|
 
 > [!Note]
 > W przypadku korzystania z opcji publikacji Transact należy poznać zagadnienia dotyczące cen, rozliczeń, fakturowania i wypłaty przed wybraniem typu oferty i utworzeniem oferty. Aby dowiedzieć się więcej, zapoznaj się z artykułem [komercyjne funkcje Transact Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).

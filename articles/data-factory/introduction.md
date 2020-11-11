@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89536316"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491277"
 ---
 # <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
 
@@ -22,7 +22,7 @@ ms.locfileid: "89536316"
 
 W świecie danych big data dane nieprzetworzone i niezorganizowane często są przechowywane w relacyjnych, nierelacyjnych i innych systemach magazynowania. Jednak same nieprzetworzone dane nie mają prawidłowego kontekstu ani znaczenia umożliwiającego zapewnienie istotnych informacji analitykom, specjalistom z zakresu danych i osobom podejmującym decyzje biznesowe. 
 
-Dane big data wymagają usługi, która umożliwia organizację i operacjonalizację procesów mających na celu przekształcenie tych ogromnych zbiorów nieprzetworzonych danych w praktyczną analizę biznesową. Azure Data Factory to zarządzana usługa w chmurze, stworzona z myślą o tych kompleksowych, hybrydowych projektach typu wyodrębnianie-transformacja-ładowanie (ETL), wyodrębnianie-ładowanie-transformacja (ELT) i integracji danych.
+Dane Big Data wymagają usługi, która może organizować i operacjonalizować procesy w celu udoskonalania tych ogromnych magazynów danych nieprzetworzonych w celu podejmowania działań. Azure Data Factory to zarządzana usługa w chmurze, stworzona z myślą o tych kompleksowych, hybrydowych projektach typu wyodrębnianie-transformacja-ładowanie (ETL), wyodrębnianie-ładowanie-transformacja (ELT) i integracji danych.
 
 Przykładowo wyobraź sobie, że firma zajmująca się grami gromadzi petabajty dzienników gier, które są tworzone przez gry w chmurze. Firma chce analizować te dzienniki w celu uzyskania wglądu w preferencje klientów, dane demograficzne i zachowania związane z użyciem. Dzięki temu firma będzie mogła identyfikować możliwości sprzedaży droższych produktów i sprzedaży wiązanej, opracowywać nowe atrakcyjne funkcje pozytywnie wpływające na rozwój biznesowy oraz oferować klientom udoskonalone środowisko gier.
 
@@ -58,12 +58,12 @@ Jeśli wolisz naliczać przekształcenia ręcznie, moduł ADF obsługuje działa
 ### <a name="cicd-and-publish"></a>CI/CD i publikowanie
 Data Factory oferuje pełną obsługę ciągłej integracji i ciągłego wdrażania potoków danych przy użyciu usług Azure DevOps i GitHub. Dzięki temu można stopniowo opracowywać i dostarczać procesy ETL przed opublikowaniem gotowego produktu. Po przekształceniu danych pierwotnych do postaci gotowej dla działań biznesowych należy załadować je do magazynu Azure Data Warehouse, bazy danych Azure SQL Database, bazy danych Azure CosmosDB lub dowolnego aparatu analizy, z którego mogą korzystać użytkownicy biznesowi przy użyciu swoich narzędzi do analizy biznesowej.
 
-### <a name="monitor"></a>Monitorowanie
+### <a name="monitor"></a>Monitor
 Po pomyślnym utworzeniu i wdrożeniu potoku integracji danych, zapewniającego wartość biznesową danym przetworzonym, należy monitorować zaplanowane działania i potoki pod kątem współczynników powodzenia i niepowodzenia. Usługa Azure Data Factory dysponuje wbudowaną obsługą monitorowania potoków przy użyciu narzędzi Azure Monitor, API, PowerShell, dzienników usługi Azure Monitor i paneli kondycji w witrynie Azure Portal.
 
 ## <a name="top-level-concepts"></a>Koncepcje najwyższego poziomu
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Azure Data Factory składa się z poniżej najważniejszych składników.
-- Potoki
+- Pipelines
 - Działania
 - Zestawy danych
 - Połączone usługi
@@ -93,7 +93,7 @@ Połączone usługi w usłudze Fabryka danych służą do dwóch celów:
 
 - Do reprezentowania **magazynu danych** , który zawiera, ale nie jest ograniczony do, SQL Server bazy danych, bazy danych Oracle, udziału plików lub konta usługi Azure Blob Storage. Listę obsługiwanych magazynów danych zamieszczono w artykule na temat [działania kopiowania](copy-activity-overview.md).
 
-- Reprezentowanie **zasobu obliczeniowego**, który może hostować wykonywanie działania. Na przykład działanie HDInsightHive jest wykonywane w klastrze HDInsight na platformie Hadoop. Listę działań przekształcania i obsługiwanych środowisk obliczeniowych zamieszczono w artykule dotyczącym [przekształcania danych](transform-data.md).
+- Reprezentowanie **zasobu obliczeniowego** , który może hostować wykonywanie działania. Na przykład działanie HDInsightHive jest wykonywane w klastrze HDInsight na platformie Hadoop. Listę działań przekształcania i obsługiwanych środowisk obliczeniowych zamieszczono w artykule dotyczącym [przekształcania danych](transform-data.md).
 
 ### <a name="triggers"></a>Wyzwalacze
 Wyzwalacze reprezentują jednostki przetwarzania, które określają, kiedy należy rozpocząć wykonanie potoku. Istnieją różne typy wyzwalaczy dla różnych typów zdarzeń.

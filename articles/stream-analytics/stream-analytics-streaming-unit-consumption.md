@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 70b5e85c99184b890d2b5269f483785a82340255
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127556"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490954"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Opis i dostosowywanie jednostek przesyłania strumieniowego
 
@@ -20,14 +20,14 @@ Jednostki przesyłania strumieniowego (SUs) reprezentują zasoby obliczeniowe, k
 
 W celu uzyskania małych opóźnień przetwarzania strumieni całe przetwarzanie dla zadań usługi Azure Stream Analytics jest wykonywane w pamięci. W przypadku braku pamięci zadanie przesyłania strumieniowego kończy się niepowodzeniem. W związku z tym ważne jest, aby dla zadania produkcyjnego monitorować użycie zasobów zadania przesyłania strumieniowego i upewnić się, że przydzielono zasoby wystarczające do zachowania zadań 24/7.
 
-Metryka użycia funkcji SU%, która obejmuje wartości z zakresu od 0 do 100%, opisuje użycie pamięci przez obciążenie. W przypadku zadania przesyłania strumieniowego z minimalnym wpływem ta Metryka jest zwykle z przedziału od 10% do 20%. Jeśli użycie SU% jest wysokie (powyżej 80%) lub jeśli zdarzenia wejściowe są rejestrowane (nawet przy niskim użyciu wartości SU%, ponieważ nie pokazuje użycia procesora), obciążenie prawdopodobnie wymaga większej ilości zasobów obliczeniowych, co wymaga zwiększenia liczby usług SUs. Najlepiej zachować metrykę SU poniżej 80%, aby uwzględnić sporadyczne osiągnięcia. Firma Microsoft zaleca ustawienie alertu dotyczącego metryki użycia funkcji SU (80%) w celu zapobieżenia wyczerpaniu zasobów. Aby uzyskać więcej informacji, zobacz [Samouczek: Konfigurowanie alertów dla Azure Stream Analytics zadań](stream-analytics-set-up-alerts.md).
+Metryka użycia funkcji SU%, która obejmuje wartości z zakresu od 0 do 100%, opisuje użycie pamięci przez obciążenie. W przypadku zadania przesyłania strumieniowego z minimalnym wpływem ta Metryka jest zwykle z przedziału od 10% do 20%. Jeśli użycie SU% jest wysokie (powyżej 80%) lub jeśli zdarzenia wejściowe są rejestrowane (nawet przy niskim użyciu wartości SU%, ponieważ nie pokazuje użycia procesora), obciążenie prawdopodobnie wymaga większej ilości zasobów obliczeniowych, co wymaga zwiększenia liczby usług SUs. Najlepiej zachować metrykę SU poniżej 80%, aby uwzględnić sporadyczne osiągnięcia. Aby reagować na zwiększone obciążenia i zwiększyć liczbę jednostek przesyłania strumieniowego, należy rozważyć ustawienie alertu 80% w metryce użycia SU. Ponadto można użyć metryk znaku wodnego i zdarzenia zaległych zdarzeń, aby sprawdzić, czy występuje problem.
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Konfigurowanie Stream Analytics jednostek przesyłania strumieniowego (SUs)
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/)
 
 2. Na liście zasobów Znajdź zadanie Stream Analytics, które chcesz skalować, a następnie otwórz je. 
 
-3. Na stronie zadanie w obszarze **Konfiguruj** nagłówek wybierz pozycję **Skala** . Domyślna liczba usług SUs to 3 podczas tworzenia zadania.
+3. Na stronie zadanie w obszarze **Konfiguruj** nagłówek wybierz pozycję **Skala**. Domyślna liczba usług SUs to 3 podczas tworzenia zadania.
 
     ![Konfiguracja zadania Stream Analytics Azure Portal][img.stream.analytics.preview.portal.settings.scale]
     
@@ -125,12 +125,12 @@ Po podzieleniu na partycje zapytanie jest rozmieszczane w wielu węzłach. W efe
 ## <a name="temporal-analytic-functions"></a>Funkcje analityczne danych czasowych
 Używana pamięć (rozmiar stanu) funkcji analitycznej danych czasowych jest proporcjonalna do współczynnika zdarzeń pomnożyć przez czas trwania. Pamięć wykorzystywana przez funkcje analityczne nie jest proporcjonalna do rozmiaru okna, ale raczej liczba partycji w każdym przedziale czasu.
 
-Korygowanie jest podobne do sprzężenia czasowego. Zapytanie można skalować w poziomie za pomocą **partycji** . 
+Korygowanie jest podobne do sprzężenia czasowego. Zapytanie można skalować w poziomie za pomocą **partycji**. 
 
 ## <a name="out-of-order-buffer"></a>Bufor poza kolejnością 
 Użytkownik może skonfigurować rozmiar buforu poza kolejnością w okienku Konfiguracja porządkowania zdarzeń. Bufor jest używany do przechowywania danych wejściowych w czasie trwania okna i zmieniania ich kolejności. Rozmiar buforu jest proporcjonalny do współczynnika danych wejściowych zdarzenia pomnożyć przez rozmiar okna poza kolejnością. Domyślny rozmiar okna to 0. 
 
-Aby skorygować przepełnienie buforu poza kolejnością, Skaluj zapytanie w poziomie przy użyciu **partycji przez** . Po podzieleniu na partycje zapytanie jest rozmieszczane w wielu węzłach. W związku z tym liczba zdarzeń przychodzących do każdego węzła jest ograniczana, co zmniejsza liczbę zdarzeń w każdym buforze zmiany kolejności. 
+Aby skorygować przepełnienie buforu poza kolejnością, Skaluj zapytanie w poziomie przy użyciu **partycji przez**. Po podzieleniu na partycje zapytanie jest rozmieszczane w wielu węzłach. W związku z tym liczba zdarzeń przychodzących do każdego węzła jest ograniczana, co zmniejsza liczbę zdarzeń w każdym buforze zmiany kolejności. 
 
 ## <a name="input-partition-count"></a>Liczba partycji wejściowych 
 Każda partycja wejściowa danych wejściowych zadania ma bufor. Większa liczba partycji wejściowych, tym więcej zasobów zużywanych przez zadanie. Dla każdej jednostki przesyłania strumieniowego Azure Stream Analytics może przetworzyć około 1 MB/s danych wejściowych. W związku z tym można zoptymalizować się, dopasowując liczbę Stream Analytics jednostek przesyłania strumieniowego do liczby partycji w centrum zdarzeń. 

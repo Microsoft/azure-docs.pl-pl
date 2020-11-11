@@ -1,39 +1,61 @@
 ---
-title: Logowanie w Azure Monitor | Microsoft Docs
-description: Zawiera opis dzienników w Azure Monitor, które są używane do zaawansowanej analizy danych monitorowania.
+title: Dzienniki usługi Azure Monitor
+description: Opisuje dzienniki Azure Monitor, które są używane do zaawansowanej analizy danych monitorowania.
 documentationcenter: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 09/09/2020
+ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: e08c649b9a1d7e8b909a413ee435fce30a8d7e48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462242b001da5a5a6d2eba8e4bd06315c0b263a6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032784"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491872"
 ---
 # <a name="azure-monitor-logs-overview"></a>Omówienie dzienników Azure Monitor
-Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane dzienników z różnych źródeł i udostępnia je do analizy przy użyciu zaawansowanego języka zapytań. Dane z różnych źródeł można skonsolidować w jednym obszarze roboczym i analizować je w celu wykonywania takich zadań i analizy trendów, alertów i wizualizacji.
+Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane dziennika i wydajności z [monitorowanych zasobów](../monitor-reference.md). Dane z różnych źródeł, takich jak [dzienniki platformy](platform-logs-overview.md) z usług platformy Azure, dane dziennika i wydajności z [agentów maszyn wirtualnych](agents-overview.md)oraz dane dotyczące użycia i wydajności z [aplikacji](../app/app-insights-overview.md) , można skonsolidować w jednym obszarze roboczym, dzięki czemu można je analizować przy użyciu zaawansowanego języka zapytań, który umożliwia szybkie analizowanie milionów rekordów. Można wykonać proste zapytanie, które po prostu Pobiera określony zestaw rekordów lub przeprowadza zaawansowane analizy danych w celu zidentyfikowania kluczowych wzorców w danych monitorowania. Pracuj z zapytaniami dzienników i ich wyniki interaktywnie przy użyciu Log Analytics, używaj ich w regułach alertów w celu uzyskania aktywnej powiadomienia o problemach i wizualizowania ich wyników w skoroszycie lub pulpicie nawigacyjnym.
 
-## <a name="relationship-to-azure-monitor-metrics"></a>Relacje z metrykami Azure Monitor
-Metryki Azure Monitor przechowują dane liczbowe w bazie danych szeregów czasowych, co sprawia, że te dane są bardziej uproszczone niż Azure Monitor dzienników i umożliwiają obsługę niemal scenariuszy w czasie rzeczywistym, dzięki czemu są one szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Metryki, które mogą przechowywać dane liczbowe tylko w określonej strukturze, podczas gdy dzienniki mogą przechowywać różne różne typy danych z ich własnymi strukturami. Możesz również wykonać złożoną analizę danych dzienników przy użyciu zapytań dziennika, które nie mogą być używane do analizy danych metryk.
-
-Dane liczbowe są często wysyłane ze źródeł danych do dzienników oprócz metryk. Istnieje dodatkowa opłata za gromadzenie i przechowywanie tych danych w dziennikach, dzięki czemu można dołączać dane metryki do zapytań dzienników i analizować je przy użyciu innych danych monitorowania.
-
-## <a name="relationship-to-azure-data-explorer"></a>Relacja do Eksplorator danych platformy Azure
-Dzienniki Azure Monitor opierają się na usłudze Azure Eksplorator danych. Obszar roboczy Log Analytics jest w przybliżeniu odpowiednikiem bazy danych w usłudze Azure Eksplorator danych, tabele są takie same, a oba używają tego samego Kusto Query Language (KQL). Środowisko korzystania z Log Analytics do pracy z zapytaniami Azure Monitor w Azure Portal jest podobne do środowiska przy użyciu interfejsu użytkownika sieci Web Eksplorator danych platformy Azure. Możesz nawet [uwzględnić dane z obszaru roboczego log Analytics w zapytaniu Eksplorator danych platformy Azure](/azure/data-explorer/query-monitor-data). 
+> [!NOTE]
+> Azure Monitor dzienników to jedna połowa platformy danych obsługującej Azure Monitor. Druga [Azure monitor metryki](data-platform-metrics.md) , które przechowują dane liczbowe w bazie danych szeregów czasowych. Dzięki temu dane są bardziej uproszczone niż dane w Azure Monitor dziennikach i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Metryki, które mogą przechowywać dane liczbowe tylko w określonej strukturze, podczas gdy dzienniki mogą przechowywać różne różne typy danych z ich własnymi strukturami. Możesz również wykonać złożoną analizę danych dzienników przy użyciu zapytań dziennika, które nie mogą być używane do analizy danych metryk.
 
 
-## <a name="structure-of-data"></a>Struktura danych
-Dane zbierane przez dzienniki Azure Monitor są przechowywane w [log Analytics obszarze roboczym](./design-logs-deployment.md) zawierającym wiele tabel, które przechowują dane z konkretnego źródła. Obszar roboczy definiuje lokalizację geograficzną danych, prawa dostępu definiujące użytkowników, którzy mają dostęp do danych, oraz ustawienia konfiguracji, takie jak warstwa cenowa i przechowywanie danych. Możesz użyć jednego obszaru roboczego dla wszystkich danych monitorowania lub utworzyć wiele obszarów roboczych w zależności od wymagań. Zapoznaj się z tematem [projektowanie wdrożenia dzienników Azure monitor](design-logs-deployment.md) , aby uzyskać informacje dotyczące tworzenia wielu obszarów roboczych.
+## <a name="what-can-you-do-with-azure-monitor-logs"></a>Co możesz zrobić z dziennikami Azure Monitor?
+W poniższej tabeli opisano niektóre różne sposoby używania dzienników w Azure Monitor:
 
-Każdy obszar roboczy zawiera wiele tabel, które są zorganizowane w oddzielne kolumny z wieloma wierszami danych. Każda tabela jest definiowana przez unikatowy zestaw kolumn, które są współużytkowane przez wiersze danych dostarczone przez źródło danych. 
+|  |  |
+|:---|:---|
+| **Analiza** | Użyj [log Analytics](../log-query/get-started-portal.md) w Azure Portal, aby napisać [zapytania dzienników](../log-query/log-query-overview.md) i interaktywnie analizować dane dzienników przy użyciu zaawansowanego aparatu analizy |
+| **Alert** | Skonfiguruj [regułę alertu dziennika](alerts-log.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wyniki zapytania pasują do określonego wyniku. |
+| **Wizualizacja** | Przypnij wyniki zapytania jako tabele lub wykresy do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md).<br>Utwórz [skoroszyt](../app/usage-workbooks.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. <br>Eksportuj wyniki zapytania, aby [Power BI](powerbi.md) do używania różnych wizualizacji i udostępniania użytkownikom spoza platformy Azure.<br>Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych.|
+| **Insights** | Obsługa [szczegółowych](../monitor-reference.md#insights-and-core-solutions) informacji, które zapewniają dostosowane środowisko monitorowania dla określonych aplikacji i usług.  |
+| **Odczytać** | Uzyskiwanie dostępu do wyników zapytania dziennika z wiersza polecenia przy użyciu [interfejsu CLI platformy Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Uzyskuj dostęp do wyników zapytania dziennika z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Uzyskiwanie dostępu do wyników zapytania dziennika z aplikacji niestandardowej przy użyciu [interfejsu API REST](https://dev.loganalytics.io/). |
+| **Eksportowanie** | Skonfiguruj [Automatyczne eksportowanie danych dziennika](logs-data-export.md) do konta usługi Azure Storage lub usługi Azure Event Hubs.<br>Utwórz przepływ pracy w celu pobrania danych dziennika i skopiuj go do lokalizacji zewnętrznej przy użyciu [Logic Apps](logicapp-flow-connector.md). |
+
+![Dzienniki — Omówienie](media/data-platform-logs/logs-overview.png)
+
+
+## <a name="data-collection"></a>Zbieranie danych
+Po utworzeniu obszaru roboczego Log Analytics należy skonfigurować różne źródła, aby wysłać ich dane. Żadne dane nie są zbierane automatycznie. Ta konfiguracja będzie różnić się w zależności od źródła danych. Na przykład [Tworzenie ustawień diagnostycznych](diagnostic-settings.md) w celu wysyłania dzienników zasobów z zasobów platformy Azure do obszaru roboczego. [Włącz Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md) zbierania danych z maszyn wirtualnych. Skonfiguruj [źródła danych w obszarze roboczym](data-sources.md) , aby zbierać dodatkowe zdarzenia i dane wydajności.
+
+- Zobacz, [co jest monitorowane przez Azure monitor?](../monitor-reference.md) , aby uzyskać pełną listę źródeł danych, które można skonfigurować w celu wysyłania danych do dzienników Azure monitor.
+
+
+## <a name="log-analytics-workspaces"></a>Obszary robocze usługi Log Analytics
+Dane zbierane przez dzienniki Azure Monitor są przechowywane w jednym [log Analytics obszarach roboczych](./design-logs-deployment.md). Obszar roboczy definiuje lokalizację geograficzną danych, prawa dostępu definiujące użytkowników, którzy mają dostęp do danych, oraz ustawienia konfiguracji, takie jak warstwa cenowa i przechowywanie danych.  
+
+Należy utworzyć co najmniej jeden obszar roboczy, aby użyć dzienników Azure Monitor. Jeden obszar roboczy może być wystarczający dla wszystkich danych monitorowania lub może utworzyć wiele obszarów roboczych w zależności od wymagań. Na przykład możesz mieć jeden obszar roboczy dla danych produkcyjnych i drugi do testowania. 
+
+- Zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal,](../learn/quick-create-workspace.md) aby utworzyć nowy obszar roboczy.
+- Zapoznaj się z tematem [projektowanie wdrożenia dzienników Azure monitor](design-logs-deployment.md) , aby uzyskać informacje dotyczące tworzenia wielu obszarów roboczych.
+
+## <a name="data-structure"></a>Struktura danych
+Zapytania dzienników pobierają swoje dane z obszaru roboczego Log Analytics. Każdy obszar roboczy zawiera wiele tabel, które są zorganizowane w oddzielne kolumny z wieloma wierszami danych. Każda tabela jest definiowana przez unikatowy zestaw kolumn, które są współużytkowane przez wiersze danych dostarczone przez źródło danych. 
 
 [![Struktura dzienników Azure Monitor](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
 
 
-Dane dziennika z Application Insights są również przechowywane w dziennikach Azure Monitor, ale są przechowywane w zależności od sposobu skonfigurowania aplikacji. W przypadku aplikacji opartych na obszarze roboczym dane są przechowywane w obszarze roboczym Log Analytics w standardowym zestawie tabel do przechowywania danych, takich jak żądania aplikacji, wyjątki i wyświetlenia stron. Wiele aplikacji może korzystać z tego samego obszaru roboczego. W przypadku klasycznej aplikacji dane nie są przechowywane w obszarze roboczym Log Analytics. Używa tego samego języka zapytań i tworzysz i uruchamiasz zapytania przy użyciu tego samego narzędzia Log Analytics w Azure Portal. Dane dla klasycznych aplikacji są przechowywane niezależnie od siebie. Jej ogólna struktura jest taka sama jak w przypadku aplikacji opartych na obszarze roboczym, chociaż nazwy tabel i kolumn są różne. Zobacz [zmiany zasobów na podstawie obszaru roboczego](../app/apm-tables.md) , aby zapoznać się ze szczegółowym porównaniem tych dwóch.
+Dane dziennika z Application Insights są również przechowywane w dziennikach Azure Monitor, ale są przechowywane w zależności od sposobu skonfigurowania aplikacji. W przypadku aplikacji opartych na obszarze roboczym dane są przechowywane w obszarze roboczym Log Analytics w standardowym zestawie tabel do przechowywania danych, takich jak żądania aplikacji, wyjątki i wyświetlenia stron. Wiele aplikacji może korzystać z tego samego obszaru roboczego. W przypadku klasycznej aplikacji dane nie są przechowywane w obszarze roboczym Log Analytics. Używa tego samego języka zapytań i tworzysz i uruchamiasz zapytania przy użyciu tego samego narzędzia Log Analytics w Azure Portal. Dane dla klasycznych aplikacji są przechowywane niezależnie od siebie. Jej ogólna struktura jest taka sama jak w przypadku aplikacji opartych na obszarze roboczym, chociaż nazwy tabel i kolumn są różne. Zobacz [zmiany zasobów na podstawie obszaru roboczego](../app/apm-tables.md) , aby zapoznać się ze szczegółowym porównaniem schematu dla aplikacji opartych na obszarze roboczym i klasycznym.
 
 
 > [!NOTE]
@@ -42,13 +64,24 @@ Dane dziennika z Application Insights są również przechowywane w dziennikach 
 
 [![Azure Monitor strukturę dzienników dla Application Insights](media/data-platform-logs/logs-structure-ai.png)](media/data-platform-logs/logs-structure-ai.png#lightbox)
 
+
 ## <a name="log-queries"></a>Rejestrowanie zapytań
-Dane są pobierane z obszaru roboczego Log Analytics przy użyciu [zapytania dziennika](../log-query/log-query-overview.md) , które jest żądaniem tylko do odczytu, aby przetwarzać dane i zwracać wyniki. Zapytania dzienników są zapisywane w [języku Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), który jest językiem zapytań używanym przez usługę Azure Eksplorator danych. Użyj Log Analytics, czyli narzędzia w Azure Portal, aby edytować i uruchamiać zapytania dzienników i interaktywnie analizować ich wyniki. Następnie można użyć tworzonych przez Ciebie kwerend do obsługi innych funkcji w Azure Monitor, takich jak alerty i skoroszyty zapytań dzienników.
+Dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dziennika, które jest żądaniem tylko do odczytu, aby przetwarzać dane i zwracać wyniki. Zapytania dzienników są zapisywane w [języku Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), który jest tym samym językiem zapytań, który jest używany przez usługę Azure Eksplorator danych. Zapytania dzienników można pisać w Log Analytics, aby interaktywnie analizować ich wyniki, używać ich w regułach alertów, aby otrzymywać powiadomienia o problemach lub dołączać ich wyniki do skoroszytów lub pulpitów nawigacyjnych. Szczegółowe dane obejmują wbudowane zapytania do obsługi widoków i skoroszytów.
+
+- Zobacz [zapytania dzienników w Azure monitor](log-query/../../log-query/log-query-overview.md) , aby uzyskać listę, gdzie są używane zapytania dzienników, oraz informacje o samouczkach i innych dokumentach, aby rozpocząć pracę.
+
+![Log Analytics](media/data-platform-logs/log-analytics.png)
+
+## <a name="log-analytics"></a>Log Analytics
+Użyj Log Analytics, czyli narzędzia w Azure Portal, do edytowania i uruchamiania zapytań dzienników i interaktywnego analizowania ich wyników. Następnie można użyć tworzonych przez Ciebie kwerend do obsługi innych funkcji w Azure Monitor, takich jak alerty i skoroszyty zapytań dzienników. Log Analytics dostęp z poziomu opcji **dzienniki** w menu Azure monitor lub z większości innych usług w Azure Portal.
+
+- Opis Log Analytics można znaleźć [w temacie omówienie log Analytics w Azure monitor](/log-query/log-analytics-overview.md) . 
+- Zobacz [samouczek log Analytics](/log-query/log-analytics-tutorial.md) , aby dowiedzieć się, jak za pomocą funkcji log Analytics utworzyć prostą kwerendę dziennika i przeanalizować jej wyniki.
 
 
-## <a name="sources-of-data-for-azure-monitor-logs"></a>Źródła danych dla dzienników Azure Monitor
-Azure Monitor zbiera dane dzienników z różnych źródeł, w tym zasobów Azure Monitor i agentów działających na maszynach wirtualnych. Zobacz, [co jest monitorowane przez Azure monitor?](../monitor-reference.md) , aby uzyskać pełną listę źródeł danych wysyłanych do log Analytics obszaru roboczego.
 
+## <a name="relationship-to-azure-data-explorer"></a>Relacja do Eksplorator danych platformy Azure
+Dzienniki Azure Monitor opierają się na usłudze Azure Eksplorator danych. Obszar roboczy Log Analytics jest w przybliżeniu odpowiednikiem bazy danych w usłudze Azure Eksplorator danych, tabele są takie same, a oba używają tego samego Kusto Query Language (KQL). Środowisko korzystania z Log Analytics do pracy z zapytaniami Azure Monitor w Azure Portal jest podobne do środowiska przy użyciu interfejsu użytkownika sieci Web Eksplorator danych platformy Azure. Możesz nawet [uwzględnić dane z obszaru roboczego log Analytics w zapytaniu Eksplorator danych platformy Azure](/azure/data-explorer/query-monitor-data). 
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -56,4 +89,3 @@ Azure Monitor zbiera dane dzienników z różnych źródeł, w tym zasobów Azur
 - Dowiedz się więcej na temat [zapytań dzienników](../log-query/log-query-overview.md) dotyczących pobierania i analizowania danych z obszaru roboczego log Analytics.
 - Dowiedz się więcej o [metrykach w Azure monitor](data-platform-metrics.md).
 - Poznaj [dane monitorowania dostępne](data-sources.md) dla różnych zasobów na platformie Azure.
-

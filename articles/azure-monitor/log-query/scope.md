@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031946"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491379"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Zakres i zakres czasu zapytania dziennika w Azure Monitor Log Analytics
 Po uruchomieniu [zapytania dziennika](log-query-overview.md) w [log Analytics w Azure Portal](get-started-portal.md), zestaw danych ocenianych przez zapytanie zależy od zakresu i wybranego zakresu czasu. W tym artykule opisano zakres i zakres czasu oraz sposób, w jaki można ustawić każdą z nich w zależności od wymagań. Opisano w nim również zachowanie różnych typów zakresów.
@@ -51,9 +51,7 @@ Nie można użyć następujących poleceń w zapytaniu w zakresie zasobu, poniew
 - [obszary](workspace-expression.md)
  
 
-## <a name="query-limits"></a>Limity zapytań
-Aby zasób platformy Azure mógł zapisywać dane w wielu obszarach roboczych Log Analytics, mogą istnieć wymagania biznesowe. Obszar roboczy nie musi znajdować się w tym samym regionie co zasób, a pojedynczy obszar roboczy może zbierać dane z zasobów w różnych regionach.  
-
+## <a name="query-scope-limits"></a>Limity zakresu zapytania
 Ustawienie zakresu dla zasobu lub zestawu zasobów jest szczególnie zaawansowaną funkcją Log Analytics, ponieważ umożliwia automatyczne konsolidowanie danych rozproszonych w jednym zapytaniu. Jeśli dane wymagają pobrania z obszarów roboczych w wielu regionach platformy Azure, może to znacząco wpłynąć na wydajność.
 
 Log Analytics pomaga chronić przed nadmiernym obciążeniem z zapytań, które rozciągają się na obszary robocze w wielu regionach, wydając ostrzeżenie lub błąd w przypadku korzystania z określonej liczby regionów. Zapytanie zostanie wyświetlone, jeśli zakres obejmuje obszary robocze w 5 lub więcej regionów. nadal będzie działać, ale jego ukończenie może zająć dużo czasu.
@@ -66,28 +64,24 @@ Jeśli zakres obejmuje obszary robocze w 20 lub więcej regionach, uruchomienie 
 
 
 ## <a name="time-range"></a>Przedział czasu
-Zakres czasu określa zestaw rekordów, które są oceniane dla zapytania w oparciu o czas utworzenia rekordu. Jest on definiowany przez standardową kolumnę dla każdego rekordu w obszarze roboczym lub aplikacji, zgodnie z opisem w poniższej tabeli.
+Zakres czasu określa zestaw rekordów, które są oceniane dla zapytania w oparciu o czas utworzenia rekordu. Jest on definiowany przez kolumnę **TimeGenerated** dla każdego rekordu w obszarze roboczym lub aplikacji, zgodnie z opisem w poniższej tabeli. Dla klasycznej aplikacji Application Insights kolumna **sygnatury** czasowej jest używana dla zakresu czasu.
 
-| Lokalizacja | Kolumna |
-|:---|:---|
-| Obszar roboczy usługi Log Analytics          | TimeGenerated |
-| Aplikacja Application Insights | sygnatura czasowa     |
 
 Ustaw zakres czasu, wybierając go z selektora czas u góry okna Log Analytics.  Możesz wybrać wstępnie zdefiniowany okres lub wybrać opcję **niestandardowe** , aby określić konkretny zakres czasu.
 
 ![Wybór godziny](media/scope/time-picker.png)
 
-W przypadku ustawienia filtru w zapytaniu, który używa kolumny czasu standardowego, jak pokazano w powyższej tabeli, selektor czasu zostanie zmieniony na **Ustaw w kwerendzie**, a selektor czasu jest wyłączony. W takim przypadku najlepiej jest umieścić filtr w górnej części zapytania, tak aby każde kolejne przetwarzanie działało tylko z filtrowanymi rekordami.
+W przypadku ustawienia filtru w zapytaniu, który używa kolumny czasu standardowego, jak pokazano w powyższej tabeli, selektor czasu zostanie zmieniony na **Ustaw w kwerendzie** , a selektor czasu jest wyłączony. W takim przypadku najlepiej jest umieścić filtr w górnej części zapytania, tak aby każde kolejne przetwarzanie działało tylko z filtrowanymi rekordami.
 
 ![Filtrowane zapytanie](media/scope/query-filtered.png)
 
-Jeśli używasz [obszaru roboczego](workspace-expression.md) lub [aplikacji](app-expression.md) do pobierania danych z innego obszaru roboczego lub aplikacji, selektor czasu może zachowywać się inaczej. Jeśli zakres jest obszarem roboczym Log Analytics i używasz **aplikacji**lub jeśli zakres jest aplikacją Application Insights i używasz **obszaru roboczego**, log Analytics może nie rozumieć, że kolumna użyta w filtrze powinna określać filtr czasu.
+Jeśli używasz [obszaru roboczego](workspace-expression.md) lub [aplikacji](app-expression.md) do pobierania danych z innego obszaru roboczego lub aplikacji klasycznej, selektor czasu może zachowywać się inaczej. Jeśli zakres jest obszarem roboczym Log Analytics i używasz **aplikacji** lub jeśli zakres jest aplikacją klasyczną Application Insights i używasz **obszaru roboczego** , log Analytics może nie rozumieć, że kolumna użyta w filtrze powinna określać filtr czasu.
 
 W poniższym przykładzie zakres jest ustawiany na obszar roboczy Log Analytics.  Zapytanie używa **obszaru roboczego** do pobierania danych z innego obszaru roboczego log Analytics. Selektor godziny zmienia się **w celu ustawienia w zapytaniu** , ponieważ widzi filtr, który używa oczekiwanej kolumny **TimeGenerated** .
 
 ![Zapytanie z obszarem roboczym](media/scope/query-workspace.png)
 
-Jeśli zapytanie używa **aplikacji** do pobierania danych z aplikacji Application Insights, log Analytics nie rozpoznaje kolumny **sygnatur czasowych** w filtrze, a selektor czasu pozostaje niezmieniony. W takim przypadku stosowane są oba filtry. W tym przykładzie tylko rekordy utworzone w ciągu ostatnich 24 godzin są zawarte w zapytaniu, mimo że określa 7 dni w klauzuli **WHERE** .
+Jeśli zapytanie używa **aplikacji** do pobierania danych z klasycznej aplikacji Application Insights, log Analytics nie rozpoznaje kolumny **sygnatur czasowych** w filtrze, a selektor czasu pozostaje niezmieniony. W takim przypadku stosowane są oba filtry. W tym przykładzie tylko rekordy utworzone w ciągu ostatnich 24 godzin są zawarte w zapytaniu, mimo że określa 7 dni w klauzuli **WHERE** .
 
 ![Zapytanie z aplikacją](media/scope/query-app.png)
 

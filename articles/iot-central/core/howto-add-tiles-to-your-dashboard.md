@@ -1,18 +1,17 @@
 ---
-title: Dodawanie kafelków do pulpitu nawigacyjnego usługi Azure IoT Central | Microsoft Docs
+title: Skonfiguruj pulpit nawigacyjny usługi Azure IoT Central | Microsoft Docs
 description: Jako Konstruktor można dowiedzieć się, jak skonfigurować domyślny pulpit nawigacyjny aplikacji platformy Azure IoT Central przy użyciu kafelków.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376994"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492040"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurowanie pulpitu nawigacyjnego aplikacji
 
@@ -29,23 +28,26 @@ Poniższy zrzut ekranu przedstawia pulpit nawigacyjny w aplikacji utworzonej na 
 
 Po wybraniu opcji **Edytuj** lub **Nowy** pulpit nawigacyjny jest w trybie *edycji* . Za pomocą narzędzi dostępnych w panelu **Edytowanie pulpitu nawigacyjnego** można dodawać kafelki do pulpitu nawigacyjnego oraz dostosowywać i usuwać kafelki na pulpicie nawigacyjnym. Na przykład, aby dodać kafelek **telemetrii** w celu wyświetlenia bieżącej temperatury zgłoszonej przez co najmniej jedno urządzenie:
 
-1. Na panelu **Edytowanie pulpitu nawigacyjnego** wybierz **grupę urządzeń**.
-1. Wybierz co najmniej jedno urządzenie na liście rozwijanej **urządzenia** , które ma być wyświetlane na kafelku. Teraz widzisz dostępne dane telemetryczne, właściwości i polecenia z urządzeń.
-1. Wybierz pozycję **temperatura** w sekcji Telemetria, a następnie wybierz pozycję **Dodaj kafelek**. Kafelek jest teraz widoczny na pulpicie nawigacyjnym, w którym można zmienić wizualizację, zmienić rozmiar kafelka i skonfigurować go:
+1. Wybierz **grupę urządzeń** , a następnie wybierz swoje urządzenia na liście rozwijanej **urządzenia** , aby wyświetlić je na kafelku. Teraz widzisz dostępne dane telemetryczne, właściwości i polecenia z urządzeń.
+
+1. W razie potrzeby Użyj listy rozwijanej, aby wybrać wartość telemetrii do wyświetlenia na kafelku. Do kafelka można dodać więcej elementów, wybierając pozycję **+ Telemetria** , **+ Właściwość** lub **+ Właściwość w chmurze**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Dodawanie kafelka telemetrii dla temperatury do pulpitu nawigacyjnego":::
 
-Po zakończeniu dodawania i dostosowywania kafelków na pulpicie nawigacyjnym wybierz pozycję **Zapisz**.
+Po wybraniu wszystkich wartości do wyświetlenia na kafelku kliknij pozycję **Dodaj kafelek.** Kafelek jest teraz wyświetlany na pulpicie nawigacyjnym, w którym można zmienić wizualizację, zmienić jego rozmiar, przenieść go i skonfigurować.
+
+Po zakończeniu dodawania i dostosowywania kafelków na pulpicie nawigacyjnym wybierz pozycję **Zapisz** , aby zapisać zmiany na pulpicie nawigacyjnym, co spowoduje przejście do trybu edycji.
 
 ## <a name="customize-tiles"></a>Dostosuj kafelki
 
-Aby można było dostosować kafelek na pulpicie nawigacyjnym, pulpit nawigacyjny musi być w trybie edycji. Dostępne opcje dostosowywania zależą od [typu kafelka](#tile-types):
+Aby edytować kafelek, musisz być w trybie edycji.  Dostępne opcje dostosowywania zależą od [typu kafelka](#tile-types):
 
-* Ikona linijki na kafelku pozwala zmienić wizualizację. Wizualizacje obejmują wykresy liniowe, ostatnie znane wartości oraz mapy cieplne.
+* Ikona linijki na kafelku pozwala zmienić wizualizację. Wizualizacje obejmują wykresy liniowe, wykresy słupkowe, wykresy kołowe, ostatnie znane wartości, kluczowe wskaźniki wydajności (lub wskaźniki KPI), map cieplnych i mapy.
 
 * Kwadratowa ikona pozwala zmienić rozmiar kafelka.
 
 * Ikona koła zębatego umożliwia skonfigurowanie wizualizacji. Na przykład dla wizualizacji wykresu liniowego można wybrać opcję wyświetlania legendy i osi oraz wybrać zakres czasu do wykreślenia.
+
 
 ## <a name="tile-types"></a>Typy kafelków
 
@@ -91,11 +93,16 @@ W przypadku liczbowych **wskaźników KPI** , **ostatniej znanej wartości** i k
 
 Dodaj reguły formatowania warunkowego:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Zrzut ekranu przedstawiający reguły formatowania warunkowego dla średniego przepływu. Istnieją trzy reguły — mniej określona 20 to kolor zielony, mniejszy niż 50 50":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Zrzut ekranu przedstawiający reguły formatowania warunkowego dla średniego przepływu. Istnieją trzy reguły — mniej niż 20 to kolor zielony, mniejszy niż 50 50":::
+   
 Poniższy zrzut ekranu przedstawia efekt reguły formatowania warunkowego:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Zrzut ekranu przedstawiający żółty kolor tła na kafelku średniego przepływu wody. Liczba na kafelku to 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Zrzut ekranu przedstawiający czerwony kolor tła na kafelku średniego przepływu wody. Liczba na kafelku to 50,54":::
+
+### <a name="tile-formatting"></a>Formatowanie "kafelka"
+Ta funkcja, dostępna na kafelkach KPI, LKV i właściwości, umożliwia użytkownikom dostosowanie rozmiaru czcionki, wybranie pozycji dokładność dziesiętna, skrócinie wartości liczbowych (np. format 1 700 jako 1.7 K) lub zawinięcie wartości ciągu na kafelkach.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Format kafelka":::
 
 ## <a name="next-steps"></a>Następne kroki
 

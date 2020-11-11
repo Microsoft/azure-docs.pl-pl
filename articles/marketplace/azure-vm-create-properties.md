@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: cc5702d973150b80188354719333fb7cf22d58b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e5ea4df3de0b8a10c9c1f3b4b27a9e0a19359e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284879"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491209"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>Jak skonfigurować właściwości oferty maszyny wirtualnej
 
@@ -29,7 +29,7 @@ Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z naj
 
 ## <a name="provide-terms-and-conditions"></a>Podaj warunki i postanowienia
 
-W obszarze **prawne**Podaj warunki i postanowienia dotyczące oferty. Dostępne są dwie opcje:
+W obszarze **prawne** Podaj warunki i postanowienia dotyczące oferty. Dostępne są dwie opcje:
 
 - [Użyj standardowej umowy z opcjonalnymi zmianami](#use-the-standard-contract)
 - [Korzystanie z własnych warunków i postanowień](#use-your-own-terms-and-conditions)
@@ -59,7 +59,7 @@ W obszarze **postanowienia dotyczące zmiany uniwersalnej do standardowej umowy 
 
 #### <a name="add-one-or-more-custom-amendments"></a>Dodawanie co najmniej jednej zmiany niestandardowej
 
-1. W obszarze **niestandardowe zmiany warunki do standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft**wybierz łącze **Dodaj termin poprawki niestandardowej (maks. 10)** .
+1. W obszarze **niestandardowe zmiany warunki do standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft** wybierz łącze **Dodaj termin poprawki niestandardowej (maks. 10)** .
 1. W polu **niestandardowe warunki zmiany** wprowadź warunki umowy licencyjnej.
 1. W polu **Identyfikator dzierżawy** wprowadź identyfikator dzierżawy. Tylko klienci powiązani z identyfikatorami dzierżawy określonymi dla tych terminów niestandardowych będą widzieć je w przepływie zakupu oferty w Azure Portal.
    > [!TIP]
@@ -73,14 +73,10 @@ W obszarze **postanowienia dotyczące zmiany uniwersalnej do standardowej umowy 
 
 Możesz określić własne warunki i postanowienia zamiast standardowej umowy. Aby wypróbować ofertę, klienci muszą zaakceptować te warunki.
 
-1. W obszarze **prawne**upewnij się, że pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu firmy Microsoft** jest wyczyszczone.
+1. W obszarze **prawne** upewnij się, że pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu firmy Microsoft** jest wyczyszczone.
 1. W polu **warunki i** postanowienia wprowadź do 10 000 znaków tekstu.
-
-   > [!NOTE]
-   > Jeśli potrzebujesz dłuższego opisu, wprowadź pojedynczy adres internetowy wskazujący, gdzie można znaleźć warunki i postanowienia. Będzie ona wyświetlana klientom jako aktywne łącze.
-
 1. Wybierz opcję **Zapisz wersję roboczą** przed przejściem do następnej karty, na **liście oferty**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Skonfiguruj listę ofert maszyn wirtualnych](azure-vm-create-listing.md)
+- [Konfigurowanie wpisu oferty maszyny wirtualnej](azure-vm-create-listing.md)

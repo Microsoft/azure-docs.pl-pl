@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348580"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490716"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Uwierzytelnianie zadania Azure Stream Analytics za pomocą tożsamości zarządzanej na platformie Azure Blob Storage dane wyjściowe
 
@@ -223,6 +223,10 @@ Podczas konfigurowania **zapór i sieci wirtualnych** konta magazynu można opcj
 3.    Jeśli ją włączono, kliknij przycisk **Zapisz**.
 
    ![Włącz dostęp do sieci wirtualnej](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## <a name="remove-managed-identity"></a>Usuwanie tożsamości zarządzanej
+
+Tożsamość zarządzana utworzona dla zadania Stream Analytics jest usuwana tylko po usunięciu zadania. Nie można usunąć tożsamości zarządzanej bez usuwania zadania. Jeśli nie chcesz już używać tożsamości zarządzanej, możesz zmienić metodę uwierzytelniania dla danych wyjściowych. Tożsamość zarządzana będzie nadal istnieć do momentu usunięcia zadania i zostanie użyta, jeśli zdecydujesz się ponownie użyć uwierzytelniania tożsamości zarządzanej.
 
 ## <a name="limitations"></a>Ograniczenia
 Poniżej znajdują się bieżące ograniczenia tej funkcji:

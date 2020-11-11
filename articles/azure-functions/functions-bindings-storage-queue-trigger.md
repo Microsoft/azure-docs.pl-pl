@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376642"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491447"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure queue storage dla Azure Functions
 
@@ -163,7 +163,7 @@ Wyzwalacz kolejki magazynu jest zdefiniowany w *function.jsna* miejscu, w który
 }
 ```
 
-Kod * _ \_ init_ \_ . PR* deklaruje parametr AS `func.QueueMessage` , który umożliwia odczytywanie komunikatu w kolejce w funkcji.
+Kod *_\_ init_ \_ . PR* deklaruje parametr AS `func.QueueMessage` , który umożliwia odczytywanie komunikatu w kolejce w funkcji.
 
 ```python
 import logging
@@ -313,9 +313,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | nie dotyczy| Musi być ustawiony na `queueTrigger` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
-|**wskazywa**| nie dotyczy | W *function.jstylko na* pliku. Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
-|**Nazwij** | nie dotyczy |Nazwa zmiennej, która zawiera ładunek elementu kolejki w kodzie funkcji.  |
+|**Wprowadź** | n/d| Musi być ustawiony na `queueTrigger` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
+|**wskazywa**| n/d | W *function.jstylko na* pliku. Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
+|**Nazwij** | n/d |Nazwa zmiennej, która zawiera ładunek elementu kolejki w kodzie funkcji.  |
 |**Zmienną QueueName** | **Zmienną QueueName**| Nazwa kolejki do sondowania. |
 |**połączenia** | **Połączenie** |Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "WebStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .|
 
@@ -363,7 +363,7 @@ Adnotacja [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queu
 
 Wyzwalacz kolejki zawiera kilka [właściwości metadanych](./functions-bindings-expressions-patterns.md#trigger-metadata). Te właściwości mogą służyć jako część wyrażeń powiązań w innych powiązaniach lub jako parametry w kodzie. Właściwości są członkami klasy [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Właściwość|Type|Opis|
+|Właściwość|Typ|Opis|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Ładunek kolejki (w przypadku prawidłowego ciągu). Jeśli ładunek komunikatu w kolejce jest ciągiem, `QueueTrigger` ma taką samą wartość jak zmienna o nazwie określona przez `name` właściwość w *function.js*.|
 |`DequeueCount`|`int`|Liczba przypadków, w których ten komunikat został usunięty z kolejki.|
@@ -375,7 +375,7 @@ Wyzwalacz kolejki zawiera kilka [właściwości metadanych](./functions-bindings
 
 ## <a name="poison-messages"></a>Trujące komunikaty
 
-Gdy funkcja wyzwalacza kolejki kończy się niepowodzeniem, Azure Functions ponawia próbę wykonania funkcji maksymalnie pięć razy dla danego komunikatu kolejki, łącznie z pierwszą próbą. Jeśli wszystkie pięć prób nie powiedzie się, środowisko uruchomieniowe funkcji dodaje komunikat do kolejki o nazwie * &lt; originalqueuename>-Trująca*. Funkcję można napisać, aby przetwarzać komunikaty z kolejki trującej, rejestrując je lub wysyłając powiadomienie, które wymaga ręcznej uwagi.
+Gdy funkcja wyzwalacza kolejki kończy się niepowodzeniem, Azure Functions ponawia próbę wykonania funkcji maksymalnie pięć razy dla danego komunikatu kolejki, łącznie z pierwszą próbą. Jeśli wszystkie pięć prób nie powiedzie się, środowisko uruchomieniowe funkcji dodaje komunikat do kolejki o nazwie *&lt; originalqueuename>-Trująca*. Funkcję można napisać, aby przetwarzać komunikaty z kolejki trującej, rejestrując je lub wysyłając powiadomienie, które wymaga ręcznej uwagi.
 
 Aby ręcznie obsłużyć trujące komunikaty, sprawdź [dequeueCount](#message-metadata) komunikatu w kolejce.
 
@@ -408,7 +408,7 @@ Wyzwalacz kolejki automatycznie zapobiega przetwarzaniu komunikatu kolejki wielo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapisywanie komunikatów magazynu obiektów BLOB (powiązanie danych wyjściowych)](./functions-bindings-storage-blob-output.md)
+- [Komunikaty magazynu kolejki zapisu (powiązanie danych wyjściowych)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

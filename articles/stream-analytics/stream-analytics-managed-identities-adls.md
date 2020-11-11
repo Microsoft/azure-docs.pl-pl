@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 551f0065f1547e94d93993a38795234f455b9eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044400"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491889"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Uwierzytelnianie Stream Analytics do Azure Data Lake Storage Gen1 przy użyciu tożsamości zarządzanych
 
@@ -22,7 +22,7 @@ W tym artykule przedstawiono trzy sposoby włączania zarządzanej tożsamości 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Zacznij od utworzenia nowego zadania Stream Analytics lub otwierając istniejące zadanie w Azure Portal. Na pasku menu znajdującym się po lewej stronie ekranu wybierz pozycję **zarządzana tożsamość** znajdującą się w obszarze **Konfiguruj**.
 
@@ -34,7 +34,7 @@ W tym artykule przedstawiono trzy sposoby włączania zarządzanej tożsamości 
 
    ![Identyfikator jednostki usługi Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
-   Nazwa główna usługi ma taką samą nazwę jak zadanie Stream Analytics. Jeśli na przykład nazwa zadania to **MyASAJob**, tworzona jest również nazwa jednostki usługi **MyASAJob**.
+   Nazwa główna usługi ma taką samą nazwę jak zadanie Stream Analytics. Jeśli na przykład nazwa zadania to **MyASAJob** , tworzona jest również nazwa jednostki usługi **MyASAJob**.
 
 3. W oknie właściwości danych wyjściowych ujścia danych wyjściowych ADLS Gen1 kliknij listę rozwijaną tryb uwierzytelniania i wybierz pozycję * * tożsamość zarządzana * *.
 
@@ -175,12 +175,16 @@ W tym artykule przedstawiono trzy sposoby włączania zarządzanej tożsamości 
 
    Aby dowiedzieć się więcej o powyższym poleceniu programu PowerShell, zapoznaj się z dokumentacją [zestawu AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) .
 
+## <a name="remove-managed-identity"></a>Usuwanie tożsamości zarządzanej
+
+Tożsamość zarządzana utworzona dla zadania Stream Analytics jest usuwana tylko po usunięciu zadania. Nie można usunąć tożsamości zarządzanej bez usuwania zadania. Jeśli nie chcesz już używać tożsamości zarządzanej, możesz zmienić metodę uwierzytelniania dla danych wyjściowych. Tożsamość zarządzana będzie nadal istnieć do momentu usunięcia zadania i zostanie użyta, jeśli zdecydujesz się ponownie użyć uwierzytelniania tożsamości zarządzanej.
+
 ## <a name="limitations"></a>Ograniczenia
 Ta funkcja nie obsługuje następujących czynności:
 
-1. **Dostęp z wieloma dzierżawcami**: jednostka usługi utworzona dla danego zadania Stream Analytics będzie znajdować się w dzierżawie Azure Active Directory, w której zadanie zostało utworzone, i nie można jej używać w odniesieniu do zasobu znajdującego się w innej dzierżawie Azure Active Directory. Z tego względu można używać tylko MSI w przypadku zasobów ADLS generacji 1, które znajdują się w tej samej dzierżawie Azure Active Directory, co zadanie Azure Stream Analytics. 
+1. **Dostęp z wieloma dzierżawcami** : jednostka usługi utworzona dla danego zadania Stream Analytics będzie znajdować się w dzierżawie Azure Active Directory, w której zadanie zostało utworzone, i nie można jej używać w odniesieniu do zasobu znajdującego się w innej dzierżawie Azure Active Directory. Z tego względu można używać tylko MSI w przypadku zasobów ADLS generacji 1, które znajdują się w tej samej dzierżawie Azure Active Directory, co zadanie Azure Stream Analytics. 
 
-2. **[Tożsamość przypisana przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md)**: nie jest obsługiwana. Oznacza to, że użytkownik nie może wprowadzić własnej nazwy głównej usługi, która będzie używana przez ich Stream Analytics zadanie. Nazwa główna usługi jest generowana przez Azure Stream Analytics.
+2. **[Tożsamość przypisana przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md)** : nie jest obsługiwana. Oznacza to, że użytkownik nie może wprowadzić własnej nazwy głównej usługi, która będzie używana przez ich Stream Analytics zadanie. Nazwa główna usługi jest generowana przez Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Następne kroki
 

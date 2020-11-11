@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130259"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491311"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Rozwiązywanie problemów z zapytaniami Azure Stream Analytics
 
@@ -25,7 +25,7 @@ W tym artykule opisano typowe problemy związane z tworzeniem zapytań Azure Str
 
 1.  Sprawdzanie błędów przez testowanie lokalne:
 
-    - Na Azure Portal na karcie **zapytanie** wybierz pozycję **test** . Aby [przetestować zapytanie,](stream-analytics-test-query.md)Użyj pobranych przykładowych danych. Przejrzyj błędy i spróbuj je poprawić.   
+    - Na Azure Portal na karcie **zapytanie** wybierz pozycję **test**. Aby [przetestować zapytanie,](stream-analytics-test-query.md)Użyj pobranych przykładowych danych. Przejrzyj błędy i spróbuj je poprawić.   
     - Możesz również [testować zapytanie lokalnie](stream-analytics-live-data-local-testing.md) przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio lub [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Debuguj zapytania krok po kroku lokalnie przy użyciu diagramu zadań](debug-locally-using-job-diagram-vs-code.md) w Azure Stream Analytics narzędzia dla Visual Studio Code. Diagram zadania pokazuje, w jaki sposób dane są przepływami ze źródeł danych wejściowych (centrum zdarzeń, IoT Hub itd.) przez wiele kroków zapytania, a wreszcie do ujścia danych wyjściowych. Każdy krok zapytania jest mapowany do tymczasowego zestawu wyników zdefiniowanego w skrypcie przy użyciu instrukcji WITH. Możesz wyświetlić dane, a także metryki w każdym pośrednim zestawie wyników, aby znaleźć źródło problemu.
@@ -50,6 +50,8 @@ W tym artykule opisano typowe problemy związane z tworzeniem zapytań Azure Str
 ## <a name="resource-utilization-is-high"></a>Użycie zasobów jest wysokie
 
 Upewnij się, że korzystasz z przetwarzanie równoległe w Azure Stream Analytics. Możesz dowiedzieć się, jak [skalować za pomocą zapytań przetwarzanie równoległe](stream-analytics-parallelization.md) Stream Analytics zadań przez skonfigurowanie partycji wejściowych i dostrajanie definicji zapytania analitycznego.
+
+Jeśli wykorzystanie zasobów odbywa się w sposób ciągły przez 80%, wydłuża się opóźnienie i liczba zdarzeń zaległych, należy rozważyć zwiększenie jednostek przesyłania strumieniowego. Wysokie wykorzystanie wskazuje, że zadanie jest używane blisko maksymalnych przydziałów zasobów.
 
 ## <a name="debug-queries-progressively"></a>Debug queries progressively (Stopniowe debugowanie zapytań)
 

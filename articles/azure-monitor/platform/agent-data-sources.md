@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460805"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490580"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Źródła danych agenta Log Analytics w Azure Monitor
 Dane, które Azure Monitor zbiera z maszyn wirtualnych z agentem [log Analytics](log-analytics-agent.md) , są definiowane przez źródła danych skonfigurowane w [obszarze roboczym log Analytics](data-platform-logs.md).   Każde źródło danych tworzy rekordy określonego typu z każdym typem, który ma swój własny zestaw właściwości.
@@ -20,6 +20,9 @@ Dane, które Azure Monitor zbiera z maszyn wirtualnych z agentem [log Analytics]
 > W tym artykule opisano źródła danych dla [agenta log Analytics](log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Zbieranie danych dziennika](media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> Źródła danych opisane w tym artykule mają zastosowanie tylko do maszyn wirtualnych z uruchomionym agentem Log Analytics. 
 
 ## <a name="summary-of-data-sources"></a>Podsumowanie źródeł danych
 W poniższej tabeli wymieniono źródła danych agentów, które są obecnie dostępne dla agenta Log Analytics.  Każdy z nich zawiera link do oddzielnego artykułu z szczegółowymi informacjami dla tego źródła danych.   Zawiera również informacje o ich metodzie i częstotliwości zbierania. 

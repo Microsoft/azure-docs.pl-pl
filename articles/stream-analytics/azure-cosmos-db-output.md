@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906263"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491736"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB dane wyjściowe z Azure Stream Analytics
 
@@ -34,12 +34,12 @@ W poniższej tabeli opisano właściwości tworzenia Azure Cosmos DB danych wyj�
 | Identyfikator konta | Nazwa lub identyfikator URI punktu końcowego konta Azure Cosmos DB. |
 | Klucz konta | Współużytkowany klucz dostępu dla konta Azure Cosmos DB. |
 | baza danych | Nazwa bazy danych Azure Cosmos DB. |
-| Nazwa kontenera | Nazwa kontenera do użycia, która musi istnieć w Cosmos DB. Przykład:  <br /><ul><li> Obiekt _Webcontainerer_: kontener o nazwie "The containerer" musi istnieć.</li>|
+| Nazwa kontenera | Nazwa kontenera do użycia, która musi istnieć w Cosmos DB. Przykład:  <br /><ul><li> Obiekt _Webcontainerer_ : kontener o nazwie "The containerer" musi istnieć.</li>|
 | Identyfikator dokumentu |Opcjonalny. Nazwa pola w zdarzeniach wyjściowych, które służy do określania klucza podstawowego, na którym bazują operacje wstawiania lub aktualizacji.
 
 ## <a name="partitioning"></a>Partycjonowanie
 
-Klucz partycji jest oparty na klauzuli PARTITION BY w zapytaniu. Liczba składników zapisywania danych wyjściowych następuje po partycjonowaniu danych wejściowych dla w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). Stream Analytics konwertuje klucz partycji wyjściowej Cosmos DB na ciąg. Na przykład jeśli masz klucz partycji o wartości 1 typu bigint, jest on konwertowany na "1" typu ciąg.
+Klucz partycji jest oparty na klauzuli PARTITION BY w zapytaniu. Liczba składników zapisywania danych wyjściowych następuje po partycjonowaniu danych wejściowych dla w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). Stream Analytics konwertuje klucz partycji wyjściowej Cosmos DB na ciąg. Na przykład jeśli masz klucz partycji o wartości 1 typu bigint, jest on konwertowany na "1" typu ciąg. Ta konwersja jest zawsze wykonywana niezależnie od tego, czy właściwość partycji jest zapisywana w Cosmos DB.
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 

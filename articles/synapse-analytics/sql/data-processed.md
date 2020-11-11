@@ -1,6 +1,6 @@
 ---
-title: Dane przetworzone przy użyciu puli SQL bezserwerowej
-description: W tym dokumencie opisano sposób obliczania ilości danych przetwarzanych podczas wykonywania zapytań dotyczących danych w usłudze Data Lake.
+title: Zarządzanie kosztami dla puli SQL bezserwerowej
+description: W tym dokumencie opisano, jak zarządzać kosztami puli SQL bezserwerowej i sposobem obliczania danych przetwarzanych podczas wykonywania zapytań dotyczących danych w usłudze Azure Storage.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,22 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381205"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491588"
 ---
-# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dane przetwarzane przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
+# <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Zarządzanie kosztami dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
+
+W tym artykule wyjaśniono, jak można oszacować i zarządzać kosztami bezserwerowych puli SQL w usłudze Azure Synapse Analytics:
+- Szacowana ilość danych przetworzonych przed wygenerowaniem zapytania
+- Ustawianie budżetu przy użyciu funkcji kontroli kosztów
+
+Należy zrozumieć, że koszty puli SQL bezserwerowej w usłudze Azure Synapse Analytics są jedynie częścią miesięcznych kosztów rachunku na korzystanie z platformy Azure. Jeśli używasz innych usług platformy Azure, opłaty są naliczane za wszystkie usługi i zasoby platformy Azure używane w ramach subskrypcji platformy Azure, w tym usługi innych firm. W tym artykule wyjaśniono, jak planować i zarządzać kosztami bezserwerowych puli SQL w usłudze Azure Synapse Analytics.
+
+## <a name="data-processed"></a>Ilość przetworzonych danych
 
 *Przetworzone dane* to ilość danych, które system tymczasowo przechowuje w czasie wykonywania zapytania. Przetwarzane dane składają się z następujących ilości:
 
@@ -84,6 +92,53 @@ To zapytanie odczytuje wszystkie kolumny i przesyła wszystkie dane w nieskompre
 To zapytanie odczytuje całe pliki. Łączny rozmiar plików w magazynie dla tej tabeli to 100 KB. Węzły przetwarzają fragmenty tej tabeli i łączą dla każdego fragmentu są przenoszone między węzłami. Końcowa suma jest transferowana do punktu końcowego. 
 
 To zapytanie przetwarza nieco więcej niż 100 KB danych. Ilość danych przetworzonych dla tego zapytania jest zaokrąglana do 10 MB, jak określono w sekcji [Zaokrąglenie](#rounding) tego artykułu.
+
+## <a name="cost-control"></a>Kontrola kosztów
+
+Funkcja kontroli kosztów w puli SQL bezserwerowej umożliwia ustawienie budżetu dla ilości przetworzonych danych. Możesz ustawić budżet w TB danych przetworzonych w ciągu dnia, tygodnia i miesiąca. W tym samym czasie można określić co najmniej jeden budżet. Aby skonfigurować kontrolę kosztów dla puli SQL bezserwerowej, można użyć programu Synapse Studio lub T-SQL.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-synapse-studio"></a>Konfigurowanie kontroli kosztów dla puli SQL bezserwerowej w programie Synapse Studio
+ 
+Aby skonfigurować kontrolę kosztów dla puli SQL bezserwerowej w programie Synapse Studio, przejdź do pozycji Zarządzaj elementem w menu po lewej stronie, a następnie wybierz pozycję element puli SQL w obszarze pule analityczne. Po umieszczeniu wskaźnika myszy w puli SQL bezserwerowej zobaczysz ikonę kontroli kosztów — kliknij tę ikonę.
+
+![Nawigacja w formancie kosztów](./media/data-processed/cost-control-menu.png)
+
+Po kliknięciu ikony kontroli kosztów zostanie wyświetlony pasek boczny:
+
+![Konfiguracja kontroli kosztów](./media/data-processed/cost-control-sidebar.png)
+
+Aby ustawić jeden lub więcej budżetów, należy najpierw kliknąć przycisk Włącz przycisk radiowy dla budżetu, który ma zostać ustawiony, a nie wprowadzić wartości całkowitej w polu tekstowym. Jednostką dla tej wartości jest TBs. Po skonfigurowaniu odpowiednich budżetów kliknij przycisk Zastosuj w dolnej części paska bocznego. Oznacza to, że budżet jest teraz ustawiony.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-t-sql"></a>Konfigurowanie kontroli kosztów dla puli SQL bezserwerowej w języku T-SQL
+
+Aby skonfigurować kontrolę kosztów dla puli SQL bezserwerowej w języku T-SQL, należy wykonać jedną lub więcej z poniższych procedur składowanych.
+
+```sql
+sp_set_data_processed_limit
+    @type = N'daily',
+    @limit_tb = 1
+
+sp_set_data_processed_limit
+    @type= N'weekly',
+    @limit_tb = 2
+
+sp_set_data_processed_limit
+    @type= N'monthly',
+    @limit_tb = 3334
+```
+
+Aby wyświetlić bieżącą konfigurację, wykonaj następującą instrukcję T-SQL:
+
+```sql
+SELECT * FROM sys.configurations
+WHERE name like 'Data processed %';
+```
+
+Aby sprawdzić, ile danych zostało przetworzonych w bieżącym dniu, tygodniu lub miesiącu, wykonaj następującą instrukcję T-SQL:
+
+```sql
+SELECT * FROM sys.dm_external_data_processed
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

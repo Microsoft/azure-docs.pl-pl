@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat najlepszych rozwiązań dotyczących 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708649"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492093"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -93,7 +93,7 @@ Wybór branżowy ma zastosowanie tylko w przypadku ofert opublikowanych w usług
 | **Architektura & konstrukcja** | |
 | **Motoryzacja** | |
 | **Dystrybucja** | Handel hurtowy <br> Wysyłka pakietu & Parcel |  
-| **Edukacja** | Szkolnictwo wyższe <br> Podstawowa & dodatkowej platformy edu/K-12 <br> Biblioteki & muzea |
+| **Education** | Szkolnictwo wyższe <br> Podstawowa & dodatkowej platformy edu/K-12 <br> Biblioteki & muzea |
 | **Usługi finansowe** | Bankowość & — rynki kapitałowe <br> Zakład | 
 | **Instytucje rządowe** |  Inteligencja & obrony <br> Rząd cywilny <br> Bezpieczeństwo publiczne & sprawiedliwości |
 | **Opieka zdrowotna** | Płatnik kondycji <br> Dostawca kondycji <br> Pharmaceuticals | 
@@ -130,8 +130,8 @@ Słowa kluczowe mogą pomóc klientom w znalezieniu oferty podczas wyszukiwania.
 ## <a name="link-to-your-offer-page-from-your-website"></a>Link do strony oferty z witryny sieci Web
 
 Po dołączeniu z usługi AppSource lub identyfikatora portalu Azure Marketplace w witrynie do listy w portalu komercyjnym można obsługiwać silną analizę i raportowanie, dołączając następujące parametry zapytania na końcu adresu URL:
-* **src**: Uwzględnij źródło, z którego jest kierowany ruch do AppSource (na przykład witryna sieci Web, LinkedIn lub Facebook).
-* **mktcmpid**: Identyfikator kampanii marketingowej, który może zawierać maksymalnie 16 znaków w dowolnej kombinacji liter, cyfr, podkreśleń i łączników (na przykład *blogpost_12*).
+* **src** : Uwzględnij źródło, z którego jest kierowany ruch do AppSource (na przykład witryna sieci Web, LinkedIn lub Facebook).
+* **mktcmpid** : Identyfikator kampanii marketingowej, który może zawierać maksymalnie 16 znaków w dowolnej kombinacji liter, cyfr, podkreśleń i łączników (na przykład *blogpost_12* ).
 
 Następujący przykładowy adres URL zawiera oba z powyższych parametrów zapytania: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

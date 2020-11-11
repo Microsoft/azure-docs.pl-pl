@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029465"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491634"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -139,7 +139,7 @@ Po skonfigurowaniu kolekcji danych monitorowania dla maszyny wirtualnej masz wie
 | Metryki | Otwórz [Eksploratora metryk](../platform/metrics-getting-started.md) z zakresem ustawionym na bieżącą maszynę wirtualną. |
 | Ustawienia diagnostyczne | Włącz i skonfiguruj [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla bieżącej maszyny wirtualnej. |
 | Zalecenia doradcy | Zalecenia dotyczące bieżącej maszyny wirtualnej z [Azure Advisor](../../advisor/index.yml). |
-| Dzienniki | Otwórz [log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) z [zakresem](../log-query/scope.md) ustawionym na bieżącą maszynę wirtualną. |
+| Dzienniki | Otwórz [log Analytics](../log-query/log-analytics-overview.md) z [zakresem](../log-query/scope.md) ustawionym na bieżącą maszynę wirtualną. |
 | Monitor połączeń | Otwórz [monitor połączeń Network Watcher](../../network-watcher/connection-monitor-preview.md) , aby monitorować połączenia między bieżącą maszyną wirtualną a innymi maszynami wirtualnymi. |
 
 
@@ -170,7 +170,7 @@ Azure Monitor dla maszyn wirtualnych umożliwia zbieranie wstępnie określonego
 
 
 > [!NOTE]
-> Dane wydajności zbierane przez agenta Log Analytics są zapisywane w tabeli *wydajności* , podczas gdy Azure monitor dla maszyn wirtualnych zbiera je do tabeli *InsightsMetrics* . Są to te same dane, ale tabele mają inną strukturę. Jeśli masz istniejące zapytania na podstawie *wydajności*, trzeba będzie je ponownie napisać, aby użyć *InsightsMetrics*.
+> Dane wydajności zbierane przez agenta Log Analytics są zapisywane w tabeli *wydajności* , podczas gdy Azure monitor dla maszyn wirtualnych zbiera je do tabeli *InsightsMetrics* . Są to te same dane, ale tabele mają inną strukturę. Jeśli masz istniejące zapytania na podstawie *wydajności* , trzeba będzie je ponownie napisać, aby użyć *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Alerty

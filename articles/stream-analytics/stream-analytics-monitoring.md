@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdddbce3e9eb0a5c933ace186607186265197dc4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123510"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491532"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
@@ -43,7 +43,7 @@ Okno zostanie wyświetlone w sposób pokazany:
 | Zdarzenia poza kolejnością    | Liczba zdarzeń odebranych poza kolejnością, które zostały usunięte lub uzyskały skorygowaną sygnaturę czasową, na podstawie zasad określania kolejności zdarzeń. Może to mieć wpływ na konfigurację ustawienia okna tolerancja poza kolejnością. |
 | Zdarzenia wyjściowe          | Ilość danych wysyłanych przez zadanie Stream Analytics do elementu docelowego danych wyjściowych, w liczbie zdarzeń. |
 | Błędy środowiska uruchomieniowego         | Łączna liczba błędów związanych z przetwarzaniem zapytań (z wyjątkiem błędów znalezionych podczas pozyskiwania zdarzeń lub wyprowadzania wyników) |
-| Użycie SU%       | Wykorzystanie jednostek przesyłania strumieniowego przypisanych do zadania z karty skala zadania. Jeśli ten wskaźnik osiągnie 80%, lub powyżej, istnieje wysokie prawdopodobieństwo, że przetwarzanie zdarzeń może być opóźnione lub zatrzymane w toku. |
+| Użycie SU%       | Jeśli wykorzystanie zasobów odbywa się w sposób ciągły przez 80%, wydłuża się opóźnienie i liczba zdarzeń zaległych, należy rozważyć zwiększenie jednostek przesyłania strumieniowego. Wysokie wykorzystanie wskazuje, że zadanie jest używane blisko maksymalnych przydziałów zasobów. |
 | Opóźnienie znaku wodnego       | Maksymalne opóźnienie dla wszystkich partycji wszystkich danych wyjściowych w zadaniu. |
 
 Możesz użyć tych metryk do [monitorowania wydajności zadania Stream Analytics](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

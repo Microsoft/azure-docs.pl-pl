@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077920"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491430"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
 
@@ -34,16 +34,16 @@ Usługa Azure Notification Hubs ma dwa poziomy zasobów: centra i przestrzenie n
 
 Najnowsze szczegóły cennika można znaleźć na stronie [cennika Notification Hubs] . Notification Hubs jest rozliczana na poziomie przestrzeni nazw. (Aby zapoznać się z definicją przestrzeni nazw, zobacz "co to jest struktura zasobów Notification Hubs?"). Notification Hubs oferuje trzy warstwy:
 
-* **Bezpłatna**: Ta warstwa jest dobrym punktem wyjścia do eksplorowania funkcji wypychania. Nie jest to zalecane w przypadku aplikacji produkcyjnych. Otrzymujesz 500 urządzeń i 1 000 000 wypchnięcia na przestrzeń nazw miesięcznie, bez gwarancji umowy dotyczącej poziomu usług (SLA).
-* **Podstawowa**: Ta warstwa (lub warstwa standardowa) jest zalecana w przypadku mniejszych aplikacji produkcyjnych. Odbierasz 200 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa.
-* **Standardowa**: Ta warstwa jest zalecana dla średnich i dużych aplikacji produkcyjnych. Odbierasz 10 000 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa. Obejmuje rozbudowaną telemetrię (dodatkowe dane dotyczące podanego stanu wypychania).
+* **Bezpłatna** : Ta warstwa jest dobrym punktem wyjścia do eksplorowania funkcji wypychania. Nie jest to zalecane w przypadku aplikacji produkcyjnych. Otrzymujesz 500 urządzeń i 1 000 000 wypchnięcia na przestrzeń nazw miesięcznie, bez gwarancji umowy dotyczącej poziomu usług (SLA).
+* **Podstawowa** : Ta warstwa (lub warstwa standardowa) jest zalecana w przypadku mniejszych aplikacji produkcyjnych. Odbierasz 200 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa.
+* **Standardowa** : Ta warstwa jest zalecana dla średnich i dużych aplikacji produkcyjnych. Odbierasz 10 000 000 urządzeń i 10 000 000 wypchnięcia na przestrzeń nazw miesięcznie jako linia bazowa. Obejmuje rozbudowaną telemetrię (dodatkowe dane dotyczące podanego stanu wypychania).
 
 Funkcje warstwy standardowej:
 
-* **Rozbudowana Telemetria**: możesz użyć Notification Hubs poszczególnych komunikatów telemetrycznych do śledzenia żądań wypychania i system powiadomień platformy informacji zwrotnych na potrzeby debugowania.
-* **Wielodostępność**: można korzystać z poświadczeń system powiadomień platformy na poziomie przestrzeni nazw. Ta opcja umożliwia łatwe dzielenie dzierżawców w centrach w obrębie tej samej przestrzeni nazw.
-* **Zaplanowane wypychanie**: możesz zaplanować wysyłanie powiadomień w dowolnym czasie.
-* **Operacje zbiorcze**: Włącza funkcje eksportu/importu rejestracji zgodnie z opisem w dokumencie [eksport/import rejestracji] .
+* **Rozbudowana Telemetria** : możesz użyć Notification Hubs poszczególnych komunikatów telemetrycznych do śledzenia żądań wypychania i system powiadomień platformy informacji zwrotnych na potrzeby debugowania.
+* **Wielodostępność** : można korzystać z poświadczeń system powiadomień platformy na poziomie przestrzeni nazw. Ta opcja umożliwia łatwe dzielenie dzierżawców w centrach w obrębie tej samej przestrzeni nazw.
+* **Zaplanowane wypychanie** : możesz zaplanować wysyłanie powiadomień w dowolnym czasie.
+* **Operacje zbiorcze** : Włącza funkcje eksportu/importu rejestracji zgodnie z opisem w dokumencie [eksport/import rejestracji] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Co to jest umowa SLA Notification Hubs?
 
@@ -119,7 +119,7 @@ Ze względu na charakter powiadomień wypychanych (są one dostarczane przez zew
 
 Gdy aplikacja mobilna jest zarejestrowana w portalu dla deweloperów platformy (na przykład Apple lub Google), wysyłany jest identyfikator aplikacji i tokeny zabezpieczające. Zaplecze aplikacji udostępnia te tokeny PNS platformy, aby można było wysyłać powiadomienia wypychane do urządzeń. Tokeny zabezpieczające mogą mieć postać certyfikatów (na przykład Apple iOS lub Windows Phone) lub kluczy zabezpieczeń (np. Google Android lub Windows). Muszą być skonfigurowane w centrach powiadomień. Konfiguracja zazwyczaj odbywa się na poziomie centrum powiadomień, ale można ją również wykonać na poziomie przestrzeni nazw w scenariuszu obejmującym wiele dzierżawców.
 
-#### <a name="namespaces"></a>Namespaces
+#### <a name="namespaces"></a>Przestrzenie nazw
 
 Przestrzenie nazw mogą być używane do grupowania wdrożenia. Mogą one również służyć do reprezentowania wszystkich centrów powiadomień dla wszystkich dzierżawców tej samej aplikacji w scenariuszu obejmującym wiele dzierżawców.
 
@@ -159,15 +159,12 @@ Zapewniamy pokrycie odzyskiwania po awarii metadanych na naszym końcu (nazwy No
 
 1. Utwórz pomocnicze centrum powiadomień w innym centrum danych. Zalecamy utworzenie jednej od początku, aby włączyć osłonę przed zdarzeniem odzyskiwania po awarii, które może mieć wpływ na możliwości zarządzania. Możesz również utworzyć jeden w czasie zdarzenia odzyskiwania po awarii.
 
-2. Wypełnianie pomocniczego centrum powiadomień rejestracjami z głównego centrum powiadomień. Nie zaleca się przeprowadzania rejestracji na obu centrach i utrzymywania ich synchronizacji w przypadku wprowadzenia rejestracji. Ta metoda nie działa prawidłowo ze względu na nieodłączną tendencję rejestracji po stronie PNS. Notification Hubs czyści je w miarę otrzymywania informacji o wygasłych lub nieprawidłowych rejestracjach PNS.  
+2. Utrzymuj synchronizację pomocniczego centrum powiadomień z podstawowym centrum powiadomień przy użyciu jednej z następujących opcji:
 
-Mamy dwie rekomendacje dla zakończyłych się aplikacjami:
+   * Użyj zaplecza aplikacji, która jednocześnie tworzy i aktualizuje instalacje w obu centrach powiadomień. Instalacje pozwalają określić własny unikatowy identyfikator urządzenia, co sprawia, że jest to bardziej odpowiednie dla scenariusza replikacji. Aby uzyskać więcej informacji, zobacz ten [przykładowy kod](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Użyj zaplecza aplikacji, który pobiera regularne zrzuty rejestracji z głównego centrum powiadomień jako kopii zapasowej. Następnie można wykonać operację wstawiania zbiorczego do pomocniczego centrum powiadomień.
 
-* Użyj zaplecza aplikacji, która zachowuje dany zestaw rejestracji na końcu. Następnie można wykonać operację wstawiania zbiorczego do pomocniczego centrum powiadomień.
-* Użyj zaplecza aplikacji, który pobiera regularne zrzuty rejestracji z głównego centrum powiadomień jako kopii zapasowej. Następnie można wykonać operację wstawiania zbiorczego do pomocniczego centrum powiadomień.
-
-> [!NOTE]
-> Funkcje eksportu/importu, dostępne w warstwie Standardowa, są opisane w dokumencie [eksport/import rejestracji] .
+Pomocnicze centrum powiadomień może zakończyć się z wygasłymi instalacjami/rejestracjami. Gdy wypchnięcie zostanie wysłane do wygasłego dojścia, Notification Hubs automatycznie czyści skojarzony rekord instalacji/rejestracji na podstawie odpowiedzi odebranej z serwera PNS. Aby wyczyścić wygasłe rekordy z pomocniczego centrum powiadomień, Dodaj logikę niestandardową, która przetwarza opinie od poszczególnych operacji wysyłania. Następnie wygaśnięcie instalacji/rejestracji w pomocniczym centrum powiadomień.
 
 Jeśli nie masz zaplecza, gdy aplikacja zostanie uruchomiona na urządzeniach docelowych, przeprowadzimy nową rejestrację w pomocniczym centrum powiadomień. Ostatecznie pomocnicze centrum powiadomień będzie miało wszystkie aktywne zarejestrowane urządzenia.
 
@@ -191,7 +188,7 @@ Usługa Azure Notification Hubs udostępnia kilka funkcji rozwiązywania problem
 
 Usługa Azure Notification Hubs umożliwia wyświetlanie danych telemetrycznych w [Azure Portal]. Szczegóły metryk są dostępne na stronie [metryki Notification Hubs] .
 
-Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Pobierz metryki Azure monitor przy użyciu platformy .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Ten przykład używa nazwy użytkownika i hasła. Aby użyć certyfikatu, przeciąż metodę FromServicePrincipal, aby dostarczyć certyfikat, jak pokazano w [tym przykładzie](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Pobieranie metryk i dzienników aktywności dla zasobu](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
@@ -200,7 +197,7 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 > [!NOTE]
 > Pomyślne powiadomienia oznaczają, że powiadomienia wypychane zostały dostarczone do zewnętrznego PNS (na przykład APN dla systemów iOS i macOS lub FCM dla urządzeń z systemem Android). Jest odpowiedzialny za PNS do dostarczania powiadomień do urządzeń docelowych. Zazwyczaj PNS nie ujawnia metryk dostarczania podmiotom trzecim.  
 
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 [Cennik Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Interfejsy API REST Notification Hubs]: /previous-versions/azure/reference/dn530746(v=azure.100)
@@ -212,6 +209,6 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 [Rozwiązywanie problemów Notification Hubs]: ./notification-hubs-push-notification-fixer.md
 [Metryki Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Eksportowanie/Importowanie rejestracji]: ./export-modify-registrations-bulk.md
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

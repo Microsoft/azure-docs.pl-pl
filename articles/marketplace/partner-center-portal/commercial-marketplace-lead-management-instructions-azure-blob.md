@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać usługi Azure BLOB do konfigurowania pot
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/01/2020
-ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bd2f3d40b1aea1c0133f95e069ebfd527d30bd59
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130548"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491107"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Blob Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -53,7 +53,7 @@ ms.locfileid: "93130548"
 
     ![Zrzut ekranu przedstawiający stronę "klucze dostępu" z wyróżnionym polem tekstowym "parametry połączenia".](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Na stronie konto magazynu wybierz pozycję **obiekty blob** .
+6. Na stronie konto magazynu wybierz pozycję **obiekty blob**.
 
    ![Zrzut ekranu strony konta usługi Azure Storage z wybranymi obiektami BLOB](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "93130548"
 
     Zapisz tę wartość, ponieważ jest to wartość *nazwy kontenera* , którą należy podać w portalu wydawców, aby otrzymywać potencjalnych klientów na potrzeby oferty portalu Marketplace.
 
-9. Ustaw poziom publicznego dostępu do kontenera jako **prywatny (bez dostępu anonimowego)** .
+9. Ustaw poziom publicznego dostępu do kontenera jako **prywatny (bez dostępu anonimowego)**.
 
 10. Wybierz przycisk **OK** , aby utworzyć kontener.
 
@@ -74,7 +74,7 @@ ms.locfileid: "93130548"
 Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące czynności:
 
 1. Przejdź do strony **Konfiguracja oferty** dla swojej oferty.
-2. W sekcji **potencjalni klienci** wybierz pozycję **Połącz** .
+2. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Potencjalni klienci":::
 
@@ -87,7 +87,7 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
     * Przykład nazwy kontenera: `marketplaceleadcontainer`
     * Przykład parametrów połączenia konta magazynu: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Wybierz pozycję **Zapisz** .
+5. Wybierz pozycję **Zapisz**.
 
     > [!NOTE]
     > Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty.

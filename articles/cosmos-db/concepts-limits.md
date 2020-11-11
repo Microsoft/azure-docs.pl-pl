@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319820"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491821"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,9 +43,9 @@ Przepustowość można zainicjować na poziomie kontenera lub na poziomie bazy d
 
 Kontener Cosmos (lub udostępniona baza danych przepływności) musi mieć minimalną przepływność wynoszącą 400 RU/s. Wraz z rozwojem kontenera Minimalna obsługiwana przepływność zależy również od następujących czynników:
 
-* Maksymalna przepływność kiedykolwiek obsługiwana w kontenerze. Na przykład jeśli przepustowość została zwiększona do 50 000 RU/s, najniższą możliwą przepływność będzie 500 RU/s
-* Bieżący magazyn w GB w kontenerze. Na przykład jeśli kontener ma 100 GB miejsca w magazynie, najniższą możliwą przepływność będzie 1000 RU/s
-* Minimalna przepływność dla udostępnionej bazy danych przepływności zależy również od całkowitej liczby kontenerów utworzonych kiedykolwiek w udostępnionej bazie danych przepływności, mierzoną przy 100 RU/s na kontener. Jeśli na przykład utworzono pięć kontenerów w ramach udostępnionej bazy danych przepływności, przepustowość musi wynosić co najmniej 500 RU/s
+* Maksymalna przepływność kiedykolwiek obsługiwana w kontenerze. Na przykład jeśli przepustowość została zwiększona do 50 000 RU/s, najniższą możliwą przepływność będzie 500 RU/s.
+* Bieżący magazyn w GB w kontenerze. Na przykład jeśli kontener ma 100 GB miejsca w magazynie, najniższą możliwą przepływność będzie 1000 RU/s. **Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
+* Minimalna przepływność dla udostępnionej bazy danych przepływności zależy również od całkowitej liczby kontenerów utworzonych kiedykolwiek w udostępnionej bazie danych przepływności, mierzoną przy 100 RU/s na kontener. Jeśli na przykład utworzono pięć kontenerów w ramach udostępnionej bazy danych przepływności, przepustowość musi wynosić co najmniej 500 RU/s.
 
 Bieżącą i minimalną przepływność kontenera lub bazy danych można pobrać z Azure Portal lub zestawów SDK. Aby uzyskać więcej informacji, zobacz temat [udostępnianie przepływności na kontenerach i bazach danych](set-throughput.md). 
 

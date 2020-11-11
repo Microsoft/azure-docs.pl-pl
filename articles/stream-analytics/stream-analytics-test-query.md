@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444966"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490971"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testowanie zadania Azure Stream Analytics w portalu
 
@@ -101,8 +101,8 @@ Zamiast korzystać z danych na żywo, można użyć przykładowych danych z plik
 
 1.  Zasady czasu nie są obsługiwane w testowaniu portalu:
 
-   * Poza kolejnością: wszystkie zdarzenia przychodzące zostaną uporządkowane.
-   * Późne nadejście: nie będzie zdarzenie późnego przybycia, ponieważ Stream Analytics może używać tylko istniejących danych do testowania.
+    * Poza kolejnością: wszystkie zdarzenia przychodzące zostaną uporządkowane.
+    * Późne nadejście: nie będzie zdarzenie późnego przybycia, ponieważ Stream Analytics może używać tylko istniejących danych do testowania.
    
 2.  Język C# nie jest obsługiwany.
 
@@ -112,6 +112,7 @@ Zamiast korzystać z danych na żywo, można użyć przykładowych danych z plik
 
 5.  Uczenie maszynowe nie jest obsługiwane.
 
+6. Przykładowy interfejs API danych jest ograniczany po pięciu żądaniach w oknie 15-minutowy. Po upływie 15-minutowego okna można wykonywać więcej przykładowych żądań dotyczących danych. To ograniczenie jest stosowane na poziomie subskrypcji.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
