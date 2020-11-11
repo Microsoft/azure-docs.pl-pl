@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: b3f46f934241d924789b97c24cf9b68213d94d63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125686"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490087"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 
@@ -74,7 +74,7 @@ Aby umożliwić firmie Microsoft wdrożenie dysku testowego w Twoim imieniu, Utw
 
 - **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Wpis tajny klienta aplikacji usługi Azure AD** (wymagane) — wprowadź [klucz tajny klienta](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne** , wybierz pozycję **Nowy wpis tajny klienta** , wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie** , a następnie wybierz pozycję **Dodaj** . Należy pamiętać o skopiowaniu wartości. Przed skopiowaniem wartości nie opuszczaj strony.
+- **Wpis tajny klienta aplikacji usługi Azure AD** (wymagane) — wprowadź [klucz tajny klienta](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne** , wybierz pozycję **Nowy wpis tajny klienta** , wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie** , a następnie wybierz pozycję **Dodaj**. Należy pamiętać o skopiowaniu wartości. Przed skopiowaniem wartości nie opuszczaj strony.
 
 ## <a name="test-drive-listings"></a>Aukcje na dysku testowym
 
@@ -98,9 +98,4 @@ Jeśli obecnie tworzysz dysk testowy w centrum partnerskim, wybierz opcję **Zap
 - [Najlepsze rozwiązania dotyczące wersji testowej](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Przegląd](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 - [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md)
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-## <a name="feedback"></a>Opinia
-
-Prześlij i Wyświetl opinię dla [tego produktu](https://feedback.azure.com/forums/216369-azure-marketplace)
+- [Forum opinii o witrynie Azure Marketplace](https://feedback.azure.com/forums/216369-azure-marketplace)

@@ -4,15 +4,15 @@ description: Dowiedz się więcej o opcjach pomocy technicznej w centrum partner
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 09/18/2020
-ms.openlocfilehash: 983f7e400a33cb36f30505e5a8a28811d9d4cdfb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284739"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488897"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Wsparcie dla komercyjnego programu w witrynie Marketplace w centrum partnerskim
 
@@ -62,12 +62,12 @@ Dostępne są następujące opcje:
 
 - Aby wybrać inny temat, wybierz inny link tematu w obszarze **wybrany problem**.
 - Przejrzyj opis tego problemu, jeśli jest dostępny.  Jest to tekst wyświetlany powyżej **zalecanych kroków**.
-- Przejrzyj **zalecane kroki**, jeśli są dostępne.
-- Przejrzyj **zalecane dokumenty**, jeśli są dostępne.
+- Przejrzyj **zalecane kroki** , jeśli są dostępne.
+- Przejrzyj **zalecane dokumenty** , jeśli są dostępne.
 
 ![Zalecane rozwiązania](./media/support/recommended-solutions.png)
 
-Jeśli nie możesz znaleźć odpowiedzi w **zalecanych rozwiązaniach**, wybierz pozycję **Podaj szczegóły problemu**. Wypełnij wszystkie wymagane pola, aby przyspieszyć proces rozwiązywania problemów, a następnie wybierz pozycję **Prześlij**.
+Jeśli nie możesz znaleźć odpowiedzi w **zalecanych rozwiązaniach** , wybierz pozycję **Podaj szczegóły problemu**. Wypełnij wszystkie wymagane pola, aby przyspieszyć proces rozwiązywania problemów, a następnie wybierz pozycję **Prześlij**.
 
 >[!Note]
 >Jeśli użytkownik nie zalogował się w centrum partnerskim, a temat wymaga uwierzytelniania, przed kontynuowaniem będzie wymagane zalogowanie się.  W przypadku publicznych tematów uwierzytelnianie nie jest wymagane.
@@ -85,7 +85,7 @@ Aby pomóc pracownikom w rozwiązywaniu problemów, rozważ dołączenie pliku f
 
 ### <a name="microsoft-edge-and-google-chrome"></a>Przeglądarka Microsoft Edge i Google Chrome
 
-Aby wygenerować plik HAR przy użyciu **przeglądarki Microsoft Edge** lub **Google Chrome**:
+Aby wygenerować plik HAR przy użyciu **przeglądarki Microsoft Edge** lub **Google Chrome** :
 
 1. Przejdź do strony sieci Web, na której występuje problem.
 2. W prawym górnym rogu okna wybierz ikonę wielokropka, a następnie **więcej narzędzi**  >  **deweloperskich**. Możesz nacisnąć klawisz F12 jako skrót.
@@ -100,13 +100,13 @@ Aby wygenerować plik HAR przy użyciu **przeglądarki Microsoft Edge** lub **Go
 
 6. Odtwórz problem, który chcesz rozwiązać.
 7. Po ponownym utworzeniu problemu wybierz pozycję **Zatrzymaj rejestrowanie dziennika sieci**.
-8. Wybierz pozycję **Export Har**, oznaczona ikoną z strzałką w dół i Zapisz plik.
+8. Wybierz pozycję **Export Har** , oznaczona ikoną z strzałką w dół i Zapisz plik.
 
     ![Jak wyeksportować plik HAR w przeglądarce Microsoft Edge lub Google Chrome](media/support/chromium-network-export-har.png)
 
 ### <a name="mozilla-firefox"></a>Mozilla Firefox
 
-Aby wygenerować plik HAR przy użyciu **przeglądarki Mozilla Firefox**:
+Aby wygenerować plik HAR przy użyciu **przeglądarki Mozilla Firefox** :
 
 1. Przejdź do strony sieci Web, na której występuje problem.
 1. W prawym górnym rogu okna wybierz ikonę wielokropka, a następnie narzędzia do przełączania **deweloperów sieci Web**  >  **Toggle Tools**. Możesz nacisnąć klawisz F12 jako skrót.
@@ -121,11 +121,11 @@ Aby wygenerować plik HAR przy użyciu **przeglądarki Mozilla Firefox**:
 
 ### <a name="apple-safari"></a>Apple Safari
 
-Aby wygenerować plik HAR przy użyciu **przeglądarki Safari**:
+Aby wygenerować plik HAR przy użyciu **przeglądarki Safari** :
 
-1. Włącz narzędzia deweloperskie w przeglądarce Safari: **Safari**wybierz pozycję  >  **Preferencje**Safari. Przejdź do karty **Zaawansowane** , a następnie wybierz pozycję **Pokaż menu rozwijania na pasku menu**.
+1. Włącz narzędzia deweloperskie w przeglądarce Safari: **Safari** wybierz pozycję  >  **Preferencje** Safari. Przejdź do karty **Zaawansowane** , a następnie wybierz pozycję **Pokaż menu rozwijania na pasku menu**.
 1. Przejdź do strony sieci Web, na której występuje problem.
-1. Wybierz pozycję **programowanie**, a następnie wybierz pozycję **Pokaż inspektora sieci Web**.
+1. Wybierz pozycję **programowanie** , a następnie wybierz pozycję **Pokaż inspektora sieci Web**.
 1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść elementy sieciowe** , aby usunąć istniejące dzienniki.
 
     ![Jak usunąć istniejące dzienniki w przeglądarce Safari](media/support/safari-clear-session.png)

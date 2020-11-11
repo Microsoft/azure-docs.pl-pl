@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377121"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489458"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Wymuś zasady nazewnictwa w grupach Microsoft 365 w Azure Active Directory
 
@@ -85,7 +85,7 @@ Wybrani Administratorzy mogą być wykluczeni z tych zasad, we wszystkich obcią
 ## <a name="configure-naming-policy-in-azure-portal"></a>Skonfiguruj zasady nazewnictwa w Azure Portal
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta administratora grupy.
-1. Wybierz pozycję **grupy**, a następnie wybierz pozycję **zasady nazewnictwa** , aby otworzyć stronę Zasady nazewnictwa.
+1. Wybierz pozycję **grupy** , a następnie wybierz pozycję **zasady nazewnictwa** , aby otworzyć stronę Zasady nazewnictwa.
 
     ![Otwórz stronę Zasady nazewnictwa w centrum administracyjnym](./media/groups-naming-policy/policy.png)
 
@@ -249,7 +249,6 @@ Aplikacja mobilna grup | Grupy utworzone w aplikacji mobilnej grup są zgodne z 
 Planner | Planista jest zgodny z zasadami nazewnictwa. Podczas wprowadzania nazwy planu planista wyświetla podgląd zasad nazewnictwa. Gdy użytkownik przejdzie do niestandardowego zablokowanego wyrazu, podczas tworzenia planu zostanie wyświetlony komunikat o błędzie.
 Dynamics 365 for Customer Engagement | Dynamics 365 dla zaangażowania klienta jest zgodne z zasadami nazewnictwa. Dynamics 365 wyświetla nazwę wymuszone zasady nazewnictwa, gdy użytkownik wpisze nazwę grupy lub alias e-mail grupy. Gdy użytkownik wprowadzi niestandardowe niezasłonięte słowo, zostanie wyświetlony komunikat o błędzie z zablokowanym słowem, aby użytkownik mógł go usunąć.
 Synchronizacja danych szkolnych | Grupy utworzone za pomocą tej operacji są zgodne z zasadami nazewnictwa, ale zasady nazewnictwa nie są stosowane automatycznie. Administratorzy usługi muszą dołączać prefiksy i sufiksy do nazw klas, dla których należy utworzyć grupy, a następnie przekazać je do usługi przesyłania na stronie. W przeciwnym razie utworzenie grupy lub Edycja będzie kończyć się niepowodzeniem.
-Menedżer klienta programu Outlook (OCM) | Program Outlook Customer Manager jest zgodny z zasadami nazewnictwa, które są automatycznie stosowane do grupy utworzonej w Menedżerze klienta programu Outlook. W przypadku wykrycia niestandardowego zablokowanego wyrazu Tworzenie grupy w OCM jest blokowane, a użytkownik jest zablokowany przy użyciu aplikacji OCM.
 Aplikacja klasowa | Grupy utworzone w aplikacji klasy są zgodne z zasadami nazewnictwa, ale zasady nazewnictwa nie są stosowane automatycznie, a użytkownicy nie są pokazani podczas wprowadzania nazwy grupy klas przy użyciu wersji zapoznawczej zasad nazewnictwa. Użytkownicy muszą wprowadzić nazwę grupy klas wymuszonych z prefiksami i sufiksami. W przeciwnym razie operacja tworzenia lub edytowania grupy klas kończy się niepowodzeniem z błędami.
 Power BI | Obszary robocze Power BI są zgodne z zasadami nazewnictwa.    
 Yammer | Gdy użytkownik zalogowany do usługi Yammer przy użyciu konta Azure Active Directory tworzy grupę lub edytuje nazwę grupy, nazwa grupy będzie zgodna z zasadami nazewnictwa. Dotyczy to zarówno Microsoft 365 połączonych grup, jak i wszystkich innych grup usługi Yammer.<br>Jeśli Microsoft 365 podłączona Grupa została utworzona przed wprowadzeniem zasad nazewnictwa, nazwa grupy nie będzie automatycznie podążać za zasadami nazewnictwa. Gdy użytkownik edytuje nazwę grupy, zostanie wyświetlony monit o dodanie prefiksu i sufiksu.

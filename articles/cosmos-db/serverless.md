@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098760"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490359"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB bezserwerowe (wersja zapoznawcza)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Zapoznaj się z artykułem [jak wybrać między zainicjowaną przepływność i 
 ## <a name="using-serverless-resources"></a>Korzystanie z zasobów bezserwerowych
 
 Bezserwerowy jest nowym typem konta usługi Azure Cosmos, co oznacza, że należy wybrać między **zainicjowaną przepływność** i **bezserwerową** podczas tworzenia nowego konta. Aby rozpocząć pracę z serwerem, należy utworzyć nowe konto bezserwerowe. W wersji zapoznawczej jedynym obsługiwanym sposobem tworzenia nowego konta bezserwerowego jest [użycie Azure Portal](create-cosmosdb-resources-portal.md). Migrowanie istniejących kont do/z trybu bezserwerowego nie jest obecnie obsługiwane.
-
-> [!NOTE]
-> Bezserwerowe jest obecnie obsługiwane tylko w interfejsie API Azure Cosmos DB Core (SQL).
 
 Każdy kontener tworzony na koncie bezserwerowym jest kontenerem bezserwerowym. Kontenery bezserwerowe udostępniają te same funkcje co kontenery utworzone w trybie przepływności, dlatego należy czytać, zapisywać i wysyłać zapytania do danych dokładnie tak samo. Jednak bezserwerowe i kontenery mają również określone cechy:
 

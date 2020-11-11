@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/09/2020
+ms.date: 11/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ab5a4717f32269f34a9351cb0ffa3796b89ccd6e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 07c0169dcbadc6dc8ae293d69e197c2cd1ec2275
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412752"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489798"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -29,6 +29,17 @@ Możesz centralnie tworzyć, wymuszać i rejestrować zasady łączności aplika
 ## <a name="features"></a>Funkcje
 
 Aby dowiedzieć się więcej o funkcjach zapory platformy Azure, zobacz [funkcje zapory platformy Azure](features.md).
+
+## <a name="pricing-and-sla"></a>Cennik i Umowa SLA
+
+Aby uzyskać informacje o cenach zapory platformy Azure, zobacz [Cennik usługi Azure firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+Informacje o umowie SLA zapory platformy Azure można znaleźć w temacie [Umowa SLA zapory platformy Azure](https://azure.microsoft.com/support/legal/sla/azure-firewall/).
+
+## <a name="whats-new"></a>Co nowego
+
+Aby dowiedzieć się, co nowego w zaporze platformy Azure, zobacz [aktualizacje platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall).
+
 
 ## <a name="known-issues"></a>Znane problemy
 

@@ -6,16 +6,20 @@ ms.author: ambhatna
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 87ec99a68c538e8133d64351cdecbbf8b10459e6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58e7c024d6494aee745884997e42b527c51ab237
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525165"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489543"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Konfigurowanie parametrów serwera w Azure Database for MySQL elastycznym serwerze przy użyciu interfejsu wiersza polecenia platformy Azure
+
+> [!IMPORTANT] 
+> Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
+
 Można wyświetlić, pokazać i zaktualizować parametry dla Azure Database for MySQL elastycznego serwera za pomocą interfejsu wiersza polecenia platformy Azure, narzędzia wiersza poleceń platformy Azure. Parametry serwera są skonfigurowane z domyślną i zalecaną wartością podczas tworzenia serwera.  
 
 W tym artykule opisano sposób wyświetlania, wyświetlania i aktualizowania parametrów serwera przy użyciu interfejsu wiersza polecenia platformy Azure.
@@ -55,7 +59,7 @@ Jeśli chcesz zresetować wartość parametru, Pomiń opcjonalny `--value` param
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
-Ten kod resetuje ** \_ \_ Dziennik wolnych zapytań** **do wartości domyślnej**. 
+Ten kod resetuje **\_ \_ Dziennik wolnych zapytań** **do wartości domyślnej**. 
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Ustawianie niemodyfikowalnych parametrów serwera
 
@@ -66,7 +70,7 @@ Zaktualizuj parametr **init \_ Connect** Server serwera **mydemoserver.MySQL.Dat
 az mysql flexible-server parameter set --name init_connect --resource-group myresourcegroup --server-name mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
 ```
 >[!Note]
-> Polecenie `init_connect` może służyć do zmieniania parametrów, które nie wymagają uprawnień administratora na poziomie sesji. Aby sprawdzić, czy można ustawić parametr przy użyciu polecenia `init_connect`, wykonaj polecenie `set session parameter_name=YOUR_DESIRED_VALUE;`, a jeśli zwraca ono błąd **Odmowa dostępu; wymagane są uprawnienia administratora**, to nie można ustawić parametru przy użyciu polecenia „init_connect”.
+> Polecenie `init_connect` może służyć do zmieniania parametrów, które nie wymagają uprawnień administratora na poziomie sesji. Aby sprawdzić, czy można ustawić parametr przy użyciu polecenia `init_connect`, wykonaj polecenie `set session parameter_name=YOUR_DESIRED_VALUE;`, a jeśli zwraca ono błąd **Odmowa dostępu; wymagane są uprawnienia administratora** , to nie można ustawić parametru przy użyciu polecenia „init_connect”.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Praca z parametrem strefy czasowej
 
@@ -94,7 +98,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Strefę czasową na poziomie globalnym można ustawić za pomocą polecenia [AZ MySQL elastyczny-Server Parameter Set](/cli/azure/mysql/flexible-server/parameter) .
 
-Następujące polecenie aktualizuje parametr serwera ** \_ strefy czasowej** serwera **mydemoserver.MySQL.Database.Azure.com** w **obszarze Grupa zasobów zasobu do** **USA/Pacyfik**.
+Następujące polecenie aktualizuje parametr serwera **\_ strefy czasowej** serwera **mydemoserver.MySQL.Database.Azure.com** w **obszarze Grupa zasobów zasobu do** **USA/Pacyfik**.
 
 ```azurecli-interactive
 az mysql flexible-server parameter set --name time_zone --resource-group myresourcegroup --server-name mydemoserver --value "US/Pacific"

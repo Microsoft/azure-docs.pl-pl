@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 1414f2ce53d1764e788749fc2d225c56f624bcdc
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6f92c138a02c9dbdc1d22ca04c733cfbee69dcd0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370247"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488523"
 ---
 # <a name="how-to-configure-your-azure-application-offer-properties"></a>Jak skonfigurować właściwości oferty aplikacji platformy Azure
 
@@ -76,10 +76,6 @@ Możesz określić własne warunki i postanowienia zamiast standardowej umowy. A
 
 1. W obszarze **prawne** upewnij się, że pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu firmy Microsoft** jest wyczyszczone.
 1. W polu **warunki i** postanowienia wprowadź do 10 000 znaków tekstu.
-
-   > [!NOTE]
-   > Jeśli potrzebujesz dłuższego opisu, wprowadź pojedynczy adres internetowy wskazujący, gdzie można znaleźć warunki i postanowienia. Będzie ona wyświetlana klientom jako aktywne łącze.
-
 1. Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej karty: Lista oferty.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -9,18 +9,62 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445085"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489135"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowiedzieć się więcej o znanych usterkach i obejść.
+
+
+## <a name="2020-11-09"></a>2020-11-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.18.0
++ **Poprawki i ulepszenia błędów**
+  + **azureml-automl-core**
+    +  Ulepszona obsługa szeregów czasu krótkich przez umożliwienie uzupełniania ich szumów gaussowskie.
+  + **azureml-automl-runtime**
+    + Throw Configexception, jeśli kolumna DateTime ma wartość OutOfBoundsDatetime
+    + Ulepszona obsługa szeregów czasu krótkich przez umożliwienie uzupełniania ich szumów gaussowskie.
+    + Upewnij się, że każda kolumna tekstowa może wykorzystać transformację char-gram z zakresem n-gramów na podstawie długości ciągów w tej kolumnie tekstowej.
+    + Zapewnianie nieprzetworzonych wyjaśnień funkcji dla najlepszego trybu dla eksperymentów AutoML działających na lokalnym obliczeniu użytkownika
+  + **azureml-core**
+    + Przypnij pakiet: pyjwt, aby uniknąć ściągania w różnych wersjach w przyszłych wersjach.
+    + Utworzenie eksperymentu spowoduje zwrócenie aktywnego lub ostatnio zarchiwizowanego eksperymentu o tej samej nazwie, jeśli taki eksperyment istnieje lub nowy eksperyment.
+    + Wywołanie get_experiment według nazwy zwróci aktywny lub ostatnio zarchiwizowany eksperyment o podaną nazwę.
+    + Użytkownicy nie mogą zmienić nazwy eksperymentu podczas jego ponownego uaktywniania.
+    + Ulepszony komunikat o błędzie w celu uwzględnienia potencjalnych poprawek w przypadku nieprawidłowego przekazywania zestawu danych do eksperymentu (np. ScriptRunConfig). 
+    + Ulepszona Dokumentacja programu `OutputDatasetConfig.register_on_complete` obejmująca zachowanie tego, co się stanie, gdy nazwa już istnieje.
+    + Określanie zestawu danych wejściowych i wyjściowych, które mogą powodować kolizje ze wspólnymi zmiennymi środowiskowymi, spowoduje to wyświetlenie ostrzeżenia
+    + Przeznaczenie `grant_workspace_access` parametru podczas rejestrowania magazynów danych. Ustaw tę wartość, aby `True` uzyskiwać dostęp do danych za pośrednictwem sieci wirtualnej z Machine Learning Studio.
+      [Dowiedz się więcej](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+    + Interfejs API połączonej usługi jest rafinowany. Zamiast podawania identyfikatora zasobu istnieją trzy osobne parametry sub_id, RG i Name zdefiniowane w konfiguracji.
+    + Aby umożliwić klientom Samodzielne rozwiązywanie problemów z uszkodzeniem tokenu, należy włączyć funkcję publiczną synchronizacji tokenów obszaru roboczego.
+    + Ta zmiana umożliwia użycie pustego ciągu jako wartości dla script_param
+  + **Azure — potok — rdzeń**
+    + Zestaw SDK do obsługi typu SynapseCompute i SynapseSparkStep. Klienci mogą uruchamiać eksperymenty i uruchamiać potoki w puli Synapse Spark.
+  + **azureml-pipeline-steps**
+    + Zestaw SDK do obsługi typu SynapseCompute i SynapseSparkStep. Klienci mogą uruchamiać eksperymenty i uruchamiać potoki w puli Synapse Spark.
+  + **Azure — Synapse**
+    + Dodaj Synapse Magic i SparkMonitor, aby umożliwić użytkownikowi przesyłanie Syanpse zadania i wyświetlanie postępu zadania w notesie.
+  + **azureml-train-automl-client**
+    +  Ulepszona obsługa szeregów czasu krótkich przez umożliwienie uzupełniania ich szumów gaussowskie.
+  + **azureml-train-automl-runtime**
+    + Throw Configexception, jeśli kolumna DateTime ma wartość OutOfBoundsDatetime
+    + Dodano obsługę udostępniania nieprzetworzonych wyjaśnień funkcji dla najlepszego modelu dla eksperymentów AutoML działających na lokalnym obliczeniu użytkownika
+    + Ulepszona obsługa szeregów czasu krótkich przez umożliwienie uzupełniania ich szumów gaussowskie.
+  + **azureml-train-core**
+    + Ta zmiana umożliwia użycie pustego ciągu jako wartości dla script_param
+  + **Uczenie maszynowe — restclients — dysk**
+    + PLIK README został zmieniony, aby można było oferować więcej kontekstu
+  + **azureml-widgets**
+    + Dodaj obsługę ciągów do wykresu/biblioteki równoległych współrzędnych dla elementu widget.
 
 ## <a name="2020-11-05"></a>2020-11-05
 
@@ -29,6 +73,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
 Typ projektu segmentacji wystąpienia obrazu (adnotacje wielokątne) w ramach etykietowania danych jest teraz dostępny, aby użytkownicy mogli rysować wielokąty i dodawać do nich adnotacje wokół konturów obiektów w obrazach. Użytkownicy będą mogli przypisywać klasy i wielokąta do każdego obiektu, który jest interesujący w obrazie.
 
 Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-label-images.md).
+
 
 
 ## <a name="2020-10-26"></a>2020-10-26
@@ -204,7 +249,7 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
     + Usuń usterkę w Dataset.get_by_name, która będzie zawierała Tagi dla najnowszej wersji zestawu danych, nawet w przypadku pobrania określonej starszej wersji.
   + **azureml-interpret**
     + Dodano wyniki prawdopodobieństwa do objaśnień oceny oceniania na platformie Azure w oparciu o parametr shap_values_output z oryginalnego objaśnienia.
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Ulepszona `PipelineOutputAbstractDataset.register` Dokumentacja.
   + **azureml-train-automl-client**
     + Uaktualnione zależności AutoML: `scikit-learn` (teraz 0.22.1), `pandas` (teraz 0.25.1), `numpy` (teraz 1.18.2).
@@ -380,7 +425,7 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
     + Przestarzałe _with_auth param w ws.get_mlflow_tracking_uri ()
   + **Azure — opendatasets**
     + Ostatnio opublikowane zestawy danych Covid-19 są teraz dostępne z zestawem SDK
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Ostrzeżenie o wylogowaniu, gdy wartość "Azure-Defaults" nie jest uwzględniona w ramach zależności typu PIP
     + Popraw renderowanie notatek.
     + Dodano obsługę podziałów wierszy w cudzysłowie podczas analizowania rozdzielanych plików na PipelineOutputFileDataset.
@@ -443,7 +488,7 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
   + **azureml-mlflow**
     + Udoskonalenia dokumentacji dotyczącej programu Azure mlflow.
     + Dodaje obsługę rejestru modelu AML z MLFlow.
-  + **Azure — opendatasets**
+  + **azureml-opendatasets**
     + Dodano obsługę języka Python 3,8
   + **azureml-pipeline-core**
     + Zaktualizowano `PipelineDataset` dokumentację, aby wyczyścić ją jako wewnętrzną klasę.
@@ -608,7 +653,7 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
   + **Azure — opendatasets**
     + Zwróć brak, gdy nie zostaną zwrócone żadne dane.
     + Zwiększ wydajność to_pandas_dataframe.
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Szybka poprawka dla ParallelRunStep, gdzie ładowanie z YAML zostało przerwane
     + ParallelRunStep jest udostępniona do ogólnej dostępności — Azure. contrib. Pipeline. kroki zawierają powiadomienie o zaniechaniu i są przenoszone do programu Azure. Pipeline. kroki — nowe funkcje obejmują: 1. Zestawy danych jako PipelineParameter 2. Nowy parametr run_max_retry 3. Konfigurowalna nazwa pliku wyjściowego append_row
   + **azureml-pipeline-steps**
@@ -702,7 +747,7 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
   + **azureml-interpret**
     + Zmniejszono limity długości ścieżki, aby zmniejszyć prawdopodobieństwo przekroczenia limitu systemu Windows
     + Poprawka dla wyjaśnień rozrzedzonych utworzonych za pomocą narzędzia do demetrii przy użyciu wieloskładnikowego modelu.
-  + **azureml-opendatasets**
+  + **Azure — opendatasets**
     + Rozwiązywanie problemów z kolumnami MNIST ręcznie są analizowane jako ciąg, który powinien być typem int.
   + **Azure — potok — rdzeń**
     + Zezwalanie na regenerate_outputs przy użyciu modułu osadzonego w ModuleStep.
@@ -807,7 +852,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
     + Zaktualizowano usługę Azure-Interpretuj pod kątem używania interpretacji — społeczność 0,9. *
     + Rozwiązano problem z pobieraniem wyjaśnień, które miały rozrzedzone dane oceny
     + Dodano obsługę formatu rozrzedzonego obiektu wyjaśnienia w AutoML
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Obsługa ComputeInstance jako celu obliczeń w potokach
   + **azureml-train-automl-client**
     + Dodano dodatkową telemetrię dla operacji po szkoleniu.
@@ -1004,7 +1049,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
   + **azureml-interpret**
     + dodano wyjątki w stylu programu Azure do interpretacji Azure
     + stała Serializacja DeepScoringExplainer dla modeli keras
-  + **Azure — potok — rdzeń**
+  + **azureml-pipeline-core**
     + Notes oceniania partii potoków używa teraz ParallelRunStep
   + **azureml-pipeline-steps**
     + Przeniesiono `AutoMLStep` w `azureml-pipeline-steps` pakiecie. Przestarzałe w `AutoMLStep` programie `azureml-train-automl-runtime` .
@@ -1474,7 +1519,7 @@ Azure Machine Learning jest teraz dostawcą zasobów dla Event Grid, można skon
     + Obsługa pobierania danych wyjściowych z dryfem opartym na DataSet.
   + **Uczenie maszynowe — wyjaśnienie modelu**
     + Dodawanie obsługi [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) do tworzenia bezpośrednio przy użyciu MimicWrapper
-  + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
+  + **[Azure — potok — rdzeń](/python/api/azureml-pipeline-core)**
     + Ulepszona wydajność tworzenia dużych potoków.
   + **[azureml-train-core](/python/api/azureml-train-core)**
     + Dodano obsługę TensorFlow 2,0 w [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow) szacowania.
@@ -1696,7 +1741,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
     + Dodano Sprawdzanie wersji do lightgbm z wydrukowanym ostrzeżeniem, jeśli poniżej obsługiwanej wersji
     + Zoptymalizowane użycie pamięci podczas tworzenia wsadowych objaśnień
     + Modele AutoML teraz zwracają AutoMLExceptions
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Dodano obsługę tworzenia, aktualizowania i używania PipelineDrafts — może służyć do obsługi definicji potoku mutable i używania ich interaktywnie do uruchamiania
   + **Uczenie maszynowe — automl**
     + Utworzono funkcję w celu zainstalowania określonych wersji procesora GPU pytorch v 1.1.0, :::no-loc text="cuda"::: zestawu narzędzi 9,0, pytorch-transformatorów, które są wymagane do włączenia Bert/XLNet w środowisku uruchomieniowym języka Python.
@@ -1757,7 +1802,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
   + **Azure — opendatasets**
     + Obsługa wykrywania i rejestrowania środowiska testowego.
     + Dodano klasy w celu uzyskania wypełniania do USA według powiatów i zip.
-  + **azureml-pipeline-core**
+  + **Azure — potok — rdzeń**
     + Dodano Właściwość Label do definicji portów wejściowych i wyjściowych.
   + **azureml-telemetry**
     + Naprawiono niepoprawną konfigurację telemetrii.
@@ -1967,7 +2012,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
     + Rozwiązano problem związany z procedurą wyboru kompletną, która niepotrzebnie zwiększa wynikowe zestawy, nawet jeśli wyniki pozostawały stałe.
     + Rozwiązano problem z opcją Zezwalaj list_models i blokuj ustawienia list_models w AutoMLStep.
     + Rozwiązano problem uniemożliwiający użycie przetwarzania wstępnego, gdy AutoML mógłby zostać użyty w kontekście potoków usługi Azure ML.
-  + **Azure — opendatasets**
+  + **azureml-opendatasets**
     + Przeniesiono usługę Azure-contrib-opendatasets do programu Azure opendatasets.
     + Dozwolone są otwarte klasy zestawu danych do zarejestrowania w obszarze roboczym Azure Machine Learning i bezproblemowo wykorzystują możliwości zestawu danych AML.
     + Znacznie Ulepszono NoaaIsdWeather wzbogacanie wydajności w wersji innej niż SPARK.

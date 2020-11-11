@@ -1,20 +1,20 @@
 ---
-title: Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics, Azure Marketplace i Microsoft AppSource
-description: Dowiedz się, jak uzyskać dostęp do wszystkich maszyn wirtualnych, w których są dostępne metryki dotyczące rozliczeń. Przejdź do pulpitu nawigacyjnego użycie w centrum partnerskim w obszarze komercyjne witryny Marketplace.
+title: Pulpit nawigacyjny użycia w komercyjnej analizie Marketplace | Portal Azure Marketplace
+description: Dowiedz się, jak uzyskać dostęp do wszystkich metryk użycia i taryfowych rozliczeń dla ofert opublikowanych w portalu Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414863"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490121"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Użycie w analizie komercyjnej platformy handlowej
 
 Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego użycie w centrum partnerskim. Ten pulpit nawigacyjny wyświetla wszystkie maszyny wirtualne (VM), które oferuje znormalizowane użycie, surowe użycie i metryki rozliczeń w trzech oddzielnych kartach: wykorzystano maszynę wirtualną, użycie pierwotne maszyny wirtualnej i użycie zliczania opłat.
 

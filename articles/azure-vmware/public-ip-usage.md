@@ -3,12 +3,12 @@ title: Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMwar
 description: W tym artykule wyjaśniono, jak używać funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: f51f00a9adc1fd122e723909ecaa6193c152d496
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 63475b478a951632c068b168353acf2e0bb7061c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912671"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490393"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware
 
@@ -50,21 +50,21 @@ W tym scenariuszu należy opublikować serwer sieci webiis w Internecie. Aby opu
 
 ## <a name="deploy-virtual-wan"></a>Wdrożyć usługę Virtual WAN
 
-1. Zaloguj się do Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure VMware rozwiązanie** .
+1. Zaloguj się do Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure VMware rozwiązanie**.
 
 1. Wybierz chmurę prywatną rozwiązania VMware platformy Azure.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Zrzut ekranu przedstawiający chmurę prywatną rozwiązania Azure VMware." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
-1. W obszarze **Zarządzaj** wybierz pozycję **łączność** .
+1. W obszarze **Zarządzaj** wybierz pozycję **łączność**.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Zrzut ekranu przedstawiający sekcję łączność." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
-1. Wybierz kartę **publiczny adres IP** , a następnie wybierz pozycję **Konfiguruj** .
+1. Wybierz kartę **publiczny adres IP** , a następnie wybierz pozycję **Konfiguruj**.
 
-   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Zrzut ekranu pokazujący, gdzie rozpocząć konfigurowanie publicznego adresu IP" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-1. Zaakceptuj wartości domyślne lub zmień je, a następnie wybierz pozycję **Utwórz** .
+1. Zaakceptuj wartości domyślne lub zmień je, a następnie wybierz pozycję **Utwórz**.
 
    - Grupa zasobów wirtualnej sieci rozległej
 
@@ -83,44 +83,44 @@ Wdrożenie wszystkich składników trwa około godzinę. To wdrożenie musi wyst
 
 Możemy sprawdzić i dodać więcej publicznych adresów IP, wykonując poniższe kroki.
 
-1. W Azure Portal Wyszukaj i wybierz opcję **Zapora** .
+1. W Azure Portal Wyszukaj i wybierz opcję **Zapora**.
 
-1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią** .
+1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią**.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Zrzut ekranu przedstawiający opcję konfigurowania zapory i zarządzania nią" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. Wybierz pozycję **zabezpieczone centra wirtualne** , a następnie z listy wybierz koncentrator wirtualny.
 
-   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Diagram architektury publicznego adresu IP" lightbox="media/public-ip-usage/select-virtual-hub.png":::
+   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Zrzut ekranu Menedżera zapory" lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
-1. Na stronie koncentrator wirtualny wybierz pozycję **Konfiguracja publicznego adresu IP** i Dodaj więcej publicznych adresów IP, a następnie wybierz pozycję **Dodaj** . 
+1. Na stronie koncentrator wirtualny wybierz pozycję **Konfiguracja publicznego adresu IP** i Dodaj więcej publicznych adresów IP, a następnie wybierz pozycję **Dodaj**. 
 
-   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Zrzut ekranu przedstawiający sposób dodawania konfiguracji publicznego adresu IP w Menedżerze zapory" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
-1. Podaj liczbę wymaganych adresów IP i wybierz pozycję **Dodaj** .
+1. Podaj liczbę wymaganych adresów IP i wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Diagram architektury publicznego adresu IP" border="true":::
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Zrzut ekranu, aby dodać określoną liczbę konfiguracji publicznych adresów IP" border="true":::
 
 
 ## <a name="create-firewall-policies"></a>Tworzenie zasad zapory
 
 Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie zasobów. Następnym krokiem jest dodanie zasad zapory.
 
-1. W Azure Portal Wyszukaj i wybierz opcję **Zapora** .
+1. W Azure Portal Wyszukaj i wybierz opcję **Zapora**.
 
-1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią** .
+1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią**.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Zrzut ekranu przedstawiający opcję konfigurowania zapory i zarządzania nią" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
-1. Wybierz pozycję **zasady zapory platformy Azure** , a następnie wybierz pozycję **Utwórz zasady zapory platformy Azure** .
+1. Wybierz pozycję **zasady zapory platformy Azure** , a następnie wybierz pozycję **Utwórz zasady zapory platformy Azure**.
 
-   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia zasad zapory w Menedżerze zapory" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. Na karcie **podstawy** podaj wymagane szczegóły i wybierz pozycję **Dalej: ustawienia DNS** . 
+1. Na karcie **podstawy** podaj wymagane szczegóły i wybierz pozycję **Dalej: ustawienia DNS**. 
 
-1. Na karcie **DNS** wybierz pozycję **Disable (Wyłącz** ), a następnie wybierz pozycję Next ( **Dalej): Rules** .
+1. Na karcie **DNS** wybierz pozycję **Disable (Wyłącz** ), a następnie wybierz pozycję Next ( **Dalej): Rules**.
 
-1. Wybierz pozycję **Dodaj kolekcję reguł** , podaj poniżej szczegóły i wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń** .
+1. Wybierz pozycję **Dodaj kolekcję reguł** , podaj poniżej szczegóły i wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń**.
 
    -  Nazwa
    -  Typ kolekcji reguł — DNAT
@@ -136,21 +136,19 @@ Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie za
    -  Przetłumaczony adres — **prywatny adres IP serwera sieci Web rozwiązania Azure VMware**
    -  Przetłumaczony port — **port serwera sieci Web rozwiązania VMware platformy Azure**
 
-1. Pozostaw wartość domyślną, a następnie wybierz pozycję **Next (dalej): Hubs** .
+1. Pozostaw wartość domyślną, a następnie wybierz pozycję **Next (dalej): Hubs**.
 
-1. Wybierz pozycję **Skojarz koncentrator wirtualny** .
+1. Wybierz pozycję **Skojarz koncentrator wirtualny**.
 
-   :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
+1. Wybierz centrum z listy i wybierz pozycję **Dodaj**.
 
-1. Wybierz centrum z listy i wybierz pozycję **Dodaj** .
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Zrzut ekranu pokazujący wybrane centra, które zostaną przekonwertowane na Scecured koncentratory wirtualne." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+1. Wybierz pozycję **Dalej: Tagi**. 
 
-1. Wybierz pozycję **Dalej: Tagi** . 
+1. Obowiązkowe Utwórz pary nazw i wartości, aby klasyfikować zasoby. 
 
-1. Obowiązkowe Utwórz pary nazwa/wartość, aby sklasyfikować zasoby. 
-
-1. Wybierz pozycję **Dalej: przegląd + Utwórz** , a następnie wybierz pozycję **Utwórz** .
+1. Wybierz pozycję **Dalej: przegląd + Utwórz** , a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="limitations"></a>Ograniczenia
 

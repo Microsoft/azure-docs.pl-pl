@@ -7,25 +7,25 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881905"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488105"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Functions dane wyjściowe z Azure Stream Analytics
 
 Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego udostępniania infrastruktury ani zarządzania nią. Umożliwia zaimplementowanie kodu wyzwalanego przez zdarzenia występujące na platformie Azure lub w usługach partnerskich. Azure Functions odpowiedzi na wyzwalacze są naturalnymi danymi wyjściowymi Azure Stream Analytics. Ta karta wyjściowa umożliwia użytkownikom łączenie Stream Analytics z Azure Functions i uruchamianie skryptu lub fragmentu kodu w odpowiedzi na różne zdarzenia.
 
-Azure Functions dane wyjściowe z Stream Analytics nie są obecnie dostępne w regionach platformy Azure w Chinach (Chiny) i Azure (Niemcy).
+Azure Functions dane wyjściowe z Stream Analytics nie są dostępne w regionach platformy Azure w Chinach (Chiny) i Azure (Niemcy). Połączenie z Azure Functions wewnątrz sieci wirtualnej (VNet) z zadania Stream Analytics, które działa w klastrze z wieloma dzierżawcami, również nie jest obsługiwane.
 
 Azure Stream Analytics wywołuje Azure Functions za pośrednictwem wyzwalacza HTTP. Karta wyjściowa Azure Functions jest dostępna z następującymi konfigurowalnymi właściwościami:
 
 | Nazwa właściwości | Opis |
 | --- | --- |
 | Aplikacja funkcji |Nazwa aplikacji Azure Functions. |
-| Funkcja |Nazwa funkcji w aplikacji Azure Functions. |
+| Function |Nazwa funkcji w aplikacji Azure Functions. |
 | Klucz |Jeśli chcesz użyć funkcji platformy Azure z innej subskrypcji, możesz to zrobić, podając klucz, aby uzyskać dostęp do funkcji. |
 | Maksymalny rozmiar wsadu |Właściwość, która umożliwia ustawienie maksymalnego rozmiaru dla każdej partii wyjściowej, która jest wysyłana do funkcji platformy Azure. Jednostka wejściowa jest w bajtach. Wartość domyślna to 262 144 bajtów (256 KB). |
 | Maksymalna liczba partii  |Właściwość, która umożliwia określenie maksymalnej liczby zdarzeń w każdej partii, która jest wysyłana do Azure Functions. Wartość domyślna to 100. |

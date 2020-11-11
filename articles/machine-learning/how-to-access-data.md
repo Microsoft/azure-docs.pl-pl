@@ -11,14 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358103"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489305"
 ---
-# <a name="connect-to-storage-services-azure"></a>Nawiązywanie połączenia z usługami Storage Services Azure
+# <a name="connect-to-storage-services-on-azure"></a>Nawiązywanie połączenia z usługami magazynu na platformie Azure
 
 W tym artykule dowiesz się, jak **nawiązać połączenie z usługami magazynu na platformie Azure za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych bezpiecznie łączą się z usługą Azure Storage bez konieczności podawania poświadczeń uwierzytelniania i integralności oryginalnego źródła. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzony z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania w nich kodu. Możesz użyć [Azure Machine Learning Python SDK](#python) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md) do tworzenia i rejestrowania magazynów danych.
 

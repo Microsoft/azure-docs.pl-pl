@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b27b7344d84ce1361d8294fa4f3490c50afbb4c3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978938"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489662"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 
@@ -70,11 +70,11 @@ Firma Microsoft ma dwa (2) kanały migracji dla użytkowników CoreOS.
 - Flatcar przez Kinvolk (zobacz wpis "Flatcar Container Linux to Kinvolk").
 - [Podstawowy system operacyjny Fedora](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/) (klienci muszą przekazać własny obraz. Oto [Dokumentacja dotycząca migracji](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)).
 
-### <a name="credativ"></a>Credativ
+### <a name="credativ"></a>credativ
 
-[https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
 
-Credativ to niezależna firma konsultingowa i usług, która specjalizacje opracowywania i wdrażania profesjonalnych rozwiązań przy użyciu bezpłatnego oprogramowania. Jako wiodące specjaliści z branży Open Source credativ mają międzynarodowyą funkcję rozpoznawania wielu działów IT korzystających z pomocy technicznej. W połączeniu z firmą Microsoft credativ aktualnie przygotowuje odpowiednie obrazy Debian dla Debian 8 (Jessie) i Debian przed 7 (wheezy). Oba obrazy są specjalnie przeznaczone do uruchamiania na platformie Azure i mogą być łatwo zarządzane za pośrednictwem platformy. Credativ również będzie obsługiwał długoterminową konserwację i aktualizację obrazów Debian dla platformy Azure za pomocą Centrum pomocy technicznej typu open source.
+credativ to niezależna firma konsultingowa i usług, która specjalizacje opracowywania i wdrażania profesjonalnych rozwiązań przy użyciu bezpłatnego oprogramowania. Jako wiodące specjaliści z branży Open Source credativ mają międzynarodowyą funkcję rozpoznawania wielu działów IT korzystających z pomocy technicznej. W połączeniu z firmą Microsoft credativ przygotowuje obrazy debian. Obrazy są specjalnie przeznaczone do uruchamiania na platformie Azure i mogą być łatwo zarządzane za pośrednictwem platformy. credativ również będzie obsługiwał długoterminową konserwację i aktualizację obrazów Debian dla platformy Azure za pomocą Centrum pomocy technicznej typu open source.
 
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)

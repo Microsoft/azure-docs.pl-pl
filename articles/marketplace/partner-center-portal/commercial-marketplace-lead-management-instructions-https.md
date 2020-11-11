@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać automatyzacji i punktu końcowego HTTPS 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120376"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489373"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Używanie punktu końcowego HTTPS do zarządzania komercyjnymi liderami w portalu Marketplace
 
@@ -31,11 +31,11 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
 
     ![Zaloguj się do moich przepływów](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. W obszarze **+ Nowy**wybierz pozycję **+ błyskawiczne — od zera**.
+1. W obszarze **+ Nowy** wybierz pozycję **+ błyskawiczne — od zera**.
 
     ![Moje przepływy + automatyczne — z pustej](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Nadaj nazwę przepływowi, a następnie w obszarze **Wybierz sposób wyzwalania tego przepływu**wybierz opcję **po odebraniu żądania HTTP**.
+1. Nadaj nazwę przepływowi, a następnie w obszarze **Wybierz sposób wyzwalania tego przepływu** wybierz opcję **po odebraniu żądania HTTP**.
 
     ![Kompiluj przycisk pomijania okna przepływu automatycznego](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
@@ -43,7 +43,7 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
 
     ![Rozwiń krok przepływu](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-1. Użyj jednej z następujących metod, aby skonfigurować **schemat JSON treści żądania**:
+1. Użyj jednej z następujących metod, aby skonfigurować **schemat JSON treści żądania** :
 
     - Skopiuj schemat JSON do pola tekstowego **schemat JSON treści żądania** .
     - Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**. W polu tekstowym **wprowadź lub wklej przykładowy ładunek JSON** Wklej w przykładzie JSON. Wybierz pozycję **gotowe** , aby utworzyć schemat.
@@ -152,7 +152,7 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
 ### <a name="set-up-email-notification"></a>Konfigurowanie powiadomienia e-mail
 
 1. Po zakończeniu schematu JSON wybierz pozycję **+ nowy krok**.
-1. W obszarze **Wybierz akcję**wybierz pozycję **Akcje**.
+1. W obszarze **Wybierz akcję** wybierz pozycję **Akcje**.
 1. Na karcie **Akcje** wybierz pozycję **Wyślij wiadomość e-mail (Office 365 Outlook)**.
 
     >[!NOTE]
@@ -162,15 +162,15 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
 
 1. W oknie **wysyłanie wiadomości e-mail** skonfiguruj następujące wymagane pola:
 
-   - **Do**: wprowadź co najmniej jeden prawidłowy adres e-mail, na który będą wysyłane potencjalni klienci.
-   - **Temat**: energia automatyzuje zapewnia możliwość dodania zawartości dynamicznej, na przykład **LeadSource** pokazanej na poniższym ekranie. Zacznij od wprowadzenia nazwy pola. Następnie wybierz listę dynamiczne pobranie zawartości z okna podręcznego. 
+   - **Do** : wprowadź co najmniej jeden prawidłowy adres e-mail, na który będą wysyłane potencjalni klienci.
+   - **Temat** : energia automatyzuje zapewnia możliwość dodania zawartości dynamicznej, na przykład **LeadSource** pokazanej na poniższym ekranie. Zacznij od wprowadzenia nazwy pola. Następnie wybierz listę dynamiczne pobranie zawartości z okna podręcznego. 
 
         >[!NOTE] 
         > Po dodaniu nazw pól można wykonać każdą nazwę z dwukropkiem (:) a następnie wybierz **klawisz ENTER** , aby utworzyć nowy wiersz. Po dodaniu nazw pól można dodać każdy skojarzony parametr z listy pobrań dynamicznych.
 
         ![Dodawanie akcji poczty e-mail przy użyciu zawartości dynamicznej](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Treść**: z listy dynamiczne pobranie zawartości Dodaj odpowiednie informacje w treści wiadomości e-mail. Na przykład użyj LastName, FirstName, poczty E-mail i firmy. Po zakończeniu konfigurowania powiadomienia e-mail wygląda jak przykład na poniższym ekranie.
+   - **Treść** : z listy dynamiczne pobranie zawartości Dodaj odpowiednie informacje w treści wiadomości e-mail. Na przykład użyj LastName, FirstName, poczty E-mail i firmy. Po zakończeniu konfigurowania powiadomienia e-mail wygląda jak przykład na poniższym ekranie.
 
 
        ![Przykładowe powiadomienie pocztą e-mail](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
@@ -202,7 +202,7 @@ Konfigurację można przetestować za pomocą programu [Poster](https://app.getp
 1. Wróć do trybu [automatyzacji](https://flow.microsoft.com/). Znajdź utworzony przepływ w celu wysłania potencjalnych klientów, przechodząc do **obszaru Moje przepływy** z paska menu usługi Automatyzacja. Wybierz wielokropek obok nazwy przepływu, aby wyświetlić więcej opcji, a następnie wybierz pozycję **Edytuj**.
 
 
-1. Wybierz pozycję **Testuj** w prawym górnym rogu, wybierz opcję **Chcę wykonać akcję wyzwalacza**, a następnie wybierz pozycję **Testuj**. Na górze ekranu zobaczysz wskazanie, że test został uruchomiony.
+1. Wybierz pozycję **Testuj** w prawym górnym rogu, wybierz opcję **Chcę wykonać akcję wyzwalacza** , a następnie wybierz pozycję **Testuj**. Na górze ekranu zobaczysz wskazanie, że test został uruchomiony.
 
    ![Wykonaję akcję wyzwalacza](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 
@@ -236,9 +236,9 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **punkt końcowy https** dla **miejsca docelowego potencjalnego klienta**. Wklej adres URL POST protokołu HTTP z przepływu utworzonego przez wykonanie wcześniejszych kroków w polu **adres URL punktu końcowego HTTPS** .
     ![Adres e-mail osoby kontaktowej szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 
-1. W obszarze **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
+1. W obszarze **kontaktowy adres e-mail** wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

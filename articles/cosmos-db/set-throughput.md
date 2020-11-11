@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098777"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490274"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Jeśli konto Azure Cosmos DB zawiera już udostępnioną bazę danych przepływn
 
 Jeśli Twoje obciążenia wymagają usunięcia i ponownego utworzenia wszystkich kolekcji w bazie danych, zaleca się porzucenie pustej bazy danych i ponowne utworzenie nowej bazy danych przed utworzeniem kolekcji. Na poniższej ilustracji przedstawiono, w jaki sposób partycja fizyczna może hostować co najmniej jedną partycję logiczną, która należy do różnych kontenerów w bazie danych:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną kontenera" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną, która należy do różnych kontenerów " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Ustawianie przepływności dla bazy danych i kontenera
 
@@ -82,9 +82,9 @@ Można połączyć te dwa modele. Przepływność aprowizacji zarówno dla bazy 
 * Można utworzyć bazę danych usługi Azure Cosmos o nazwie *z* w standardowym (ręcznym) przepływności *"K"* jednostek ru. 
 * Następnie utwórz pięć kontenerów o nazwie *a* , *B* , *C* , *D* i *E* w ramach bazy danych. Podczas tworzenia kontenera B upewnij się, że włączono **dedykowaną przepływność dla tej opcji kontenera** , a następnie jawnie Skonfiguruj *"P"* jednostek ru na potrzeby aprowizacji dla tego kontenera. Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną kontenera":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Ustawianie przepływności na poziomie kontenera":::
 
-* Przepływność jednostek ru *"K"* jest udostępniana w czterech kontenerach *a* , *C* , *D* i *E* . Dokładna ilość przepływności *dostępna dla,* *C* , *D* lub *E* jest różna. Dla każdego z przepływności poszczególnych kontenerów nie ma umowy SLA.
+* Przepływność jednostek ru *"K"* jest udostępniana w czterech kontenerach *a* , *C* , *D* i *E*. Dokładna ilość przepływności *dostępna dla,* *C* , *D* lub *E* jest różna. Dla każdego z przepływności poszczególnych kontenerów nie ma umowy SLA.
 * Kontener o nazwie *B* jest zagwarantowany do uzyskania jednostek ru przepływności *"P"* przez cały czas. Jest ona obsługiwana przez umowy SLA.
 
 > [!NOTE]
@@ -109,7 +109,7 @@ Odpowiedź tych metod zawiera również [minimalną zainicjowaną przepływnoś�
 Rzeczywiste minimum RU/s może się różnić w zależności od konfiguracji konta. Zwykle jest to maksymalna wartość:
 
 * 400 RU/s 
-* Bieżący magazyn w GB * 10 RU/s
+* Bieżący magazyn w GB * 10 RU/s (chyba że kontener lub baza danych zawiera więcej niż 1 TB danych, zobacz nasz [duży magazyn/niska przepływność](#high-storage-low-throughput-program))
 * Najwyższy poziom RU/s zainicjowany dla bazy danych lub kontenera/100
 * Liczba kontenerów * 100 RU/s (tylko udostępniona baza danych przepływności)
 

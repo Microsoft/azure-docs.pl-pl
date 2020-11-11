@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a69ca707577ceddc56ae691d6e5e701458cae28
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346605"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488438"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Odczytaj dane wejściowe w dowolnym formacie przy użyciu niestandardowych deserializacji platformy .NET
 
@@ -231,7 +231,7 @@ Ta funkcja jest dostępna w następujących regionach:
 * East US
 * Zachodnie stany USA
 * Wschodnie stany USA 2
-* Europa Zachodnia
+* West Europe
 
 Możesz [zażądać obsługi](https://aka.ms/ccodereqregion) dodatkowych regionów.
 
@@ -249,9 +249,9 @@ Ta funkcja nie jest obsługiwana. Jeśli potrzebujesz tej możliwości, możesz 
 
 Po zaimplementowaniu deserializacji można ułatwić innym użytkownikom udostępnianie go społeczności. Prześlij swój kod do [Azure Stream Analytics repozytorium GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Jakie są inne ograniczenia dotyczące używania deserializatorów niestandardowych w Stream Analytics?
+### <a name="what-are-the-other-limitations-of-using-custom-deserializers-in-stream-analytics"></a>Jakie są inne ograniczenia dotyczące używania deserializatorów niestandardowych w Stream Analytics?
 
-Jeśli dane wejściowe mają format protobuf ze schematem zawierającym typ MapField, nie będzie można zaimplementować niestandardowego deserializacji. Pracujemy nad tym, aby obsłużyć ten typ do przodu.
+Jeśli dane wejściowe mają format protobuf ze schematem zawierającym `MapField` Typ, nie będzie można zaimplementować niestandardowego deserializacji. Ponadto deserializatory niestandardowe nie obsługują danych przykładowych ani podglądu danych. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Wprowadzenie
 description: Poznaj funkcje i korzyści płynące z rozwiązań VMware platformy Azure w celu wdrażania obciążeń opartych na oprogramowaniu VMware na platformie Azure i zarządzania nimi.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1875f535a5ca3e346362409c143da82cb8c07a12
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574465"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488591"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Co to jest usługa Azure VMware Solution?
 
@@ -26,7 +26,7 @@ Chmury prywatne i klastry dla rozwiązań VMware platformy Azure są zbudowane z
 
 Nowe chmury prywatne są wdrażane za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 [!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
@@ -44,7 +44,7 @@ Regularne uaktualnianie chmury prywatnej i oprogramowania VMware na platformie A
 
 ## <a name="monitoring-your-private-cloud"></a>Monitorowanie chmury prywatnej
 
-Po wdrożeniu rozwiązania Azure VMware w ramach subskrypcji [Azure monitor dzienniki](../azure-monitor/overview.md) są generowane automatycznie. Ponadto można zbierać dzienniki na poszczególnych maszynach wirtualnych w chmurze prywatnej. [Agenta MMA można pobrać i zainstalować](../azure-monitor/platform/log-analytics-agent.md#installation-options) na maszynach wirtualnych z systemem Linux i Windows uruchomionym w chmurach prywatnych rozwiązań VMware platformy Azure, a także włączyć [rozszerzenie Diagnostyka Azure](../azure-monitor/platform/diagnostics-extension-overview.md). Można nawet uruchamiać te same zapytania, które są normalnie uruchamiane na maszynach wirtualnych. Aby dowiedzieć się więcej na temat tworzenia zapytań, zobacz [jak pisać zapytania](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). Wzorce monitorowania w ramach rozwiązania VMware platformy Azure są podobne do usługi Azure Virtual Machines w ramach platformy IaaS. Aby uzyskać dodatkowe informacje i porady, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Po wdrożeniu rozwiązania Azure VMware w ramach subskrypcji [Azure monitor dzienniki](../azure-monitor/overview.md) są generowane automatycznie. Ponadto można zbierać dzienniki na poszczególnych maszynach wirtualnych w chmurze prywatnej. [Agenta MMA można pobrać i zainstalować](../azure-monitor/platform/log-analytics-agent.md#installation-options) na maszynach wirtualnych z systemem Linux i Windows uruchomionym w chmurach prywatnych rozwiązań VMware platformy Azure, a także włączyć [rozszerzenie Diagnostyka Azure](../azure-monitor/platform/diagnostics-extension-overview.md). Można nawet uruchamiać te same zapytania, które są normalnie uruchamiane na maszynach wirtualnych. Aby dowiedzieć się więcej na temat tworzenia zapytań, zobacz [dzienniki Azure monitor Omówienie](../azure-monitor/platform/data-platform-logs.md). Wzorce monitorowania w ramach rozwiązania VMware platformy Azure są podobne do usługi Azure Virtual Machines w ramach platformy IaaS. Aby uzyskać dodatkowe informacje i porady, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

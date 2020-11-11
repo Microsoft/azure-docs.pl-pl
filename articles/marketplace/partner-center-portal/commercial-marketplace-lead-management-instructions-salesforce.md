@@ -4,15 +4,15 @@ description: Dowiedz się, jak skonfigurować potencjalnych klientów dla Micros
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73caf848ab5c6f8e973469066ce4612a075a52f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117119"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489322"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Konfigurowanie zarządzania liderem w usłudze Salesforce
 
@@ -48,11 +48,11 @@ W tym artykule opisano sposób konfigurowania systemu Salesforce do przetwarzani
    Pozostałe kroki są takie same dla obu środowisk usług Salesforce.
 
 1. Na stronie **Konfiguracja sieci Web-potencjalny klient** wybierz przycisk **Utwórz formularz sieci Web-potencjalny klient** .
-1. W obszarze **Konfiguracja sieci Web-lider**wybierz pozycję **Utwórz formularz sieć Web-potencjalny klient**.
+1. W obszarze **Konfiguracja sieci Web-lider** wybierz pozycję **Utwórz formularz sieć Web-potencjalny klient**.
 
     ![Konfiguracja sieci Web do potencjalnego klienta usługi Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
-1. Na stronie **Tworzenie formularza sieć Web-potencjalny klient**upewnij się, że `Include reCAPTCHA in HTML` ustawienie jest wyczyszczone, a następnie wybierz pozycję **Generuj**.
+1. Na stronie **Tworzenie formularza sieć Web-potencjalny klient** upewnij się, że `Include reCAPTCHA in HTML` ustawienie jest wyczyszczone, a następnie wybierz pozycję **Generuj**.
 
     ![Okienko Tworzenie formularza sieci Web do potencjalnego klienta w usłudze Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
@@ -78,9 +78,9 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
     ![Okno podręczne szczegóły połączenia Sprawdź poprawność kontaktu z adresem e-mail](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
 
-1. W obszarze **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
+1. W obszarze **kontaktowy adres e-mail** wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz pozycję **Weryfikuj**. Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

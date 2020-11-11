@@ -9,37 +9,58 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f64a91e3b285c265296c361366a10443eda18201
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325614"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489423"
 ---
-# <a name="metrics-in-azure-monitor"></a>Metryki w usłudze Azure Monitor
+# <a name="azure-monitor-metrics-overview"></a>Przegląd metryk Azure Monitor
+Metryki Azure Monitor są funkcją Azure Monitor, która zbiera dane liczbowe z [monitorowanych zasobów](../monitor-reference.md) do bazy danych szeregów czasowych. Metryki to wartości liczbowe, które są zbierane w regularnych odstępach czasu i opisują kilka aspektów systemu w danym momencie. Metryki w Azure Monitor są lekkie i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Możesz przeanalizować je interaktywnie przy użyciu Eksploratora metryk, otrzymywać powiadomienia o alertach, gdy wartość przekroczy próg lub Wizualizuj je w skoroszycie lub pulpicie nawigacyjnym.
+
 
 > [!NOTE]
-> Platforma danych Azure Monitor opiera się na dwóch podstawowych typach danych: metrykach i dziennikach. W tym artykule opisano metryki. Zapoznaj się z [dziennikami w Azure monitor](data-platform-logs.md) , aby uzyskać szczegółowy opis dzienników i [Azure monitor platformę danych](data-platform.md) w celu porównania dwóch.
+> Azure Monitor metryki to jedna połowa platformy danych obsługującej Azure Monitor. Druga z nich to [Azure monitor dzienniki](data-platform-logs.md) , które gromadzą i organizują dane dziennika i wydajności oraz umożliwiają analizowanie ich przy użyciu zaawansowanego języka zapytań. Metryki są bardziej uproszczone niż dane w Azure Monitor dziennikach i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Metryki, które mogą przechowywać dane liczbowe tylko w określonej strukturze, podczas gdy dzienniki mogą przechowywać różne różne typy danych z ich własnymi strukturami. Możesz również wykonać złożoną analizę danych dzienników przy użyciu zapytań dziennika, które nie mogą być używane do analizy danych metryk.
 
-Metryki w Azure Monitor są lekkie i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. W tym artykule opisano sposób, w jaki metryki są strukturalne, co można z nimi zrobić i identyfikuje różne źródła danych, które przechowują dane w metrykach.
-
-## <a name="what-are-metrics"></a>Co to są metryki?
-Metryki to wartości liczbowe, które opisują pewien aspekt systemu w określonym momencie w czasie. Metryki są zbierane w regularnych odstępach czasu i są przydatne w przypadku alertów, ponieważ mogą być próbkowane często, a alert może być uruchamiany szybko z stosunkowo prostą logiką.
 
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Co możesz zrobić z metrykami Azure Monitor?
-W poniższej tabeli wymieniono różne sposoby używania danych metryk w Azure Monitor.
+W poniższej tabeli przedstawiono różne sposoby używania metryk w Azure Monitor.
 
-|  | Opis |
+|  |  |
 |:---|:---|
 | **Analiza** | Użyj [Eksploratora metryk](metrics-charts.md) do analizowania zebranych metryk na wykresie i porównywania metryk z różnych zasobów. |
-| **Wizualizacja** | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](./workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
 | **Alert** | Skonfiguruj [regułę alertu metryki](alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wartość metryki przekroczy próg. |
+| **Wizualizacja** | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](./workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
 | **Automatyzacja** |  Użyj funkcji [automatycznego skalowania](autoscale-overview.md) , aby zwiększyć lub zmniejszyć zasoby na podstawie wartości metryki przekraczającej próg. |
-| **Eksportowanie** | [Kierowanie metryk do dzienników](./resource-logs.md#send-to-azure-storage) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
 | **Odczytać** | Uzyskiwanie dostępu do wartości metryk z wiersza polecenia przy użyciu  [poleceń cmdlet programu PowerShell](/powershell/module/az.applicationinsights)<br>Dostęp do wartości metryk z aplikacji niestandardowej przy użyciu [interfejsu API REST](rest-api-walkthrough.md).<br>Uzyskaj dostęp do wartości metryk z wiersza polecenia przy użyciu  [interfejsu CLI](/cli/azure/monitor/metrics). |
+| **Eksportowanie** | [Kierowanie metryk do dzienników](./resource-logs.md#send-to-azure-storage) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
 | **Archiwum** | [Archiwizuj](./platform-logs-overview.md) historię wydajności lub kondycji zasobu w celu zapewnienia zgodności, inspekcji lub raportowania w trybie offline. |
 
-## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Jak są zorganizowane dane w Azure Monitor metryki?
+![Przegląd metryk](media/data-platform-metrics/metrics-overview.png)
+
+
+## <a name="data-collection"></a>Zbieranie danych
+Istnieją trzy podstawowe źródła metryk zbieranych przez Azure Monitor. Po zebraniu tych metryk w bazie danych metryk Azure Monitor można je ocenić razem niezależnie od ich źródła.
+
+**Zasoby platformy Azure**. Metryki platformy są tworzone przez zasoby platformy Azure i zapewniają wgląd w ich kondycję i wydajność. Każdy typ zasobu tworzy [odrębny zestaw metryk](metrics-supported.md) , nie wymaga żadnej konfiguracji. Metryki platformy są zbierane z zasobów platformy Azure w częstotliwości jednej minuty, chyba że określono inaczej w definicji metryki. 
+
+**Aplikacje**. Metryki są tworzone przez Application Insights dla monitorowanych aplikacji i pomagają wykrywać problemy z wydajnością oraz śledzić trendy w sposobie używania aplikacji. Obejmuje to takie wartości jak _czas odpowiedzi serwera_ i _wyjątki przeglądarki_.
+
+**Agenci maszyn wirtualnych**. Metryki są zbierane z systemu operacyjnego gościa maszyny wirtualnej. Włącz metryki systemu operacyjnego gościa dla maszyn wirtualnych z systemem Windows z [rozszerzeniem diagnostyki systemu Windows (funkcji wad)](./diagnostics-extension-overview.md) i maszyn wirtualnych z systemem Linux przy użyciu [agenta InfluxData telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
+
+**Metryki niestandardowe**. Oprócz metryk standardowych, które są automatycznie dostępne, można zdefiniować metryki. Możesz [definiować niestandardowe metryki w aplikacji](../app/api-custom-events-metrics.md) monitorowane przez Application Insights lub tworzyć niestandardowe metryki dla usługi platformy Azure przy użyciu [interfejsu API metryk niestandardowych](metrics-store-custom-rest-api.md).
+
+- Zobacz, [co jest monitorowane przez Azure monitor?](../monitor-reference.md) , aby uzyskać pełną listę źródeł danych, które mogą wysyłać dane do metryk Azure monitor.
+
+## <a name="metrics-explorer"></a>Eksplorator metryk
+Użyj [Eksplorator metryk](metrics-charts.md) , aby interaktywnie analizować dane w bazie danych metryk i wykresy wartości z wielu metryk w czasie. Możesz przypiąć wykresy do pulpitu nawigacyjnego, aby wyświetlić je z innymi wizualizacjami. Metryki można także pobrać przy użyciu [interfejsu API REST usługi Azure Monitoring](rest-api-walkthrough.md).
+
+![Eksplorator metryk](media/data-platform/metrics-explorer.png)
+
+- Zobacz Rozpoczynanie [pracy z programem Azure monitor Metrics Explorer](metrics-getting-started.md) , aby rozpocząć korzystanie z Eksploratora metryk.
+
+## <a name="data-structure"></a>Struktura danych
 Dane zbierane przez metryki Azure Monitor są przechowywane w bazie danych szeregów czasowych, która jest zoptymalizowana pod kątem analizowania danych z sygnaturami czasowymi. Każdy zestaw wartości metryk jest szeregiem czasowym o następujących właściwościach:
 
 * Godzina zebrania wartości
@@ -50,9 +71,9 @@ Dane zbierane przez metryki Azure Monitor są przechowywane w bazie danych szere
 * Niektóre metryki mogą mieć wiele wymiarów, zgodnie z opisem w [wielowymiarowych metrykach](#multi-dimensional-metrics). Metryki niestandardowe mogą mieć maksymalnie 10 wymiarów.
 
 ## <a name="multi-dimensional-metrics"></a>Metryki wielowymiarowe
-Jednym z wyzwań związanych z danymi metryk jest to, że często zawiera ona ograniczone informacje w celu zapewnienia kontekstu zbieranych wartości. Azure Monitor rozwiązuje to wyzwanie przy użyciu metryk wielowymiarowych. Wymiary metryki to pary nazwa-wartość, które zawierają dodatkowe dane do opisywania wartości metryki. Na przykład _ilość dostępnego miejsca na dysku_ może mieć wymiar o nazwie _dysk_ z wartościami _C:_, _D:_, co zezwoli na wyświetlanie dostępnego miejsca na dysku na wszystkich dyskach lub poszczególnych dyskach osobno.
+Jednym z wyzwań związanych z danymi metryk jest to, że często zawiera ona ograniczone informacje w celu zapewnienia kontekstu zbieranych wartości. Azure Monitor rozwiązuje to wyzwanie przy użyciu metryk wielowymiarowych. Wymiary metryki to pary nazwa-wartość, które zawierają dodatkowe dane do opisywania wartości metryki. Na przykład _ilość dostępnego miejsca na dysku_ może mieć wymiar o nazwie _dysk_ z wartościami _C:_ , _D:_ , co zezwoli na wyświetlanie dostępnego miejsca na dysku na wszystkich dyskach lub poszczególnych dyskach osobno.
 
-Poniższy przykład ilustruje dwa zestawy danych dla hipotetycznej metryki o nazwie _przepływność sieci_. Pierwszy zestaw danych nie ma wymiarów. Drugi zestaw danych pokazuje wartości z dwoma wymiarami, _adresem IP_ i _kierunkiem_:
+Poniższy przykład ilustruje dwa zestawy danych dla hipotetycznej metryki o nazwie _przepływność sieci_. Pierwszy zestaw danych nie ma wymiarów. Drugi zestaw danych pokazuje wartości z dwoma wymiarami, _adresem IP_ i _kierunkiem_ :
 
 ### <a name="network-throughput"></a>Przepływność sieci
 
@@ -78,22 +99,6 @@ Ta Metryka niewymiarowa może odpowiedzieć wyłącznie na podstawowe pytanie, t
 | 8/9/2017 8:15 | IP = "10.24.2.15"  | Direction = "Receive" | 100,1 KB/s |
 
 Ta Metryka może odpowiedzieć na takie pytania, jak "co to jest przepływność sieci dla każdego adresu IP?" oraz "jak dużo danych zostało wysłanych i odebranych?". Metryki wielowymiarowe przenoszą dodatkową wartość analityczną i diagnostyczną w porównaniu do metryk niewymiarowych.
-
-## <a name="interacting-with-azure-monitor-metrics"></a>Interakcja z metrykami usługi Azure Monitor
-Użyj [Eksplorator metryk](metrics-charts.md) , aby interaktywnie analizować dane w bazie danych metryk i wykresy wartości z wielu metryk w czasie. Możesz przypiąć wykresy do pulpitu nawigacyjnego, aby wyświetlić je z innymi wizualizacjami. Metryki można także pobrać przy użyciu [interfejsu API REST usługi Azure Monitoring](rest-api-walkthrough.md).
-
-![Eksplorator metryk](media/data-platform/metrics-explorer.png)
-
-## <a name="sources-of-azure-monitor-metrics"></a>Źródła metryk Azure Monitor
-Istnieją trzy podstawowe źródła metryk zbieranych przez Azure Monitor. Po zebraniu tych metryk w bazie danych metryk Azure Monitor można je ocenić razem niezależnie od ich źródła.
-
-**Metryki platformy** są tworzone przez zasoby platformy Azure i zapewniają wgląd w ich kondycję i wydajność. Każdy typ zasobu tworzy [odrębny zestaw metryk](metrics-supported.md) , nie wymaga żadnej konfiguracji. Metryki platformy są zbierane z zasobów platformy Azure w częstotliwości jednej minuty, chyba że określono inaczej w definicji metryki. 
-
-**Metryki systemu operacyjnego gościa** są zbierane z systemu operacyjnego gościa maszyny wirtualnej. Włącz metryki systemu operacyjnego gościa dla maszyn wirtualnych z systemem Windows z [rozszerzeniem diagnostyki systemu Windows (funkcji wad)](./diagnostics-extension-overview.md) i maszyn wirtualnych z systemem Linux przy użyciu [agenta InfluxData telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
-
-**Metryki aplikacji** są tworzone przez Application Insights dla monitorowanych aplikacji i pomagają wykrywać problemy z wydajnością oraz śledzić trendy w sposobie używania aplikacji. Obejmuje to takie wartości jak _czas odpowiedzi serwera_ i _wyjątki przeglądarki_.
-
-**Metryki niestandardowe** to metryki zdefiniowane jako uzupełnienie standardowych metryk, które są automatycznie dostępne. Możesz [definiować niestandardowe metryki w aplikacji](../app/api-custom-events-metrics.md) monitorowane przez Application Insights lub tworzyć niestandardowe metryki dla usługi platformy Azure przy użyciu [interfejsu API metryk niestandardowych](metrics-store-custom-rest-api.md).
 
 ## <a name="retention-of-metrics"></a>Przechowywanie metryk
 W przypadku większości zasobów na platformie Azure metryki są przechowywane przez 93 dni. Istnieją pewne wyjątki:

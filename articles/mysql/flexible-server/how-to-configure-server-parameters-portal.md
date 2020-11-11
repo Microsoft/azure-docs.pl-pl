@@ -5,15 +5,18 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/20/2020
-ms.openlocfilehash: 9568dfc2cfd678d0ce2dea8475328358906e16d1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 11/10/2020
+ms.openlocfilehash: 7733a6211363b4f1c9e9006f757b4d152c7af7f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525217"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489560"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurowanie parametrów serwera w Azure Database for MySQL-elastycznym serwerze przy użyciu Azure Portal
+
+> [!IMPORTANT] 
+> Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
 
 Za pomocą parametrów serwera można zarządzać Azure Database for MySQL elastyczną konfiguracją serwera. Parametry serwera są skonfigurowane z domyślną i zalecaną wartością podczas tworzenia serwera.  
 
@@ -28,13 +31,13 @@ W tym artykule opisano sposób wyświetlania i konfigurowania parametrów serwer
 2. W sekcji **Ustawienia** kliknij pozycję **parametry serwera** , aby otworzyć stronę parametry serwera dla Azure Database for MySQL elastycznego serwera.
 [:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Strona parametrów serwera Azure Portal":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. Zlokalizuj dowolny parametr serwera, który ma zostać dostosowany. Przejrzyj kolumnę **Description** , aby zrozumieć przeznaczenie i dozwolone wartości.
-[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Strona parametrów serwera Azure Portal":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Wyliczenie listy rozwijanej":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
 4. Kliknij przycisk  **Zapisz** , aby zapisać zmiany.
-[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Strona parametrów serwera Azure Portal":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Zapisz lub Odrzuć zmiany":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
 5. Parametry statyczne to te, które wymagają ponownego uruchomienia serwera. Jeśli modyfikujesz parametr statyczny, zostanie wyświetlony monit o **ponowne uruchomienie komputera** lub **ponowne uruchomienie systemu później**.
-[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Strona parametrów serwera Azure Portal":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Uruchom ponownie przy zapisywaniu parametru statycznego":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
 6. Jeśli Zapisano nowe wartości parametrów, zawsze możesz przywrócić wszystkie elementy z powrotem do wartości domyślnych, wybierając pozycję **Zresetuj wszystkie do domyślnych**.
-[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Strona parametrów serwera Azure Portal":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Zresetuj wszystkie do domyślnych":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Ustawianie niemodyfikowalnych parametrów serwera
 
@@ -45,10 +48,10 @@ Jeśli parametr serwera, który chcesz zaktualizować, nie jest modyfikowalny, m
 3. Dodaj parametry serwera w formacie: `SET parameter_name=YOUR_DESIRED_VALUE` wartość w kolumnie wartość.
 
     Na przykład można zmienić zestaw znaków serwera, ustawiając wartość `init_connect` na `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
-4. Kliknij pozycję **Zapisz**, aby zapisać zmiany.
+4. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
 >[!Note]
-> Polecenie `init_connect` może służyć do zmieniania parametrów, które nie wymagają uprawnień administratora na poziomie sesji. Aby sprawdzić, czy można ustawić parametr przy użyciu polecenia `init_connect`, wykonaj polecenie `set session parameter_name=YOUR_DESIRED_VALUE;`, a jeśli zwraca ono błąd **Odmowa dostępu; wymagane są uprawnienia administratora**, to nie można ustawić parametru przy użyciu polecenia „init_connect”.
+> Polecenie `init_connect` może służyć do zmieniania parametrów, które nie wymagają uprawnień administratora na poziomie sesji. Aby sprawdzić, czy można ustawić parametr przy użyciu polecenia `init_connect`, wykonaj polecenie `set session parameter_name=YOUR_DESIRED_VALUE;`, a jeśli zwraca ono błąd **Odmowa dostępu; wymagane są uprawnienia administratora** , to nie można ustawić parametru przy użyciu polecenia „init_connect”.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Praca z parametrem strefy czasowej
 
@@ -76,7 +79,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Strefę czasową na poziomie globalnym można ustawić na stronie **parametrów serwera** w Azure Portal. Poniżej ustawia globalną strefę czasową na wartość "US/Pacyfik".
 
-[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Strona parametrów serwera Azure Portal":::](./media/how-to-server-parameters/timezone.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Ustaw parametr strefy czasowej":::](./media/how-to-server-parameters/timezone.png#lightbox)
 
 ### <a name="setting-the-session-level-time-zone"></a>Ustawianie strefy czasowej na poziomie sesji
 

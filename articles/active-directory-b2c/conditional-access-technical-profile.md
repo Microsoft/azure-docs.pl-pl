@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042630"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488282"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego dostępu warunkowego w zasadach niestandardowych Azure Active Directory B2C
 
@@ -130,7 +130,7 @@ Element **InputClaimsTransformations** może zawierać kolekcję elementów **In
 
 ### <a name="output-claims"></a>Oświadczenia wyjściowe
 
-Dostawca protokołu dostępu warunkowego nie zwraca żadnych **OutputClaims**, więc nie ma potrzeby określania oświadczeń wyjściowych. Można jednak uwzględnić oświadczenia, które nie są zwracane przez dostawcę protokołu dostępu warunkowego, pod warunkiem, że ustawisz `DefaultValue` atrybut.
+Dostawca protokołu dostępu warunkowego nie zwraca żadnych **OutputClaims** , więc nie ma potrzeby określania oświadczeń wyjściowych. Można jednak uwzględnić oświadczenia, które nie są zwracane przez dostawcę protokołu dostępu warunkowego, pod warunkiem, że ustawisz `DefaultValue` atrybut.
 
 Element **OutputClaimsTransformations** może zawierać kolekcję elementów **OutputClaimsTransformation** , które są używane do modyfikowania oświadczeń wyjściowych lub generowania nowych.
 
@@ -428,7 +428,7 @@ Dodaj podróż użytkownika korzystającą z nowych oświadczeń, jak pokazano w
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Dodaj podróż użytkownika korzystającą z nowych oświadczeń, jak pokazano w
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

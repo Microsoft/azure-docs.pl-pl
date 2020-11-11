@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151802"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487996"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
 
@@ -99,8 +99,8 @@ Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zosta
 
 #### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>Nowe i zaktualizowane artykuły z restrukturyzacji zawartości agenta
 - [Włącz przegląd Azure Monitor dla maszyn wirtualnych](insights/vminsights-enable-overview.md)
-- [Instalowanie agenta Log Analytics na komputerach z systemem Linux](platform/agent-linux.md)
-- [Zainstaluj agenta Log Analytics na komputerach z systemem Windows](platform/agent-windows.md)
+- [Instalowanie agenta usługi Log Analytics na komputerach z systemem Linux](platform/agent-linux.md)
+- [Instalowanie agenta usługi Log Analytics na komputerach z systemem Windows](platform/agent-windows.md)
 - [Omówienie agenta Log Analytics](platform/log-analytics-agent.md)
 
 ### <a name="application-insights"></a>Application Insights
@@ -157,7 +157,7 @@ Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zosta
 ### <a name="alerts"></a>Alerty
 - [Reguły akcji dla alertów Azure monitor](platform/alerts-action-rules.md) — dodano procesy interfejsu wiersza polecenia.
 - [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](platform/action-groups.md) — zaktualizowano w celu odzwierciedlenia zmian w interfejsie użytkownika.
-- [Zapisane zapytania w Azure Monitor Log Analytics](log-query/saved-queries.md) — nowy artykuł.
+- [Przykładowe zapytania w Azure Monitor Log Analytics](log-query/example-queries.md) — nowy artykuł.
 - [Rozwiązywanie problemów z alertami dziennika w sekcji Azure monitor](platform/alerts-troubleshoot-log.md) dodanej do przydziału reguły alertu.
 - [Rozwiązywanie problemów z alertami metryki platformy Azure](platform/alerts-troubleshoot-metric.md) — Dodano sekcję dotyczącą reguły alertu w niestandardowej metryce, która nie jest jeszcze emitowana.
 - [Informacje o tym, jak alerty metryk działają w Azure Monitor.](platform/alerts-metric-overview.md) -Dodano rekomendację dotyczącą wyboru stopnia szczegółowości agregacji.

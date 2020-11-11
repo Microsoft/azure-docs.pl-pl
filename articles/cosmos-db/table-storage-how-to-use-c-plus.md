@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 67cccc1eaa889d0180da9b5ae0fca9b75366edd9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101157"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489883"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Jak korzystać z usługi Azure Table Storage i interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka C++
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -95,11 +95,11 @@ Użyj nazwy konta Azure Cosmos DB `<your_cosmos_db_account>` . Wprowadź klucz p
 Aby przetestować aplikację na lokalnym komputerze z systemem Windows, można użyć emulatora usługi Azure Storage, który jest instalowany z [zestawem Azure SDK](https://azure.microsoft.com/downloads/). Emulator magazynu to narzędzie, które symuluje usługi obiektów blob, kolejek i tabel platformy Azure dostępne na lokalnym komputerze deweloperskim. Poniższy przykład pokazuje, jak zadeklarować pole statyczne do przechowywania parametrów połączenia do lokalnego emulatora magazynu:  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Aby uruchomić emulator usługi Azure Storage, z poziomu pulpitu systemu Windows wybierz przycisk **Start** lub klawisz systemu Windows. Wprowadź i uruchom *emulator magazynu Microsoft Azure* . Aby uzyskać więcej informacji, zobacz [Używanie emulatora usługi Azure Storage do programowania i testowania](../storage/common/storage-use-emulator.md).
+Aby uruchomić emulator usługi Azure Storage, z poziomu pulpitu systemu Windows wybierz przycisk **Start** lub klawisz systemu Windows. Wprowadź i uruchom *emulator magazynu Microsoft Azure*. Aby uzyskać więcej informacji, zobacz [Używanie emulatora usługi Azure Storage do programowania i testowania](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Pobieranie parametrów połączenia
 
@@ -502,9 +502,9 @@ else
 
 W przypadku programu Visual Studio Community Edition, jeśli projekt pobiera błędy kompilacji z powodu plików dołączanych *storage_account. h* i *Table. h* , Usuń przełącznik kompilatora **/permissive-** :
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Właściwości** .
-1. W oknie dialogowym **Strony właściwości** rozwiń węzeł **Właściwości konfiguracji** , rozwiń węzeł **C/C++** , a następnie wybierz pozycję **Język** .
-1. Zmień ustawienie **Tryb zgodności** na **Nie** .
+1. Kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Właściwości**.
+1. W oknie dialogowym **Strony właściwości** rozwiń węzeł **Właściwości konfiguracji** , rozwiń węzeł **C/C++** , a następnie wybierz pozycję **Język**.
+1. Zmień ustawienie **Tryb zgodności** na **Nie**.
 
 ## <a name="next-steps"></a>Następne kroki
 

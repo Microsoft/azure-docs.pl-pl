@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 9f0eb1ec7c979e6f35c21f49cad9ab9975a221fc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357297"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487796"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -194,6 +194,12 @@ Nie. Ruch sieciowy przychodzący z Internetu bezpośrednio do chmur prywatnych n
 
 Tak. Aby utworzyć zaporę ograniczającą dostęp do sieci wirtualnej, należy użyć Menedżera NSX-T.
 
+
+#### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>Czy rozwiązanie VMware firmy Azure korzysta z hostowanych bram ExpressRoute Azure Virtual WAN?
+Tak.
+
+#### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>Czy można nawiązać połączenie między środowiskiem lokalnym i rozwiązaniem VMware platformy Azure za pośrednictwem wirtualnej sieci WAN platformy Azure przez ExpressRoute Global Reach?
+Wirtualna sieć WAN platformy Azure nie zapewnia routingu przechodniego między dwoma podłączonymi obwodami usługi ExpressRoute a bramą ExpressRoute sieci WAN innej niż wirtualna. Korzystanie z programu ExpressRoute Global Reach umożliwia łączność między środowiskiem lokalnym i rozwiązaniem VMware platformy Azure, ale za pośrednictwem sieci globalnej firmy Microsoft zamiast wirtualnego koncentratora sieci WAN.
 
 
 ## <a name="accounts-and-privileges"></a>Konta i uprawnienia

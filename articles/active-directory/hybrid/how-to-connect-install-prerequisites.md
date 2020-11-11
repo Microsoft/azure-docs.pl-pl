@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420497"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488404"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -102,7 +102,7 @@ Zaleca się, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszyć obszar a
 ### <a name="connectivity"></a>Łączność
 * Serwer Azure AD Connect wymaga rozpoznawania nazw DNS dla intranetu i Internetu. Serwer DNS musi być w stanie rozpoznawać nazwy zarówno w lokalnym Active Directory, jak i w punktach końcowych usługi Azure AD.
 * Jeśli masz zapory w intranecie i musisz otworzyć porty między serwerami Azure AD Connect i kontrolerami domeny, zobacz [Azure AD Connect portów](reference-connect-ports.md) , aby uzyskać więcej informacji.
-* Jeśli Twój serwer proxy lub Zapora ogranicza dostęp do adresów URL, należy otworzyć adresy URL opisane w [adresach URL pakietu Office 365 i w zakresach adresów IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) .
+* Jeśli Twój serwer proxy lub Zapora ogranicza dostęp do adresów URL, należy otworzyć adresy URL opisane w [adresach URL pakietu Office 365 i w zakresach adresów IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) . Zobacz też [Safelist adresy url Azure Portal na zaporze lub serwerze proxy](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * Jeśli używasz chmury firmy Microsoft w Niemczech lub Microsoft Azure Government w chmurze, zobacz [zagadnienia dotyczące wystąpień usługi synchronizacji Azure AD Connect](reference-connect-instances.md) dla adresów URL.
 * Azure AD Connect (w wersji 1.1.614.0 i After) domyślnie używa protokołu TLS 1,2 do szyfrowania komunikacji między aparatem synchronizacji i usługą Azure AD. Jeśli protokół TLS 1,2 nie jest dostępny w podstawowym systemie operacyjnym, Azure AD Connect stopniowo powraca do starszych protokołów (TLS 1,1 i TLS 1,0).
 * W wersjach wcześniejszych niż 1.1.614.0 Azure AD Connect domyślnie używa protokołu TLS 1,0 do szyfrowania komunikacji między aparatem synchronizacji i usługą Azure AD. Aby zmienić protokół TLS 1,2, wykonaj kroki opisane w temacie [Włączanie protokołu tls 1,2 dla Azure AD Connect](#enable-tls-12-for-azure-ad-connect).

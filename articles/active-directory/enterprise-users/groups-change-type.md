@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376797"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489611"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Zmień statyczną składową grupy na dynamiczną Azure Active Directory
 
@@ -32,7 +32,7 @@ Członkostwo w grupie można zmienić z statycznej na dynamiczną (lub odwrotnie
 
 ## <a name="change-the-membership-type-for-a-group"></a>Zmiana typu członkostwa dla grupy
 
-1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym lub administratorem użytkownika w organizacji usługi Azure AD.
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym, administratorem użytkowników lub grupą administratorów w organizacji usługi Azure AD.
 2. Wybierz pozycję **grupy**.
 3. Na liście **wszystkie grupy** Otwórz grupę, którą chcesz zmienić.
 4. Wybierz pozycję **Właściwości**.
@@ -40,11 +40,11 @@ Członkostwo w grupie można zmienić z statycznej na dynamiczną (lub odwrotnie
 
 Poniżej przedstawiono przykład zmiany grupy z statycznej na członkostwo dynamiczne dla grupy użytkowników.
 
-1. Na stronie **Właściwości** wybranej grupy wybierz **Typ członkostwa** **użytkownika dynamicznego**, a następnie wybierz pozycję tak w oknie dialogowym wyjaśniającym zmiany członkostwa w grupie, aby kontynuować. 
+1. Na stronie **Właściwości** wybranej grupy wybierz **Typ członkostwa** **użytkownika dynamicznego** , a następnie wybierz pozycję tak w oknie dialogowym wyjaśniającym zmiany członkostwa w grupie, aby kontynuować. 
   
    ![Wybierz typ członkostwa użytkownika dynamicznego](./media/groups-change-type/select-group-to-convert.png)
   
-2. Wybierz pozycję **Dodaj zapytanie dynamiczne**, a następnie podaj regułę.
+2. Wybierz pozycję **Dodaj zapytanie dynamiczne** , a następnie podaj regułę.
   
    ![Wprowadź regułę dla grupy dynamicznej](./media/groups-change-type/enter-rule.png)
   

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286707"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488540"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
@@ -75,7 +75,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **Identity** |Tożsamość z tokenu, która została przedstawiona w żądaniu interfejsu API REST. Zwykle jest to "użytkownik", "Nazwa główna usługi" lub kombinacja "użytkownik + appId", jak w przypadku żądania, które wynika z Azure PowerShell polecenia cmdlet. |
 | **aœciwoœci** |Informacje, które różnią się w zależności od operacji ( **OperationName** ). W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazaną przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **Create** lub **VaultGet** ), zawiera również identyfikator URI klucza (AS `id` ), identyfikator URI magazynu lub identyfikator URI wpisu tajnego. |
 
-Wartości pola **OperationName** są w formacie *ObjectVerb* . Przykład:
+Wartości pola **OperationName** są w formacie *ObjectVerb* . Na przykład:
 
 * Wszystkie operacje magazynu kluczy mają `Vault<action>` Format, taki jak `VaultGet` i `VaultCreate` .
 * Wszystkie operacje na kluczach mają `Key<action>` Format, taki jak `KeySign` i `KeyList` .
@@ -93,12 +93,14 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 | **VaultDelete** |[Usuń magazyn kluczy](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Zaktualizuj magazyn kluczy](/rest/api/keyvault/vaults) |
 | **VaultList** |[Utwórz listę wszystkich magazynów kluczy w grupie zasobów](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Przeczyść usunięty magazyn](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Odzyskaj usunięty magazyn|
+| **VaultGetDeleted** |[Pobierz usunięty magazyn](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Wyświetl listę usuniętych magazynów](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Utwórz klucz](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Pobierz informacje o kluczu](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importuj klucz do magazynu](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[Tworzenie kopii zapasowej klucza](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[Usuń klucz](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[Przywróć klucz](/rest/api/keyvault/restorekey) |
 | **KeySign** |[Podpisz przy użyciu klucza](/rest/api/keyvault/sign) |
 | **KeyVerify** |[Weryfikuj za pomocą klucza](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[Opakuj klucz](/rest/api/keyvault/wrapkey) |
@@ -106,14 +108,56 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 | **KeyEncrypt** |[Szyfruj za pomocą klucza](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[Odszyfruj za pomocą klucza](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[Zaktualizuj klucz](/rest/api/keyvault/updatekey) |
-| **KeyList** |[Utwórz listę kluczy w magazynie](/rest/api/keyvault/vaults) |
+| **KeyList** |[Utwórz listę kluczy w magazynie](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[Utwórz listę wersji klucza](/rest/api/keyvault/getkeyversions) |
+| **Przeczyszczanie** |[Przeczyszczanie klucza](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Tworzenie kopii zapasowej klucza](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Przywróć klucz](/rest/api/keyvault/restorekey) |
+| **Odzyskiwanie po awarii** |[Odzyskaj klucz](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Pobierz klucz usunięty](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[Wyświetlanie listy usuniętych kluczy w magazynie](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Uzyskaj informacje na temat certyfikatu](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Utwórz certyfikat](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importowanie certyfikatu do magazynu](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Aktualizowanie certyfikatu](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Wyświetlanie listy certyfikatów w magazynie](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Wyświetl listę wersji certyfikatu](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Usuwanie certyfikatu](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Przeczyść certyfikat](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Tworzenie kopii zapasowej certyfikatu](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Przywracanie certyfikatu](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Odzyskiwanie certyfikatu](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Pobierz usunięty certyfikat](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Wyświetlanie listy usuniętych certyfikatów w magazynie](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Pobierz zasady certyfikatów](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Aktualizowanie zasad certyfikatów](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Tworzenie zasad certyfikatów](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Pobierz kontakty certyfikatu](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Ustawianie kontaktów certyfikatów](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Usuwanie kontaktów z certyfikatem](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Pobieranie wystawcy certyfikatu](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Ustawianie wystawcy certyfikatu](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Aktualizowanie wystawcy certyfikatu](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Usuwanie wystawcy certyfikatu](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Wyświetlanie listy wystawców certyfikatów](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Rejestrowanie certyfikatu |
+| **CertificateRenew** |Odnów certyfikat |
+| **CertificatePendingGet** |Pobierz oczekujący certyfikat |
+| **CertificatePendingMerge** |Oczekiwanie na scalenie certyfikatu |
+| **CertificatePendingUpdate** |Oczekiwanie na aktualizację certyfikatu |
+| **CertificatePendingDelete** |Usuń oczekujący certyfikat |
 | **SecretSet** |[Utwórz klucz tajny](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Pobierz wpis tajny](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Zaktualizuj klucz tajny](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[Usuń klucz tajny](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[Utwórz listę kluczy tajnych w magazynie](/rest/api/keyvault/vaults) |
+| **SecretList** |[Utwórz listę kluczy tajnych w magazynie](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[Utwórz listę wersji klucza tajnego](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Przeczyszczanie klucza tajnego](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Tworzenie kopii zapasowej klucza tajnego](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Przywracanie klucza tajnego](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Odzyskaj klucz tajny](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Pobierz usunięty klucz tajny](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Wyświetlanie listy usuniętych wpisów tajnych w magazynie](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Opublikowano zdarzenie zmiany zasad dostępu do magazynu |
 | **SecretNearExpiryEventGridNotification** |Opublikowano wpis tajny po bliskim wygaśnięciu zdarzenia |
 | **SecretExpiredEventGridNotification** |Opublikowano wydarzenie wygasłe dla wpisu tajnego |

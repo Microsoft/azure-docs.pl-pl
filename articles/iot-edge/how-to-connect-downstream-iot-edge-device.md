@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 83db314070f4c8857ebaa10b26d0adf51372776f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447787"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489288"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Łączenie urządzenia podrzędnego IoT Edge z bramą Azure IoT Edge (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Wszystkie kroki opisane w tym artykule umożliwiają kompilację na temat [konfi
 
 * Bezpłatna lub standardowa wersja Centrum IoT Hub.
 * Co najmniej dwa **urządzenia IoT Edge** , jeden to jako urządzenie warstwy najwyższego poziomu i jedno lub więcej urządzeń niższej warstwy. Jeśli nie masz dostępnych urządzeń IoT Edge, możesz [uruchomić Azure IoT Edge na maszynach wirtualnych Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
-* Jeśli używasz interfejsu wiersza polecenia platformy Azure do tworzenia urządzeń i zarządzania nimi, użyj interfejsu wiersza polecenia platformy Azure w wersji 2.3.1 z zainstalowaną usługą Azure IoT Extension v 0.9.10 lub nowszą.
+* Jeśli używasz interfejsu wiersza polecenia platformy Azure do tworzenia urządzeń i zarządzania nimi, użyj interfejsu wiersza polecenia platformy Azure w wersji 2.3.1 z zainstalowaną usługą Azure IoT Extension v 0.10.6 lub nowszą.
 
 Ten artykuł zawiera szczegółowe instrukcje i opcje ułatwiające utworzenie odpowiedniej hierarchii bramy dla danego scenariusza. Samouczek z przewodnikiem zawiera temat [Tworzenie hierarchii IoT Edge urządzeń przy użyciu bram](tutorial-nested-iot-edge.md).
 

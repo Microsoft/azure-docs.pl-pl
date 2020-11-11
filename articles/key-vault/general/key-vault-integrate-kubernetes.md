@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 973d3ebe2879a2e98a72ce1f7571a1f00cd67a93
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356148"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488647"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -52,6 +52,12 @@ Ta operacja zwraca serię par klucz/wartość:
 ![Zrzut ekranu przedstawiający identyfikator appId i hasło dla contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
 
 Skopiuj poświadczenia **AppID** i **Password** do późniejszego użycia.
+
+## <a name="flow-for-using-managed-identity"></a>Przepływ do korzystania z tożsamości zarządzanej
+
+Ten diagram ilustruje przepływ integracji AKS — Key Vault dla tożsamości zarządzanej:
+
+![Diagram przedstawiający przepływ integracji AKS — Key Vault dla tożsamości zarządzanej](../media/aks-key-vault-integration-flow.png)
 
 ## <a name="deploy-an-azure-kubernetes-service-aks-cluster-by-using-the-azure-cli"></a>Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
 

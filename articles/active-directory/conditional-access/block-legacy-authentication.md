@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233801"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489526"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Instrukcje: blokowanie starszego uwierzytelniania w usłudze Azure AD przy użyciu dostępu warunkowego   
 
@@ -116,6 +116,10 @@ Skonfigurowanie zasad dla **innych klientów** blokuje całą organizację od ni
 Zastosowanie zasad może potrwać do 24 godzin.
 
 Można wybrać wszystkie dostępne kontrolki Udziel dla **innych klientów** warunek. jednak środowisko użytkownika końcowego zawsze ma ten sam zablokowany dostęp.
+
+### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online i użytkownicy-gość B2B
+
+Aby zablokować dostęp użytkownika B2B przy użyciu starszego uwierzytelniania do usługi SharePoint Online, organizacje muszą wyłączyć starsze uwierzytelnianie w programie SharePoint przy użyciu `Set-SPOTenant` polecenia programu PowerShell i ustawić `-LegacyAuthProtocolsEnabled` parametr na `$false` . Więcej informacji na temat ustawiania tego parametru można znaleźć w dokumentacji programu SharePoint PowerShell dotyczącej polecenia [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
 
 ## <a name="next-steps"></a>Następne kroki
 
