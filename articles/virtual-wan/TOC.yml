@@ -15,10 +15,6 @@
       href: virtual-wan-expressroute-portal.md
 - name: Pojęcia
   items:
-    - name: Zabezpieczenia
-      items:
-        - name: Punkt odniesienia zabezpieczeń
-          href: security-baseline.md
     - name: Praca zdalna
       items:
         - name: Obsługa pracy zdalnej
@@ -109,6 +105,8 @@
           href: about-vpn-profile-download.md
         - name: Profil globalny i oparty na centrum
           href: global-hub-profile.md
+        - name: Konfigurowanie usługi Azure VPN Client dla systemu Windows 10
+          href: openvpn-azure-ad-client.md
         - name: Konfigurowanie klientów OpenVPN
           href: howto-openvpn-clients.md?
         - name: Konfigurowanie tunelu użytkownika dla zawsze włączonej sieci VPN
@@ -119,8 +117,6 @@
           href: openvpn-azure-ad-mfa.md
         - name: Konfigurowanie uwierzytelniania w usłudze Azure AD
           href: virtual-wan-point-to-site-azure-ad.md
-        - name: Konfigurowanie usługi Azure VPN Client dla systemu Windows 10
-          href: openvpn-azure-ad-client.md
         - name: Konfigurowanie uwierzytelniania w usłudze Azure AD dla wielu aplikacji
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routing

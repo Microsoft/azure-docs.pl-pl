@@ -41,8 +41,6 @@
           href: batch-transcription.md
     - name: Samouczki
       items:
-        - name: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
-          href: quickstarts/from-blob.md
         - name: Zwiększanie dokładności za pomocą modeli dzierżaw
           href: tutorial-tenant-model.md
     - name: Dostosowywanie

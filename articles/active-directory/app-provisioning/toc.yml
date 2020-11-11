@@ -12,6 +12,8 @@
   items:
     - name: Tworzenie punktu końcowego SCIM i konfigurowanie aprowizacji
       href: use-scim-to-provision-users-and-groups.md
+    - name: Dostosowywanie mapowań atrybutów
+      href: customize-application-attributes.md
     - name: Samouczki aprowizacji dla konkretnych aplikacji
       href: /azure/active-directory/saas-apps
 - name: Pojęcia
@@ -30,8 +32,6 @@
   items:
     - name: Konfigurowanie aprowizacji dla aplikacji z galerii
       href: configure-automatic-user-provisioning-portal.md
-    - name: Dostosowywanie mapowań atrybutów
-      href: customize-application-attributes.md
     - name: Dołączanie użytkowników i grup do zakresu lub ich wykluczanie
       items:
         - name: Określanie zakresu użytkowników lub grup do aprowizacji
