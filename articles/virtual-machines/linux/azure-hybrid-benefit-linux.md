@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443436"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516445"
 ---
 # <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Publiczna wersja zapoznawcza: Korzyść użycia hybrydowego platformy Azure — jak ma to zastosowanie do Linux Virtual Machines
 
@@ -53,10 +53,12 @@ Korzyść użycia hybrydowego platformy Azure (dla systemu Linux) jest teraz w f
 
 ### <a name="red-hat-customers"></a>Klienci firmy Red Hat
 
-1.    Zarejestruj się w [programie Red Hat Cloud Access](https://aka.ms/rhel-cloud-access)
-1.    Włącz subskrypcję platformy Azure na potrzeby dostępu do chmury i Włącz subskrypcje zawierające maszyny wirtualne, dla których chcesz korzystać z usługi
-1.    Zastosuj korzyść dla istniejących maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
-1.    Zarejestruj swoje maszyny wirtualne otrzymujące korzyść przy użyciu oddzielnego źródła aktualizacji
+Korzyść użycia hybrydowego platformy Azure dla RHEL jest dostępny dla klientów, którzy mają aktywne/nieużywane subskrypcje RHEL, których można używać na platformie Azure i którzy włączyli jedną lub więcej z tych subskrypcji do użycia na platformie Azure przy użyciu programu [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) . 
+
+1.  Włącz co najmniej jedną kwalifikującą się subskrypcje RHEL do użycia na platformie Azure przy użyciu [interfejsu klienta usługi Red Hat Cloud Access](https://access.redhat.com/management/cloud).
+1.  Subskrypcje platformy Azure podane w procesie włączania dostępu w chmurze Red Hat będą mogły korzystać z funkcji Korzyść użycia hybrydowego platformy Azure.
+1.  Zastosuj Korzyść użycia hybrydowego platformy Azure do dowolnych istniejących maszyn wirtualnych RHEL PAYG, a także wszelkich nowych maszyn wirtualnych RHEL, które są wdrażane na podstawie obrazów z witryny Azure Marketplace.
+1.  Postępuj zgodnie z zalecanymi [następnymi krokami](https://access.redhat.com/articles/5419341) dotyczącymi konfigurowania źródeł aktualizacji dla maszyn wirtualnych RHEL oraz wytycznych dotyczących zgodności subskrypcji RHEL.
 
 
 ### <a name="suse-customers"></a>Klienci SUSE
@@ -124,7 +126,19 @@ Z poziomu samej maszyny wirtualnej możesz wysyłać zapytania do IMDS zaświadc
 
 ### <a name="red-hat"></a>Red Hat
 
-Aby można było używać Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych RHEL, należy najpierw zarejestrować program w systemie Red Hat Cloud Access. Można to zrobić za pośrednictwem witryny Red Hat Cloud Access tutaj. Po włączeniu korzyści na maszynie wirtualnej należy zarejestrować maszynę wirtualną przy użyciu własnego źródła aktualizacji przy użyciu programu Red Hat Subscription Manager lub usługi Red Hat satelitarnej. Rejestracja w poszukiwaniu aktualizacji zapewni, że pozostanie w stanie obsługiwanym.
+Klienci korzystający z Korzyść użycia hybrydowego platformy Azure dla RHEL akceptują standardowe [warunki prawne](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) i [zasady zachowania poufności informacji](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) powiązane z ofertami RHEL w portalu Azure Marketplace.
+
+Klienci korzystający z programu Korzyść użycia hybrydowego platformy Azure for RHEL mają trzy opcje zapewniania aktualizacji oprogramowania i poprawek do tych maszyn wirtualnych:
+
+1.  [Infrastruktura aktualizacji Red Hat (RHUI)](../workloads/redhat/redhat-rhui.md) (opcja domyślna)
+1.  Serwer satelitarny Red Hat
+1.  Menedżer subskrypcji Red Hat
+
+Klienci wybierający opcję RHUI mogą w dalszym ciągu używać RHUI jako głównego źródła aktualizacji dla maszyn wirtualnych AHB RHEL, bez dołączania subskrypcji RHEL do tych maszyn wirtualnych.  Klienci wybierający opcję RHUI są odpowiedzialni za zapewnienie zgodności z subskrypcją RHEL.
+
+Klienci wybierający serwer Red Hat satelitarnych lub Red Hat Subscription Manager powinni usunąć konfigurację RHUI, a następnie dołączyć subskrypcję RHEL z włączoną obsługą chmury do swoich maszyn wirtualnych AHB RHEL.  
+
+Więcej informacji na temat zgodności subskrypcji Red Hat, aktualizacji oprogramowania i źródeł dla maszyn wirtualnych AHB RHEL można znaleźć [tutaj](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 

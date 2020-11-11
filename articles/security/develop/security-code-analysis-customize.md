@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816786"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517210"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurowanie i dostosowywanie zadań kompilacji
 
@@ -39,7 +39,7 @@ W polu listy **Typ** zrzutu ekranu jest zaznaczona wartość **podstawowa** . Wy
 
 Usługa Windows Defender pobiera i instaluje podpisy przy użyciu klienta Windows Update. Jeśli aktualizacja podpisu nie powiedzie się w agencie kompilacji, kod błędu **HRESULT** prawdopodobnie będzie pochodził z Windows Update.
 
-Aby uzyskać więcej informacji na temat Windows Update błędów i ich środków zaradczych, zobacz [Windows Update kodów błędów według składnika](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) i artykułu TechNet [Windows Update kod błędu agenta](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+Aby uzyskać więcej informacji na temat Windows Update błędów i ich środków zaradczych, zobacz [Windows Update kodów błędów według składnika](/windows/deployment/update/windows-update-error-reference) i artykułu TechNet [Windows Update kod błędu agenta](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
 Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAMLymi chroniącymi przed złośliwym oprogramowaniem](yaml-configuration.md#anti-malware-scanner-task)
 
@@ -58,7 +58,7 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
 - Aby uniknąć przeszukiwania i tworzenia własnego wiersza polecenia:
      - Na liście **Typ** wybierz pozycję **podstawowa**.
      - Na liście **Funkcja** wybierz pozycję **Analizuj**.
-- W obszarze **docelowy**wprowadź jeden lub więcej specyfikatorów dla pliku, katalogu lub wzorca filtru. Te specyfikatory są rozpoznawane jako co najmniej jeden plik binarny do przeanalizowania:
+- W obszarze **docelowy** wprowadź jeden lub więcej specyfikatorów dla pliku, katalogu lub wzorca filtru. Te specyfikatory są rozpoznawane jako co najmniej jeden plik binarny do przeanalizowania:
     - Wiele określonych elementów docelowych musi być rozdzielonych średnikami (;).
     - Specyfikator może być pojedynczym plikiem lub zawierać symbole wieloznaczne.
     - Specyfikacje katalogów muszą zawsze kończyć się znakiem \\ *.
@@ -95,20 +95,20 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
 ![Konfigurowanie zadania kompilacji skanera poświadczeń](./media/security-tools/3-taskdetails.png)
 
 Dostępne opcje to:
-  - **Nazwa wyświetlana**: Nazwa zadania usługi Azure DevOps. Wartość domyślna to uruchom skaner poświadczeń
-  - **Wersja główna narzędzia**: dostępne wartości to **CredScan v2**, **CredScan V1**. Zalecamy klientom korzystanie z wersji **CredScan v2** .
-  - **Format danych wyjściowych**: dostępne wartości to **TSV**, **CSV**, **SARIF**i **PREfast**.
-  - **Wersja narzędzia**: zalecamy wybranie opcji **najnowsze**.
-  - **Folder skanowania**: folder repozytorium do przeskanowania.
-  - **Typ pliku wyszukiwania**: opcje lokalizowania pliku wyszukiwania, który jest używany do skanowania.
-  - **Plik**pominięć: plik [JSON](https://json.org/) może pominąć problemy w dzienniku danych wyjściowych. Aby uzyskać więcej informacji o scenariuszach pomijania, zobacz sekcję często zadawanych pytań w tym artykule.
-  - **Pełne dane wyjściowe**: z oczywistym objaśnieniem.
-  - **Rozmiar wsadu**: liczba współbieżnych wątków używanych do uruchamiania skanera poświadczeń. Wartość domyślna to 20. Możliwe wartości mieszczą się w zakresie od 1 do 2 147 483 647.
-  - **Limit czasu dopasowania**: czas (w sekundach) poświęcany na próbę dopasowania elementu Search przed opuszczeniem kontroli.
-  - **Rozmiar buforu odczytu plików**: rozmiar w bajtach buforu używany podczas odczytywania zawartości. Wartość domyślna to 524 288.  
-  - **Maksymalna liczba bajtów odczytu plików**, które można odczytać z pliku podczas analizy zawartości. Wartość domyślna to 104 857 600.
-  - **Opcje**  >  kontrolki **Uruchom to zadanie**: określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
-  - **Wersja**: wersja zadania kompilacji w ramach usługi Azure DevOps. Ta opcja nie jest często używana.
+  - **Nazwa wyświetlana** : Nazwa zadania usługi Azure DevOps. Wartość domyślna to uruchom skaner poświadczeń
+  - **Wersja główna narzędzia** : dostępne wartości to **CredScan v2** , **CredScan V1**. Zalecamy klientom korzystanie z wersji **CredScan v2** .
+  - **Format danych wyjściowych** : dostępne wartości to **TSV** , **CSV** , **SARIF** i **PREfast**.
+  - **Wersja narzędzia** : zalecamy wybranie opcji **najnowsze**.
+  - **Folder skanowania** : folder repozytorium do przeskanowania.
+  - **Typ pliku wyszukiwania** : opcje lokalizowania pliku wyszukiwania, który jest używany do skanowania.
+  - **Plik** pominięć: plik [JSON](https://json.org/) może pominąć problemy w dzienniku danych wyjściowych. Aby uzyskać więcej informacji o scenariuszach pomijania, zobacz sekcję często zadawanych pytań w tym artykule.
+  - **Pełne dane wyjściowe** : z oczywistym objaśnieniem.
+  - **Rozmiar wsadu** : liczba współbieżnych wątków używanych do uruchamiania skanera poświadczeń. Wartość domyślna to 20. Możliwe wartości mieszczą się w zakresie od 1 do 2 147 483 647.
+  - **Limit czasu dopasowania** : czas (w sekundach) poświęcany na próbę dopasowania elementu Search przed opuszczeniem kontroli.
+  - **Rozmiar buforu odczytu plików** : rozmiar w bajtach buforu używany podczas odczytywania zawartości. Wartość domyślna to 524 288.  
+  - **Maksymalna liczba bajtów odczytu plików** , które można odczytać z pliku podczas analizy zawartości. Wartość domyślna to 104 857 600.
+  - **Opcje**  >  kontrolki **Uruchom to zadanie** : określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
+  - **Wersja** : wersja zadania kompilacji w ramach usługi Azure DevOps. Ta opcja nie jest często używana.
 
 Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML skanera](yaml-configuration.md#credential-scanner-task) .
 
@@ -124,10 +124,10 @@ Szczegóły konfiguracji zadania przedstawiono na poniższej liście.
 
 Dostępne opcje to:
 
-- **Zestaw reguł**: wymagane wartości to **SDL**, **zalecane przez SDL**lub własny niestandardowy zestaw reguł.
-- **Wersja analizatorów**: zalecamy wybranie opcji **najnowsze**.
-- **Plik pominięć ostrzeżeń kompilatora**: plik tekstowy z listą identyfikatorów ostrzeżeń, które są pomijane.
-- **Opcje**  >  kontrolki **Uruchom to zadanie**: określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
+- **Zestaw reguł** : wymagane wartości to **SDL** , **zalecane przez SDL** lub własny niestandardowy zestaw reguł.
+- **Wersja analizatorów** : zalecamy wybranie opcji **najnowsze**.
+- **Plik pominięć ostrzeżeń kompilatora** : plik tekstowy z listą identyfikatorów ostrzeżeń, które są pomijane.
+- **Opcje**  >  kontrolki **Uruchom to zadanie** : określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
 
 > [!NOTE]
 >
@@ -143,7 +143,7 @@ Dostępne opcje to:
 >
 >   Jeśli nowe zadanie jest uruchamiane na tym samym agencie co oryginalne zadanie, dane wyjściowe nowego zadania zastąpią dane wyjściowe oryginalnego zadania w folderze źródła *s* . Chociaż dane wyjściowe kompilacji są takie same, zalecamy uruchomienie programu MSBuild, skopiowanie danych wyjściowych do katalogu przemieszczania artefaktów, a następnie uruchomienie analizatorów Roslyn.
 
-Aby uzyskać dodatkowe zasoby dla Roslyn analizatorów, zapoznaj [się z analizatorami opartymi na Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) na Microsoft docs.
+Aby uzyskać dodatkowe zasoby dla Roslyn analizatorów, zapoznaj [się z analizatorami opartymi na Roslyn](/dotnet/standard/analyzers/api-analyzer) na Microsoft docs.
 
 Pakiet analizatora zainstalowany i używany przez to zadanie kompilacji można znaleźć na stronie narzędzia NuGet [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
@@ -164,9 +164,9 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
 
 ![Konfigurowanie zadania kompilacji dzienników analizy zabezpieczeń](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Nazwa artefaktu**: dowolny identyfikator ciągu.
-- **Typ artefaktu**: w zależności od dokonanego wyboru można publikować dzienniki w Azure DevOps Server lub do udostępnionego pliku, który jest dostępny dla agenta kompilacji.
-- **Narzędzia**: możesz wybrać opcję zachowywania dzienników dla określonych narzędzi lub wybrać **wszystkie narzędzia** , aby zachować wszystkie dzienniki.
+- **Nazwa artefaktu** : dowolny identyfikator ciągu.
+- **Typ artefaktu** : w zależności od dokonanego wyboru można publikować dzienniki w Azure DevOps Server lub do udostępnionego pliku, który jest dostępny dla agenta kompilacji.
+- **Narzędzia** : możesz wybrać opcję zachowywania dzienników dla określonych narzędzi lub wybrać **wszystkie narzędzia** , aby zachować wszystkie dzienniki.
 
 Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami publikowania dzienników zabezpieczeń YAML](yaml-configuration.md#publish-security-analysis-logs-task)
 
@@ -176,10 +176,10 @@ Szczegóły konfiguracji raportów zabezpieczeń przedstawiono na poniższym zrz
 
 ![Konfigurowanie zadania kompilacji raportu zabezpieczeń](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Raporty**: Wybierz **dowolną z opcji**: **plik TSV**i format **pliku HTML** . Dla każdego wybranego formatu jest tworzony jeden plik raportu.
-- **Narzędzia**: wybierz narzędzia w definicji kompilacji, dla którego chcesz uzyskać podsumowanie wykrytych problemów. Dla każdego wybranego narzędzia może być dostępna opcja wyboru, czy są widoczne tylko błędy, czy też w raporcie podsumowującym znajdują się błędy i ostrzeżenia.
-- **Opcje zaawansowane**: Jeśli nie ma żadnych dzienników dla jednego z wybranych narzędzi, możesz wybrać opcję rejestrowania ostrzeżenia lub błędu. Jeśli rejestrujesz błąd, zadanie zakończy się niepowodzeniem.
-- **Folder dzienników bazowych**: można dostosować podstawowy folder dzienników, w którym mają zostać znalezione dzienniki. Jednak ta opcja nie jest zazwyczaj używana.
+- **Raporty** : Wybierz **dowolną z opcji** : **plik TSV** i format **pliku HTML** . Dla każdego wybranego formatu jest tworzony jeden plik raportu.
+- **Narzędzia** : wybierz narzędzia w definicji kompilacji, dla którego chcesz uzyskać podsumowanie wykrytych problemów. Dla każdego wybranego narzędzia może być dostępna opcja wyboru, czy są widoczne tylko błędy, czy też w raporcie podsumowującym znajdują się błędy i ostrzeżenia.
+- **Opcje zaawansowane** : Jeśli nie ma żadnych dzienników dla jednego z wybranych narzędzi, możesz wybrać opcję rejestrowania ostrzeżenia lub błędu. Jeśli rejestrujesz błąd, zadanie zakończy się niepowodzeniem.
+- **Folder dzienników bazowych** : można dostosować podstawowy folder dzienników, w którym mają zostać znalezione dzienniki. Jednak ta opcja nie jest zazwyczaj używana.
 
 Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML raportu zabezpieczeń](yaml-configuration.md#security-report-task)
 
@@ -189,9 +189,9 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
 
 ![Konfigurowanie zadania kompilacji po analizie](./media/security-tools/a-post-analysis600.png)
 
-- **Narzędzia**: wybierz narzędzia w definicji kompilacji, dla którego chcesz warunkowo wstrzyknąć przerwę kompilacji. Dla każdego wybranego narzędzia może być dostępna opcja wyboru, czy ma zostać przerwana tylko w przypadku błędów, czy tylko w przypadku błędów i ostrzeżeń.
-- **Raport**: można opcjonalnie napisać wyniki, które powodują przerwanie kompilacji. Wyniki są zapisywane w oknie i pliku dziennika konsoli usługi Azure DevOps.
-- **Opcje zaawansowane**: Jeśli nie ma żadnych dzienników dla jednego z wybranych narzędzi, możesz wybrać opcję rejestrowania ostrzeżenia lub błędu. Jeśli rejestrujesz błąd, zadanie zakończy się niepowodzeniem.
+- **Narzędzia** : wybierz narzędzia w definicji kompilacji, dla którego chcesz warunkowo wstrzyknąć przerwę kompilacji. Dla każdego wybranego narzędzia może być dostępna opcja wyboru, czy ma zostać przerwana tylko w przypadku błędów, czy tylko w przypadku błędów i ostrzeżeń.
+- **Raport** : można opcjonalnie napisać wyniki, które powodują przerwanie kompilacji. Wyniki są zapisywane w oknie i pliku dziennika konsoli usługi Azure DevOps.
+- **Opcje zaawansowane** : Jeśli nie ma żadnych dzienników dla jednego z wybranych narzędzi, możesz wybrać opcję rejestrowania ostrzeżenia lub błędu. Jeśli rejestrujesz błąd, zadanie zakończy się niepowodzeniem.
 
 Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML po analizie](yaml-configuration.md#post-analysis-task)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742841"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516741"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Krok 1. wdrażanie usługi przesyłania dalej dzienników
 
@@ -38,15 +38,15 @@ W tym kroku wyznaczysz i skonfigurujesz maszynę z systemem Linux, która będzi
 
 - Użytkownik musi mieć podwyższony poziom uprawnień (sudo) na wyznaczeniu maszyny z systemem Linux.
 
-- Na komputerze z systemem Linux musi być zainstalowany język **python 2,7** .<br>Użyj `python -version` polecenia, aby sprawdzić.
+- Na komputerze z systemem Linux musi być zainstalowany język **python 2,7** lub **3** .<br>Użyj `python -version` polecenia, aby sprawdzić.
 
 - Komputer z systemem Linux nie może być połączony z żadnym obszarem roboczym platformy Azure przed zainstalowaniem agenta Log Analytics.
 
-- W pewnym momencie tego procesu może być potrzebny identyfikator obszaru roboczego i klucz podstawowy obszaru roboczego. Można je znaleźć w obszarze roboczym Zasoby, w obszarze **Zarządzanie agentami** .
+- W pewnym momencie tego procesu może być potrzebny identyfikator obszaru roboczego i klucz podstawowy obszaru roboczego. Można je znaleźć w obszarze roboczym Zasoby, w obszarze **Zarządzanie agentami**.
 
 ## <a name="run-the-deployment-script"></a>Uruchamianie skryptu wdrażania
  
-1. W menu nawigacji wskaźnikowej platformy Azure kliknij pozycję **Łączniki danych** . Z listy łączników kliknij kafelek **Common Event format (CEF)** , a następnie przycisk **Otwórz stronę łącznika** w prawym dolnym rogu. 
+1. W menu nawigacji wskaźnikowej platformy Azure kliknij pozycję **Łączniki danych**. Z listy łączników kliknij kafelek **Common Event format (CEF)** , a następnie przycisk **Otwórz stronę łącznika** w prawym dolnym rogu. 
 
 1. W obszarze **1,2 Zainstaluj moduł CEF na komputerze z systemem Linux** , skopiuj link podany w obszarze **Uruchom następujący skrypt, aby zainstalować i zastosować moduł zbierający CEF** , lub poniższy tekst (stosując identyfikator obszaru roboczego i klucz podstawowy zamiast symboli zastępczych):
 

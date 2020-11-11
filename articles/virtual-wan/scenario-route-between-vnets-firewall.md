@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267520"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515573"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scenariusz: Zapora platformy Azure — niestandardowa
 
@@ -28,10 +28,10 @@ Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łąc
 
 | Źródło           | Do:      | *Sieci wirtualnych*      | *Gałęzie*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **Sieci wirtualnych**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Gałęzie**   |   &#8594;|    AzFW      |       X       |       X      |
+| **Sieci wirtualnych**      |   &#8594;|    Direct    |     AzFW      |     AzFW     |
+| **Gałęzie**   |   &#8594;|    AzFW      |    Direct     |    Direct    |
 
-W poprzedniej tabeli "X" reprezentuje bezpośrednią łączność między dwoma połączeniami bez ruchu przechodzącego przez zaporę platformy Azure w wirtualnej sieci WAN, a "AzFW" wskazuje, że przepływ przejdzie przez zaporę platformy Azure. Ponieważ w macierzy istnieją dwa odrębne wzorce łączności, potrzebne są dwie tabele tras, które zostaną skonfigurowane w następujący sposób:
+W poprzedniej tabeli "bezpośrednie" reprezentuje bezpośrednią łączność między dwoma połączeniami bez ruchu przechodzącego przez zaporę platformy Azure w wirtualnej sieci WAN, a "AzFW" wskazuje, że przepływ przejdzie przez zaporę platformy Azure. Ponieważ w macierzy istnieją dwa odrębne wzorce łączności, potrzebne są dwie tabele tras, które zostaną skonfigurowane w następujący sposób:
 
 * Sieci wirtualne:
   * Skojarzona tabela tras: **RT_VNet**

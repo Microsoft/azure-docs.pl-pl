@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 303ed66b7d268a5bab33d0d857399e907764d152
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378860"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515413"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -31,11 +31,10 @@ Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do kt
 1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
 1. W obszarze **podstawowe** wpisz swoją preferowaną **subskrypcję** , **grupę zasobów** , **region** , a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
-1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2 i kontener na tym koncie. Obszar roboczy Synapse będzie używać tego kontenera jako lokalizacji domyślnej do przechowywania dzienników i danych platformy Spark dla tabel Spark.
-    1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
-    1. Kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
-    1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**. Spowoduje to utworzenie kontenera o nazwie **Użytkownicy**
-1. Obszar roboczy usługi Azure Synapse będzie używać tego konta magazynu jako konta magazynu "podstawowe" i kontenera do przechowywania danych obszaru roboczego. Obszar roboczy przechowuje dane w tabelach Apache Spark. Przechowuje dzienniki aplikacji platformy Spark w folderze o nazwie **/Synapse/WorkspaceName**.
+1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
+1. Kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
+1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**. Spowoduje to utworzenie kontenera o nazwie **Użytkownicy**
+1. Obszar roboczy będzie używał tego konta magazynu jako konta magazynu "podstawowe" do tabel platformy Spark i dzienników aplikacji platformy Spark.
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
 
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio
@@ -68,7 +67,7 @@ Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę
     |Ustawienie | Sugerowana wartość | 
     |---|---|---|
     |**Nazwa puli Apache Spark**|**Spark1**
-    |**Rozmiar węzła**| **Mała**|
+    |**Rozmiar węzła**| **Mały**|
     |**Liczba węzłów**| Ustaw wartość minimalną na 3 i wartość maksymalną na 3.|
 
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Pula Apache Spark będzie gotowa w ciągu kilku sekund.

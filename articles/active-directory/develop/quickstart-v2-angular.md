@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 643e3bcd50258e2b5e7f52646f231485f950d677
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613428"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515549"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
 
-W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w jaki sposób pojedynczej aplikacji jednostronicowej (SPA) może zalogować użytkowników, którzy mają osobiste konta Microsoft, konta służbowe lub szkolne. Zdarzenie SPA może również uzyskać token dostępu, aby wywołać interfejs API Microsoft Graph lub dowolny internetowy interfejs API.
+W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demonstruje, jak aplikacja jednostronicowa (SPA) może logować się do użytkowników i wywoływać Microsoft Graph. Przykład kodu demonstruje, jak uzyskać token dostępu, aby wywołać interfejs API Microsoft Graph lub dowolny internetowy interfejs API.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -53,7 +53,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w Azure Portal
-> Aby przykład kodu dla tego przewodnika Szybki Start działał, należy dodać identyfikator URI przekierowania **http://localhost:4200/** i włączyć **niejawny**przydział.
+> Aby przykład kodu dla tego przewodnika Szybki Start działał, należy dodać identyfikator URI przekierowania **http://localhost:4200/** i włączyć **niejawny** przydział.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź zmiany automatycznie]()
 >
@@ -100,12 +100,12 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na stronie **Przegląd** rejestracji aplikacji jest to wartość **identyfikatora aplikacji (klienta)** . |
 >|Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość **https://login.microsoftonline.com** . W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](./authentication-national-cloud.md).|
->|Enter_the_Tenant_Info_Here| Ustaw jedną z następujących opcji: Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zastąp tę wartość identyfikatorem katalogu (dzierżawy) lub nazwą dzierżawy (na przykład **contoso.Microsoft.com**). Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**. Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość **odbiorcom**. |
+>|Enter_the_Tenant_Info_Here| Ustaw jedną z następujących opcji: Jeśli aplikacja obsługuje *konta w tym katalogu organizacji* , Zastąp tę wartość identyfikatorem katalogu (dzierżawy) lub nazwą dzierżawy (na przykład **contoso.Microsoft.com** ). Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym* , Zastąp tę wartość **organizacją**. Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft* , Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft* , Zastąp tę wartość **odbiorcom**. |
 >|Enter_the_Redirect_Uri_Here|Zamień na **http://localhost:4200** .|
 >|cacheLocation  | Obowiązkowe Ustaw magazyn przeglądarki dla stanu uwierzytelniania. Wartość domyślna to **sessionStorage**.   |
 >|storeAuthStateInCookie  | Obowiązkowe Zidentyfikuj bibliotekę, w której jest przechowywany stan żądania uwierzytelnienia. Ten stan jest wymagany do weryfikowania przepływów uwierzytelniania w plikach cookie w przeglądarce. Ten plik cookie jest ustawiany dla programu Internet Explorer i programu Edge, aby umożliwić te dwie przeglądarki. Aby uzyskać więcej informacji, zobacz [znane problemy](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
-> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)**, **Identyfikator katalogu (dzierżawy)** i **Obsługiwane typy kont**, przejdź do strony **Przegląd** w witrynie Azure Portal.
+> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)** , **Identyfikator katalogu (dzierżawy)** i **Obsługiwane typy kont** , przejdź do strony **Przegląd** w witrynie Azure Portal.
 
 Aby uzyskać więcej informacji na temat dostępnych opcji konfigurowalnych, zobacz [Inicjowanie aplikacji klienckich](msal-js-initializing-client-applications.md).
 
@@ -130,7 +130,7 @@ Jeśli używasz środowiska Node.js:
 1. Wybierz pozycję **Zaloguj**.
 1. Wybierz **profil** , aby wywołać Microsoft Graph.
 
-Po załadowaniu aplikacji przez przeglądarkę wybierz pozycję **Zaloguj**. Po pierwszym zalogowaniu zostanie wyświetlony monit o zezwolenie aplikacji na dostęp do Twojego profilu i zalogowanie się. Po pomyślnym zalogowaniu wybierz pozycję **profil**, a na stronie zostaną wyświetlone informacje o profilu użytkownika.
+Po załadowaniu aplikacji przez przeglądarkę wybierz pozycję **Zaloguj**. Po pierwszym zalogowaniu zostanie wyświetlony monit o zezwolenie aplikacji na dostęp do Twojego profilu i zalogowanie się. Po pomyślnym zalogowaniu wybierz pozycję **profil** , a na stronie zostaną wyświetlone informacje o profilu użytkownika.
 
 ## <a name="how-the-sample-works"></a>Jak działa przykład
 

@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283490"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517091"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
-W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
+W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
@@ -34,11 +34,11 @@ Załóżmy, że aplikacja zostanie użyta w sposób, który nie był używany. P
 
 ### <a name="perform-code-reviews"></a>Wykonaj przeglądy kodu
 
-Przed zapisaniem kodu Przeprowadź [przeglądy kodu](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) w celu zwiększenia ogólnej jakości kodu i zmniejszenia ryzyka związanego z tworzeniem błędów. Możesz użyć [programu Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) , aby zarządzać procesem przeglądu kodu.
+Przed zapisaniem kodu Przeprowadź [przeglądy kodu](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) w celu zwiększenia ogólnej jakości kodu i zmniejszenia ryzyka związanego z tworzeniem błędów. Możesz użyć [programu Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) , aby zarządzać procesem przeglądu kodu.
 
 ### <a name="perform-static-code-analysis"></a>Wykonywanie statycznej analizy kodu
 
-[Statyczna analiza kodu](https://owasp.org/www-community/controls/Static_Code_Analysis) (znana również jako *Analiza kodu źródłowego*) jest zwykle wykonywana w ramach przeglądu kodu. Statyczna analiza kodu często dotyczy uruchamiania narzędzi do analizy kodu statycznego, aby znaleźć potencjalne luki w zabezpieczeniach w nieuruchomionym kodzie przy użyciu technik takich jak [Sprawdzanie](https://en.wikipedia.org/wiki/Taint_checking) zmian i [Analiza przepływu danych](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Statyczna analiza kodu](https://owasp.org/www-community/controls/Static_Code_Analysis) (znana również jako *Analiza kodu źródłowego* ) jest zwykle wykonywana w ramach przeglądu kodu. Statyczna analiza kodu często dotyczy uruchamiania narzędzi do analizy kodu statycznego, aby znaleźć potencjalne luki w zabezpieczeniach w nieuruchomionym kodzie przy użyciu technik takich jak [Sprawdzanie](https://en.wikipedia.org/wiki/Taint_checking) zmian i [Analiza przepływu danych](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Portal Azure Marketplace oferuje [Narzędzia programistyczne](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) , które wykonują analizę kodu statycznego i pomagają w przeglądach kodu.
 
@@ -62,7 +62,7 @@ Wykonaj tę czynność na serwerze, a nie po stronie klienta (lub na serwerze i 
 
 ### <a name="verify-your-applications-outputs"></a>Weryfikowanie danych wyjściowych aplikacji
 
-Wszystkie dane wyjściowe, które można przedstawić wizualizację lub w dokumencie, powinny być zawsze kodowane i wyprowadzane. [Ucieczki](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), znane także jako *kodowanie danych wyjściowych*, służy do zapewnienia, że niezaufane dane nie są pojazdem do ataku polegającego na iniekcji. Ucieczki, w połączeniu z walidacją danych, zapewnia ochronę warstwową, aby zwiększyć bezpieczeństwo systemu jako całości.
+Wszystkie dane wyjściowe, które można przedstawić wizualizację lub w dokumencie, powinny być zawsze kodowane i wyprowadzane. [Ucieczki](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), znane także jako *kodowanie danych wyjściowych* , służy do zapewnienia, że niezaufane dane nie są pojazdem do ataku polegającego na iniekcji. Ucieczki, w połączeniu z walidacją danych, zapewnia ochronę warstwową, aby zwiększyć bezpieczeństwo systemu jako całości.
 
 Ucieczki upewnia się, że wszystkie elementy są wyświetlane jako *dane wyjściowe.* Ucieczki pozwala również interpreterowi wiedzieć, że dane nie są przeznaczone do wykonania i uniemożliwiają one ataki. Jest to inna typowa technika ataków nazywana *skryptami między lokacjami* (XSS).
 
@@ -99,7 +99,7 @@ Jeśli aplikacja musi automatycznie generować hasła, należy się upewnić, ż
 
 Jeśli aplikacja zezwala na [przekazywanie plików](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), należy wziąć pod uwagę środki ostrożności, które można podjąć w celu zapewnienia ryzykownej aktywności. Pierwszym krokiem w wielu atakach jest uzyskanie złośliwego kodu w systemie, który jest w trakcie ataku. Zastosowanie przekazywania plików pomaga atakującemu. OWASP oferuje rozwiązania do walidacji pliku, aby upewnić się, że przekazywany plik jest bezpieczny.
 
-Ochrona przed złośliwym oprogramowaniem pomaga identyfikować i usuwać wirusy, programy szpiegujące oraz inne złośliwe oprogramowanie. Można zainstalować [oprogramowanie Microsoft chroniące przed złośliwym kodem](../fundamentals/antimalware.md) lub rozwiązanie Endpoint Protection partnera firmy Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)i [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+Ochrona przed złośliwym oprogramowaniem pomaga identyfikować i usuwać wirusy, programy szpiegujące oraz inne złośliwe oprogramowanie. Można zainstalować [oprogramowanie Microsoft chroniące przed złośliwym kodem](../fundamentals/antimalware.md) lub rozwiązanie Endpoint Protection partnera firmy Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)i [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft](../fundamentals/antimalware.md) oferuje takie funkcje jak ochrona w czasie rzeczywistym, zaplanowane skanowanie, korygowanie złośliwego oprogramowania, aktualizacje sygnatur, aktualizacje aparatu, raportowanie przykładów i zbieranie zdarzeń wykluczania. Możesz zintegrować rozwiązania firmy Microsoft chroniące przed złośliwym oprogramowaniem i partnerzy [Azure Security Center](../../security-center/security-center-partner-integration.md) , aby ułatwić wdrażanie i wbudowane wykrywanie (alerty i zdarzenia).
 

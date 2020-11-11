@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744215"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515714"
 ---
 # <a name="step-3-validate-connectivity"></a>Krok 3. Weryfikowanie łączności
 
@@ -29,15 +29,15 @@ Po wdrożeniu usługi przesyłania dalej dzienników (w kroku 1) i skonfigurowan
 
 - Musisz mieć podwyższony poziom uprawnień (sudo) na komputerze usługi przesyłania dalej dzienników.
 
-- Na komputerze usługi przesyłania dalej dzienników musi być zainstalowany język **python 2,7** .<br>
+- Na komputerze usługi przesyłania dalej dzienników musi być zainstalowany język **python 2,7** lub **3** .<br>
 Użyj `python –version` polecenia, aby sprawdzić.
 
-- W pewnym momencie tego procesu może być potrzebny identyfikator obszaru roboczego i klucz podstawowy obszaru roboczego. Można je znaleźć w obszarze roboczym Zasoby, w obszarze **Zarządzanie agentami** .
+- W pewnym momencie tego procesu może być potrzebny identyfikator obszaru roboczego i klucz podstawowy obszaru roboczego. Można je znaleźć w obszarze roboczym Zasoby, w obszarze **Zarządzanie agentami**.
 
 ## <a name="how-to-validate-connectivity"></a>Sprawdzanie poprawności łączności
 
-1. W menu nawigacyjnym usługi Azure wskaźnikowym Otwórz pozycję **dzienniki** . Uruchom zapytanie przy użyciu schematu **CommonSecurityLog** , aby zobaczyć, czy otrzymujesz dzienniki z rozwiązania zabezpieczeń.<br>
-Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie pojawią się w **log Analytics** . 
+1. W menu nawigacyjnym usługi Azure wskaźnikowym Otwórz pozycję **dzienniki**. Uruchom zapytanie przy użyciu schematu **CommonSecurityLog** , aby zobaczyć, czy otrzymujesz dzienniki z rozwiązania zabezpieczeń.<br>
+Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie pojawią się w **log Analytics**. 
 
 1. Jeśli nie widzisz żadnych wyników zapytania, sprawdź, czy zdarzenia są generowane z rozwiązania zabezpieczeń, lub spróbuj wygenerować niektóre i sprawdź, czy są przekazywane do wyszukanego komputera usługi przesyłania dalej dziennika systemowego. 
 
@@ -47,9 +47,9 @@ Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie 
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **mapowaniem pola *komputer*** . Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#mapping-command) .
+   - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **mapowaniem pola *komputer***. Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#mapping-command) .
 
-    - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **analizą dzienników zapory Cisco ASA** . Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#parsing-command) .
+    - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **analizą dzienników zapory Cisco ASA**. Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#parsing-command) .
 
 ## <a name="validation-script-explained"></a>Wyjaśniono skrypt walidacji
 

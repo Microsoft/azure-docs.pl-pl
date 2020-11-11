@@ -9,20 +9,20 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 4d8e6d225e02006683166de73a0b66f795bc3993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6edfa1beb568bb05bd0f3f1ef9e7792ac3c3cbe2
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321982"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515748"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Szyfrowanie systemu operacyjnego i dołączonych dysków danych w zestawie skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku szybki start pokazano, jak utworzyć i zaszyfrować zestaw skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat stosowania szyfrowania dysków Azure do zestawu skalowania maszyn wirtualnych, zobacz [Azure Disk Encryption Virtual Machine Scale Sets](disk-encryption-overview.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.31 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-scale-set"></a>Tworzenie zestawu skalowania
 
@@ -32,7 +32,7 @@ Zanim będzie można utworzyć zestaw skalowania, utwórz grupę zasobów za pom
 az group create --name myResourceGroup --location eastus
 ```
 
-Teraz utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [az vmss create](/cli/azure/vmss). Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet*, który jest skonfigurowany do automatycznej aktualizacji w miarę stosowania zmian, a następnie generuje klucze SSH, jeśli nie istnieją, w lokalizacji *~/.ssh/id_rsa*. Do każdego wystąpienia maszyny wirtualnej jest dołączony dysk z danymi o 32 GB danych, a [rozszerzenie niestandardowego skryptu](../virtual-machines/extensions/custom-script-linux.md) platformy Azure służy do przygotowywania dysków danych przy użyciu [opcji AZ VMSS Extension Set](/cli/azure/vmss/extension):
+Teraz utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [az vmss create](/cli/azure/vmss). Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet* , który jest skonfigurowany do automatycznej aktualizacji w miarę stosowania zmian, a następnie generuje klucze SSH, jeśli nie istnieją, w lokalizacji *~/.ssh/id_rsa*. Do każdego wystąpienia maszyny wirtualnej jest dołączony dysk z danymi o 32 GB danych, a [rozszerzenie niestandardowego skryptu](../virtual-machines/extensions/custom-script-linux.md) platformy Azure służy do przygotowywania dysków danych przy użyciu [opcji AZ VMSS Extension Set](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Rozpoczęcie procesu szyfrowania może potrwać minutę lub dwie.
 
-Ponieważ zestaw skalowania jest ustawiony na zasady uaktualniania zestawu skalowania utworzonego w ramach wcześniejszego kroku, jest ustawiany na *automatyczny*, wystąpienia maszyn wirtualnych automatycznie uruchamiają proces szyfrowania. W przypadku zestawów skalowania, w których zasady uaktualniania są ręczne, należy uruchomić zasady szyfrowania dla wystąpień maszyn wirtualnych za pomocą [AZ VMSS Update-Instances](/cli/azure/vmss#az-vmss-update-instances).
+Ponieważ zestaw skalowania jest ustawiony na zasady uaktualniania zestawu skalowania utworzonego w ramach wcześniejszego kroku, jest ustawiany na *automatyczny* , wystąpienia maszyn wirtualnych automatycznie uruchamiają proces szyfrowania. W przypadku zestawów skalowania, w których zasady uaktualniania są ręczne, należy uruchomić zasady szyfrowania dla wystąpień maszyn wirtualnych za pomocą [AZ VMSS Update-Instances](/cli/azure/vmss#az-vmss-update-instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Włącz szyfrowanie przy użyciu KEK, aby zawijać klucz
 
@@ -137,9 +137,9 @@ Aby sprawdzić stan szyfrowania dysku, użyj [AZ VMSS Encryption show](/cli/azur
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 ```
 
-Gdy wystąpienia maszyn wirtualnych są szyfrowane, kod stanu raportuje *EncryptionState/szyfrowany*, jak pokazano w następujących przykładowych danych wyjściowych:
+Gdy wystąpienia maszyn wirtualnych są szyfrowane, kod stanu raportuje *EncryptionState/szyfrowany* , jak pokazano w następujących przykładowych danych wyjściowych:
 
-```bash
+```console
 [
   {
     "disks": [

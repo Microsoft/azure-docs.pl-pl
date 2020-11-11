@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934863"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517176"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Bezpieczne programowanie najlepszych rozwiązań na platformie Azure
 W tej serii artykułów przedstawiono działania i mechanizmy kontroli zabezpieczeń, które należy wziąć pod uwagę podczas opracowywania aplikacji dla chmury. Fazy Microsoft Security Development Lifecycle (SDL) i pytania dotyczące zabezpieczeń oraz pojęcia, które należy wziąć pod uwagę podczas każdej fazy cyklu życia, zostały omówione. Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można używać w każdej fazie cyklu życia w celu projektowania, opracowywania i wdrażania bezpieczniejszej aplikacji.
@@ -37,11 +37,11 @@ Zgodnie z najlepszymi rozwiązaniami dotyczącymi bezpiecznego opracowywania opr
 
 Im później nawiążesz problem z cyklem rozwoju, tym większa opłata zostanie naprawiona. Problemy z zabezpieczeniami nie są wyjątkiem. W przypadku pominięcia problemów z zabezpieczeniami we wczesnych fazach tworzenia oprogramowania każda z poniższych faz może odziedziczyć luki w powyższej fazie. Końcowy produkt będzie zbierać wiele problemów z zabezpieczeniami i możliwość naruszenia. Tworzenie zabezpieczeń w każdej fazie cyklu projektowania pomaga w wczesnym wykorzystaniu problemów i pomaga zmniejszyć koszty tworzenia oprogramowania.
 
-Postępuj zgodnie z etapami [cyklu projektowania zabezpieczeń firmy Microsoft (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , aby wprowadzić działania i usługi platformy Azure, których można użyć do spełnienia praktyk bezpiecznego tworzenia oprogramowania w każdej fazie cyklu życia.
+Postępuj zgodnie z etapami [cyklu projektowania zabezpieczeń firmy Microsoft (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) , aby wprowadzić działania i usługi platformy Azure, których można użyć do spełnienia praktyk bezpiecznego tworzenia oprogramowania w każdej fazie cyklu życia.
 
 Fazy SDL to:
 
-  - Szkolenie
+  - Szkolenia
   - Wymagania
   - Projekt
   - Implementacja
@@ -63,7 +63,7 @@ Zdajemy sobie sprawę, że wielu czytelników może nie mieć zespołu ds. zabez
 
 Skorzystaj z następujących zasobów, aby dowiedzieć się więcej na temat tworzenia bezpiecznych aplikacji i zabezpieczania aplikacji na platformie Azure:
 
-[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) — jest to proces tworzenia oprogramowania od firmy Microsoft, który pomaga deweloperom w tworzeniu bezpieczniejszego oprogramowania. Ułatwia ona Rozwiązywanie wymagań dotyczących zgodności z zabezpieczeniami przy jednoczesnym zmniejszeniu kosztów tworzenia oprogramowania.
+[Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) — jest to proces tworzenia oprogramowania od firmy Microsoft, który pomaga deweloperom w tworzeniu bezpieczniejszego oprogramowania. Ułatwia ona Rozwiązywanie wymagań dotyczących zgodności z zabezpieczeniami przy jednoczesnym zmniejszeniu kosztów tworzenia oprogramowania.
 
 [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) — OWASP to społeczność online, która dostarcza bezpłatnie dostępne artykuły, metodologie, dokumentację, narzędzia i technologie w polu zabezpieczenia aplikacji sieci Web.
 

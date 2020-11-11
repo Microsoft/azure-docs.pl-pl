@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c71ddbf1d2b435697b2707acf0b1262f2c5dc31
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934885"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517193"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Wdrażanie bezpiecznych aplikacji na platformie Azure
-W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas wdrażania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wydania i reakcji [cyklu życia programu Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do wdrożenia bezpieczniejszej aplikacji.
+W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas wdrażania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wydania i reakcji [cyklu życia programu Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do wdrożenia bezpieczniejszej aplikacji.
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
@@ -40,7 +40,7 @@ Sprawdź wydajność aplikacji przed jej uruchomieniem lub Wdróż aktualizacje 
 
 Aplikacje internetowe coraz częściej stają się obiektami złośliwych ataków wykorzystujących znane luki w zabezpieczeniach. Często te luki w zabezpieczeniach są atakami polegającymi na iniekcji SQL i atakami na skrypty między lokacjami. Zapobieganie atakom w kodzie aplikacji może być trudne. Może to wymagać rygorystycznej konserwacji, poprawek i monitorowania w wielu warstwach topologii aplikacji. Scentralizowany WAF pomaga uprościć zarządzanie zabezpieczeniami. Rozwiązanie WAF może także reagować na zagrożenia bezpieczeństwa przez zastosowanie poprawki znanej luki w centralnej lokalizacji, a następnie zabezpieczenie każdej indywidualnej aplikacji sieci Web.
 
-[Usługa Azure Application Gateway WAF](../../application-gateway/waf-overview.md) zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach. WAF opiera się na regułach z [OWASP podstawowych zestawów reguł](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 lub 2.2.9.
+[Usługa Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md) zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach. WAF opiera się na regułach z [OWASP podstawowych zestawów reguł](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 lub 2.2.9.
 
 ### <a name="create-an-incident-response-plan"></a>Tworzenie planu reagowania na zdarzenia
 
@@ -75,9 +75,9 @@ Usługi platformy Azure, które pomagają w monitorowaniu aplikacji, to:
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../../security-center/security-center-intro.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie dzięki zwiększonej widoczności (i kontrolowania) zabezpieczeń zasobów platformy Azure, w tym aplikacji sieci Web. Azure Security Center pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne. Współpracuje z różnymi rozwiązaniami dotyczącymi zabezpieczeń.
+[Azure Security Center](../../security-center/security-center-introduction.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie dzięki zwiększonej widoczności (i kontrolowania) zabezpieczeń zasobów platformy Azure, w tym aplikacji sieci Web. Azure Security Center pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne. Współpracuje z różnymi rozwiązaniami dotyczącymi zabezpieczeń.
 
-Bezpłatna warstwa Security Center oferuje ograniczone zabezpieczenia tylko dla zasobów platformy Azure. [Warstwa standardowa Security Center](../../security-center/security-center-onboarding.md) rozszerza te możliwości do zasobów lokalnych i innych chmur.
+Bezpłatna warstwa Security Center oferuje ograniczone zabezpieczenia tylko dla zasobów platformy Azure. [Warstwa standardowa Security Center](../../security-center/security-center-get-started.md) rozszerza te możliwości do zasobów lokalnych i innych chmur.
 Security Center Standard pomaga:
 
   - Znajdowanie i rozwiązywanie luk w zabezpieczeniach.

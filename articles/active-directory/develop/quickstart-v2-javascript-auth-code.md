@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e2f2904c9b160e01000e63c1c48b7959c7e89603
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216661"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515459"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA przy użyciu przepływu kodu uwierzytelniania
 
-W tym przewodniku szybki start uruchomisz przykład kodu, który demonstruje, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych przy użyciu przepływu kodu autoryzacji. Przykładowy kod ilustruje również uzyskiwanie tokenu dostępu do wywoływania internetowego interfejsu API, w tym przypadku Microsoft Graph API. Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
+W tym przewodniku szybki start pobierasz i uruchamiasz przykładowy kod, który pokazuje, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować się do użytkowników i wywoływać Microsoft Graph przy użyciu przepływu kodu autoryzacji. Przykład kodu demonstruje, jak uzyskać token dostępu, aby wywołać interfejs API Microsoft Graph lub dowolny internetowy interfejs API. 
+
+Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. Aby skorzystać z podobnego przewodnika Szybki Start, który używa MSAL.js 1,0 z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](./quickstart-v2-javascript.md).
 
@@ -57,7 +59,7 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Wybierz pozycję **Zarejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
-> 1. W obszarze **Konfiguracja platformy**wybierz pozycję **Dodaj platformę**. W otwartym okienku wybierz pozycję **aplikacja jednostronicowa**.
+> 1. W obszarze **Konfiguracja platformy** wybierz pozycję **Dodaj platformę**. W otwartym okienku wybierz pozycję **aplikacja jednostronicowa**.
 > 1. Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/` .
 > 1. Wybierz pozycję **Konfiguruj**.
 
@@ -112,10 +114,10 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 > - `Enter_the_Application_Id_Here` to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
 > - `Enter_the_Cloud_Instance_Id_Here` jest wystąpieniem chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość `https://login.microsoftonline.com/` . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` jest ustawiony na jedną z następujących wartości:
->   - Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zamień tę wartość na **Identyfikator dzierżawy** lub **nazwę dzierżawy**. Na przykład `contoso.microsoft.com`.
->   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość wartością `organizations` .
->   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość wartością `common` . **W tym przewodniku szybki start Użyj programu** `common` .
->   - Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość wartością `consumers` .
+>   - Jeśli aplikacja obsługuje *konta w tym katalogu organizacji* , Zamień tę wartość na **Identyfikator dzierżawy** lub **nazwę dzierżawy**. Na przykład `contoso.microsoft.com`.
+>   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym* , Zastąp tę wartość wartością `organizations` .
+>   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft* , Zastąp tę wartość wartością `common` . **W tym przewodniku szybki start Użyj programu** `common` .
+>   - Aby ograniczyć obsługę *tylko do osobistych kont Microsoft* , Zastąp tę wartość wartością `consumers` .
 > - `Enter_the_Redirect_Uri_Here` to `http://localhost:3000/`.
 >
 > `authority`Wartość w *authConfig.js* powinna wyglądać podobnie do poniższego, jeśli używasz głównej (globalnej) chmury platformy Azure:
@@ -125,7 +127,7 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 > ```
 >
 > > [!TIP]
-> > Aby znaleźć wartości **identyfikatora aplikacji (klienta)**, **identyfikatora katalogu (dzierżawy)** i **obsługiwanych typów kont**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
+> > Aby znaleźć wartości **identyfikatora aplikacji (klienta)** , **identyfikatora katalogu (dzierżawy)** i **obsługiwanych typów kont** , przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
@@ -200,4 +202,4 @@ npm install @azure/msal-browser
 Aby uzyskać bardziej szczegółowy przewodnik krok po kroku dotyczący tworzenia aplikacji używanej w ramach tego przewodnika Szybki Start, zobacz następujący samouczek:
 
 > [!div class="nextstepaction"]
-> [Samouczek, aby zalogować się i wywoływać >MS Graph ](./tutorial-v2-javascript-auth-code.md)
+> [Samouczek umożliwiający zalogowanie się i Wywołaj program MS Graph](./tutorial-v2-javascript-auth-code.md)

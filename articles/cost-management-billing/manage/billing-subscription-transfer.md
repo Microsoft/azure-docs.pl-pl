@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131925"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408147"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono kroki wymagane do przeniesienia własności rozlicz
 
 Jeśli chcesz zachować własność rozliczeń, ale zmienić typ subskrypcji, zobacz [Przełączanie subskrypcji platformy Azure na inną ofertę](switch-azure-offer.md). Aby kontrolować, kto może uzyskać dostęp do zasobów w ramach subskrypcji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
-Jeśli jesteś klientem z Umową Enterprise (EA), administrator w Twoim przedsiębiorstwie może przenosić własność rozliczeń subskrypcji między kontami. Aby uzyskać więcej informacji, zobacz [Zmienianie właściciela konta](ea-portal-get-started.md#change-account-owner).
+Jeśli jesteś klientem z Umową Enterprise (EA), administrator w Twoim przedsiębiorstwie może przenosić własność rozliczeń subskrypcji między kontami. Aby uzyskać więcej informacji, zobacz [Zmienianie właściciela konta](ea-portal-administration.md#change-account-owner).
 
 Tylko administrator rozliczeń konta może przenieść własność subskrypcji.
 

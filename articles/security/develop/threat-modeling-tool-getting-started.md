@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913028"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515731"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Wprowadzenie do Threat Modeling Tool
 
 Microsoft Threat Modeling Tool 2018 został uwolniony jako **[rozbrany](https://aka.ms/threatmodelingtool)** we wrześniu 2018 w ramach bezpłatnego kliknięcia. Zmiana mechanizmu dostarczania pozwala nam na wypchnięcie najnowszych ulepszeń i poprawek błędów do klientów za każdym razem, gdy otwierają one narzędzie, ułatwiając ich konserwację i używanie.
 W tym artykule opisano proces rozpoczynania pracy z podejściem do modelowania zagrożeń SDL firmy Microsoft i pokazano, jak używać narzędzia do tworzenia modeli doskonałych zagrożeń jako szkieletu procesu zabezpieczeń.
 
-Ten artykuł jest oparty na istniejącej znajomości podejścia do modelowania zagrożeń SDL. Aby zapoznać się z krótkim przeglądem, zapoznaj się z artykułami dotyczącymi **[modelowania zagrożeń](https://msdn.microsoft.com/library/ms978516.aspx)** i zarchiwizowaną wersją niezwiązanych z zabezpieczeniami, korzystając z artykułu MSDN z **[podejściem z etapem](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** opublikowanym w 2006.
+Ten artykuł jest oparty na istniejącej znajomości podejścia do modelowania zagrożeń SDL. Aby zapoznać się z krótkim przeglądem, zapoznaj się z artykułami dotyczącymi **[modelowania zagrożeń](/previous-versions/msp-n-p/ff648006(v=pandp.10))** i zarchiwizowaną wersją niezwiązanych z zabezpieczeniami, korzystając z artykułu MSDN z **[podejściem z etapem](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** opublikowanym w 2006.
 
 Aby szybko podsumowywać, podejście obejmuje tworzenie diagramu, identyfikowanie zagrożeń, łagodzenie ich i sprawdzanie poprawności poszczególnych środków zaradczych. Oto diagram, który podświetla ten proces:
 
@@ -80,14 +80,14 @@ Przechodzą przez proces opracowywania pierwszego modelu zagrożeń.
 > - Wysyłają one polecenia do serwera sieci Web — koło
 > - Serwer sieci Web korzysta z bazy danych (dwie równoległe linie)
 
-Co Ricardo tylko Cristina to DPD, krótki dla **[diagramu przepływu danych](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool pozwala użytkownikom na określenie granic zaufania wskazanych czerwono kropkowanymi liniami, aby pokazać, gdzie różne jednostki są w formancie. Na przykład Administratorzy IT wymagają systemu Active Directory na potrzeby uwierzytelniania, dlatego Active Directory jest poza kontrolą.
+Co Ricardo tylko Cristina to DPD, krótki dla **[diagramu przepływu danych](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool pozwala użytkownikom na określenie granic zaufania wskazanych czerwono kropkowanymi liniami, aby pokazać, gdzie różne jednostki są w formancie. Na przykład Administratorzy IT wymagają systemu Active Directory na potrzeby uwierzytelniania, dlatego Active Directory jest poza kontrolą.
 
 > Cristina: Wygląda na to, że od razu do mnie. Jakie są zagrożenia?
 > Ricardo: Pozwól mi wyświetlić użytkownika.
 
 ## <a name="analyzing-threats"></a>Analizowanie zagrożeń
 
-Po kliknięciu widoku analizy z menu ikony (plik z powiększaniem), zostaje on przełączony do listy wygenerowanych zagrożeń znalezionych przez Threat Modeling Tool na podstawie szablonu domyślnego, który używa podejścia SDL o nazwie **[krok (fałszowanie, manipulowanie, ujawnienie informacji, odmowa usługi i podniesienie uprawnień)](https://en.wikipedia.org/wiki/STRIDE_(security))** . Pomysłem jest to, że oprogramowanie znajduje się w przewidywalnym zbiorze zagrożeń, które można znaleźć za pomocą tych 6 kategorii.
+Po kliknięciu widoku analizy z menu ikony (plik z powiększaniem), zostaje on przełączony do listy wygenerowanych zagrożeń znalezionych przez Threat Modeling Tool na podstawie szablonu domyślnego, który używa podejścia SDL o nazwie **[krok (fałszowanie, manipulowanie, ujawnienie informacji, odmowa usługi i podniesienie uprawnień)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Pomysłem jest to, że oprogramowanie znajduje się w przewidywalnym zbiorze zagrożeń, które można znaleźć za pomocą tych 6 kategorii.
 
 Takie podejście przypomina ochronę domu przez upewnienie się, że każde drzwi i okna mają mechanizm blokowania przed dodaniem systemu alarmów lub kartach po złodziej będzie.
 

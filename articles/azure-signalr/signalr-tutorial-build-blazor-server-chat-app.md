@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150887"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516819"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Samouczek: Tworzenie aplikacji czatu serwera Blazor
 
@@ -96,7 +96,7 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
    dotnet add package Microsoft.AspNetCore.SignalR.Client --version 3.1.7
    ```
 
-1. Utwórz `ChartRoom.razor` w obszarze `Pages` folder, aby zaimplementować klienta sygnalizującego. Wykonaj poniższe czynności lub po prostu skopiuj [ChatRoom. Razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
+1. Utwórz `ChatRoom.razor` w obszarze `Pages` folder, aby zaimplementować klienta sygnalizującego. Wykonaj poniższe czynności lub po prostu skopiuj [ChatRoom. Razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
 
    1. Dodaj link do strony i odwołanie.
       
@@ -285,7 +285,7 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
    </li>
    ```
    
-1. Aktualizuj `site.css` , aby zoptymalizować dla widoków bąbelków obszaru wykresu. Dołącz Poniższy kod na końcu.
+1. Aktualizuj `site.css` , aby zoptymalizować widoki bąbelków obszaru rozmowy. Dołącz Poniższy kod na końcu.
 
    ```css
    /* improved for chat text box */

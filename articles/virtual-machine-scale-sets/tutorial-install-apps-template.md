@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2d748f787b40bb26e9faebb028d71c6c3e30ee55
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746018"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516564"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Samouczek: instalowanie aplikacji w zestawach skalowania maszyn wirtualnych za pomocą szablonu platformy Azure
 Aby uruchamiać aplikacje na wystąpieniach maszyn wirtualnych w zestawie skalowania, musisz najpierw zainstalować składniki aplikacji i wymagane pliki. W poprzednim samouczku omówiono tworzenie niestandardowego obrazu maszyny wirtualnej i wdrażanie własnych wystąpień maszyn wirtualnych. Niestandardowy obraz zawierał ręczne instalacje i konfiguracje aplikacji. Można również zautomatyzować instalację aplikacji w zestawie skalowania po wdrożeniu poszczególnych wystąpień maszyn wirtualnych lub zaktualizować już uruchomioną aplikację. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -24,11 +24,11 @@ Aby uruchamiać aplikacje na wystąpieniach maszyn wirtualnych w zestawie skalow
 > * Używanie rozszerzenia niestandardowego skryptu platformy Azure
 > * Aktualizowanie uruchomionej aplikacji w zestawie skalowania
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.29 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.29 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Co to jest rozszerzenie niestandardowego skryptu platformy Azure?
@@ -40,7 +40,7 @@ Aby zobaczyć, jak działa rozszerzenie niestandardowego skryptu, utworzymy zest
 
 
 ## <a name="create-custom-script-extension-definition"></a>Tworzenie definicji rozszerzenia niestandardowego skryptu
-Podczas definiowania zestawu skalowania maszyn wirtualnych za pomocą szablonu platformy Azure możesz skorzystać z sekcji rozszerzeń udostępnianej przez dostawcę zasobów *Microsoft.Compute/virtualMachineScaleSets* . Sekcja *extensionsProfile* określa, co jest stosowane do wystąpień maszyn wirtualnych w zestawie skalowania. Aby używać rozszerzenia niestandardowego skryptu, wskaż wydawcę *Microsoft.Azure.Extensions* i typ *CustomScript* .
+Podczas definiowania zestawu skalowania maszyn wirtualnych za pomocą szablonu platformy Azure możesz skorzystać z sekcji rozszerzeń udostępnianej przez dostawcę zasobów *Microsoft.Compute/virtualMachineScaleSets*. Sekcja *extensionsProfile* określa, co jest stosowane do wystąpień maszyn wirtualnych w zestawie skalowania. Aby używać rozszerzenia niestandardowego skryptu, wskaż wydawcę *Microsoft.Azure.Extensions* i typ *CustomScript*.
 
 Właściwość *fileUris* służy do definiowania źródłowych skryptów lub pakietów instalacji. Wymagane skrypty są zdefiniowane w sekcji *commandToExecute* , co umożliwia rozpoczęcie procesu instalacji. W poniższym przykładzie zdefiniowano przykładowy skrypt z usługi GitHub, który instaluje i konfiguruje serwer internetowy NGINX:
 
@@ -108,7 +108,7 @@ Nie zamykaj przeglądarki internetowej, aby w następnym kroku można było zoba
 
 
 ## <a name="update-app-deployment"></a>Aktualizowanie wdrożenia aplikacji
-W całym cyklu życia zestawu skalowania konieczne może być wdrożenie zaktualizowanej wersji aplikacji. Rozszerzenie niestandardowego skryptu umożliwia odwołanie się do zaktualizowanego skryptu wdrażania i ponowne zastosowanie rozszerzenia do zestawu skalowania. Gdy zestaw skalowania został utworzony w poprzednim kroku, *upgradePolicy* został ustawiony na *automatyczny* . To ustawienie pozwala wystąpieniom maszyn wirtualnych w zestawie skalowania automatycznie aktualizować aplikację i stosować jej najnowszą wersję.
+W całym cyklu życia zestawu skalowania konieczne może być wdrożenie zaktualizowanej wersji aplikacji. Rozszerzenie niestandardowego skryptu umożliwia odwołanie się do zaktualizowanego skryptu wdrażania i ponowne zastosowanie rozszerzenia do zestawu skalowania. Gdy zestaw skalowania został utworzony w poprzednim kroku, *upgradePolicy* został ustawiony na *automatyczny*. To ustawienie pozwala wystąpieniom maszyn wirtualnych w zestawie skalowania automatycznie aktualizować aplikację i stosować jej najnowszą wersję.
 
 Aby zaktualizować definicję rozszerzenia niestandardowego skryptu, zmodyfikuj szablon, podając odwołanie do nowego skryptu instalacji. Dla rozszerzenia niestandardowego skryptu należy podać nową nazwę pliku w celu umożliwienia rozpoznania zmiany. Rozszerzenie niestandardowego skryptu nie analizuje zawartości skryptu pod kątem zmian. Następująca definicja używa zaktualizowanego skryptu instalacji, do którego nazwy dołączono element *_v2* :
 

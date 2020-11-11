@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924160"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335472"
 ---
 ::: zone target="docs"
 
@@ -117,9 +117,9 @@ Wykonaj poniższe kroki, aby skonfigurować urządzenie przy użyciu lokalnego i
 
 1. Skonfiguruj kartę Ethernet na komputerze przenośnym używanym do nawiązywania połączenia z urządzeniem za pomocą statycznego adresu IP 192.168.100.5 i podsieci 255.255.255.0. 
 2. Nawiąż połączenie z portem MGMT urządzenia i uzyskaj dostęp do jego lokalnego internetowego interfejsu użytkownika pod adresem https\://192.168.100.10. Może to potrwać do 5 minut po włączeniu urządzenia.
-3. Kliknij pozycję **Szczegóły**, a następnie kliknij pozycję **Przejdź do strony internetowej**.
+3. Kliknij pozycję **Szczegóły** , a następnie kliknij pozycję **Przejdź do strony internetowej**.
 
-   ![Nawiązywanie połączenia z lokalnym internetowym interfejsem użytkownika](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Nawiązywanie połączenia z lokalnym internetowym interfejsem użytkownika](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. Zostanie wyświetlona strona **Logowanie** dla lokalnego internetowego interfejsu użytkownika. Sprawdź, czy numer seryjny urządzenia jest zgodny zarówno w interfejsie użytkownika portalu, jak i w lokalnym internetowym interfejsie użytkownika. Urządzenie jest w tym momencie zablokowane.
 5. Zaloguj się do [Azure Portal](https://portal.azure.com).

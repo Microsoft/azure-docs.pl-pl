@@ -6,14 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/05/2020
 ms.author: banders
-ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371902"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411562"
 ---
 # <a name="azure-enterprise-transfers"></a>Transfery umowy Azure Enterprise
 
@@ -93,21 +94,25 @@ Przedpłaty za platformę Azure nie można przenosić między rejestracjami. Sal
 
 Podczas przenoszenia konta lub rejestracji nie występują przestoje. Można je wykonać w tym samym dniu żądania, jeśli zostaną podane wszystkie wymagane informacje.
 
+## <a name="transfer-an-enterprise-subscription-to-a-pay-as-you-go-subscription"></a>Przenoszenie subskrypcji Enterprise do subskrypcji rozliczanej zgodnie z rzeczywistym użyciem
+
+Aby przenieść subskrypcję Enterprise do pojedynczej subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem, należy utworzyć nowy wniosek o pomoc techniczną w witrynie Azure Enterprise Portal. Aby utworzyć wniosek o pomoc techniczną, wybierz pozycję **Nowy wniosek o pomoc techniczną** w obszarze **Pomoc i obsługa techniczna**.
+
 ## <a name="change-account-owner"></a>Zmienianie właściciela konta
 
-W witrynie Azure EA Portal można przenosić subskrypcje od jednego właściciela konta do innego. Aby uzyskać więcej informacji, zobacz sekcję [Zmienianie właściciela konta](ea-portal-get-started.md#change-account-owner).
+W witrynie Azure EA Portal można przenosić subskrypcje od jednego właściciela konta do innego. Aby uzyskać więcej informacji, zobacz sekcję [Zmienianie właściciela konta](ea-portal-administration.md#change-account-owner).
 
 ## <a name="subscription-transfer-effects"></a>Efekty przeniesienia subskrypcji
 
 Jeśli subskrypcja platformy Azure zostanie przeniesiona na konto w tej dzierżawie usługi Azure Active Directory, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [kontrolą dostępu na podstawie ról platformy Azure (Azure RBAC)](../../role-based-access-control/overview.md) używaną do zarządzania zasobami, zachowają dostęp.
 
-Aby wyświetlić użytkowników z dostępem RBAC platformy Azure do subskrypcji:
+Aby wyświetlić użytkowników z dostępem RBAC do subskrypcji:
 
 1. W witrynie Azure Portal otwórz pozycję **Subskrypcje**.
 2. Wybierz subskrypcję, którą chcesz wyświetlić, a następnie wybierz pozycję **Kontrola dostępu (Zarządzanie dostępem i tożsamościami)** .
-3. Wybierz pozycję **Przypisania ról**. Na stronie przypisań ról są wyświetlani wszyscy użytkownicy z dostępem RBAC platformy Azure do subskrypcji.
+3. Wybierz pozycję **Przypisania ról**. Na stronie przypisań ról są wyświetlani wszyscy użytkownicy z dostępem RBAC do subskrypcji.
 
-Jeśli subskrypcja zostanie przeniesiona na konto w innej dzierżawie usługi Azure AD, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [dostępem RBAC platformy Azure](../../role-based-access-control/overview.md) do zarządzania zasobami _utracą_ dostęp. Chociaż dostęp RBAC platformy Azure nie istnieje, dostęp do subskrypcji może być dostępny w ramach mechanizmów zabezpieczeń, takich jak przykład:
+Jeśli subskrypcja zostanie przeniesiona na konto w innej dzierżawie usługi Azure AD, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [dostępem RBAC](../../role-based-access-control/overview.md) do zarządzania zasobami _utracą_ dostęp. Chociaż dostęp RBAC nie istnieje, dostęp do subskrypcji może być dostępny w ramach mechanizmów zabezpieczeń, takich jak przykład:
 
 - Certyfikaty zarządzania, które przyznają użytkownikowi uprawnienia administratora do zasobów subskrypcji. Więcej informacji — zobacz [Tworzenie i przekazywanie certyfikatu zarządzania dla platformy Azure](../../cloud-services/cloud-services-certs-create.md).
 - Klucze dostępu dla usług, takich jak Storage. Aby uzyskać więcej informacji, zobacz [Omówienie konta magazynu platformy Azure](../../storage/common/storage-account-overview.md).
@@ -118,7 +123,7 @@ Jeśli odbiorca musi ograniczyć dostęp do swoich zasobów platformy Azure, pow
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. W menu Centrum wybierz pozycję **Wszystkie zasoby**.
 3. Wybierz zasób.
-4. Na stronie zasobu wybierz pozycję **Ustawienia**, aby wyświetlić i zaktualizować istniejące wpisy tajne.
+4. Na stronie zasobu wybierz pozycję **Ustawienia** , aby wyświetlić i zaktualizować istniejące wpisy tajne.
 
 ## <a name="next-steps"></a>Następne kroki
 

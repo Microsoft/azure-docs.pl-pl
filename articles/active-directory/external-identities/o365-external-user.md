@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 11/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0950c92b5a7bb1e782537aa46acad2e949e565c7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 35ffae55e749c7493b9cd8af13dfd5216abf5822
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441797"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515510"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 udostępnianie zewnętrzne i Azure Active Directory (Azure AD) Współpraca B2B
 
@@ -32,7 +32,7 @@ Usługa OneDrive/SharePoint Online ma osobny Menedżer zaproszeń. Obsługa udos
 
 - Zaproszeni użytkownicy funkcji współpracy B2B usługi Azure AD mogą być wybierani z okien dialogowych udostępniania usługi OneDrive/SharePoint Online. Zaproszeni użytkownicy usługi OneDrive/SharePoint Online również są wyświetlani w usłudze Azure AD po zrealizowaniu zaproszeń.
 
-- Wymagania licencyjne różnią się. Dla każdej płatnej licencji usługi Azure AD można zezwolić maksymalnie 5 użytkownikom-Gościom na dostęp do płatnych funkcji usługi Azure AD. Aby dowiedzieć się więcej o licencjonowaniu, zobacz temat [Licencjonowanie B2B usługi Azure AD](./external-identities-pricing.md) i ["co to jest użytkownik zewnętrzny" w temacie Omówienie udostępniania zewnętrznego w usłudze SharePoint Online](/sharepoint/external-sharing-overview#what-happens-when-users-share).
+- Wymagania licencyjne różnią się. Aby dowiedzieć się więcej o licencjonowaniu, zobacz temat [Licencjonowanie B2B usługi Azure AD](./external-identities-pricing.md) i ["co to jest użytkownik zewnętrzny" w temacie Omówienie udostępniania zewnętrznego w usłudze SharePoint Online](/sharepoint/external-sharing-overview#what-happens-when-users-share).
 
 Aby zarządzać udostępnianiem zewnętrznym w usłudze OneDrive/SharePoint Online przy użyciu funkcji współpracy B2B usługi Azure AD, ustaw ustawienie Udostępnianie zewnętrzne w usłudze OneDrive/SharePoint Online, aby **zezwolić na udostępnianie tylko użytkownikom zewnętrznym, który już istnieje w katalogu organizacji**. Użytkownicy mogą przechodzić do witryn udostępnionych zewnętrznie i wybierać z zewnętrznych współpracowników, które zostały dodane przez administratora. Administrator może dodać zewnętrznych współpracowników za pośrednictwem interfejsów API zaproszeń współpracy B2B.
 

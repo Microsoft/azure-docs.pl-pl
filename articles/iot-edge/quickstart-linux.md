@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3328fa7d71138ba75fac0c2aed11d7a85081d03a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 03c6db5f7fa076472664b8027bd5bb284ac53802
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748720"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516088"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na wirtualnym urządzeniu z systemem Linux
 
@@ -63,13 +63,13 @@ Rozpocznij pracę z przewodnikiem Szybki start od utworzenia centrum IoT za pomo
 
 W tym przewodniku Szybki start wystarcza warstwa bezpłatna usługi IoT Hub. Jeśli w przeszłości użyto IoT Hub i masz już utworzone centrum, możesz użyć tego Centrum IoT.
 
-Poniższy kod tworzy wolne centrum **F1** w grupie zasobów **IoTEdgeResources** . Zamień na `{hub_name}` unikatową nazwę Centrum IoT. Utworzenie IoT Hub może potrwać kilka minut.
+Poniższy kod tworzy wolne centrum **F1** w grupie zasobów **IoTEdgeResources**. Zamień na `{hub_name}` unikatową nazwę Centrum IoT. Utworzenie IoT Hub może potrwać kilka minut.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Jeśli wystąpi błąd, ponieważ w subskrypcji jest już jedno bezpłatne centrum, zmień jednostkę SKU na **S1** . Każda subskrypcja może zawierać tylko jedno bezpłatne centrum IoT Hub. Jeśli wystąpi błąd polegający na niedostępności nazwy centrum IoT Hub, oznacza to, że ktoś inny ma już centrum o takiej nazwie. Wypróbuj nową nazwę.
+   Jeśli wystąpi błąd, ponieważ w subskrypcji jest już jedno bezpłatne centrum, zmień jednostkę SKU na **S1**. Każda subskrypcja może zawierać tylko jedno bezpłatne centrum IoT Hub. Jeśli wystąpi błąd polegający na niedostępności nazwy centrum IoT Hub, oznacza to, że ktoś inny ma już centrum o takiej nazwie. Wypróbuj nową nazwę.
 
 ## <a name="register-an-iot-edge-device"></a>Rejestrowanie urządzenia usługi IoT Edge
 
@@ -92,7 +92,7 @@ Ponieważ urządzenia usługi IoT Edge zachowują się inaczej niż typowe urzą
 2. Wyświetl parametry połączenia dla urządzenia, które łączy urządzenie fizyczne z jego tożsamością w IoT Hub. Zawiera nazwę Centrum IoT, nazwę urządzenia, a następnie klucz współużytkowany, który uwierzytelnia połączenia między nimi. Będziemy ponownie używać tych parametrów połączenia w następnej sekcji podczas konfigurowania urządzenia IoT Edge.
 
    ```azurecli-interactive
-   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
    ![Wyświetl parametry połączenia z danych wyjściowych interfejsu wiersza polecenia](./media/quickstart/retrieve-connection-string.png)
@@ -116,7 +116,15 @@ Poniższe polecenie interfejsu wiersza polecenia służy do tworzenia urządzeni
 * W przypadku użytkowników bash lub Cloud Shell Skopiuj następujące polecenie do edytora tekstów, Zastąp tekst symbolu zastępczego informacjami, a następnie skopiuj do okna bash lub Cloud Shell:
 
    ```azurecli-interactive
-   az deployment group create --resource-group IoTEdgeResources --template-uri "https://aka.ms/iotedge-vm-deploy" --parameters dnsLabelPrefix='my-edge-vm' --parameters adminUsername='azureUser' --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) --parameters authenticationType='password' --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://aka.ms/iotedge-vm-deploy" \
+   --parameters dnsLabelPrefix='my-edge-vm' \
+   --parameters adminUsername='azureUser' \
+   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name
+   <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters authenticationType='password'
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
 * W przypadku użytkowników programu PowerShell Skopiuj następujące polecenie do okna programu PowerShell, a następnie zastąp tekst zastępczy własnymi informacjami:
@@ -127,7 +135,7 @@ Poniższe polecenie interfejsu wiersza polecenia służy do tworzenia urządzeni
    --template-uri "https://aka.ms/iotedge-vm-deploy" `
    --parameters dnsLabelPrefix='my-edge-vm1' `
    --parameters adminUsername='azureUser' `
-   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
+   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
    --parameters authenticationType='password' `
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
@@ -141,7 +149,7 @@ Ten szablon przyjmuje następujące parametry:
 | **dnsLabelPrefix** | Ciąg, który zostanie użyty do utworzenia nazwy hosta maszyny wirtualnej. Użyj przykładu **My-Edge-VM** lub podaj nowy ciąg. |
 | **adminUsername** | Nazwa użytkownika dla konta administratora maszyny wirtualnej. Użyj przykładu **azureUser** lub podaj nową nazwę użytkownika. |
 | **deviceConnectionString** | Parametry połączenia z tożsamości urządzenia w IoT Hub, które służą do konfigurowania środowiska uruchomieniowego IoT Edge na maszynie wirtualnej. Polecenie interfejsu wiersza polecenia w tym parametrze korzysta z parametrów połączenia. Zastąp tekst zastępczy nazwą Centrum IoT Hub. |
-| **authenticationType** | Metoda uwierzytelniania dla konta administratora. Ten przewodnik Szybki Start używa uwierzytelniania **hasła** , ale można również ustawić ten parametr na **sshPublicKey** . |
+| **authenticationType** | Metoda uwierzytelniania dla konta administratora. Ten przewodnik Szybki Start używa uwierzytelniania **hasła** , ale można również ustawić ten parametr na **sshPublicKey**. |
 | **adminPasswordOrKey** | Hasło lub wartość klucza SSH dla konta administratora. Zastąp tekst zastępczy bezpiecznym hasłem. Hasło musi składać się z co najmniej 12 znaków i zawierać trzy z czterech z następujących znaków: małe litery, wielkie litery, cyfry i znaki specjalne. |
 
 Po zakończeniu wdrażania należy odbierać dane wyjściowe w formacie JSON w interfejsie wiersza polecenia, który zawiera informacje dotyczące protokołu SSH do nawiązania połączenia z maszyną wirtualną. Skopiuj wartość **publicznego wpisu SSH** **sekcji Outputs** :
@@ -229,7 +237,7 @@ Jeśli maszyna wirtualna i centrum IoT Hub zostały utworzone w nowej grupie zas
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne.
 
-Usuń grupę **IoTEdgeResources** . Usunięcie grupy zasobów może potrwać kilka minut.
+Usuń grupę **IoTEdgeResources**. Usunięcie grupy zasobów może potrwać kilka minut.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

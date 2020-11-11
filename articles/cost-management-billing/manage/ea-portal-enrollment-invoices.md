@@ -3,21 +3,102 @@ title: Faktury za rejestracje w usłudze Azure Enterprise
 description: W tym artykule wyjaśniono, jak zarządzać fakturami za usługę Azure Enterprise i wykonywać związane z nimi działania.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316141"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410972"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faktury za rejestracje w usłudze Azure Enterprise
 
 W tym artykule wyjaśniono, jak zarządzać fakturami za usługę Azure Enterprise Agreement (Azure EA) i wykonywać związane z nimi działania. Faktura odzwierciedla naliczone opłaty. Przejrzyj ją pod kątem dokładności. Warto również zapoznać się z innymi zadaniami, które mogą być wymagane w związku z fakturami.
+
+## <a name="view-usage-summary-and-download-reports"></a>Wyświetlanie podsumowania użycia i pobieranie raportów
+
+Administratorzy przedsiębiorstwa mogą wyświetlić podsumowanie danych użycia, użytej przedpłaty za platformę Azure i opłat związanych z dodatkowym użyciem w witrynie Azure Enterprise Portal. Opłaty są wyświetlane na poziomie podsumowania dla wszystkich kont i subskrypcji.
+
+Aby wyświetlić szczegółowe informacje o użyciu na określonych kontach, pobierz raport ze szczegółami użycia:
+
+1. Zaloguj się w witrynie Azure Enterprise Portal.
+1. Wybierz pozycję **Raporty**.
+1. Wybierz kartę **Pobierz zestawienie użycia**.
+1. Na liście raportów wybierz pozycję **Pobierz** dla miesięcznego raportu, który chcesz uzyskać.
+
+   > [!NOTE]
+   > Raport ze szczegółami użycia nie zawiera żadnych należnych podatków.
+   >
+   > Może wystąpić opóźnienie do ośmiu godzin od momentu, w którym wystąpiło użycie, do chwili, gdy zostanie ono odzwierciedlone w raporcie.
+
+Aby wyświetlić raporty i wykresy podsumowania użycia:
+
+1. Zaloguj się w witrynie Azure Enterprise Portal.
+
+1. Wybierz termin przedpłaty.
+
+   Aby zmienić zakres dat w raporcie **Podsumowanie użycia** , można zmienić ustawienie przełącznika z **M** (miesięczne) na **C** (niestandardowe) w prawym górnym rogu strony, a następnie wprowadzić datę początkową i datę końcową.
+
+   ![Tworzenie i wyświetlanie podsumowania użycia i pobieranie raportów w widoku niestandardowym](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Wybierz okres lub miesiąc na wykresie, aby wyświetlić dodatkowe szczegóły.
+
+   - Wykres przedstawia użycie miesiąc do miesiąca z podziałem na wykorzystane użycie, nadpłatę za usługę, opłaty naliczane osobno i opłaty za korzystanie z witryny Azure Marketplace.
+   - W wybranym miesiącu można filtrować informacje według działów, kont i subskrypcji, korzystając z pól poniżej wykresu.
+   - Można przełączać się między pozycjami **Opłata według usług** i **Opłata według hierarchii**.
+   - Rozwijając sekcje **Usługa platformy Azure** , **Opłaty rozliczane oddzielnie** i **Azure Marketplace** , można wyświetlać szczegółowe informacje.
+
+W tym filmie przedstawiono sposób wyświetlania użycia:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Pobieranie raportów CSV
+
+Na stronie Pobieranie raportu miesięcznego administratorzy przedsiębiorstwa mogą pobierać następujące raporty jako pliki CSV:
+
+- Saldo i opłaty
+- Szczegóły użycia
+- Opłaty za korzystanie z witryny Azure Marketplace
+- Arkusz cen
+
+Aby pobrać raporty:
+
+1. W witrynie Azure Enterprise Portal wybierz pozycję **Raporty**.
+2. Wybierz pozycję **Pobieranie danych użycia** w górnej części strony.
+3. Wybierz pozycję **Pobierz** obok raportu za dany miesiąc.
+
+   > [!NOTE]
+   > Może wystąpić opóźnienie do pięciu dni od daty, kiedy wystąpiło użycie, do daty, gdy zostanie ono wykazane w raporcie.
+   >
+   > Użytkownicy pobierający pliki CSV przy użyciu przeglądarki Safari do programu Excel mogą napotkać błędy formatowania. Aby uniknąć błędów, otwórz plik za pomocą edytora tekstu.
+
+![Przykład pokazujący stronę Pobieranie danych użycia](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+W tym filmie przedstawiono sposób pobierania informacji o użyciu:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Zaawansowane pobieranie raportu
+
+W przypadku raportowania dla określonych zakresów dat lub kont można użyć funkcji pobierania raportu zaawansowanego. Plik wyjściowy ma format CSV, w którym można zawrzeć duże zestawy rekordów.
+
+1. W witrynie Azure Enterprise Portal wybierz pozycję **Pobierz raport zaawansowany**.
+1. Wybierz odpowiedni zakres dat i konta.
+1. Wybierz pozycję **Żądaj danych użycia**.
+1. Wybieraj przycisk **Odśwież** do momentu aktualizacji stanu raportu na **Pobierz**.
+1. Pobierz raport.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Pobieranie raportów użycia oraz informacji rozliczeniowych dotyczących wcześniejszej rejestracji
+
+Po przeniesieniu rejestracji można pobrać raporty użycia oraz informacje rozliczeniowe dotyczące wcześniejszej rejestracji. Raporty historyczne są dostępne zarówno w witrynie Azure Enterprise Portal, jak i obszarze zarządzania kosztami.
+
+Witryna Azure Enterprise Portal umożliwia ukrycie nieaktywnych rejestracji. Aby wyświetlić nieaktywne przeniesione rejestracje, musisz usunąć zaznaczenie pola **Aktywne**.  
+
+![Usunięcie zaznaczenia pola Aktywne umożliwia wyświetlenie nieaktywnych rejestracji](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Zmiana numeru zamówienia zakupu na nadchodzącej fakturze nadwyżkowej
 
@@ -32,7 +113,7 @@ W witrynie Azure Enterprise Portal automatycznie generowany jest domyślny numer
 
    Numer zamówienia zakupu można edytować w ciągu siedmiu dni od otrzymania powiadomienia o fakturze, ale przed jej zapłaceniem.
 1. Podaj nowy numer zamówienia zakupu w polu **Numer zamówienia zakupu**.
-1. Wybierz pozycję **Zapisz**, aby przesłać zmianę.
+1. Wybierz pozycję **Zapisz** , aby przesłać zmianę.
 
 ### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Aby zaktualizować numer zamówienia zakupu na platformie Azure Marketplace:
 
@@ -43,7 +124,7 @@ W witrynie Azure Enterprise Portal automatycznie generowany jest domyślny numer
 
    Numer zamówienia zakupu można edytować w ciągu siedmiu dni od otrzymania powiadomienia o fakturze, ale przed jej zapłaceniem.
 1. Podaj nowy numer zamówienia zakupu w polu **Numer zamówienia zakupu**.
-1. Wybierz pozycję **Zapisz**, aby przesłać zmianę.
+1. Wybierz pozycję **Zapisz** , aby przesłać zmianę.
 
 ## <a name="azure-enterprise-billing-frequency"></a>Częstotliwość fakturowania w usłudze Azure Enterprise
 
@@ -88,9 +169,9 @@ W przypadku nadwyżki opłaty są naliczane za użycie lub rezerwacje, które pr
 
 Dla każdej pozycji na fakturze zobaczysz:
 
-- **Wartość**: łączna opłata
-- **Użycie przedpłaty**: kwota przedpłaty użyta do pokrycia opłat
-- **Wartość netto**: kwota opłat przekraczających przedpłatę
+- **Wartość** : łączna opłata
+- **Użycie przedpłaty** : kwota przedpłaty użyta do pokrycia opłat
+- **Wartość netto** : kwota opłat przekraczających przedpłatę
 
 Odpowiednie podatki są obliczane tylko od kwoty netto przekroczenia przedpłaty.
 
