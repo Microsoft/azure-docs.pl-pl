@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542997"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518281"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Ramka zabezpieczeń: Inspekcja i rejestrowanie | Środki zaradcze 
 
@@ -131,7 +131,7 @@ ms.locfileid: "87542997"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Konfigurowanie inspekcji logowania](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **Odwołania**              | [Konfigurowanie inspekcji logowania](/sql/ssms/configure-login-auditing-sql-server-management-studio) |
 | **Kroki** | <p>Należy włączyć inspekcję logowania serwera bazy danych, aby wykrywać/potwierdzać ataki z zgadywaniem hasła. Ważne jest, aby przechwytywać nieudane próby logowania. Przechwytywanie sukcesów i nieudanych prób zalogowania zapewnia dodatkowe korzyści podczas dochodzeń śledczej</p>|
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Włączanie wykrywania zagrożeń w usłudze Azure SQL
@@ -142,7 +142,7 @@ ms.locfileid: "87542997"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Usługi SQL Azure |
 | **Atrybuty**              | Wersja SQL — V12 |
-| **Odwołania**              | [Wprowadzenie do wykrywania zagrożeń SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Odwołania**              | [Wprowadzenie do wykrywania zagrożeń SQL Database](../../azure-sql/database/threat-detection-configure.md)|
 | **Kroki** |<p>Wykrywanie zagrożeń wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych. Zapewnia nową warstwę zabezpieczeń, która umożliwia klientom wykrywanie potencjalnych zagrożeń i reagowanie na nie w miarę ich występowania, zapewniając alerty zabezpieczeń w przypadku nietypowych działań.</p><p>Użytkownicy mogą eksplorować podejrzane zdarzenia za pomocą inspekcji Azure SQL Database, aby określić, czy mają one wpływ na próbę uzyskania dostępu do bazy danych, naruszenia jej lub wykorzystania.</p><p>Wykrywanie zagrożeń ułatwia rozwiązywanie potencjalnych zagrożeń dla bazy danych bez potrzeby eksperta zabezpieczeń lub zarządzania zaawansowanymi systemami monitorowania zabezpieczeń</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Używanie analityka magazynu platformy Azure do inspekcji dostępu do usługi Azure Storage
@@ -153,7 +153,7 @@ ms.locfileid: "87542997"
 | **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy |
-| **Odwołania**              | [Używanie analityka magazynu do monitorowania typu autoryzacji](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Odwołania**              | [Używanie analityka magazynu do monitorowania typu autoryzacji](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Kroki** | <p>Każde konto magazynu może umożliwić analityka magazynu platformy Azure wykonywanie rejestrowania i przechowywanie danych metryk. Dzienniki analizy magazynu zawierają ważne informacje, takie jak metoda uwierzytelniania używana przez kogoś podczas uzyskiwania dostępu do magazynu.</p><p>Może to być naprawdę przydatne, jeśli masz ścisłą ochronę dostępu do magazynu. Na przykład w Blob Storage można ustawić wszystkie kontenery jako prywatne i zaimplementować korzystanie z usługi sygnatury dostępu współdzielonego w aplikacjach. Następnie można regularnie sprawdzać dzienniki, aby sprawdzić, czy dostęp do obiektów BLOB odbywa się przy użyciu kluczy konta magazynu, co może wskazywać na naruszenie zabezpieczeń lub jeśli obiekty blob są publiczne, ale nie powinny być.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementowanie wystarczającego rejestrowania
@@ -164,7 +164,7 @@ ms.locfileid: "87542997"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | .NET Framework |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Odwołania**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Kroki** | <p>Brak odpowiedniego dziennika inspekcji po zdarzeniu zabezpieczeń może utrudnić śledczej wysiłki. Windows Communication Foundation (WCF) oferuje możliwość rejestrowania udanych i/lub nieudanych prób uwierzytelnienia.</p><p>Rejestrowanie nieudanych prób uwierzytelnienia może ostrzec administratorów o potencjalnych atakach z wykorzystaniem pełnego wymuszania. Podobnie rejestrowanie pomyślnych zdarzeń uwierzytelniania może zapewnić przydatny dziennik inspekcji, gdy zostanie naruszone wiarygodne konto. Włącz funkcję inspekcji zabezpieczeń usługi WCF |
 
 ### <a name="example"></a>Przykład
@@ -193,7 +193,7 @@ Poniżej przedstawiono przykładową konfigurację z włączoną inspekcją
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | .NET Framework |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Odwołania**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Kroki** | <p>Rozwinięte rozwiązanie jest skonfigurowane tak, aby nie generować wyjątku, gdy zapis w dzienniku inspekcji nie powiedzie się. Jeśli usługa WCF została skonfigurowana, aby nie zgłaszać wyjątku, gdy nie można zapisać w dzienniku inspekcji, program nie będzie powiadamiany o awarii i może nie wystąpić Inspekcja krytycznych zdarzeń zabezpieczeń.</p>|
 
 ### <a name="example"></a>Przykład
@@ -242,5 +242,5 @@ Skonfiguruj funkcję WCF w celu powiadomienia programu za każdym razem, gdy nie
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Wprowadzenie do monitorowania operacji IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Odwołania**              | [Wprowadzenie do monitorowania operacji IoT Hub](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **Kroki** | <p>Projektowanie na potrzeby zbierania i przechowywania danych inspekcji zebranych za poorednictwem monitorowania IoT Hub operacji. Włącz następujące kategorie monitorowania:</p><ul><li>Operacje tożsamości urządzeń</li><li>Komunikacja między urządzeniem i chmurą</li><li>Komunikacja między chmurą i urządzeniem</li><li>Połączenia</li><li>Operacje przekazywania plików</li></ul>|

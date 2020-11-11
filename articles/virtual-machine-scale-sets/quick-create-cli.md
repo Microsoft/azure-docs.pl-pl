@@ -9,21 +9,21 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 0dc98ba242d3eb5fba79605dae9f8eadc56affd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5ed6ff00e2ec9a47cec0290fa88ef3b554287607
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87504436"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518162"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu automatycznego skalowania maszyn wirtualnych i zarządzanie nim. Maszyny wirtualne w zestawie skalowania możesz skalować ręcznie lub możesz zdefiniować reguły skalowania automatycznego na podstawie użycia takich zasobów jak procesor CPU, zapotrzebowanie na pamięć lub ruch sieciowy. Moduł równoważenia obciążenia platformy Azure następnie dystrybuuje ruch do wystąpień maszyn wirtualnych w zestawie skalowania. W tym przewodniku Szybki start utworzysz zestaw skalowania maszyn wirtualnych i wdrożysz przykładową aplikację przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.29 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli). 
+- Ten artykuł wymaga wersji 2.0.29 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
 
 
 ## <a name="create-a-scale-set"></a>Tworzenie zestawu skalowania
@@ -33,7 +33,7 @@ Zanim będzie można utworzyć zestaw skalowania, utwórz grupę zasobów za pom
 az group create --name myResourceGroup --location eastus
 ```
 
-Teraz utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [az vmss create](/cli/azure/vmss). Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet*, który jest skonfigurowany do automatycznej aktualizacji w miarę stosowania zmian, a następnie generuje klucze SSH, jeśli nie istnieją, w lokalizacji *~/.ssh/id_rsa*. Te klucze SSH są używane, jeśli musisz zalogować się do wystąpień maszyn wirtualnych. Aby użyć istniejącego zestawu kluczy SSH, zamiast tego użyj parametru `--ssh-key-value` i określ lokalizację swoich kluczy.
+Teraz utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [az vmss create](/cli/azure/vmss). Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet* , który jest skonfigurowany do automatycznej aktualizacji w miarę stosowania zmian, a następnie generuje klucze SSH, jeśli nie istnieją, w lokalizacji *~/.ssh/id_rsa*. Te klucze SSH są używane, jeśli musisz zalogować się do wystąpień maszyn wirtualnych. Aby użyć istniejącego zestawu kluczy SSH, zamiast tego użyj parametru `--ssh-key-value` i określ lokalizację swoich kluczy.
 
 ```azurecli-interactive
 az vmss create \
@@ -65,7 +65,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Zezwalanie na ruch do aplikacji
-Podczas tworzenia zestawu skalowania zostanie automatycznie wdrożony moduł równoważenia obciążenia platformy Azure. Moduł równoważenia obciążenia dystrybuuje ruch do wystąpień maszyn wirtualnych w zestawie skalowania. Aby umożliwić dotarcie ruchu do przykładowej aplikacji internetowej, utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule). W poniższym przykładzie pokazano tworzenie reguły o nazwie *myLoadBalancerRuleWeb*:
+Podczas tworzenia zestawu skalowania zostanie automatycznie wdrożony moduł równoważenia obciążenia platformy Azure. Moduł równoważenia obciążenia dystrybuuje ruch do wystąpień maszyn wirtualnych w zestawie skalowania. Aby umożliwić dotarcie ruchu do przykładowej aplikacji internetowej, utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule). W poniższym przykładzie pokazano tworzenie reguły o nazwie *myLoadBalancerRuleWeb* :
 
 ```azurecli-interactive
 az network lb rule create \

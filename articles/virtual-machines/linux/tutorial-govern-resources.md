@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 890afadc82acc90ab0324058e07aa5c4d34d04e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926165"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517958"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Samouczek: informacje o zarządzaniu maszynami wirtualnymi z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten samouczek będzie wymagać interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Ten samouczek wymaga wersji 2.0.30 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="understand-scope"></a>Objaśnienie zakresu
 
@@ -63,9 +63,9 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Jeśli zostanie zgłoszony błąd wskazujący, że **jednostka\<guid> nie istnieje w katalogu**, oznacza to, że nowa grupa nie została rozpropagowana w usłudze Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
+Jeśli zostanie zgłoszony błąd wskazujący, że **jednostka\<guid> nie istnieje w katalogu** , oznacza to, że nowa grupa nie została rozpropagowana w usłudze Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
 
-Zazwyczaj należy powtórzyć ten proces dla roli *Współautor sieci* i *Współautor konta magazynu*, aby upewnić się, że użytkownicy mogą zarządzać wdrożonymi zasobami. W tym artykule można pominąć te kroki.
+Zazwyczaj należy powtórzyć ten proces dla roli *Współautor sieci* i *Współautor konta magazynu* , aby upewnić się, że użytkownicy mogą zarządzać wdrożonymi zasobami. W tym artykule można pominąć te kroki.
 
 ## <a name="azure-policy"></a>Azure Policy
 

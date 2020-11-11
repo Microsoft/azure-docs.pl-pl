@@ -7,27 +7,28 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0aba88c10304cf7d87277ad851ae38eae8eb5bf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e532902e1e6da90d4c81320b34a0b2b5dd1133f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497124"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518111"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników inspekcji bazy danych Azure Database for Maria DB w interfejsie wiersza polecenia platformy Azure
 
 [Dzienniki inspekcji Azure Database for MariaDB](concepts-audit-logs.md) można skonfigurować przy użyciu interfejsu wiersza polecenia platformy Azure.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby krokowo poprowadzić ten przewodnik, musisz:
+Aby ukończyć ten przewodnik:
 
-- [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Potrzebny jest [serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
 

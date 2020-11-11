@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 67e90667df2b62ec2c37d865fe431a2be6f81b9e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9c75ccaa05457f13697d1a26dbc8fd2f6720a751
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876570"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517856"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Szybki Start: Konfigurowanie powiadomień wypychanych w centrum powiadomień
 
@@ -33,18 +33,18 @@ Aby skonfigurować Apple Push Notification Service (APNS):
 
 1. W Azure Portal na stronie **centrum powiadomień** wybierz pozycję **Apple (APNs)** z menu po lewej stronie.
 
-1. W obszarze **tryb uwierzytelniania**wybierz pozycję **certyfikat** lub **token**.
+1. W obszarze **tryb uwierzytelniania** wybierz pozycję **certyfikat** lub **token**.
 
-   a. W przypadku wybrania opcji **certyfikat**:
+   a. W przypadku wybrania opcji **certyfikat** :
    * Wybierz ikonę pliku, a następnie wybierz plik *. p12* , który chcesz przekazać.
    * Wprowadź hasło.
    * Wybierz tryb **Piaskownica**. Aby wysyłać powiadomienia wypychane do użytkowników, którzy kupili aplikację ze sklepu, wybierz pozycję Tryb **produkcyjny** .
 
      ![Zrzut ekranu przedstawiający konfigurację certyfikatu APNS w Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-   b. W przypadku wybrania opcji **token**:
+   b. W przypadku wybrania opcji **token** :
 
-   * Wprowadź wartości dla **identyfikatora klucza**, **identyfikatora pakietu**, **identyfikatora zespołu**i **tokenu**.
+   * Wprowadź wartości dla **identyfikatora klucza** , **identyfikatora pakietu** , **identyfikatora zespołu** i **tokenu**.
    * Wybierz tryb **Piaskownica**. Aby wysyłać powiadomienia wypychane do użytkowników, którzy kupili aplikację ze sklepu, wybierz pozycję Tryb **produkcyjny** .
 
      ![Zrzut ekranu przedstawiający konfigurację tokenu usługi APNS w Azure Portal](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
@@ -67,11 +67,11 @@ Po wykonaniu tych kroków alert wskazuje, że centrum powiadomień zostało pomy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+Potrzebny będzie **klucz interfejsu API** dla projektu Google Firebase Cloud Messaging (FCM).
 
-- Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia platformy Azure. Uruchom [AZ Version](/cli/azure/reference-index?#az_version) , aby znaleźć wersję i biblioteki zależne, które są zainstalowane. Aby uaktualnić do najnowszej wersji, uruchom polecenie [AZ upgrade](/cli/azure/reference-index?#az_upgrade).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- Potrzebny będzie **klucz interfejsu API** dla projektu Google Firebase Cloud Messaging (FCM).
+- Ten artykuł wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Konfigurowanie powiadomień wypychanych dla usługi Google FCM
 

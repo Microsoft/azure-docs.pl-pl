@@ -6,34 +6,28 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 990380d553cc12d1a87b2e1c7ca9b09864801294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a60a6889217ce6ca8dccd5ebf5ee74b8f67a7757
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333998"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518213"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-cli"></a>Konfigurowanie zestawu skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym artykule dowiesz się, jak skonfigurować zestaw skalowania maszyn wirtualnych przy użyciu istniejącego Azure Load Balancer. 
+W tym artykule dowiesz się, jak skonfigurować zestaw skalowania maszyn wirtualnych przy użyciu istniejącego Azure Load Balancer.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Subskrypcja platformy Azure.
-- Istniejący moduł równoważenia obciążenia standardowej jednostki SKU w subskrypcji, w której zostanie wdrożony zestaw skalowania maszyn wirtualnych.
-- Virtual Network platformy Azure dla zestawu skalowania maszyn wirtualnych.
+## <a name="prerequisites"></a>Wymagania wstępne 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+- W subskrypcji, w której zostanie wdrożony zestaw skalowania maszyn wirtualnych, potrzebna jest istniejąca usługa równoważenia obciążenia w warstwie Standardowa.
 
-Jeśli zdecydujesz się używać interfejsu wiersza polecenia lokalnie, ten artykuł będzie wymagał wersji interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
+- Potrzebujesz Virtual Network platformy Azure dla zestawu skalowania maszyn wirtualnych.
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="sign-in-to-azure-cli"></a>Logowanie do interfejsu wiersza polecenia platformy Azure
-
-Zaloguj się do platformy Azure.
-
-```azurecli-interactive
-az login
-```
+- Ten artykuł wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-existing-load-balancer"></a>Wdrażanie zestawu skalowania maszyn wirtualnych z istniejącym modułem równoważenia obciążenia
 

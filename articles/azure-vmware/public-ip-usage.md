@@ -3,12 +3,12 @@ title: Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMwar
 description: W tym artykule wyjaśniono, jak używać funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 7ff1debe7b52599a2e4f20378f385359325be2f7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504411"
+ms.locfileid: "94517907"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware
 
@@ -32,21 +32,21 @@ W tym artykule szczegółowo przedstawiono sposób korzystania z funkcji publicz
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Środowisko rozwiązań VMware platformy Azure
-- Serwer sieci Web działający w środowisku rozwiązań VMware platformy Azure.
+- Serwer sieci webdziałający w środowisku rozwiązań VMware platformy Azure.
 - Nowy, nienakładający się zakres adresów IP dla wdrożenia wirtualnego koncentratora sieci WAN, zazwyczaj a `/24` .
 
 ## <a name="reference-architecture"></a>Architektura referencyjna
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagram architektury publicznego adresu IP" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-Diagram architektury przedstawia serwer sieci Web hostowany w środowisku rozwiązań VMware platformy Azure i skonfigurowany z RFC1918 prywatnymi adresami IP.  Usługa sieci Web jest dostępna w Internecie za pomocą funkcji publicznych adresów IP w sieci wirtualnej.  Publiczny adres IP to zazwyczaj docelowy translator adresów sieciowych przetłumaczony w zaporze platformy Azure. W przypadku reguł DNAT zasady zapory tłumaczą publiczne żądania adresów IP na adres prywatny (serwer sieci Web) z portem.
+Diagram architektury przedstawia serwer sieci Web hostowany w środowisku rozwiązań VMware platformy Azure i skonfigurowany z RFC1918 prywatnymi adresami IP.  Usługa sieci Web jest dostępna w Internecie za pomocą funkcji publicznych adresów IP w sieci wirtualnej.  Publiczny adres IP to zazwyczaj docelowy translator adresów sieciowych przetłumaczony w zaporze platformy Azure. W przypadku reguł DNAT zasady zapory tłumaczą publiczne żądania adresów IP na adres prywatny (WebServer) z portem.
 
 Żądania użytkownika trafią zaporę w publicznym adresie IP, który z kolei jest tłumaczony na prywatny adres IP przy użyciu reguł DNAT w zaporze platformy Azure. Zapora sprawdza tabelę NAT, a jeśli żądanie jest zgodne z wpisem, przekazuje ruch do przetłumaczonego adresu i portu w środowisku rozwiązań VMware platformy Azure.
 
 Serwer sieci Web otrzymuje żądanie i odpowiedzi z żądanymi informacjami lub stroną zapory, a następnie Zapora przekazuje informacje do użytkownika na publicznym adresie IP.
 
 ## <a name="test-case"></a>Przypadek testowy
-W tym scenariuszu należy opublikować serwer sieci Web usług IIS w Internecie. Aby opublikować witrynę sieci Web na publicznym adresie IP, użyj funkcji Public IP w rozwiązaniu VMware platformy Azure.  Skonfigurujemy reguły NAT w zaporze i dostęp do zasobu rozwiązania Azure VMware (maszyn wirtualnych z serwerem sieci Web) za pomocą publicznego adresu IP.
+W tym scenariuszu opublikujesz serwer sieci webiis w Internecie. Aby opublikować witrynę sieci Web na publicznym adresie IP, użyj funkcji Public IP w rozwiązaniu VMware platformy Azure.  Należy również skonfigurować reguły NAT w zaporze i uzyskać dostęp do zasobu rozwiązania Azure VMware (maszyn wirtualnych z serwerem sieci Web) za pomocą publicznego adresu IP.
 
 ## <a name="deploy-virtual-wan"></a>Wdrożyć usługę Virtual WAN
 
@@ -66,9 +66,9 @@ W tym scenariuszu należy opublikować serwer sieci Web usług IIS w Internecie.
 
 1. Zaakceptuj wartości domyślne lub zmień je, a następnie wybierz pozycję **Utwórz**.
 
-   - Grupa zasobów wirtualnej sieci rozległej
+   - Grupa zasobów wirtualnej sieci WAN
 
-   - Nazwa wirtualnej sieci rozległej
+   - Nazwa wirtualnej sieci WAN
 
    - Blok adresów koncentratora wirtualnego (przy użyciu nowego nienakładających się zakresów adresów IP)
 
@@ -120,7 +120,7 @@ Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie za
 
 1. Na karcie **DNS** wybierz pozycję **Disable (Wyłącz** ), a następnie wybierz pozycję Next ( **Dalej): Rules**.
 
-1. Wybierz pozycję **Dodaj kolekcję reguł** , podaj poniżej szczegóły i wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń**.
+1. Wybierz pozycję **Dodaj kolekcję reguł** , podaj poniżej szczegóły, a następnie wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń**.
 
    -  Nazwa
    -  Typ kolekcji reguł — DNAT
@@ -142,7 +142,7 @@ Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie za
 
 1. Wybierz centrum z listy i wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Zrzut ekranu pokazujący wybrane centra, które zostaną przekonwertowane na Scecured koncentratory wirtualne." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Zrzut ekranu pokazujący wybrane centra, które zostaną przekonwertowane na zabezpieczone centra wirtualne." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. Wybierz pozycję **Dalej: Tagi**. 
 

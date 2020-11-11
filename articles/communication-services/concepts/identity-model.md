@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 336e708334778e107331f5f393476c4b3dbb98a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507487"
+ms.locfileid: "94517771"
 ---
 # <a name="identity-model"></a>Model tożsamości
 
@@ -59,3 +59,9 @@ Rotacja kluczy dostępu usługi Azure Communication Service spowoduje odwołanie
 Zalecamy wystawianie tokenów dostępu w usłudze po stronie serwera, a nie w aplikacji klienta. Przyczyną tego jest fakt, że wydawanie wymaga klucza dostępu lub tożsamości zarządzanej. Nie jest to zalecane ze względów bezpieczeństwa, aby udostępnić klucze dostępu aplikacji klienta. Aplikacja kliencka powinna używać zaufanego punktu końcowego usługi, który może uwierzytelniać klientów, i wystawiać token dostępu w ich imieniu. Więcej szczegółowych informacji o architekturze można znaleźć [tutaj](./client-and-server-architecture.md).
 
 W przypadku buforowania tokenów dostępu do magazynu zapasowego zalecamy korzystanie z szyfrowania. Token dostępu jest poufnymi danymi i może być używany do złośliwego działania, jeśli nie jest chroniony. W przypadku posiadania tokenu dostępu można zainicjować zestaw SDK i uzyskać dostęp do interfejsu API. Dostępny interfejs API jest ograniczony tylko w oparciu o zakresy, które ma token dostępu. Zalecamy wydawanie tokenów dostępu tylko z zakresami, które są wymagane.
+
+## <a name="next-steps"></a>Następne kroki
+
+* Aby zapoznać się z wprowadzeniem do zarządzania tokenami, zobacz [Tworzenie tokenów dostępu i zarządzanie nimi](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+* Aby zapoznać się z wprowadzeniem do uwierzytelniania, zobacz [uwierzytelnianie w usłudze Azure Communications Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
+* Aby uzyskać wprowadzenie do danych w miejscu zamieszkania i prywatności, zobacz [dostępność regionów i dane w miejscu zamieszkania](https://docs.microsoft.com/azure/communication-services/concepts/privacy)

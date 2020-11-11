@@ -8,22 +8,22 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08324cc32abdf78cf6ff9ef2d04352eb44f709ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0156a1d7cea477a1725b60a5e1de229e76d2664c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974230"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517992"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku szybki start pokazano, jak utworzyć i zaszyfrować maszynę wirtualną z systemem Windows Server 2016 przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.30 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -48,7 +48,7 @@ az vm create \
 
 Utworzenie maszyny wirtualnej i zasobów pomocniczych potrwa kilka minut. Następujące przykładowe dane wyjściowe pokazują, że operacja utworzenia maszyny wirtualnej zakończyła się pomyślnie.
 
-```
+```console
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -65,7 +65,7 @@ Utworzenie maszyny wirtualnej i zasobów pomocniczych potrwa kilka minut. Nastę
 
 Klucz szyfrowania w usłudze Azure Disk Encryption jest przechowywany w Azure Key Vault. Utwórz Key Vault przy użyciu [AZ kluczy Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). Aby umożliwić Key Vault przechowywanie kluczy szyfrowania, użyj parametru--enabled-for-Disk-Encryption.
 > [!Important]
-> Każdy Key Vault musi mieć unikatową nazwę. Poniższy przykład tworzy Key Vault o nazwie *myKV*, ale należy nazwać coś innego.
+> Każdy Key Vault musi mieć unikatową nazwę. Poniższy przykład tworzy Key Vault o nazwie *myKV* , ale należy nazwać coś innego.
 
 ```azurecli-interactive
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
@@ -87,7 +87,7 @@ az vm encryption show --name MyVM -g MyResourceGroup
 
 W zwracanych danych wyjściowych zostaną wyświetlone następujące elementy:
 
-```
+```console
 "EncryptionOperation": "EnableEncryption"
 ```
 

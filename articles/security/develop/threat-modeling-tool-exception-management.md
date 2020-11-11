@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41532e554623c47e9728c6ccab92d99500e42021
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004463"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517431"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Ramka zabezpieczeń: Zarządzanie wyjątkami | Środki zaradcze 
 | Produkt/usługa | Artykuł |
@@ -38,7 +38,7 @@ ms.locfileid: "89004463"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólne, NET Framework 3 |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Odwołania**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Kroki** | Usługi Windows Communication Framework (WCF) można skonfigurować tak, aby ujawniać informacje o debugowaniu. Informacje o debugowaniu nie powinny być używane w środowiskach produkcyjnych. `<serviceDebug>`Tag określa, czy funkcja informacji debugowania jest włączona dla usługi WCF. Jeśli atrybut includeExceptionDetailInFaults ma wartość true, informacje o wyjątku z aplikacji zostaną zwrócone do klientów. Osoby atakujące mogą korzystać z dodatkowych informacji uzyskanych od debugowania danych wyjściowych w celu instalacji ataków przeznaczonych dla platformy, bazy danych lub innych zasobów używanych przez aplikację. |
 
 ### <a name="example"></a>Przykład
@@ -62,7 +62,7 @@ Wyłącz informacje o debugowaniu w usłudze. Można to osiągnąć przez usuni�
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Ogólne, NET Framework 3 |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Odwołania**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [wzmacnianie Królestwa](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Kroki** | Publiczne udostępnianie informacji o usłudze może zapewnić atakującemu cenne wgląd w sposób, w jaki mogą wykorzystać usługę. `<serviceMetadata>`Tag włącza funkcję publikowania metadanych. Metadane usługi mogą zawierać poufne informacje, które nie powinny być publicznie dostępne. Co najmniej należy zezwolić zaufanym użytkownikom na dostęp do metadanych i upewnić się, że niepotrzebne informacje nie są ujawniane. Jeszcze lepiej można całkowicie wyłączyć możliwość publikowania metadanych. Bezpieczna konfiguracja usługi WCF nie będzie zawierać `<serviceMetadata>` znacznika. |
 
 ## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Upewnij się, że w interfejsie API sieci Web ASP.NET zainstalowano odpowiednią obsługę wyjątków
@@ -202,7 +202,7 @@ Zapoznaj się z linkami w sekcji References, aby uzyskać dodatkowe informacje o
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Okno dialogowe Edytowanie ustawień stron błędów ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Odwołania**              | [Okno dialogowe Edytowanie ustawień stron błędów ASP.NET](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569096(v=ws.10)) |
 | **Kroki** | <p>Gdy aplikacja ASP.NET kończy się niepowodzeniem i powoduje błąd wewnętrzny serwera HTTP/1. x 500 lub Konfiguracja funkcji (na przykład filtrowanie żądań) uniemożliwia wyświetlenie strony, zostanie wygenerowany komunikat o błędzie. Administratorzy mogą określić, czy aplikacja powinna wyświetlać przyjazny komunikat do klienta, szczegółowy komunikat o błędzie do klienta lub szczegółowy komunikat o błędzie tylko do hosta lokalnego. `<customErrors>`Tag w web.config ma trzy tryby:</p><ul><li>**W dniu:** Określa, że błędy niestandardowe są włączone. Jeśli żaden atrybut defaultRedirect nie zostanie określony, użytkownicy zobaczą błąd ogólny. Błędy niestandardowe są wyświetlane dla klientów zdalnych i do hosta lokalnego.</li><li>**Wyłączone:** Określa, że błędy niestandardowe są wyłączone. Szczegółowe błędy ASP.NET są widoczne dla klientów zdalnych i do hosta lokalnego</li><li>**RemoteOnly:** Określa, że błędy niestandardowe są wyświetlane tylko dla klientów zdalnych, a błędy ASP.NET są wyświetlane na hoście lokalnym. Jest to wartość domyślna</li></ul><p>Otwórz `web.config` plik dla aplikacji/lokacji i upewnij się, że tag ma albo `<customErrors mode="RemoteOnly" />` `<customErrors mode="On" />` zdefiniowane.</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Ustaw metodę wdrażania na sprzedaż detaliczną w usługach IIS
@@ -213,7 +213,7 @@ Zapoznaj się z linkami w sekcji References, aby uzyskać dodatkowe informacje o
 | **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Element wdrożenia (Schemat ustawień ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Odwołania**              | [Element wdrożenia (Schemat ustawień ASP.NET)](/previous-versions/dotnet/netframework-2.0/ms228298(v=vs.80)) |
 | **Kroki** | <p>`<deployment retail>`Przełącznik jest przeznaczony do użytku przez produkcyjne serwery usług IIS. Ten przełącznik służy do uruchamiania aplikacji z najlepszą możliwą wydajnością i minimalnymi wyciekami informacji o zabezpieczeniach przez wyłączenie możliwości tworzenia przez aplikację danych wyjściowych śledzenia na stronie, wyłączenie możliwości wyświetlania szczegółowych komunikatów o błędach dla użytkowników końcowych i wyłączenie przełącznika debugowania.</p><p>Często, przełączniki i opcje, które są skoncentrowane na deweloperach, takie jak śledzenie nieudanych żądań i debugowanie, są włączane podczas aktywnego programowania. Zaleca się, aby Metoda wdrożenia na dowolnym serwerze produkcyjnym była ustawiona na sprzedaż detaliczną. Otwórz plik machine.config i upewnij się, że `<deployment retail="true" />` jest ustawiony na wartość true.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Wyjątki powinny być bezpiecznie bezpieczne
@@ -268,4 +268,4 @@ Zapoznaj się z linkami w sekcji References, aby uzyskać dodatkowe informacje o
             }
         }
 ```
-Powyższa metoda zawsze zwróci wartość true, jeśli wystąpi jakiś wyjątek. Jeśli użytkownik końcowy poda nieprawidłowo sformułowany adres URL, jest to, że przeglądarka, ale `Uri()` nie, zostanie zgłoszony wyjątek, a ofiara zostanie pobrana za prawidłowy, ale nieprawidłowo sformułowany adres URL. 
+Powyższa metoda zawsze zwróci wartość true, jeśli wystąpi jakiś wyjątek. Jeśli użytkownik końcowy poda nieprawidłowo sformułowany adres URL, jest to, że przeglądarka, ale `Uri()` nie, zostanie zgłoszony wyjątek, a ofiara zostanie pobrana za prawidłowy, ale nieprawidłowo sformułowany adres URL.

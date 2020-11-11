@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: c26acb1460516781b34a5dcc861164e9ef87a37a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331628"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518105"
 ---
 # <a name="security-frame-session-management"></a>Ramka zabezpieczeń: zarządzanie sesjami
 | Produkt/usługa | Artykuł |
 | --------------- | ------- |
-| **Usługa Azure AD**    | <ul><li>[Implementowanie prawidłowego logowania przy użyciu metod ADAL w przypadku korzystania z usługi Azure AD](#logout-adal)</li></ul> |
+| **Azure AD**    | <ul><li>[Implementowanie prawidłowego logowania przy użyciu metod ADAL w przypadku korzystania z usługi Azure AD](#logout-adal)</li></ul> |
 | **Urządzenie IoT** | <ul><li>[Używanie skończonego okresu istnienia dla wygenerowanych tokenów SaS](#finite-tokens)</li></ul> |
 | **Baza danych dokumentów platformy Azure** | <ul><li>[Użyj minimalnych okresów istnienia tokenu dla wygenerowanych tokenów zasobów](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Zaimplementuj odpowiednie wylogowanie przy użyciu metod WsFederation w przypadku korzystania z usług AD FS](#wsfederation-logout)</li></ul> |
@@ -159,7 +159,7 @@ Powinien również zniszczyć sesję użytkownika przez wywołanie metody Sessio
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | EnvironmentType-lokalnego |
-| **Odwołania**              | [httpCookies, element (Schemat ustawień ASP.NET)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [Właściwość HttpCookie. Secure](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Odwołania**              | [httpCookies, element (Schemat ustawień ASP.NET)](/previous-versions/dotnet/netframework-4.0/ms228262(v=vs.100)), [Właściwość HttpCookie. Secure](/dotnet/api/system.web.httpcookie.secure) |
 | **Kroki** | Pliki cookie są zwykle dostępne tylko dla domeny, dla której zostały objęte zakresem. Niestety definicja "domena" nie zawiera protokołu, więc pliki cookie, które są tworzone za pośrednictwem protokołu HTTPS, są dostępne za pośrednictwem protokołu HTTP. Atrybut "Secure" wskazuje przeglądarki, że plik cookie powinien być udostępniany tylko za pośrednictwem protokołu HTTPS. Upewnij się, że wszystkie pliki cookie ustawione za pośrednictwem protokołu HTTPS używają **bezpiecznego** atrybutu. Wymagania można wymusić w pliku web.config, ustawiając atrybut requireSSL na true. Jest to preferowane podejście, ponieważ będzie wymuszać **bezpieczny** atrybut dla wszystkich bieżących i przyszłych plików cookie bez konieczności wprowadzania jakichkolwiek dodatkowych zmian w kodzie.|
 
 ### <a name="example"></a>Przykład
@@ -221,7 +221,7 @@ Wszystkie aplikacje oparte na protokole HTTP, które używają plików cookie, p
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Formularze sieci Web |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [FormsAuthentication. RequireSSL — Właściwość](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
+| **Odwołania**              | [FormsAuthentication. RequireSSL — Właściwość](/dotnet/api/system.web.security.formsauthentication.requiressl) |
 | **Kroki** | Wartość właściwości RequireSSL jest ustawiana w pliku konfiguracji dla aplikacji ASP.NET przy użyciu atrybutu requireSSL elementu Configuration. Można określić w pliku Web.config dla aplikacji ASP.NET, czy Transport Layer Security (TLS), wcześniej znana jako SSL (SSL), musi zwrócić plik cookie uwierzytelniania formularzy do serwera przez ustawienie atrybutu requireSSL.|
 
 ### <a name="example"></a>Przykład 
@@ -238,7 +238,7 @@ Poniższy przykład kodu ustawia atrybut requireSSL w pliku Web.config.
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | MVC5 |
 | **Atrybuty**              | EnvironmentType-lokalnego |
-| **Odwołania**              | [Konfiguracja Windows Identity Foundation (WIF) — część II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
+| **Odwołania**              | [Konfiguracja Windows Identity Foundation (WIF) — część II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) |
 | **Kroki** | Aby ustawić atrybut httpOnly dla plików cookie FedAuth, wartość atrybutu hideFromCsript powinna być ustawiona na wartość true. |
 
 ### <a name="example"></a>Przykład
@@ -292,7 +292,7 @@ Poniższa konfiguracja przedstawia poprawną konfigurację:
 ```
 
 ### <a name="example"></a>Przykład
-W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Na przykład:
+W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Przykład:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -358,7 +358,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Formularze sieci Web |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Korzystanie z wbudowanych funkcji ASP.NET w celu Fend ataków z sieci Web](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **Odwołania**              | [Korzystanie z wbudowanych funkcji ASP.NET w celu Fend ataków z sieci Web](/previous-versions/dotnet/articles/ms972969(v=msdn.10)#securitybarriers_topic2) |
 | **Kroki** | Ataki CSRF w aplikacjach opartych na webformach można wyeliminować, ustawiając ViewStateUserKey na losowy ciąg, który zmienia się dla każdego użytkownika — identyfikatora użytkownika lub, jeszcze lepiej, identyfikatora sesji. W przypadku wielu przyczyn technicznych i społecznościowych identyfikator sesji jest znacznie lepszy, ponieważ identyfikator sesji jest nieprzewidywalny, przekracza limit czasu i zależy od poszczególnych użytkowników.|
 
 ### <a name="example"></a>Przykład
@@ -378,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [HttpSessionState. Timeout — właściwość](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **Odwołania**              | [HttpSessionState. Timeout — właściwość](/dotnet/api/system.web.sessionstate.httpsessionstate.timeout) |
 | **Kroki** | Limit czasu sesji reprezentuje zdarzenie występujące, gdy użytkownik nie wykonuje żadnych akcji w witrynie sieci Web w ciągu interwału (zdefiniowanego przez serwer sieci Web). Po stronie serwera Zmień stan sesji użytkownika na "nieprawidłowy" (na przykład "nieużywane już") i poinstruuj serwer sieci Web, aby go zniszczyć (usuwając wszystkie zawarte w nim dane). Poniższy przykład kodu ustawia wartość atrybutu Session Timeout na 15 minut w pliku Web.config.|
 
 ### <a name="example"></a>Przykład
@@ -398,7 +398,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Formularze sieci Web |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Element formularzy do uwierzytelniania (Schemat ustawień ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Odwołania**              | [Element formularzy do uwierzytelniania (Schemat ustawień ASP.NET)](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
 | **Kroki** | Ustaw limit czasu plików cookie biletu uwierzytelniania formularzy na 15 minut|
 
 ### <a name="example"></a>Przykład
@@ -536,7 +536,7 @@ W powyższym przykładzie przedstawiono dane wyjściowe podobne do następujący
 ```
 
 ### <a name="example"></a>Przykład
-W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Na przykład:
+W tym samym czasie plik HTML. AntiForgeryToken () zapewnia odwiedzającemu plik cookie o nazwie __RequestVerificationToken, z taką samą wartością jak losowo Ukryta wartość pokazana powyżej. Następnie, aby sprawdzić poprawność post formularzy przychodzących, Dodaj filtr [ValidateAntiForgeryToken] do docelowej metody akcji. Przykład:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746006"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518298"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu szablonu platformy Azure
 Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień maszyn wirtualnych, które chcesz uruchamiać. W odpowiedzi na zmieniające się zapotrzebowanie aplikacji możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych. Skalowanie automatyczne pozwala spełniać potrzeby klientów lub reagować na zmiany wydajności aplikacji w całym cyklu jej życia. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -25,15 +25,15 @@ Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień mas
 > * Testy obciążeniowe wystąpień maszyn wirtualnych i wyzwalanie reguł skalowania automatycznego
 > * Skalowanie automatyczne do wewnątrz po zmniejszeniu zapotrzebowania
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.29 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli). 
+- Ten artykuł wymaga wersji 2.0.29 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definiowanie profilu skalowania automatycznego
-Profil skalowania automatycznego w szablonie platformy Azure definiuje się za pomocą dostawcy zasobów *Microsoft.insights/autoscalesettings* . *Profil* określa pojemność zestawu skalowania oraz wszystkie skojarzone reguły. W poniższym przykładzie zdefiniowano profil o nazwie *Autoscale by percentage based on CPU usage* (Skalowanie automatyczne według wartości procentowej na podstawie użycia procesora CPU) i ustawiono domyślną, minimalną pojemność — *2* — oraz maksymalną pojemność — *10* wystąpień maszyn wirtualnych:
+Profil skalowania automatycznego w szablonie platformy Azure definiuje się za pomocą dostawcy zasobów *Microsoft.insights/autoscalesettings*. *Profil* określa pojemność zestawu skalowania oraz wszystkie skojarzone reguły. W poniższym przykładzie zdefiniowano profil o nazwie *Autoscale by percentage based on CPU usage* (Skalowanie automatyczne według wartości procentowej na podstawie użycia procesora CPU) i ustawiono domyślną, minimalną pojemność — *2* — oraz maksymalną pojemność — *10* wystąpień maszyn wirtualnych:
 
 ```json
 {
@@ -69,13 +69,13 @@ W tej regule są używane następujące parametry:
 | *metricName*      | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU  |
 | *timeGrain*       | Częstotliwość zbierania metryk do analizy.                                                                   | 1 minuta        |
 | *timeAggregation* | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia         |
-| *timeWindow*      | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut       |
+| *timeWindow*      | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 min       |
 | *zakład*        | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż    |
 | *próg*       | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%             |
 | *wskazywa*       | Określa, czy podczas stosowania reguły ma nastąpić skalowanie w pionie czy w poziomie.                                              | Zwiększ        |
 | *Wprowadź*            | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian    |
 | *wartość*           | Określa liczbę wystąpień maszyn wirtualnych podlegających skalowaniu w pionie lub w poziomie podczas stosowania reguły.                                             | 3               |
-| *cooldown*        | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 minut       |
+| *cooldown*        | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 min       |
 
 Do sekcji profilu dostawcy zasobów *Microsoft.insights/autoscalesettings* wspomnianego w poprzedniej sekcji zostanie dodana następująca reguła:
 
@@ -180,7 +180,7 @@ Połącz się przez protokół SSH z pierwszym wystąpieniem maszyny wirtualnej.
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Po zalogowaniu zainstaluj narzędzie **stress** . Uruchom *10 procesów roboczych narzędzia* **stress** , które generują obciążenie procesora CPU. Procesy robocze będą działać przez *420* sekund, co wystarczy do zaimplementowania odpowiedniej akcji przez reguły skalowania automatycznego.
+Po zalogowaniu zainstaluj narzędzie **stress**. Uruchom *10 procesów roboczych narzędzia* **stress** , które generują obciążenie procesora CPU. Procesy robocze będą działać przez *420* sekund, co wystarczy do zaimplementowania odpowiedniej akcji przez reguły skalowania automatycznego.
 
 ```console
 sudo apt-get update
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorowanie aktywnych reguł skalowania automatycznego
-Do monitorowania liczby wystąpień maszyn wirtualnych w zestawie skalowania służy narzędzie **watch** . Po upływie pięciu minut reguły skalowania automatycznego rozpoczynają proces skalowania w poziomie w odpowiedzi na obciążenie procesora CPU wygenerowane przez narzędzie **stress** na poszczególnych wystąpieniach maszyn wirtualnych:
+Do monitorowania liczby wystąpień maszyn wirtualnych w zestawie skalowania służy narzędzie **watch**. Po upływie pięciu minut reguły skalowania automatycznego rozpoczynają proces skalowania w poziomie w odpowiedzi na obciążenie procesora CPU wygenerowane przez narzędzie **stress** na poszczególnych wystąpieniach maszyn wirtualnych:
 
 ```azurecli-interactive
 watch az vmss list-instances \

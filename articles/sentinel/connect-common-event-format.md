@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347611"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517975"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Łączenie rozwiązania zewnętrznego przy użyciu typowego formatu zdarzeń
 
@@ -27,7 +27,7 @@ Po podłączeniu rozwiązania zewnętrznego, które wysyła komunikaty CEF, istn
 
 Krok 1. [łączenie CEF przez wdrożenie dziennika systemowego/CEF Forwarder](connect-cef-agent.md) krok 2: [wykonywanie kroków specyficznych dla rozwiązania](connect-cef-solution-config.md) krok 3: [Weryfikowanie łączności](connect-cef-verify.md)
 
-W tym artykule opisano, jak działa połączenie, zawiera wymagania wstępne i przedstawiono kroki wdrażania agenta na rozwiązaniach zabezpieczeń, które wysyłają komunikaty w formacie Common Event format (CEF) na podstawie dziennika systemowego. 
+W tym artykule opisano, jak działa połączenie, zawiera listę wymagań wstępnych i przedstawiono kroki wdrażania mechanizmu dla rozwiązań zabezpieczeń w celu wysyłania komunikatów Common Event format (CEF) na początku dziennika systemowego. 
 
 > [!NOTE] 
 > Dane są przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
@@ -53,18 +53,18 @@ Aby można było korzystać z komunikacji TLS między źródłem dziennika syste
 Upewnij się, że maszyna z systemem Linux używana jako usługa przesyłania dalej dzienników ma jeden z następujących systemów operacyjnych:
 
 - 64-bitowa
-  - CentOS 7 i 8, w tym wersje podrzędne (nie 6)
+  - CentOS 7 i 8, w tym wersje pomocnicze (nie 6)
   - Amazon Linux 2017,09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 i 8, w tym wersje podrzędne (nie 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 i 8, w tym wersje pomocnicze (nie 6)
   - Debian GNU/Linux 8 i 9
   - Ubuntu Linux 14,04 LTS, 16,04 LTS i 18,04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
 - 32-bitowa
-  - CentOS 7 i 8, w tym wersje podrzędne (nie 6)
+  - CentOS 7 i 8, w tym wersje pomocnicze (nie 6)
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 i 8, w tym wersje podrzędne (nie 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 i 8, w tym wersje pomocnicze (nie 6)
   - Debian GNU/Linux 8 i 9
   - Ubuntu Linux 14,04 LTS i 16,04 LTS
  
@@ -82,7 +82,7 @@ Upewnij się, że komputer spełnia również następujące wymagania:
   - Musisz mieć podwyższony poziom uprawnień (sudo) na swojej maszynie. 
 
 - Wymagania dotyczące oprogramowania
-  - Upewnij się, że na maszynie jest uruchomiony Język Python 2,7.
+  - Upewnij się, że na maszynie jest uruchomiony Język Python 2,7 lub 3.
 
 ## <a name="next-steps"></a>Następne kroki
 

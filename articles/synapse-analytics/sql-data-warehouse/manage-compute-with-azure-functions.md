@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Zarządzanie obliczeniami przy użyciu Azure Functions'
-description: Jak używać usługi Azure Functions do zarządzania obliczeniami puli SQL w usłudze Azure Synapse Analytics.
+description: Jak używać Azure Functions do zarządzania obliczeniem puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043361"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517890"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Używanie Azure Functions do zarządzania zasobami obliczeniowymi w puli SQL usługi Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 ## <a name="change-the-compute-level"></a>Zmień poziom obliczeń
 
-1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations* . Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
+1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations*. Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
 
    ![Funkcje wdrażane przy użyciu szablonu](./media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -52,7 +52,7 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
    ![Wybieranie pozycji Integruj dla funkcji](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Obecnie powinna być wyświetlana wartość *%ScaleDownTime%* lub *%ScaleUpTime%* . Te wartości wskazują, że harmonogram jest oparty na wartościach określonych w [ustawieniach aplikacji](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Na razie można zignorować tę wartość i zmienić harmonogram na preferowany czas na podstawie następnych kroków.
+3. Obecnie powinna być wyświetlana wartość *%ScaleDownTime%* lub *%ScaleUpTime%*. Te wartości wskazują, że harmonogram jest oparty na wartościach określonych w [ustawieniach aplikacji](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Na razie można zignorować tę wartość i zmienić harmonogram na preferowany czas na podstawie następnych kroków.
 
 4. W obszarze harmonogram Dodaj godzinę wyrażenia, które chcesz odzwierciedlić, jak często chcesz skalować usługę Azure Synapse Analytics.
 
@@ -68,9 +68,9 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Zmień godzinę operacji skalowania
 
-1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations* . Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
+1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations*. Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
 
-2. Wybierz pozycję *DWScaleDownTrigger* lub *DWScaleUpTrigger* w zależności od tego, czy chcesz zmienić wartość obliczeniową skalowania w górę, czy wartość obliczeniową skalowania w dół. Po wybraniu funkcji w okienku powinien zostać wyświetlony plik *index.js* .
+2. Wybierz pozycję *DWScaleDownTrigger* lub *DWScaleUpTrigger* w zależności od tego, czy chcesz zmienić wartość obliczeniową skalowania w górę, czy wartość obliczeniową skalowania w dół. Po wybraniu funkcji w okienku powinien zostać wyświetlony plik *index.js*.
 
    ![Zmienianie poziomu obliczeniowego wyzwalacza funkcji](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -78,7 +78,7 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Używanie wstrzymywania lub wznawiania zamiast skalowania
 
-Obecnie funkcje włączone domyślnie to *DWScaleDownTrigger* i *DWScaleUpTrigger* . Jeśli zamiast tego chcesz korzystać z funkcji wstrzymywania i wznawiania, możesz włączyć funkcje *DWPauseTrigger* lub *DWResumeTrigger* .
+Obecnie funkcje włączone domyślnie to *DWScaleDownTrigger* i *DWScaleUpTrigger*. Jeśli zamiast tego chcesz korzystać z funkcji wstrzymywania i wznawiania, możesz włączyć funkcje *DWPauseTrigger* lub *DWResumeTrigger*.
 
 1. Przejdź do okienka Funkcje.
 
@@ -99,7 +99,7 @@ Obecnie szablon zawiera tylko dwie funkcje skalowania. Korzystając z tych funkc
 
    ![Zrzut ekranu pokazujący menu "aplikacje funkcji" z ikoną "plus" obok wybranej pozycji "Functions" (funkcje).](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. W obszarze Język wybierz pozycję *JavaScript* , a następnie wybierz pozycję *TimerTrigger* .
+2. W obszarze Język wybierz pozycję *JavaScript* , a następnie wybierz pozycję *TimerTrigger*.
 
    ![Tworzenie nowej funkcji](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -139,7 +139,7 @@ W tej sekcji przedstawiono krótkie informacje o tym, co jest niezbędne do uzys
 
 Codzienne skalowanie w górę o 8:00 do DW600c i skalowanie w dół w 8pm do DW200c.
 
-| Funkcja  | Zaplanuj     | Operacja                                |
+| Function  | Zaplanuj     | Operacja                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
@@ -148,7 +148,7 @@ Codzienne skalowanie w górę o 8:00 do DW600c i skalowanie w dół w 8pm do DW2
 
 Codzienne skalowanie w górę o 8:00 do DW1000c, skalowanie w dół do wartości DW600 w 16:00 i skalowanie w dół o 10pm do DW200c.
 
-| Funkcja  | Zaplanuj     | Operacja                                |
+| Function  | Zaplanuj     | Operacja                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
@@ -158,7 +158,7 @@ Codzienne skalowanie w górę o 8:00 do DW1000c, skalowanie w dół do wartości
 
 Skaluj w górę o 8:00 do DW1000c, Skaluj w dół do DW600c na 16:00 w dniach roboczych. Wstrzymanie w piątek o godz. 23:00, wznowienie w poniedziałek rano o godz. 7:00.
 
-| Funkcja  | Zaplanuj       | Operacja                                |
+| Function  | Zaplanuj       | Operacja                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
@@ -167,6 +167,6 @@ Skaluj w górę o 8:00 do DW1000c, Skaluj w dół do DW600c na 16:00 w dniach ro
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o funkcjach platformy Azure z [wyzwalaczem czasomierza](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Dowiedz się więcej na temat [wyzwalacza czasomierza](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions.
 
 Wyewidencjonowywanie [repozytorium przykładów](https://github.com/Microsoft/sql-data-warehouse-samples)puli SQL.

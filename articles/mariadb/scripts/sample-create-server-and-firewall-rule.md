@@ -8,19 +8,21 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 11/28/2018
-ms.openlocfilehash: b3a646e7f59f4002892edf9210658a966cbc051f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 585e1e2653a6f42391e3754335920cd295f00c1c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498654"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518043"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Tworzenie serwera MariaDB i konfigurowanie reguły zapory przy użyciu interfejsu wiersza polecenia platformy Azure
 Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy serwer usługi Azure Database for MariaDB i konfiguruje regułę zapory na poziomie serwera. Po pomyślnym uruchomieniu skryptu serwer MariaDB jest dostępny dla wszystkich usług platformy Azure oraz skonfigurowanego adresu IP.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Jeśli zdecydujesz się uruchomić interfejs wiersza polecenia lokalnie, na potrzeby tego artykułu wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Sprawdź wersję, uruchamiając polecenie `az --version`. Aby zainstalować lub uaktualnić interfejs wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 W tym przykładowym skrypcie dokonaj edycji wyróżnionych wierszy w celu zmiany nazwy użytkownika i hasła administratora na swoje własne.
