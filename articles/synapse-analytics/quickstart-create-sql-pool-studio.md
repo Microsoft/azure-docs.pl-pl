@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324319"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506349"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu programu Synapse Studio
 
@@ -75,6 +75,8 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
     > Należy zauważyć, że istnieją określone ograniczenia dotyczące nazw, które mogą być używane przez dedykowane pule SQL. Nazwy nie mogą zawierać znaków specjalnych, muszą składać się z co najwyżej 15 znaków, nie zawierać słów zarezerwowanych i być unikatowe w obszarze roboczym.
 
 4. Na następnej karcie **Ustawienia dodatkowe** wybierz pozycję **Brak** , aby zainicjować obsługę administracyjną puli SQL bez danych. Pozostaw domyślne sortowanie jako wybrane.
+
+    Jeśli chcesz przywrócić dedykowaną pulę SQL z punktu przywracania, wybierz pozycję **punkt przywracania**. Aby uzyskać więcej informacji na temat przeprowadzania przywracania, zobacz [How to: Restore a existd SQL Pool](backuprestore/restore-sql-pool.md)
 
     ![Utwórz przepływ puli SQL — karta Ustawienia dodatkowe.](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 

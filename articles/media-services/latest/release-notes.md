@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791600"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505261"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -56,6 +56,11 @@ Zdarzenia na żywo mają teraz stan wstrzymania.  Zobacz [zdarzenia na żywo i w
 Zdarzenie na żywo obsługuje otrzymywanie różnych współczynników proporcji. Tryb rozciągania umożliwia klientom określenie zachowania rozciągnięcia danych wyjściowych.
 
 Funkcja kodowania na żywo umożliwia teraz dodanie fragmentów interwału stałych klatek kluczowych między 0,5 a 20 sekund.
+
+## <a name="accounts"></a>Konta
+
+> [!WARNING]
+> Jeśli utworzysz konto Media Services przy użyciu wersji interfejsu API 2020-05-01, nie będzie ono współpracowało z RESTv2 
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -109,7 +114,7 @@ Azure Media Player dokumenty zostały zmigrowane do [dokumentacji platformy Azur
 
 ### <a name="azure-government-cloud-updates"></a>Azure Government aktualizacje w chmurze
 
-Media Services GA'ed w następujących Azure Government regionach: *USGov Arizona* i *USGov Texas* .
+Media Services GA'ed w następujących Azure Government regionach: *USGov Arizona* i *USGov Texas*.
 
 ## <a name="december-2019"></a>Grudzień 2019 r.
 
@@ -161,7 +166,7 @@ Dodano obsługę następujących nowych zalecanych koderów partnerów dla przes
 
 - Ramki kluczowe wyodrębnione przy użyciu ustawień wstępnych VideoAnalyzer są teraz w oryginalnej rozdzielczości wideo zamiast zmiany rozmiaru. Funkcja wyodrębniania klatek kluczowych o wysokiej rozdzielczości zapewnia oryginalne obrazy z jakością i pozwala korzystać z sztucznych modeli analizy opartych na obrazach udostępnianych przez usługi Microsoft przetwarzanie obrazów i Custom Vision, aby uzyskać jeszcze więcej szczegółowych informacji na temat wideo.
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -173,7 +178,7 @@ Media Services v3 zapowiedźuje Podgląd 24 godzin x 365 dni aktywnego kodowania
 
 #### <a name="deprecation-of-media-processors"></a>Wycofanie procesorów multimediów
 
-Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji zapoznawczej* . Aby uzyskać daty wycofania, zobacz artykuł dotyczący  [składników ze starszych wersji](../previous/legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
+Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji zapoznawczej*. Aby uzyskać daty wycofania, zobacz artykuł dotyczący  [składników ze starszych wersji](../previous/legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
 
 Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -237,7 +242,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Ulepszenia wydajności
+### <a name="performance-improvements"></a>Usprawnienia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -263,7 +268,7 @@ Media Services wersja 3 jest teraz obsługiwana w chmurach narodowych platformy 
 
 Do schematów Azure Event Grid dla Media Services dodano zdarzenie [Microsoft. Media. JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) .
 
-## <a name="january-2019"></a>Styczeń 2019 r.
+## <a name="january-2019"></a>Styczeń 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Pliki Media Encoder Standard i MPI 
 
@@ -275,10 +280,10 @@ Nie należy modyfikować ani usuwać pliku MPI ani korzystać z jakichkolwiek za
 
 Aktualizacje z wersji GA interfejsu API v3 obejmują:
        
-* Właściwości **PresentationTimeRange** nie są już "wymagane" dla **filtrów zasobów** i **filtrów konta** . 
+* Właściwości **PresentationTimeRange** nie są już "wymagane" dla **filtrów zasobów** i **filtrów konta**. 
 * Opcje zapytania $top i $skip dotyczące **zadań** i **transformacji** zostały usunięte, a $OrderBy został dodany. W ramach dodawania nowych funkcji określania kolejności okazało się, że opcje $top i $skip zostały przypadkowo ujawnione, mimo że nie zostały zaimplementowane.
 * Rozszerzalność wyliczenia została włączona jeszcze raz. Ta funkcja została włączona w wersji zapoznawczej zestawu SDK i została przypadkowo wyłączona w wersji GA.
-* Zmieniono nazwy dwóch wstępnie zdefiniowanych zasad przesyłania strumieniowego. **SecureStreaming** jest teraz **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** jest teraz **Predefined_MultiDrmStreaming** .
+* Zmieniono nazwy dwóch wstępnie zdefiniowanych zasad przesyłania strumieniowego. **SecureStreaming** jest teraz **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** jest teraz **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Listopad 2018 r.
 

@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7099b0d303965b987fb316170738cc82568dc6d6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147287"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505601"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Szybki Start: jak utworzyć konto i przekazać swoje pierwsze wideo
 
 W tym przewodniku szybki start pokazano, jak zalogować się do witryny sieci Web Video Indexer i jak przekazać swoje pierwsze wideo.
 
-Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatnej wersji próbnej (w ramach którego otrzymuje się określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w przypadku której nie ma ograniczeń przydziału). Usługa Video Indexer w bezpłatnej wersji próbnej udostępnia do 600 minut bezpłatnego indeksowania u użytkowników witryn internetowych oraz do 2400 minut bezpłatnego indeksowania u użytkowników interfejsów API. W przypadku opcji płatnej utworzone zostaje konto usługi Video Indexer [połączone z subskrypcją platformy Azure i kontem usługi Azure Media Services](connect-to-azure.md). Naliczane są opłaty za minuty indeksowania, a także opłaty powiązane z kontem usługi Azure Media Services. 
+Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatnej wersji próbnej (w ramach którego otrzymuje się określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w przypadku której nie ma ograniczeń przydziału). Usługa Video Indexer w bezpłatnej wersji próbnej udostępnia do 600 minut bezpłatnego indeksowania u użytkowników witryn internetowych oraz do 2400 minut bezpłatnego indeksowania u użytkowników interfejsów API. W przypadku opcji płatnej utworzone zostaje konto usługi Video Indexer [połączone z subskrypcją platformy Azure i kontem usługi Azure Media Services](connect-to-azure.md). Płacisz za minuty, aby uzyskać więcej informacji, zobacz [Cennik usługi Media Services](https://azure.microsoft.com/pricing/details/media-services/). 
 
 ## <a name="sign-up-for-video-indexer"></a>Tworzenie konta w usłudze Video Indexer
 
@@ -51,14 +51,14 @@ Listę formatów plików, których można używać z Video Indexer, zawiera arty
 1. Po przekazaniu pliku wideo usługa Video Indexer rozpocznie jego indeksowanie i analizowanie. Zobaczysz postęp. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Przekaż":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Postęp przekazywania":::
 1. Po zakończeniu analizy Video Indexer otrzymasz wiadomość e-mail z linkiem do wideo i krótkim opisem tego, co zostało znalezione w filmie wideo. Na przykład: ludzie, mówiony i pisany wyraz, tematy i nazwane jednostki.
 1. Film wideo można później znaleźć na liście biblioteka i wykonać różne operacje. Na przykład: Wyszukaj, ponownie Indeksuj, Edytuj.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Przekaż":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Przekazane przekazywanie":::
  
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Aby uzyskać więcej informacji [, zobacz Przekazywanie i indeksowanie filmów wideo](upload-index-videos.md) .
 

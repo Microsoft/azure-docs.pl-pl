@@ -4,12 +4,12 @@ description: Skalowanie automatyczne w Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567268"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505841"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Omówienie automatycznego skalowania w Microsoft Azure
 W tym artykule opisano, co Microsoft Azure automatyczne skalowanie, jego zalety oraz jak rozpocząć korzystanie z niego.  
@@ -63,9 +63,9 @@ Skalowanie automatyczne wykorzystuje następującą terminologię i strukturę.
 
   - **Profil skalowania automatycznego** jest kombinacją:
 
-    - **ustawienie wydajności**, które wskazuje wartości minimalne, maksymalne i domyślne dla liczby wystąpień.
-    - **zestaw reguł**, z których każdy obejmuje wyzwalacz (czas lub metrykę) oraz akcję skalowania (w górę lub w dół).
-    - **cykl**wskazujący, że funkcja automatycznego skalowania powinna umieścić ten profil w efekcie.
+    - **ustawienie wydajności** , które wskazuje wartości minimalne, maksymalne i domyślne dla liczby wystąpień.
+    - **zestaw reguł** , z których każdy obejmuje wyzwalacz (czas lub metrykę) oraz akcję skalowania (w górę lub w dół).
+    - **cykl** wskazujący, że funkcja automatycznego skalowania powinna umieścić ten profil w efekcie.
 
       Można korzystać z wielu profilów, co pozwala na korzystanie z różnych nakładających się wymagań. Można mieć różne profile skalowania automatycznego dla różnych godzin dnia lub dni tygodnia, na przykład.
 
@@ -89,7 +89,7 @@ Natomiast skalowanie w pionie jest inne. Zachowuje tę samą liczbę maszyn wirt
 ## <a name="methods-of-access"></a>Metody dostępu
 Można skonfigurować Skalowanie automatyczne za pomocą
 
-* [Azure Portal](autoscale-get-started.md)
+* [Witryna Azure Portal](autoscale-get-started.md)
 * [Program PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 * [Międzyplatformowy interfejs wiersza polecenia (CLI)](../samples/cli-samples.md#autoscale)
 * [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/autoscalesettings)
@@ -102,7 +102,7 @@ Można skonfigurować Skalowanie automatyczne za pomocą
 | Virtual Machines: klasyczny |[Skalowanie klasycznych zestawów dostępności maszyn wirtualnych](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Virtual Machines: zestawy skalowania systemu Windows |[Skalowanie zestawów skalowania maszyn wirtualnych w systemie Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: zestawy skalowania systemu Linux |[Skalowanie zestawów skalowania maszyn wirtualnych w systemie Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtual Machines: przykład systemu Windows |[Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: przykład systemu Windows |[Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets](autoscale-virtual-machine-scale-sets.md) |
 | Azure App Service |[Skalowanie aplikacji w górę w usłudze Azure App Service](../../app-service/manage-scale-up.md)|
 | Usługa API Management|[Automatyczne skalowanie wystąpienia usługi Azure API Management](../../api-management/api-management-howto-autoscale.md)
 | Klastry usługi Azure Eksplorator danych|[Zarządzaj skalowaniem klastrów Eksplorator danych platformy Azure w celu uwzględnienia zmiany popytu](/azure/data-explorer/manage-cluster-horizontal-scaling)|

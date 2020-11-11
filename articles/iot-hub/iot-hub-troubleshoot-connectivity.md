@@ -13,12 +13,14 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: f7073fbf39344fe39e179d55a5a8f395a6ba6240
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+- fasttrack-edit
+- iot
+ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357428"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506400"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z połączeniami z platformą Azure IoT Hub
 
@@ -159,6 +161,11 @@ AzureDiagnostics
 Jako deweloper rozwiązań IoT lub operator korzystasz z tego zachowania, aby interpretować zdarzenia łączenia/rozłączania i pokrewne błędy w dziennikach. Jeśli chcesz zmienić zachowanie cykl życia tokenu lub odnowienia dla urządzeń, sprawdź, czy urządzenie implementuje ustawienie pojedynczej urządzenia lub metodę urządzenia, która to możliwe.
 
 Jeśli monitorujesz połączenia urządzeń za pomocą centrum zdarzeń, upewnij się, że kompilujesz się w sposób filtrowania okresowych odłączeń z powodu odnowienia tokenu SAS; na przykład przez niewyzwalanie akcji na podstawie rozłączeń, o ile następuje zdarzenie Connect w określonym przedziale czasu.
+
+> [!NOTE]
+> IoT Hub obsługuje tylko jedno aktywne połączenie MQTT dla każdego urządzenia. Każde nowe połączenie MQTT w imieniu tego samego identyfikatora urządzenia powoduje, że IoT Hub porzucić istniejące połączenie.
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection zostanie zalogowany do dzienników IoT Hub
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>Podjęto próbę wykonania czynności, ale nie zadziałały
 

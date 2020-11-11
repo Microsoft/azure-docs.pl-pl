@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952169"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504481"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro
 
@@ -25,7 +25,7 @@ W tym samouczku opisano sposób konfigurowania roli obliczeniowej na urządzeniu
 Wykonanie tej procedury może potrwać około 10 do 15 minut.
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -58,12 +58,12 @@ W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hu
    
     |Pole  |Wartość  |
     |---------|---------|
-    |IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
     |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
 
     ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. Wybierz pozycję **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. 
+4. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. 
 
     ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
@@ -90,7 +90,7 @@ W przypadku prostego wdrażania w tym samouczku potrzebne są dwa udziały: jede
 
     3. W bloku **Dodaj udział** Podaj nazwę udziału i wybierz typ udziału.
     4. Aby zainstalować udział brzegowy, zaznacz pole wyboru **Użyj opcji Udostępnij przy użyciu obliczeń brzegowych**.
-    5. Wybierz **konto magazynu**, **usługę magazynu**, istniejącego użytkownika, a następnie wybierz pozycję **Utwórz**.
+    5. Wybierz **konto magazynu** , **usługę magazynu** , istniejącego użytkownika, a następnie wybierz pozycję **Utwórz**.
 
         ![Dodawanie udziału brzegowego](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -148,23 +148,23 @@ Ostatnim krokiem jest upewnienie się, że moduł jest połączony i działa zgo
 
 Wykonaj poniższe kroki, aby sprawdzić, czy moduł jest uruchomiony:
 
-1. Wybierz kafelek **Dodawanie modułu** . Spowoduje to przejście do bloku **moduły** . Na liście modułów Zidentyfikuj wdrożony moduł. Powinien być *uruchomiony*stan środowiska uruchomieniowego modułu, który został dodany.
+1. Wybierz kafelek **Dodawanie modułu** . Spowoduje to przejście do bloku **moduły** . Na liście modułów Zidentyfikuj wdrożony moduł. Powinien być *uruchomiony* stan środowiska uruchomieniowego modułu, który został dodany.
 
     ![Wyświetl wdrożony moduł](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-3.png)
  
-1.   W Eksploratorze plików Połącz się z utworzonymi wcześniej udziałami lokalnymi i krawędziami krawędzi.
+1. W Eksploratorze plików Połącz się z utworzonymi wcześniej udziałami lokalnymi i krawędziami krawędzi.
 
     ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
-1.   Dodaj dane do udziału lokalnego.
+1. Dodaj dane do udziału lokalnego.
 
     ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
-    Dane zostaną przeniesione do udziału chmurowego.
+   Dane zostaną przeniesione do udziału chmurowego.
 
     ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
-    Następnie dane zostaną wypchnięte z udziału chmurowego na konto magazynu. Aby wyświetlić dane, można użyć Eksplorator usługi Storage.
+   Następnie dane zostaną wypchnięte z udziału chmurowego na konto magazynu. Aby wyświetlić dane, można użyć Eksplorator usługi Storage.
 
     <!--![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-5.png)-->
  

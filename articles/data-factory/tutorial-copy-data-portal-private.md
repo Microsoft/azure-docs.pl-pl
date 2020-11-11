@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: c08dd1b5b2f90e874f36c6cf01c4cc5f5ae74d17
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636259"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505992"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Bezpieczne kopiowanie danych z usługi Azure Blob Storage do bazy danych SQL za pomocą prywatnych punktów końcowych
 
@@ -35,9 +35,9 @@ W tym samouczku wykonasz następujące czynności:
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Subskrypcja platformy Azure** . Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Konto usługi Azure Storage** . Magazyn obiektów blob jest używany jako magazyn danych będący *źródłem* . Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md?tabs=azure-portal). *Upewnij się, że konto magazynu zezwala na dostęp tylko z wybranych sieci.* 
-* **Azure SQL Database** . Baza danych jest używana jako magazyn danych będący *ujściem* . Jeśli nie masz bazy danych SQL Azure, zobacz [Tworzenie bazy danych SQL](../azure-sql/database/single-database-create-quickstart.md) w celu wykonania czynności. *Upewnij się, że konto SQL Database zezwala na dostęp tylko z wybranych sieci.* 
+* **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+* **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych będący *źródłem*. Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md?tabs=azure-portal). *Upewnij się, że konto magazynu zezwala na dostęp tylko z wybranych sieci.* 
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych będący *ujściem*. Jeśli nie masz bazy danych SQL Azure, zobacz [Tworzenie bazy danych SQL](../azure-sql/database/single-database-create-quickstart.md) w celu wykonania czynności. *Upewnij się, że konto SQL Database zezwala na dostęp tylko z wybranych sieci.* 
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Tworzenie obiektu blob i tabeli SQL
 
@@ -53,34 +53,34 @@ Teraz możesz przygotować magazyn obiektów blob i bazę danych SQL na potrzeby
     Jane,Doe
     ```
 
-1. Utwórz kontener o nazwie **adftutorial** w magazynie obiektów BLOB. W tym kontenerze utwórz folder o nazwie **input** . Następnie przekaż plik **emp.txt** do folderu **input** . Do wykonania tych zadań użyj witryny Azure Portal lub narzędzi takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
+1. Utwórz kontener o nazwie **adftutorial** w magazynie obiektów BLOB. W tym kontenerze utwórz folder o nazwie **input**. Następnie przekaż plik **emp.txt** do folderu **input**. Do wykonania tych zadań użyj witryny Azure Portal lub narzędzi takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
 #### <a name="create-a-sink-sql-table"></a>Tworzenie tabeli SQL ujścia
 
 Utwórz tabelę **dbo.emp** w bazie danych SQL przy użyciu poniższego skryptu SQL:
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usługi Data Factory, aby utworzyć potok w fabryce danych.
 
 1. Otwórz przeglądarkę Microsoft Edge lub Google Chrome. Obecnie tylko przeglądarki sieci Web Microsoft Edge i Google Chrome obsługują interfejs użytkownika Data Factory.
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Analytics**  >  **Data Factory** .
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Analytics**  >  **Data Factory**.
 
-1. Na stronie **Nowa fabryka danych** w polu **Nazwa** wprowadź wartość **ADFTutorialDataFactory** .
+1. Na stronie **Nowa fabryka danych** w polu **Nazwa** wprowadź wartość **ADFTutorialDataFactory**.
 
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa* . Jeśli zostanie wyświetlony komunikat o błędzie dotyczący wartości nazwy, wprowadź inną nazwę fabryki danych (na przykład Twojanazwaadftutorialdatafactory). Reguły nazewnictwa dla artefaktów usługi Data Factory można znaleźć w artykule [Data Factory — reguły nazewnictwa](./naming-rules.md).
+   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony komunikat o błędzie dotyczący wartości nazwy, wprowadź inną nazwę fabryki danych (na przykład Twojanazwaadftutorialdatafactory). Reguły nazewnictwa dla artefaktów usługi Data Factory można znaleźć w artykule [Data Factory — reguły nazewnictwa](./naming-rules.md).
 
 1. Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
 
@@ -91,11 +91,11 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
      
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 
-1. W obszarze **Wersja** wybierz pozycję **V2** .
+1. W obszarze **Wersja** wybierz pozycję **V2**.
 
 1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 
 1. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** .
 
@@ -110,10 +110,10 @@ W tym kroku utworzysz środowisko Azure Integration Runtime i włączysz Data Fa
 1. Wybierz utworzenie środowiska **Azure** Integration Runtime.
 
    ![Zrzut ekranu pokazujący nowe środowisko Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
-1. W obszarze **Konfiguracja sieci wirtualnej (wersja zapoznawcza)** wybierz pozycję **Włącz** .
+1. W obszarze **Konfiguracja sieci wirtualnej (wersja zapoznawcza)** wybierz pozycję **Włącz**.
 
    ![Zrzut ekranu pokazujący włączenie nowego środowiska Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 W tym kroku utworzysz potok z działaniem kopiowania w fabryce danych. Działanie kopiowania kopiuje dane z magazynu obiektów blob do usługi SQL Database. W [samouczku szybkiego startu](./quickstart-create-data-factory-portal.md) utworzono potok, wykonując następujące czynności:
@@ -124,7 +124,7 @@ W tym kroku utworzysz potok z działaniem kopiowania w fabryce danych. Działani
 
 W tym samouczku Zacznij od utworzenia potoku. Następnie utworzysz usługi połączone i zestawy danych, gdy będą potrzebne do skonfigurowania potoku.
 
-1. Na stronie **Zaczynajmy** wybierz pozycję **Utwórz potok** .
+1. Na stronie **Zaczynajmy** wybierz pozycję **Utwórz potok**.
 
    ![Zrzut ekranu przedstawiający tworzenie potoku.](./media/doc-common-process/get-started-page.png)
 1. W okienku właściwości potoku wpisz **CopyPipeline** dla nazwy potoku.
@@ -144,33 +144,33 @@ W tym samouczku Zacznij od utworzenia potoku. Następnie utworzysz usługi poł�
 
 1. Przejdź do karty **Źródło** . Wybierz pozycję **+ Nowy** , aby utworzyć źródłowy zestaw danych.
 
-1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage** , a następnie wybierz pozycję **Kontynuuj** . Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
+1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage** , a następnie wybierz pozycję **Kontynuuj**. Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
 
-1. W oknie dialogowym **Wybieranie formatu** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj** .
+1. W oknie dialogowym **Wybieranie formatu** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
 
-1. W oknie dialogowym **Ustawianie właściwości** wpisz **SourceBlobDataset** w polu **Nazwa** . Zaznacz pole wyboru dla **pierwszego wiersza jako nagłówek** . W polu tekstowym **połączona usługa** wybierz pozycję **+ Nowy** .
+1. W oknie dialogowym **Ustawianie właściwości** wpisz **SourceBlobDataset** w polu **Nazwa**. Zaznacz pole wyboru dla **pierwszego wiersza jako nagłówek**. W polu tekstowym **połączona usługa** wybierz pozycję **+ Nowy**.
 
 1. W oknie dialogowym **Nowa połączona usługa (Azure Blob Storage)** wprowadź **AzureStorageLinkedService** jako **nazwę** , a następnie wybierz konto magazynu z listy **nazwa konta magazynu** . 
 
-1. Upewnij się, że włączono funkcję **interaktywnego tworzenia** . Włączenie może potrwać około jednej minuty.
+1. Upewnij się, że włączono funkcję **interaktywnego tworzenia**. Włączenie może potrwać około jednej minuty.
 
     ![Zrzut ekranu pokazujący interaktywną autorstwo.](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
 
-1. Wybierz pozycję **Testuj połączenie** . W przypadku, gdy konto magazynu zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w [następnej sekcji](#create-a-managed-private-endpoint) , aby utworzyć zarządzany prywatny punkt końcowy.
+1. Wybierz **Test connection**. W przypadku, gdy konto magazynu zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w [następnej sekcji](#create-a-managed-private-endpoint) , aby utworzyć zarządzany prywatny punkt końcowy.
 
    > [!NOTE]
-   > Karta **Zarządzanie** może być niedostępna dla wszystkich wystąpień usługi Fabryka danych. Jeśli nie widzisz go, możesz uzyskać dostęp do prywatnych punktów końcowych, wybierając pozycję **Tworzenie**  >  **połączeń**  >  **prywatny punkt końcowy** .
+   > Karta **Zarządzanie** może być niedostępna dla wszystkich wystąpień usługi Fabryka danych. Jeśli nie widzisz go, możesz uzyskać dostęp do prywatnych punktów końcowych, wybierając pozycję **Tworzenie**  >  **połączeń**  >  **prywatny punkt końcowy**.
 1. Pozostaw otwarte okno dialogowe, a następnie przejdź do konta magazynu.
 
 1. Postępuj zgodnie z instrukcjami w [tej sekcji](#approval-of-a-private-link-in-a-storage-account) , aby zatwierdzić link prywatny.
 
 1. Wróć do okna dialogowego. Wybierz ponownie **Test connection** i wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
-1. Po utworzeniu połączonej usługi powraca do strony **Ustawianie właściwości** . Wybierz przycisk **Przeglądaj** obok pozycji **Ścieżka pliku** .
+1. Po utworzeniu połączonej usługi powraca do strony **Ustawianie właściwości** . Wybierz przycisk **Przeglądaj** obok pozycji **Ścieżka pliku**.
 
-1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK** .
+1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
 
-1. Wybierz przycisk **OK** . Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych** .
+1. Wybierz przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
 
     ![Zrzut ekranu pokazujący źródłowy zestaw danych.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
 
@@ -181,19 +181,19 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 1. Przejdź na kartę **Zarządzanie** .
 
    > [!NOTE]
-   > Karta **Zarządzanie** może być niedostępna dla wszystkich wystąpień Data Factory. Jeśli nie widzisz go, możesz uzyskać dostęp do prywatnych punktów końcowych, wybierając pozycję **Tworzenie**  >  **połączeń**  >  **prywatny punkt końcowy** .
+   > Karta **Zarządzanie** może być niedostępna dla wszystkich wystąpień Data Factory. Jeśli nie widzisz go, możesz uzyskać dostęp do prywatnych punktów końcowych, wybierając pozycję **Tworzenie**  >  **połączeń**  >  **prywatny punkt końcowy**.
 
 1. Przejdź do sekcji **zarządzane prywatne punkty końcowe** .
 
-1. Wybierz pozycję **+ Nowy** w obszarze **zarządzane prywatne punkty końcowe** .
+1. Wybierz pozycję **+ Nowy** w obszarze **zarządzane prywatne punkty końcowe**.
 
     ![Zrzut ekranu pokazujący zarządzany przycisk nowy prywatny punkt końcowy.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
 
-1. Wybierz kafelek **BLOB Storage platformy Azure** z listy, a następnie wybierz pozycję **Kontynuuj** .
+1. Wybierz kafelek **BLOB Storage platformy Azure** z listy, a następnie wybierz pozycję **Kontynuuj**.
 
 1. Wprowadź nazwę utworzonego konta magazynu.
 
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 
 1. Po kilku sekundach powinna zostać wyświetlona, że utworzone łącze prywatne wymaga zatwierdzenia.
 
@@ -204,11 +204,11 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>Zatwierdzanie prywatnego linku na koncie magazynu
 1. Na koncie magazynu przejdź do pozycji **prywatne połączenia punktów końcowych** w sekcji **Ustawienia** .
 
-1. Zaznacz pole wyboru dla utworzonego prywatnego punktu końcowego, a następnie wybierz pozycję **Zatwierdź** .
+1. Zaznacz pole wyboru dla utworzonego prywatnego punktu końcowego, a następnie wybierz pozycję **Zatwierdź**.
 
     ![Zrzut ekranu przedstawiający przycisk Zatwierdź dla prywatnego punktu końcowego.](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
-1. Dodaj opis i wybierz opcję **tak** .
+1. Dodaj opis i wybierz opcję **tak**.
 1. Wróć do sekcji **zarządzane prywatne punkty końcowe** na karcie **Zarządzanie** w Data Factory.
 1. Po około jednej lub dwóch minut powinna zostać wyświetlona informacja o zatwierdzeniu prywatnego punktu końcowego wyświetlana w interfejsie użytkownika Data Factory.
 
@@ -222,24 +222,24 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 #### <a name="create-a-sink-dataset-and-linked-service"></a>Tworzenie zestawu danych ujścia i połączonej usługi
 1. Przejdź do karty **Ujście** , a następnie wybierz pozycję **+ Nowy** , aby utworzyć zestaw danych będący ujściem.
 
-1. W oknie dialogowym **Nowy zestaw danych** wprowadź **SQL** w polu wyszukiwania, aby odfiltrować łączniki. Wybierz pozycję **Azure SQL Database** , a następnie wybierz pozycję **Kontynuuj** . W tym samouczku skopiujesz dane do bazy danych SQL.
+1. W oknie dialogowym **Nowy zestaw danych** wprowadź **SQL** w polu wyszukiwania, aby odfiltrować łączniki. Wybierz pozycję **Azure SQL Database** , a następnie wybierz pozycję **Kontynuuj**. W tym samouczku skopiujesz dane do bazy danych SQL.
 
-1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu **Nazwa** . Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy** . Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których usługa Data Factory używa do nawiązywania połączenia z usługą SQL Database w środowisku uruchomieniowym. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
+1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu **Nazwa**. Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy**. Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których usługa Data Factory używa do nawiązywania połączenia z usługą SQL Database w środowisku uruchomieniowym. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
 
 1. W oknie dialogowym **Nowa połączona usługa (Azure SQL Database)** wykonaj następujące czynności:
 
-    1. W obszarze **Nazwa** wprowadź wartość **AzureSqlDatabaseLinkedService** .
+    1. W obszarze **Nazwa** wprowadź wartość **AzureSqlDatabaseLinkedService**.
     1. W polu **Nazwa serwera** wybierz swoje wystąpienie programu SQL Server.
-    1. Upewnij się, że włączono funkcję **interaktywnego tworzenia** .
+    1. Upewnij się, że włączono funkcję **interaktywnego tworzenia**.
     1. W polu **Nazwa bazy danych** wybierz swoją usługę SQL Database.
     1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika.
     1. W polu **Hasło** wprowadź hasło użytkownika.
-    1. Wybierz pozycję **Testuj połączenie** . Nie powinno to być spowodowane tym, że program SQL Server zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed jego użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w następnej sekcji, aby utworzyć zarządzany prywatny punkt końcowy.
+    1. Wybierz **Test connection**. Nie powinno to być spowodowane tym, że program SQL Server zezwala na dostęp tylko z **wybranych sieci** i wymaga Data Factory do utworzenia prywatnego punktu końcowego, który powinien zostać zatwierdzony przed jego użyciem. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w następnej sekcji, aby utworzyć zarządzany prywatny punkt końcowy.
     1. Pozostaw otwarte okno dialogowe, a następnie przejdź do wybranego serwera SQL.
     1. Postępuj zgodnie z instrukcjami w [tej sekcji](#approval-of-a-private-link-in-sql-server) , aby zatwierdzić link prywatny.
     1. Wróć do okna dialogowego. Wybierz ponownie **Test connection** i wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
-1. Automatycznie przechodzi do okna dialogowego **Ustawianie właściwości** . W obszarze **Tabela** wybierz pozycję **[dbo].[emp]** . Następnie wybierz przycisk **OK** .
+1. Automatycznie przechodzi do okna dialogowego **Ustawianie właściwości** . W obszarze **Tabela** wybierz pozycję **[dbo].[emp]**. Następnie wybierz przycisk **OK**.
 
 1. Przejdź do karty z potokiem i w **zestawie danych ujścia** , upewnij się, że wybrano opcję **OutputSqlDataset** .
 
@@ -253,21 +253,21 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 
 1. Przejdź na kartę **Zarządzanie** .
 1. Przejdź do sekcji **zarządzane prywatne punkty końcowe** .
-1. Wybierz pozycję **+ Nowy** w obszarze **zarządzane prywatne punkty końcowe** .
+1. Wybierz pozycję **+ Nowy** w obszarze **zarządzane prywatne punkty końcowe**.
 
     ![Zrzut ekranu pokazujący zarządzany przycisk nowy prywatny punkt końcowy.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
 
-1. Wybierz kafelek **Azure SQL Database** z listy, a następnie wybierz pozycję **Kontynuuj** .
+1. Wybierz kafelek **Azure SQL Database** z listy, a następnie wybierz pozycję **Kontynuuj**.
 1. Wprowadź nazwę wybranego programu SQL Server.
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 1. Po kilku sekundach powinna zostać wyświetlona, że utworzone łącze prywatne wymaga zatwierdzenia.
 1. Wybierz utworzony prywatny punkt końcowy. Można wyświetlić hiperłącze, które umożliwi zatwierdzenie prywatnego punktu końcowego na poziomie programu SQL Server.
 
 
 #### <a name="approval-of-a-private-link-in-sql-server"></a>Zatwierdzanie prywatnego linku w SQL Server
 1. W programie SQL Server przejdź do pozycji **prywatne połączenia punktów końcowych** w sekcji **Ustawienia** .
-1. Zaznacz pole wyboru dla utworzonego prywatnego punktu końcowego, a następnie wybierz pozycję **Zatwierdź** .
-1. Dodaj opis i wybierz opcję **tak** .
+1. Zaznacz pole wyboru dla utworzonego prywatnego punktu końcowego, a następnie wybierz pozycję **Zatwierdź**.
+1. Dodaj opis i wybierz opcję **tak**.
 1. Wróć do sekcji **zarządzane prywatne punkty końcowe** na karcie **Zarządzanie** w Data Factory.
 1. Zatwierdzenie dla prywatnego punktu końcowego powinno potrwać jedną lub dwie minuty.
 
@@ -275,9 +275,9 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 
 Przed opublikowaniem artefaktów (połączone usługi, zestawy danych i potok) w usłudze Data Factory lub własnym repozytorium Git usługi Azure Repos możesz debugować potok.
 
-1. Aby debugować potok, wybierz na pasku narzędzi pozycję **Debuguj** . Na karcie **Dane wyjściowe** w dolnej części okna wyświetlany jest stan uruchomienia potoku.
-1. Po pomyślnym uruchomieniu potoku na górnym pasku narzędzi wybierz pozycję **Opublikuj wszystko** . Ta akcja publikuje jednostki (zestawy danych i potoki) utworzone w celu Data Factory.
-1. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano** . Aby wyświetlić komunikaty powiadomień, wybierz pozycję **Pokaż powiadomienia** w prawym górnym rogu (przycisk dzwonka).
+1. Aby debugować potok, wybierz na pasku narzędzi pozycję **Debuguj**. Na karcie **Dane wyjściowe** w dolnej części okna wyświetlany jest stan uruchomienia potoku.
+1. Po pomyślnym uruchomieniu potoku na górnym pasku narzędzi wybierz pozycję **Opublikuj wszystko**. Ta akcja publikuje jednostki (zestawy danych i potoki) utworzone w celu Data Factory.
+1. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**. Aby wyświetlić komunikaty powiadomień, wybierz pozycję **Pokaż powiadomienia** w prawym górnym rogu (przycisk dzwonka).
 
 
 #### <a name="summary"></a>Podsumowanie

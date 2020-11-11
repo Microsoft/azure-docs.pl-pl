@@ -2,16 +2,16 @@
 title: 'Szybki Start: Tworzenie aplikacji w języku Python'
 description: Rozpocznij pracę z Azure App Service, wdrażając pierwszą aplikację w języku Python w kontenerze systemu Linux w programie App Service.
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: c77465997f74d0f279080a68fd317af0d161127a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357525"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506196"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
@@ -34,7 +34,7 @@ Otwórz okno terminalu i sprawdź, czy wersja języka Python to 3,6 lub nowszego
 python3 --version
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```cmd
 py -3 --version
@@ -64,7 +64,7 @@ To polecenie umożliwia otwarcie przeglądarki w celu zebrania poświadczeń. Po
 
 Po zalogowaniu możesz uruchamiać polecenia platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure, aby pracować z zasobami w ramach subskrypcji.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clone-the-sample"></a>Klonowanie przykładu
 
@@ -96,7 +96,7 @@ cd python-docs-hello-django
 
 Przykład zawiera kod specyficzny dla platformy, który Azure App Service rozpoznawany podczas uruchamiania aplikacji. Aby uzyskać więcej informacji, zobacz temat [proces uruchamiania kontenera](configure-language-python.md#container-startup-process).
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
@@ -146,7 +146,7 @@ Przykład zawiera kod specyficzny dla platformy, który Azure App Service rozpoz
 1. W oknie terminalu naciśnij klawisz **Ctrl** , + Aby wyjść **z** serwera deweloperskiego.
 ::: zone-end
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="deploy-the-sample"></a>Wdróż przykład
 
@@ -167,13 +167,13 @@ Wykonanie polecenia może potrwać kilka minut. W trakcie korzystania z programu
 
 ![Przykładowe dane wyjściowe polecenia AZ webapp up](./media/quickstart-python/az-webapp-up-output.png)
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? Najpierw zapoznaj się z [przewodnikiem rozwiązywania problemów](configure-language-python.md#troubleshooting), w przeciwnym razie [daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
-Przejdź do wdrożonej aplikacji w przeglądarce sieci Web pod adresem URL `http://<app-name>.azurewebsites.net` . Początkowo uruchamianie aplikacji trwa kilka chwil.
+Przejdź do wdrożonej aplikacji w przeglądarce sieci Web pod adresem URL `http://<app-name>.azurewebsites.net` . Uruchomienie aplikacji może potrwać minutę lub dwa, więc jeśli zostanie wyświetlona domyślna strona aplikacji, poczekaj chwilę i Odśwież przeglądarkę.
 
 Przykładowy kod w języku Python używa kontenera systemu Linux w App Service przy użyciu wbudowanego obrazu.
 
@@ -181,7 +181,7 @@ Przykładowy kod w języku Python używa kontenera systemu Linux w App Service p
 
 **Gratulacje!** Twoja aplikacja w języku Python została wdrożona w celu App Service.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? Najpierw zapoznaj się z [przewodnikiem rozwiązywania problemów](configure-language-python.md#troubleshooting), w przeciwnym razie [daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="redeploy-updates"></a>Wdróż ponownie aktualizacje
 
@@ -218,7 +218,7 @@ Po zakończeniu wdrażania Przełącz się z powrotem do okna przeglądarki otwa
 
 ![Uruchamianie zaktualizowanej przykładowej aplikacji w języku Python na platformie Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? Najpierw zapoznaj się z [przewodnikiem rozwiązywania problemów](configure-language-python.md#troubleshooting), w przeciwnym razie [daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!TIP]
 > Visual Studio Code zapewnia zaawansowane rozszerzenia dla języka Python i Azure App Service, co upraszcza proces wdrażania aplikacji sieci Web w języku Python w App Service. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji w języku Python do App Service z Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
@@ -241,7 +241,7 @@ Pliki dzienników można także sprawdzać w przeglądarce pod adresem `https://
 
 Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, naciśnij klawisz **Ctrl** + **C** w terminalu.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="manage-the-azure-app"></a>Zarządzanie aplikacją platformy Azure
 
@@ -259,7 +259,7 @@ Wybranie aplikacji spowoduje otwarcie jej strony **Przegląd** , na której moż
 
 Menu App Service zawiera różne strony służące do konfigurowania aplikacji.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? Najpierw zapoznaj się z [przewodnikiem rozwiązywania problemów](configure-language-python.md#troubleshooting), w przeciwnym razie [daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -275,7 +275,7 @@ Polecenie używa nazwy grupy zasobów zapisanej w pamięci podręcznej w pliku *
 
 `--no-wait`Argument umożliwia zwrócenie polecenia przed ukończeniem operacji.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+Masz problemy? [Daj nam znać](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="next-steps"></a>Następne kroki
 

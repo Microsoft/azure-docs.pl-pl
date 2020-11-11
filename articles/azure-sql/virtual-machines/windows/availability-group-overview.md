@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146692"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504394"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Zawsze włączona Grupa dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,27 +72,26 @@ Aby rozpocząć, zobacz [Konfigurowanie odbiornika DNN](availability-group-distr
 
 Istnieje wiele opcji wdrażania grupy dostępności do SQL Server na maszynach wirtualnych platformy Azure, a w przypadku większej automatyzacji niż inne. 
 
-Poniższa tabela zawiera porównanie dostępnych opcji: 
+Poniższa tabela zawiera porównanie dostępnych opcji:
 
-| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[Interfejs wiersza polecenia platformy Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)**|**[Ręcznie](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Witryna Azure Portal | Interfejs wiersza polecenia platformy Azure/PowerShell | Szablony szybkiego startu | Ręcznie |
+|---------|---------|---------|---------|---------|
 |**Wersja programu SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Wydanie programu SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, standard|
-|**Wersja systemu Windows Server**| 2016 + | 2016 + | 2016 + | Wszystko| 
+|**Wersja systemu Windows Server**| 2016 + | 2016 + | 2016 + | Wszystko|
 |**Tworzy dla Ciebie klaster**|Tak|Tak | Tak |Nie|
 |**Tworzy grupę dostępności dla Ciebie** |Tak |Nie|Nie|Nie|
 |**Tworzy odbiornik i moduł równoważenia obciążenia niezależnie** |Nie|Nie|Nie|Tak|
 |**Czy możliwe jest utworzenie odbiornika DNN przy użyciu tej metody?**|Nie|Nie|Nie|Tak|
-|**Konfiguracja kworum usługi WSFC** n|Monitor w chmurze|Monitor w chmurze|Monitor w chmurze|Wszystko|
+|**Konfiguracja kworum usługi WSFC**|Monitor w chmurze|Monitor w chmurze|Monitor w chmurze|Wszystko|
 |**Odzyskiwanie po awarii z wieloma regionami** |Nie|Nie|Nie|Tak|
 |**Obsługa wielosieciowa** |Tak|Tak|Tak|Tak|
 |**Obsługa istniejącej usługi AD**|Tak|Tak|Tak|Tak|
 |**Odzyskiwanie po awarii za pomocą wielostrefy w tym samym regionie**|Tak|Tak|Tak|Tak|
 |**Distributed AG bez usługi AD**|Nie|Nie|Nie|Tak|
 |**Dystrybucja AG bez klastra** |Nie|Nie|Nie|Tak|
-||||||
 
-
+Aby uzyskać więcej informacji, zobacz [Azure Portal](availability-group-azure-portal-configure.md), [interfejs wiersza polecenia platformy Azure/środowisko PowerShell](./availability-group-az-commandline-configure.md), [Szablony szybkiego startu](availability-group-quickstart-template-configure.md)i [Ręczne](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia 
 

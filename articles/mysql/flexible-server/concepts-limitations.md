@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650293"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504343"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Ograniczenia na serwerze elastycznym Azure Database for MySQL (wersja zapoznawcza)
 
@@ -23,9 +23,9 @@ W tym artykule opisano ograniczenia w Azure Database for MySQL elastycznej usłu
 ## <a name="server-parameters"></a>Parametry serwera
 
 > [!NOTE]
-> Jeśli szukasz minimalnej/maksymalnej wartości parametrów serwera, takich jak `max_connections` i `innodb_buffer_pool_size` , te informacje zostały przeniesione do pojęć związanych z parametrami serwera <!-- **[server parameters](./concepts-server-parameters.md)** --> (Jak działa usługa Azure RMS).
+> Jeśli szukasz minimalnej/maksymalnej wartości parametrów serwera, takich jak `max_connections` i `innodb_buffer_pool_size` , te informacje zostały przeniesione do artykułu [Parametry](./concepts-server-parameters.md) serwera pojęcia dotyczące parametrów serwera.
 
-Azure Database for MySQL obsługuje dostrajanie wartości parametrów serwera. Wartość minimalna i maksymalna niektórych parametrów (np. `max_connections`, `join_buffer_size` , `query_cache_size` ) zależy od warstwy obliczeniowej i rozmiaru obliczeniowego serwera. Zapoznaj się z pojęciami dotyczącymi parametrów serwera <!-- [server parameters](./concepts-server-parameters.md)--> Aby uzyskać więcej informacji na temat tych limitów.
+Azure Database for MySQL obsługuje dostrajanie wartości parametrów serwera. Wartość minimalna i maksymalna niektórych parametrów (np. `max_connections`, `join_buffer_size` , `query_cache_size` ) zależy od warstwy obliczeniowej i rozmiaru obliczeniowego serwera. Aby uzyskać więcej informacji na temat tych limitów, zapoznaj się z [parametrami serwera](./concepts-server-parameters.md) .
 
 Wtyczki hasła, takie jak "validate_password" i "caching_sha2_password", nie są obsługiwane przez usługę.
 
@@ -67,8 +67,8 @@ Następujące elementy nie są obsługiwane:
 - Tę konfigurację można ustawić tylko podczas tworzenia serwera.
 - Nieobsługiwane w warstwie obliczeniowej z możliwością naliczania.
 
-### <a name="networking"></a>Networking
-- Nie można zmienić metody łączności po utworzeniu serwera. Jeśli serwer został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)*, nie można go zmienić na *publiczny dostęp (dozwolone adresy IP)* po utworzeniu i odwrotnie
+### <a name="networking"></a>Sieć
+- Nie można zmienić metody łączności po utworzeniu serwera. Jeśli serwer został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)* , nie można go zmienić na *publiczny dostęp (dozwolone adresy IP)* po utworzeniu i odwrotnie
 - Protokół TLS/SSL jest domyślnie włączony i nie można go wyłączyć.
 - Minimalna wersja protokołu TLS obsługiwana na serwerze to TLS 1.2. Aby dowiedzieć się więcej, zobacz [nawiązywanie połączenia za pomocą protokołu TLS/SSL](./how-to-connect-tls-ssl.md) .
 

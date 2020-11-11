@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441752"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505312"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurowanie przyspieszania procesora graficznego (GPU) dla usługi Windows Virtual Desktop
 
@@ -21,9 +21,12 @@ Pulpit wirtualny systemu Windows obsługuje renderowanie i kodowanie procesora G
 
 Postępuj zgodnie z instrukcjami w tym artykule, aby utworzyć maszynę wirtualną platformy Azure zoptymalizowaną pod kątem procesora GPU, dodać ją do puli hostów i skonfigurować do używania przyspieszenia procesora GPU na potrzeby renderowania i kodowania. W tym artykule przyjęto założenie, że masz już skonfigurowaną dzierżawę pulpitu wirtualnego systemu Windows.
 
-## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Wybieranie rozmiaru maszyny wirtualnej platformy Azure zoptymalizowanej pod kątem procesora GPU
+## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Wybierz odpowiedni rozmiar maszyny wirtualnej platformy Azure zoptymalizowany pod kątem procesora GPU
 
-Platforma Azure oferuje wiele [rozmiarów maszyn wirtualnych zoptymalizowanych pod kątem procesora GPU](/azure/virtual-machines/windows/sizes-gpu). Wybór właściwy dla puli hostów zależy od wielu czynników, w tym konkretnych obciążeń aplikacji, odpowiedniej jakości środowiska użytkownika i kosztów. Ogólnie rzecz biorąc, większe i wydajniejsze procesory GPU oferują lepsze środowisko użytkownika w danej gęstości użytkownika.
+Wybierz jedną z rozmiarów maszyn wirtualnych [z serii](/azure/virtual-machines/nv-series) [NVv3](/azure/virtual-machines/nvv3-series)lub [NVv4](/azure/virtual-machines/nvv4-series) . Są one dostosowane do wirtualizacji aplikacji i pulpitu oraz umożliwiają przyspieszenie użycia aplikacji i interfejsu użytkownika systemu Windows. Wybór właściwy dla puli hostów zależy od wielu czynników, w tym konkretnych obciążeń aplikacji, odpowiedniej jakości środowiska użytkownika i kosztów. Ogólnie rzecz biorąc, większe i wydajniejsze procesory GPU oferują lepsze środowisko użytkownika w danej gęstości użytkownika, podczas gdy mniejsze i ułamkowe rozmiary procesora GPU umożliwiają dokładniejszą kontrolę nad kosztami i jakością.
+
+>[!NOTE]
+>Maszyny wirtualne z serii NC, NCv2, Seria NCV3, ND i NDv2 na platformie Azure zwykle nie są odpowiednie dla hostów sesji usług pulpitu wirtualnego systemu Windows. Te maszyny wirtualne są dostosowane do wyspecjalizowanych, wysoko wydajnych narzędzi obliczeniowych lub uczenia maszynowego, takich jak te utworzone za pomocą technologii NVIDIA CUDA. Ogólne przyspieszenie aplikacji i pulpitu za pomocą technologii NVIDIA GPU wymaga licencjonowania sieci NVIDIA GRID; jest to zapewniane przez platformę Azure dla zalecanych rozmiarów maszyn wirtualnych, ale należy je oddzielnie rozmieścić dla maszyn wirtualnych z serii NC/ND.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Tworzenie puli hostów, Inicjowanie obsługi administracyjnej maszyny wirtualnej i Konfigurowanie grupy aplikacji
 
@@ -40,7 +43,7 @@ Należy również skonfigurować grupę aplikacji lub użyć domyślnej grupy ap
 
 Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N w systemie Windows, należy zainstalować odpowiednie sterowniki grafiki. Postępuj zgodnie z instrukcjami w obszarze [obsługiwane systemy operacyjne i sterowniki](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) , aby zainstalować sterowniki od odpowiedniego dostawcy grafiki, ręcznie lub przy użyciu rozszerzenia maszyny wirtualnej platformy Azure.
 
-Dla pulpitu wirtualnego systemu Windows są obsługiwane tylko sterowniki dystrybuowane przez platformę Azure. Ponadto w przypadku maszyn wirtualnych platformy Azure z procesorami GPU są obsługiwane tylko [Sterowniki sieci NVIDIA](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) dla systemu Windows.
+Dla pulpitu wirtualnego systemu Windows są obsługiwane tylko sterowniki dystrybuowane przez platformę Azure. W przypadku maszyn wirtualnych z serii NV platformy Azure z procesorami GPU firmy NVIDIA, tylko [sterowników NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers), a nie sterowników NVIDIA Tesla (cuda), obsługują Przyspieszenie GPU dla aplikacji ogólnego przeznaczenia i komputerów stacjonarnych.
 
 Po zainstalowaniu sterownika wymagane jest ponowne uruchomienie maszyny wirtualnej. Wykonaj kroki weryfikacji opisane powyżej, aby potwierdzić, że sterowniki grafiki zostały pomyślnie zainstalowane.
 
@@ -50,7 +53,7 @@ Domyślnie aplikacje i komputery stacjonarne działające w konfiguracjach wielo
 
 1. Połącz się z pulpitem maszyny wirtualnej przy użyciu konta z uprawnieniami administratora lokalnego.
 2. Otwórz menu Start i wpisz "gpedit. msc", aby otworzyć Edytor zasady grupy.
-3. Przejdź do węzła **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **środowisku sesji zdalnej**hosta sesji.
+3. Przejdź do węzła **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **środowisku sesji zdalnej** hosta sesji.
 4. Wybierz pozycję zasady **Użyj sprzętowych kart graficznych dla wszystkich sesji usługi pulpitu zdalnego** i **Ustaw dla tych zasad włączenie renderowania** procesora GPU w sesji zdalnej.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurowanie kodowania ramek z przyspieszeniem procesora GPU

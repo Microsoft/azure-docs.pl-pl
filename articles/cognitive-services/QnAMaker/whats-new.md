@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836881"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505244"
 ---
 # <a name="whats-new-in-qna-maker"></a>Co nowego w QnA Maker
 
@@ -23,6 +23,14 @@ Dowiedz się, co nowego w usłudze. Te elementy mogą wydawania informacji, wide
 
 Dowiedz się, co nowego w QnA Maker.
 
+### <a name="november-2020"></a>Listopad 2020 r.
+
+* Nowa wersja QnA Maker uruchomiona w bezpłatnej publicznej wersji zapoznawczej. Przeczytaj więcej [tutaj](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+* Uproszczone tworzenie zasobów
+* Obsługa kompleksowego regionu końcowego
+* Model klasyfikowania głębokiego uczenia
+* Czytelność maszyn w celu uzyskania dokładnych odpowiedzi
+  
 ### <a name="july-2020"></a>Lipiec 2020 r.
 
 * [Metadane: `OR` koniunkcja logiczna wielu par metadanych](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
@@ -56,7 +64,7 @@ Dowiedz się, co nowego w QnA Maker.
 
 * [Jawne ustawienie języka](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) dla wszystkich baz wiedzy w usłudze QNA Maker.
 
-### <a name="september-2019"></a>Wrzesień 2019 r.
+### <a name="september-2019"></a>Wrzesień 2019
 
 * Importowanie i eksportowanie w [formacie pliku xls](concepts/content-types.md)
 

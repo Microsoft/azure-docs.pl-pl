@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 07/22/2020
-ms.openlocfilehash: 265828cc34d73409b91c55be64b087d22f1a11f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/10/2020
+ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789594"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506026"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -36,7 +36,7 @@ Platforma Azure zarządza bazami danych i gwarantuje wysoką dostępność. Niek
 
 Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informacje na temat tego, czy funkcja jest częściowo czy w pełni obsługiwana w usłudze Azure SQL Database i wystąpieniu zarządzanym Azure SQL, z linkiem do dodatkowych informacji na temat tej funkcji.
 
-| **Funkcja** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
+| **Funkcja** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | [Zawsze szyfrowane](/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Tak — Zobacz artykuł [Magazyn certyfikatów](always-encrypted-certificate-store-configure.md) i magazyn [kluczy](always-encrypted-azure-key-vault-configure.md) | Tak — Zobacz artykuł [Magazyn certyfikatów](always-encrypted-certificate-store-configure.md) i magazyn [kluczy](always-encrypted-azure-key-vault-configure.md) |
 | [Zawsze włączone grupy dostępności](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [dostępność 99,99-99.995%](high-availability-sla.md) jest gwarantowana dla każdej bazy danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania w Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md) | [99,99 .% dostępności](high-availability-sla.md) jest gwarantowana dla każdej bazy danych i [nie może być zarządzana przez użytkownika](../managed-instance/transact-sql-tsql-differences-sql-server.md#availability). Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). Użyj [grup z obsługą trybu failover](auto-failover-group-overview.md) w celu skonfigurowania pomocniczego wystąpienia zarządzanego SQL w innym regionie. SQL Server wystąpień i SQL Database nie mogą być używane jako serwery pomocnicze dla wystąpienia zarządzanego SQL. |
@@ -72,7 +72,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 | [Strumień pliku](/sql/relational-databases/blob/filestream-sql-server) | Nie | [Nie](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Wyszukiwanie pełnotekstowe (operacje ft)](/sql/relational-databases/search/full-text-search) |  Tak, ale moduły dzielenia wyrazów innych firm nie są obsługiwane | Tak, ale [moduły dzielenia wyrazów innych firm nie są obsługiwane](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Funkcje](/sql/t-sql/functions/functions) | Większość — Zobacz pojedyncze funkcje | Tak — zobacz [procedury składowane, funkcje i różnice wyzwalaczy](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
-| [Optymalizacja w pamięci](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Tak — [warstwy Premium i krytyczne dla działania firmy obsługują tylko](../in-memory-oltp-overview.md) ograniczoną obsługę nietrwałych obiektów In-Memory, takich jak typy tabel | Tak — [tylko krytyczne dla działania firmy warstwy](../managed-instance/sql-managed-instance-paas-overview.md) |
+| [Optymalizacja w pamięci](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Tak w [warstwach usług premium i krytyczne dla działania firmy](../in-memory-oltp-overview.md).</br> Ograniczona obsługa nietrwałych In-Memory obiektów OLTP, takich jak zmienne tabeli zoptymalizowane pod kątem pamięci, w [warstwie usług](service-tier-hyperscale.md).| Tak w [krytyczne dla działania firmy warstwie usług](../managed-instance/sql-managed-instance-paas-overview.md) |
 | [Elementy języka](/sql/t-sql/language-elements/language-elements-transact-sql) | Większość — Zobacz pojedyncze elementy |  Tak — zobacz [różnice w języku T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Serwery połączone](/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nie — zobacz [zapytanie elastyczne](elastic-query-horizontal-partitioning.md) | Tak. Tylko [SQL Server i SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) bez transakcji rozproszonych. |
 | [Połączone serwery](/sql/relational-databases/linked-servers/linked-servers-database-engine) odczytane z plików (CSV, Excel)| Nie. Użyj [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) lub [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) jako alternatywy dla formatu CSV. | Nie. Użyj [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) lub [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) jako alternatywy dla formatu CSV. Śledź te żądania względem [elementu opinii o wystąpieniu zarządzanym SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
@@ -116,7 +116,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 
 Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako dodatkowa wartość do standardowych funkcji baz danych. Istnieje kilka usług zewnętrznych, których można używać z Azure SQL Database.
 
-| **Funkcja platformy** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
+| **Funkcja platformy** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | [Aktywna replikacja geograficzna](active-geo-replication-overview.md) | Tak — wszystkie warstwy usług inne niż skalowanie | Nie, zobacz [grupy autotrybu failover](auto-failover-group-overview.md) jako alternatywę |
 | [Grupy automatycznego trybu failover](auto-failover-group-overview.md) | Tak — wszystkie warstwy usług inne niż skalowanie | Tak, zobacz [grupy autotrybu failover](auto-failover-group-overview.md)|
@@ -144,7 +144,7 @@ Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako do
 | [Usługi SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services) | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez Azure SQL Database i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [tworzenie Azure-SSIS IR w ADF](../../data-factory/create-azure-ssis-integration-runtime.md). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez wystąpienie zarządzane SQL i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [Create Azure-SSIS IR in ADF](../../data-factory/create-azure-ssis-integration-runtime.md). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Nie — [zobacz Power BI](/power-bi/) | Nie — zamiast tego użyj raportów z podziałem na strony [Power BI](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) lub HOSTOWANIE usług SSRS na maszynie wirtualnej platformy Azure. Chociaż wystąpienie zarządzane SQL nie może uruchamiać usług SSRS jako usługi, może hostować [bazy danych wykazu usług SSRS](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) dla serwera raportowania zainstalowanego na maszynie wirtualnej platformy Azure przy użyciu uwierzytelniania SQL Server. |
 | [Szczegółowe informacje o wydajności zapytań (QPI)](query-performance-insight-use.md) | Tak | Nie. Użyj wbudowanych raportów w SQL Server Management Studio i Azure Data Studio. |
-| [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) | Częściowo, umożliwia ograniczony dostęp za pomocą [punktów końcowych sieci wirtualnej](vnet-service-endpoint-rule-overview.md) | Tak, wystąpienie zarządzane SQL jest wstrzykiwane w sieci wirtualnej klienta. Zobacz [podsieci](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) i Sieć [wirtualną](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
+| [Environment](../../virtual-network/virtual-networks-overview.md) | Częściowo, umożliwia ograniczony dostęp za pomocą [punktów końcowych sieci wirtualnej](vnet-service-endpoint-rule-overview.md) | Tak, wystąpienie zarządzane SQL jest wstrzykiwane w sieci wirtualnej klienta. Zobacz [podsieci](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) i Sieć [wirtualną](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | Punkt końcowy usługi sieci wirtualnej | [Tak](vnet-service-endpoint-rule-overview.md) | Nie |
 | Globalna komunikacja równorzędna sieci wirtualnej | Tak, za pomocą [prywatnego adresu IP i punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) | Nie, [wystąpienie zarządzane SQL nie jest obsługiwane](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) ze względu na [ograniczenie modułu równoważenia obciążenia w globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
@@ -152,7 +152,7 @@ Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako do
 
 Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują różne narzędzia danych, które mogą ułatwić zarządzanie danymi.
 
-| **Narzędzie** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
+| **Narzędzie** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | Witryna Azure Portal | Tak | Tak |
 | Interfejs wiersza polecenia platformy Azure | Tak | Tak|
@@ -173,7 +173,7 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 
 Możesz użyć różnych metod migracji, aby przenieść dane między SQL Server, Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL. Niektóre metody są w **trybie online** i pobierają wszystkie zmiany wprowadzone w źródle podczas przeprowadzania migracji, natomiast w metodach **offline** należy zatrzymać obciążenie, które modyfikuje dane ze źródła, podczas gdy migracja jest w toku.
 
-| **Źródło** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
+| **Element źródłowy** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | SQL Server (Premium, AzureVM, Amazon RDS) | **Online:** [usługa migracji danych (DMS)](/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [usługa migracji danych (DMS)](/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **W trybie offline:** Natywna kopia zapasowa/przywracanie, [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) |
 | Pojedyncza baza danych | **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [plik BACPAC (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9dcb2fa8be22c21cc2b005cce1bf8bb1c614381
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324263"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505074"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Szybki Start: Tworzenie dedykowanej puli SQL (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -59,6 +59,9 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 3. Wybierz pozycję **Dalej: Ustawienia dodatkowe**.
 4. Wybierz opcję **Brak** , aby zainicjować obsługę dedykowanej puli SQL bez danych. Pozostaw wybrane domyślne sortowanie.
+
+    Jeśli chcesz przywrócić dedykowaną pulę SQL z punktu przywracania, wybierz pozycję **punkt przywracania**. Aby uzyskać więcej informacji na temat przeprowadzania przywracania, zobacz [How to: Restore a existd SQL Pool](backuprestore/restore-sql-pool.md)
+
 ![dedykowany przepływ tworzenia puli SQL — karta Ustawienia dodatkowe.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. Wybierz pozycję **Przejrzyj i utwórz**.

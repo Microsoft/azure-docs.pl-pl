@@ -1,19 +1,19 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 332841d4ee4791cb8da1620aa292b05bbde74955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d701fe8dc19b3deaa05cf6f10643bdb1059aa1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88162758"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505759"
 ---
 | Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
@@ -23,7 +23,3 @@ ms.locfileid: "88162758"
 | Alerty dotyczące dzienników | 512 aktywnych reguł alertów na subskrypcję. 200 aktywnych reguł alertów dla zasobu. | Obsługa wywołań |
 | Grupy akcji |2 000 grup akcji na subskrypcję. | Obsługa wywołań |
 | Reguły alertów i długość opisu reguł akcji| Alerty przeszukiwania dzienników 4096 znaków<br/>Wszystkie inne 2048 znaków | Analogicznie jak domyślne |
-| Ustawienia skalowania automatycznego |100 na region na subskrypcję. | Analogicznie jak domyślne |
-| Profile skalowania automatycznego |20 profilów na ustawienie skalowania automatycznego. | Analogicznie jak domyślne |
-
-

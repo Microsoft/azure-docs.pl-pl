@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f519ac30468d197c14fcf53d386168ebde5cf8ac
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527796"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504360"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Pojęcia dotyczące serwerów w Azure Database for MariaDB
 W tym artykule przedstawiono zagadnienia i wytyczne dotyczące pracy z serwerami Azure Database for MariaDB.
@@ -45,11 +45,24 @@ Poniższe elementy zapewniają bezpieczny dostęp do bazy danych programu.
 | **Zapora** | Aby zapewnić ochronę danych, reguła zapory zapobiega wszystkim dostępowi do serwera bazy danych, dopóki nie określisz, które komputery mają uprawnienia. Zobacz [reguły zapory serwera Azure Database for MariaDB](./concepts-firewall-rules.md). |
 | **Protokół SSL** | Usługa obsługuje wymuszanie połączeń SSL między aplikacjami a serwerem bazy danych. Zobacz [Konfigurowanie łączności SSL w aplikacji, aby bezpiecznie połączyć się z Azure Database for MariaDB](./howto-configure-ssl.md). |
 
+## <a name="stopstart-an-azure-database-for-mariadb-preview"></a>Zatrzymywanie/uruchamianie Azure Database for MariaDB (wersja zapoznawcza)
+Azure Database for MariaDB daje możliwość **zatrzymania** serwera, gdy nie jest używany, i **uruchamiania** serwera podczas wznawiania działania. Ma to na celu zaoszczędzenie kosztów na serwerach bazy danych i płatność tylko za zasób, gdy jest używany. Jest to jeszcze ważniejsze w przypadku obciążeń deweloperskich i testowych, a w przypadku korzystania z serwera tylko dla części dnia. Po zatrzymaniu serwera wszystkie aktywne połączenia zostaną usunięte. Później, jeśli chcesz przywrócić serwer do trybu online, możesz użyć [Azure Portal](../mysql/how-to-stop-start-server.md) lub [interfejsu wiersza polecenia](../mysql/how-to-stop-start-server.md).
+
+Gdy serwer jest w stanie **zatrzymania** , obliczenia serwera nie są naliczane. Magazyn jest jednak nadal rozliczany jako magazyn serwera, aby zapewnić dostępność plików danych po ponownym uruchomieniu serwera.
+
+> [!IMPORTANT]
+> **Zatrzymanie** serwera pozostanie w tym stanie w ciągu następnych 7 dni w rozciągnięciu. Jeśli nie **uruchomisz** go ręcznie w tym czasie, serwer zostanie automatycznie uruchomiony po upływie 7 dni. Jeśli nie używasz serwera, możesz go **zatrzymać** ponownie.
+
+Gdy serwer czasu zostanie zatrzymany, na serwerze nie można wykonać żadnych operacji zarządzania. Aby zmienić ustawienia konfiguracji na serwerze, należy [uruchomić serwer](../mysql/how-to-stop-start-server.md).
+
+### <a name="limitations-of-stopstart-operation"></a>Ograniczenia operacji zatrzymania/uruchamiania
+- Nieobsługiwane w przypadku konfiguracji repliki odczytu (źródła i repliki).
+
 ## <a name="how-do-i-manage-a-server"></a>Jak mogę zarządzać serwerem?
 Serwerami Azure Database for MariaDB można zarządzać przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 - Aby zapoznać się z omówieniem usługi, zobacz [Azure Database for MariaDB przegląd](./overview.md)
-- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług**, zobacz [warstwy usług](./concepts-pricing-tiers.md)
+- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług** , zobacz [warstwy usług](./concepts-pricing-tiers.md)
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

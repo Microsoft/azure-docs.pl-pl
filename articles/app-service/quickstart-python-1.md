@@ -6,14 +6,14 @@ ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: 9262d9674aa8100e3cfc52ee2834d3e8224f36f5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b88b8ef81dc8186c122a24896d85114ef8a163d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359038"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506468"
 ---
-# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
+# <a name="quickstart-create-a-python-app-in-azure-app-service-for-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service dla systemu Linux
 
 W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](overview.md#app-service-on-linux)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Za pomocą lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows można wdrożyć przykład za pomocą kolby lub platform Django. Skonfigurowana aplikacja internetowa korzysta z bezpłatnej warstwy App Service, więc nie ponosisz żadnych kosztów w ramach tego artykułu.
 
@@ -34,7 +34,7 @@ Otwórz okno terminalu i sprawdź, czy wersja języka Python to 3,6 lub nowszego
 python3 --version
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```cmd
 py -3 --version
@@ -176,7 +176,7 @@ Przykładowy kod w języku Python używa kontenera systemu Linux w App Service p
     python3 manage.py runserver
     ```
 
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
     ```powershell
     py -3 manage.py runserver

@@ -3,27 +3,27 @@ title: Szybki Start — tworzenie tokenów dostępu i zarządzanie nimi
 titleSuffix: An Azure Communication Services quickstart
 description: Dowiedz się, jak zarządzać tożsamościami i tokenami dostępu przy użyciu biblioteki klienta administracji usługi Azure Communication Services.
 author: tomaschladek
-manager: jken
+manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b67d0808643797d88628b626403c1b9d97cf1cad
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074128"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506248"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Szybki Start: tworzenie tokenów dostępu i zarządzanie nimi
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta administrowania usługami komunikacyjnymi do udostępniania tokenów dostępu i zarządzania nimi. Tokeny dostępu umożliwiają rozmowę i wywoływanie bibliotek klienckich bezpośrednio w usłudze Azure Communications Services. Te tokeny są generowane przez zaimplementowaną usługę inicjowania obsługi tokenów po stronie serwera. Są one następnie używane do inicjowania bibliotek klienckich usług komunikacyjnych na urządzeniach klienckich.
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta Administracja usług komunikacyjnych. Umożliwia tworzenie tożsamości i zarządzanie tokenami dostępu. Tożsamość reprezentuje jednostkę aplikacji w usłudze komunikacyjnej platformy Azure (na przykład użytkownik lub urządzenie). Tokeny dostępu umożliwiają rozmowę i wywoływanie bibliotek klienckich bezpośrednio w usłudze Azure Communications Services. Zalecamy generowanie tokenów dostępu w usłudze po stronie serwera. Tokeny dostępu są następnie używane do inicjowania bibliotek klienckich usług komunikacyjnych na urządzeniach klienckich.
 
-Należy pamiętać, że wszystkie ceny widoczne w obrazach w tym samouczku są przeznaczone tylko do celów.
+Wszystkie ceny widoczne w obrazach w tym samouczku służą wyłącznie do celów demonstracyjnych.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -46,15 +46,14 @@ W danych wyjściowych aplikacji opisano każdą akcję, która została ukończo
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued a access token with 'voip' scope for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502:
 <token signature here>
 
-Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
-<token signature here>
+Successfully deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
-
-Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
 
@@ -81,3 +80,4 @@ Możesz również chcieć:
  - [Informacje o uwierzytelnianiu](../concepts/authentication.md)
  - [Dodawanie czatu do aplikacji](./chat/get-started.md)
  - [Informacje o architekturze klienta i serwera](../concepts/client-and-server-architecture.md)
+ 

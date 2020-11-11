@@ -2,20 +2,20 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 22cfe369561eab1ca334c7ff2450162dfae3e761
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.author: tchladek
+ms.openlocfilehash: af5af26a8970409b07eda6195b0853c3fa931b3f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92346874"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506257"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,7 +30,7 @@ ms.locfileid: "92346874"
 Otwórz terminal lub okno poleceń Utwórz nowy katalog dla aplikacji i przejdź do niego.
 
 ```console
-mkdir user-tokens-quickstart && cd user-tokens-quickstart
+mkdir access-tokens-quickstart && cd access-tokens-quickstart
 ```
 
 Uruchom `npm init -y` , aby utworzyć **package.jsw** pliku z ustawieniami domyślnymi.
@@ -65,7 +65,7 @@ Użyj następującego kodu, aby rozpocząć:
 const { CommunicationIdentityClient } = require('@azure/communication-administration');
 
 const main = async () => {
-  console.log("Azure Communication Services - User Access Tokens Quickstart")
+  console.log("Azure Communication Services - Access Tokens Quickstart")
 
   // Quickstart code goes here
 };
@@ -76,9 +76,7 @@ main().catch((error) => {
 })
 ```
 
-1. Zapisz nowy plik jako **issue-token.js** w katalogu *User-Tokens-szybkiego startu* .
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
+1. Zapisz nowy plik jako **issue-access-token.js** w katalogu *tokeny dostępu — szybki start* .
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
@@ -91,64 +89,67 @@ Dodaj następujący kod do metody `main`:
 // from an environment variable.
 const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING'];
 
-// Instantiate the user token client
+// Instantiate the identity client
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-## <a name="create-a-user"></a>Tworzenie użytkownika
+## <a name="create-an-identity"></a>Tworzenie tożsamości
 
-Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Należy zachować mapowanie między użytkownikami aplikacji i wygenerowanymi tożsamościami usług komunikacyjnych (np. przechowując je w bazie danych serwera aplikacji).
+Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Przechowywanie otrzymanej tożsamości z mapowaniem do użytkowników aplikacji. Można na przykład przechowywać je w bazie danych serwera aplikacji. Tożsamość jest wymagana później, aby można było wystawiać tokeny dostępu.
 
 ```javascript
-let userResponse = await identityClient.createUser();
-console.log(`\nCreated a user with ID: ${userResponse.communicationUserId}`);
+let identityResponse = await identityClient.createUser();
+console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
-## <a name="issue-user-access-tokens"></a>Wystaw tokeny dostępu użytkowników
+## <a name="issue-access-tokens"></a>Wystawianie tokenów dostępu
 
-Użyj `issueToken` metody, aby wystawić token dostępu dla użytkownika usług komunikacyjnych. Jeśli nie podasz opcjonalnego `user` parametru, zostanie utworzony nowy użytkownik, który zostanie zwrócony z tokenem.
+Użyj `issueToken` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `communicationUser` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
 
 ```javascript
-// Issue an access token with the "voip" scope for a new user
-let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+// Issue an access token with the "voip" scope for an identity
+let tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 const { token, expiresOn } = tokenResponse;
-console.log(`\nIssued a token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
 
-Tokeny dostępu użytkowników to krótkoterminowe poświadczenia, które należy ponownie wydać, aby uniemożliwić użytkownikom zakłócenia działania usługi. `expiresOn`Właściwość Response wskazuje okres istnienia tokenu.
+Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wydać. Nie może to spowodować zakłócenia środowiska użytkownika aplikacji. `expiresOn`Właściwość Response wskazuje okres istnienia tokenu dostępu.
 
-## <a name="revoke-user-access-tokens"></a>Odwołaj tokeny dostępu użytkowników
 
-W niektórych przypadkach może być konieczne jawne odwołanie tokenów dostępu użytkowników, na przykład gdy użytkownik zmieni hasło używane do uwierzytelniania w usłudze. Ta `revokeTokens` Metoda umożliwia unieważnienie wszystkich tokenów dostępu użytkownika.
+## <a name="refresh-access-tokens"></a>Odświeżenie tokenów dostępu
 
-```javascript  
-await identityClient.revokeTokens(userResponse);
-console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
-```
-
-## <a name="refresh-user-access-tokens"></a>Odśwież tokeny dostępu użytkowników
-
-Aby odświeżyć token, użyj `CommunicationUser` obiektu do ponownego wystawienia:
+Aby odświeżyć token dostępu, użyj `CommunicationUser` obiektu, aby go ponownie wydać:
 
 ```javascript  
-let userResponse = new CommunicationUser(existingUserId);
-let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identityResponse = new CommunicationUser(existingIdentity);
+tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
-## <a name="delete-a-user"></a>Usuwanie użytkownika
 
-Usunięcie użytkownika odwołuje wszystkie aktywne tokeny i uniemożliwia wystawianie kolejnych tokenów dla tożsamości. Usuwa również całą zawartość utrwaloną skojarzoną z użytkownikiem.
+## <a name="revoke-access-tokens"></a>Odwołaj tokeny dostępu
+
+W niektórych przypadkach można jawnie odwołać tokeny dostępu. Na przykład, gdy użytkownik aplikacji zmieni hasło używane do uwierzytelniania w usłudze. Metoda `revokeTokens` unieważnia wszystkie aktywne tokeny dostępu, które zostały wystawione dla tożsamości.
+
+```javascript  
+await identityClient.revokeTokens(identityResponse);
+console.log(`\nSuccessfully revoked all access tokens for identity with Id: ${identityResponse.communicationUserId}`);
+```
+
+## <a name="delete-an-identity"></a>Usuwanie tożsamości
+
+Usunięcie tożsamości odwołuje wszystkie aktywne tokeny dostępu i uniemożliwia wystawianie tokenów dostępu dla tożsamości. Usuwa również całą zawartość utrwaloną skojarzoną z tożsamością.
 
 ```javascript
-await identityClient.deleteUser(userResponse);
-console.log(`\nDeleted the user with Id: ${userResponse.communicationUserId}`);
+await identityClient.deleteUser(identityResponse);
+console.log(`\nDeleted the identity with Id: ${identityResponse.communicationUserId}`);
 ```
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-W wierszu konsoli przejdź do katalogu zawierającego plik *issue-token.js* , a następnie wykonaj następujące `node` polecenie, aby uruchomić aplikację.
+W wierszu konsoli przejdź do katalogu zawierającego plik *issue-access-token.js* , a następnie wykonaj następujące `node` polecenie, aby uruchomić aplikację.
 
 ```console
-node ./issue-token.js
+node ./issue-access-token.js
 ```

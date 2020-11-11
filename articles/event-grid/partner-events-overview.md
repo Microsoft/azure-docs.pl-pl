@@ -2,16 +2,16 @@
 title: Zdarzenia partnerskie Azure Event Grid
 description: Wysyłaj zdarzenia z partnerów Event Grid SaaS i PaaS bezpośrednio do usług platformy Azure z Azure Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103145"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506150"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Zdarzenia partnerskie w Azure Event Grid (wersja zapoznawcza)
-Funkcja **zdarzenia partnera** umożliwia dostawcy SaaS innej firmy publikowanie zdarzeń z usług, aby udostępnić je klientom, którzy mogą subskrybować te zdarzenia. Oferuje ona środowisko pierwszej strony dla źródeł zdarzeń innych firm, ujawniając typ [tematu](concepts.md#topics) , **temat partnera** , którego Subskrybenci używają do korzystania z zdarzeń. Oferuje również czysty model pub-sub, oddzielając problemy i własność zasobów używanych przez wydawców zdarzeń i subskrybentów.
+Funkcja **zdarzenia partnera** umożliwia dostawcy SaaS innych firm publikowanie zdarzeń z usług, dzięki czemu klienci mogą subskrybować te zdarzenia. Ta funkcja oferuje środowisko pierwszej firmy dla źródeł zdarzeń innych firm, ujawniając typ [tematu](concepts.md#topics) , **temat partnera**. Subskrybenci tworzą subskrypcje tego tematu, aby korzystać z zdarzeń. Zawiera również czysty model pub-sub, oddzielając problemy i własność zasobów używanych przez wydawców zdarzeń i subskrybentów.
 
 > [!NOTE]
 > Jeśli jesteś nowym przy użyciu Event Grid, zobacz [Omówienie](overview.md), [koncepcje](concepts.md)i [programy obsługi zdarzeń](event-handlers.md).
@@ -75,6 +75,20 @@ Kanał zdarzenia to dublowany zasób w temacie partnera. Gdy wydawca tworzy kana
 
 ## <a name="resources-managed-by-subscribers"></a>Zasoby zarządzane przez subskrybentów 
 Subskrybenci mogą używać tematów partnerskich zdefiniowanych przez wydawcę i są jedynym typem zasobów, które widzi i którymi zarządza. Po utworzeniu tematu partnera użytkownik będący subskrybentem może tworzyć subskrypcje zdarzeń definiujące reguły filtru do [miejsc docelowych lub programów obsługi zdarzeń](overview.md#event-handlers). W przypadku subskrybentów, tematu partnera i skojarzonych z nim subskrypcji zdarzeń zapewniają takie same bogate możliwości jak [niestandardowe tematy](custom-topics.md) i powiązane z nimi subskrypcje, z jedną istotną różnicą: Tematy partnerskie obsługują tylko [schemat zdarzeń w chmurze 1,0](cloudevents-schema.md), który zapewnia bogatszy zestaw możliwości niż inne obsługiwane schematy.
+
+Na poniższej ilustracji przedstawiono przepływ operacji na płaszczyźnie kontroli.
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Zdarzenia partnerskie — przepływ płaszczyzny kontroli":::
+
+1. Wydawca tworzy **rejestrację partnera**. Rejestracje partnerów są globalne. Oznacza to, że nie są one skojarzone z określonym regionem świadczenia usługi Azure. Ta czynność jest opcjonalna.
+1. Wydawca tworzy **przestrzeń nazw partnera** w określonym regionie.
+1. Gdy subskrybent 1 podejmie próbę utworzenia tematu partnera, **kanał zdarzenia** , kanał zdarzenia 1, zostanie najpierw utworzony w ramach subskrypcji platformy Azure wydawcy.
+1. Następnie w ramach subskrypcji platformy Azure na subskrybencie zostanie utworzony temat dotyczący **partnera** 1. Subskrybent musi aktywować temat partnera. 
+1. Subskrybent 1 tworzy **subskrypcję Azure Logic Apps** w temacie dotyczącym partnera 1.
+1. Subskrybent 1 tworzy **subskrypcję usługi Azure Blob Storage** w temacie dotyczącym partnera 1. 
+1. Gdy subskrybent 2 podejmie próbę utworzenia tematu partnera, w pierwszej kolejności zostanie utworzony nowy **kanał zdarzenia** , kanał usługi Event 2. 
+1. Następnie w ramach subskrypcji platformy Azure w drugim subskrybencie zostanie utworzony **temat partnera** 2. Subskrybent musi aktywować temat partnera. 
+1. Subskrybent 2 tworzy **subskrypcję Azure Functions** dla tematu partnera 2. 
 
 ## <a name="pricing"></a>Cennik
 Tematy dotyczące partnerów są rozliczone według liczby operacji wykonanych podczas korzystania z Event Grid. Aby uzyskać więcej informacji na temat wszystkich typów operacji, które są używane jako podstawa rozliczeń i szczegółowych informacji o cenach, zobacz [Event Grid Cennik](https://azure.microsoft.com/pricing/details/event-grid/).

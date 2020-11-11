@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218983"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506179"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
 
@@ -26,7 +26,7 @@ Podczas przekazywania plików wideo za pomocą interfejsu API usługi Video Inde
 * wysyłanie pliku wideo w postaci tablicy bajtów w treści żądania,
 * używanie istniejącego elementu zawartości usługi Azure Media Services przez podanie [identyfikatora elementu zawartości](../latest/assets-concept.md) (obsługiwane tylko w przypadku płatnych kont).
 
-Po przekazaniu wideo Video Indexer (opcjonalnie) koduje wideo (omówione w artykule). Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatnej wersji próbnej (w ramach którego otrzymuje się określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w przypadku której nie ma ograniczeń przydziału). Usługa Video Indexer w bezpłatnej wersji próbnej udostępnia do 600 minut bezpłatnego indeksowania u użytkowników witryn internetowych oraz do 2400 minut bezpłatnego indeksowania u użytkowników interfejsów API. W przypadku opcji płatnej utworzone zostaje konto usługi Video Indexer [połączone z subskrypcją platformy Azure i kontem usługi Azure Media Services](connect-to-azure.md). Naliczane są opłaty za minuty indeksowania, a także opłaty powiązane z kontem usługi Media. 
+Po przekazaniu wideo Video Indexer (opcjonalnie) koduje wideo (omówione w artykule). Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatnej wersji próbnej (w ramach którego otrzymuje się określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w przypadku której nie ma ograniczeń przydziału). Usługa Video Indexer w bezpłatnej wersji próbnej udostępnia do 600 minut bezpłatnego indeksowania u użytkowników witryn internetowych oraz do 2400 minut bezpłatnego indeksowania u użytkowników interfejsów API. W przypadku opcji płatnej utworzone zostaje konto usługi Video Indexer [połączone z subskrypcją platformy Azure i kontem usługi Azure Media Services](connect-to-azure.md). Płacisz za minuty, aby uzyskać więcej informacji, zobacz [Cennik usługi Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 W tym artykule przedstawiono sposób przekazywania i indeksowania wideo przy użyciu następujących opcji:
 
@@ -79,7 +79,7 @@ Listę formatów plików, których można używać z Video Indexer, zawiera arty
 1. Po przekazaniu pliku wideo usługa Video Indexer rozpocznie jego indeksowanie i analizowanie.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Przekaż":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Postęp przekazywania":::
 1. Po zakończeniu analizy Video Indexer otrzymasz wiadomość e-mail z linkiem do wideo i krótkim opisem tego, co zostało znalezione w filmie wideo. Na przykład: osoby, tematy i wyniki przetwarzania OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Przekazywanie i indeksowanie za pomocą interfejsu API
@@ -118,7 +118,7 @@ Adres URL używany do powiadamiania klienta (za pomocą żądania POST) o nastę
         
     - Przykład: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
 
-##### <a name="notes"></a>Uwagi
+##### <a name="other-considerations"></a>Inne zagadnienia
 
 - Usługa Video Indexer zwraca wszelkie istniejące parametry podane w oryginalnym adresie URL.
 - Podany adres URL musi być zakodowany.
@@ -140,7 +140,7 @@ Cena zależy od wybranej opcji indeksowania.
 
 #### <a name="priority"></a>priority
 
-Usługa Video Indexer indeksuje filmy wideo zgodnie z ich priorytetem. Użyj parametru **priority**, aby określić priorytet indeksu. Prawidłowe są następujące wartości: **Low** (niski), **Normal** (normalny — wartość domyślna), **High** (wysoki).
+Usługa Video Indexer indeksuje filmy wideo zgodnie z ich priorytetem. Użyj parametru **priority** , aby określić priorytet indeksu. Prawidłowe są następujące wartości: **Low** (niski), **Normal** (normalny — wartość domyślna), **High** (wysoki).
 
 Parametr **priority** jest obsługiwany tylko w przypadku płatnych kont.
 

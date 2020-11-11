@@ -7,18 +7,21 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005416"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506417"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Skonfiguruj regułę limitu szybkości zapory aplikacji sieci Web przy użyciu Azure PowerShell
 Reguła limitu szybkości usługi Azure Web Application Firewall (WAF) dla drzwi frontonu platformy Azure określa liczbę żądań dozwolonych od klientów w czasie trwania jednej minuty.
 W tym artykule opisano sposób konfigurowania reguły limitu szybkości WAF, która kontroluje liczbę żądań dozwolonych od klientów do aplikacji sieci Web, która zawiera */promo* w adresie URL przy użyciu Azure PowerShell.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+> [!NOTE]
+> Limity szybkości są stosowane dla każdego adresu IP klienta. Jeśli masz wielu klientów uzyskujących dostęp do czołowych drzwi z różnych adresów IP, zostaną zastosowane własne limity szybkości.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem konfigurowania zasad limitu szybkości Skonfiguruj środowisko programu PowerShell i Utwórz profil dla drzwi.
@@ -73,9 +76,7 @@ Ustaw limit szybkości przy użyciu polecenia [New-AzFrontDoorWafCustomRuleObjec
 
 Znajdź nazwę grupy zasobów, która zawiera profil przedni drzwi przy użyciu `Get-AzureRmResourceGroup` . Następnie skonfiguruj zasady zabezpieczeń z niestandardową regułą limitu szybkości przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) w określonej grupie zasobów, która zawiera profil drzwi przednich.
 
-W poniższym przykładzie użyto nazwy grupy zasobów *myResourceGroupFD1* z założeniem, że profil przeddrzwi został utworzony przy użyciu instrukcji przedstawionych w [przewodniku szybki start: Tworzenie przedniego](../../frontdoor/quickstart-create-front-door.md) artykułu.
-
- przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+W poniższym przykładzie użyto nazwy grupy zasobów *myResourceGroupFD1* z założeniem, że profil przeddrzwi został utworzony przy użyciu instrukcji przedstawionych w [przewodniku szybki start: Tworzenie przedniego](../../frontdoor/quickstart-create-front-door.md) artykułu przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `

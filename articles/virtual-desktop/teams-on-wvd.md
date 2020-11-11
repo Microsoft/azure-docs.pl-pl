@@ -3,15 +3,15 @@ title: Microsoft Teams na pulpicie wirtualnym systemu Windows — Azure
 description: Jak korzystać z programu Microsoft Teams na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131772"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505550"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -32,7 +32,6 @@ Aby można było korzystać z programu Microsoft Teams na pulpicie wirtualnym sy
 - [Przygotuj sieć](/microsoftteams/prepare-network/) dla programu Microsoft Teams.
 - Zainstaluj [klienta pulpitu systemu Windows](connect-windows-7-10.md) na urządzeniu z systemem Windows 10 lub Windows 10 IoT Enterprise spełniającym wymagania sprzętowe zespołów firmy Microsoft [dla zespołów na komputerze z systemem Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Nawiązywanie połączenia z maszyną wirtualną z systemem Windows 10 lub systemem Windows 10 Enterprise.
-- [Pobierz](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) i zainstaluj aplikację Team Desktop na hoście przy użyciu instalacji na komputerze. Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
 
 ## <a name="install-the-teams-desktop-app"></a>Zainstaluj aplikację Teams Desktop
 
@@ -42,7 +41,8 @@ W tej sekcji pokazano, jak zainstalować aplikację Team Desktop w obrazie maszy
 
 Aby włączyć optymalizację multimediów dla zespołów, należy dla hosta ustawić następujący klucz rejestru:
 
-1. Z menu Start Uruchom polecenie **regedit** jako administrator. Przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
+1. Z menu Start Uruchom polecenie **regedit** jako administrator. Przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Utwórz klucz zespołów, jeśli jeszcze nie istnieje.
+
 2. Utwórz następującą wartość dla klucza zespoły:
 
 | Nazwa             | Typ   | Dane/wartość  |
@@ -51,7 +51,7 @@ Aby włączyć optymalizację multimediów dla zespołów, należy dla hosta ust
 
 ### <a name="install-the-teams-websocket-service"></a>Instalowanie usługi WebSocket zespołów
 
-Zainstaluj najnowszą [usługę WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) na obrazie maszyny wirtualnej. Jeśli wystąpi błąd instalacji, zainstaluj [najnowszy pakiet redystrybucyjny Microsoft Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i spróbuj ponownie.
+Zainstaluj najnowszą [pulpit zdalny usługę readresatora protokołu WebRTC](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) na obrazie maszyny wirtualnej. Jeśli wystąpi błąd instalacji, zainstaluj [najnowszy pakiet redystrybucyjny Microsoft Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i spróbuj ponownie.
 
 #### <a name="latest-websocket-service-versions"></a>Najnowsze wersje usługi WebSocket
 
@@ -94,7 +94,7 @@ Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze l
 
         Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 32-bitowym systemie operacyjnym i folderze Program Files w 64-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
 
-        Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru zespoły Machine-Wide Instalator pojawiają się w oknie Programy i funkcje w panelu sterowania, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły.
+        Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru **zespoły Machine-Wide Instalator** pojawiają się w oknie Programy i funkcje w panelu sterowania, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły.
 
         > [!NOTE]
         > Użytkownicy i Administratorzy nie mogą wyłączyć automatycznego uruchamiania dla zespołów podczas logowania.
@@ -114,14 +114,19 @@ Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze l
 
 Po zainstalowaniu usługi WebSocket i aplikacji Team Desktop wykonaj następujące kroki, aby sprawdzić, czy załadowano optymalizacje nośników zespołów:
 
-1. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **informacje**.
-2. Wybierz **wersję**.
+1. Zamknij i uruchom ponownie aplikację Teams.
 
-      W przypadku załadowania optymalizacji multimediów transparent będzie przedstawiał **WVD nośnik zoptymalizowany**. Jeśli transparent pokazuje, że **multimedia WVD nie są połączone**, zamknij aplikację Teams i spróbuj ponownie.
+2. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **informacje**.
 
-3. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **Ustawienia**.
+3. Wybierz **wersję**.
 
-      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk**, zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, sprawdź ustawienia prywatności na komputerze lokalnym. Upewnij się, że w obszarze **Ustawienia**  >  uprawnienia do aplikacji**ochrony prywatności**  >  **App permissions** ustawienie **Zezwalaj aplikacjom na dostęp do mikrofonu** jest **włączone**. Rozłącz się z sesją zdalną, a następnie ponownie połącz i sprawdź urządzenia audio i wideo. Aby dołączyć wywołania i spotkania z wideo, należy również udzielić aplikacji dostępu do aparatu.
+      W przypadku załadowania optymalizacji multimediów transparent będzie przedstawiał **WVD nośnik zoptymalizowany**. Jeśli transparent pokazuje, że **multimedia WVD nie są połączone** , zamknij aplikację Teams i spróbuj ponownie.
+
+4. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **Ustawienia**.
+
+      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk** , zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, sprawdź ustawienia prywatności na komputerze lokalnym. Upewnij się, że w obszarze **Ustawienia**  >  uprawnienia do aplikacji **ochrony prywatności**  >  **App permissions** ustawienie **Zezwalaj aplikacjom na dostęp do mikrofonu** jest **włączone**. Rozłącz się z sesją zdalną, a następnie ponownie połącz i sprawdź urządzenia audio i wideo. Aby dołączyć wywołania i spotkania z wideo, należy również udzielić aplikacji dostępu do aparatu.
+
+      Jeśli Optymalizacja nie zostanie załadowana, Odinstaluj, a następnie ponownie zainstaluj zespoły i sprawdź ponownie.
 
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
@@ -152,7 +157,7 @@ Prześlij opinię na temat zespołów Microsoft Teams na pulpicie wirtualnym sys
 
 Jeśli wystąpią problemy z aplikacją Team Desktop w środowisku pulpitu wirtualnego systemu Windows, Zbierz dzienniki klienta w folderze **% AppData% \Microsoft\Teams\logs.txt** na maszynie wirtualnej hosta.
 
-Jeśli wystąpią problemy z wywołaniami i spotkaniami, Zbierz dzienniki klienta sieci Web zespołów z kombinacją klawiszy **Ctrl**  +  **Alt**  +  **SHIFT**  +  **1**. Dzienniki zostaną zapisane w **DATE_TIME.txtdzienniku diagnostyki%USERPROFILE%\Downloads\MSTeams ** na maszynie wirtualnej hosta.
+Jeśli wystąpią problemy z wywołaniami i spotkaniami, Zbierz dzienniki klienta sieci Web zespołów z kombinacją klawiszy **Ctrl**  +  **Alt**  +  **SHIFT**  +  **1**. Dzienniki zostaną zapisane w **DATE_TIME.txtdzienniku diagnostyki%USERPROFILE%\Downloads\MSTeams** na maszynie wirtualnej hosta.
 
 ## <a name="contact-microsoft-teams-support"></a>Skontaktuj się z pomocą techniczną Microsoft Teams
 

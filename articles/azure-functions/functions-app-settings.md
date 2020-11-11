@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043230"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505890"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -131,11 +131,11 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsSecretStorageType|Pliki|
+|AzureWebJobsSecretStorageType|Files|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Środowisko uruchomieniowe Azure Functions używa tych parametrów połączenia konta magazynu dla wszystkich funkcji z wyjątkiem funkcji wyzwalanych przez protokół HTTP. Konto magazynu musi być kontem ogólnego przeznaczenia, które obsługuje obiekty blob, kolejki i tabele. Zobacz wymagania dotyczące [konta magazynu](functions-infrastructure-as-code.md#storage-account) i [konta magazynu](storage-considerations.md#storage-account-requirements).
+Środowisko uruchomieniowe Azure Functions używa tych parametrów połączenia konta magazynu do normalnego działania. Niektóre zastosowania tego konta magazynu obejmują zarządzanie kluczami, zarządzanie wyzwalaczem czasomierza i Event Hubs punkty kontrolne. Konto magazynu musi być kontem ogólnego przeznaczenia, które obsługuje obiekty blob, kolejki i tabele. Zobacz wymagania dotyczące [konta magazynu](functions-infrastructure-as-code.md#storage-account) i [konta magazynu](storage-considerations.md#storage-account-requirements).
 
 |Klucz|Wartość przykładowa|
 |---|------------|

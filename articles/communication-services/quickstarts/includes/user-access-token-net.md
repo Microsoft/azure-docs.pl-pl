@@ -1,21 +1,21 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 5c9066f369183de3b4cfe19cc5635e8f1b4a94a2
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.author: tchladek
+ms.openlocfilehash: 50819e8746860e72feda194915f75c4630677d0c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779241"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506264"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,16 +27,16 @@ ms.locfileid: "91779241"
 
 ### <a name="create-a-new-c-application"></a>Utwórz nową aplikację w języku C#
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `UserAccessTokensQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program.cs**.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `AccessTokensQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program.cs**.
 
 ```console
-dotnet new console -o UserAccessTokensQuickstart
+dotnet new console -o AccessTokensQuickstart
 ```
 
 Zmień katalog na nowo utworzony folder aplikacji i Użyj `dotnet build` polecenia, aby skompilować aplikację.
 
 ```console
-cd UserAccessTokensQuickstart
+cd AccessTokensQuickstart
 dotnet build
 ```
 
@@ -62,22 +62,19 @@ Użyj następującego kodu, aby rozpocząć:
 using System;
 using Azure.Communication.Administration;
 
-namespace UserAccessTokensQuickstart
+namespace AccessTokensQuickstart
 {
     class Program
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            Console.WriteLine("Azure Communication Services - User Access Tokens Quickstart");
+            Console.WriteLine("Azure Communication Services - Access Tokens Quickstart");
 
             // Quickstart code goes here
         }
     }
 }
 ```
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
-
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 Zainicjuj `CommunicationIdentityClient` przy użyciu parametrów połączenia. Poniższy kod pobiera parametry połączenia dla zasobu ze zmiennej środowiskowej o nazwie `COMMUNICATION_SERVICES_CONNECTION_STRING` . Dowiedz się, jak [zarządzać parametrami połączenia zasobu](../create-communication-resource.md#store-your-connection-string).
@@ -91,47 +88,57 @@ string ConnectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(ConnectionString);
 ```
 
-## <a name="create-a-user"></a>Tworzenie użytkownika
+## <a name="create-an-identity"></a>Tworzenie tożsamości
 
-Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Należy zachować mapowanie między użytkownikami aplikacji i wygenerowanymi tożsamościami usług komunikacyjnych (np. przechowując je w bazie danych serwera aplikacji).
+Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Przechowywanie otrzymanej tożsamości z mapowaniem do użytkowników aplikacji. Można na przykład przechowywać je w bazie danych serwera aplikacji. Tożsamość jest wymagana później, aby można było wystawiać tokeny dostępu.
 
 ```csharp
-var userResponse = await client.CreateUserAsync();
-var user = userResponse.Value;
-Console.WriteLine($"\nCreated a user with ID: {user.Id}");
+var identityResponse = await client.CreateUserAsync();
+var identity = identityResponse.Value;
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
 
-## <a name="issue-user-access-tokens"></a>Wystaw tokeny dostępu użytkowników
+## <a name="issue-identity-access-tokens"></a>Wystawianie tokenów dostępu do tożsamości
 
-Użyj `issueToken` metody, aby wystawić token dostępu dla użytkownika usług komunikacyjnych. Jeśli nie podasz opcjonalnego `user` parametru, zostanie utworzony nowy użytkownik, który zostanie zwrócony z tokenem.
+Użyj `issueToken` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `communicationUser` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
 
 ```csharp
-// Issue an access token with the "voip" scope for a new user
-var tokenResponse = await client.IssueTokenAsync(user, scopes: new [] { CommunicationTokenScope.VoIP });
+// Issue an access token with the "voip" scope for an identity
+var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
-Console.WriteLine($"\nIssued a token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 
-Tokeny dostępu użytkowników to krótkoterminowe poświadczenia, które należy ponownie wydać, aby uniemożliwić użytkownikom zakłócenia działania usługi. `expiresOn`Właściwość Response wskazuje okres istnienia tokenu.
+Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wydać. Nie może to spowodować zakłócenia środowiska użytkownika aplikacji. `expiresOn`Właściwość Response wskazuje okres istnienia tokenu dostępu. 
 
-## <a name="revoke-user-access-tokens"></a>Odwołaj tokeny dostępu użytkowników
+## <a name="refresh-access-tokens"></a>Odświeżenie tokenów dostępu
 
-W niektórych przypadkach może być konieczne jawne odwołanie tokenów dostępu użytkowników, na przykład gdy użytkownik zmieni hasło używane do uwierzytelniania w usłudze. Ta funkcja jest dostępna za pośrednictwem biblioteki klienta Administracja usług Azure Communication Services.
+Aby odświeżyć token dostępu, użyj `CommunicationUser` obiektu, aby go ponownie wydać:
 
 ```csharp  
-await client.RevokeTokensAsync(user);
-Console.WriteLine($"\nSuccessfully revoked all tokens for user with ID: {user.Id}");
+// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identity = new CommunicationUser(existingIdentity);
+tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
-## <a name="delete-a-user"></a>Usuwanie użytkownika
+## <a name="revoke-access-tokens"></a>Odwołaj tokeny dostępu
 
-Usunięcie tożsamości odwołuje wszystkie aktywne tokeny i uniemożliwia wystawianie kolejnych tokenów dla tożsamości. Usuwa również całą zawartość utrwaloną skojarzoną z użytkownikiem.
+W niektórych przypadkach można jawnie odwołać tokeny dostępu. Na przykład, gdy użytkownik aplikacji zmieni hasło używane do uwierzytelniania w usłudze. Metoda `RevokeTokensAsync` unieważnia wszystkie aktywne tokeny dostępu, które zostały wystawione dla tożsamości.
+
+```csharp  
+await client.RevokeTokensAsync(identity);
+Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with ID: {identity.Id}");
+```
+
+## <a name="delete-an-identity"></a>Usuwanie tożsamości
+
+Usunięcie tożsamości odwołuje wszystkie aktywne tokeny dostępu i uniemożliwia wystawianie tokenów dostępu dla tożsamości. Usuwa również całą zawartość utrwaloną skojarzoną z tożsamością.
 
 ```csharp
-await client.DeleteUserAsync(user);
-Console.WriteLine($"\nDeleted the user with ID: {user.Id}");
+await client.DeleteUserAsync(identity);
+Console.WriteLine($"\nDeleted the identity with ID: {identity.Id}");
 ```
 
 ## <a name="run-the-code"></a>Uruchamianie kodu

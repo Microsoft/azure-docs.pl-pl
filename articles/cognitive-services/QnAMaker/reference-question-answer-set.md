@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 363af72df89be9104e4d946bf8da0d44908382d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef5476ade205109f5dfede1b3bb2c3a4ae2e81a7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776225"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506009"
 ---
-# <a name="question-and-answer-pair-concepts"></a>Pojęcia dotyczące pary pytań i odpowiedzi
+# <a name="question-and-answer-pair"></a>Para pytań i odpowiedzi
 
 Baza wiedzy składa się z par pytań i odpowiedzi (QnA).  Każda para ma jedną odpowiedź, a para zawiera wszystkie informacje skojarzone z tą _odpowiedzią_. Odpowiedź może być luźno podobna do wiersza bazy danych lub wystąpienia struktury danych.
 
@@ -28,8 +28,8 @@ Każda para jest reprezentowana przez **Identyfikator**.
 **Opcjonalne** ustawienia dla pary obejmują:
 
 * **Alternatywne formy pytania** — pomaga QNA Maker zwrócić poprawną odpowiedź w celu uzyskania większej liczby pytań frazy
-* **Metadane**: metadane są tagami skojarzonymi z parą QNA i są reprezentowane jako pary klucz-wartość. Tagi metadanych są używane do filtrowania par QnA i ograniczają zestaw, w jakim jest wykonywane Dopasowywanie zapytań.
-* Wyświetlanie wielowierszowych **ekranów**, służących do kontynuowania konwersacji z obsługą wielodostępności
+* **Metadane** : metadane są tagami skojarzonymi z parą QNA i są reprezentowane jako pary klucz-wartość. Tagi metadanych są używane do filtrowania par QnA i ograniczają zestaw, w jakim jest wykonywane Dopasowywanie zapytań.
+* Wyświetlanie wielowierszowych **ekranów** , służących do kontynuowania konwersacji z obsługą wielodostępności
 
 ![QnA Maker bazy wiedzy](media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

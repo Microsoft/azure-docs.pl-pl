@@ -8,38 +8,39 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: e0534fa6eaccbfb9318369e0a4224d84fa8de7c8
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b19dab8dffaa0c9c888e8a9974a43cbb48006fd7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347713"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504326"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów
 
-Obrazy z galerii są przechowywane jako dyski zarządzane, dzięki czemu są one automatycznie szyfrowane za pomocą szyfrowania po stronie serwera. Szyfrowanie po stronie serwera używa 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodne ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](/windows/desktop/seccng/cng-portal)
+Obrazy w galerii obrazów udostępnionych są przechowywane jako migawki, dzięki czemu są one automatycznie szyfrowane za pomocą szyfrowania po stronie serwera. Szyfrowanie po stronie serwera używa 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych. Szyfrowanie po stronie serwera jest również zgodne ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](/windows/desktop/seccng/cng-portal).
 
-Można polegać na kluczach zarządzanych przez platformę w celu szyfrowania obrazów, używania własnych kluczy lub można użyć obu jednocześnie do szyfrowania dwukrotnego. Jeśli zdecydujesz się na zarządzanie szyfrowaniem przy użyciu własnych kluczy, możesz określić *klucz zarządzany przez klienta* , który będzie używany do szyfrowania i odszyfrowywania wszystkich dysków w obrazie. 
+Możesz polegać na kluczach zarządzanych przez platformę do szyfrowania obrazów lub korzystać z własnych kluczy. Można również użyć obu jednocześnie do szyfrowania dwukrotnego. Jeśli zdecydujesz się na zarządzanie szyfrowaniem przy użyciu własnych kluczy, możesz określić *klucz zarządzany przez klienta* , który będzie używany do szyfrowania i odszyfrowywania wszystkich dysków w obrazie. 
 
-Szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez klienta używa Azure Key Vault. Możesz zaimportować [klucze RSA](../key-vault/keys/hsm-protected-keys.md) do Key Vault lub wygenerować nowe klucze rsa w Azure Key Vault.
+Szyfrowanie po stronie serwera za pomocą kluczy zarządzanych przez klienta używa Azure Key Vault. Możesz zaimportować [klucze RSA](../key-vault/keys/hsm-protected-keys.md) do magazynu kluczy lub wygenerować nowe klucze rsa w Azure Key Vault.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten artykuł wymaga, aby w każdym regionie był już ustawiony zestaw szyfrowanie dysków, do którego chcesz replikować obraz.
+W tym artykule wymagane jest już ustawienie szyfrowania dysku w każdym regionie, w którym chcesz replikować obraz:
 
-- Aby użyć tylko klucza zarządzanego przez klienta, zobacz temat **Włączanie kluczy zarządzanych przez klienta za pomocą szyfrowania po stronie serwera** przy użyciu [Azure Portal](./disks-enable-customer-managed-keys-portal.md) lub [programu PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Aby użyć tylko klucza zarządzanego przez klienta, zapoznaj się z artykułami dotyczącymi włączania kluczy zarządzanych przez klienta za pomocą szyfrowania po stronie serwera przy użyciu programu [Azure Portal](./disks-enable-customer-managed-keys-portal.md) lub [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Aby korzystać z kluczy zarządzanych przez platformę i klienta (w przypadku szyfrowania podwójnego), zobacz **Włącz podwójne szyfrowanie w spoczynku** przy użyciu [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) lub [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
-    > [!IMPORTANT]
-    > Musisz użyć tego linku, [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) Aby uzyskać dostęp do Azure Portal. Podwójne szyfrowanie w czasie spoczynku nie jest obecnie widoczne w publicznej Azure Portal bez użycia linku.
+- Aby korzystać z kluczy zarządzanych przez platformę i klienta (na potrzeby podwójnego szyfrowania), zobacz artykuły o włączaniu podwójnego szyfrowania przy użyciu narzędzia [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) lub [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+
+   > [!IMPORTANT]
+   > Musisz użyć linku, [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) Aby uzyskać dostęp do Azure Portal. Podwójne szyfrowanie w spoczynku nie jest obecnie widoczne w publicznej Azure Portal, chyba że zostanie użyty ten link.
 
 ## <a name="limitations"></a>Ograniczenia
 
-Istnieje kilka ograniczeń dotyczących używania kluczy zarządzanych przez klienta do szyfrowania obrazów udostępnionej galerii obrazów:  
+W przypadku korzystania z kluczy zarządzanych przez klienta do szyfrowania obrazów w udostępnionej galerii obrazów są stosowane następujące ograniczenia:   
 
 - Zestawy kluczy szyfrowania muszą znajdować się w tej samej subskrypcji co obraz.
 
-- Zestawy kluczy szyfrowania są zasobami regionalnymi, dlatego każdy region wymaga innego zestawu kluczy szyfrowania.
+- Zestawy kluczy szyfrowania są zasobami regionalnymi, więc każdy region wymaga innego zestawu kluczy szyfrowania.
 
 - Nie można kopiować ani udostępniać obrazów, które używają kluczy zarządzanych przez klienta. 
 
@@ -47,25 +48,25 @@ Istnieje kilka ograniczeń dotyczących używania kluczy zarządzanych przez kli
 
 
 > [!IMPORTANT]
-> Szyfrowanie przy użyciu kluczy zarządzanych przez klienta jest obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Szyfrowanie za poorednictwem kluczy zarządzanych przez klienta jest obecnie dostępne w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="powershell"></a>PowerShell
 
-Aby uzyskać publiczną wersję zapoznawczą, należy najpierw zarejestrować tę funkcję.
+Aby uzyskać publiczną wersję zapoznawczą, należy najpierw zarejestrować funkcję:
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
 ```
 
-Ukończenie rejestracji trwa kilka minut. Użyj Get-AzProviderFeature, aby sprawdzić stan rejestracji funkcji.
+Rejestracja może potrwać kilka minut. Użyj `Get-AzProviderFeature` , aby sprawdzić stan rejestracji funkcji:
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
 ```
 
-Gdy RegistrationState zwraca zarejestrowany, możesz przejść do następnego kroku.
+Po `RegistrationState` powrocie `Registered` , możesz przejść do następnego kroku.
 
 Sprawdź rejestrację dostawcy. Upewnij się, że zwraca `Registered` .
 
@@ -73,13 +74,13 @@ Sprawdź rejestrację dostawcy. Upewnij się, że zwraca `Registered` .
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-Jeśli nie zwróci tego `Registered` , użyj następującej czynności, aby zarejestrować dostawców:
+Jeśli nie zwróci tego `Registered` , użyj następującego kodu, aby zarejestrować dostawców:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Aby określić szyfrowanie dysku ustawione dla wersji obrazu, użyj polecenie  [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) z `-TargetRegion` parametrem. 
+Aby określić szyfrowanie dysków dla wersji obrazu, użyj polecenie  [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) z `-TargetRegion` parametrem: 
 
 ```azurepowershell-interactive
 
@@ -127,9 +128,9 @@ New-AzGalleryImageVersion `
 
 ### <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
-Możesz utworzyć maszynę wirtualną na podstawie udostępnionej galerii obrazów i użyć kluczy zarządzanych przez klienta do szyfrowania dysków. Składnia jest taka sama jak tworzenie [uogólnionej](vm-generalized-image-version-powershell.md) lub [wyspecjalizowanej](vm-specialized-image-version-powershell.md) maszyny wirtualnej na podstawie obrazu, należy użyć rozszerzonego zestawu parametrów i dodać `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` do konfiguracji maszyny wirtualnej.
+Można utworzyć maszynę wirtualną z galerii obrazów udostępnionych i użyć kluczy zarządzanych przez klienta do szyfrowania dysków. Składnia jest taka sama jak tworzenie [uogólnionej](vm-generalized-image-version-powershell.md) lub [wyspecjalizowanej](vm-specialized-image-version-powershell.md) maszyny wirtualnej na podstawie obrazu. Użyj zestawu parametrów rozszerzonych i Dodaj `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` do konfiguracji maszyny wirtualnej.
 
-W przypadku dysków z danymi należy dodać parametr w `-DiskEncryptionSetId $setID` przypadku użycia polecenie [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
+W przypadku dysków z danymi Dodaj `-DiskEncryptionSetId $setID` parametr w przypadku użycia polecenie [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
 
 
 ## <a name="cli"></a>Interfejs wiersza polecenia 
@@ -140,15 +141,15 @@ W publicznej wersji zapoznawczej należy najpierw zarejestrować się w celu uzy
 az feature register --namespace Microsoft.Compute --name SIGEncryption
 ```
 
-Sprawdź stan rejestracji funkcji.
+Sprawdź stan rejestracji funkcji:
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.Compute --name SIGEncryption | grep state
 ```
 
-Po powrocie tego typu `"state": "Registered"` można przejść do następnego kroku.
+Gdy ten kod zwraca `"state": "Registered"` , możesz przejść do następnego kroku.
 
-Sprawdź swoją rejestrację.
+Sprawdź swoją rejestrację:
 
 ```azurecli-interactive
 az provider show -n Microsoft.Compute | grep registrationState
@@ -161,9 +162,9 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Aby określić szyfrowanie dysku ustawione dla wersji obrazu, użyj  [AZ Image Gallery Create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create) z `--target-region-encryption` parametrem. Format `--target-region-encryption` jest rozdzielaną przecinkami listą kluczy do szyfrowania systemu operacyjnego i dysków danych. Powinien wyglądać następująco: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>` . 
+Aby określić szyfrowanie dysku ustawione dla wersji obrazu, użyj [AZ Image Gallery Create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create) z `--target-region-encryption` parametrem. Format `--target-region-encryption` jest rozdzielaną przecinkami listą kluczy do szyfrowania systemu operacyjnego i dysków danych. Powinien wyglądać następująco: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>` . 
 
-Jeśli źródło dysku systemu operacyjnego jest dyskiem zarządzanym lub maszyną wirtualną, użyj, `--managed-image` Aby określić źródło dla wersji obrazu. W tym przykładzie źródłem jest obraz zarządzany z dyskiem systemu operacyjnego, a także dysk danych o numerze LUN 0. Dysk systemu operacyjnego zostanie zaszyfrowany za pomocą DiskEncryptionSet1, a dysk danych zostanie zaszyfrowany przy użyciu DiskEncryptionSet2.
+Jeśli źródło dysku systemu operacyjnego jest dyskiem zarządzanym lub maszyną wirtualną, użyj, `--managed-image` Aby określić źródło dla wersji obrazu. W tym przykładzie źródłem jest obraz zarządzany z dyskiem systemu operacyjnego i dyskiem danych o numerze LUN 0. Dysk systemu operacyjnego zostanie zaszyfrowany za pomocą DiskEncryptionSet1, a dysk danych zostanie zaszyfrowany przy użyciu DiskEncryptionSet2.
 
 ```azurecli-interactive
 az sig image-version create \
@@ -177,9 +178,9 @@ az sig image-version create \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 
-Jeśli źródło dysku systemu operacyjnego jest migawką, użyj, `--os-snapshot` Aby określić dysk systemu operacyjnego. Jeśli istnieją migawki dysków danych, które powinny być również częścią wersji obrazu, Dodaj je przy użyciu, `--data-snapshot-luns` Aby określić jednostkę LUN i `--data-snapshots` określić migawki.
+Jeśli źródło dysku systemu operacyjnego jest migawką, użyj, `--os-snapshot` Aby określić dysk systemu operacyjnego. Jeśli istnieją migawki dysków danych, które muszą być również częścią wersji obrazu, należy dodać te elementy. Użyj `--data-snapshot-luns` , aby określić jednostkę LUN, a następnie użyj, `--data-snapshots` Aby określić migawki.
 
-W tym przykładzie źródła są migawkami dysków. Istnieje dysk systemu operacyjnego, a także dysk danych o numerze LUN 0. Dysk systemu operacyjnego zostanie zaszyfrowany za pomocą DiskEncryptionSet1, a dysk danych zostanie zaszyfrowany przy użyciu DiskEncryptionSet2.
+W tym przykładzie źródła są migawkami dysków. Istnieje dysk systemu operacyjnego i dysk danych o numerze LUN 0. Dysk systemu operacyjnego zostanie zaszyfrowany za pomocą DiskEncryptionSet1, a dysk danych zostanie zaszyfrowany przy użyciu DiskEncryptionSet2.
 
 ```azurecli-interactive
 az sig image-version create \
@@ -198,20 +199,20 @@ az sig image-version create \
 
 ### <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej
 
-Możesz utworzyć maszynę wirtualną na podstawie udostępnionej galerii obrazów i użyć kluczy zarządzanych przez klienta do szyfrowania dysków. Składnia jest taka sama jak tworzenie [uogólnionej](vm-generalized-image-version-cli.md) lub [wyspecjalizowanej](vm-specialized-image-version-cli.md) maszyny wirtualnej na podstawie obrazu, wystarczy dodać `--os-disk-encryption-set` parametr z identyfikatorem zestawu szyfrowania. W przypadku dysków z danymi Dodaj `--data-disk-encryption-sets` listę rozdzielaną spacjami zestawów szyfrowania dysków dla dysków danych.
+Możesz utworzyć maszynę wirtualną na podstawie udostępnionej galerii obrazów i użyć kluczy zarządzanych przez klienta do szyfrowania dysków. Składnia jest taka sama jak tworzenie [uogólnionej](vm-generalized-image-version-cli.md) lub [wyspecjalizowanej](vm-specialized-image-version-cli.md) maszyny wirtualnej na podstawie obrazu. Po prostu Dodaj `--os-disk-encryption-set` parametr z identyfikatorem zestawu szyfrowania. W przypadku dysków z danymi Dodaj rozdzieloną `--data-disk-encryption-sets` spacjami listę zestawów szyfrowania dysków dla dysków danych.
 
 
 ## <a name="portal"></a>Portal
 
-Podczas tworzenia wersji obrazu w portalu możesz użyć karty **szyfrowanie** , aby wprowadzić Zastosuj swoje zestawy szyfrowania magazynu.
+Podczas tworzenia wersji obrazu w portalu można użyć karty **szyfrowanie** , aby zastosować zestawy szyfrowania magazynu.
 
 > [!IMPORTANT]
-> Aby użyć szyfrowania podwójnego, należy użyć tego linku, [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) Aby uzyskać dostęp do Azure Portal. Podwójne szyfrowanie w czasie spoczynku nie jest obecnie widoczne w publicznej Azure Portal bez użycia linku.
+> Aby użyć szyfrowania podwójnego, należy użyć linku, [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) Aby uzyskać dostęp do Azure Portal. Podwójne szyfrowanie w spoczynku nie jest obecnie widoczne w publicznej Azure Portal, chyba że zostanie użyty ten link.
 
 
 1. Na stronie **Tworzenie wersji obrazu** wybierz kartę **szyfrowanie** .
 2. W obszarze **typ szyfrowania** wybierz pozycję **szyfrowanie w systemie i klucz zarządzany przez klienta** lub **podwójne szyfrowanie za pomocą kluczy zarządzanych przez platformę i klienta**. 
-3. Dla każdego dysku w obrazie wybierz z listy rozwijanej **ustawienia szyfrowanie dysków** , które mają być używane. 
+3. Dla każdego dysku w obrazie wybierz zestaw szyfrowania z listy rozwijanej **zestaw szyfrowania dysku** . 
 
 ### <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej
 

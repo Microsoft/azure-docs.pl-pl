@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289370"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506060"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnozowanie problemów z konfiguracją linków prywatnych w usłudze Azure Key Vault
 
@@ -142,21 +142,29 @@ Ta sekcja jest przeznaczona do celów edukacyjnych. Jeśli magazyn kluczy nie ma
 
 W systemie Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 W systemie Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Można zobaczyć, że nazwa jest rozpoznawana jako publiczny adres IP i nie ma `privatelink` aliasu. Alias został wyjaśniony później. nie martw się o to teraz.
 
@@ -168,23 +176,24 @@ Jeśli magazyn kluczy ma co najmniej jedno połączenie prywatnego punktu końco
 
 W systemie Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+Odpowiedź Nieautorytatywna: adres: 52.168.109.101 aliasy: fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```
+Linux:
 
-W systemie Linux:
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
-
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Istotna różnica w stosunku do poprzedniego scenariusza polega na tym, że istnieje nowy alias o wartości `{vaultname}.privatelink.vaultcore.azure.net` . Oznacza to, że płaszczyzna danych magazynu kluczy jest gotowa do akceptowania żądań od linków prywatnych.
 
@@ -198,19 +207,27 @@ Jeśli magazyn kluczy ma co najmniej jedno połączenie prywatnego punktu końco
 
 W systemie Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  10.1.2.3
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  10.1.2.3
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+```
 
 W systemie Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```
 
 Istnieją dwie istotne różnice. Najpierw nazwa jest rozpoznawana jako prywatny adres IP. Musi to być adres IP znaleziony w [odpowiedniej sekcji](#find-the-key-vault-private-ip-address-in-the-virtual-network) tego artykułu. Po drugie nie ma żadnych innych aliasów `privatelink` . Dzieje się tak, ponieważ Virtual Network serwery DNS *przechwytuje* łańcuch aliasów i zwracają prywatny adres IP bezpośrednio z nazwy `fabrikam.privatelink.vaultcore.azure.net` . Ten wpis jest w rzeczywistości `A` rekordem w prywatna strefa DNS strefie. Poniższe instrukcje będą się pojawiać.
 
@@ -227,7 +244,7 @@ Jeśli rozpoznawanie nazw DNS nie działa zgodnie z opisem w poprzedniej sekcji,
 
 Twoja subskrypcja platformy Azure musi mieć [prywatna strefa DNS zasób strefy](../../dns/private-dns-privatednszone.md) o tej samej nazwie:
 
-    privatelink.vaultcore.azure.net
+`privatelink.vaultcore.azure.net`
 
 Obecność tego zasobu można sprawdzić, przechodząc do strony subskrypcji w portalu i wybierając pozycję "zasoby" w menu po lewej stronie. Nazwa zasobu musi mieć wartość `privatelink.vaultcore.azure.net` , a typem zasobu musi być **prywatna strefa DNS strefa**.
 
@@ -282,37 +299,48 @@ Magazyn kluczy udostępnia `/healthstatus` punkt końcowy, który może być uż
 
 Windows (PowerShell):
 
-    PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```
 
-    Key                           Value
-    ---                           -----
-    Pragma                        no-cache
-    x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
-    x-ms-keyvault-service-version 1.2.27.0
-    x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security     max-age=31536000;includeSubDomains
-    Content-Length                4
-    Cache-Control                 no-cache
-    Content-Type                  application/json; charset=utf-8
+```output
+Key                           Value
+---                           -----
+Pragma                        no-cache
+x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
+x-ms-keyvault-service-version 1.2.27.0
+x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security     max-age=31536000;includeSubDomains
+Content-Length                4
+Cache-Control                 no-cache
+Content-Type                  application/json; charset=utf-8
+```
 
 Linux lub Najnowsza wersja systemu Windows 10 obejmująca następujące elementy `curl` :
 
-    joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
-    x-ms-keyvault-service-version: 1.2.27.0
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security: max-age=31536000;includeSubDomains
-    Content-Length: 4
+```console
+joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
+```
+
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
+x-ms-keyvault-service-version: 1.2.27.0
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+Content-Length: 4
+```
 
 Jeśli nie otrzymasz danych wyjściowych podobnych do tego, lub jeśli wystąpi błąd sieciowy, oznacza to, że magazyn kluczy nie jest dostępny za pośrednictwem określonej nazwy hosta ( `fabrikam.vault.azure.net` w tym przykładzie). Nazwa hosta nie jest rozpoznawana jako prawidłowy adres IP lub występuje problem z łącznością w warstwie transportowej. Może to być spowodowane problemami z routingiem, upuszczeniem pakietów i innymi przyczynami. Musisz dokładniej zbadać.
 
 Odpowiedź musi zawierać nagłówek `x-ms-keyvault-network-info` :
 
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```console
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```
 
 `addr`Pole w `x-ms-keyvault-network-info` nagłówku pokazuje adres IP źródła żądania. Ten adres IP może mieć jedną z następujących wartości:
 
@@ -330,11 +358,15 @@ Odpowiedź musi zawierać nagłówek `x-ms-keyvault-network-info` :
 
 Jeśli zainstalowano najnowszą wersję programu PowerShell, można użyć `-SkipCertificateCheck` programu do pomijania sprawdzania certyfikatu HTTPS, a następnie można wskazać [adres IP magazynu kluczy](#find-the-key-vault-private-ip-address-in-the-virtual-network) bezpośrednio:
 
-    PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```
 
 Jeśli używasz programu `curl` , możesz wykonać te same czynności z `-k` argumentem:
 
-    joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```console
+joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```
 
 Odpowiedzi muszą być takie same w poprzedniej sekcji, co oznacza, że musi zawierać `x-ms-keyvault-network-info` nagłówek o tej samej wartości. `/healthstatus`Punkt końcowy nie ma opieki w przypadku używania nazwy hosta lub adresu IP magazynu kluczy.
 

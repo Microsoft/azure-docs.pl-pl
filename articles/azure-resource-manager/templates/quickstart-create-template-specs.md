@@ -2,15 +2,15 @@
 title: Tworzenie i wdrażanie specyfikacji szablonu
 description: Dowiedz się, jak utworzyć specyfikację szablonu na podstawie szablonu ARM. Następnie wdróż specyfikację szablonu w grupie zasobów w subskrypcji.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728781"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506366"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Szybki Start: Tworzenie i wdrażanie specyfikacji szablonu (wersja zapoznawcza)
 
@@ -88,7 +88,7 @@ Te opcje są pokazane poniżej.
 1. W przypadku tworzenia specyfikacji szablonu przy użyciu szablonu ARM szablon zostanie osadzony w definicji zasobu. Skopiuj następujący szablon i Zapisz go lokalnie jako **azuredeploy.js**. W tym przewodniku szybki start założono, że Zapisano w ścieżce **c:\Templates\azuredeploy.jsna** , ale można użyć dowolnej ścieżki.
 
     > [!NOTE]
-    > W szablonie osadzonym wszystkie nawiasy klamrowe muszą zostać zmienione przy użyciu drugiego lewego nawiasu. Użyj `[[` zamiast `[` .
+    > W szablonie osadzonym wszystkie [wyrażenia szablonu](template-expressions.md) muszą być wyprowadzane przy użyciu drugiego lewego nawiasu. Użyj `"[[` zamiast `"[` . W tablicach JSON nadal jest używany pojedynczy lewy nawias.
 
     ```json
     {

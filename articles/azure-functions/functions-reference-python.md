@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358052"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506077"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -312,10 +312,10 @@ Klucz służący do poprawy wydajności zawiera informacje o tym, w jaki sposób
 
 Konfiguracje domyślne są odpowiednie dla większości Azure Functions aplikacji. Można jednak zwiększyć wydajność przepływności aplikacji, używając konfiguracji opartych na Twoim profilu obciążenia. Pierwszym krokiem jest zrozumienie typu obciążenia, które jest uruchomione.
 
-|&nbsp;| Obciążenie związane we/wy | Obciążenie związane z PROCESORem |
+| | Obciążenie związane we/wy | Obciążenie związane z PROCESORem |
 |--| -- | -- |
-|Charakterystyka aplikacji funkcji| <ul><li>Aplikacja musi obsługiwać wiele współbieżnych wywołań.</li> <li> Aplikacja przetwarza dużą liczbę zdarzeń we/wy, takich jak wywołania sieciowe i odczyt/zapis na dysku.</li> </ul>| <ul><li>Aplikacja wykonuje długotrwałe obliczenia, takie jak zmienianie rozmiarów obrazów.</li> <li>Aplikacja wykonuje transformację danych.</li> </ul> |
-|Przykłady| <ul><li>Interfejsy API sieci Web</li><ul> | <ul><li>Przetwarzanie danych</li><li> Wnioskowanie dotyczące uczenia maszynowego</li><ul>|
+|**Charakterystyka aplikacji funkcji**| <ul><li>Aplikacja musi obsługiwać wiele współbieżnych wywołań.</li> <li> Aplikacja przetwarza dużą liczbę zdarzeń we/wy, takich jak wywołania sieciowe i odczyt/zapis na dysku.</li> </ul>| <ul><li>Aplikacja wykonuje długotrwałe obliczenia, takie jak zmienianie rozmiarów obrazów.</li> <li>Aplikacja wykonuje transformację danych.</li> </ul> |
+|**Przykłady**| <ul><li>Interfejsy API sieci Web</li><ul> | <ul><li>Przetwarzanie danych</li><li> Wnioskowanie dotyczące uczenia maszynowego</li><ul>|
 
 
 > [!NOTE]
@@ -385,7 +385,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT ma zastosowanie do każdego hosta, który tworzy 
 
 Aby uzyskać kontekst wywołania funkcji podczas wykonywania, należy uwzględnić [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argument w jego podpisie.
 
-Na przykład:
+Przykład:
 
 ```python
 import azure.functions

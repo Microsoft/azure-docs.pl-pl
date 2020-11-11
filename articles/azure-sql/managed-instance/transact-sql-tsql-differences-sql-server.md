@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337648"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506383"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -410,7 +410,7 @@ Operacje:
 
 ### <a name="polybase"></a>PolyBase
 
-Tabele zewnętrzne odwołujące się do plików w systemie HDFS lub Azure Blob Storage nie są obsługiwane. Aby uzyskać informacje o bazie danych Base, zobacz artykuł [Base](/sql/relational-databases/polybase/polybase-guide).
+Jedynym obsługiwanym typem źródła zewnętrznego jest RDBMS, aby Azure SQL Database i inne wystąpienie zarządzane usługi Azure SQL. Aby uzyskać informacje o bazie danych Base, zobacz artykuł [Base](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replikacja
 

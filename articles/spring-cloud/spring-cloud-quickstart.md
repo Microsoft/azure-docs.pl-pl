@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 41bbac2032c69861790b806e914827183f83844b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 448707ab84ccca03dc0572d2ebed1b4bd1b6325f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396077"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505295"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -163,11 +163,11 @@ W programie Visual Studio Utwórz ASP.NET Core aplikację sieci Web o nazwie "He
    ```csharp
    public static IHostBuilder CreateHostBuilder(string[] args) =>
                Host.CreateDefaultBuilder(args)
+                   .UseAzureSpringCloudService()
                    .ConfigureWebHostDefaults(webBuilder =>
                    {
                        webBuilder.UseStartup<Startup>();
-                   })
-                   .UseAzureSpringCloudService();
+                   });
    ```
 
 4. W pliku *Startup.cs* Dodaj `using` dyrektywę i kod, który korzysta z wykrywania usługi steeltoe na końcu `ConfigureServices` `Configure` metod i:

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760516"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504972"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek
 Jeśli włączono Application Insights Snapshot Debugger dla aplikacji, ale nie widzisz migawek dla wyjątków, możesz użyć tych instrukcji do rozwiązywania problemów. Może istnieć wiele różnych powodów, dla których migawki nie są generowane. Możesz uruchomić kontrolę kondycji migawek, aby zidentyfikować niektóre z możliwych częstych przyczyn.
@@ -57,19 +57,21 @@ Aby sprawdzić to ustawienie, Otwórz plik web.config i Znajdź sekcję system. 
 > Jeśli targetFramework ma wartość 4,7 lub wyższą, system Windows określi dostępne protokoły. W Azure App Service jest dostępny protokół TLS 1,2. Jeśli jednak korzystasz z własnej maszyny wirtualnej, może być konieczne włączenie protokołu TLS 1,2 w systemie operacyjnym.
 
 ## <a name="preview-versions-of-net-core"></a>Wersje zapoznawcze programu .NET Core
-Jeśli aplikacja korzysta z wersji zapoznawczej programu .NET Core, a Snapshot Debugger została włączona za pośrednictwem [okienka Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) w portalu, Snapshot Debugger mogą nie zostać uruchomione. Postępuj zgodnie z instrukcjami w temacie [Enable Snapshot Debugger w innych środowiskach](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) , aby w pierwszej kolejności uwzględnić pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) z aplikacją, która jest ***również włączona w*** [okienku Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Jeśli aplikacja korzysta z wersji zapoznawczej programu .NET Core, a Snapshot Debugger została włączona za pośrednictwem [okienka Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) w portalu, Snapshot Debugger mogą nie zostać uruchomione. Postępuj zgodnie z instrukcjami w temacie [Enable Snapshot Debugger for other](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) Environments First, aby uwzględnić pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) z **aplikacją * dodatkowo** , aby włączyć za pomocą [okienka Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uaktualnij do najnowszej wersji pakietu NuGet
 
 Jeśli Snapshot Debugger został włączony [w okienku Application Insights w portalu](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), aplikacja powinna mieć już uruchomiony najnowszy pakiet NuGet. Jeśli Snapshot Debugger został włączony przez dołączenie pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , użyj Menedżera pakietów NuGet programu Visual Studio, aby upewnić się, że używasz najnowszej wersji Microsoft. ApplicationInsights. SnapshotCollector.
 
+Aby zapoznać się z najnowszymi aktualizacjami i poprawkami błędów [, zapoznaj się z informacjami o wersji](./snapshot-collector-release-notes.md).
+
 ## <a name="check-the-uploader-logs"></a>Sprawdź dzienniki obiektu przekazującego
 
 Po utworzeniu migawki plik minizrzutu (. dmp) jest tworzony na dysku. Oddzielny proces obiektu przekazującego tworzy plik minizrzutu i przekazuje go wraz ze wszystkimi skojarzonymi plików PDB, do Application Insights Snapshot Debugger Storage. Po pomyślnym przekazaniu minizrzutu zostanie on usunięty z dysku. Pliki dziennika dla procesu obiektu przekazującego są przechowywane na dysku. W środowisku App Service można znaleźć te dzienniki `D:\Home\LogFiles` . Aby znaleźć te pliki dzienników, użyj App Service witryny zarządzania kudu.
 
 1. Otwórz aplikację App Service w Azure Portal.
-2. Kliknij przycisk **Narzędzia zaawansowane**lub Wyszukaj pozycję **kudu**.
+2. Kliknij _ * Advanced Tools * * lub Wyszukaj **kudu**.
 3. Kliknij pozycję **Przejdź**.
 4. W polu listy rozwijanej **konsola debugowania** wybierz pozycję **cmd**.
 5. Kliknij pozycję **LogFiles**.

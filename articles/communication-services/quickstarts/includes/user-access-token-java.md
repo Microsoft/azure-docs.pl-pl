@@ -1,21 +1,21 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: a9c8d604e5564526936f37edcc9eec5891443a47
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.author: tchladek
+ms.openlocfilehash: de578ec286a8232ee8d4e259b2f37fb76101f7a5
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779258"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506239"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,7 +28,7 @@ ms.locfileid: "91779258"
 
 ### <a name="create-a-new-java-application"></a>Tworzenie nowej aplikacji Java
 
-Otwórz terminal lub okno poleceń i przejdź do katalogu, w którym chcesz utworzyć aplikację Java. Uruchom poniższe polecenie, aby wygenerować projekt Java z szablonu Maven-Archetype-szybkiego startu.
+Otwórz terminal lub okno poleceń. Przejdź do katalogu, w którym chcesz utworzyć aplikację Java. Uruchom poniższe polecenie, aby wygenerować projekt Java z szablonu Maven-Archetype-szybkiego startu.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -60,23 +60,23 @@ Z katalogu projektu:
 Użyj następującego kodu, aby rozpocząć:
 
 ```java
-import com.azure.communication.common.CommunicationUser;
-import com.azure.communication.administration.models.CommunicationIdentityToken;
-import com.azure.communication.administration.CommunicationIdentityClient;
-import com.azure.communication.administration.CommunicationIdentityClientBuilder;
+import com.azure.communication.administration.*;
+import com.azure.communication.common.*;
 import java.io.*;
+import java.util.*;
+import java.time.*;
+
+import com.azure.core.http.*;
 
 public class App
 {
     public static void main( String[] args ) throws IOException
     {
-        System.out.println("Azure Communication Services - User Access Tokens Quickstart");
+        System.out.println("Azure Communication Services - Access Tokens Quickstart");
         // Quickstart code goes here
     }
 }
 ```
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
@@ -85,65 +85,77 @@ Utwórz wystąpienie `CommunicationIdentityClient` z kluczem dostępu i punktem 
 Dodaj następujący kod do metody `main`:
 
 ```java
-// Your can find your endpoint and access token from your resource in the Azure Portal
+// Your can find your endpoint and access key from your resource in the Azure Portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-String accessToken = "SECRET";
+String accessKey = "SECRET";
 
 // Create an HttpClient builder of your choice and customize it
 // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
+// -> Add "import com.azure.core.http.netty.*;"
+// -> Add azure-core-http-netty dependency to file pom.xml
+
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .endpoint(endpoint)
-    .credential(new CommunicationClientCredential(accessToken))
+    .credential(new CommunicationClientCredential(accessKey))
     .httpClient(httpClient)
     .buildClient();
 ```
 
 Klienta można zainicjować przy użyciu dowolnego niestandardowego klienta HTTP, który implementuje `com.azure.core.http.HttpClient` interfejs. Powyższy kod ilustruje użycie klienta HTTP z sieciami [Azure Core](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) , który jest dostarczany przez program `azure-core` .
 
-## <a name="create-a-user"></a>Tworzenie użytkownika
+## <a name="create-an-identity"></a>Tworzenie tożsamości
 
-Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Należy zachować mapowanie między użytkownikami aplikacji i wygenerowanymi tożsamościami usług komunikacyjnych (np. przechowując je w bazie danych serwera aplikacji).
+Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Przechowywanie otrzymanej tożsamości z mapowaniem do użytkowników aplikacji. Można na przykład przechowywać je w bazie danych serwera aplikacji. Tożsamość jest wymagana później, aby można było wystawiać tokeny dostępu.
 
 ```java
-CommunicationUser user = communicationIdentityClient.createUser();
-System.out.println("\nCreated a user with ID: " + user.getId());
+CommunicationUser identity = communicationIdentityClient.createUser();
+System.out.println("\nCreated an identity with ID: " + identity.getId());
 ```
 
-## <a name="issue-user-access-tokens"></a>Wystaw tokeny dostępu użytkowników
+## <a name="issue-access-tokens"></a>Wystawianie tokenów dostępu
 
-Użyj `issueToken` metody, aby wystawić token dostępu dla użytkownika usług komunikacyjnych. Jeśli nie podasz opcjonalnego `user` parametru, zostanie utworzony nowy użytkownik, który zostanie zwrócony z tokenem.
+Użyj `issueToken` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `user` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
 
 ```java
-// Issue an access token with the "voip" scope for a new user
+// Issue an access token with the "voip" scope for an identity
 List<String> scopes = new ArrayList<>(Arrays.asList("voip"));
-CommunicationUserToken response = communicationIdentityClient.issueToken(user, scopes);
+CommunicationUserToken response = communicationIdentityClient.issueToken(identity, scopes);
 OffsetDateTime expiresOn = response.getExpiresOn();
 String token = response.getToken();
-String userId = response.getUser().getId();
-System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + userId + ": " + token);
-System.out.println(token);
+String identityId = response.getUser().getId();
+System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + identityId + ": " + token);
 ```
 
-Tokeny dostępu użytkowników to krótkoterminowe poświadczenia, które należy ponownie wydać, aby uniemożliwić użytkownikom zakłócenia działania usługi. `expiresAt`Właściwość Response wskazuje okres istnienia tokenu.
+Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wydać. Nie może to spowodować zakłócenia środowiska użytkownika aplikacji. `expiresAt`Właściwość Response wskazuje okres istnienia tokenu dostępu.
 
-## <a name="revoke-user-access-tokens"></a>Odwołaj tokeny dostępu użytkowników
+## <a name="refresh-access-tokens"></a>Odświeżenie tokenów dostępu
 
-W niektórych przypadkach może być konieczne jawne odwołanie tokenów dostępu użytkowników, na przykład gdy użytkownik zmieni hasło używane do uwierzytelniania w usłudze. Ta `revokeTokens` Metoda umożliwia unieważnienie wszystkich tokenów dostępu użytkownika.
+Aby odświeżyć token dostępu, użyj `CommunicationUser` obiektu, aby go ponownie wydać:
 
 ```java  
-communicationIdentityClient.revokeTokens(user, OffsetDateTime.now());
-System.out.println("\nRevoked tokens for the user with ID: " + user.getId());
+// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+CommunicationUser identity = new CommunicationUser(existingIdentity);
+response = communicationIdentityClient.issueToken(identity, scopes);
 ```
 
-## <a name="delete-a-user"></a>Usuwanie użytkownika
+## <a name="revoke-access-tokens"></a>Odwołaj tokeny dostępu
 
-Usunięcie użytkownika odwołuje wszystkie aktywne tokeny i uniemożliwia wystawianie kolejnych tokenów dla tożsamości. Usuwa również całą zawartość utrwaloną skojarzoną z użytkownikiem.
+W niektórych przypadkach można jawnie odwołać tokeny dostępu. Na przykład, gdy użytkownik aplikacji zmieni hasło używane do uwierzytelniania w usłudze. Metoda `revokeTokens` unieważnia wszystkie aktywne tokeny dostępu, które zostały wystawione dla tożsamości.
+
+```java  
+communicationIdentityClient.revokeTokens(identity, OffsetDateTime.now());
+System.out.println("\nRevoked access tokens for the user with ID: " + identity.getId());
+```
+
+## <a name="delete-an-identity"></a>Usuwanie tożsamości
+
+Usunięcie tożsamości odwołuje wszystkie aktywne tokeny dostępu i uniemożliwia wystawianie tokenów dostępu dla tożsamości. Usuwa również całą zawartość utrwaloną skojarzoną z tożsamością.
 
 ```java
-communicationIdentityClient.deleteUser(user);
-System.out.println("\nSuccessfully deleted the identity with ID: " + user.getId());
+communicationIdentityClient.deleteUser(identity);
+System.out.println("\nSuccessfully deleted the identity with ID: " + identity.getId());
 ```
 
 ## <a name="run-the-code"></a>Uruchamianie kodu

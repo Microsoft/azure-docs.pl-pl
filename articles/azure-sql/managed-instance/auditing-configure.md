@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427942"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505669"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Wprowadzenie do inspekcji wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
   
 3. Po utworzeniu kontenera dla dzienników inspekcji istnieją dwa sposoby skonfigurowania go jako element docelowy dla dzienników inspekcji: [przy użyciu języka T-SQL](#blobtsql) lub [interfejsu użytkownika SQL Server Management Studio (SSMS)](#blobssms):
 
-   - <a id="blobtsql"></a>Konfigurowanie usługi BLOB Storage na potrzeby dzienników inspekcji przy użyciu języka T-SQL:
+   - <a id="blobtsql"></a>**Konfigurowanie usługi BLOB Storage na potrzeby dzienników inspekcji przy użyciu języka T-SQL:**
 
      1. Na liście kontenery kliknij nowo utworzony kontener, a następnie kliknij pozycję **właściwości kontenera**.
 
@@ -120,7 +120,7 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
 
      1. Kontynuuj przez [utworzenie specyfikacji inspekcji serwera lub specyfikacji inspekcji bazy danych](#createspec).
 
-   - <a id="blobssms"></a>Skonfiguruj magazyn obiektów BLOB dla dzienników inspekcji przy użyciu SQL Server Management Studio 18 (wersja zapoznawcza):
+   - <a id="blobssms"></a>**Skonfiguruj magazyn obiektów BLOB dla dzienników inspekcji przy użyciu SQL Server Management Studio 18:**
 
      1. Połącz się z wystąpieniem zarządzanym przy użyciu interfejsu użytkownika SQL Server Management Studio.
 
@@ -143,8 +143,8 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
         ![Wybierz subskrypcję platformy Azure, konto magazynu i kontener obiektów BLOB](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Kliknij przycisk **OK** w oknie dialogowym **Tworzenie inspekcji** .
-
-4. <a id="createspec"></a>Po skonfigurowaniu kontenera obiektów BLOB jako celu dla dzienników inspekcji należy utworzyć i włączyć specyfikację inspekcji serwera lub specyfikację inspekcji bazy danych w taki sposób, jak w przypadku SQL Server:
+     
+     1. <a id="createspec"></a>Po skonfigurowaniu kontenera obiektów BLOB jako celu dla dzienników inspekcji należy utworzyć i włączyć specyfikację inspekcji serwera lub specyfikację inspekcji bazy danych w taki sposób, jak w przypadku SQL Server:
 
    - [Utwórz Podręcznik T-SQL dla specyfikacji inspekcji serwera](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Przewodnik tworzenia instrukcji języka T-SQL dla specyfikacji inspekcji bazy danych](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

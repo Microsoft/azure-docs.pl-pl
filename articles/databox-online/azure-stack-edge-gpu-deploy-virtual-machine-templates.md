@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899706"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505941"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów
 
@@ -149,7 +149,7 @@ W typowym środowisku skonfigurowano system DNS tak, aby wszystkie konta magazyn
 
 ### <a name="optional-install-certificates"></a>Obowiązkowe Instalowanie certyfikatów
 
-Pomiń ten krok, jeśli zostanie nawiązane połączenie za pośrednictwem Eksplorator usługi Storage przy użyciu *protokołu HTTP*. W przypadku korzystania z *protokołu HTTPS*należy zainstalować odpowiednie certyfikaty w Eksplorator usługi Storage. W takim przypadku należy zainstalować certyfikat punktu końcowego obiektu BLOB. Aby uzyskać więcej informacji, zobacz jak tworzyć i przekazywać certyfikaty w artykule [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md). 
+Pomiń ten krok, jeśli zostanie nawiązane połączenie za pośrednictwem Eksplorator usługi Storage przy użyciu *protokołu HTTP*. W przypadku korzystania z *protokołu HTTPS* należy zainstalować odpowiednie certyfikaty w Eksplorator usługi Storage. W takim przypadku należy zainstalować certyfikat punktu końcowego obiektu BLOB. Aby uzyskać więcej informacji, zobacz jak tworzyć i przekazywać certyfikaty w artykule [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Tworzenie i przekazywanie wirtualnego dysku twardego
 
@@ -185,17 +185,17 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Łączenie z usługą Azure Storage 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz opcję **Dalej**.
+5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia z usługą Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. W oknie **łączenie z nazwą i kluczem**Podaj **nazwę wyświetlaną**, **nazwę konta magazynu**i **klucz konta**usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz opcję **Dalej**.
+6. W oknie **łączenie z nazwą i kluczem** Podaj **nazwę wyświetlaną** , **nazwę konta magazynu** i **klucz konta** usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia przy użyciu nazwy i klucza](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Przejrzyj **Podsumowanie połączenia** i wybierz pozycję **Połącz**.
 
-8. Konto magazynu zostanie wyświetlone w okienku po lewej stronie. Wybierz i rozwiń konto magazynu. Wybierz **kontenery obiektów BLOB**, kliknij prawym przyciskiem myszy i wybierz pozycję **Utwórz kontener obiektów BLOB**. Podaj nazwę kontenera obiektów BLOB.
+8. Konto magazynu zostanie wyświetlone w okienku po lewej stronie. Wybierz i rozwiń konto magazynu. Wybierz **kontenery obiektów BLOB** , kliknij prawym przyciskiem myszy i wybierz pozycję **Utwórz kontener obiektów BLOB**. Podaj nazwę kontenera obiektów BLOB.
 
 9. Wybierz kontener, który został właśnie utworzony, a następnie w okienku po prawej stronie wybierz pozycję **przekaż > Przekaż pliki**. 
 
@@ -402,7 +402,7 @@ Wdróż szablon `CreateImageAndVnet.json` . Ten szablon wdraża zasoby sieci wir
 
 ### <a name="edit-parameters-file-to-create-vm"></a>Edytuj plik parametrów, aby utworzyć maszynę wirtualną
  
-Aby utworzyć maszynę wirtualną, użyj `CreateVM.parameters.json` pliku parametrów. Przyjmuje poniższe parametry.
+Aby utworzyć maszynę wirtualną, użyj pliku parametrów `CreateVM.parameters.json`. Przyjmuje poniższe parametry.
     
 ```json
 "vmName": {
@@ -441,7 +441,7 @@ Przypisz odpowiednie parametry do `CreateVM.parameters.json` urządzenia z Azure
 
 1. Podaj unikatową nazwę, nazwę interfejsu sieciowego i nazwę ipconfig. 
 1. Wprowadź nazwę użytkownika, hasło i obsługiwane rozmiary maszyn wirtualnych.
-1. Nadaj tej samej nazwie **VnetName**, **Subnetname**i **ImageName** , zgodnie z parametrami dla `CreateImageAndVnet.parameters.json` . Na przykład, jeśli określono VnetName, subnetname i ImageName jako **vnet1**, **subnet1**i **image1**, należy pozostawić te wartości te same dla parametrów w tym szablonie.
+1. Nadaj tej samej nazwie **VnetName** , **Subnetname** i **ImageName** , zgodnie z parametrami dla `CreateImageAndVnet.parameters.json` . Na przykład, jeśli określono VnetName, subnetname i ImageName jako **vnet1** , **subnet1** i **image1** , należy pozostawić te wartości te same dla parametrów w tym szablonie.
 1. Teraz musisz mieć statyczny adres IP, aby przypisać do maszyny wirtualnej, która znajduje się w sieci podsieci zdefiniowanej powyżej. Zastąp **PrivateIPAddress** tym adresem w pliku parametrów. Aby maszyna wirtualna mogła uzyskać adres IP z lokalnego serwera protokół DHCP;, pozostaw `privateIPAddress` wartość pustą.  
     
     ```json
@@ -550,7 +550,8 @@ Wdróż szablon tworzenia maszyny wirtualnej `CreateVM.json` . Ten szablon tworz
         
         PS C:\07-30-2020>
     ```   
-Możesz również uruchomić `New-AzureRmResourceGroupDeployment` polecenie asynchronicznie za pomocą `–AsJob` parametru. Oto przykładowe dane wyjściowe, gdy polecenie cmdlet zostanie uruchomione w tle. Następnie można wykonać zapytanie o stan zadania tworzonego przy użyciu `Get-Job` polecenia cmdlet.
+
+    Możesz również uruchomić `New-AzureRmResourceGroupDeployment` polecenie asynchronicznie za pomocą `–AsJob` parametru. Oto przykładowe dane wyjściowe, gdy polecenie cmdlet zostanie uruchomione w tle. Następnie można wykonać zapytanie o stan zadania tworzonego przy użyciu `Get-Job` polecenia cmdlet.
 
     ```powershell   
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -568,7 +569,6 @@ Możesz również uruchomić `New-AzureRmResourceGroupDeployment` polecenie asyn
      
     Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
     --     ----            -------------   -----         -----------     --------             -------
-    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
     ```
 
 7. Sprawdź, czy maszyna wirtualna została pomyślnie zainicjowana. Uruchom następujące polecenie:
@@ -615,7 +615,7 @@ On the client used to access your Azure Stack Edge Pro device, set up a global v
 
 ### On Windows client 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### On Linux client
 

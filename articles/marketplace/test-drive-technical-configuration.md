@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: b3f46f934241d924789b97c24cf9b68213d94d63
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490087"
+ms.locfileid: "94504836"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 
@@ -93,9 +93,10 @@ Opcja **listy** dla wersji testowych znajduje się na karcie **dysk testowy** w 
 
 Jeśli obecnie tworzysz dysk testowy w centrum partnerskim, wybierz opcję **Zapisz wersję roboczą** przed kontynuowaniem.
 
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
 ## <a name="next-steps"></a>Następne kroki
 
 - [Najlepsze rozwiązania dotyczące wersji testowej](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Przegląd](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 - [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md)
-- [Forum opinii o witrynie Azure Marketplace](https://feedback.azure.com/forums/216369-azure-marketplace)

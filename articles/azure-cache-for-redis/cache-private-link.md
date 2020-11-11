@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: efba69372f46c9b8a7f2857e37b34ec8c88654a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546283"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504700"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
 W tym artykule dowiesz się, jak utworzyć sieć wirtualną i usługę Azure cache for Redis z prywatnym punktem końcowym przy użyciu Azure Portal. Dowiesz się również, jak dodać prywatny punkt końcowy do istniejącej usługi Azure cache for Redis.
@@ -33,11 +33,11 @@ W tej sekcji utworzysz nowe wystąpienie usługi Azure cache for Redis z prywatn
 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej 
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób** .
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**.
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Wybierz pozycję Utwórz zasób.":::
 
-2. Na stronie **Nowy** wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieć wirtualna** .
+2. Na stronie **Nowy** wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieć wirtualna**.
 
 3. Wybierz pozycję **Dodaj** , aby utworzyć sieć wirtualną.
 
@@ -56,9 +56,9 @@ W tej sekcji utworzysz nowe wystąpienie usługi Azure cache for Redis z prywatn
 
 7. W obszarze **Nazwa podsieci** kliknij opcję **domyślne** , aby edytować właściwości podsieci.
 
-8. W okienku **Edytowanie podsieci** Podaj **nazwę podsieci** oraz **zakres adresów podsieci** . Zakres adresów podsieci powinien być w notacji CIDR (np. 192.168.1.0/24). Musi ona być zawarta w przestrzeni adresowej sieci wirtualnej.
+8. W okienku **Edytowanie podsieci** Podaj **nazwę podsieci** oraz **zakres adresów podsieci**. Zakres adresów podsieci powinien być w notacji CIDR (np. 192.168.1.0/24). Musi ona być zawarta w przestrzeni adresowej sieci wirtualnej.
 
-9. Wybierz pozycję **Zapisz** .
+9. Wybierz pozycję **Zapisz**.
 
 10. Wybierz kartę **Recenzja + tworzenie** lub kliknij przycisk **Recenzja + tworzenie** .
 
@@ -67,17 +67,17 @@ W tej sekcji utworzysz nowe wystąpienie usługi Azure cache for Redis z prywatn
 ### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>Tworzenie pamięci podręcznej platformy Azure dla wystąpienia Redis z prywatnym punktem końcowym
 Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
 
-1. Wróć do strony głównej Azure Portal lub Otwórz menu paska bocznego, a następnie wybierz pozycję **Utwórz zasób** . 
+1. Wróć do strony głównej Azure Portal lub Otwórz menu paska bocznego, a następnie wybierz pozycję **Utwórz zasób**. 
    
-1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis** .
+1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Wybierz pozycję Utwórz zasób.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
    
 1. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia dla nowej pamięci podręcznej.
    
    | Ustawienie      | Sugerowana wartość  | Opis |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET* . | 
+   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to *\<DNS name> . Redis.cache.Windows.NET*. | 
    | **Subskrypcja** | Lista rozwijana i wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
    | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
@@ -89,9 +89,9 @@ Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
 
 1. Kliknij przycisk **Dodaj** , aby utworzyć prywatny punkt końcowy.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Wybierz pozycję Utwórz zasób.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="W obszarze Sieć Dodaj prywatny punkt końcowy.":::
 
-1. Na stronie **Tworzenie prywatnego punktu końcowego** Skonfiguruj ustawienia dla prywatnego punktu końcowego, korzystając z sieci wirtualnej i podsieci utworzonej w ostatniej sekcji, a następnie wybierz **przycisk OK** . 
+1. Na stronie **Tworzenie prywatnego punktu końcowego** Skonfiguruj ustawienia dla prywatnego punktu końcowego, korzystając z sieci wirtualnej i podsieci utworzonej w ostatniej sekcji, a następnie wybierz **przycisk OK**. 
 
 1. Wybierz kartę **Dalej: Zaawansowane** lub kliknij przycisk **Dalej: Zaawansowane** w dolnej części strony.
 
@@ -99,14 +99,13 @@ Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
 
 1. Na karcie **Zaawansowane** wystąpienia pamięci podręcznej Premium Skonfiguruj ustawienia dla portu niezwiązanego z protokołem TLS, klastrowanie i trwałość danych.
 
-
 1. Wybierz kartę **następne: Tagi** lub kliknij przycisk **Dalej: Tagi** w dolnej części strony.
 
 1. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
 
-1. Wybierz pozycję **Przejrzyj i utwórz** . Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
 
-1. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz** .
+1. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
 
 Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony** , pamięć podręczna jest gotowa do użycia. 
     
@@ -135,9 +134,9 @@ W tej sekcji dodasz prywatny punkt końcowy do istniejącej usługi Azure cache 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej 
 Aby utworzyć sieć wirtualną, wykonaj następujące kroki.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób** .
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**.
 
-2. Na stronie **Nowy** wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieć wirtualna** .
+2. Na stronie **Nowy** wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieć wirtualna**.
 
 3. Wybierz pozycję **Dodaj** , aby utworzyć sieć wirtualną.
 
@@ -156,9 +155,9 @@ Aby utworzyć sieć wirtualną, wykonaj następujące kroki.
 
 7. W obszarze **Nazwa podsieci** kliknij opcję **domyślne** , aby edytować właściwości podsieci.
 
-8. W okienku **Edytowanie podsieci** Podaj **nazwę podsieci** oraz **zakres adresów podsieci** . Zakres adresów podsieci powinien być w notacji CIDR (np. 192.168.1.0/24). Musi ona być zawarta w przestrzeni adresowej sieci wirtualnej.
+8. W okienku **Edytowanie podsieci** Podaj **nazwę podsieci** oraz **zakres adresów podsieci**. Zakres adresów podsieci powinien być w notacji CIDR (np. 192.168.1.0/24). Musi ona być zawarta w przestrzeni adresowej sieci wirtualnej.
 
-9. Wybierz pozycję **Zapisz** .
+9. Wybierz pozycję **Zapisz**.
 
 10. Wybierz kartę **Recenzja + tworzenie** lub kliknij przycisk **Recenzja + tworzenie** .
 
@@ -170,15 +169,15 @@ Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
 1. W Azure Portal Wyszukaj **usługę Azure cache for Redis** i naciśnij klawisz ENTER lub wybierz ją z sugestii wyszukiwania.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Wybierz pozycję Utwórz zasób.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Wyszukaj usługę Azure cache for Redis.":::
 
 2. Wybierz wystąpienie pamięci podręcznej, do którego chcesz dodać prywatny punkt końcowy.
 
-3. Po lewej stronie ekranu wybierz pozycję **(wersja zapoznawcza) prywatny punkt końcowy** .
+3. Po lewej stronie ekranu wybierz pozycję **(wersja zapoznawcza) prywatny punkt końcowy**.
 
 4. Kliknij przycisk **prywatny punkt końcowy** , aby utworzyć prywatny punkt końcowy.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Wybierz pozycję Utwórz zasób.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Dodaj prywatny punkt końcowy.":::
 
 5. Na **stronie Tworzenie prywatnego punktu końcowego** Skonfiguruj ustawienia dla prywatnego punktu końcowego.
 
@@ -201,11 +200,41 @@ Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
 11. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób.
 
-12. Wybierz pozycję **Przejrzyj i utwórz** . Nastąpi przekierowanie do karty **Recenzja + tworzenie** , w której platforma Azure weryfikuje konfigurację.
+12. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty **Recenzja + tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
-13. Po wyświetleniu komunikatu o pomyślnym **sprawdzeniu poprawności** , wybierz pozycję **Utwórz** .
+13. Po wyświetleniu komunikatu o pomyślnym **sprawdzeniu poprawności** , wybierz pozycję **Utwórz**.
 
+## <a name="faq"></a>Często zadawane pytania
+
+### <a name="why-cant-i-connect-to-a-private-endpoint"></a>Dlaczego nie mogę nawiązać połączenia z prywatnym punktem końcowym?
+Jeśli pamięć podręczna jest już wstrzykiwaną pamięcią podręczną, nie można używać prywatnych punktów końcowych z wystąpieniem pamięci podręcznej. Jeśli wystąpienie pamięci podręcznej używa nieobsługiwanej funkcji (wymienionej poniżej), nie będzie można nawiązać połączenia z wystąpieniem prywatnego punktu końcowego. Ponadto należy utworzyć wystąpienia pamięci podręcznej po 27 lipca, aby można było używać prywatnych punktów końcowych.
+
+### <a name="what-features-are-not-supported-with-private-endpoints"></a>Jakie funkcje nie są obsługiwane przez prywatne punkty końcowe?
+Replikacja geograficzna, reguły zapory, obsługa konsoli portalu, wiele punktów końcowych dla klastrowanej pamięci podręcznej, trwałość do reguł zapory i nadmiarowość stref. 
+
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>Jak mogę zmienić prywatny punkt końcowy, aby był wyłączony z dostępu do sieci publicznej?
+Istnieje `publicNetworkAccess` Flaga, która jest `Enabled` domyślnie. Ta flaga służy do zezwalania na opcjonalne Zezwalanie na dostęp do pamięci podręcznej przez publiczny i prywatny punkt końcowy, jeśli jest ustawiony na `Enabled` . Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego punktu końcowego. Możesz ustawić wartość na `Disabled` za pomocą następującego żądania patch.
+```http
+PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+{    "properties": {
+       "publicNetworkAccess":"Disabled"
+   }
+}
+```
+
+### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Czy sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń) są włączone dla prywatnych punktów końcowych?
+Nie, są one wyłączone dla prywatnych punktów końcowych. Jeśli jednak w podsieci istnieją inne zasoby, wymuszanie sieciowej grupy zabezpieczeń będzie miało zastosowanie do tych zasobów.
+
+### <a name="how-can-i-connect-to-a-clustered-cache"></a>Jak można nawiązać połączenie z klastrowaną pamięcią podręczną?
+`publicNetworkAccess` musi być ustawiony na `Disabled` i może istnieć tylko jedno połączenie prywatnego punktu końcowego.
+
+### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>Ponieważ moje prywatne wystąpienie punktu końcowego nie znajduje się w mojej sieci wirtualnej, jak jest ono skojarzone z moją siecią wirtualną?
+Jest on połączony tylko z siecią wirtualną. Ponieważ nie znajduje się w sieci wirtualnej, nie trzeba modyfikować reguł sieciowej grupy zabezpieczeń dla zależnych punktów końcowych.
+
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>Jak przeprowadzić migrację z wstrzykniętej pamięci podręcznej do prywatnej pamięci podręcznej punktu końcowego?
+Należy usunąć utworzoną pamięć podręczną i utworzyć nowe wystąpienie pamięci podręcznej z prywatnym punktem końcowym.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o łączu prywatnym platformy Azure, zobacz [dokumentację linku prywatnego platformy Azure](../private-link/private-link-overview.md).
+* Aby dowiedzieć się więcej o łączu prywatnym platformy Azure, zobacz [dokumentację linku prywatnego platformy Azure](../private-link/private-link-overview.md).
+* Aby porównać różne opcje izolacji sieci dla wystąpienia pamięci podręcznej, zobacz [dokumentację opcji izolacji sieci w usłudze Azure cache for Redis](cache-network-isolation.md).
