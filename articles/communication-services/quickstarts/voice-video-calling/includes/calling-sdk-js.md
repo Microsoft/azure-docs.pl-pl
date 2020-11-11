@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779318"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482703"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -147,7 +147,8 @@ Zwraca ciąg reprezentujący bieżący stan wywołania:
 * "Połączone" — połączenie jest połączone
 * "Hold" — wywołanie jest wstrzymane, żaden nośnik nie przepływa między lokalnym punktem końcowym i uczestnikami zdalnymi
 * "Rozłączanie"-stan przejścia przed przejściem do stanu "Rozłączono"
-* "Rozłączono" — stan końcowy wywołania
+* "Rozłączono" — stan końcowy wywołania.
+   * Po utracie połączenia sieciowego stan przechodzi do "Rozłączono" po około 2 minutach.
 
 
 * Aby zobaczyć dlaczego dane wywołanie zostało zakończone, sprawdź `callEndReason` Właściwość.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>Często zadawane pytania
+ * Jeśli łączność sieciowa zostanie utracona, czy stan wywołania zmieni się na "Rozłączono"?
+    * Tak, jeśli połączenie sieciowe zostanie utracone przez więcej niż 2 minuty, wywołanie przejdzie w stan rozłączenia, a wywołanie zakończy się.
 
 ## <a name="remote-participants-management"></a>Zdalne zarządzanie uczestnikami
 
@@ -270,7 +274,8 @@ Stan może być jednym z
 * "Połączone" — uczestnik jest połączony z wywołaniem
 * "Hold" — uczestnik jest wstrzymany
 * "EarlyMedia" — anons jest odtwarzany przed połączeniem uczestnika z wywołaniem
-* "Rozłączono" — stan końcowy — uczestnik jest odłączony od wywołania
+* "Rozłączono" — stan końcowy — uczestnik jest odłączony od wywołania.
+   * Jeśli zdalny uczestnik utraci połączenie sieciowe, stan uczestnika zdalnego przechodzi do "odłączony" po około 2 minutach.
 
 Aby dowiedzieć się, dlaczego uczestnik pozostawił wywołanie, zbadaj `callEndReason` Właściwość:
 ```js
@@ -410,7 +415,9 @@ Możesz później zaktualizować tryb skalowania, wywołując `updateScalingMode
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>Często zadawane pytania
+* Jeśli uczestnik zdalny utraci połączenie sieciowe, czy jego stan zmieni się na "odłączony"?
+    * Tak, jeśli uczestnik zdalny utraci połączenie sieciowe przez więcej niż 2 minuty, jego stan zmieni się na rozłączony i zostanie usunięty z wywołania.
 ## <a name="device-management"></a>Zarządzanie urządzeniami
 
 `DeviceManager` umożliwia Wyliczenie urządzeń lokalnych, które mogą być używane w wywołaniu przesyłania strumieni audio/wideo. Umożliwia także zażądanie uprawnień od użytkownika w celu uzyskania dostępu do mikrofonu i aparatu przy użyciu natywnego interfejsu API przeglądarki.
