@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d0ae4ef48bfb79130180cc477eb2a6fbeb470eb6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310694"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506434"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Korzystanie z platformy .NET dla Apache Spark przy użyciu usługi Azure Synapse Analytics
 
@@ -48,15 +48,15 @@ Zapoznaj się z samouczkiem, aby dowiedzieć się, jak [utworzyć Apache Spark d
 
     **W systemie Windows:**
 
-Użyj programu wyodrębniania, takiego jak [7-zip](https://www.7-zip.org/) lub [WinZip](https://www.winzip.com/), aby wyodrębnić plik do katalogu bin ze wszystkimi opublikowanymi plikami binarnymi.
+    Użyj programu wyodrębniania, takiego jak [7-zip](https://www.7-zip.org/) lub [WinZip](https://www.winzip.com/), aby wyodrębnić plik do katalogu bin ze wszystkimi opublikowanymi plikami binarnymi.
 
-     **On Linux:**
+    **W systemie Linux:**
 
-     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+    Otwórz powłokę bash i dysk CD w katalogu bin ze wszystkimi opublikowanymi plikami binarnymi i uruchom następujące polecenie.
 
-       ```bash
-       zip -r publish.zip
-       ```
+    ```bash
+    zip -r publish.zip
+    ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>Platforma .NET dla Apache Spark w notesach usługi Azure Synapse Analytics 
 
