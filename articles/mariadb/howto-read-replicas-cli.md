@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie replikami odczytu — interfejs wiersza polecenia platformy Azure, interfejs API REST — Azure Database for MariaDB
 description: W tym artykule opisano sposób konfigurowania replik odczytu i zarządzania nimi w programie Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure i interfejsów API REST.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8bb8ad4baec4c59a78afd6a92d69e94240c056a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 70da1e9c70bf80737065362c68781652dd9ab6e5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542628"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537513"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Jak tworzyć repliki odczytu i zarządzać nimi w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure i API REST
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: ae3d35bea1c75c797447100316ceab9a27fcbe48
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f2f0177b5fe8bb97773d297319f6c9196d8178d2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424236"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536238"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager"></a>Maszyna wirtualna nie odpowiada podczas oczekiwania na lokalny Menedżer sesji
 
@@ -35,7 +35,7 @@ Może istnieć wiele przyczyn, dla których maszyna wirtualna oczekuje na zablok
 
 ## <a name="solution"></a>Rozwiązanie
 
-W niektórych przypadkach po prostu czekaj na ukończenie procesu, który zakończy proces. Jeśli maszyna wirtualna jest zawieszona na ekranie oczekiwania przez ponad godzinę, należy zebrać zrzut pamięci, a następnie skontaktować się z pomocą techniczną firmy Microsoft.
+W niektórych przypadkach po prostu czekaj na ukończenie procesu, który zakończy proces. Jeśli maszyna wirtualna nie odpowiada i pozostanie na ekranie oczekiwania przez ponad godzinę, należy zebrać zrzut pamięci, a następnie skontaktować się z pomocą techniczną firmy Microsoft.
 
 ### <a name="collect-the-memory-dump-file"></a>Zbierz plik zrzutu pamięci
 

@@ -1,17 +1,17 @@
 ---
 title: Opcje obliczeniowe i magazynowe — Azure Database for MySQL — serwer elastyczny
 description: W tym artykule opisano opcje obliczeń i magazynu na serwerze elastycznym Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315172"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534674"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opcje obliczeń i magazynowania w Azure Database for MySQL-elastycznym serwerze (wersja zapoznawcza)
 
@@ -71,7 +71,7 @@ Szczegółowe specyfikacje dostępnych typów serwerów są następujące:
 
 Aby uzyskać więcej szczegółowych informacji o dostępnych seriach obliczeniowych, zapoznaj się z dokumentacją maszyn wirtualnych platformy Azure w celu ich przełożenia ( [Seria B)](../../virtual-machines/sizes-b-series-burstable.md), [ogólnego przeznaczenia (Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)i [zoptymalizowana pod kątem pamięci (seria Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Zainicjowanym magazynem jest ilość miejsca do magazynowania dostępna dla serwera elastycznego. Magazyn jest używany dla plików bazy danych, plików tymczasowych, dzienników transakcji i dzienników serwera MySQL. W przypadku wszystkich warstw obliczeniowych Minimalna obsługiwana wielkość magazynu to 5 GiB, a maksymalna to 16 TiB. Magazyn jest skalowany w 1 GiB przyrostach i może być skalowany w górę po utworzeniu serwera.
 
@@ -132,7 +132,7 @@ Aby dowiedzieć się więcej o maksymalnym efektywnym liczbie operacji we/wy na 
 
 Maksymalna liczba operacji we/wy na sekundę jest zależna od maksymalnej liczby operacji we/wy na rozmiar obliczeniowy. Zapoznaj się z formułą poniżej i zapoznaj się z kolumną *Maksymalna przepływność dysku niebuforowanego: IOPS/MB/s* w dokumentacji serii [B](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)i [Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
 
-**Maksymalna liczba** operacji we/wy na sekundę (*"Maksymalna przepływność dysku niebuforowanego: IOPS/MB/s"* rozmiaru obliczeń, magazyn w GIB * 3)
+**Maksymalna liczba** operacji we/wy na sekundę ( *"Maksymalna przepływność dysku niebuforowanego: IOPS/MB/s"* rozmiaru obliczeń, magazyn w GIB * 3)
 
 Możesz monitorować użycie we/wy w Azure Portal (z Azure Monitor) przy użyciu metryki [procentowej wejścia](./concepts-monitoring.md) /wyjścia. Jeśli potrzebujesz większej liczby operacji we/wy na sekundę, musisz zrozumieć, czy są one ograniczone przez rozmiar obliczeń lub zainicjowany magazyn. Skalowanie zasobów obliczeniowych lub magazynu serwera odpowiednio do potrzeb.
 
@@ -153,7 +153,7 @@ Skalowanie magazynu i zmiana okresu przechowywania kopii zapasowych są operacja
 
 ## <a name="pricing"></a>Cennik
 
-Najbardziej aktualne informacje o cenach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/MySQL/)usługi. Aby wyświetlić koszt dla wybranej konfiguracji, [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) przedstawia miesięczny koszt na karcie **obliczenia + magazyn** na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z kalkulatora cen platformy Azure, aby uzyskać szacowaną cenę. W witrynie sieci Web [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) wybierz pozycję **Dodaj elementy**, rozwiń kategorię **bazy danych** , wybierz **Azure Database for MySQL**i **elastyczny serwer** jako typ wdrożenia, aby dostosować opcje.
+Najbardziej aktualne informacje o cenach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/MySQL/)usługi. Aby wyświetlić koszt dla wybranej konfiguracji, [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) przedstawia miesięczny koszt na karcie **obliczenia + magazyn** na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z kalkulatora cen platformy Azure, aby uzyskać szacowaną cenę. W witrynie sieci Web [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) wybierz pozycję **Dodaj elementy** , rozwiń kategorię **bazy danych** , wybierz **Azure Database for MySQL** i **elastyczny serwer** jako typ wdrożenia, aby dostosować opcje.
 
 Jeśli chcesz zoptymalizować koszt serwera, możesz rozważyć następujące wskazówki:
 

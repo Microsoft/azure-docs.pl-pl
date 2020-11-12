@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536535"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -138,7 +138,7 @@ W diagnostyce aplikacji można wyświetlać zdarzenia pogrupowane w następując
 -   Błędy aplikacji (wyświetla zdarzenia wyjątków)
 -   Wydajność (zdarzenia dotyczące wydajności)
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji zabezpieczeń usługi Azure Storage oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
@@ -221,7 +221,7 @@ Aby wysyłać ruch sieciowy między usługą Azure Virtual Network i lokacją lo
 ### <a name="express-route"></a>Express Route
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) to dedykowany link sieci WAN, który umożliwia poszerzanie sieci lokalnych w chmurze firmy Microsoft przez dedykowane połączenie prywatne obsługiwane przez dostawcę połączenia.
 
-![Express Route](./media/overview/azure-security-fig1.png)
+![Express Route](./media/overview/azure-security-figure-1.png)
 
 Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure, Microsoft 365 i CRM Online. Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji.
 
@@ -231,7 +231,7 @@ Połączenia ExpressRoute nie przechodzą do publicznej sieci Internet i w ten s
 ### <a name="application-gateway"></a>Application Gateway
 [Platforma Microsoft Azure Application Gateway](../../application-gateway/overview.md) udostępnia [kontroler dostarczania aplikacji (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) jako usługę, oferując różne możliwości równoważenia obciążenia warstwy 7 dla aplikacji.
 
-![Application Gateway](./media/overview/azure-security-fig2.png)
+![Application Gateway](./media/overview/azure-security-figure-2.png)
 
 Pozwala to zoptymalizować produktywność farmy sieci Web przez odciążenie zakończenia procesora TLS intensywnie korzystające z Application Gateway (zwanego także "odciążeniem TLS" lub "mostkowanie TLS"). Zapewnia także inne możliwości routingu warstwy 7, w tym rozkład działania ruchu przychodzącego, koligację sesji na podstawie plików cookie, routing oparty na ścieżkach URL i możliwość hostowania wielu witryn sieci Web za pojedynczym Application Gateway. Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7.
 
@@ -242,7 +242,7 @@ Aplikacja oferuje wiele funkcji kontrolera dostarczania aplikacji (ADC), w tym R
 ### <a name="web-application-firewall"></a>Web Application Firewall
 Zapora aplikacji sieci Web to funkcja [platformy Azure Application Gateway](../../application-gateway/overview.md) , która zapewnia ochronę aplikacji sieci Web, które używają usługi Application Gateway do standardowych funkcji kontroli dostarczania aplikacji (ADC). Zapora aplikacji internetowej realizuje ten cel, chroniąc je przed większością z 10 najpopularniejszych luk w zabezpieczeniach w Internecie OWASP.
 
-![Web Application Firewall](./media/overview/azure-security-fig1.png)
+![Web Application Firewall](./media/overview/azure-security-figure-3.png)
 
 -   Ochrona przed atakami polegającymi na iniekcji SQL
 

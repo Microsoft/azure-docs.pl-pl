@@ -3,17 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/11/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630018"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537394"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -25,6 +25,48 @@ Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znaj
 - Poprawki błędów
 
 Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu często należy zaznaczyć, aby zachować nowe aktualizacje.
+
+## <a name="october-2020"></a>Październik 2020 r.
+
+Poniżej przedstawiono zmiany w październiku 2020:
+
+### <a name="improved-performance"></a>Większa wydajność
+
+- Zoptymalizowano wydajność przez zmniejszenie opóźnienia połączenia w ramach następujących lokalizacje geograficzne Azure:
+    - Szwajcaria
+    - Kanada
+
+Teraz możesz użyć [szacowania doświadczenia](https://azure.microsoft.com/services/virtual-desktop/assessment/) do oszacowania jakości środowiska użytkownika w tych obszarach.
+
+### <a name="azure-government-cloud-availability"></a>Dostępność w chmurze Azure Government
+
+Chmura Azure Government jest teraz ogólnie dostępna. Dowiedz się więcej w [naszym wpisie w blogu](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
+
+### <a name="windows-virtual-desktop-azure-portal-updates"></a>Aktualizacje Azure Portal pulpitu wirtualnego systemu Windows
+
+Wprowadziliśmy pewne aktualizacje Azure Portal pulpitu wirtualnego systemu Windows:
+
+- Naprawiono błąd resourceID, który uniemożliwił użytkownikom otwieranie karty "sesje".
+- Ulepszony interfejs użytkownika na karcie "hosty sesji".
+- Naprawiono ustawienia "wartości domyślne", "użyteczność" i "Przywróć domyślne" w obszarze właściwości protokołu RDP.
+- Na wszystkich kartach wprowadzono spójne funkcje "Remove" i "Delete".
+- Portal weryfikuje teraz nazwy aplikacji w przepływie pracy "Dodawanie aplikacji".
+- Rozwiązano problem polegający na tym, że dane eksportowania hosta sesji nie zostały wyrównane w kolumnach.
+- Rozwiązano problem polegający na tym, że portal nie może pobrać sesji użytkownika.
+- Rozwiązano problem podczas pobierania hosta sesji, który wystąpił podczas tworzenia maszyny wirtualnej w innej grupie zasobów.
+- Zaktualizowano kartę "Host sesji", aby wyświetlić listę sesji aktywnych i rozłączonych.
+- Karta "aplikacje" ma teraz strony.
+- Rozwiązano problem polegający na tym, że tekst "wymaga wiersza polecenia" został niepoprawnie wyświetlony na karcie "Lista aplikacji".
+- Rozwiązano problem polegający na tym, że w portalu nie można wdrożyć pul hostów lub maszyn wirtualnych przy użyciu niemieckiej wersji językowej galerii obrazów udostępnionych.
+
+### <a name="client-updates-for-october-2020"></a>Aktualizacje klienta z października 2020
+
+Udostępnimy nowe wersje klientów. Zobacz następujące artykuły, aby dowiedzieć się więcej:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+Aby uzyskać więcej informacji o innych klientach, zobacz [aktualizacje klientów](#client-updates).
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
@@ -68,7 +110,7 @@ Poniżej przedstawiono zmiany w sierpniu 2020:
 
 - Azure Advisor jest teraz częścią pulpitu wirtualnego systemu Windows. Podczas uzyskiwania dostępu do pulpitu wirtualnego systemu Windows za pomocą Azure Portal można zobaczyć zalecenia dotyczące optymalizowania środowiska pulpitu wirtualnego systemu Windows. Więcej informacji znajduje się w [Azure Advisor](azure-advisor.md).
 
-- Interfejs wiersza polecenia platformy Azure obsługuje teraz pulpit wirtualny systemu Windows ( `az desktopvirtualization` ), aby ułatwić automatyzację wdrożeń pulpitów wirtualnych systemu Windows. Zapoznaj się z [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) , aby uzyskać listę poleceń rozszerzenia.
+- Interfejs wiersza polecenia platformy Azure obsługuje teraz pulpit wirtualny systemu Windows ( `az desktopvirtualization` ), aby ułatwić automatyzację wdrożeń pulpitów wirtualnych systemu Windows. Zapoznaj się z [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) , aby uzyskać listę poleceń rozszerzenia.
 
 - Zaktualizowaliśmy szablony wdrażania, aby zapewnić ich pełną zgodność z interfejsami Azure Resource Manager pulpitu wirtualnego systemu Windows. Szablony można znaleźć w witrynie [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -88,7 +130,7 @@ Aby dowiedzieć się więcej o nowych funkcjach, zapoznaj się z [wpisem w blogu
 
 Najnowsza wersja narzędzia skalowania automatycznego, która była w wersji zapoznawczej, jest teraz ogólnie dostępna. To narzędzie używa konta usługi Azure Automation i aplikacji logiki platformy Azure, aby automatycznie zamykać i ponownie uruchamiać maszyny wirtualne hosta sesji (VM) w puli hostów, zmniejszając koszty związane z infrastrukturą. Dowiedz się więcej na temat [skalowania hostów sesji przy użyciu Azure Automation](set-up-scaling-script.md).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Teraz można wykonać następujące czynności w Azure Portal na pulpicie wirtualnym systemu Windows: 
 
@@ -97,7 +139,7 @@ Teraz można wykonać następujące czynności w Azure Portal na pulpicie wirtua
 
 ### <a name="diagnostics"></a>Diagnostyka
 
-Opublikowano kilka nowych wstępnie skompilowanych zapytań dla obszaru roboczego Log Analytics. Aby uzyskać dostęp do zapytań, przejdź do pozycji **dzienniki** i w obszarze **kategoria**wybierz pozycję **pulpit wirtualny systemu Windows**. Dowiedz się więcej na temat [używania funkcji diagnostyki log Analytics](diagnostics-log-analytics.md).
+Opublikowano kilka nowych wstępnie skompilowanych zapytań dla obszaru roboczego Log Analytics. Aby uzyskać dostęp do zapytań, przejdź do pozycji **dzienniki** i w obszarze **kategoria** wybierz pozycję **pulpit wirtualny systemu Windows**. Dowiedz się więcej na temat [używania funkcji diagnostyki log Analytics](diagnostics-log-analytics.md).
 
 ### <a name="update-for-remote-desktop-client-for-android"></a>Aktualizacja klienta Pulpit zdalny dla systemu Android
 
@@ -140,7 +182,7 @@ Dodaliśmy nowe polecenia cmdlet AzWvd do Azure PowerShell AZ module z tą aktua
 
 Aby zainstalować moduł, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie modułu programu PowerShell dla pulpitu wirtualnego systemu Windows](powershell-module.md).
 
-Listę dostępnych poleceń można także znaleźć w [dokumentacji programu PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+Listę dostępnych poleceń można także znaleźć w [dokumentacji programu PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 Aby uzyskać więcej informacji o nowych funkcjach, zapoznaj się z [naszym wpisem w blogu](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 

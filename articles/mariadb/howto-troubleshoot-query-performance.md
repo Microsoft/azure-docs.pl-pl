@@ -1,17 +1,17 @@
 ---
 title: Rozwiązywanie problemów z wydajnością zapytań — Azure Database for MariaDB
 description: Informacje na temat rozwiązywania problemów z wydajnością zapytań w Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ae3637eb5e9f6f70d0f53d7b1cb97bd348c114bc
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424418"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537241"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Jak użyć WYJAŚNIj, aby uzyskać informacje o wydajności zapytań dotyczących profilów w Azure Database for MariaDB
 **Wyjaśnienie** to przydatne narzędzie do optymalizowania zapytań. Instrukcji WYJAŚNIj można użyć do uzyskania informacji o sposobie wykonywania instrukcji SQL. Poniższe dane wyjściowe przedstawiają przykład wykonania instrukcji WYJAŚNIeń.
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Jak widać na podstawie danych wyjściowych, MariaDB nie używa żadnych indeksów, ponieważ nie są dostępne żadne prawidłowe indeksy. Pokazuje także *czas użycia tymczasowego; Użycie sortowania plików*, co oznacza, że MariaDB tworzy tabelę tymczasową w celu spełnienia klauzuli **Group by** .
+Jak widać na podstawie danych wyjściowych, MariaDB nie używa żadnych indeksów, ponieważ nie są dostępne żadne prawidłowe indeksy. Pokazuje także *czas użycia tymczasowego; Użycie sortowania plików* , co oznacza, że MariaDB tworzy tabelę tymczasową w celu spełnienia klauzuli **Group by** .
  
 Utworzenie indeksu dla samego kolumny **C2** nie powoduje żadnych różnic, a MariaDB nadal musi utworzyć tabelę tymczasową:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-W takim przypadku można utworzyć **pokryty indeks** zarówno **C1** , jak i **C2** , dodając wartość **C2**"bezpośrednio w indeksie, aby wyeliminować dalsze wyszukiwanie danych.
+W takim przypadku można utworzyć **pokryty indeks** zarówno **C1** , jak i **C2** , dodając wartość **C2** "bezpośrednio w indeksie, aby wyeliminować dalsze wyszukiwanie danych.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);

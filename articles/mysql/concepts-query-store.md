@@ -1,17 +1,17 @@
 ---
 title: Magazyn zapytań — Azure Database for MySQL
 description: Dowiedz się więcej o funkcji magazynu zapytań w Azure Database for MySQL, aby ułatwić śledzenie wydajności w miarę upływu czasu.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766129"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535082"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorowanie wydajności Azure Database for MySQL przy użyciu magazynu zapytań
 
@@ -104,7 +104,7 @@ Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 > [!NOTE]
 > Obecnie **query_store_capture_mode** zastępuje tę konfigurację, co oznacza, że oba **query_store_capture_mode** i **QUERY_STORE_WAIT_SAMPLING_CAPTURE_MODE** muszą być włączone dla wszystkich, aby statystyki oczekiwania mogły działać. Jeśli **query_store_capture_mode** jest wyłączone, a następnie zaczekaj, statystyki są również wyłączone, ponieważ statystyki oczekiwania wykorzystują performance_schema włączone i query_text przechwycone przez magazyn zapytań.
 
-Użyj [Azure Portal](howto-server-parameters.md)   lub [interfejsu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md),   Aby uzyskać lub ustawić inną wartość dla parametru.
+Użyj [Azure Portal](howto-server-parameters.md) lub [interfejsu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md) , aby uzyskać lub ustawić inną wartość dla parametru.
 
 ## <a name="views-and-functions"></a>Widoki i funkcje
 

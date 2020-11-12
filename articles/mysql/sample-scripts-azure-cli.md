@@ -1,19 +1,19 @@
 ---
 title: Przykłady interfejsu wiersza polecenia platformy Azure — Azure Database for MySQL
 description: W tym artykule wymieniono dostępne przykłady kodu interfejsu wiersza polecenia platformy Azure na potrzeby interakcji z usługą Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: db762b62af610559391552451df7402d9e84ab22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150b9e6f39f14cdfa3aa5c57d1cbacca0351b64
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495351"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537598"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL 
 Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL.

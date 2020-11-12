@@ -2,25 +2,25 @@
 title: Pojęcia — tożsamość i dostęp
 description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i uzyskiwania dostępu do rozwiązania Azure VMware
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/11/2020
+ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674653"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536102"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
 
-W przypadku wdrażania chmury prywatnej program vCenter Server i Menedżer NSX-T są obsługiwane. Program vCenter służy do zarządzania obciążeniami maszyny wirtualnej. Menedżer NSX-T umożliwia rozbudowa sieci zdefiniowanej przez oprogramowanie w chmurze prywatnej.
+Chmury prywatne rozwiązań VMware platformy Azure są obsługiwane za pomocą programu vCenter Server i Menedżera NSX-T. Program vCenter służy do zarządzania obciążeniami maszyny wirtualnej. Aby zwiększyć chmurę prywatną, należy użyć Menedżera NSX-T.
 
 Zarządzanie dostępem i tożsamościami używa uprawnień grupy CloudAdmin dla programu vCenter i ograniczonych uprawnień administratora dla Menedżera NSX-T. Dzięki temu platforma chmury prywatnej jest automatycznie uaktualniana z najnowszymi funkcjami i poprawkami.  Aby uzyskać więcej informacji, zobacz artykuł dotyczący [pojęć dotyczących uaktualnień w chmurze prywatnej][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>dostęp i tożsamość vCenter
 
-Uprawnienia w programie vCenter są udostępniane za pomocą grupy CloudAdmin. Ta grupa może być zarządzana lokalnie w programie vCenter lub poprzez integrację logowania jednokrotnego usługi vCenter LDAP z Azure Active Directory. Możesz włączyć tę integrację po wdrożeniu chmury prywatnej.
+Grupa CloudAdmin zapewnia uprawnienia w programie vCenter. Zarządzasz grupą lokalnie w programie vCenter. Kolejną opcją jest integracja logowania jednokrotnego w usłudze vCenter LDAP przy użyciu Azure Active Directory. Integrację należy włączyć po wdrożeniu chmury prywatnej. 
 
-W poniższej tabeli przedstawiono uprawnienia CloudAdmin i CloudGlobalAdmin.
+W tabeli przedstawiono uprawnienia **CloudAdmin** i **CloudGlobalAdmin** .
 
 |  Zestaw uprawnień           | CloudAdmin | CloudGlobalAdmin | Komentarz |
 | :---                     |    :---:   |       :---:      |   :--:  |

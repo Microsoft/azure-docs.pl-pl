@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444381"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536442"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Jak używać urządzenia usługi IoT Edge jako bramy
 
@@ -45,21 +45,21 @@ Wszystkie wzorce bramy zapewniają następujące korzyści:
 
 W przypadku wzorca bramy przezroczystej urządzenia, które teoretycznie mogą łączyć się z IoT Hub mogą łączyć się z urządzeniem bramy. Urządzenia podrzędne mają własne tożsamości IoT Hub i nawiązują połączenie przy użyciu protokołów MQTT lub AMQP. Brama po prostu przekazuje komunikaty pomiędzy urządzeniami a usługą IoT Hub. Zarówno urządzenia, jak i użytkownicy korzystający z nich przy użyciu IoT Hub są nieświadome, że brama mediating ich komunikację. Brak świadomości oznacza, że brama jest uznawana za *przezroczystą*.
 
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-
-Urządzenia IoT Edge mogą łączyć się za poorednictwem przezroczystych bram, a także zwykłych urządzeń IoT.
-
-<!-- TODO add a downstream IoT Edge device to graphic -->
-
-::: moniker-end
-
 <!-- 1.0.10 -->
 ::: moniker range="iotedge-2018-06"
 
 Urządzenia IoT Edge nie mogą należeć do IoT Edge bramy.
 
 ![Diagram — przezroczysty wzorzec bramy](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+Począwszy od wersji 1.2.0 IoT Edge, urządzenia mogą łączyć się za poorednictwem przezroczystych bram.
+
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
 ::: moniker-end
 
@@ -102,10 +102,22 @@ Gdy wiele bram IoT Edge się łączy ze sobą w hierarchii bramy, wszystkie urz�
 
 ### <a name="device-capabilities-behind-transparent-gateways"></a>Możliwości urządzenia za nieprzezroczystymi bramami
 
-
 Wszystkie IoT Hub elementy podstawowe działające z potokiem obsługi komunikatów IoT Edge obsługują również niejawne scenariusze bramy. Każda Brama IoT Edge ma możliwość przechowywania i przesyłania komunikatów przesyłanych przez nią.
 
 Skorzystaj z poniższej tabeli, aby dowiedzieć się, w jaki sposób różne możliwości IoT Hub są obsługiwane w przypadku urządzeń w porównaniu z urządzeniami za bramą.
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| Możliwość | Urządzenie IoT | IoT za bramą |
+| ---------- | ---------- | -------------------- |
+| [Komunikaty między urządzeniami a chmurą (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Tak — IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — podrzędny D2C IoT](./media/iot-edge-as-gateway/check-yes.png) |
+| [Komunikaty z chmury do urządzenia (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Tak — IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — C2D podrzędny IoT](./media/iot-edge-as-gateway/check-yes.png) |
+| [Metody bezpośrednie](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Tak — Metoda IoT Direct](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — podrzędna Metoda IoT Direct](./media/iot-edge-as-gateway/check-yes.png) |
+| [Bliźniaczych reprezentacji urządzeń](../iot-hub/iot-hub-devguide-device-twins.md) i [moduł bliźniaczych reprezentacji](../iot-hub/iot-hub-devguide-module-twins.md) | ![Tak — IoT bliźniaczych reprezentacji](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — podrzędny bliźniaczych reprezentacji IoT](./media/iot-edge-as-gateway/check-yes.png) |
+| [Przekazywanie plików](../iot-hub/iot-hub-devguide-file-upload.md) | ![Tak — przekazywanie plików IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Nie — przekazywanie pliku podrzędnego IoT](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -123,19 +135,6 @@ Skorzystaj z poniższej tabeli, aby dowiedzieć się, w jaki sposób różne mo�
 **Obrazy kontenerów** mogą być pobierane, przechowywane i dostarczane z urządzeń nadrzędnych do urządzeń podrzędnych.
 
 **Obiekty blob** , w tym zestawy obsługi i dzienniki, można przekazać z urządzeń podrzędnych do urządzeń nadrzędnych.
-
-::: moniker-end
-
-<!-- 1.0.10 -->
-::: moniker range="iotedge-2018-06"
-
-| Możliwość | Urządzenie IoT | IoT za bramą |
-| ---------- | ---------- | -------------------- |
-| [Komunikaty między urządzeniami a chmurą (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Tak — IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — podrzędny D2C IoT](./media/iot-edge-as-gateway/check-yes.png) |
-| [Komunikaty z chmury do urządzenia (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Tak — IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — C2D podrzędny IoT](./media/iot-edge-as-gateway/check-yes.png) |
-| [Metody bezpośrednie](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Tak — Metoda IoT Direct](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — podrzędna Metoda IoT Direct](./media/iot-edge-as-gateway/check-yes.png) |
-| [Bliźniaczych reprezentacji urządzeń](../iot-hub/iot-hub-devguide-device-twins.md) i [moduł bliźniaczych reprezentacji](../iot-hub/iot-hub-devguide-module-twins.md) | ![Tak — IoT bliźniaczych reprezentacji](./media/iot-edge-as-gateway/check-yes.png) | ![Tak — podrzędny bliźniaczych reprezentacji IoT](./media/iot-edge-as-gateway/check-yes.png) |
-| [Przekazywanie plików](../iot-hub/iot-hub-devguide-file-upload.md) | ![Tak — przekazywanie plików IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Nie — przekazywanie pliku podrzędnego IoT](./media/iot-edge-as-gateway/crossout-no.png) |
 
 ::: moniker-end
 

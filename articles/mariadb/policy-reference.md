@@ -3,16 +3,16 @@ title: Wbudowane definicje zasad dla Azure Database for MariaDB
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Database for MariaDB. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 10/20/2020
 ms.topic: reference
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 589d9578b98562cd701c8c9000dd0b287e944cb5
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0e094e71e6c972fc96530c947093670f87585d7f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332148"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537037"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mariadb"></a>Azure Policy wbudowane definicje Azure Database for MariaDB
 

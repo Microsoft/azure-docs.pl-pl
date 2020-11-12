@@ -2,13 +2,13 @@
 title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/10/2020
+ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913810"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537615"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -72,9 +72,9 @@ Istnieją dwa typy konfiguracji puli dostępne w usłudze Batch.
 
 ### <a name="cloud-services-configuration"></a>Konfiguracja Cloud Services
 
-**Konfiguracja Cloud Services** określa, że Pula składa się z węzłów Cloud Services platformy Azure. Cloud Services udostępnia *tylko* węzły obliczeniowe systemu Windows.
+**Konfiguracja Cloud Services** określa, że Pula składa się z węzłów Cloud Services platformy Azure. Cloud Services udostępnia tylko węzły obliczeniowe systemu Windows.
 
-Listę systemów operacyjnych dostępnych dla pul konfiguracji usług Cloud Services można znaleźć w temacie [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md) (Macierz zgodności zestawów SDK i wersji systemów operacyjnych gościa platformy Azure). Podczas tworzenia puli zawierającej węzły Cloud Services należy określić rozmiar węzła i jego *rodzinę systemów operacyjnych* (który określa, które wersje platformy .NET są instalowane z systemem operacyjnym). Cloud Services jest wdrażana na platformie Azure szybciej niż w przypadku maszyn wirtualnych z systemem Windows. Jeśli potrzebujesz pul systemu Windows, może się okazać, że usługi Cloud Services oferują korzystną wydajność związaną z czasem wdrażania.
+Dostępne systemy operacyjne dla pul konfiguracji Cloud Services są wymienione w [wersjach systemu operacyjnego gościa platformy Azure i macierzy zgodności zestawu SDK](../cloud-services/cloud-services-guestos-update-matrix.md), a dostępne rozmiary węzłów obliczeniowych są wymienione w obszarze [rozmiary dla Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Podczas tworzenia puli zawierającej węzły Cloud Services należy określić rozmiar węzła i jego *rodzinę systemów operacyjnych* (który określa, które wersje platformy .NET są instalowane z systemem operacyjnym). Cloud Services jest wdrażana na platformie Azure szybciej niż w przypadku maszyn wirtualnych z systemem Windows. Jeśli potrzebujesz pul systemu Windows, może się okazać, że usługi Cloud Services oferują korzystną wydajność związaną z czasem wdrażania.
 
 Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services można określić *wersję systemu operacyjnego* (więcej informacji o rolach procesów roboczych można znaleźć w sekcji [Cloud Services overview (Omówienie usług Cloud Services)](../cloud-services/cloud-services-choose-me.md)). Zalecamy określenie `Latest (*)` dla *wersji systemu operacyjnego* , aby węzły były automatycznie uaktualniane i nie jest konieczne wykonanie żadnych czynności w celu zapewnienia obsługi nowo wydanych wersji. Podstawowym warunkiem wybrania określonej wersji systemu operacyjnego jest upewnienie się, czy została zachowana zgodność aplikacji, przez zezwolenie na testowanie zgodności z poprzednimi wersjami przed zezwoleniem na aktualizację wersji. Po sprawdzeniu poprawności można zaktualizować *wersję systemu operacyjnego* dla puli i zainstalować nowy obraz systemu operacyjnego. Wszystkie uruchomione zadania będą przerywane i ponownie kolejkowane.
 
@@ -127,7 +127,7 @@ Formuła skalowania może opierać się na następujących metrykach:
 
 - **Metryki czasu** — na podstawie danych statystycznych zbieranych co pięć minut przez określoną liczbę godzin.
 - **Metryki zasobów** — na podstawie użycia procesora, wykorzystania przepustowości, użycia pamięci i liczby węzłów.
-- **Metryki zadań podrzędnych** — na podstawie stanu zadania podrzędnego, takiego jak *Aktywne* (w kolejce), *Uruchomione* lub *Ukończone* .
+- **Metryki zadań podrzędnych** — na podstawie stanu zadania podrzędnego, takiego jak *Aktywne* (w kolejce), *Uruchomione* lub *Ukończone*.
 
 Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, w usłudze Batch jest dostępna [*opcja cofnięcia przydziału węzła*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) , którą można uwzględnić w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone. Należy pamiętać, że ustawienie opcji cofnięcia alokacji węzła `taskcompletion` lub `retaineddata` uniemożliwi operacje zmiany rozmiaru puli, dopóki nie zostaną zakończone wszystkie zadania lub wygasły wszystkie okresy przechowywania zadań.
 

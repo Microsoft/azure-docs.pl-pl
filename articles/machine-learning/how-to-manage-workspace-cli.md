@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: dc5dcf20b8c4fb1dae971b9bda4ef1a7552ce9d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442144"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534742"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -156,9 +156,12 @@ Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcow
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Klucz zarządzany przez klienta i duży obszar roboczy wpływ na działalność biznesową
 
-Domyślnie metryki i metadane obszaru roboczego są przechowywane w Azure Cosmos DB wystąpieniu, które utrzymuje firma Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
+Domyślnie metadane obszaru roboczego są przechowywane w wystąpieniu Azure Cosmos DBnym przez firmę Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
-Zamiast używać klucza zarządzanego przez firmę Microsoft, możesz użyć opcji podaj własny klucz. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure. Użyj `--cmk-keyvault` parametru, aby określić Azure Key Vault, który zawiera klucz, i `--resource-cmk-uri` określić adres URL klucza w ramach magazynu.
+> [!NOTE]
+> Azure Cosmos DB __nie__ jest używana do przechowywania informacji, takich jak wydajność modelu, informacje zarejestrowane przez eksperymenty lub informacje zarejestrowane w ramach wdrożeń modeli. Aby uzyskać więcej informacji na temat monitorowania tych elementów, zobacz sekcję [monitorowanie i rejestrowanie](concept-azure-machine-learning-architecture.md) artykułu architektura i koncepcje.
+
+Zamiast używać klucza zarządzanego przez firmę Microsoft, możesz użyć opcji podaj własny klucz. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metadane w ramach subskrypcji platformy Azure. Użyj `--cmk-keyvault` parametru, aby określić Azure Key Vault, który zawiera klucz, i `--resource-cmk-uri` określić adres URL klucza w ramach magazynu.
 
 Przed użyciem `--cmk-keyvault` parametrów i `--resource-cmk-uri` należy najpierw wykonać następujące czynności:
 

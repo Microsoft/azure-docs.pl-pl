@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352578"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535337"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -346,6 +346,9 @@ Możesz wyświetlić wyniki szkolenia w widżecie lub inline, jeśli jesteś w n
 Zobacz [ocenę zautomatyzowanych wyników eksperymentu w usłudze Machine Learning](how-to-understand-automated-ml.md) na potrzeby definicji i przykładów wykresów wydajności i metryk podanych dla każdego przebiegu. 
 
 Aby uzyskać podsumowanie cechowania i zrozumieć, jakie funkcje zostały dodane do określonego modelu, zobacz [cechowania przezroczystość](how-to-configure-auto-features.md#featurization-transparency). 
+
+> [!NOTE]
+> Algorytmy zautomatyzowanej ML mają nieodłączną losowość, która może spowodować nieznaczne wahania w zalecanych modelach końcowe wyniki metryk, takie jak dokładność. Zautomatyzowanej ML wykonuje również operacje na danych, takie jak podzielenie testów pociągowych, podzielone lub krzyżowe sprawdzanie poprawności w razie potrzeby. Dlatego w przypadku uruchamiania eksperymentu z tymi samymi ustawieniami konfiguracji i metryką podstawową wiele razy prawdopodobnie zobaczysz zmiany w przypadku wszystkich eksperymentów końcowych metryk, ze względu na te czynniki. 
 
 ## <a name="register-and-deploy-models"></a>Rejestrowanie i wdrażanie modeli
 

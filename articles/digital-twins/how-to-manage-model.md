@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279419"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534759"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -23,6 +23,10 @@ Operacje zarządzania obejmują przekazywanie, sprawdzanie poprawności, pobiera
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>Sposoby zarządzania modelami
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>Tworzenie modeli
 
@@ -73,17 +77,7 @@ Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpita
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Zarządzanie modelami przy użyciu interfejsów API
-
-W poniższych sekcjach pokazano, jak wykonać różne operacje zarządzania modelami przy użyciu [interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md).
-
-> [!NOTE]
-> Poniższe przykłady nie obejmują obsługi błędów dla zwięzłości. Jednak zdecydowanie zalecamy w projektach, aby zawijać wywołania usługi w blokach try/catch.
-
-> [!TIP] 
-> Należy pamiętać, że wszystkie metody zestawu SDK są dostępne w wersjach synchronicznych i asynchronicznych. W przypadku wywołań stronicowania metody asynchroniczne zwracają, `AsyncPageable<T>` gdy zwracane są wersje synchroniczne `Pageable<T>` .
-
-### <a name="upload-models"></a>Przekazywanie modeli
+## <a name="upload-models"></a>Przekazywanie modeli
 
 Po utworzeniu modeli można je przekazać do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -136,7 +130,7 @@ Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele 
  
 Przy przekazywaniu pliki modelu są sprawdzane przez usługę.
 
-### <a name="retrieve-models"></a>Pobierz modele
+## <a name="retrieve-models"></a>Pobierz modele
 
 Można wyświetlać i pobierać modele przechowywane w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. 
 
@@ -166,13 +160,13 @@ Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `DigitalTwinsMod
 
 Modele nie zawsze są zwracane w dokładnie formularzu dokumentu, w którym zostały przekazane. Usługa Azure Digital bliźniaczych reprezentacji gwarantuje, że formularz zwrotny będzie semantycznie równoważny. 
 
-### <a name="update-models"></a>Aktualizowanie modeli
+## <a name="update-models"></a>Aktualizowanie modeli
 
 Po przekazaniu modelu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji cały interfejs modelu jest niezmienny. Oznacza to, że nie ma tradycyjnego "edytowania" modeli. Usługa Azure Digital bliźniaczych reprezentacji również nie zezwala na ponowne przekazywanie tego samego modelu.
 
 Zamiast tego, jeśli chcesz wprowadzić zmiany do modelu, na przykład aktualizację `displayName` lub — w tym celu należy `description` przekazać **nowszą wersję** modelu. 
 
-#### <a name="model-versioning"></a>Wersje modelu danych
+### <a name="model-versioning"></a>Wersje modelu danych
 
 Aby utworzyć nową wersję istniejącego modelu, Zacznij od DTDL oryginalnego modelu. Aktualizowanie, Dodawanie lub usuwanie pól, które chcesz zmienić.
 
@@ -194,7 +188,7 @@ Następnie Przekaż nową wersję modelu do wystąpienia.
 
 Ta wersja modelu będzie następnie dostępna w Twoim wystąpieniu do użycia na potrzeby cyfrowego bliźniaczych reprezentacji. Nie **zastępuje wcześniejszych** wersji modelu, więc wiele wersji modelu będzie współistnieć w wystąpieniu do momentu jego [usunięcia](#remove-models).
 
-#### <a name="impact-on-twins"></a>Wpływ na bliźniaczych reprezentacji
+### <a name="impact-on-twins"></a>Wpływ na bliźniaczych reprezentacji
 
 Po utworzeniu nowego sznurka, ponieważ nowa wersja modelu i stara wersja modelu współistnieć, nowe sznurki mogą korzystać z nowej wersji modelu lub starszej wersji.
 
@@ -202,7 +196,7 @@ Oznacza to również, że przekazywanie nowej wersji modelu nie wpływa automaty
 
 Aby zaktualizować istniejące bliźniaczych reprezentacji do nowej wersji modelu, należy zastosować ich poprawki, zgodnie z opisem w sekcji [*aktualizowanie modelu cyfrowej sieci bliźniaczyej*](how-to-manage-twin.md#update-a-digital-twins-model) , how to *: Manage Digital bliźniaczych reprezentacji*. W ramach tej samej poprawki należy zaktualizować zarówno **Identyfikator modelu** (do nowej wersji), jak i **wszystkie pola, które muszą zostać zmienione na sznurze, aby były zgodne z nowym modelem**.
 
-### <a name="remove-models"></a>Usuń modele
+## <a name="remove-models"></a>Usuń modele
 
 Modele można również usunąć z usługi, na jeden z dwóch sposobów:
 * **Likwidowanie** : po zlikwidowaniu modelu nie można już używać go do tworzenia nowych bliźniaczych reprezentacji cyfrowych. Nie ma to wpływu na istniejące bliźniaczych reprezentacji cyfrowe, które już używają tego modelu, więc można je zaktualizować za pomocą elementów, takich jak zmiany właściwości i Dodawanie lub usuwanie relacji.
@@ -210,7 +204,7 @@ Modele można również usunąć z usługi, na jeden z dwóch sposobów:
 
 Są to osobne funkcje, które nie wpływają na siebie, ale mogą być używane razem w celu stopniowego usuwania modelu. 
 
-#### <a name="decommissioning"></a>Likwidowanie
+### <a name="decommissioning"></a>Likwidowanie
 
 Oto kod likwidowania modelu:
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 Stan likwidowania modelu jest uwzględniany w `ModelData` rekordach zwracanych przez interfejsy API pobierania modelu.
 
-#### <a name="deletion"></a>Usunięcie
+### <a name="deletion"></a>Usunięcie
 
 Można usunąć wszystkie modele w wystąpieniu jednocześnie lub można wykonać je pojedynczo.
 
@@ -231,7 +225,7 @@ Aby zapoznać się z przykładem sposobu usuwania wszystkich modeli, należy pob
 
 Pozostała część tej sekcji przerywa usuwanie modelu w bardziej szczegółowy sposób i pokazuje, jak to zrobić dla pojedynczego modelu.
 
-##### <a name="before-deletion-deletion-requirements"></a>Przed usunięciem: wymagania dotyczące usuwania
+#### <a name="before-deletion-deletion-requirements"></a>Przed usunięciem: wymagania dotyczące usuwania
 
 Ogólnie rzecz biorąc, modele można usuwać w dowolnym momencie.
 
@@ -239,7 +233,7 @@ Wyjątkiem są modele, od których zależą inne modele, z `extends` relacją lu
 
 Można to zrobić, aktualizując model zależny, aby usunąć zależności, lub całkowicie usuwając model zależny.
 
-##### <a name="during-deletion-deletion-process"></a>Podczas usuwania: proces usuwania
+#### <a name="during-deletion-deletion-process"></a>Podczas usuwania: proces usuwania
 
 Nawet jeśli model spełnia wymagania, aby natychmiast je usunąć, warto najpierw wykonać kilka kroków, aby uniknąć niezamierzonych konsekwencji bliźniaczych reprezentacji. Poniżej przedstawiono kilka kroków, które mogą ułatwić zarządzanie procesem:
 1. Najpierw likwidowanie modelu
@@ -255,7 +249,7 @@ Aby usunąć model, użyj tego wywołania:
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>Po usunięciu: bliźniaczych reprezentacji bez modeli
+#### <a name="after-deletion-twins-without-models"></a>Po usunięciu: bliźniaczych reprezentacji bez modeli
 
 Po usunięciu modelu wszelkie bliźniaczych reprezentacji cyfrowe, które były używane przez model, są teraz uważane za bez modelu. Należy zauważyć, że nie ma zapytania, które może dać listę wszystkich bliźniaczych reprezentacji w tym stanie — mimo że *można* nadal wysyłać zapytania do bliźniaczych reprezentacji przez usunięty model, aby wiedzieć, jakie bliźniaczych reprezentacji mają wpływ.
 
@@ -274,17 +268,13 @@ Elementy, których **nie** możesz wykonać:
 * Edytuj relacje wychodzące (jak w programie, relacje *z* tego przędzy z innymi bliźniaczych reprezentacji)
 * Edytuj właściwości
 
-##### <a name="after-deletion-re-uploading-a-model"></a>Po usunięciu: przekazanie modelu
+#### <a name="after-deletion-re-uploading-a-model"></a>Po usunięciu: przekazanie modelu
 
 Po usunięciu modelu można później zdecydować się na przekazanie nowego modelu o takim samym IDENTYFIKATORze jak usunięty. Oto co się dzieje w tym przypadku.
 * W perspektywie magazynu rozwiązań jest to taka sama jak w przypadku przekazywania zupełnie nowego modelu. Usługa nie pamięta, że stara została kiedykolwiek przekazana.   
 * Jeśli w grafie istnieją jakiekolwiek pozostałe bliźniaczych reprezentacji, odwołujące się do usuniętego modelu, nie są już oddzielone; Ten identyfikator modelu jest ponownie ważny z nową definicją. Jeśli jednak Nowa definicja modelu różni się od definicji modelu, która została usunięta, te bliźniaczych reprezentacji mogą mieć właściwości i relacje, które pasują do usuniętej definicji i nie są prawidłowe dla nowej.
 
 Usługa Azure Digital bliźniaczych reprezentacji nie uniemożliwia tego stanu, dlatego należy zachować ostrożność, aby odpowiednio zastosować poprawkę bliźniaczych reprezentacji w celu upewnienia się, że pozostaną one prawidłowe przez przełącznik definicji modelu.
-
-## <a name="manage-models-with-cli"></a>Zarządzanie modelami przy użyciu interfejsu wiersza polecenia
-
-Modele można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

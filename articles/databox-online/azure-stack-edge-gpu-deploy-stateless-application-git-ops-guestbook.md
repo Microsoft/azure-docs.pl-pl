@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899551"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535949"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis na łuku z włączonym klastrem Kubernetes w systemie Azure Stack Edge — procesor GPU
 
@@ -79,9 +79,9 @@ Wykonaj następujące kroki, aby skonfigurować zasób usługi Azure Arc do wdra
 
 1. Przejdź do pozycji **konfiguracje** i wybierz pozycję **+ Dodaj konfigurację**.
 
-    ![Przejdź do konfiguracji](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Zrzut ekranu przedstawia klaster Kubernetes z włączoną funkcją Azure ARC z wybraną pozycją Dodaj konfigurację.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. W obszarze **Dodaj konfigurację**wprowadź odpowiednie wartości dla pól i wybierz pozycję **Zastosuj**.
+1. W obszarze **Dodaj konfigurację** wprowadź odpowiednie wartości dla pól i wybierz pozycję **Zastosuj**.
 
     |Parametr  |Opis |
     |---------|---------|
@@ -100,11 +100,11 @@ Wykonaj następujące kroki, aby skonfigurować zasób usługi Azure Arc do wdra
 
 1. Wdrożenie konfiguracji rozpocznie się, a **stan operatora** wskazuje jako **oczekujące**. 
 
-    ![Przejdź do konfiguracji](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Zrzut ekranu przedstawia klaster Kubernetes z obsługą usługi Azure Arc w stanie oczekiwania, gdy zostanie odświeżony.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. Wdrożenie zajmie kilka minut. Po zakończeniu wdrożenia **stan operatora** zostanie wyświetlony jako **zainstalowano**.
 
-    ![Przejdź do konfiguracji](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Zrzut ekranu przedstawia klaster Kubernetes z włączoną funkcją Azure Arc w stanie zainstalowanym.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## <a name="verify-deployment"></a>Weryfikowanie wdrożenia
