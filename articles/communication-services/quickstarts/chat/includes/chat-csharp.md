@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-communication-services
 author: mikben
 manager: mikben
@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5eb9867b17151987b165021f42a075e9355a315d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828951"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523826"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Użyj `createChatThread` metody, aby utworzyć wątek rozmowy.
 - Użyj, `topic` Aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji.
-- Użyj `members` właściwości, aby przekazać listę `ChatThreadMember` obiektów do dodania do wątku rozmowy. `ChatThreadMember`Obiekt jest inicjowany z `CommunicationUser` obiektem. Aby uzyskać `CommunicationUser` obiekt, należy przekazać identyfikator dostępu, który został utworzony przez następującą instrukcję, aby [utworzyć użytkownika](../../access-tokens.md#create-a-user)
+- Użyj `members` właściwości, aby przekazać listę `ChatThreadMember` obiektów do dodania do wątku rozmowy. `ChatThreadMember`Obiekt jest inicjowany z `CommunicationUser` obiektem. Aby uzyskać `CommunicationUser` obiekt, należy przekazać identyfikator dostępu, który został utworzony przez następującą instrukcję, aby [utworzyć użytkownika](../../access-tokens.md#create-an-identity)
 
 Odpowiedź `chatThreadClient` jest używana do wykonywania operacji w utworzonym wątku czatu: Dodawanie członków do wątku rozmowy, wysyłanie wiadomości, usuwanie wiadomości itd. Zawiera atrybut, `Id` który jest unikatowym identyfikatorem wątku rozmowy. 
 

@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-communication-services
 author: mikben
 manager: mikben
@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947566"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523956"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Użyj `create_chat_thread` metody, aby utworzyć wątek rozmowy.
 
 - Użyj, `topic` Aby nadać temat wątku; Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `update_thread` funkcji.
-- Użyj `members` , aby wyświetlić listę, która ma `ChatThreadMember` zostać dodana do wątku rozmowy `ChatThreadMember` , `CommunicationUser` Typ pobiera jako `user` , który jest po utworzeniu przez [utworzenie użytkownika](../../access-tokens.md#create-a-user)
+- Użyj `members` , aby wyświetlić listę, która ma `ChatThreadMember` zostać dodana do wątku rozmowy `ChatThreadMember` , `CommunicationUser` Typ pobiera jako `user` , który jest po utworzeniu przez [utworzenie użytkownika](../../access-tokens.md#create-an-identity)
 
 Odpowiedź `chat_thread_client` jest używana do wykonywania operacji na nowo utworzonym wątku rozmowy, takich jak dodawanie elementów członkowskich do wątku rozmowy, wysyłanie wiadomości, usuwanie wiadomości itd. Zawiera `thread_id` Właściwość, która jest unikatowym identyfikatorem wątku rozmowy.
 
@@ -158,7 +158,7 @@ Po utworzeniu wątku rozmowy można z niego dodawać i usuwać użytkowników. D
 Użyj `add_members` metody, aby dodać elementy członkowskie wątku do wątku identyfikowanego przez ThreadID.
 
 - Użyj, `members` Aby wyświetlić listę elementów członkowskich, które mają zostać dodane do wątku rozmowy.
-- `user`, wymagane, jest `CommunicationUser` autorem utworzonym `CommunicationIdentityClient` przez [użytkownika](../../access-tokens.md#create-a-user)
+- `user`, wymagane, jest `CommunicationUser` autorem utworzonym `CommunicationIdentityClient` przez [użytkownika](../../access-tokens.md#create-an-identity)
 - `display_name`, opcjonalnie, jest nazwą wyświetlaną dla elementu członkowskiego wątku.
 - `share_history_time`, opcjonalnie, to czas, od którego historia rozmowy jest udostępniana członkowi. Aby udostępnić historię od momentu rozpoczęcia wątku rozmowy, należy ustawić tę właściwość na dowolną datę równą lub mniejszą niż godzina utworzenia wątku. Aby po dodaniu elementu członkowskiego nie była udostępniona żadna historia, ustaw ją na bieżącą datę. Aby udostępnić historię częściową, ustaw ją na datę pośrednią.
 

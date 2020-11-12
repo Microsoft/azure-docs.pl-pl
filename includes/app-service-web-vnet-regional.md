@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94372020"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523803"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -42,10 +42,10 @@ Domyślnie aplikacja kieruje tylko ruch RFC1918 do sieci wirtualnej. Jeśli chce
 Istnieją pewne ograniczenia dotyczące używania integracji sieci wirtualnej z usługą sieci wirtualnych w tym samym regionie:
 
 * Nie można uzyskać dostępu do zasobów w ramach globalnych połączeń komunikacji równorzędnej.
-* Funkcja jest dostępna tylko z nowszych Azure App Service jednostek skalowania, które obsługują plany App Service PremiumV2. Należy zauważyć, że nie *oznacza to, że aplikacja musi działać w warstwie cenowej PremiumV2* , ale musi być uruchomiona w planie App Service, w którym dostępna jest opcja PremiumV2 (która oznacza, że jest to nowsza jednostka skalowania, w której ta funkcja integracji sieci wirtualnej jest również dostępna).
+* Ta funkcja jest dostępna ze wszystkich App Service jednostek skalowania w wersji Premium v2 i Premium v3. Jest ona również dostępna w wersji Standard, ale tylko z nowszych App Service jednostek skalowania. Jeśli jesteś w starszej jednostce skalowania, możesz użyć tej funkcji tylko z planu App Service Premium w wersji 2. Jeśli chcesz mieć możliwość użycia funkcji w planie standardowej App Service, Utwórz aplikację w planie App Service Premium v3. Plany te są obsługiwane tylko przez nasze najnowsze jednostki skalowania. Możesz skalować w dół, jeśli wolisz.  
 * Podsieć integracji może być używana tylko przez jeden plan App Service.
 * Funkcja nie może być używana przez aplikacje planu izolowanego, które znajdują się w App Service Environment.
-* Ta funkcja wymaga nieużywanej podsieci, która jest/27 z co najmniej 32 adresów w sieci wirtualnej Azure Resource Manager.
+* Ta funkcja wymaga nieużywanej podsieci, która jest/28 lub większa w sieci wirtualnej Azure Resource Manager.
 * Aplikacja i Sieć wirtualna muszą znajdować się w tym samym regionie.
 * Nie można usunąć sieci wirtualnej przy użyciu zintegrowanej aplikacji. Usuń integrację przed usunięciem sieci wirtualnej.
 * Integrację z usługą sieci wirtualnych można zintegrować tylko w ramach tej samej subskrypcji, w której znajduje się aplikacja.
@@ -53,7 +53,21 @@ Istnieją pewne ograniczenia dotyczące używania integracji sieci wirtualnej z 
 * Nie możesz zmienić subskrypcji aplikacji ani planu, gdy istnieje aplikacja, która korzysta z integracji regionalnej sieci wirtualnej.
 * Twoja aplikacja nie może rozpoznać adresów w Azure DNS Private Zones bez zmian konfiguracji
 
-Jeden adres jest używany dla każdego wystąpienia planu. W przypadku skalowania aplikacji do pięciu wystąpień są używane pięć adresów. Ponieważ nie można zmienić rozmiaru podsieci po przypisaniu, należy użyć podsieci, która jest wystarczająco duża, aby można było dowolnie skalować aplikację. Zalecany rozmiar to/26 z 64 adresami. A/26 z 64 adresów obsługuje plan Premium z 30 wystąpieniami. W przypadku skalowania planu w górę lub w dół wystarczy kilka adresów w krótkim czasie.
+Integracja z siecią wirtualną zależy od użycia dedykowanej podsieci.  Po udostępnieniu podsieci, podsieć platformy Azure traci 5 adresów IP od początku. Jeden z adresów jest używany z podsieci integracji dla każdego wystąpienia planu. W przypadku skalowania aplikacji do czterech wystąpień używane są cztery adresy. Debet 5 adresów od rozmiaru podsieci oznacza, że maksymalna liczba dostępnych adresów na blok CIDR to:
+
+- /28 ma 11 adresów
+- /27 ma 27 adresów
+- /26 ma 59 adresów
+
+W przypadku skalowania w górę lub w dół w miarę potrzeb będzie potrzebny krótki okres. Limity rozmiaru oznaczają rzeczywiste dostępne obsługiwane wystąpienia na rozmiar podsieci, jeśli podsieć jest:
+
+- /28 maksymalna skalowanie w poziomie to 5 wystąpień
+- /27 maksymalna skala pozioma to 13 wystąpień
+- /26 maksymalna skalowanie w poziomie to 29 wystąpień
+
+Limity zanotowane na maksymalnej skali poziomej założono, że konieczne będzie skalowanie w górę lub w dół w dowolnym momencie lub w poziomie jednostki SKU. 
+
+Ponieważ nie można zmienić rozmiaru podsieci po przypisaniu, użyj podsieci, która jest wystarczająco duża, aby można było dowolnie skalować aplikację. Aby uniknąć problemów z pojemnością podsieci, zalecanym rozmiarem jest/26 z 64 adresów.  
 
 Jeśli chcesz, aby aplikacje w innym planie miały dostęp do sieci wirtualnej, która jest już połączona przez aplikacje w innym planie, wybierz inną podsieć niż używana przez istniejącą integrację z siecią wirtualną.
 
@@ -66,7 +80,7 @@ Integracja z regionalną siecią wirtualną umożliwia korzystanie z punktów ko
 1. Konfigurowanie integracji regionalnej sieci wirtualnej z aplikacją internetową
 1. Przejdź do usługi docelowej i skonfiguruj punkty końcowe usługi dla podsieci używanej do integracji
 
-### <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń
+### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 
 Za pomocą sieciowych grup zabezpieczeń można blokować ruch przychodzący i wychodzący do zasobów w sieci wirtualnej. Aplikacja, która korzysta z integracji regionalnej sieci wirtualnej, może używać [sieciowej grupy zabezpieczeń][VNETnsg] do blokowania ruchu wychodzącego do zasobów w sieci wirtualnej lub w Internecie. Aby zablokować ruch do adresów publicznych, musisz mieć ustawienie aplikacji WEBSITE_VNET_ROUTE_ALL ustawione na 1. Reguły ruchu przychodzącego w sieciowej grupy zabezpieczeń nie mają zastosowania do Twojej aplikacji, ponieważ Integracja sieci wirtualnej ma wpływ tylko na ruch wychodzący z aplikacji.
 
@@ -82,21 +96,15 @@ Trasy Border Gateway Protocol (BGP) wpływają również na ruch aplikacji. Jeś
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego serwera DNS, z którym jest skonfigurowana Sieć wirtualna. Domyślnie aplikacja nie będzie działała z Azure DNS Private Zones. Aby można było korzystać z Azure DNS Private Zones, należy dodać następujące ustawienia aplikacji:
-
-1. WEBSITE_DNS_SERVER z wartością 168.63.129.16
-1. WEBSITE_VNET_ROUTE_ALL z wartością 1
-
-Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej. Ponadto umożliwi ona korzystanie z Azure DNS przez wysyłanie zapytań do strefy Prywatna strefa DNS na poziomie procesu roboczego. Ta funkcja jest używana, gdy uruchomiona aplikacja uzyskuje dostęp do strefy Prywatna strefa DNS.
-
-> [!NOTE]
->Nie można dodać domeny niestandardowej do aplikacji sieci Web przy użyciu strefy Prywatna strefa DNS z Integracja z siecią wirtualną. Walidacja domeny niestandardowej odbywa się na poziomie kontrolera, a nie na poziomie procesu roboczego, co uniemożliwia wyświetlanie rekordów DNS. Aby można było używać domeny niestandardowej ze strefy Prywatna strefa DNS, walidacja powinna zostać pominięta przy użyciu Application Gateway lub ILB App Service Environment.
-
-
+Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego serwera DNS, z którym jest skonfigurowana Sieć wirtualna. To zachowanie można zastąpić w aplikacji przez skonfigurowanie ustawienia aplikacji WEBSITE_DNS_SERVER z adresem żądanego serwera DNS. Jeśli skonfigurowano niestandardowy serwer DNS z siecią wirtualną, ale chciałeś korzystać z aplikacji Azure DNS strefach prywatnych, należy ustawić WEBSITE_DNS_SERVER za pomocą wartości 168.63.129.16. 
 
 ### <a name="private-endpoints"></a>Prywatne punkty końcowe
 
-Aby wykonać wywołania do [prywatnych punktów końcowych][privateendpoints], należy zintegrować z usługą Azure DNS Private Zones lub zarządzać prywatnym punktem końcowym na serwerze DNS używanym przez aplikację. 
+Jeśli chcesz wykonać wywołania do [prywatnych punktów końcowych][privateendpoints], musisz się upewnić, że wyszukiwania DNS będą rozpoznawane jako prywatny punkt końcowy. Aby upewnić się, że wyszukiwania DNS z aplikacji wskazują Twoje prywatne punkty końcowe, możesz:
+
+* Integracja z usługą Azure DNS Private Zones. Jeśli sieć wirtualna nie ma niestandardowego serwera DNS, będzie to automatyczne
+* Zarządzanie prywatnym punktem końcowym na serwerze DNS używanym przez aplikację. Aby to zrobić, musisz znać prywatny adres punktu końcowego, a następnie wskazać punkt końcowy, który próbujesz połączyć z rekordem.
+* Skonfiguruj własny serwer DNS do przesyłania dalej do Azure DNS stref prywatnych
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
