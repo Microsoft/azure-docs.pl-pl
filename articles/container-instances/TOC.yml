@@ -72,7 +72,7 @@
           href: container-instances-vnet.md
         - name: Wdrażanie z usługi Azure Container Registry
           href: container-instances-using-azure-container-registry.md
-        - name: Wdrażanie przy użyciu akcji GitHub (wersja zapoznawcza)
+        - name: Wdrażanie przy użyciu akcji GitHub
           href: container-instances-github-action.md
         - name: Szyfrowanie danych wdrożenia
           href: container-instances-encrypt-data.md

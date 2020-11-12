@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 3cc1bfa72a61d13c27c02fdb114b49666b67fabe
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 4f1fd0f88c7165a409644029f247b090df285138
+  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91969623"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94506043"
 landingContent:
 - title: Rozwiązywanie problemów z wdrożeniem
   linkLists:
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Rozwiązywanie problemów z galeriami obrazów udostępnionych — replikacja odbywa się powoli
-      url: ../troubleshooting-shared-images.md#replication-is-slow
+      url: ../troubleshooting-shared-images.md#replication-speed
 - title: Problemy z rozszerzeniem maszyny wirtualnej
   linkLists:
   - linkListType: how-to-guide
