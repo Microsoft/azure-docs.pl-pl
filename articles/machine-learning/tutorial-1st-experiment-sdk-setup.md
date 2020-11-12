@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Rozpoczynanie pracy w notesach Jupyter (Python)'
 titleSuffix: Azure Machine Learning
-description: Konfiguracja samouczków Jupyter Notebook. Utwórz obszar roboczy Azure Machine Learning, Sklonuj notesy Jupyter w obszarze roboczym i Utwórz wystąpienie obliczeniowe, w którym są uruchamiane notesy.
+description: Konfiguracja samouczków Jupyter Notebook. Tworzenie obszaru roboczego, klonowanie notesów w obszarze roboczym i tworzenie wystąpienia obliczeniowego, w którym są uruchamiane notesy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913300"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532974"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Samouczek: wprowadzenie do Azure Machine Learning w notesach Jupyter
 
@@ -41,7 +41,7 @@ Istnieje wiele [sposobów tworzenia obszaru roboczego](how-to-manage-workspace.m
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT]
-> Zanotuj swój *obszar roboczy* i *subskrypcję* . Te informacje będą potrzebne do utworzenia eksperymentu w odpowiednim miejscu.
+> Zanotuj swój *obszar roboczy* i *subskrypcję*. Te informacje będą potrzebne do utworzenia eksperymentu w odpowiednim miejscu.
 
 ## <a name="run-a-notebook-in-your-workspace"></a><a name="azure"></a>Uruchamianie notesu w obszarze roboczym
 
@@ -59,7 +59,7 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
 
 1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
 
-1. Po lewej stronie wybierz pozycję **notesy** .
+1. Po lewej stronie wybierz pozycję **notesy**.
 
 1. W górnej części Wybierz kartę **przykłady** .
 
@@ -67,7 +67,7 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
 
 1. Otwórz w folderze numer wersji. Ta liczba reprezentuje bieżącą wersję zestawu Python SDK.
 
-1. Wybierz przycisk **...** po prawej stronie folderu **samouczki** , a następnie wybierz pozycję **Klonuj** .
+1. Wybierz przycisk **...** po prawej stronie folderu **samouczki** , a następnie wybierz pozycję **Klonuj**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Zrzut ekranu pokazujący folder klonowania samouczków.":::
 
@@ -82,7 +82,7 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
     
 1. Wybierz plik **samouczek — pierwszy eksperyment-zestaw SDK-pociąg. ipynb** w folderze **samouczki/obraz-Klasyfikacja-mnist ręcznie-dane** .
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Zrzut ekranu pokazujący folder klonowania samouczków.":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Zrzut ekranu pokazujący folder otwartych samouczków.":::
 
 1. Na górnym pasku wybierz wystąpienie obliczeniowe, które ma zostać użyte do uruchomienia notesu. Te maszyny wirtualne są wstępnie skonfigurowane z [wszystko, czego potrzebujesz do uruchamiania Azure Machine Learning](concept-compute-instance.md#contents).
 
@@ -99,11 +99,11 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
 
     1. Wybierz rozmiar maszyny wirtualnej z dostępnych opcji. Dla samouczków jest dobrym rozwiązaniem jest domyślna maszyna wirtualna.
 
-    1. Następnie wybierz przycisk **Utwórz** . Skonfigurowanie maszyny wirtualnej może potrwać około pięciu minut.
+    1. Następnie wybierz przycisk **Utwórz**. Skonfigurowanie maszyny wirtualnej może potrwać około pięciu minut.
 
 1. Gdy maszyna wirtualna jest dostępna, zostanie wyświetlona na górnym pasku narzędzi. Teraz można uruchomić Notes przy użyciu polecenia **Uruchom wszystko** na pasku narzędzi lub **SHIFT + ENTER** w komórkach kodu notesu.
 
-Jeśli masz niestandardowe widżety lub wolisz używać Jupyter lub JupyterLab, wybierz listę rozwijaną **Jupyter** po prawej stronie. Następnie wybierz pozycję **Jupyter** lub **JupyterLab** . Zostanie otwarte nowe okno przeglądarki.
+Jeśli masz niestandardowe widżety lub wolisz używać Jupyter lub JupyterLab, wybierz listę rozwijaną **Jupyter** po prawej stronie. Następnie wybierz pozycję **Jupyter** lub **JupyterLab**. Zostanie otwarte nowe okno przeglądarki.
 
 ## <a name="next-steps"></a>Następne kroki
 

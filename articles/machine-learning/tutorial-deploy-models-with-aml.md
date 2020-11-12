@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek klasyfikacji obrazów: Wdrażanie modeli'
 titleSuffix: Azure Machine Learning
-description: W tym samouczku, drugiej części serii dwóch części, pokazano, jak używać Azure Machine Learning do wdrażania modelu klasyfikacji obrazów przy użyciu scikit — uczenie się w notesie Jupyter języka Python.
+description: W tym samouczku pokazano, jak za pomocą Azure Machine Learning wdrożyć model klasyfikacji obrazów przy użyciu scikit — uczenie się w notesie Jupyter języka Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: cc048a523fabdd70c57cb5d75442d440a1753a79
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309552"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532787"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Samouczek: Wdrażanie modelu klasyfikacji obrazów w Azure Container Instances
 

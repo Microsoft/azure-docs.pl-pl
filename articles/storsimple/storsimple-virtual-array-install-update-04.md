@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 26890aaa7bc2d0ea70ff326e36a5767d1d468d5c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cc458f91a9b67ddd54e706575d29b8fc8618a2f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977548"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534300"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 0,4 w macierzy wirtualnej StorSimple
 
@@ -76,26 +76,26 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
 
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**.
    
-    ![Aktualizacja urządzenia 1](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![Zrzut ekranu przedstawia aktualizację oprogramowania wybraną z menu obsługa.](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij pozycję **Zastosuj**.
+2. W polu **ścieżka pliku aktualizacji** wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij przycisk **Zastosuj**.
    
-    ![Aktualizacja urządzenia 2](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![Zrzut ekranu przedstawia pole tekstowe Aktualizuj ścieżkę pliku na stronie aktualizacji oprogramowania.](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. Wyświetlane jest ostrzeżenie. Po zastosowaniu tej operacji urządzenie jest uruchamiane jednym węzłem, a następnie zostanie ponownie uruchomione i wystąpiło przestoje. Kliknij ikonę zaznaczania.
    
-   ![Aktualizacja urządzenia 3](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![Zrzut ekranu przedstawia ostrzeżenie okna dialogowego o przestoju.](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. Rozpocznie się aktualizacja. Po pomyślnym zaktualizowaniu urządzenia zostanie ono ponownie uruchomione. Lokalny interfejs użytkownika nie jest dostępny w tym czasie trwania.
    
-    ![Aktualizacja urządzenia 4](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![Zrzut ekranu przedstawia komunikat o powodzeniu dla aktualizacji.](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10289.0** dla aktualizacji 0,4.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10289** oraz Azure Portal raporty **10.0.10289.0** dla tej samej wersji.
    
-    ![Aktualizacja urządzenia 5](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![Zrzut ekranu przedstawia stronę aktualizacji oprogramowania z bieżącą wersją oprogramowania.](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 

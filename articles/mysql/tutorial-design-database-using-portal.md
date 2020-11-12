@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: projektowanie serwera Azure Portal-Azure Database for MySQL'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer Azure Database for MySQL i bazę danych oraz zarządzać nimi przy użyciu Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
-ms.openlocfilehash: f65be324a89958e25036df9adcd20f85ef4ca484
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7559bc2246ca26cf2b14071396e075b28d2af3a7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341199"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532685"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Samouczek: projektowanie bazy danych usługi Azure Database for MySQL za pomocą witryny Azure Portal
 

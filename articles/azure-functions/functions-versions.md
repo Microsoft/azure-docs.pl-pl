@@ -4,19 +4,19 @@ description: Azure Functions obsługuje wiele wersji środowiska uruchomienioweg
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208109"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533739"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Przegląd wersji środowiska uruchomieniowego Azure Functions
 
 Azure Functions obecnie obsługuje trzy wersje hosta środowiska uruchomieniowego: 1. x, 2. x i 3. x. Wszystkie trzy wersje są obsługiwane w scenariuszach produkcyjnych.  
 
 > [!IMPORTANT]
-> Wersja 1. x jest w trybie konserwacji i obsługuje tylko programowanie w Azure Portal lub lokalnie na komputerach z systemem Windows. Ulepszenia są dostępne tylko w nowszych wersjach. 
+> Wersja 1. x jest w trybie konserwacji i obsługuje programowanie tylko w Azure Portal, Azure Stack Hub lub lokalnie na komputerach z systemem Windows. Ulepszenia są dostępne tylko w nowszych wersjach. 
 
 W tym artykule opisano niektóre różnice między różnymi wersjami, sposoby tworzenia poszczególnych wersji oraz zmiany wersji.
 
@@ -28,7 +28,7 @@ Poniższa tabela wskazuje, które języki programowania są obecnie obsługiwane
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-Aby uzyskać więcej informacji, zobacz [obsługiwane języki](supported-languages.md).
+Aby uzyskać więcej informacji, zobacz listę [obsługiwanych języków](supported-languages.md).
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Uruchom w określonej wersji
 

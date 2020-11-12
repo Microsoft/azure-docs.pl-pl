@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: c403f5381cba03727ad85ff7de7e73fabaab67f9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 709794dcccf9b100cbb11381ac34cfb86238b22b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977446"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533995"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 1,1 w macierzy wirtualnej StorSimple
 
@@ -101,26 +101,26 @@ Wykonanie tej procedury zajmuje około 4 minuty. Wykonaj następujące kroki, ab
 
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. **Kontynuuj tę aktualizację tylko wtedy, gdy korzystasz z aktualizacji Update 1 (10.0.10296.0). Jeśli używasz aktualizacji 0,6, najpierw [Zainstaluj aktualizację Update 1](storsimple-virtual-array-install-update-1.md) na urządzeniu, a następnie zastosuj aktualizację 1,1.**
    
-    ![Aktualizacja urządzenia 1](./media/storsimple-virtual-array-install-update-11/update1m.png)
+    ![Zrzut ekranu przedstawia aktualizację oprogramowania wybraną z menu obsługa.](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
-2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij pozycję **Zastosuj**.
+2. W polu **ścieżka pliku aktualizacji** wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij przycisk **Zastosuj**.
    
-    ![Aktualizacja urządzenia 2](./media/storsimple-virtual-array-install-update-11/update2m.png)
+    ![Zrzut ekranu przedstawia pole tekstowe Aktualizuj ścieżkę pliku na stronie aktualizacji oprogramowania.](./media/storsimple-virtual-array-install-update-11/update2m.png)
 
 3. Wyświetlane jest ostrzeżenie. Po zastosowaniu aktualizacji Macierz wirtualna jest urządzeniem z jednym węzłem, a następnie następuje ponowne uruchomienie urządzenia i wystąpiła przestoje. Kliknij ikonę zaznaczania.
    
-   ![Aktualizacja urządzenia 3](./media/storsimple-virtual-array-install-update-11/update3m.png)
+   ![Zrzut ekranu przedstawia ostrzeżenie okna dialogowego o przestoju.](./media/storsimple-virtual-array-install-update-11/update3m.png)
 
 4. Rozpocznie się aktualizacja. Po pomyślnym zaktualizowaniu urządzenia zostanie ono ponownie uruchomione. Lokalny interfejs użytkownika nie jest dostępny w tym czasie trwania.
    
-    ![Aktualizacja urządzenia 4](./media/storsimple-virtual-array-install-update-11/update5m.png)
+    ![Zrzut ekranu przedstawia komunikat o powodzeniu dla aktualizacji.](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
 5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10307** dla aktualizacji 1,1.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10307** oraz Azure Portal raporty **10.0.10307.0** dla tej samej wersji.
    
-    ![Aktualizacja urządzenia 5](./media/storsimple-virtual-array-install-update-11/update6m.png)
+    ![Zrzut ekranu przedstawia stronę aktualizacji oprogramowania z bieżącą wersją oprogramowania.](./media/storsimple-virtual-array-install-update-11/update6m.png)
 
 6. Powtórz kroki 2-4, aby zainstalować poprawkę zabezpieczeń systemu Windows przy użyciu pliku `Windows8.1-KB4284815-x64` . Macierz wirtualna jest uruchamiana ponownie po instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
 

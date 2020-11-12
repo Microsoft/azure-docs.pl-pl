@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41ef13351e6a87369f3fe1e2181ca2113bf79bca
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91576969"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533263"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET
 W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET może logować się do kont osobistych (hotmail.com, outlook.com, inne) oraz kont służbowych z dowolnego Azure Active Directory (Azure AD).  (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
@@ -50,7 +50,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 > 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
 >      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `ASPNET-Quickstart`.
->      - Dodaj `https://localhost:44368/` w obszarze **URI przekierowania**, a następnie kliknij pozycję **zarejestruj**.
+>      - Dodaj `https://localhost:44368/` w obszarze **URI przekierowania** , a następnie kliknij pozycję **zarejestruj**.
 >      - W okienku nawigacji po lewej stronie w sekcji Zarządzanie wybierz pozycję **uwierzytelnianie** .
 >          - W podsekcji **niejawna** stawka wybierz pozycję **identyfikatory tokenów**.
 >          - A następnie wybierz pozycję **Zapisz**.
@@ -69,9 +69,9 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 > [!div renderon="docs"]
 > [Pobierz rozwiązanie Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Uruchom projekt przy użyciu programu Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -95,12 +95,12 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 >    Gdzie:
 > - `Enter_the_Application_Id_here` jest identyfikatorem dla zarejestrowanej aplikacji.
 > - `Enter_the_Tenant_Info_Here` jest jedną z poniższych opcji:
->   - Jeśli aplikacja obsługuje **tylko moją organizację**, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład contoso.onmicrosoft.com).
->   - Jeśli aplikacja obsługuje tryb**Konta w dowolnym katalogu organizacyjnym**, zastąp tę wartość za pomocą wartości `organizations`
->   - Jeśli aplikacja obsługuje tryb **Wszyscy użytkownicy kont Microsoft**, zastąp tę wartość za pomocą wartości `common`
+>   - Jeśli aplikacja obsługuje **tylko moją organizację** , Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład contoso.onmicrosoft.com).
+>   - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym** , zastąp tę wartość za pomocą wartości `organizations`
+>   - Jeśli aplikacja obsługuje tryb **Wszyscy użytkownicy kont Microsoft** , zastąp tę wartość za pomocą wartości `common`
 >
 > > [!TIP]
-> > - Aby znaleźć wartości *Identyfikator aplikacji*, *Identyfikator katalogu (dzierżawy)* i *Obsługiwane typy kont*, przejdź do strony **Przegląd**
+> > - Aby znaleźć wartości *Identyfikator aplikacji* , *Identyfikator katalogu (dzierżawy)* i *Obsługiwane typy kont* , przejdź do strony **Przegląd**
 > > - Upewnij się, że wartość `redirectUri` w **Web.config** odpowiada **identyfikatorowi URI przekierowania** zdefiniowanego dla rejestracji aplikacji w usłudze Azure AD (jeśli nie, przejdź do menu **uwierzytelniania** dla rejestracji aplikacji i zaktualizuj **Identyfikator URI przekierowania** , aby dopasować)
 
 > [!div class="sxs-lookup" renderon="portal"]

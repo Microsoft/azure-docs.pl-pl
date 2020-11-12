@@ -1,7 +1,7 @@
 ---
 title: Zbieranie danych z modeli produkcyjnych
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak zbierać dane ze wdrożonego modelu Azure Machine Learning
+description: Dowiedz się, jak zbierać dane z modelu Azure Machine Learning wdrożonego w klastrze usługi Azure Kubernetes Service (AKS).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,14 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357647"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532821"
 ---
 # <a name="collect-data-from-models-in-production"></a>Zbieranie danych z modeli w środowisku produkcyjnym
-
-
 
 W tym artykule pokazano, jak zbierać dane z modelu Azure Machine Learning wdrożonego w klastrze usługi Azure Kubernetes Service (AKS). Zebrane dane są następnie przechowywane w usłudze Azure Blob Storage.
 

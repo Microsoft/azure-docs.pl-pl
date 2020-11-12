@@ -4,35 +4,38 @@ description: Samouczek dotyczący używania MSSparkutils w notesach usługi Azur
 author: ruxu
 services: synapse-analytics
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 648c5b75f125725ebda2966d3ebc4200ee76b98c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c03d8e744598386db3d6d03a71e4d1b735d9d71f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428682"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533280"
 ---
 # <a name="introduction-of-microsoft-spark-utilities"></a>Wprowadzenie do narzędzi Microsoft Spark Utilities
-Microsoft Spark Utilities (MSSparkUtils) to pakiet wbudowane, który ułatwia łatwiejsze wykonywanie typowych zadań. Za pomocą MSSparkUtils można wydajnie współpracować z systemem plików, uzyskiwać zmienne środowiskowe i korzystać z wpisów tajnych. MSSparkUtils są dostępne w `PySpark (Python)` , `Scala` , i w `.NET Spark (C#)` potokach Synapse.
+
+Microsoft Spark Utilities (MSSparkUtils) to pakiet wbudowane, który ułatwia wykonywanie typowych zadań. Programu MSSparkUtils można używać do pracy z systemami plików, uzyskiwania zmiennych środowiskowych oraz do pracy z wpisami tajnymi. MSSparkUtils są dostępne w `PySpark (Python)` , `Scala` , i w `.NET Spark (C#)` potokach Synapse.
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
+
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Konfigurowanie dostępu do Azure Data Lake Storage Gen2 
+
 Notesy Synapse korzystają z usługi Azure Active Directory (Azure AD) w celu uzyskania dostępu do kont ADLS Gen2. Musisz być **Współautorem BLOB Storage** , aby uzyskać dostęp do konta ADLS Gen2 (lub folderu). 
 
-Potoki Synapse używają tożsamości obszaru roboczego (MSI) do uzyskiwania dostępu do kont magazynu. Aby można było używać MSSparkUtils w działaniach potoku, tożsamość obszaru roboczego musi być **Współautorem BLOB Storage** , aby uzyskać dostęp do konta ADLS Gen2 (lub folderu).
+Potoki Synapse używają tożsamości obszaru roboczego (MSI) do uzyskiwania dostępu do kont magazynu. Aby można było używać MSSparkUtils w działaniach potoku, tożsamość obszaru roboczego musi być **BLOB Storage współautor** , aby uzyskać dostęp do konta ADLS Gen2 (lub folderu).
 
 Wykonaj następujące kroki, aby upewnić się, że usługa Azure AD i plik MSI obszaru roboczego mają dostęp do konta ADLS Gen2:
 1. Otwórz [Azure Portal](https://portal.azure.com/) i konto magazynu, do którego chcesz uzyskać dostęp. Możesz przejść do określonego kontenera, do którego chcesz uzyskać dostęp.
 2. Wybierz pozycję **Kontrola dostępu (IAM)** w okienku po lewej stronie.
-3. W przypadku roli **współautor danych obiektów blob magazynu** na koncie magazynu Przypisz **swoje konto usługi Azure AD** i **tożsamość obszaru roboczego** (taką samą jak nazwa obszaru roboczego) lub upewnij się, że jest już przypisana. 
-4. Kliknij pozycję **Zapisz**.
+3. Przypisz **swoje konto usługi Azure AD** i **swoją tożsamość obszaru roboczego** (tak samo jak nazwa obszaru roboczego) do roli **współautor danych obiektów blob magazynu** na koncie magazynu, jeśli nie została jeszcze przypisana. 
+4. Wybierz pozycję **Zapisz**.
 
-Możesz uzyskać dostęp do danych na ADLS Gen2 za pomocą Synapse Spark za pomocą następującego adresu URL:
+Dostęp do danych na ADLS Gen2 za pomocą Synapse Spark można uzyskać za pomocą następującego adresu URL:
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
@@ -45,10 +48,10 @@ Wykonaj następujące kroki, aby dodać nową połączoną usługę dla konta us
 1. Otwórz [usługę Azure Synapse Studio](https://web.azuresynapse.net/).
 2. Wybierz pozycję **Zarządzaj** w lewym panelu i wybierz pozycję **połączone usługi** w obszarze **połączenia zewnętrzne**.
 3. Przeszukaj **BLOB Storage platformy Azure** w panelu **nowej połączonej usługi** po prawej stronie.
-4. Kliknij przycisk **Kontynuuj**.
+4. Wybierz opcję **Kontynuuj**.
 5. Wybierz konto usługi Azure Blob Storage, aby uzyskać dostęp do nazwy połączonej usługi i skonfigurować ją. Zaproponuj użycie **klucza konta** dla **metody uwierzytelniania**.
-6. Kliknij przycisk **Test connection** , aby sprawdzić, czy ustawienia są poprawne.
-7. Kliknij przycisk **Utwórz** najpierw, a następnie kliknij pozycję **Opublikuj wszystko** , aby zapisać zmiany. 
+6. Wybierz **Test connection** , aby sprawdzić poprawność ustawień.
+7. Wybierz pozycję **Utwórz** pierwszy, a następnie kliknij pozycję **Opublikuj wszystko** , aby zapisać zmiany. 
 
 Dostęp do danych w usłudze Azure Blob Storage przy użyciu usługi Synapse Spark można uzyskać za pomocą następującego adresu URL:
 
@@ -103,25 +106,25 @@ Możesz dodać Azure Key Vault jako połączoną usługę, aby zarządzać pośw
 2. Wybierz pozycję **Zarządzaj** w lewym panelu i wybierz pozycję **połączone usługi** w obszarze **połączenia zewnętrzne**.
 3. Przeszukaj **Azure Key Vault** w panelu **nowe połączone usługi** po prawej stronie.
 4. Wybierz konto Azure Key Vault, aby uzyskać dostęp do nazwy połączonej usługi i skonfigurować ją.
-5. Kliknij przycisk **Test connection** , aby sprawdzić, czy ustawienia są poprawne.
-6. Kliknij przycisk **Utwórz** najpierw, a następnie kliknij pozycję **Opublikuj wszystko** , aby zapisać zmiany. 
+5. Wybierz **Test connection** , aby sprawdzić poprawność ustawień.
+6. Wybierz pozycję **Utwórz** pierwszy, a następnie kliknij pozycję **Opublikuj wszystko** , aby zapisać zmiany. 
 
 Notesy Synapse umożliwiają dostęp do Azure Key Vault za pomocą usługi Azure Active Directory (Azure AD). Potoki Synapse używają tożsamości obszaru roboczego (MSI) do uzyskiwania dostępu do Azure Key Vault. Aby upewnić się, że Twój kod będzie działał zarówno w notesie, jak i w potoku Synapse, zalecamy udzielenie uprawnień dostępu tajnego zarówno dla konta usługi Azure AD, jak i dla tożsamości obszaru roboczego.
 
 Wykonaj następujące kroki, aby udzielić poufnego dostępu do tożsamości obszaru roboczego:
 1. Otwórz [Azure Portal](https://portal.azure.com/) i Azure Key Vault, do których chcesz uzyskać dostęp. 
 2. Wybierz **zasady dostępu** z lewego panelu.
-3. Kliknij pozycję **Dodaj zasady dostępu** : 
+3. Wybierz pozycję **Dodaj zasady dostępu** : 
     - Wybierz pozycję **klucz, klucz tajny, & zarządzanie certyfikatami** jako szablon konfiguracji.
     - Wybierz **konto usługi Azure AD** i **swoją tożsamość obszaru roboczego** (taką samą jak nazwa obszaru roboczego) w obszarze Wybierz podmiot zabezpieczeń lub upewnij się, że została już przypisana. 
-4. Kliknij przycisk **Wybierz** i **Dodaj**.
-5. Kliknij przycisk **Zapisz** , aby zatwierdzić zmiany.  
+4. Wybierz pozycję **Wybierz** i **Dodaj**.
+5. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.  
 
 ## <a name="file-system-utilities"></a>Narzędzia systemu plików
 
 `mssparkutils.fs` oferuje narzędzia do pracy z różnymi systemami plików, w tym Azure Data Lake Storage Gen2 (ADLS Gen2) i Blob Storage platformy Azure. Upewnij się, że masz odpowiednio skonfigurowany dostęp do [Azure Data Lake Storage Gen2](#configure-access-to-azure-data-lake-storage-gen2) i [platformy Azure Blob Storage](#configure-access-to-azure-blob-storage) .
 
-Uruchom następujące polecenie, aby zapoznać się z dostępnymi metodami:
+Uruchom następujące polecenia, aby zapoznać się z omówieniem dostępnych metod:
 
 :::zone pivot = "programming-language-python"
 
@@ -196,7 +199,7 @@ FS.Ls("Your directory path")
 
 
 ### <a name="view-file-properties"></a>Wyświetl właściwości pliku
-Zwraca właściwości pliku, łącznie z nazwą pliku, ścieżką pliku, rozmiarem pliku, bez względu na to, czy jest to katalog, i czy jest plikiem.
+Zwraca właściwości pliku, w tym nazwę pliku, ścieżkę pliku, rozmiar pliku i określa, czy jest to katalog i plik.
 
 :::zone pivot = "programming-language-python"
 
@@ -230,7 +233,8 @@ foreach(var File in Files) {
 ::: zone-end
 
 ### <a name="create-new-directory"></a>Utwórz nowy katalog
-Tworzy określony katalog, jeśli nie istnieje, również tworząc wszystkie niezbędne katalogi nadrzędne.
+
+Tworzy dany katalog, jeśli nie istnieje, i wszystkie niezbędne katalogi nadrzędne.
 
 :::zone pivot = "programming-language-python"
 
@@ -256,7 +260,8 @@ FS.Mkdirs("new directory name")
 ::: zone-end
 
 ### <a name="copy-file"></a>Kopiuj plik
-Kopiuje plik lub katalog, obsługują kopie w systemach plików.
+
+Kopiuje plik lub katalog. Obsługuje kopiowanie w systemach plików.
 
 :::zone pivot = "programming-language-python"
 
@@ -282,6 +287,7 @@ FS.Cp("source file or directory", "destination file or directory", true) // Set 
 ::: zone-end
 
 ### <a name="preview-file-content"></a>Podgląd zawartości pliku
+
 Zwraca do pierwszych "maxBytes" bajtów danego pliku jako ciąg zakodowany w UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -308,7 +314,8 @@ FS.Head("file path", maxBytes to read)
 ::: zone-end
 
 ### <a name="move-file"></a>Przenieś plik
-Przenosi plik lub katalog, obsługują przechodzenie między systemami plików.
+
+Przenosi plik lub katalog. Obsługuje przenoszenie między systemami plików.
 
 :::zone pivot = "programming-language-python"
 
@@ -334,6 +341,7 @@ FS.Mv("source file or directory", "destination directory", true)
 ::: zone-end
 
 ### <a name="write-file"></a>Zapisz plik
+
 Zapisuje dane określonego ciągu do pliku zakodowanego w formacie UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -360,6 +368,7 @@ FS.Put("file path", "content to write", true) // Set the last parameter as True 
 ::: zone-end
 
 ### <a name="append-content-to-a-file"></a>Dołącz zawartość do pliku
+
 Dołącza dany ciąg do pliku zakodowanego w formacie UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -386,6 +395,7 @@ FS.Append("file path","content to append",true) // Set the last parameter as Tru
 ::: zone-end
 
 ### <a name="delete-file-or-directory"></a>Usuń plik lub katalog
+
 Usuwa plik lub katalog.
 
 :::zone pivot = "programming-language-python"
@@ -454,6 +464,7 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 ```
 
 ### <a name="get-token"></a>Pobierz token
+
 Zwraca token usługi Azure AD dla danego odbiorcy, nazwę (opcjonalnie). W poniższej tabeli wymieniono wszystkie dostępne typy odbiorców: 
 
 |Typ odbiorców|Klucz odbiorców|
@@ -492,6 +503,7 @@ mssparkutils.credentials.getToken("audience Key")
 
 
 ### <a name="validate-token"></a>Weryfikuj token
+
 Zwraca wartość PRAWDA, jeśli token nie wygasł.
 
 :::zone pivot = "programming-language-python"
@@ -519,6 +531,7 @@ mssparkutils.credentials.isValidToken("your token")
 
 
 ### <a name="get-connection-string-or-credentials-for-linked-service"></a>Pobierz parametry połączenia lub poświadczenia dla połączonej usługi
+
 Zwraca parametry połączenia lub poświadczenia dla połączonej usługi. 
 
 :::zone pivot = "programming-language-python"
@@ -546,7 +559,8 @@ mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 
 
 ### <a name="get-secret-using-workspace-identity"></a>Pobierz wpis tajny przy użyciu tożsamości obszaru roboczego
-Zwraca Azure Key Vault wpis tajny dla danej nazwy Azure Key Vault, nazwy wpisu tajnego i nazwy połączonej usługi przy użyciu tożsamości obszaru roboczego. Upewnij się, że dostęp do [Azure Key Vault](#configure-access-to-azure-key-vault) jest odpowiednio skonfigurowany.
+
+Zwraca Azure Key Vault wpis tajny dla danej nazwy Azure Key Vault, nazwy wpisu tajnego i nazwy połączonej usługi przy użyciu tożsamości obszaru roboczego. Upewnij się, że masz odpowiednio skonfigurowany dostęp do [Azure Key Vault](#configure-access-to-azure-key-vault) .
 
 :::zone pivot = "programming-language-python"
 
@@ -573,6 +587,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name","linked 
 
 
 ### <a name="get-secret-using-user-credentials"></a>Pobierz wpis tajny przy użyciu poświadczeń użytkownika
+
 Zwraca Azure Key Vault klucz tajny dla danej nazwy Azure Key Vault, nazwy wpisu tajnego i nazwy połączonej usługi przy użyciu poświadczeń użytkownika. 
 
 :::zone pivot = "programming-language-python"
@@ -599,6 +614,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name")
 ::: zone-end
 
 ### <a name="put-secret-using-workspace-identity"></a>Umieść wpis tajny przy użyciu tożsamości obszaru roboczego
+
 Umieszcza Azure Key Vault wpis tajny dla danej nazwy Azure Key Vault, nazwy wpisu tajnego i nazwy połączonej usługi przy użyciu tożsamości obszaru roboczego. Upewnij się, że dostęp do [Azure Key Vault](#configure-access-to-azure-key-vault) jest odpowiednio skonfigurowany.
 
 :::zone pivot = "programming-language-python"
@@ -626,6 +642,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 
 ### <a name="put-secret-using-user-credentials"></a>Umieść wpis tajny przy użyciu poświadczeń użytkownika
+
 Umieszcza Azure Key Vault klucz tajny dla danej nazwy Azure Key Vault, nazwy wpisu tajnego i nazwy połączonej usługi przy użyciu poświadczeń użytkownika. 
 
 :::zone pivot = "programming-language-python"
@@ -654,7 +671,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 ## <a name="environment-utilities"></a>Narzędzia środowiska 
 
-Uruchom następujące polecenie, aby zapoznać się z dostępnymi metodami:
+Uruchom następujące polecenia, aby zapoznać się z dostępnymi metodami:
 
 :::zone pivot = "programming-language-python"
 
@@ -689,6 +706,7 @@ getClusterId(): returns cluster id
 ```
 
 ### <a name="get-user-name"></a>Pobierz nazwę użytkownika
+
 Zwraca bieżącą nazwę użytkownika.
 
 :::zone pivot = "programming-language-python"
@@ -715,6 +733,7 @@ mssparkutils.env.getUserName()
 ::: zone-end
 
 ### <a name="get-user-id"></a>Pobierz identyfikator użytkownika
+
 Zwraca bieżący identyfikator użytkownika.
 
 :::zone pivot = "programming-language-python"
@@ -741,6 +760,7 @@ mssparkutils.env.getUserId()
 ::: zone-end
 
 ### <a name="get-job-id"></a>Pobierz identyfikator zadania
+
 Zwraca identyfikator zadania.
 
 :::zone pivot = "programming-language-python"
@@ -767,6 +787,7 @@ mssparkutils.env.getJobId()
 ::: zone-end
 
 ### <a name="get-workspace-name"></a>Pobierz nazwę obszaru roboczego
+
 Zwraca nazwę obszaru roboczego.
 
 :::zone pivot = "programming-language-python"
@@ -793,6 +814,7 @@ mssparkutils.env.getWorkspaceName()
 ::: zone-end
 
 ### <a name="get-pool-name"></a>Pobierz nazwę puli
+
 Zwraca nazwę puli platformy Spark.
 
 :::zone pivot = "programming-language-python"
@@ -819,6 +841,7 @@ mssparkutils.env.getPoolName()
 ::: zone-end
 
 ### <a name="get-cluster-id"></a>Pobierz identyfikator klastra
+
 Zwraca bieżący identyfikator klastra.
 
 :::zone pivot = "programming-language-python"
@@ -845,6 +868,7 @@ mssparkutils.env.getClusterId()
 ::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
+
 - [Zapoznaj się z przykładowymi notesami Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
 - [Co to jest Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)

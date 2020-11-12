@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938606"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532447"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Zarządzanie dostępem, mocą i trybem łączności dla Azure Stack
 
@@ -49,12 +49,12 @@ Resetowanie przepływu pracy nie wymaga od użytkownika odwoływania starego has
 
 1. W Azure Portal przejdź do **omówienia > Resetowanie hasła administratora**.
 
-    ![Resetowanie hasła](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Zrzut ekranu przedstawia urządzenie z wybraną opcją resetowania hasła urządzenia.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Wprowadź nowe hasło, a następnie potwierdź je. Podane hasło musi zawierać od 8 do 16 znaków. Hasło musi zawierać 3 z następujących znaków: wielkie litery, małe litery, cyfry i znaki specjalne. Wybierz pozycję **Resetuj**.
 
-    ![Resetowanie hasła](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Resetowanie hasła urządzenia.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Zarządzenie dostępem do zasobów
 
@@ -115,7 +115,7 @@ Poza domyślnym trybem w pełni połączonym urządzenie można również urucho
 Aby zmienić tryb urządzenia, wykonaj następujące kroki:
 
 1. W lokalnym interfejsie użytkownika sieci Web urządzenia przejdź do pozycji **konfiguracja > chmura**.
-2. Z listy rozwijanej wybierz tryb, w którym chcesz korzystać z urządzenia. Możesz wybrać z w **pełni połączone**, **częściowo połączone**i **całkowicie odłączone**. Aby uruchomić urządzenie w trybie częściowo rozłączona, Włącz **zarządzanie Azure Portal**.
+2. Z listy rozwijanej wybierz tryb, w którym chcesz korzystać z urządzenia. Możesz wybrać z w **pełni połączone** , **częściowo połączone** i **całkowicie odłączone**. Aby uruchomić urządzenie w trybie częściowo rozłączona, Włącz **zarządzanie Azure Portal**.
 
  
 ## <a name="manage-power"></a>Zarządzanie mocą

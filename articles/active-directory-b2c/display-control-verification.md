@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd90be6d93dc5ca399ac87daba0ca44fa7e88ff8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202318"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532498"
 ---
 # <a name="verification-display-control"></a>Kontrolka wyświetlania weryfikacji
 
@@ -30,11 +30,9 @@ Kontrolka wyświetlania weryfikacji składa się z dwóch kroków (czynności):
 
     ![Przykładowa strona dla akcji wysyłania kodu](media/display-control-verification/display-control-verification-email-action-01.png)
 
-1. Po wysłaniu kodu użytkownik odczytuje komunikat, wprowadza kod weryfikacyjny do kontrolki dostarczonej przez formant wyświetlania i wybiera polecenie **Weryfikuj kod**. Wybierając pozycję **Weryfikuj kod**, **Akcja kontrolka verifycode** jest wykonywana w celu zweryfikowania kodu skojarzonego z adresem. Jeśli użytkownik wybierze pozycję **Wyślij nowy kod**, pierwsza akcja zostanie wykonana ponownie.
+1. Po wysłaniu kodu użytkownik odczytuje komunikat, wprowadza kod weryfikacyjny do kontrolki dostarczonej przez formant wyświetlania i wybiera polecenie **Weryfikuj kod**. Wybierając pozycję **Weryfikuj kod** , **Akcja kontrolka verifycode** jest wykonywana w celu zweryfikowania kodu skojarzonego z adresem. Jeśli użytkownik wybierze pozycję **Wyślij nowy kod** , pierwsza akcja zostanie wykonana ponownie.
 
     ![Przykładowa strona dla akcji Weryfikuj kod](media/display-control-verification/display-control-verification-email-action-02.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="verificationcontrol-required-elements"></a>VerificationControl elementy wymagane
 
@@ -49,7 +47,7 @@ Kontrolka wyświetlania weryfikacji składa się z dwóch kroków (czynności):
   - **Kontrolka sendcode** — wysyła kod do użytkownika. Ta akcja zwykle zawiera dwa sprawdzanie poprawności profilu technicznego w celu wygenerowania kodu i wysłania go.
   - **Kontrolka verifycode** — weryfikuje kod. Ta akcja zwykle zawiera profil techniczny weryfikacji pojedynczej.
 
-W poniższym przykładzie pole tekstowe **wiadomości e-mail** jest wyświetlane na stronie. Gdy użytkownik wprowadzi swój adres e-mail i wybierze **kontrolka sendcode**, Akcja **kontrolka sendcode** zostanie wyzwolona w Azure AD B2C zaplecza.
+W poniższym przykładzie pole tekstowe **wiadomości e-mail** jest wyświetlane na stronie. Gdy użytkownik wprowadzi swój adres e-mail i wybierze **kontrolka sendcode** , Akcja **kontrolka sendcode** zostanie wyzwolona w Azure AD B2C zaplecza.
 
 Następnie użytkownik wprowadza **verificationCode** i wybiera **kontrolka verifycode** , aby wyzwolić akcję **kontrolka verifycode** w zapleczu. Jeśli wszystkie walidacje zakończyły się powodzeniem, **VerificationControl** jest uznawany za kompletne i użytkownik może przejść do następnego kroku.
 

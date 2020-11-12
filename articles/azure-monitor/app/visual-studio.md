@@ -4,12 +4,12 @@ description: Analiza wydajności i diagnostyka aplikacji internetowej podczas de
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532906"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Debuguj aplikacje za pomocą usługi Azure Application Insights w programie Visual Studio
 W programie Visual Studio (w wersji 2015 i nowszych) można analizować wydajność i diagnozować problemy w aplikacji internetowej platformy ASP.NET zarówno podczas debugowania, jak i w środowisku produkcyjnym, przy użyciu telemetrii z usługi [Azure Application Insights](./app-insights-overview.md).
@@ -53,12 +53,12 @@ Raporty dotyczące wyjątków są wyświetlane w oknie wyszukiwania. W niektóry
 
 Kliknij wyjątek, aby uzyskać ślad stosu. Jeśli kod aplikacji jest otwarty w programie Visual Studio, można przejść przez ślad stosu do odpowiedniego wiersza kodu.
 
-![Ślad stosu wyjątków](./media/visual-studio/17.png)
+![Zrzut ekranu przedstawia obiekt informacje w ślad stosu.](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>Wyświetlanie podsumowań żądań i wyjątków w kodzie
 W wierszu soczewki kodu powyżej każdej metody obsługi zostanie wyświetlona liczba żądań i wyjątków zarejestrowanych przez Application Insights w ciągu ostatnich 24 godzin.
 
-![Ślad stosu wyjątków](./media/visual-studio/21.png)
+![Zrzut ekranu przedstawia wyjątek w oknie dialogowym kontekst.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > Dane usługi Application Insights są wyświetlane w wierszach Code Lens tylko wtedy, gdy [skonfigurowano aplikację na potrzeby wysyłania danych telemetrycznych do portalu usługi Application Insights](./asp-net.md).

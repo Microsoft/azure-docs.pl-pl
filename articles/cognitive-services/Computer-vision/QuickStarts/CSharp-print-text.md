@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: 52241972e283db1c5e000e1e9f5d655dfdd9c8a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ce75b5465d18f988d9dfd2b329c4157bab41ded9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88928194"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534521"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Szybki Start: Wyodrębnianie tekstu przy użyciu operacji OCR interfejsu API REST w przetwarzanie obrazów 2,0 i C #
 
 > [!IMPORTANT]
 > W przypadku wyodrębniania tekstu w języku angielskim, niderlandzkim, francuskim, niemieckim, włoskim, portugalskim, hiszpańskim lub uproszczonym (wersja zapoznawcza) zaleca się użycie nowszej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępna jest funkcja [Szybki Start języka C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) . 
 
-W tym przewodniku szybki start wyodrębnisz drukowany tekst z obrazu przy użyciu funkcji [rozpoznawania](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) przetwarzanie obrazów interfejsu API REST. Za pomocą tej operacji można wykryć drukowany tekst w obrazie i wyodrębnić rozpoznane znaki do strumienia znaków użytkowych maszynowo.
+W tym przewodniku szybki start wyodrębnisz drukowany tekst z obrazu przy użyciu funkcji [rozpoznawania](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) przetwarzanie obrazów interfejsu API REST. Za pomocą tej operacji można wykryć drukowany tekst w obrazie i wyodrębnić rozpoznane znaki do strumienia znaków użytkowych maszynowo.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,9 +40,9 @@ Aby utworzyć próbkę w programie Visual Studio, wykonaj następujące czynnoś
 
 1. Utwórz nowe rozwiązanie Visual Studio w programie Visual Studio przy użyciu szablonu aplikacji konsoli na potrzeby środowiska Visual C#.
 1. Zainstaluj pakiet NuGet Newtonsoft.Json.
-    1. W menu kliknij pozycję **Narzędzia**, a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
-    1. Kliknij kartę **Przeglądaj**, a następnie w polu **Wyszukiwanie** wpisz ciąg „Newtonsoft.Json”.
-    1. Gdy zostanie wyświetlona pozycja **Newtonsoft.Json**, wybierz ją, a następnie kliknij kolejno pole wyboru obok nazwy projektu i pozycję **Zainstaluj**.
+    1. W menu kliknij pozycję **Narzędzia** , a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
+    1. Kliknij kartę **Przeglądaj** , a następnie w polu **Wyszukiwanie** wpisz ciąg „Newtonsoft.Json”.
+    1. Gdy zostanie wyświetlona pozycja **Newtonsoft.Json** , wybierz ją, a następnie kliknij kolejno pole wyboru obok nazwy projektu i pozycję **Zainstaluj**.
 1. Uruchomisz program.
 1. Gdy pojawi się monit, wprowadź ścieżkę do obrazu lokalnego.
 

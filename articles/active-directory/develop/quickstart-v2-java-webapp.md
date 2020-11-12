@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 620039ec43009693d09f732913264eff94d662c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743492"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533246"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft
 
@@ -59,7 +59,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > 1. Wybierz **uwierzytelnianie** z menu, a następnie Dodaj następujące informacje:
 >    - Dodaj konfigurację platformy **sieci Web** .  Dodaj te `https://localhost:8443/msal4jsample/secure/aad` i `https://localhost:8443/msal4jsample/graph/me` jako **identyfikatory URI przekierowania**.
 >    - Wybierz pozycję **Zapisz**.
-> 1. Wybierz pozycję **certyfikaty & wpisy tajne** z menu i w sekcji wpisy **tajne klienta** kliknij **nowy klucz tajny klienta**:
+> 1. Wybierz pozycję **certyfikaty & wpisy tajne** z menu i w sekcji wpisy **tajne klienta** kliknij **nowy klucz tajny klienta** :
 >
 >    - Wpisz opis klucza (dla wpisu tajnego aplikacji wystąpienia).
 >    - Wybierz czas trwania klucza **w 1 roku**.
@@ -99,7 +99,7 @@ Do uruchomienia tego przykładu potrzebne są:
 >   ```
 >   Umieść wygenerowany plik magazynu kluczy w folderze "Resources" (zasoby).
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -110,7 +110,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > #### <a name="step-3-configure-the-code-sample"></a>Krok 3. Konfigurowanie przykładu kodu
 > 1. Wyodrębnij plik zip do folderu lokalnego.
 > 1. Jeśli używasz zintegrowanego środowiska programistycznego, Otwórz przykład w ulubionym środowisku IDE (opcjonalnie).
-> 1. Otwórz plik Application. Properties, który znajduje się w folderze src/Main/sources/folder i Zastąp wartości pól *AAD. clientId*, *AAD. Authority* i *AAD. secretKey* odpowiednimi wartościami **identyfikatora aplikacji**, **identyfikatora dzierżawy** i **wpisu tajnego klienta** w następujący sposób:
+> 1. Otwórz plik Application. Properties, który znajduje się w folderze src/Main/sources/folder i Zastąp wartości pól *AAD. clientId* , *AAD. Authority* i *AAD. secretKey* odpowiednimi wartościami **identyfikatora aplikacji** , **identyfikatora dzierżawy** i **wpisu tajnego klienta** w następujący sposób:
 >
 >    ```file
 >    aad.clientId=Enter_the_Application_Id_here
@@ -155,8 +155,8 @@ Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij p
 1. Na stronie frontonu wybierz przycisk **Zaloguj** , aby przekierować do Azure Active Directory i monitować użytkownika o ich poświadczenia.
 
 1. Po uwierzytelnieniu użytkownik zostanie przekierowany do *https://localhost:8443/msal4jsample/secure/aad* . Są one teraz zalogowane, a na stronie zostaną wyświetlone informacje o zalogowanym koncie. Przykładowy interfejs użytkownika ma następujące przyciski:
-    - *Wyloguj*: podpisuje bieżącego użytkownika poza aplikacją i przekierowuje je do strony głównej.
-    - *Pokaż informacje o użytkowniku*: uzyskuje token dla Microsoft Graph i wywołuje Microsoft Graph z żądaniem zawierającym token, który zwraca podstawowe informacje o zalogowanym użytkowniku.
+    - *Wyloguj* : podpisuje bieżącego użytkownika poza aplikacją i przekierowuje je do strony głównej.
+    - *Pokaż informacje o użytkowniku* : uzyskuje token dla Microsoft Graph i wywołuje Microsoft Graph z żądaniem zawierającym token, który zwraca podstawowe informacje o zalogowanym użytkowniku.
 
 ##### <a name="running-from-tomcat"></a>Uruchamianie z Tomcat
 

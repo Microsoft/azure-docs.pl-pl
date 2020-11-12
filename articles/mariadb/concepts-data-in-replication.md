@@ -1,17 +1,17 @@
 ---
 title: Replikacja danych — Azure Database for MariaDB
 description: Dowiedz się więcej o korzystaniu z replikacji danych w celu synchronizacji z serwerem zewnętrznym z usługą Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 331e064bcf11af31a778cb8dd06c463712421b7c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425575"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533433"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikowanie danych do Azure Database for MariaDB
 
@@ -37,7 +37,7 @@ Główne scenariusze, które należy wziąć pod uwagę przy użyciu replikacja 
 - Jeśli na serwerze źródłowym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mariadb.az_replication_change_master` procedurze składowanej. Zapoznaj się z poniższymi [przykładami](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
 - Upewnij się, że adres IP serwera źródłowego został dodany do reguł zapory serwera repliki Azure Database for MariaDB. Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](howto-manage-firewall-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-manage-firewall-cli.md).
 - Upewnij się, że komputer obsługujący serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306.
-- Upewnij się, że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
+- Upewnij się, że serwer źródłowy ma **publiczny adres IP** , usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
 
 ### <a name="other"></a>Inne
 - Replikacja danych jest obsługiwana tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359582"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533897"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -25,7 +25,13 @@ Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całośc
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>Sposoby zarządzania programem Graph
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+Możesz również wprowadzać zmiany w grafie przy użyciu przykładu Eksploratora Digital bliźniaczych reprezentacji (ADT), który pozwala na wizualizację bliźniaczych reprezentacji i grafu, i używa zestawu SDK w tle. W następnej sekcji opisano ten przykład szczegółowo.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Utwórz relacje
@@ -219,7 +225,8 @@ Teraz można wywołać tę metodę, aby usunąć relację podobną do tej:
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>Tworzenie wykresu dwuosiowego 
+
+## <a name="runnable-twin-graph-sample"></a>Przykład grafu możliwy do uruchomienia bliźniaczy
 
 Poniższy fragment kodu możliwy do uruchomienia używa operacji relacji z tego artykułu, aby utworzyć wykres Wieloosiowy z bliźniaczych reprezentacjiami i relacjami cyfrowymi.
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>Zarządzanie relacjami przy użyciu interfejsu wiersza polecenia
-
-Bliźniaczych reprezentacji i ich relacje można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

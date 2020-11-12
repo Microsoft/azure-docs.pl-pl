@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: projektowanie serwera Azure PowerShell-Azure Database for MySQL'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer Azure Database for MySQL i bazę danych oraz zarządzać nim przy użyciu programu PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 23f95c3f144be5d2a48de698ec336bfbc329c892
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: fd8294d60ed0af4e8d1eeb8a3cd07c737b69aadd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337236"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533591"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>Samouczek: projektowanie Azure Database for MySQL przy użyciu programu PowerShell
 
