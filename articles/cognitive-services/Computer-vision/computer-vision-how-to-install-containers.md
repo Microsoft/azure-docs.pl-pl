@@ -12,12 +12,12 @@ ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: 07440b99d887ee6cb4b6d505ed7fb79f4c12c784
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 33fc13722a4d0f26c71aa85809a605188b610014
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677201"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539016"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
@@ -207,7 +207,7 @@ Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę S
 Możesz użyć `POST /vision/v3.1/read/analyze` `GET /vision/v3.1/read/operations/{operationId}` operacji i w drodze do asynchronicznego odczytywania obrazu, podobnie jak usługa przetwarzanie obrazów używa tych odpowiednich operacji Rest. Asynchroniczna Metoda POST zwróci wartość `operationId` , która jest używana jako identyfikator do żądania HTTP GET.
 
 
-W interfejsie użytkownika programu Swagger wybierz pozycję, `asyncBatchAnalyze` Aby rozwinąć ją w przeglądarce. Następnie wybierz opcję **Wypróbuj**  >  **plik** . W tym przykładzie użyjemy poniższej ilustracji:
+W interfejsie użytkownika programu Swagger wybierz pozycję, `asyncBatchAnalyze` Aby rozwinąć ją w przeglądarce. Następnie wybierz opcję **Wypróbuj**  >  **plik**. W tym przykładzie użyjemy poniższej ilustracji:
 
 ![karty vs Spaces](media/tabs-vs-spaces.png)
 
@@ -284,7 +284,7 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
 
 Możesz użyć `POST /vision/v2.0/read/core/asyncBatchAnalyze` `GET /vision/v2.0/read/operations/{operationId}` operacji i w drodze do asynchronicznego odczytywania obrazu, podobnie jak usługa przetwarzanie obrazów używa tych odpowiednich operacji Rest. Asynchroniczna Metoda POST zwróci wartość `operationId` , która jest używana jako identyfikator do żądania HTTP GET.
 
-W interfejsie użytkownika programu Swagger wybierz pozycję, `asyncBatchAnalyze` Aby rozwinąć ją w przeglądarce. Następnie wybierz opcję **Wypróbuj**  >  **plik** . W tym przykładzie użyjemy poniższej ilustracji:
+W interfejsie użytkownika programu Swagger wybierz pozycję, `asyncBatchAnalyze` Aby rozwinąć ją w przeglądarce. Następnie wybierz opcję **Wypróbuj**  >  **plik**. W tym przykładzie użyjemy poniższej ilustracji:
 
 ![karty vs Spaces](media/tabs-vs-spaces.png)
 
@@ -411,6 +411,6 @@ W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierani
 
 * Przegląd [konfigurowania kontenerów](computer-vision-resource-container-config.md) dla ustawień konfiguracji
 * Przejrzyj [przegląd przetwarzanie obrazów](overview.md) , aby dowiedzieć się więcej o rozpoznawaniu tekstu napisanego i odręcznego
-* Zapoznaj się z [interfejs API przetwarzania obrazów](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) , aby uzyskać szczegółowe informacje na temat metod obsługiwanych przez kontener.
+* Zapoznaj się z [interfejs API przetwarzania obrazów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) , aby uzyskać szczegółowe informacje na temat metod obsługiwanych przez kontener.
 * Zapoznaj się z [często zadawanymi pytaniami](FAQ.md) , aby rozwiązać problemy związane z funkcjami przetwarzanie obrazów.
 * Użyj więcej [kontenerów Cognitive Services](../cognitive-services-container-support.md)

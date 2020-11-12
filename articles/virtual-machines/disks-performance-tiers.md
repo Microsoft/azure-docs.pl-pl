@@ -1,23 +1,23 @@
 ---
 title: Zmienianie wydajności usługi Azure Managed disks
-description: Dowiedz się więcej o warstwach wydajności dla dysków zarządzanych i Dowiedz się, jak zmienić warstwy wydajności dla istniejących dysków zarządzanych.
+description: Dowiedz się więcej o warstwach wydajności dla dysków zarządzanych i Dowiedz się, jak zmienić warstwy wydajności dla istniejących dysków zarządzanych przy użyciu modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 11/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 923c5970183bd192ac1a2f20fb775d96dcc06865
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348699"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540641"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Warstwy wydajności dla dysków zarządzanych (wersja zapoznawcza)
 
-Azure Disk Storage obecnie oferuje wbudowaną funkcję tworzenia serii, która zapewnia wyższą wydajność obsługi nieoczekiwanego ruchu. Dysków SSD Premium zapewnia elastyczność zwiększania wydajności dysku bez zwiększania rzeczywistego rozmiaru dysku. Ta funkcja umożliwia dopasowanie wydajności obciążeń i obniżenie kosztów. 
+Azure Disk Storage oferuje wbudowaną funkcję tworzenia seryjnego w celu zapewnienia wyższej wydajności do obsługi nieoczekiwanego ruchu. Dysków SSD Premium zapewnia elastyczność zwiększania wydajności dysku bez zwiększania rzeczywistego rozmiaru dysku. Ta funkcja umożliwia dopasowanie wydajności obciążeń i obniżenie kosztów. 
 
 > [!NOTE]
 > Ta funkcja jest obecnie w wersji zapoznawczej. 
@@ -58,6 +58,8 @@ Aby uzyskać informacje dotyczące rozliczeń, zobacz [Cennik dysku zarządzaneg
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Utwórz pusty dysk danych o warstwie wyższej niż warstwa bazowa
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
 ```azurecli
 subscriptionId=<yourSubscriptionIDHere>
 resourceGroupName=<yourResourceGroupNameHere>
@@ -83,8 +85,30 @@ image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
 az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
 ```
-     
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$subscriptionId='yourSubscriptionID'
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$diskSizeInGiB=4
+$performanceTier='P50'
+$sku='Premium_LRS'
+$region='westcentralus'
+
+Connect-AzAccount
+
+Set-AzContext -Subscription $subscriptionId
+
+$diskConfig = New-AzDiskConfig -SkuName $sku -Location $region -CreateOption Empty -DiskSizeGB $diskSizeInGiB -Tier $performanceTier
+New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+```
+---
+
 ## <a name="update-the-tier-of-a-disk"></a>Aktualizowanie warstwy dysku
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName=<yourResourceGroupNameHere>
@@ -93,11 +117,36 @@ performanceTier=<yourDesiredPerformanceTier>
 
 az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
 ```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$performanceTier='P1'
+
+$diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+
+Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
+```
+---
+
 ## <a name="show-the-tier-of-a-disk"></a>Pokaż warstwę dysku
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 ```azurecli
 az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 ```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
+
+$disk.Tier
+```
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

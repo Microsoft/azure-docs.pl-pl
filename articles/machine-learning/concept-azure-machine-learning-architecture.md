@@ -1,7 +1,7 @@
 ---
 title: Architektura & kluczowe pojęcia
 titleSuffix: Azure Machine Learning
-description: Poznaj architekturę, terminy i koncepcje, które składają się Azure Machine Learning.
+description: Ten artykuł zawiera ogólne omówienie architektury, terminów i koncepcji, które składają się Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444830"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540198"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -267,6 +267,18 @@ Interfejs wiersza polecenia [Azure Machine Learning](reference-azure-machine-lea
 [Potoki uczenia maszynowego](concept-ml-pipelines.md) umożliwiają tworzenie przepływów pracy, które łączą etapy uczenia maszynowego, oraz zarządzanie nimi. Na przykład potok może obejmować przygotowanie danych, szkolenie modeli, wdrożenie modelu i etapy wnioskowania/oceniania. Każda faza może obejmować wiele kroków, z których każdy może działać bez nadzoru w różnych obiektach docelowych obliczeń. 
 
 Kroki potoku są wielokrotnego użytku i można je uruchomić bez ponownego uruchomienia poprzednich kroków, jeśli dane wyjściowe tych kroków nie uległy zmianie. Na przykład możesz ponownie przeprowadzić uczenie modelu bez ponownego uruchamiania kosztownych kroków przygotowywania danych, jeśli dane nie uległy zmianie. Potoki umożliwiają również analitykom danych współpracę podczas pracy nad osobnymi obszarami przepływu pracy uczenia maszynowego.
+
+## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
+
+Azure Machine Learning zapewnia następujące możliwości monitorowania i rejestrowania:
+
+* W przypadku analityków __danych__ możesz monitorować eksperymenty i rejestrować informacje z przebiegów szkoleniowych. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+   * [Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych](how-to-manage-runs.md)
+   * [Rejestrowanie metryk dla przebiegów treningowych](how-to-track-experiments.md)
+   * [Śledzenie eksperymentów za pomocą platformy MLflow](how-to-use-mlflow.md)
+   * [Wizualizacja przebiegów za pomocą narzędzia TensorBoard](how-to-monitor-tensorboard.md)
+* __Administratorzy__ mogą monitorować informacje o obszarze roboczym, powiązanych zasobach platformy Azure i zdarzeniach, takich jak tworzenie i usuwanie zasobów przy użyciu Azure monitor. Aby uzyskać więcej informacji, zobacz [Jak monitorować Azure Machine Learning](monitor-azure-machine-learning.md).
+* W przypadku __DevOps__ lub __MLOps__ można monitorować informacje generowane przez modele wdrożone jako usługi sieci Web lub moduły IoT Edge, aby identyfikować problemy z wdrożeniami oraz zbierać dane przesyłane do usługi. Aby uzyskać więcej informacji, zobacz [zbieranie danych modelu](how-to-enable-data-collection.md) i [monitorowanie za pomocą Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Korzystanie z obszaru roboczego
 

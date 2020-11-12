@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 9bd7e7dab5384ecd3e1e87d763d4b8f081b669be
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b065b36103b69f0601daa1388b45865856543d2b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329836"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540522"
 ---
 # <a name="language-support-for-computer-vision"></a>Obsługa języka dla przetwarzanie obrazów
 
@@ -56,9 +56,9 @@ Interfejsy API rozpoznawania przetwarzanie obrazów obsługują kilka języków.
 
 ## <a name="image-analysis"></a>Analiza obrazu
 
-Niektóre akcje interfejsu API [analizy obrazu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) mogą zwracać wyniki w innych językach, określone za pomocą `language` parametru zapytania. Inne akcje zwracają wyniki w języku angielskim niezależnie od tego, jaki język jest określony, a inne zgłaszają wyjątek dla nieobsługiwanych języków. Akcje są określone za pomocą `visualFeatures` `details` parametrów i. Zapoznaj się z [omówieniem](overview.md) listy wszystkich akcji, które można wykonać za pomocą analizy obrazów.
+Niektóre akcje interfejsu API [analizy obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) mogą zwracać wyniki w innych językach, określone za pomocą `language` parametru zapytania. Inne akcje zwracają wyniki w języku angielskim niezależnie od tego, jaki język jest określony, a inne zgłaszają wyjątek dla nieobsługiwanych języków. Akcje są określone za pomocą `visualFeatures` `details` parametrów i. Zapoznaj się z [omówieniem](overview.md) listy wszystkich akcji, które można wykonać za pomocą analizy obrazów.
 
-|Język | Kod języka | Kategorie | Tagi | Opis | Dorosły | Marki | Kolor | Twarze | ImageType | Obiekty | Osobistości | Punkty orientacyjne |
+|Język | Kod języka | Kategorie | Tagi | Opis | Dorosły | Marki | Color (Kolor) | Twarze | ImageType | Obiekty | Osobistości | Punkty orientacyjne |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chiński | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Angielski | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

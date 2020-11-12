@@ -17,22 +17,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302268"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539723"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnozowanie problemu z routingiem sieciowym maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
 
 W tym artykule opisano wdrożenie maszyny wirtualnej, a następnie sprawdzenie komunikacji z adresem IP i adresem URL. Określisz przyczynę niepowodzenia komunikacji oraz sposób rozwiązania problemu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Po sprawdzeniu wersji interfejsu wiersza polecenia platformy Azure Uruchom polecenie, `az login`  Aby utworzyć połączenie z platformą Azure. Polecenie interfejsu wiersza polecenia platformy Azure w tym artykule jest sformatowane do uruchamiania w powłoce bash.
+- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
+
+- Polecenie interfejsu wiersza polecenia platformy Azure w tym artykule jest sformatowane do uruchamiania w powłoce bash.
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
@@ -42,7 +44,7 @@ Przed utworzeniem maszyny wirtualnej musisz utworzyć grupę zasobów, która b�
 az group create --name myResourceGroup --location eastus
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm*:
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm* :
 
 ```azurecli-interactive
 az vm create \
@@ -85,7 +87,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Po kilku sekundach dane wyjściowe informuje o tym, że **nextHopType** jest **Internet**i że **routeTableId** jest **trasą systemową**. Dzięki temu wiadomo, że istnieje prawidłowa trasa do miejsca docelowego.
+Po kilku sekundach dane wyjściowe informuje o tym, że **nextHopType** jest **Internet** i że **routeTableId** jest **trasą systemową**. Dzięki temu wiadomo, że istnieje prawidłowa trasa do miejsca docelowego.
 
 Przetestuj komunikację wychodzącą z maszyny wirtualnej do adresu 172.31.0.100:
 
@@ -99,7 +101,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Zwrócone dane wyjściowe informuje o tym, że **żaden** z nich nie jest **NextHopType**i że **RouteTableId** jest również **trasą systemową**. Ten wynik oznacza, że istnieje prawidłowa trasa systemowa do miejsca docelowego, ale nie ma następnego przeskoku umożliwiającego kierowanie ruchu do miejsca docelowego.
+Zwrócone dane wyjściowe informuje o tym, że **żaden** z nich nie jest **NextHopType** i że **RouteTableId** jest również **trasą systemową**. Ten wynik oznacza, że istnieje prawidłowa trasa systemowa do miejsca docelowego, ale nie ma następnego przeskoku umożliwiającego kierowanie ruchu do miejsca docelowego.
 
 ## <a name="view-details-of-a-route"></a>Wyświetlanie szczegółów trasy
 
@@ -113,7 +115,7 @@ az network nic show-effective-route-table \
 
 Następujący tekst jest zawarty w zwracanych danych wyjściowych:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +135,7 @@ Gdy użyto `az network watcher show-next-hop` polecenia do testowania komunikacj
 
 W przypadku użycia `az network watcher show-next-hop` polecenia do testowania komunikacji wychodzącej na 172.31.0.100 jednak wynik informuje o braku typu następnego przeskoku. W zwracanych danych wyjściowych zobaczysz również następujący tekst:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

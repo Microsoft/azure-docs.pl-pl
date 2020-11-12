@@ -1,17 +1,17 @@
 ---
 title: Tworzenie kopii zapasowych i przywracanie Azure Portal-Azure Database for MySQL
 description: W tym artykule opisano sposób przywracania serwera w Azure Database for MySQL przy użyciu Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bc31cf8fee2669634ff366caac77cb090baf075
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902785"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539145"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -41,7 +41,7 @@ Okres przechowywania kopii zapasowej można zmienić na serwerze, wykonując nas
 2. Wybierz serwer Azure Database for MySQL. Ta akcja powoduje otwarcie strony **Przegląd** .
 3. Wybierz pozycję **warstwa cenowa** z menu, w obszarze **Ustawienia**. Za pomocą suwaka można zmienić **okres przechowywania kopii zapasowej** na preferencję od 7 do 35 dni.
 Na poniższym zrzucie ekranu został zwiększony do 34 dni.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Zwiększono okres przechowywania kopii zapasowej":::
 
 4. Kliknij przycisk **OK** , aby potwierdzić zmianę.
 
@@ -57,15 +57,15 @@ Poniższe kroki umożliwiają przywrócenie przykładowego serwera do punktu w c
 
 2. Na pasku narzędzi na stronie **Przegląd** serwera wybierz pozycję **Przywróć**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for MySQL — przegląd — przycisk Przywróć":::
 
 3. Wypełnij formularz Przywracanie wymaganymi informacjami:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
-   - **Punkt przywracania**: Wybierz punkt w czasie, do którego chcesz wykonać przywracanie.
-   - **Serwer docelowy**: Podaj nazwę nowego serwera.
-   - **Lokalizacja**: nie można wybrać regionu. Domyślnie jest to taka sama jak w przypadku serwera źródłowego.
-   - **Warstwa cenowa**: nie można zmienić tych parametrów podczas wykonywania przywracania do punktu w czasie. Jest taka sama jak w przypadku serwera źródłowego. 
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL — przywracanie informacji":::
+   - **Punkt przywracania** : Wybierz punkt w czasie, do którego chcesz wykonać przywracanie.
+   - **Serwer docelowy** : Podaj nazwę nowego serwera.
+   - **Lokalizacja** : nie można wybrać regionu. Domyślnie jest to taka sama jak w przypadku serwera źródłowego.
+   - **Warstwa cenowa** : nie można zmienić tych parametrów podczas wykonywania przywracania do punktu w czasie. Jest taka sama jak w przypadku serwera źródłowego. 
 
 4. Kliknij przycisk **OK** , aby przywrócić serwer do punktu w czasie. 
 
@@ -86,13 +86,13 @@ Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie n
 
 1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu. Wybierz pozycję **bazy danych**  >  **Azure Database for MySQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Przejdź do Azure Database for MySQL.":::
  
 2. Podaj subskrypcję, grupę zasobów i nazwę nowego serwera. 
 
 3. Wybierz pozycję **kopia zapasowa** jako **Źródło danych**. Ta akcja powoduje załadowanie listy rozwijanej, która zawiera listę serwerów, na których włączono geograficznie nadmiarowe kopie zapasowe.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Wybierz pozycję źródło danych.":::
     
    > [!NOTE]
    > Gdy serwer jest tworzony po raz pierwszy, może nie być od razu dostępny do przywracania geograficznego. Wypełnienie wymaganych metadanych może potrwać kilka godzin.
@@ -100,25 +100,25 @@ Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie n
 
 4. Wybierz listę rozwijaną **kopia zapasowa** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Wybierz listę rozwijaną kopia zapasowa.":::
 
 5. Wybierz serwer źródłowy, z którego chcesz wykonać przywracanie.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Wybierz pozycję Kopia zapasowa.":::
 
-6. Serwer będzie domyślnie mieć wartości dla liczby **rdzeni wirtualnych**, **okresu przechowywania kopii zapasowej**, **opcji nadmiarowości kopii zapasowej**, **wersji aparatu**i **poświadczeń administratora**. Wybierz pozycję **Continue** (Kontynuuj). 
+6. Serwer będzie domyślnie mieć wartości dla liczby **rdzeni wirtualnych** , **okresu przechowywania kopii zapasowej** , **opcji nadmiarowości kopii zapasowej** , **wersji aparatu** i **poświadczeń administratora**. Wybierz opcję **Kontynuuj**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Kontynuuj tworzenie kopii zapasowej.":::
 
 7. Wypełnij resztę formularza z preferencjami. Można wybrać dowolną **lokalizację**.
 
-    Po wybraniu lokalizacji możesz wybrać pozycję **Konfiguruj serwer** , aby zaktualizować **generowanie obliczeń** (jeśli jest dostępna w wybranym regionie), liczbę **rdzeni wirtualnych**, **okres przechowywania kopii zapasowych**i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
+    Po wybraniu lokalizacji możesz wybrać pozycję **Konfiguruj serwer** , aby zaktualizować **generowanie obliczeń** (jeśli jest dostępna w wybranym regionie), liczbę **rdzeni wirtualnych** , **okres przechowywania kopii zapasowych** i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej"::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Wypełnij formularz."::: 
 
 8. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. 
 
-9. Wybierz pozycję **Utwórz**, aby aprowizować serwer. Ta operacja może potrwać kilka minut.
+9. Wybierz pozycję **Utwórz** , aby aprowizować serwer. Ta operacja może potrwać kilka minut.
 
 Nowy serwer utworzony przy użyciu przywracania geograficznego ma tę samą nazwę logowania administratora serwera i hasło, które były prawidłowe dla istniejącego serwera w momencie zainicjowania przywracania. Hasło można zmienić na stronie **Przegląd** nowego serwera.
 

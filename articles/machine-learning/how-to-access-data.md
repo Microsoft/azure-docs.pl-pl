@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489305"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538601"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Nawiązywanie połączenia z usługami magazynu na platformie Azure
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 W przypadku magazynu danych Azure Data Lake Storage Generation 2 (ADLS Gen 2) należy użyć [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) do zarejestrowania magazynu danych poświadczeń połączonego z magazynem usługi Azure datalake Generation 2 z [uprawnieniami nazw głównych](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-Aby można było korzystać z nazwy głównej usługi, należy [zarejestrować aplikację](../active-directory/develop/app-objects-and-service-principals.md) i udzielić jej jednostce usługi z dostępem **czytnika danych obiektów blob magazynu** . Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](../storage/blobs/data-lake-storage-access-control.md). 
+Aby można było korzystać z nazwy głównej usługi, należy [zarejestrować aplikację](../active-directory/develop/app-objects-and-service-principals.md) i udzielić dostępu do danych jednostki usługi za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC) lub list kontroli dostępu (ACL). Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 Poniższy kod powoduje utworzenie i zarejestrowanie `adlsgen2_datastore_name` magazynu danych w `ws` obszarze roboczym. Ten magazyn danych uzyskuje dostęp do systemu plików `test` na `account_name` koncie magazynu przy użyciu podanych poświadczeń jednostki usługi. Zapoznaj się z sekcją [uprawnień & dostępu do magazynu](#storage-access-and-permissions) , aby uzyskać wskazówki dotyczące scenariuszy sieci wirtualnych oraz znaleźć wymagane poświadczenia uwierzytelniania. 
 
@@ -254,7 +254,7 @@ Azure Machine Learning oferuje kilka sposobów na korzystanie z modeli do ocenia
 | Metoda | Dostęp do magazynu danych | Opis |
 | ----- | :-----: | ----- |
 | [Przewidywanie wsadowe](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Asynchronicznie twórz prognozy dotyczące dużych ilości danych. |
-| [Usługa internetowa](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
+| [Usługa sieci Web](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
 | [Moduł Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele na IoT Edge urządzeniach. |
 
 W sytuacjach, w których zestaw SDK nie zapewnia dostępu do magazynów danych, może być możliwe utworzenie niestandardowego kodu przy użyciu odpowiedniego zestawu Azure SDK, aby uzyskać dostęp do tego programu. Na przykład [zestaw SDK usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python) jest biblioteką kliencką, za pomocą której można uzyskać dostęp do danych przechowywanych w obiektach Blob lub plikach.

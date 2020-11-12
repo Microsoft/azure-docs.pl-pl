@@ -1,19 +1,19 @@
 ---
 title: Tworzenie kopii zapasowych i przywracanie Azure PowerShell-Azure Database for MySQL
 description: Dowiedz się, jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu Azure PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837299"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539060"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for MySQL przy użyciu programu PowerShell
 
@@ -41,7 +41,7 @@ Podczas tworzenia serwera można wybrać między skonfigurowaniem serwera na pot
 > [!NOTE]
 > Po utworzeniu serwera należy zmienić jego rodzaj nadmiarowości, Geograficznie nadmiarowy a lokalnie nadmiarowy.
 
-Podczas tworzenia serwera za pomocą `New-AzMySqlServer` polecenia parametr **GeoRedundantBackup** decyduje o opcji nadmiarowości kopii zapasowej. Jeśli ta **Funkcja jest włączona**, tworzone są kopie zapasowe dublowane. Lub jeśli jest **wyłączone**, tworzone są lokalnie nadmiarowe kopie zapasowe.
+Podczas tworzenia serwera za pomocą `New-AzMySqlServer` polecenia parametr **GeoRedundantBackup** decyduje o opcji nadmiarowości kopii zapasowej. Jeśli ta **Funkcja jest włączona** , tworzone są kopie zapasowe dublowane. Lub jeśli jest **wyłączone** , tworzone są lokalnie nadmiarowe kopie zapasowe.
 
 Okres przechowywania kopii zapasowych jest ustawiany przez parametr **BackupRetentionDay** .
 
@@ -75,9 +75,9 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Zestaw parametrów **PointInTimeRestore** `Restore-AzMySqlServer` polecenia cmdlet wymaga następujących parametrów:
 
-| Ustawienie | Sugerowana wartość | Opis  |
+| Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której znajduje się serwer źródłowy.  |
+| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której znajduje się serwer źródłowy.  |
 | Nazwa | mydemoserver-restored | Nazwa nowego serwera utworzonego za pomocą polecenie przywracania. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Wybierz punkt w czasie do przywrócenia. Ta data i godzina musi przypadać w okresie przechowywania kopii zapasowej serwera źródłowego. Użyj formatu daty i godziny ISO8601. Na przykład możesz użyć własnej lokalnej strefy czasowej, takiej jak **2020-03-13T05:59:00-08:00**. Można również użyć formatu UTC Zulu, na przykład **2018 r-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Użyj trybu Wskaż w czasie, aby przywrócić. |
@@ -106,7 +106,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-W tym przykładzie tworzony jest nowy serwer o nazwie **mydemoserver-georestore** w regionie Wschodnie stany USA, który należy do **zasobu**. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej **mydemoserver**, również **w grupie zasobów**.
+W tym przykładzie tworzony jest nowy serwer o nazwie **mydemoserver-georestore** w regionie Wschodnie stany USA, który należy do **zasobu**. Jest to Ogólnego przeznaczenia, serwer generacji 5 z 8 rdzeni wirtualnych. Serwer jest tworzony na podstawie geograficznie nadmiarowej kopii zapasowej **mydemoserver** , również **w grupie zasobów**.
 
 Aby utworzyć nowy serwer w innej grupie zasobów z istniejącego serwera, określ nową nazwę grupy zasobów przy użyciu parametru **ResourceGroupName** , jak pokazano w następującym przykładzie:
 
@@ -117,7 +117,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Zestaw parametrów **Geoprzywracania** dla `Restore-AzMySqlServer` polecenia cmdlet wymaga następujących parametrów:
 
-| Ustawienie | Sugerowana wartość | Opis  |
+| Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nazwa grupy zasobów, do której należy nowy serwer.|
 |Nazwa | mydemoserver-georestore | Nazwa nowego serwera. |

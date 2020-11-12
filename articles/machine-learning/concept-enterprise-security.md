@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539655"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Zabezpieczenia i zarządzanie dla przedsiębiorstw Azure Machine Learning
 
@@ -123,10 +123,11 @@ Możesz również zaszyfrować [informacje diagnostyczne zarejestrowane ze wdro�
 
 Istnieje kilka scenariuszy monitorowania z Azure Machine Learning, w zależności od roli i sposobu monitorowania.
 
-| Rola | Monitorowanie do użycia |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Azure monitor metryki](#azure-monitor), [Dziennik aktywności](#activity-log), [skanowanie luk w zabezpieczeniach](#vulnerability-scanning) |
-| Analityk danych, MLOps | [Monitoruj przebiegi](#monitor-runs) |
+| Rola | Monitorowanie do użycia | Opis |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Azure monitor metryki](#azure-monitor), [Dziennik aktywności](#activity-log), [skanowanie luk w zabezpieczeniach](#vulnerability-scanning) | Informacje o poziomie usługi |
+| Analityk danych, MLOps | [Monitoruj przebiegi](#monitor-runs) | Informacje rejestrowane podczas przebiegów szkoleniowych |
+| MLOps | [Zbieranie danych modelu](how-to-enable-data-collection.md), [monitorowanie za pomocą Application Insights](how-to-enable-app-insights.md) | Informacje rejestrowane przez modele wdrożone jako usługi sieci Web lub moduły IoT Edge|
 
 ### <a name="monitor-runs"></a>Monitoruj przebiegi
 

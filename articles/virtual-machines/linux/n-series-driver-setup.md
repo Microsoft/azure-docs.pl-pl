@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b80a09c82b1e932fb93b4c85ee250773aa7d3c38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517263"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539757"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii N z systemem Linux
 
@@ -98,7 +98,9 @@ sudo reboot
   
    sudo reboot
 
-2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required.
+
+Skip this step if you plan to use CentOS 7.8(or higher) as LIS is no longer required for these versions.
 
    ```bash
    wget https://aka.ms/lis
@@ -150,7 +152,7 @@ Jeśli sterownik jest zainstalowany, zostaną wyświetlone dane wyjściowe podob
 
 ## <a name="rdma-network-connectivity"></a>Łączność sieciowa RDMA
 
-Łączność sieciową RDMA można włączyć na maszynach wirtualnych z serii N obsługujących funkcję RDMA, takich jak NC24r wdrożone w tym samym zestawie dostępności lub w pojedynczej grupie umieszczania w wirtualnym zestawie skalowania machiine (VM). Sieć RDMA obsługuje ruch MPI (Message Passing Interface) dla aplikacji uruchamianych z technologią Intel MPI 5. x lub nowszą. Dodatkowe wymagania są następujące:
+Łączność sieciową RDMA można włączyć na maszynach wirtualnych z serii N obsługujących funkcję RDMA, takich jak NC24r wdrożone w tym samym zestawie dostępności lub w pojedynczej grupie umieszczania w zestawie skalowania maszyn wirtualnych. Sieć RDMA obsługuje ruch MPI (Message Passing Interface) dla aplikacji uruchamianych z technologią Intel MPI 5. x lub nowszą. Dodatkowe wymagania są następujące:
 
 ### <a name="distributions"></a>Dystrybucji
 
@@ -264,7 +266,7 @@ Aby zainstalować sterowniki siatki NVIDIA na maszynach wirtualnych z serii NV l
    sudo yum install hyperv-daemons
    ```
 
-2. Wyłącz sterownik jądra Nouveau, który jest niezgodny ze sterownikiem NVIDIA. (Użyj sterownika NVIDIA tylko na maszynach wirtualnych NV lub NV2). W tym celu Utwórz plik `/etc/modprobe.d` o nazwie `nouveau.conf` z następującą zawartością:
+2. Wyłącz sterownik jądra Nouveau, który jest niezgodny ze sterownikiem NVIDIA. (Użyj sterownika NVIDIA tylko na maszynach wirtualnych NV lub NV3). W tym celu Utwórz plik `/etc/modprobe.d` o nazwie `nouveau.conf` z następującą zawartością:
 
    ```
    blacklist nouveau
@@ -272,7 +274,9 @@ Aby zainstalować sterowniki siatki NVIDIA na maszynach wirtualnych z serii NV l
    blacklist lbm-nouveau
    ```
  
-3. Uruchom ponownie maszynę wirtualną, Połącz się ponownie i zainstaluj najnowsze [usługi integracji systemu Linux dla funkcji Hyper-V i platformy Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+3. Uruchom ponownie maszynę wirtualną, Połącz się ponownie i zainstaluj najnowsze [usługi integracji systemu Linux dla funkcji Hyper-V i platformy Azure](https://www.microsoft.com/download/details.aspx?id=55106). Sprawdź, czy jest wymagana LIS, sprawdzając wyniki lspci. Jeśli wszystkie urządzenia GPU są wyświetlane zgodnie z oczekiwaniami, instalowanie LIS nie jest wymagane. 
+
+Pomiń ten krok, jeśli używasz CentOS/RHEL 7,8 i nowszych.
  
    ```bash
    wget https://aka.ms/lis
@@ -373,6 +377,7 @@ Następnie utwórz wpis dla skryptu aktualizacji w programie, `/etc/rc.d/rc3.d` 
 
 * Można ustawić tryb trwałości przy użyciu `nvidia-smi` , aby dane wyjściowe polecenia były szybsze, gdy zachodzi potrzeba zazapytania o karty. Aby ustawić tryb trwałości, wykonaj `nvidia-smi -pm 1` . Należy pamiętać, że jeśli maszyna wirtualna jest ponownie uruchamiana, ustawienie Tryb zostanie wysunięte. Zawsze możesz wykonać skrypty dla ustawienia Tryb, które ma być wykonywane po uruchomieniu.
 * Jeśli sterowniki NVIDIA CUDA zostały zaktualizowane do najnowszej wersji i wyszukiwanie łączności RDMA nie działa dłużej, należy [ponownie zainstalować sterowniki RDMA](#rdma-network-connectivity) w celu ponownego nawiązania połączenia. 
+* Jeśli określona wersja systemu operacyjnego CentOS/RHEL (lub jądro) nie jest obsługiwana w przypadku usługi LIS, zostanie zgłoszony błąd "nieobsługiwana wersja jądra". Zgłoś ten błąd wraz z wersjami systemu operacyjnego i jądra.
 
 ## <a name="next-steps"></a>Następne kroki
 

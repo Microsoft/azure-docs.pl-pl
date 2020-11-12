@@ -1,18 +1,18 @@
 ---
 title: Monitorowanie — Azure Database for MariaDB
 description: W tym artykule opisano metryki dotyczące monitorowania i generowania alertów dla Azure Database for MariaDB, w tym danych statystycznych dotyczących procesora, magazynu i połączeń.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: d2d34e95642308dcdacba20879945f2c965db955
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5790094571563d3ca8576480a6296a73756fb6a6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425202"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540420"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorowanie w Azure Database for MariaDB
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for MariaDB oferuje różne metryki, które dają wgląd w zachowanie serwera.

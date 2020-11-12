@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie replikami odczytu — Azure Database for MariaDB Azure Portal
 description: W tym artykule opisano sposób konfigurowania replik odczytu i zarządzania nimi w Azure Database for MariaDB przy użyciu portalu
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742863"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537751"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -110,7 +110,7 @@ Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności
 
 1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MariaDB.
 
-2. W obszarze **Przegląd**wybierz pozycję **Usuń**.
+2. W obszarze **Przegląd** wybierz pozycję **Usuń**.
 
    ![Azure Database for MariaDB-Usuń wzorzec](./media/howto-read-replica-portal/delete-master-overview.png)
 
@@ -122,7 +122,7 @@ Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz serwer repliki Azure Database for MariaDB, który chcesz monitorować.
 
-2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **metryki**:
+2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **metryki** :
 
 3. Wybierz pozycję **opóźnienie replikacji w sekundach** z listy rozwijanej dostępnych metryk.
 

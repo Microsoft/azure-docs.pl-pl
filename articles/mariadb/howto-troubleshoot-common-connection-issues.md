@@ -1,17 +1,17 @@
 ---
 title: Rozwiązywanie problemów z połączeniami — Azure Database for MariaDB
 description: Dowiedz się, jak rozwiązywać problemy z połączeniem do Azure Database for MariaDB, w tym błędy przejściowe wymagające ponownych prób, problemy z zaporą i przestoje.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a670472529dccd51cbfa71e385151bc63cff9b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82101454"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539383"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Rozwiązywanie problemów z połączeniem z usługą Azure Database for MariaDB
 
@@ -47,7 +47,7 @@ Jeśli aplikacja trwale nie może nawiązać połączenia z Azure Database for M
 
 * Konfiguracja zapory: serwer Azure Database for MariaDB lub Zapora po stronie klienta blokuje połączenia.
 * Ponowna konfiguracja sieci po stronie klienta: dodano nowy adres IP lub serwer proxy.
-* Błąd użytkownika: na przykład możesz mieć błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu * \@ servername* w nazwie użytkownika.
+* Błąd użytkownika: na przykład możesz mieć błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu *\@ servername* w nazwie użytkownika.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kroki rozwiązywania problemów z łącznością trwałą
 

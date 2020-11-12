@@ -10,22 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399027"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540590"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Rejestrowanie połączenia usługi komunikacji równorzędnej za pomocą interfejsu wiersza polecenia platformy Azure
 
 Usługa komunikacji równorzędnej Azure to usługa sieciowa, która zwiększa łączność klienta z usługami w chmurze firmy Microsoft, takimi jak Microsoft 365, Dynamics 365, oprogramowanie jako usługa (SaaS), Azure lub wszelkie usługi firmy Microsoft dostępne za pośrednictwem publicznej sieci Internet. W tym artykule dowiesz się, jak zarejestrować połączenie z usługą komunikacji równorzędnej za pomocą interfejsu wiersza polecenia platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, Utwórz [konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) teraz.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. Uruchom polecenie [az version](/cli/azure/reference-index#az_version), aby znaleźć zainstalowane wersje i biblioteki zależne. Aby uaktualnić do najnowszej wersji, uruchom polecenie [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -41,19 +37,11 @@ Aby uzyskać usługę komunikacji równorzędnej w celu połączenia sieci z sie
 
 Upewnij się, że dostawcy łączności są partnerem z firmą Microsoft.
 
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Zaloguj się do konta platformy Azure i wybierz swoją subskrypcję
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-Aby rozpocząć konfigurację, zaloguj się do konta platformy Azure. Jeśli używasz Cloud Shell **Wypróbuj** tę opcję, nastąpi automatyczne logowanie. Poniższe przykłady ułatwiają nawiązanie połączenia.
+- Ten artykuł wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-```azurecli-interactive
-az login
-```
-
-Sprawdź subskrypcje dostępne na koncie.
-
-```azurecli-interactive
-az account list
-```
+### <a name="1-select-your-subscription"></a>1. Wybierz subskrypcję
 
 Wybierz subskrypcję, dla której chcesz zarejestrować połączenie usługi komunikacji równorzędnej.
 

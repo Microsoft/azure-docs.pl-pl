@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: de83be26e3cb7105303528e10fb50b7ecc438472
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447828"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540012"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Szyfrowanie danych za pomocą Azure Machine Learning
 
@@ -53,7 +53,7 @@ Aby uzyskać informacje na temat ponownego generowania kluczy dostępu, zobacz P
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning przechowuje metryki i metadane w wystąpieniu Azure Cosmos DB. To wystąpienie jest skojarzone z subskrypcją firmy Microsoft zarządzaną przez Azure Machine Learning. Wszystkie dane przechowywane w Azure Cosmos DB są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez firmę Microsoft.
+Azure Machine Learning przechowuje metadane w wystąpieniu Azure Cosmos DB. To wystąpienie jest skojarzone z subskrypcją firmy Microsoft zarządzaną przez Azure Machine Learning. Wszystkie dane przechowywane w Azure Cosmos DB są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
 Aby użyć własnych kluczy (zarządzanych przez klienta) do zaszyfrowania wystąpienia Azure Cosmos DB, można utworzyć dedykowane wystąpienie Cosmos DB do użycia z Twoim obszarem roboczym. Zalecamy to podejście, jeśli chcesz przechowywać dane, takie jak informacje o historii uruchamiania, poza wystąpieniem Cosmos DB wielodostępnego hostowanym w naszej subskrypcji firmy Microsoft. 
 

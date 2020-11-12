@@ -1,19 +1,19 @@
 ---
 title: Tworzenie kopii zapasowych i przywracanie — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB
 description: Dowiedz się, jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 98782f02c871f676ec3506d0bad45cd8cce079a8
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: a6e46efd7f998437c3998df9a989ef9e1500e888
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516530"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539587"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
 

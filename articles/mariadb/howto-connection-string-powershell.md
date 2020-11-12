@@ -1,18 +1,18 @@
 ---
 title: Generowanie parametrów połączenia przy użyciu programu PowerShell — Azure Database for MariaDB
 description: Ten artykuł zawiera Azure PowerShell przykład generowania parametrów połączenia w celu nawiązania połączenia z Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/5/2020
-ms.openlocfilehash: b08a1c60b1225b2786ea869f96ac40cc651c82f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dee109c701d3760c93f39e639dcfd7cae07b595
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185608"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538057"
 ---
 # <a name="how-to-generate-an-azure-database-for-mariadb-connection-string-with-powershell"></a>Jak wygenerować parametry połączenia Azure Database for MariaDB przy użyciu programu PowerShell
 

@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie serwera — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB'
 description: W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MariaDB w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4d2300e36bd06313cf889f40f37d672d66534db6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424486"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538397"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -49,14 +49,14 @@ Ustawienie | Wartość przykładowa | Opis
 ---|---|---
 name | **mydemoserver** | Wprowadź unikatową nazwę, która identyfikuje Twój serwer usługi Azure Database for MariaDB. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
 resource-group | **myresourcegroup** | Wprowadź nazwę grupy zasobów platformy Azure.
-sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z Konwencją Konwencji *cenowej* \_ rdzeni wirtualnych*generacji obliczeń* \_ *vCores* w postaci skróconej. Aby uzyskać więcej informacji na temat parametru **sku-name**, zobacz sekcję poniżej tabeli.
+sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z Konwencją Konwencji *cenowej* \_ rdzeni wirtualnych *generacji obliczeń* \_ *vCores* w postaci skróconej. Aby uzyskać więcej informacji na temat parametru **sku-name** , zobacz sekcję poniżej tabeli.
 backup-retention | **7** | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres: 7–35. 
-geo-redundant-backup | **Wyłączone** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone**, **wyłączone**.
+geo-redundant-backup | **Wyłączone** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone** , **wyłączone**.
 location | **westus** | Lokalizacja platformy Azure dla serwera.
-ssl-enforcement | **Włączone** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone**, **wyłączone**.
+ssl-enforcement | **Włączone** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone** , **wyłączone**.
 storage-size | **51200** | Pojemność magazynu serwera (w megabajtach). Prawidłowy rozmiar magazynu to 5120 MB (minimum) rosnący z przyrostem 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md). 
 Wersja | **10,2** | Wersja główna aparatu MariaDB.
-admin-user | **myadmin** | Nazwa użytkownika w przypadku logowania administratora. Parametr **admin-user** nie może mieć wartości **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
+admin-user | **myadmin** | Nazwa użytkownika w przypadku logowania administratora. Parametr **admin-user** nie może mieć wartości **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public**.
 admin-password | *Twoje hasło* | Hasło użytkownika administratora. Twoje hasło musi zawierać od 8 do 128 znaków. Musi ono zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 
 Wartość parametru sku-name jest zgodna z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne}, jak pokazano w przykładach poniżej:

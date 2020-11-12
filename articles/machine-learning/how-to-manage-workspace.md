@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445629"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540131"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
 
@@ -191,7 +191,7 @@ Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniam
 
 ### <a name="advanced"></a>Zaawansowany
 
-Domyślnie metryki i metadane obszaru roboczego są przechowywane w Azure Cosmos DB wystąpieniu, które utrzymuje firma Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft.
+Domyślnie metadane obszaru roboczego są przechowywane w wystąpieniu Azure Cosmos DBnym przez firmę Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
 Aby ograniczyć dane gromadzone przez firmę Microsoft w obszarze roboczym, wybierz pozycję __duży obszar roboczy wpływ na działalność__ w portalu lub ustaw `hbi_workspace=true ` w języku Python. Aby uzyskać więcej informacji na temat tego ustawienia, zobacz [szyfrowanie w spoczynku](concept-data-encryption.md#encryption-at-rest).
 
@@ -200,7 +200,7 @@ Aby ograniczyć dane gromadzone przez firmę Microsoft w obszarze roboczym, wybi
 
 #### <a name="use-your-own-key"></a>Użyj własnego klucza
 
-Możesz podać własny klucz szyfrowania danych. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure.
+Możesz podać własny klucz szyfrowania danych. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metadane w ramach subskrypcji platformy Azure.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 

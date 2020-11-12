@@ -1,24 +1,24 @@
 ---
 title: Konfigurowanie parametrów serwera-Azure Portal-Azure Database for MariaDB
 description: W tym artykule opisano sposób konfigurowania parametrów serwera MariaDB w Azure Database for MariaDB przy użyciu Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 9d0b6865c7fb5b59f379568d15bd9b96883202e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7081535bb709e6731a9a15436334e8742e7bdd08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626432"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539460"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>Konfigurowanie parametrów serwera w Azure Database for MariaDB przy użyciu Azure Portal
 
 Azure Database for MariaDB obsługuje konfigurację niektórych parametrów serwera. W tym artykule opisano sposób konfigurowania tych parametrów przy użyciu Azure Portal. Nie wszystkie parametry serwera można dostosować.
 
 >[!Note]
-> Parametry serwera można aktualizować globalnie na poziomie serwera, korzystać z [interfejsu wiersza polecenia platformy Azure](./howto-configure-server-parameters-cli.md), [programu PowerShell](./howto-configure-server-parameters-using-powershell.md)lub [Azure Portal](./howto-server-parameters.md).
+> Parametry serwera można zaktualizować globalnie na poziomie serwera, przy użyciu [interfejsu wiersza polecenia platformy Azure](./howto-configure-server-parameters-cli.md), programu [PowerShell](./howto-configure-server-parameters-using-powershell.md) lub witryny [Azure Portal](./howto-server-parameters.md).
 
 ## <a name="configure-server-parameters"></a>Konfigurowanie parametrów serwera
 
@@ -41,7 +41,7 @@ Jeśli parametr serwera, który chcesz zaktualizować, nie znajduje się na liś
 3. Dodaj parametry serwera w formacie: `SET parameter_name=YOUR_DESIRED_VALUE` wartość w kolumnie wartość.
 
     Na przykład można zmienić zestaw znaków serwera, ustawiając wartość `init_connect` na `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
-4. Kliknij pozycję **Zapisz**, aby zapisać zmiany.
+4. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Praca z parametrem strefy czasowej
 
