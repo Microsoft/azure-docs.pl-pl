@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie Azure Database for MySQL przy użyciu polecenia AZ MySQL up'
 description: Przewodnik Szybki Start dotyczący tworzenia Azure Database for MySQL serwera przy użyciu interfejsu wiersza polecenia platformy Azure — polecenie.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534043"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542171"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Szybki Start: Tworzenie Azure Database for MySQL przy użyciu prostego polecenia platformy Azure — polecenie AZ MySQL up (wersja zapoznawcza)
 
@@ -63,7 +63,7 @@ resource-group | Wygenerowano system | Nowa grupa zasobów platformy Azure.
 sku-name | GP_Gen5_2 | Nazwa jednostki SKU. Zgodnie z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne} w skrócie. Wartość domyślna to Ogólnego przeznaczenia serwer 5 rdzeń z 2 rdzeni wirtualnych. Aby uzyskać więcej informacji o warstwach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/mysql/) .
 backup-retention | 7 | Jak długo należy przechowywać kopię zapasową. Jednostka to dni.
 geo-redundant-backup | Disabled | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
-location | zachodnie_stany_USA_2 | Lokalizacja platformy Azure dla serwera.
+location | westus2 | Lokalizacja platformy Azure dla serwera.
 ssl-enforcement | Enabled (Włączony) | Określa, czy protokół SSL ma być włączony na tym serwerze, czy nie.
 storage-size | 5120 | Pojemność magazynu serwera (w megabajtach).
 Wersja | 5.7 | Wersja główna MySQL.

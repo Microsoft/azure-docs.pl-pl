@@ -4,12 +4,12 @@ description: Samouczek — Renderowanie sceny programu Autodesk 3ds Max przy uż
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: fbaa56ab444b9d686e5054a3668604bd40f7a262
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097708"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542392"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Samouczek: renderowanie sceny w usłudze Azure Batch 
 
@@ -34,11 +34,13 @@ Ten samouczek obejmuje renderowanie sceny programu 3ds Max przy użyciu usługi 
 
 - Ten samouczek wymaga wersji 2.0.20 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
+> [!TIP]
+> [Szablony zadań Arnold](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames) można wyświetlać w repozytorium GitHub szablonów rozszerzeń Azure Batch.
 ## <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
 
 Utwórz grupę zasobów, konto usługi Batch oraz połączone konto magazynu w ramach swojej subskrypcji, jeśli te elementy nie zostały jeszcze utworzone. 
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus2* .
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -195,7 +197,7 @@ az batch job create \
 
 Za pomocą polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) utwórz zadanie podrzędne w ramach zadania. W tym przykładzie ustawienia zadania podrzędnego są określane w pliku JSON. W bieżącej powłoce utwórz plik o nazwie *myrendertask.json* , a następnie skopiuj i wklej poniższą zawartość. Sprawdź, czy cały tekst został poprawnie skopiowany. Możesz też pobrać ten plik z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).
 
-To zadanie podrzędne zawiera polecenie programu 3ds Max, obejmujące renderowanie jednej ramki sceny *MotionBlur-DragonFlying.max* .
+To zadanie podrzędne zawiera polecenie programu 3ds Max, obejmujące renderowanie jednej ramki sceny *MotionBlur-DragonFlying.max*.
 
 Zmodyfikuj elementy `blobSource` i `containerURL` w pliku JSON tak, aby zawierały nazwę Twojego konta magazynu i Twój token SAS. 
 
@@ -286,7 +288,7 @@ Zmiana rozmiaru puli zajmuje kilka minut. Podczas trwania tego procesu skonfigur
 
 ## <a name="render-a-multiframe-scene"></a>Renderowanie sceny z wieloma ramkami
 
-Tak jak w przykładzie z jedną ramką użyj polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) w celu utworzenia zadań podrzędnych renderowania w ramach zadania *myrenderjob* . Tym razem określisz ustawienia zadań podrzędnych w pliku JSON o nazwie *myrendertask_multi.json* . (Plik można pobrać z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Każdy z sześciu zadań określa wiersz polecenia Arnold w celu renderowania jednej ramki z maksymalną sceną *MotionBlur-DragonFlying. Max* .
+Tak jak w przykładzie z jedną ramką użyj polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) w celu utworzenia zadań podrzędnych renderowania w ramach zadania *myrenderjob*. Tym razem określisz ustawienia zadań podrzędnych w pliku JSON o nazwie *myrendertask_multi.json*. (Plik można pobrać z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Każdy z sześciu zadań określa wiersz polecenia Arnold w celu renderowania jednej ramki z maksymalną sceną *MotionBlur-DragonFlying. Max*.
 
 W bieżącej powłoce utwórz plik o nazwie *myrendertask_multi.json* , a następnie skopiuj i wklej zawartość pobranego pliku. Zmodyfikuj elementy `blobSource` i `containerURL` w pliku JSON, wprowadzając w nich nazwę Twojego konta magazynu i Twój token SAS. Pamiętaj o zmianie ustawień dla każdego z sześciu zadań podrzędnych. Zapisz plik, a następnie uruchom następujące polecenie w celu dodania zadań podrzędnych do kolejki:
 

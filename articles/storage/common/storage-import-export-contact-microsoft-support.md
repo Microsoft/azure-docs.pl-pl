@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdee5420fa6a50974250c45260a3727755bfcba7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548277"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542596"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Otwórz bilet pomocy technicznej dla zadania importu/eksportu
 
@@ -30,34 +30,34 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
      
     ![Podstawy](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
-2. W obszarze **nowe żądanie obsługi**wybierz pozycję **podstawowe**. W obszarze **podstawowe**wykonaj następujące czynności:
+2. W obszarze **nowe żądanie obsługi** wybierz pozycję **podstawowe**. W obszarze **podstawowe** wykonaj następujące czynności:
     
     1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne**.
     2. Wybierz **subskrypcję**.
-    3. W obszarze **Usługa**Sprawdź pozycję **Moje usługi**. Z listy rozwijanej można wybrać jedną z opcji — **Zarządzanie kontem magazynu**, **obiekt BLOB**lub **plik**. 
-        - W przypadku wybrania opcji **Zarządzanie kontem magazynu**wybierz pozycję **zasób**i **Plan pomocy technicznej**.
+    3. W obszarze **Usługa** Sprawdź pozycję **Moje usługi**. Z listy rozwijanej można wybrać jedną z opcji — **Zarządzanie kontem magazynu** , **obiekt BLOB** lub **plik**. 
+        - W przypadku wybrania opcji **Zarządzanie kontem magazynu** wybierz pozycję **zasób** i **Plan pomocy technicznej**.
             ![Wybierz pozycję Zarządzanie kontem magazynu](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
-        - W przypadku wybrania **obiektu BLOB**wybierz pozycję **zasób**, **nazwy kontenerów** (opcjonalnie) i **Plan pomocy technicznej**.
+        - W przypadku wybrania **obiektu BLOB** wybierz pozycję **zasób** , **nazwy kontenerów** (opcjonalnie) i **Plan pomocy technicznej**.
             ![Wybierz obiekt BLOB](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - W przypadku wybrania opcji **plik**wybierz pozycję **zasób**, **nazwy udziałów plików** (opcjonalnie), a następnie wybierz pozycję plik **planu pomocy technicznej** . ![](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. Wybierz opcję **Dalej**.
+        - W przypadku wybrania opcji **plik** wybierz pozycję **zasób** , **nazwy udziałów plików** (opcjonalnie), a następnie wybierz pozycję plik **planu pomocy technicznej** . ![](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
+    4. Wybierz pozycję **Dalej**.
 
-3. W obszarze **nowe żądanie obsługi**wybierz pozycję **krok 2**. W obszarze **problem**wykonaj następujące czynności:
+3. W obszarze **nowe żądanie obsługi** wybierz pozycję **krok 2**. W obszarze **problem** wykonaj następujące czynności:
     
     1. Wybierz **wagę** jako **wpływ na C-minimalny**. W razie konieczności dział pomocy technicznej zaktualizuje ją.
     2. Wybierz **typ problemu** jako **migrację danych**.
     3. Wybierz **kategorię** jako **Import-Export**.
     4. Podaj **tytuł** problemu i więcej **szczegółów**.
     5. Podaj datę i godzinę rozpoczęcia problemu.
-    6. W polu **przekazywanie pliku**wybierz ikonę folderu, aby przeglądać wszystkie inne pliki, które chcesz przekazać.
+    6. W polu **przekazywanie pliku** wybierz ikonę folderu, aby przeglądać wszystkie inne pliki, które chcesz przekazać.
     7. Sprawdź **udostępnianie informacji diagnostycznych**.
-    8. Wybierz opcję **Dalej**.
+    8. Wybierz pozycję **Dalej**.
 
        ![Problem](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. W obszarze **nowe żądanie obsługi**wybierz pozycję **krok 3. informacje kontaktowe**. W oknie **informacje kontaktowe**wykonaj następujące czynności:
+4. W obszarze **nowe żądanie obsługi** wybierz pozycję **krok 3. informacje kontaktowe**. W oknie **informacje kontaktowe** wykonaj następujące czynności:
 
-   1. W obszarze **Opcje kontaktu**Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
+   1. W obszarze **Opcje kontaktu** Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
    2. W informacjach kontaktowych Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Zaznacz pole wyboru **Zapisz zmiany kontaktu w przyszłych żądaniach pomocy technicznej** .
    3. Wybierz przycisk **Utwórz**.
    
@@ -74,15 +74,15 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 
 1. Aby przejść do strony pomoc i obsługa techniczna, przejdź do okna **przeglądaj > pomoc i obsługa techniczna**.
 
-    ![Zarządzanie żądaniami obsługi](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Zrzut ekranu przedstawia okno dialogowe pomoc.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
-2. W **oknie Pomoc i obsługa techniczna**jest wyświetlana tabelaryczna lista **najnowszych żądań obsługi** .
+2. W **oknie Pomoc i obsługa techniczna** jest wyświetlana tabelaryczna lista **najnowszych żądań obsługi** .
 
-    ![Zarządzanie żądaniami obsługi](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Zrzut ekranu przedstawia stronę pomocy i obsługi technicznej w stanie otwartym.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Wybierz i kliknij żądanie pomocy technicznej. Możesz wyświetlić stan i szczegóły tego żądania. Wybierz pozycję **+ Nowy komunikat** , jeśli chcesz wykonać kolejne czynności w ramach tego żądania.
 
-    ![Zarządzanie żądaniami obsługi](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Zrzut ekranu przedstawia nowy komunikat wybrany dla tego żądania.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Następne kroki

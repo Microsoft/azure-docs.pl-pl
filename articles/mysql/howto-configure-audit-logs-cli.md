@@ -1,18 +1,18 @@
 ---
 title: Dzienniki inspekcji dostępu — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do dzienników inspekcji w programie Azure Database for MySQL z poziomu interfejsu wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db7ffabae785a589bacf349356079f6046039f9c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503331"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542001"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Konfigurowanie i dostęp do dzienników inspekcji w interfejsie wiersza polecenia platformy Azure
 
@@ -20,14 +20,13 @@ ms.locfileid: "87503331"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby krokowo poprowadzić ten przewodnik, musisz:
+Aby przejść do przewodnika:
 
-- [Serwer Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Potrzebny jest [serwer Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
 

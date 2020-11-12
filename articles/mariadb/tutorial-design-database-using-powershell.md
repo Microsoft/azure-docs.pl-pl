@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: projektowanie serwera Azure PowerShell-Azure Database for MariaDB'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer Azure Database for MariaDB i bazę danych oraz zarządzać nim przy użyciu programu PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 8087da173c8d1df225456aea6efbdbe5ed8c48be
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424922"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542477"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Samouczek: projektowanie Azure Database for MariaDB przy użyciu programu PowerShell
 
@@ -76,7 +76,7 @@ $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
 New-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_Gen5_2 -GeoRedundantBackup Enabled -Location westus -AdministratorUsername myadmin -AdministratorLoginPassword $Password
 ```
 
-Wartość parametru **SKU** jest zgodna z Konwencją ** \_ \_ rdzeni wirtualnych generacji obliczeń warstwy** , jak pokazano w poniższych przykładach.
+Wartość parametru **SKU** jest zgodna z Konwencją **\_ \_ rdzeni wirtualnych generacji obliczeń warstwy** , jak pokazano w poniższych przykładach.
 
 - `-Sku B_Gen5_1` — warstwa podstawowa, 5. generacja, 1 rdzeń wirtualny. Ta opcja to najmniejsza dostępna jednostka SKU.
 - `-Sku GP_Gen5_32` — warstwa ogólnego przeznaczenia, 5. generacja, 32 rdzenie wirtualne.

@@ -1,26 +1,26 @@
 ---
 title: Konfigurowanie parametrów serwera-Azure PowerShell-Azure Database for MySQL
 description: W tym artykule opisano sposób konfigurowania parametrów usługi w Azure Database for MySQL przy użyciu programu PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3888e83738d8617d6ec1433a3b760a2c518b874c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 973025dfd8c0141ed0884539fe5207cc64ec822c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541865"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Konfigurowanie parametrów serwera w Azure Database for MySQL przy użyciu programu PowerShell
 
 Można wyświetlić, wyświetlić i zaktualizować parametry konfiguracji dla serwera Azure Database for MySQL przy użyciu programu PowerShell. Podzestaw konfiguracji aparatu jest uwidoczniony na poziomie serwera i można go modyfikować.
 
 >[!Note]
-> Parametry serwera można aktualizować globalnie na poziomie serwera, korzystać z [interfejsu wiersza polecenia platformy Azure](./howto-configure-server-parameters-using-cli.md), [programu PowerShell](./howto-configure-server-parameters-using-powershell.md)lub [Azure Portal](./howto-server-parameters.md).
+> Parametry serwera można zaktualizować globalnie na poziomie serwera, przy użyciu [interfejsu wiersza polecenia platformy Azure](./howto-configure-server-parameters-using-cli.md), programu [PowerShell](./howto-configure-server-parameters-using-powershell.md) lub witryny [Azure Portal](./howto-server-parameters.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -53,7 +53,7 @@ Aby zapoznać się z definicją każdego z wymienionych parametrów, zobacz sekc
 
 Aby wyświetlić szczegóły dotyczące określonego parametru konfiguracji dla serwera, uruchom `Get-AzMySqlConfiguration` polecenie cmdlet i określ parametr **name** .
 
-W tym przykładzie przedstawiono szczegółowe informacje o powolnych parametrach konfiguracji serwera ** \_ \_ dziennika zapytania** dla serwera **mydemoserver** w **obszarze Grupa zasobów**.
+W tym przykładzie przedstawiono szczegółowe informacje o powolnych parametrach konfiguracji serwera **\_ \_ dziennika zapytania** dla serwera **mydemoserver** w **obszarze Grupa zasobów**.
 
 ```azurepowershell-interactive
 Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver

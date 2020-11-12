@@ -1,17 +1,17 @@
 ---
 title: Parametry serwera — Azure Database for MariaDB
 description: Ten temat zawiera wskazówki dotyczące konfigurowania parametrów serwera w Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4432178d5908d4360cda05a62b62d05687be4235
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626398"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541134"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parametry serwera w Azure Database for MariaDB
 
@@ -82,7 +82,7 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/innodb-system-
 
 MariaDB przechowuje tabelę InnoDB w różnych obszarach tabel na podstawie konfiguracji podanej podczas tworzenia tabeli. Przestrzeń dyskowa [systemu](https://mariadb.com/kb/en/innodb-system-tablespaces/) jest obszarem magazynu dla słownika danych InnoDB. Obszar tabel dla [poszczególnych tabel](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) zawiera dane i indeksy dla pojedynczej tabeli InnoDB i jest przechowywany w systemie plików w osobnym pliku danych. Takie zachowanie jest kontrolowane przez `innodb_file_per_table` parametr serwer. Ustawienie `innodb_file_per_table` `OFF` powoduje, że InnoDB utworzyć tabele w obszarze obszary obszaru systemu. W przeciwnym razie InnoDB tworzy tabele w tabelach tabel w tabeli.
 
-Azure Database for MariaDB obsługuje o największych **1 TB**w jednym pliku danych. Jeśli rozmiar bazy danych jest większy niż 1 TB, należy utworzyć tabelę w [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) obszar tabel. Jeśli rozmiar pojedynczej tabeli jest większy niż 1 TB, należy użyć tabeli partycji.
+Azure Database for MariaDB obsługuje o największych **1 TB** w jednym pliku danych. Jeśli rozmiar bazy danych jest większy niż 1 TB, należy utworzyć tabelę w [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) obszar tabel. Jeśli rozmiar pojedynczej tabeli jest większy niż 1 TB, należy użyć tabeli partycji.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 

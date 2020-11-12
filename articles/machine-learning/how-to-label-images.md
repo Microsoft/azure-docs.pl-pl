@@ -1,23 +1,23 @@
 ---
 title: Obrazy tagów w projekcie etykietowania
-titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać narzędzi do tagowania danych w Azure Machine Learningym projekcie etykietowania.
+title.suffix: Azure Machine Learning
+description: Dowiedz się, jak za pomocą narzędzi do tagowania danych szybko przygotować dane dla Machine Learning w Azure Machine Learning projekcie etykietowania.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: cd015e952f93655a7bdba8c947fac6e9a8f6546c
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518264"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542188"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
-Gdy administrator projektu [tworzy projekt etykietowania](./how-to-create-labeling-projects.md#create-a-labeling-project) w Azure Machine Learning, można użyć narzędzia do etykietowania (publiczna wersja zapoznawcza), aby szybko przygotować dane dla Machine Learning projektu. W tym artykule opisano:
+Gdy administrator projektu [tworzy projekt etykietowania](./how-to-create-labeling-projects.md#create-a-labeling-project) w Azure Machine Learning, można użyć narzędzia do etykietowania, aby szybko przygotować dane dla projektu Machine Learning. W tym artykule opisano:
 
 > [!div class="checklist"]
 > * Jak uzyskać dostęp do projektów etykietowania
@@ -141,11 +141,11 @@ Aby usunąć Wielokąt, kliknij obiekt docelowy w kształcie X, który pojawia s
 
 Jeśli chcesz zmienić tag dla wielokąta, wybierz narzędzie do **przenoszenia regionów** , kliknij Wielokąt i wybierz odpowiedni tag.
 
-Można edytować istniejące wielokąty. Narzędzie **blokowania/odblokowywania** regionów narzędzie do ![ blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego wielokąta.
+Można edytować istniejące wielokąty. Narzędzie **blokowania/odblokowywania regionów** ![ edytuje wielokąty za pomocą narzędzia do blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego wielokąta.
 
-Aby dostosować istniejący Wielokąt, użyj narzędzia **Dodaj lub Usuń punkty wielokąta** w obszarze narzędzia ![ do manipulowania regionami ](./media/how-to-label-images/add-remove-points-tool.png) lub "U". Kliknij Wielokąt, aby dodać lub usunąć punkt. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
+Użyj narzędzia **Dodaj lub Usuń punkty wielokątów** ![ Dodaj lub Usuń punkty wielokątów ](./media/how-to-label-images/add-remove-points-tool.png) lub "U", aby dostosować istniejący wielokąt. Kliknij Wielokąt, aby dodać lub usunąć punkt. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
 
-Aby usunąć *wszystkie* wielokąty w bieżącym obrazie, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń regiony ](./media/how-to-label-images/delete-regions-tool.png) .
+Aby usunąć *wszystkie* wielokąty w bieżącym obrazie, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń wszystkie regiony ](./media/how-to-label-images/delete-regions-tool.png) .
 
 Po utworzeniu wielokątów dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
 

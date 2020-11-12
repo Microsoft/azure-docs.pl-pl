@@ -1,17 +1,17 @@
 ---
 title: Programowanie aplikacji — Azure Database for MySQL
 description: Wprowadza uwagi dotyczące projektowania, które deweloper powinien wykonać, gdy piszesz kod aplikacji w celu nawiązania połączenia z Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 02ce6b00b6555f849d162b9f3b381c0ab358d712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20c6841bb596c7f4a32ef689423515a8da59a945
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79532845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541559"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Omówienie tworzenia aplikacji dla Azure Database for MySQL 
 W tym artykule omówiono zagadnienia związane z projektowaniem, które deweloper powinien wykonać, gdy piszesz kod aplikacji w celu nawiązania połączenia z Azure Database for MySQL. 

@@ -1,17 +1,17 @@
 ---
 title: Odczytaj repliki — Azure Database for MariaDB
 description: 'Informacje na temat odczytu replik w Azure Database for MariaDB: wybór regionów, tworzenie replik, łączenie z replikami, monitorowanie replikacji i zatrzymywanie replikacji.'
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fcf368c9fbbb185ac3f47faa5705e1933d085c81
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126460"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541168"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliki do odczytu w usłudze Azure Database for MariaDB
 
@@ -81,7 +81,7 @@ Podczas tworzenia repliki dziedziczy reguły zapory serwera źródłowego. Nast�
 
 Replika dziedziczy konto administratora z serwera źródłowego. Wszystkie konta użytkowników na serwerze źródłowym są replikowane do replik odczytu. Można nawiązać połączenie z repliką odczytu tylko przy użyciu kont użytkowników, które są dostępne na serwerze źródłowym.
 
-Możesz połączyć się z repliką przy użyciu nazwy hosta i prawidłowego konta użytkownika, tak jak w przypadku zwykłego serwera Azure Database for MariaDB. W przypadku serwera o nazwie Moja **replika** z **nazwą administratora**administrator można nawiązać połączenie z repliką przy użyciu interfejsu wiersza polecenia MySQL:
+Możesz połączyć się z repliką przy użyciu nazwy hosta i prawidłowego konta użytkownika, tak jak w przypadku zwykłego serwera Azure Database for MariaDB. W przypadku serwera o nazwie Moja **replika** z **nazwą administratora** administrator można nawiązać połączenie z repliką przy użyciu interfejsu wiersza polecenia MySQL:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -113,7 +113,7 @@ Dowiedz się, jak [zatrzymać replikację do repliki](howto-read-replicas-portal
 
 Nie istnieje automatyczna praca awaryjna między serwerami źródłowym i repliki. 
 
-Ponieważ replikacja jest asynchroniczna, między źródłem a repliką występuje opóźnienie. Na czas opóźnienia może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze źródłowym i opóźnienia między centrami danych. W większości przypadków opóźnienia repliki wynoszą od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki*metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
+Ponieważ replikacja jest asynchroniczna, między źródłem a repliką występuje opóźnienie. Na czas opóźnienia może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze źródłowym i opóźnienia między centrami danych. W większości przypadków opóźnienia repliki wynoszą od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki* metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
 
 > [!Tip]
 > W przypadku przejścia w tryb failover do repliki zwłoka w momencie odłączenia repliki od źródła będzie wskazywać, ile danych jest utraconych.

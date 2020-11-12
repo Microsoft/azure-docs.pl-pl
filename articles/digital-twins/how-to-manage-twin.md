@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360075"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540973"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -26,6 +26,10 @@ Ten artykuł koncentruje się na zarządzaniu cyfrowym bliźniaczych reprezentac
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>Sposoby zarządzania usługą bliźniaczych reprezentacji
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>Tworzenie dwucyfrowej dwuosiowej
 
@@ -82,7 +86,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateOrReplaceDigitalTwinAsync()` wywołania. Na przykład:
+> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateOrReplaceDigitalTwinAsync()` wywołania. Przykład:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -167,7 +171,7 @@ Wynik wywołania `object result = await client.GetDigitalTwinAsync("my-moon");` 
 Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują:
 * Identyfikator wielocyfrowej dwuosiowej w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji `$dtId` .
 * `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web.
-* Inne właściwości w `$metadata` sekcji. Należą do nich następujące elementy:
+* Inne właściwości w `$metadata` sekcji. Należą do nich:
     - DTMI modelu dwuosiowy cyfrowo.
     - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
     - Metadane dotyczące usługi, takie jak IoT Hub lub Azure Digital bliźniaczych reprezentacji. 
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 Więcej informacji na temat klas pomocnika serializacji można znaleźć w temacie [*How to: use Digital bliźniaczych reprezentacji API and SDK*](how-to-use-apis-sdks.md).
+
+## <a name="view-all-digital-twins"></a>Wyświetl wszystkie bliźniaczych reprezentacji cyfrowe
+
+Aby wyświetlić wszystkie bliźniaczych reprezentacji cyfrowe w wystąpieniu, użyj [zapytania](how-to-query-graph.md). Zapytanie można uruchomić za pomocą [interfejsów API zapytań](/rest/api/digital-twins/dataplane/query) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md).
+
+Poniżej znajduje się treść zapytania podstawowego, które zwróci listę wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>Aktualizowanie wieloosiowej cyfrowej
 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 Aby zapoznać się z przykładem sposobu usuwania wszystkich bliźniaczych reprezentacji jednocześnie, należy pobrać przykładową aplikację używaną w [_Tutorial: Poznaj podstawy z przykładową aplikacją kliencką *](tutorial-command-line-app.md). Plik *CommandLoop.cs* wykonuje tę `CommandDeleteAllTwins()` funkcję w funkcji.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>Zarządzanie bliźniaczych reprezentacji za pomocą przykładu kodu możliwy do uruchomienia
+## <a name="runnable-digital-twin-code-sample"></a>Przykład kodu Digital bliźniaczy możliwy do uruchomienia
 
 Możesz użyć poniższego przykładu kodu możliwy do uruchomienia, aby utworzyć dwuosiowy, zaktualizować jego szczegóły i usunąć sznurek. 
 
@@ -535,22 +550,6 @@ Oto dane wyjściowe konsoli powyższego programu:
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Dane wyjściowe konsoli pokazujące, że dwuosiowa została utworzona, zaktualizowana i usunięta" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>Zarządzanie bliźniaczych reprezentacji przy użyciu interfejsu wiersza polecenia
-
-Bliźniaczych reprezentacji można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [_How do: Użyj interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji *](how-to-use-cli.md).
-
-## <a name="view-all-digital-twins"></a>Wyświetl wszystkie bliźniaczych reprezentacji cyfrowe
-
-Aby wyświetlić wszystkie bliźniaczych reprezentacji cyfrowe w wystąpieniu, użyj [zapytania](how-to-query-graph.md). Zapytanie można uruchomić za pomocą [interfejsów API zapytań](/rest/api/digital-twins/dataplane/query) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md).
-
-Poniżej znajduje się treść zapytania podstawowego, które zwróci listę wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu:
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz, jak tworzyć relacje i zarządzać nimi między bliźniaczych reprezentacji cyfrowymi:
-* [*Instrukcje: Zarządzanie wykresem bliźniaczym z relacjami*](how-to-manage-graph.md)
+Zobacz, jak tworzyć relacje i zarządzać nimi między cyfrowym bliźniaczych reprezentacji: _, [ *jak to zrobić: Zarządzanie wykresem bliźniaczym z relacjami*](how-to-manage-graph.md)

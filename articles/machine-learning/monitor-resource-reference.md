@@ -1,6 +1,6 @@
 ---
 title: Informacje o monitorowaniu Azure Machine Learning danych | Microsoft Docs
-description: Ważne materiały referencyjne potrzebne podczas monitorowania Azure Machine Learning. Dowiedz się więcej na temat danych i zasobów zebranych dla Azure Machine Learning i dostępnych w Azure Monitor. Azure Monitor zbiera i przedstawia dane dotyczące obszaru roboczego Azure Machine Learning, a następnie pozwala wyświetlać metryki, ustawiać alerty i analizować zarejestrowane dane.
+description: Dokumentacja dotycząca monitorowania Azure Machine Learning. Dowiedz się więcej o zasobach & zbieranych i dostępnych w Azure Monitor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323953"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540794"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorowanie odwołań do danych usługi Azure Machine Learning
 

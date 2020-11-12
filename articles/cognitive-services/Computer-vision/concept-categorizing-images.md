@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43359c47b4d2c1b8895938271c74dab03f7731f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244754"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541780"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Klasyfikowanie obrazów według tematu
 
@@ -53,7 +53,7 @@ Poniższa odpowiedź JSON ilustruje, co przetwarzanie obrazów zwracać podczas 
 
 W poniższej tabeli przedstawiono typowy zestaw obrazów oraz kategorię zwracaną przez przetwarzanie obrazów dla każdego obrazu.
 
-| Obraz | Kategoria |
+| Image (Obraz) | Kategoria |
 |-------|----------|
 | ![Cztery osoby powodowane jako rodzina](./Images/family_photo.png) | people_group |
 | ![Puppy siedzący w polu trawy](./Images/cute_dog.png) | animal_dog |
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono typowy zestaw obrazów oraz kategorię zwracan
 
 ## <a name="use-the-api"></a>Używanie interfejsu API
 
-Funkcja kategoryzacji jest częścią interfejsu API [analizowania obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Categories` w parametrze zapytania **visualFeatures** . Po otrzymaniu pełnej odpowiedzi JSON należy po prostu przeanalizować ciąg dla zawartości `"categories"` sekcji.
+Funkcja kategoryzacji jest częścią interfejsu API [analizowania obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Categories` w parametrze zapytania **visualFeatures** . Po otrzymaniu pełnej odpowiedzi JSON należy po prostu przeanalizować ciąg dla zawartości `"categories"` sekcji.
 
 * [Szybki Start: przetwarzanie obrazów zestawu .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Szybki Start: analizowanie obrazu (interfejs API REST)](./quickstarts/csharp-analyze.md)

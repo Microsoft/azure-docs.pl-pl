@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 4563fc915b76e36b4087e365e31a4e234edb55dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 64ec7bfa400edceb0f638b1862b9057d104c7904
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977086"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542749"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start utworzysz miniaturę obrazu przy użyciu interfej
 
 Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 
-1. Utwórz plik o nazwie _get-thumbnail.html_, otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
+1. Utwórz plik o nazwie _get-thumbnail.html_ , otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
 1. Opcjonalnie Zastąp wartość `value` atrybutu `inputImage` kontrolki adresem URL innego obrazu, który chcesz analizować.
 1. Otwórz okno przeglądarki.
 1. W przeglądarce przeciągnij plik i upuść go w oknie przeglądarki.
@@ -51,8 +51,8 @@ Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 <script type="text/javascript">
     function processImage() {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
@@ -163,7 +163,7 @@ Pomyślna odpowiedź jest zwracana jako dane binarne, które reprezentują dane 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z aplikacją w języku JavaScript, w której zastosowano interfejs API przetwarzania obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Zapoznaj się z aplikacją w języku JavaScript, w której zastosowano interfejs API przetwarzania obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
 > [Samouczek języka JavaScript interfejsu API przetwarzania obrazów](../Tutorials/javascript-tutorial.md)

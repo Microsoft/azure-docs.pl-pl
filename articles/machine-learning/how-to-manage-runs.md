@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 2f7d102ad6bf2aba2056456acfe6207a0b0643ba
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357984"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542018"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
 
@@ -29,6 +29,10 @@ W tym artykule przedstawiono przykłady następujących zadań:
 * Anulowanie lub niepowodzenie uruchomienia.
 * Utwórz uruchomienia podrzędne.
 * Tagi i Znajdź uruchomienia.
+
+> [!TIP]
+> Jeśli szukasz informacji o monitorowaniu usługi Azure Machine Learning i skojarzonych usługach platformy Azure, zobacz [Jak monitorować Azure Machine Learning](monitor-azure-machine-learning.md).
+> Jeśli szukasz informacji dotyczących modeli monitorowania wdrożonych jako usługi sieci Web lub moduły IoT Edge, zobacz [zbieranie danych modelu](how-to-enable-data-collection.md) i [monitorowanie z Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

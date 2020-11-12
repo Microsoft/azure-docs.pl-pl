@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie serwera Azure PowerShell-Azure Database for MySQL'
 description: W tym przewodniku szybki start opisano, jak utworzyć serwer Azure Database for MySQL w grupie zasobów platformy Azure za pomocą programu PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 65ac6b3252b134fa6774c075ebc7d5f2c428a809
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545127"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542324"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu programu PowerShell
 
@@ -70,7 +70,7 @@ Poniższa tabela zawiera listę często używanych parametrów i wartości przyk
 | SslEnforcement             | Enabled (Włączony)          | Określa, czy protokół SSL ma być włączony na tym serwerze, czy nie. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Pojemność magazynu serwera (w megabajtach). Prawidłowe StorageInMb to co najmniej 5120 MB i zwiększa się w przyrostach 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Azure Database for MySQL warstwy cenowe](./concepts-pricing-tiers.md).                                                                               |
 | Wersja                    | 5.7              | Wersja główna MySQL.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public** .                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Hasło użytkownika administrator w postaci bezpiecznego ciągu. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.                                       |
 
 Wartość parametru **SKU** jest zgodna z Konwencją **\_ \_ rdzeni wirtualnych generacji obliczeń warstwy** , jak pokazano w poniższych przykładach.
@@ -124,7 +124,7 @@ Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -SslE
 
 ## <a name="get-the-connection-information"></a>Pobieranie informacji o połączeniu
 
-Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i poświadczenia dostępu. Użyj poniższego przykładu, aby określić informacje o połączeniu. Zanotuj wartości **FullyQualifiedDomainName** i **AdministratorLogin** .
+Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i poświadczenia dostępu. Użyj poniższego przykładu, aby określić informacje o połączeniu. Zanotuj wartości **FullyQualifiedDomainName** i **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |

@@ -1,6 +1,6 @@
 ---
 title: Co to jest Azure Machine Learning
-description: Omówienie Azure Machine Learning zintegrowanego, kompleksowego rozwiązania do nauki o danych dla specjalistów ds. danych w celu opracowywania, eksperymentowania i wdrażania zaawansowanych aplikacji analitycznych na skalę chmury.
+description: Azure Machine Learning to zintegrowane rozwiązanie do nauki o danych, które umożliwia analitykom danych i MLops modelowanie i wdrażanie aplikacji w skali chmury.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4dcc1d755f4fe11dda69f84466d3e958ca981ddf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: af38f68a9709b21989ba787fb5b2c623e07dc440
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316290"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541287"
 ---
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 

@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 27c117786ca7f0004ed3be6b28ed06cb1c7942de
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7b430f16e96c6d59fe85c711d07e323bf848b069
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960445"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541253"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Szybki start: korzystanie z modelu domeny w funkcji przetwarzania obrazów przy użyciu interfejsu API REST i języka Python
 
-W tym przewodniku szybki start użyjesz modelu domeny w celu zidentyfikowania terenów lub, opcjonalnie, osobistości w obrazie przechowywanym zdalnie przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) umożliwia zastosowanie modelu specyficznego dla domeny do rozpoznawania zawartości w ramach obrazu.
+W tym przewodniku szybki start użyjesz modelu domeny w celu zidentyfikowania terenów lub, opcjonalnie, osobistości w obrazie przechowywanym zdalnie przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f311) umożliwia zastosowanie modelu specyficznego dla domeny do rozpoznawania zawartości w ramach obrazu.
 
 Możesz pracować z tym przewodnikiem Szybki start krok po kroku, korzystając z aplikacji Jupyter Notebook w usłudze [MyBinder](https://mybinder.org). Aby uruchomić usługę Binder, wybierz poniższy przycisk:
 
@@ -212,4 +212,4 @@ Następnie zapoznaj się z aplikacją w języku Python, która używa przetwarza
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/PythonTutorial.md)
 
-* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

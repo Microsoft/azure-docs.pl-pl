@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie szablonu usługi Azure DB for MySQL — szablon ARM'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć serwer Azure Database for MySQL z integracją z siecią wirtualną przy użyciu szablonu Azure Resource Manager.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 952bfa7182997511ce072c051d872140c3b907cb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542273"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu szablonu ARM
 
@@ -20,7 +20,7 @@ Azure Database for MySQL to usługa zarządzana, która umożliwia uruchamianie 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
@@ -30,7 +30,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 * Jeśli chcesz uruchomić kod lokalnie, [Azure PowerShell](/powershell/azure/).
@@ -66,25 +66,25 @@ Więcej przykładów szablonów Azure Database for MySQL można znaleźć w [gal
 
 Wybierz następujący link, aby wdrożyć szablon Azure Database for MySQL Server w Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 Na stronie **wdrażanie Azure Database for MySQL przy użyciu sieci wirtualnej** :
 
-1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK** .
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK**.
 
 2. Jeśli utworzono nową grupę zasobów, wybierz **lokalizację** dla grupy zasobów i nowy serwer.
 
-3. Wprowadź **nazwę serwera** , **Identyfikator logowania administratora** i **hasło logowania administratora** .
+3. Wprowadź **nazwę serwera** , **Identyfikator logowania administratora** i **hasło logowania administratora**.
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Wdrażanie na platformie Azure":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Wdrażanie Azure Database for MySQL przy użyciu okna Sieć wirtualna, szablon szybkiego startu platformy Azure, Azure Portal":::
 
 4. Zmień inne ustawienia domyślne, jeśli chcesz:
 
     * **Subskrypcja** : subskrypcja platformy Azure, która ma być używana dla serwera.
-    * **Pojemność jednostki SKU** : pojemność rdzeń wirtualny, która może być *2* (wartość domyślna), *4* , *8* , *16* , *32* lub *64* .
-    * **Nazwa jednostki SKU** : prefiks warstwy SKU, Rodzina SKU i pojemność jednostki SKU, dołączone przez podkreślenia, takie jak *B_Gen5_1* , *GP_Gen5_2* (domyślne) lub *MO_Gen5_32* .
+    * **Pojemność jednostki SKU** : pojemność rdzeń wirtualny, która może być *2* (wartość domyślna), *4* , *8* , *16* , *32* lub *64*.
+    * **Nazwa jednostki SKU** : prefiks warstwy SKU, Rodzina SKU i pojemność jednostki SKU, dołączone przez podkreślenia, takie jak *B_Gen5_1* , *GP_Gen5_2* (domyślne) lub *MO_Gen5_32*.
     * **Rozmiar jednostki SKU MB** : rozmiar magazynu (w megabajtach) serwera Azure Database for MySQL (domyślnie *5120* ).
-    * **Warstwa SKU** : warstwa wdrożenia, taka jak *podstawowa* , *GeneralPurpose* (domyślna) lub *MemoryOptimized* .
+    * **Warstwa SKU** : warstwa wdrożenia, taka jak *podstawowa* , *GeneralPurpose* (domyślna) lub *MemoryOptimized*.
     * **Rodzina SKU** : *obliczenia* lub *5 rdzeń* (domyślnie), która wskazuje na generowanie sprzętu na potrzeby wdrażania serwera.
     * **Wersja programu MySQL** : wersja serwera MySQL do wdrożenia, na przykład *5,6* lub *5,7* (wartość domyślna).
     * **Liczba dni przechowywania kopii zapasowych** : żądany okres przechowywania kopii zapasowych z Geograficznie nadmiarowy w dniach (domyślnie *7* ).
@@ -95,11 +95,11 @@ Na stronie **wdrażanie Azure Database for MySQL przy użyciu sieci wirtualnej**
     * **Prefiks adresu** sieci wirtualnej: prefiks adresu dla usługi Virtual Network (domyślnie *10.0.0.0/16* ).
     * **Prefiks podsieci** : prefiks adresu podsieci (domyślnie *10.0.0.0/16* ).
 
-5. Przeczytaj warunki i postanowienia, a następnie wybierz **Akceptuję warunki i postanowienia podane powyżej** .
+5. Przeczytaj warunki i postanowienia, a następnie wybierz **Akceptuję warunki i postanowienia podane powyżej**.
 
-6. Wybierz pozycję **Kup** .
+6. Wybierz pozycję **Kup**.
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 Użyj poniższego kodu interaktywnego, aby utworzyć nowy serwer Azure Database for MySQL przy użyciu szablonu. W kodzie zostanie wyświetlony komunikat z prośbą o nową nazwę serwera, nazwę i lokalizację nowej grupy zasobów oraz nazwę i hasło konta administratora.
 
@@ -153,11 +153,11 @@ echo "Press [ENTER] to continue ..."
 
 Wykonaj następujące kroki, aby zobaczyć przegląd nowego serwera Azure Database for MySQL:
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **serwery Azure Database for MySQL** .
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **serwery Azure Database for MySQL**.
 
 2. Na liście baza danych wybierz nowy serwer. Zostanie wyświetlona strona **Przegląd** dla nowego serwera Azure Database for MySQL.
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 Uruchom Poniższy kod interaktywny, aby wyświetlić szczegółowe informacje o serwerze Azure Database for MySQL. Musisz wprowadzić nazwę nowego serwera.
 
@@ -187,13 +187,13 @@ Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów** .
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów**.
 
 2. Na liście Grupa zasobów wybierz nazwę grupy zasobów.
 
-3. Na stronie **Przegląd** w grupie zasobów wybierz pozycję **Usuń grupę zasobów** .
+3. Na stronie **Przegląd** w grupie zasobów wybierz pozycję **Usuń grupę zasobów**.
 
-4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń** .
+4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 

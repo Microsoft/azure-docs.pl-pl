@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653617"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540930"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -273,7 +273,7 @@ Dodatkowe wbudowane funkcje magazynu ANF:
 - Klonowanie woluminów ANF z migawek
 - Przywróć woluminy z migawek (przyciąganie i przywracanie)
 
-**Podsumowanie**: Azure NetApp Files to magazyn o małym opóźnieniu z certyfikatem platformy Hana, który umożliwia wdrażanie woluminów i udziałów w systemie plików NFS i SMB. Magazyn obejmuje trzy różne poziomy usług, które zapewniają różną przepływność i operacje we/wy w sposób liniowy dla pojemności GiB woluminu. Magazyn ANF umożliwia SAP HANA wdrażanie scenariuszy skalowalnych w poziomie przy użyciu węzła w stanie wstrzymania. Magazyn jest odpowiedni do udostępniania udziałów plików w razie potrzeby w przypadku globalnego katalogu transportowego/sapmnt lub SAP. Magazyn ANF zapewnia dostępność funkcji, która jest dostępna jako natywne funkcje NetApp.  
+**Podsumowanie** : Azure NetApp Files to magazyn o małym opóźnieniu z certyfikatem platformy Hana, który umożliwia wdrażanie woluminów i udziałów w systemie plików NFS i SMB. Magazyn obejmuje trzy różne poziomy usług, które zapewniają różną przepływność i operacje we/wy w sposób liniowy dla pojemności GiB woluminu. Magazyn ANF umożliwia SAP HANA wdrażanie scenariuszy skalowalnych w poziomie przy użyciu węzła w stanie wstrzymania. Magazyn jest odpowiedni do udostępniania udziałów plików w razie potrzeby w przypadku globalnego katalogu transportowego/sapmnt lub SAP. Magazyn ANF zapewnia dostępność funkcji, która jest dostępna jako natywne funkcje NetApp.  
 
 
 
@@ -352,11 +352,10 @@ W przypadku dużych maszyn wirtualnych platformy Azure w cyklu życia systemu SA
 
 
 ## <a name="striping-or-not-striping"></a>Rozłożenie lub bez rozłożenia
-Utworzenie zestawu rozłożonego z wielu dysków platformy Azure w jednym większym woluminie umożliwia gromadzenie operacji we/wy i przepływności poszczególnych dysków w jednym woluminie. Jest ona używana tylko w przypadku usługi Azure Standard Storage i Azure Premium Storage. Azure Ultra Disk, w której można skonfigurować przepływność i operacje we/wy niezależnie od pojemności dysku, nie wymagają użycia zestawów paskowych. Woluminów udostępnionych opartych na systemie plików NFS lub SMB nie można rozmieścić. Ze względu na nieliniową naturę przepływności i liczby operacji we/wy na platformie Azure Premium możesz udostępnić mniejszą pojemność z użyciem tej samej liczby operacji we/wy na sekundę, co w przypadku dużych dysków usługi Azure Premium Storage. Jest to metoda osiągnięcia wyższej przepływności lub liczby operacji we/wy przy niższych kosztach przy użyciu usługi Azure Premium Storage. Na przykład:
+Utworzenie zestawu rozłożonego z wielu dysków platformy Azure w jednym większym woluminie umożliwia gromadzenie operacji we/wy i przepływności poszczególnych dysków w jednym woluminie. Jest ona używana tylko w przypadku usługi Azure Standard Storage i Azure Premium Storage. Azure Ultra Disk, w której można skonfigurować przepływność i operacje we/wy niezależnie od pojemności dysku, nie wymagają użycia zestawów paskowych. Woluminów udostępnionych opartych na systemie plików NFS lub SMB nie można rozmieścić. Ze względu na nieliniową naturę przepływności i liczby operacji we/wy na platformie Azure Premium możesz udostępnić mniejszą pojemność z użyciem tej samej liczby operacji we/wy na sekundę, co w przypadku dużych dysków usługi Azure Premium Storage. Jest to metoda osiągnięcia wyższej przepływności lub liczby operacji we/wy przy niższych kosztach przy użyciu usługi Azure Premium Storage. Na przykład rozłożenie na dwa dyski usługi P15 Premium Storage zapewnia przepływność: 
 
-- Rozłożenie na dwa dyski usługi P15 Premium Storage zapewnia przepływność 
 - 250 MiB/s. Taki wolumin będzie miał pojemność 512 GiB. Jeśli chcesz mieć pojedynczy dysk zapewniający przepustowość 250 MiB na sekundę, należy wybrać dysk P40 o pojemności 2 TiB. 
-- Lub można osiągnąć przepływność 400 MiB/s przez rozłożenie czterech dysków usługi P10 Premium Storage o łącznej pojemności 512 GiB przez rozłożenie. Jeśli chcesz mieć pojedynczy dysk z co najmniej 500m przepływności MiB na sekundę, musisz wybrać dysk magazynu P60 Premium z 8 TiB. Ze względu na to, że usługa Costing lub Premium Storage jest bliska wydajności, można wyrównać oszczędności kosztów przy użyciu rozłożenia.
+- 400 MiB/s przez rozłożenie czterech dysków usługi P10 Premium Storage o łącznej pojemności 512 GiB przez rozłożenie. Jeśli chcesz mieć pojedynczy dysk z co najmniej 500m przepływności MiB na sekundę, musisz wybrać dysk magazynu P60 Premium z 8 TiB. Ponieważ koszt magazynu w warstwie Premium jest zbliżony do pojemności, można wyrównać oszczędności kosztów przy użyciu rozłożenia.
 
 Należy przestrzegać kilku reguł:
 

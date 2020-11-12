@@ -1,19 +1,19 @@
 ---
 title: Zarządzanie regułami zapory — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
 description: W tym artykule opisano sposób tworzenia reguł zapory Azure Database for MySQL przy użyciu wiersza polecenia platformy Azure i zarządzania nimi.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eaddd8b2979b30251301ad041ea4b872c23d680b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546402"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541338"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Tworzenie reguł zapory Azure Database for MySQL i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for MySQL z określonego adresu IP lub zakresu adresów IP. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać i wyświetlać reguły zapory w celu zarządzania serwerem. Aby zapoznać się z omówieniem zapór Azure Database for MySQL, zobacz [reguły zapory Azure Database for MySQL Server](./concepts-firewall-rules.md).

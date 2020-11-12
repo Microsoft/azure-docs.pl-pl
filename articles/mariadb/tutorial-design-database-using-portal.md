@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: projektowanie Azure Portal Azure Database for MariaDB'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer oraz bazę danych usługi Azure Database for MariaDB i zarządzać nimi przy użyciu witryny Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e6cac09ff304e02e24b482dc834d8199329c1c0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424883"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542443"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Samouczek: projektowanie bazy danych usługi Azure Database for MariaDB za pomocą witryny Azure Portal
 
@@ -54,8 +54,8 @@ Serwer usługi Azure Database for MariaDB jest tworzony za pomocą zdefiniowaneg
     Nazwa serwera | *unikatowa nazwa serwera* | Wybierz unikatową nazwę, która identyfikuje serwer usługi Azure Database for MariaDB. Na przykład **mydemoserver**. Nazwa domeny *.mariadb.database.azure.com* jest dołączana do wprowadzanej nazwy serwera. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
     Subskrypcja | *Twoja subskrypcja* | Wybierz subskrypcję platformy Azure, która ma być używana dla serwera. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
     Grupa zasobów | **myresourcegroup** | Wprowadź nazwę nowej grupy zasobów lub wybierz istniejącą grupę zasobów.
-    Wybierz źródło | **Puste** | Wybierz pozycję **Puste**, aby utworzyć nowy serwer. W przypadku tworzenia serwera z geograficznej kopii zapasowej istniejącego serwera usługi Azure Database for MariaDB należy wybrać pozycję **Kopia zapasowa**.
-    Identyfikator logowania administratora serwera | **myadmin** | Konto logowania do użycia podczas nawiązywania połączenia z serwerem. Nazwą logowania administratora nie może być **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
+    Wybierz źródło | **Puste** | Wybierz pozycję **Puste** , aby utworzyć nowy serwer. W przypadku tworzenia serwera z geograficznej kopii zapasowej istniejącego serwera usługi Azure Database for MariaDB należy wybrać pozycję **Kopia zapasowa**.
+    Identyfikator logowania administratora serwera | **myadmin** | Konto logowania do użycia podczas nawiązywania połączenia z serwerem. Nazwą logowania administratora nie może być **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public**.
     Hasło | *wartość wybrana przez użytkownika* | Wprowadź nowe hasło dla konta administratora serwera. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0–9) i znaki inne niż alfanumeryczne (!, $, #, % itp.).
     Potwierdź hasło | *wartość wybrana przez użytkownika*| Potwierdź hasło do konta administratora.
     Lokalizacja | *Region znajdujący się najbliżej Twoich użytkowników*| Wybierz lokalizację najbliżej użytkowników lub innych aplikacji platformy Azure.
@@ -93,7 +93,7 @@ Uzyskaj z witryny Azure Portal wartości pól **Nazwa serwera** (w pełni kwalif
 
    ![Właściwości serwera](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-W naszym przykładzie nazwa serwera to **mydemoserver.MariaDB.Database.Azure.com** , a nazwa logowania administratora serwera to ** \@ mydemoserver**.
+W naszym przykładzie nazwa serwera to **mydemoserver.MariaDB.Database.Azure.com** , a nazwa logowania administratora serwera to **\@ mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia mysql
 
@@ -174,12 +174,12 @@ Załóżmy, że przypadkowo usunięto ważną tabelę bazy danych i nie można j
 
    ![Formularz Przywracanie](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Punkt przywracania**: wybierz punkt w czasie w podanym przedziale czasowym, do którego chcesz wykonać przywrócenie. Pamiętaj o przekonwertowaniu lokalnej strefy czasowej na czas UTC.
-   - **Przywróć na nowy serwer**: wprowadź nazwę nowego serwera, do którego chcesz wykonać przywrócenie.
-   - **Lokalizacja**: region jest taki sam jak w przypadku serwera źródłowego i nie można go zmienić.
-   - **Warstwa cenowa**: warstwa cenowa jest taka sama jak w przypadku serwera źródłowego i nie można jej zmienić.
+   - **Punkt przywracania** : wybierz punkt w czasie w podanym przedziale czasowym, do którego chcesz wykonać przywrócenie. Pamiętaj o przekonwertowaniu lokalnej strefy czasowej na czas UTC.
+   - **Przywróć na nowy serwer** : wprowadź nazwę nowego serwera, do którego chcesz wykonać przywrócenie.
+   - **Lokalizacja** : region jest taki sam jak w przypadku serwera źródłowego i nie można go zmienić.
+   - **Warstwa cenowa** : warstwa cenowa jest taka sama jak w przypadku serwera źródłowego i nie można jej zmienić.
    
-3. Wybierz przycisk **OK**, aby [przywrócić serwer do punktu w czasie](./howto-restore-server-portal.md) przed usunięciem tabeli. Przywrócenie serwera powoduje utworzenie nowej kopii serwera od wybranego punktu w czasie. 
+3. Wybierz przycisk **OK** , aby [przywrócić serwer do punktu w czasie](./howto-restore-server-portal.md) przed usunięciem tabeli. Przywrócenie serwera powoduje utworzenie nowej kopii serwera od wybranego punktu w czasie. 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku opisano, jak wykonywać następujące czynności, używając witryny Azure Portal:

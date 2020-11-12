@@ -1,17 +1,17 @@
 ---
 title: Ograniczenia — Azure Database for MySQL — elastyczny serwer
 description: W tym artykule opisano ograniczenia w Azure Database for MySQL-elastycznym serwerze, takie jak liczba opcji połączenia i aparatu magazynu.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504343"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543089"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Ograniczenia na serwerze elastycznym Azure Database for MySQL (wersja zapoznawcza)
 

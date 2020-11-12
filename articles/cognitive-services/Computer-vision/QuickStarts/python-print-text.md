@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 62ee8b27a67703d2ec4f861611f1d97062f1255b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 539f6fe35a2d6eb0566871dbab4e9758a300e999
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960409"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541882"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Szybki Start: Wyodrębnianie wydruku tekstu (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i języka Python
 
 > [!NOTE]
 > W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępny jest [Przewodnik Szybki Start](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text) dla języka Python. 
 
-W tym przewodniku Szybki Start zostanie wyodrębniony drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
+W tym przewodniku Szybki Start zostanie wyodrębniony drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
 
 Możesz pracować z tym przewodnikiem Szybki start krok po kroku, korzystając z aplikacji Jupyter Notebook w usłudze [MyBinder](https://mybinder.org). Aby uruchomić usługę Binder, wybierz poniższy przycisk:
 
@@ -234,4 +234,4 @@ Następnie zapoznaj się z aplikacją w języku Python, która używa przetwarza
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/PythonTutorial.md)
 
-* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

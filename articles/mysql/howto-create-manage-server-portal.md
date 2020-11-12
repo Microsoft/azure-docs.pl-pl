@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie serwerem Azure Portal-Azure Database for MySQL
 description: Dowiedz się, jak zarządzać serwerem Azure Database for MySQL przy użyciu Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a9dba7c85ded7add1a9f1494d88a3f8a1f62f175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882459"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541457"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for MySQL przy użyciu Azure Portal
 
@@ -33,9 +33,9 @@ Po utworzeniu serwera można skalować warstwy Ogólnego przeznaczenia i zoptyma
 
 Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pamięci i na odwrót. Zmiana na i z warstwy Podstawowa po utworzeniu serwera nie jest obsługiwana.
 
-1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa**znajdująca się w sekcji **Ustawienia** .
+1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa** znajdująca się w sekcji **Ustawienia** .
 
-2. Wybierz **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci**, w zależności od tego, na czym polegasz skalowaniu.
+2. Wybierz **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci** , w zależności od tego, na czym polegasz skalowaniu.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
 
@@ -46,11 +46,11 @@ Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pami
 
 ### <a name="scale-vcores-up-or-down"></a>Skalowanie rdzeni wirtualnych w górę lub w dół
 
-1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa**znajdująca się w sekcji **Ustawienia** .
+1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa** znajdująca się w sekcji **Ustawienia** .
 
 2. Zmień ustawienie **rdzeń wirtualny** , przesuwając suwak do żądanej wartości.
 
-    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wybranie opcji rdzeń wirtualny w Azure Database for MySQL":::
 
     > [!NOTE]
     > Skalowanie rdzeni wirtualnych powoduje ponowne uruchomienie serwera.
@@ -59,11 +59,11 @@ Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pami
 
 ### <a name="scale-storage-up"></a>Skalowanie w górę
 
-1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa**znajdująca się w sekcji **Ustawienia** .
+1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa** znajdująca się w sekcji **Ustawienia** .
 
 2. Zmień ustawienie **magazynu** , przesuwając suwak w górę do żądanej wartości.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby wybrać skalę magazynu w Azure Database for MySQL":::
 
    > [!NOTE]
    > Nie można skalować magazynu.
@@ -76,11 +76,11 @@ Hasło roli administratora można zmienić przy użyciu Azure Portal.
 
 1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Resetuj hasło**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal resetowania hasła w programie Azure Database for MySQL":::
 
 2. Wprowadź nowe hasło i Potwierdź hasło. W polu tekstowym zostanie wyświetlony monit o podanie wymagań dotyczących złożoności haseł.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal resetowania hasła i zapisywania w Azure Database for MySQL":::
 
 3. Wybierz **przycisk OK** , aby zapisać nowe hasło.
 
@@ -90,11 +90,11 @@ Serwer można usunąć, jeśli nie jest już potrzebny.
 
 1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Usuń**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal usuwania serwera w programie Azure Database for MySQL":::
 
 2. Wpisz nazwę serwera w polu wejściowym, aby upewnić się, że jest to serwer, który chcesz usunąć.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby potwierdzić, że serwer jest usuwany Azure Database for MySQL":::
 
    > [!NOTE]
    > Usuwanie serwera jest nieodwracalne.

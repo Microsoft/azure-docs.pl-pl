@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761485"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542681"
 ---
 # <a name="sizing-guidance"></a>Wskazówki dotyczące zmiany wielkości
 
@@ -89,6 +89,7 @@ Każde wystąpienie zarządzane SQL musi mieć następujące minimalne żądania
 - Rdzenie: 1
 
 Każde utworzone wystąpienie zarządzane SQL ma trzy kontenery:
+
 |Nazwa kontenera|Żądanie procesora CPU|Żądanie pamięci|Limit CPU|Limit pamięci|Uwagi|
 |---|---|---|---|---|---|
 |fluentbit|100 mln|100Mi|Nie określono|Nie określono|Żądania zasobów kontenera fluentbit są _uzupełnieniem_ żądań określonych dla wystąpienia zarządzanego SQL.||
@@ -104,6 +105,7 @@ Każdy węzeł grupy serwerów ze skalą PostgreSQL musi mieć następujące min
 - Rdzenie: 1
 
 Każdy utworzony przez siebie koordynator grupy serwerów lub proces roboczy PostgreSQL ma trzy kontenery:
+
 |Nazwa kontenera|Żądanie procesora CPU|Żądanie pamięci|Limit CPU|Limit pamięci|Uwagi|
 |---|---|---|---|---|---|
 |fluentbit|100 mln|100Mi|Nie określono|Nie określono|Żądania zasobów kontenera fluentbit są _uzupełnieniem_ żądań określonych dla węzłów grupy serwerów PostgreSQL ze skalowaniem.|
@@ -122,9 +124,9 @@ Poniżej przedstawiono przykładowe Obliczanie wielkości.
 
 Wymagania:
 
-- **"SQL1"**: 1 wystąpienie zarządzane SQL z 16 GB pamięci RAM, 4 rdzeni
-- **"Sql2"**: 1 wystąpienie zarządzane SQL z 256 GB pamięci RAM, 16 rdzeni
-- **"Postgres1"**: 1 PostgreSQL grupy serwerów z 4 pracownikami w 12 GB pamięci RAM, 4 rdzeni
+- **"SQL1"** : 1 wystąpienie zarządzane SQL z 16 GB pamięci RAM, 4 rdzeni
+- **"Sql2"** : 1 wystąpienie zarządzane SQL z 256 GB pamięci RAM, 16 rdzeni
+- **"Postgres1"** : 1 PostgreSQL grupy serwerów z 4 pracownikami w 12 GB pamięci RAM, 4 rdzeni
 
 Obliczanie rozmiarów:
 

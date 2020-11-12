@@ -1,17 +1,17 @@
 ---
 title: Dostęp do dzienników wolnych zapytań — Azure Portal-Azure Database for MySQL
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do powolnych dzienników w Azure Database for MySQL z Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: 69368500a99b47238e74a960fdd5381c0339430a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ad4ffa99a7af592e3e93e53673d254956807c40
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905857"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541627"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Skonfiguruj i uzyskaj dostęp do dzienników wolnych zapytań z Azure Portal
 
@@ -40,7 +40,7 @@ Skonfiguruj dostęp do dziennika wolnych zapytań programu MySQL.
 
 8. Wybierz pozycję **Zapisz**. 
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Zrzut ekranu przedstawiający opcje dzienników serwera":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Zrzut ekranu przedstawiający parametry dziennika wolnych zapytań i Zapisz.":::
 
 Na stronie **parametry serwera** możesz powrócić do listy dzienników, zamykając stronę.
 
@@ -53,7 +53,7 @@ Po rozpoczęciu rejestrowania można wyświetlić listę dostępnych wolnych dzi
 
 3. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Dzienniki serwera**. Na stronie zostanie wyświetlona lista plików dziennika.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Zrzut ekranu przedstawiający opcje dzienników serwera":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Zrzut ekranu strony dzienników serwera z wyróżnioną listą dzienników":::
 
    > [!TIP]
    > Konwencja nazewnictwa dziennika to **MySQL-wolno-< nazwę serwera>-yyyymmddhh. log**. Data i godzina użyta w nazwie pliku to czas, kiedy dziennik został wystawiony. Pliki dziennika są obracane co 24 godziny lub 7,5 GB, zależnie od tego, co nastąpi wcześniej. 
@@ -62,23 +62,23 @@ Po rozpoczęciu rejestrowania można wyświetlić listę dostępnych wolnych dzi
 
 5. Aby pobrać pojedyncze pliki dziennika, wybierz ikonę strzałki w dół obok każdego pliku dziennika w wierszu tabeli.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Zrzut ekranu przedstawiający opcje dzienników serwera":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Zrzut ekranu strony Dzienniki serwera z wyróżnioną ikoną Strzałka w dół":::
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurowanie dzienników diagnostycznych
 
 1. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienia diagnostyczne**.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający opcje dzienników serwera":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający opcje ustawień diagnostycznych":::
 
 1. Podaj nazwę ustawienia diagnostycznego.
 
 1. Określ, które ujścia danych mają wysyłać dzienniki wolnych zapytań (konto magazynu, centrum zdarzeń lub Log Analytics obszar roboczy).
 
 1. W polu Typ dziennika wybierz pozycję **MySqlSlowLogs** .
-:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający opcje dzienników serwera":::
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający opcje konfiguracji ustawień diagnostycznych":::
 
 1. Po skonfigurowaniu ujścia danych w celu pomyślnego przetworzenia połączeń dzienników wolnych zapytań wybierz pozycję **Zapisz**.
-:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający opcje dzienników serwera":::
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Zrzut ekranu opcji konfiguracji ustawień diagnostycznych z wyróżnioną pozycją Zapisz":::
 
 1. Uzyskaj dostęp do dzienników wolnych zapytań, badając je w skonfigurowanych ujściach danych. Wyświetlenie dzienników może potrwać do 10 minut.
 

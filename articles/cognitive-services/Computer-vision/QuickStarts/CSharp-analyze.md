@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 6ec84a2a528b992a2645e94472987ea67331b533
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 879b451131ef7b2fa108ca1ae307107506fe8f27
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969504"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541916"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Szybki Start: analizowanie obrazu lokalnego przy użyciu interfejsu API REST przetwarzanie obrazów i języka C #
 
-W tym przewodniku szybki start przeanalizuje lokalnie przechowywany obraz w celu wyodrębnienia funkcji wizualnych przy użyciu interfejsu API REST przetwarzanie obrazów. Za pomocą metody [analizy obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) można wyodrębnić informacje o funkcji wizualizacji z zawartości obrazu.
+W tym przewodniku szybki start przeanalizuje lokalnie przechowywany obraz w celu wyodrębnienia funkcji wizualnych przy użyciu interfejsu API REST przetwarzanie obrazów. Za pomocą metody [analizy obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) można wyodrębnić informacje o funkcji wizualizacji z zawartości obrazu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,9 +37,9 @@ Aby utworzyć próbkę w programie Visual Studio, wykonaj następujące czynnoś
 
 1. Utwórz nowe rozwiązanie lub projekt programu Visual Studio w programie Visual Studio przy użyciu szablonu Aplikacja konsolowa języka Visual C# (.NET Core Framework).
 1. Zainstaluj pakiet NuGet Newtonsoft.Json.
-    1. W menu kliknij pozycję **Narzędzia**, a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
+    1. W menu kliknij pozycję **Narzędzia** , a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
     1. Kliknij kartę **Przeglądaj** , a następnie w polu **wyszukiwania** wpisz "Newtonsoft.Json" (jeśli nie jest on jeszcze wyświetlany).
-    1. Wybierz pozycję **Newtonsoft.Jsna**, a następnie kliknij pole wyboru obok nazwy projektu i **Zainstaluj**.
+    1. Wybierz pozycję **Newtonsoft.Jsna** , a następnie kliknij pole wyboru obok nazwy projektu i **Zainstaluj**.
 1. Skopiuj/wklej przykładowy fragment kodu poniżej, do pliku Program.cs. Dostosuj nazwę przestrzeni nazw, jeśli różni się od utworzonej przez siebie.
 1. Dodaj obraz wyboru do folderu bin/debug/netcoreappX. X, a następnie Dodaj nazwę obrazu (z rozszerzeniem) do zmiennej "imageFilePath".
 1. Uruchomisz program.

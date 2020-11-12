@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e9a101de408b506fb5375b5f16c1deff4f67532d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422005"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542318"
 ---
 # <a name="tutorial-debug-your-apis-using-request-tracing"></a>Samouczek: debugowanie interfejsów API za pomocą funkcji śledzenia żądań
 
@@ -47,7 +47,7 @@ Ustawienie **Zezwalaj na śledzenie** dla subskrypcji używanej przez interfejs 
 1. Wybierz pozycję  **pokazowy interfejs API konferencji** z listy interfejsów API.
 1. Wybierz kartę **Test**.
 1. Wybierz operację **GetSpeakers**.
-1. Upewnij się, że w nagłówku żądania HTTP znajduje się **wartość OCP-admin-Trace: true** i prawidłowa wartość dla parametru **OCP-admin-Subscription-Key**. Jeśli tak nie jest, wybierz pozycję **+ Dodaj nagłówek** , aby dodać nagłówek.
+1. Upewnij się, że w nagłówku żądania HTTP znajduje się wartość **OCP-APIM-Trace: true** i prawidłowa wartość dla parametru **OCP-APIM-Subscription-Key**. Jeśli tak nie jest, wybierz pozycję **+ Dodaj nagłówek** , aby dodać nagłówek.
 1. Wybierz pozycję **Wyślij** , aby wykonać wywołanie interfejsu API.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Konfigurowanie śledzenia interfejsu API":::

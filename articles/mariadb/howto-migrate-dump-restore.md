@@ -1,24 +1,24 @@
 ---
 title: Migrowanie z użyciem zrzutów i przywracania — Azure Database for MariaDB
 description: W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywracania baz danych w Azure Database for MariaDB przy użyciu narzędzi takich jak mysqldump, MySQL Workbench i PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 2/27/2020
-ms.openlocfilehash: 674622e6210c3cceda5af3b53bf4ba1851f7179b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c23b027b428ef58ae51a6ba1d2603e94b1eaaf8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118855"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540862"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrowanie bazy danych MariaDB do Azure Database for MariaDB przy użyciu zrzutów i przywracania
 W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywracania baz danych w Azure Database for MariaDB
 - Zrzuć i Przywróć z wiersza polecenia (przy użyciu mysqldump) 
 - Zrzuć i Przywróć przy użyciu PHPMyAdmin
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 Aby krokowo korzystać z tego przewodnika, musisz mieć:
 - [Tworzenie Azure Database for MariaDB Server — Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - Narzędzie wiersza polecenia [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) zainstalowane na komputerze.

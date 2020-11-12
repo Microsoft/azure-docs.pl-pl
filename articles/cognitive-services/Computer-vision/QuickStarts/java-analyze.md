@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 384778037c6a7e2294cf434d617e799a00d5578d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4964270bc9c562ab17c95010610ba04444c4eede
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969147"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542885"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Szybki Start: analizowanie obrazu zdalnego przy użyciu interfejsu API REST przetwarzanie obrazów i środowiska Java
 
-W tym przewodniku szybki start przeanalizuje zdalnie przechowywany obraz, aby wyodrębnić funkcje wizualne przy użyciu języka Java i interfejsu API REST przetwarzanie obrazów. [Metoda Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) umożliwia wyodrębnienie elementów wizualnych na podstawie zawartości obrazu.
+W tym przewodniku szybki start przeanalizuje zdalnie przechowywany obraz, aby wyodrębnić funkcje wizualne przy użyciu języka Java i interfejsu API REST przetwarzanie obrazów. [Metoda Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) umożliwia wyodrębnienie elementów wizualnych na podstawie zawartości obrazu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -61,8 +61,8 @@ Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 ```java
 public class AnalyzeImage {
     // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
+    // **_ Update or verify the following values. _*_
+    // _*********************************************
 
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
@@ -197,7 +197,7 @@ REST Response:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z aplikacją w języku Java Swing, w której zastosowano interfejs API przetwarzania obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Zapoznaj się z aplikacją w języku Java Swing, w której zastosowano interfejs API przetwarzania obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Java Tutorial (Samouczek dla języka JavaScript dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/java-tutorial.md)

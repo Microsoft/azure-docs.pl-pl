@@ -1,19 +1,19 @@
 ---
 title: Tworzenie projektu etykietowania danych
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak tworzyć i uruchamiać projekty etykietowania w celu tagowania danych na potrzeby uczenia maszynowego.  Narzędzia te zawierają etykietki z asystą lub przez człowieka w pętli etykietowania, aby pomóc w zadaniu.
+description: Dowiedz się, jak tworzyć i uruchamiać projekty etykietowania w celu tagowania danych na potrzeby uczenia maszynowego.  Użyj etykiety z asystą lub ludzkimi w pętli etykieta, aby pomóc w zadaniu.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 601434628258b8af3fb5fb9336f701be72441c64
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318122"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543225"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 

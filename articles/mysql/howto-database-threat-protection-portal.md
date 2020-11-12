@@ -1,17 +1,17 @@
 ---
 title: Zaawansowana ochrona przed zagrożeniami — Azure Portal-Azure Database for MySQL
 description: Dowiedz się, jak skonfigurować zaawansowaną ochronę przed zagrożeniami, aby wykrywać nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b30bd36dca6f866b8f3e6e8a0b133a6dd61b239b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541455"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541440"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Database for MySQL
 
@@ -28,7 +28,7 @@ Zaawansowana ochrona przed zagrożeniami jest częścią zaawansowanej oferty za
 
 ## <a name="set-up-threat-detection"></a>Konfigurowanie wykrywania zagrożeń
 1. Uruchom Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
-2. Przejdź do strony konfiguracji serwera Azure Database for MySQL, który ma być chroniony. W obszarze Ustawienia zabezpieczeń wybierz pozycję **Zaawansowana ochrona przed zagrożeniami (wersja zapoznawcza)** .
+2. Przejdź do strony konfiguracji serwera Azure Database for MySQL, który ma być chroniony. W obszarze Ustawienia zabezpieczeń wybierz pozycję **Zaawansowana ochrona przed zagrożeniami (wersja zapoznawcza)**.
 3. Na stronie Konfiguracja **zaawansowanej ochrony przed zagrożeniami (wersja zapoznawcza)** :
 
    - Włącz zaawansowaną ochronę przed zagrożeniami na serwerze.
@@ -42,15 +42,15 @@ Po wykryciu nietypowych działań bazy danych otrzymasz powiadomienie e-mail. Wi
  
 1. Kliknij link **Wyświetl Ostatnie alerty** w wiadomości e-mail, aby uruchomić Azure Portal i wyświetlić stronę Azure Security Center alertów, która zawiera przegląd aktywnych zagrożeń wykrytych w bazie danych SQL.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Raport o nietypowych działaniach":::
 
     Wyświetl aktywne zagrożenia:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Aktywne zagrożenia":::
 
 2. Kliknij konkretny alert, aby uzyskać dodatkowe szczegóły i akcje związane z badaniem tego zagrożenia i korygowaniem przyszłe zagrożenia.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Konkretny alert":::
 
 ## <a name="explore-threat-detection-alerts"></a>Eksploruj alerty wykrywania zagrożeń
 
@@ -58,7 +58,7 @@ SQL Database wykrywanie zagrożeń integruje swoje alerty z [Azure Security Cent
 
 Kliknij pozycję **alert wykrywania zagrożeń** , aby uruchomić stronę alerty Azure Security Center i zapoznaj się z omówieniem aktywnych zagrożeń SQL wykrytych w bazie danych.
 
-   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Alert wykrywania zagrożeń":::
    
 
 ## <a name="next-steps"></a>Następne kroki

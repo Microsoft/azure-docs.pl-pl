@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 63bc767c5843862ec056f3d68a9c96dccca4fba0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ad14eec6bcebcb144d73581ebc15479a489ad333
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969067"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542851"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>Szybki Start: Wyodrębnianie wydruku tekstu (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i środowiska Java
 
 > [!NOTE]
 > W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępny jest [Przewodnik Szybki Start dla języka Java](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/java-hand-text) . 
 
-W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
+W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -217,4 +217,4 @@ Poznaj aplikację z zasięgiem Java, która używa przetwarzanie obrazów do wyk
 > [!div class="nextstepaction"]
 > [Computer Vision API Java Tutorial (Samouczek dla języka JavaScript dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/java-tutorial.md)
 
-* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

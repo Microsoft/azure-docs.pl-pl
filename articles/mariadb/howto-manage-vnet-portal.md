@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie punktami końcowymi sieci wirtualnej — Azure Portal-Azure Database for MariaDB
 description: Twórz Azure Database for MariaDB punkty końcowe usługi sieci wirtualnej i zarządzaj nimi, korzystając z Azure Portal
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a4606755aedc9b34b257a7534d5c678bdeea7c0d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5eaa7821c61010b322d8f9032c439df28c297f3d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425925"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540879"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Tworzenie punktów końcowych usługi sieci wirtualnej i zarządzanie nimi Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -48,7 +48,7 @@ Punkty końcowe i reguły usługi sieci wirtualnej rozszerzają prywatną przest
    Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jeśli zasoby sieci wirtualnej i usługi platformy Azure znajdują się w różnych subskrypcjach, zasoby powinny znajdować się w tej samej dzierżawie Active Directory (AD). Upewnij się, że obie subskrypcje mają zarejestrowany dostawca zasobów **Microsoft. SQL** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
 
    > [!IMPORTANT]
-   > Zdecydowanie zaleca się zapoznanie się z tym artykułem dotyczącym konfiguracji punktów końcowych usługi i zagadnień przed skonfigurowaniem punktów końcowych usługi. **Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md) jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. Punkty końcowe usług wirtualnych używają nazwy typu usługi **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi ma również zastosowanie do usług Azure SQL Database, Azure Database for MariaDB, PostgreSQL i MySQL. Należy pamiętać, że podczas stosowania znacznika usługi **Microsoft. SQL** do punktu końcowego usługi sieci wirtualnej konfiguruje ruch usługi punktu końcowego dla wszystkich usług Azure Database, w tym Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB i Azure Database for MySQL serwerów w podsieci.
+   > Zdecydowanie zaleca się zapoznanie się z tym artykułem dotyczącym konfiguracji punktów końcowych usługi i zagadnień przed skonfigurowaniem punktów końcowych usługi. **Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md) jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. Punkty końcowe usług wirtualnych używają nazwy typu usługi **Microsoft. SQL** , która odnosi się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi ma również zastosowanie do usług Azure SQL Database, Azure Database for MariaDB, PostgreSQL i MySQL. Należy pamiętać, że podczas stosowania znacznika usługi **Microsoft. SQL** do punktu końcowego usługi sieci wirtualnej konfiguruje ruch usługi punktu końcowego dla wszystkich usług Azure Database, w tym Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB i Azure Database for MySQL serwerów w podsieci.
    > 
 
 5. Po włączeniu kliknij przycisk **OK** , aby zobaczyć, że punkty końcowe usługi sieci wirtualnej są włączone wraz z regułą sieci wirtualnej.

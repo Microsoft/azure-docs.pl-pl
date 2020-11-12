@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie serwera Azure Portal-Azure Database for MySQL'
 description: W tym artykule podano instrukcje pozwalające utworzyć przykładowy serwer usługi Azure Database for MySQL za pomocą witryny Azure Portal w czasie około pięciu minut.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: ea131c33b37c8989f3c5eb8f11b8e0d7a236190f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504504"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542256"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu Azure Portal
 

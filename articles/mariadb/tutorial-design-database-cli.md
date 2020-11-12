@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: Projektowanie interfejsu wiersza polecenia platformy Azure Azure Database for MariaDB'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer oraz bazę danych usługi Azure Database for MariaDB i zarządzać nimi przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 205fe47acb6d10b7596c462476b4e9e718a3d813
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424960"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542511"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Samouczek: projektowanie usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure
 

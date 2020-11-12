@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a2ec1c609fc0562c6c8181a934e742daa9a5a4f9
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: da6a2b97d2656d56fa2aa0e7259fba433bd7b81e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241557"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541644"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
@@ -21,11 +21,9 @@ Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na
 > [!NOTE]
 > Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MySQL w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest zainstalowana, uruchom polecenie `az --version`. Aby uzyskać informacje na temat instalacji i uaktualnienia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -128,24 +126,24 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
-1. Na pasku wyszukiwania portalu wpisz *myVm* .
+1. Na pasku wyszukiwania portalu wpisz *myVm*.
 
-1. Wybierz przycisk **Połącz** . Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną** .
+1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz pozycję **Pobierz plik RDP** . Platforma Azure tworzy plik Remote Desktop Protocol ( *RDP* ) i pobiera go na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol ( *RDP* ) i pobiera go na komputer.
 
 1. Otwórz *pobrany plik RDP* .
 
-    1. Po wyświetleniu monitu wybierz pozycję **Połącz** .
+    1. Po wyświetleniu monitu wybierz pozycję **Połącz**.
 
     1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta** , aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz pozycję **OK** .
+1. Wybierz pozycję **OK**.
 
-1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj** .
+1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
 1. Po wyświetleniu pulpitu maszyny wirtualnej zminimalizuj ją i wróć z powrotem do pulpitu lokalnego.  
 

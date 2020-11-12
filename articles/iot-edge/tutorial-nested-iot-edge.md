@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 5b2a74450477d562231eafd684b3d781d92f700d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 78a8ae7724c9ede06b24649d3b19ea90b791ae08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489577"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541321"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Samouczek: Tworzenie hierarchii urządzeń IoT Edge (wersja zapoznawcza)
 
@@ -244,7 +244,7 @@ Wykonaj te kroki i uruchom ponownie usługę IoT Edge, aby skonfigurować urząd
    hostname: <device fqdn or IP>
    ```
 
-1. W przypadku urządzeń IoT Edge w **niższych warstwach** Zaktualizuj plik konfiguracji, aby wskazywał nazwę FQDN lub adres IP urządzenia nadrzędnego, dopasowując się do pola **Nazwa hosta** urządzenia nadrzędnego. W przypadku urządzeń IoT Edge w **górnej warstwie** Pozostaw ten parametr pusty.
+1. W przypadku urządzeń IoT Edge w **niższych warstwach** Zaktualizuj plik konfiguracji, aby wskazywał nazwę FQDN lub adres IP urządzenia nadrzędnego, dopasowując się do pola **Nazwa hosta** urządzenia nadrzędnego. W przypadku urządzeń IoT Edge w **górnej warstwie** Pozostaw ten parametr komentarz.
 
    ```yml
    parent_hostname: <parent device fqdn or IP>

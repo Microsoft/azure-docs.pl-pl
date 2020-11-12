@@ -1,7 +1,7 @@
 ---
 title: Przykładowe notesy Jupyter
 titleSuffix: Azure Machine Learning
-description: Znajdź i użyj przykładowych notesów Jupyter, aby poznać Azure Machine Learning Python for SDK.
+description: Dowiedz się, jak znaleźć i korzystać z notesów Juypter zaprojektowanych, aby ułatwić zapoznanie się z zestawem SDK i służyć jako modele dla własnych projektów uczenia maszynowego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 16859a6eeb152949387ac7eec8a50341e69b9691
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f5cb2831a58ce9d0d30039b80815e281401e883
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323706"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542562"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Eksplorowanie Azure Machine Learning z notesami Jupyter
 

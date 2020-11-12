@@ -1,7 +1,7 @@
 ---
 title: Zarządzanie zasobami i przydziałami
 titleSuffix: Azure Machine Learning
-description: Dowiedz się więcej na temat przydziałów zasobów dla Azure Machine Learning i sposobów zwiększania limitu przydziału.
+description: Dowiedz się więcej na temat przydziałów i limitów zasobów dla Azure Machine Learning i sposobu żądania zwiększenia limitu przydziału.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309081"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542120"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie przydziałami i zwiększanie limitów zasobów przy użyciu Azure Machine Learning
 
@@ -102,7 +102,7 @@ W poniższej tabeli przedstawiono dodatkowe limity, których nie można przekroc
 
 Aby uzyskać więcej informacji, zobacz [limity Container Instances](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Usługa Azure Storage ma limit 250 kont magazynu na region na subskrypcję. Ten limit obejmuje konta magazynu w warstwie Standardowa i Premium.
 
 Aby zwiększyć limit, należy wysłać żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage będzie przeglądać swój przypadek i może zatwierdzić do 250 kont magazynu dla regionu.
@@ -174,7 +174,7 @@ Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynnośc
 
 1. [Utwórz żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) i wybierz następujące opcje w sekcji __podstawowe informacje__ :
 
-    | Pole | Wybór |
+    | Pole | Zaznaczenie |
     | ----- | ----- |
     | Typ problemu | **Szczegóły techniczne** |
     | Usługa | **Moje usługi**. Następnie na liście rozwijanej wybierz pozycję __Machine Learning__ . |

@@ -1,19 +1,19 @@
 ---
 title: Dostęp do dzienników wolnych zapytań — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
 description: W tym artykule opisano, jak uzyskać dostęp do dzienników wolnych zapytań w Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a662fe9300d78591cc7ae1fcff67f9b3f93ab8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 945a67f81010a61adf814f6f6f422eba5001b48d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501222"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541576"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników wolnych zapytań za pomocą interfejsu wiersza polecenia platformy Azure
 Możesz pobrać Azure Database for MySQL dzienników wolnych zapytań za pomocą interfejsu wiersza polecenia platformy Azure, narzędzia wiersza poleceń platformy Azure.
@@ -25,8 +25,8 @@ Aby krokowo poprowadzić ten przewodnik, musisz:
 
 ## <a name="configure-logging"></a>Konfigurowanie rejestrowania
 Serwer można skonfigurować tak, aby mógł uzyskać dostęp do dziennika wolnych zapytań programu MySQL, wykonując następujące czynności:
-1. Włącz rejestrowanie wolnych zapytań, ustawiając parametr ** \_ \_ dziennika wolnych zapytań** na wartość włączone.
-2. Wybierz lokalizację, do której mają być wyprowadzane dzienniki, aby użyć ** \_ danych wyjściowych dziennika**. Aby wysłać dzienniki do magazynu lokalnego i Azure Monitor dzienników diagnostycznych, wybierz pozycję **plik**. Aby wysyłać dzienniki tylko do dzienników Azure Monitor, zaznacz opcję **Brak**
+1. Włącz rejestrowanie wolnych zapytań, ustawiając parametr **\_ \_ dziennika wolnych zapytań** na wartość włączone.
+2. Wybierz lokalizację, do której mają być wyprowadzane dzienniki, aby użyć **\_ danych wyjściowych dziennika**. Aby wysłać dzienniki do magazynu lokalnego i Azure Monitor dzienników diagnostycznych, wybierz pozycję **plik**. Aby wysyłać dzienniki tylko do dzienników Azure Monitor, zaznacz opcję **Brak**
 3. Dostosuj inne parametry, takie jak **długi \_ \_ czas zapytania** i **Rejestruj \_ wolne \_ \_ instrukcje administratora**.
 
 Aby dowiedzieć się, jak ustawić wartości tych parametrów za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [How to configure Server Parameters](howto-configure-server-parameters-using-cli.md).

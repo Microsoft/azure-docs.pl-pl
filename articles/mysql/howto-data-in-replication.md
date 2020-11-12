@@ -1,17 +1,17 @@
 ---
 title: Konfigurowanie replikacji danych — Azure Database for MySQL
 description: W tym artykule opisano sposób konfigurowania replikacja typu data-in Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544039"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541406"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Jak skonfigurować replikacja typu data-in Azure Database for MySQL
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób konfigurowania [replikacja typu Data-in](concepts
 > [!NOTE]
 > Komunikacja bezpłatna bez opłat
 >
-> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_ . Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
 >
 
 Aby utworzyć replikę w usłudze Azure Database for MySQL, [replikacja typu Data-in](concepts-data-in-replication.md)  synchronizuje dane ze źródłowego serwera MySQL lokalnie, na maszynach wirtualnych lub w usługach bazy danych w chmurze. Replikacja typu data-in jest wykonywana za pomocą technologii replikacji opartej na pozycji w pliku dziennika binarnego (binlog) natywnej dla programu MySQL. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -75,7 +75,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
       ```bash
       ping <output of step 2b>
       ``` 
-      Na przykład: 
+      Przykład: 
       ```bash      
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
@@ -134,17 +134,17 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
    **MySQL Workbench**
 
-   Aby utworzyć rolę replikacji w programie MySQL Workbench, Otwórz panel **Użytkownicy i uprawnienia** w panelu **zarządzania** . Następnie kliknij pozycję **Dodaj konto** . 
+   Aby utworzyć rolę replikacji w programie MySQL Workbench, Otwórz panel **Użytkownicy i uprawnienia** w panelu **zarządzania** . Następnie kliknij pozycję **Dodaj konto**. 
  
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Użytkownicy i uprawnienia":::
 
    Wpisz nazwę użytkownika w polu **Nazwa logowania** . 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Użytkownicy i uprawnienia":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Użytkownik synchronizacji":::
  
-   Kliknij panel **role administracyjne** , a następnie wybierz pozycję **replikacja podrzędna** z listy **uprawnień globalnych** . Następnie kliknij przycisk **Zastosuj** , aby utworzyć rolę replikacji.
+   Kliknij panel **role administracyjne** , a następnie wybierz pozycję **replikacja podrzędna** z listy **uprawnień globalnych**. Następnie kliknij przycisk **Zastosuj** , aby utworzyć rolę replikacji.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Użytkownicy i uprawnienia":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replikacja podrzędna":::
 
 1. Ustaw serwer źródłowy do trybu tylko do odczytu
 
@@ -164,7 +164,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    ```
    Wyniki powinny wyglądać jak poniżej. Pamiętaj, aby zanotować nazwę pliku binarnego, ponieważ zostanie ona użyta w kolejnych krokach.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Użytkownicy i uprawnienia":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Wyniki stanu głównego":::
  
 ## <a name="dump-and-restore-source-server"></a>Zrzuć i przywróć serwer źródłowy
 

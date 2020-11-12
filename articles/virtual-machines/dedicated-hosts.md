@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979023"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542154"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedykowane hosty platformy Azure
 
@@ -84,7 +84,6 @@ Znane problemy i ograniczenia dotyczące automatycznego umieszczania maszyn wirt
 
 - Nie będzie można stosować korzyści z używania hybrydowej platformy Azure na dedykowanych hostach.
 - Ponowne wdrożenie maszyny wirtualnej nie będzie możliwe. 
-- Nie będzie można sterować konserwacją dla dedykowanych hostów.
 - Nie będzie można używać maszyn wirtualnych z serii Lsv2, NVasv4, NVsv3, Msv2 lub M z dedykowanymi hostami 
 
 
@@ -120,7 +119,7 @@ Nie wszystkie ustawienia aranżacji i optymalizacji zestawu skalowania są obsł
 
 Infrastruktura obsługująca maszyny wirtualne może być czasami aktualizowana w celu poprawy niezawodności, wydajności, zabezpieczeń i uruchamiania nowych funkcji. Platforma Azure próbuje zminimalizować wpływ konserwacji na platformę, jeśli jest to możliwe, ale klienci, którzy mają *wrażliwe* obciążenia, nie mogą tolerować nawet kilka sekund, aby maszyna wirtualna mogła zostać zamrożona lub odłączona do konserwacji.
 
-**Kontrola konserwacji** udostępnia klientom opcję pomijania regularnych aktualizacji platformy zaplanowanych na ich dedykowanych hostach, a następnie zastosuje ją w wybranym momencie w 35 dziennym oknie.
+**Kontrola konserwacji** udostępnia klientom opcję pomijania regularnych aktualizacji platformy zaplanowanych na ich dedykowanych hostach, a następnie zastosuje ją w wybranym momencie w 35 dziennym oknie. W oknie obsługi można zastosować konserwację bezpośrednio na poziomie hosta w dowolnej kolejności. Gdy okno obsługi zostanie przełączone, firma Microsoft przejdzie do przodu i zastosuje oczekującą konserwację do hostów w kolejności, która może nie być zgodna z domenami błędów zdefiniowanymi przez użytkownika.
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie aktualizacjami platform przy użyciu sterowania konserwacją](./maintenance-control.md).
 

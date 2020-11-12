@@ -1,17 +1,17 @@
 ---
 title: Zaawansowana ochrona przed zagrożeniami — Azure Database for MySQL
 description: Poznaj koncepcje dotyczące zaawansowanej ochrony przed zagrożeniami, która wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c9e884d153e85e7b68dee38494ac5d6f4271978a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547235"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542579"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database for MySQL zaawansowaną ochronę przed zagrożeniami
 

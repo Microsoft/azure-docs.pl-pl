@@ -6,17 +6,17 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: 434d978f6a228bad9b142738767500d639017032
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 534452d57884045f90c1d8d3ff44aadc3578cd4f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378877"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542538"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Jak używać Micrometer z usługą Azure Application Insights Java SDK
 
 > [!IMPORTANT]
-> Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
+> Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Funkcja telemetrii Micrometer jest zbierana z Application Insightsem programu Java 3,0 Agent — postępuj zgodnie z wytycznymi dla [Application Insights programu java 3,0 Agent](./java-in-process-agent.md).
 
 > [!NOTE]
 > Application Insights SDK języka Java nie obsługuje wiosny webstrumień — zamiast tego użyj [Application Insights Java 3,0 Agent](./java-in-process-agent.md) . 

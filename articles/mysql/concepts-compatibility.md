@@ -1,17 +1,17 @@
 ---
 title: Zgodność sterowników i narzędzi — Azure Database for MySQL
 description: W tym artykule opisano sterowniki MySQL i narzędzia do zarządzania, które są zgodne z Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8d222eca76f020703f89dd1bdd5848cec4bc52ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ea7af0ec9c740c07cd3a5e4ebd88a9ad1a031d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006537"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542647"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodne z Azure Database for MySQL
 W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z programem Azure Database for MySQL.

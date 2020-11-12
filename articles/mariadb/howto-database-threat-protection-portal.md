@@ -1,17 +1,17 @@
 ---
 title: Zaawansowana ochrona przed zagrożeniami — Azure Portal-Azure Database for MariaDB
 description: Ochrona przed zagrożeniami dla Azure Database for MariaDB wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7734feddabb1a4a86e7932da3ef4adc57352637e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425970"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542698"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Database for MariaDB
 
@@ -31,7 +31,7 @@ Zaawansowana ochrona przed zagrożeniami jest częścią zaawansowanej oferty za
 3. Na stronie Konfiguracja **zaawansowanej ochrony przed zagrożeniami (wersja zapoznawcza)** :
 
    - Włącz zaawansowaną ochronę przed zagrożeniami na serwerze.
-   - W obszarze **Ustawienia zaawansowanej ochrony przed zagrożeniami**w polu tekstowym **Wyślij alerty do** wprowadź listę wiadomości e-mail, które mają otrzymywać alerty zabezpieczeń po wykryciu nietypowych działań bazy danych.
+   - W obszarze **Ustawienia zaawansowanej ochrony przed zagrożeniami** w polu tekstowym **Wyślij alerty do** wprowadź listę wiadomości e-mail, które mają otrzymywać alerty zabezpieczeń po wykryciu nietypowych działań bazy danych.
   
    ![Konfigurowanie wykrywania zagrożeń](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 

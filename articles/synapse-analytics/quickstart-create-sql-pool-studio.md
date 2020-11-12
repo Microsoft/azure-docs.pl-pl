@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie dedykowanej dedykowanej puli SQL przy użyciu programu Synapse Studio'
+title: 'Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu programu Synapse Studio'
 description: Utwórz dedykowaną pulę SQL przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506349"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541848"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu programu Synapse Studio
 
@@ -110,6 +110,7 @@ Jeśli chcesz usunąć dedykowaną pulę SQL, wykonaj następujące czynności:
 1. Potwierdź usunięcie i naciśnij przycisk **Usuń** .
 1. Gdy proces zakończy się pomyślnie, dedykowana Pula SQL nie będzie już wyświetlana w obszarze zasoby obszaru roboczego.
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Następne kroki
+ 
 - Zobacz [Szybki Start: Tworzenie notesu Apache Spark](quickstart-apache-spark-notebook.md).
 - Zobacz [Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu Azure Portal](quickstart-create-sql-pool-portal.md).

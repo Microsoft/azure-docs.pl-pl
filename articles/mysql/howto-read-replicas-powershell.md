@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie replikami odczytu — Azure Database for MySQL Azure PowerShell
 description: Informacje na temat konfigurowania replik odczytu i zarządzania nimi w programie Azure Database for MySQL przy użyciu programu PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9c8ce7519c6e2c84ef47fc78897c4b67b89e56a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe33730fc11bfc18b7d67471e1077fb9490385d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541020"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541950"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MySQL przy użyciu programu PowerShell
 
@@ -54,9 +54,9 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `New-AzMySqlReplica`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której jest tworzony serwer repliki.  |
+| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której jest tworzony serwer repliki.  |
 | Nazwa | mydemoreplicaserver | Nazwa nowego serwera repliki, który został utworzony. |
 
 Aby utworzyć replikę odczytu między regionami, użyj parametru **Location** . Poniższy przykład tworzy replikę w regionie **zachodnie stany USA** .
@@ -83,9 +83,9 @@ Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 `Get-AzMySqlReplica`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
+| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
 | ServerName | mydemoserver | Nazwa lub identyfikator serwera źródłowego. |
 
 ### <a name="delete-a-replica-server"></a>Usuwanie serwera repliki

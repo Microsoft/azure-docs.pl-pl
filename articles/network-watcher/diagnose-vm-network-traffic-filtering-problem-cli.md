@@ -18,22 +18,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 871c4fc69daac9d5f515fdf3e4ec0ca1de6fbe08
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a483bc6097c4dd76ed67e93e4313ad8c25cbc08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91295978"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542358"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
 
 W tym przewodniku Szybki start wdrożysz maszynę wirtualną, a następnie sprawdzisz komunikację z adresem IP i adresem URL oraz komunikację z adresu IP. Określisz przyczynę niepowodzenia komunikacji oraz sposób rozwiązania problemu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Po sprawdzeniu wersji interfejsu wiersza polecenia platformy Azure Uruchom polecenie, `az login`  Aby utworzyć połączenie z platformą Azure. Polecenie interfejsu wiersza polecenia platformy Azure w tym przewodniku Szybki Start jest sformatowane do uruchamiania w powłoce bash.
+- Ten przewodnik Szybki Start wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
+
+- Polecenie interfejsu wiersza polecenia platformy Azure w tym przewodniku Szybki Start jest sformatowane do uruchamiania w powłoce bash.
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
@@ -43,7 +45,7 @@ Przed utworzeniem maszyny wirtualnej musisz utworzyć grupę zasobów, która b�
 az group create --name myResourceGroup --location eastus
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm*:
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm* :
 
 ```azurecli-interactive
 az vm create \
@@ -132,9 +134,9 @@ az network nic list-effective-nsg \
   --name myVmVMNic
 ```
 
-Zwrócone dane wyjściowe obejmują następujący tekst dla reguły **AllowInternetOutbound**, która zezwalała na ruch wychodzący do witryny www.bing.com w sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) w poprzednim kroku:
+Zwrócone dane wyjściowe obejmują następujący tekst dla reguły **AllowInternetOutbound** , która zezwalała na ruch wychodzący do witryny www.bing.com w sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) w poprzednim kroku:
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -171,11 +173,11 @@ Zwrócone dane wyjściowe obejmują następujący tekst dla reguły **AllowInter
 },
 ```
 
-W poprzednich danych wyjściowych widać, że właściwość **destinationAddressPrefix** jest określona jako **Internet**. Nie jest jednak jasne, jak adres 13.107.21.200 jest związany z **Internetem**. W parametrze **expandedDestinationAddressPrefix** znajduje się kilka prefiksów adresów. Jednym z prefiksów na liście jest prefiks **12.0.0.0/6**, który obejmuje zakres adresów IP 12.0.0.1-15.255.255.254. Ponieważ adres 13.107.21.200 mieści się w tym zakresie adresów, reguła **AllowInternetOutBound** zezwala na ruch wychodzący. Ponadto w poprzednich danych wyjściowych nie ma żadnych reguł o wyższym priorytecie (niższym numerze), które przesłaniają tę regułę. Aby blokować komunikację wychodzącą z adresem IP, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która blokuje ruch wychodzący na porcie 80 do tego adresu IP.
+W poprzednich danych wyjściowych widać, że właściwość **destinationAddressPrefix** jest określona jako **Internet**. Nie jest jednak jasne, jak adres 13.107.21.200 jest związany z **Internetem**. W parametrze **expandedDestinationAddressPrefix** znajduje się kilka prefiksów adresów. Jednym z prefiksów na liście jest prefiks **12.0.0.0/6** , który obejmuje zakres adresów IP 12.0.0.1-15.255.255.254. Ponieważ adres 13.107.21.200 mieści się w tym zakresie adresów, reguła **AllowInternetOutBound** zezwala na ruch wychodzący. Ponadto w poprzednich danych wyjściowych nie ma żadnych reguł o wyższym priorytecie (niższym numerze), które przesłaniają tę regułę. Aby blokować komunikację wychodzącą z adresem IP, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która blokuje ruch wychodzący na porcie 80 do tego adresu IP.
 
 Po uruchomieniu polecenia `az network watcher test-ip-flow` w celu przetestowania komunikacji wychodzącej na adres 172.131.0.100 w kroku [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) dane wyjściowe zawierały informację, że reguła **DefaultOutboundDenyAll** blokuje komunikację. Reguła **DefaultOutboundDenyAll** odpowiada regule **DenyAllOutBound** wymienionej w następujących danych wyjściowych polecenia `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -208,7 +210,7 @@ Reguła wyświetla wartość **0.0.0.0/0** dla właściwości **destinationAddre
 
 Po uruchomieniu polecenia `az network watcher test-ip-flow` w celu przetestowania komunikacji przychodzącej z adresu 172.131.0.100 w kroku [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) dane wyjściowe zawierały informację, że reguła **DefaultInboundDenyAll** blokuje komunikację. Reguła **DefaultInboundDenyAll** odpowiada regule **DenyAllInBound** wymienionej w następujących danych wyjściowych polecenia `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},

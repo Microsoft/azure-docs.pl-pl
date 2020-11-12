@@ -3,28 +3,29 @@ title: Azure Service Bus-wstrzymywanie jednostek obsługi komunikatów
 description: W tym artykule wyjaśniono, jak tymczasowo wstrzymywać i ponownie aktywować Azure Service Bus jednostki komunikatów (kolejki, tematy i subskrypcje).
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575262"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543055"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Wstrzymywanie i ponowne uaktywnianie jednostek obsługi komunikatów (wyłączone)
 
 Kolejki, tematy i subskrypcje mogą być tymczasowo zawieszone. Zawieszenie umieszcza jednostkę w stanie wyłączonym, w którym wszystkie komunikaty są przechowywane w magazynie. Jednak wiadomości nie mogą zostać usunięte ani dodane, a odpowiednie operacje protokołu zwracają błędy.
 
-Zawieszenie jednostki jest zwykle wykonywane z pilnymi przyczynami administracyjnymi. W jednym scenariuszu wdrożono wadliwy odbiornik, który pobiera komunikaty z kolejki, kończy się niepowodzeniem, a następnie nieprawidłowo wypełnia komunikaty i usuwa je. W przypadku zdiagnozowania tego zachowania Kolejka może zostać wyłączona dla odbieranych danych, dopóki nie zostanie wdrożony skorygowany kod i będzie można zapobiec dalszej utracie danych spowodowanych przez błędny kod.
+Możesz chcieć zawiesić jednostkę do pilnych powodów administracyjnych. Na przykład wadliwy odbiornik odbiera komunikaty z kolejki, przetwarzanie kończy się niepowodzeniem, a jeszcze niepoprawnie wypełnia komunikaty i usuwa je. W takim przypadku można wyłączyć odbieranie kolejki do momentu, gdy poprawisz i wdrażasz kod. 
 
-Zawieszenie lub ponowna aktywacja może zostać wykonana przez użytkownika lub przez system. System zawiesza jedynie jednostki z powodu poważnego działania administracyjnego, takiego jak nakroczenie limitu wydatków na subskrypcję. Jednostki wyłączone przez system nie mogą być ponownie uaktywniane przez użytkownika, ale są przywracane po rozdaniu przyczyny zawieszenia.
+Zawieszenie lub ponowna aktywacja może zostać wykonana przez użytkownika lub przez system. System zawiesza jedynie jednostki z powodu poważnej przyczyny administracyjne, takie jak skutki limitu wydatków na subskrypcję. Jednostki wyłączone przez system nie mogą być ponownie uaktywniane przez użytkownika, ale są przywracane po rozdaniu przyczyny zawieszenia.
 
 ## <a name="queue-status"></a>Stan kolejki 
-Stany, które można ustawić dla kolejki, to:
+Stany, które można ustawić dla **kolejki** , to:
 
--   **Aktywne**: kolejka jest aktywna.
--   **Wyłączone**: kolejka jest wstrzymana. Jest to równoznaczne z ustawieniem zarówno **SendDisabled** , jak i **ReceiveDisabled**. 
--   **SendDisabled**: kolejka jest częściowo zawieszona, a odbieranie jest dozwolone.
--   **ReceiveDisabled**: kolejka jest częściowo zawieszona z dozwolonym wysyłaniem.
+-   **Aktywne** : kolejka jest aktywna. Można wysyłać wiadomości do i odbierać wiadomości z kolejki. 
+-   **Wyłączone** : kolejka jest wstrzymana. Jest to równoznaczne z ustawieniem zarówno **SendDisabled** , jak i **ReceiveDisabled**. 
+-   **SendDisabled** : nie można wysyłać komunikatów do kolejki, ale można z niej odbierać wiadomości. Jeśli spróbujesz wysyłać komunikaty do kolejki, otrzymasz wyjątek. 
+-   **ReceiveDisabled** : można wysyłać komunikaty do kolejki, ale nie można odbierać z niej komunikatów. Jeśli spróbujesz odbierać komunikaty do kolejki, otrzymasz wyjątek.
+
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Zmień stan kolejki w Azure Portal: 
 
@@ -35,9 +36,9 @@ Stany, które można ustawić dla kolejki, to:
     :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Wybierz stan kolejki":::
 4. Wybierz nowy stan dla kolejki, a następnie wybierz **przycisk OK**. 
 
-    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Wybierz stan kolejki":::
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Ustaw stan kolejki":::
     
-Portal zezwala tylko na całkowite wyłączenie kolejek. Operacje wysyłania i odbierania można także wyłączać oddzielnie przy użyciu interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w zestawie .NET Framework SDK lub z szablonem Azure Resource Manager za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
+Można również wyłączyć operacje wysyłania i odbierania przy użyciu interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w zestawie SDK platformy .NET lub przy użyciu szablonu Azure Resource Manager za pośrednictwem interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
 ### <a name="change-the-queue-status-using-azure-powershell"></a>Zmiana stanu kolejki przy użyciu Azure PowerShell
 W poniższym przykładzie pokazano polecenie programu PowerShell do wyłączania kolejki. Polecenie ponownej aktywacji jest równoznaczne z ustawieniem `Status` **aktywny**.
@@ -51,24 +52,31 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 ```
 
 ## <a name="topic-status"></a>Stan tematu
-Zmiana stanu tematu w Azure Portal jest podobna do zmiany stanu kolejki. Po wybraniu bieżącego stanu tematu zostanie wyświetlona następująca strona, która umożliwia zmianę stanu. 
+Stan tematu można zmienić w Azure Portal. Wybierz bieżący stan tematu, aby wyświetlić następującą stronę, która umożliwia zmianę stanu. 
 
-:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Wybierz stan kolejki":::
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Zmień stan tematu":::
 
-Stany, które można ustawić dla tematu, to:
-- **Aktywne**: temat jest aktywny.
-- **Wyłączone**: temat jest zawieszony.
-- **SendDisabled**: ten sam efekt jest **wyłączony**.
+Stany, które można ustawić dla **tematu** , to:
+- **Aktywne** : temat jest aktywny. Komunikaty można wysyłać do tematu. 
+- **Wyłączone** : temat jest zawieszony. Nie można wysyłać komunikatów do tematu. 
+- **SendDisabled** : ten sam efekt jest **wyłączony**. Nie można wysyłać komunikatów do tematu. Wystąpi wyjątek w przypadku próby wysłania komunikatów do tematu. 
 
 ## <a name="subscription-status"></a>Stan subskrypcji
-Zmiana stanu subskrypcji w Azure Portal jest podobna do zmiany stanu tematu lub kolejki. Po wybraniu bieżącego stanu subskrypcji zostanie wyświetlona następująca strona, która umożliwia zmianę stanu. 
+Stan subskrypcji można zmienić w Azure Portal. Wybierz bieżący stan subskrypcji, aby wyświetlić następującą stronę, która umożliwia zmianę stanu. 
 
-:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Wybierz stan kolejki":::
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Zmień stan subskrypcji":::
 
-Stany, które można ustawić dla tematu, to:
-- **Aktywne**: temat jest aktywny.
-- **Wyłączone**: temat jest zawieszony.
-- **ReceiveDisabled**: ten sam efekt jest **wyłączony**.
+Stany, które można ustawić dla **subskrypcji** , to:
+- **Aktywne** : subskrypcja jest aktywna. Można odbierać wiadomości FRM subskrypcję.
+- **Wyłączone** : subskrypcja jest zawieszona. Nie można odbierać wiadomości z subskrypcji. 
+- **ReceiveDisabled** : ten sam efekt jest **wyłączony**. Nie można odbierać wiadomości z subskrypcji. Jeśli spróbujesz odbierać komunikaty do subskrypcji, otrzymasz wyjątek.
+
+| Stan tematu | Stan subskrypcji | Zachowanie | 
+| ------------ | ------------------- | -------- | 
+| Aktywna | Aktywna | Komunikaty można wysyłać do tematu i odbierać wiadomości z subskrypcji. | 
+| Aktywna | Wyłączone lub odebrane wyłączone | Komunikaty można wysyłać do tematu, ale nie można odbierać komunikatów z subskrypcji | 
+| Wyłączone lub wysłane | Aktywna | Nie można wysyłać komunikatów do tematu, ale można odbierać wiadomości, które już znajdują się w subskrypcji. | 
+| Wyłączone lub wysłane | Wyłączone lub odebrane wyłączone | Nie można wysyłać komunikatów do tematu i nie można uzyskać od nich subskrypcji. | 
 
 ## <a name="other-statuses"></a>Inne Stany
 Wyliczenie [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definiuje również zestaw stanów przejściowych, które mogą być ustawiane przez system. 

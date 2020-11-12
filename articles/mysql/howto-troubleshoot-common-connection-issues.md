@@ -2,17 +2,17 @@
 title: Rozwiązywanie problemów z połączeniami — Azure Database for MySQL
 description: Dowiedz się, jak rozwiązywać problemy z połączeniem do Azure Database for MySQL, w tym błędy przejściowe wymagające ponownych prób, problemy z zaporą i przestoje.
 keywords: połączenie MySQL, parametry połączenia, problemy z łącznością, błąd przejściowy, błąd połączenia
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: e4afcb8756f64ab9b66044a1bf1304427330e365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da500087aeb4ad5e2bf516c3d0ce3cceaf8396af
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82100893"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540777"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Rozwiązywanie problemów z połączeniem z usługą Azure Database for MySQL
 
@@ -48,7 +48,7 @@ Jeśli aplikacja trwale nie może nawiązać połączenia z Azure Database for M
 
 * Konfiguracja zapory serwera: Upewnij się, że Zapora serwera Azure Database for MySQL jest skonfigurowana tak, aby zezwalać na połączenia z klienta, w tym serwery proxy i bramy.
 * Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Adresy IP i porty serwera, które nie mogą być dozwolone, a także nazwy aplikacji, takie jak MySQL w niektórych zaporach.
-* Błąd użytkownika: być może masz błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu * \@ servername* w nazwie użytkownika.
+* Błąd użytkownika: być może masz błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu *\@ servername* w nazwie użytkownika.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kroki rozwiązywania problemów z łącznością trwałą
 

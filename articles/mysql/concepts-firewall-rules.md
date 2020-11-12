@@ -1,17 +1,17 @@
 ---
 title: Reguły zapory — Azure Database for MySQL
 description: Dowiedz się więcej na temat używania reguł zapory do włączania połączeń z serwerem Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4efd9fd814165755d27de1d269b6319890f7190d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882667"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541610"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Reguły zapory serwera Azure Database for MySQL
 Zapory uniemożliwiają dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania.
@@ -43,7 +43,7 @@ Jeśli stały wychodzący adres IP nie jest dostępny dla usługi platformy Azur
 > Opcja **Zezwalaj na dostęp do usług platformy Azure** umożliwia skonfigurowanie zapory w taki sposób, aby zezwalała na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Przykładowy przepływ działania zapory":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Konfigurowanie zezwalania na dostęp do usług platformy Azure w portalu":::
 
 ### <a name="connecting-from-a-vnet"></a>Łączenie z sieci wirtualnej
 Aby bezpiecznie połączyć się z serwerem Azure Database for MySQL z sieci wirtualnej, należy rozważyć użycie [punktów końcowych usługi sieci wirtualnej](./concepts-data-access-and-security-vnet.md). 

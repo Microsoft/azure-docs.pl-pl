@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie replikami odczytu — Azure Database for MySQL Azure Portal
 description: Dowiedz się, jak skonfigurować repliki odczytu i zarządzać nimi w Azure Database for MySQL przy użyciu Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 26b503e7d55ed3d2f9bd06837551655e7af05a17
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546810"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541944"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -35,19 +35,19 @@ Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 
 2. Wybierz istniejący serwer Azure Database for MySQL, który ma być używany jako główny. Ta akcja powoduje otwarcie strony **Przegląd** .
 
-3. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
+3. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 
-4. Wybierz pozycję **Dodaj replikę** .
+4. Wybierz pozycję **Dodaj replikę**.
 
    :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL — replikacja":::
 
 5. Wprowadź nazwę serwera repliki.
 
-    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL — replikacja":::
+    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL — nazwa repliki":::
 
 6. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera źródłowego.
 
-    :::image type="content" source="./media/howto-read-replica-portal/replica-location.png" alt-text="Azure Database for MySQL — replikacja":::
+    :::image type="content" source="./media/howto-read-replica-portal/replica-location.png" alt-text="Azure Database for MySQL — lokalizacja repliki":::
 
    > [!NOTE]
    > Aby dowiedzieć się więcej na temat regionów, w których można utworzyć replikę, zapoznaj się z [artykułem dotyczącym pojęć dotyczących repliki](concepts-read-replicas.md). 
@@ -59,7 +59,7 @@ Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 
 Po utworzeniu serwera repliki można go wyświetlić w bloku **replikacja** .
 
-   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Repliki list Azure Database for MySQL":::
 
 ## <a name="stop-replication-to-a-replica-server"></a>Zatrzymaj replikację do serwera repliki
 
@@ -70,19 +70,19 @@ Aby zatrzymać replikację między źródłem a serwerem repliki z Azure Portal,
 
 1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MySQL. 
 
-2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
+2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 
 3. Wybierz serwer repliki, dla którego ma zostać zatrzymana replikacja.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL — zatrzymywanie replikacji wybierz serwer":::
 
-4. Wybierz pozycję **Zatrzymaj replikację** .
+4. Wybierz pozycję **Zatrzymaj replikację**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL — zatrzymywanie replikacji":::
 
-5. Potwierdź, że chcesz zatrzymać replikację, klikając przycisk **OK** .
+5. Potwierdź, że chcesz zatrzymać replikację, klikając przycisk **OK**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL — potwierdzenie zatrzymywania replikacji":::
 
 ## <a name="delete-a-replica-server"></a>Usuwanie serwera repliki
 
@@ -90,19 +90,19 @@ Aby usunąć serwer repliki odczytu z Azure Portal, wykonaj następujące czynno
 
 1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MySQL.
 
-2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
+2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 
 3. Wybierz serwer repliki, który chcesz usunąć.
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database for MySQL — usuwanie repliki wybierz serwer":::
 
 4. Wybierz pozycję **Usuń replikę**
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL-Usuń replikę":::
 
 5. Wpisz nazwę repliki, a następnie kliknij przycisk **Usuń** , aby potwierdzić usunięcie repliki.  
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Potwierdzenie usunięcia repliki Azure Database for MySQL":::
 
 ## <a name="delete-a-source-server"></a>Usuwanie serwera źródłowego
 
@@ -113,13 +113,13 @@ Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności
 
 1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MySQL.
 
-2. W obszarze **Przegląd** wybierz pozycję **Usuń** .
+2. W obszarze **Przegląd** wybierz pozycję **Usuń**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL-Usuń wzorzec":::
 
 3. Wpisz nazwę serwera źródłowego, a następnie kliknij przycisk **Usuń** , aby potwierdzić usunięcie serwera źródłowego.  
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL — Usuń główne potwierdzenie":::
 
 ## <a name="monitor-replication"></a>Monitorowanie replikacji
 
@@ -129,15 +129,15 @@ Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności
 
 3. Wybierz pozycję **opóźnienie replikacji w sekundach** z listy rozwijanej dostępnych metryk.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Wybierz opóźnienie replikacji":::
 
 4. Wybierz zakres czasu, który chcesz wyświetlić. Poniższy obraz wybiera 30-minutowy zakres czasu.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Wybierz zakres czasu":::
 
 5. Wyświetl zwłokę replikacji dla wybranego zakresu czasu. Na poniższej ilustracji przedstawiono ostatnie 30 minut.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Azure Database for MySQL — replikacja":::
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Wybierz zakres czasu 30 minut":::
 
 ## <a name="next-steps"></a>Następne kroki
 

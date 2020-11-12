@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie serwerem — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
 description: Dowiedz się, jak zarządzać serwerem Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: 1f0b059a25cd9fc77a59dc0a78feb18c2c549057
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bd068f0cf76a8edefca854d72d5240c0becaf8fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546861"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542069"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Zarządzanie Azure Database for MySQL jednym serwerem przy użyciu interfejsu wiersza polecenia platformy Azure
 

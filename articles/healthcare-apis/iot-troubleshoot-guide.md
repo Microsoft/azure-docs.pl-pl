@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/09/2020
 ms.author: jasteppe
-ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394224"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540947"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z usługą Azure IoT Connector for FHIR (wersja zapoznawcza)
 
@@ -68,7 +68,7 @@ W tej sekcji dowiesz się, jak proces sprawdzania poprawności, który usługa A
 |Konto nie istnieje.|Interfejs API|Podjęto próbę dodania łącznika usługi Azure IoT dla programu FHIR, a interfejs API platformy Azure dla usługi FHIR nie istnieje.|Utwórz zasób interfejsu API platformy Azure dla usługi FHIR, a następnie spróbuj ponownie wykonać operację.|
 |Wersja usługi Azure API for FHIR Resource FHIR nie jest obsługiwana w przypadku łącznika IoT.|Interfejs API|Podjęto próbę użycia łącznika usługi Azure IoT dla FHIR z niezgodną wersją interfejsu API platformy Azure dla zasobu FHIR.|Utwórz nowy zasób Azure API for FHIR (wersja R4) lub Użyj istniejącego interfejsu API platformy Azure dla zasobu FHIR (wersja R4).
 
-##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Dlaczego mój łącznik usługi Azure IoT for FHIR (wersja zapoznawcza) nie jest wyświetlany w usłudze Azure API for FHIR?
+## <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Dlaczego mój łącznik usługi Azure IoT for FHIR (wersja zapoznawcza) nie jest wyświetlany w usłudze Azure API for FHIR?
 
 |Potencjalne problemy|Poprawki|
 |----------------|-----|
@@ -82,7 +82,74 @@ W tej sekcji dowiesz się, jak proces sprawdzania poprawności, który usługa A
 
 * Dokumentacja [szybkiego startu: wdrażanie łącznika usługi Azure IoT (wersja zapoznawcza) przy użyciu Azure Portal](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) , aby uzyskać funkcjonalny opis łącznika usługi Azure IoT dla typów rozpoznawania FHIR (na przykład: Lookup lub CREATE).
 
+## <a name="use-metrics-to-troubleshoot-issues-in-azure-iot-connector-for-fhir-preview"></a>Używanie metryk do rozwiązywania problemów z usługą Azure IoT Connector for FHIR (wersja zapoznawcza)
+
+Łącznik usługi Azure IoT dla programu FHIR generuje wiele metryk w celu zapewnienia wglądu w proces przepływu danych. Jedna z obsługiwanych metryk jest nazywana *łącznymi błędami* , co zapewnia liczbę wszystkich błędów występujących w wystąpieniu łącznika usługi Azure IoT dla FHIR.
+
+Każdy błąd jest rejestrowany przy użyciu wielu skojarzonych właściwości. Każda właściwość zawiera inny aspekt dotyczący błędu, który może pomóc w identyfikowaniu i rozwiązywaniu problemów. W tej sekcji wymieniono różne właściwości przechwytywane dla każdego błędu w metryki *łączna liczba błędów* oraz możliwe wartości tych właściwości.
+
+> [!NOTE]
+> Możesz przejść do metryki *łącznej liczby błędów* dla wystąpienia usługi Azure IoT Connector for FHIR (wersja zapoznawcza) zgodnie z opisem na [stronie metryki łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza)](iot-metrics-display.md).
+
+Kliknij wykres *łączne błędy* , a następnie kliknij przycisk *Dodaj filtr* , aby wycinek i indeksować metrykę błędu przy użyciu dowolnej z właściwości wymienionych poniżej.
+
+### <a name="the-operation-performed-by-the-azure-iot-connector-for-fhir-preview"></a>Operacja wykonywana przez łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza)
+
+Ta właściwość reprezentuje operację wykonywaną przez łącznik IoT w przypadku wystąpienia błędu. Operacja zwykle reprezentuje etap przepływu danych podczas przetwarzania komunikatu urządzenia. Poniżej znajduje się lista możliwych wartości dla tej właściwości.
+
+> [!NOTE]
+> Więcej informacji na temat różnych etapów przepływu danych można znaleźć w [temacie](iot-data-flow.md)Azure IoT Connector for FHIR (wersja zapoznawcza).
+
+|Etap przepływu danych|Opis|
+|---------------|-----------|
+|Konfigurowanie|Operacja specyficzna dla konfigurowania wystąpienia łącznika IoT|
+|Normalizacja|Etap przepływu danych, w którym dane urządzenia są znormalizowane|
+|Grupowanie|Etap przepływu danych, w którym znormalizowane dane są grupowane|
+|FHIRConversion|Etap przepływu danych, w którym pogrupowane dane znormalizowane są przekształcane w zasób FHIR|
+|Nieznany|Typ operacji jest nieznany w przypadku wystąpienia błędu|
+
+### <a name="the-severity-of-the-error"></a>Ważność błędu
+
+Ta właściwość reprezentuje ważność wystąpienia błędu. Poniżej znajduje się lista możliwych wartości dla tej właściwości.
+
+|Ważność|Opis|
+|---------------|-----------|
+|Ostrzeżenie|W procesie przepływu danych występuje jakiś niewielki problem, ale nie zatrzymywanie przetwarzania komunikatu o urządzeniu|
+|Błąd|Podczas przetwarzania określonego komunikatu urządzenia Wystąpił błąd, a inne komunikaty mogą nadal działać zgodnie z oczekiwaniami|
+|Krytyczne|Dla łącznika IoT istnieje problem z poziomem systemu i nie oczekuje się, że komunikaty są przetwarzane|
+
+### <a name="the-type-of-the-error"></a>Typ błędu
+
+Ta właściwość oznacza kategorię dla danego błędu, która zasadniczo reprezentuje grupowanie logiczne dla podobnego typu błędów. Poniżej znajduje się lista możliwych wartości tej właściwości.
+
+|Typ błędu|Opis|
+|----------|-----------|
+|DeviceTemplateError|Błędy związane z szablonami mapowania urządzeń|
+|DeviceMessageError|Wystąpiły błędy podczas przetwarzania określonego komunikatu urządzenia|
+|FHIRTemplateError|Błędy związane z szablonami mapowania FHIR|
+|FHIRConversionError|Wystąpiły błędy podczas przekształcania komunikatu w zasób FHIR|
+|FHIRResourceError|Błędy związane z istniejącymi zasobami na serwerze FHIR, do których odwołują się łącznik IoT|
+|FHIRServerError|Błędy występujące podczas komunikowania się z serwerem FHIR|
+|GeneralError|Wszystkie inne typy błędów|
+
+### <a name="the-name-of-the-error"></a>Nazwa błędu
+
+Ta właściwość zawiera nazwę określonego błędu. Poniżej znajduje się lista wszystkich nazw błędów wraz z ich opisem oraz związanymi z nimi typem błędów, ważnością i etapami przepływu danych.
+
+|Nazwa błędu|Opis|Typy błędów|Ważność błędu|Etapy przepływu danych|
+|----------|-----------|-------------|--------------|------------------|
+|MultipleResourceFoundException|Wystąpił błąd, gdy na serwerze FHIR znaleziono wiele zasobów pacjenta lub urządzeń dla odpowiednich identyfikatorów znajdujących się w komunikacie urządzenia|FHIRResourceError|Błąd|FHIRConversion|
+|TemplateNotFoundException|Szablon mapowania urządzenia lub FHIR nie jest skonfigurowany z wystąpieniem łącznika IoT|DeviceTemplateError, FHIRTemplateError|Krytyczne|Normalizacja, FHIRConversion|
+|CorrelationIdNotDefinedException|Identyfikator korelacji nie został określony w szablonie mapowania urządzeń. CorrelationIdNotDefinedException jest wystąpieniem błędu warunkowego, który wystąpi tylko wtedy, gdy obserwacja FHIR musi grupować pomiary urządzeń przy użyciu identyfikatora korelacji, ale nie jest prawidłowo skonfigurowana|DeviceMessageError|Błąd|Normalizacja|
+|PatientDeviceMismatchException|Ten błąd występuje, gdy zasób urządzenia na serwerze FHIR ma odwołanie do zasobu pacjenta, który nie jest zgodny z identyfikatorem pacjenta obecnym w komunikacie|FHIRResourceError|Błąd|FHIRConversionError|
+|PatientNotFoundException|Nie odwołuje się do niego zasób FHIRa pacjenta, który jest powiązany z identyfikatorem urządzenia w komunikacie urządzenia. Uwaga Ten błąd występuje tylko wtedy, gdy wystąpienie łącznika IoT jest skonfigurowane z typem rozpoznawania *wyszukiwania*|FHIRConversionError|Błąd|FHIRConversion|
+|DeviceNotFoundException|Na serwerze FHIR nie istnieje zasób urządzenia skojarzony z identyfikatorem urządzenia znajdującym się w komunikacie urządzenia|DeviceMessageError|Błąd|Normalizacja|
+|PatientIdentityNotDefinedException|Ten błąd występuje, gdy wyrażenie do analizowania identyfikatora pacjenta z komunikatu urządzenia nie jest skonfigurowane w szablonie mapowania urządzenia lub identyfikator pacjenta nie występuje w komunikacie urządzenia. Uwaga Ten błąd występuje tylko w przypadku, gdy typ rozpoznawania łącznika IoT jest ustawiony na wartość *Create*|DeviceTemplateError|Krytyczne|Normalizacja|
+|DeviceIdentityNotDefinedException|Ten błąd występuje, gdy wyrażenie do analizowania identyfikatora urządzenia z komunikatu urządzenia nie jest skonfigurowane w szablonie mapowania urządzeń lub identyfikator urządzenia nie istnieje w komunikacie urządzenia|DeviceTemplateError|Krytyczne|Normalizacja|
+|NotSupportedException|Wystąpił błąd podczas odbierania komunikatu urządzenia z nieobsługiwanym formatem|DeviceMessageError|Błąd|Normalizacja|
+
 ## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>Tworzenie kopii pliku JSON mapowania łącznika usługi Azure IoT for FHIR (wersja zapoznawcza)
+
 Kopiowanie łącznika usługi Azure IoT dla plików mapowania FHIR może być przydatne do edytowania i archiwizowania poza witryną sieci Web Azure Portal.
 
 Podczas otwierania biletu pomocy technicznej w celu ułatwienia rozwiązywania problemów należy dostarczyć kopie plików mapowania do pomocy technicznej platformy Azure.

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505074"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541015"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Szybki Start: Tworzenie dedykowanej puli SQL (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -73,7 +73,6 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 8. Po zakończeniu aprowizacji przechodzenie z powrotem do obszaru roboczego spowoduje wyświetlenie nowego wpisu dla nowo utworzonej dedykowanej puli SQL.
  ![Przepływ tworzenia puli SQL — Inicjowanie obsługi zasobów.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
-
 
 
 Po utworzeniu dedykowanej puli SQL będzie ona dostępna w obszarze roboczym do ładowania danych, przetwarzania strumieni, odczytywania z usługi Lake itp.

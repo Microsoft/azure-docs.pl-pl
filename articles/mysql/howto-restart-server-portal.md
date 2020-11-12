@@ -1,17 +1,17 @@
 ---
 title: Uruchom ponownie serwer-Azure Portal-Azure Database for MySQL
 description: W tym artykule opisano, jak można ponownie uruchomić serwer Azure Database for MySQL przy użyciu Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d19c0bd4ef5c49b8be82ffa11115ff6a1c6b302
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902748"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541797"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Uruchom ponownie serwer Azure Database for MySQL przy użyciu Azure Portal
 W tym temacie opisano, jak można ponownie uruchomić serwer Azure Database for MySQL. Może być konieczne ponowne uruchomienie serwera ze względów konserwacyjnych, co powoduje krótkie przestoje, gdy serwer wykona operację.
@@ -36,15 +36,15 @@ Wykonaj następujące kroki, aby ponownie uruchomić serwer MySQL:
 
 3. Kliknij przycisk **tak** , aby potwierdzić ponowne uruchomienie serwera.
 
-   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL — przegląd — przycisk ponownego uruchamiania":::
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL — Potwierdź ponowne uruchomienie":::
 
 4. Zwróć uwagę, że stan serwera zmieni się na "ponowne uruchomienie".
 
-   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL — przegląd — przycisk ponownego uruchamiania":::
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL — stan ponownego uruchomienia":::
 
 5. Potwierdzenie ponownego uruchomienia serwera zakończyło się pomyślnie.
 
-   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL — przegląd — przycisk ponownego uruchamiania":::
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL — pomyślne ponowne uruchomienie":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 19207fd1b05d507980df299dc6ac2e9a39736318
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3b16101cec242ad2cc470f90b37ab0f19848918
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977120"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542766"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: Wyodrębnij drukowany tekst (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
 > [!NOTE]
 > W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępny jest [Przewodnik Szybki Start dla języka JavaScript](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text) .
 
-W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
+W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,7 +36,7 @@ W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optyczneg
 
 Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 
-1. Utwórz plik o nazwie _get-printed-text.html_, otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
+1. Utwórz plik o nazwie _get-printed-text.html_ , otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
 1. Opcjonalnie zastąp wartość `value` atrybutu dla kontrolki `inputImage` adresem URL innego obrazu, który chcesz analizować.
 1. Otwórz okno przeglądarki.
 1. W przeglądarce przeciągnij plik i upuść go w oknie przeglądarki.
@@ -55,8 +55,8 @@ Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 <script type="text/javascript">
     function processImage() {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
@@ -250,4 +250,4 @@ Następnie Eksploruj aplikację JavaScript, która używa przetwarzanie obrazów
 > [!div class="nextstepaction"]
 > [Samouczek języka JavaScript interfejsu API przetwarzania obrazów](../Tutorials/javascript-tutorial.md)
 
-* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

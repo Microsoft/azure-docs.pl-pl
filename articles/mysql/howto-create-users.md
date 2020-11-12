@@ -1,17 +1,17 @@
 ---
 title: Tworzenie baz danych i użytkowników — Azure Database for MySQL
 description: W tym artykule opisano sposób tworzenia nowych kont użytkowników w celu współdziałania z serwerem Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 3e1f24b3ae6133241660751293f52fec63dfbe73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766872"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541423"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Tworzenie baz danych i użytkowników w Azure Database for MySQL
 
@@ -94,7 +94,7 @@ Po utworzeniu serwera Azure Database for MySQL można użyć pierwszego konta ad
    
    Jeśli nie masz pewności, jak nawiązać połączenie, zobacz temat [Używanie programu MySQL Workbench do nawiązywania połączeń i wykonywania zapytań dotyczących danych](./connect-workbench.md).
 
-3. Edytuj i uruchom następujący kod SQL. Zastąp wartość symbolu zastępczego `new_master_user` nową nazwą użytkownika. Ta składnia przyznaje wymienione uprawnienia na wszystkich schematach bazy danych (*.*) użytkownikowi ( `new_master_user` w tym przykładzie).
+3. Edytuj i uruchom następujący kod SQL. Zastąp wartość symbolu zastępczego `new_master_user` nową nazwą użytkownika. Ta składnia przyznaje wymienione uprawnienia na wszystkich schematach bazy danych ( *.* ) użytkownikowi ( `new_master_user` w tym przykładzie).
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

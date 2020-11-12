@@ -1,18 +1,18 @@
 ---
 title: Uruchom ponownie serwer — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
 description: W tym artykule opisano, jak można ponownie uruchomić serwer Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9707aaa911fc8ceb8c03b369bd6479646ca3418c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77f20bba76ee3a37e6a72481e0b3d13c9904b106
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500729"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541831"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Ponowne uruchamianie Azure Database for MySQL serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym temacie opisano, jak można ponownie uruchomić serwer Azure Database for MySQL. Może być konieczne ponowne uruchomienie serwera ze względów konserwacyjnych, co powoduje krótkie przestoje, gdy serwer wykona operację.
@@ -22,14 +22,14 @@ Ponowne uruchomienie serwera zostanie zablokowane, jeśli usługa jest zajęta. 
 Czas wymagany do ukończenia ponownego uruchomienia zależy od procesu odzyskiwania MySQL. Aby skrócić czas ponownego uruchomienia, zalecamy zminimalizowanie liczby działań występujących na serwerze przed ponownym uruchomieniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby ukończyć ten przewodnik, musisz:
-- [Serwer Azure Database for MySQL](quickstart-create-server-up-azure-cli.md)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Aby ukończyć ten przewodnik:
 
-> [!IMPORTANT]
-> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Potrzebny jest [serwer Azure Database for MySQL](quickstart-create-server-up-azure-cli.md).
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
+- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="restart-the-server"></a>Uruchom ponownie serwer.
 

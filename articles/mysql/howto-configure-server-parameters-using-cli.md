@@ -1,19 +1,19 @@
 ---
 title: Konfigurowanie parametrów serwera — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
 description: W tym artykule opisano sposób konfigurowania parametrów usługi w Azure Database for MySQL przy użyciu narzędzia wiersza polecenia platformy Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dfb1d59335f2e35ce3d4661f043b6eed53d2a109
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5a84d93400e713f66545387fd146148ee735c06
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627163"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541542"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-cli"></a>Konfigurowanie parametrów serwera w Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 Można wyświetlić, wyświetlić i zaktualizować parametry konfiguracji dla serwera Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure, narzędzia wiersza poleceń platformy Azure. Podzestaw konfiguracji aparatu jest uwidoczniony na poziomie serwera i można go modyfikować. 
@@ -38,7 +38,7 @@ Aby zapoznać się z definicją każdego z wymienionych parametrów, zobacz sekc
 ## <a name="show-server-configuration-parameter-details"></a>Pokaż szczegóły parametru konfiguracji serwera
 Aby wyświetlić szczegóły dotyczące określonego parametru konfiguracji dla serwera, uruchom polecenie [AZ MySQL Server Configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) .
 
-W tym przykładzie przedstawiono szczegółowe informacje o powolnych parametrach konfiguracji serwera ** \_ \_ dziennika zapytania** dla serwera **mydemoserver.MySQL.Database.Azure.com** w obszarze Grupa zasobów **.**
+W tym przykładzie przedstawiono szczegółowe informacje o powolnych parametrach konfiguracji serwera **\_ \_ dziennika zapytania** dla serwera **mydemoserver.MySQL.Database.Azure.com** w obszarze Grupa zasobów **.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
@@ -53,7 +53,7 @@ Jeśli chcesz zresetować wartość parametru konfiguracji, Pomiń opcjonalny `-
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
-Ten kod Resetuje konfigurację ** \_ \_ dziennika wolnych zapytań** do wartości **domyślnej.** 
+Ten kod Resetuje konfigurację **\_ \_ dziennika wolnych zapytań** do wartości **domyślnej.** 
 
 ## <a name="setting-parameters-not-listed"></a>Nie wymieniono parametrów ustawień
 Jeśli parametr serwera, który chcesz zaktualizować, nie znajduje się na liście Azure Portal, opcjonalnie możesz ustawić parametr na poziomie połączenia przy użyciu `init_connect` . Powoduje to ustawienie parametrów serwera dla każdego klienta łączącego się z serwerem. 

@@ -1,22 +1,22 @@
 ---
 title: Nawiązywanie połączenia z Azure App Service-Azure Database for MySQL
 description: Instrukcje dotyczące prawidłowego łączenia istniejących Azure App Service z Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905849"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541508"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Połącz istniejące Azure App Service z serwerem Azure Database for MySQL
 W tym temacie wyjaśniono, jak połączyć istniejące Azure App Service z serwerem Azure Database for MySQL.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz serwer Azure Database for MySQL. Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć serwer Azure Database for MySQL z poziomu portalu](quickstart-create-mysql-server-database-using-azure-portal.md) lub [jak utworzyć serwer Azure Database for MySQL przy użyciu interfejsu wiersza polecenia](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Obecnie istnieją dwa rozwiązania umożliwiające dostęp z Azure App Service do Azure Database for MySQL. Oba rozwiązania obejmują Konfigurowanie reguł zapory na poziomie serwera.
@@ -28,19 +28,19 @@ Azure Database for MySQL zapewnia zabezpieczenia dostępu przy użyciu zapory do
 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal kliknij pozycję zabezpieczenia połączeń":::
 
-2. Wybierz pozycję **włączone** w obszarze **Zezwalaj na dostęp do usług platformy Azure**, a następnie **Zapisz**.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal kliknij pozycję zabezpieczenia połączeń":::
+2. Wybierz pozycję **włączone** w obszarze **Zezwalaj na dostęp do usług platformy Azure** , a następnie **Zapisz**.
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal — Zezwalaj na dostęp do platformy Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Rozwiązanie 2 — Tworzenie reguły zapory w celu jawnego zezwalania na wychodzące adresy IP
 Można jawnie dodać wszystkie wychodzące adresy IP Azure App Service.
 
 1. W bloku właściwości App Service Wyświetl **wychodzący adres IP**.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal kliknij pozycję zabezpieczenia połączeń":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal — wyświetlanie wychodzących adresów IP":::
 
 2. W bloku zabezpieczenia połączenia MySQL Dodaj wychodzące adresy IP jeden według jednego.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal kliknij pozycję zabezpieczenia połączeń":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal — Dodawanie jawnych adresów IP":::
 
 3. Pamiętaj, aby **zapisać** reguły zapory.
 

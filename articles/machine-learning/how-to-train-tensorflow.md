@@ -1,7 +1,7 @@
 ---
 title: Uczenie i wdrażanie modelu TensorFlow
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uruchamiać skrypty szkoleniowe TensorFlow na dużą skalę przy użyciu Azure Machine Learning.
+description: Dowiedz się, jak Azure Machine Learning umożliwia skalowanie zadania szkoleniowego TensorFlow przy użyciu elastycznych zasobów obliczeniowych w chmurze.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5c1c6af5f8304fd9093aa0351078b84d3f4d0b5d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9b8d48139e6cbabfbc5bf63f85d2d03c64d7efd9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360755"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542290"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli TensorFlow na dużą skalę za pomocą Azure Machine Learning
 
