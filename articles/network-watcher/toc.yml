@@ -29,7 +29,7 @@
 - name: Pojęcia
   items:
     - name: Monitor połączeń (wersja zapoznawcza)
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: Diagnozowanie problemów z filtrowaniem ruchu sieciowego na maszynie wirtualnej
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnozowanie reguł sieciowej grupy zabezpieczeń i filtrowania ruchu
@@ -61,9 +61,9 @@
     - name: Tworzenie monitora połączeń (wersja zapoznawcza)
       items:
         - name: Korzystanie z witryny Azure Portal
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Korzystanie z klienta ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: Korzystanie z programu PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: Migrowanie do monitora połączenia (wersja zapoznawcza)
@@ -88,7 +88,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnozowanie problemów z połączeniami wychodzącymi
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md

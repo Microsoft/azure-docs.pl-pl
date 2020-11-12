@@ -265,7 +265,7 @@
           href: partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
         - name: Marketo
           href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
-        - name: Salesforce
+        - name: SalesForce
           href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Zarządzanie potencjalnymi klientami — często zadawane pytania
           href: lead-management-faq.md
@@ -287,8 +287,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Pulpit nawigacyjny Oceny i recenzje
       href: partner-center-portal/ratings-reviews.md
-    - name: Terminologia dotycząca analizy w Centrum partnerskim
-      href: partner-center-portal/faq-terminology.md
+    - name: Często zadawane pytania dotyczące analizy
+      href: analytics-faq.md
 - name: Zasady i postanowienia
   items:
     - name: Informacje o naszych zasadach i postanowieniach

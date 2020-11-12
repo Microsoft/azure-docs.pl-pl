@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Renderowanie konturów
   href: outlines.md
+- name: Renderowanie powłoki
+  href: shell-effect.md
 - name: Renderowanie jednostronne
   href: single-sided-rendering.md
 - name: Zapytania przestrzenne

@@ -171,7 +171,7 @@
           href: sql/overview-features.md
         - name: Modele użycia zasobów
           href: sql/resource-consumption-models.md
-        - name: Ilość przetworzonych danych
+        - name: Zarządzanie kosztami bezserwerowej puli SQL
           href: sql/data-processed.md
         - name: 'Najlepsze rozwiązania: bezserwerowa pula SQL'
           href: sql/best-practices-sql-on-demand.md
@@ -996,6 +996,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Interfejsy API REST
       href: /rest/api/synapse/
+    - name: Narzędzia firmy Microsoft dla platformy Spark
+      href: ./spark/microsoft-spark-utilities.md
     - name: Samples
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: Widoki systemowe

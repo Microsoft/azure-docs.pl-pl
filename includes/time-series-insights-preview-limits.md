@@ -1,28 +1,28 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 07/09/2020
+ms.date: 11/11/2020
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 7259e1981f873c8385a02fe4f353dcdda495f823
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ec1f71d13d5d2fb3af86c1c63d5e61ce13d2c82
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287421"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553165"
 ---
 ### <a name="property-limits"></a>Limity właściwości
 
-Limity właściwości Azure Time Series Insights wzrosły do 1 000 z maksymalnie 800 w Gen1. Podane właściwości zdarzenia mają odpowiednie kolumny JSON, CSV i wykresu, które można wyświetlić w [eksploratorze Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Limity właściwości Azure Time Series Insights zostały zwiększone do 1 000 dla magazynu ciepłego i nie ma limitu właściwości dla magazynu chłodnego. Podane właściwości zdarzenia mają odpowiednie kolumny JSON, CSV i wykresu, które można wyświetlić w [eksploratorze Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
-| SKU | Właściwości maksymalne |
+| Jednostka SKU | Właściwości maksymalne |
 | --- | --- |
-| Gen2 (L1) | Właściwości 1 000 (kolumny) |
+| Gen2 (L1) | 1 000 właściwości (kolumny) dla magazynu ciepłego i bez ograniczeń dla magazynu zimnego|
 | Gen1 (S1) | Właściwości 600 (kolumny) |
 | Gen1 (S2) | Właściwości 800 (kolumny) |
 

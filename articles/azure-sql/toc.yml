@@ -1,7 +1,11 @@
 - name: Dokumentacja usługi Azure SQL
   href: index.yml
-- name: Co to jest usługa Azure SQL?
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL
+  items:
+    - name: Co to jest usługa Azure SQL?
+      href: azure-sql-iaas-vs-paas-what-is-overview.md
+    - name: Migracja do usługi Azure SQL
+      href: migration-guides/index.yml
 - name: Wspólna dokumentacja usługi SQL DB i wystąpień zarządzanych SQL
   items:
     - name: Modele zakupów
@@ -301,6 +305,16 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: Migrowanie bazy SQLite do środowiska bezserwerowego
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+    - name: Przewodniki po migracji
+      items:
+        - name: Z bazy danych DB2
+          href: migration-guides/database/db2-to-sql-database-guide.md
+        - name: Z programu SQL Server
+          items:
+            - name: Omówienie
+              href: migration-guides/database/sql-server-to-sql-database-overview.md
+            - name: Migrate
+              href: migration-guides/database/sql-server-to-sql-database-guide.md
     - name: Pojęcia
       items:
         - name: Architektura łączności
@@ -696,6 +710,18 @@
               href: managed-instance/replication-between-two-instances-configure-tutorial.md
             - name: 'Publiczne wystąpienie zarządzane, rozproszone wystąpienie zarządzane, podsieć SQL'
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: Przewodniki po migracji
+      items:
+        - name: Z bazy danych DB2
+          href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+        - name: Z programu SQL Server
+          items:
+            - name: Omówienie
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+            - name: Migrate
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+            - name: Punkt odniesienia wydajności
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
     - name: Pojęcia
       items:
         - name: Limity zasobów
@@ -946,7 +972,7 @@
           href: database/arm-templates-content-guide.md?tabs=managed-instance
         - name: Przykłady kodu
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-- name: Program SQL Server na maszynie wirtualnej platformy Azure
+- name: Program SQL Server na maszynach wirtualnych platformy Azure
   items:
     - name: Dokumentacja
       href: virtual-machines/index.yml
@@ -1171,6 +1197,14 @@
               href: 'https://azure.microsoft.com/roadmap/?category=compute'
             - name: Stack Overflow
               href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+    - name: Przewodniki po migracji
+      items:
+        - name: Omówienie
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
+        - name: Z programu SQL Server
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: Z bazy danych DB2
+          href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja języka T-SQL

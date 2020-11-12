@@ -119,12 +119,10 @@
       href: qna-maker-encryption-of-data-at-rest.md
     - name: Dokumentacja interfejsu API REST
       items:
-        - name: Tworzenie interfejsów API
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
-        - name: Interfejs API GenerateAnswer
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
-        - name: Interfejs API trenowania
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
+        - name: QnA Maker 4.0
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/alterations'
+        - name: QnA Maker 5.0 wersja zapoznawcza 1
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations'
     - name: Zestawy SDK
       items:
         - name: C#

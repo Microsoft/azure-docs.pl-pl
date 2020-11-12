@@ -160,6 +160,8 @@
         - name: Przegląd zabezpieczeń przedsiębiorstwa
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Szyfrowanie danych
+          href: concept-data-encryption.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Odpowiedzialne uczenie maszynowe
@@ -182,14 +184,17 @@
       items:
         - name: Zarządzanie tożsamościami i dostępem
           items:
-            - name: Konfigurowanie uwierzytelniania
+            - name: Uwierzytelnianie obszaru roboczego
               displayName: 'authentication, auth, oauth'
               href: how-to-setup-authentication.md
-            - name: Zarządzanie użytkownikami i rolami
+            - name: Uwierzytelnianie usługi internetowej
+              displayName: 'authentication, model, web service'
+              href: how-to-authenticate-web-service.md
+            - name: Zarządzanie dostępem (autoryzacja)
               href: how-to-assign-roles.md
-            - name: Korzystanie z tożsamości zarządzanych w celu zarządzania dostępem
+            - name: Zarządzanie dostępem przy użyciu tożsamości zarządzanych
               href: how-to-use-managed-identities.md
-            - name: Korzystanie z tożsamości usługi Azure AD we wdrożeniach usługi AKS
+            - name: Tożsamość usługi Azure AD we wdrożeniach usługi AKS
               href: how-to-use-azure-ad-identity.md
         - name: Bezpieczeństwo sieci
           items:

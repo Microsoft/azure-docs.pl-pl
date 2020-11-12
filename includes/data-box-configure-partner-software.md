@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 16b69ce5d63723919e74b62e8c62770ed5fbec85
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: bb1390a32abfe9ccf31002fc569936d39e4e5428
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375855"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553090"
 ---
 Konfiguracja oprogramowania partnerskiego pod kątem nawiązania połączenia z klientem. Aby można było połączyć się z oprogramowaniem partnerskim, zazwyczaj potrzebne są następujące informacje (mogą się różnić) zebrane ze strony **Połącz i skopiuj** lokalnego internetowego interfejsu użytkownika w poprzednim kroku:
 
@@ -23,8 +23,8 @@ Jeśli używasz Eksploratora usługi Storage po raz pierwszy, wykonaj poniższe 
 
 1. Na górnym pasku poleceń wybierz kolejno **Edytuj > Docelowe wystąpienie Azure Stack**.
 
-    ![Pulpit nawigacyjny urządzenia Data Box](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
+    ![Zrzut ekranu pokazuje Azure Stack docelowe wybrane z menu Edycja.](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
 
 2. Uruchom ponownie Eksploratora usługi Storage, aby zmiany zaczęły obowiązywać.
 
-    ![Pulpit nawigacyjny urządzenie Data Box 2](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+    ![Zrzut ekranu przedstawia przycisk Uruchom ponownie teraz.](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)

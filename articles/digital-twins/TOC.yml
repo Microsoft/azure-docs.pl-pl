@@ -111,7 +111,7 @@
       items:
         - name: Wyświetlanie metryk w usłudze Azure Monitor
           href: troubleshoot-metrics.md
-        - name: Włączanie dzienników diagnostycznych
+        - name: Włączanie dzienników diagnostycznych i wykonywanie dotyczących ich zapytań
           href: troubleshoot-diagnostics.md
         - name: Włączanie alertów
           href: troubleshoot-alerts.md

@@ -36,6 +36,20 @@
       href: quickstart-multi-container.md
 - name: Samouczki
   items:
+    - name: Zabezpieczanie dostępu do magazynu i programu Microsoft Graph
+      items:
+        - name: Omówienie
+          href: scenario-secure-app-overview.md
+        - name: Konfigurowanie uwierzytelniania usługi App Service
+          href: scenario-secure-app-authentication-app-service.md
+        - name: Bezpieczna aplikacja uzyskuje dostęp do magazynu
+          href: scenario-secure-app-access-storage.md
+        - name: Bezpieczna aplikacja uzyskuje dostęp do programu Microsoft Graph jako użytkownik
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: Bezpieczna aplikacja uzyskuje dostęp do programu Microsoft Graph jako aplikacja
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: Czyszczenie zasobów
+          href: scenario-secure-app-clean-up-resources.md
     - name: Aplikacja z bazą danych
       items:
         - name: .NET Core z bazą danych SQL DB

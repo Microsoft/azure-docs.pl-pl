@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f423d30dd10930d593bb1d5d39b46ed8914146e7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b9af5f1dd4a27fc323b3ddae75282ee6d34c8c4a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375780"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553177"
 ---
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Aby dodać lub zmodyfikować harmonogram kopii zapasowych StorSimple
 
@@ -17,13 +17,13 @@ ms.locfileid: "93375780"
 
 2. Na tabelarycznej liście zasad wybierz i kliknij zasady, które chcesz zmodyfikować. Kliknij prawym przyciskiem myszy, aby wywołać menu kontekstowe, a następnie wybierz pozycję **Dodaj harmonogram**.
 
-    ![Zarządzanie harmonogramami](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
+    ![Zrzut ekranu przedstawia wybrane zasady tworzenia kopii zapasowych z wybranym harmonogramem w menu kontekstowym.](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
 3. W bloku **Dodaj harmonogram** zmodyfikuj typ migawki, częstotliwość tworzenia kopii zapasowych, czas przechowywania oraz datę i godzinę rozpoczęcia. Kliknij pozycję **Dodaj**.
 
-    ![Zarządzanie harmonogramami 2](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
+    ![Zrzut ekranu przedstawia okienko Dodawanie harmonogramu z wprowadzonymi wartościami.](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
 4. Otrzymasz powiadomienie o zakończeniu tworzenia zasad tworzenia kopii zapasowych. Lista zasad tworzenia kopii zapasowych została również zaktualizowana.
 
-    ![Zarządzanie harmonogramami 3](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
+    ![Zrzut ekranu przedstawia wybrane zasady tworzenia kopii zapasowych z dwoma zaplanowanymi kopiami zapasowymi.](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 
