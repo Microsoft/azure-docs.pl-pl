@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 18c8aa0ff05dababc5a79c5c05b43ce9ebcbf9b4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3cae4591a5da53683c965d7c6ba3ec169249c87e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397100"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566133"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących (wersja zapoznawcza) dla nowego klastra AKS z nowym wystąpieniem Application Gateway
 
@@ -30,39 +30,26 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wdróż przykładową aplikację przy użyciu usługi AGIC na potrzeby ruchu przychodzącego w klastrze AKS.
 > * Sprawdź, czy aplikacja jest dostępna za pomocą Application Gateway.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+ - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
+ - Zarejestruj flagę funkcji *AKS-IngressApplicationGatewayAddon* za pomocą polecenia [AZ Feature Register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) , jak pokazano w poniższym przykładzie. Należy to zrobić tylko raz dla każdej subskrypcji, gdy dodatek jest nadal w wersji zapoznawczej.
+    ```azurecli-interactive
+    az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
+    ```
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+   Wyświetlenie stanu może potrwać kilka minut `Registered` . Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :
+    ```azurecli-interactive
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+    ```
 
-Zarejestruj flagę funkcji *AKS-IngressApplicationGatewayAddon* za pomocą polecenia [AZ Feature Register](/cli/azure/feature#az-feature-register) , jak pokazano w poniższym przykładzie. Należy to zrobić tylko raz dla każdej subskrypcji, gdy dodatek jest nadal w wersji zapoznawczej.
-```azurecli-interactive
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
-```
-
-Wyświetlenie stanu może potrwać kilka minut `Registered` . Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature#az-feature-register) :
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-```
-
-Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) :
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-Zainstaluj lub zaktualizuj rozszerzenie AKS-Preview dla tego samouczka. Użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
+ - Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia [AZ Provider Register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) :
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

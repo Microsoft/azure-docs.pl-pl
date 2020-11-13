@@ -2,13 +2,13 @@
 title: Połącz maszynę hybrydową z serwerami z obsługą usługi Azure Arc
 description: Dowiedz się, jak nawiązać połączenie i zarejestrować maszynę hybrydową przy użyciu serwerów z obsługą usługi Azure Arc.
 ms.topic: quickstart
-ms.date: 09/23/2020
-ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/12/2020
+ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327888"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576838"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Szybki Start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure Arc
 
@@ -42,34 +42,40 @@ Serwery z obsługą usługi Azure Arc są zależne od następujących dostawców
 Zarejestruj je przy użyciu następujących poleceń:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 ## <a name="generate-installation-script"></a>Generuj skrypt instalacyjny
 
 Skrypt służący do automatyzowania pobierania, instalacji i nawiązywania połączenia z usługą Azure Arc jest dostępny w Azure Portal. Aby ukończyć ten proces, wykonaj następujące czynności:
 
-1. Uruchom usługę Azure Arc w Azure Portal, klikając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **maszyny — Azure Arc**.
+1. Uruchom usługę Azure Arc w Azure Portal, klikając pozycję **wszystkie usługi** , a następnie wyszukując i wybierając **serwery — Azure Arc**.
 
     :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 
-1. Na stronie **automaty na platformie Azure** wybierz pozycję **Dodaj**, w lewym górnym rogu lub opcję **Utwórz Machine-Azure Arc** w dolnej części środkowego okienka.
+1. Na stronie **serwery — usługa Azure Arc** wybierz pozycję **Dodaj** w lewym górnym rogu.
 
-1. Na stronie **Wybierz metodę** wybierz kafelek **Dodawanie maszyn przy użyciu interakcyjnego skryptu** , a następnie wybierz pozycję **Generuj skrypt**.
+1. Na stronie **Wybierz metodę** wybierz kafelek **Dodawanie serwerów przy użyciu interakcyjnego skryptu** , a następnie wybierz pozycję **Generuj skrypt**.
 
-1. Na stronie **Generowanie skryptu** wybierz subskrypcję i grupę zasobów, w której maszyna ma być zarządzana na platformie Azure. Wybierz lokalizację platformy Azure, w której będą przechowywane metadane maszyny.
+1. Na stronie **Generowanie skryptu** wybierz subskrypcję i grupę zasobów, w której maszyna ma być zarządzana na platformie Azure. Wybierz lokalizację platformy Azure, w której będą przechowywane metadane maszyny. Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
 
-1. Na stronie **Generuj skrypt** na liście rozwijanej **system operacyjny** wybierz system operacyjny, na którym będzie uruchamiany skrypt.
+1. Na stronie **wymagania wstępne** Przejrzyj informacje, a następnie wybierz pozycję **Dalej: szczegóły zasobu**.
 
-1. Jeśli komputer komunikuje się za pomocą serwera proxy w celu nawiązania połączenia z Internetem, wybierz pozycję **Dalej: serwer proxy**.
+1. Na stronie **szczegóły zasobu** podaj następujące informacje:
 
-1. Na karcie **serwer proxy** Określ adres IP serwera proxy lub nazwę i numer portu, który będzie używany przez maszynę do komunikacji z serwerem proxy. Wprowadź wartość w formacie `http://<proxyURL>:<proxyport>` .
+    1. Z listy rozwijanej **Grupa zasobów** wybierz grupę zasobów, z której będzie zarządzana maszyna.
+    1. Z listy rozwijanej **region** wybierz region platformy Azure, w którym mają być przechowywane metadane serwerów.
+    1. Z listy rozwijanej **system operacyjny** wybierz system operacyjny, na którym ma być uruchamiany skrypt.
+    1. Jeśli komputer komunikuje się za pomocą serwera proxy w celu nawiązania połączenia z Internetem, określ adres IP serwera proxy lub nazwę i numer portu, który będzie używany przez maszynę do komunikacji z serwerem proxy. Wprowadź wartość w formacie `http://<proxyURL>:<proxyport>` .
+    1. Wybierz pozycję **Dalej: Tagi**.
 
-1. Wybierz pozycję **Recenzja + generowanie**.
+1. Na stronie **Tagi** Przejrzyj domyślne sugerowane **znaczniki lokalizacji fizycznej** i wprowadź wartość lub Określ jeden lub więcej **tagów niestandardowych** do obsługi Twoich standardów.
 
-1. Na karcie **Recenzja + generowanie** Przejrzyj informacje podsumowujące, a następnie wybierz pozycję **Pobierz**. Jeśli nadal musisz wprowadzić zmiany, wybierz pozycję **Poprzednia**.
+1. Wybierz pozycję **Dalej: Pobierz i uruchom skrypt**.
+
+1. Na stronie **Pobierz i uruchom skrypt** Przejrzyj informacje podsumowujące, a następnie wybierz pozycję **Pobierz**. Jeśli nadal musisz wprowadzić zmiany, wybierz pozycję **Poprzednia**.
 
 ## <a name="install-the-agent-using-the-script"></a>Instalowanie agenta za pomocą skryptu
 
@@ -99,7 +105,7 @@ Skrypt służący do automatyzowania pobierania, instalacji i nawiązywania poł
 
 Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z serwerami z obsługą usługi Azure Arc przejdź do Azure Portal, aby sprawdzić, czy serwer pomyślnie nawiązał połączenie. Zapoznaj się z maszyną w [Azure Portal](https://aka.ms/hybridmachineportal).
 
-:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
+:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Pomyślne połączenie z maszyną" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

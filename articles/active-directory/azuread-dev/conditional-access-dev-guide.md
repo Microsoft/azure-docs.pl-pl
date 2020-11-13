@@ -13,16 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116310"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575887"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Wskazówki dla deweloperów dotyczące funkcji dostępu warunkowego Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
+> [!NOTE]
+> Aby uzyskać informacje na temat wersji platformy tożsamości firmy Microsoft w tym artykule, zobacz [wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego](/azure/active-directory/develop/v2-conditional-access-dev-guide).
 
 Funkcja dostępu warunkowego w usłudze Azure Active Directory (Azure AD) oferuje jeden z kilku sposobów zabezpieczania aplikacji oraz ochrony usługi. Dostęp warunkowy umożliwia deweloperom i klientom korporacyjnym ochronę usług na wiele sposobów, takich jak:
 
@@ -40,7 +43,7 @@ Założono znajomość [pojedynczych i wielodostępnych](../develop/howto-conver
 
 ### <a name="app-types-impacted"></a>Typy aplikacji, których dotyczy problem
 
-W większości typowych przypadków dostęp warunkowy nie zmienia zachowania aplikacji ani nie wymaga żadnych zmian od dewelopera.Tylko w niektórych przypadkach, gdy aplikacja pośrednio lub dyskretnie żąda tokenu dla usługi, aplikacja wymaga zmiany kodu w celu obsługi dostępu warunkowego "wyzwania".Może być tak proste, jak wykonywanie interakcyjnego żądania logowania.
+W większości typowych przypadków dostęp warunkowy nie zmienia zachowania aplikacji ani nie wymaga żadnych zmian od dewelopera. Tylko w niektórych przypadkach, gdy aplikacja pośrednio lub dyskretnie żąda tokenu dla usługi, aplikacja wymaga zmiany kodu w celu obsługi dostępu warunkowego "wyzwania". Może być tak proste, jak wykonywanie interakcyjnego żądania logowania.
 
 W szczególnych przypadkach następujące scenariusze wymagają, aby kod obsługiwał dostęp warunkowy "wyzwania":
 

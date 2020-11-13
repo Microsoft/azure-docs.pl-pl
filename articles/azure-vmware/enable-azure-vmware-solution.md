@@ -2,28 +2,30 @@
 title: Jak włączyć zasób rozwiązania Azure VMware
 description: Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby węzłów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: dc90a322b5592ca7f400a82deca65ea753711c27
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/12/2020
+ms.openlocfilehash: 7c805e9e622f55593ff1fbb72a355d233b7e3618
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948735"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576402"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Jak włączyć zasób rozwiązania VMware dla platformy Azure
-Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby węzłów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
+Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób [rozwiązania VMware platformy Azure](introduction.md) . Możesz również zażądać większej liczby węzłów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 
 ## <a name="eligibility-criteria"></a>Kryteria kwalifikacji
 
-* Będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
-* Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
+Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure. Subskrypcja platformy Azure musi być zgodna z jednym z następujących kryteriów:
+
+* Subskrypcja w ramach [usługi Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
+* Subskrypcja zarządzana przez dostawcę rozwiązań w chmurze (CSP) w ramach planu platformy Azure.
 
 
-## <a name="enable-azure-vmware-solution-resource"></a>Włącz zasób rozwiązania VMware dla platformy Azure
+## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Włącz rozwiązanie VMware dla platformy Azure dla klientów z umowami EA
 Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
 
 
-1. W Azure Portal w obszarze **Pomoc i obsługa techniczna**Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:
+1. W Azure Portal w obszarze **Pomoc i obsługa techniczna** Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:
    - **Typ problemu:** Naukow
    - **Subskrypcja:** Wybierz swoją subskrypcję
    - **Usługa:** Wszystkie usługi > rozwiązanie VMware dla platformy Azure
@@ -56,3 +58,25 @@ Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomo
    ```
 
    Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../azure-resource-manager/management/resource-providers-and-types.md).
+
+## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Włącz rozwiązanie VMware dla platformy Azure dla klientów programu CSP 
+
+Dostawcy usług kryptograficznych muszą korzystać z [Centrum partnerskiego firmy Microsoft](https://partner.microsoft.com) , aby umożliwić klientom korzystanie z rozwiązań VMware platformy Azure. 
+
+1. W **centrum partnerskim** wybierz **dostawcę CSP** , aby uzyskać dostęp do obszaru **Customers** .
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Obszar klientów Centrum partnerskiego firmy Microsoft" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+
+1. Wybierz klienta, a następnie wybierz pozycję **Dodaj produkty**.
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Centrum Partnerskie Microsoft" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+
+1. Wybierz pozycję **Azure plan** , a następnie wybierz pozycję **Dodaj do koszyka**. 
+
+1. Przejrzyj i Zakończ ogólne ustawienia subskrypcji planu platformy Azure dla klienta. Aby uzyskać więcej informacji, zobacz [dokumentację Centrum partnerskiego firmy Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
+
+Po skonfigurowaniu planu platformy Azure oraz wymaganych uprawnień RBAC w ramach dostawcy usług kryptograficznych firma Microsoft korzysta z podobnej procedury umożliwiającej włączenie przydziału dla subskrypcji planu platformy Azure. Po dodaniu do planu platformy Azure klient lub administrator partnera może wdrożyć chmurę prywatną rozwiązania Azure VMware za pomocą Azure Portal. 
+
+## <a name="next-steps"></a>Następne kroki
+
+Po włączeniu zasobu rozwiązania Azure VMware i umieszczeniu odpowiedniej sieci na miejscu można [utworzyć chmurę prywatną](tutorial-create-private-cloud.md).

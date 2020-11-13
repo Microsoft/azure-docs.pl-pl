@@ -3,12 +3,12 @@ title: 'Szybki Start: pierwsze zapytanie interfejsu API REST'
 description: W tym przewodniku szybki start wykonaj kroki w celu wywołania punktu końcowego grafu zasobów dla interfejsu API REST i uruchomienia pierwszego zapytania.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057233"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566082"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu interfejsu API REST
 
@@ -30,7 +30,7 @@ Aby uzyskać dane dotyczące specyfikacji grafu zasobów platformy Azure, zobacz
 
 ### <a name="rest-api-and-powershell"></a>Interfejs API REST i program PowerShell
 
-Jeśli jeszcze nie masz narzędzia do wykonywania wywołań interfejsu API REST, rozważ wykonywanie tych instrukcji w programie PowerShell. Poniższy przykładowy kod pobiera nagłówek do uwierzytelniania za pomocą platformy Azure. Wygeneruj nagłówek uwierzytelniania, czasami nazywany **tokenem elementu nośnego**, i podaj identyfikator URI interfejsu API REST, z którym chcesz nawiązać połączenie, za pomocą dowolnych parametrów lub **treści żądania**:
+Jeśli jeszcze nie masz narzędzia do wykonywania wywołań interfejsu API REST, rozważ wykonywanie tych instrukcji w programie PowerShell. Poniższy przykładowy kod pobiera nagłówek do uwierzytelniania za pomocą platformy Azure. Wygeneruj nagłówek uwierzytelniania, czasami nazywany **tokenem elementu nośnego** , i podaj identyfikator URI interfejsu API REST, z którym chcesz nawiązać połączenie, za pomocą dowolnych parametrów lub **treści żądania** :
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -50,7 +50,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
 Zamień `{subscriptionId}` na `$restUri` zmienną, aby uzyskać informacje o subskrypcji.
-`$response`Zmienna przechowuje wynik `Invoke-RestMethod` polecenia cmdlet, które można analizować za pomocą poleceń cmdlet, takich jak [ConvertFrom-JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json). Jeśli punkt końcowy usługi interfejsu API REST oczekuje **treści żądania**, podaj zmienną w formacie JSON dla parametru `-Body` polecenia `Invoke-RestMethod`.
+`$response`Zmienna przechowuje wynik `Invoke-RestMethod` polecenia cmdlet, które można analizować za pomocą poleceń cmdlet, takich jak [ConvertFrom-JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json). Jeśli punkt końcowy usługi interfejsu API REST oczekuje **treści żądania** , podaj zmienną w formacie JSON dla parametru `-Body` polecenia `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Uruchamianie pierwszego zapytania usługi Resource Graph
 
@@ -76,7 +76,6 @@ W treści żądania każdego wywołania interfejsu API REST istnieje zmienna, kt
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
@@ -99,7 +98,6 @@ W treści żądania każdego wywołania interfejsu API REST istnieje zmienna, kt
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
@@ -122,7 +120,6 @@ W treści żądania każdego wywołania interfejsu API REST istnieje zmienna, kt
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 

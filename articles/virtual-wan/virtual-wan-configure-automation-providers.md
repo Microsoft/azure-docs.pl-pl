@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208348"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566473"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Wytyczne dotyczące automatyzacji dla partnerów usługi Virtual WAN
 
@@ -33,9 +33,9 @@ Urządzenie rozgałęzienia (lokalne urządzenie sieci VPN lub SDWAN CPE) zwykle
 
 ### <a name="additional-information"></a><a name ="additional"></a>Dodatkowe informacje
 
-* [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) do automatyzowania tworzenia koncentratora wirtualnego
-* [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) do automatyzowania bramy sieci VPN platformy Azure dla wirtualnej sieci WAN
-* [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) do łączenia VPNSite z Centrum sieci VPN platformy Azure
+* [Interfejs API REST](/rest/api/virtualwan/virtualhubs) do automatyzowania tworzenia koncentratora wirtualnego
+* [Interfejs API REST](/rest/api/virtualwan/vpngateways) do automatyzowania bramy sieci VPN platformy Azure dla wirtualnej sieci WAN
+* [Interfejs API REST](/rest/api/virtualwan/vpnconnections) do łączenia VPNSite z Centrum sieci VPN platformy Azure
 * [Domyślne zasady protokołu IPsec](#default)
 
 ## <a name="customer-experience"></a><a name ="ae"></a>obsługa klienta
@@ -63,11 +63,11 @@ Klienci muszą mieć możliwość skonfigurowania odpowiedniej kontroli dostępu
 
 ###  <a name="upload-branch-device-information"></a><a name="branch"></a>Przekazywanie informacji o urządzeniu gałęzi
 
-Należy zaprojektować środowisko użytkownika w celu przekazywania informacji o rozgałęzieniu (lokacji lokalnej) do platformy Azure. Aby utworzyć informacje o lokacji w wirtualnej sieci WAN, można użyć [interfejsów API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) dla VPNSite. Wszystkie urządzenia SDWAN/VPN można udostępnić lub wybrać odpowiednie dostosowania urządzeń.
+Należy zaprojektować środowisko użytkownika w celu przekazywania informacji o rozgałęzieniu (lokacji lokalnej) do platformy Azure. Aby utworzyć informacje o lokacji w wirtualnej sieci WAN, można użyć [interfejsów API REST](/rest/api/virtualwan/vpnsites) dla VPNSite. Wszystkie urządzenia SDWAN/VPN można udostępnić lub wybrać odpowiednie dostosowania urządzeń.
 
 ### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Pobieranie i łączność konfiguracji urządzeń
 
-Ten krok obejmuje pobranie konfiguracji platformy Azure i skonfigurowanie łączności z urządzenia oddziału w usłudze Azure Virtual WAN. W tym kroku klient, który nie korzysta z dostawcy, ręcznie pobierze konfigurację platformy Azure i zastosuje ją do lokalnego urządzenia SDWAN/VPN. Jako dostawca należy zautomatyzować ten krok. Aby uzyskać dodatkowe informacje, zobacz [interfejsy API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) pobierania. Kontroler urządzenia może wywoływać interfejs API REST "GetVpnConfiguration", aby pobrać konfigurację platformy Azure.
+Ten krok obejmuje pobranie konfiguracji platformy Azure i skonfigurowanie łączności z urządzenia oddziału w usłudze Azure Virtual WAN. W tym kroku klient, który nie korzysta z dostawcy, ręcznie pobierze konfigurację platformy Azure i zastosuje ją do lokalnego urządzenia SDWAN/VPN. Jako dostawca należy zautomatyzować ten krok. Aby uzyskać dodatkowe informacje, zobacz [interfejsy API REST](/rest/api/virtualwan/vpnsitesconfiguration/download) pobierania. Kontroler urządzenia może wywoływać interfejs API REST "GetVpnConfiguration", aby pobrać konfigurację platformy Azure.
 
 **Uwagi dotyczące konfiguracji**
 

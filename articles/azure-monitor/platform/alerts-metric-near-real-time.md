@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108817"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566490"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -26,7 +26,7 @@ Obecnie można tworzyć nowsze alerty metryk tylko w [szablonach](./alerts-metri
 ## <a name="metrics-and-dimensions-supported"></a>Obsługiwane metryki i wymiary
 Nowsze alerty metryk obsługują alerty dotyczące metryk, które korzystają z wymiarów. Wymiarów można użyć do filtrowania metryki na odpowiedni poziom. Wszystkie obsługiwane metryki wraz z odpowiednimi wymiarami mogą być zbadane i wizualizacje z [Azure Monitor Eksplorator metryk](./metrics-charts.md).
 
-Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez nowsze alerty:
+Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze alerty:
 
 |Typ zasobu  |Obsługiwane wymiary |Alerty dotyczące obsługi zasobów| Dostępne metryki|
 |---------|---------|-----|----------|

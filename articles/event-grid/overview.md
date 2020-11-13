@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Event Grid?
 description: Wysyłaj dane zdarzenia ze źródła do procedury obsługi za pomocą usługi Azure Event Grid. Twórz aplikacje oparte na zdarzeniach i integruj z usługami platformy Azure.
 ms.topic: overview
 ms.date: 09/24/2020
-ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326506"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576686"
 ---
 # <a name="what-is-azure-event-grid"></a>Co to jest usługa Azure Event Grid?
 
@@ -78,7 +78,7 @@ Oto główne funkcje usługi Azure Event Grid:
 * **Wielokierunkowość** — jedno zdarzenie może być subskrybowane przez kilka punktów końcowych, co pozwala wysyłać kopie zdarzenia do wszystkich potrzebnych miejsc.
 * **Niezawodność** — 24-godzinne ponawianie z wykładniczym wycofywaniem gwarantuje dostarczanie zdarzeń.
 * **Płatność za zdarzenia** — płacisz tylko za rzeczywiste użycie usługi Event Grid.
-* **Wysoka przepływność** — usługa Event Grid jest przeznaczona do obsługi dużych obciążeń i milionów zdarzeń na sekundę.
+* **Wysoka przepływność** — Tworzenie obciążeń o dużej pojemności na Event Grid.
 * **Wbudowane zdarzenia** — wbudowane zdarzenia definiowane przez zasoby pozwalają szybko rozpocząć pracę.
 * **Zdarzenia niestandardowe** — używanie Event Grid do kierowania, filtrowania i niezawodnego dostarczania niestandardowych zdarzeń w aplikacji.
 

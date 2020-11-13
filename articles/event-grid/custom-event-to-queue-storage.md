@@ -4,12 +4,12 @@ description: 'Szybki Start: używanie Azure Event Grid i interfejsu wiersza pole
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87497345"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566320"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do usługi Azure queue storage przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
 
@@ -17,12 +17,11 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. Magazyn kolejek platfo
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli używasz interfejsu wiersza polecenia platformy Azure lub modułu Azure PowerShell na komputerze lokalnym zamiast usługi Cloud Shell w witrynie Azure Portal, upewnij się, że masz następujące wersje wiersza polecenia platformy Azure i modułu Azure PowerShell. 
+- Ten artykuł wymaga wersji 2.0.56 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-- Interfejs wiersza polecenia platformy Azure w wersji 2.0.56 lub nowszej. Aby uzyskać instrukcje na temat instalowania najnowszej wersji interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
-- Moduł Azure PowerShell w wersji 1.1.0 lub nowszej. Pobierz najnowszą wersję modułu Azure PowerShell na komputer z systemem Windows ze strony [Pliki do pobrania platformy Azure — narzędzia wiersza polecenia](https://azure.microsoft.com/downloads/). 
+- Jeśli używasz Azure PowerShell na maszynie lokalnej zamiast korzystać z Cloud Shell w Azure Portal, upewnij się, że masz Azure PowerShell wersję 1.1.0 lub nowszą. Pobierz najnowszą wersję modułu Azure PowerShell na komputer z systemem Windows ze strony [Pliki do pobrania platformy Azure — narzędzia wiersza polecenia](https://azure.microsoft.com/downloads/). 
 
 Ten artykuł zawiera polecenia umożliwiające korzystanie z wiersza polecenia platformy Azure. 
 

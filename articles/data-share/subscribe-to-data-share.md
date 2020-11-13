@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/14/2020
-ms.openlocfilehash: 9031ea2d862a23df5d597b790fffc49e624e53fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 10/30/2020
+ms.openlocfilehash: 752948d9dd6640a20963303833e7da613bc2e211
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491923"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577349"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: Akceptowanie i odbieranie danych przy użyciu usługi Azure Data Share  
 
@@ -32,19 +32,24 @@ Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wy
 * Zaproszenie do udziału danych: zaproszenie od Microsoft Azure z podmiotem zatytułowanym "zaproszenie do udziału danych platformy Azure **<yourdataprovider@domain.com>** ".
 * Zarejestruj [dostawcę zasobów Microsoft. datashare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji platformy Azure, w której utworzysz zasób udziału danych i subskrypcję platformy Azure, w której znajdują się docelowe magazyny danych platformy Azure.
 
-### <a name="receive-data-into-a-storage-account"></a>Odbierz dane do konta magazynu: 
+### <a name="receive-data-into-a-storage-account"></a>Odbieranie danych do konta magazynu
 
 * Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](../storage/common/storage-account-create.md). 
 * Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli Współautor. 
 * Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli Właściciel.  
 
-### <a name="receive-data-into-a-sql-based-target"></a>Odbieraj dane w miejscu docelowym opartym na języku SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Odbieranie danych do obiektu docelowego opartego na języku SQL
+Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Azure Synapse Analytics poniżej stanowi listę wymagań wstępnych. 
 
-* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli Współautor. 
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące otrzymywania danych w usłudze Azure SQL Database lub Azure Synapse Analytics (dawniej: Azure SQL DW)
+Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/aeGISgK1xro) .
+
+* Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW).
+* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli **Współautor**. 
 * Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub analizy usługi Azure Synapse. Można to zrobić, wykonując następujące czynności: 
-    1. Ustaw siebie jako Azure Active Directory administrator programu SQL Server.
-    1. Nawiąż połączenie z magazynem Azure SQL Database/danymi przy użyciu Azure Active Directory.
-    1. Użyj edytora zapytań (wersja zapoznawcza), aby wykonać poniższy skrypt w celu dodania tożsamości zarządzanej udziału danych jako "db_datareader, db_datawriter, db_ddladmin". Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 
+    1. W Azure Portal przejdź do serwera SQL i ustaw go jako **administratora Azure Active Directory**.
+    1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
+    1. Wykonaj następujący skrypt, aby dodać tożsamość zarządzaną udziału danych jako "db_datareader, db_datawriter, db_ddladmin". Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -54,11 +59,34 @@ Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wy
         ```      
         Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych. Jeśli zasób udział danych nie został jeszcze utworzony, możesz wrócić do tego wymagania wstępnego później.         
 
-* Adres IP klienta SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
+* SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
     1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
-    1. Kliknij przełącznik **, aby zezwolić na dostęp** do usług platformy Azure.
-    1. Kliknij pozycję **+ Dodaj adres IP klienta** , a następnie kliknij przycisk **Zapisz**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym otrzymaniu danych do obiektu docelowego SQL z Azure Portal. Możesz również dodać zakres adresów IP. 
+    1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
+    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+    1. Kliknij pozycję **Zapisz**. 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące otrzymywania danych w puli SQL usługi Azure Synapse Analytics (Workspace)
 
+* Pula SQL usługi Azure Synapse Analytics (obszar roboczy).
+* Uprawnienia do zapisu w puli SQL w obszarze roboczym Synapse, które znajdują się w *witrynie Microsoft. Synapse/Workspaces/Sqlpools/Write*. To uprawnienie istnieje w roli **Współautor**.
+* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do puli SQL obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję SQL Active Directory administrator na lewym panelu nawigacyjnym i ustaw siebie jako **administratora Azure Active Directory**.
+    1. Otwórz program Synapse Studio, wybierz pozycję *Zarządzaj* w lewym obszarze nawigacji. Wybierz pozycję *Kontrola dostępu* w obszarze zabezpieczenia. Przypisz siebie do roli administratora **SQL** lub **obszaru roboczego** .
+    1. W programie Synapse Studio wybierz pozycję *programowanie* na lewym pasku nawigacyjnym. Wykonaj następujący skrypt w puli SQL, aby dodać tożsamość zarządzaną zasobu udziału danych jako "db_datareader, db_datawriter, db_ddladmin". 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych. Jeśli zasób udział danych nie został jeszcze utworzony, możesz wrócić do tego wymagania wstępnego później.  
+
+* Dostęp do zapory obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję *zapory* na lewym pasku nawigacyjnym.
+    1. Kliknij **ON** pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
+    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+    1. Kliknij pozycję **Zapisz**. 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Odbieraj dane w klastrze Eksplorator danych platformy Azure: 
 

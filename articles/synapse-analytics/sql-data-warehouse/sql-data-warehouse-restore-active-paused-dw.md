@@ -1,6 +1,6 @@
 ---
-title: Przywracanie istniejącej dedykowanej puli SQL
-description: Przewodnik dotyczący przywracania istniejącej dedykowanej puli SQL.
+title: Przywracanie istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics
+description: Przewodnik dotyczący przywracania istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3b5ced43e1277ffbb1c9988af08ee032ab93a15e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0c3fd0aee0a70743db721f469d91f269b9764e5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313502"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577553"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Przywracanie istniejącej dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -91,7 +91,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Przywracanie istniejącej dedykowanej puli SQL za pomocą Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Przejdź do dedykowanej, z której chcesz przywrócić.
 3. W górnej części bloku przegląd wybierz pozycję **Przywróć**.
 

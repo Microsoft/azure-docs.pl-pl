@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628851"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575972"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -99,13 +99,13 @@ Jeśli nie masz jeszcze certyfikatu, możesz użyć certyfikatu z podpisem włas
 Następnie Przekaż potwierdzenie SAML i certyfikat podpisywania odpowiedzi do Azure AD B2C.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do dzierżawy Azure AD B2C.
-1. W obszarze **zasady** wybierz opcję **Struktura środowiska tożsamości** , a następnie pozycję **klucze zasad** .
-1. Wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Opcje**  >  **Przekaż** .
-1. Wprowadź **nazwę** , na przykład *SamlIdpCert* . Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
+1. W obszarze **zasady** wybierz opcję **Struktura środowiska tożsamości** , a następnie pozycję **klucze zasad**.
+1. Wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Opcje**  >  **Przekaż**.
+1. Wprowadź **nazwę** , na przykład *SamlIdpCert*. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
 1. Przekaż certyfikat przy użyciu kontrolki przekazywania pliku.
 1. Wprowadź hasło certyfikatu.
-1. Wybierz pozycję **Utwórz** .
-1. Sprawdź, czy klucz jest wyświetlany zgodnie z oczekiwaniami. Na przykład *B2C_1A_SamlIdpCert* .
+1. Wybierz pozycję **Utwórz**.
+1. Sprawdź, czy klucz jest wyświetlany zgodnie z oczekiwaniami. Na przykład *B2C_1A_SamlIdpCert*.
 
 ## <a name="2-prepare-your-policy"></a>2. Przygotuj zasady
 
@@ -159,7 +159,7 @@ Teraz, gdy Dzierżawca może wystawiać potwierdzenia SAML, należy utworzyć za
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3,1 Tworzenie zasad tworzenia konta lub logowania
 
-1. Utwórz kopię pliku *SignUpOrSignin.xml* w katalogu roboczym pakietu Start Pack i Zapisz go przy użyciu nowej nazwy. Na przykład *SignUpOrSigninSAML.xml* . Jest to plik zasad jednostki uzależnionej.
+1. Utwórz kopię pliku *SignUpOrSignin.xml* w katalogu roboczym pakietu Start Pack i Zapisz go przy użyciu nowej nazwy. Na przykład *SignUpOrSigninSAML.xml*. Jest to plik zasad jednostki uzależnionej.
 
 1. Otwórz plik *SignUpOrSigninSAML.xml* w preferowanym edytorze.
 
@@ -260,7 +260,7 @@ Końcowy plik zasad jednostki uzależnionej powinien wyglądać podobnie do nast
 
 Zapisz zmiany i przekaż nowy plik zasad. Po przekazaniu obu zasad (rozszerzenia i plików jednostek uzależnionych) Otwórz przeglądarkę internetową i przejdź do metadanych zasad.
 
-Metadane dostawcy tożsamości zasad Azure AD B2C są informacje używane w protokole SAML do ujawnienia konfiguracji dostawcy tożsamości SAML. Metadane określają lokalizację usług, takich jak logowanie i wylogowywanie, certyfikaty, metoda logowania itd. Metadane zasad Azure AD B2C są dostępne pod następującym adresem URL. Zamień na `tenant-name` nazwę dzierżawy Azure AD B2C i `policy-name` nazwę (identyfikator) zasad:
+Metadane dostawcy tożsamości zasad Azure AD B2C są informacje używane w protokole SAML do ujawnienia konfiguracji dostawcy tożsamości SAML. Metadane określają lokalizację usług, takich jak logowanie i wylogowywanie, certyfikaty, metoda logowania itd. Metadane zasad Azure AD B2C są dostępne pod następującym adresem URL. Zamień `tenant-name` na nazwę dzierżawy Azure AD B2C i `policy-name` nazwę (identyfikator) zasad na przykład,.../B2C_1A_SAML2_signup_signin/SAMLP/Metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -270,14 +270,14 @@ Twoje zasady niestandardowe i dzierżawa Azure AD B2C są teraz gotowe. Następn
 
 ### <a name="41-register-your-application-in-azure-ad-b2c"></a>4,1 Zarejestruj swoją aplikację w Azure AD B2C
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
-1. W menu po lewej stronie wybierz pozycję **Azure AD B2C** . Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C** .
-1. Wybierz pozycję **rejestracje aplikacji** , a następnie wybierz pozycję **Nowa rejestracja** .
-1. Wprowadź **nazwę** aplikacji. Na przykład *SAMLApp1* .
+1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. Wybierz pozycję **rejestracje aplikacji** , a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji. Na przykład *SAMLApp1*.
 1. W obszarze **obsługiwane typy kont** wybierz opcję **konta tylko w tym katalogu organizacji**
 1. W obszarze **Identyfikator URI przekierowania** wybierz pozycję **Sieć Web** , a następnie wprowadź `https://localhost` . Tę wartość należy zmodyfikować później w manifeście rejestracji aplikacji.
-1. Wybierz pozycję **Zarejestruj** .
+1. Wybierz pozycję **Zarejestruj**.
 
 ### <a name="42-update-the-app-manifest"></a>4,2. Zaktualizuj manifest aplikacji
 
@@ -296,7 +296,7 @@ Ta właściwość reprezentuje publicznie dostępny adres URL metadanych dostawc
 
 Metadane są informacje używane w protokole SAML do ujawnienia konfiguracji strony SAML, takiej jak dostawca usług. Metadane określają lokalizację usług, takich jak logowanie i wylogowywanie, certyfikaty, metoda logowania itd. Azure AD B2C odczytuje metadane dostawcy usługi i odpowiednio działa. Metadane nie są wymagane. Możesz również określić niektóre atrybuty, takie jak identyfikator URI odpowiedzi i identyfikator URI wylogowania, bezpośrednio w manifeście aplikacji.
 
-Jeśli istnieją właściwości określone *zarówno* w adresie URL metadanych SAML, jak i w manifeście rejestracji aplikacji, zostaną one **scalone** . Właściwości określone w adresie URL metadanych są przetwarzane jako pierwsze i mają pierwszeństwo.
+Jeśli istnieją właściwości określone *zarówno* w adresie URL metadanych SAML, jak i w manifeście rejestracji aplikacji, zostaną one **scalone**. Właściwości określone w adresie URL metadanych są przetwarzane jako pierwsze i mają pierwszeństwo.
 
 W tym samouczku, który używa aplikacji testowej SAML, należy użyć następującej wartości dla `samlMetadataUrl` :
 

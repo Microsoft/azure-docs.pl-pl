@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 991471f43c92b12073062db1e4e5fdb32fb4b0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c386652ed0b026c29cb202274daba9ee6deb4cf0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494795"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566875"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Eksportowanie z magazynu usługi Azure App Configuration
 
@@ -23,9 +23,9 @@ Ten przykładowy skrypt eksportuje pary klucz-wartość z magazynu usługi Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+ - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 

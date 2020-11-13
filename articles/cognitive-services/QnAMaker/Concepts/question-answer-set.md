@@ -1,16 +1,16 @@
 ---
-title: Baza wiedzy o projekcie QnA Maker
+title: Projektowanie bazy wiedzy — QnA Maker pojęć
 description: Dowiedz się, jak zaprojektować QnA Maker bazy wiedzy.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776905"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576193"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Pojęcia dotyczące pary pytań i odpowiedzi
 
@@ -28,8 +28,8 @@ Każda para jest reprezentowana przez **Identyfikator**.
 **Opcjonalne** ustawienia dla pary obejmują:
 
 * **Alternatywne formy pytania** — pomaga QNA Maker zwrócić poprawną odpowiedź w celu uzyskania większej liczby pytań frazy
-* **Metadane**: metadane są tagami skojarzonymi z parą QNA i są reprezentowane jako pary klucz-wartość. Tagi metadanych są używane do filtrowania par QnA i ograniczają zestaw, w jakim jest wykonywane Dopasowywanie zapytań.
-* Wyświetlanie wielowierszowych **ekranów**, służących do kontynuowania konwersacji z obsługą wielodostępności
+* **Metadane** : metadane są tagami skojarzonymi z parą QNA i są reprezentowane jako pary klucz-wartość. Tagi metadanych są używane do filtrowania par QnA i ograniczają zestaw, w jakim jest wykonywane Dopasowywanie zapytań.
+* Wyświetlanie wielowierszowych **ekranów** , służących do kontynuowania konwersacji z obsługą wielodostępności
 
 ![QnA Maker bazy wiedzy](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

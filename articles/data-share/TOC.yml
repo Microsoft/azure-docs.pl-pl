@@ -8,7 +8,6 @@
     - name: Obsługiwane magazyny danych
       href: supported-data-stores.md
 - name: Przewodniki Szybki start
-  expanded: true
   items:
     - name: Udostępnianie danych — witryna Azure Portal
       href: share-your-data-portal.md
@@ -16,6 +15,7 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Samouczki
+  expanded: true
   items:
     - name: Udostępnianie danych
       href: share-your-data.md

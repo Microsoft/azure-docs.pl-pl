@@ -1,6 +1,6 @@
 ---
 title: Przyrostowe kopiowanie wielu tabel przy użyciu programu PowerShell
-description: W tym samouczku utworzysz fabrykę danych platformy Azure z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server, aby Azure SQL Database.
+description: W tym samouczku utworzysz Azure Data Factory z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 54dea3ba7bbc3339b7b044b476c321fd95138ac2
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634100"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566422"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do Azure SQL Database przy użyciu programu PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz fabrykę danych platformy Azure z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server, aby Azure SQL Database.    
+W tym samouczku utworzysz Azure Data Factory z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.    
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -42,11 +42,11 @@ Ten samouczek obejmuje następujące procedury:
 ## <a name="overview"></a>Omówienie
 Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązania: 
 
-1. **Wybierz kolumnę limitu** .
+1. **Wybierz kolumnę limitu**.
 
     Wybierz jedną kolumnę dla każdej tabeli w źródłowym magazynie danych, która umożliwia zidentyfikowanie nowych lub zaktualizowanych rekordów dla każdego przebiegu. Zazwyczaj dane w tej wybranej kolumnie (na przykład last_modify_time lub ID) rosną wraz z tworzeniem i aktualizacją wierszy. Maksymalna wartość w tej kolumnie jest używana jako limit.
 
-2. **Przygotuj magazyn danych do przechowywania wartości limitu** .
+2. **Przygotuj magazyn danych do przechowywania wartości limitu**.
 
     W tym samouczku wartość limitu jest przechowywana w bazie danych SQL.
 
@@ -69,14 +69,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **SQL Server** . Baza danych SQL Server jest używana jako źródłowy magazyn danych w tym samouczku. 
-* **Azure SQL Database** . Baza danych programu jest używana w Azure SQL Database jako magazyn danych ujścia. Jeśli nie masz bazy danych SQL, zapoznaj się z tematem [Tworzenie bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) . 
+* **SQL Server**. Baza danych SQL Server jest używana jako źródłowy magazyn danych w tym samouczku. 
+* **Azure SQL Database**. Baza danych programu jest używana w Azure SQL Database jako magazyn danych ujścia. Jeśli nie masz bazy danych SQL, zapoznaj się z tematem [Tworzenie bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) . 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Tworzenie tabel źródłowych w bazie danych SQL Server
 
 1. Otwórz [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) lub [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)i nawiąż połączenie z bazą danych SQL Server.
 
-2. W **Eksplorator serwera (SSMS)** lub w **okienku połączenia (Azure Data Studio)** kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **nowe zapytanie** .
+2. W **Eksplorator serwera (SSMS)** lub w **okienku połączenia (Azure Data Studio)** kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **nowe zapytanie**.
 
 3. Uruchom następujące polecenie SQL względem bazy danych w celu utworzenia tabel o nazwach `customer_table` i `project_table`:
 
@@ -115,7 +115,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Otwórz [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) lub [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)i nawiąż połączenie z bazą danych SQL Server.
 
-2. W **Eksplorator serwera (SSMS)** lub w **okienku połączenia (Azure Data Studio)** kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **nowe zapytanie** .
+2. W **Eksplorator serwera (SSMS)** lub w **okienku połączenia (Azure Data Studio)** kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **nowe zapytanie**.
 
 3. Uruchom następujące polecenie SQL względem bazy danych w celu utworzenia tabel o nazwach `customer_table` i `project_table`:  
 
@@ -812,23 +812,23 @@ Potok przyjmuje listę nazw tabel jako parametr. **Działanie foreach** iteruje 
 
 ## <a name="monitor-the-pipeline"></a>Monitorowanie potoku
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wybierz pozycję **Wszystkie usługi** , przeprowadź wyszukiwanie za pomocą słowa kluczowego *Fabryki danych* , a następnie wybierz pozycję **Fabryki danych** . 
+2. Wybierz pozycję **Wszystkie usługi** , przeprowadź wyszukiwanie za pomocą słowa kluczowego *Fabryki danych* , a następnie wybierz pozycję **Fabryki danych**. 
 
-3. Wyszukaj używaną fabrykę danych na liście fabryk danych, a następnie wybierz ją, aby otworzyć stronę **Fabryka danych** . 
+3. Wyszukaj używaną fabrykę danych na liście fabryk danych, a następnie wybierz ją, aby otworzyć stronę **Fabryka danych**. 
 
 4. Na stronie **Fabryka danych** wybierz pozycję **Utwórz & monitor** , aby uruchomić Azure Data Factory na oddzielnej karcie.
 
 5. **Na stronie Wprowadzenie** wybierz pozycję **Monitoruj** po lewej stronie. 
 ![Zrzut ekranu przedstawia stronę wprowadzenie do Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Wyświetlone zostaną wszystkie uruchomienia potoków wraz z ich stanami. Zwróć uwagę, że w poniższym przykładzie stan uruchomienia potoku to **Powodzenie** . Wybierz link w kolumnie **Parametry** , aby sprawdzić parametry przekazywane do potoku. Jeśli wystąpił błąd, w kolumnie **Błąd** zostanie wyświetlony link.
+6. Wyświetlone zostaną wszystkie uruchomienia potoków wraz z ich stanami. Zwróć uwagę, że w poniższym przykładzie stan uruchomienia potoku to **Powodzenie**. Wybierz link w kolumnie **Parametry** , aby sprawdzić parametry przekazywane do potoku. Jeśli wystąpił błąd, w kolumnie **Błąd** zostanie wyświetlony link.
 
     ![Zrzut ekranu przedstawia uruchomienia potoków dla fabryki danych, w tym potoku.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Po wybraniu linku w kolumnie **Akcje** zobaczysz wszystkie uruchomienia działań dla potoku. 
 
-8. Aby powrócić do widoku **uruchomienia potoków** , wybierz pozycję **wszystkie uruchomienia potoków** . 
+8. Aby powrócić do widoku **uruchomienia potoków** , wybierz pozycję **wszystkie uruchomienia potoków**. 
 
 ## <a name="review-the-results"></a>Sprawdzanie wyników
 
@@ -954,7 +954,7 @@ project3    2017-03-04 05:16:00.000
 NewProject  2017-10-01 00:00:00.000
 ```
 
-Zwróć uwagę, że do tabeli project_table dodano pozycję **NewProject** . 
+Zwróć uwagę, że do tabeli project_table dodano pozycję **NewProject**. 
 
 **Zapytanie**
 

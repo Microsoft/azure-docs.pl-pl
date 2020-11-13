@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e074be91f343e04ba3049aea51f83f7f6364cdb0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564042"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576448"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Konfigurowanie ograniczeń dostępu Azure App Service
 
@@ -134,14 +134,14 @@ Oprócz możliwości kontrolowania dostępu do aplikacji można ograniczyć dost
 
 Ograniczenia dostępu można dodać programowo, wykonując jedną z następujących czynności: 
 
-* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Na przykład:
+* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Przykład:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
   --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Użyj [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true). Na przykład:
+* Użyj [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true). Przykład:
 
 
   ```azurepowershell-interactive
@@ -179,7 +179,7 @@ Możesz również ustawić wartości ręcznie, wykonując jedną z następujący
 Ograniczenia dostępu są również dostępne dla aplikacji funkcji o takich samych funkcjach jak plany App Service. Po włączeniu ograniczeń dostępu należy również wyłączyć Edytor kodu Azure Portal dla wszelkich niedozwolonych adresów IP.
 
 ## <a name="next-steps"></a>Następne kroki
-[Ograniczenia dostępu dla Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)  
+[Ograniczenia dostępu dla Azure Functions](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
 [Application Gateway integrację z punktami końcowymi usługi](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->

@@ -2,14 +2,14 @@
 title: Często zadawane pytania
 description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487796"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577519"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -229,9 +229,15 @@ Masz pełne uprawnienia administratora na NSX-T i mogą zarządzać kontrolą do
 
 Ogólne pytania dotyczące cen można znaleźć na stronie z [cennikiem](https://azure.microsoft.com/pricing/details/azure-vmware) rozwiązań VMware platformy Azure. 
 
+#### <a name="can-azure-vmware-solution-be-purchased-through-a-microsoft-csp"></a>Czy można zakupić rozwiązanie VMware na platformie Azure za pomocą dostawcy Microsoft CSP?
+
+Tak, klienci mogą wdrażać rozwiązanie VMware dla platformy Azure w ramach subskrypcji platformy Azure zarządzanej przez dostawcę usług kryptograficznych.
+
 #### <a name="who-supports-azure-vmware-solution"></a>Kto obsługuje rozwiązanie Azure VMware?
 
-Firma Microsoft zapewnia pomoc techniczną dla rozwiązań VMware platformy Azure. Możesz przesłać [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Firma Microsoft zapewnia pomoc techniczną dla rozwiązań VMware platformy Azure. Możesz przesłać [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+W przypadku subskrypcji zarządzanych przez dostawcę usług kryptograficznych pierwszy poziom wsparcia będzie dostarczany przez dostawcę rozwiązań w taki sam sposób, jak dostawca CSP dla innych usług platformy Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Jakie konta muszę utworzyć chmurę prywatną rozwiązania Azure VMware?
 
@@ -246,6 +252,10 @@ Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespó�
 Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Możesz wyłączyć lub zrezygnować z usługi.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Jak mogę zażądać zwiększenia limitu przydziału hosta dla rozwiązania Azure VMware?
+
+W przypadku subskrypcji zarządzanych przez dostawcę usług kryptograficznych klient musi wykonać żądanie do partnera, a zespół partnerski powiąże się z firmą Microsoft w celu zwiększenia limitu przydziału dla subskrypcji. 
+
+W przypadku subskrypcji z umową EA klient musi wykonać tę procedurę.
 
 * Będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 * Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
@@ -283,9 +293,12 @@ Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy przesłać 
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
 
 
 ## Customer communication

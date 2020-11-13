@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: efb00d35d2b12e6b6a577483257debf4e797c0a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a47548fb1f94ac7fe9b561e798b010fa9176e9e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934042"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566303"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Szybki start: tworzenie centrum zdarzeń za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -18,22 +18,15 @@ Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania dany
 
 W tym przewodniku Szybki start utworzysz centrum zdarzeń za pomocą interfejsu wiersza polecenia platformy Azure.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-Do wykonania kroków tego przewodnika Szybki start jest potrzebna subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [Utwórz bezpłatne konto][] .
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby sprawdzić wersję. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="set-the-subscription-context"></a>Ustawianie kontekstu subskrypcji
 
 Poniższe kroki nie są wymagane, jeśli uruchamiasz polecenia w usłudze Cloud Shell. Jeśli korzystasz z interfejsu wiersza polecenia lokalnie, wykonaj następujące kroki, aby zalogować się do platformy Azure i ustawić bieżącą subskrypcję:
-
-Uruchom następujące polecenia, aby zalogować się na platformie Azure:
-
-```azurecli-interactive
-az login
-```
 
 Ustawianie kontekstu bieżącej subskrypcji. Zastąp wartość `MyAzureSub` nazwą subskrypcji platformy Azure, której chcesz użyć:
 
@@ -79,7 +72,7 @@ W tym artykule utworzono grupę zasobów, przestrzeń nazw usługi Event Hubs i 
 - [C (tylko wysyłanie)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (tylko odbieranie)](event-hubs-storm-getstarted-receive.md)
 
-[Utwórz bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

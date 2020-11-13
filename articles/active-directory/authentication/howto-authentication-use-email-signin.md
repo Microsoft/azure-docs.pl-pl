@@ -10,14 +10,17 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964540"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576023"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Zaloguj się, aby Azure Active Directory przy użyciu poczty e-mail jako alternatywnego identyfikatora logowania (wersja zapoznawcza)
+
+> [!NOTE]
+> Logowanie do usługi Azure AD za pomocą poczty e-mail jako alternatywny identyfikator logowania jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Wiele organizacji chce pozwolić użytkownikom na logowanie się do Azure Active Directory (Azure AD) przy użyciu tych samych poświadczeń, co w lokalnym środowisku katalogu. W tym podejściu, nazywanego uwierzytelnianiem hybrydowym, użytkownicy muszą pamiętać tylko jeden zestaw poświadczeń.
 
@@ -27,12 +30,12 @@ Niektóre organizacje nie zostały przeniesione do uwierzytelniania hybrydowego 
 * Zmiana nazwy UPN usługi Azure AD tworzy niezrównaną zgodność między środowiskami Premium i Azure AD, które mogą spowodować problemy z niektórymi aplikacjami i usługami.
 * Ze względu na przyczyny biznesowe lub dotyczące zgodności organizacja nie chce używać lokalnej nazwy UPN do logowania się do usługi Azure AD.
 
-Aby ułatwić przechodzenie do uwierzytelniania hybrydowego, można teraz skonfigurować usługę Azure AD w taki sposób, aby umożliwić użytkownikom logowanie się przy użyciu wiadomości e-mail w zweryfikowanej domenie jako alternatywny identyfikator logowania. Jeśli na przykład *firma Contoso* została Poprzednia zalogowaniem się do firmy *Fabrikam*, a nie będziesz w stanie zalogować się przy użyciu starszej `balas@contoso.com` nazwy UPN, można teraz użyć poczty e-mail jako alternatywnego identyfikatora logowania. Aby uzyskać dostęp do aplikacji lub usług, użytkownicy będą logować się do usługi Azure AD przy użyciu przypisanych im adresów e-mail, takich jak `balas@fabrikam.com` .
+Aby ułatwić przechodzenie do uwierzytelniania hybrydowego, można teraz skonfigurować usługę Azure AD w taki sposób, aby umożliwić użytkownikom logowanie się przy użyciu wiadomości e-mail w zweryfikowanej domenie jako alternatywny identyfikator logowania. Jeśli na przykład *firma Contoso* została Poprzednia zalogowaniem się do firmy *Fabrikam* , a nie będziesz w stanie zalogować się przy użyciu starszej `balas@contoso.com` nazwy UPN, można teraz użyć poczty e-mail jako alternatywnego identyfikatora logowania. Aby uzyskać dostęp do aplikacji lub usług, użytkownicy będą logować się do usługi Azure AD przy użyciu przypisanych im adresów e-mail, takich jak `balas@fabrikam.com` .
 
 W tym artykule opisano sposób włączania i używania poczty e-mail jako alternatywnego identyfikatora logowania. Ta funkcja jest dostępna w wersji Azure AD — wersja Bezpłatna lub nowszej.
 
 > [!NOTE]
-> Logowanie do usługi Azure AD za pomocą poczty e-mail jako alternatywny identyfikator logowania jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+> Ta funkcja służy tylko do uwierzytelniania w chmurze użytkowników usługi Azure AD.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Przegląd podejścia do logowania za pomocą usługi Azure AD
 
@@ -169,13 +172,79 @@ Po zastosowaniu zasad może upłynąć do czasu, aż będzie możliwe zalogowani
 
 Aby sprawdzić, czy użytkownicy mogą logować się za pomocą poczty e-mail, przejdź do [https://myprofile.microsoft.com][my-profile] konta użytkownika i zaloguj się na nim przy użyciu adresu e-mail, na przykład `balas@fabrikam.com` , nie nazwy UPN, na przykład `balas@contoso.com` . Środowisko logowania powinno wyglądać i funkcjonować tak samo jak w przypadku zdarzenia logowania opartego na nazwach UPN.
 
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Włącz wprowadzanie etapowe w celu przetestowania logowania użytkownika przy użyciu adresu e-mail  
+
+[Wdrażanie etapowe][staged-rollout] umożliwia administratorom dzierżawy włączenie funkcji dla określonych grup. Zaleca się, aby administratorzy dzierżaw używali wdrożenia etapowego do testowania logowania użytkownika przy użyciu adresu e-mail. Gdy Administratorzy są gotowi do wdrożenia tej funkcji w całej dzierżawie, powinni używać zasad odnajdywania obszaru głównego.  
+
+
+Musisz mieć uprawnienia *administratora dzierżawy* , aby wykonać następujące czynności:
+
+1. Otwórz sesję programu PowerShell jako administrator, a następnie zainstaluj moduł *AzureADPreview* przy użyciu polecenia cmdlet [Install-module][Install-Module] :
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    Jeśli zostanie wyświetlony monit, wybierz pozycję **Y** , aby zainstalować pakiet NuGet lub zainstalować go z niezaufanego repozytorium.
+
+2. Zaloguj się do dzierżawy usługi Azure AD jako *Administrator dzierżawy* przy użyciu polecenia cmdlet [Connect-AzureAD][Connect-AzureAD] :
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    Polecenie zwraca informacje o Twoim koncie, środowisku i IDENTYFIKATORze dzierżawy.
+
+3. Utwórz listę wszystkich istniejących zasad wdrażania etapowego za pomocą następującego polecenia cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. Jeśli nie ma żadnych istniejących zasad wdrażania etapowego dla tej funkcji, Utwórz nowe zasady wdrażania etapowego i zanotuj identyfikator zasad:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Znajdź IDENTYFIKATORobject grupy do dodania do zasad wdrażania etapowego. Zwróć uwagę na wartość zwróconą dla parametru *ID* , ponieważ zostanie ona użyta w następnym kroku.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Dodaj grupę do zasad wdrażania etapowego, jak pokazano w poniższym przykładzie. Zastąp wartość w parametrze *-ID* wartością zwróconą dla identyfikatora zasad w kroku 4 i Zastąp wartość w parametrze *-RefObjectId* *identyfikatorem* zanotowanym w kroku 5. Może upłynąć do 1 godziny, zanim użytkownicy w grupie będą mogli korzystać z adresów serwera proxy w celu zalogowania.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+Nowe elementy członkowskie dodane do grupy mogą potrwać do 24 godzin, zanim będą mogły korzystać z adresów serwera proxy w celu zalogowania się.
+
+### <a name="removing-groups"></a>Usuwanie grup
+
+Aby usunąć grupę z zasad wdrażania etapowego, uruchom następujące polecenie:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>Usuwanie zasad
+
+Aby usunąć zasady wdrażania etapowego, najpierw wyłącz zasady, a następnie usuń je z systemu:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Jeśli użytkownicy mają problemy ze zdarzeniami logowania przy użyciu adresu e-mail, należy zapoznać się z następującymi krokami rozwiązywania problemów:
 
 1. Upewnij się, że konto użytkownika ma ustawiony adres e-mail dla atrybutu *proxyAddresses* w środowisku Premium AD DS.
 1. Sprawdź, czy Azure AD Connect jest skonfigurowany i czy pomyślnie synchronizuje konta użytkowników ze środowiska Premium AD DS w usłudze Azure AD.
-1. Upewnij się, że zasady usługi Azure AD *HomeRealmDiscoveryPolicy* mają atrybut *AlternateIdLogin* ustawiony na *wartość "Enabled": true*:
+1. Upewnij się, że zasady usługi Azure AD *HomeRealmDiscoveryPolicy* mają atrybut *AlternateIdLogin* ustawiony na *wartość "Enabled": true* :
 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
@@ -202,4 +271,5 @@ Aby uzyskać więcej informacji o operacjach związanych z tożsamościami hybry
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

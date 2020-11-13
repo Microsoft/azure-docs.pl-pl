@@ -1,6 +1,6 @@
 ---
 title: Pulpit zdalny usług bramy z Azure Active Directory
-description: Wskazówki dotyczące architektury dotyczące osiągania tego wzorca uwierzytelniania
+description: Wskazówki dotyczące architektury dotyczące uzyskiwania Pulpit zdalny usług bramy z Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114356"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576799"
 ---
 # <a name="remote-desktop-gateway-services"></a>Pulpit zdalny usług bramy
 
@@ -32,15 +32,15 @@ Musisz zapewnić dostęp zdalny i chronić wdrożenie Usługi pulpitu zdalnego p
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik**: uzyskuje dostęp do usług RDS obsłużonych przez serwer proxy aplikacji.
+* **Użytkownik** : uzyskuje dostęp do usług RDS obsłużonych przez serwer proxy aplikacji.
 
-* **Przeglądarka sieci Web**: składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
+* **Przeglądarka sieci Web** : składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
 
-* **Azure AD**: uwierzytelnia użytkownika. 
+* **Azure AD** : uwierzytelnia użytkownika. 
 
-* **Usługa serwera proxy aplikacji**: działa jako zwrotny serwer proxy do przesyłania dalej żądania od użytkownika do usług pulpitu zdalnego. Serwer proxy aplikacji może również wymusić wszelkie zasady dostępu warunkowego. 
+* **Usługa serwera proxy aplikacji** : działa jako zwrotny serwer proxy do przesyłania dalej żądania od użytkownika do usług pulpitu zdalnego. Serwer proxy aplikacji może również wymusić wszelkie zasady dostępu warunkowego. 
 
-* **Usługi pulpitu zdalnego**: działa jako platforma dla poszczególnych zwirtualizowanych aplikacji, zapewniając bezpieczny dostęp do pulpitu mobilnego i zdalnego oraz zapewnia użytkownikom końcowym możliwość uruchamiania aplikacji i pulpitów z chmury. 
+* **Usługi pulpitu zdalnego** : działa jako platforma dla poszczególnych zwirtualizowanych aplikacji, zapewniając bezpieczny dostęp do pulpitu mobilnego i zdalnego oraz zapewnia użytkownikom końcowym możliwość uruchamiania aplikacji i pulpitów z chmury. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementowanie usług Pulpit zdalny Gateway za pomocą usługi Azure AD
 

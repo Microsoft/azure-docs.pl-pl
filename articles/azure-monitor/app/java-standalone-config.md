@@ -4,12 +4,12 @@ description: Opcje konfiguracji Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f951048da753a0ba38d6c10dc65bdca5205727f4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427704"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577366"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opcje konfiguracji Azure Monitor Application Insights Java
 
@@ -336,7 +336,7 @@ Skonfiguruj określone opcje w zależności od potrzeb.
       "enabled": true
     }
   },
-  "httpProxy": {
+  "proxy": {
   },
   "preview": {
     "processors": [

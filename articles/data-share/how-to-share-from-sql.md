@@ -6,23 +6,23 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318493"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575920"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
 [!INCLUDE[appliesto-sql](includes/appliesto-sql.md)]
 
-Udział danych platformy Azure obsługuje funkcję udostępniania opartego na migawce Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL DW). W tym artykule wyjaśniono, jak udostępniać i odbierać dane z tych źródeł.
+Udział danych platformy Azure obsługuje funkcję udostępniania opartego na migawce Azure SQL Database i usługi Azure Synapse Analytics. W tym artykule wyjaśniono, jak udostępniać i odbierać dane z tych źródeł.
 
-Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
+Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW) i udostępnianie tabel z puli SQL usługi Azure Synapse Analytics (obszar roboczy). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
 
 Gdy akceptujesz dane do Azure Data Lake Store Gen2 lub Azure Blob Storage, pełne migawki zastąpią zawartość pliku docelowego, jeśli już istnieje.
-Gdy dane są odbierane do tabeli, a tabela docelowa jeszcze nie istnieje, udział danych platformy Azure tworzy tabelę SQL ze schematem źródłowym. Jeśli tabela docelowa już istnieje o tej samej nazwie, zostanie porzucona i zastąpiona najnowszą pełną migawką. Migawki przyrostowe nie są obecnie obsługiwane.
+Gdy dane są odbierane do tabeli SQL i jeśli tabela docelowa jeszcze nie istnieje, udział danych platformy Azure tworzy tabelę SQL ze schematem źródłowym. Jeśli tabela docelowa już istnieje o tej samej nazwie, zostanie porzucona i zastąpiona najnowszą pełną migawką. Migawki przyrostowe nie są obecnie obsługiwane.
 
 ## <a name="share-data"></a>Udostępnianie danych
 
@@ -33,12 +33,15 @@ Gdy dane są odbierane do tabeli, a tabela docelowa jeszcze nie istnieje, udzia�
 * Jeśli źródłowy magazyn danych platformy Azure znajduje się w innej subskrypcji platformy Azure niż ta, która będzie używana do tworzenia zasobu udziału danych, zarejestruj [dostawcę zasobów Microsoft. datashare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji, w której znajduje się magazyn danych platformy Azure. 
 
 ### <a name="prerequisites-for-sql-source"></a>Wymagania wstępne dotyczące źródła SQL
-Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania danych ze źródła SQL. Możesz również wykonać [pokaz krok po kroku](https://youtu.be/hIE-TjJD8Dc) , aby skonfigurować wymagania wstępne.
+Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania danych ze źródła SQL. 
 
-* Azure SQL Database lub usługa Azure Synapse Analytics (wcześniej SQL Data Warehouse) z tabelami i widokami, które chcesz udostępnić.
-* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli Współautor.
-* Uprawnienie do udziału danych w celu uzyskania dostępu do magazynu danych. Można to zrobić, wykonując następujące czynności: 
-    1. W Azure Portal przejdź do serwera SQL i ustaw go jako administratora Azure Active Directory.
+#### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące udostępniania z usług Azure SQL Database lub Azure Synapse Analytics (dawniej: Azure SQL DW)
+Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/hIE-TjJD8Dc) .
+
+* Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW) z tabelami i widokami, które chcesz udostępnić.
+* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli **Współautor**.
+* Uprawnienie do zarządzania tożsamością zasobu udziału danych w celu uzyskania dostępu do bazy danych. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do serwera SQL i ustaw go jako **administratora Azure Active Directory**.
     1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
     1. Wykonaj Poniższy skrypt, aby dodać tożsamość zarządzaną zasobu udziału danych jako db_datareader. Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 
     
@@ -48,17 +51,38 @@ Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania dan
         ```                   
        Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych. Jeśli zasób udział danych nie został jeszcze utworzony, możesz wrócić do tego wymagania wstępnego później.  
 
-* Użytkownik Azure SQL Database z dostępem "db_datareader" do nawigowania i wybierania tabel i/lub widoków, które chcesz udostępnić. 
+* Użytkownik Azure SQL Database z dostępem **"db_datareader"** do nawigowania i wybierania tabel i/lub widoków, które chcesz udostępnić. 
 
 * SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
-    1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
+    1. W Azure Portal przejdź do programu SQL Server. Wybierz *zapory i sieci wirtualne* z nawigacji po lewej stronie.
     1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
-    1. Kliknij przycisk **Zapisz**. 
+    1. Kliknij pozycję **Zapisz**. 
+
+#### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące udostępniania z puli SQL usługi Azure Synapse Analytics (Workspace)
+
+* Pula SQL usługi Azure Synapse Analytics (Workspace) z tabelami, które chcesz udostępnić. Udostępnianie widoku nie jest obecnie obsługiwane.
+* Uprawnienia do zapisu w puli SQL w obszarze roboczym Synapse, które znajdują się w *witrynie Microsoft. Synapse/Workspaces/Sqlpools/Write*. To uprawnienie istnieje w roli **Współautor**.
+* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do puli SQL obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję SQL Active Directory administrator na lewym panelu nawigacyjnym i ustaw siebie jako **administratora Azure Active Directory**.
+    1. Otwórz program Synapse Studio, wybierz pozycję *Zarządzaj* w lewym obszarze nawigacji. Wybierz pozycję *Kontrola dostępu* w obszarze zabezpieczenia. Przypisz siebie do roli administratora **SQL** lub **obszaru roboczego** .
+    1. W programie Synapse Studio wybierz pozycję *programowanie* na lewym pasku nawigacyjnym. Wykonaj następujący skrypt w puli SQL, aby dodać tożsamość zarządzaną zasobu udziału danych jako db_datareader. 
+    
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych. Jeśli zasób udział danych nie został jeszcze utworzony, możesz wrócić do tego wymagania wstępnego później.  
+
+* Dostęp do zapory obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję *zapory* na lewym pasku nawigacyjnym.
+    1. Kliknij **ON** pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
+    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+    1. Kliknij pozycję **Zapisz**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ### <a name="create-a-data-share-account"></a>Tworzenie konta udziału danych
 
@@ -92,7 +116,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz przycisk **Utwórz**.   
+1. Wybierz pozycję **Utwórz**.   
 
 1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
@@ -108,11 +132,11 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
     ![Adddatasets](./media/add-datasets.png "Dodaj zestawy danych")    
 
-1. Wybierz serwer SQL, podaj poświadczenia i kliknij przycisk **dalej** , aby przejść do obiektu, który chcesz udostępnić, i wybierz pozycję "Dodaj zestawy danych". 
+1. Wybierz obszar roboczy programu SQL Server lub Synapse, podaj poświadczenia, jeśli zostanie wyświetlony monit, a następnie wybierz pozycję **dalej** , aby przejść do obiektu, który chcesz udostępnić, i wybierz pozycję "Dodaj zestawy danych". 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Wybierz zestawy danych")    
 
-1. Na karcie adresaci wprowadź adres e-mail odbiorcy danych, wybierając pozycję "+ Dodaj odbiorcę". 
+1. Na karcie adresaci wprowadź adres e-mail odbiorcy danych, wybierając pozycję "+ Dodaj odbiorcę". Adres e-mail musi być adresem e-mail odbiorcy logowania na platformie Azure.
 
     ![Addrecipients](./media/add-recipient.png "Dodawanie adresatów") 
 
@@ -126,7 +150,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia. 
 
@@ -145,15 +169,19 @@ Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wy
 W przypadku wybrania opcji odbierania danych do usługi Azure Storage poniżej znajduje się lista wymagań wstępnych.
 
 * Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](../storage/common/storage-account-create.md). 
-* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli Współautor. 
-* Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli Właściciel.  
+* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli **Współautor**. 
+* Uprawnienie do dodawania przypisania roli zarządzanej przez zasób udział danych do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli **Właściciel**.  
 
 ### <a name="prerequisites-for-sql-target"></a>Wymagania wstępne dotyczące programu SQL Target
-Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Azure Synapse Analytics poniżej stanowi listę wymagań wstępnych. Możesz również wykonać [pokaz krok po kroku](https://youtu.be/aeGISgK1xro) , aby skonfigurować wymagania wstępne.
+Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Azure Synapse Analytics poniżej stanowi listę wymagań wstępnych. 
 
-* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli Współautor. 
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące otrzymywania danych w usłudze Azure SQL Database lub Azure Synapse Analytics (dawniej: Azure SQL DW)
+Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/aeGISgK1xro) .
+
+* Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW).
+* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli **Współautor**. 
 * Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub analizy usługi Azure Synapse. Można to zrobić, wykonując następujące czynności: 
-    1. W Azure Portal przejdź do serwera SQL i ustaw go jako administratora Azure Active Directory.
+    1. W Azure Portal przejdź do serwera SQL i ustaw go jako **administratora Azure Active Directory**.
     1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
     1. Wykonaj następujący skrypt, aby dodać tożsamość zarządzaną udziału danych jako "db_datareader, db_datawriter, db_ddladmin". Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 
 
@@ -169,11 +197,34 @@ Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Az
     1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
     1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
-    1. Kliknij przycisk **Zapisz**. 
+    1. Kliknij pozycję **Zapisz**. 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące otrzymywania danych w puli SQL usługi Azure Synapse Analytics (Workspace)
+
+* Pula SQL usługi Azure Synapse Analytics (obszar roboczy).
+* Uprawnienia do zapisu w puli SQL w obszarze roboczym Synapse, które znajdują się w *witrynie Microsoft. Synapse/Workspaces/Sqlpools/Write*. To uprawnienie istnieje w roli **Współautor**.
+* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do puli SQL obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję SQL Active Directory administrator na lewym panelu nawigacyjnym i ustaw siebie jako **administratora Azure Active Directory**.
+    1. Otwórz program Synapse Studio, wybierz pozycję *Zarządzaj* w lewym obszarze nawigacji. Wybierz pozycję *Kontrola dostępu* w obszarze zabezpieczenia. Przypisz siebie do roli administratora **SQL** lub **obszaru roboczego** .
+    1. W programie Synapse Studio wybierz pozycję *programowanie* na lewym pasku nawigacyjnym. Wykonaj następujący skrypt w puli SQL, aby dodać tożsamość zarządzaną zasobu udziału danych jako "db_datareader, db_datawriter, db_ddladmin". 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych. Jeśli zasób udział danych nie został jeszcze utworzony, możesz wrócić do tego wymagania wstępnego później.  
+
+* Dostęp do zapory obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję *zapory* na lewym pasku nawigacyjnym.
+    1. Kliknij **ON** pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
+    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+    1. Kliknij pozycję **Zapisz**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ### <a name="open-invitation"></a>Otwórz zaproszenie
 
@@ -202,7 +253,7 @@ Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
    ![Zaakceptuj opcje](./media/accept-options.png "Zaakceptuj opcje") 
 
-   Spowoduje to przejście do otrzymanego udziału w Twoim koncie udostępniania danych. 
+   Spowoduje to przejście do otrzymanego udziału na koncie udziału danych. 
 
    Jeśli nie chcesz zaakceptować zaproszenia, wybierz pozycję *Odrzuć*. 
 
@@ -244,9 +295,9 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | binarny |Byte [] |
 | bit |Boolean |
 | char |String, Char [] |
-| date |DateTime |
-| Datetime (data/godzina) |DateTime |
-| datetime2 |DateTime |
+| data |Data i godzina |
+| Datetime (data/godzina) |Data i godzina |
+| datetime2 |Data i godzina |
 | DateTimeOffset |DateTimeOffset |
 | Liczba dziesiętna |Liczba dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
@@ -260,7 +311,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | nvarchar |String, Char [] |
 | liczba rzeczywista |Pojedynczy |
 | rowversion |Byte [] |
-| smalldatetime |DateTime |
+| smalldatetime |Data i godzina |
 | smallint |Int16 |
 | smallmoney |Liczba dziesiętna |
 | sql_variant |Obiekt |
@@ -290,7 +341,7 @@ Na wydajność migawki SQL ma wpływ wiele czynników. Zawsze zaleca się przepr
 * Lokalizacja źródłowych i docelowych magazynów danych. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Rozwiązywanie problemów z niepowodzeniem migawek SQL
-Najczęstszym powodem błędu migawki jest to, że udział danych nie ma uprawnień do źródłowego lub docelowego magazynu danych. Aby udzielić uprawnienia do udostępniania danych źródłowej lub docelowej usługi SQL Data Store, należy uruchomić podany skrypt SQL podczas łączenia się z bazą danych SQL przy użyciu uwierzytelniania Azure Active Directory. Aby rozwiązać problem z dodatkowym błędem migawki SQL, zobacz [Rozwiązywanie problemów z błędem migawki](data-share-troubleshoot.md#snapshot-failed).
+Najczęstszym powodem błędu migawki jest to, że udział danych nie ma uprawnień do źródłowego lub docelowego magazynu danych. Aby udzielić uprawnienia do udostępniania danych źródłowej lub docelowej Azure SQL Database lub usługi Azure Synapse Analytics (dawniej usługa Azure SQL DW), należy uruchomić podany skrypt SQL podczas łączenia się z bazą danych SQL przy użyciu uwierzytelniania Azure Active Directory. Aby rozwiązać problem z dodatkowym błędem migawki SQL, zobacz [Rozwiązywanie problemów z błędem migawki](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Następne kroki
 Wiesz już, jak udostępniać i odbierać dane ze źródeł SQL za pomocą usługi udziału danych platformy Azure. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, przejdź do [obsługiwanych magazynów danych](supported-data-stores.md).

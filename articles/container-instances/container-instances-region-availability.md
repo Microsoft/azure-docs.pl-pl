@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Azure 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395873"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576618"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure
 
@@ -31,29 +31,32 @@ Poniższe regiony i maksymalne zasoby są dostępne dla grup kontenerów z konte
 
 | Region (Region) | CPU (maksymalnie) | Maksymalna ilość pamięci (GB) | Maksymalny procesor sieci wirtualnej | Maksymalna pamięć sieci wirtualnej (GB) | Magazyn (GB) | Jednostki SKU procesora GPU (wersja zapoznawcza) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
-| Australia Wschodnia | 4 | 16 | 4 | 16 | 50 | Brak |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | Brak |
-| Kanada Środkowa | 4 | 16 | 4 | 16 | 50 | Brak |
+| Australia Wschodnia | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Brazil South | 4 | 16 | 2 | 8 | 50 | Nie dotyczy |
+| Kanada Środkowa | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Indie Środkowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | V100 |
-| Central US | 4 | 16 | 4 | 16 | 50 | Brak |
-| Azja Wschodnia | 4 | 16 | 4 | 16 | 50 | Brak |
+| Central US | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Azja Wschodnia | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| Wschodnie stany USA 2 | 4 | 16 | 4 | 16 | 50 | Brak |
-| Francja Środkowa | 4 | 16 | 4 | 16 | 50 | Brak |
-| Japan East | 2 | 8 | 4 | 16 | 50 | Brak |
-| Korea Środkowa | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Brak |
+| Wschodnie stany USA 2 | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Francja Środkowa | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Japan East | 2 | 8 | 4 | 16 | 50 | Nie dotyczy |
+| Korea Środkowa | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
 | Północno-środkowe stany USA | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europa Północna | 4 | 16 | 4 | 16 | 50 | K80 |
-| South Central US | 4 | 16 | 4 | 16 | 50 | Brak |
+| South Central US | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
-| Indie Południowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Brak |
-| Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 50 | Brak |
-| Zachodnio-środkowe stany USA| 4 | 16 | 4 | 16 | 50 | Brak |
-| Europa Zachodnia | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| Zachodnie stany USA | 4 | 16 | 4 | 16 | 50 | Brak |
+| Indie Południowe | 4 | 16 | NIE DOTYCZY | NIE DOTYCZY | 50 | Nie dotyczy |
+| Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| Zachodnio-środkowe stany USA| 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
+| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Zachodnie stany USA | 4 | 16 | 4 | 16 | 50 | Nie dotyczy |
 | Zachodnie stany USA 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Następujące maksymalne zasoby są dostępne dla grupy kontenerów wdrożonej z [zasobami procesora GPU](container-instances-gpu.md) (wersja zapoznawcza).
+
+> [!IMPORTANT]
+> W tej chwili wdrożenia z zasobami procesora GPU nie są obsługiwane w ramach wdrożenia sieci wirtualnej platformy Azure i są dostępne tylko w grupach kontenerów systemu Linux.
 
 | Jednostki SKU procesora GPU | Liczba procesorów GPU | CPU (maksymalnie) | Maksymalna ilość pamięci (GB) | Magazyn (GB) |
 | --- | --- | --- | --- | --- |
@@ -67,6 +70,9 @@ Następujące maksymalne zasoby są dostępne dla grupy kontenerów wdrożonej z
 ## <a name="windows-container-groups"></a>Grupy kontenerów systemu Windows
 
 Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [obsługiwanymi i podglądami](container-instances-faq.md#what-windows-base-os-images-are-supported) kontenerów systemu Windows Server.
+
+> [!IMPORTANT]
+> W tej chwili wdrożenia z grupami kontenerów systemu Windows nie są obsługiwane w ramach wdrożenia sieci wirtualnej platformy Azure.
 
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -92,7 +98,7 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 | Indie Południowe | 2 | 3,5 | 2 | 3,5 | 20 |
 | Południowe Zjednoczone Królestwo | 2 | 8 | 2 | 3,5 | 20 |
 | Zachodnio-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
-| Europa Zachodnia | 4 | 16 | 4 | 16 | 20 |
+| West Europe | 4 | 16 | 4 | 16 | 20 |
 | Zachodnie stany USA | 4 | 16 | 2 | 8 | 20 |
 | Zachodnie stany USA 2 | 2 | 3,5 | 2 | 3,5 | 20 |
 
@@ -122,7 +128,7 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 | Indie Południowe | 4 | 16 | 4 | 16 | 20 |
 | Południowe Zjednoczone Królestwo | 4 | 16 | 4 | 16 | 20 |
 | Zachodnio-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
-| Europa Zachodnia | 4 | 16 | 4 | 16 | 20 |
+| West Europe | 4 | 16 | 4 | 16 | 20 |
 | Zachodnie stany USA | 4 | 16 | 4 | 16 | 20 |
 | Zachodnie stany USA 2 | 2 | 8 | 4 | 16 | 20 |
 

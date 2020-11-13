@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e8fed99fe0b1de52d2e2d0018dfd8867b54b63b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595248"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566524"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Kierowanie ruchu internetowego na podstawie adresu URL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -32,11 +32,11 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-url-route-powershell.md) lub [Azure Portal](create-url-route-portal.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+ - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -97,7 +97,7 @@ az network application-gateway create \
  Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplikacji możesz zauważyć następujące nowe funkcje:
 
 
-|Cecha  |Opis  |
+|Cechy  |Opis  |
 |---------|---------|
 |appGatewayBackendPool     |Brama aplikacji musi mieć co najmniej jedną pulę adresów zaplecza.|
 |appGatewayBackendHttpSettings     |Określa, że port 80 i protokół HTTP są używane do komunikacji.|
@@ -129,7 +129,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-a-backend-listener"></a>Dodawanie odbiornika zaplecza
 
-Dodaj odbiornik zaplecza o nazwie *backendListener*, wymagany do kierowania ruchu, używając polecenia `az network application-gateway http-listener create`.
+Dodaj odbiornik zaplecza o nazwie *backendListener* , wymagany do kierowania ruchu, używając polecenia `az network application-gateway http-listener create`.
 
 
 ```azurecli-interactive
@@ -183,7 +183,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych
 
-W tym artykule opisano tworzenie trzech zestawów skalowania maszyn wirtualnych, które obsługują trzy utworzone pule zaplecza. Utworzysz zestawy skalowania o nazwach *myvmss1*, *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się serwer NGINX.
+W tym artykule opisano tworzenie trzech zestawów skalowania maszyn wirtualnych, które obsługują trzy utworzone pule zaplecza. Utworzysz zestawy skalowania o nazwach *myvmss1* , *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się serwer NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do

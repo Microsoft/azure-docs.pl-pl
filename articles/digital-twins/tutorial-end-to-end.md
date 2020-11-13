@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 689de4d9fbd9eafeda54b8c157e5174d200c93da
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f788c9e78790e6872870869e2bc153e1b1451e51
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94338260"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566541"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -27,7 +27,7 @@ W tym samouczku będziesz...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### <a name="set-up-cloud-shell-session"></a>Konfigurowanie sesji Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
@@ -442,7 +442,7 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 

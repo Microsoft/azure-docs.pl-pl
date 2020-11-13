@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 48884e6faa5f26f027c772b44d5f960979a40d1d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447900"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566626"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Red Hat Enterprise Linux uaktualnień w miejscu
 
@@ -22,10 +22,12 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przeprowadzania uaktual
 > SQL Server w ofertach Red Hat Enterprise Linux nie obsługują uaktualnienia w miejscu na platformie Azure.
 
 ## <a name="what-to-expect-during-the-upgrade"></a>Czego można oczekiwać podczas uaktualniania
-System zostanie kilka razy uruchomiony ponownie podczas uaktualniania i jest normalny. Ostatnie ponowne uruchomienie spowoduje uaktualnienie maszyny wirtualnej do wersji RHEL 8 Najnowsza wersja pomocnicza.
+System zostanie kilka razy uruchomiony ponownie podczas uaktualniania i jest normalny. Ostatnie ponowne uruchomienie spowoduje uaktualnienie maszyny wirtualnej do wersji RHEL 8 Najnowsza wersja pomocnicza. 
+
+Proces uaktualniania może potrwać od 20 minut do kilku godzin, co zależy od kilku czynników, takich jak rozmiar maszyny wirtualnej i liczba zainstalowanych pakietów w systemie.
 
 ## <a name="preparations-for-the-upgrade"></a>Przygotowania do uaktualnienia
-Uaktualnienia w miejscu są oficjalnie zalecaną metodą Red Hat i platformą Azure, aby umożliwić klientom uaktualnienie systemu do następnej wersji głównej. Przed przeprowadzeniem uaktualnienia tutaj należy zwrócić uwagę i wziąć pod uwagę zagadnienia. 
+Uaktualnianie w miejscu jest oficjalnie zalecanym sposobem firmy Red Hat i platformy Azure, dzięki czemu klienci mogą uaktualnić system do następnej wersji głównej. Przed przeprowadzeniem uaktualnienia tutaj należy zwrócić uwagę i wziąć pod uwagę zagadnienia. 
 
 >[!Important] 
 > Zrób migawkę obrazu przed przeprowadzeniem uaktualnienia.
@@ -39,6 +41,12 @@ Uaktualnienia w miejscu są oficjalnie zalecaną metodą Red Hat i platformą Az
     ```bash
     leapp preupgrade --no-rhsm
     ```
+* Upewnij się, że konsola szeregowa działa, ponieważ umożliwia monitorowanie w trakcie procesu uaktualniania.
+
+* Włącz dostęp do katalogu głównego SSH w `/etc/ssh/sshd_config`
+    1. Otwórz plik `/etc/ssh/sshd_config`
+    1. Wyszukaj frazę "#PermitRootLogin Yes"
+    1. Usuwanie komentarza "#"
 
 ## <a name="steps-for-performing-the-upgrade"></a>Procedura przeprowadzania uaktualnienia
 
@@ -46,7 +54,7 @@ Wykonaj te kroki uważnie. Zdecydowanie zaleca się wypróbowanie uaktualnienia 
 
 1. Wykonaj aktualizację yum, aby pobrać najnowsze pakiety klienta.
     ```bash
-    yum update
+    yum update -y
     ```
 
 1. Zainstaluj pakiet leapp-Client-Package.
@@ -58,35 +66,66 @@ Wykonaj te kroki uważnie. Zdecydowanie zaleca się wypróbowanie uaktualnienia 
     1. Pobierz plik.
     1. Wyodrębnij zawartość i Usuń plik przy użyciu następującego polecenia:
     ```bash
-     tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
+    tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
     ```
-    
-
 
 1. Dodaj plik "Answers" dla "Leapp".
     ```bash
     leapp answer --section remove_pam_pkcs11_module_check.confirm=True --add
-    ```
-    
-1. Włącz PermitRootLogin w/etc/ssh/sshd_config
-    1. Otwórz plik/etc/ssh/sshd_config
-    1. Wyszukaj frazę "#PermitRootLogin Yes"
-    1. Usuwanie komentarza "#"
-
-
+    ``` 
 
 1. Wykonaj uaktualnienie "Leapp".
     ```bash
     leapp upgrade --no-rhsm
     ```
+1.  Po `leapp upgrade` pomyślnym zakończeniu działania polecenia ręcznie uruchom ponownie system, aby ukończyć proces. System zostanie uruchomiony ponownie kilka razy, podczas którego będzie niedostępny. Monitoruj proces za pomocą konsoli szeregowej.
+
+1.  Sprawdź, czy uaktualnienie zostało ukończone pomyślnie.
+    ```bash
+    uname -a && cat /etc/redhat-release
+    ```
+
+1. Usuń dostęp do głównego protokołu SSH po zakończeniu uaktualniania.
+    1. Otwórz plik `/etc/ssh/sshd_config`
+    1. Wyszukaj frazę "#PermitRootLogin Yes"
+    1. Dodaj znak "#" do komentarza
+
 1. Uruchom ponownie usługę SSHD, aby zmiany zaczęły obowiązywać
     ```bash
     systemctl restart sshd
     ```
-1. Dodaj komentarz do PermitRootLogin w/etc/ssh/sshd_config ponownie
-    1. Otwórz plik/etc/ssh/sshd_config
-    1. Wyszukaj frazę "#PermitRootLogin Yes"
-    1. Dodaj znak "#" do komentarza
+
+## <a name="common-issues"></a>Typowe problemy
+Są to niektóre typowe wystąpienia, w przypadku których `leapp preupgrade` proces lub `leapp upgrade` może zakończyć się niepowodzeniem.
+
+**Błąd: nie znaleziono dopasowań dla następujących wyłączonych wzorców wtyczek**
+```plaintext
+STDERR:
+No matches found for the following disabled plugin patterns: subscription-manager
+Warning: Packages marked by Leapp for upgrade not found in repositories metadata: gpg-pubkey
+```
+**Rozwiązanie**\
+Wyłącz wtyczkę z menedżerem subskrypcji, edytując plik `/etc/yum/pluginconf.d/subscription-manager.conf` i zmieniając włączony na `enabled=0` .
+
+Jest to spowodowane tym, że wtyczka yum Menedżera subskrypcji jest włączona, która nie jest używana w przypadku maszyn wirtualnych PAYG.
+
+**Błąd: możliwe problemy z logowaniem zdalnym przy użyciu elementu głównego** `leapp preupgrade` Może zakończyć się niepowodzeniem z powodu następującego błędu:
+```structured-text
+============================================================
+                     UPGRADE INHIBITED
+============================================================
+
+Upgrade has been inhibited due to the following problems:
+    1. Inhibitor: Possible problems with remote login using root account
+Consult the pre-upgrade report for details and possible remediation.
+
+============================================================
+                     UPGRADE INHIBITED
+============================================================
+```
+**Rozwiązanie**\
+Włącz dostęp do katalogu głównego w programie `/etc/sshd_conf` .
+Jest to spowodowane tym, że nie włączono dostępu do głównego protokołu SSH w programie `/etc/sshd_conf` zgodnie z sekcją "[przygotowania dla uaktualnienia](#preparations-for-the-upgrade)". 
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [obrazach Red Hat na platformie Azure](./redhat-images.md).

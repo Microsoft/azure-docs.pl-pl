@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440864"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566371"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Dzienniki i metryki wirtualnych sieci WAN platformy Azure
 
@@ -66,7 +66,7 @@ Poniższe kroki ułatwiają lokalizowanie i wyświetlanie metryk:
 
 4. Na stronie **metryki** możesz wyświetlić interesujące Cię metryki.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Zrzut ekranu przedstawiający stronę &quot;metryki&quot; z wyróżnionymi kategoriami.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Dzienniki diagnostyczne
 
@@ -93,15 +93,15 @@ Poniższe kroki ułatwiają znalezienie i wyświetlenie diagnostyki:
 
 1. W portalu przejdź do wirtualnego zasobu sieci WAN. W sekcji **Omówienie** wirtualnej sieci WAN w portalu wybierz pozycję **Essentials** , aby rozwinąć widok i uzyskać informacje o grupie zasobów. Skopiuj informacje o grupie zasobów.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Zrzut ekranu pokazujący sekcję &quot;przegląd&quot; z strzałką wskazującą przycisk &quot;Kopiuj&quot;.":::
 
-2. W sekcji monitorowanie przejdź do grupy zasobów. Wybierz pozycję **Ustawienia diagnostyczne**, a następnie wprowadź informacje o zasobach. To są informacje o zasobie skopiowane w kroku 2 z sekcji [Wyświetl metryki bramy](#metrics-steps) wcześniej w tym artykule.
+2. W sekcji monitorowanie przejdź do grupy zasobów. Wybierz pozycję **Ustawienia diagnostyczne** , a następnie wprowadź informacje o zasobach. To są informacje o zasobie skopiowane w kroku 2 z sekcji [Wyświetl metryki bramy](#metrics-steps) wcześniej w tym artykule.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Zrzut ekranu pokazujący sekcję &quot;monitorowanie&quot; ze strzałką wskazującą listę rozwijaną &quot;zasób&quot;.":::
 
-3. Na stronie Wyniki wybierz pozycję **+ Dodaj ustawienie diagnostyczne**, a następnie wybierz opcję. Możesz zdecydować się na wysyłanie do Log Analytics, przesyłanie strumieniowe do centrum zdarzeń lub po prostu archiwizowanie na koncie magazynu.
+3. Na stronie Wyniki wybierz pozycję **+ Dodaj ustawienie diagnostyczne** , a następnie wybierz opcję. Możesz zdecydować się na wysyłanie do Log Analytics, przesyłanie strumieniowe do centrum zdarzeń lub po prostu archiwizowanie na koncie magazynu.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Strona metryk":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Przykładowe zapytanie Log Analytics
 
@@ -109,7 +109,7 @@ Dzienniki znajdują się w **obszarze roboczym usługi Azure log Analytics**. Za
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
-**W razie**konieczności Zastąp wartości poniżej wartościami poniżej.
+**W razie** konieczności Zastąp wartości poniżej wartościami poniżej.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
@@ -119,9 +119,9 @@ Dzienniki znajdują się w **obszarze roboczym usługi Azure log Analytics**. Za
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Dzienniki aktywności
 
-Wpisy **dziennika aktywności** są zbierane domyślnie i mogą być wyświetlane w Azure Portal. Aby wyświetlić wszystkie operacje przesłane do subskrypcji platformy Azure, można użyć dzienników aktywności platformy Azure (znanych wcześniej jako *dzienników operacyjnych* i *dzienników inspekcji*).
+Wpisy **dziennika aktywności** są zbierane domyślnie i mogą być wyświetlane w Azure Portal. Aby wyświetlić wszystkie operacje przesłane do subskrypcji platformy Azure, można użyć dzienników aktywności platformy Azure (znanych wcześniej jako *dzienników operacyjnych* i *dzienników inspekcji* ).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się, jak monitorować dzienniki i metryki zapory platformy Azure, zobacz [Samouczek: monitorowanie dzienników zapory platformy Azure](../firewall/tutorial-diagnostics.md).
+* Aby dowiedzieć się, jak monitorować dzienniki i metryki zapory platformy Azure, zobacz [Samouczek: monitorowanie dzienników zapory platformy Azure](../firewall/firewall-diagnostics.md).
 * Aby dowiedzieć się więcej o metrykach w Azure Monitor, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md).

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 5873f28fed492f9ef906a9d7c1364d8ae07033a7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1fbdae2480caef5bf1d190124ca3be6c5b97a2f9
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336065"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576363"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Utwórz dysk zarządzany na podstawie wersji obrazu
 
@@ -23,7 +23,7 @@ W razie konieczności można wyeksportować system operacyjny lub pojedynczy dys
 
 ## <a name="cli"></a>Interfejs wiersza polecenia
 
-Wyświetl listę wersji obrazu w galerii za pomocą polecenia [AZ SIG Image-Version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). W tym przykładzie szukamy wszystkich wersji obrazu, które są częścią definicji obrazu *myImageDefinition* w galerii obrazów w *galerii* .
+Wyświetl listę wersji obrazu w galerii za pomocą polecenia [AZ SIG Image-Version list](/cli/azure/sig/image-version#az_sig_image_version_list). W tym przykładzie szukamy wszystkich wersji obrazu, które są częścią definicji obrazu *myImageDefinition* w galerii obrazów w *galerii* .
 
 ```azurecli-interactive
 az sig image-version list \
@@ -33,7 +33,7 @@ az sig image-version list \
    -o table
 ```
 
-Ustaw `source` zmienną na identyfikator wersji obrazu, a następnie użyj polecenie [AZ Disk Create](/cli/azure/disk.md#az_disk_create) w celu utworzenia dysku zarządzanego. 
+Ustaw `source` zmienną na identyfikator wersji obrazu, a następnie użyj polecenie [AZ Disk Create](//cli/azure/disk#az_disk_create) w celu utworzenia dysku zarządzanego. 
 
 W tym przykładzie wyeksportuje dysk systemu operacyjnego z wersji obrazu w celu utworzenia dysku zarządzanego o nazwie *myManagedOSDisk* w regionie *wschodniego* w grupie zasobów o nazwie Moja *zasobów*. 
 

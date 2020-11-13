@@ -1,15 +1,15 @@
 ---
-title: Samouczek — Tworzenie kopii zapasowej bazy danych na platformie Azure za pomocą usługi SAP HANA DB
+title: Samouczek — Tworzenie kopii zapasowej bazy danych SAP HANA w systemie Azure przy użyciu interfejsu wiersza polecenia Azure
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2cc34ae33ad283c30bbc5ce05a31b5e35a192de
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324964"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566660"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -26,9 +26,9 @@ W tym dokumencie przyjęto założenie, że na maszynie wirtualnej platformy Azu
 
 Zapoznaj się z [aktualnie obsługiwanymi scenariuszami](./sap-hana-backup-support-matrix.md#scenario-support) dla SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Aby zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, należy uruchomić interfejs wiersza polecenia platformy Azure w wersji XX. xxx. x lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+ - Ten samouczek wymaga wersji xx.xx.xxx lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 

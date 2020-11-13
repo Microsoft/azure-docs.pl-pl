@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287151"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575870"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -169,9 +169,11 @@ Uprawnienia dostępu można odwołać w dowolnym momencie. Po odwołaniu każdy 
 > [!Important]
 > Zaszyfrowana zawartość w usłudze Azure Wyszukiwanie poznawcze jest skonfigurowana do używania określonego klucza Azure Key Vault z określoną **wersją**. W przypadku zmiany klucza lub wersji należy zaktualizować indeks lub mapę synonimu, aby korzystała z nowego key\version **przed** usunięciem poprzedniej key\version. Niewykonanie tej czynności spowoduje, że indeks lub mapa synonimu stanie się niezdatna, nie będzie można odszyfrować zawartości po utracie dostępu do klucza.
 
+<a name="encrypt-content"></a>
+
 ## <a name="5---encrypt-content"></a>5 — Szyfruj zawartość
 
-Aby dodać klucz zarządzany przez klienta na indeksie lub mapie synonimów, użyj interfejsu API REST lub zestawu SDK, aby utworzyć obiekt, którego definicja zawiera `encryptionKey` .
+Aby dodać klucz zarządzany przez klienta do indeksu, źródła danych, zestawu umiejętności, indeksatora lub mapy synonimów, należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/) lub zestawu SDK usługi Search. W portalu nie są ujawniane mapy synonimów ani właściwości szyfrowania. W przypadku używania prawidłowych indeksów interfejsu API, źródła danych, umiejętności, indeksatory i mapy synonimów obsługują właściwość **EncryptionKey** najwyższego poziomu.
 
 W tym przykładzie jest używany interfejs API REST z wartościami dla Azure Key Vault i Azure Active Directory:
 
@@ -192,6 +194,12 @@ W tym przykładzie jest używany interfejs API REST z wartościami dla Azure Key
 > [!Note]
 > Żadna z tych informacji nie jest uważana za klucz tajny i można ją łatwo pobrać, przechodząc do odpowiedniej strony klucza Azure Key Vault w Azure Portal.
 
+## <a name="example-index-encryption"></a>Przykład: szyfrowanie indeksu
+
+Utwórz zaszyfrowany indeks przy użyciu [interfejsu API Rest tworzenia indeksu usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-index). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+> [!Note]
+> Żadna z tych informacji nie jest uważana za klucz tajny i można ją łatwo pobrać, przechodząc do odpowiedniej strony klucza Azure Key Vault w Azure Portal.
+
 ## <a name="rest-examples"></a>Przykłady REST
 
 W tej sekcji przedstawiono pełny kod JSON dla zaszyfrowanego indeksu i mapy synonimów
@@ -202,7 +210,7 @@ Szczegółowe informacje na temat tworzenia nowego indeksu za pośrednictwem int
 
 ```json
 {
- "name": "hotels",  
+ "name": "hotels",
  "fields": [
   {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
   {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
@@ -231,19 +239,19 @@ Teraz możesz wysłać żądanie utworzenia indeksu, a następnie zacząć używ
 
 ### <a name="synonym-map-encryption"></a>Szyfrowanie mapy synonimów
 
-Szczegóły tworzenia nowej mapy synonimów za pośrednictwem interfejsu API REST można znaleźć na stronie [Tworzenie mapy synonimów (interfejs API REST)](/rest/api/searchservice/create-synonym-map), gdzie jedyną różnicą jest określenie informacji o kluczu szyfrowania w ramach definicji mapy synonimów: 
+Tworzenie zaszyfrowanej mapy synonimów przy użyciu [interfejsu API Rest tworzenia mapy synonimów platformy Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
 
 ```json
-{   
-  "name" : "synonymmap1",  
-  "format" : "solr",  
+{
+  "name" : "synonymmap1",
+  "format" : "solr",
   "synonyms" : "United States, United States of America, USA\n
   Washington, Wash. => WA",
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -252,6 +260,86 @@ Szczegóły tworzenia nowej mapy synonimów za pośrednictwem interfejsu API RES
 ```
 
 Teraz można wysłać żądanie utworzenia mapy synonimów, a następnie rozpocząć korzystanie z niej normalnie.
+
+## <a name="example-data-source-encryption"></a>Przykład: szyfrowanie źródła danych
+
+Utwórz zaszyfrowane źródło danych przy użyciu polecenia [Create Data Source (interfejs API REST platformy Azure wyszukiwanie poznawcze)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Teraz można wysłać żądanie utworzenia źródła danych, a następnie zacząć używać go normalnie.
+
+## <a name="example-skillset-encryption"></a>Przykład: szyfrowanie zestawu umiejętności
+
+Utwórz zaszyfrowaną zestawu umiejętności za pomocą [interfejsu API REST zestawu umiejętności Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Możesz teraz wysłać żądanie utworzenia zestawu umiejętności, a następnie rozpocząć korzystanie z niego normalnie.
+
+## <a name="example-indexer-encryption"></a>Przykład: szyfrowanie indeksatora
+
+Utwórz zaszyfrowany indeksator przy użyciu [interfejsu API Rest tworzenia indeksatora usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Użyj `encryptionKey` właściwości, aby określić klucz szyfrowania do użycia.
+
+```json
+{
+  "name": "indexer1",
+  "dataSourceName": "datasource1",
+  "skillsetName": "skillset1",
+  "parameters": {
+      "configuration": {
+          "imageAction": "generateNormalizedImages"
+      }
+  },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Teraz możesz wysyłać żądanie utworzenia indeksatora, a następnie zacząć używać go normalnie.
 
 >[!Important]
 > Chociaż `encryptionKey` nie można dodać do istniejących indeksów wyszukiwania lub mapowań synonimów, można je zaktualizować, podając różne wartości dla każdego z trzech szczegółów magazynu kluczy (na przykład aktualizacji wersji klucza). W przypadku zmiany na nowy klucz Key Vault lub nowej wersji klucza należy najpierw zaktualizować każdy indeks wyszukiwania lub mapę synonimów, które używają klucza, aby użyć nowego key\version **przed** usunięciem poprzedniej key\version. Niewykonanie tej czynności spowoduje renderowanie indeksu lub mapy synonimów, ponieważ nie będzie można odszyfrować zawartości po utracie dostępu do klucza. Chociaż przywrócenie uprawnień dostępu do magazynu kluczy w późniejszym czasie spowoduje przywrócenie dostępu do zawartości.
@@ -265,7 +353,6 @@ Takie podejście umożliwia pominięcie kroków rejestracji aplikacji i wpisów 
 Ogólnie rzecz biorąc, zarządzana tożsamość umożliwia usłudze wyszukiwania uwierzytelnianie Azure Key Vault bez zapisywania poświadczeń (identyfikatora aplikacji lub ApplicationSecret) w kodzie. Cykl życia tego typu tożsamości zarządzanej jest powiązany z cyklem życia usługi wyszukiwania, która może mieć tylko jedną tożsamość zarządzaną. Aby uzyskać więcej informacji na temat działania tożsamości zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Utwórz usługę wyszukiwania jako zaufaną.
-
    ![Włącz tożsamość zarządzaną przypisaną przez system](./media/search-managed-identities/turn-on-system-assigned-identity.png "Włącz tożsamość zarządzaną przypisaną przez system")
 
 1. Podczas konfigurowania zasad dostępu w programie Azure Key Vault wybierz usługę zaufanego wyszukiwania jako zasadę (zamiast aplikacji zarejestrowanej w usłudze AD). Przypisz te same uprawnienia (wielokrotne pobieranie, ZAWIJAnie, cofanie ZAWIJAnia) zgodnie z instrukcjami w kroku Udziel uprawnień klucza dostępu.

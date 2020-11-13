@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203844"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565974"
 ---
 # <a name="tutorial-manipulating-models"></a>Samouczek: manipulowanie modelami
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
     ```
 
     > [!NOTE]
-    > Jeśli zobaczysz błąd w programie Visual Studio, *Funkcja "X" nie jest dostępna w języku C# 6. Użyj języka w wersji 7,0 lub nowszej*, ten błąd można bezpiecznie zignorować. Jest to związane z rozwiązaniem i generowaniem projektu środowiska Unity.
+    > Jeśli zobaczysz błąd w programie Visual Studio, *Funkcja "X" nie jest dostępna w języku C# 6. Użyj języka w wersji 7,0 lub nowszej* , ten błąd można bezpiecznie zignorować. Jest to związane z rozwiązaniem i generowaniem projektu środowiska Unity.
 
     Ten skrypt należy dodać do tego samego programu gameobject co skrypt implementujący  **BaseRemoteRenderedModel**. W takim przypadku oznacza to **RemoteRenderedModel**. Podobnie jak w przypadku poprzednich skryptów, ten kod początkowy będzie obsługiwał wszystkie zmiany stanu, zdarzenia i dane związane ze zdalnymi ograniczeniami.
 
@@ -152,7 +152,7 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
     }
     ```
 
-Teraz, gdy skrypt **RemoteBounds** jest dodawany do tego samego obiektu gry co **RemoteRenderedModel**, **BoxCollider** zostanie dodana w razie potrzeby i gdy model osiągnie swój `Loaded` stan, granice zostaną automatycznie zbadane i zastosowane do **BoxCollider**.
+Teraz, gdy skrypt **RemoteBounds** jest dodawany do tego samego obiektu gry co **RemoteRenderedModel** , **BoxCollider** zostanie dodana w razie potrzeby i gdy model osiągnie swój `Loaded` stan, granice zostaną automatycznie zbadane i zastosowane do **BoxCollider**.
 
 1. Korzystając z **TestModel** gameobject utworzonego wcześniej, Dodaj składnik **RemoteBounds** .
 1. Upewnij się, że skrypt został dodany.
@@ -167,9 +167,9 @@ Teraz mamy lokalną **BoxCollider** skonfigurowaną z dokładnymi granicami obie
 
 ## <a name="move-rotate-and-scale"></a>Przenoszenie, obracanie i skalowanie  
 
-Przesuwanie, obracanie i skalowanie zdalnie renderowane obiekty działa tak samo jak każdy inny obiekt Unity. **RemoteRenderingCoordinator**w swojej `LateUpdate` metodzie wywołuje `Update` obecnie aktywną sesję. Część co `Update` to jest synchronizacja jednostki modelu lokalnego transformacje ze swoimi zdalnymi odpowiednikami. Aby przenieść, obrócić lub skalować zdalnie renderowany model, wystarczy przenieść, obrócić lub skalować transformację obiektu gameobject reprezentującego model zdalny. W tym miejscu zmienimy transformację nadrzędnego obiektu gameobject, do którego dołączono skrypt **RemoteRenderedModel** .
+Przesuwanie, obracanie i skalowanie zdalnie renderowane obiekty działa tak samo jak każdy inny obiekt Unity. **RemoteRenderingCoordinator** w swojej `LateUpdate` metodzie wywołuje `Update` obecnie aktywną sesję. Część co `Update` to jest synchronizacja jednostki modelu lokalnego transformacje ze swoimi zdalnymi odpowiednikami. Aby przenieść, obrócić lub skalować zdalnie renderowany model, wystarczy przenieść, obrócić lub skalować transformację obiektu gameobject reprezentującego model zdalny. W tym miejscu zmienimy transformację nadrzędnego obiektu gameobject, do którego dołączono skrypt **RemoteRenderedModel** .
 
-Ten samouczek używa MRTK do interakcji z obiektem. Większość implementacji konkretnych MRTK na potrzeby przesuwania, obracania i skalowania obiektu jest poza zakresem tego samouczka. Istnieje kontroler widoku modelu, który jest wstępnie skonfigurowany w **AppMenu**, w menu **Narzędzia modeli** .
+Ten samouczek używa MRTK do interakcji z obiektem. Większość implementacji konkretnych MRTK na potrzeby przesuwania, obracania i skalowania obiektu jest poza zakresem tego samouczka. Istnieje kontroler widoku modelu, który jest wstępnie skonfigurowany w **AppMenu** , w menu **Narzędzia modeli** .
 
 1. Upewnij się, że utworzono wcześniej **TestModel** gameobject w scenie.
 1. Upewnij się, że **AppMenu** PREFAB znajduje się w scenie.
@@ -302,15 +302,15 @@ Najpierw utwórz otokę statyczną wokół zapytań rzutowania zdalnego ray. Ten
     }
     ```
 
-**RemoteRayCastPointerHandler**Metoda RemoteRayCastPointerHandler `OnPointerClicked` jest wywoływana przez MRTK, gdy wskaźnik "klika" na kolizji, jak nasz obiekt koliduje. Następnie `PointerDataToRemoteRayCast` jest wywoływana, aby przekonwertować wynik wskaźnika w punkt i kierunek. Ten punkt i kierunek są następnie używane do rzutowania zdalnego promienia w sesji zdalnej.
+**RemoteRayCastPointerHandler** Metoda RemoteRayCastPointerHandler `OnPointerClicked` jest wywoływana przez MRTK, gdy wskaźnik "klika" na kolizji, jak nasz obiekt koliduje. Następnie `PointerDataToRemoteRayCast` jest wywoływana, aby przekonwertować wynik wskaźnika w punkt i kierunek. Ten punkt i kierunek są następnie używane do rzutowania zdalnego promienia w sesji zdalnej.
 
 ![Powiązane aktualizacje](./media/raycast-local-remote.png)
 
 Wysyłanie żądań dla rzutowania promieniowego w ramach kliknięcia jest wydajną strategią wykonywania zapytań dotyczących obiektów zdalnych. Nie jest to jednak idealne środowisko użytkownika, ponieważ kursor koliduje z kolizją pola, a nie z samym modelem.
 
-Można również utworzyć nowy wskaźnik MRTK, który często rzutuje swoje promienie w sesji zdalnej. Chociaż jest to bardziej skomplikowane podejście, środowisko użytkownika będzie lepiej. Ta strategia jest poza zakresem tego samouczka, ale przykładem tego podejścia można zobaczyć w aplikacji pokazowej, która znajduje się w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+Można również utworzyć nowy wskaźnik MRTK, który często rzutuje swoje promienie w sesji zdalnej. Chociaż jest to bardziej skomplikowane podejście, środowisko użytkownika będzie lepiej. Ta strategia jest poza zakresem tego samouczka, ale przykładem tego podejścia można zobaczyć w aplikacji pokazowej, która znajduje się w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
-Po pomyślnym zakończeniu rzutowania promienia w **RemoteRayCastPointerHandler**, trafienie `Entity` jest emitowane ze `OnRemoteEntityClicked` zdarzenia aparatu Unity. Aby odpowiedzieć na to zdarzenie, utworzymy skrypt pomocnika, który akceptuje `Entity` i wykonuje akcję. Zacznijmy od pobrania skryptu w celu wydrukowania nazwy `Entity` do dziennika debugowania.
+Po pomyślnym zakończeniu rzutowania promienia w **RemoteRayCastPointerHandler** , trafienie `Entity` jest emitowane ze `OnRemoteEntityClicked` zdarzenia aparatu Unity. Aby odpowiedzieć na to zdarzenie, utworzymy skrypt pomocnika, który akceptuje `Entity` i wykonuje akcję. Zacznijmy od pobrania skryptu w celu wydrukowania nazwy `Entity` do dziennika debugowania.
 
 1. Utwórz nowy skrypt o nazwie **RemoteEntityHelper** i Zastąp jego zawartość następującym:
 

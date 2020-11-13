@@ -1,6 +1,6 @@
 ---
-title: Tworzenie usługi Azure Data Factory przy użyciu zestawu SDK platformy .NET
-description: Tworzenie usługi Azure Data Factory i potoku przy użyciu zestawu SDK platformy .NET do kopiowania danych z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
+title: Tworzenie Azure Data Factory przy użyciu zestawu SDK platformy .NET
+description: Utwórz Azure Data Factory i potok przy użyciu zestawu .NET SDK, aby skopiować dane z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d564b96807574dd7a275d6959aea085ad16e9e2e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322890"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565946"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu zestawu SDK .NET
 
@@ -28,7 +28,7 @@ ms.locfileid: "91322890"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Ten samouczek Szybki start opisuje sposób używania zestawu SDK .NET w celu utworzenia usługi Azure Data Factory. Potok tworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w usłudze Azure Blob Storage. Aby zapoznać się z samouczkiem dotyczącym **przekształcania** danych przy użyciu Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](tutorial-transform-data-spark-portal.md).
+W tym przewodniku szybki start opisano sposób tworzenia Azure Data Factory przy użyciu zestawu SDK platformy .NET. Potok tworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w usłudze Azure Blob Storage. Aby zapoznać się z samouczkiem dotyczącym **przekształcania** danych przy użyciu Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Ten artykuł nie zawiera szczegółowego wprowadzenia do usługi Data Factory. Aby zapoznać się z wprowadzeniem do usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
@@ -45,11 +45,11 @@ Pobierz i zainstaluj zestaw [Azure .NET SDK](https://azure.microsoft.com/downloa
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Utworzenie aplikacji w usłudze Azure Active Directory
 
-W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów*, postępuj zgodnie z instrukcjami, aby wykonać następujące zadania:
+W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów* , postępuj zgodnie z instrukcjami, aby wykonać następujące zadania:
 
 1. W obszarze [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)Utwórz aplikację reprezentującą aplikację platformy .NET, którą tworzysz w tym samouczku. W przypadku adresu URL logowania możesz podać fikcyjny adres URL, jak pokazano w artykule (`https://contoso.org/exampleapp`).
-2. W polu [Pobierz wartości do logowania](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Pobierz **Identyfikator aplikacji** i **Identyfikator dzierżawy**, a następnie zanotuj te wartości, które są używane w dalszej części tego samouczka. 
-3. W obszarze [Certyfikaty i wpisy tajne](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)Pobierz **klucz uwierzytelniania**i zanotuj tę wartość, która jest używana w dalszej części tego samouczka.
+2. W polu [Pobierz wartości do logowania](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Pobierz **Identyfikator aplikacji** i **Identyfikator dzierżawy** , a następnie zanotuj te wartości, które są używane w dalszej części tego samouczka. 
+3. W obszarze [Certyfikaty i wpisy tajne](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)Pobierz **klucz uwierzytelniania** i zanotuj tę wartość, która jest używana w dalszej części tego samouczka.
 4. W polu [Przypisz aplikację do roli](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) **współautor** na poziomie subskrypcji, aby aplikacja mogła tworzyć fabryki danych w subskrypcji.
 
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
@@ -58,12 +58,12 @@ Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
 
 1. Uruchom **program Visual Studio**.
 2. W oknie uruchamiania wybierz pozycję **Utwórz nową**  >  **aplikację konsolową projektu (.NET Framework)**. Wymagana jest platforma .NET w wersji 4.5.2 lub nowszej.
-3. W polu **Nazwa projektu**wprowadź **ADFv2QuickStart**.
+3. W polu **Nazwa projektu** wprowadź **ADFv2QuickStart**.
 4. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
 
 ## <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
+1. Wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 2. W okienku **konsoli Menedżera pakietów** Uruchom następujące polecenia, aby zainstalować pakiety. Aby uzyskać więcej informacji, zobacz [pakiet NuGet Microsoft. Azure. Management. DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -74,7 +74,7 @@ Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
 
 ## <a name="create-a-data-factory-client"></a>Tworzenie klienta fabryki danych
 
-1. Otwórz plik **Program.cs**, a następnie dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
+1. Otwórz plik **Program.cs** , a następnie dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
 
     ```csharp
     using System;
@@ -87,7 +87,7 @@ Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Dodaj do metody **Main** następujący kod, który określa zmienne. Zastąp symbole zastępcze własnymi wartościami. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database i inne) oraz obliczenia (HDInsight i inne) używane przez fabrykę danych mogą znajdować się w innych regionach.
+2. Dodaj do metody **Main** następujący kod, który określa zmienne. Zastąp symbole zastępcze własnymi wartościami. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza** , aby zlokalizować pozycję **Data Factory** : [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database i inne) oraz obliczenia (HDInsight i inne) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
    ```csharp
    // Set variables

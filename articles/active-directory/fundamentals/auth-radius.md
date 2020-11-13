@@ -1,6 +1,6 @@
 ---
 title: Uwierzytelnianie usługi RADIUS za pomocą Azure Active Directory
-description: Wskazówki dotyczące architektury dotyczące osiągania tego wzorca uwierzytelniania
+description: Wskazówki dotyczące architektury dotyczące uzyskiwania uwierzytelniania usługi RADIUS za pomocą Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff6210741d87602b4f695633b11d2641a6bb6781
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 155b359c109de948ab9b9d6862ef7507ee76f619
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114528"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576816"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Uwierzytelnianie usługi RADIUS za pomocą Azure Active Directory
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) umożliwia uwierzytelnianie wieloskładnikowe 
 
 Serwer NPS systemu Windows uwierzytelnia poświadczenia użytkownika w odniesieniu do Active Directory, a następnie wysyła żądanie Multi-Factor Authentication do platformy Azure. Następnie użytkownik otrzymuje wyzwanie dotyczące ich uwierzytelniającego urządzenia przenośnego. Po pomyślnym zakończeniu aplikacja kliencka będzie mogła nawiązać połączenie z usługą. 
 
-## <a name="usewhen"></a>Zastosowania: 
+## <a name="use-when"></a>Zastosowania: 
 
 Musisz dodać Multi-Factor Authentication do aplikacji, takich jak
 * Wirtualna sieć prywatna (VPN)
@@ -45,19 +45,19 @@ Musisz dodać Multi-Factor Authentication do aplikacji, takich jak
 ![Diagram architektoniczny](./media/authentication-patterns/radius-auth.png)
 
 
-## <a name="componentsofthe-system"></a>Składniki systemu 
+## <a name="components-of-the-system"></a>Składniki systemu 
 
-* **Aplikacja kliencka (klient sieci VPN)**: wysyła żądanie uwierzytelnienia do klienta usługi RADIUS.
+* **Aplikacja kliencka (klient sieci VPN)** : wysyła żądanie uwierzytelnienia do klienta usługi RADIUS.
 
-* **Klient RADIUS**: konwertuje żądania z aplikacji klienckiej i wysyła je na serwer RADIUS z zainstalowanym rozszerzeniem serwera NPS.
+* **Klient RADIUS** : konwertuje żądania z aplikacji klienckiej i wysyła je na serwer RADIUS z zainstalowanym rozszerzeniem serwera NPS.
 
-* **Serwer RADIUS**: nawiązuje połączenie z Active Directory, aby wykonać podstawowe uwierzytelnianie dla żądania usługi RADIUS. Po pomyślnym przekazanie żądania do usługi Azure Multi-Factor Authentication rozszerzenia serwera NPS.
+* **Serwer RADIUS** : nawiązuje połączenie z Active Directory, aby wykonać podstawowe uwierzytelnianie dla żądania usługi RADIUS. Po pomyślnym przekazanie żądania do usługi Azure Multi-Factor Authentication rozszerzenia serwera NPS.
 
-* **Rozszerzenie serwera NPS**: wyzwala żądanie do usługi Azure Multi-Factor Authentication na potrzeby uwierzytelniania pomocniczego. Jeśli to się powiedzie, rozszerzenie serwera zasad sieciowych kończy żądanie uwierzytelnienia, dostarczając serwer RADIUS tokeny zabezpieczające, które zawierają Multi-Factor Authenticationego żądania wystawionego przez usługę tokenu zabezpieczającego platformy Azure.
+* **Rozszerzenie serwera NPS** : wyzwala żądanie do usługi Azure Multi-Factor Authentication na potrzeby uwierzytelniania pomocniczego. Jeśli to się powiedzie, rozszerzenie serwera zasad sieciowych kończy żądanie uwierzytelnienia, dostarczając serwer RADIUS tokeny zabezpieczające, które zawierają Multi-Factor Authenticationego żądania wystawionego przez usługę tokenu zabezpieczającego platformy Azure.
 
-* **Azure Multi-Factor Authentication**: komunikuje się z usługą Azure AD w celu pobrania szczegółów użytkownika i przeprowadzania dodatkowego uwierzytelniania przy użyciu metody weryfikacji skonfigurowanej przez użytkownika.
+* **Azure Multi-Factor Authentication** : komunikuje się z usługą Azure AD w celu pobrania szczegółów użytkownika i przeprowadzania dodatkowego uwierzytelniania przy użyciu metody weryfikacji skonfigurowanej przez użytkownika.
 
-## <a name="implementradiuswith-azure-ad"></a>Implementowanie usługi RADIUS przy użyciu usługi Azure AD 
+## <a name="implement-radius-with-azure-ad"></a>Implementowanie usługi RADIUS przy użyciu usługi Azure AD 
 
 * [Udostępnianie możliwości Multi-Factor Authentication platformy Azure przy użyciu serwera zasad sieciowych](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
 

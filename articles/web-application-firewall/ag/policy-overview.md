@@ -7,12 +7,12 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 10/14/2020
 ms.author: victorh
-ms.openlocfilehash: 789a60c80d14301c107824d178a3566d358d287f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056399"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566575"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Omówienie zasad zapory aplikacji sieci Web platformy Azure (WAF)
 
@@ -57,7 +57,7 @@ W tym przykładzie istnieją zasady globalne, które mają zastosowanie do dwóc
 
 ## <a name="existing-waf-configurations"></a>Istniejące konfiguracje WAF
 
-Wszystkie nowe ustawienia WAF zapory aplikacji sieci Web (reguły niestandardowe, konfiguracje zestawu reguł zarządzanych, wykluczenia itp.) istnieją w zasadach WAF. Jeśli masz istniejące WAF, te ustawienia mogą nadal istnieć w konfiguracji WAF. Aby uzyskać więcej informacji na temat przechodzenia do nowych zasad WAF, [dokonaj migracji konfiguracji WAF do zasad WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+Wszystkie nowe ustawienia WAF zapory aplikacji sieci Web (reguły niestandardowe, konfiguracje zestawu reguł zarządzanych, wykluczenia itp.) istnieją w zasadach WAF. Jeśli masz istniejące WAF, te ustawienia mogą nadal istnieć w konfiguracji WAF. Aby uzyskać więcej informacji na temat przechodzenia do nowych zasad WAF, [dokonaj migracji konfiguracji WAF do zasad WAF](./migrate-policy.md). 
 
 
 ## <a name="next-steps"></a>Następne kroki

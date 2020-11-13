@@ -1,6 +1,6 @@
 ---
 title: Ograniczone delegowanie protokołu Kerberos za pomocą Azure Active Directory
-description: Wskazówki dotyczące architektury dotyczące osiągania tego wzorca uwierzytelniania
+description: Wskazówki dotyczące architektury dotyczące uzyskiwania ograniczonego delegowania protokołu Kerberos za pomocą Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114461"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577128"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Uwierzytelnianie systemu Windows — ograniczone delegowanie protokołu Kerberos za pomocą Azure Active Directory
 
@@ -36,19 +36,19 @@ Istnieje konieczność zapewnienia dostępu zdalnego, ochrony przed uwierzytelni
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik**: uzyskuje dostęp do starszej aplikacji obsługiwanej przez serwer proxy aplikacji.
+* **Użytkownik** : uzyskuje dostęp do starszej aplikacji obsługiwanej przez serwer proxy aplikacji.
 
-* **Przeglądarka sieci Web**: składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
+* **Przeglądarka sieci Web** : składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
 
-* **Azure AD**: uwierzytelnia użytkownika. 
+* **Azure AD** : uwierzytelnia użytkownika. 
 
-* **Usługa serwera proxy aplikacji**: działa jako zwrotny serwer proxy w celu wysłania żądania od użytkownika do aplikacji lokalnej. Znajduje się w usłudze Azure AD. Serwer proxy aplikacji może również wymusić wszelkie zasady dostępu warunkowego.
+* **Usługa serwera proxy aplikacji** : działa jako zwrotny serwer proxy w celu wysłania żądania od użytkownika do aplikacji lokalnej. Znajduje się w usłudze Azure AD. Serwer proxy aplikacji może również wymusić wszelkie zasady dostępu warunkowego.
 
-* **Łącznik serwera proxy aplikacji**: zainstalowane lokalnie na serwerach z systemem Windows w celu zapewnienia łączności z aplikacją. Zwraca odpowiedź do usługi Azure AD. Wykonuje negocjację KCD z Active Directory, personifikując użytkownika w celu uzyskania tokenu Kerberos do aplikacji.
+* **Łącznik serwera proxy aplikacji** : zainstalowane lokalnie na serwerach z systemem Windows w celu zapewnienia łączności z aplikacją. Zwraca odpowiedź do usługi Azure AD. Wykonuje negocjację KCD z Active Directory, personifikując użytkownika w celu uzyskania tokenu Kerberos do aplikacji.
 
-* **Active Directory**: wysyła token Kerberos dla aplikacji do łącznika serwera proxy aplikacji.
+* **Active Directory** : wysyła token Kerberos dla aplikacji do łącznika serwera proxy aplikacji.
 
-* **Starsze aplikacje**: aplikacje odbierające żądania użytkowników z serwera proxy aplikacji. Starsze aplikacje zwracają odpowiedź do łącznika serwera proxy aplikacji.
+* **Starsze aplikacje** : aplikacje odbierające żądania użytkowników z serwera proxy aplikacji. Starsze aplikacje zwracają odpowiedź do łącznika serwera proxy aplikacji.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementowanie uwierzytelniania systemu Windows (KCD) przy użyciu usługi Azure AD
 

@@ -4,12 +4,12 @@ description: 'Samouczek: publikowanie tematu za pomocą Azure Event Grid i inter
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77633a717478ff143c3b084adc0b69019abb203f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832131"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566830"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Samouczek: kierowanie zdarzeń niestandardowych do Azure Relay Połączenia hybrydowe za pomocą interfejsu wiersza polecenia platformy Azure i Event Grid
 
@@ -17,12 +17,11 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. Połączenia hybrydowe
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że masz już dostęp do połączenia hybrydowego i aplikacji odbiornika. Aby rozpocząć pracę z połączeniami hybrydowymi, zobacz [Wprowadzenie do połączeń hybrydowych usługi Relay — platforma .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) lub [Wprowadzenie do połączeń hybrydowych usługi Relay — oprogramowanie Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
+- W tym artykule przyjęto założenie, że masz już dostęp do połączenia hybrydowego i aplikacji odbiornika. Aby rozpocząć pracę z połączeniami hybrydowymi, zobacz [Wprowadzenie do połączeń hybrydowych usługi Relay — platforma .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) lub [Wprowadzenie do połączeń hybrydowych usługi Relay — oprogramowanie Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]
-> Jeśli używasz interfejsu wiersza polecenia platformy Azure na komputerze lokalnym, powinien on być w wersji co najmniej 2.0.56. Aby uzyskać instrukcje na temat instalowania najnowszej wersji interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.56 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

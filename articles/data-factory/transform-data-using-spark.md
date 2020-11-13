@@ -1,6 +1,6 @@
 ---
 title: Przekształcanie danych przy użyciu działania Spark
-description: Dowiedz się, jak przekształcać dane, uruchamiając programy Spark z potoku usługi Azure Data Factory przy użyciu działania platformy Spark.
+description: Dowiedz się, jak przekształcać dane, uruchamiając programy Spark z potoku Azure Data Factory przy użyciu działania platformy Spark.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: d8cc934ebe8b465bc43e37d0d3a3fc58feda8c0a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cac64b17e7aad9aa2bf88386f21d5f82b3013fa3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637721"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566779"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania Spark w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -77,7 +77,7 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 ## <a name="folder-structure"></a>Struktura folderów
 Zadania platformy Spark są bardziej rozszerzalne niż zadania dla trzody chlewnej/Hive. W przypadku zadań platformy Spark można podać wiele zależności, takich jak pakiety jar (umieszczone w ścieżce klas Java), pliki Python (umieszczone na PYTHONPATH) i inne pliki.
 
-Utwórz następującą strukturę folderów w magazynie obiektów blob platformy Azure, do której odwołuje się połączona Usługa HDInsight. Następnie Przekaż pliki zależne do odpowiednich podfolderów w folderze głównym reprezentowane przez **entryFilePath** . Na przykład przekazanie plików Python do podfolderu pyFiles i plików jar do podfolderu Jars folderu głównego. W czasie wykonywania Usługa Data Factory oczekuje następującej struktury folderów w usłudze Azure Blob Storage:     
+Utwórz następującą strukturę folderów w magazynie obiektów blob platformy Azure, do której odwołuje się połączona Usługa HDInsight. Następnie Przekaż pliki zależne do odpowiednich podfolderów w folderze głównym reprezentowane przez **entryFilePath**. Na przykład przekazanie plików Python do podfolderu pyFiles i plików jar do podfolderu Jars folderu głównego. W czasie wykonywania Usługa Data Factory oczekuje następującej struktury folderów w usłudze Azure Blob Storage:     
 
 | Ścieżka                  | Opis                              | Wymagane | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |

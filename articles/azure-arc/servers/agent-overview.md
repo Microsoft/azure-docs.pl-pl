@@ -3,12 +3,12 @@ title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370172"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577587"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -60,7 +60,7 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 
 * Aby dodać maszyny, musisz być członkiem roli **dołączania maszyny połączonej z platformą Azure** .
 
-* Aby odczytywać, modyfikować, reonboard i usuwać maszynę, jesteś członkiem roli **administratora zasobów maszyny połączonej z platformą Azure** . 
+* Aby odczytywać, modyfikować i usuwać maszyny, musisz być członkiem roli **administratora zasobów maszyny połączonej z platformą Azure** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limity subskrypcji i usług platformy Azure
 
@@ -93,7 +93,7 @@ Adresy
 | Zasób agenta | Opis |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Usługa Azure Active Directory|
+|`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Konfiguracja gościa|
 |`*.his.arc.azure.com`|Hybrydowa usługa tożsamości|
@@ -190,7 +190,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
-    |Log |Opis |
+    |Dziennik |Opis |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|
@@ -234,7 +234,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
-    |Log |Opis |
+    |Dziennik |Opis |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|

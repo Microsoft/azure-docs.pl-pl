@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2595eaf1e373c3a15014d0bc684d6e3914a665
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399112"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566643"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Łączenie z Chinami przy użyciu wirtualnej sieci WAN platformy Azure i bezpiecznego centrum
 
@@ -111,7 +111,7 @@ W zależności od wyboru dotyczącego połączenia z Hongkong, ogólna architekt
 
 Wszystkie te opcje korzystają z bezpiecznego Centrum sieci wirtualnej platformy Azure w celu zapewnienia bezpośredniej łączności Microsoft 365 w Hong Kongu. Te architektury obsługują również wymagania dotyczące zgodności dla [Microsoft 365 wiele geograficznych](/microsoft-365/enterprise/microsoft-365-multi-geo) i utrzymujeją ten ruch blisko najbliższej lokalizacji drzwi platformy Azure. W związku z tym również udoskonalenie użycia Microsoft 365 poza Chin.
 
-W przypadku korzystania z wirtualnej sieci WAN platformy Azure razem z połączeniami internetowymi każde połączenie może korzystać z dodatkowych usług, takich jak [Microsoft Azure usług komunikacji równorzędnej (Maps)](https://docs.microsoft.com/azure/peering-service/about). MAPY zostały skompilowane w celu zoptymalizowania ruchu przychodzącego do sieci globalnej firmy Microsoft od innych dostawców usług internetowych innych firm.
+W przypadku korzystania z wirtualnej sieci WAN platformy Azure razem z połączeniami internetowymi każde połączenie może korzystać z dodatkowych usług, takich jak [Microsoft Azure usług komunikacji równorzędnej (Maps)](../peering-service/about.md). MAPY zostały skompilowane w celu zoptymalizowania ruchu przychodzącego do sieci globalnej firmy Microsoft od innych dostawców usług internetowych innych firm.
 
 ### <a name="option-1-sdwan-or-vpn"></a><a name="option-1"></a>Opcja 1: SDWAN lub VPN
 
@@ -151,4 +151,4 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Konfigurowanie bezpiecznego Centrum sieci WAN](../firewall-manager/secure-cloud-network.md)
 
-* [Omówienie usługi Azure peering Service w wersji zapoznawczej](https://docs.microsoft.com/azure/peering-service/about)
+* [Omówienie usługi Azure peering Service w wersji zapoznawczej](../peering-service/about.md)

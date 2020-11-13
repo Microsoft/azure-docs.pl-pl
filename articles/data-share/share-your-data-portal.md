@@ -5,22 +5,29 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89489939"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577502"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Szybki Start: udostępnianie danych za pomocą udziału danych platformy Azure w Azure Portal
 
-W tym przewodniku szybki start dowiesz się, jak skonfigurować nowy udział danych platformy Azure przy użyciu Azure Portal.
+W tym przewodniku szybki start dowiesz się, jak skonfigurować nowy udział danych platformy Azure w celu udostępniania danych z konta magazynu przy użyciu Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Adres e-mail logowania odbiorcy platformy Azure (przy użyciu aliasu poczty e-mail nie będzie działał).
+* Jeśli źródłowy magazyn danych platformy Azure znajduje się w innej subskrypcji platformy Azure niż ta, która będzie używana do tworzenia zasobu udziału danych, zarejestruj [dostawcę zasobów Microsoft. datashare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji, w której znajduje się magazyn danych platformy Azure. 
 
+### <a name="share-from-a-storage-account"></a>Udostępnianie z konta magazynu
+
+* Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](../storage/common/storage-account-create.md)
+* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli **Współautor**.
+* Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli **Właściciel**. 
 
 ## <a name="create-a-data-share-account"></a>Tworzenie konta udziału danych
 
@@ -43,7 +50,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
    | Lokalizacja | *Wschodnie stany USA 2* | Wybierz region dla konta udziału danych.
    | Nazwa | *datashareaccount* | Określ nazwę konta udziału danych. |
 
-1. Wybierz pozycję **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty.
+1. Wybierz pozycję **Przegląd + Utwórz** , a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty.
 
 1. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
 
@@ -55,19 +62,19 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
    ![EnterShareDetails](./media/enter-share-details.png "Wprowadź szczegóły udostępniania") 
 
-1. Wybierz pozycję **Continue** (Kontynuuj).
+1. Wybierz opcję **Kontynuuj**.
 
 1. Aby dodać zestawy danych do udziału, wybierz pozycję **Dodaj zestawy danych**. 
 
    ![Dodawanie zestawów danych do udziału](./media/datasets.png "Zestawy danych")
 
-1. Wybierz typ zestawu danych, który chcesz dodać. Zostanie wyświetlona inna lista typów zestawów danych w zależności od typu udziału (migawka lub miejsce w miejscu) wybranej w poprzednim kroku. W przypadku udostępniania z Azure SQL Database lub analizy Synapse Azure zostanie wyświetlony monit o podanie pewnych poświadczeń SQL. Uwierzytelnianie przy użyciu użytkownika utworzonego w ramach wymagań wstępnych.
+1. Wybierz typ zestawu danych, który chcesz dodać. Zostanie wyświetlona inna lista typów zestawów danych w zależności od typu udziału (migawka lub miejsce w miejscu) wybranej w poprzednim kroku. 
 
    ![Adddatasets](./media/add-datasets.png "Dodaj zestawy danych")    
 
@@ -79,7 +86,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
    ![Addrecipients](./media/add-recipient.png "Dodawanie adresatów") 
 
-1. Wybierz pozycję **Continue** (Kontynuuj).
+1. Wybierz opcję **Kontynuuj**.
 
 1. W przypadku wybrania typu udziału migawek można skonfigurować harmonogram migawek w taki sposób, aby dostarczał aktualizacje danych do konsumenta danych. 
 
@@ -87,9 +94,9 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz czas rozpoczęcia i interwał cyklu. 
 
-1. Wybierz pozycję **Continue** (Kontynuuj).
+1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia.
 

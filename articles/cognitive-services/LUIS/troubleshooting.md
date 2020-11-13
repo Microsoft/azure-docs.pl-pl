@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149261"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566269"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Usługa Language Understanding — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Language Understanding (LUIS).
 
-## <a name="whats-new"></a>Co nowego?
+## <a name="whats-new"></a>Co nowego
 
 [Dowiedz się więcej](whats-new.md) na temat Nowości w programie Language UNDERSTANDING (Luis).
 
@@ -91,7 +91,7 @@ Kody stanu błędów 403 i 429 są uzyskiwane w przypadku przekroczenia liczby t
 
 W przypadku korzystania ze wszystkich bezpłatnych zapytań dotyczących punktów końcowych 1000 lub przekroczenia limitu przydziału miesięcznych transakcji warstwy cenowej występuje kod stanu błędu HTTP 403.
 
-Aby naprawić ten błąd, należy [zmienić warstwę cenową](luis-how-to-azure-subscription.md#change-pricing-tier) na wyższą lub [utworzyć nowy zasób](get-started-portal-deploy-app.md#create-the-endpoint-resource) i [przypisać go do aplikacji](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Aby naprawić ten błąd, należy [zmienić warstwę cenową](luis-how-to-azure-subscription.md#change-the-pricing-tier) na wyższą lub [utworzyć nowy zasób](get-started-portal-deploy-app.md#create-the-endpoint-resource) i [przypisać go do aplikacji](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 Rozwiązania tego błędu obejmują:
 
@@ -106,7 +106,7 @@ Ten kod stanu jest zwracany, gdy liczba transakcji na sekundę przekracza Twoją
 
 Rozwiązania obejmują:
 
-* Możesz [zwiększyć swoją warstwę cenową](luis-how-to-azure-subscription.md#change-pricing-tier), jeśli nie masz najwyższej warstwy.
+* Możesz [zwiększyć swoją warstwę cenową](luis-how-to-azure-subscription.md#change-the-pricing-tier), jeśli nie masz najwyższej warstwy.
 * Jeśli użycie przekroczy najwyższą warstwę cenową, należy dodać więcej Language Understanding zasobów przy użyciu modułu równoważenia obciążenia przed nimi. [Language Understanding kontener](luis-container-howto.md) z Kubernetes lub Docker Compose może Ci pomóc.
 * Po otrzymaniu tego kodu stanu można posłużyć do żądania aplikacji klienckich przy użyciu [zasad ponawiania](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) .
 
@@ -224,7 +224,7 @@ Klucze tworzenia są dostępne w portalu LUIS po przeprowadzeniu [migracji do ś
 ## <a name="app-management"></a>Zarządzanie aplikacjami
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Jak mogę pobrać dziennika wyrażenia długości użytkownika?
-Domyślnie aplikacja LUIS rejestruje wyrażenia długości użytkowników. Aby pobrać dziennik wyrażenia długości, który użytkownicy wysyłają do aplikacji LUIS, przejdź do obszaru **Moje aplikacje**i wybierz aplikację. Na kontekstowym pasku narzędzi wybierz pozycję **Eksportuj dzienniki punktów końcowych**. Dziennik jest sformatowany jako plik z wartościami rozdzielanymi przecinkami (CSV).
+Domyślnie aplikacja LUIS rejestruje wyrażenia długości użytkowników. Aby pobrać dziennik wyrażenia długości, który użytkownicy wysyłają do aplikacji LUIS, przejdź do obszaru **Moje aplikacje** i wybierz aplikację. Na kontekstowym pasku narzędzi wybierz pozycję **Eksportuj dzienniki punktów końcowych**. Dziennik jest sformatowany jako plik z wartościami rozdzielanymi przecinkami (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Jak mogę wyłączyć rejestrowanie wyrażenia długości?
 Rejestrowanie użytkownika wyrażenia długości można wyłączyć przez ustawienie `log=false` w adresie URL punktu końcowego używanym przez aplikację kliencką do wysyłania zapytań do Luis. Wyłączenie rejestrowania uniemożliwia jednak aplikacji LUIS zasugerowanie wyrażenia długości lub zwiększenie wydajności, która jest oparta na [aktywnej uczeniu](luis-concept-review-endpoint-utterances.md#what-is-active-learning). W przypadku ustawienia `log=false` z powodu problemów z ochroną prywatności nie można pobrać rekordu tego użytkownika wyrażenia długości z Luis lub użyć tych wyrażenia długości do usprawnienia aplikacji.
@@ -268,7 +268,7 @@ Pierwszym problemem jest wyizolowanie, jeśli problem związany z LUISem lub zac
 #### <a name="resolve-issue-in-luis"></a>Rozwiązywanie problemu w programie LUIS
 Przekaż ten sam wypowiedź do LUIS z [punktu końcowego Luis](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Jeśli zostanie wyświetlony komunikat o błędzie, należy rozwiązać problem w LUIS, dopóki błąd nie zostanie już zwrócony. Typowe błędy obejmują:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` — Ten problem oznacza konieczność zmiany z klucza tworzenia do [klucza punktu końcowego](luis-how-to-azure-subscription.md) lub należy zmienić [warstwy usług](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` — Ten problem oznacza konieczność zmiany z klucza tworzenia do [klucza punktu końcowego](luis-how-to-azure-subscription.md) lub należy zmienić [warstwy usług](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Rozwiąż problem w Azure Bot Service
 
@@ -278,7 +278,7 @@ Jeśli używasz Azure Bot Service, a problem polega na tym, że **test w usłudz
 1. Otwórz Edytor kodu online.
 1. Na górnym, niebieskim pasku nawigacyjnym wybierz nazwę bot (drugi element w prawo).
 1. Z listy rozwijanej wyniki wybierz pozycję **Otwórz konsolę kudu**.
-1. Wybierz pozycję **LogFiles**, a następnie wybierz pozycję **aplikacja**. Przejrzyj wszystkie pliki dziennika. Jeśli błąd nie jest widoczny w folderze aplikacji, przejrzyj wszystkie pliki dziennika w **pliku dziennika**.
+1. Wybierz pozycję **LogFiles** , a następnie wybierz pozycję **aplikacja**. Przejrzyj wszystkie pliki dziennika. Jeśli błąd nie jest widoczny w folderze aplikacji, przejrzyj wszystkie pliki dziennika w **pliku dziennika**.
 1. Pamiętaj, aby ponownie skompilować projekt, jeśli używasz skompilowanego języka, takiego jak C#.
 
 > [!Tip]

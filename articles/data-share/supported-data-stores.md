@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/30/2020
+ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318593"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577225"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magazyny danych obsługiwane w usłudze Azure Data Share
 
@@ -23,14 +23,15 @@ Ten artykuł zawiera informacje o rozbudowanym zestawie magazynów danych system
 
 Poniższa tabela zawiera szczegółowe informacje o obsługiwanych źródłach danych dla udziału danych platformy Azure. 
 
-| Magazyn danych | Udostępnianie oparte na migawce | Udostępnianie w miejscu 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob Storage |✓ | |
-| Usługa Azure Data Lake Storage 1. generacji |✓ | |
-| Usługa Azure Data Lake Storage 2. generacji |✓ ||
-| Azure SQL Database |✓ | |
-| Azure Synapse Analytics (dawniej: Azure SQL DW) |✓ | |
-| Azure Data Explorer | |✓ |
+| Magazyn danych | Udostępnianie oparte na migawce (pełna migawka) | Udostępnianie oparte na migawce (migawka przyrostowa) | Udostępnianie w miejscu 
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Usługa Azure Blob Storage |✓ |✓ | |
+| Usługa Azure Data Lake Storage 1. generacji |✓ |✓ | |
+| Usługa Azure Data Lake Storage 2. generacji |✓ |✓ ||
+| Azure SQL Database |✓ | | |
+| Azure Synapse Analytics (dawniej: Azure SQL DW) |✓ | | |
+| Pula SQL usługi Azure Synapse Analytics (obszar roboczy) | Publiczna wersja zapoznawcza | | |
+| Azure Data Explorer | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Macierz obsługi magazynu danych
 
@@ -38,14 +39,15 @@ Udział danych platformy Azure oferuje klientom danych elastyczność podczas wy
 
 Poniższa tabela zawiera szczegółowe informacje o różnych kombinacjach i wyborach, które użytkownicy danych mają podczas akceptowania i konfigurowania udziału danych. Aby uzyskać więcej informacji na temat konfigurowania mapowań zestawu danych, zobacz [jak skonfigurować mapowania zestawu danych](how-to-configure-mapping.md).
 
-| Magazyn danych | Azure Blob Storage | Usługa Azure Data Lake Storage 1. generacji | Usługa Azure Data Lake Storage 2. generacji | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
-|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob Storage | ✓ || ✓ ||
-| Usługa Azure Data Lake Storage 1. generacji | ✓ | | ✓ ||
-| Usługa Azure Data Lake Storage 2. generacji | ✓ | | ✓ ||
-| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
-| Azure Synapse Analytics (dawniej: Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
-| Azure Data Explorer |||||| ✓ |
+| Magazyn danych | Azure Blob Storage | Usługa Azure Data Lake Storage 1. generacji | Usługa Azure Data Lake Storage 2. generacji | Azure SQL Database | Azure Synapse Analytics (dawniej: Azure SQL DW) | Pula SQL usługi Azure Synapse Analytics (obszar roboczy) | Azure Data Explorer
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
+| Usługa Azure Blob Storage | ✓ || ✓ |||
+| Usługa Azure Data Lake Storage 1. generacji | ✓ | | ✓ |||
+| Usługa Azure Data Lake Storage 2. generacji | ✓ | | ✓ |||
+| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (dawniej: Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Pula SQL usługi Azure Synapse Analytics (obszar roboczy) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Udostępnianie z konta magazynu
 Udział danych platformy Azure obsługuje udostępnianie plików, folderów i systemów plików z Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje także udostępnianie obiektów blob, folderów i kontenerów z usługi Azure Blob Storage. Obecnie jest obsługiwany tylko blokowy obiekt BLOB. Gdy systemy plików, kontenery lub foldery są udostępniane w ramach udostępniania opartego na migawce, konsument danych może wybrać pełną kopię danych udziału lub użyć funkcji przyrostowej migawki w celu skopiowania tylko nowych lub zaktualizowanych plików. Przyrostowa migawka jest określana na podstawie czasu ostatniej modyfikacji plików. Istniejące pliki o tej samej nazwie zostaną zastąpione.
@@ -53,7 +55,7 @@ Udział danych platformy Azure obsługuje udostępnianie plików, folderów i sy
 Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie i odbieranie danych z usługi Azure Blob Storage i Azure Data Lake Storage](how-to-share-from-storage.md) .
 
 ## <a name="share-from-a-sql-based-source"></a>Udostępnianie z poziomu źródła opartego na języku SQL
-Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
+Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW) i udostępnianie tabel z puli SQL usługi Azure Synapse Analytics (obszar roboczy). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
 
 Gdy akceptujesz dane do Azure Data Lake Store Gen2 lub Azure Blob Storage, pełne migawki zastąpią zawartość pliku docelowego, jeśli już istnieje.
 Gdy dane są odbierane do tabeli, a tabela docelowa jeszcze nie istnieje, udział danych platformy Azure tworzy tabelę SQL ze schematem źródłowym. Jeśli tabela docelowa już istnieje o tej samej nazwie, zostanie porzucona i zastąpiona najnowszą pełną migawką. Migawki przyrostowe nie są obecnie obsługiwane.

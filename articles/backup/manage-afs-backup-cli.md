@@ -3,29 +3,27 @@ title: Zarządzanie kopiami zapasowymi udziałów plików platformy Azure za pom
 description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do zarządzania udziałami plików platformy Azure i ich monitorowania za pomocą Azure Backup.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 44c095d58e2da5a74985ce216268aab15922ed1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332750"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566456"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Zarządzanie kopiami zapasowymi udziałów plików platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure zapewnia obsługę systemu Azure w programie. To doskonałe narzędzie do tworzenia niestandardowych automatyzacji do korzystania z zasobów platformy Azure. W tym artykule opisano sposób wykonywania zadań związanych z zarządzaniem udziałami plików platformy Azure, których kopie zapasowe są tworzone przez [Azure Backup](./backup-overview.md). Te kroki można również wykonać za pomocą [Azure Portal](https://portal.azure.com/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Aby zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, należy uruchomić interfejs wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W tym artykule przyjęto założenie, że masz już kopię zapasową udziału plików platformy Azure, [Azure Backup](./backup-overview.md). Jeśli go nie masz, zobacz Tworzenie kopii zapasowych [udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia](backup-afs-cli.md) w celu skonfigurowania usługi Backup dla udziałów plików. W tym artykule opisano użycie następujących zasobów:
-
-* **Grupa zasobów**: *migracji pamięci*
-* **RecoveryServicesVault**: *azurefilesvault*
-* **Konto magazynu**: *afsaccount*
-* **Udział plików**: *migracji pamięci*
+   -  **Grupa zasobów** : *migracji pamięci*
+   -  **RecoveryServicesVault** : *azurefilesvault*
+   -  **Konto magazynu** : *afsaccount*
+   -  **Udział plików** : *migracji pamięci*
+  
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   - Ten samouczek wymaga wersji 2.0.18 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
 
@@ -98,9 +96,9 @@ Możesz zmodyfikować zasady tworzenia kopii zapasowej, aby zmienić częstotliw
 
 Aby zmienić zasady, Zdefiniuj następujące parametry:
 
-* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--name**: nazwa udziału plików, dla którego chcesz zmienić zasady. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
-* **--Policy-Name**: Nazwa zasad tworzenia kopii zapasowych, które chcesz ustawić dla udziału plików. Możesz użyć [AZ Backup Policy list](/cli/azure/backup/policy#az-backup-policy-list) , aby wyświetlić wszystkie zasady dla Twojego magazynu.
+* **--Container-Name** : nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--name** : nazwa udziału plików, dla którego chcesz zmienić zasady. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
+* **--Policy-Name** : Nazwa zasad tworzenia kopii zapasowych, które chcesz ustawić dla udziału plików. Możesz użyć [AZ Backup Policy list](/cli/azure/backup/policy#az-backup-policy-list) , aby wyświetlić wszystkie zasady dla Twojego magazynu.
 
 W poniższym przykładzie ustawiono zasady tworzenia kopii zapasowych *schedule2* dla udziału plików *migracji pamięci* , które znajdują się na koncie magazynu *afsaccount* .
 
@@ -110,8 +108,8 @@ az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name
 
 Możesz również uruchomić poprzednie polecenie przy użyciu przyjaznych nazw kontenera i elementu, podając następujące dwa dodatkowe parametry:
 
-* **--Backup-Management-Type**: *azurestorage*
-* **--Typ obciążenia**: *azurefileshare*
+* **--Backup-Management-Type** : *azurestorage*
+* **--Typ obciążenia** : *azurefileshare*
 
 ```azurecli-interactive
 az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --name azurefiles --backup-management-type azurestorage --out table
@@ -136,8 +134,8 @@ Może być kosztem związanym z opuszczeniem punktów odzyskiwania w magazynie, 
 
 Aby zatrzymać ochronę udziału plików, Zdefiniuj następujące parametry:
 
-* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name**: nazwa udziału plików, dla którego chcesz zatrzymać ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
+* **--Container-Name** : nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name** : nazwa udziału plików, dla którego chcesz zatrzymać ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Zatrzymywanie ochrony i zachowywanie punktów odzyskiwania
 
@@ -151,8 +149,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 Możesz również uruchomić poprzednie polecenie przy użyciu przyjaznej nazwy kontenera i elementu, podając następujące dwa dodatkowe parametry:
 
-* **--Backup-Management-Type**: *azurestorage*
-* **--Typ obciążenia**: *azurefileshare*
+* **--Backup-Management-Type** : *azurestorage*
+* **--Typ obciążenia** : *azurefileshare*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --out table
@@ -178,8 +176,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 Możesz również uruchomić poprzednie polecenie przy użyciu przyjaznej nazwy kontenera i elementu, podając następujące dwa dodatkowe parametry:
 
-* **--Backup-Management-Type**: *azurestorage*
-* **--Typ obciążenia**: *azurefileshare*
+* **--Backup-Management-Type** : *azurestorage*
+* **--Typ obciążenia** : *azurefileshare*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --delete-backup-data true --out table
@@ -191,9 +189,9 @@ Jeśli ochrona udziału plików platformy Azure została zatrzymana, ale zachowa
 
 Aby wznowić ochronę udziału plików, Zdefiniuj następujące parametry:
 
-* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name**: nazwa udziału plików, dla którego chcesz wznowić ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
-* **--Policy-Name**: Nazwa zasad tworzenia kopii zapasowych, dla których chcesz wznowić ochronę udziału plików.
+* **--Container-Name** : nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name** : nazwa udziału plików, dla którego chcesz wznowić ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
+* **--Policy-Name** : Nazwa zasad tworzenia kopii zapasowych, dla których chcesz wznowić ochronę udziału plików.
 
 W poniższym przykładzie użyto polecenia [AZ Backup Protection Resume](/cli/azure/backup/protection#az-backup-protection-resume) w celu wznowienia ochrony udziału plików *migracji pamięci* przy użyciu zasad tworzenia kopii zapasowych *schedule1* .
 
@@ -203,8 +201,8 @@ az backup protection resume --vault-name azurefilesvault --resource-group azuref
 
 Możesz również uruchomić poprzednie polecenie przy użyciu przyjaznej nazwy kontenera i elementu, podając następujące dwa dodatkowe parametry:
 
-* **--Backup-Management-Type**: *azurestorage*
-* **--Typ obciążenia**: *azurefileshare*
+* **--Backup-Management-Type** : *azurestorage*
+* **--Typ obciążenia** : *azurefileshare*
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --policy-name schedule2 --out table
@@ -232,7 +230,7 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 Możesz również uruchomić poprzednie polecenie cmdlet przy użyciu przyjaznej nazwy kontenera, dostarczając następujący dodatkowy parametr:
 
-* **--Backup-Management-Type**: *azurestorage*
+* **--Backup-Management-Type** : *azurestorage*
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --out table

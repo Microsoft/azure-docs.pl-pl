@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839218"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566099"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Wyślij działanie poleceń niestandardowych do aplikacji klienckiej
 
@@ -36,15 +36,17 @@ Wykonaj następujące zadania:
 ## <a name="setup-send-activity-to-client"></a>Skonfiguruj działanie wysyłania do klienta 
 1. Otwórz wcześniej utworzoną aplikację poleceń niestandardowych
 1. Wybierz polecenie **TurnOnOff** , wybierz pozycję **ConfirmationResponse** w obszarze reguła ukończenia, a następnie wybierz pozycję **Dodaj akcję** .
-1. W obszarze **Nowa akcja — typ**wybierz pozycję **Wyślij działanie do klienta**
+1. W obszarze **Nowa akcja — typ** wybierz pozycję **Wyślij działanie do klienta**
 1. Skopiuj poniższy kod JSON do **zawartości działania**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
 1. Kliknij przycisk **Zapisz** , aby utworzyć nową regułę z akcją wysyłania, **nauczenie** i **opublikowanie** zmiany
 
@@ -55,7 +57,7 @@ Wykonaj następujące zadania:
 
 W temacie [How to: Setup Application Client with Speech SDK (wersja zapoznawcza)](./how-to-custom-commands-setup-speech-sdk.md)utworzono aplikację kliencką platformy UWP z użyciem zestawu Speech SDK, który obsłużył polecenia takie jak `turn on the tv` , `turn off the fan` . Po dodaniu niektórych wizualizacji można zobaczyć wynik tych poleceń.
 
-Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać**, Dodaj następujący blok XML StackPanel do `MainPage.xaml` .
+Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać** , Dodaj następujący blok XML StackPanel do `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -83,8 +85,8 @@ Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać**, Doda
 Ze względu na to, że utworzono ładunek JSON, musisz dodać odwołanie do biblioteki [JSON.NET](https://www.newtonsoft.com/json) w celu obsługi deserializacji.
 
 1. Klient z odpowiednim rozwiązaniem.
-1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**, a następnie wybierz pozycję **Przeglądaj** . 
-1. Jeśli masz już zainstalowaną **Newtonsoft.jsna**, upewnij się, że jej wersja to co najmniej 12.0.3. Jeśli nie, przejdź do pozycji **Zarządzaj pakietami NuGet dla rozwiązania — aktualizacje**, Wyszukaj **Newtonsoft.jsna** , aby je zaktualizować. W tym przewodniku jest używana wersja 12.0.3.
+1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania** , a następnie wybierz pozycję **Przeglądaj** . 
+1. Jeśli masz już zainstalowaną **Newtonsoft.jsna** , upewnij się, że jej wersja to co najmniej 12.0.3. Jeśli nie, przejdź do pozycji **Zarządzaj pakietami NuGet dla rozwiązania — aktualizacje** , Wyszukaj **Newtonsoft.jsna** , aby je zaktualizować. W tym przewodniku jest używana wersja 12.0.3.
 
     > [!div class="mx-imgBorder"]
     > ![Wyślij ładunek aktywności](media/custom-commands/send-activity-to-client-json-nuget.png)
@@ -114,8 +116,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     if (name.Equals("UpdateDeviceState"))
     {
         Debug.WriteLine("Here");
-        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
-        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+        var state = activity?.value?.state != null ? activity.value.state.ToString() : string.Empty;
+        var device = activity?.value?.device != null ? activity.value.device.ToString() : string.Empty;
 
         if (state.Equals("on") || state.Equals("off"))
         {

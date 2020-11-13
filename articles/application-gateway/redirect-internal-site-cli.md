@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d0730148a3da41d0d72961ea521577fa370b183d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b443fa7c2d6c644fc1173295f89813c18657d160
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596094"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566728"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Przy użyciu interfejsu wiersza polecenia platformy Azure można skonfigurować [przekierowywanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku zdefiniujesz pulę zaplecza przy użyciu zestawu skalowania maszyn wirtualnych. Następnie należy skonfigurować detektory i reguły oparte na domenach, aby upewnić się, że ruch internetowy dociera do odpowiedniej puli. W tym samouczku przyjęto założenie, że posiadasz wiele domen i używasz przykładowych * \. contoso.com www* i *www \. contoso.org*.
+Przy użyciu interfejsu wiersza polecenia platformy Azure można skonfigurować [przekierowywanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku zdefiniujesz pulę zaplecza przy użyciu zestawu skalowania maszyn wirtualnych. Następnie należy skonfigurować detektory i reguły oparte na domenach, aby upewnić się, że ruch internetowy dociera do odpowiedniej puli. W tym samouczku przyjęto założenie, że posiadasz wiele domen i używasz przykładowych *\. contoso.com www* i *www \. contoso.org*.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -27,11 +27,11 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 * Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
 * Tworzenie rekordu CNAME w domenie
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+ - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -96,7 +96,7 @@ Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplika
 
 ## <a name="add-listeners-and-rules"></a>Dodawanie odbiorników i reguł 
 
-Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do puli zaplecza. W tym samouczku utworzysz dwa odbiorniki dla swoich dwóch domen. W tym przykładzie są tworzone odbiorniki dla domen * \. contoso.com www* i *www \. contoso.org*.
+Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do puli zaplecza. W tym samouczku utworzysz dwa odbiorniki dla swoich dwóch domen. W tym przykładzie są tworzone odbiorniki dla domen *\. contoso.com www* i *www \. contoso.org*.
 
 Dodaj odbiorniki zaplecza, które są wymagane do kierowania ruchu, używając polecenia [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 

@@ -1,6 +1,6 @@
 ---
 title: Dostosowanie języka w Azure Active Directory B2C
-description: Dowiedz się więcej o dostosowywaniu środowiska w przepływach użytkownika.
+description: Dowiedz się więcej o dostosowywaniu środowiska w przepływach użytkownika w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355097"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575955"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Dostosowanie języka w Azure Active Directory B2C
 
@@ -28,9 +28,9 @@ Za pomocą dostosowywania języka można wybrać Języki, w których przepływ u
 
 Użytkownik może nie potrzebować tego poziomu kontroli nad językami, które widzi klient. Jeśli nie podano `ui_locales` parametru, środowisko klienta jest podyktowane ustawieniami przeglądarki. Można nadal kontrolować Języki, do których przepływ użytkownika jest tłumaczony przez dodanie go jako obsługiwanego języka. Jeśli w przeglądarce klienta ustawiono język, który nie ma być obsługiwany, w zamian zostanie wyświetlony język wybrany jako domyślny w obsługiwanych kulturach.
 
-* **interfejs użytkownika — określony język**: po włączeniu dostosowywania języka przepływ użytkownika zostanie przetłumaczony na język, który jest określony w tym miejscu.
-* **Język żądany w przeglądarce**: Jeśli żaden `ui_locales` parametr nie został określony, przepływ użytkownika zostanie przetłumaczony na język żądany w przeglądarce, *Jeśli jest obsługiwany*.
-* **Język domyślny dla zasad**: Jeśli w przeglądarce nie określono języka lub określono taki, który nie jest obsługiwany, przepływ użytkownika zostanie przetłumaczony na domyślny język przepływu użytkownika.
+* **interfejs użytkownika — określony język** : po włączeniu dostosowywania języka przepływ użytkownika zostanie przetłumaczony na język, który jest określony w tym miejscu.
+* **Język żądany w przeglądarce** : Jeśli żaden `ui_locales` parametr nie został określony, przepływ użytkownika zostanie przetłumaczony na język żądany w przeglądarce, *Jeśli jest obsługiwany*.
+* **Język domyślny dla zasad** : Jeśli w przeglądarce nie określono języka lub określono taki, który nie jest obsługiwany, przepływ użytkownika zostanie przetłumaczony na domyślny język przepływu użytkownika.
 
 > [!NOTE]
 > Jeśli używasz niestandardowych atrybutów użytkownika, musisz podać własne tłumaczenia. Aby uzyskać więcej informacji, zobacz [Dostosowywanie ciągów](#customize-your-strings).
@@ -65,7 +65,7 @@ Dostosowanie języka umożliwia dostosowanie dowolnego ciągu w przepływie uży
 
 1. Upewnij się, że przepływ użytkownika ma włączone dostosowanie języka z poprzednich instrukcji.
 1. Na stronie **Języki** dla przepływu użytkownika wybierz język, który chcesz dostosować.
-1. W obszarze **pliki zasobów na poziomie strony**wybierz stronę, którą chcesz edytować.
+1. W obszarze **pliki zasobów na poziomie strony** wybierz stronę, którą chcesz edytować.
 1. Wybierz pozycję **Pobierz domyślne** (lub **Pobierz zastąpienia** , jeśli wcześniej edytowano ten język).
 
 Te kroki zapewniają plik JSON, którego można użyć do rozpoczęcia edytowania ciągów.
@@ -170,7 +170,7 @@ Możesz również dodać Języki, dla których firma Microsoft obecnie nie udost
 4. W otwartym okienku kontekstu Zidentyfikuj język, w którym są udostępniane tłumaczenia, wprowadzając prawidłowy kod ustawień regionalnych.
 5. Dla każdej strony można pobrać zestaw zastąpień dla języka angielskiego i rozpocząć korzystanie z tłumaczeń.
 6. Po zakończeniu pracy z plikami JSON można przekazać je dla każdej strony.
-7. Wybierz pozycję **Włącz**, a przepływ użytkownika może teraz pokazać ten język dla użytkowników.
+7. Wybierz pozycję **Włącz** , a przepływ użytkownika może teraz pokazać ten język dla użytkowników.
 8. Zapisz język.
 
 >[!IMPORTANT]
@@ -210,7 +210,7 @@ Azure AD B2C obejmuje obsługę następujących języków. Języki przepływu u�
 | Kataloński               | urzędu certyfikacji            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Czeski                 | Rejestr            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Duński                | da            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
-| Niemiecki                | de            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| niemiecki                | de            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Grecki                 | Colon            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Angielski               | en            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Hiszpański               | es            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
@@ -229,7 +229,7 @@ Azure AD B2C obejmuje obsługę następujących języków. Języki przepływu u�
 | japoński              | ja            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Kazachski                | kk            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Kannada               | kN            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
-| Koreański                | Ko            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| koreański                | Ko            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Litewski            | lt            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Łotewski               | LV            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
 | Malayalam             | ml            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
