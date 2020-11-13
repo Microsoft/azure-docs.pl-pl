@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325581"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616114"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
 
 
-Dowiedz się, jak interaktywnie debugować Azure Machine Learning eksperymenty, potoki i wdrożenia przy użyciu Visual Studio Code (VS Code) i [depugpy](https://github.com/microsoft/debugpy/).
+Dowiedz się, jak interaktywnie debugować Azure Machine Learning eksperymenty, potoki i wdrożenia przy użyciu Visual Studio Code (VS Code) i [debugpy](https://github.com/microsoft/debugpy/).
 
 ## <a name="run-and-debug-experiments-locally"></a>Lokalne uruchamianie i debugowanie eksperymentów
 

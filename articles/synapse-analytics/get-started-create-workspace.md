@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 5a4f3c06f53191339bf42125c0781f3ac1238b32
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561050"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592451"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -48,9 +48,9 @@ Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby 
 
 1. W programie Synapse Studio w okienku po lewej stronie wybierz pozycję **Zarządzaj**  >  **pulami SQL**.
 1. Wybierz pozycję **Nowy**
-1. W obszarze **Nazwa puli SQL** wybierz pozycję **SQLDB1**
+1. W obszarze **Nazwa puli SQL** wybierz pozycję **SQLPOOL1**
 1. Dla opcji **poziom wydajności** wybierz **DW100C**
-1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Dedykowana Pula SQL będzie gotowa w ciągu kilku minut. Dedykowana Pula SQL jest skojarzona z dedykowaną bazą danych puli SQL o nazwie **SQLDB1**.
+1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Dedykowana Pula SQL będzie gotowa w ciągu kilku minut. Dedykowana Pula SQL jest skojarzona z dedykowaną bazą danych puli SQL o nazwie **SQLPOOL1**.
 
 Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę można wstrzymać później, aby zmniejszyć koszty.
 

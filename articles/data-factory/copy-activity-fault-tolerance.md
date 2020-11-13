@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634781"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593652"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -27,7 +27,7 @@ ms.locfileid: "92634781"
 
 W przypadku kopiowania danych ze źródła do magazynu docelowego Azure Data Factory działania kopiowania zapewniają pewien poziom odporności na uszkodzenia, aby zapobiec przerwom w występowaniu błędów w trakcie przenoszenia danych. Na przykład kopiowane są miliony wierszy ze źródła do magazynu docelowego, gdzie klucz podstawowy został utworzony w docelowej bazie danych, ale źródłowa baza danych nie ma zdefiniowanych kluczy podstawowych. Gdy kopiujesz zduplikowane wiersze z lokalizacji źródłowej do docelowej, wystąpi błąd naruszenia klucza podstawowego dla docelowej bazy danych. W tej chwili działanie kopiowania oferuje dwa sposoby obsługi takich błędów: 
 - Działanie kopiowania można przerwać po wystąpieniu dowolnego błędu. 
-- Aby pominąć niezgodne dane, można kontynuować kopiowanie reszty przez włączenie funkcji odporność na uszkodzenia. Na przykład Pomiń zduplikowany wiersz w tym przypadku. Ponadto można rejestrować pominięte dane, włączając dziennik sesji w ramach działania kopiowania. 
+- Aby pominąć niezgodne dane, można kontynuować kopiowanie reszty przez włączenie funkcji odporność na uszkodzenia. Na przykład Pomiń zduplikowany wiersz w tym przypadku. Ponadto można rejestrować pominięte dane, włączając dziennik sesji w ramach działania kopiowania. Aby uzyskać więcej informacji, można odwołać się do [dziennika sesji w działaniu kopiowania](copy-activity-log.md) .
 
 ## <a name="copying-binary-files"></a>Kopiowanie plików binarnych 
 
@@ -61,13 +61,20 @@ Podczas kopiowania plików binarnych między magazynami magazynów można włąc
         "dataInconsistency": true 
     }, 
     "validateDataConsistency": true, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2", 
-            "type": "LinkedServiceReference" 
-            }, 
-        "path": "sessionlog/" 
-     } 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 Właściwość | Opis | Dozwolone wartości | Wymagane
@@ -76,7 +83,7 @@ skipErrorFile | Grupa właściwości, aby określić typy błędów, które maj�
 fileMissing | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć pliki, które są usuwane przez inne aplikacje, gdy w tym czasie jest kopiowany ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki usuwane przez inne aplikacje. <br/> -False: chcesz przerwać działanie kopiowania po usunięciu plików ze sklepu źródłowego w trakcie przenoszenia danych. <br/>Należy pamiętać, że właściwość jest ustawiona na wartość true jako domyślną. | True (domyślnie) <br/>Fałsz | Nie
 fileForbidden | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć określone pliki, gdy listy kontroli dostępu do tych plików lub folderów wymagają wyższego poziomu uprawnień niż połączenie skonfigurowane w podajniku ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki. <br/> -False: chcesz przerwać działanie kopiowania po pobraniu problemu z uprawnieniami do folderów lub plików. | Prawda <br/>False (domyślnie) | Nie
 dataInconsistency | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane między magazynem źródłowym i docelowym. <br/> -True: chcesz skopiować resztę, pomijając niespójne dane. <br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych. <br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true. | Prawda <br/>False (domyślnie) | Nie
-logStorageSettings  | Grupa właściwości, które można określić, gdy mają być rejestrowane pominięte nazwy obiektów. | &nbsp; | Nie
+logSettings  | Grupa właściwości, które można określić, gdy mają być rejestrowane pominięte nazwy obiektów. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
 path | Ścieżka do plików dziennika. | Określ ścieżkę, która ma być używana do przechowywania plików dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
@@ -108,7 +115,7 @@ Można uzyskać liczbę plików odczytywanych, zapisywanych i pomijanych za poś
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -130,7 +137,7 @@ Timestamp | Sygnatura czasowa w przypadku pomijania pliku przez funkcję ADF.
 Poziom | Poziom dziennika tego elementu. Będzie on wyświetlany na poziomie "ostrzeżenie" dla elementu pokazującego pomijanie plików.
 OperationName | Zachowanie działania kopiowania APD dla każdego pliku. Będzie to "FileSkip", aby określić plik do pominięcia.
 OperationItem | Nazwy plików, które mają zostać pominięte.
-Wiadomość | Więcej informacji o tym, dlaczego pominięto plik.
+Komunikat | Więcej informacji o tym, dlaczego pominięto plik.
 
 Przykładowy plik dziennika jest następujący: 
 ```
@@ -146,15 +153,15 @@ W powyższym dzienniku można zobaczyć, że bigfile.csv został pominięty z po
 ### <a name="supported-scenarios"></a>Obsługiwane scenariusze
 Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowania niezgodnych danych tabelarycznych:
 
-- **Niezgodność między typem danych źródłowych a typem natywnym ujścia** . 
+- **Niezgodność między typem danych źródłowych a typem natywnym ujścia**. 
 
     Na przykład: Skopiuj dane z pliku CSV w usłudze BLOB Storage do bazy danych SQL z definicją schematu, która zawiera trzy kolumny typu INT. Wiersze pliku CSV zawierające dane liczbowe, takie jak 123 456 789, zostały pomyślnie skopiowane do magazynu ujścia. Jednak wiersze, które zawierają wartości nieliczbowych, na przykład 123 456, ABC są wykrywane jako niezgodne i pomijane.
 
-- **Niezgodność liczby kolumn między źródłem i ujściam** .
+- **Niezgodność liczby kolumn między źródłem i ujściam**.
 
     Na przykład: Skopiuj dane z pliku CSV w usłudze BLOB Storage do bazy danych SQL z definicją schematu, która zawiera sześć kolumn. Wiersze pliku CSV zawierające sześć kolumn zostały pomyślnie skopiowane do magazynu ujścia. Wiersze pliku CSV zawierające więcej niż sześć kolumn są wykrywane jako niezgodne i pomijane.
 
-- **Naruszenie klucza podstawowego podczas zapisywania do SQL Server/Azure SQL Database/Azure Cosmos DB** .
+- **Naruszenie klucza podstawowego podczas zapisywania do SQL Server/Azure SQL Database/Azure Cosmos DB**.
 
     Na przykład: kopiowanie danych z programu SQL Server do bazy danych SQL. Klucz podstawowy jest zdefiniowany w usłudze SQL Database ujścia, ale nie jest on zdefiniowany w źródłowym programie SQL Server. Zduplikowane wiersze istniejące w źródle nie mogą zostać skopiowane do ujścia. Działanie Copy kopiuje tylko pierwszy wiersz danych źródłowych do ujścia. Kolejne wiersze źródłowe, które zawierają zduplikowaną wartość klucza podstawowego, są wykrywane jako niezgodne i pomijane.
 
@@ -175,12 +182,19 @@ Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgo
         "type": "AzureSqlSink" 
     }, 
     "enableSkipIncompatibleRow": true, 
-    "logStorageSettings": { 
-    "linkedServiceName": { 
-        "referenceName": "ADLSGen2", 
-        "type": "LinkedServiceReference" 
-        }, 
-    "path": "sessionlog/" 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
     } 
 }, 
 ```
@@ -188,7 +202,7 @@ Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgo
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Określa, czy pomijać niezgodne wiersze podczas kopiowania. | Prawda<br/>False (domyślnie) | Nie
-logStorageSettings | Grupa właściwości, które można określić, gdy chcesz rejestrować niezgodne wiersze. | &nbsp; | Nie
+logSettings | Grupa właściwości, które można określić, gdy chcesz rejestrować niezgodne wiersze. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania dziennika zawierającego pominięte wiersze. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
 path | Ścieżka do plików dziennika, która zawiera pominięte wiersze. | Określ ścieżkę, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
@@ -203,7 +217,7 @@ Po zakończeniu działania kopiowania można zobaczyć liczbę pominiętych wier
             "rowsSkipped": 2,
             "copyDuration": 16,
             "throughput": 0.01,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "errors": []
         },
 
@@ -219,7 +233,7 @@ Timestamp | Sygnatura czasowa, gdy funkcja ADF pomija niezgodne wiersze
 Poziom | Poziom dziennika tego elementu. Jeśli ten element wyświetli pominięte wiersze, będzie działać na poziomie "ostrzeżenie"
 OperationName | Zachowanie działania kopiowania APD dla każdego wiersza. Będzie to "TabularRowSkip", aby określić, że konkretny niezgodny wiersz został pominięty
 OperationItem | Pominięte wiersze z magazynu danych źródłowych.
-Wiadomość | Więcej informacji ilustrujących przyczynę niezgodności tego konkretnego wiersza.
+Komunikat | Więcej informacji ilustrujących przyczynę niezgodności tego konkretnego wiersza.
 
 
 Przykładem zawartości pliku dziennika jest:

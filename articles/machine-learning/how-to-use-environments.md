@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 32748a996e0622c4b75d887aebf8a1805c5368bd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3056c500453c2249d66a05079334851c851df33
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319076"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616624"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Tworzenie & korzystania ze środowisk oprogramowania w programie Azure Machine Learning
 
@@ -114,7 +114,7 @@ Nowo utworzony obraz platformy Docker jest domyślnie wyświetlany w rejestrze k
 
 #### <a name="use-a-prebuilt-docker-image"></a>Używanie prekompilowanego obrazu platformy Docker
 
-Domyślnie usługa automatycznie używa jednego z [obrazów podstawowych](https://github.com/Azure/AzureML-Containers)opartych na Ubuntu Linux, a w odnoszących się do nich zdefiniowanych przez `azureml.core.environment.DEFAULT_CPU_IMAGE` . Następnie instaluje wszystkie określone pakiety języka Python zdefiniowane przez podane środowisko usługi Azure ML. Istnieje również możliwość użycia [niestandardowego obrazu platformy Docker](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
+Domyślnie usługa automatycznie używa jednego z [obrazów podstawowych](https://github.com/Azure/AzureML-Containers)opartych na Ubuntu Linux, a w odnoszących się do nich zdefiniowanych przez `azureml.core.environment.DEFAULT_CPU_IMAGE` . Następnie instaluje wszystkie określone pakiety języka Python zdefiniowane przez podane środowisko usługi Azure ML. Inne obrazy bazowe procesora i GPU platformy Azure są dostępne w [repozytorium](https://github.com/Azure/AzureML-Containers)kontenerów. Istnieje również możliwość użycia [niestandardowego obrazu platformy Docker](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults

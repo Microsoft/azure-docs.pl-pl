@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617744"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593998"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Samouczek: dodawanie wystąpienia zarządzanego SQL do grupy trybu failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -63,16 +63,16 @@ Wdróż oba wystąpienia zarządzane do [sparowanych regionów](../../best-pract
 
 Utwórz grupę zasobów i główne wystąpienie zarządzane przy użyciu Azure Portal. 
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz `Azure SQL` w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz `Azure SQL` w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
 1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje o różnych bazach danych, wybierz pozycję **Pokaż szczegóły** na kafelku **bazy danych** .
 1. Wybierz pozycję **Utwórz** na kafelku **wystąpienia zarządzane SQL** . 
 
     ![Wybierz wystąpienie zarządzane SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
 1. Na stronie **Tworzenie wystąpienia zarządzanego usługi Azure SQL** na karcie **podstawowe** :
-    1. W obszarze **szczegóły projektu**wybierz **subskrypcję** z listy rozwijanej, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz nazwę grupy zasobów, na przykład `myResourceGroup` . 
-    1. W obszarze **szczegóły wystąpienia zarządzanego SQL**Podaj nazwę wystąpienia zarządzanego oraz region, w którym chcesz wdrożyć wystąpienie zarządzane. Pozostaw wartości domyślne w obszarze **obliczenia i magazyn** . 
-    1. W obszarze **konto administratora**Podaj nazwę logowania administratora, na przykład `azureuser` i złożone hasło administratora. 
+    1. W obszarze **szczegóły projektu** wybierz **subskrypcję** z listy rozwijanej, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz nazwę grupy zasobów, na przykład `myResourceGroup` . 
+    1. W obszarze **szczegóły wystąpienia zarządzanego SQL** Podaj nazwę wystąpienia zarządzanego oraz region, w którym chcesz wdrożyć wystąpienie zarządzane. Pozostaw wartości domyślne w obszarze **obliczenia i magazyn** . 
+    1. W obszarze **konto administratora** Podaj nazwę logowania administratora, na przykład `azureuser` i złożone hasło administratora. 
 
     ![Utwórz podstawowe wystąpienie zarządzane](./media/failover-group-add-instance-tutorial/primary-sql-mi-values.png)
 
@@ -161,8 +161,8 @@ Utwórz grupę zasobów i podstawowe wystąpienie zarządzane przy użyciu progr
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription context
-   Set-AzContext -SubscriptionId $subscriptionId 
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."
@@ -457,7 +457,7 @@ Drugie wystąpienie zarządzane musi:
 
 Utwórz pomocnicze wystąpienie zarządzane przy użyciu Azure Portal. 
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz `Azure SQL` w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz `Azure SQL` w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
 1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje o różnych bazach danych, wybierz pozycję **Pokaż szczegóły** na kafelku **bazy danych** .
 1. Wybierz pozycję **Utwórz** na kafelku **wystąpienia zarządzane SQL** . 
 
@@ -477,11 +477,11 @@ Utwórz pomocnicze wystąpienie zarządzane przy użyciu Azure Portal.
     | **Hasło** | Złożone hasło, które będzie używane przez nazwę logowania administratora dla nowego wystąpienia zarządzanego.  |
     | &nbsp; | &nbsp; |
 
-1. Na karcie **Sieć** dla **Virtual Network**wybierz sieć wirtualną utworzoną dla pomocniczego wystąpienia zarządzanego z listy rozwijanej.
+1. Na karcie **Sieć** dla **Virtual Network** wybierz sieć wirtualną utworzoną dla pomocniczego wystąpienia zarządzanego z listy rozwijanej.
 
    ![Pomocnicza sieć MI](./media/failover-group-add-instance-tutorial/networking-settings-for-secondary-mi.png)
 
-1. Na karcie **Ustawienia dodatkowe** na potrzeby **replikacji geograficznej**wybierz opcję **tak** , aby _użyć jej jako pomocniczej pracy w trybie failover_. Wybierz z listy rozwijanej podstawowe wystąpienie zarządzane. 
+1. Na karcie **Ustawienia dodatkowe** na potrzeby **replikacji geograficznej** wybierz opcję **tak** , aby _użyć jej jako pomocniczej pracy w trybie failover_. Wybierz z listy rozwijanej podstawowe wystąpienie zarządzane. 
     
    Upewnij się, że sortowanie i strefa czasowa są zgodne z podstawowym wystąpieniem zarządzanym. Główne wystąpienie zarządzane utworzone w tym samouczku użyło domyślnego `SQL_Latin1_General_CP1_CI_AS` sortowania i `(UTC) Coordinated Universal Time` strefy czasowej. 
 
@@ -772,7 +772,7 @@ Utwórz bramę dla sieci wirtualnej głównego wystąpienia zarządzanego przy u
     | **Typ sieci VPN** | wybierz pozycję **Oparte na trasach**. |
     | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
     | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-primary` . |
-    | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
+    | **Publiczny adres IP**| Wybierz pozycję **Utwórz nowy**. |
     | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na przykład `primary-gateway-IP` . |
     | &nbsp; | &nbsp; |
 
@@ -853,7 +853,7 @@ Korzystając z Azure Portal, powtórz kroki opisane w poprzedniej sekcji, aby ut
    | **Typ sieci VPN** | wybierz pozycję **Oparte na trasach**. |
    | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
    | **Sieć wirtualna**| Wybierz sieć wirtualną dla pomocniczego wystąpienia zarządzanego, na przykład `vnet-sql-mi-secondary` . |
-   | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
+   | **Publiczny adres IP**| Wybierz pozycję **Utwórz nowy**. |
    | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na przykład `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
@@ -930,13 +930,13 @@ Połącz dwie bramy przy użyciu Azure Portal.
     1. Wybierz subskrypcję z listy rozwijanej. 
     1. Z listy rozwijanej wybierz grupę zasobów dla wystąpienia zarządzanego SQL. 
     1. Z listy rozwijanej wybierz lokalizację podstawowego wystąpienia zarządzanego. 
-1. Na stronie **Ustawienia** wybierz lub wprowadź następujące wartości, a następnie wybierz przycisk **OK**:
-    1. Wybierz bramę sieci podstawowej dla **pierwszej bramy sieci wirtualnej**, na przykład `primaryGateway` .  
-    1. Wybierz bramę sieci pomocniczej dla **drugiej bramy sieci wirtualnej**, na przykład `secondaryGateway` . 
+1. Na stronie **Ustawienia** wybierz lub wprowadź następujące wartości, a następnie wybierz przycisk **OK** :
+    1. Wybierz bramę sieci podstawowej dla **pierwszej bramy sieci wirtualnej** , na przykład `primaryGateway` .  
+    1. Wybierz bramę sieci pomocniczej dla **drugiej bramy sieci wirtualnej** , na przykład `secondaryGateway` . 
     1. Zaznacz pole wyboru obok pozycji **Ustanów łączność dwukierunkową**. 
     1. Pozostaw domyślną nazwę połączenia podstawowego lub Zmień nazwę na wybraną wartość. 
     1. Podaj **klucz współużytkowany (PSK)** dla połączenia, na przykład `mi1m2psk` . 
-    1. Wybierz przycisk **OK**, aby zapisać ustawienia. 
+    1. Wybierz przycisk **OK** , aby zapisać ustawienia. 
 
     ![Utwórz połączenie bramy](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
@@ -983,9 +983,9 @@ W tym kroku utworzysz grupę trybu failover i dodasz do niej oba wystąpienia za
 Utwórz grupę trybu failover przy użyciu Azure Portal. 
 
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz `Azure SQL` w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie wpisz `Azure SQL` w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
 1. Wybierz główne wystąpienie zarządzane utworzone w pierwszej sekcji, na przykład `sql-mi-primary` . 
-1. W obszarze **Ustawienia**przejdź do pozycji **grupy trybu failover wystąpienia** , a następnie wybierz pozycję **Dodaj grupę** , aby otworzyć stronę **Grupa trybu failover wystąpienia** . 
+1. W obszarze **Ustawienia** przejdź do pozycji **grupy trybu failover wystąpienia** , a następnie wybierz pozycję **Dodaj grupę** , aby otworzyć stronę **Grupa trybu failover wystąpienia** . 
 
    ![Dodawanie grupy trybu failover](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 
@@ -1093,7 +1093,7 @@ Wyczyść zasoby, usuwając najpierw wystąpienia zarządzane, a następnie klas
 1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. Ten proces może potrwać trochę czasu w tle, a do momentu ukończenia nie będzie można usunąć *klastra wirtualnego* ani żadnych innych zasobów zależnych. Monitoruj usuwanie na karcie **działanie** , aby potwierdzić, że zarządzane wystąpienie zostało usunięte. 
 1. Po usunięciu wystąpienia zarządzanego Usuń *klaster wirtualny* , wybierając go w grupie zasobów, a następnie wybierając pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
 1. Usuń wszystkie pozostałe zasoby. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
-1. Aby usunąć grupę zasobów, wybierz pozycję **Usuń grupę zasobów**, wpisz nazwę grupy zasobów, `myResourceGroup` a następnie wybierz pozycję **Usuń**. 
+1. Aby usunąć grupę zasobów, wybierz pozycję **Usuń grupę zasobów** , wpisz nazwę grupy zasobów, `myResourceGroup` a następnie wybierz pozycję **Usuń**. 
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

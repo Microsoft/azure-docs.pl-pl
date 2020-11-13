@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a62133737d48a8ebf454b5fab83ef52ef2daad09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9dba9222816ef2cc7891ff7f803e6a7409802a4
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098437"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593454"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania obrazów Bing
 
@@ -122,7 +122,7 @@ Domyślnie procedura obsługi `onsubmit` zwraca wynik `false`, który zapobiega 
 
 ![[Formularz wyszukiwania obrazów Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-Interfejs API wyszukiwania obrazów Bing oferuje kilka [parametrów w zapytaniu filtru](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) w celu zawężenia i przefiltrowania wyników wyszukiwania. Formularz HTML w tej aplikacji używa i wyświetla następujące opcje parametrów:
+Interfejs API wyszukiwania obrazów Bing oferuje kilka [parametrów w zapytaniu filtru](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) w celu zawężenia i przefiltrowania wyników wyszukiwania. Formularz HTML w tej aplikacji używa i wyświetla następujące opcje parametrów:
 
 | Opcja | Opis |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

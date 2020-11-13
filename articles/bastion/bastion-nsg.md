@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7853ac3ece01057282bc6cb421018020e15273b5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079194"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594270"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z usługami sieciowej grupy zabezpieczeń Access i Azure bastionu
 
@@ -28,21 +28,22 @@ Na tym diagramie:
 * Połącz integrację — pojedyncze kliknięcie sesji RDP/SSH wewnątrz przeglądarki
 * Na maszynie wirtualnej platformy Azure nie jest wymagany publiczny adres IP.
 
-## <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
+## <a name="network-security-groups"></a><a name="nsg"></a>Sieciowe grupy zabezpieczeń
 
 W tej sekcji przedstawiono ruch sieciowy między użytkownikiem a usługą Azure bastionu oraz docelowymi maszynami wirtualnymi w sieci wirtualnej:
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Usługa Azure bastionu jest wdrażana w odróżnieniu od ***AzureBastionSubnet***.
+Usługa Azure bastionu jest wdrażana w specjalnej postaci * **AzureBastionSubnet** _.
 
-* **Ruch przychodzący:**
+**Ruch związany** z transferem danych przychodzących:
 
    * **Ruch przychodzący z publicznej sieci Internet:** Usługa Azure bastionu utworzy publiczny adres IP, który wymaga, aby port 443 był włączony w publicznym adresie IP dla ruchu przychodzącego. NIE trzeba otwierać portu 3389/22 w AzureBastionSubnet.
    * **Ruch przychodzący z płaszczyzny kontroli usługi Azure bastionu:** W przypadku łączności z płaszczyzną kontroli Włącz port 443 przychodzące z tagu usługi **bramy** . Dzięki temu płaszczyzna kontroli, czyli Menedżer bramy, może komunikować się z usługą Azure bastionu.
+   * **Ruch przychodzący z modułu równoważenia obciążenia Azure:** W przypadku sond kondycji Włącz port 443 przychodzące z tagu usługi **AzureLoadBalancer** . Dzięki temu moduł równoważenia obciążenia platformy Azure może wykrywać problemy z łącznością z zapleczem.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Sieciowa grupa zabezpieczeń":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Zrzut ekranu przedstawia reguły zabezpieczeń ruchu przychodzącego dla łączności z usługą Azure bastionu.":::
 
 * **Ruch wychodzący:**
 
@@ -50,7 +51,7 @@ Usługa Azure bastionu jest wdrażana w odróżnieniu od ***AzureBastionSubnet**
    * **Ruch przychodzący do innych publicznych punktów końcowych na platformie Azure:** Usługa Azure bastionu musi mieć możliwość łączenia się z różnymi publicznymi punktami końcowymi na platformie Azure (na przykład do przechowywania dzienników diagnostycznych i dzienników zliczania). Z tego powodu usługa Azure bastionu potrzebuje ruchu wychodzącego do 443 do **AzureCloud** Service Tag.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Sieciowa grupa zabezpieczeń":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Zrzut ekranu przedstawia reguły zabezpieczeń ruchu wychodzącego dla łączności z usługą Azure bastionu.":::
 
 ### <a name="target-vm-subnet"></a>Docelowa podsieć maszyny wirtualnej
 Jest to podsieć zawierająca docelową maszynę wirtualną, do której ma zostać zainstalowana protokół RDP/SSH.

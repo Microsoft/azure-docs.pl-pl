@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 921230e217f014e05d6d7e9a2c5402814d3226f0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cf129e5059d7abc74a74983ce68f5a8ddc2bf18e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099967"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593556"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Szybki Start: Wyszukiwanie obrazów przy użyciu interfejsu API REST wyszukiwanie obrazów Bing i języka C #
 
@@ -214,8 +214,8 @@ Odpowiedzi z interfejsu API wyszukiwania obrazów Bing są zwracane w formacie J
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Co to jest interfejs API wyszukiwania obrazów Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Co to jest interfejs API wyszukiwania obrazów Bing?](../overview.md)  
 * [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Szczegóły cennika interfejsy API wyszukiwania Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* [Dokumentacja usług Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Dokumentacja interfejsu API wyszukiwania obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Dokumentacja usługi Azure Cognitive Services](../../index.yml)
+* [Dokumentacja interfejsu API wyszukiwania obrazów Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

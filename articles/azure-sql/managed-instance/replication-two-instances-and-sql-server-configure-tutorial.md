@@ -6,16 +6,16 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 11/21/2019
-ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d2b45f5b51f4656294632aa46f679a7a09c06ed3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790801"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593930"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między wystąpieniem zarządzanym usługi Azure SQL i SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,7 +69,7 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 Utwórz dwa wystąpienia zarządzane w ramach tej nowej grupy zasobów przy użyciu [Azure Portal](https://portal.azure.com).
 
 - Nazwa wystąpienia zarządzanego przez wydawcę powinna być `sql-mi-publisher` (wraz z kilkoma znakami w przypadku losowego), a nazwą sieci wirtualnej powinna być `vnet-sql-mi-publisher` .
-- Nazwa wystąpienia zarządzanego dystrybutora powinna być `sql-mi-distributor` (wraz z kilkoma znakami w przypadku losowego) i powinna znajdować się _w tej samej sieci wirtualnej co wystąpienie zarządzane wydawcy_ .
+- Nazwa wystąpienia zarządzanego dystrybutora powinna być `sql-mi-distributor` (wraz z kilkoma znakami w przypadku losowego) i powinna znajdować się _w tej samej sieci wirtualnej co wystąpienie zarządzane wydawcy_.
 
    ![Korzystanie z sieci wirtualnej wydawcy dla dystrybutora](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
@@ -155,11 +155,11 @@ Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi 
 
    ![Utwórz prywatną strefę DNS](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Wybierz pozycję **Przeglądanie + tworzenie** . Przejrzyj parametry prywatnej strefy DNS, a następnie wybierz pozycję **Utwórz** , aby utworzyć zasób.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Przejrzyj parametry prywatnej strefy DNS, a następnie wybierz pozycję **Utwórz** , aby utworzyć zasób.
 
 ### <a name="create-an-a-record"></a>Tworzenie rekordu A
 
-1. Przejdź do nowej **strefy prywatna strefa DNS** i wybierz pozycję **Przegląd** .
+1. Przejdź do nowej **strefy prywatna strefa DNS** i wybierz pozycję **Przegląd**.
 1. Wybierz pozycję **+ zestaw rekordów** , aby utworzyć nowy rekord a.
 1. Podaj nazwę maszyny wirtualnej SQL Server, a także prywatny wewnętrzny adres IP.
 
@@ -169,11 +169,11 @@ Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi 
 
 ### <a name="link-the-virtual-network"></a>Łączenie sieci wirtualnej
 
-1. Przejdź do nowej **strefy prywatna strefa DNS** i wybierz pozycję **linki sieci wirtualnej** .
-1. Wybierz pozycję **+ Dodaj** .
+1. Przejdź do nowej **strefy prywatna strefa DNS** i wybierz pozycję **linki sieci wirtualnej**.
+1. Wybierz pozycję **+ Dodaj**.
 1. Podaj nazwę łącza, na przykład `Pub-link` .
 1. Wybierz subskrypcję z listy rozwijanej, a następnie wybierz sieć wirtualną dla wystąpienia zarządzanego wydawcy.
-1. Zaznacz pole wyboru obok pozycji **Włącz autorejestrację** .
+1. Zaznacz pole wyboru obok pozycji **Włącz autorejestrację**.
 
    ![Utwórz łącze sieci wirtualnej](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
@@ -283,14 +283,14 @@ Po skonfigurowaniu dystrybucji możesz teraz utworzyć publikację. W tym celu w
 
 1. Uruchom SQL Server Management Studio w SQL Server.
 1. Nawiąż połączenie z `sql-mi-publisher` wystąpieniem zarządzanym.
-1. W **Eksplorator obiektów** rozwiń węzeł **replikacja** , a następnie kliknij prawym przyciskiem myszy folder **publikacja lokalna** . Wybierz **nową publikację.** ..
+1. W **Eksplorator obiektów** rozwiń węzeł **replikacja** , a następnie kliknij prawym przyciskiem myszy folder **publikacja lokalna** . Wybierz **nową publikację.**..
 1. Wybierz pozycję **dalej** , aby przejść poza stronę powitalną.
-1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz pozycję **Dalej** .
-1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna** . Wybierz pozycję **Dalej** .
-1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele** . Wybierz pozycję **Dalej** .
+1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz pozycję **Dalej**.
+1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz pozycję **Dalej**.
+1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz pozycję **Dalej**.
 1. Na stronie **Filtruj wiersze tabeli** wybierz pozycję **dalej** bez dodawania filtrów.
-1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji** . Wybierz pozycję **Dalej** .
-1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..** .. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz pozycję **Dalej** .
+1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz pozycję **Dalej**.
+1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**.. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz pozycję **Dalej**.
 
    ![Konfiguruj zabezpieczenia agenta migawek](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -352,10 +352,10 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. Przejdź do grupy zasobów w [Azure Portal](https://portal.azure.com).
-1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń** . Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń** . Ten proces może potrwać trochę czasu w tle, a do momentu ukończenia nie będzie można usunąć *klastra wirtualnego* ani żadnych innych zasobów zależnych. Monitoruj pozycję Usuń na karcie **działanie** , aby potwierdzić, że zarządzane wystąpienie zostało usunięte.
-1. Po usunięciu wystąpienia zarządzanego Usuń *klaster wirtualny* , wybierając go w grupie zasobów, a następnie wybierając pozycję **Usuń** . Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń** .
-1. Usuń wszystkie pozostałe zasoby. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń** .
-1. Aby usunąć grupę zasobów, wybierz pozycję **Usuń grupę zasobów** , wpisz nazwę grupy zasobów, `myResourceGroup` a następnie wybierz pozycję **Usuń** .
+1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. Ten proces może potrwać trochę czasu w tle, a do momentu ukończenia nie będzie można usunąć *klastra wirtualnego* ani żadnych innych zasobów zależnych. Monitoruj pozycję Usuń na karcie **działanie** , aby potwierdzić, że zarządzane wystąpienie zostało usunięte.
+1. Po usunięciu wystąpienia zarządzanego Usuń *klaster wirtualny* , wybierając go w grupie zasobów, a następnie wybierając pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**.
+1. Usuń wszystkie pozostałe zasoby. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**.
+1. Aby usunąć grupę zasobów, wybierz pozycję **Usuń grupę zasobów** , wpisz nazwę grupy zasobów, `myResourceGroup` a następnie wybierz pozycję **Usuń**.
 
 ## <a name="known-errors"></a>Znane błędy
 

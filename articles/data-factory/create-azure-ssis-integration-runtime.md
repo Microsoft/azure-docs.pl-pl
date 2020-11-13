@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 55083da596f15409ed460e498438f9eaea10dfa8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633233"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593760"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Tworzenie środowiska Azure-SSIS Integration Runtime w Azure Data Factory
 
@@ -43,9 +43,9 @@ W tym artykule pokazano, jak zainicjować obsługę Azure-SSIS IR przy użyciu A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Subskrypcja platformy Azure** . Jeśli nie masz jeszcze subskrypcji, możesz utworzyć [bezpłatne konto wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) .
+- **Subskrypcja platformy Azure**. Jeśli nie masz jeszcze subskrypcji, możesz utworzyć [bezpłatne konto wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) .
 
-- **Serwer Azure SQL Database lub wystąpienie zarządzane SQL (opcjonalnie)** . Jeśli nie masz jeszcze serwera bazy danych lub wystąpienia zarządzanego, utwórz je w Azure Portal przed rozpoczęciem pracy. Data Factory spowoduje utworzenie wystąpienia SSISDB na tym serwerze bazy danych. 
+- **Serwer Azure SQL Database lub wystąpienie zarządzane SQL (opcjonalnie)**. Jeśli nie masz jeszcze serwera bazy danych lub wystąpienia zarządzanego, utwórz je w Azure Portal przed rozpoczęciem pracy. Data Factory spowoduje utworzenie wystąpienia SSISDB na tym serwerze bazy danych. 
 
   Zalecamy utworzenie serwera bazy danych lub wystąpienia zarządzanego w tym samym regionie świadczenia usługi Azure, w którym znajduje się środowisko Integration Runtime. Ta konfiguracja umożliwia wykonywanie dzienników wykonywania zapisu środowiska Integration Runtime w usłudze SSISDB bez przekroczenia regionów świadczenia usługi Azure.
 
@@ -63,13 +63,13 @@ W tym artykule pokazano, jak zainicjować obsługę Azure-SSIS IR przy użyciu A
 
   - Upewnij się, że serwer bazy danych nie ma już wystąpienia SSISDB. Inicjowanie obsługi Azure-SSIS IR nie obsługuje korzystania z istniejącego wystąpienia SSISDB.
 
-- **Azure Resource Manager sieci wirtualnej (opcjonalnie)** . Należy mieć Azure Resource Manager sieci wirtualnej, jeśli co najmniej jeden z następujących warunków jest spełniony:
+- **Azure Resource Manager sieci wirtualnej (opcjonalnie)**. Należy mieć Azure Resource Manager sieci wirtualnej, jeśli co najmniej jeden z następujących warunków jest spełniony:
 
   - Hosting SSISDB na serwerze Azure SQL Database z regułami zapory IP/punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym z prywatnym punktem końcowym.
 
   - Chcesz połączyć się z lokalnymi magazynami danych z pakietów SSIS uruchomionych na Azure-SSIS IR bez konfigurowania własnego środowiska IR.
 
-- **Azure PowerShell (opcjonalnie)** . Postępuj zgodnie z instrukcjami w temacie [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps), jeśli chcesz uruchomić skrypt programu PowerShell w celu aprowizacji Azure-SSIS IR.
+- **Azure PowerShell (opcjonalnie)**. Postępuj zgodnie z instrukcjami w temacie [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps), jeśli chcesz uruchomić skrypt programu PowerShell w celu aprowizacji Azure-SSIS IR.
 
 ### <a name="regional-support"></a>Wsparcie regionalne
 
@@ -79,7 +79,7 @@ Aby uzyskać listę regionów świadczenia usługi Azure, w których Data Factor
 
 Poniższa tabela zawiera porównanie niektórych funkcji serwera Azure SQL Database i wystąpienia zarządzanego SQL, które są powiązane z usługą Azure-SSIR IR:
 
-| Cechy | Baza danych SQL| Wystąpienie zarządzane SQL |
+| Obiekt feature | SQL Database| Wystąpienie zarządzane SQL |
 |---------|--------------|------------------|
 | **Planowanie** | Agent SQL Server jest niedostępny.<br/><br/>Zobacz [Planowanie wykonywania pakietu w potoku Data Factory](/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Agent wystąpienia zarządzanego jest dostępny. |
 | **Authentication** | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje dowolną grupę usługi Azure AD z zarządzaną tożsamością fabryki danych jako członkiem roli **db_owner** .<br/><br/>Zobacz [Włączanie uwierzytelniania usługi Azure AD, aby utworzyć SSISDB na serwerze Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje zarządzaną tożsamość fabryki danych. <br/><br/>Zobacz [Włączanie uwierzytelniania usługi Azure AD, aby utworzyć SSISDB w wystąpieniu zarządzanym usługi Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
@@ -126,9 +126,9 @@ Na stronie **Ustawienia ogólne** okienka **konfiguracji środowiska Integration
 
    6. W polu **wydanie/licencja** wybierz wersję SQL Server dla środowiska Integration Runtime: Standard lub Enterprise. Wybierz pozycję Enterprise (przedsiębiorstwo), jeśli chcesz korzystać z funkcji zaawansowanych w środowisku Integration Runtime.
 
-   7. W obszarze **oszczędność pieniędzy** wybierz opcję korzyść użycia hybrydowego platformy Azure dla środowiska Integration Runtime: **tak** lub **nie** . Wybierz pozycję **tak** , jeśli chcesz uzyskać własną licencję SQL Server z programem Software Assurance, aby korzystać z oszczędności związanych z użyciem hybrydowej.
+   7. W obszarze **oszczędność pieniędzy** wybierz opcję korzyść użycia hybrydowego platformy Azure dla środowiska Integration Runtime: **tak** lub **nie**. Wybierz pozycję **tak** , jeśli chcesz uzyskać własną licencję SQL Server z programem Software Assurance, aby korzystać z oszczędności związanych z użyciem hybrydowej.
 
-   8. Wybierz pozycję **Dalej** .
+   8. Wybierz pozycję **Dalej**.
 
 #### <a name="deployment-settings-page"></a>Strona Ustawienia wdrożenia
 
@@ -164,15 +164,18 @@ W przypadku zaznaczenia tego pola wyboru wykonaj następujące kroki, aby utworz
 
    1. W polu **warstwa usługi bazy danych wykazu** wybierz warstwę usług dla serwera bazy danych, która będzie hostować SSISDB. Wybierz warstwę podstawowa, standardowa lub Premium lub wybierz nazwę puli elastycznej.
 
-Wybierz **Test connection** , jeśli ma to zastosowanie, a jeśli to się powiedzie, wybierz pozycję **dalej** .
+Wybierz **Test connection** , jeśli ma to zastosowanie, a jeśli to się powiedzie, wybierz pozycję **dalej**.
 
+> [!NOTE]
+   > Jeśli do hostowania SSISDB jest używany serwer Azure SQL Database, dane będą przechowywane w magazynie geograficznie nadmiarowym dla kopii zapasowych. Jeśli nie chcesz, aby dane były replikowane w innych regionach, postępuj zgodnie z instrukcjami, aby [skonfigurować nadmiarowość magazynu kopii zapasowych za pomocą programu PowerShell](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+   
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Tworzenie Azure-SSIS IR magazynów pakietów
 
 Jeśli chcesz zarządzać pakietami, które są wdrożone w bazie danych MSDB, systemie plików lub Azure Files (model wdrażania pakietów) przy użyciu Azure-SSIS IR magazynów pakietów, na stronie **Ustawienia wdrożenia** w okienku **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Utwórz magazyny pakietów, aby zarządzać pakietami wdrożonymi w programie system plików/Azure Files/SQL Server Database (msdb) hostowanych przez wystąpienie zarządzane Azure SQL** .
    
 Magazyn pakietów Azure-SSIS IR umożliwia importowanie/eksportowanie/usuwanie/uruchamianie pakietów oraz monitorowanie/zatrzymywanie uruchomionych pakietów za pośrednictwem programu SSMS podobnie jak w przypadku [starszego magazynu pakietów SSIS](/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Aby uzyskać więcej informacji, zobacz [Zarządzanie pakietami SSIS za pomocą magazynów pakietów Azure-SSIS IR](./azure-ssis-integration-runtime-package-store.md).
    
-Jeśli zaznaczysz to pole wyboru, możesz dodać wiele magazynów pakietów do Azure-SSIS IR, wybierając pozycję **Nowy** . Z kolei jeden magazyn pakietów może być współużytkowany przez wiele urzędów danych Azure-SSIS.
+Jeśli zaznaczysz to pole wyboru, możesz dodać wiele magazynów pakietów do Azure-SSIS IR, wybierając pozycję **Nowy**. Z kolei jeden magazyn pakietów może być współużytkowany przez wiele urzędów danych Azure-SSIS.
 
 ![Ustawienia wdrażania dla systemu MSDB/system plików/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
 
@@ -180,7 +183,7 @@ W okienku **Dodaj magazyn pakietów** wykonaj następujące czynności.
    
    1. W polu **Nazwa magazynu pakietów** wprowadź nazwę swojego magazynu pakietów. 
 
-   1. W przypadku **połączonej usługi magazynu pakietów** wybierz istniejącą połączoną usługę, która przechowuje informacje o dostępie do systemu plików/Azure Files/wystąpienia zarządzanego Azure SQL, w którym są wdrażane pakiety, lub Utwórz nowe, wybierając pozycję **nowe** . W okienku **Nowa połączona usługa** wykonaj następujące czynności.
+   1. W przypadku **połączonej usługi magazynu pakietów** wybierz istniejącą połączoną usługę, która przechowuje informacje o dostępie do systemu plików/Azure Files/wystąpienia zarządzanego Azure SQL, w którym są wdrażane pakiety, lub Utwórz nowe, wybierając pozycję **nowe**. W okienku **Nowa połączona usługa** wykonaj następujące czynności.
    
       > [!NOTE]
       > Aby uzyskać dostęp do Azure Files, można użyć usług **Azure File Storage** lub połączonych z **systemem plików** . Jeśli używasz połączonej usługi **Azure File Storage** , magazyn pakietów Azure-SSIS IR obsługuje teraz tylko **podstawowy** (nie **klucz konta** ani **Identyfikator URI sygnatury dostępu współdzielonego** ). Aby korzystać z uwierzytelniania **podstawowego** na **platformie Azure File Storage** połączonej usłudze, możesz dołączyć `?feature.upgradeAzureFileStorage=false` do adresu URL portalu ADF w przeglądarce. Alternatywnie możesz użyć połączonej usługi **plików** , aby uzyskać dostęp do Azure Files zamiast tego. 
@@ -191,15 +194,15 @@ W okienku **Dodaj magazyn pakietów** wykonaj następujące czynności.
          
       1. W polu **Opis** wprowadź opis połączonej usługi. 
          
-      1. W obszarze **Typ** wybierz pozycję **Azure File Storage** , **wystąpienie zarządzane Azure SQL** lub **system plików** .
+      1. W obszarze **Typ** wybierz pozycję **Azure File Storage** , **wystąpienie zarządzane Azure SQL** lub **system plików**.
 
       1. Możesz zignorować **połączenie za pośrednictwem środowiska Integration Runtime** , ponieważ zawsze korzystamy z Azure-SSIS IR, aby pobrać informacje o dostępie do magazynów pakietów.
 
       1. W przypadku wybrania **usługi Azure File Storage** wykonaj następujące czynności. 
 
-         1. W **obszarze Metoda wyboru konta** wybierz pozycję **z subskrypcji platformy Azure** lub **wprowadź ręcznie** .
+         1. W **obszarze Metoda wyboru konta** wybierz pozycję **z subskrypcji platformy Azure** lub **wprowadź ręcznie**.
          
-         1. Jeśli wybierzesz opcję **z subskrypcji platformy Azure** , wybierz odpowiednią **subskrypcję platformy Azure** , **nazwę konta magazynu** i **udział plików** .
+         1. Jeśli wybierzesz opcję **z subskrypcji platformy Azure** , wybierz odpowiednią **subskrypcję platformy Azure** , **nazwę konta magazynu** i **udział plików**.
             
          1. W przypadku wybrania opcji **wprowadź ręcznie** wprowadź wartość `\\<storage account name>.file.core.windows.net\<file share name>` w polach **host** , `Azure\<storage account name>` **nazwa użytkownika** i `<storage account key>` **hasło** lub wybierz swoje **Azure Key Vault** w miejscu, w którym są przechowywane jako wpis tajny.
 
@@ -213,7 +216,7 @@ W okienku **Dodaj magazyn pakietów** wykonaj następujące czynności.
 
             1. W obszarze **Nazwa bazy danych** wprowadź `msdb` .
                
-            1. W obszarze **Typ uwierzytelniania** wybierz pozycję **uwierzytelnianie SQL** , **tożsamość zarządzana** lub nazwa **główna usługi** .
+            1. W obszarze **Typ uwierzytelniania** wybierz pozycję **uwierzytelnianie SQL** , **tożsamość zarządzana** lub nazwa **główna usługi**.
 
             1. W przypadku wybrania opcji **uwierzytelnianie SQL** wprowadź odpowiednią **nazwę użytkownika** i **hasło** lub wybierz **Azure Key Vault** , w których jest przechowywany jako wpis tajny.
 
@@ -223,11 +226,11 @@ W okienku **Dodaj magazyn pakietów** wykonaj następujące czynności.
 
       1. W przypadku wybrania opcji **system plików** wprowadź ścieżkę UNC do folderu, w którym pakiety są wdrożone dla **hosta** , a także odpowiednią **nazwę użytkownika** i **hasło** lub wybierz **Azure Key Vault** , w którym są przechowywane jako wpis tajny.
 
-      1. Wybierz **Test connection** , jeśli ma to zastosowanie, a jeśli to się powiedzie, wybierz pozycję **Utwórz** .
+      1. Wybierz **Test connection** , jeśli ma to zastosowanie, a jeśli to się powiedzie, wybierz pozycję **Utwórz**.
 
-   1. Dodane magazyny pakietów zostaną wyświetlone na stronie **Ustawienia wdrożenia** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń** .
+   1. Dodane magazyny pakietów zostaną wyświetlone na stronie **Ustawienia wdrożenia** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń**.
 
-Wybierz **Test connection** , jeśli ma to zastosowanie, a jeśli to się powiedzie, wybierz pozycję **dalej** .
+Wybierz **Test connection** , jeśli ma to zastosowanie, a jeśli to się powiedzie, wybierz pozycję **dalej**.
 
 #### <a name="advanced-settings-page"></a>Strona Ustawienia zaawansowane
 
@@ -249,7 +252,7 @@ Na stronie **Ustawienia zaawansowane** okienka **Konfiguracja środowiska Integr
 
          Jeśli wybierzesz opcję **Zainstaluj licencjonowany typ składnika** , możesz wybrać wszystkie składniki zintegrowane od partnerów niezależnych dostawców oprogramowania w menu rozwijanym **Nazwa składnika** , a jeśli to konieczne, wprowadź klucz licencji produktu/Przekaż plik licencji produktu zakupionego z nich w polu **License key** / **plik licencji** klucza licencji.
   
-         Dodane ustawienia Express Custom Setup zostaną wyświetlone na stronie **Ustawienia zaawansowane** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń** .
+         Dodane ustawienia Express Custom Setup zostaną wyświetlone na stronie **Ustawienia zaawansowane** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń**.
 
    1. Wybierz **sieć wirtualną do przyłączenia do Azure-SSIS Integration Runtime, Zezwól na automatyczny dostęp do zasobów sieciowych, a opcjonalnie Przenieś własne statyczne publiczne adresy IP,** aby wybrać, czy chcesz dołączyć do środowiska Integration Runtime do sieci wirtualnej. 
 
@@ -289,7 +292,7 @@ Na stronie **Ustawienia zaawansowane** okienka **Konfiguracja środowiska Integr
 
       1. W polu **ścieżka tymczasowa** Określ kontener obiektów BLOB na wybranym koncie usługi Azure Blob Storage lub pozostaw to pole puste, aby użyć domyślnego ustawienia do przemieszczania.
 
-   1. Wybierz pozycję **weryfikacja sieci wirtualnej**  >  **Kontynuuj** . 
+   1. Wybierz pozycję **weryfikacja sieci wirtualnej**  >  **Kontynuuj**. 
 
 W sekcji **Podsumowanie** Przejrzyj wszystkie ustawienia aprowizacji, zakładkę zalecane linki do dokumentacji i wybierz pozycję **Zakończ** , aby rozpocząć tworzenie środowiska Integration Runtime.
 
@@ -302,7 +305,7 @@ W sekcji **Podsumowanie** Przejrzyj wszystkie ustawienia aprowizacji, zakładkę
 
 #### <a name="connections-pane"></a>Okienko połączenia
 
-W okienku **połączenia** okienka **Zarządzanie** centrum przejdź do strony **Integration Runtimes** i wybierz pozycję **Odśwież** . 
+W okienku **połączenia** okienka **Zarządzanie** centrum przejdź do strony **Integration Runtimes** i wybierz pozycję **Odśwież**. 
 
    ![Okienko połączenia](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 
@@ -310,7 +313,7 @@ W okienku **połączenia** okienka **Zarządzanie** centrum przejdź do strony *
 
 ### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Środowiska Azure SSIS Integration Runtime w portalu
 
-1. W interfejsie użytkownika Azure Data Factory przejdź do karty **Edycja** i wybierz pozycję **połączenia** . Następnie przejdź na kartę **Integration Runtime** , aby wyświetlić istniejące środowiska Integration Runtime w fabryce danych.
+1. W interfejsie użytkownika Azure Data Factory przejdź do karty **Edycja** i wybierz pozycję **połączenia**. Następnie przejdź na kartę **Integration Runtime** , aby wyświetlić istniejące środowiska Integration Runtime w fabryce danych.
 
    ![Wyświetlanie istniejących środowisk IR](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
@@ -318,7 +321,7 @@ W okienku **połączenia** okienka **Zarządzanie** centrum przejdź do strony *
 
    ![Środowisko Integration Runtime za pomocą menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. W okienku **Konfiguracja środowiska Integration Runtime** wybierz **istniejące pakiety usług SSIS i przenieś je do wykonania na kafelku platformy Azure** , a następnie wybierz przycisk **dalej** .
+1. W okienku **Konfiguracja środowiska Integration Runtime** wybierz **istniejące pakiety usług SSIS i przenieś je do wykonania na kafelku platformy Azure** , a następnie wybierz przycisk **dalej**.
 
    ![Określanie typu środowiska Integration Runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 

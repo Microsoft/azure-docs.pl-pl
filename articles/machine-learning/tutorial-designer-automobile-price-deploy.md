@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/13/2020
 ms.custom: designer
-ms.openlocfilehash: 31b742144bfb20af14cf6f5e95f5dfc951845ee2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555519"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592553"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant
 
@@ -81,7 +81,7 @@ W wyświetlonym oknie dialogowym możesz wybrać dowolny z istniejących klastr�
     
 1. Wybierz region znajdujący się w pobliżu, który jest dostępny dla **regionu**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     > [!NOTE]
     > Utworzenie nowej usługi AKS trwa około 15 minut. Stan aprowizacji można sprawdzić na stronie **klastry wnioskowania** .
@@ -112,6 +112,8 @@ Po zakończeniu wdrażania można wyświetlić punkt końcowy w czasie rzeczywis
 1. Na karcie **szczegóły** można zobaczyć więcej informacji, takich jak identyfikator URI REST, stan i Tagi.
 
 1. Na karcie **Korzystanie** można znaleźć klucze zabezpieczeń i ustawić metody uwierzytelniania.
+
+1. Na karcie **dzienniki wdrażania** można znaleźć szczegółowe dzienniki wdrożenia w punkcie końcowym w czasie rzeczywistym. 
 
 Aby uzyskać więcej informacji na temat konsumowania usługi sieci Web, zobacz [Korzystanie z modelu wdrożonego jako usługa WebService](how-to-consume-web-service.md)
 

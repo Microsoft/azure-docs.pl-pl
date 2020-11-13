@@ -3,18 +3,30 @@ title: Azure Event Grid — weryfikacja subskrypcji w celu rozwiązywania proble
 description: W tym artykule opisano sposób rozwiązywania problemów z walidacją subskrypcji.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118991"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592944"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Rozwiązywanie problemów z walidacją subskrypcji Azure Event Grid
-Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z walidacją subskrypcji zdarzeń. 
+W trakcie tworzenia subskrypcji zdarzeń, jeśli widzisz komunikat o błędzie, taki jak `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , oznacza to, że wystąpił błąd uzgadniania walidacji. Aby rozwiązać ten problem, sprawdź następujące aspekty:
+
+- Wykonaj wpis HTTP w adresie URL elementu webhook za pomocą [przykładowej](webhook-event-delivery.md#validation-details) treści żądania SubscriptionValidationEvent przy użyciu elementu Poster lub zwinięcie lub podobnego narzędzia.
+- Jeśli element webhook implementuje mechanizm uzgadniania synchronicznego walidacji, należy sprawdzić, czy ValidationCode jest zwracany jako część odpowiedzi.
+- Jeśli element webhook implementuje mechanizm uzgadniania asynchronicznego sprawdzania poprawności, sprawdź, czy jest to wpis HTTP, który zwraca 200 OK.
+- Jeśli element webhook jest zwracany `403 (Forbidden)` w odpowiedzi, sprawdź, czy element webhook znajduje się za zaporą aplikacji sieci Web lub Application Gateway platformy Azure. Jeśli tak jest, musisz wyłączyć te reguły zapory i ponownie wykonać POST protokołu HTTP:
+    - 920300 (żądanie nie zawiera nagłówka Accept)
+    - 942430 (ograniczone wykrycie anomalii znaku SQL (args): Przekroczono liczbę znaków specjalnych (12))
+    - 920230 (wykryto wielokrotne kodowanie adresu URL)
+    - 942130 (atak wstrzykiwania kodu SQL: wykryto tautology SQL).
+    - 931130 (możliwe, że ataku zdalnego dołączania plików (RFI) = odwołuje się do domeny/linku
 
 > [!IMPORTANT]
 > Aby uzyskać szczegółowe informacje na temat walidacji punktów końcowych dla elementów webhook, zobacz [dostarczanie zdarzeń elementu webhook](webhook-event-delivery.md).
+
+W poniższych sekcjach pokazano, jak zweryfikować subskrypcje zdarzeń przy użyciu programu Poster i zwinięcie.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Weryfikowanie subskrypcji zdarzeń Event Grid przy użyciu programu Poster
 Oto przykład użycia programu Poster do sprawdzania poprawności subskrypcji elementu webhook zdarzenia Event Grid: 
@@ -65,14 +77,7 @@ Oto przykład użycia programu Poster do sprawdzania poprawności subskrypcji el
 
 Aby sprawdzić poprawność przy użyciu zdarzeń w chmurze, użyj metody **opcji http** . Aby dowiedzieć się więcej na temat sprawdzania poprawności zdarzeń w chmurze dla elementów webhook, zobacz [Walidacja punktu końcowego ze zdarzeniami w chmurze](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
-## <a name="error-code-403"></a>Kod błędu: 403
-Jeśli element webhook zwraca 403 (zabroniony) w odpowiedzi, sprawdź, czy element webhook znajduje się za usługą Azure Application Gateway lub zaporą aplikacji sieci Web. Jeśli tak jest, musisz wyłączyć następujące reguły zapory i ponownie wykonać POST protokołu HTTP:
-
-  - 920300 (żądanie nie zawiera nagłówka Accept, możemy to naprawić)
-  - 942430 (ograniczone wykrycie anomalii znaku SQL (args): Przekroczono liczbę znaków specjalnych (12))
-  - 920230 (wykryto wielokrotne kodowanie adresu URL)
-  - 942130 (atak wstrzykiwania kodu SQL: wykryto tautology SQL).
-  - 931130 (możliwe, że ataku zdalnego dołączania plików (RFI) = Off-Domain odwołanie/łącze)
+## <a name="troubleshoot-event-subscription-validation"></a>Rozwiązywanie problemów z walidacją subskrypcji zdarzeń
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli potrzebujesz więcej pomocy, Opublikuj swój problem na [forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) lub Otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/options/). 

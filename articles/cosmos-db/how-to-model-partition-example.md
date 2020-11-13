@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342151"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616250"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu wziętego z życia
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,8 @@ ms.locfileid: "93342151"
 W tym artykule opisano kilka Azure Cosmos DB pojęć, takich jak [Modelowanie danych](modeling-data.md), [partycjonowanie](partitioning-overview.md)i [przepływność](request-units.md) , aby zademonstrować, jak można zrealizować rzeczywiste ćwiczenie projektowania danych.
 
 Jeśli zwykle pracujesz z relacyjnymi bazami danych, prawdopodobnie skompilowano nawyki i intuitions na temat projektowania modelu danych. Ze względu na określone ograniczenia, ale również unikatowe siły Azure Cosmos DB, większość tych najlepszych rozwiązań nie jest dobrze przeważnie i może przeciągać Cię do nieoptymalnych rozwiązań. Celem tego artykułu jest przeprowadzenie przez cały proces modelowania rzeczywistych przypadków użycia na Azure Cosmos DB z modelowania elementów na potrzeby przenoszenia jednostek i partycjonowania kontenerów.
+
+[Pobierz lub Wyświetl kod źródłowy wygenerowany przez społeczność](https://github.com/jwidmer/AzureCosmosDbBlogExample) , który ilustruje koncepcje z tego artykułu. Ten przykładowy kod został wniesiony przez współautora społeczności, a zespół Azure Cosmos DB nie obsługuje jego konserwacji.
 
 ## <a name="the-scenario"></a>Scenariusz
 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/06/2019
+ms.date: 11/12/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2c21d85d1b88f33ff696ba1d230d34bbd6945d1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1cb882ac1051c41f4d887a9ff4dd8cd64bc9f56c
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091682"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593607"
 ---
 # <a name="create-an-account-sas-with-net"></a>Tworzenie sygnatury dostępu współdzielonego konta przy użyciu platformy .NET
 
@@ -25,6 +25,14 @@ ms.locfileid: "92091682"
 W tym artykule pokazano, jak za pomocą klucza konta magazynu utworzyć sygnaturę dostępu współdzielonego konta przy użyciu [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-an-account-sas"></a>Tworzenie sygnatury dostępu współdzielonego konta
+
+### <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+
+Sygnatura dostępu współdzielonego konta jest podpisana przy użyciu klucza dostęp do konta. Użyj klasy [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) , aby utworzyć poświadczenia używane do podpisywania sygnatury dostępu współdzielonego. Następnie utwórz nowy obiekt [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) i Wywołaj [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) , aby uzyskać ciąg tokenu sygnatury dostępu współdzielonego.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetAccountSASToken":::
+
+### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
 Aby utworzyć sygnaturę dostępu współdzielonego konta dla kontenera, wywołaj metodę [CloudStorageAccount. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) .
 
@@ -52,9 +60,21 @@ static string GetAccountSASToken()
 }
 ```
 
+---
+
 ## <a name="use-an-account-sas-from-a-client"></a>Używanie sygnatury dostępu współdzielonego konta z klienta
 
-Aby za pomocą sygnatury dostępu współdzielonego konta uzyskać dostęp do interfejsów API na poziomie usługi dla Blob service, Utwórz obiekt klienta Blob service przy użyciu sygnatury dostępu współdzielonego i punktu końcowego magazynu obiektów BLOB dla konta magazynu. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
+Aby za pomocą sygnatury dostępu współdzielonego konta uzyskać dostęp do interfejsów API na poziomie usługi dla Blob service, Utwórz obiekt klienta Blob service przy użyciu sygnatury dostępu współdzielonego i punktu końcowego magazynu obiektów BLOB dla konta magazynu.
+
+### <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+
+
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
+
+### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+
+W tym fragmencie kodu Zastąp `<storage-account>` symbol zastępczy nazwą konta magazynu.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -95,6 +115,8 @@ static void UseAccountSAS(string sasToken)
     Console.WriteLine(serviceProperties.HourMetrics.Version);
 }
 ```
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
 title: Przekształcanie danych przy użyciu działania programu Hive — Azure
-description: Dowiedz się, jak używać działania programu Hive w usłudze Azure Data Factory w wersji 1, aby uruchamiać zapytania Hive na żądanie/własny klaster usługi HDInsight.
+description: Dowiedz się, jak używać działania programu Hive w Azure Data Factory V1, aby uruchamiać zapytania Hive na żądanie/własny klaster usługi HDInsight.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371685"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616777"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania programu Hive w Azure Data Factory 
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -26,8 +26,8 @@ ms.locfileid: "92371685"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -75,7 +75,7 @@ Działanie programu Hive w [usłudze](data-factory-compute-linked-services.md#az
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa działania |Tak |
-| description |Tekst opisujący działanie używanego działania |Nie |
+| description (opis) |Tekst opisujący działanie używanego działania |Nie |
 | typ |HDinsightHive |Tak |
 | danych wejściowych |Dane wejściowe używane przez działanie Hive |Nie |
 | wydajności |Dane wyjściowe generowane przez działanie Hive |Tak |

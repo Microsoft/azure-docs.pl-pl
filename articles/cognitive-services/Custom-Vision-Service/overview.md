@@ -12,18 +12,18 @@ ms.date: 09/14/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie obrazu, identyfikator obrazu, aplikacja do rozpoznawania obrazów, niestandardowa wizja
-ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa338bf708abaa49d65b6a817009224973f3fb29
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90605569"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616913"
 ---
 # <a name="what-is-custom-vision"></a>Co to jest usługa Custom Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Custom Vision to usługa rozpoznawania obrazów, która umożliwia tworzenie, wdrażanie i ulepszanie własnych identyfikatorów obrazów. Identyfikator obrazu stosuje etykiety (reprezentujące klasy lub obiekty) do obrazów, zgodnie z ich cechami wizualnymi. W przeciwieństwie do usługi [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) , Custom Vision umożliwia określenie etykiet i uczenie modeli niestandardowych w celu ich wykrycia.
+Azure Custom Vision to usługa rozpoznawania obrazów, która umożliwia tworzenie, wdrażanie i ulepszanie własnych identyfikatorów obrazów. Identyfikator obrazu stosuje etykiety (reprezentujące klasy lub obiekty) do obrazów, zgodnie z ich cechami wizualnymi. W przeciwieństwie do usługi [Przetwarzanie obrazów](../computer-vision/overview.md) , Custom Vision umożliwia określenie etykiet i uczenie modeli niestandardowych w celu ich wykrycia.
 
 ## <a name="what-it-does"></a>Wyniki działania
 

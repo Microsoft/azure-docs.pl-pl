@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 07/16/2019
-ms.openlocfilehash: 4e102f0161a50fe6f65558fef77549b86c5c3eae
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f3a314f55d45a888dde08ddc275953e7f9bbf3b2
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742244"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594151"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Dodawanie bazy danych do grupy trybu failover przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

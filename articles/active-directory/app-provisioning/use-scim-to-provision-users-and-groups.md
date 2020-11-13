@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424597"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616182"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -88,7 +88,8 @@ Schemat zdefiniowany powyżej zostałby przedstawiony przy użyciu ładunku JSON
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>Tabela 2: domyślne mapowanie atrybutów użytkownika
 Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atrybuty wymagane przez aplikację mogą być mapowane na atrybut w usłudze Azure AD i w Standard scim RFC. Możesz [dostosować](customize-application-attributes.md) sposób, w jaki atrybuty są mapowane między usługą Azure AD a punktem końcowym Standard scim. Należy pamiętać, że nie musisz obsługiwać użytkowników i grup ani wszystkich atrybutów przedstawionych poniżej. Są one odwołaniem do sposobu, w jaki atrybuty w usłudze Azure AD często są zamapowane na właściwości w protokole Standard scim. 
@@ -126,7 +127,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 | Obiektu |externalId |
 | proxyAddresses |wiadomości e-mail [Type EQ "Other"]. Wartościami |
 
-Istnieje kilka punktów końcowych zdefiniowanych w Standard scim RFC. Możesz rozpocząć pracę z punktem końcowym/User, a następnie rozwinąć je stamtąd. Punkt końcowy/schemas jest przydatny podczas korzystania z atrybutów niestandardowych lub jeśli schemat zmienia się często. Umożliwia klientowi automatyczne pobranie najbardziej aktualnego schematu. Punkt końcowy/Bulk jest szczególnie przydatny podczas obsługi grup. W poniższej tabeli opisano różne punkty końcowe zdefiniowane w standardzie Standard scim. Punkt końcowy/schemas jest przydatny podczas korzystania z atrybutów niestandardowych lub jeśli schemat zmienia się często. Umożliwia klientowi automatyczne pobieranie najbardziej aktualnych schematów. Punkt końcowy/Bulk jest szczególnie przydatny podczas obsługi grup. W poniższej tabeli opisano różne punkty końcowe zdefiniowane w standardzie Standard scim. 
+Istnieje kilka punktów końcowych zdefiniowanych w Standard scim RFC. Możesz rozpocząć pracę z punktem końcowym/User, a następnie rozwinąć je stamtąd. Punkt końcowy/schemas jest przydatny podczas korzystania z atrybutów niestandardowych lub jeśli schemat zmienia się często. Umożliwia klientowi automatyczne pobranie najbardziej aktualnego schematu. Punkt końcowy/Bulk jest szczególnie przydatny podczas obsługi grup. W poniższej tabeli opisano różne punkty końcowe zdefiniowane w standardzie Standard scim.
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabela 4: Określanie punktów końcowych, które chcesz opracować
 |PUNKTU końcowego|OPIS|
@@ -761,7 +762,7 @@ Teraz, Po zaprojektowaniu schematu i zrozumieniu implementacji usługi Azure AD 
 
 Rozwiązanie składa się z dwóch projektów, _Microsoft. Standard scim_ i _Microsoft. Standard scim. WebHostSample_.
 
-Projekt _Microsoft. Standard scim_ to biblioteka, która definiuje składniki usługi sieci Web, która jest zgodna ze specyfikacją Standard scim. Deklaruje Interfejs _Microsoft. Standard scim. IProvider_, żądania są tłumaczone na wywołania metod dostawcy, które będą działać w ramach magazynu tożsamości.
+Projekt _Microsoft. Standard scim_ to biblioteka, która definiuje składniki usługi sieci Web, która jest zgodna ze specyfikacją Standard scim. Deklaruje Interfejs _Microsoft. Standard scim. IProvider_ , żądania są tłumaczone na wywołania metod dostawcy, które będą działać w ramach magazynu tożsamości.
 
 ![Podział: żądanie przetłumaczone na wywołania metod dostawcy](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
@@ -808,7 +809,7 @@ Aby uzyskać więcej informacji na temat protokołu HTTPS w ASP.NET Core Użyj n
 
 Żądania od Azure Active Directory zawierają token elementu nośnego OAuth 2,0. Każda usługa otrzymująca żądanie powinna uwierzytelniać wystawcę jako Azure Active Directory dla oczekiwanego Azure Active Directory dzierżawy.
 
-W tokenie wystawca jest identyfikowany przez zgłoszenie ISS, np `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` .. W tym przykładzie adres podstawowy wartości żądania, `https://sts.windows.net` określa Azure Active Directory jako wystawca, natomiast segment adresu względnego, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, jest unikatowym identyfikatorem dzierżawy Azure Active Directory, dla którego został wystawiony token.
+W tokenie wystawca jest identyfikowany przez zgłoszenie ISS, np `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` .. W tym przykładzie adres podstawowy wartości żądania, `https://sts.windows.net` określa Azure Active Directory jako wystawca, natomiast segment adresu względnego, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , jest unikatowym identyfikatorem dzierżawy Azure Active Directory, dla którego został wystawiony token.
 
 Odbiorcy tokenu będą IDENTYFIKATORem szablonu aplikacji dla aplikacji w galerii, a każda z aplikacji zarejestrowanych w jednej dzierżawie może otrzymać to samo `iss` żądanie z żądaniami Standard scim. Identyfikator szablonu aplikacji dla wszystkich aplikacji niestandardowych to _8adf8e6e-67b2-4cf2-A259-e3dc5476c621_. Tokenu wygenerowanego przez usługę Azure AD Provisioning należy używać tylko do celów testowych. Nie powinna być używana w środowiskach produkcyjnych.
 
@@ -916,7 +917,7 @@ Wyślij żądanie GET do kontrolera tokenu w celu uzyskania prawidłowego tokenu
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Obsługa obsługi administracyjnej i cofanie aprowizacji użytkowników
 
-***Przykład 1. Wysyłanie zapytań do usługi pod kątem pasującego użytkownika**_
+***Przykład 1. Wysyłanie zapytań do usługi pod kątem pasującego użytkownika** _
 
 Azure Active Directory wysyła zapytanie do usługi dla użytkownika o `externalId` wartości atrybutu pasującej do wartości atrybutu mailNickName użytkownika w usłudze Azure AD. Zapytanie jest wyrażone jako żądanie protokołu HTTP (Hypertext Transfer Protocol), takie jak ten przykład, w którym jyoung jest próbka mailNickname użytkownika w Azure Active Directory.
 
@@ -949,7 +950,7 @@ wejściowe. AlternateFilters. Count: 1
 * wejściowe. AlternateFilters. ElementAt (0). Operatorporównania: operatorporównania. Equals
 * wejściowe. AlternateFilter. ElementAt (0). ComparisonValue: "jyoung"
 
-***Przykład 2. Inicjowanie obsługi administracyjnej użytkownika**_
+***Przykład 2. Inicjowanie obsługi administracyjnej użytkownika** _
 
 Jeśli odpowiedź na zapytanie do usługi sieci Web dla użytkownika o `externalId` wartości atrybutu, która pasuje do wartości atrybutu mailNickName użytkownika, nie zwróci żadnych użytkowników, a następnie Azure Active Directory żądania zainicjowania usługi przez użytkownika odpowiadającego danemu w Azure Active Directory.  Oto przykład tego żądania: 
 
@@ -1025,7 +1026,7 @@ W przykładzie żądania pozyskania bieżącego stanu użytkownika wartości wł
 _ Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User"
 
-***Przykład 4. Zbadaj wartość atrybutu odwołania, który ma zostać zaktualizowany**_ 
+***Przykład 4. Zbadaj wartość atrybutu odwołania, który ma zostać zaktualizowany** _ 
 
 Jeśli atrybut odwołania ma zostać zaktualizowany, Azure Active Directory wysyła zapytanie do usługi w celu ustalenia, czy bieżąca wartość atrybutu odwołania w magazynie tożsamości przedniego przez usługę już pasuje do wartości tego atrybutu w Azure Active Directory. W przypadku użytkowników jedynym atrybutem, którego bieżącą wartością jest zapytanie w ten sposób, jest atrybut Manager. Oto przykład żądania, aby określić, czy atrybut Menedżera obiektu użytkownika ma obecnie określoną wartość: w przykładowym kodzie żądanie jest tłumaczone na wywołanie metody QueryAsync dostawcy usługi. Wartość właściwości obiektu dostarczonego jako wartość argumentu Parameters są następujące: 
   
@@ -1041,7 +1042,7 @@ wejściowe. AlternateFilters. Count: 2
 
 W tym miejscu wartość indeksu x może być równa 0, a wartość indeksu y może wynosić 1 lub wartość x może wynosić 1, a wartość y może być równa 0, w zależności od kolejności wyrażeń parametru kwerendy filtru.   
 
-***Przykład 5. Żądanie od usługi Azure AD do Standard SCIMej aktualizacji użytkownika**_ 
+***Przykład 5. Żądanie od usługi Azure AD do Standard SCIMej aktualizacji użytkownika** _ 
 
 Oto przykład żądania od Azure Active Directory do usługi Standard scim w celu zaktualizowania użytkownika: 
 
@@ -1089,7 +1090,7 @@ _ ResourceIdentifier. Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * (PatchRequest jako PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Odwołanie: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest jako PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Value: 2819c223-7f76-453A-919d-413861904646
 
-***Przykład 6. **Anulowanie aprowizacji użytkownika _
+***Przykład 6.** Anulowanie aprowizacji użytkownika _
 
 Aby anulować obsługę administracyjną użytkownika z magazynu tożsamości przedniego przez usługę Standard scim, usługa Azure AD wysyła żądanie, takie jak:
 
@@ -1148,7 +1149,7 @@ Aplikacje obsługujące profil Standard scim opisany w tym artykule mogą być p
 8. Jeśli punkt końcowy Standard scim wymaga tokenu okaziciela OAuth od wystawcy innego niż usługa Azure AD, a następnie skopiuj wymagany token okaziciela OAuth do pola opcjonalnego **tokenu tajnego** . Jeśli to pole pozostanie puste, usługa Azure AD zawiera token okaziciela OAuth wystawiony przez usługę Azure AD za pomocą każdego żądania. Aplikacje korzystające z usługi Azure AD jako dostawca tożsamości mogą sprawdzić poprawność tego tokenu wystawionego przez usługę Azure AD. 
    > [!NOTE]
    > *_Nie_* jest zalecane, aby pozostawić to pole puste i polegać na tokenie wygenerowanym przez usługę Azure AD. Ta opcja jest dostępna głównie do celów testowych.
-9. Wybierz _*Testuj połączenie**, aby Azure Active Directory próbę nawiązania połączenia z punktem końcowym Standard scim. Jeśli próba nie powiedzie się, zostanie wyświetlony komunikat o błędzie.  
+9. Wybierz _ *Testuj połączenie* *, aby Azure Active Directory próbę nawiązania połączenia z punktem końcowym Standard scim. Jeśli próba nie powiedzie się, zostanie wyświetlony komunikat o błędzie.  
 
     > [!NOTE]
     > **Test connection** wysyła zapytanie do punktu końcowego Standard scim dla użytkownika, który nie istnieje, przy użyciu losowego identyfikatora GUID jako pasującej właściwości wybranej w konfiguracji usługi Azure AD. Oczekiwana prawidłowa odpowiedź to HTTP 200 OK z pustym komunikatem Standard scim ListResponse.
@@ -1159,7 +1160,7 @@ Aplikacje obsługujące profil Standard scim opisany w tym artykule mogą być p
     > [!NOTE]
     > Można opcjonalnie wyłączyć synchronizowanie obiektów grupy przez wyłączenie mapowania "grupy".
 
-12. W obszarze **Ustawienia**pole **zakres** określa, którzy użytkownicy i grupy są synchronizowane. Wybierz opcję **Synchronizuj tylko przypisani Użytkownicy i grupy** (zalecane) tylko do synchronizacji użytkowników i grup przypisanych na karcie **Użytkownicy i grupy** .
+12. W obszarze **Ustawienia** pole **zakres** określa, którzy użytkownicy i grupy są synchronizowane. Wybierz opcję **Synchronizuj tylko przypisani Użytkownicy i grupy** (zalecane) tylko do synchronizacji użytkowników i grup przypisanych na karcie **Użytkownicy i grupy** .
 13. Po zakończeniu konfiguracji Ustaw **stan aprowizacji** na **włączone**.
 14. Wybierz pozycję **Zapisz** , aby uruchomić usługę Azure AD Provisioning.
 15. W przypadku synchronizacji tylko przypisanych użytkowników i grup (zalecane) należy wybrać kartę **Użytkownicy i grupy** i przypisać użytkowników lub grupy, które mają zostać zsynchronizowane.

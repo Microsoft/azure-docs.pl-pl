@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737555"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616760"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Samouczek: Rozpoznawanie logo usługi platformy Azure w obrazach aparatu fotograficznego
 
@@ -34,9 +34,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Program Visual Studio 2017 lub nowszy](https://www.visualstudio.com/downloads/)
-- Obciążenia na platformie Xamarin dla programu Visual Studio (zobacz [Instalacja platformy Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- Obciążenia na platformie Xamarin dla programu Visual Studio (zobacz [Instalacja platformy Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - Emulator systemu iOS lub Android dla programu Visual Studio
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcjonalnie)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcjonalnie)
 
 ## <a name="get-the-source-code"></a>Uzyskiwanie kodu źródłowego
 
@@ -84,17 +84,17 @@ Otwórz plik *Source/VisualProvision/Services/Recognition/CustomVisionService.cs
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Ten wynik przybiera postać wystąpienia **PredictionResult** , które samo zawiera listę wystąpień **prognozy** . **Prognoza** zawiera wykryty tag i lokalizację otaczającego go pola na obrazie.
+Ten wynik przybiera postać wystąpienia **PredictionResult** , które samo zawiera listę wystąpień **prognozy**. **Prognoza** zawiera wykryty tag i lokalizację otaczającego go pola na obrazie.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Aby dowiedzieć się więcej na temat sposobu obsługi tych danych w aplikacji, zacznij od metody **GetResourcesAsync** . Ta metoda jest zdefiniowana w pliku *Source/VisualProvision/Services/Recognition/RecognitionService.cs* .  
+Aby dowiedzieć się więcej na temat sposobu obsługi tych danych w aplikacji, zacznij od metody **GetResourcesAsync**. Ta metoda jest zdefiniowana w pliku *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
 
 ## <a name="add-computer-vision"></a>Dodawanie usługi Computer Vision
 
 Część samouczka dotycząca usługi Custom Vision jest zakończona. Jeśli chcesz uruchomić aplikację, musisz zintegrować również usługę Computer Vision. Aplikacja używa funkcji rozpoznawania tekstu usługi Computer Vision, aby uzupełnić proces wykrywania logo. Logo platformy Azure może być rozpoznawane na podstawie jego wyglądu *lub* tekstu wydrukowanego w jego pobliżu. W przeciwieństwie do modeli usługi Custom Vision, usługa Computer Vision jest wstępnie wytrenowana pod kątem wykonywania pewnych operacji na obrazach lub wideo.
 
-Zasubskrybuj usługę Computer Vision, aby uzyskać klucz i adres URL punktu końcowego. Aby uzyskać pomoc dotyczącą tego kroku, zobacz [Jak uzyskać klucze subskrypcji](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Zasubskrybuj usługę Computer Vision, aby uzyskać klucz i adres URL punktu końcowego. Aby uzyskać pomoc dotyczącą tego kroku, zobacz [Jak uzyskać klucze subskrypcji](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![Usługa przetwarzanie obrazów w Azure Portal z wybranym menu szybkiego startu. Link do kluczy i adres URL punktu końcowego interfejsu API są zaznaczone](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -104,7 +104,7 @@ Następnie otwórz plik *Source\VisualProvision\AppSettings.cs* i wpisz poprawne
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Aplikacja wymaga konta nazwy głównej usługi platformy Azure do wdrażania usług w Twojej subskrypcji platformy Azure. Jednostka usługi umożliwia delegowanie określonych uprawnień do aplikacji przy użyciu kontroli dostępu opartej na rolach na platformie Azure. Aby dowiedzieć się więcej, zobacz [przewodnik po jednostkach usług](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+Aplikacja wymaga konta nazwy głównej usługi platformy Azure do wdrażania usług w Twojej subskrypcji platformy Azure. Jednostka usługi umożliwia delegowanie określonych uprawnień do aplikacji przy użyciu kontroli dostępu opartej na rolach na platformie Azure. Aby dowiedzieć się więcej, zobacz [przewodnik po jednostkach usług](/azure-stack/operator/azure-stack-create-service-principals).
 
 Jednostkę usługi możesz utworzyć za pomocą usługi Azure Cloud Shell albo interfejsu wiersza polecenia platformy Azure (jak pokazano tutaj). Aby rozpocząć, zaloguj się i wybierz subskrypcję, której chcesz użyć.
 
@@ -132,7 +132,7 @@ Po pomyślnym zakończeniu powinny pojawić się następujące dane wyjściowe J
 }
 ```
 
-Zanotuj wartości `clientId` i `tenantId`. Dodaj je do odpowiednich pól w pliku *Source\VisualProvision\AppSettings.cs* .
+Zanotuj wartości `clientId` i `tenantId`. Dodaj je do odpowiednich pól w pliku *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -146,12 +146,12 @@ W tym momencie został przez Ciebie udzielony aplikacji dostęp do:
 
 Wykonaj następujące kroki, aby uruchomić aplikację:
 
-1. W Eksploratorze rozwiązań programu Visual Studio wybierz projekt **VisualProvision.Android** lub projekt **VisualProvision.iOS** . Z menu rozwijanego na głównym pasku narzędzi wybierz odpowiedni emulator lub podłączone urządzenie przenośne. Następnie uruchom aplikację.
+1. W Eksploratorze rozwiązań programu Visual Studio wybierz projekt **VisualProvision.Android** lub projekt **VisualProvision.iOS**. Z menu rozwijanego na głównym pasku narzędzi wybierz odpowiedni emulator lub podłączone urządzenie przenośne. Następnie uruchom aplikację.
 
     > [!NOTE]
     > Aby uruchomić emulator systemu iOS, musisz mieć urządzenie z systemem MacOS.
 
-1. Na pierwszym ekranie wprowadź identyfikator klienta jednostki usługi, identyfikator dzierżawy i hasło. Naciśnij przycisk **Login (Zaloguj się)** .
+1. Na pierwszym ekranie wprowadź identyfikator klienta jednostki usługi, identyfikator dzierżawy i hasło. Naciśnij przycisk **Login (Zaloguj się)**.
 
     > [!NOTE]
     > W niektórych emulatorach przycisk **Login (Zaloguj się)** może nie być uaktywniony na tym etapie. W takim przypadku zatrzymaj aplikację, otwórz plik *Source/VisualProvision/Pages/LoginPage.xaml* , znajdź element `Button` oznaczony jako **LOGIN BUTTON (PRZYCISK LOGOWANIA)** , usuń następujący wiersz, po czym ponownie uruchom aplikację.
@@ -176,7 +176,7 @@ Wykonaj następujące kroki, aby uruchomić aplikację:
 
 Jeśli wykonasz już wszystkie kroki w tym scenariuszu i użyjesz aplikacji do wdrażania usług platformy Azure na swoim koncie, przejdź do witryny [Azure Portal](https://ms.portal.azure.com/). Anuluj tam usługi, których nie chcesz używać.
 
-Jeśli planujesz utworzenie własnego projektu wykrywania obiektu za pomocą usługi Custom Vision, możesz chcieć usunąć projekt wykrywania logo utworzony w ramach tego samouczka. Bezpłatna subskrypcja dla Custom Vision umożliwia tylko dwa projekty. Aby usunąć projekt wykrywania logo w [witrynie internetowej usługi Custom Vision](https://customvision.ai), otwórz pozycję **Projects (Projekty)** , a następnie wybierz ikonę kosza na śmieci w obszarze **My New Project (Mój nowy projekt)** .
+Jeśli planujesz utworzenie własnego projektu wykrywania obiektu za pomocą usługi Custom Vision, możesz chcieć usunąć projekt wykrywania logo utworzony w ramach tego samouczka. Bezpłatna subskrypcja dla Custom Vision umożliwia tylko dwa projekty. Aby usunąć projekt wykrywania logo w [witrynie internetowej usługi Custom Vision](https://customvision.ai), otwórz pozycję **Projects (Projekty)** , a następnie wybierz ikonę kosza na śmieci w obszarze **My New Project (Mój nowy projekt)**.
 
 ## <a name="next-steps"></a>Następne kroki
 

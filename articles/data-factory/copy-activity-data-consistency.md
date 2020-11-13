@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: e7c66518cd62ef1debd8ceb1c38ba93101c8395d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3591bfe046fa1c3e1e55aa49a0ae3ad698bc57b3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565657"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593675"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>Weryfikacja spójności danych w działaniu kopiowania
 
@@ -63,9 +63,10 @@ Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójno
         },
         "logLocationSettings": {
             "linkedServiceName": {
-                "referenceName": "ADLSGen2",
+               "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
-            }
+            },
+            "path": "sessionlog/"
         }
     }
 } 

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 10/30/2020
-ms.openlocfilehash: 5eb374806d0bdafa7f05b001e4446b184a446b52
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 27d48ef8961aa0b7fde4a92195ea92a1ec20c3f0
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577417"
+ms.locfileid: "94594202"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Samouczek: Udostępnianie danych przy użyciu usługi Azure Data Share  
 
@@ -67,7 +67,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące udostępniania z puli SQL usługi Azure Synapse Analytics (Workspace)
 
-* Pula SQL usługi Azure Synapse Analytics (Workspace) z tabelami, które chcesz udostępnić. Udostępnianie widoku nie jest obecnie obsługiwane.
+* * Dedykowana Pula SQL usługi Azure Synapse Analytics z tabelami, które chcesz udostępnić. Udostępnianie widoku nie jest obecnie obsługiwane. Udostępnianie z puli SQL bez serwera nie jest obecnie obsługiwane.
 * Uprawnienia do zapisu w puli SQL w obszarze roboczym Synapse, które znajdują się w *witrynie Microsoft. Synapse/Workspaces/Sqlpools/Write*. To uprawnienie istnieje w roli **Współautor**.
 * Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do puli SQL obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję SQL Active Directory administrator na lewym panelu nawigacyjnym i ustaw siebie jako **administratora Azure Active Directory**.

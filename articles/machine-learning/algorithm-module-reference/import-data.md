@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/13/2020
+ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372599"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592638"
 ---
 # <a name="import-data-module"></a>Importuj moduł danych
 
@@ -24,7 +24,7 @@ Ten moduł służy do ładowania danych do potoku uczenia maszynowego z istniej�
 
 > [!Note]
 > Wszystkie funkcje zapewniane przez ten moduł mogą być wykonywane przez **Magazyn** **danych i DataSets** na stronie docelowej obszaru roboczego. Zalecamy korzystanie z **magazynu** danych i **zestawu danych** , który zawiera dodatkowe funkcje, takie jak monitorowanie dane. Aby dowiedzieć się więcej, zobacz artykuł [jak uzyskać dostęp do danych](../how-to-access-data.md) i [jak rejestrować zestawy danych](../how-to-create-register-datasets.md) .
-> Po zarejestrowaniu zestawu danych możesz go znaleźć w kategorii **zestawy**danych  ->  **MOJE ZESTAWY** danych w interfejsie projektanta. Ten moduł jest zarezerwowany dla użytkowników programu Studio (klasycznych) w celu uzyskania znanego środowiska. 
+> Po zarejestrowaniu zestawu danych możesz go znaleźć w kategorii **zestawy** danych  ->  **MOJE ZESTAWY** danych w interfejsie projektanta. Ten moduł jest zarezerwowany dla użytkowników programu Studio (klasycznych) w celu uzyskania znanego środowiska. 
 >
 
 Moduł **Importuj dane** obsługuje odczyt danych z następujących źródeł:
@@ -54,15 +54,23 @@ Jeśli dane źródłowe zmienią się, można odświeżyć zestaw danych i doda�
 
 1. Wybierz moduł, aby otworzyć okienko po prawej stronie.
 
-1. Wybierz pozycję **Źródło danych**i wybierz typ źródła danych. Może to być HTTP lub magazyn danych.
+1. Wybierz pozycję **Źródło danych** i wybierz typ źródła danych. Może to być HTTP lub magazyn danych.
 
     Jeśli wybierzesz pozycję Magazyn danych, możesz wybrać istniejące magazyny danych, które zostały już zarejestrowane w obszarze roboczym Azure Machine Learning, lub utworzyć nowy magazyn danych. Następnie należy zdefiniować ścieżkę danych do zaimportowania w magazynie danych. Możesz łatwo przeglądać ścieżkę, klikając pozycję **Przeglądaj ścieżka** ![ zrzut ekranu pokazuje link Przeglądaj ścieżkę, który otwiera okno dialogowe wybór ścieżki.](media/module/import-data-path.png)
+
+    > [!NOTE]
+    > Moduł **Importuj dane** jest przeznaczony tylko dla danych **tabelarycznych** .
+    > Jeśli chcesz zaimportować wiele plików danych tabelarycznych jeden raz, wymagane są następujące warunki, w przeciwnym razie wystąpią błędy:
+    > 1. Aby uwzględnić wszystkie pliki danych w folderze, należy wprowadzić `folder_name/**` **ścieżkę**.
+    > 2. Wszystkie pliki danych muszą być zakodowane w standardzie Unicode-8.
+    > 3. Wszystkie pliki danych muszą mieć takie same numery kolumn i nazwy kolumn.
+    > 4. Wynikiem importowania wielu plików danych jest połączenie wszystkich wierszy z wielu plików w kolejności.
 
 1. Wybierz schemat podglądu, aby odfiltrować kolumny, które chcesz dołączyć. Możesz również zdefiniować ustawienia zaawansowane, takie jak ogranicznik w opcjach analizy.
 
     ![Importowanie danych — wersja zapoznawcza](media/module/import-data.png)
 
-1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe**, decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
+1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe** , decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
 
     Jest to domyślnie niezaznaczone, co oznacza, że moduł został wykonany z tymi samymi parametrami, system użyje danych wyjściowych z ostatniego uruchomienia, aby skrócić czas wykonywania. 
 
@@ -79,9 +87,9 @@ Jeśli dane źródłowe zmienią się, można odświeżyć zestaw danych i doda�
 
 ## <a name="results"></a>Wyniki
 
-Po zakończeniu importu kliknij wyjściowy zestaw danych i wybierz polecenie **Wizualizuj** , aby sprawdzić, czy dane zostały zaimportowane pomyślnie.
+Po zakończeniu importu kliknij prawym przyciskiem myszy wyjściowy zestaw danych i wybierz polecenie **Wizualizacja** , aby sprawdzić, czy dane zostały zaimportowane pomyślnie.
 
-Jeśli chcesz zapisać dane do ponownego użycia, zamiast zaimportować nowy zestaw danych przy każdym uruchomieniu potoku, wybierz ikonę **zarejestruj zestaw** danych na karcie dane **wyjściowe** w prawym panelu modułu. Wybierz nazwę dla zestawu danych. Zapisany zestaw danych zachowuje dane podczas zapisywania, zestaw danych nie zostanie zaktualizowany po ponownym uruchomieniu potoku, nawet jeśli zestaw danych w potoku ulegnie zmianie. Może to być przydatne przy tworzeniu migawek danych.
+Jeśli chcesz zapisać dane do ponownego użycia zamiast zaimportować nowy zestaw danych przy każdym uruchomieniu potoku, wybierz ikonę **zarejestruj zestaw** danych na karcie dane **wyjściowe i dzienniki** w prawym panelu modułu. Wybierz nazwę dla zestawu danych. Zapisany zestaw danych zachowuje dane podczas zapisywania, zestaw danych nie zostanie zaktualizowany po ponownym uruchomieniu potoku, nawet jeśli zestaw danych w potoku ulegnie zmianie. Może to być przydatne przy tworzeniu migawek danych.
 
 Po zaimportowaniu danych może zajść potrzeba przeprowadzenia pewnych dodatkowych przygotowań do modelowania i analizy:
 

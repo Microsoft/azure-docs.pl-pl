@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577225"
+ms.locfileid: "94592434"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magazyny danych obsługiwane w usłudze Azure Data Share
 
@@ -55,7 +55,7 @@ Udział danych platformy Azure obsługuje udostępnianie plików, folderów i sy
 Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie i odbieranie danych z usługi Azure Blob Storage i Azure Data Lake Storage](how-to-share-from-storage.md) .
 
 ## <a name="share-from-a-sql-based-source"></a>Udostępnianie z poziomu źródła opartego na języku SQL
-Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW) i udostępnianie tabel z puli SQL usługi Azure Synapse Analytics (obszar roboczy). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
+Udział danych platformy Azure obsługuje udostępnianie tabel i widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW) oraz udostępnianie tabel z dedykowanej puli SQL usługi Azure Synapse Analytics (Workspace). Udostępnianie z puli usługi Azure Synapse Analytics (Workspace) nie jest obecnie obsługiwane. Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
 
 Gdy akceptujesz dane do Azure Data Lake Store Gen2 lub Azure Blob Storage, pełne migawki zastąpią zawartość pliku docelowego, jeśli już istnieje.
 Gdy dane są odbierane do tabeli, a tabela docelowa jeszcze nie istnieje, udział danych platformy Azure tworzy tabelę SQL ze schematem źródłowym. Jeśli tabela docelowa już istnieje o tej samej nazwie, zostanie porzucona i zastąpiona najnowszą pełną migawką. Migawki przyrostowe nie są obecnie obsługiwane.

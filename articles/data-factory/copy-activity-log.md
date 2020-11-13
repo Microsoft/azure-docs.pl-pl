@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: c54b81ca25602fa77ad66bbb818df3cd8eee39a1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94519976"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593659"
 ---
 #  <a name="session-log-in-copy-activity"></a>Działanie podczas kopiowania dziennika sesji
 
@@ -60,9 +60,10 @@ Poniższy przykład zawiera definicję JSON umożliwiającą włączenie operacj
         },
         "logLocationSettings": {
             "linkedServiceName": {
-                "referenceName": "ADLSGen2",
+               "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
-            }
+            },
+            "path": "sessionlog/"
         }
     }
 }

@@ -1,18 +1,18 @@
 ---
-title: Włączanie i wykonywanie zapytań dotyczących dzienników diagnostycznych
+title: Włączanie dzienników diagnostycznych i wykonywanie dotyczących ich zapytań
 titleSuffix: Azure Digital Twins
 description: Zobacz jak włączyć rejestrowanie przy użyciu ustawień diagnostycznych i wysyłać zapytania do dzienników w celu natychmiastowego wyświetlenia.
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411769"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616658"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
 
@@ -114,19 +114,19 @@ Oto opisy pól i właściwości dzienników interfejsu API.
 
 | Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
-| `Time` | Data i godzina | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceID` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
-| `OperationVersion` | Ciąg | Wersja interfejsu API wykorzystana podczas zdarzenia |
-| `Category` | Ciąg | Typ emitowanego zasobu |
-| `ResultType` | Ciąg | Wynik zdarzenia |
-| `ResultSignature` | Ciąg | Kod stanu HTTP dla zdarzenia |
-| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
-| `DurationMs` | Ciąg | Czas trwania zdarzenia w milisekundach |
-| `CallerIpAddress` | Ciąg | Maskowany źródłowy adres IP dla zdarzenia |
+| `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
+| `ResourceID` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
+| `OperationVersion` | String | Wersja interfejsu API wykorzystana podczas zdarzenia |
+| `Category` | String | Typ emitowanego zasobu |
+| `ResultType` | String | Wynik zdarzenia |
+| `ResultSignature` | String | Kod stanu HTTP dla zdarzenia |
+| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
+| `DurationMs` | String | Czas trwania zdarzenia w milisekundach |
+| `CallerIpAddress` | String | Maskowany źródłowy adres IP dla zdarzenia |
 | `CorrelationId` | Guid (identyfikator GUID) | Klient dostarczył unikatowy identyfikator dla zdarzenia |
-| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
-| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
+| `Level` | String | Ważność rejestrowania zdarzenia |
+| `Location` | String | Region, w którym miało miejsce zdarzenie |
 | `RequestUri` | Adresu | Punkt końcowy użyty podczas zdarzenia |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
@@ -200,14 +200,14 @@ Jest to schemat `ADTEventRoutesOperation` dzienników. Zawierają one informacje
 
 |Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
-| `Time` | Data i godzina | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceId` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
-| `Category` | Ciąg | Typ emitowanego zasobu |
-| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
-| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
-| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
-| `EndpointName` | Ciąg | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
+| `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
+| `ResourceId` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
+| `Category` | String | Typ emitowanego zasobu |
+| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
+| `Level` | String | Ważność rejestrowania zdarzenia |
+| `Location` | String | Region, w którym miało miejsce zdarzenie |
+| `EndpointName` | String | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
 

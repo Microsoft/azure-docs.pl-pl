@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: a864717304dacaf6cf4c77c92050827af619ed39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: cfd28171524ada5f5feea9e18e4b88a291254e88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736683"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616794"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -26,7 +26,7 @@ Obsługa języka zależy od funkcjonalności usługi mowy. W poniższych tabelac
 
 Zarówno zestaw Microsoft Speech SDK, jak i interfejs API REST obsługują następujące języki (ustawienia regionalne). 
 
-W celu poprawienia dokładności, dostosowanie jest oferowane dla podzestawu języków za pomocą przekazywania **zapisu audio + z etykietami ludzkimi** lub **powiązanego tekstu: zdania** . Aby dowiedzieć się więcej o dostosowywaniu, zobacz Wprowadzenie [do Custom Speech](how-to-custom-speech.md).
+W celu poprawienia dokładności, dostosowanie jest oferowane dla podzestawu języków za pomocą przekazywania **zapisu audio + z etykietami ludzkimi** lub **powiązanego tekstu: zdania**. Aby dowiedzieć się więcej o dostosowywaniu, zobacz Wprowadzenie [do Custom Speech](how-to-custom-speech.md).
 
 <!--
 To get the AM and ML bits:
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Język                          | Regionalne | Dostosowania                                   |
+| Język                          | Ustawienia regionalne (BCP-47) | Dostosowania                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Arabski (Bahrajn), nowoczesny Standard  |`ar-BH` | Model językowy                                   |
 |Arabski (Egipt)                     |`ar-EG` | Model językowy                                   |
@@ -136,7 +136,7 @@ Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotó
 
 Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regiony](regions.md#standard-and-neural-voices).
 
-|Język  | Regionalne           | Płeć | Nazwa głosu | Obsługa stylu |
+|Język  | Ustawienia regionalne (BCP-47)          | Płeć | Nazwa głosu | Obsługa stylu |
 |--|--|--|--|--|
 | Arabski (Egipt) | `ar-EG` | Kobiety | `ar-EG-SalmaNeural` | Ogólne |
 | Arabski (Arabia Saudyjska) | `ar-SA` | Kobiety | `ar-SA-ZariyahNeural` | Ogólne |
@@ -219,7 +219,7 @@ Aby dowiedzieć się, jak można konfigurować i dostosowywać neuronowych głos
 
 Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawieniach regionalnych, które umożliwiają konwertowanie tekstu na mowę. Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regiony](regions.md#standard-and-neural-voices).
 
-| Język | Regionalne | Płeć | Nazwa głosu |
+| Język | Ustawienia regionalne (BCP-47) | Płeć | Nazwa głosu |
 |--|--|--|--|
 | Arabski (arabski)  |  `ar-EG`  |  Kobiety  |  `ar-EG-Hoda`|
 | Arabski (Arabia Saudyjska)  |  `ar-SA`  |  Mężczyźni  |  `ar-SA-Naayf`|
@@ -356,7 +356,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| Koreański                  | `ko`          |
+| koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |
@@ -397,21 +397,21 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 
 Zapoznaj się z poniższą tabelą dla obsługiwanych języków dla różnych rozpoznawanie osoby mówiącej interfejsów API. Więcej informacji na temat rozpoznawanie osoby mówiącej można znaleźć w temacie [Omówienie](speaker-recognition-overview.md) .
 
-| Język | Regionalne | Weryfikacja zależna od tekstu | Weryfikacja niezależna od tekstu | Identyfikacja niezależna od tekstu |
+| Język | Ustawienia regionalne (BCP-47) | Weryfikacja zależna od tekstu | Weryfikacja niezależna od tekstu | Identyfikacja niezależna od tekstu |
 |----|----|----|----|----|
 |Angielski (Stany Zjednoczone)  |  en-US  |  tak  |  tak  |  tak |
-|Chiński (mandarynki, uproszczony) | zh-CN     |     nie dotyczy |     tak |     tak|
-|Angielski (Australia)     | en-AU     | nie dotyczy     | tak     | tak|
-|Angielski (Kanada)     | EN-CA     | nie dotyczy |     tak |     tak|
-|Angielski (Zjednoczone Królestwo)     | en-GB     | nie dotyczy     | tak     | tak|
-|francuski (Kanada)     | fr — CA     | nie dotyczy     | tak |     tak|
-|Francuski (Francja)     | fr-FR     | nie dotyczy     | tak     | tak|
-|Niemiecki (Niemcy)     | de-DE     | nie dotyczy     | tak     | tak|
-|Włoski | it-IT     |     nie dotyczy     | tak |     tak|
-|japoński     | ja-JP | nie dotyczy     | tak     | tak|
-|Portugalski (Brazylia) | pt-BR |     nie dotyczy |     tak |     tak|
-|Hiszpański (Meksyk)     | es — MX     | nie dotyczy |     tak |     tak|
-|hiszpański (Hiszpania)     | es-ES | nie dotyczy     | tak |     tak|
+|Chiński (mandarynki, uproszczony) | zh-CN     |     n/d |     tak |     tak|
+|Angielski (Australia)     | en-AU     | n/d     | tak     | tak|
+|Angielski (Kanada)     | EN-CA     | n/d |     tak |     tak|
+|Angielski (Zjednoczone Królestwo)     | en-GB     | n/d     | tak     | tak|
+|francuski (Kanada)     | fr — CA     | n/d     | tak |     tak|
+|Francuski (Francja)     | fr-FR     | n/d     | tak     | tak|
+|Niemiecki (Niemcy)     | de-DE     | n/d     | tak     | tak|
+|Włoski | it-IT     |     n/d     | tak |     tak|
+|japoński     | ja-JP | n/d     | tak     | tak|
+|Portugalski (Brazylia) | pt-BR |     n/d |     tak |     tak|
+|Hiszpański (Meksyk)     | es — MX     | n/d |     tak |     tak|
+|hiszpański (Hiszpania)     | es-ES | n/d     | tak |     tak|
 
 ## <a name="next-steps"></a>Następne kroki
 

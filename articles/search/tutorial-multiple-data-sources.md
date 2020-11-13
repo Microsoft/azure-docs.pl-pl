@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a1a7e19e598980b21ee6c41f6984de38d6a6f2b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9d9c43ae1be755ccb30fc377692257a81332ea8
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791617"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593726"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Samouczek: indeksowanie z wielu źródeł danych przy użyciu zestawu .NET SDK
 
@@ -66,21 +66,21 @@ Ten przykład używa dwóch małych zestawów danych, które opisują siedem fik
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie przejdź do strony przegląd konta Azure Cosmos DB.
 
-1. Wybierz pozycję **Eksplorator danych** a następnie wybierz pozycję **Nowa baza danych** .
+1. Wybierz pozycję **Eksplorator danych** a następnie wybierz pozycję **Nowa baza danych**.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
-1. Wprowadź nazwę **"pokoje hotelowe — baza danych"** . Zaakceptuj wartości domyślne pozostałych ustawień.
+1. Wprowadź nazwę **"pokoje hotelowe — baza danych"**. Zaakceptuj wartości domyślne pozostałych ustawień.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Konfiguruj bazę danych" border="false":::
 
 1. Utwórz nowy kontener. Użyj właśnie utworzonej bazy danych. Wprowadź **Hotele** dla nazwy kontenera, a następnie użyj **/HotelId** dla klucza partycji.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Dodawanie kontenera" border="false":::
 
 1. Wybierz pozycję **elementy** w **hotelach** , a następnie kliknij pozycję **Przekaż element** na pasku poleceń. Przejdź do, a następnie wybierz plik **cosmosdb/HotelsDataSubset_CosmosDb.js** w folderze projektu.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Przekaż do kolekcji Azure Cosmos DB" border="false":::
 
 1. Użyj przycisku Odśwież, aby odświeżyć widok elementów w kolekcji hoteli. Powinien być widoczny na liście siedem nowych dokumentów bazy danych.
 
@@ -88,15 +88,15 @@ Ten przykład używa dwóch małych zestawów danych, które opisują siedem fik
 
 ### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), przejdź do konta usługi Azure Storage, kliknij pozycję **obiekty blob** , a następnie kliknij pozycję **+ kontener** .
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), przejdź do konta usługi Azure Storage, kliknij pozycję **obiekty blob** , a następnie kliknij pozycję **+ kontener**.
 
 1. [Utwórz kontener obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md) o nazwie **pokoje hotelowe** , aby zapisać przykładowe pliki JSON pokoju hotelowego. Można ustawić poziom dostępu publicznego na dowolną z jego prawidłowych wartości.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Tworzenie kontenera obiektów blob" border="false":::
 
-1. Po utworzeniu kontenera Otwórz go i wybierz pozycję **Przekaż** na pasku poleceń. Przejdź do folderu zawierającego pliki przykładowe. Zaznacz wszystkie z nich, a następnie kliknij przycisk **Przekaż** .
+1. Po utworzeniu kontenera Otwórz go i wybierz pozycję **Przekaż** na pasku poleceń. Przejdź do folderu zawierającego pliki przykładowe. Zaznacz wszystkie z nich, a następnie kliknij przycisk **Przekaż**.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Przekazywanie plików" border="false":::
 
 1. Skopiuj nazwę konta magazynu i parametry połączenia ze strony **klucze dostępu** do Notatnika. W późniejszym kroku będą potrzebne obie wartości **appsettings.js** .
 
@@ -112,21 +112,21 @@ Do uwierzytelnienia w usłudze wyszukiwania potrzebny jest adres URL usługi i k
 
 1. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 ## <a name="2---set-up-your-environment"></a>2 — Konfigurowanie środowiska
 
-1. Uruchom program Visual Studio, a następnie w menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet** , a następnie **Zarządzaj pakietami NuGet dla rozwiązania.** .. 
+1. Uruchom program Visual Studio, a następnie w menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet** , a następnie **Zarządzaj pakietami NuGet dla rozwiązania.**.. 
 
 1. Na karcie **Przeglądaj** Znajdź i zainstaluj **Azure.Search.Documents** (wersja 11,0 lub nowsza). Aby ukończyć instalację, trzeba będzie kliknąć dodatkowe okna dialogowe.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Dodawanie bibliotek platformy Azure przy użyciu narzędzia NuGet" border="false":::
 
 1. Wyszukaj **Microsoft.Extensions.Configwersja** i **Microsoft.Extensions.Configuration.Jsw** pakietach NuGet i zainstaluj je.
 
-1. Otwórz plik rozwiązania **/v11/AzureSearchMultipleDataSources.sln** .
+1. Otwórz plik rozwiązania **/v11/AzureSearchMultipleDataSources.sln**.
 
 1. W Eksplorator rozwiązań Edytuj **appsettings.js** pliku, aby dodać informacje o połączeniu.  
 
@@ -240,7 +240,7 @@ private static async Task CreateAndRunCosmosDbIndexerAsync(string indexName, Sea
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(cosmosDbDataSource);
 ```
 
-Po utworzeniu źródła danych program skonfiguruje Azure Cosmos DB indeksatora o nazwie **pokoje hotelowe-Cosmos-Indexer** .
+Po utworzeniu źródła danych program skonfiguruje Azure Cosmos DB indeksatora o nazwie **pokoje hotelowe-Cosmos-Indexer**.
 
 Program zaktualizuje wszystkie istniejące indeksatory o tej samej nazwie, zastępując istniejący indeksator zawartością powyższego kodu. Obejmuje także akcje resetowania i uruchamiania, jeśli chcesz uruchomić ten przykład więcej niż raz.
 
@@ -350,7 +350,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(blobIndexer);
 try
 {
     // Run the indexer.
-    await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+    await searchService.Indexers.RunAsync(blobIndexer.Name);
 }
 catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 {
@@ -369,7 +369,7 @@ Można eksplorować wypełniony indeks wyszukiwania po uruchomieniu programu prz
 
 W Azure Portal Otwórz stronę **Przegląd** usługi wyszukiwania i Znajdź na liście **indeksów** pozycję **Pokój z przemieszczeń hotelowych** .
 
-  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Tworzenie nowej bazy danych" border="false":::
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Lista indeksów usługi Azure Wyszukiwanie poznawcze" border="false":::
 
 Na liście kliknij indeks pokojów hotelowych — przykład. Zostanie wyświetlony interfejs Eksploratora wyszukiwania dla indeksu. Wprowadź zapytanie dla terminu takiego jak "możliwość zaprojektowania". W wynikach powinien być widoczny co najmniej jeden dokument, a ten dokument powinien zawierać listę obiektów Room w tablicy pokojów.
 

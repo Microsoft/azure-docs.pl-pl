@@ -3,15 +3,20 @@ title: Azure Event Grid — Przewodnik rozwiązywania problemów
 description: Ten artykuł zawiera listę kodów błędów, komunikatów o błędach, opisów i zalecanych akcji.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041395"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592995"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Rozwiązywanie problemów z błędami Azure Event Grid
-Ten przewodnik rozwiązywania problemów zawiera listę Azure Event Grid kodów błędów, komunikatów o błędach, ich opisach oraz zalecanych czynnościach, które należy wykonać po otrzymaniu tych błędów. 
+Ten przewodnik rozwiązywania problemów zawiera następujące informacje: 
+
+- Azure Event Grid kody błędów
+- Komunikaty o błędach
+- Opisy błędów
+- Zalecane akcje, które należy wykonać po otrzymaniu tych błędów. 
 
 ## <a name="error-code-400"></a>Kod błędu: 400
 | Kod błędu | Komunikat o błędzie | Opis | Zalecenie |
@@ -31,27 +36,17 @@ Ten przewodnik rozwiązywania problemów zawiera listę Azure Event Grid kodów 
 
 | Kod błędu | Komunikat o błędzie | Opis | Zalecana akcja |
 | ---------- | ------------- | ----------- | ------------------ |
-| HttpStatusCode. zabroniony <br/>403 | Publikowanie w programie {temat/domena} przez klienta {IpAddress} zostało odrzucone z powodu nieipaddress reguł filtrowania. | Temat lub domena ma skonfigurowane reguły zapory adresów IP i dostęp jest ograniczony tylko do skonfigurowanych adresów IP. | Dodawanie adresu IP do reguł zapory adresów IP, zobacz [Konfigurowanie zapory IP](configure-firewall.md) |
-| HttpStatusCode. zabroniony <br/> 403 | Publikowanie w {temacie/Domain} przez klienta zostało odrzucone, ponieważ żądanie pochodzi z prywatnego punktu końcowego i nie znaleziono pasującego połączenia z prywatnym punktem końcowym dla tego zasobu. | Temat lub domena ma skonfigurowane prywatne punkty końcowe i żądanie publikowania pochodzi z prywatnego punktu końcowego, który nie jest skonfigurowany/zatwierdzony. | Skonfiguruj prywatny punkt końcowy dla tematu/domeny. [Konfigurowanie prywatnych punktów końcowych](configure-private-endpoints.md) |
+| HttpStatusCode. zabroniony <br/>403 | Publikowanie w {temat/domena} przez klienta {IpAddress} zostało odrzucone z powodu reguł filtrowania IpAddress. | Temat lub domena ma skonfigurowane reguły zapory adresów IP i dostęp jest ograniczony tylko do skonfigurowanych adresów IP. | Dodawanie adresu IP do reguł zapory adresów IP, zobacz [Konfigurowanie zapory IP](configure-firewall.md) |
+| HttpStatusCode. zabroniony <br/> 403 | Publikowanie w {temacie/Domain} przez klienta zostało odrzucone, ponieważ żądanie pochodzi z prywatnego punktu końcowego i nie znaleziono pasującego połączenia z prywatnym punktem końcowym dla tego zasobu. | Temat lub domena ma prywatne punkty końcowe, a żądanie publikacji pochodzi z prywatnego punktu końcowego, który nie został skonfigurowany ani zatwierdzony. | Skonfiguruj prywatny punkt końcowy dla tematu/domeny. [Konfigurowanie prywatnych punktów końcowych](configure-private-endpoints.md) |
 
-## <a name="troubleshoot-event-subscription-validation"></a>Rozwiązywanie problemów z walidacją subskrypcji zdarzeń
+Sprawdź również, czy element webhook znajduje się za usługą Azure Application Gateway lub zaporą aplikacji sieci Web. Jeśli jest, wyłącz następujące reguły zapory i ponownie wykonaj wpis HTTP:
 
-W trakcie tworzenia subskrypcji zdarzeń, jeśli widzisz komunikat o błędzie, taki jak `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , oznacza to, że wystąpił błąd uzgadniania walidacji. Aby rozwiązać ten problem, sprawdź następujące aspekty:
+- 920300 (żądanie nie zawiera nagłówka Accept)
+- 942430 (ograniczone wykrycie anomalii znaku SQL (args): Przekroczono liczbę znaków specjalnych (12))
+- 920230 (wykryto wielokrotne kodowanie adresu URL)
+- 942130 (atak wstrzykiwania kodu SQL: wykryto tautology SQL).
+- 931130 (możliwe, że ataku zdalnego dołączania plików (RFI) = odwołuje się do domeny/linku
 
-- Wykonaj wpis HTTP w adresie URL elementu webhook za pomocą [przykładowej](webhook-event-delivery.md#validation-details) treści żądania SubscriptionValidationEvent przy użyciu elementu Poster lub zwinięcie lub podobnego narzędzia.
-- Jeśli element webhook implementuje mechanizm uzgadniania synchronicznego walidacji, należy sprawdzić, czy ValidationCode jest zwracany jako część odpowiedzi.
-- Jeśli element webhook implementuje mechanizm uzgadniania asynchronicznego walidacji, sprawdź, czy wpis HTTP jest zwracany 200 OK.
-- Jeśli element webhook zwraca 403 (zabroniony) w odpowiedzi, sprawdź, czy element webhook znajduje się za usługą Azure Application Gateway lub zaporą aplikacji sieci Web. W przeciwnym razie należy wyłączyć te reguły zapory i ponownie wykonać POST protokołu HTTP:
-
-  920300 (żądanie nie zawiera nagłówka Accept, możemy to naprawić)
-
-  942430 (ograniczone wykrycie anomalii znaku SQL (args): Przekroczono liczbę znaków specjalnych (12))
-
-  920230 (wykryto wielokrotne kodowanie adresu URL)
-
-  942130 (atak wstrzykiwania kodu SQL: wykryto tautology SQL).
-
-  931130 (możliwe, że ataku zdalnego dołączania plików (RFI) = Off-Domain odwołanie/łącze)
 
 
 ## <a name="next-steps"></a>Następne kroki

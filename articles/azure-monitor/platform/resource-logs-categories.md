@@ -4,12 +4,12 @@ description: Informacje dotyczące Azure Monitor zrozumieć obsługiwane usługi
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fd6f07151c93b64c150f01e5c0b5c7f4cffed85
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318304"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593012"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
 
@@ -497,7 +497,6 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |Kategoria|Nazwa wyświetlana kategorii|
 |---|---|
 |NetworkSecurityGroupEvent|Zdarzenie sieciowej grupy zabezpieczeń|
-|NetworkSecurityGroupFlowEvent|Zdarzenie przepływu reguły sieciowej grupy zabezpieczeń|
 |NetworkSecurityGroupRuleCounter|Licznik reguły sieciowej grupy zabezpieczeń|
 
 
@@ -603,7 +602,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 
 |Kategoria|Nazwa wyświetlana kategorii|
 |---|---|
-|Errors|Errors|
+|błędy|błędy|
 |QueryStoreRuntimeStatistics|Statystyka środowiska uruchomieniowego magazynu zapytań|
 |QueryStoreWaitStatistics|Statystyka oczekiwania magazynu zapytań|
 |SQLInsights|Szczegółowe informacje SQL|
@@ -619,7 +618,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |Zakleszczenia|Zakleszczenia|
 |DevOpsOperationsAudit|Dzienniki inspekcji operacji DevOps|
 |DmsWorkers|Pracownicy DMS|
-|Errors|Errors|
+|błędy|błędy|
 |ExecRequests|Żądania exec|
 |QueryStoreRuntimeStatistics|Statystyka środowiska uruchomieniowego magazynu zapytań|
 |QueryStoreWaitStatistics|Statystyka oczekiwania magazynu zapytań|

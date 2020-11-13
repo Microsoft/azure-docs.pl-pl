@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744142"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616199"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java dla Azure App Service
 
@@ -68,11 +68,11 @@ Raporty o wydajności, wizualizacje ruchu i narzędzia dla kondycji są dostępn
 
 Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników w Cloud Shell](troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
+::: zone pivot="platform-linux"
+
 ### <a name="ssh-console-access"></a>Dostęp do konsoli SSH
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
-
-::: zone pivot="platform-linux"
 
 ### <a name="troubleshooting-tools"></a>Narzędzia do rozwiązywania problemów
 
@@ -330,10 +330,10 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 ::: zone pivot="platform-windows"
 
 1. Utwórz konto NewRelic na [newrelic.com](https://newrelic.com/signup)
-2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip* .
+2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip*.
 3. Skopiuj klucz licencji, który będzie potrzebny do późniejszego skonfigurowania agenta.
-4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM* .
-5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic* .
+4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
+5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic*.
 6. Zmodyfikuj plik YAML pod adresem */Home/site/wwwroot/APM/newrelic/newrelic.yml* i Zastąp wartość licencji zastępczej własnym kluczem licencji.
 7. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
 
@@ -344,10 +344,10 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 ::: zone pivot="platform-linux"
 
 1. Utwórz konto NewRelic na [newrelic.com](https://newrelic.com/signup)
-2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip* .
+2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip*.
 3. Skopiuj klucz licencji, który będzie potrzebny do późniejszego skonfigurowania agenta.
-4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM* .
-5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic* .
+4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
+5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic*.
 6. Zmodyfikuj plik YAML pod adresem */Home/site/wwwroot/APM/newrelic/newrelic.yml* i Zastąp wartość licencji zastępczej własnym kluczem licencji.
 7. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
    
@@ -364,8 +364,8 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 
 1. Utwórz konto AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x.x.x.xxxxx.zip*
-3. Za pomocą [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) Utwórz nowy katalog */Home/site/wwwroot/APM* .
-4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics* .
+3. Za pomocą [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) Utwórz nowy katalog */Home/site/wwwroot/APM*.
+4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics*.
 5. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
 
    - W przypadku aplikacji **Java SE** Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością, `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` gdzie `<app-name>` to nazwa App Service.
@@ -376,8 +376,8 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 
 1. Utwórz konto AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x.x.x.xxxxx.zip*
-3. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM* .
-4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics* .
+3. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
+4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics*.
 5. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
 
    - W przypadku aplikacji **Java SE** Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością, `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` gdzie `<app-name>` to nazwa App Service.
@@ -678,7 +678,7 @@ Podczas [rejestrowania źródła danych przy użyciu protokołu EAP JBoss](https
     ```
 
 1. Za pomocą wybranego klienta FTP Przekaż swój sterownik JDBC,, `jboss-cli-commands.cli` `startup_script.sh` i definicję modułu do programu `/site/deployments/tools/` .
-2. Skonfiguruj swoją lokację do uruchamiania `startup_script.sh` podczas uruchamiania kontenera. W witrynie Azure Portal przejdź do polecenia **Konfiguracja**  >  **Ogólne ustawienia**  >  **uruchamiania** . Ustaw pole polecenia uruchamiania na `/home/site/deployments/tools/startup_script.sh` . **Zapisz** zmiany.
+2. Skonfiguruj swoją lokację do uruchamiania `startup_script.sh` podczas uruchamiania kontenera. W witrynie Azure Portal przejdź do polecenia **Konfiguracja**  >  **Ogólne ustawienia**  >  **uruchamiania**. Ustaw pole polecenia uruchamiania na `/home/site/deployments/tools/startup_script.sh` . **Zapisz** zmiany.
 
 Aby potwierdzić, że źródło danych zostało dodane do serwera JBoss, Użyj protokołu SSH do webapp i uruchom polecenie `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Po nawiązaniu połączenia z usługą JBoss Uruchom, `/subsystem=datasources:read-resource` Aby wydrukować listę źródeł danych.
 

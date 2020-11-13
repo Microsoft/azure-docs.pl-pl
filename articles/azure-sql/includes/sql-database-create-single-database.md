@@ -4,14 +4,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: mathoma
+ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: ad6e444f9672fbe521e9c6963649d250830154d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84046138"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593952"
 ---
 W tym kroku utworzysz [logiczny serwer SQL](../database/logical-servers.md) i [pojedynczą bazę danych](../database/single-database-overview.md) , która korzysta z przykładowych danych AdventureWorksLT. Bazę danych można utworzyć za pomocą menu Azure Portal i ekranów, a także za pomocą interfejsu wiersza polecenia platformy Azure lub skryptu programu PowerShell w Azure Cloud Shell.
 
@@ -28,18 +28,18 @@ Aby utworzyć grupę zasobów, serwer i pojedynczą bazę danych w Azure Portal:
    ![Dodawanie do usługi Azure SQL](./media/sql-database-create-single-database/sqldbportal.png)
 
 1. Na stronie **Wybierz opcję wdrożenia SQL** wybierz kafelek **bazy danych SQL** z **pojedynczą bazą danych** w obszarze **Typ zasobu**. Aby wyświetlić więcej informacji na temat różnych baz danych, wybierz pozycję **Pokaż szczegóły**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie pojedynczej bazy danych](./media/sql-database-create-single-database/create-single-database.png)
 
-1. Na karcie **podstawowe** w formularzu **Tworzenie bazy danych SQL** w obszarze **szczegóły projektu**Wybierz poprawną **subskrypcję** platformy Azure, jeśli nie została jeszcze wybrana.
-1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**, wprowadź pozycję Grupa *zasobów*, a następnie wybierz pozycję **OK**.
-1. W obszarze **szczegóły bazy danych**w polu **Nazwa bazy danych** wprowadź *mySampleDatabase*.
-1. W polu **serwer**wybierz pozycję **Utwórz nowy**i wypełnij formularz **nowy serwer** w następujący sposób:
-   - **Nazwa serwera**: wprowadź dla elementu *SqlServer*, a niektóre znaki są unikatowe.
-   - **Identyfikator logowania administratora serwera**: wprowadź *azureuser*.
-   - **Hasło**: wprowadź hasło spełniające wymagania i wprowadź je ponownie w polu **Potwierdź hasło** .
-   - **Lokalizacja**: Lista rozwijana i wybierz lokalizację, na przykład **(US) Wschodnie stany USA**.
+1. Na karcie **podstawowe** w formularzu **Tworzenie bazy danych SQL** w obszarze **szczegóły projektu** Wybierz poprawną **subskrypcję** platformy Azure, jeśli nie została jeszcze wybrana.
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź pozycję Grupa *zasobów* , a następnie wybierz pozycję **OK**.
+1. W obszarze **szczegóły bazy danych** w polu **Nazwa bazy danych** wprowadź *mySampleDatabase*.
+1. W polu **serwer** wybierz pozycję **Utwórz nowy** i wypełnij formularz **nowy serwer** w następujący sposób:
+   - **Nazwa serwera** : wprowadź dla elementu *SqlServer* , a niektóre znaki są unikatowe.
+   - **Identyfikator logowania administratora serwera** : wprowadź *azureuser*.
+   - **Hasło** : wprowadź hasło spełniające wymagania i wprowadź je ponownie w polu **Potwierdź hasło** .
+   - **Lokalizacja** : Lista rozwijana i wybierz lokalizację, na przykład **(US) Wschodnie stany USA**.
 
    Wybierz przycisk **OK**.
 
@@ -47,7 +47,7 @@ Aby utworzyć grupę zasobów, serwer i pojedynczą bazę danych w Azure Portal:
 
    Zarejestruj nazwę logowania administratora serwera i hasło, aby można było zalogować się do serwera i jego baz danych. Jeśli zapomnisz o logowaniu lub haśle, możesz uzyskać nazwę logowania lub zresetować hasło na stronie **programu SQL Server** po utworzeniu bazy danych. Aby otworzyć stronę **programu SQL Server** , wybierz nazwę serwera na stronie **Przegląd** bazy danych.
 
-1. Jeśli chcesz zmienić ustawienia domyślne w obszarze **obliczeniowy + magazyn**, wybierz pozycję **Konfiguruj bazę danych**.
+1. Jeśli chcesz zmienić ustawienia domyślne w obszarze **obliczeniowy + magazyn** , wybierz pozycję **Konfiguruj bazę danych**.
 
    Na stronie **Konfiguracja** można opcjonalnie:
    - Zmień **warstwę obliczeń** z **aprowizacji** na **bezserwerowe**.
@@ -60,15 +60,15 @@ Aby utworzyć grupę zasobów, serwer i pojedynczą bazę danych w Azure Portal:
 
    ![Nowa baza danych SQL — Karta podstawowa](./media/sql-database-create-single-database/new-sql-database-basics.png)
 
-1. Na karcie **Sieć** w obszarze **Metoda połączenia**wybierz pozycję **publiczny punkt końcowy**.
-1. W obszarze **reguły zapory**ustaw opcję **Dodaj bieżący adres IP klienta** na **wartość tak**.
+1. Na karcie **Sieć** w obszarze **Metoda połączenia** wybierz pozycję **publiczny punkt końcowy**.
+1. W obszarze **reguły zapory** ustaw opcję **Dodaj bieżący adres IP klienta** na **wartość tak**.
 1. Wybierz pozycję **Dalej: dodatkowe ustawienia** w dolnej części strony.
 
    ![Karta Sieć](./media/sql-database-create-single-database/networking.png)
   
    Aby uzyskać więcej informacji na temat ustawień zapory, zobacz [Zezwalanie usługom i zasobom platformy Azure na dostęp do tego serwera](../database/network-access-controls-overview.md) i [Dodawanie prywatnego punktu końcowego](../database/private-endpoint-overview.md).
 
-1. Na karcie **Ustawienia dodatkowe** w sekcji **Źródło danych** wybierz pozycję **przykład**, aby **użyć istniejących danych**.
+1. Na karcie **Ustawienia dodatkowe** w sekcji **Źródło danych** wybierz pozycję **przykład** , aby **użyć istniejących danych**.
 1. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony.
 
    ![Karta Ustawienia dodatkowe](./media/sql-database-create-single-database/additional-settings.png)
@@ -149,11 +149,11 @@ Poprzedni kod używa tych poleceń interfejsu wiersza polecenia platformy Azure:
 
 | Polecenie | Opis |
 |---|---|
-| [AZ Account Set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Ustawia subskrypcję jako bieżącą aktywną subskrypcję. |
+| [AZ Account Set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Ustawia subskrypcję jako bieżącą aktywną subskrypcję. |
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Tworzy serwer, który hostuje bazy danych i pule elastyczne. |
 | [AZ SQL Server firewall-Rule Create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Tworzy regułę zapory na poziomie serwera. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Tworzy bazę danych. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Tworzy bazę danych. |
 
 Aby uzyskać więcej Azure SQL Database przykładów interfejsu wiersza polecenia platformy Azure, zobacz [przykłady interfejsu wiersza polecenia platformy Azure](../database/az-cli-script-samples-content-guide.md).
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 8e947a7db7b10746ebd01726fd2103cf3e5c8df6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6503955c69b8ca64678efbc0c01cea7f78509f8d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533212"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592723"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji konsolowej języka Python przy użyciu tożsamości aplikacji
 
-W tym przewodniku szybki start Napisz aplikację w języku Python, która pobiera token dostępu przy użyciu tożsamości aplikacji, a następnie wywoła interfejs API Microsoft Graph, aby wyświetlić [listę użytkowników](/graph/api/user-list) w katalogu. Ten scenariusz przydaje się w sytuacjach, które wymagają uruchamiania bezobsługowego, nienadzorowanego zadania lub usługi systemu Windows przy użyciu tożsamości aplikacji, a nie tożsamości użytkownika.
+W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak aplikacja języka Python może uzyskać token dostępu przy użyciu tożsamości aplikacji w celu wywołania interfejsu API Microsoft Graph i wyświetlenia [listy użytkowników](/graph/api/user-list) w katalogu. Przykład kodu demonstruje, jak zadanie nienadzorowane lub usługa systemu Windows mogą być uruchamiane przy użyciu tożsamości aplikacji, a nie tożsamości użytkownika. 
 
 > [!div renderon="docs"]
 > ![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten przewodnik Szybki Start](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)

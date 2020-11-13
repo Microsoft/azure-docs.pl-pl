@@ -3,16 +3,16 @@ title: Diagnozowanie problemów z wydajnością za pomocą usługi Azure Applica
 description: Samouczek omawiający znajdowanie i diagnozowanie problemów z wydajnością aplikacji za pomocą usługi Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322503"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592570"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Znajdowanie i diagnozowanie problemów z wydajnością za pomocą usługi Azure Application Insights
 
@@ -41,8 +41,8 @@ Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://port
 ## <a name="identify-slow-server-operations"></a>Identyfikowanie wolnych operacji serwera
 Usługa Application Insights zbiera informacje o wydajności różnych operacji w aplikacji. Identyfikując operacje o najdłuższym czasie trwania, możesz zdiagnozować potencjalne problemy albo najlepiej ukierunkować trwające prace programistyczne w celu podniesienia ogólnej wydajności aplikacji.
 
-1. Wybierz pozycję **Application Insights**, a następnie wybierz swoją subskrypcję.  
-1. Aby otworzyć panel **Wydajność**, wybierz pozycję **Wydajność** z menu **Zbadaj** albo kliknij wykres**Czas odpowiedzi serwera**.
+1. Wybierz pozycję **Application Insights** , a następnie wybierz swoją subskrypcję.  
+1. Aby otworzyć panel **Wydajność** , wybierz pozycję **Wydajność** z menu **Zbadaj** albo kliknij wykres **Czas odpowiedzi serwera**.
 
     ![Wydajność](media/tutorial-performance/1-overview.png)
 
@@ -67,7 +67,7 @@ Usługa Application Insights zbiera informacje o wydajności różnych operacji 
 
     ![Szczegóły profilera](media/tutorial-performance/5-hot-path.png)
 
-7.  Obszar **Porada dotycząca wydajności** u góry ekranu potwierdza ocenę, że nadmierny czas trwania wynika z oczekiwania.  Kliknij link **oczekiwanie**, aby otworzyć dokumentację omawiającą interpretowanie różnych typów zdarzeń.
+7.  Obszar **Porada dotycząca wydajności** u góry ekranu potwierdza ocenę, że nadmierny czas trwania wynika z oczekiwania.  Kliknij link **oczekiwanie** , aby otworzyć dokumentację omawiającą interpretowanie różnych typów zdarzeń.
 
     ![Porada dotycząca wydajności](media/tutorial-performance/6-perf-tip.png)
 
@@ -102,11 +102,6 @@ Podobnie jak w przypadku danych zbieranych pod kątem wydajności serwera, Appli
 2. Dzienniki są otwierane za pomocą zapytania dla każdego z widoków w panelu. Pierwsze zapytanie pokazuje czas trwania dla różnych wyświetleń stron w miarę upływu czasu.
 
     ![Zapytanie dzienników](media/tutorial-performance/10-page-view-logs.png)
-
-3.  Inteligentna diagnostyka to funkcja dzienników identyfikująca unikatowe wzorce w danych. Po kliknięciu na wykresie liniowym kropki funkcji Inteligentna diagnostyka uruchamiane jest to samo zapytanie, ale bez rekordów będących przyczyną anomalii. Szczegółowe informacje o tych rekordach są pokazywane w sekcji komentarza zapytania, więc można zidentyfikować właściwości tych wyświetleń strony, które powodują za długie czasy trwania.
-
-    ![Dzienniki z inteligentną diagnostyką](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy już wiesz, jak identyfikować wyjątki czasu wykonywania, przejdź do następnego samouczka, aby dowiedzieć się, jak tworzyć alerty w odpowiedzi na błędy.

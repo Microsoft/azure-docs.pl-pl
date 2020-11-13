@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575920"
+ms.locfileid: "94593743"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -19,7 +19,7 @@ ms.locfileid: "94575920"
 
 Udział danych platformy Azure obsługuje funkcję udostępniania opartego na migawce Azure SQL Database i usługi Azure Synapse Analytics. W tym artykule wyjaśniono, jak udostępniać i odbierać dane z tych źródeł.
 
-Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW) i udostępnianie tabel z puli SQL usługi Azure Synapse Analytics (obszar roboczy). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
+Udział danych platformy Azure obsługuje udostępnianie tabel i widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW) oraz udostępnianie tabel z dedykowanej puli SQL usługi Azure Synapse Analytics (Workspace). Udostępnianie z puli usługi Azure Synapse Analytics (Workspace) nie jest obecnie obsługiwane. Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
 
 Gdy akceptujesz dane do Azure Data Lake Store Gen2 lub Azure Blob Storage, pełne migawki zastąpią zawartość pliku docelowego, jeśli już istnieje.
 Gdy dane są odbierane do tabeli SQL i jeśli tabela docelowa jeszcze nie istnieje, udział danych platformy Azure tworzy tabelę SQL ze schematem źródłowym. Jeśli tabela docelowa już istnieje o tej samej nazwie, zostanie porzucona i zastąpiona najnowszą pełną migawką. Migawki przyrostowe nie są obecnie obsługiwane.
@@ -61,7 +61,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące udostępniania z puli SQL usługi Azure Synapse Analytics (Workspace)
 
-* Pula SQL usługi Azure Synapse Analytics (Workspace) z tabelami, które chcesz udostępnić. Udostępnianie widoku nie jest obecnie obsługiwane.
+* Dedykowana Pula SQL usługi Azure Synapse Analytics z tabelami, które chcesz udostępnić. Udostępnianie widoku nie jest obecnie obsługiwane. Udostępnianie z puli SQL bez serwera nie jest obecnie obsługiwane.
 * Uprawnienia do zapisu w puli SQL w obszarze roboczym Synapse, które znajdują się w *witrynie Microsoft. Synapse/Workspaces/Sqlpools/Write*. To uprawnienie istnieje w roli **Współautor**.
 * Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do puli SQL obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję SQL Active Directory administrator na lewym panelu nawigacyjnym i ustaw siebie jako **administratora Azure Active Directory**.
@@ -132,7 +132,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
     ![Adddatasets](./media/add-datasets.png "Dodaj zestawy danych")    
 
-1. Wybierz obszar roboczy programu SQL Server lub Synapse, podaj poświadczenia, jeśli zostanie wyświetlony monit, a następnie wybierz pozycję **dalej** , aby przejść do obiektu, który chcesz udostępnić, i wybierz pozycję "Dodaj zestawy danych". 
+1. Wybierz obszar roboczy programu SQL Server lub Synapse, podaj poświadczenia, jeśli zostanie wyświetlony monit, a następnie wybierz pozycję **dalej** , aby przejść do obiektu, który chcesz udostępnić, i wybierz pozycję "Dodaj zestawy danych". Możesz wybrać tabele i widoki z Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL DW) lub tabel z dedykowanej puli SQL usługi Azure Synapse Analytics (Workspace). 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Wybierz zestawy danych")    
 
@@ -201,7 +201,7 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące otrzymywania danych w puli SQL usługi Azure Synapse Analytics (Workspace)
 
-* Pula SQL usługi Azure Synapse Analytics (obszar roboczy).
+* Dedykowana Pula SQL usługi Azure Synapse Analytics (Workspace). Otrzymywanie danych do puli SQL bez serwera nie jest obecnie obsługiwane.
 * Uprawnienia do zapisu w puli SQL w obszarze roboczym Synapse, które znajdują się w *witrynie Microsoft. Synapse/Workspaces/Sqlpools/Write*. To uprawnienie istnieje w roli **Współautor**.
 * Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do puli SQL obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję SQL Active Directory administrator na lewym panelu nawigacyjnym i ustaw siebie jako **administratora Azure Active Directory**.

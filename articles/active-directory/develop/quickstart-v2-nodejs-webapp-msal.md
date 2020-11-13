@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335251"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594236"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w aplikacji sieci Web Node przy użyciu przepływu kodu uwierzytelniania
 
-W tym przewodniku szybki start przedstawiono przykładowy kod, który pokazuje, jak aplikacja sieci Web Node.js może zalogować użytkowników kont osobistych, kont służbowych i szkolnych przy użyciu przepływu kodu autoryzacji. Przykładowy kod ilustruje również uzyskiwanie tokenu dostępu do wywoływania internetowego interfejsu API, w tym przypadku Microsoft Graph API. Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
+W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokazuje, jak aplikacja sieci Web Node.js może zalogować użytkowników przy użyciu przepływu kodu autoryzacji. Przykład kodu demonstruje również sposób uzyskiwania tokenu dostępu do wywoływania Microsoft Graph API. 
+
+Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft dla Node.js (węzeł MSAL) z przepływem kodu autoryzacji.
 
@@ -39,7 +41,7 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 >
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 >
-> 1. Zaloguj się do [Azure portal](https://portal.azure.com).
+> 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 > 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu z dzierżawą usługi Azure AD, której chcesz użyć.
 > 1. Wybierz pozycję [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Wybierz pozycję **Nowa rejestracja**.

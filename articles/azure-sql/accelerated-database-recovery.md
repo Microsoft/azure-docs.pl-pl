@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=4
 ms.devlang: ''
 ms.topic: conceptual
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9f29a891061dc0e6dcfe8c8f6a65f0f190c6afc
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327633"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593590"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Szybsze odzyskiwanie bazy danych w usłudze Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -88,11 +88,11 @@ Proces odzyskiwania ADR ma te same trzy fazy jak bieżący proces odzyskiwania. 
 - **Wykonaj ponownie** fazę
 
   Podzielone na dwie fazy (P)
-  - Faza 1
+  - Faza 1
 
       Wykonaj ponownie z sLog (najstarszej niezatwierdzonej transakcji do ostatniego punktu kontrolnego). Wykonaj ponownie szybką operację, ponieważ wymaga tylko przetworzenia kilku rekordów z sLog.
 
-  - Faza 2
+  - Faza 2
 
      Ponowne wykonywanie z dziennika transakcji zaczyna się od ostatniego punktu kontrolnego (zamiast najstarszej niezatwierdzonej transakcji)
 

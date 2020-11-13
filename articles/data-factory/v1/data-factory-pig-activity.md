@@ -1,6 +1,6 @@
 ---
 title: Przekształcanie danych przy użyciu działania trzody chlewnej w Azure Data Factory
-description: Dowiedz się, jak za pomocą działania świni w usłudze Azure Data Factory w wersji 1 uruchamiać skrypty wieprzowe na żądanie/własny klaster usługi HDInsight.
+description: Dowiedz się, jak za pomocą działania wieprzowiny w Azure Data Factory V1 uruchomić skrypty wieprzowe na żądanie/własny klaster usługi HDInsight.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 35990312658492e1e41b47096a43748c3a4e653e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c94d66bf98645e12a6c603f2b35d229080717734
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359904"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616862"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania trzody chlewnej w Azure Data Factory
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359904"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -85,7 +85,7 @@ Działanie świni w [usłudze](data-factory-compute-linked-services.md#azure-hdi
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa działania |Tak |
-| description |Tekst opisujący działanie używanego działania |Nie |
+| description (opis) |Tekst opisujący działanie używanego działania |Nie |
 | typ |HDinsightPig |Tak |
 | danych wejściowych |Co najmniej jedno wejście używane przez działanie świni |Nie |
 | wydajności |Jedno lub więcej danych wyjściowych wytwarzanych przez działanie trzody chlewnej |Tak |
@@ -121,8 +121,8 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 
 Aby wykonać ten skrypt trzody chlewnej w potoku Data Factory, wykonaj następujące czynności:
 
-1. Utwórz połączoną usługę, aby zarejestrować [własny klaster obliczeniowy usługi HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) lub skonfigurować [klaster obliczeniowy usługi HDInsight na żądanie](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Przydzwońmy do **HDInsightLinkedService**połączonej usługi.
-2. Utwórz [połączoną usługę](data-factory-azure-blob-connector.md) , aby skonfigurować połączenie z magazynem obiektów blob platformy Azure hostującym dane. Przydzwońmy do **StorageLinkedService**połączonej usługi.
+1. Utwórz połączoną usługę, aby zarejestrować [własny klaster obliczeniowy usługi HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) lub skonfigurować [klaster obliczeniowy usługi HDInsight na żądanie](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Przydzwońmy do **HDInsightLinkedService** połączonej usługi.
+2. Utwórz [połączoną usługę](data-factory-azure-blob-connector.md) , aby skonfigurować połączenie z magazynem obiektów blob platformy Azure hostującym dane. Przydzwońmy do **StorageLinkedService** połączonej usługi.
 3. Utwórz [zestawy](data-factory-create-datasets.md) danych wskazujące dane wejściowe i wyjściowe. Wywołajmy wejściowy zestaw danych **PigSampleIn** i wyjściowy zestaw danych **PigSampleOut**.
 4. Skopiuj zapytanie świni w pliku, który Blob Storage platformy Azure skonfigurowany w kroku #2. Jeśli magazyn platformy Azure, który obsługuje dane, różni się od tego, który hostuje plik zapytania, należy utworzyć oddzielną połączoną usługę Azure Storage. Zapoznaj się z połączoną usługą w konfiguracji działania. Użyj **scriptPath** , aby określić ścieżkę do pliku skryptu i **elementu scriptlinkedservice**. 
    
@@ -210,7 +210,7 @@ Aby użyć sparametryzowanego skryptu wieprzowego, wykonaj następujące czynno�
       }
     }
     ```
-* W skrypcie trzody chlewnej zapoznaj się z parametrami przy użyciu "**$ParameterName**", jak pokazano w następującym przykładzie:
+* W skrypcie trzody chlewnej zapoznaj się z parametrami przy użyciu " **$ParameterName** ", jak pokazano w następującym przykładzie:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

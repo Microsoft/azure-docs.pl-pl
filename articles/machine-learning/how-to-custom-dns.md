@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311561"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616097"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Jak używać obszaru roboczego z niestandardowym serwerem DNS
 
-W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jednak w __przypadku korzystania z własnego niestandardowego serwera DNS__ należy ręcznie utworzyć wpisy DNS dla obszaru roboczego.
+W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jeśli zamiast tego _używasz własnego niestandardowego serwera DNS_ _, musisz ręcznie utworzyć wpisy DNS dla obszaru roboczego.
 
 > [!IMPORTANT]
 > W tym artykule opisano, jak znaleźć w pełni kwalifikowaną nazwę domeny (FQDN) i adresy IP dla tych wpisów, które nie zawierają informacji na temat konfigurowania rekordów DNS dla tych elementów. Zapoznaj się z dokumentacją oprogramowania DNS, aby uzyskać informacje na temat dodawania rekordów.
@@ -40,13 +40,14 @@ W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [
 Poniższa lista zawiera w pełni kwalifikowane nazwy domen (FQDN) używane przez obszar roboczy i prywatny punkt końcowy:
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* W przypadku tworzenia wystąpienia obliczeniowego należy również dodać wpis `<instance-name>.<region>.instances.azureml.ms` z prywatnym adresem IP prywatnego punktu końcowego obszaru roboczego. Uwaga do wystąpienia obliczeniowego można uzyskać dostęp tylko z poziomu sieci wirtualnej.
+* W przypadku tworzenia wystąpienia obliczeniowego należy również dodać wpis `<instance-name>.<region>.instances.azureml.ms` z prywatnym adresem IP prywatnego punktu końcowego obszaru roboczego.
+
+    > [!NOTE]
+    > Wystąpienia obliczeniowe są dostępne tylko w sieci wirtualnej.
 
 Aby znaleźć wewnętrzne adresy IP dla nazw FQDN w sieci wirtualnej, należy użyć jednej z następujących metod:
 
@@ -82,8 +83,6 @@ Informacje zwracane przez wszystkie metody są takie same; Lista nazw FQDN i pry
 | Nazwa FQDN | Adres IP |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377755"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593080"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metody uwierzytelniania w opcjach Azure Active Directory-Phone
 
@@ -32,7 +32,7 @@ Aby działały prawidłowo, numery telefonów muszą mieć format *+ CountryCode
 
 ## <a name="mobile-phone-verification"></a>Weryfikacja telefonu komórkowego
 
-W przypadku usługi Azure Multi-Factor Authentication lub SSPR użytkownicy mogą zdecydować się na otrzymanie wiadomości SMS z kodem weryfikacyjnym, aby wejść do interfejsu logowania, lub odebrać połączenie telefoniczne z monitem o wprowadzenie zdefiniowanego kodu PIN.
+W przypadku usługi Azure Multi-Factor Authentication lub SSPR użytkownicy mogą zdecydować się na otrzymywanie wiadomości SMS z kodem weryfikacyjnym, aby wejść do interfejsu logowania lub odebrać połączenie telefoniczne.
 
 Jeśli użytkownicy nie chcą, aby numer telefonu komórkowego był widoczny w katalogu, ale chcą używać go do resetowania haseł, Administratorzy nie zapełnią numeru telefonu w katalogu. Zamiast tego użytkownicy powinni zapełniać atrybut **telefonu uwierzytelniania** za pośrednictwem rejestracji informacji o zabezpieczeniach w usłudze [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) . Administratorzy mogą zobaczyć te informacje w profilu użytkownika, ale nie zostały opublikowane w innym miejscu.
 
@@ -46,11 +46,11 @@ Za pomocą weryfikacji wiadomości tekstowych podczas SSPR lub platformy Azure M
 
 ### <a name="phone-call-verification"></a>Weryfikacja połączenia telefonicznego
 
-Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik otrzymuje monit o wprowadzenie numeru PIN, po którym następuje znak # na klawiaturze.
+Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik jest monitowany o naciśnięcie przycisku # na klawiaturze.
 
 ## <a name="office-phone-verification"></a>Weryfikacja telefonu służbowego
 
-Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik otrzymuje monit o wprowadzenie numeru PIN, po którym następuje znak # na klawiaturze.
+Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik jest monitowany o naciśnięcie przycisku # na klawiaturze.
 
 ## <a name="troubleshooting-phone-options"></a>Rozwiązywanie problemów z opcjami telefonu
 
@@ -61,7 +61,7 @@ Jeśli masz problemy z uwierzytelnianiem za pomocą telefonu w usłudze Azure AD
 * Błędny numer telefonu lub nieprawidłowy kod kraju/regionu lub pomyłek między osobistym numerem telefonu a numerem telefonu służbowego.
    * Rozwiązywanie problemów z obiektem użytkownika i skonfigurowanymi metodami uwierzytelniania. Upewnij się, że zarejestrowano poprawne numery telefonów.
 * Wprowadzono nieprawidłowy kod PIN.
-   * Upewnij się, że użytkownik użył poprawnego numeru PIN zarejestrowanego dla swojego konta.
+   * Upewnij się, że użytkownik użył poprawnego numeru PIN, który został zarejestrowany dla konta (tylko użytkownicy serwera usługi MFA).
 * Połączenie przekazane do poczty głosowej.
    * Upewnij się, że użytkownik ma włączony telefon i że usługa jest dostępna w swoim obszarze, lub użyj alternatywnej metody.
 * Użytkownik jest zablokowany

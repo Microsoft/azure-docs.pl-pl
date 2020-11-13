@@ -3,12 +3,12 @@ title: Wdróż Traffic Manager, aby zrównoważyć obciążenia Azure VMware Sol
 description: Dowiedz się, jak zintegrować Traffic Manager z rozwiązaniem VMware platformy Azure (Automatyczna synchronizacja), aby zrównoważyć obciążenia aplikacji w wielu punktach końcowych w różnych regionach.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: d461cc444c60e1907a34a08c68139446301c133c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580148"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593140"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Wdróż Traffic Manager, aby zrównoważyć obciążenia Azure VMware Solution (Automatyczna synchronizacja)
 
@@ -30,7 +30,7 @@ Jak pokazano na poniższej ilustracji, usługa Azure Traffic Manager zapewnia R�
 
 Połączenie przez sieć wirtualną między dwoma regionami chmury prywatnej, zachodnim stanem USA i Europa Zachodnia oraz serwerem lokalnym w regionie Wschodnie stany USA używa bramy ExpressRoute.   
 
-![Integracja Traffic Manager z funkcją automatycznej synchronizacji](media/traffic-manager/traffic-manager-topology.png)
+![Diagram architektury Traffic Manager integracji z rozwiązaniem VMware platformy Azure](media/traffic-manager/traffic-manager-topology.png)
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,15 +55,15 @@ Poniższe kroki sprawdzają poprawność konfiguracji bram aplikacji.
     - Automatyczna synchronizacja — GW-EUS (lokalnie)
     - AUTOMATYCZNA SYNCHRONIZACJA — GW-UZE
 
-    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Lista bram aplikacji." lightbox="media/traffic-manager/app-gateways-list-1.png":::
+    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Zrzut ekranu przedstawiający stronę bramy Application Gateway z listą skonfigurowanych bram aplikacji." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 2. Wybierz jedną z wcześniej wdrożonych bram aplikacji. Zostanie otwarte okno zawierające różne informacje o bramie aplikacji. Wybierz pozycję **Pule zaplecza** , aby zweryfikować konfigurację jednej z pul zaplecza.
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Lista bram aplikacji." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Zrzut ekranu strony bramy Application Gateway przedstawiający szczegóły wybranej bramy aplikacji." lightbox="media/traffic-manager/backend-pool-config.png":::
  
 3. W takim przypadku zobaczysz jeden element członkowski puli zaplecza maszyny wirtualnej skonfigurowany jako serwer sieci Web z adresem IP 172.29.1.10.
  
-    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Lista bram aplikacji.":::
+    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Zrzut ekranu strony edytowanie puli zaplecza z wyróżnionym docelowym adresem IP.":::
 
     Można w podobny sposób sprawdzić konfigurację innych bram aplikacji i członków puli zaplecza. 
 
@@ -75,21 +75,21 @@ W naszym scenariuszu segment NSX-T jest konfigurowany w środowisku automatyczne
 
 1. Wybierz **segmenty** , aby wyświetlić skonfigurowane segmenty. W takim przypadku widzimy, że firma Contoso-SEGMENT1 jest połączona z bramą contoso-T01, elastycznym routerem warstwy 1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Lista bram aplikacji.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Zrzut ekranu przedstawiający profile segmentów w Menedżerze NSX-T.":::    
 
 2. Wybierz pozycję **bramy warstwy 1** , aby wyświetlić listę bram warstwy 1 z liczbą połączonych segmentów. Wybierz segment połączony z Contoso-T01. Zostanie otwarte okno z interfejsem logicznym skonfigurowanym na routerze warstwy-01. Służy on jako brama do maszyny wirtualnej należącej do puli zaplecza połączonej z segmentem.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Lista bram aplikacji.":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Zrzut ekranu przedstawiający adres bramy wybranego segmentu.":::    
 
 3. W kliencie vSphere maszyny wirtualnej wybierz maszynę wirtualną, aby wyświetlić jej szczegóły. Zwróć uwagę, że adres IP jest zgodny z informacjami w kroku 3 poprzedniej sekcji: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Lista bram aplikacji.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły maszyny wirtualnej w kliencie VSphere.":::    
 
 4. Wybierz maszynę wirtualną, a następnie kliknij pozycję **akcje > Edytuj ustawienia** , aby zweryfikować połączenie z segmentem NSX-T.
 
 ## <a name="create-your-traffic-manager-profile"></a>Tworzenie profilu Traffic Manager
 
-1. Zaloguj się do witryny [Azure Portal](https://rc.portal.azure.com/#home). W obszarze **usługi platformy Azure > sieć**wybierz pozycję **Traffic Manager profile**.
+1. Zaloguj się do [Azure Portal](https://rc.portal.azure.com/#home). W obszarze **usługi platformy Azure > sieć** wybierz pozycję **Traffic Manager profile**.
 
 2. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy profil Traffic Manager.
  
@@ -99,33 +99,27 @@ W naszym scenariuszu segment NSX-T jest konfigurowany w środowisku automatyczne
 
 1. Wybierz profil Traffic Manager z okienka wyników wyszukiwania, wybierz **punkty końcowe** , a następnie **+ Dodaj**.
 
-2. Wprowadź wymagane szczegóły: typ, nazwa, w pełni kwalifikowana nazwa domeny (FQDN) lub adres IP oraz waga (w tym scenariuszu przypiszemy wagę 1 do każdego punktu końcowego). Wybierz pozycję **Dodaj**.
-
-   :::image type="content" source="media/traffic-manager/traffic-manager-profile.png" alt-text="Lista bram aplikacji.":::  
- 
-   Spowoduje to utworzenie zewnętrznego punktu końcowego. Stan monitora musi być w **trybie online**. 
-
-   Powtórz te same czynności, aby utworzyć dwa dodatkowe zewnętrzne punkty końcowe, jeden w innym regionie i w innym miejscu. Po utworzeniu wszystkie trzy będą wyświetlane w profilu Traffic Manager, a stan wszystkich trzech powinien być w **trybie online**.
+2. Wprowadź wymagane szczegóły: typ, nazwa, w pełni kwalifikowana nazwa domeny (FQDN) lub adres IP oraz waga (w tym scenariuszu przypiszemy wagę 1 do każdego punktu końcowego). Wybierz pozycję **Dodaj**. Spowoduje to utworzenie zewnętrznego punktu końcowego. Stan monitora musi być w **trybie online**. Powtórz te same czynności, aby utworzyć dwa dodatkowe zewnętrzne punkty końcowe, jeden w innym regionie i w innym miejscu. Po utworzeniu wszystkie trzy będą wyświetlane w profilu Traffic Manager, a stan wszystkich trzech powinien być w **trybie online**.
 
 3. Wybierz pozycję **Omówienie**. Skopiuj adres URL pod **nazwą DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Lista bram aplikacji."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Zrzut ekranu przedstawiający przegląd Traffic Manager punktu końcowego z wyróżnioną nazwą DNS."::: 
 
 4. Wklej adres URL nazwy DNS w przeglądarce. Poniższy zrzut ekranu przedstawia ruch kierowany do regionu Europa Zachodnia.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Lista bram aplikacji."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Zrzut ekranu okna przeglądarki przedstawiający ruch kierowany do Europa Zachodnia."::: 
 
 5. Odśwież przeglądarkę. Poniższy zrzut ekranu przedstawia ruch kierowany do innego zestawu elementów członkowskich puli zaplecza w regionie zachodnie stany USA.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Lista bram aplikacji."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Zrzut ekranu okna przeglądarki przedstawiający ruch kierowany do regionu zachodnie stany USA."::: 
 
 6. Odśwież przeglądarkę ponownie. Poniższy zrzut ekranu przedstawia ruch kierowany do ostatecznego zestawu elementów członkowskich puli zaplecza lokalnie.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Lista bram aplikacji.":::
+   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Zrzut ekranu okna przeglądarki przedstawiający ruch kierowany do lokalnego.":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na następujące tematy:
+Dowiedz się więcej:
 
 - [Korzystanie z usługi Azure Application Gateway na platformie Azure VMware (Automatyczna synchronizacja)](protect-azure-vmware-solution-with-application-gateway.md)
 - [Metody routingu w usłudze Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md)

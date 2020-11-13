@@ -10,21 +10,21 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bc16dde7d3156df08b946a15012a201054cd8e0a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147564"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592604"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizowanie danych za pomocą dedykowanych pul SQL
 
 Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedykowanej puli SQL. W tym samouczku użyjemy danych z NYC taksówkami, aby poznać możliwości dedicted puli SQL.
 
-## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Załaduj dane z NYC taksówki do SQLDB1
+## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Załaduj dane z NYC taksówki do SQLPOOL1
 
 1. W programie Synapse Studio przejdź do centrum **opracowywania** , a następnie utwórz nowy skrypt SQL.
-1. Wybierz pulę "SQLDB1" (Pula utworzona w [kroku 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) tego samouczka) w sekcji "łączenie z" skryptu.
+1. Wybierz pulę "SQLPOOL1" (Pula utworzona w [kroku 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) tego samouczka) w sekcji "łączenie z" skryptu.
 1. Wprowadź następujący kod:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -76,10 +76,10 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Eksplorowanie danych z NYC taksówki w dedykowanej puli SQL
 
 1. W programie Synapse Studio przejdź do centrum **danych** .
-1. Przejdź do **SQLDB1**  >  **tabel**SQLDB1. Zobaczysz kilka załadowanych tabel.
+1. Przejdź do **SQLPOOL1**  >  **tabel** SQLPOOL1. Zobaczysz kilka załadowanych tabel.
 1. Kliknij prawym przyciskiem myszy obiekt **dbo. Tabelę podróży** i wybierz pozycję **Nowy skrypt SQL**  >  **Wybierz pierwsze 100 wierszy**.
 1. Poczekaj, aż zostanie utworzony i uruchomiony nowy skrypt SQL.
-1. Zwróć uwagę, że u góry skryptu SQL **połączenie z programem** jest automatycznie ustawiana na pulę SQL o nazwie **SQLDB1**.
+1. Zwróć uwagę, że u góry skryptu SQL **połączenie z programem** jest automatycznie ustawiana na pulę SQL o nazwie **SQLPOOL1**.
 1. Zastąp tekst skryptu SQL tym kodem i uruchom go.
 
     ```sql

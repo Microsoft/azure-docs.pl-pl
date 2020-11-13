@@ -10,22 +10,22 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146365"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616896"
 ---
 # <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
-Custom Vision obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure, system autoryzacji służący do zarządzania indywidualnym dostępem do zasobów platformy Azure. Korzystając z funkcji RBAC platformy Azure, można przypisać różnym członkom zespołu różne poziomy uprawnień dla projektów Custom Vision. Aby uzyskać więcej informacji na temat usługi Azure RBAC, zobacz [dokumentację usługi Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/).
+Custom Vision obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure, system autoryzacji służący do zarządzania indywidualnym dostępem do zasobów platformy Azure. Korzystając z funkcji RBAC platformy Azure, można przypisać różnym członkom zespołu różne poziomy uprawnień dla projektów Custom Vision. Aby uzyskać więcej informacji na temat usługi Azure RBAC, zobacz [dokumentację usługi Azure RBAC](../../role-based-access-control/index.yml).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Dodawanie przypisania roli do zasobu Custom Vision
 
 Usługę Azure RBAC można przypisać do zasobu Custom Vision. Aby udzielić dostępu do zasobu platformy Azure, Dodaj przypisanie roli.
 1. W witrynie [Azure Portal](https://ms.portal.azure.com/) wybierz pozycję **Wszystkie usługi**. 
-1. Następnie wybierz **Cognitive Services**i przejdź do określonego zasobu szkoleniowego Custom Vision.
+1. Następnie wybierz **Cognitive Services** i przejdź do określonego zasobu szkoleniowego Custom Vision.
    > [!NOTE]
    > Możesz również skonfigurować usługę Azure RBAC dla całej grupy zasobów, subskrypcji lub grup zarządzania. W tym celu należy wybrać żądany poziom zakresu, a następnie przejść do żądanego elementu (na przykład wybierając pozycję **grupy zasobów** , a następnie klikając pozycję do odpowiedniej grupy zasobów).
 1. Wybierz pozycję **Kontrola dostępu (IAM)** w okienku nawigacji po lewej stronie.
@@ -33,7 +33,7 @@ Usługę Azure RBAC można przypisać do zasobu Custom Vision. Aby udzielić dos
 1. Wybierz pozycję **Dodaj**  ->  **Dodaj przypisanie roli**.
 1. Z listy rozwijanej **rola** wybierz rolę, którą chcesz dodać.
 1. Z listy **Wybierz** wybierz użytkownika, grupę, nazwę główną usługi lub tożsamość zarządzaną. Jeśli nie widzisz podmiotu zabezpieczeń na liście, możesz wpisać pole wyboru, aby przeszukać katalog pod kątem nazw wyświetlanych, adresów e-mail i identyfikatorów obiektów.
-1. Wybierz przycisk **Zapisz**, aby przypisać rolę.
+1. Wybierz przycisk **Zapisz** , aby przypisać rolę.
 
 W ciągu kilku minut obiekt docelowy zostanie przypisany do wybranej roli w wybranym zakresie.
 

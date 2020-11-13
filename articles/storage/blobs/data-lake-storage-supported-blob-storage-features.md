@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579219"
+ms.locfileid: "94594219"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -52,8 +52,8 @@ W poniższej tabeli przedstawiono, w jaki sposób każda funkcja magazynu obiekt
 |Niestandardowe domeny|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md)|
 |Zakresy szyfrowania|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](encryption-scope-manage.md)|
 |Źródło zmian|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)|
-|Replikacja obiektów|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Konfiguruj replikację obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)](object-replication-configure.md)|
-|Przechowywanie wersji obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Włączanie obsługi wersji obiektów blob i zarządzanie nimi (wersja zapoznawcza)](versioning-enable.md)|
+|Replikacja obiektów|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Konfiguruj replikację obiektów dla blokowych obiektów BLOB](object-replication-configure.md)|
+|Przechowywanie wersji obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)|
 
 <div id="blob-container-ACL"><sup>1</sup> można ustawić listy ACL w folderze głównym kontenera, ale nie do samego kontenera.</div><br>
 

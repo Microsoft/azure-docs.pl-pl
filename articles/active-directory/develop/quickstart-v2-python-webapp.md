@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eaac8bdf828d2dd9a8e2dfae0b1b2b5985d1951d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613343"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592706"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 
-W tym przewodniku szybki start dowiesz się, jak zintegrować aplikację sieci Web w języku Python z platformą tożsamości firmy Microsoft. Twoja aplikacja zaloguje użytkownika, uzyskaj token dostępu, aby wywołać interfejs API Microsoft Graph i przetworzyć żądanie do interfejsu API Microsoft Graph.
+W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak aplikacja sieci Web w języku Python może zalogować użytkowników i uzyskać token dostępu do wywoływania interfejsu API Microsoft Graph. Użytkownicy korzystający z osobistego konta Microsoft lub konta w dowolnej organizacji Azure Active Directory (Azure AD) mogą zalogować się do aplikacji.
 
-Po ukończeniu tego przewodnika aplikacja będzie akceptować logowania do osobistych kont Microsoft (w tym outlook.com, live.com i innych) oraz kont służbowych z dowolnej firmy lub organizacji korzystającej z Azure Active Directory. (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
+Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -66,7 +66,7 @@ Po ukończeniu tego przewodnika aplikacja będzie akceptować logowania do osobi
 >
 >      - Wpisz opis klucza (dla wpisu tajnego aplikacji wystąpienia).
 >      - Wybierz kluczowy czas trwania wynoszący **1 rok**.
->      - Po kliknięciu przycisku **Dodaj**zostanie wyświetlona wartość klucza.
+>      - Po kliknięciu przycisku **Dodaj** zostanie wyświetlona wartość klucza.
 >      - Skopiuj wartość klucza. Będzie potrzebny później.
 > 1. Wybierz sekcję **uprawnienia interfejsu API**
 >
@@ -128,7 +128,7 @@ Po ukończeniu tego przewodnika aplikacja będzie akceptować logowania do osobi
 > [!div renderon="docs"]
 > #### <a name="step-4-run-the-code-sample"></a>Krok 4. Uruchamianie przykładu kodu
 
-1. Konieczne będzie zainstalowanie biblioteki języka Python MSAL, struktury kolby, sesji do zarządzania sesjami po stronie serwera i żądań przy użyciu funkcji PIP w następujący sposób:
+1. Konieczne będzie zainstalowanie biblioteki MSAL Python, architektury kolb Flask-Sessions do zarządzania sesjami po stronie serwera i żądań przy użyciu funkcji PIP w następujący sposób:
 
     ```Shell
     pip install -r requirements.txt

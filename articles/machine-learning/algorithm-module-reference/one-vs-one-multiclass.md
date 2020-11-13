@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 1c08ba51b815386783c3412e9238d2e96da03ff9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 92ef5b372113d0d226335b8ec464a75a5a684bc3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377694"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592910"
 ---
 # <a name="one-vs-one-multiclass"></a>Wiele klas
 
@@ -31,6 +31,8 @@ Ten moduł implementuje metodę jednokierunkową, w której jest tworzony model 
 W zasadzie moduł tworzy kompletność poszczególnych modeli, a następnie scala wyniki, aby utworzyć jeden model, który przewiduje wszystkie klasy. Dowolny klasyfikator binarny może być używany jako podstawa dla modelu jeden-do-jednego.  
 
 Załóżmy na przykład, że skonfigurowano model [maszyny wektorowej obsługujący dwie klasy](two-class-support-vector-machine.md) i zapewnia to, że jako dane wejściowe do modułu wieloklasowego z jednym elementem. Moduł utworzy modele maszyn wektorowych obsługujące dwie klasy dla wszystkich elementów członkowskich klasy wyjściowej. Następnie zastosuje metodę "jeden do jednego", aby połączyć wyniki dla wszystkich klas.  
+
+Moduł używa OneVsOneClassifier of skryptu sklearn i więcej szczegółów można znaleźć [tutaj](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html).
 
 ## <a name="how-to-configure-the-one-vs-one-multiclass-classifier"></a>Jak skonfigurować jednostronicowy klasyfikator jednoklasowy  
 
