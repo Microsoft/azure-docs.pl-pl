@@ -3,16 +3,16 @@ title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architektur
 description: Dowiedz się więcej na temat integrowania wdrożenia rozwiązania Azure VMware w architekturze gwiazdy i szprych na platformie Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 0895e9c97f79e433b0383f0a99fbeeb124fd9064
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: da4a5f5ec6fa2b0a2733e8d1bf0243ec75f38d55
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490818"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577723"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
-Ten artykuł zawiera zalecenia dotyczące integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej [architekturze Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/shared-services) na platformie Azure. 
+Ten artykuł zawiera zalecenia dotyczące integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej [architekturze Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/#hub-spoke-network-topology) na platformie Azure. 
 
 
 Scenariusz Hub i szprych zakłada środowisko chmury hybrydowej z obciążeniami w:

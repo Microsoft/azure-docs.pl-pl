@@ -1,6 +1,6 @@
 ---
 title: Tworzenie punktu przywracania zdefiniowanego przez użytkownika dla dedykowanej puli SQL
-description: Jak utworzyć punkt przywracania dla dedykowanej puli SQL.
+description: Dowiedz się, jak za pomocą Azure Portal utworzyć punkt przywracania zdefiniowany przez użytkownika dla dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: joannapea
 manager: igorstan
@@ -11,12 +11,12 @@ ms.date: 10/29/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c0835fb48d00fe5277732f34fd6b0de1448f6a78
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 21fd20100095040fda9f72b00e17147ff560fbca
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94332133"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579542"
 ---
 # <a name="user-defined-restore-points"></a>Punkty przywracania zdefiniowane przez użytkownika
 

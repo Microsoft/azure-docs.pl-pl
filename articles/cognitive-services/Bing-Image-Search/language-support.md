@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: b7037804f1a0984cee2d1756adf80bfe2eec3918
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3057a118117f4f293ec5f90405a4bbd82d7a353d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095531"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592077"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania obrazów Bing
 
@@ -85,7 +85,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |-------|--------|-----------|
 |Argentyna|Hiszpański|ES-AR|
 |Australia|Angielski|en-AU|
-|Austria|Niemiecki|de-AT|
+|Austria|niemiecki|de-AT|
 |Belgia|Niderlandzki|NL-to|
 |Belgia|Francuski|fr — należy|
 |Brazylia|Portugalski|pt-BR|
@@ -95,13 +95,13 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Dania|Duński|da-DK|
 |Finlandia|Fiński|fi-FI|
 |Francja|Francuski|fr-FR|
-|Niemcy|Niemiecki|de-DE|
+|Niemcy|niemiecki|de-DE|
 |SRA Hongkong|Chiński tradycyjny|zh-HK|
 |Indie|Angielski|dodatek EN-IN|
 |Indonezja|Angielski|pl-ID|
 |Włochy|Włoski|it-IT|
 |Japonia|japoński|ja-JP|
-|Korea|Koreański|ko-KR|
+|Korea|koreański|ko-KR|
 |Malezja|Angielski|pl — MY|
 |Meksyk|Hiszpański|es — MX|
 |Holandia|Niderlandzki|nl-NL|
@@ -116,7 +116,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Hiszpania|Hiszpański|es-ES|
 |Szwecja|Szwedzki|sv-SE|
 |Szwajcaria|Francuski|fr-CH|
-|Szwajcaria|Niemiecki|Usuń CH|
+|Szwajcaria|niemiecki|Usuń CH|
 |Tajwan|Chiński tradycyjny|zh-TW|
 |Turcja|Turecki|tr-TR|
 |Zjednoczone Królestwo|Angielski|en-GB|
@@ -124,4 +124,4 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Stany Zjednoczone|Hiszpański|es — US|
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji o wyszukiwanie wiadomości Bing punktach końcowych, zobacz [News wyszukiwanie obrazów API wersji 7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+Aby uzyskać więcej informacji o wyszukiwanie wiadomości Bing punktach końcowych, zobacz [News wyszukiwanie obrazów API wersji 7 Reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

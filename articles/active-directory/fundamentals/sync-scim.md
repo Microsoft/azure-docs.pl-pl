@@ -1,6 +1,6 @@
 ---
 title: Standard scim synchronizacji z Azure Active Directory
-description: Wskazówki dotyczące architektury dotyczące osiągania tego wzorca synchronizacji
+description: Wskazówki dotyczące architektury w celu osiągnięcia synchronizacji Standard scim z Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367860"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578862"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Standard scim synchronizacji z Azure Active Directory
 
@@ -35,13 +35,13 @@ Chcesz automatycznie udostępnić informacje o użytkowniku z systemu HCM w usł
 
 ## <a name="components-of-system"></a>Składniki systemu 
 
-* **System HCM**: aplikacje i technologie, które umożliwiają proces zarządzania stolicą przez człowieka oraz praktyki, które obsługują i automatyzują procesy kadr w całym cyklu życia pracownika. 
+* **System HCM** : aplikacje i technologie, które umożliwiają proces zarządzania stolicą przez człowieka oraz praktyki, które obsługują i automatyzują procesy kadr w całym cyklu życia pracownika. 
 
-* **Usługa Azure AD Provisioning**: używa protokołu Standard scim 2,0 do automatycznej aprowizacji. Usługa nawiązuje połączenie z punktem końcowym usługi Standard scim dla aplikacji, a następnie używa schematu obiektu użytkownika Standard scim i interfejsów API REST w celu zautomatyzowania aprowizacji i anulowania aprowizacji użytkowników i grup.  
+* **Usługa Azure AD Provisioning** : używa protokołu Standard scim 2,0 do automatycznej aprowizacji. Usługa nawiązuje połączenie z punktem końcowym usługi Standard scim dla aplikacji, a następnie używa schematu obiektu użytkownika Standard scim i interfejsów API REST w celu zautomatyzowania aprowizacji i anulowania aprowizacji użytkowników i grup.  
 
-* **Azure AD**: repozytorium użytkowników używane do zarządzania cyklem życia tożsamości i ich uprawnień. 
+* **Azure AD** : repozytorium użytkowników używane do zarządzania cyklem życia tożsamości i ich uprawnień. 
 
-* **System docelowy**: aplikacja lub system z punktem końcowym Standard scim i współpracuje z obsługą administracyjną usługi Azure AD w celu włączenia automatycznej aprowizacji użytkowników i grup.  
+* **System docelowy** : aplikacja lub system z punktem końcowym Standard scim i współpracuje z obsługą administracyjną usługi Azure AD w celu włączenia automatycznej aprowizacji użytkowników i grup.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementowanie Standard scim przy użyciu usługi Azure AD 
 

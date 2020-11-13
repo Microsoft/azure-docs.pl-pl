@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9896b62ab347ec3b4751eb517c00222f00ddb1c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321465"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579406"
 ---
 # <a name="query-csv-files"></a>Wykonywanie zapytań o pliki CSV
 
@@ -45,6 +45,11 @@ from openrowset(
 ```
 
 Opcja `firstrow` służy do pomijania pierwszego wiersza w pliku CSV, który reprezentuje nagłówek w tym przypadku. Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub tożsamości niestandardowej, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Jeśli plik CSV zawiera znaki UTF-8, upewnij się, że używasz pewnego sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ).
+> Niezgodność między kodowaniem tekstu w pliku a sortowaniem może spowodować nieoczekiwane błędy konwersji.
+> Można łatwo zmienić domyślne sortowanie bieżącej bazy danych, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Użycie źródła danych
 
@@ -90,6 +95,12 @@ from openrowset(
 ```
 
 Liczby po typie danych w `WITH` klauzuli reprezentują indeks kolumny w pliku CSV.
+
+> [!IMPORTANT]
+> Jeśli plik CSV zawiera znaki UTF-8, należy się upewnić, że explicilty określono niektóre sortowanie UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ) dla wszystkich kolumn w `WITH` klauzuli lub ustawić niektóre sortowanie UTF-8 na poziomie bazy danych.
+> Niezgodność między kodowaniem tekstu w pliku a sortowaniem może spowodować nieoczekiwane błędy konwersji.
+> Można łatwo zmienić domyślne sortowanie bieżącej bazy danych, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Można łatwo ustawić sortowanie dla typów kolum, korzystając z następującej definicji: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 W poniższych sekcjach można zobaczyć, jak wykonywać zapytania dotyczące różnych typów plików CSV.
 

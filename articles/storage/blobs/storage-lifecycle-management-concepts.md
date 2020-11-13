@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100073"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579315"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu Blob Storage platformy Azure
 
@@ -80,7 +80,7 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 1. Wybierz **podstawowe obiekty blob** , aby ustawić warunki dla reguły. W poniższym przykładzie obiekty blob są przenoszone do magazynu chłodnego, jeśli nie zostały zmodyfikowane przez 30 dni.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Zarządzanie cyklem życia Dodawanie strony szczegółów reguły w Azure Portal":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Strona podstawowe obiekty blob zarządzania cyklem życia w Azure Portal":::
 
    **Ostatnia** dostępna opcja jest dostępna w wersji zapoznawczej w następujących regionach:
 
@@ -95,7 +95,7 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 1. W przypadku wybrania opcji **Ogranicz obiekty blob z filtrami** na stronie **szczegółów** wybierz opcję **Filtr zestaw** , aby dodać opcjonalny filtr. Poniższy przykład filtruje obiekty blob w kontenerze *mylifecyclecontainer* , który rozpoczyna się od "log".
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Zarządzanie cyklem życia Dodawanie strony szczegółów reguły w Azure Portal":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Strona zestawu filtru zarządzania cyklem życia w Azure Portal":::
 
 1. Wybierz pozycję **Dodaj** , aby dodać nowe zasady.
 
@@ -137,11 +137,11 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
    }
    ```
 
-1. Wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
 
 1. Aby uzyskać więcej informacji na temat tego przykładu JSON, zobacz sekcję [zasad](#policy) i [reguł](#rules) .
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Poniższy skrypt programu PowerShell może służyć do dodawania zasad do konta magazynu. `$rgname`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu.
 
@@ -439,7 +439,7 @@ Funkcja śledzenia czasu ostatniego dostępu jest dostępna dla następujących 
 
 Jeśli konto magazynu jest kontem ogólnego przeznaczenia w wersji 1, użyj Azure Portal, aby przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2.
 
-Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są jeszcze obsługiwane.
+Konta magazynu z hierarchiczną przestrzenią nazw, z których włączono obsługę Azure Data Lake Storage Gen2, są teraz obsługiwane.
 
 #### <a name="pricing-and-billing"></a>Cennik i rozliczenia
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491651"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591753"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
@@ -144,6 +144,17 @@ Można usunąć zasady migawek, które nie powinny już być zachowywane.
 
     ![Potwierdzenie usunięcia zasad migawek](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Edycja opcji Ukryj ścieżkę migawki
+Opcja Ukryj ścieżkę migawki określa, czy ścieżka migawki woluminu jest widoczna. Podczas tworzenia woluminu [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) lub [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) można określić, czy ścieżka migawki powinna być ukryta. Możesz później edytować opcję Ukryj ścieżkę migawki zgodnie z wymaganiami.  
+
+> [!NOTE]
+> W przypadku [woluminu docelowego](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) w replikacji między regionami opcja Ukryj ścieżkę migawki jest domyślnie włączona i nie można zmodyfikować ustawienia. 
+
+1. Aby wyświetlić ustawienie opcji Ukryj ścieżkę migawki woluminu, wybierz wolumin. Pole **Ukryj ścieżkę migawki** wskazuje, czy opcja jest włączona.   
+    ![Zrzut ekranu, który opisuje pole Ukryj ścieżkę migawki.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Aby edytować opcję Ukryj ścieżkę migawki, kliknij przycisk **Edytuj** na stronie woluminu i w razie potrzeby zmodyfikuj opcję **Ukryj ścieżkę migawki** .   
+    ![Zrzut ekranu, który opisuje opcję Edytuj migawkę woluminu.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Przywracanie migawki do nowego woluminu
 
 Obecnie można przywrócić migawkę tylko do nowego woluminu. 
@@ -173,17 +184,13 @@ Jeśli nie chcesz [przywracać całej migawki do woluminu](#restore-a-snapshot-t
 
 Zainstalowany wolumin zawiera katalog migawek o nazwie  `.snapshot` (w klientach NFS) lub `~snapshot` (w klientach SMB), który jest dostępny dla klienta. Katalog migawek zawiera podkatalogi odpowiadające migawkom woluminu. Każdy podkatalog zawiera pliki migawki. Jeśli przypadkowo usuniesz lub zastąpisz plik, możesz przywrócić plik do nadrzędnego katalogu do odczytu i zapisu, kopiując plik z podkatalogu migawek do katalogu do odczytu i zapisu. 
 
-W przypadku wybrania pola wyboru Ukryj ścieżkę migawki podczas tworzenia woluminu katalog migawek jest ukryty. Można wyświetlić stan ścieżki Ukryj migawkę woluminu, wybierając wolumin. Opcję Ukryj ścieżkę migawki można edytować, klikając pozycję **Edytuj** na stronie woluminu.  
-
-W przypadku woluminu docelowego w replikacji między regionami Funkcja Ukryj ścieżkę migawki jest domyślnie włączona i nie można zmodyfikować ustawienia.
-
-![Edycja opcji migawek woluminów](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Jeśli katalog migawek nie jest widoczny, może być ukryty, ponieważ opcja Ukryj ścieżkę migawki jest obecnie włączona. Można [edytować opcję Ukryj ścieżkę migawki](#edit-the-hide-snapshot-path-option) , aby ją wyłączyć.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Przywracanie pliku przy użyciu klienta systemu plików NFS z systemem Linux 
 
 1. Użyj `ls` polecenia systemu Linux, aby wyświetlić listę plików, które chcesz przywrócić z `.snapshot` katalogu. 
 
-    Na przykład:
+    Przykład:
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -198,7 +205,7 @@ W przypadku woluminu docelowego w replikacji między regionami Funkcja Ukryj śc
 
 2. Użyj `cp` polecenia, aby skopiować plik do katalogu nadrzędnego.  
 
-    Na przykład: 
+    Przykład: 
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 

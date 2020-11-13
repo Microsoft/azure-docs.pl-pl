@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: f69b62f39b7e62eea26cc4d8511505056c6821bf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 119f1eaa838b404a3dbdc22f692f559816810dde
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321270"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578692"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Samouczek: uczenie i wdrażanie modelu z poziomu interfejsu wiersza polecenia
 
@@ -128,7 +128,7 @@ Odpowiedź z tego polecenia jest podobna do następującej:
 }
 ```
 
-Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
+Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 

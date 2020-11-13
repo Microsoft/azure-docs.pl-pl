@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089319"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591550"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -150,7 +150,7 @@ Tak, przed wdrożeniem woluminu SMB należy utworzyć połączenie Active Direct
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Ile połączeń Active Directory są obsługiwane?
 
-Azure NetApp Files nie obsługuje wielu połączeń Active Directory (AD) w jednym *regionie*, nawet jeśli połączenia usługi AD znajdują się na różnych kontach NetApp. Można jednak korzystać z wielu połączeń usługi AD w ramach jednej *subskrypcji*, o ile połączenia usługi AD znajdują się w różnych regionach. Jeśli potrzebujesz wielu połączeń usługi AD w jednym regionie, możesz to zrobić za pomocą osobnych subskrypcji. 
+Azure NetApp Files nie obsługuje wielu połączeń Active Directory (AD) w jednym *regionie* , nawet jeśli połączenia usługi AD znajdują się na różnych kontach NetApp. Można jednak korzystać z wielu połączeń usługi AD w ramach jednej *subskrypcji* , o ile połączenia usługi AD znajdują się w różnych regionach. Jeśli potrzebujesz wielu połączeń usługi AD w jednym regionie, możesz to zrobić za pomocą osobnych subskrypcji. 
 
 Skonfigurowano połączenie usługi AD na konto NetApp; połączenie z usługą AD jest widoczne tylko za pomocą konta NetApp, które zostało utworzone w programie.
 
@@ -173,16 +173,6 @@ Rozmiar woluminu zgłoszonego przez klienta SMB to maksymalny rozmiar, do które
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## <a name="dual-protocol-faqs"></a>Dwa często zadawane pytania dotyczące protokołu
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Przy próbie uzyskania dostępu do dwuprotokołowego woluminu za pomocą stylu zabezpieczeń NTFS w systemie UNIX próbowano użyć "root" i użytkowników lokalnych. Dlaczego występuje błąd "odmowa uprawnień"?   
-
-Rozwiązania można znaleźć w artykule [Rozwiązywanie problemów z dwoma protokołami](troubleshoot-dual-protocol-volumes.md) .
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Kiedy próbuję utworzyć dwuprotokołowy wolumin, dlaczego proces tworzenia nie powiedzie się z powodu błędu "nie można zweryfikować konfiguracji LDAP, spróbuj ponownie po poprawieniu konfiguracji LDAP"?  
-
-Rozwiązania można znaleźć w artykule [Rozwiązywanie problemów z dwoma protokołami](troubleshoot-dual-protocol-volumes.md) .
 
 ## <a name="capacity-management-faqs"></a>Często zadawane pytania dotyczące zarządzania pojemnością
 

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335659"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578301"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API .NET
 
@@ -35,7 +35,7 @@ W tym samouczku przekonwertujesz równolegle pliki multimedialne w formacie MP4 
 
 * Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-* [Windows 64-bitowa wersja narzędzia FFmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (. zip). Pobierz plik zip na komputer lokalny. Na potrzeby tego samouczka potrzebujesz tylko pliku zip. Nie musisz go rozpakowywać ani instalować lokalnie.
+* [Windows 64-bitowa wersja narzędzia FFmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) (. zip). Pobierz plik zip na komputer lokalny. Na potrzeby tego samouczka potrzebujesz tylko pliku zip. Nie musisz go rozpakowywać ani instalować lokalnie.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Przejdź do katalogu, który zawiera plik rozwiązania programu Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Na przykład:
+Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Przykład:
 
 ```csharp
 // Batch account credentials
@@ -309,7 +309,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po wykonaniu zadań podrzędnych aplikacja automatycznie usuwa utworzony wejściowy kontener magazynu, a opcjonalnie także pulę i zadanie usługi Batch. Dla obu klas [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) i [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) klienta BatchClient istnieją odpowiednie metody usuwania, które są wywoływane, jeśli potwierdzisz usunięcie. Mimo że nie są naliczane opłaty za same zadania i zadania podrzędne, są naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie pul stosownie do potrzeb. W przypadku usunięcia puli usuwane są również wszystkie dane wyjściowe zadań podrzędnych w węzłach. Pliki wyjściowe pozostają jednak na koncie magazynu.
 

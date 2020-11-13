@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 9163868848f2fdbd535a6b601077be570b0b01bf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20050cb373456296ef573368e6b289ec4b7d946d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076728"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591890"
 ---
 # <a name="get-trending-images-from-the-web"></a>Pobieranie obrazów trendów z sieci Web
 
@@ -44,7 +44,7 @@ Interfejs API obrazów trendów obsługuje obecnie tylko następujące rynki:
 - en-AU (angielski, Australia)  
 - zh-CN (chiński, Chiny)
 
-Odpowiedź zawiera obiekt [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) , który wyświetla listę obrazów według kategorii. Użyj kategorii, `title` Aby grupować obrazy w środowisku użytkownika. Kategorie mogą zmieniać się codziennie.  
+Odpowiedź zawiera obiekt [TrendingImages](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) , który wyświetla listę obrazów według kategorii. Użyj kategorii, `title` Aby grupować obrazy w środowisku użytkownika. Kategorie mogą zmieniać się codziennie.  
 
 ```json
 {
@@ -93,9 +93,9 @@ Odpowiedź zawiera obiekt [TrendingImages](https://docs.microsoft.com/rest/api/c
 }  
 ```  
 
-Każdy kafelek zawiera obraz i opcje pobierania powiązanych obrazów. Aby uzyskać powiązane obrazy, można użyć zapytania `text` do wywołania [interfejsu API wyszukiwanie obrazów](./search-the-web.md) i samodzielnie wyświetlić powiązane obrazy. Można też użyć adresu URL w programie, `webSearchUrl` Aby uzyskać dostęp do strony wyników wyszukiwania obrazów w usłudze Bing, która zawiera powiązane obrazy.
+Każdy kafelek zawiera obraz i opcje pobierania powiązanych obrazów. Aby uzyskać powiązane obrazy, można użyć zapytania `text` do wywołania [interfejsu API wyszukiwanie obrazów](./overview.md) i samodzielnie wyświetlić powiązane obrazy. Można też użyć adresu URL w programie, `webSearchUrl` Aby uzyskać dostęp do strony wyników wyszukiwania obrazów w usłudze Bing, która zawiera powiązane obrazy.
 
-Jeśli wywołasz interfejs API wyszukiwanie obrazów, aby uzyskać powiązane obrazy, ustaw parametr [ID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) zapytania na identyfikator w `id` polu. Określenie identyfikatora zapewnia, że odpowiedź zawiera obraz (jest to pierwszy obraz w odpowiedzi) i powiązane z nim obrazy. Ponadto należy ustawić parametr zapytania [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) na tekst w `query` `text` polu obiektu.
+Jeśli wywołasz interfejs API wyszukiwanie obrazów, aby uzyskać powiązane obrazy, ustaw parametr [ID](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) zapytania na identyfikator w `id` polu. Określenie identyfikatora zapewnia, że odpowiedź zawiera obraz (jest to pierwszy obraz w odpowiedzi) i powiązane z nim obrazy. Ponadto należy ustawić parametr zapytania [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) na tekst w `query` `text` polu obiektu.
 
 Poniższy przykład pokazuje, jak używać identyfikatora obrazu do uzyskiwania pokrewnych obrazów Mr. Smith w poprzedniej odpowiedzi interfejsu API obrazów trendów.
 
@@ -106,4 +106,4 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```  
+```

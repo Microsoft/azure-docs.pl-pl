@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413092"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578844"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -30,18 +30,36 @@ Aplikacje funkcji można hostować na kilka sposobów:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>Ograniczenia przychodzącego adresu IP
+## <a name="inbound-access-restrictions"></a>Ograniczenia dostępu przychodzącego
 
-Za pomocą ograniczeń adresów IP można zdefiniować uporządkowaną według priorytetu listę adresów IP, które są dozwolone lub odrzucane przez dostęp do aplikacji. Lista może zawierać adresy IPv4 i IPv6. W przypadku co najmniej jednego wpisu na końcu listy występuje niejawne "odmowa wszystkich". Ograniczenia adresów IP działają ze wszystkimi opcjami hostingu funkcji.
+Ograniczeń dostępu można użyć do zdefiniowania uporządkowanej według priorytetu listy adresów IP, które są dozwolone lub odrzucane przez dostęp do aplikacji. Lista może zawierać adresy IPv4 i IPv6 lub określone podsieci sieci wirtualnej, korzystając z [punktów końcowych usługi](#use-service-endpoints). W przypadku co najmniej jednego wpisu na końcu listy występuje niejawne "odmowa wszystkich". Ograniczenia adresów IP działają ze wszystkimi opcjami hostingu funkcji.
+
+Ograniczenia dostępu są dostępne w warstwach [Premium](functions-premium-plan.md), [zużycie](functions-scale.md#consumption-plan)i [App Service](functions-scale.md#app-service-plan).
 
 > [!NOTE]
-> W przypadku ograniczeń sieci można używać edytora portalu tylko z poziomu sieci wirtualnej lub po umieszczeniu adresu IP komputera, którego używasz, aby uzyskać dostęp do Azure Portal na liście bezpiecznych adresatów. Można jednak nadal uzyskiwać dostęp do dowolnych funkcji na karcie **funkcje platformy** z dowolnego komputera.
+> W przypadku ograniczeń sieciowych można wdrożyć tylko z poziomu sieci wirtualnej lub po umieszczeniu adresu IP komputera, którego używasz, aby uzyskać dostęp do Azure Portal na liście bezpiecznych adresatów. Można jednak nadal zarządzać funkcją przy użyciu portalu.
 
 Aby dowiedzieć się więcej, zobacz [Azure App Service ograniczenia dostępu statycznego](../app-service/app-service-ip-restrictions.md).
 
-## <a name="private-site-access"></a>Dostęp do witryn prywatnych
+### <a name="use-service-endpoints"></a>Korzystanie z punktów końcowych usługi
+
+Korzystając z punktów końcowych usługi, można ograniczyć dostęp do wybranych podsieci sieci wirtualnej platformy Azure. Aby ograniczyć dostęp do określonej podsieci, należy utworzyć regułę ograniczenia z typem **Virtual Network** . Następnie można wybrać subskrypcję, sieć wirtualną i podsieć, do której ma być dozwolony lub zablokowany dostęp. 
+
+Jeśli punkty końcowe usługi nie są już włączone w usłudze Microsoft. Web dla wybranej podsieci, zostaną automatycznie włączone, chyba że zaznaczysz pole wyboru **Ignoruj brakujące punkty końcowe usługi sieci Web firmy Microsoft.** Scenariusz, w którym można włączyć punkty końcowe usługi w aplikacji, ale nie podsieć, zależy głównie od tego, czy masz uprawnienia do włączania ich w podsieci. 
+
+Jeśli chcesz, aby ktoś inny włączył punkty końcowe usługi w podsieci, zaznacz pole wyboru **Ignoruj brakujące punkty końcowe usługi sieci Web firmy Microsoft** . Aplikacja zostanie skonfigurowana dla punktów końcowych usługi w przewidywaniu włączenia ich później w podsieci. 
+
+![Zrzut ekranu okienka "Dodawanie ograniczenia adresu IP" z wybranym typem Virtual Network.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+Punktów końcowych usługi nie można używać do ograniczania dostępu do aplikacji, które działają w App Service Environment. Gdy aplikacja znajduje się w App Service Environment, możesz kontrolować dostęp do niej, stosując reguły dostępu do adresów IP. 
+
+Aby dowiedzieć się, jak skonfigurować punkty końcowe usługi, zobacz [ustanawianie Azure Functions dostępu do lokacji prywatnej](functions-create-private-site-access.md).
+
+## <a name="private-endpoint-connections"></a>Połączenia prywatnego punktu końcowego
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+Aby wywoływać inne usługi, które mają połączenie prywatnego punktu końcowego, takie jak Storage lub Service Bus, należy skonfigurować aplikację do wykonywania [wywołań wychodzących do prywatnych punktów końcowych](#private-endpoints).
 
 ## <a name="virtual-network-integration"></a>Integracja sieci wirtualnej
 
@@ -80,7 +98,7 @@ Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storag
 1. [Utwórz udział plików](../storage/files/storage-how-to-create-file-share.md#create-file-share) na koncie bezpiecznego magazynu.
 1. Włącz punkty końcowe usługi lub prywatny punkt końcowy dla konta magazynu.  
     * Należy pamiętać, aby włączyć podsieć dedykowaną aplikacjom funkcji, jeśli jest używany punkt końcowy usługi.
-    * Pamiętaj, aby utworzyć rekord DNS i skonfigurować aplikację do [pracy z prywatnymi](#azure-dns-private-zones) punktami końcowymi punktów końcowych, jeśli używany jest prywatny punkt końcowy.  Konto magazynu będzie wymagało prywatnego punktu końcowego dla `file` `blob` zasobów podrzędnych i.  W przypadku korzystania z pewnych funkcji, takich jak Durable Functions, będzie również potrzebne `queue` i `table` dostępne za pośrednictwem połączenia prywatnego punktu końcowego.
+    * Pamiętaj, aby utworzyć rekord DNS i skonfigurować aplikację do [pracy z prywatnymi](#azure-dns-private-zones) punktami końcowymi punktów końcowych, jeśli używany jest prywatny punkt końcowy.  Konto magazynu będzie wymagało prywatnego punktu końcowego dla `file` zasobów i `blob` .  W przypadku korzystania z pewnych funkcji, takich jak Durable Functions, będzie również konieczne `queue` i `table` dostępne za pośrednictwem połączenia prywatnego punktu końcowego.
 1. Obowiązkowe Skopiuj zawartość pliku i obiektu BLOB z konta magazynu aplikacji funkcji na zabezpieczone konto magazynu i udział plików.
 1. Skopiuj parametry połączenia dla tego konta magazynu.
 1. Zaktualizuj **Ustawienia aplikacji** w obszarze **Konfiguracja** dla aplikacji funkcji w następujący sposób:
@@ -156,10 +174,10 @@ Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App 
 
 W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 Poniższe interfejsy API umożliwiają programowe zarządzanie integracją regionalnej sieci wirtualnej:
 
-+ **Interfejs wiersza polecenia platformy Azure** : Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń do dodawania, wyświetlania lub usuwania integracji regionalnej sieci wirtualnej.  
++ **Interfejs wiersza polecenia platformy Azure** : Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń, aby dodać, wyświetlić lub usunąć integrację regionalnej sieci wirtualnej.  
 + **Szablony usługi ARM** : integracja regionalnej sieci wirtualnej można włączyć przy użyciu szablonu Azure Resource Manager. Aby zapoznać się z pełnymi przykładami, zobacz [ten szablon funkcji szybkiego startu](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów

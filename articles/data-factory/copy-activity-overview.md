@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995342"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592060"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -129,12 +129,12 @@ Następujący szablon działania kopiowania zawiera pełną listę obsługiwanyc
 
 | Właściwość | Opis | Wymagane? |
 |:--- |:--- |:--- |
-| typ | Dla działania kopiowania ustaw wartość na `Copy` | Yes |
-| danych wejściowych | Określ utworzony zestaw danych, który wskazuje na dane źródłowe. Działanie kopiowania obsługuje tylko pojedyncze dane wejściowe. | Yes |
-| wydajności | Określ utworzony zestaw danych, który wskazuje na dane ujścia. Działanie kopiowania obsługuje tylko pojedyncze dane wyjściowe. | Yes |
-| typeProperties | Określ właściwości, aby skonfigurować działanie kopiowania. | Yes |
-| source | Określ typ źródła kopiowania i odpowiednie właściwości do pobierania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Yes |
-| fotografii | Określ typ ujścia kopiowania i odpowiadające im właściwości zapisywania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Yes |
+| typ | Dla działania kopiowania ustaw wartość na `Copy` | Tak |
+| danych wejściowych | Określ utworzony zestaw danych, który wskazuje na dane źródłowe. Działanie kopiowania obsługuje tylko pojedyncze dane wejściowe. | Tak |
+| wydajności | Określ utworzony zestaw danych, który wskazuje na dane ujścia. Działanie kopiowania obsługuje tylko pojedyncze dane wyjściowe. | Tak |
+| typeProperties | Określ właściwości, aby skonfigurować działanie kopiowania. | Tak |
+| source | Określ typ źródła kopiowania i odpowiednie właściwości do pobierania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Tak |
+| fotografii | Określ typ ujścia kopiowania i odpowiadające im właściwości zapisywania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Tak |
 | tłumacz | Określ jawne mapowania kolumn ze źródła do ujścia. Ta właściwość ma zastosowanie, gdy domyślne zachowanie kopiowania nie spełnia Twoich potrzeb.<br/>Aby uzyskać więcej informacji, zobacz [Mapowanie schematu w działaniu kopiowania](copy-activity-schema-and-type-mapping.md). | Nie |
 | dataIntegrationUnits | Określ miarę, która przedstawia ilość mocy używanej przez [środowisko Azure Integration Runtime](concepts-integration-runtime.md) do kopiowania danych. Te jednostki były wcześniej znane jako jednostki przenoszenia danych w chmurze (DMU). <br/>Aby uzyskać więcej informacji, zobacz [jednostki integracji danych](copy-activity-performance-features.md#data-integration-units). | Nie |
 | parallelCopies | Określ równoległość, która ma być używana przez działanie kopiowania podczas odczytywania danych ze źródła i zapisywania danych do ujścia.<br/>Aby uzyskać więcej informacji, zobacz [Kopiowanie równoległe](copy-activity-performance-features.md#parallel-copy). | Nie |
@@ -183,7 +183,7 @@ Zobacz [Mapowanie schematu i typu danych,](copy-activity-schema-and-type-mapping
 
 ## <a name="add-additional-columns-during-copy"></a>Dodaj dodatkowe kolumny podczas kopiowania
 
-Oprócz kopiowania danych ze źródłowego magazynu danych do ujścia, można również skonfigurować program, aby dodać do niego dodatkowe kolumny danych. Na przykład:
+Oprócz kopiowania danych ze źródłowego magazynu danych do ujścia, można również skonfigurować program, aby dodać do niego dodatkowe kolumny danych. Przykład:
 
 - Podczas kopiowania z lokalizacji źródłowej plików należy przechowywać względną ścieżkę pliku jako dodatkową kolumnę do śledzenia, z którego pliku pochodzą dane.
 - Duplikuj określoną kolumnę źródłową jako inną kolumnę. 
@@ -250,9 +250,9 @@ Aby programowo skonfigurować go, Dodaj `additionalColumns` Właściwość w źr
 
 W przypadku kopiowania danych do usługi SQL Database/Azure Synapse Analytics, jeśli tabela docelowa nie istnieje, działanie kopiowania obsługuje automatyczne tworzenie go na podstawie danych źródłowych. Ma ona na celu ułatwienie szybkiego rozpoczęcia ładowania danych oraz ocenę usługi SQL Database/Azure Synapse Analytics. Po pozyskaniu danych można przejrzeć i dostosować schemat tabeli ujścia zgodnie z potrzebami.
 
-Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do następujących magazynów danych ujścia. Możesz znaleźć opcję w *interfejsie użytkownika tworzenia ADF* *— >-* > *opcji tabeli* — > *automatycznego tworzenia tabeli*lub za pośrednictwem `tableOption` właściwości w ładunku ujścia działania kopiowania.
+Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do następujących magazynów danych ujścia. Możesz znaleźć opcję w *interfejsie użytkownika tworzenia ADF* *— >-* > *opcji tabeli* — > *automatycznego tworzenia tabeli* lub za pośrednictwem `tableOption` właściwości w ładunku ujścia działania kopiowania.
 
-- [Baza danych SQL Azure](connector-azure-sql-database.md)
+- [Azure SQL Database](connector-azure-sql-database.md)
 - [Wystąpienie zarządzane usługi Azure SQL Database](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
@@ -262,6 +262,13 @@ Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do 
 ## <a name="fault-tolerance"></a>Odporność na uszkodzenia
 
 Domyślnie działanie kopiowania kończy kopiowanie danych i zwraca błąd, gdy wiersze danych źródłowych są niezgodne z wierszami danych ujścia. Aby pomyślnie wykonać kopię, można skonfigurować działanie kopiowania, aby pominąć i zarejestrować niezgodne wiersze i skopiować tylko zgodne dane. Aby uzyskać szczegółowe informacje, zobacz [odporność na błędy działania kopiowania](copy-activity-fault-tolerance.md) .
+
+## <a name="data-consistency-verification"></a>Weryfikacja spójności danych
+
+Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory działanie kopiowania oferuje dodatkową weryfikację spójności danych, aby upewnić się, że dane nie zostały pomyślnie skopiowane do magazynu docelowego, ale również zweryfikowane jako zgodne z magazynem źródłowym i docelowym. Po znalezieniu niespójnych plików podczas przenoszenia danych można przerwać działanie kopiowania lub kontynuować kopiowanie reszty przez włączenie ustawienia odporności na uszkodzenia, aby pominąć niespójne pliki. Pominięte nazwy plików można uzyskać, włączając ustawienie dziennika sesji w działaniu kopiowania. Aby uzyskać szczegółowe informacje, zobacz [Weryfikacja spójności danych w działaniu kopiowania](copy-activity-data-consistency.md) .
+
+## <a name="session-log"></a>Dziennik sesji
+Można rejestrować skopiowane nazwy plików, co może pomóc w dokładniejszym zapewnieniu, że dane nie zostaną pomyślnie skopiowane z lokalizacji źródłowej do magazynu docelowego, ale również spójne między magazynem źródłowym i docelowym, przeglądając dzienniki sesji działania kopiowania. Aby uzyskać szczegółowe informacje, zobacz [dziennik sesji w działaniu kopiowania](copy-activity-log.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące Przewodniki Szybki Start, samouczki i przykłady:

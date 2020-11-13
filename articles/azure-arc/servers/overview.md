@@ -2,14 +2,14 @@
 title: Omówienie serwerów z obsługą usługi Azure Arc
 description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc do zarządzania serwerami hostowanymi poza platformą Azure, takimi jak zasób platformy Azure.
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: b9d38b2395d922e3e2a7daec654cd73de7267ee1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360585"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578726"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
@@ -45,6 +45,15 @@ Dane dziennika zbierane i przechowywane w obszarze roboczym Log Analytics z masz
 Aby uzyskać ostateczną listę obsługiwanych regionów z serwerami z obsługą usługi Azure ARC, zobacz stronę [produkty na platformie Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) .
 
 W większości przypadków lokalizacja wybrana podczas tworzenia skryptu instalacji powinna być regionem platformy Azure geograficznie najbliżej lokalizacji maszyny. Dane przechowywane w obszarze geograficznym platformy Azure zawierają określony region, co może również mieć wpływ na wybór regionu, jeśli istnieją wymagania dotyczące danych znajdujących się na miejscu. Jeśli w regionie świadczenia usługi Azure, z którym nawiąże się połączenie, ma to wpływ na awarię, nie ma to wpływ na przyłączoną maszynę, ale nie można ukończyć operacji zarządzania przy użyciu platformy Azure. W przypadku awarii regionalnej, jeśli masz wiele lokalizacji, które obsługują geograficznie nadmiarową usługę, najlepszym rozwiązaniem jest połączenie maszyn w każdej lokalizacji z innym regionem platformy Azure.
+
+Następujące metadane dotyczące połączonej maszyny są zbierane i przechowywane w regionie, w którym jest skonfigurowany zasób maszyny usługi Azure ARC:
+
+- Nazwa i wersja systemu operacyjnego
+- Nazwa komputera
+- W pełni kwalifikowana nazwa domeny komputera (FQDN)
+- Wersja agenta połączonej maszyny
+
+Na przykład jeśli maszyna jest zarejestrowana w usłudze Azure Arc w regionie Wschodnie stany USA, te dane są przechowywane w regionie US.
 
 ### <a name="agent-status"></a>Stan agenta
 

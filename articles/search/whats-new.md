@@ -6,23 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422675"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579474"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
 Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
+## <a name="november-2020"></a>Listopad 2020 r.
+
+|Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
+|------------------------------|----------|-------------|---------------|
+|[szyfrowanie klucza zarządzanego przez klienta za pośrednictwem indeksatorów, źródeł danych i umiejętności](search-security-manage-encryption-keys.md) | Zabezpieczenia | Ta dodatkowa część rozszerza szyfrowanie zarządzane przez klienta przez cały zakres zasobów utworzonych i zarządzanych przez usługę wyszukiwania. Wycofaj, że obsługa CMK dodaje dodatkową warstwę szyfrowania na podstawie podstawowego szyfrowania wykonywanego i zarządzanego przez firmę Microsoft. | Ogólnie dostępna przy użyciu interfejsu API REST-Version = 2020-06-30 |  
+
 ## <a name="september-2020"></a>Wrzesień 2020
 
 Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień kontroli RBAC platformy Azure, aby przyznać tożsamości tylko do odczytu dla źródeł danych platformy Azure. Opcjonalnie można wybrać opcję [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli nie są dostępne reguły adresów IP.
-
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |------------------------------|----------|-------------|---------------|
@@ -80,7 +85,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 | [**Wykrywanie przez dane OSOBowe (wersja zapoznawcza)**](cognitive-search-skill-pii-detection.md) | Wzbogacanie sztucznej inteligencji | Nowa umiejętność, która jest używana podczas indeksowania, która wyodrębnia informacje osobiste z tekstu wejściowego i umożliwia maskowanie tego tekstu na różne sposoby. | Publiczna wersja zapoznawcza. </br> Użyj portalu lub [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
 | [**Wyszukiwanie jednostek niestandardowych (wersja zapoznawcza)**](cognitive-search-skill-custom-entity-lookup.md )| Wzbogacanie sztucznej inteligencji | Nowa umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie dokładnie. | Publiczna wersja zapoznawcza. </br> Użyj portalu lub [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
 
-## <a name="january-2020"></a>Styczeń 2020 r.
+## <a name="january-2020"></a>Styczeń 2020 r.
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
@@ -90,7 +95,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 
 ## <a name="features-in-2019"></a>Funkcje w 2019
 
-### <a name="december-2019"></a>Grudzień 2019 r.
+### <a name="december-2019"></a>Grudzień 2019 r.
 
 + [Tworzenie aplikacji demonstracyjnej (wersja zapoznawcza)](search-create-app-portal.md) to nowy Kreator w portalu, który GENERUJE plik HTML do pobrania z użyciem zapytania (tylko do odczytu) do indeksu. Plik zawiera osadzony skrypt, który renderuje operacyjną aplikację sieci Web w stylu "localhost", powiązaną z indeksem w usłudze wyszukiwania. Strony można konfigurować w Kreatorze i zawierać pasek wyszukiwania, obszar wyników, nawigację paska bocznego i obsługę zapytań typeahead. Możesz zmodyfikować kod HTML w trybie offline, aby zwiększyć lub dostosować przepływ pracy lub wygląd. Aplikacja demonstracyjna nie została łatwo rozszerzona w celu uwzględnienia warstw zabezpieczeń i hostingu, które zwykle są konieczne w scenariuszach produkcyjnych. Należy rozważyć ją jako narzędzie do sprawdzania poprawności i testowania, a nie krótkie wycinanie do pełnej aplikacji klienckiej.
 

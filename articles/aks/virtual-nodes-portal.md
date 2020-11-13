@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9becd6341baad54a74f10ae2f38cf9ccf1fd3037
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 7d49499b39c562aeff20d163fc86401d8c1f4a06
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347900"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579168"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do używania węzłów wirtualnych w Azure Portal
 
@@ -214,5 +214,5 @@ Węzły wirtualne są jednym składnikiem rozwiązania do skalowania w AKS. Aby 
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider&preserve-view=true#az-provider-list
+[az-provider-list]: /cli/azure/provider?view=azure-cli-latest#az-provider-list
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register

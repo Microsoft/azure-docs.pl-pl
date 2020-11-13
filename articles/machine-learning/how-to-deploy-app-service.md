@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: bea3270821888334ed876bb827dab56b4c206b6a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325240"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578029"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Wdróż model uczenia maszynowego w Azure App Service (wersja zapoznawcza)
 
@@ -75,7 +75,7 @@ Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu
 Te jednostki są hermetyzowane w __konfiguracji wnioskowania__. Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
 
 > [!IMPORTANT]
-> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure App Service należy użyć obiektu [środowiska](//python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
+> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure App Service należy użyć obiektu [środowiska](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Aby uzyskać więcej informacji na temat konfiguracji wnioskowania, zobacz [Wdra
 
 ## <a name="create-the-image"></a>Tworzenie obrazu
 
-Aby utworzyć obraz platformy Docker wdrożony w Azure App Service, użyj [modelu model. Package](//python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). Poniższy fragment kodu przedstawia sposób tworzenia nowego obrazu z konfiguracji modelu i wnioskowania:
+Aby utworzyć obraz platformy Docker wdrożony w Azure App Service, użyj [modelu model. Package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py). Poniższy fragment kodu przedstawia sposób tworzenia nowego obrazu z konfiguracji modelu i wnioskowania:
 
 > [!NOTE]
 > W fragmencie kodu założono `model` , że zawiera zarejestrowany model i `inference_config` zawiera konfigurację środowiska wnioskowania. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).

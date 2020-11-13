@@ -1,6 +1,6 @@
 ---
 title: Ustawianie Azure Resource Manager hasła na urządzeniu z systemem Azure Stack EDGE Pro GPU
-description: Zawiera opis sposobu nawiązywania połączenia z Azure Resource Manager uruchomionego na Azure Stackj funkcji brzegowej procesora GPU przy użyciu Azure PowerShell.
+description: Opisuje Ustawianie hasła Azure Resource Manager na procesorze GPU Azure Stack EDGE Pro przy użyciu Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904486"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578794"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Ustawianie hasła Azure Resource Manager na urządzeniu z systemem Azure Stack Edge
 
@@ -21,14 +21,14 @@ ms.locfileid: "90904486"
 
 W tym artykule opisano sposób ustawiania hasła Azure Resource Manager. Należy ustawić to hasło podczas łączenia z lokalnymi interfejsami API urządzenia za pośrednictwem Azure Resource Manager.
 
-Procedura ustawiania hasła może się różnić w zależności od tego, czy używasz Azure Portal, czy poleceń cmdlet programu PowerShell. Każda z tych procedur została opisana w poniższych sekcjach.
+Procedura ustawiania hasła może się różnić w zależności od tego, czy używasz witryny Azure Portal, czy poleceń cmdlet programu PowerShell. Każda z tych procedur została opisana w poniższych sekcjach.
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Zresetuj hasło za pomocą Azure Portal
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge utworzonego w celu zarządzania urządzeniem. Przejdź do pozycji **obliczenia graniczne > wprowadzenie**.
 
-2. W okienku po prawej stronie na pasku poleceń wybierz pozycję **zresetuj hasło ARM usługi Edge**. 
+2. W okienku po prawej stronie na pasku poleceń wybierz pozycję **Resetuj hasło ARM usługi Edge**. 
 
     ![Resetowanie hasła użytkownika EdgeARM 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 

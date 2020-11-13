@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554720"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591992"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importowanie danych do programu Azure Machine Learning Designer
 
@@ -53,6 +53,8 @@ Jeśli dane wyjściowe modułu są w formacie tabelarycznym, należy wybrać zar
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych
 
 Zarejestrowane zestawy danych można znaleźć w palecie modułów w obszarze **zestawy danych**. Aby użyć zestawu danych, przeciągnij i upuść go na kanwie potoku. Następnie połącz port wyjściowy zestawu danych z innymi modułami na kanwie. 
+
+Jeśli zarejestrujesz plik DataSet, typem portu wyjściowego zestawu danych jest **AnyDirectory**. Jeśli rejestrujesz tabelaryczny zestaw danych, typ portu wyjściowego zestawu danych, jeśli **DataFrameDirectory**. Należy pamiętać, że jeśli port wyjściowy zestawu danych zostanie połączony z innymi modułami w projektancie, typ portu zestawów danych i modułów musi być wyrównany.
 
 ![Zrzut ekranu przedstawiający lokalizację zapisanych zestawów danych w palecie projektanta](media/how-to-designer-import-data/use-datasets-designer.png)
 

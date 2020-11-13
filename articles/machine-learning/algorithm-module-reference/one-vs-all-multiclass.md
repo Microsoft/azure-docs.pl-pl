@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 4dfe284a00052cbd1915d62355e1d7772f3712ab
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376336"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591873"
 ---
 # <a name="one-vs-all-multiclass"></a>moduł wieloklasowy „jeden przeciw wszystkim”
 
@@ -31,6 +31,8 @@ Ten moduł implementuje metodę "one-a-All", w której jest tworzony model binar
 W zasadzie moduł tworzy kompletność poszczególnych modeli, a następnie scala wyniki, aby utworzyć jeden model, który przewiduje wszystkie klasy. Dowolny klasyfikator binarny może być używany jako podstawa dla modelu typu jeden-do-wszystkich.  
 
 Załóżmy na przykład, że skonfigurowano model [maszyny wektorowej obsługujący dwie klasy](two-class-support-vector-machine.md) i zapewnia to, że jako dane wejściowe do modułu moduł wieloklasowy „jeden przeciw wszystkim”. Moduł utworzy modele maszyn wektorowych obsługujące dwie klasy dla wszystkich elementów członkowskich klasy wyjściowej. Następnie zastosuj metodę "jeden do wszystkiego", aby połączyć wyniki dla wszystkich klas.  
+
+Moduł używa OneVsRestClassifier of skryptu sklearn i więcej szczegółów można znaleźć [tutaj](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html).
 
 ## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>Jak skonfigurować klasyfikator moduł wieloklasowy „jeden przeciw wszystkim”  
 

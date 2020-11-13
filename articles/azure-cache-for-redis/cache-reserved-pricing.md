@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543529"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578709"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Przedpłata za usługę Azure cache dla zasobów obliczeniowych Redis z zarezerwowaną pojemnością
 
@@ -22,7 +22,7 @@ Nie trzeba przypisywać rezerwacji do określonych pamięci podręcznej platform
 W [Azure Portal](https://portal.azure.com/)można kupić pamięć podręczną platformy Azure pod kątem zarezerwowanych pojemności Redis. Aby kupić zarezerwowaną pojemność:
 
 * Musisz być w roli właściciela dla co najmniej jednej subskrypcji przedsiębiorstwa lub indywidualnej, która ma stawki płatność zgodnie z rzeczywistym użyciem.
-* W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane** . Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
+* W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
 * W przypadku programu Cloud Solution Provider (CSP) tylko agenci administracyjni lub agenci sprzedaży mogą kupować pamięć podręczną platformy Azure pod kątem zarezerwowanej pojemności Redis.
 
 Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym użyciem są obciążani zakupami rezerwacji, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) i informacje [dotyczące użycia rezerwacji na platformie Azure dla subskrypcji płatnej zgodnie z rzeczywistym wykorzystaniem](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
@@ -37,8 +37,10 @@ Załóżmy na przykład, że korzystasz z dwóch pamięci podręcznych — jeden
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Kupowanie pamięci podręcznej platformy Azure pod kątem zarezerwowanej pojemności Redis
 
+Możesz kupić wystąpienie zarezerwowane maszyny wirtualnej w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/monthly-payments-reservations.md).
+
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje** .
+2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3. Wybierz pozycję **Dodaj** , a następnie w okienku rezerwacje zakupu wybierz pozycję **Azure cache for Redis** , aby zakupić nową rezerwację dla pamięci podręcznych.
 4. Wypełnij pola wymagane. Istniejące lub nowe bazy danych zgodne z wybranymi atrybutami kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba wystąpień usługi Azure cache for Redis, które pobierają rabat, zależą od wybranego zakresu i ilości.
 
@@ -52,10 +54,10 @@ W poniższej tabeli opisano wymagane pola.
 | :------------ | :------- |
 | Subskrypcja   | Subskrypcja używana do płacenia za pamięć podręczną platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. W ramach metody płatności w ramach subskrypcji jest naliczana opłata za koszty z góry pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji Enterprise opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.
 | Zakres | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: </br></br> **Udostępniony** rabat w ramach rezerwacji jest stosowany do usługi Azure cache dla wystąpień Redis uruchomionych w każdej subskrypcji w kontekście rozliczania. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.</br></br> **Pojedyncza subskrypcja** rabat jest stosowany do usługi Azure cache dla wystąpień Redis w tej subskrypcji. </br></br> **Pojedynczej grupy zasobów** , Rabat rezerwacji jest stosowany do usługi Azure cache dla wystąpień Redis w ramach wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.
-| Region | Region świadczenia usługi Azure, który jest objęty pamięcią podręczną platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis.
+| Region (Region) | Region świadczenia usługi Azure, który jest objęty pamięcią podręczną platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis.
 | Warstwa cenowa | Warstwa usługi dla serwerów Redis w pamięci podręcznej platformy Azure.
 | Termin | Jeden rok lub trzy lata
-| Liczba | Ilość zasobów obliczeniowych zakupionych w pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Ilość to liczba pamięci podręcznych w wybranym regionie platformy Azure i w warstwie usług, które są zarezerwowane i uzyskają rabat na rozliczenia. Na przykład w przypadku uruchamiania lub planowania uruchamiania pamięci podręcznej platformy Azure dla serwerów Redis z łączną pojemnością pamięci podręcznej wynoszącą 26 GB w regionie Wschodnie stany USA należy określić liczbę zapewniającą równowartość 26 GB, aby zmaksymalizować korzyść dla wszystkich pamięci podręcznych. Może to być 1 P3 lub 2 pamięci podręcznych.
+| Ilość | Ilość zasobów obliczeniowych zakupionych w pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Ilość to liczba pamięci podręcznych w wybranym regionie platformy Azure i w warstwie usług, które są zarezerwowane i uzyskają rabat na rozliczenia. Na przykład w przypadku uruchamiania lub planowania uruchamiania pamięci podręcznej platformy Azure dla serwerów Redis z łączną pojemnością pamięci podręcznej wynoszącą 26 GB w regionie Wschodnie stany USA należy określić liczbę zapewniającą równowartość 26 GB, aby zmaksymalizować korzyść dla wszystkich pamięci podręcznych. Może to być 1 P3 lub 2 pamięci podręcznych.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 

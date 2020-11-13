@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963520"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591652"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -33,11 +33,11 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 * Podsieć musi być delegowana do usługi Azure NetApp Files.  
     Zobacz [delegowanie podsieci do Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 * Upewnij się, że spełniasz [wymagania dotyczące Active Directory połączeń](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
-* Upewnij się, że klient NFS jest aktualny i uruchomiono najnowsze aktualizacje dla systemu operacyjnego.
+* Upewnij się, że klient sieciowego systemu plików jest aktualny i ma najnowsze aktualizacje systemu operacyjnego.
 * Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. Można to zrobić przez zainstalowanie i skonfigurowanie roli [usługi LDS Active Directory (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
 * Upewnij się, że urząd certyfikacji jest tworzony w usłudze AD przy użyciu roli [usług certyfikatów Active Directory (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) do generowania i eksportowania certyfikatu głównego urzędu certyfikacji z podpisem własnym.   
 * Woluminy podwójnego protokołu nie obsługują obecnie Azure Active Directory Domain Services (AADDS).  
@@ -54,11 +54,11 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
 ## <a name="create-a-dual-protocol-volume"></a>Tworzenie woluminu dwuprotokołowego
 
-1.  Kliknij blok **woluminy** w bloku pule pojemności. Kliknij pozycję **+ Dodaj wolumin**, aby utworzyć wolumin. 
+1.  Kliknij blok **woluminy** w bloku pule pojemności. Kliknij pozycję **+ Dodaj wolumin** , aby utworzyć wolumin. 
 
     ![Przejdź do woluminów](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  W oknie Tworzenie woluminu kliknij pozycję **Utwórz**, a następnie podaj informacje dotyczące następujących pól na karcie podstawowe:   
+2.  W oknie Tworzenie woluminu kliknij pozycję **Utwórz** , a następnie podaj informacje dotyczące następujących pól na karcie podstawowe:   
     * **Nazwa woluminu**      
         Określ nazwę tworzonego woluminu.   
 
@@ -88,7 +88,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
         Określ podsieć, której chcesz użyć na potrzeby woluminu.  
         Określana podsieć musi być delegowana do usługi Azure NetApp Files. 
         
-        Jeśli podsieć nie została delegowana, można kliknąć pozycję **Utwórz nowe** na stronie Utwórz wolumin. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy**, aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
+        Jeśli podsieć nie została delegowana, można kliknąć pozycję **Utwórz nowe** na stronie Utwórz wolumin. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy** , aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
  
         ![Tworzenie woluminu](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -100,7 +100,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
         ![Pokaż zaznaczenie zaawansowane](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-3. Kliknij pozycję **Protokół**, a następnie wykonaj następujące czynności:  
+3. Kliknij pozycję **Protokół** , a następnie wykonaj następujące czynności:  
     * Wybierz pozycję **Dual-Protocol (NFSv3 i SMB)** jako typ protokołu dla woluminu.   
 
     * Z listy rozwijanej wybierz połączenie **Active Directory** .  
@@ -135,7 +135,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
     ![Kreator eksportu certyfikatów](../media/azure-netapp-files/certificate-export-wizard.png)
 
-4. Przejdź do konta NetApp dla dwuprotokołowego woluminu, kliknij przycisk **Active Directory połączenia**i przekaż certyfikat głównego urzędu certyfikacji przy użyciu okna **Active Directory sprzężenia** :  
+4. Przejdź do konta NetApp dla dwuprotokołowego woluminu, kliknij przycisk **Active Directory połączenia** i przekaż certyfikat głównego urzędu certyfikacji przy użyciu okna **Active Directory sprzężenia** :  
 
     ![Certyfikat głównego urzędu certyfikacji serwera](../media/azure-netapp-files/server-root-ca-certificate.png)
 
@@ -161,5 +161,5 @@ Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie klienta NFS dla Azure
 
 ## <a name="next-steps"></a>Następne kroki  
 
-* [Dwa często zadawane pytania dotyczące protokołu](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files](configure-nfs-clients.md)
+* [Rozwiązywanie problemów z woluminami używającymi dwóch protokołów](troubleshoot-dual-protocol-volumes.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 64c1a7155d0cc4e80f97db138a0626d6e9fdc9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657821"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579525"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Łączenie danych z usługi Microsoft Defender dla tożsamości (dawniej ochrona przed zagrożeniami na platformie Azure)
 
@@ -32,7 +32,7 @@ Za pomocą jednego kliknięcia można przesyłać strumieniowo dzienniki z usłu
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Użytkownik z uprawnieniami administratora globalnego lub administratora zabezpieczeń
-- Musisz być klientem wersji zapoznawczej usługi Microsoft Defender, aby zapewnić tożsamość i włączyć integrację usługi Microsoft Defender pod kątem tożsamości i Microsoft Cloud App Security. Aby uzyskać więcej informacji, zobacz [Microsoft Defender for Identity Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+- Musisz być klientem wersji zapoznawczej usługi Microsoft Defender, aby zapewnić tożsamość i włączyć integrację usługi Microsoft Defender pod kątem tożsamości i Microsoft Cloud App Security. Aby uzyskać więcej informacji, zobacz [Microsoft Defender for Identity Integration](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Łączenie z usługą Microsoft Defender dla tożsamości
 
@@ -40,13 +40,13 @@ Upewnij się, że [w sieci jest włączona](https://docs.microsoft.com/azure-adv
 Jeśli usługa Microsoft Defender dla tożsamości została wdrożona i pozyskuje dane, podejrzane alerty mogą być łatwo przesyłane strumieniowo do usługi Azure wskaźnikowej. Rozpoczęcie przesyłania strumieniowego na platformę Azure jest możliwe dopiero po 24 godzinach.
 
 
-1. Aby nawiązać połączenie z usługą Microsoft Defender w celu uzyskania tożsamości na platformie Azure, musisz najpierw włączyć integrację usługi Microsoft Defender dla tożsamości i Microsoft Cloud App Security. Aby uzyskać informacje o tym, jak to zrobić, zobacz [Microsoft Defender for Identity Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+1. Aby nawiązać połączenie z usługą Microsoft Defender w celu uzyskania tożsamości na platformie Azure, musisz najpierw włączyć integrację usługi Microsoft Defender dla tożsamości i Microsoft Cloud App Security. Aby uzyskać informacje o tym, jak to zrobić, zobacz [Microsoft Defender for Identity Integration](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
 
 1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Microsoft Defender for Identity (wersja zapoznawcza)** .
 
 1. Możesz wybrać, czy alerty z usługi Microsoft Defender mają być automatycznie generowane na podstawie zdarzeń na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analityczną, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
 
-1. Kliknij przycisk **Połącz**.
+1. Kliknij przycisk **Podłącz**.
 
 1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów dotyczących tożsamości usługi Microsoft Defender, Wyszukaj pozycję **SecurityAlert**.
 

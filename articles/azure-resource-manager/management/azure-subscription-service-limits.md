@@ -3,12 +3,12 @@ title: Ograniczenia i limity subskrypcji platformy Azure
 description: Zawiera listę typowych limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń. Ten artykuł zawiera informacje o sposobach zwiększania limitów oraz wartości maksymalnych.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412935"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577842"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia
 
@@ -155,6 +155,10 @@ Najnowsze wartości przydziałów obliczeń Azure Machine Learning można znale�
 ### <a name="action-groups"></a>Grupy akcji
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
+
+### <a name="autoscale"></a>Automatyczne skalowanie
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
 
 ### <a name="log-queries-and-language"></a>Rejestruj zapytania i język
 

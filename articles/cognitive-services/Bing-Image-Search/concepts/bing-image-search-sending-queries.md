@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: f697449fffe6c93d8e5082b210678d3f51c0c736
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6fb1bdbad4455b55c3f6cc3b395526f637339847
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084414"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592162"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Dostosuj i Sugeruj zapytania wyszukiwania obrazów
 
@@ -33,7 +33,7 @@ Jeśli Twoja aplikacja zawiera pole wyszukiwania, w którym są wprowadzane term
 
 ## <a name="pivot-the-query"></a>Przestawianie zapytania
 
-Jeśli Bing może segmentować oryginalne zapytanie wyszukiwania, obiekt zwracanych [obrazów](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera `pivotSuggestions` . Sugestie przestawne mogą być wyświetlane jako opcjonalne terminy wyszukiwania dla użytkownika. Na przykład jeśli oryginalna kwerenda była *powierzchnią firmy Microsoft* , Bing może segmentować zapytanie do *firmy Microsoft* i *powierzchni* i udostępniać sugerowane przestawki dla każdego z nich. Te sugestie mogą być wyświetlane jako opcjonalne warunki kwerendy dla użytkownika.
+Jeśli Bing może segmentować oryginalne zapytanie wyszukiwania, obiekt zwracanych [obrazów](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera `pivotSuggestions` . Sugestie przestawne mogą być wyświetlane jako opcjonalne terminy wyszukiwania dla użytkownika. Na przykład jeśli oryginalna kwerenda była *powierzchnią firmy Microsoft* , Bing może segmentować zapytanie do *firmy Microsoft* i *powierzchni* i udostępniać sugerowane przestawki dla każdego z nich. Te sugestie mogą być wyświetlane jako opcjonalne warunki kwerendy dla użytkownika.
 
 Poniższy przykład przedstawia sugestie dotyczące obszaru Pivot dla urządzenia *Microsoft Surface* :  
 
@@ -94,7 +94,7 @@ Poniższy przykład przedstawia sugestie dotyczące obszaru Pivot dla urządzeni
 }
 ```
 
-Pole `pivotSuggestions` zawiera listę segmentów (elementów bazowych), na które zostało podzielone oryginalne zapytanie. Dla każdego elementu bazowego odpowiedź zawiera listę obiektów [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) zawierających sugerowane zapytania. `text`Pole zawiera sugerowane zapytanie. `displayText`Pole zawiera termin, który zastępuje przestawkę Pivot w oryginalnym zapytaniu. Przykładem jest Data wydania powierzchni.
+Pole `pivotSuggestions` zawiera listę segmentów (elementów bazowych), na które zostało podzielone oryginalne zapytanie. Dla każdego elementu bazowego odpowiedź zawiera listę obiektów [Query](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) zawierających sugerowane zapytania. `text`Pole zawiera sugerowane zapytanie. `displayText`Pole zawiera termin, który zastępuje przestawkę Pivot w oryginalnym zapytaniu. Przykładem jest Data wydania powierzchni.
 
 Jeśli ciąg zapytania Pivot jest szukanym przez użytkownika, użyj `text` pól i, `thumbnail` Aby wyświetlić ciągi zapytania Pivot. Udostępnij miniaturę i tekst przy użyciu `webSearchUrl` adresu URL lub `searchLink` adresu URL. Służy `webSearchUrl` do wysyłania użytkownika do wyników wyszukiwania Bing. Jeśli postanowisz własną stronę wyników, użyj `searchLink` .
 
@@ -106,13 +106,13 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Rozwiń zapytanie
 
-Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera pole `queryExpansions`. Na przykład, jeśli kwerenda była *powierzchnią firmy Microsoft* , rozszerzone zapytania mogą być następujące:
-- Microsoft Surface **Pro 3** .
-- Microsoft Surface **RT** .
+Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera pole `queryExpansions`. Na przykład, jeśli kwerenda była *powierzchnią firmy Microsoft* , rozszerzone zapytania mogą być następujące:
+- Microsoft Surface **Pro 3**.
+- Microsoft Surface **RT**.
 - **Telefon** naziemny firmy Microsoft.
-- Microsoft Surface **Hub** .
+- Microsoft Surface **Hub**.
 
-W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Microsoft Surface* .
+W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Microsoft Surface*.
 
 ```json
 {
@@ -152,7 +152,7 @@ W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Microsoft Su
 }
 ```
 
-Pole `queryExpansions` zawiera listę obiektów [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj). `text`Pole zawiera rozwinięte zapytanie. `displayText`Pole zawiera termin rozwinięcia. Jeśli rozszerzony ciąg zapytania jest wyszukiwany przez użytkownika, użyj `text` pól i, `thumbnail` Aby wyświetlić rozwinięte ciągi zapytań. Udostępnij miniaturę i tekst przy użyciu `webSearchUrl` adresu URL lub `searchLink` adresu URL. Służy `webSearchUrl` do wysyłania użytkownika do wyników wyszukiwania Bing. Jeśli postanowisz własną stronę wyników, użyj `searchLink` .
+Pole `queryExpansions` zawiera listę obiektów [Query](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj). `text`Pole zawiera rozwinięte zapytanie. `displayText`Pole zawiera termin rozwinięcia. Jeśli rozszerzony ciąg zapytania jest wyszukiwany przez użytkownika, użyj `text` pól i, `thumbnail` Aby wyświetlić rozwinięte ciągi zapytań. Udostępnij miniaturę i tekst przy użyciu `webSearchUrl` adresu URL lub `searchLink` adresu URL. Służy `webSearchUrl` do wysyłania użytkownika do wyników wyszukiwania Bing. Jeśli postanowisz własną stronę wyników, użyj `searchLink` .
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.

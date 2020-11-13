@@ -11,15 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b4dc222ed0fc350b680d2696c1faa16d44b84a02
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 496a38e43c7bd624c42f5c7a43ad9cf16f85d166
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358341"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579576"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Wersje i śledzenie zestawów danych w eksperymentach
-
 
 Ten artykuł zawiera informacje na temat wersji i śledzenia Azure Machine Learning zestawów danych w celu uzyskania odtwarzalności. Wersja zestawu danych to sposób zakładania stanu danych, aby można było zastosować określoną wersję zestawu danych do przyszłych eksperymentów.
 
@@ -116,11 +115,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>Wersja zestawu danych wyjściowych potoku
+## <a name="version-an-ml-pipeline-output-dataset"></a>Wersja zestawu danych wyjściowych potoku ML
 
-Zestawu danych można użyć jako danych wejściowych i wyjściowych każdego etapu potoku Machine Learning. Po ponownym uruchomieniu potoków dane wyjściowe poszczególnych etapów potoku są rejestrowane jako nowa wersja zestawu danych.
+Zestawu danych można użyć jako danych wejściowych i wyjściowych poszczególnych etapów [potoku](concept-ml-pipelines.md) . Po ponownym uruchomieniu potoków dane wyjściowe poszczególnych etapów potoku są rejestrowane jako nowa wersja zestawu danych.
 
-Ponieważ Machine Learning potoki wypełniają dane wyjściowe każdego kroku do nowego folderu za każdym razem, gdy potok zostanie ponownie skonfigurowany, przywracane wersje zestawów danych są odtwarzalne. Dowiedz się więcej o [zestawach danych w potokach](how-to-create-your-first-pipeline.md#steps).
+Potoki ML wypełniają dane wyjściowe każdego kroku do nowego folderu przy każdym uruchomieniu potoku. Takie zachowanie umożliwia przywrócenie zestawów danych wyjściowych z wersjami. Dowiedz się więcej o [zestawach danych w potokach](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -154,9 +153,36 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>Śledzenie zestawów danych w eksperymentach
+## <a name="track-datas-in-your-experiments"></a>Śledź dane w eksperymentach
 
-Dla każdego Machine Learning eksperymentu można łatwo śledzić zestawy danych używane jako dane wejściowe za pomocą obiektu eksperymentu `Run` .
+Azure Machine Learning śledzi dane w trakcie eksperymentu jako wejściowe i wyjściowe zestawy danych.  
+
+Poniżej przedstawiono scenariusze, w których dane są śledzone jako **wejściowy zestaw danych**. 
+
+* Jako `DatasetConsumptionConfig` obiekt za pomocą `inputs` albo parametru lub `arguments` `ScriptRunConfig` obiektu podczas przesyłania eksperymentu. 
+
+* Gdy metody takie jak, get_by_name () lub get_by_id () są wywoływane w skrypcie. W tym scenariuszu nazwa przypisana do zestawu danych, gdy zarejestrowano go w obszarze roboczym, jest nazwą wyświetlaną. 
+
+Poniżej przedstawiono scenariusze, w których dane są śledzone jako **wyjściowy zestaw danych**.  
+
+* Przekaż `OutputFileDatasetConfig` obiekt za pomocą `outputs` albo `arguments` parametru podczas przesyłania eksperymentu. `OutputFileDatasetConfig` obiekty mogą być również używane do utrwalania danych między etapami potoku. Zobacz [przenoszenie danych między etapami potoku.](how-to-move-data-in-out-of-pipelines.md)
+    > [!TIP]
+    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) jest publiczną klasą zapoznawczą zawierającą funkcje [eksperymentalnej](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) wersji zapoznawczej, które mogą ulec zmianie w dowolnym momencie.
+
+* Zarejestruj zestaw danych w skrypcie. W tym scenariuszu nazwa przypisana do zestawu danych, gdy zarejestrowano go w obszarze roboczym, jest nazwą wyświetlaną. W poniższym przykładzie `training_ds` jest nazwą, która ma być wyświetlana.
+
+    ```Python
+   training_ds = unregistered_ds.register(workspace = workspace,
+                                     name = 'training_ds',
+                                     description = 'training data'
+                                     )
+    ```
+
+* Prześlij podrzędny przebieg z niezarejestrowanego zestawu danych w skrypcie. Powoduje to anonimowy, zapisany zestaw danych.
+
+### <a name="trace-datasets-in-experiment-runs"></a>Śledzenie zestawów danych w przebiegach eksperymentu
+
+Dla każdego Machine Learning eksperymentu można łatwo śledzić zestawy danych używane jako dane wejściowe z `Run` obiektem eksperymentu.
 
 Poniższy kod używa [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) metody do śledzenia, które wejściowe zestawy danych zostały użyte z przebiegiem eksperymentu:
 
@@ -169,7 +195,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Eksperymenty można również znaleźć za `input_datasets` pomocą https://ml.azure.com/ . 
+Eksperymenty można również znaleźć za `input_datasets` pomocą programu [Azure Machine Learning Studio](). 
 
 Na poniższej ilustracji przedstawiono, gdzie znaleźć zestaw danych wejściowych eksperymentu w programie Azure Machine Learning Studio. Na potrzeby tego przykładu przejdź do okienka **eksperymenty** i Otwórz kartę **Właściwości** dla określonego uruchomienia eksperymentu `keras-mnist` .
 
@@ -183,7 +209,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Po zarejestrowaniu można zobaczyć listę modeli zarejestrowanych w zestawie danych przy użyciu języka Python lub przejdź do https://ml.azure.com/ .
+Po zarejestrowaniu można zobaczyć listę modeli zarejestrowanych w zestawie danych przy użyciu języka Python lub przejdź do [Studio](https://ml.azure.com/).
 
 Poniższy widok pochodzi z okienka **zestawy danych** w obszarze **zasoby**. Wybierz zestaw danych, a następnie wybierz kartę **modele** , aby wyświetlić listę modeli zarejestrowanych z zestawem danych. 
 

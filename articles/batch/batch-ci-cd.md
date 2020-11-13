@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e87be0db65cf12a265566e0c05815722ce3cc609
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337580"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578879"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Używanie Azure Pipelines do kompilowania i wdrażania rozwiązań HPC
 
@@ -24,7 +24,7 @@ W tym przykładzie utworzymy potok kompilacji i wydania w celu wdrożenia infras
 
 ![Diagram przedstawiający przepływ wdrożenia w naszym potoku](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Konfigurowanie
+### <a name="setup"></a>Konfiguracja
 
 Aby wykonać kroki opisane w tym artykule, potrzebna jest organizacja usługi Azure DevOps i projekt zespołowy.
 
@@ -43,7 +43,7 @@ Struktura codebase użyta w tym przykładzie jest podobna do następującej:
 
 * Folder **ARM-templates** zawierający kilka Azure Resource Manager szablonów. Te szablony zostały omówione w tym artykule.
 * Folder **aplikacji klienta** , który jest kopią [Azure Batch przetwarzania plików platformy .NET z](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) przykładem narzędzia FFmpeg. Ten artykuł nie jest wymagany.
-* Folder **HPC-aplikacja** , który jest wersją systemu Windows 64-bitową [Narzędzia FFmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z).
+* Folder **HPC-aplikacja** , który jest wersją systemu Windows 64-bitową [Narzędzia FFmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08).
 * Folder **potoków** . Zawiera plik YAML, który tworzy konspekt procesu kompilacji. Ten artykuł został omówiony w artykule.
 
 W tej sekcji założono, że znasz kontrolę wersji i projektujesz szablony Menedżer zasobów. Jeśli nie znasz tych pojęć, zobacz następujące strony, aby uzyskać więcej informacji.

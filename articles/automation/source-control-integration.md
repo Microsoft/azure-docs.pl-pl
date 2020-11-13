@@ -3,20 +3,20 @@ title: Korzystanie z integracji kontroli źródła w Azure Automation
 description: W tym artykule opisano sposób synchronizowania Azure Automation kontroli źródła z innymi repozytoriami.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229622"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579457"
 ---
 # <a name="use-source-control-integration"></a>Korzystanie z integracji kontroli źródła
 
  Integracja kontroli źródła w Azure Automation obsługuje synchronizację jednokierunkową z repozytorium kontroli źródła. Kontrola źródła pozwala zachować aktualność elementów Runbook na Twoim koncie usługi Automation za pomocą skryptów w repozytorium usługi GitHub lub Azure Repos kontroli źródła. Ta funkcja ułatwia podwyższenie poziomu kodu, który został przetestowany w środowisku programistycznym, na konto automatyzacji produkcji.
- 
- Integracja kontroli źródła pozwala łatwo współpracować z zespołem, śledzić zmiany i przywracać wcześniejsze wersje elementów Runbook. Na przykład kontrola źródła pozwala synchronizować różne gałęzie w kontroli źródła z kontami deweloperskimi, testowymi i produkcyjnymi. 
+
+ Integracja kontroli źródła pozwala łatwo współpracować z zespołem, śledzić zmiany i przywracać wcześniejsze wersje elementów Runbook. Na przykład kontrola źródła pozwala synchronizować różne gałęzie w kontroli źródła z kontami deweloperskimi, testowymi i produkcyjnymi.
 
 ## <a name="source-control-types"></a>Typy kontroli źródła
 
@@ -47,11 +47,11 @@ Użyj tej procedury, aby skonfigurować kontrolę źródła przy użyciu Azure P
 
     ![Wybierz kontrolę źródła](./media/source-control-integration/select-source-control.png)
 
-2. Wybierz **Typ kontroli źródła**, a następnie kliknij przycisk **Uwierzytelnij**. 
+2. Wybierz **Typ kontroli źródła** , a następnie kliknij przycisk **Uwierzytelnij**.
 
 3. Zostanie otwarte okno przeglądarki z prośbą o zalogowanie się. Postępuj zgodnie z monitami, aby zakończyć uwierzytelnianie.
 
-4. Na stronie Podsumowanie kontroli źródła Użyj pól, aby wypełnić właściwości kontroli źródła zdefiniowane poniżej. Po zakończeniu kliknij przycisk **Zapisz** . 
+4. Na stronie Podsumowanie kontroli źródła Użyj pól, aby wypełnić właściwości kontroli źródła zdefiniowane poniżej. Po zakończeniu kliknij przycisk **Zapisz** .
 
     |Właściwość  |Opis  |
     |---------|---------|
@@ -69,13 +69,13 @@ Użyj tej procedury, aby skonfigurować kontrolę źródła przy użyciu Azure P
    ![Podsumowanie kontroli źródła](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Identyfikator logowania dla repozytorium kontroli źródła może być inny niż identyfikator logowania dla Azure Portal. Upewnij się, że logujesz się przy użyciu odpowiedniego konta dla swojego repozytorium kontroli źródła podczas konfigurowania kontroli źródła. W razie wątpliwości Otwórz nową kartę w przeglądarce, Wyloguj się z **dev.Azure.com**, **VisualStudio.com**lub **GitHub.com**i spróbuj ponownie nawiązać połączenie z kontrolą źródła.
+> Identyfikator logowania dla repozytorium kontroli źródła może być inny niż identyfikator logowania dla Azure Portal. Upewnij się, że logujesz się przy użyciu odpowiedniego konta dla swojego repozytorium kontroli źródła podczas konfigurowania kontroli źródła. W razie wątpliwości Otwórz nową kartę w przeglądarce, Wyloguj się z **dev.Azure.com** , **VisualStudio.com** lub **GitHub.com** i spróbuj ponownie nawiązać połączenie z kontrolą źródła.
 
 ### <a name="configure-source-control-in-powershell"></a>Konfigurowanie kontroli źródła w programie PowerShell
 
-Za pomocą programu PowerShell można także skonfigurować kontrolę źródła w Azure Automation. Aby użyć poleceń cmdlet programu PowerShell dla tej operacji, potrzebny jest osobisty token dostępu. Użyj polecenia cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) , aby utworzyć połączenie kontroli źródła. To polecenie cmdlet wymaga bezpiecznego ciągu dla elementu "Binding". Aby dowiedzieć się, jak utworzyć bezpieczny ciąg, zobacz [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Za pomocą programu PowerShell można także skonfigurować kontrolę źródła w Azure Automation. Aby użyć poleceń cmdlet programu PowerShell dla tej operacji, potrzebny jest osobisty token dostępu. Użyj polecenia cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol) , aby utworzyć połączenie kontroli źródła. To polecenie cmdlet wymaga bezpiecznego ciągu dla elementu "Binding". Aby dowiedzieć się, jak utworzyć bezpieczny ciąg, zobacz [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
-Poniższe podsekcje ilustrują Tworzenie połączenia kontroli źródła dla usługi GitHub, Azure Repos (Git) i Azure Repos (TFVC). 
+Poniższe podsekcje ilustrują Tworzenie połączenia kontroli źródła dla usługi GitHub, Azure Repos (Git) i Azure Repos (TFVC).
 
 #### <a name="create-source-control-connection-for-github"></a>Utwórz połączenie kontroli źródła dla usługi GitHub
 
@@ -86,7 +86,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Utwórz połączenie kontroli źródła dla Azure Repos (Git)
 
 > [!NOTE]
-> Azure Repos (Git) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
+> Azure Repos (Git) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com** , używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
 
 
 ```powershell-interactive
@@ -96,7 +96,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Utwórz połączenie kontroli źródła dla Azure Repos (TFVC)
 
 > [!NOTE]
-> Azure Repos (TFVC) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_versionControl` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
+> Azure Repos (TFVC) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com** , używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_versionControl` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -116,13 +116,15 @@ W poniższej tabeli zdefiniowano wymagania dotyczące minimalnych wartości, kt�
 |`repo:status`     | Stan zatwierdzenia dostępu         |
 |`repo_deployment`      | Stan wdrożenia dostępu         |
 |`public_repo`     | Dostęp do publicznych repozytoriów         |
+|`repo:invite` | Zaproszenia do repozytorium dostępu |
+|`security_events` | Odczyt i zapis zdarzeń zabezpieczeń |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | Zapisz punkty zaczepienia repozytorium         |
 |`read:repo_hook`|Odczytaj punkty zaczepienia repozytorium|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Minimalne uprawnienia dla Azure Repos
 
-Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do Azure Repos. Aby uzyskać więcej informacji na temat tworzenia elementu w Azure Repos, zobacz temat [uwierzytelnianie dostępu przy użyciu osobistego tokenu dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
+Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do Azure Repos. Aby uzyskać więcej informacji na temat tworzenia elementu w Azure Repos, zobacz temat [uwierzytelnianie dostępu przy użyciu osobistego tokenu dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 | Zakres  |  Typ dostępu  |
 |---------| ----------|
@@ -137,13 +139,13 @@ Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do
 
 ## <a name="synchronize-with-source-control"></a>Synchronizuj z kontrolą źródła
 
-Wykonaj następujące kroki, aby przeprowadzić synchronizację z kontrolą źródła. 
+Wykonaj następujące kroki, aby przeprowadzić synchronizację z kontrolą źródła.
 
-1. Wybierz źródło z tabeli na stronie kontroli źródła. 
+1. Wybierz źródło z tabeli na stronie kontroli źródła.
 
-2. Kliknij przycisk **Rozpocznij synchronizację** , aby rozpocząć proces synchronizacji. 
+2. Kliknij przycisk **Rozpocznij synchronizację** , aby rozpocząć proces synchronizacji.
 
-3. Aby wyświetlić stan bieżącego zadania synchronizacji lub poprzednich, kliknij kartę **zadania synchronizacji** . 
+3. Aby wyświetlić stan bieżącego zadania synchronizacji lub poprzednich, kliknij kartę **zadania synchronizacji** .
 
 4. Z menu rozwijanego **kontroli źródła** wybierz mechanizm kontroli źródła.
 
@@ -189,13 +191,13 @@ Aby rozłączyć się z repozytorium kontroli źródła:
 
 1. Otwórz **kontrolę źródła** w obszarze **Ustawienia konta** na koncie usługi Automation.
 
-2. Wybierz mechanizm kontroli źródła do usunięcia. 
+2. Wybierz mechanizm kontroli źródła do usunięcia.
 
 3. Na stronie Podsumowanie kontroli źródła kliknij pozycję **Usuń**.
 
 ## <a name="handle-encoding-issues"></a>Obsługa problemów z kodowaniem
 
-Jeśli wiele osób edytuje elementy Runbook w repozytorium kontroli źródła przy użyciu różnych edytorów, mogą wystąpić problemy z kodowaniem. Aby dowiedzieć się więcej o tej sytuacji, zobacz [typowe przyczyny problemów z kodowaniem](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Jeśli wiele osób edytuje elementy Runbook w repozytorium kontroli źródła przy użyciu różnych edytorów, mogą wystąpić problemy z kodowaniem. Aby dowiedzieć się więcej o tej sytuacji, zobacz [typowe przyczyny problemów z kodowaniem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Aktualizowanie
 

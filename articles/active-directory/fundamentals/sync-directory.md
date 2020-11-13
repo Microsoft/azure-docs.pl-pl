@@ -1,6 +1,6 @@
 ---
 title: Synchronizacja katalogów za pomocą Azure Active Directory
-description: Wskazówki dotyczące architektury dotyczące osiągania tego wzorca synchronizacji
+description: Wskazówki dotyczące architektury w celu osiągnięcia synchronizacji katalogów za pomocą Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862d17948cb09c18f9372f8b8b981e5efa6be71b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114320"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578913"
 ---
 # <a name="directory-synchronization"></a>Synchronizacja katalogów
 
@@ -40,17 +40,17 @@ Należy synchronizować dane tożsamości z lokalnych środowisk Active Director
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik**: uzyskuje dostęp do aplikacji za pomocą usługi Azure AD.
+* **Użytkownik** : uzyskuje dostęp do aplikacji za pomocą usługi Azure AD.
 
-* **Przeglądarka sieci Web**: składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
+* **Przeglądarka sieci Web** : składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
 
-* **Aplikacja**: aplikacja sieci Web, która korzysta z usługi Azure AD na potrzeby uwierzytelniania i autoryzacji.
+* **Aplikacja** : aplikacja sieci Web, która korzysta z usługi Azure AD na potrzeby uwierzytelniania i autoryzacji.
 
-* **Azure AD**: synchronizuje informacje o tożsamościach z katalogu lokalnego organizacji za pośrednictwem Azure AD Connect. 
+* **Azure AD** : synchronizuje informacje o tożsamościach z katalogu lokalnego organizacji za pośrednictwem Azure AD Connect. 
 
-* **Azure AD Connect**: Narzędzie do łączenia się z lokalnymi infrastrukturami tożsamości w celu Microsoft Azure AD. Kreator i środowisko z przewodnikiem pomagają wdrożyć i skonfigurować wymagania wstępne oraz składniki wymagane do połączenia, w tym synchronizację i logowanie się z aktywnych katalogów do usługi Azure AD. 
+* **Azure AD Connect** : Narzędzie do łączenia się z lokalnymi infrastrukturami tożsamości w celu Microsoft Azure AD. Kreator i środowisko z przewodnikiem pomagają wdrożyć i skonfigurować wymagania wstępne oraz składniki wymagane do połączenia, w tym synchronizację i logowanie się z aktywnych katalogów do usługi Azure AD. 
 
-* **Active Directory**: Active Directory to usługa katalogowa dostępna w większości systemów operacyjnych Windows Server. Serwery z systemem Active Directory Domain Services (AD DS) są nazywane kontrolerami domeny. Uwierzytelniają i autoryzują wszystkich użytkowników i komputery w domenie.
+* **Active Directory** : Active Directory to usługa katalogowa dostępna w większości systemów operacyjnych Windows Server. Serwery z systemem Active Directory Domain Services (AD DS) są nazywane kontrolerami domeny. Uwierzytelniają i autoryzują wszystkich użytkowników i komputery w domenie.
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Implementowanie synchronizacji katalogów za pomocą usługi Azure AD
 

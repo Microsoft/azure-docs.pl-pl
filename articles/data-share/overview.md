@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89433436"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578131"
 ---
 # <a name="what-is-azure-data-share"></a>Co to jest usługa Azure Data Share?
 
@@ -45,7 +45,7 @@ Dostawcy danych mogą oferować klientom danych przyrostowe aktualizacje danych,
 
 ![przepływ udostępniania danych](media/data-share-flow.png)
 
-Gdy odbiorca danych akceptuje udział danych, może odbierać dane w wybranym przez siebie magazynie danych. Na przykład jeśli dostawca danych udostępnia dane za pomocą usługi Azure Blob Storage, odbiorca danych może odbierać te dane w Azure Data Lake Store. Podobnie, jeśli dostawca danych udostępnia dane z usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), odbiorca danych może zdecydować, czy chcą otrzymywać dane do Azure Data Lake Store, Azure SQL Database czy analizy Synapse Azure. W przypadku udostępniania z poziomu źródeł opartych na języku SQL odbiorca danych może również wybrać, czy mają oni odbierać dane w Parquet czy CSV. 
+Gdy odbiorca danych akceptuje udział danych, może odbierać dane w wybranym przez siebie magazynie danych. Na przykład jeśli dostawca danych udostępnia dane za pomocą usługi Azure Blob Storage, odbiorca danych może odbierać te dane w Azure Data Lake Store. Podobnie, jeśli dostawca danych udostępnia dane z usługi Azure Synapse Analytics, odbiorca danych może zdecydować, czy chcą otrzymywać dane do Azure Data Lake Store, Azure SQL Database czy analizy Synapse Azure. W przypadku udostępniania z poziomu źródeł opartych na języku SQL odbiorca danych może również wybrać, czy mają oni odbierać dane w Parquet czy CSV. 
 
 W przypadku udostępniania w miejscu dostawcy danych mogą udostępniać dane, w których znajdują się bez kopiowania danych. Po ustanowieniu relacji udostępniania za pomocą przepływu zaproszenia zostanie utworzone łącze symboliczne między źródłowym magazynem danych dostawcy danych a docelowym magazynem danych odbiorcy danych. Konsument danych może odczytywać i wysyłać zapytania dotyczące danych w czasie rzeczywistym przy użyciu własnego magazynu danych. Zmiany w źródłowym magazynie danych są natychmiast dostępne dla konsumenta danych. Udostępnianie w miejscu jest obecnie dostępne w wersji zapoznawczej dla usługi Azure Eksplorator danych.
 
@@ -73,9 +73,7 @@ Udział danych platformy Azure umożliwia użytkownikom danych:
 
 * Akceptuj dane udostępnione Tobie w [obsługiwanym magazynie danych](supported-data-stores.md).
 
-* Wyzwól pełną lub przyrostową migawkę udziału danych, który organizacja udostępniła Tobie
-
-* Zasubskrybuj udział danych, aby otrzymać najnowszą kopię danych za pomocą migawki przyrostowej
+* Dostęp do danych w miejscu lub wyzwalanie pełnej lub przyrostowej migawki danych udostępnionych
 
 Wszystkie najważniejsze możliwości wymienione powyżej są obsługiwane za pośrednictwem Azure Portal lub za pośrednictwem interfejsów API REST. Aby uzyskać więcej informacji na temat korzystania z usługi Azure Data Share za pośrednictwem interfejsów API REST, zapoznaj się z dokumentacją referencyjną. 
 

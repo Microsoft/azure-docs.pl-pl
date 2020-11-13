@@ -4,12 +4,12 @@ description: Odpowiedzi na niektóre często zadawane pytania i scenariusze doty
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538062"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578233"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Często zadawane pytania dotyczące sieci w Azure Functions
 
@@ -31,11 +31,9 @@ Należy pamiętać, że Edytor Azure Portal wymaga bezpośredniego dostępu do u
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Jak mogę ograniczyć moją aplikację funkcji do sieci wirtualnej?
 
-Można ograniczyć ruch **przychodzący** dla aplikacji funkcji do sieci wirtualnej za pomocą [punktów końcowych usługi](./functions-networking-options.md#private-site-access). Ta konfiguracja nadal umożliwia aplikacji funkcji wykonywanie wywołań wychodzących do Internetu.
+Można ograniczyć ruch **przychodzący** dla aplikacji funkcji do sieci wirtualnej za pomocą [punktów końcowych usługi](./functions-networking-options.md#use-service-endpoints). Ta konfiguracja nadal umożliwia aplikacji funkcji wykonywanie wywołań wychodzących do Internetu.
 
-Jedynym sposobem, aby całkowicie ograniczyć funkcję, która powoduje, że cały ruch przesyłany przez sieć wirtualną ma używać wewnętrznego równoważenia obciążenia App Service Environment. Ta opcja wdraża lokację w dedykowanej infrastrukturze w sieci wirtualnej i wysyła wszystkie wyzwalacze i ruch przez sieć wirtualną. 
-
-Aby uzyskać szczegółowe informacje na temat używania App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
+Aby całkowicie ograniczyć funkcję, która powoduje, że cały ruch przesyłany przez sieć wirtualną, można użyć [prywatnych punktów końcowych](./functions-networking-options.md#private-endpoint-connections) z integracją sieci wirtualnej lub App Service Environment.
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Jak mogę uzyskać dostęp do zasobów w sieci wirtualnej z aplikacji funkcji?
 
@@ -47,7 +45,7 @@ Korzystając z integracji z siecią wirtualną, można uzyskać dostęp do zasob
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Jak wyzwolić funkcję z zasobu w sieci wirtualnej?
 
-Można zezwolić na wywoływanie wyzwalaczy HTTP z sieci wirtualnej przy użyciu [punktów końcowych usługi](./functions-networking-options.md#private-site-access). 
+Można zezwolić na wywoływanie wyzwalaczy protokołu HTTP z sieci wirtualnej za pomocą [punktów końcowych usługi](./functions-networking-options.md#use-service-endpoints) lub [połączeń prywatnych punktów końcowych](./functions-networking-options.md#private-endpoint-connections). 
 
 Możesz również wyzwolić funkcję ze wszystkich innych zasobów w sieci wirtualnej, wdrażając aplikację funkcji do planu Premium, planu App Service lub App Service Environment. Aby uzyskać więcej informacji, zobacz [wyzwalacze sieci wirtualnej inne niż http](./functions-networking-options.md#virtual-network-triggers-non-http)
 

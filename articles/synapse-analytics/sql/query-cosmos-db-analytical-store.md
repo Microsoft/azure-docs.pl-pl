@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310304"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579389"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w usłudze Azure Synapse link (wersja zapoznawcza)
 
@@ -42,7 +42,9 @@ OPENROWSET(
 Parametry połączenia Azure Cosmos DB określają nazwę konta Azure Cosmos DB, nazwę bazy danych, klucz główny konta bazy danych i opcjonalną nazwę regionu do `OPENROWSET` działania. 
 
 > [!IMPORTANT]
-> Upewnij się, że używasz aliasu po `OPENROWSET` . Istnieje [znany problem](#known-issues) powodujący problem z połączeniem, który Synapse bezserwerowy punkt końcowy SQL, jeśli nie określisz aliasu po `OPENROWSET` funkcji.
+> Upewnij się, że używasz pewnego sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ), ponieważ wartości ciągów w Cosmos DB magazyn analityczny są kodowane jako tekst UTF-8.
+> Niezgodność między kodowaniem tekstu w pliku a sortowaniem może spowodować nieoczekiwane błędy konwersji tekstu.
+> Można łatwo zmienić domyślne sortowanie bieżącej bazy danych, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Parametry połączenia mają następujący format:
 ```sql
@@ -255,7 +257,7 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 | Typ właściwości Azure Cosmos DB | Typ kolumny SQL |
 | --- | --- |
 | Boolean | bit |
-| Liczba całkowita | bigint |
+| Integer | bigint |
 | Liczba dziesiętna | float |
 | String | varchar (sortowanie bazy danych UTF8) |
 | Data i godzina (ciąg w formacie ISO) | varchar (30) |
@@ -338,8 +340,8 @@ W tym przykładzie liczba przypadków jest przechowywana `int32` `int64` w posta
 
 ## <a name="known-issues"></a>Znane problemy
 
-- Alias **należy** określić po `OPENROWSET` funkcji (na przykład `OPENROWSET (...) AS function_alias` ). Pominięcie aliasu może spowodować problem z połączeniem i Synapse punkt końcowy SQL bez serwera może być tymczasowo niedostępny. Ten problem zostanie rozwiązany w lis 2020.
 - Funkcja zapytania, która zapewnia bezserwerową pulę SQL, dla [Azure Cosmos DB schemat pełnej wierności](#full-fidelity-schema) jest tymczasowym zachowaniem, które zostanie zmienione na podstawie opinii o wersji zapoznawczej. Nie należy polegać na schemacie, który `OPENROWSET` Funkcja bez `WITH` klauzuli zapewnia w publicznej wersji zapoznawczej, ponieważ środowisko zapytania może być wyrównane z dobrze zdefiniowanym schematem na podstawie opinii klientów. Skontaktuj się z [zespołem produktu Synapse link](mailto:cosmosdbsynapselink@microsoft.com) , aby przekazać opinię.
+- Bezserwerowa Pula SQL nie zwróci błędu czasu kompilacji, jeśli `OPENROSET` sortowanie kolumn nie ma kodowania UTF-8. Można łatwo zmienić sortowanie domyślne dla wszystkich `OPENROWSET` funkcji działających w bieżącej bazie danych, korzystając z następującej instrukcji języka T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Możliwe błędy i akcje rozwiązywania problemów są wymienione w poniższej tabeli:
 

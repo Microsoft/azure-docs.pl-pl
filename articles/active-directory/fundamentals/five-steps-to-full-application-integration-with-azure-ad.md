@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601252"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577647"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Pięć kroków związanych z integracją wszystkich aplikacji z usługą Azure AD
 
@@ -46,7 +46,7 @@ Na koniec możesz także zintegrować aplikacje opracowywane w firmie. Zostało 
 
 Następnie odkryj często używane aplikacje, a następnie określ priorytet swojej pracy, aby zintegrować je z usługą Azure AD.
 
-Możesz zacząć od używania narzędzi Microsoft Cloud App Security&#39;s [Cloud Discovery Tools](/cloud-app-security/tutorial-shadow-it) , aby odnajdywać i zarządzać nimi &quot; &quot; w sieci (czyli aplikacjami, które nie są zarządzane przez dział IT). Możesz [użyć zaawansowanej ochrony przed zagrożeniami (ATP) w usłudze Microsoft Defender](/cloud-app-security/wdatp-integration) , aby uprościć i zwiększyć proces odnajdywania.
+Możesz zacząć od używania narzędzi Microsoft Cloud App Security&#39;s [Cloud Discovery Tools](/cloud-app-security/tutorial-shadow-it) , aby odnajdywać i zarządzać nimi &quot; &quot; w sieci (czyli aplikacjami, które nie są zarządzane przez dział IT). Możesz [użyć zaawansowanej ochrony przed zagrożeniami (ATP) w usłudze Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) , aby uprościć i zwiększyć proces odnajdywania.
 
 Ponadto można użyć [raportu AD FS działania aplikacji](../manage-apps/migrate-adfs-application-activity.md) w Azure Portal, aby odnaleźć wszystkie AD FS aplikacje w organizacji, liczbę unikatowych użytkowników, którzy zalogowali się do nich i zgodność z integracją z usługą Azure AD.
 

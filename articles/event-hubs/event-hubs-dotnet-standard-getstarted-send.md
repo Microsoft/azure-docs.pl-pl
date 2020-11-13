@@ -4,12 +4,12 @@ description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji .NET
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4949d68750e95e5b62b8387f03c77c082fbaf7f4
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 1c0f5a5fb45ee45cb9b7e399dc39ad29406b15dc
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329325"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578998"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET (Azure. Messaging. EventHubs) 
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu biblioteki platformy .NET **Azure. Messaging. EventHubs** . 
@@ -35,7 +35,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
 
 1. Uruchom program Visual Studio 2019. 
 1. Wybierz pozycję **Utwórz nowy projekt**. 
-1. W oknie dialogowym **Tworzenie nowego projektu** wykonaj następujące czynności: Jeśli to okno dialogowe nie jest widoczne, wybierz pozycję **plik** w menu, wybierz pozycję **Nowy**, a następnie wybierz pozycję **projekt**. 
+1. W oknie dialogowym **Tworzenie nowego projektu** wykonaj następujące czynności: Jeśli to okno dialogowe nie jest widoczne, wybierz pozycję **plik** w menu, wybierz pozycję **Nowy** , a następnie wybierz pozycję **projekt**. 
     1. Wybierz język **C#** dla języka programowania.
     1. Wybierz pozycję **konsola** dla typu aplikacji. 
     1. Wybierz pozycję **aplikacja konsoli (.NET Core)** z listy wyników. 
@@ -48,7 +48,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Dodawanie pakietu NuGet usługi Event Hubs
 
-1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów z menu. 
+1. Wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów z menu. 
 1. Uruchom następujące polecenie, aby zainstalować pakiet NuGet **Azure. Messaging. EventHubs** :
 
     ```cmd
@@ -104,7 +104,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
     [![Sprawdź, czy centrum zdarzeń odebrało komunikaty](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji o pełnym kodzie źródłowym, zobacz [ten plik w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
+    > Aby uzyskać więcej informacji o pełnym kodzie źródłowym, zobacz [ten plik w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
 
 ## <a name="receive-events"></a>Odbieranie zdarzeń
 W tej sekcji pokazano, jak napisać aplikację konsolową .NET Core, która odbiera komunikaty z centrum zdarzeń przy użyciu procesora zdarzeń. Procesor zdarzeń upraszcza odbieranie zdarzeń z centrów zdarzeń przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami z tych centrów zdarzeń. Procesor zdarzeń jest skojarzony z określonym centrum zdarzeń i grupą konsumentów. Odbiera zdarzenia z wielu partycji w centrum zdarzeń, przekazując je do delegata procedury obsługi na potrzeby przetwarzania za pomocą podania kodu. 
@@ -128,13 +128,13 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
 
 ### <a name="create-a-project-for-the-receiver"></a>Tworzenie projektu dla odbiorcy
 
-1. W oknie Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie **EventHubQuickStart** , wskaż polecenie **Dodaj**, a następnie wybierz pozycję **Nowy projekt**. 
-1. Wybierz pozycję **aplikacja konsoli (.NET Core)**, a **następnie**wybierz pozycję Dalej. 
-1. Wprowadź **EventHubsReceiver** jako **nazwę projektu**, a następnie wybierz pozycję **Utwórz**. 
+1. W oknie Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie **EventHubQuickStart** , wskaż polecenie **Dodaj** , a następnie wybierz pozycję **Nowy projekt**. 
+1. Wybierz pozycję **aplikacja konsoli (.NET Core)** , a **następnie** wybierz pozycję Dalej. 
+1. Wprowadź **EventHubsReceiver** jako **nazwę projektu** , a następnie wybierz pozycję **Utwórz**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Dodawanie pakietu NuGet usługi Event Hubs
 
-1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów z menu. 
+1. Wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów z menu. 
 1. Uruchom następujące polecenie, aby zainstalować pakiet NuGet **Azure. Messaging. EventHubs** :
 
     ```cmd

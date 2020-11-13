@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b3505f8bf31c2e700ce1cc57e106c33a13e0aa9b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737166"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579508"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Samouczek: używanie tożsamości zarządzanej do łączenia Key Vault z aplikacją Azure wiosennej w chmurze
 
@@ -77,6 +77,8 @@ Użyj `az keyvault set-policy` , aby udzielić odpowiedniego dostępu w Key Vaul
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY} --secret-permissions set get list
 ```
+> [!NOTE]
+> Użyj `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` , aby usunąć dostęp dla aplikacji po wyłączeniu tożsamości zarządzanej przypisanej do systemu.
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>Tworzenie przykładowej aplikacji do rozruchu sprężynowego z rozruchem sprężynowym Starter
 Ta aplikacja będzie miała dostęp do pobierania wpisów tajnych z Azure Key Vault. Użyj Starter App: [Azure Key Vault Secret sprężynowego rozruchu Starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  Azure Key Vault jest dodawany jako wystąpienie **PropertySource** sprężyny.  Wpisy tajne przechowywane w Azure Key Vault mogą być łatwo dostępne i używane jak każda zewnętrzna właściwość konfiguracji, taka jak właściwości w plikach. 
@@ -184,7 +186,7 @@ Biblioteka klienta Secret Azure Key Vault pozwala bezpiecznie przechowywać i ko
     vim src/main/resources/application.properties
     ```
 
-    Aby korzystać z tożsamości zarządzanej dla aplikacji chmurowych platformy Azure, Dodaj właściwości z następującą zawartością do *src/Main/sources/Application. Properties* .
+    Aby korzystać z tożsamości zarządzanej dla aplikacji chmurowych platformy Azure, Dodaj właściwości z następującą zawartością do *src/Main/sources/Application. Properties*.
 
     ```
     azure.keyvault.enabled=true

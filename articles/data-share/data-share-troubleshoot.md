@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220462"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579151"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów w usłudze Azure Data Share 
 
@@ -52,11 +52,11 @@ Może to być spowodowane jedną z następujących przyczyn:
 
 "Nie można dodać uprawnień do zapisu dla konta udziału danych platformy Azure do co najmniej jednego wybranego zasobu"
 
-Jeśli podczas tworzenia nowego udziału lub mapowania zestawów danych pojawi się którykolwiek z powyższych błędów, może to wynikać z niewystarczających uprawnień do usługi Azure Data Store. Zobacz [role i wymagania](concepts-roles-permissions.md) dotyczące wymaganych uprawnień. 
+Jeśli podczas tworzenia nowego udziału zostanie wyświetlony którykolwiek z powyższych błędów, dodanie zestawów danych lub mapowanie zestawów danych może być spowodowane niewystarczającymi uprawnieniami do usługi Azure Data Store. Zobacz [role i wymagania](concepts-roles-permissions.md) dotyczące wymaganych uprawnień. 
 
-Musisz mieć uprawnienia do zapisu, aby udostępniać lub odbierać dane z magazynu danych platformy Azure, który zwykle istnieje w roli współautor. 
+Musisz mieć uprawnienia do zapisu, aby udostępniać lub odbierać dane z magazynu danych platformy Azure, który zwykle istnieje w roli **współautor** . 
 
-Jeśli tworzysz lub otrzymujesz dane z magazynu danych platformy Azure po raz pierwszy, musisz również mieć uprawnienie *Microsoft. Autoryzacja/przydziały ról/* uprawnienia do zapisu, które zwykle istnieje w roli właściciela. Nawet jeśli utworzono zasób magazynu danych platformy Azure, nie jest on automatycznie tworzony jako właściciel zasobu. Dzięki poprawnym uprawnieniu usługa Udostępnianie danych platformy Azure automatycznie udziela dostępu tożsamości zarządzanej przez zasób udział danych do magazynu danych. Wykonanie tego procesu może potrwać kilka minut. Jeśli wystąpi awaria z powodu tego opóźnienia, spróbuj ponownie za kilka minut.
+Jeśli tworzysz lub otrzymujesz dane z magazynu danych platformy Azure po raz pierwszy, musisz również mieć uprawnienie *Microsoft. Autoryzacja/przydziały ról/* uprawnienia do zapisu, które zwykle istnieje w roli **właściciela** . Nawet jeśli utworzono zasób magazynu danych platformy Azure, nie jest on automatycznie tworzony jako właściciel zasobu. Dzięki poprawnym uprawnieniu usługa Udostępnianie danych platformy Azure automatycznie udziela dostępu tożsamości zarządzanej przez zasób udział danych do magazynu danych. Wykonanie tego procesu może potrwać kilka minut. Jeśli wystąpi awaria z powodu tego opóźnienia, spróbuj ponownie za kilka minut.
 
 Udostępnianie oparte na języku SQL wymaga dodatkowych uprawnień. Aby uzyskać szczegółową listę wymagań wstępnych, zobacz [udostępnianie ze źródeł SQL](how-to-share-from-sql.md) .
 
@@ -69,7 +69,7 @@ Migawka może zakończyć się niepowodzeniem z różnych powodów. Szczegółow
 
 W przypadku źródeł SQL poniżej przedstawiono dodatkowe przyczyny błędów migawek. 
 
-* Źródłowy lub docelowy skrypt SQL do udzielenia uprawnienia do udostępniania danych nie jest uruchamiany lub jest uruchamiany przy użyciu uwierzytelniania SQL, a nie do Azure Active Directory uwierzytelniania.  
+* Źródłowy lub docelowy skrypt SQL do udzielenia uprawnienia do udostępniania danych nie jest uruchomiony. Lub w przypadku Azure SQL Database lub usługi Azure Synapse Analytics (dawniej Azure SQL DW) jest uruchamiany przy użyciu uwierzytelniania SQL, a nie Azure Active Directory uwierzytelniania.  
 * Źródłowy lub docelowy magazyn danych SQL został wstrzymany.
 * Typy danych SQL nie są obsługiwane przez proces migawki ani docelowy magazyn danych. Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie ze źródeł SQL](how-to-share-from-sql.md#supported-data-types) .
 * Źródłowy lub docelowy magazyn danych SQL jest zablokowany przez inne procesy. Udział danych platformy Azure nie stosuje blokad do źródłowego i docelowego magazynu danych SQL. Jednak istniejące blokady w źródłowym i docelowym magazynie danych SQL spowodują błąd migawki.

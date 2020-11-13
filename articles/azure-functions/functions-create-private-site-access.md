@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 38bc0ec546526cd0c6631b7cd5b70753c3235d18
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563991"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579134"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Samouczek: ustanawianie Azure Functions dostępu do lokacji prywatnej
 
-W tym samouczku przedstawiono sposób włączania [dostępu do lokacji prywatnej](./functions-networking-options.md#private-site-access) przy użyciu Azure Functions. Korzystając z dostępu do lokacji prywatnej, można wymagać, aby kod funkcji był wyzwalany tylko z określonej sieci wirtualnej.
+W tym samouczku przedstawiono sposób włączania [dostępu do lokacji prywatnej](./functions-networking-options.md#private-endpoint-connections) przy użyciu Azure Functions. Korzystając z dostępu do lokacji prywatnej, można wymagać, aby kod funkcji był wyzwalany tylko z określonej sieci wirtualnej.
 
 Dostęp do lokacji prywatnej jest użyteczny w scenariuszach, gdy dostęp do aplikacji funkcji musi być ograniczony do określonej sieci wirtualnej. Na przykład aplikacja funkcji może dotyczyć tylko pracowników określonej organizacji lub usług należących do określonej sieci wirtualnej (takich jak inna funkcja platformy Azure, maszyna wirtualna platformy Azure lub klaster AKS).
 
@@ -159,7 +159,7 @@ Następnym krokiem jest utworzenie aplikacji funkcji na platformie Azure przy u�
 
 Następnym krokiem jest skonfigurowanie [ograniczeń dostępu](../app-service/app-service-ip-restrictions.md) w celu zapewnienia, że tylko zasoby w sieci wirtualnej mogą wywoływać funkcję.
 
-Dostęp do [lokacji prywatnej](functions-networking-options.md#private-site-access) jest włączony przez utworzenie [punktu końcowego usługi](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Virtual Network w ramach aplikacji funkcji i określonej sieci wirtualnej. Ograniczenia dostępu są implementowane za pośrednictwem punktów końcowych usługi. Punkty końcowe usługi zapewniają dostęp do wyznaczonych zasobów tylko ruch pochodzący z określonej sieci wirtualnej. W takim przypadku wydzielonym zasobem jest funkcja platformy Azure.
+Dostęp do [lokacji prywatnej](functions-networking-options.md#private-endpoint-connections) jest włączony przez utworzenie [punktu końcowego usługi](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Virtual Network w ramach aplikacji funkcji i określonej sieci wirtualnej. Ograniczenia dostępu są implementowane za pośrednictwem punktów końcowych usługi. Punkty końcowe usługi zapewniają dostęp do wyznaczonych zasobów tylko ruch pochodzący z określonej sieci wirtualnej. W takim przypadku wydzielonym zasobem jest funkcja platformy Azure.
 
 1. W aplikacji funkcji wybierz link **Sieć** w nagłówku sekcji _Ustawienia_ .
 1. Strona _sieci_ jest punktem wyjścia do konfigurowania drzwi platformy Azure, Azure CDN, a także ograniczeń dostępu.

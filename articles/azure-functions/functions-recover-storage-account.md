@@ -3,12 +3,12 @@ title: 'Błąd rozwiązywania problemów: środowisko uruchomieniowe usługi Azu
 description: Dowiedz się, jak rozwiązywać problemy z nieprawidłowym kontem magazynu.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054733"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579015"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Błąd rozwiązywania problemów: "środowisko uruchomieniowe usługi Azure Functions jest nieosiągalny"
 
@@ -76,7 +76,7 @@ Aby rozwiązać ten problem, Usuń lub Zwiększ dzienny limit przydziału, a nas
 
 * Aplikacja funkcji jest hostowana w ramach [wewnętrznego równoważenia obciążenia App Service Environment](../app-service/environment/create-ilb-ase.md) i jest skonfigurowana do blokowania przychodzącego ruchu internetowego.
 
-* Aplikacja funkcji ma [Ograniczenia adresów IP dla ruchu przychodzącego](functions-networking-options.md#inbound-ip-restrictions) , które są skonfigurowane do blokowania dostępu do Internetu. 
+* Aplikacja funkcji ma [Ograniczenia adresów IP dla ruchu przychodzącego](functions-networking-options.md#inbound-access-restrictions) , które są skonfigurowane do blokowania dostępu do Internetu. 
 
 Azure Portal wykonuje wywołania bezpośrednio do uruchomionej aplikacji w celu pobrania listy funkcji i wysyła wywołania HTTP do punktu końcowego kudu. Ustawienia na poziomie platformy na karcie **funkcje platformy** są nadal dostępne.
 

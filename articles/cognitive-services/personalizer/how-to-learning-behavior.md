@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303543"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579295"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Skonfiguruj zachowanie uczenia personalizacji
 
@@ -37,29 +37,25 @@ Aby dodać personalizację do aplikacji, należy wywołać interfejsy API rangi 
 
 1. Dodaj wywołanie [interfejsu API rangi](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) po punkcie w istniejącej logice aplikacji, gdzie można określić listę akcji i ich funkcji. Pierwsza akcja na liście akcje musi być akcją wybraną przez istniejącą logikę.
 
-1. Skonfiguruj kod, aby wyświetlić akcję skojarzoną z płatnym **identyfikatorem akcji**odpowiedzi interfejsu API rangi.
+1. Skonfiguruj kod, aby wyświetlić akcję skojarzoną z płatnym **identyfikatorem akcji** odpowiedzi interfejsu API rangi.
 
 ### <a name="configure-your-application-to-call-reward-api"></a>Skonfiguruj aplikację do wywoływania interfejsu API nagradzania
 
 1. Użyj istniejącej logiki biznesowej, aby obliczyć **wynagrodzenie** wyświetlonej akcji. Wartość musi należeć do zakresu od 0 do 1. Wyślij to wynagrodzenie do narzędzia Personalizacja przy użyciu [interfejsu API nagradzania](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). Wartość nagrody nie jest oczekiwana natychmiast i można ją opóźniać w okresie czasu — w zależności od logiki biznesowej.
 
-1. Jeśli nie zwrócisz nagrody w skonfigurowanym **czasie oczekiwania na poczekanie**, zamiast tego zostanie użyte domyślne wynagrodzenie.
+1. Jeśli nie zwrócisz nagrody w skonfigurowanym **czasie oczekiwania na poczekanie** , zamiast tego zostanie użyte domyślne wynagrodzenie.
 
 ## <a name="evaluate-apprentice-mode"></a>Oceń tryb praktykanta
 
-W Azure Portal na stronie **oceny** zasobu personalizacji Przejrzyj **bieżącą wydajność uczenia**się.
+W Azure Portal na stronie **oceny** zasobu personalizacji Przejrzyj **bieżącą wydajność uczenia** się.
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający ocenę zachowania uczenia się w trybie nauczania w Azure Portal](media/settings/evaluate-apprentice-mode.png)
 
-Tryb praktykanta zapewnia następujące **metryki oceny**:
-* **Linia bazowa — średnia wynagrodzenie**: średnie nagrody wartości domyślnej (linii bazowej) aplikacji.
-* **Personalizacja — średnia Nagroda**: Średnia z całkowitego nagrody personalizacji byłaby prawdopodobnie osiągnięta.
-* **Stosunek liczby osiągnięć do najnowszych zdarzeń 1000**: stosunek linii bazowej i personalizacji, która została znormalizowana, w porównaniu z najnowszymi zdarzeniami 1000.
-
-## <a name="evaluate-apprentice-mode-features"></a>Oceń funkcje trybu zawodowego
-
-Oceń funkcje przy użyciu [oceny w trybie offline](how-to-offline-evaluation.md).
+Tryb praktykanta zapewnia następujące **metryki oceny** :
+* **Linia bazowa — średnia wynagrodzenie** : średnie nagrody wartości domyślnej (linii bazowej) aplikacji.
+* **Personalizacja — średnia Nagroda** : Średnia z całkowitego nagrody personalizacji byłaby prawdopodobnie osiągnięta.
+* **Stosunek liczby osiągnięć do najnowszych zdarzeń 1000** : stosunek linii bazowej i personalizacji, która została znormalizowana, w porównaniu z najnowszymi zdarzeniami 1000.
 
 ## <a name="switch-behavior-to-online-mode"></a>Przełącz zachowanie do trybu online
 

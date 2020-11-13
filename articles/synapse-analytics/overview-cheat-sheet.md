@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: b3ae2c958b479f5f131de871b64663c2754713b6
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: fbd113194aa904096425ee09b741cf693f89bba2
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330432"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591924"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
 
@@ -36,37 +36,31 @@ Obszar roboczy umożliwia wykonywanie analiz przy użyciu programów SQL i Apach
 
 Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul Apache Spark** w obszarze roboczym usługi Synapse.
 
-## <a name="sql-terminology"></a>Terminologia SQL
-| Termin                         | Definicja      |
-|:---                                 |:---                 |
-| **Żądanie SQL**  |   Operacja, taka jak zapytanie, jest uruchamiana za pomocą dedykowanej puli SQL lub bezserwerowej puli. |
-|**Skrypt SQL**| Zestaw poleceń SQL zapisanych w pliku. Skrypt SQL może zawierać jedną lub więcej instrukcji SQL. Może służyć do uruchamiania żądań SQL za poorednictwem dedykowanej puli SQL lub bezserwerowej puli SQL.|
+* Operacja **żądania SQL** , taka jak zapytanie działa za pomocą dedykowanej puli SQL lub bezserwerowej puli SQL.
+* **Skrypt SQL** — zestaw poleceń SQL zapisywanych w pliku. Skrypt SQL może zawierać jedną lub więcej instrukcji SQL. Może służyć do uruchamiania żądań SQL za poorednictwem dedykowanej puli SQL lub bezserwerowej puli SQL.
+
 
 ## <a name="spark-terminology"></a>Terminologia platformy Spark
-| Termin                         | Definicja      |
-|:---                                 |:---                 |
-|**Apache Spark Synapse** | Czas wykonywania platformy Spark używany w puli Spark bezserwerowej. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  | 
-| **Pula Apache Spark**  | w obszarze roboczym można wdrożyć zasoby z obsługą od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  |
-| **Aplikacja platformy Spark**  |   Składa się z procesu sterownika i zestawu procesów wykonujących. Aplikacja Spark działa w puli Spark bezserwerowej.            |
-| **Sesja platformy Spark**  |   Zunifikowany punkt wejścia aplikacji Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślna konfiguracja sesji notesu jest uruchamiana w przypadku programów wykonawczych o rozmiarze 2 średnim. |
-|**Notes**| Interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL. |
-|**Definicja zadania platformy Spark**|Interfejs do przesyłania zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.|
+
+* **Apache Spark w przypadku** czasu wykonywania Synapse-Spark używanego w puli Spark bezserwerowej. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  
+* W obszarze roboczym można wdrażać zasoby **puli Apache Spark** — od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  
+* **Aplikacja Spark** — składa się z procesu sterownika i zestawu procesów wykonujących testy. Aplikacja Spark działa w puli Spark bezserwerowej.            
+* **Sesja platformy Spark** — Zunifikowany punkt wejścia aplikacji platformy Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślna konfiguracja sesji notesu jest uruchamiana w przypadku programów wykonawczych o rozmiarze 2 średnim.
+* **Notes** — interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL.
+* **Definicja zadania platformy Spark** — interfejs umożliwiający przesłanie zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.
 
 ## <a name="pipelines-terminology"></a>Terminologia potoku
-| Termin                         | Definicja      |
-|:---                                 |:---                 |
-|**Integracja danych**| Zapewnia możliwość pozyskiwania danych między różnymi źródłami i organizowania działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.| 
-|**Przepływ danych**|  Zapewnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy. |
-|**Potok**| Logiczne grupowanie działań, które wspólnie wykonują zadanie.|
-|**Działanie**| Definiuje akcje do wykonania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.|
-|**Wyzwalacz**| Wykonuje potok. Może być uruchamiany ręcznie lub automatycznie (harmonogram, wirowania okno lub zdarzenia).|
-|**Zestaw danych integracji**|  Nazwany widok danych, który po prostu wskazuje lub odwołuje się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.|
+* **Integracja danych** — umożliwia pozyskiwanie danych między różnymi źródłami i organizowanie działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.
+* **Przepływ danych** — udostępnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy.
+* **Potok** — logiczne grupowanie działań, które wspólnie wykonują zadanie.
+* **Działanie** — definiuje akcje do wykonania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.
+* **Trigger** -wykonuje potok. Może być uruchamiany ręcznie lub automatycznie (harmonogram, wirowania okno lub zdarzenia)
+* **Zestaw danych integracji** — nazwany widok zawierający dane, które po prostu wskazują lub odwołują się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.
 
 ## <a name="general-terminology"></a>Ogólna terminologia
-| Termin                         | Definicja      |
-|:---                                 |:---                 |
-|**Artifacts**| Koncepcja, która hermetyzuje wszystkie obiekty wymagane przez użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.|
-|**Połączona usługa**| Parametry połączenia, które definiują informacje o połączeniu, które są konieczne do nawiązania połączenia z zasobami zewnętrznymi.|
+
+* **Artefakty** — koncepcja, która hermetyzuje wszystkie obiekty niezbędne dla użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.
+* **Połączone usługi** — parametry połączenia, które definiują informacje o połączeniu, które są konieczne, aby obszar roboczy mógł nawiązać połączenie z zasobami zewnętrznymi.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358975"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578658"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie AlertMedia na potrzeby automatycznego aprowizacji użytkowników
 
@@ -95,9 +95,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
     ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** AlertMedia jako jedną z poniższych opcji.
-      * (brak domeny niestandardowej) https://dashboard.alertmedia.com/api/scim/v3
+      * (brak domeny niestandardowej) `https://dashboard.alertmedia.com/api/scim/v3`
 
-      * (domena niestandardowa) https://subdomain.alertmedia.com/api/scim/v3
+      * (domena niestandardowa) `https://subdomain.alertmedia.com/api/scim/v3`
 
       Wprowadź **token tajny** jako pobrany wcześniej w kroku 2. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą AlertMedia. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi AlertMedia ma uprawnienia administratora, a następnie spróbuj ponownie.
 
@@ -117,31 +117,31 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |---|---|
    |userName|Ciąg|
    |aktywne|Wartość logiczna|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: first_name|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: last_name|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email2|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Email3|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: title|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address2|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: miasto|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: State|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Country|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: kod pocztowy|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: uwagi|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: customer_user_id|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: user_type|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: first_name|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: last_name|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email2|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Email3|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: title|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address2|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: miasto|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: State|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Country|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: kod pocztowy|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: uwagi|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: customer_user_id|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: user_type|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do AlertMedia**.
 

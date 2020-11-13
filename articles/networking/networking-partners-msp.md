@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 8abaf177344b5c5b33037050be7db62a54694c42
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 78a79c84060fe6dc8b94e4b977ddaea8b5408ee0
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461519"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577893"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informacje o partnerach MSP sieci platformy Azure
 
@@ -43,7 +43,7 @@ Skorzystaj z linków w tej sekcji, aby uzyskać więcej informacji na temat zarz
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Zintegruj + for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Ocena sieci platformy Azure — 5 dni](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/)|[Gotowość do chmury — Ocena 2 godzin](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|[ExpressRoute zarządzane przez ciecz](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/liquidtelecommunicationsoperationslimited.42cfee0b-8f07-4948-94b0-c9fc3e1ddc42?tab=Overview)||||
-|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Usługi zarządzane przez platformę Azure według chmury Macquarie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview); [Platforma Azure rozszerzona o Macquarie Cloud Services](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.azure_extend?tab=Overview)||[Usługa SD-Sieć wirtualna z systemem Macquarie w chmurze](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Usługi zarządzane przez platformę Azure według chmury Macquarie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview); [Platforma Azure rozszerzona o Macquarie Cloud Services](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.azure_extend?tab=Overview)||[Usługa SD-Sieć wirtualna z systemem Macquarie w chmurze](https://azuremarketplace.microsoft.com/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Megaport](https://www.megaport.com/services/microsoft-expressroute/)||[mcr](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/megaport1582290752989.megaport_mcr?tab=Overview)||||
 |[Nokia](https://www.nokia.com/networks/services/managed-services/)|||[NBConsult Nokia NUAGE SDWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nbconsult1588859334197.nbconsult-nokia-nuage?tab=Overview); [NUAGE SD-wan 2,0 Azure Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nokiaofamericacorporation1591716055441.nuage_sd-wan_2-0_azure_virtual_wan?tab=Overview)|[Nokia 4G & 5G prywatnej sieci bezprzewodowej (NDAC)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nokiaofamericacorporation1591716055441.ndac_5g-ready_private_wireless?tab=Overview)|
 |[NTT Ltd](https://www.nttglobal.net/)||[NTT zarządzana usługa ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttglobalnetworks1592424806122.ntt_managed_expressroute_service?tab=Overview); [NTT zarządzana usługa IP sieci VPN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttglobalnetworks1592424806122.ntt_managed_ip_vpn_service?tab=Overview)|[NTT zarządzana usługa SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nttglobalnetworks1592424806122.ntt_mng_sdwan_1?tab=Overview)|||

@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 099d79e63795a88a66ef1ec65aa1bfd97037191e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134232"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578652"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Model kontroli dostępu w Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Poniższe role zezwalają podmiotowi zabezpieczeń na dostęp do danych na konci
 | [Współautor danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Dostęp do odczytu, zapisu i usuwania kontenerów obiektów BLOB Storage i obiektów BLOB. Ten dostęp nie zezwala podmiotowi zabezpieczeń na ustawienie własności elementu, ale może modyfikować listę kontroli dostępu elementów należących do podmiotu zabezpieczeń. |
 | [Czytelnik danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Odczytywanie i wyświetlanie listy kontenerów i obiektów blob magazynu obiektów BLOB. |
 
-Role, takie jak [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [czytelnik](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)i [konto magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) , umożliwiają podmiotowi zabezpieczeń Zarządzanie kontem magazynu, ale nie zapewniają dostępu do danych w ramach tego konta. Jednak te role (z wyłączeniem **czytnika**) mogą uzyskać dostęp do kluczy magazynu, które mogą być używane w różnych narzędziach klienta, aby uzyskać dostęp do danych.
+Role, takie jak [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [czytelnik](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)i [konto magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) , umożliwiają podmiotowi zabezpieczeń Zarządzanie kontem magazynu, ale nie zapewniają dostępu do danych w ramach tego konta. Jednak te role (z wyłączeniem **czytnika** ) mogą uzyskać dostęp do kluczy magazynu, które mogą być używane w różnych narzędziach klienta, aby uzyskać dostęp do danych.
 
 ## <a name="access-control-lists-acls"></a>Listy kontroli dostępu (ACL)
 
@@ -71,7 +71,7 @@ Na poniższym diagramie przedstawiono przepływ uprawnień dla trzech typowych o
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Tabela uprawnień: łączenie RBAC i listy ACL platformy Azure
 
-W poniższej tabeli przedstawiono sposób łączenia ról i wpisów listy kontroli dostępu platformy Azure, dzięki czemu podmiot zabezpieczeń może wykonywać operacje wymienione w kolumnie **operacja** . W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `/` ), podkatalog o nazwie **Oregon**, podkatalog katalogu Oregon o nazwie **Portland**oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. Pojawiające się w tych kolumnach są [krótkimi](data-lake-storage-access-control.md#short-forms-for-permissions) reprezentacjami wpisów listy kontroli dostępu wymaganych do udzielenia uprawnień. **N/A** _Nie dotyczy (nie ma zastosowania_) pojawia się w kolumnie, Jeśli wpis listy ACL nie jest wymagany do wykonania operacji.
+W poniższej tabeli przedstawiono sposób łączenia ról i wpisów listy kontroli dostępu platformy Azure, dzięki czemu podmiot zabezpieczeń może wykonywać operacje wymienione w kolumnie **operacja** . W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `/` ), podkatalog o nazwie **Oregon** , podkatalog katalogu Oregon o nazwie **Portland** oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. Pojawiające się w tych kolumnach są [krótkimi](data-lake-storage-access-control.md#short-forms-for-permissions) reprezentacjami wpisów listy kontroli dostępu wymaganych do udzielenia uprawnień. **N/A** _Nie dotyczy (nie ma zastosowania_ ) pojawia się w kolumnie, Jeśli wpis listy ACL nie jest wymagany do wykonania operacji.
 
 |    Operacja             | Przypisana rola RBAC               |    /        | Oregon     | Biura | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -114,7 +114,7 @@ W poniższej tabeli przedstawiono sposób łączenia ról i wpisów listy kontro
 
 ## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Limity przypisań ról i listy ACL usługi Azure RBAC
 
-Korzystanie z grup zmniejsza maksymalną liczbę przypisań ról na subskrypcję i maksymalną liczbę wpisów listy ACl na plik lub katalog. W poniższej tabeli opisano te limity.
+Korzystanie z grup zmniejsza maksymalną liczbę przypisań ról na subskrypcję i maksymalną liczbę wpisów listy ACL na plik lub katalog. W poniższej tabeli opisano te limity.
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 

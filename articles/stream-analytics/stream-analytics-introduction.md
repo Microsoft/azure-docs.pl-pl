@@ -1,23 +1,23 @@
 ---
-title: Omówienie usługi Azure Stream Analytics
-description: Dowiedz się więcej na temat Stream Analytics, zarządzanej usługi, która pomaga analizować dane przesyłane strumieniowo z Internet rzeczy (IoT) w czasie rzeczywistym.
+title: Wprowadzenie do Azure Stream Analytics
+description: Dowiedz się więcej na temat Azure Stream Analytics, zarządzanej usługi, która pomaga analizować dane przesyłane strumieniowo z Internet rzeczy (IoT) w czasie rzeczywistym.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperfq2
-ms.date: 11/03/2020
-ms.openlocfilehash: d81858db3f4d09b834a9199804a6f2631828496b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 11/12/2020
+ms.openlocfilehash: 0022e19e23b7808cd78da988fd3fdef2d537acf5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342236"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579440"
 ---
-# <a name="what-is-azure-stream-analytics"></a>Co to jest usługa Azure Stream Analytics?
+# <a name="welcome-to-azure-stream-analytics"></a>Azure Stream Analytics — Zapraszamy!
 
-Azure Stream Analytics to analiza i skomplikowany aparat przetwarzania zdarzeń w czasie rzeczywistym, który służy do analizowania i przetwarzania dużych ilości danych szybkiego przesyłania strumieniowego z wielu źródeł jednocześnie. Wzorce i relacje można zidentyfikować w informacjach wyodrębnionych z różnych źródeł danych wejściowych, w tym na urządzeniach, czujników, strumieni kliknięć, źródłach mediów społecznościowych i aplikacjach. Wzorce te mogą służyć do wyzwalania akcji i inicjowania przepływów pracy, takich jak tworzenie alertów, podawanie informacji do narzędzia do raportowania lub przechowywanie przekształconych danych do późniejszego użycia. Ponadto Stream Analytics jest dostępna w środowisku uruchomieniowym Azure IoT Edge, co umożliwia przetwarzanie danych na urządzeniach IoT. 
+Azure Stream Analytics to analiza i skomplikowany aparat przetwarzania zdarzeń w czasie rzeczywistym, który służy do analizowania i przetwarzania dużych ilości danych szybkiego przesyłania strumieniowego z wielu źródeł jednocześnie. Wzorce i relacje można zidentyfikować w informacjach wyodrębnionych z różnych źródeł danych wejściowych, w tym na urządzeniach, czujników, strumieni kliknięć, źródłach mediów społecznościowych i aplikacjach. Wzorce te mogą służyć do wyzwalania akcji i inicjowania przepływów pracy, takich jak tworzenie alertów, podawanie informacji do narzędzia do raportowania lub przechowywanie przekształconych danych do późniejszego użycia. Ponadto Stream Analytics jest dostępna w środowisku uruchomieniowym Azure IoT Edge, co umożliwia przetwarzanie danych na urządzeniach IoT.
 
 Poniżej przedstawiono przykładowe scenariusze, w których można użyć Azure Stream Analytics:
 
@@ -26,6 +26,11 @@ Poniżej przedstawiono przykładowe scenariusze, w których można użyć Azure 
 * Geoprzestrzenna analiza na potrzeby zarządzania flotą i korzystania z pojazdów nie wymagających kierowcy
 * Zdalne monitorowanie i konserwacja predykcyjna zasobów o wysokiej wartości
 * Analiza danych punktu sprzedaży w czasie rzeczywistym na potrzeby kontroli zapasów i wykrywania anomalii
+
+Możesz wypróbować Azure Stream Analytics z bezpłatną subskrypcją platformy Azure.
+
+> [!div class="nextstepaction"]
+> [Wypróbuj Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 ## <a name="how-does-stream-analytics-work"></a>Jak działa usługa Stream Analytics?
 
@@ -102,7 +107,7 @@ Stream Analytics może przetwarzać miliony zdarzeń co sekundę i może dostarc
 
 Masz już podstawowe informacje o usłudze Azure Stream Analytics. Teraz możesz utworzyć pierwsze zadanie w usłudze Stream Analytics:
 
-* [Tworzenie zadania usługi Stream Analytics przy użyciu witryny Azure Portal](stream-analytics-quick-create-portal.md).
-* [Utwórz zadanie Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md).
-* [Tworzenie zadania usługi Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md).
-* [Utwórz zadanie Stream Analytics przy użyciu Visual Studio Code](quick-create-visual-studio-code.md).
+* [Tworzenie zadania Stream Analytics przy użyciu Azure Portal](stream-analytics-quick-create-portal.md)
+* [Tworzenie zadania usługi Stream Analytics przy użyciu programu Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Tworzenie zadania Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
+* [Tworzenie zadania Stream Analytics przy użyciu Visual Studio Code](quick-create-visual-studio-code.md)

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605094"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578318"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Opracowywanie aplikacji biznesowych dla Azure Active Directory
 Ten przewodnik zawiera omówienie opracowywania aplikacji biznesowych (LoB) dla Azure Active Directory (AD). Zaznaczeni odbiorcy to Active Directory/Microsoft 365 Administratorzy globalni.
@@ -27,7 +27,7 @@ Tworzenie aplikacji zintegrowanych z usługą Azure AD zapewnia użytkownikom w 
 
 Zarejestruj swoją aplikację, aby użyć Azure Active Directory. Zarejestrowanie aplikacji oznacza, że deweloperzy mogą używać usługi Azure AD do uwierzytelniania użytkowników i żądania dostępu do zasobów użytkowników, takich jak poczta e-mail, kalendarz i dokumenty.
 
-Każdy członek katalogu (nie Goście) może zarejestrować aplikację, w przeciwnym razie, jak w przypadku *tworzenia obiektu aplikacji*.
+Każdy członek katalogu (nie Goście) może zarejestrować aplikację, w przeciwnym razie, jak w przypadku *tworzenia obiektu aplikacji*. Jeśli nie możesz zarejestrować aplikacji, oznacza to, że administrator globalny katalogu ograniczył tę funkcjonalność i może być konieczne skontaktowanie się z nimi w celu [uzyskania odpowiednich praw](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) do zarejestrowania aplikacji. Aby dowiedzieć się więcej o tym, jak ograniczyć użytkownikom [uprawnienia do rejestracji aplikacji delegowania w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
 
 Zarejestrowanie aplikacji umożliwia każdemu użytkownikowi wykonywanie następujących czynności:
 

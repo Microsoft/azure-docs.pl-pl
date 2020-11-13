@@ -11,21 +11,21 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 76670c6a061ce3f257d9df8cfe61b1cc020194c6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cef39b940f0d61fc60ea10156acfd781289157de
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100222"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591975"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Samouczek: wyodrębnianie szczegółów obrazu przy użyciu interfejs API wyszukiwania obrazów Bing i języka C#
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Interfejs API wyszukiwania obrazów Bing udostępnia wiele [punktów końcowych](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint). Punkt końcowy `/details` akceptuje żądania POST z obrazem i może zwracać różnorodne szczegółowe informacje o tym obrazie. Ta aplikacja języka C# wysyła obraz przy użyciu tego interfejsu API i wyświetla szczegółowe informacje zwrócone przez usługę Bing, które są obiektami JSON, takimi jak poniższe:
+Interfejs API wyszukiwania obrazów Bing udostępnia wiele [punktów końcowych](./image-search-endpoint.md). Punkt końcowy `/details` akceptuje żądania POST z obrazem i może zwracać różnorodne szczegółowe informacje o tym obrazie. Ta aplikacja języka C# wysyła obraz przy użyciu tego interfejsu API i wyświetla szczegółowe informacje zwrócone przez usługę Bing, które są obiektami JSON, takimi jak poniższe:
 
 ![[Wyniki JSON]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 

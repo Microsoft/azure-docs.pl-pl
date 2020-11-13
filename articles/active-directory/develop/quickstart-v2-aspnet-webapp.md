@@ -12,15 +12,18 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: 41ef13351e6a87369f3fe1e2181ca2113bf79bca
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d356674819304897aef353d161ddf236e19db1f5
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533263"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592247"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET
-W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET może logować się do kont osobistych (hotmail.com, outlook.com, inne) oraz kont służbowych z dowolnego Azure Active Directory (Azure AD).  (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
+
+W tym przewodniku szybki start pobierasz i uruchamiasz przykładowy kod, który pokazuje, jak aplikacja sieci Web ASP.NET może zalogować użytkowników z dowolnej organizacji Azure Active Directory (Azure AD). 
+
+Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Wymagania wstępne
 >

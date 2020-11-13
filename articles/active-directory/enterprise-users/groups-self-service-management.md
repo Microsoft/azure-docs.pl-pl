@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4651d15fb765182c788733c0542480805387871
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f1730507c022d57495efa56c98215ff72d07e180
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376749"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578182"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurowanie samoobsługowego zarządzania grupami w Azure Active Directory 
 
@@ -44,15 +44,15 @@ Grupy utworzone w | Zachowanie domyślne grupy zabezpieczeń | Zachowanie domyś
 ## <a name="make-a-group-available-for-user-self-service"></a>Włączanie samoobsługi użytkowników w grupie
 
 1. Zaloguj się w [centrum administracyjnym usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-1. Wybierz pozycję **grupy**, a następnie wybierz pozycję Ustawienia **Ogólne** .
+1. Wybierz pozycję **grupy** , a następnie wybierz pozycję Ustawienia **Ogólne** .
 1. **Właściciele zestawu mogą zarządzać żądaniami członkostwa w grupach w panelu dostępu** do wartości **tak**.
 1. Dla opcji **Ogranicz dostęp do grup w panelu dostępu** wybierz wartość **nie**.
 1. W przypadku wybrania opcji **Użytkownicy mogą tworzyć grupy zabezpieczeń w portalach platformy Azure** lub **Użytkownicy mogą tworzyć grupy Microsoft 365 w portalach platformy Azure** , aby
 
-    - **Tak**: Wszyscy użytkownicy w organizacji usługi Azure AD mogą tworzyć nowe grupy zabezpieczeń i dodawać do nich członków. Te nowe grupy będą również wyświetlane na panelu dostępu dla innych użytkowników. Jeśli ustawienie zasad w grupie zezwala na to, inni użytkownicy mogą tworzyć żądania dołączenia do tych grup.
-    - **Nie**: użytkownicy nie mogą tworzyć grup ani zmieniać istniejących grup, których są właścicielami. Jednak nadal mogą zarządzać członkostwem w tych grupach i zatwierdzać żądania dołączenia do ich grup pochodzące od innych użytkowników.
+    - **Tak** : Wszyscy użytkownicy w organizacji usługi Azure AD mogą tworzyć nowe grupy zabezpieczeń i dodawać do nich członków. Te nowe grupy będą również wyświetlane na panelu dostępu dla innych użytkowników. Jeśli ustawienie zasad w grupie zezwala na to, inni użytkownicy mogą tworzyć żądania dołączenia do tych grup.
+    - **Nie** : użytkownicy nie mogą tworzyć grup ani zmieniać istniejących grup, których są właścicielami. Jednak nadal mogą zarządzać członkostwem w tych grupach i zatwierdzać żądania dołączenia do ich grup pochodzące od innych użytkowników.
 
-Można również użyć **właścicieli, którzy mogą przypisywać członków jako właścicieli grup w portalach** i **właścicielach platformy Azure, którzy mogą przypisywać członków jako właścicieli grup w portalach platformy Azure** w celu uzyskania bardziej szczegółowej kontroli dostępu do samoobsługowego zarządzania grupami użytkowników.
+Można również użyć **właścicieli, którzy mogą przypisywać członków jako właścicieli grup w Azure Portal,** Aby uzyskać bardziej szczegółową kontrolę dostępu do samoobsługowego zarządzania grupami dla użytkowników.
 
 Gdy użytkownicy mogą tworzyć grupy, wszyscy użytkownicy w organizacji mogą tworzyć nowe grupy, a następnie, jako domyślny właściciel, dodawać członków do tych grup. Nie można określić osób, które mogą tworzyć własne grupy. Można określić tylko osoby, które będą miały właściciela grupy.
 

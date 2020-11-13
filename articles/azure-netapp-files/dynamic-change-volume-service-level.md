@@ -12,19 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: fe4b2925a34ae7c06bb0b597f0bcdcc3f4d80896
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e5219e1c87221ade8da68c21209f41b4d6139be2
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363225"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579083"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Dynamiczna zmiana poziomu usługi woluminu
 
 > [!IMPORTANT] 
-> Rejestracja publicznej wersji zapoznawczej tej funkcji jest wstrzymana do momentu dalszej uwagi. 
+> * Rejestracja publicznej wersji zapoznawczej tej funkcji jest wstrzymana do momentu dalszej uwagi. 
+> * Dynamiczna zmiana poziomu usługi woluminu docelowego replikacji nie jest obecnie obsługiwana.
 
 Możesz zmienić poziom usług istniejącego woluminu, przenosząc wolumin do innej puli pojemności, która używa żądanego [poziomu usługi](azure-netapp-files-service-levels.md) dla woluminu. Ta zmiana poziomu usługi w miejscu dla woluminu nie wymaga migracji danych. Nie ma to również wpływu na dostęp do woluminu.  
 
@@ -68,7 +69,7 @@ You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view
 
     ![Pula zmian](../media/azure-netapp-files/change-pool.png)
 
-3.  Kliknij pozycję **OK**.
+3.  Kliknij przycisk **OK**.
 
 
 ## <a name="next-steps"></a>Następne kroki  

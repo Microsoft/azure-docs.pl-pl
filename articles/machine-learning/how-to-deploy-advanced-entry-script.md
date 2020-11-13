@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b05891500ae5fd66e5ec2381066ccd1d26aa7ec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325562"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578063"
 ---
 # <a name="advanced-entry-script-authoring"></a>Tworzenie zaawansowanego skryptu wejściowego
 
@@ -28,7 +28,10 @@ W tym artykule założono, że masz już szkolony model uczenia maszynowego, kt�
 
 ## <a name="automatically-generate-a-swagger-schema"></a>Automatyczne generowanie schematu struktury Swagger
 
-Aby automatycznie wygenerować schemat dla usługi sieci Web, podaj przykład danych wejściowych i/lub wyjściowych w konstruktorze dla jednego z obiektów typu zdefiniowane. Typ i przykład są używane do automatycznego tworzenia schematu. Azure Machine Learning następnie tworzy specyfikację [openapi](https://swagger.io/docs/specification/about/) (Swagger) dla usługi sieci Web podczas wdrażania.
+Aby automatycznie wygenerować schemat dla usługi sieci Web, podaj przykład danych wejściowych i/lub wyjściowych w konstruktorze dla jednego z obiektów typu zdefiniowane. Typ i przykład są używane do automatycznego tworzenia schematu. Azure Machine Learning następnie tworzy specyfikację [openapi](https://swagger.io/docs/specification/about/) (Swagger) dla usługi sieci Web podczas wdrażania. 
+
+> [!WARNING]
+> Nie można używać poufnych lub prywatnych danych dla przykładowych danych wejściowych lub wyjściowych. Strona Swagger dla AML-Hosted inferencing uwidacznia przykładowe dane. 
 
 Te typy są obecnie obsługiwane:
 

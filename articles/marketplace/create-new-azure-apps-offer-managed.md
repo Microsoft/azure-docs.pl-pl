@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 66da9124a6b46fa34d0a13c8992cd3141b095422
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370320"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579491"
 ---
 # <a name="configure-a-managed-application-plan"></a>Konfigurowanie zarządzanego planu aplikacji
 
@@ -138,7 +138,7 @@ Wybierz tryb wdrażania **kompletnego** lub **przyrostowego** .
 - W trybie **kompletnym** ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w [mainTemplate.jsna](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
 - W trybie **przyrostowym** ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian.
 
-Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](/azure/azure-resource-manager/deployment-modes.md).
+Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](/azure/azure-resource-manager/deployment-modes).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Podaj adres URL punktu końcowego powiadomienia
 

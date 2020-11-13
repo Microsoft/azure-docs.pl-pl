@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać Azure Functions przy użyciu języka
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380967"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578777"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions C#
 
@@ -17,12 +17,13 @@ ms.locfileid: "94380967"
 
 Ten artykuł stanowi wprowadzenie do tworzenia Azure Functions przy użyciu języka C# w bibliotekach klas platformy .NET.
 
+Jako deweloper języka C# może być również interesujący jeden z następujących artykułów:
+
+| Wprowadzenie | Pojęcia| Nauka z przewodnikiem/przykłady |
+| -- | -- | -- | 
+| <ul><li>[Korzystanie z programu Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Korzystanie z narzędzia Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Korzystanie z narzędzi wiersza polecenia](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li><li>[Opracowywanie zawartości w programie Visual Studio](functions-develop-vs.md)</li><li>[Wstrzykiwanie zależności](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Przykłady w języku C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 Azure Functions obsługuje języki programowania skryptów C# i C#. Jeśli szukasz wskazówek dotyczących [używania języka C# w Azure Portal](functions-create-function-app-portal.md), zobacz [informacje dotyczące deweloperów skryptów C# (CSX)](functions-reference-csharp.md).
-
-W tym artykule przyjęto założenie, że zostały już przeczytane następujące artykuły:
-
-* [Przewodnik dla deweloperów Azure Functions](functions-reference.md)
-* [Azure Functions narzędzia programu Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
 
@@ -615,7 +616,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Przykład wielu atrybutów
 
-W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Na przykład:
+W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Przykład:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145043"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592264"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 
-W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET Core może się zalogować na kontach osobistych (hotmail.com, outlook.com, inne) i służbowych z dowolnego wystąpienia Azure Active Directory (Azure AD). (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
+W tym przewodniku szybki start pobierasz i uruchamiasz przykładowy kod, który pokazuje, jak aplikacja sieci Web ASP.NET Core może zalogować użytkowników z dowolnej organizacji Azure Active Directory (Azure AD).  
+
+Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Wymagania wstępne
@@ -48,12 +50,12 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
-> 1. W obszarze **Zarządzaj**wybierz opcję **rejestracje aplikacji**, a następnie pozycję **Nowa rejestracja**.
+> 1. W obszarze **Zarządzaj** wybierz opcję **rejestracje aplikacji** , a następnie pozycję **Nowa rejestracja**.
 > 1. Wprowadź **nazwę** aplikacji, na przykład `AspNetCore-Quickstart` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 > 1. Wprowadź **Identyfikator URI przekierowania**`https://localhost:44321/`
 > 1. Wybierz pozycję **Zarejestruj**.
-> 1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
-> 1. W obszarze **identyfikatory URI przekierowania**wybierz pozycję **Dodaj identyfikator URI**, a następnie wprowadź `https://localhost:44321/signin-oidc`
+> 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+> 1. W obszarze **identyfikatory URI przekierowania** wybierz pozycję **Dodaj identyfikator URI** , a następnie wprowadź `https://localhost:44321/signin-oidc`
 > 1. Wprowadź **adres URL wylogowywania**`https://localhost:44321/signout-oidc`
 > 1. W obszarze **Niejawne przyznanie** wybierz pozycję **Tokeny identyfikatorów**.
 > 1. Wybierz pozycję **Zapisz**.
@@ -97,15 +99,15 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 >
 >    - Zamień na `Enter_the_Application_Id_here` **Identyfikator aplikacji (klienta)** , która została zarejestrowana w Azure Portal. **Identyfikator aplikacji (klienta)** możesz znaleźć na stronie aplikacji **Przegląd** aplikacji.
 >    - Zamień `common` na jedną z następujących wartości:
->       - Jeśli aplikacja obsługuje **konta tylko w tym katalogu organizacji**, Zastąp tę wartość **identyfikatorem katalogu (dzierżawy)** (identyfikatorem GUID) lub **nazwą dzierżawy** (na przykład `contoso.onmicrosoft.com` ). **Identyfikator katalogu (dzierżawcy)** można znaleźć na stronie **przeglądu** aplikacji.
->       - Jeśli aplikacja obsługuje tryb**Konta w dowolnym katalogu organizacyjnym**, zastąp tę wartość za pomocą wartości `organizations`
->       - Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników**, pozostaw tę wartość jako `common`
+>       - Jeśli aplikacja obsługuje **konta tylko w tym katalogu organizacji** , Zastąp tę wartość **identyfikatorem katalogu (dzierżawy)** (identyfikatorem GUID) lub **nazwą dzierżawy** (na przykład `contoso.onmicrosoft.com` ). **Identyfikator katalogu (dzierżawcy)** można znaleźć na stronie **przeglądu** aplikacji.
+>       - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym** , zastąp tę wartość za pomocą wartości `organizations`
+>       - Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników** , pozostaw tę wartość jako `common`
 >
 > W ramach tego przewodnika Szybki Start nie zmieniaj żadnych innych wartości w *appsettings.js* pliku.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Krok4. Skompiluj i uruchom aplikację
 >
-> Kompiluj i uruchamiaj aplikację w programie Visual Studio, wybierając menu **Debuguj** , > **rozpocząć debugowanie**lub naciskając klawisz `F5` .
+> Kompiluj i uruchamiaj aplikację w programie Visual Studio, wybierając menu **Debuguj** , > **rozpocząć debugowanie** lub naciskając klawisz `F5` .
 >
 > Zostanie wyświetlony monit o podanie poświadczeń, a następnie prośba o zgodę na uprawnienia wymagane przez aplikację. Wybierz pozycję **Akceptuj** w monicie o zgodę.
 >
@@ -113,7 +115,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 >
 > Po zapoznaniu się z żądanymi uprawnieniami aplikacja wyświetli komunikat, że użytkownik zalogował się pomyślnie przy użyciu poświadczeń Azure Active Directory.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Okno dialogowe zgody zawierające uprawnienia, które aplikacja żąda od użytkownika >":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Przeglądarka sieci Web wyświetlająca uruchomioną aplikację sieci Web i zalogowany użytkownik":::
 
 ## <a name="more-information"></a>Więcej informacji
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 03995166df5d40f7f8be7054aed0727be254ed73
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cdb6fa5e1721d023edc93307ca146d1599bac219
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376897"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579049"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funkcje języka Transact-SQL obsługiwane przez usługę Azure Synapse SQL
 
@@ -32,7 +32,7 @@ Modele użycia w programie Synapse SQL umożliwiają używanie różnych obiekt�
 | **Widoki** | [Tak](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Widoki mogą używać [elementów języka zapytań](#query-language) , które są dostępne w dedykowanym modelu. | [Tak](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Widoki mogą używać [elementów języka zapytań](#query-language) , które są dostępne w modelu bezserwerowym. |
 | **Schematy** | [Tak](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Tak](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | **Tabele tymczasowe** | [Tak](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nie |
-| **Procedury** | [Tak](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Nie |
+| **Procedury** | [Tak](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tak |
 | **Funkcje** | [Tak](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tak, tylko wbudowane funkcje z wartościami przechowywanymi w tabeli. |
 | **Wyzwalacze** | Nie | Nie |
 | **Tabele zewnętrzne** | [Tak](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Zobacz obsługiwane [formaty danych](#data-formats). | [Tak](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Zobacz obsługiwane [formaty danych](#data-formats). |
@@ -43,6 +43,7 @@ Modele użycia w programie Synapse SQL umożliwiają używanie różnych obiekt�
 | **[Partycje tabeli](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Tak | Nie |
 | **[Statystyki](develop-tables-statistics.md)**            | Tak | Tak |
 | **[Zarządzanie obciążeniami, klasy zasobów i kontrola współbieżności](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Tak    | Nie |
+| **[Zarządzanie obciążeniami, klasy zasobów i kontrola współbieżności](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Tak, przy użyciu akcji skalowania w górę i w dół. | Tak, przy użyciu [procedury Azure Portal lub T-SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/data-processed#cost-control). |
 
 ## <a name="query-language"></a>Język zapytań
 
@@ -77,7 +78,7 @@ Synapse SQL umożliwia korzystanie z wbudowanych funkcji zabezpieczeń w celu za
 | --- | --- | --- |
 | **Dane logowania** | Nie dotyczy (w bazach danych są obsługiwane tylko zawarte użytkownicy) | Tak |
 | **Użytkownicy** |  Nie dotyczy (w bazach danych są obsługiwane tylko zawarte użytkownicy) | Tak |
-| **[Zawarci użytkownicy](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Tak. **Uwaga:** tylko jeden użytkownik usługi Azure AD może być nieograniczonym administratorem | Tak |
+| **[Zawarci użytkownicy](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Tak. **Uwaga:** tylko jeden użytkownik usługi Azure AD może być nieograniczonym administratorem | Nie |
 | **Uwierzytelnianie hasła/nazwy użytkownika SQL**| Tak | Tak |
 | **Uwierzytelnianie Azure Active Directory (Azure AD)**| Tak, użytkownicy usługi Azure AD | Tak, logowania i użytkownicy usługi Azure AD |
 | **Uwierzytelnianie przekazujące Azure Active Directory magazynu (Azure AD)** | Tak | Tak |
@@ -91,7 +92,7 @@ Synapse SQL umożliwia korzystanie z wbudowanych funkcji zabezpieczeń w celu za
 | **Uprawnienia — [poziom serwera](/sql/relational-databases/security/authentication-access/server-level-roles)** | Nie | Tak, obsługiwane są role sysadmin i inne serwery |
 | **Uprawnienia — [zabezpieczenia na poziomie kolumny](/azure/synapse-analytics/sql-data-warehouse/column-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Tak | Tak |
 | **Role/grupy** | Tak (zakres bazy danych) | Tak (zakres serwera i bazy danych) |
-| **&amp;Funkcje tożsamości zabezpieczeń** | Niektóre funkcje i operatory zabezpieczeń Transact-SQL:,,,,,,,,,,  `CURRENT_USER` `HAS_DBACCESS` `IS_MEMBER` `IS_ROLEMEMBER` `SESSION_USER` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` `USER` `USER_NAME` `EXECUTE AS` , `OPEN/CLOSE MASTER KEY` | Niektóre funkcje zabezpieczeń i operatory języka Transact-SQL:,,,,,,,,,,  `CURRENT_USER` `HAS_DBACCESS` `HAS_PERMS_BY_NAME` `IS_MEMBER', 'IS_ROLEMEMBER` `IS_SRVROLEMEMBER` `SESSION_USER` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` `USER` `USER_NAME` , `EXECUTE AS` , i `REVERT` . Funkcji zabezpieczeń nie można używać do wykonywania zapytań dotyczących danych zewnętrznych (przechowywania wyników w zmiennej, których można użyć w zapytaniu).  |
+| **&amp;Funkcje tożsamości zabezpieczeń** | Niektóre funkcje i operatory zabezpieczeń Transact-SQL:,,,,,,,,,,  `CURRENT_USER` `HAS_DBACCESS` `IS_MEMBER` `IS_ROLEMEMBER` `SESSION_USER` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` `USER` `USER_NAME` `EXECUTE AS` , `OPEN/CLOSE MASTER KEY` | Niektóre funkcje zabezpieczeń i operatory języka Transact-SQL:,,,,,,,,,  `CURRENT_USER` `HAS_DBACCESS` `HAS_PERMS_BY_NAME` `IS_MEMBER', 'IS_ROLEMEMBER` `IS_SRVROLEMEMBER` `SESSION_USER` `SESSION_CONTEXT` `SUSER_NAME` `SUSER_SNAME` `SYSTEM_USER` , `USER` , `USER_NAME` ,, `EXECUTE AS` i `REVERT` . Funkcji zabezpieczeń nie można używać do wykonywania zapytań dotyczących danych zewnętrznych (przechowywania wyników w zmiennej, których można użyć w zapytaniu).  |
 | **POŚWIADCZENIA W ZAKRESIE BAZY DANYCH** | Tak | Tak |
 | **POŚWIADCZENIE ZAKRESU SERWERA** | Nie | Tak |
 | **Zabezpieczenia na poziomie wiersza** | [Tak](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15) | Nie |
@@ -131,7 +132,12 @@ Analizowane dane mogą być przechowywane w różnych typach magazynu. W poniżs
 | **Magazyn wewnętrzny** | Tak | Nie |
 | **Azure Data Lake v2** | Tak | Tak |
 | **Azure Blob Storage** | Tak | Tak |
-| **Magazyn analityczny usługi Azure CosmosDB** | Nie | Tak, za pomocą [linku Synapse](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (w obszarze [wersja zapoznawcza](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
+| **Azure SQL (zdalny)** | Nie | Nie |
+| **Magazyn transakcyjny usługi Azure CosmosDB** | Nie | Nie |
+| **Magazyn analityczny usługi Azure CosmosDB** | Nie | Tak, za pomocą [linku Synapse (wersja](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) zapoznawcza) (w obszarze [wersja zapoznawcza](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
+| **Tabele Apache Spark (w obszarze roboczym)** | Nie | Tabele PARQUET tylko z [synchronizacją metadanych](develop-storage-files-spark-tables.md) |
+| **Tabele Apache Spark (zdalne)** | Nie | Nie |
+| **Tabele datakostek (zdalna)** | Nie | Nie |
 
 ## <a name="data-formats"></a>Formaty danych
 

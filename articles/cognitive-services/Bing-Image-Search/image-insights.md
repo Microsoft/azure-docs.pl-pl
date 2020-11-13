@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: cb5da2e3009ca1c50cac05d1bd1f4a8eb55d97d2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a4c8aff8694c9d1dde0ab8d34e65f89a7ab4efbd
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084293"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592111"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Uzyskaj szczegółowe informacje o obrazach przy użyciu interfejs API wyszukiwania obrazów Bing
 
@@ -31,7 +31,7 @@ ms.locfileid: "93084293"
 
 Każdy obraz zawiera token Insights, którego można użyć do uzyskania informacji o obrazie. Można na przykład uzyskać kolekcję powiązanych obrazów, stron sieci Web, które zawierają obraz, lub listę handlowców, w których można kupić produkt widoczny na obrazie.  
 
-Aby uzyskać szczegółowe informacje o obrazie, Przechwyć token [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken) obrazu w odpowiedzi.
+Aby uzyskać szczegółowe informacje o obrazie, Przechwyć token [imageInsightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken) obrazu w odpowiedzi.
 
 ```json
 "value" : [{
@@ -46,9 +46,9 @@ Aby uzyskać szczegółowe informacje o obrazie, Przechwyć token [imageInsights
 }],
 ```
 
-Następnie Wywołaj punkt końcowy szczegółów obrazu i ustaw parametr zapytania [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) na token w `imageInsightsToken` .  
+Następnie Wywołaj punkt końcowy szczegółów obrazu i ustaw parametr zapytania [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) na token w `imageInsightsToken` .  
 
-Aby określić szczegółowe informacje, które chcesz pobrać, ustaw `modules` parametr zapytania. Aby uzyskać szczegółowe informacje, ustaw wartość `modules` `All` . Aby uzyskać tylko informacje o podpisie i kolekcji, ustaw `modules` jako `Caption%2CCollection` . Aby uzyskać pełną listę możliwych szczegółowych informacji, zobacz [moduły](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Nie wszystkie szczegółowe informacje są dostępne dla wszystkich obrazów. Odpowiedź zawiera wszystkie żądania szczegółowych informacji, o ile są dostępne.
+Aby określić szczegółowe informacje, które chcesz pobrać, ustaw `modules` parametr zapytania. Aby uzyskać szczegółowe informacje, ustaw wartość `modules` `All` . Aby uzyskać tylko informacje o podpisie i kolekcji, ustaw `modules` jako `Caption%2CCollection` . Aby uzyskać pełną listę możliwych szczegółowych informacji, zobacz [moduły](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Nie wszystkie szczegółowe informacje są dostępne dla wszystkich obrazów. Odpowiedź zawiera wszystkie żądania szczegółowych informacji, o ile są dostępne.
 
 Poniższy przykład żąda wszystkich dostępnych szczegółowych informacji o powyższym obrazie.
 
@@ -64,7 +64,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-insights-of-a-known-image"></a>Uzyskiwanie szczegółowych informacji o znanym obrazie
 
-Jeśli masz adres URL obrazu, który chcesz uzyskać szczegółowe informacje, użyj parametru zapytania [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) zamiast parametru [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) w celu określenia obrazu. Lub, jeśli dysponujesz plikiem obrazu, możesz wysłać plik binarny obrazu w treści żądania POST. Jeśli używasz żądania POST, `Content-Type` nagłówek musi być ustawiony na `multipart/data-form` . Przy użyciu jednej z opcji rozmiar obrazu nie może przekraczać 1 MB.  
+Jeśli masz adres URL obrazu, który chcesz uzyskać szczegółowe informacje, użyj parametru zapytania [imgUrl](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) zamiast parametru [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) w celu określenia obrazu. Lub, jeśli dysponujesz plikiem obrazu, możesz wysłać plik binarny obrazu w treści żądania POST. Jeśli używasz żądania POST, `Content-Type` nagłówek musi być ustawiony na `multipart/data-form` . Przy użyciu jednej z opcji rozmiar obrazu nie może przekraczać 1 MB.  
 
 Jeśli masz adres URL obrazu, Poniższy przykład pokazuje, jak zażądać szczegółowych informacji o obrazie.
 
@@ -80,7 +80,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-all-image-insights"></a>Pobieranie wszystkich informacji o obrazie  
 
-Aby zażądać wszystkich szczegółowych informacji o obrazie, ustaw parametr query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `All` . Aby uzyskać wyszukiwanie pokrewne, żądanie musi zawierać ciąg zapytania użytkownika. Ten przykład przedstawia użycie [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do określenia obrazu.  
+Aby zażądać wszystkich szczegółowych informacji o obrazie, ustaw parametr query [modules](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `All` . Aby uzyskać wyszukiwanie pokrewne, żądanie musi zawierać ciąg zapytania użytkownika. Ten przykład przedstawia użycie [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do określenia obrazu.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&insightsToken=mid_68364D764J...&modules=All&mkt=en-us HTTP/1.1  
@@ -92,7 +92,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Obiekt najwyższego poziomu jest obiektem [ImageInsightsResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) zamiast obiektu [images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) .  
+Obiekt najwyższego poziomu jest obiektem [ImageInsightsResponse](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) zamiast obiektu [images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) .  
 
 ```json
 {
@@ -179,12 +179,12 @@ Obiekt najwyższego poziomu jest obiektem [ImageInsightsResponse](https://docs.m
 
 ## <a name="recognizing-entities-in-an-image"></a>Rozpoznawanie jednostek w obrazie  
 
-Funkcja rozpoznawania jednostek identyfikuje jednostki w obrazie, obecnie tylko osoby. Aby identyfikować jednostki w obrazie, ustaw parametr query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `RecognizedEntities` .  
+Funkcja rozpoznawania jednostek identyfikuje jednostki w obrazie, obecnie tylko osoby. Aby identyfikować jednostki w obrazie, ustaw parametr query [modules](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `RecognizedEntities` .  
 
 > [!NOTE]
 > Nie można określić tego modułu z żadnym innym modułem. W przypadku określenia tego modułu z innymi modułami odpowiedź nie obejmuje rozpoznanych jednostek.  
 
-Poniżej pokazano, jak określić obraz przy użyciu parametru [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) . Pamiętaj, aby w adresie URL zakodować parametry zapytania.  
+Poniżej pokazano, jak określić obraz przy użyciu parametru [imgUrl](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) . Pamiętaj, aby w adresie URL zakodować parametry zapytania.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=faith+hill&insightsToken=mid_68364D764J...&modules=RecognizedEntities&mkt=en-us HTTP/1.1  
@@ -228,16 +228,16 @@ Wartości prostokąta są względem szerokości i wysokości oryginalnego obrazu
 
 Możesz użyć regionu, który powraca do usługi Bing w kolejnych wywołaniach szczegółowych informacji. Na przykład, aby uzyskać wizualnie podobne obrazy rozpoznanej jednostki. Aby uzyskać więcej informacji, zobacz przycinanie obrazów do użycia z wizualnie podobnymi i modułami rozpoznawania jednostek. Poniżej przedstawiono mapowanie między polami regionu i parametrami zapytania, których można użyć do przycinania obrazów.  
 
--   Lewy dostęp do [licencji CAL](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
--   Najważniejsze mapy do [Cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
--   Prawa mapa do [samochodu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
--   Dolna mapa do [pliku cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
+-   Lewy dostęp do [licencji CAL](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+-   Najważniejsze mapy do [Cat](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+-   Prawa mapa do [samochodu](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+-   Dolna mapa do [pliku cab](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
 
 ## <a name="finding-visually-similar-images"></a>Znajdowanie obrazów podobnych wizualnie  
 
-Aby znaleźć obrazy, które są wizualnie podobne do oryginalnego obrazu, ustaw parametr query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na SimilarImages.  
+Aby znaleźć obrazy, które są wizualnie podobne do oryginalnego obrazu, ustaw parametr query [modules](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na SimilarImages.  
 
-Poniższe żądanie pokazuje, jak uzyskać wizualnie podobne obrazy. Żądanie używa parametru zapytania [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do identyfikowania oryginalnego obrazu. Aby poprawić istotność, należy uwzględnić ciąg zapytania użytkownika.  
+Poniższe żądanie pokazuje, jak uzyskać wizualnie podobne obrazy. Żądanie używa parametru zapytania [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do identyfikowania oryginalnego obrazu. Aby poprawić istotność, należy uwzględnić ciąg zapytania użytkownika.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?insightsToken=mid_68364D764J...&modules=SimilarImages&mkt=en-us HTTP/1.1  
@@ -270,7 +270,7 @@ Poniżej przedstawiono odpowiedź na poprzednie żądanie.
 
 ## <a name="cropping-images-to-use-with-visually-similar-and-entity-recognition-modules"></a>Przycinanie obrazów do użycia z wizualnie podobnymi i modułami rozpoznawania jednostek  
 
-Aby określić region obrazu używany przez usługę Bing do określenia, czy obrazy są podobne do wizualizacji, czy do rozpoznawania jednostek, użyj parametrów zapytania [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal), [Cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat), [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)i [samochodu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car) . Domyślnie usługi Bing używają całego obrazu.  
+Aby określić region obrazu używany przez usługę Bing do określenia, czy obrazy są podobne do wizualizacji, czy do rozpoznawania jednostek, użyj parametrów zapytania [cal](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal), [Cat](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat), [cab](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)i [samochodu](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car) . Domyślnie usługi Bing używają całego obrazu.  
 
 Parametry określają górny, lewy róg i dolny róg regionu, który jest wykorzystywany przez Bing do porównania. Określ wartości jako ułamki szerokości i wysokości obrazu oryginalnego. Wartości ułamkowe zaczynają się od (0,0, 0,0) w górnej części, w lewym górnym rogu i na końcu (1,0, 1,0) w prawym dolnym rogu. Na przykład, aby określić, że górny lewy róg zaczyna się od góry i z kwartału w kierunku od lewej strony, ustaw `cal` na 0,25 i `cat` 0,25.  
 
@@ -379,9 +379,9 @@ Odpowiedź zawiera jedną rozpoznaną jednostkę.
 
 ## <a name="finding-visually-similar-products"></a>Wyszukiwanie podobnych produktów wizualnych  
 
-Aby znaleźć obrazy zawierające produkty, które są wizualnie podobne do produktów znalezionych w oryginalnym obrazie, ustaw parametr query [module](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na SimilarProducts.  
+Aby znaleźć obrazy zawierające produkty, które są wizualnie podobne do produktów znalezionych w oryginalnym obrazie, ustaw parametr query [module](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na SimilarProducts.  
 
-Poniższe żądanie pokazuje, jak uzyskać obrazy podobnych produktów. Żądanie używa parametru zapytania [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do zidentyfikowania oryginalnego obrazu, który został zwrócony w poprzednim żądaniu. Aby poprawić istotność, należy uwzględnić ciąg zapytania użytkownika.  
+Poniższe żądanie pokazuje, jak uzyskać obrazy podobnych produktów. Żądanie używa parametru zapytania [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do zidentyfikowania oryginalnego obrazu, który został zwrócony w poprzednim żądaniu. Aby poprawić istotność, należy uwzględnić ciąg zapytania użytkownika.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=anne+klein+dresses&modules=SimilarProducts&insightsToken=ccid_WOeyfoSp*mid_4B0A357&mkt=en-us HTTP/1.1    
@@ -413,7 +413,7 @@ Poniżej przedstawiono odpowiedź na poprzednie żądanie. Odpowiedź zawiera ob
 }
 ```
 
-Aby uzyskać listę handlowców, które oferują produkt online (patrz pole [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) ), ponownie wywołaj interfejs API i ustaw wartość `modules` ShoppingSources. Następnie ustaw `insightsToken` parametr zapytania na token znaleziony w obrazie podsumowania produktu.  
+Aby uzyskać listę handlowców, które oferują produkt online (patrz pole [offerCount](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) ), ponownie wywołaj interfejs API i ustaw wartość `modules` ShoppingSources. Następnie ustaw `insightsToken` parametr zapytania na token znaleziony w obrazie podsumowania produktu.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

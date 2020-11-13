@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 61c8127941c54270b938babefaf4eb17627a15f3
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4cb707896aa7874aa2bf287723e8a53d7d6d974c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370178"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577791"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planowanie oferty aplikacji platformy Azure dla komercyjnego portalu Marketplace
 
@@ -33,7 +33,7 @@ Projektowanie, kompilowanie i testowanie ofert aplikacji platformy Azure wymaga 
 
 Przejrzyj następujące zasoby w miarę planowania oferty aplikacji platformy Azure dla komercyjnej witryny Marketplace.
 
-- [Informacje o szablonach Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax.md)
+- [Informacje o szablonach Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax)
 - Przewodniki Szybki start:
     - [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/)
     - [Przewodnik po najlepszych rozwiązaniach dotyczących szablonów platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -145,7 +145,7 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
 - **Krótki opis** : podaj do 256 znaków zwykłego tekstu. To podsumowanie zostanie wyświetlone na stronie szczegółów oferty.
 - **Opis** : ten opis zostanie wyświetlony w temacie Omówienie aukcji portalu Azure Marketplace. Rozważ uwzględnienie propozycji wartości, najważniejszych korzyści, planowanego użytkownika, dowolnych z kategorii lub branżowych, możliwości zakupu w aplikacji, potrzeb klientów lub bólu, że oferta zawiera adresy, wszelkie wymagane ujawnienie oraz link, aby dowiedzieć się więcej.
 
-    To pole tekstowe zawiera kontrolki edytora tekstu sformatowanego, których można użyć, aby dowiedzieć się więcej. Możesz również użyć tagów HTML do sformatowania opisu. W tym polu można wprowadzić do 3 000 znaków tekstu, w tym znaczniki HTML i spacje. Aby uzyskać dodatkowe wskazówki, zobacz artykuł [Napisz doskonały opis aplikacji](/windows/uwp/publish/write-a-great-app-description.md) i [tagi HTML obsługiwane w opisach oferty komercyjnej witryny Marketplace](supported-html-tags.md).
+    To pole tekstowe zawiera kontrolki edytora tekstu sformatowanego, których można użyć, aby dowiedzieć się więcej. Możesz również użyć tagów HTML do sformatowania opisu. W tym polu można wprowadzić do 3 000 znaków tekstu, w tym znaczniki HTML i spacje. Aby uzyskać dodatkowe wskazówki, zobacz artykuł [Napisz doskonały opis aplikacji](/windows/uwp/publish/write-a-great-app-description) i [tagi HTML obsługiwane w opisach oferty komercyjnej witryny Marketplace](supported-html-tags.md).
 
 - **Wyszukaj słowa kluczowe** (opcjonalnie): Podaj do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w sklepie online. Aby uzyskać najlepsze wyniki, należy również użyć tych słów kluczowych w opisie. Nie trzeba dołączać **nazwy** oferty i **opisu**. Ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
 - **Link zasad ochrony prywatności** : adres URL firmowych zasad zachowania poufności informacji. Należy podać prawidłowe zasady ochrony prywatności i są one odpowiedzialne za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności.
@@ -197,9 +197,9 @@ Możesz zdefiniować odbiorców wersji zapoznawczej przy użyciu identyfikatoró
 
 W przypadku zarządzanych aplikacji, które emitują zdarzenia przy użyciu [interfejsów API usługi pomiaru Marketplace](partner-center-portal/marketplace-metering-service-apis.md), należy podać tożsamość, która będzie używana przez usługę podczas emitowania zdarzeń pomiaru.
 
-Ta konfiguracja jest wymagana, jeśli chcesz użyć [zdarzenia użycia](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event)w usłudze Batch. Jeśli chcesz przesłać [zdarzenie użycia](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), możesz również użyć [usługi metadanych wystąpienia](/azure/active-directory/managed-identities-azure-resources/overview.md) , aby uzyskać [token okaziciela sieci Web JSON (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
+Ta konfiguracja jest wymagana, jeśli chcesz użyć [zdarzenia użycia](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event)w usłudze Batch. Jeśli chcesz przesłać [zdarzenie użycia](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), możesz również użyć [usługi metadanych wystąpienia](/azure/active-directory/managed-identities-azure-resources/overview) , aby uzyskać [token okaziciela sieci Web JSON (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
 
-- **Azure Active Directory identyfikator dzierżawy** (wymagane): wewnątrz Azure Portal należy [utworzyć aplikację Azure Active Directory (AD)](/azure/active-directory/develop/howto-create-service-principal-portal.md) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami za pomocą komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](/azure/active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) aplikacji Azure Active Directory (Azure AD), w bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie wyszukaj **Właściwości** , a następnie dla **identyfikatora katalogu (dzierżawy)** (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure Active Directory identyfikator dzierżawy** (wymagane): wewnątrz Azure Portal należy [utworzyć aplikację Azure Active Directory (AD)](/azure/active-directory/develop/howto-create-service-principal-portal) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami za pomocą komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) aplikacji Azure Active Directory (Azure AD), w bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie wyszukaj **Właściwości** , a następnie dla **identyfikatora katalogu (dzierżawy)** (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 - **Identyfikator aplikacji Azure Active Directory** (wymagane): wymagany jest również [Identyfikator aplikacji](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) i klucz uwierzytelniania. Aby znaleźć identyfikator aplikacji, przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację, a następnie wyszukaj **Identyfikator aplikacji (** na przykład `50c464d3-4930-494c-963c-1e951d15360e` ). Aby znaleźć klucz uwierzytelniania, przejdź do pozycji **Ustawienia** i wybierz pozycję **klucze**. Należy podać opis i czas trwania, a następnie podać wartość liczbową.
 
 > [!NOTE]
@@ -209,7 +209,7 @@ Ta konfiguracja jest wymagana, jeśli chcesz użyć [zdarzenia użycia](partner-
 
 Możesz zrezygnować z obsługi kanałów marketingowych i sprzedaży obsługiwanych przez firmę Microsoft. Podczas tworzenia oferty w centrum partnerskim na końcu procesu zobaczysz dwie karty:
 
-- Odsprzedaż **za pomocą dostawców CSP** : Użyj tej opcji, aby zezwolić partnerom dostawcy rozwiązań Microsoft Cloud (CSP) na odsprzedaż Twojego rozwiązania w ramach powiązanej oferty. Aby uzyskać więcej informacji, zobacz [program Cloud Solution Provider](/azure/marketplace/cloud-solution-providers.md) .
+- Odsprzedaż **za pomocą dostawców CSP** : Użyj tej opcji, aby zezwolić partnerom dostawcy rozwiązań Microsoft Cloud (CSP) na odsprzedaż Twojego rozwiązania w ramach powiązanej oferty. Aby uzyskać więcej informacji, zobacz [program Cloud Solution Provider](/azure/marketplace/cloud-solution-providers) .
 - **Sprzedawanie z firmą Microsoft** : Ta opcja umożliwia zespołom ds. sprzedaży firmy Microsoft rozpatrywanie odpowiednich rozwiązań dla adresów IP podczas oceny potrzeb klientów. Aby uzyskać szczegółowe informacje na temat przygotowywania oferty do oceny, zobacz temat [sprzedawanie w centrum partnerskim](partner-center-portal/commercial-marketplace-co-sell.md) . Aby uzyskać więcej informacji na temat marketingu oferty za pomocą kanałów partnerów CSP firmy Microsoft, zobacz [dostawcy rozwiązań w chmurze](cloud-solution-providers.md).
 
 Aby dowiedzieć się więcej, zobacz [rozwijanie działalności w chmurze za pomocą witryny Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
@@ -224,12 +224,12 @@ Ogólne wskazówki dotyczące planów, w tym modeli cenowych i planów prywatnyc
 
 Istnieją dwa rodzaje planów aplikacji platformy Azure: _szablon rozwiązania_ i _aplikacja zarządzana_. Oba typy planów obsługują Automatyzowanie wdrażania i konfigurowania rozwiązania poza jedną maszyną wirtualną. Można zautomatyzować proces udostępniania wielu zasobów, w tym maszyn wirtualnych, sieci i zasobów magazynu, aby zapewnić złożone rozwiązania, takie jak rozwiązania IaaS. Oba typy planów mogą korzystać z wielu różnych rodzajów zasobów platformy Azure, w tym między innymi maszyn wirtualnych.
 
-- Plany **szablonów rozwiązań** to jeden z głównych sposobów publikowania rozwiązania na rynku komercyjnym. Plany szablonów rozwiązań nie są transakcyjne w komercyjnej witrynie Marketplace, ale mogą służyć do wdrażania płatnych ofert maszyn wirtualnych, które są rozliczane za pomocą komercyjnej witryny Marketplace. Użyj typu planu szablonu rozwiązania, gdy klient będzie zarządzać rozwiązaniem, a transakcje są rozliczane za pomocą innego planu. Aby uzyskać więcej informacji na temat tworzenia szablonów rozwiązań, zobacz [co to jest Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview.md)
+- Plany **szablonów rozwiązań** to jeden z głównych sposobów publikowania rozwiązania na rynku komercyjnym. Plany szablonów rozwiązań nie są transakcyjne w komercyjnej witrynie Marketplace, ale mogą służyć do wdrażania płatnych ofert maszyn wirtualnych, które są rozliczane za pomocą komercyjnej witryny Marketplace. Użyj typu planu szablonu rozwiązania, gdy klient będzie zarządzać rozwiązaniem, a transakcje są rozliczane za pomocą innego planu. Aby uzyskać więcej informacji na temat tworzenia szablonów rozwiązań, zobacz [co to jest Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview)
 - Plany **aplikacji zarządzanych** umożliwiają łatwe tworzenie i dostarczanie w pełni zarządzanych aplikacji gotowe dla klientów. Mają one te same możliwości co plany szablonów rozwiązań, z niektórymi różnicami między kluczami:
     - Zasoby są wdrażane w grupie zasobów i są zarządzane przez wydawcę aplikacji. Grupa zasobów znajduje się w subskrypcji klienta, ale tożsamość w dzierżawie wydawcy ma dostęp do tej grupy zasobów. 
     - Jako wydawca należy określić koszt dla ciągłej pomocy technicznej rozwiązania, a transakcje są obsługiwane za pomocą komercyjnej witryny Marketplace.
  
-    Użyj typu planu aplikacji zarządzanej, gdy użytkownik lub klient wymaga, aby rozwiązanie było zarządzane przez partnera, lub wdrożyć rozwiązanie oparte na subskrypcji. Aby uzyskać więcej informacji o zaletach i typach zarządzanych aplikacji, zobacz [Omówienie usługi Azure Managed Applications](/azure/managed-applications/overview.md).
+    Użyj typu planu aplikacji zarządzanej, gdy użytkownik lub klient wymaga, aby rozwiązanie było zarządzane przez partnera, lub wdrożyć rozwiązanie oparte na subskrypcji. Aby uzyskać więcej informacji o zaletach i typach zarządzanych aplikacji, zobacz [Omówienie usługi Azure Managed Applications](/azure/managed-applications/overview).
 
 ## <a name="next-steps"></a>Następne kroki
 

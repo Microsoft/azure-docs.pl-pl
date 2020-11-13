@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8ab001636cc6fac921f552070b9b064d9c53a8d7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042072"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579219"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ W poniższej tabeli przedstawiono, w jaki sposób każda funkcja magazynu obiekt
 |Niezmienny magazyn|Wersja zapoznawcza|Wersja zapoznawcza|[Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](storage-blob-immutable-storage.md)|
 |Usuwanie nietrwałe kontenera|Wersja zapoznawcza|Wersja zapoznawcza|[Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md)|
 |Usuwanie nietrwałe obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Usuwanie nietrwałe dla obiektów blob](storage-blob-soft-delete.md)|
-|Blobfuse|Wersja zapoznawcza|Wersja zapoznawcza|[Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse](storage-how-to-mount-container-linux.md)|
+|Blobfuse|Ogólnie dostępne|Ogólnie dostępne|[Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse](storage-how-to-mount-container-linux.md)|
 |Tryb failover konta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Lista ACL kontenera obiektów BLOB|Nieobsługiwane<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Nieobsługiwane<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Zapoznaj się z pokrewną uwagą poniżej tej tabeli.|
 |Klucze dostarczone przez klienta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB](encryption-customer-provided-keys.md)|

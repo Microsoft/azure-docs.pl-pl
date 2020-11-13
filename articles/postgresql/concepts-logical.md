@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421813"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591533"
 ---
 # <a name="logical-decoding"></a>Dekodowanie logiczne
  
@@ -37,7 +37,6 @@ Aby skonfigurować odpowiedni poziom rejestrowania, użyj parametru Obsługa rep
 * **Replika** — większa niż **wyłączona**. Jest to minimalny poziom rejestrowania, który jest wymagany do działania [replik odczytu](concepts-read-replicas.md) . To ustawienie jest domyślne na większości serwerów.
 * **Logiczne** — więcej informacji niż **replika**. Jest to minimalny poziom rejestrowania kodu logicznego do pracy. Odczytaj repliki również działają w tym ustawieniu.
 
-Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten parametr ustawia parametry Postgres `wal_level` , `max_replication_slots` i `max_wal_senders` .
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
@@ -86,7 +85,7 @@ W poniższym przykładzie użyto interfejsu SQL z wtyczką wal2json.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Wydaj polecenia SQL. Na przykład:
+2. Wydaj polecenia SQL. Przykład:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,
