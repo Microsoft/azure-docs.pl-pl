@@ -6,12 +6,12 @@ author: agowdamsft
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 90b74e51dce994c3041c15feec729ff1fae2bb00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001031"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564161"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Zarządzanie oprogramowaniem platformy przy użyciu zestawu demona pomocnika cytatu SGX
 
@@ -20,13 +20,13 @@ ms.locfileid: "91001031"
 ## <a name="overview"></a>Omówienie
  
 Intel obsługuje dwa tryby zaświadczania, aby uruchomić generowanie cytatu:
-- **w**procesie: hostuje składniki zaufanego oprogramowania w ramach procesu aplikacji enklawy
+- **w** procesie: hostuje składniki zaufanego oprogramowania w ramach procesu aplikacji enklawy
 
-- **out-of-proc**: udostępnia zaufane składniki oprogramowania spoza aplikacji enklawy.
+- **out-of-proc** : udostępnia zaufane składniki oprogramowania spoza aplikacji enklawy.
  
 Aplikacje SGX utworzone przy użyciu zestawu SDK open enklawy domyślnie używają trybu zaświadczania w procesie. Aplikacje oparte na SGX umożliwiają korzystanie z usługi i wymagają dodatkowego hostingu i uwidaczniają wymagane składniki, takie jak enklawy architektury Service Manager (AESM), zewnętrzne dla aplikacji.
 
-Korzystanie z tej funkcji jest **zdecydowanie zalecane**, ponieważ zwiększa to czas pracy aplikacji enklawy podczas aktualizacji platformy Intel lub aktualizacji sterowników DCAP.
+Korzystanie z tej funkcji jest **zdecydowanie zalecane** , ponieważ zwiększa to czas pracy aplikacji enklawy podczas aktualizacji platformy Intel lub aktualizacji sterowników DCAP.
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Dlaczego i jakie są korzyści z używania poza procesem?
 
@@ -126,10 +126,10 @@ spec:
 
 [Szybkie przykładowe kontenery poufne](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Lista jednostek SKU DCsv2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[Lista jednostek SKU DCsv2](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

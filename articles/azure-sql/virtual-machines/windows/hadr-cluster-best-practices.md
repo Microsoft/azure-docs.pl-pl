@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786432"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564569"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze rozwiązania dotyczące konfiguracji klastra (SQL Server w usłudze Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ W tym artykule przedstawiono najlepsze rozwiązania w zakresie konfiguracji klas
 ## <a name="networking"></a>Networking
 
 Użyj pojedynczej karty sieciowej na serwer (węzeł klastra) i pojedynczej podsieci. Sieć platformy Azure ma fizyczną nadmiarowość, co sprawia, że dodatkowe karty sieciowe i podsieci nie są potrzebne w klastrze gościa maszyny wirtualnej platformy Azure. Raport weryfikacji klastra ostrzega o tym, że węzły są dostępne tylko w jednej sieci. To ostrzeżenie można zignorować w klastrach trybu failover gościa maszyny wirtualnej platformy Azure.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>Dostrajanie progów sieci klastra trybu failover
+
+W przypadku uruchamiania węzłów klastra trybu failover systemu Windows na maszynach wirtualnych platformy Azure z funkcją SQL Server AlwaysOn zaleca się zmianę ustawienia klastra na bardziej swobodny stan monitorowania.  Dzięki temu klaster jest znacznie bardziej stabilny i niezawodny.  Aby uzyskać szczegółowe informacje na ten temat, zobacz [IaaS with SQL AlwaysOn-dostrajania sieci klastra trybu failover](/windows-server/troubleshoot/iaas-sql-failover-cluser).
 
 ## <a name="quorum"></a>Kworum
 

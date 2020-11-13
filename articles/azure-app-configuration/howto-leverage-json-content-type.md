@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88122041"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565776"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Wykorzystanie typu zawartości do przechowywania wartości klucza JSON w konfiguracji aplikacji
 
@@ -25,9 +25,9 @@ Dane są przechowywane w konfiguracji aplikacji jako wartości klucza, gdzie war
 ## <a name="overview"></a>Omówienie
 
 W obszarze Konfiguracja aplikacji można użyć typu nośnika JSON jako typu zawartości klucza, aby skorzystać z korzyści, takich jak:
-- **Prostsze zarządzanie danymi**: zarządzanie kluczowymi wartościami, takimi jak tablice, stanie się znacznie łatwiejsze w Azure Portal.
-- **Ulepszony eksport danych**: typy pierwotne, tablice i obiekty JSON zostaną zachowane podczas eksportowania danych.
-- **Natywna obsługa dostawcy konfiguracji aplikacji**: klucz-wartości z zawartością JSON — typ będzie działał prawidłowo, gdy są używane przez biblioteki dostawcy konfiguracji aplikacji w aplikacjach.
+- **Prostsze zarządzanie danymi** : zarządzanie kluczowymi wartościami, takimi jak tablice, stanie się znacznie łatwiejsze w Azure Portal.
+- **Ulepszony eksport danych** : typy pierwotne, tablice i obiekty JSON zostaną zachowane podczas eksportowania danych.
+- **Natywna obsługa dostawcy konfiguracji aplikacji** : klucz-wartości z zawartością JSON — typ będzie działał prawidłowo, gdy są używane przez biblioteki dostawcy konfiguracji aplikacji w aplikacjach.
 
 #### <a name="valid-json-content-type"></a>Prawidłowy typ zawartości JSON
 
@@ -63,13 +63,11 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Korzystaj z wartości klucza JSON w aplikacjach.
 
 
-## <a name="prerequisites"></a>Wymagania wstępne
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/).
-- Najnowsza wersja interfejsu wiersza polecenia platformy Azure (2.10.0 lub nowsza). Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure, musisz najpierw zalogować się przy użyciu `az login` . Opcjonalnie możesz użyć Azure Cloud Shell.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Ten samouczek wymaga wersji 2.10.0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-an-app-configuration-store"></a>Tworzenie magazynu konfiguracji aplikacji
 

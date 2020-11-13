@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462432"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565708"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Instrukcje: uruchamianie aplikacji za pomocą Menedżera Fortanix enklawy 
 
@@ -60,31 +60,31 @@ W tym samouczku pokazano, jak przekonwertować obraz aplikacji na obraz chronion
 
 6. W tym samouczku użyjemy rejestru platformy Docker Fortanix dla przykładowej aplikacji. Wprowadź szczegółowe informacje z poniższych informacji. Użyj prywatnego rejestru platformy Docker, aby zachować obraz wyjściowy. 
  
-    - **Nazwa aplikacji**: serwer aplikacji Python
-    - **Opis**: serwer z kolbą Python
-    - **Nazwa obrazu wejściowego**: fortanix/Python-Kolba
-    - **Nazwa obrazu wyjściowego**: fortanx-Private/Python-SGX
-    - **ISVPRODID**: 1
-    - **ISVSVM**: 1
-    - **Rozmiar pamięci**: 1 GB
-    - **Liczba wątków**: 128
+    - **Nazwa aplikacji** : serwer aplikacji Python
+    - **Opis** : serwer z kolbą Python
+    - **Nazwa obrazu wejściowego** : fortanix/Python-Kolba
+    - **Nazwa obrazu wyjściowego** : fortanx-Private/Python-SGX
+    - **ISVPRODID** : 1
+    - **ISVSVM** : 1
+    - **Rozmiar pamięci** : 1 GB
+    - **Liczba wątków** : 128
 
-    *Opcjonalnie*: Uruchom aplikację.
-    - **Centrum platformy Docker**: [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
-    - **Aplikacja**: fortanix/Python — Kolba
+    *Opcjonalnie* : Uruchom aplikację.
+    - **Centrum platformy Docker** : [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
+    - **Aplikacja** : fortanix/Python — Kolba
 
         Uruchom następujące polecenie:
          ```bash
             sudo docker run fortanix/python-flask
          ```
 
-1. Dodaj certyfikat. Wypełnij informacje, korzystając z poniższych informacji, a następnie wybierz pozycję **dalej**:
-    - **Domena**: MojaApl. domena. Dom
-    - **Typ**: certyfikat wystawiony przez Menedżera enklawy 
-    - **Ścieżka klucza**:/appkey.pem
-    - **Typ klucza**: RSA
-    - **Ścieżka certyfikatu**:/appcert.pem
-    - **Rozmiar klucza RSA**: 2048 bitów
+1. Dodaj certyfikat. Wypełnij informacje, korzystając z poniższych informacji, a następnie wybierz pozycję **dalej** :
+    - **Domena** : MojaApl. domena. Dom
+    - **Typ** : certyfikat wystawiony przez Menedżera enklawy 
+    - **Ścieżka klucza** :/appkey.pem
+    - **Typ klucza** : RSA
+    - **Ścieżka certyfikatu** :/appcert.pem
+    - **Rozmiar klucza RSA** : 2048 bitów
     
 
 ## <a name="create-an-image"></a>Tworzenie obrazu
@@ -115,12 +115,12 @@ Utworzenie agenta węzła Fortanix spowoduje wdrożenie maszyny wirtualnej, inte
 1. Przejdź do [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) i zaloguj się przy użyciu poświadczeń platformy Azure.
 1. Na pasku wyszukiwania wpisz **Fortanix poufne Computing Agent Node**. Wybierz aplikację, która zostanie wyświetlona w polu wyszukiwania o nazwie **Agent węzła Fortanix poufnego** , aby przejść do strony głównej oferty. 
      ![Wyszukaj w witrynie Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
-1. Wybierz pozycję **Pobierz teraz**, wprowadź informacje w razie potrzeby, a następnie wybierz pozycję **Kontynuuj**. Nastąpi przekierowanie do Azure Portal. 
+1. Wybierz pozycję **Pobierz teraz** , wprowadź informacje w razie potrzeby, a następnie wybierz pozycję **Kontynuuj**. Nastąpi przekierowanie do Azure Portal. 
 1. Wybierz pozycję **Utwórz** , aby przejść na stronę wdrożenia agenta Fortanixego dla komputerów poufnych.
 1. Na tej stronie będziesz wprowadzać informacje w celu wdrożenia maszyny wirtualnej. Ta maszyna wirtualna jest DCsv2-Series maszynę wirtualną z obsługą technologii Intel SGX z platformy Azure z zainstalowanym oprogramowaniem agenta Node Fortanix. Agent węzła zezwoli na bezpieczne działanie konwertowanego obrazu w węzłach Intel SGX na platformie Azure.  Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz wdrożyć maszynę wirtualną i skojarzone z nią zasoby. 
  
     > [!NOTE]
-    > Podczas wdrażania DCsv2-Series maszyn wirtualnych na platformie Azure obowiązują ograniczenia. Może być konieczne przekroczenie limitu przydziału dla dodatkowych rdzeni. Aby uzyskać więcej informacji, Przeczytaj o [rozwiązaniach do przetwarzania danych poufnych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) . 
+    > Podczas wdrażania DCsv2-Series maszyn wirtualnych na platformie Azure obowiązują ograniczenia. Może być konieczne przekroczenie limitu przydziału dla dodatkowych rdzeni. Aby uzyskać więcej informacji, Przeczytaj o [rozwiązaniach do przetwarzania danych poufnych na maszynach wirtualnych platformy Azure](./virtual-machine-solutions.md) . 
 
 1. Wybierz dostępny region.
 1. Wprowadź nazwę maszyny wirtualnej w polu **nazwa węzła** . 
@@ -174,4 +174,4 @@ W tym przewodniku szybki start użyto narzędzi Fortanix do przekonwertowania ob
 
 Aby dowiedzieć się więcej na temat ofert związanych z poufnym przetwarzaniem na platformie Azure, zobacz [Omówienie usługi Azure poufnego przetwarzania](overview.md)
 
- Dowiedz się, jak wykonywać podobne zadania przy użyciu innych ofert innych firm na platformie Azure, takich jak [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) i [Scone](https://sconedocs.github.io).  
+ Dowiedz się, jak wykonywać podobne zadania przy użyciu innych ofert innych firm na platformie Azure, takich jak [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) i [Scone](https://sconedocs.github.io).

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413075"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563651"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Często zadawane pytania dotyczące zapory aplikacji sieci Web platformy Azure w usłudze Azure Front-drzwiczk
 
@@ -55,7 +55,7 @@ Możesz skonfigurować listę Access Control IP w zapleczu, aby zezwolić tylko 
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Które opcje usługi Azure WAF należy wybrać?
 
-Istnieją dwie opcje stosowania zasad WAFymi na platformie Azure. WAF z platformą Azure front-drzwi to globalne, rozproszone rozwiązanie do zabezpieczeń. WAF with Application Gateway to regionalne, dedykowane rozwiązanie. Zalecamy wybranie rozwiązania na podstawie ogólnych wymagań dotyczących wydajności i zabezpieczeń. Aby uzyskać więcej informacji, zobacz [równoważenie obciążenia przy użyciu pakietu dostarczania aplikacji platformy Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Istnieją dwie opcje stosowania zasad WAFymi na platformie Azure. WAF z platformą Azure front-drzwi to globalne, rozproszone rozwiązanie do zabezpieczeń. WAF with Application Gateway to regionalne, dedykowane rozwiązanie. Zalecamy wybranie rozwiązania na podstawie ogólnych wymagań dotyczących wydajności i zabezpieczeń. Aby uzyskać więcej informacji, zobacz [równoważenie obciążenia przy użyciu pakietu dostarczania aplikacji platformy Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Czy te same funkcje WAF są obsługiwane we wszystkich zintegrowanych platformach?

@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 229c1d2aaab6029ccec3f8831f42a7ce8de2e31e
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555485"
+ms.locfileid: "94565912"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
 
@@ -103,3 +103,4 @@ Odwiedź [Studio](https://ml.azure.com)lub zapoznaj się z różnymi opcjami two
   + [Korzystanie z notesów Jupyter w wystąpieniu obliczeniowym do uczenia & wdrażania modeli](tutorial-1st-experiment-sdk-setup.md)
   + [Używanie automatycznego uczenia maszynowego do uczenia & wdrażania modeli](tutorial-first-experiment-automated-ml.md)  
   + [Korzystanie z projektanta do uczenia & wdrażania modeli](tutorial-designer-automobile-price-train-score.md)
+  + [Korzystanie z programu Studio w zabezpieczonej sieci wirtualnej](how-to-enable-studio-virtual-network.md)

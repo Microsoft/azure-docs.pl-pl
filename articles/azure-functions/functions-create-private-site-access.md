@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 38bc0ec546526cd0c6631b7cd5b70753c3235d18
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423032"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563991"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Samouczek: ustanawianie Azure Functions dostępu do lokacji prywatnej
 
@@ -67,7 +67,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
     | _Subskrypcja_ | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. |
     | [_Grupa zasobów_](../azure-resource-manager/management/overview.md) | myResourceGroup | Wybierz grupę zasobów, aby zawierała wszystkie zasoby dla tego samouczka.  Korzystanie z tej samej grupy zasobów ułatwia czyszczenie zasobów po zakończeniu pracy z tym samouczkiem. |
     | _Nazwa maszyny wirtualnej_ | myVM | Nazwa maszyny wirtualnej musi być unikatowa w grupie zasobów |
-    | [_Okolicy_](https://azure.microsoft.com/regions/) | Prześlij Północno-środkowe stany USA | Wybierz region w sąsiedztwie lub w prawie funkcji do uzyskania dostępu. |
+    | [_Region (Region)_](https://azure.microsoft.com/regions/) | Prześlij Północno-środkowe stany USA | Wybierz region w sąsiedztwie lub w prawie funkcji do uzyskania dostępu. |
     | _Publiczne porty ruchu przychodzącego_ | Brak | Wybierz opcję **Brak** , aby upewnić się, że nie ma połączenia przychodzącego z maszyną wirtualną z Internetu. Dostęp zdalny do maszyny wirtualnej zostanie skonfigurowany za pośrednictwem usługi Azure bastionu. |
 
 1. Wybierz kartę _Sieć_ i wybierz pozycję **Utwórz nową** , aby skonfigurować nową sieć wirtualną.
@@ -172,7 +172,7 @@ Dostęp do [lokacji prywatnej](functions-networking-options.md#private-site-acce
 1. Na stronie _ograniczenia dostępu_ wyświetlane są teraz nowe ograniczenia. Zmiana _stanu punktu końcowego_ z wyłączonego na włączony może potrwać kilka sekund.
 
     >[!IMPORTANT]
-    > Każda aplikacja funkcji ma [witrynę zaawansowanego narzędzia (kudu)](../app-service/app-service-ip-restrictions.md#scm-site) , która jest używana do zarządzania wdrożeniami aplikacji funkcji. Dostęp do tej witryny uzyskuje się za pomocą adresu URL, takiego jak: `<FUNCTION_APP_NAME>.scm.azurewebsites.net` . Włączenie ograniczeń dostępu w witrynie kudu uniemożliwia wdrożenie kodu projektu z lokalnej stacji roboczej dla deweloperów, a następnie wymaga agenta w ramach sieci wirtualnej do wdrożenia.
+    > Każda aplikacja funkcji ma [witrynę zaawansowanego narzędzia (kudu)](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) , która jest używana do zarządzania wdrożeniami aplikacji funkcji. Dostęp do tej witryny uzyskuje się za pomocą adresu URL, takiego jak: `<FUNCTION_APP_NAME>.scm.azurewebsites.net` . Włączenie ograniczeń dostępu w witrynie kudu uniemożliwia wdrożenie kodu projektu z lokalnej stacji roboczej dla deweloperów, a następnie wymaga agenta w ramach sieci wirtualnej do wdrożenia.
 
 ## <a name="access-the-functions-app"></a>Dostęp do aplikacji Functions
 
@@ -195,7 +195,7 @@ Następnym krokiem w tym samouczku jest utworzenie funkcji platformy Azure wyzwa
 1. Wykonaj jeden z następujących przewodników Szybki Start, aby utworzyć i wdrożyć aplikację Azure Functions.
 
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
-    * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
+    * [Program Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Wiersz polecenia](./functions-create-first-azure-function-azure-cli.md)
     * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 

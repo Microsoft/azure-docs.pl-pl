@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777313"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565725"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Samouczek: Używanie funkcji personalizacji w programie .NET Chat bot
 
@@ -43,7 +43,7 @@ To jest prosta rozmowa bot, która umożliwia wprowadzanie zapytań tekstowych.
 |--|--|--|
 |Nie wprowadzono tekstu — bot rozpoczyna konwersację.|`This is a simple chatbot example that illustrates how to use Personalizer. The bot learns what coffee or tea order is preferred by customers given some context information (such as weather, temperature, and day of the week) and information about the user.`<br>`To use the bot, just follow the prompts. To try out a new imaginary context, type “Reset” and a new one will be randomly generated.`<br>`Welcome to the coffee bot, please tell me if you want to see the menu or get a coffee or tea suggestion for today. Once I’ve given you a suggestion, you can reply with ‘like’ or ‘don’t like’. It’s Tuesday today and the weather is Snowy.`|Bot rozpoczyna konwersację z tekstem instruktażowym i informuje o tym, czym jest kontekst: `Tuesday` , `Snowy` .|
 |`Show menu`|`Here is our menu: Coffee: Cappuccino Espresso Latte Macchiato Mocha Tea: GreenTea Rooibos`|Określ zamiar zapytania przy użyciu LUIS, a następnie Wyświetl opcje menu wyboru dla pozycji kawy i herbaty. Funkcje akcji są |
-|`What do you suggest`|`How about Latte?`|Określ zamiar zapytania przy użyciu LUIS, a następnie Wywołaj **interfejs API rangi**i Wyświetl z góry wybór jako pytanie `How about {response.RewardActionId}?` . Wyświetla również wywołania JSON i odpowiedzi dla celów ilustracji.|
+|`What do you suggest`|`How about Latte?`|Określ zamiar zapytania przy użyciu LUIS, a następnie Wywołaj **interfejs API rangi** i Wyświetl z góry wybór jako pytanie `How about {response.RewardActionId}?` . Wyświetla również wywołania JSON i odpowiedzi dla celów ilustracji.|
 |`I like it`|`That’s great! I’ll keep learning your preferences over time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|Określ zamiar zapytania przy użyciu LUIS, a następnie Wywołaj **interfejs API nagradzania** z wynagrodzeniem `1` , wyświetla wywołania JSON i odpowiedzi dla celów ilustracji.|
 |`I don't like it`|`Oh well, maybe I’ll guess better next time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|Określ zamiar zapytania przy użyciu LUIS, a następnie Wywołaj **interfejs API nagradzania** z wynagrodzeniem `0` , wyświetla wywołania JSON i odpowiedzi dla celów ilustracji.|
 |`Reset`|Zwraca tekst instrukcji.|Określ zamiar zapytania przy użyciu LUIS, a następnie wyświetla tekst instrukcji i resetuje kontekst.|
@@ -105,9 +105,9 @@ Wybór funkcji jest losowy w tym bot rozmowy. W rzeczywistym bot należy używa�
 ### <a name="design-considerations-for-this-bot"></a>Zagadnienia dotyczące projektowania dla tego bot
 
 Należy pamiętać o kilku uwagach dotyczących tej konwersacji:
-* **Interakcja bot**: konwersacja jest bardzo prosta, ponieważ wykazuje rangę i wynagrodzenie w prostym przypadku użycia. Nie wykazuje pełnej funkcjonalności zestawu SDK bot Framework ani emulatora.
-* **Personalizacja**: funkcje są wybierane losowo, aby symulować użycie. Nie Generuj losowo funkcji w scenariuszu narzędzia do tworzenia w środowisku produkcyjnym.
-* **Language Understanding (Luis)**: kilka przykładów wyrażenia długości modelu Luis jest przeznaczonych tylko dla tego przykładu. Nie należy używać tak kilku przykładowych wyrażenia długości w aplikacji produkcyjnej LUIS.
+* **Interakcja bot** : konwersacja jest bardzo prosta, ponieważ wykazuje rangę i wynagrodzenie w prostym przypadku użycia. Nie wykazuje pełnej funkcjonalności zestawu SDK bot Framework ani emulatora.
+* **Personalizacja** : funkcje są wybierane losowo, aby symulować użycie. Nie Generuj losowo funkcji w scenariuszu narzędzia do tworzenia w środowisku produkcyjnym.
+* **Language Understanding (Luis)** : kilka przykładów wyrażenia długości modelu Luis jest przeznaczonych tylko dla tego przykładu. Nie należy używać tak kilku przykładowych wyrażenia długości w aplikacji produkcyjnej LUIS.
 
 
 ## <a name="install-required-software"></a>Zainstaluj wymagane oprogramowanie
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 Aby użyć tej bot rozmowy, należy utworzyć zasoby platformy Azure dla programu Personalizacja i Language Understanding (LUIS).
 
-* [Tworzenie zasobów Luis](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal). Wybierz **oba** elementy w kroku tworzenia, ponieważ potrzebne są zasoby tworzenia i przewidywania.
+* [Tworzenie zasobów Luis](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). Wybierz **oba** elementy w kroku tworzenia, ponieważ potrzebne są zasoby tworzenia i przewidywania.
 * [Utwórz zasób personalizacji](how-to-create-resource.md) , a następnie skopiuj klucz i punkt końcowy z Azure Portal. Należy ustawić te wartości w `appsettings.json` pliku projektu .NET.
 
 ### <a name="create-luis-app"></a>Tworzenie aplikacji LUIS
@@ -138,11 +138,11 @@ Aby użyć tej bot rozmowy, należy utworzyć zasoby platformy Azure dla program
 Jeśli jesteś nowym LUIS, musisz [się zalogować](https://www.luis.ai) i natychmiast przeprowadzić migrację konta. Nie musisz tworzyć nowych zasobów, zamiast tego Wybierz zasoby utworzone w poprzedniej sekcji tego samouczka.
 
 1. Aby utworzyć nową aplikację LUIS, w [portalu Luis](https://www.luis.ai)wybierz swoją subskrypcję i zasób tworzenia.
-1. Następnie na tej samej stronie wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie **zaimportuj jako plik JSON**.
+1. Następnie na tej samej stronie wybierz pozycję **+ Nowa aplikacja do konwersacji** , a następnie **zaimportuj jako plik JSON**.
 1. W podręcznym oknie dialogowym wybierz pozycję **Wybierz plik** , a następnie wybierz `/samples/ChatbotExample/CognitiveModels/coffeebot.json` plik. Wprowadź nazwę `Personalizer Coffee bot` .
 1. Wybierz przycisk **uczenie** w prawym górnym rogu portalu Luis.
 1. Wybierz przycisk **Publikuj** , aby opublikować aplikację w **gnieździe produkcyjnym** dla środowiska uruchomieniowego przewidywania.
-1. Wybierz pozycje **Zarządzaj**, a następnie **Ustawienia**. Skopiuj wartość **identyfikatora aplikacji**. Należy ustawić tę wartość w `appsettings.json` pliku projektu .NET.
+1. Wybierz pozycje **Zarządzaj** , a następnie **Ustawienia**. Skopiuj wartość **identyfikatora aplikacji**. Należy ustawić tę wartość w `appsettings.json` pliku projektu .NET.
 1. Nadal w sekcji **Zarządzanie** wybierz pozycję **zasoby platformy Azure**. Spowoduje to wyświetlenie skojarzonych zasobów w aplikacji.
 1. Wybierz pozycję **Dodaj zasób predykcyjny**. W podręcznym oknie dialogowym wybierz subskrypcję i zasób przewidywania utworzony w poprzedniej sekcji tego samouczka, a następnie wybierz pozycję **gotowe**.
 1. Skopiuj wartości **klucza podstawowego** i **adresu URL punktu końcowego**. Należy ustawić te wartości w `appsettings.json` pliku projektu .NET.
@@ -178,18 +178,18 @@ Utrzymuj działającą witrynę sieci Web, ponieważ samouczek wyjaśnia, co rob
 
 1. Otwórz emulator bot Framework i wybierz pozycję **Otwórz bot**.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę wyświetlającą witrynę sieci Web czatu bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Zrzut ekranu przedstawiający ekran uruchamiania emulatora bot.":::
 
 
-1. Skonfiguruj bot z następującym **adresem URL bot** , a następnie wybierz pozycję **Połącz**:
+1. Skonfiguruj bot z następującym **adresem URL bot** , a następnie wybierz pozycję **Połącz** :
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę wyświetlającą witrynę sieci Web czatu bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Zrzut ekranu przedstawiający ustawienia bot emulatora bot.":::
 
     Emulator nawiązuje połączenie z usługą Chat bot i wyświetla tekst instruktażowy wraz z informacjami dotyczącymi rejestrowania i debugowania przydatną do lokalnego tworzenia.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę wyświetlającą witrynę sieci Web czatu bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Zrzut ekranu emulatora bot w pierwszej kolejności konwersacji.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Korzystanie z bot w emulatorze bot
 

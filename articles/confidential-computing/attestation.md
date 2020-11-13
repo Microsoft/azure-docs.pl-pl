@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 70a17aacde67744eae74ca263200f2c65fbd300a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86856d1f66b5b7d723c907c17d7179ffcd2b82ab
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997830"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565674"
 ---
 # <a name="attesting-sgx-enclaves"></a>Zaświadczanie SGX Enclaves
 
@@ -30,11 +30,11 @@ Zaświadczanie umożliwia jednostce uzależnionej zwiększenie pewności, że ic
 
 Zaświadczanie należy zaimplementować przy użyciu bezpiecznej usługi zaświadczania zgodnej z oprogramowaniem systemowym i krzemem. Przykłady usług, których można użyć, to
 
-- [Zaświadczanie Microsoft Azure (wersja zapoznawcza)](https://docs.microsoft.com/azure/attestation/overview) lub
+- [Zaświadczanie Microsoft Azure (wersja zapoznawcza)](../attestation/overview.md) lub
 - [Usługi zaświadczania i aprowizacji firmy Intel](https://software.intel.com/sgx/attestation-services)
 
 
 są one zgodne z poufną infrastrukturą Azure SGX. 
 
 ## <a name="next-steps"></a>Następne kroki
-Wypróbuj [przykłady Zaświadczania Microsoft Azure dla aplikacji obsługujących enklawy](https://docs.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).
+Wypróbuj [przykłady Zaświadczania Microsoft Azure dla aplikacji obsługujących enklawy](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/).

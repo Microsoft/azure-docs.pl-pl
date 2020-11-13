@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 6ab3e1e063409832de839da26eba80efd8b3f4d5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344821"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565742"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Eksportuj aplikację poleceń niestandardowych jako umiejętność zdalną
 
@@ -88,4 +88,4 @@ Autor może chcieć kontrolować, które z **przykładowych zdań** są używane
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Włączanie procesu ciągłej integracji/ciągłego wdrażania dla aplikacji Polecenia niestandardowe](./how-to-custom-commands-deploy-cicd.md)
+> [Aktualizowanie polecenia z poziomu klienta](./how-to-custom-commands-update-command-from-client.md)

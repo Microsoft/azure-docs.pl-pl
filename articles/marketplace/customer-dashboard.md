@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: shganesh-dev
-ms.author: shganesh
-ms.openlocfilehash: 08a889a0a26f90798f3ac8524cceb6ca83d4955a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415252"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564875"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klientów w komercyjnej analizie Marketplace
 
@@ -23,7 +23,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego klienci w centrum partnerskim, w o
 >[!NOTE]
 > Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
 
-## <a name="customers-dashboard"></a>Pulpit nawigacyjny klientów
+## <a name="customers-dashboard"></a>Pulpit nawigacyjny Klienci
 
 Na pulpicie nawigacyjnym klienci są wyświetlane dane dla klientów, którzy uzyskali oferty. Można wyświetlić graficzne reprezentacje następujących elementów:
 

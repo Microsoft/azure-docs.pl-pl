@@ -11,23 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e7c66518cd62ef1debd8ceb1c38ba93101c8395d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634916"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565657"
 ---
-#  <a name="data-consistency-verification-in-copy-activity-preview"></a>Weryfikacja spójności danych w działaniu kopiowania (wersja zapoznawcza)
+#  <a name="data-consistency-verification-in-copy-activity"></a>Weryfikacja spójności danych w działaniu kopiowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory działanie kopiowania oferuje dodatkową weryfikację spójności danych, aby upewnić się, że dane nie zostały pomyślnie skopiowane do magazynu docelowego, ale również zweryfikowane jako zgodne z magazynem źródłowym i docelowym. Po znalezieniu niespójnych plików podczas przenoszenia danych można przerwać działanie kopiowania lub kontynuować kopiowanie reszty przez włączenie ustawienia odporności na uszkodzenia, aby pominąć niespójne pliki. Pominięte nazwy plików można uzyskać, włączając ustawienie dziennika sesji w działaniu kopiowania. 
-
-> [!IMPORTANT]
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej z następującymi ograniczeniami, nad którymi aktywnie pracujemy:
->- Po włączeniu ustawienia dziennika sesji w działaniu kopiowania do rejestrowania niespójnych plików, kompletność pliku dziennika nie może być 100% gwarantowane, jeśli działanie kopiowania nie powiodło się.
->- Dziennik sesji zawiera tylko niespójne pliki, w przypadku których pomyślnie skopiowane pliki nie są do tej pory rejestrowane.
+Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory działanie kopiowania oferuje dodatkową weryfikację spójności danych, aby upewnić się, że dane nie zostały pomyślnie skopiowane do magazynu docelowego, ale również zweryfikowane jako zgodne z magazynem źródłowym i docelowym. Po znalezieniu niespójnych plików podczas przenoszenia danych można przerwać działanie kopiowania lub kontynuować kopiowanie reszty przez włączenie ustawienia odporności na uszkodzenia, aby pominąć niespójne pliki. Pominięte nazwy plików można uzyskać, włączając ustawienie dziennika sesji w działaniu kopiowania. Aby uzyskać więcej informacji, można odwołać się do [dziennika sesji w działaniu kopiowania](copy-activity-log.md) .
 
 ## <a name="supported-data-stores-and-scenarios"></a>Obsługiwane magazyny danych i scenariusze
 
@@ -60,13 +55,19 @@ Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójno
     "skipErrorFile": { 
         "dataInconsistency": true 
     }, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2_storage", 
-            "type": "LinkedServiceReference" 
-        }, 
-        "path": "/sessionlog/" 
-} 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+                "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            }
+        }
+    }
 } 
 ```
 
@@ -74,7 +75,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
 validateDataConsistency | Jeśli dla tej właściwości zostanie ustawiona wartość true, podczas kopiowania plików binarnych działanie Copy sprawdzi rozmiar pliku, lastModifiedDate i sumę kontrolną MD5 dla każdego pliku binarnego skopiowanego ze źródła do magazynu docelowego, aby zapewnić spójność danych między magazynem źródłowym a docelowym. Podczas kopiowania danych tabelarycznych działanie Copy sprawdzi całkowitą liczbę wierszy po zakończeniu zadania, aby upewnić się, że łączna liczba wierszy odczytanych ze źródła jest taka sama jak liczba wierszy skopiowanych do miejsca docelowego oraz liczba pominiętych wierszy, które zostały pominięci. Należy pamiętać, że ta opcja będzie miała wpływ na wydajność kopiowania.  | Prawda<br/>False (domyślnie) | Nie
 dataInconsistency | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne pliki. <br/> -True: chcesz skopiować resztę, pomijając niespójne pliki.<br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnego pliku.<br/>Należy pamiętać, że ta właściwość jest prawidłowa tylko w przypadku kopiowania plików binarnych i ustawiania validateDataConsistency jako true.  | Prawda<br/>False (domyślnie) | Nie
-logStorageSettings | Grupa właściwości, które można określić, aby umożliwić dziennikowi sesji rejestrowanie pominiętych plików. | | Nie
+logSettings | Grupa właściwości, które można określić, aby umożliwić dziennikowi sesji rejestrowanie pominiętych plików. | | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonych usług lub typów, które odnoszą się do wystąpienia używanego do przechowywania plików dziennika. | Nie
 path | Ścieżka do plików dziennika. | Określ ścieżkę, w której mają być przechowywane pliki dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
@@ -95,7 +96,7 @@ Po całkowitym uruchomieniu działania kopiowania można zobaczyć wynik weryfik
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -128,7 +129,7 @@ Timestamp | Sygnatura czasowa, gdy moduł ADF pomija niespójne pliki.
 Poziom | Poziom dziennika tego elementu. Będzie on wyświetlany na poziomie "ostrzeżenie" dla elementu pokazującego pomijanie plików.
 OperationName | Zachowanie działania kopiowania APD dla każdego pliku. Będzie to "FileSkip", aby określić plik do pominięcia.
 OperationItem | Nazwa pliku do pominięcia.
-Wiadomość | Więcej informacji o tym, dlaczego pliki są pomijane.
+Komunikat | Więcej informacji o tym, dlaczego pliki są pomijane.
 
 Przykładowy plik dziennika jest następujący: 
 ```

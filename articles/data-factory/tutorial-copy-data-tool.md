@@ -1,6 +1,6 @@
 ---
 title: Kopiowanie danych z usługi Azure Blob Storage do programu SQL przy użyciu narzędzia Kopiowanie danych
-description: Utwórz fabrykę danych platformy Azure, a następnie za pomocą narzędzia Kopiowanie danych skopiuj dane z usługi Azure Blob Storage do SQL Database.
+description: Utwórz Azure Data Factory a następnie użyj narzędzia Kopiowanie danych, aby skopiować dane z usługi Azure Blob Storage do SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: c6893dc9a5ca59736597edf6cfb2a4664c9daea3
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: de01a8a8522f93684ed428fd4ef19963b1af2059
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553713"
+ms.locfileid: "94564314"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiowanie danych z usługi Azure Blob Storage do SQL Database przy użyciu narzędzia Kopiowanie danych
 
@@ -101,7 +101,7 @@ Wykonaj następujące kroki, aby przygotować magazyn obiektów blob i SQL Datab
 
 1. W obszarze **Wersja** wybierz wersję **V2**.
 1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez Twoją fabrykę danych mogą mieścić się w innych lokalizacjach i regionach.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Po zakończeniu tworzenia zostanie wyświetlona strona główna usługi **Data Factory**.
 

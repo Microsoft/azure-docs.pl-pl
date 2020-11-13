@@ -7,22 +7,22 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 04059ac1feae04cb6fa8b09f7b7077b7e11bac4c
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170382"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562648"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Jak wysyłać zdarzenia z usługi Azure SignalR Service do usługi Event Grid
 
 Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która zapewnia jednorodne użycie zdarzeń przy użyciu modelu pub-sub. W tym przewodniku użyjesz interfejsu wiersza polecenia platformy Azure, aby utworzyć usługę Azure Signal, subskrybować zdarzenia połączeń, a następnie wdrożyć przykładową aplikację sieci Web do odbierania zdarzeń. Na koniec można nawiązać połączenie i rozłączyć i wyświetlić ładunek zdarzenia w przykładowej aplikacji.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto][azure-account].
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Polecenie interfejsu wiersza polecenia platformy Azure w tym artykule jest sformatowane dla powłoki **bash** . Jeśli używasz innej powłoki, na przykład programu PowerShell lub wiersza polecenia, konieczne może być odpowiednio dostosowanie wierszy kontynuacji wiersza lub zmiennych przypisanie. W tym artykule zastosowano zmienne, aby zminimalizować ilość wymagane do edycji poleceń.
+ - Polecenie interfejsu wiersza polecenia platformy Azure w tym artykule jest sformatowane dla powłoki **bash** . Jeśli używasz innej powłoki, na przykład programu PowerShell lub wiersza polecenia, konieczne może być odpowiednio dostosowanie wierszy kontynuacji wiersza lub zmiennych przypisanie. W tym artykule zastosowano zmienne, aby zminimalizować ilość wymagane do edycji poleceń.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

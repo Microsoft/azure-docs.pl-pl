@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e8747b822916ba2c9ef7b45cc3cbbaa88d16dcb1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367560"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565793"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Skonfiguruj środowisko wyszukiwanie niestandardowe Bing
 
@@ -24,7 +24,7 @@ ms.locfileid: "94367560"
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
-Niestandardowe wystąpienie wyszukiwania umożliwia dostosowanie funkcji wyszukiwania w celu uwzględnienia zawartości tylko z witryn sieci Web, na które ponosili użytkownicy. Zamiast przeprowadzać wyszukiwanie w całej sieci Web, Bing przeszukuje tylko wycinki sieci Web, która Cię interesuje. Aby utworzyć niestandardowy widok internetowy, użyj [portalu](https://customsearch.ai) usługi wyszukiwania niestandardowego Bing.
+Niestandardowe wystąpienie wyszukiwania umożliwia dostosowanie funkcji wyszukiwania w celu uwzględnienia zawartości tylko z witryn sieci Web, na które ponosili użytkownicy. Zamiast przeprowadzać wyszukiwanie w całej sieci Web, Bing przeszukuje tylko wycinki sieci Web, która Cię interesuje. Aby utworzyć niestandardowy widok internetowy, użyj [portalu](https://www.customsearch.ai) usługi wyszukiwania niestandardowego Bing.
 
 Portal umożliwia utworzenie wystąpienia wyszukiwania, które określa wycinków sieci Web: domen, podstron i stron internetowych, które mają być wyszukiwane przez usługę Bing, oraz tych, które nie powinny być przeszukiwane. Portal może również zasugerować zawartość, którą można uwzględnić.
 

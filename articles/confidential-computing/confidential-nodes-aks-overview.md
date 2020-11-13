@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1b945ac9f656a227bcc3335cb0ec995626f98f77
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125445"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564178"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Poufne węzły obliczeniowe w usłudze Azure Kubernetes Service (publiczna wersja zapoznawcza)
 
@@ -61,10 +61,10 @@ AKS obsługuje aplikacje, które są programowane do uruchamiania w węzłach po
 
 [Szybkie początkowe przykłady kontenera](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Lista jednostek SKU DCsv2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[Lista jednostek SKU DCsv2](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

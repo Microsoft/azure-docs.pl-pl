@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848912"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564110"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Często zadawane pytania dotyczące usługi Azure poufnego przetwarzania
 
@@ -32,14 +32,14 @@ Oto kilka sposobów wdrożenia maszyny wirtualnej DCsv2:
 
 **Czy wszystkie obrazy systemu operacyjnego będą współpracują z usługą Azure poufne dane?**
 
-Nie. Maszyny wirtualne można wdrażać tylko na maszynach operacyjnych generacji 2 z Ubuntu Server 18,04, Ubuntu Server 16,04, Windows Server 2019 Datacenter i Windows Server 2016 Datacenter. Przeczytaj więcej na temat maszyn wirtualnych generacji 2 w systemach [Linux](../virtual-machines/linux/generation-2.md) i [Windows](../virtual-machines/windows/generation-2.md)
+Nie. Maszyny wirtualne można wdrażać tylko na maszynach operacyjnych generacji 2 z Ubuntu Server 18,04, Ubuntu Server 16,04, Windows Server 2019 Datacenter i Windows Server 2016 Datacenter. Przeczytaj więcej na temat maszyn wirtualnych generacji 2 w systemach [Linux](../virtual-machines/generation-2.md) i [Windows](../virtual-machines/generation-2.md)
 
 **Maszyny wirtualne DCsv2 są wyszarzone w portalu i nie można ich wybrać**
 
 W oparciu o dymek informacyjny obok maszyny wirtualnej istnieją różne akcje do wykonania:
-   -    **UnsupportedGeneration**: Zmień generację obrazu maszyny wirtualnej na "Gen2".
-   -    **NotAvailableForSubscription**: region nie jest jeszcze dostępny dla Twojej subskrypcji. Wybierz dostępny region.
-   -    **InsufficientQuota**: [Utwórz żądanie pomocy technicznej w celu zwiększenia limitu przydziału](../azure-portal/supportability/per-vm-quota-requests.md). Subskrypcje bezpłatnej wersji próbnej nie mają przydziału dla maszyn wirtualnych służących do przetwarzania poufnego. 
+   -    **UnsupportedGeneration** : Zmień generację obrazu maszyny wirtualnej na "Gen2".
+   -    **NotAvailableForSubscription** : region nie jest jeszcze dostępny dla Twojej subskrypcji. Wybierz dostępny region.
+   -    **InsufficientQuota** : [Utwórz żądanie pomocy technicznej w celu zwiększenia limitu przydziału](../azure-portal/supportability/per-vm-quota-requests.md). Subskrypcje bezpłatnej wersji próbnej nie mają przydziału dla maszyn wirtualnych służących do przetwarzania poufnego. 
 
 **DCsv2 maszyny wirtualne nie są wyświetlane podczas próby wyszukania ich w selektorze rozmiaru portalu**
 

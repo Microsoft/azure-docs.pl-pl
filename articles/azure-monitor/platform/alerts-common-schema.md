@@ -1,15 +1,15 @@
 ---
-title: Typowy schemat alertów dla alertów usługi Azure monitor
+title: Typowy schemat alertów dla alertów Azure Monitor
 description: Informacje o typowym schemacie alertów, dlaczego należy z nich korzystać i jak go włączyć
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108834"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565606"
 ---
 # <a name="common-alert-schema"></a>Typowe schematy alertów
 
@@ -19,9 +19,9 @@ W tym artykule opisano, jakie są typowe schematy alertów, zalety korzystania z
 
 Typowy schemat alertów umożliwia standaryzację użycia powiadomień o alertach na platformie Azure już dziś. W przeszłości trzy typy alertów na platformie Azure dzisiaj (metryki, dzienniki i dziennik aktywności) miały własne szablony wiadomości e-mail, schematy elementu webhook itp. Ze wspólnym schematem alertów można teraz odbierać powiadomienia o alertach ze spójnym schematem.
 
-Każde wystąpienie alertu opisuje **zasób, którego dotyczy problem** , i **przyczynę alertu**, a te wystąpienia są opisane w typowym schemacie w następujących sekcjach:
-* **Podstawowe**: zestaw **standardowych pól**, wspólnych dla wszystkich typów alertów, opisujących **zasób** , w którym znajduje się alert, wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważności lub opisu). 
-* **Kontekst alertu**: zestaw pól opisujących **przyczynę alertu**, z polami, które różnią się **w zależności od typu alertu**. Na przykład alert dotyczący metryki będzie zawierał pola, takie jak nazwa metryki i wartość metryki w kontekście alertu, podczas gdy alert dziennika aktywności będzie zawierał informacje o zdarzeniu, które wygenerowało alert. 
+Każde wystąpienie alertu opisuje **zasób, którego dotyczy problem** , i **przyczynę alertu** , a te wystąpienia są opisane w typowym schemacie w następujących sekcjach:
+* **Podstawowe** : zestaw **standardowych pól** , wspólnych dla wszystkich typów alertów, opisujących **zasób** , w którym znajduje się alert, wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważności lub opisu). 
+* **Kontekst alertu** : zestaw pól opisujących **przyczynę alertu** , z polami, które różnią się **w zależności od typu alertu**. Na przykład alert dotyczący metryki będzie zawierał pola, takie jak nazwa metryki i wartość metryki w kontekście alertu, podczas gdy alert dziennika aktywności będzie zawierał informacje o zdarzeniu, które wygenerowało alert. 
 
 Typowe scenariusze integracji występujące od klientów obejmują Routing wystąpienia alertu do danego zespołu w oparciu o część tabeli przestawnej (na przykład grupy zasobów), po którym zespół odpowiedzialny rozpoczyna pracę nad nim. Ze wspólnym schematem alertów można mieć ustandaryzowaną logikę routingu dla różnych typów alertów, wykorzystując zasadnicze pola, pozostawiając pola kontekstowe jako przeznaczone dla zainteresowanych zespołów do dalszej analizy.
 

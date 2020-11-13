@@ -3,14 +3,14 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293292"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565895"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure udostępnia środowisko wiersza polecenia do zarządzania zasobami platformy Azure. To doskonałe narzędzie do tworzenia niestandardowych automatyzacji do korzystania z zasobów platformy Azure. W tym artykule szczegółowo opisano sposób tworzenia kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Te kroki można również wykonać przy użyciu programu [Azure PowerShell](./backup-azure-afs-automation.md) lub w witrynie [Azure Portal](backup-afs.md).
 
@@ -20,9 +20,9 @@ Po zakończeniu tego samouczka dowiesz się, jak wykonać poniższe operacje prz
 * Włącz tworzenie kopii zapasowych dla udziałów plików platformy Azure
 * Wyzwalanie kopii zapasowej na żądanie dla udziałów plików
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Aby zainstalować interfejs wiersza polecenia lokalnie i korzystać z niego, należy korzystać z interfejsu wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia, `run az --version` . Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+ - Ten samouczek wymaga wersji 2.0.18 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 

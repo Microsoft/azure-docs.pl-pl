@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377024"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565640"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -57,7 +57,7 @@ Teraz przejdźmy do prostego przewodnika krok po kroku, aby utworzyć pierwsze u
 
    Teraz powinno być dostępne ustawienie skalowania, które umożliwia skalowanie w poziomie i skalowanie w zależności od użycia procesora CPU.
    ![Skalowanie w oparciu o procesor CPU][8]
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Gratulacje! Pomyślnie utworzono pierwsze ustawienie skalowania w celu automatycznego skalowania aplikacji sieci Web na podstawie użycia procesora CPU.
 
@@ -115,7 +115,7 @@ Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włą
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Kierowanie ruchu do wystąpień w dobrej kondycji (App Service)
 
-Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij przycisk **Zapisz**.
+Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij pozycję **Zapisz**.
 
 Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Właściwość `Microsoft.Web/sites` zasobu na ścieżkę kontroli kondycji w lokacji, na przykład: `"/api/health/"` . Aby wyłączyć tę funkcję, należy ustawić właściwość z powrotem na pusty ciąg, `""` .
 
@@ -127,7 +127,7 @@ Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Wł
 
 #### <a name="security"></a>Zabezpieczenia 
 
-Zespoły programistyczne w dużych przedsiębiorstwach często muszą przestrzegać wymagań w zakresie zabezpieczeń dla dostępnych interfejsów API. Aby zabezpieczyć punkt końcowy Healthcheck, należy najpierw użyć funkcji, takich jak [Ograniczenia adresów IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [certyfikaty klienta](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)lub Virtual Network, aby ograniczyć dostęp do aplikacji. Sam punkt końcowy Healthcheck można zabezpieczyć przez wymaganie `User-Agent` dopasowania żądania przychodzącego `ReadyForRequest/1.0` . Nie można sfałszować User-Agent, ponieważ żądanie zostało już zabezpieczone przez wcześniejsze funkcje zabezpieczeń.
+Zespoły programistyczne w dużych przedsiębiorstwach często muszą przestrzegać wymagań w zakresie zabezpieczeń dla dostępnych interfejsów API. Aby zabezpieczyć punkt końcowy Healthcheck, należy najpierw użyć funkcji, takich jak [Ograniczenia adresów IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certyfikaty klienta](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)lub Virtual Network, aby ograniczyć dostęp do aplikacji. Sam punkt końcowy Healthcheck można zabezpieczyć przez wymaganie `User-Agent` dopasowania żądania przychodzącego `ReadyForRequest/1.0` . Nie można sfałszować User-Agent, ponieważ żądanie zostało już zabezpieczone przez wcześniejsze funkcje zabezpieczeń.
 
 ### <a name="behavior"></a>Zachowanie
 

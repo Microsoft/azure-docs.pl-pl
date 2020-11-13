@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556339"
+ms.locfileid: "94564484"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Przygotowywanie maszyn wirtualnych do FCI (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Starannie wybieraj opcję dostępność maszyny wirtualnej zgodną z zaznaczoną
 
 Po skonfigurowaniu dostępności maszyny wirtualnej możesz utworzyć maszyny wirtualne. Możesz zdecydować się na korzystanie z obrazu portalu Azure Marketplace, który jest już zainstalowany lub nie ma SQL Server. Jeśli jednak wybierzesz obraz dla SQL Server na maszynach wirtualnych platformy Azure, musisz odinstalować SQL Server z maszyny wirtualnej przed skonfigurowaniem wystąpienia klastra trybu failover. 
 
+### <a name="considerations"></a>Kwestie do rozważenia
+W klastrze trybu failover gościa maszyny wirtualnej IaaS platformy Azure zaleca się korzystanie z jednej karty sieciowej na serwerze (w węźle klastra) i pojedynczej podsieci. Sieć platformy Azure ma fizyczną nadmiarowość, co sprawia, że dodatkowe karty sieciowe i podsieci nie są potrzebne w klastrze gościa maszyny wirtualnej Azure IaaS. Mimo że raport z weryfikacji klastra wyświetli ostrzeżenie, że węzły są dostępne tylko w ramach jednej sieci, to ostrzeżenie można zignorować w klastrach trybu failover gościa maszyny wirtualnej IaaS platformy Azure.
 
 Umieść obie maszyny wirtualne:
 

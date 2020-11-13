@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
-ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 565f4971fffde1cbeb2234b43aaad5cce73b5404
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997842"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564382"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Azure poufne maszyny wirtualne — Omówienie
 
@@ -29,7 +29,7 @@ W przypadku maszyn wirtualnych z danymi poufnymi na platformie Azure część sp
 
 Usługa Azure poufnej infrastruktury obliczeniowej składa się z specjalistycznej jednostki SKU maszyn wirtualnych. Te maszyny wirtualne działają na procesorach Intel z rozszerzeniem Guard (SGX). [Procesor Intel SGX](https://intel.com/sgx) to składnik, który umożliwia zwiększonej ochrony, którą ponosi poufne dane. 
 
-Obecnie platforma Azure oferuje [DCsv2ą](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) platformę opartą na technologii Intel SGX na potrzeby tworzenia sprzętowych enklawy. Można tworzyć bezpieczne aplikacje oparte na enklawy do uruchamiania w serii DCsv2 maszyn wirtualnych w celu ochrony danych aplikacji i używanego kodu. 
+Obecnie platforma Azure oferuje [DCsv2ą](../virtual-machines/dcv2-series.md) platformę opartą na technologii Intel SGX na potrzeby tworzenia sprzętowych enklawy. Można tworzyć bezpieczne aplikacje oparte na enklawy do uruchamiania w serii DCsv2 maszyn wirtualnych w celu ochrony danych aplikacji i używanego kodu. 
 
 [Dowiedz się więcej](virtual-machine-solutions.md) o wdrażaniu maszyn wirtualnych do przetwarzania poufnego platformy Azure przy użyciu zaufanych enclaves opartych na sprzęcie.
 
@@ -39,7 +39,7 @@ Enclaves są zabezpieczonymi częściami procesora sprzętowego i pamięci. Nie 
 
 Zasadniczo należy traktować enklawy jako zabezpieczone pole. W polu należy umieścić zaszyfrowany kod i dane. Od zewnątrz pola nie są wyświetlane żadne elementy. Enklawy klucz do odszyfrowania danych, dane są następnie przetwarzane i szyfrowane ponownie przed wysłaniem z enklawy.
 
-Każdy enklawy ma ustawiony rozmiar pamięci podręcznej zaszyfrowanej strony (EPC), która określa ilość pamięci, jaką może zamieścić każdy enklawy. Większe DCsv2 maszyny wirtualne mają więcej pamięci sygnatur EPC. Przeczytaj stronę ze [specyfikacjami DCsv2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) , aby uzyskać maksymalny rozmiar sygnatury EPC dla rozmiaru maszyny wirtualnej.
+Każdy enklawy ma ustawiony rozmiar pamięci podręcznej zaszyfrowanej strony (EPC), która określa ilość pamięci, jaką może zamieścić każdy enklawy. Większe DCsv2 maszyny wirtualne mają więcej pamięci sygnatur EPC. Przeczytaj stronę ze [specyfikacjami DCsv2](../virtual-machines/dcv2-series.md) , aby uzyskać maksymalny rozmiar sygnatury EPC dla rozmiaru maszyny wirtualnej.
 
 
 

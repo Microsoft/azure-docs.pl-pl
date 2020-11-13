@@ -1,6 +1,6 @@
 ---
 title: Kopiowanie danych za pomocą narzędzia Kopiowanie danych platformy Azure
-description: Utwórz fabrykę danych platformy Azure, a następnie za pomocą narzędzia do kopiowania danych skopiuj dane z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
+description: Utwórz Azure Data Factory a następnie użyj narzędzia Kopiowanie danych, aby skopiować dane z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 24ebd9a89f94d062672ec7246163abb93396813f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555965"
+ms.locfileid: "94564722"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Szybki Start: Używanie narzędzia Kopiowanie danych do kopiowania danych
 
@@ -43,7 +43,7 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
 1. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**. 
  
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład **&lt; &gt; ADFTutorialDataFactory** ) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa Azure Data Factory musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład **&lt; &gt; ADFTutorialDataFactory** ) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    ![Komunikat o błędzie występujący, jeśli nazwa jest niedostępna](./media/doc-common-process/name-not-available-error.png)
 1. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
@@ -58,7 +58,7 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
    Ta lista zawiera tylko lokalizacje, które są obsługiwane przez usługę Data Factory i w których będą przechowywane metadane usługi Azure Data Factory. Skojarzone magazyny danych (np. usługi Azure Storage i Azure SQL Database) i usługi obliczeniowe (np. usługa Azure HDInsight) używane przez Data Factory mogą działać w innych regionach.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Po zakończeniu tworzenia zostanie wyświetlona strona **Data Factory** . Wybierz kafelek **Tworzenie i monitorowanie** , aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Azure Data Factory.
    

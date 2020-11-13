@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 02/10/2020
-ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85386219"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562827"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
@@ -30,221 +30,294 @@ Zdarzenia dziennika można kierować do:
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>Wymagania wstępne
+W tym artykule dowiesz się, jak przenieść dzienniki do obszaru roboczego usługi Azure Log Analytics. Następnie możesz utworzyć pulpit nawigacyjny lub utworzyć alerty, które są oparte na działaniach Azure AD B2C użytkownikach.
 
-Aby wykonać kroki opisane w tym artykule, należy wdrożyć szablon Azure Resource Manager przy użyciu modułu Azure PowerShell.
+## <a name="deployment-overview"></a>Omówienie wdrażania
 
-* [Moduł Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) w wersji 6.13.1 lub nowszej
+Azure AD B2C wykorzystuje [monitorowanie Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Aby włączyć *Ustawienia diagnostyczne* w Azure Active Directory w dzierżawie Azure AD B2C, należy użyć [usługi Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) do [delegowania zasobu](../lighthouse/concepts/azure-delegated-resource-management.md), co umożliwi Azure AD B2C ( **dostawcy usług** ) Zarządzanie zasobem usługi Azure AD ( **klienta** ). Po wykonaniu kroków opisanych w tym artykule będziesz mieć dostęp do grupy zasobów *Azure-AD-B2C-monitor* zawierającej [obszar roboczy Log Analytics](../azure-monitor/learn/quick-create-workspace.md) w portalu **Azure AD B2C** . Będziesz mieć możliwość transferu dzienników z Azure AD B2C do Log Analytics obszaru roboczego.
 
-Można również użyć [Azure Cloud Shell](https://shell.azure.com), która zawiera najnowszą wersję modułu Azure PowerShell.
+Podczas tego wdrożenia autoryzujesz użytkownika lub grupę w katalogu Azure AD B2C, aby skonfigurować wystąpienie obszaru roboczego Log Analytics w ramach dzierżawy zawierającej subskrypcję platformy Azure. Aby utworzyć autoryzację, należy wdrożyć szablon [Azure Resource Manager](../azure-resource-manager/index.yml) w dzierżawie usługi Azure AD zawierającym subskrypcję programu.
 
-## <a name="delegated-resource-management"></a>Delegowane zarządzanie zasobami
+Na poniższym diagramie przedstawiono składniki, które można skonfigurować w usłudze Azure AD i dzierżawy Azure AD B2C.
 
-Azure AD B2C wykorzystuje [monitorowanie Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Aby włączyć *Ustawienia diagnostyczne* w Azure Active Directory w dzierżawie Azure AD B2C, należy użyć [delegowanego zarządzania zasobami](../lighthouse/concepts/azure-delegated-resource-management.md).
+![Projekcja grupy zasobów](./media/azure-monitor/resource-group-projection.png)
 
-Użytkownik lub grupa jest autoryzowana w katalogu Azure AD B2C ( **Dostawca usługi**), aby skonfigurować wystąpienie Azure monitor w ramach dzierżawy, które zawiera subskrypcję platformy Azure ( **klienta**). Aby utworzyć autoryzację, należy wdrożyć szablon [Azure Resource Manager](../azure-resource-manager/index.yml) w dzierżawie usługi Azure AD zawierającym subskrypcję programu. W poniższych sekcjach omówiono proces.
+Podczas tego wdrożenia skonfigurujesz dzierżawę Azure AD B2C i dzierżawę usługi Azure AD, w której będzie hostowana Log Analytics obszar roboczy. Konto używane do uruchamiania wdrożenia musi mieć przypisaną rolę [administratora globalnego](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) w obu tych dzierżawcach. Ważne jest również, aby upewnić się, że użytkownik jest zalogowany do poprawnego katalogu, jak opisano w sekcji.
 
-## <a name="create-or-choose-resource-group"></a>Utwórz lub wybierz grupę zasobów
+## <a name="1-create-or-choose-resource-group"></a>1. Utwórz lub wybierz grupę zasobów
 
-Jest to grupa zasobów zawierająca docelowe konto usługi Azure Storage, centrum zdarzeń lub Log Analytics obszar roboczy do odbierania danych z Azure Monitor. Podczas wdrażania szablonu Azure Resource Manager należy określić nazwę grupy zasobów.
+Najpierw utwórz lub wybierz grupę zasobów zawierającą Log Analytics docelowy obszar roboczy, który będzie otrzymywał dane z Azure AD B2C. Podczas wdrażania szablonu Azure Resource Manager należy określić nazwę grupy zasobów.
 
-[Utwórz grupę zasobów](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) lub wybierz istniejącą w dzierżawie usługi Azure Active Directory (Azure AD), która zawiera subskrypcję platformy Azure, a *nie* katalog zawierający dzierżawę Azure AD B2C.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Na pasku narzędzi portalu wybierz ikonę **katalogów i subskrypcji** , a następnie wybierz katalog zawierający **dzierżawę usługi Azure AD**.
+1. [Utwórz grupę zasobów](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) lub wybierz istniejącą. W tym przykładzie stosowana jest Grupa zasobów o nazwie *Azure-AD-B2C-monitor*.
 
-Ten przykład używa grupy zasobów o nazwie *Azure-AD-B2C-monitor* w regionie *środkowe stany USA* .
+## <a name="2-create-a-log-analytics-workspace"></a>2. Utwórz obszar roboczy Log Analytics
 
-## <a name="delegate-resource-management"></a>Delegowanie zarządzania zasobami
+**Obszar roboczy log Analytics** jest unikatowym środowiskiem dla Azure monitor danych dziennika. Ten obszar roboczy Log Analytics służy do zbierania danych z Azure AD B2C [dzienników inspekcji](view-audit-logs.md), a następnie wizualizowania go przy użyciu zapytań i skoroszytów lub tworzenia alertów.
 
-Następnie Zbierz następujące informacje:
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Na pasku narzędzi portalu wybierz ikonę **katalogów i subskrypcji** , a następnie wybierz katalog zawierający **dzierżawę usługi Azure AD**.
+1. [Utwórz obszar roboczy log Analytics](../azure-monitor/learn/quick-create-workspace.md). Ten przykład używa Log Analytics obszaru roboczego o nazwie *AzureAdB2C* w grupie zasobów o nazwie *Azure-AD-B2C-monitor*.
 
-**Identyfikator katalogu** katalogu Azure AD B2C (znany również jako identyfikator dzierżawy).
+## <a name="3-delegate-resource-management"></a>3. delegowanie zarządzania zasobami
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako użytkownik z rolą *administratora użytkownika* (lub wyższą).
-1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
-1. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **Właściwości**.
-1. Zapisz **Identyfikator katalogu**.
+W tym kroku wybierasz dzierżawę Azure AD B2C jako **dostawcę usługi**. Należy również zdefiniować autoryzacje potrzebne do przypisywania odpowiednich wbudowanych ról platformy Azure do grup w dzierżawie usługi Azure AD.
 
-**Identyfikator obiektu** grupy Azure AD B2C lub użytkownika, któremu chcesz nadać uprawnienia *współautora* do grupy zasobów utworzonej wcześniej w katalogu zawierającym twoją subskrypcję.
+### <a name="31-get-your-azure-ad-b2c-tenant-id"></a>3,1. Uzyskaj identyfikator dzierżawy Azure AD B2C
 
-Aby ułatwić zarządzanie, zalecamy korzystanie z *grup* użytkowników usługi Azure AD dla każdej roli, co pozwala na dodawanie lub usuwanie poszczególnych użytkowników do grupy zamiast przypisywania uprawnień bezpośrednio do tego użytkownika. W tym instruktażu zostanie dodany użytkownik.
+Najpierw pobierz **Identyfikator dzierżawy** katalogu Azure AD B2C (znany również jako identyfikator katalogu).
 
-1. Po wybraniu **Azure Active Directory** w Azure Portal wybierz pozycję **Użytkownicy**, a następnie wybierz użytkownika.
-1. Zapisz **Identyfikator obiektu**użytkownika.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę **Azure AD B2C** .
+1. Wybierz pozycję **Azure Active Directory** , wybierz pozycję **Przegląd**.
+1. Zapisz **Identyfikator dzierżawy**.
 
-### <a name="create-an-azure-resource-manager-template"></a>Tworzenie szablonu Azure Resource Manager
+### <a name="32-select-a-security-group"></a>3,2 Wybierz grupę zabezpieczeń
 
-Aby dołączyć dzierżawę usługi Azure AD ( **klienta**), utwórz [szablon Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) na potrzeby oferty, korzystając z poniższych informacji. `mspOfferName`Wartości i `mspOfferDescription` są widoczne podczas wyświetlania szczegółów oferty na [stronie dostawcy usług](../lighthouse/how-to/view-manage-service-providers.md) Azure Portal.
+Teraz wybierz grupę lub użytkownika Azure AD B2C, do której chcesz nadać uprawnienia grupie zasobów utworzonej wcześniej w katalogu zawierającym twoją subskrypcję.  
 
-| Pole   | Definicja |
-|---------|------------|
-| `mspOfferName`                     | Nazwa opisująca tę definicję. Na przykład *Azure AD B2C usługi zarządzane*. Ta wartość jest wyświetlana klientowi jako tytuł oferty. |
-| `mspOfferDescription`              | Krótki opis oferty. Na przykład program *włącza Azure monitor w Azure AD B2C*.|
-| `rgName`                           | Nazwa grupy zasobów utworzonej wcześniej w dzierżawie usługi Azure AD. Na przykład *usługa Azure-AD-B2C-monitor*. |
-| `managedByTenantId`                | **Identyfikator katalogu** dzierżawy Azure AD B2C (znany również jako identyfikator dzierżawy). |
-| `authorizations.value.principalId` | **Identyfikator obiektu** grupy B2C lub użytkownika, który będzie miał dostęp do zasobów w ramach tej subskrypcji platformy Azure. W tym instruktażu Określ identyfikator obiektu użytkownika, który został zarejestrowany wcześniej. |
+Aby ułatwić zarządzanie, zalecamy korzystanie z *grup* użytkowników usługi Azure AD dla każdej roli, co pozwala na dodawanie lub usuwanie poszczególnych użytkowników do grupy zamiast przypisywania uprawnień bezpośrednio do tego użytkownika. W tym instruktażu dodamy grupę zabezpieczeń.
 
-Pobierz Azure Resource Manager szablonu i plików parametrów:
+> [!IMPORTANT]
+> Aby można było dodać uprawnienia dla grupy usługi Azure AD, **Typ grupy** musi być ustawiony na **zabezpieczenia**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- [rgDelegatedResourceManagement.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+1. Po wybraniu **Azure Active Directory** w katalogu **Azure AD B2C** wybierz pozycję **grupy** , a następnie wybierz grupę. Jeśli nie masz istniejącej grupy, Utwórz grupę **zabezpieczeń** , a następnie Dodaj członków. Aby uzyskać więcej informacji, postępuj zgodnie z procedurą [Utwórz podstawową grupę i Dodaj członków przy użyciu Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
+1. Wybierz pozycję **Przegląd** i Zapisz **Identyfikator obiektu** grupy.
 
-Następnie zaktualizuj plik parametrów przy użyciu zarejestrowanych wcześniej wartości. Poniższy fragment kodu JSON przedstawia przykład pliku parametrów szablonu Azure Resource Manager. W przypadku programu `authorizations.value.roleDefinitionId` należy użyć [wbudowanej wartości roli](../role-based-access-control/built-in-roles.md) *współautor* `b24988ac-6180-42a0-ab88-20f7382dd24c` .
+### <a name="33-create-an-azure-resource-manager-template"></a>3,3 Tworzenie szablonu Azure Resource Manager
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mspOfferName": {
-            "value": "Azure AD B2C Managed Services"
-        },
-        "mspOfferDescription": {
-            "value": "Enables Azure Monitor in Azure AD B2C"
-        },
-        "rgName": {
-            "value": "azure-ad-b2c-monitor"
-        },
-        "managedByTenantId": {
-            "value": "<Replace with DIRECTORY ID of Azure AD B2C tenant (tenant ID)>"
-        },
-        "authorizations": {
-            "value": [
-                {
-                    "principalId": "<Replace with user's OBJECT ID>",
-                    "principalIdDisplayName": "Azure AD B2C tenant administrator",
-                    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
-                }
-            ]
-        }
-    }
-}
-```
+Następnie utworzysz szablon Azure Resource Manager, który przydaje Azure AD B2C dostęp do utworzonej wcześniej grupy zasobów usługi Azure AD (na przykład *Azure-AD-B2C-monitor* ). Wdróż szablon z przykładu GitHub za pomocą przycisku **Wdróż na platformie Azure** , który otwiera Azure Portal i umożliwia skonfigurowanie i wdrożenie szablonu bezpośrednio w portalu. Aby wykonać te kroki, upewnij się, że zalogowano się do dzierżawy usługi Azure AD (nie dzierżawy Azure AD B2C).
 
-### <a name="deploy-the-azure-resource-manager-templates"></a>Wdrażanie szablonów Azure Resource Manager
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Na pasku narzędzi portalu wybierz ikonę **katalogów i subskrypcji** , a następnie wybierz katalog zawierający dzierżawę usługi **Azure AD** .
+3. Użyj przycisku **Wdróż na platformie Azure** , aby otworzyć Azure Portal i wdrożyć szablon bezpośrednio w portalu. Aby uzyskać więcej informacji, zobacz [Tworzenie szablonu Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
-Po zaktualizowaniu pliku parametrów Wdróż szablon Azure Resource Manager w dzierżawie platformy Azure jako wdrożenie na poziomie subskrypcji. Ponieważ jest to wdrożenie na poziomie subskrypcji, nie można go zainicjować w Azure Portal. Program można wdrożyć przy użyciu modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Poniżej przedstawiono metodę Azure PowerShell.
+   [![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Lighthouse-samples%2Fmaster%2Ftemplates%2Frg-delegated-resource-management%2FrgDelegatedResourceManagement.json)
 
-Zaloguj się do katalogu zawierającego swoją subskrypcję za pomocą polecenia [Connect-AzAccount](/powershell/azure/authenticate-azureps). Użyj `-tenant` flagi, aby wymusić uwierzytelnienie w poprawnym katalogu.
+5. Na stronie **wdrożenie niestandardowe** wprowadź następujące informacje:
 
-```PowerShell
-Connect-AzAccount -tenant contoso.onmicrosoft.com
-```
+   | Pole   | Definicja |
+   |---------|------------|
+   | Subskrypcja |  Wybierz katalog zawierający subskrypcję platformy Azure, w której utworzono grupę zasobów *usługi Azure-AD-B2C-monitor* . |
+   | Region (Region)| Wybierz region, w którym zostanie wdrożony zasób.  | 
+   | Nazwa oferty msp| Nazwa opisująca tę definicję. Na przykład *Azure AD B2C monitorowanie*.  |
+   | Opis oferty msp| Krótki opis oferty. Na przykład program *włącza Azure monitor w Azure AD B2C*.|
+   | Zarządzane przez identyfikator dzierżawy| **Identyfikator dzierżawy** dzierżawy Azure AD B2C (znany również jako identyfikator katalogu). |
+   |Autoryzacje|Określ tablicę JSON obiektów, która obejmuje usługę Azure AD `principalId` , `principalIdDisplayName` i platformę Azure `roleDefinitionId` . `principalId`Jest **identyfikatorem obiektu** grupy B2C lub użytkownika, który będzie miał dostęp do zasobów w ramach tej subskrypcji platformy Azure. W tym instruktażu Określ identyfikator obiektu grupy, który został wcześniej zarejestrowany. Dla programu `roleDefinitionId` Użyj [wbudowanej wartości roli](../role-based-access-control/built-in-roles.md) *współautor* `b24988ac-6180-42a0-ab88-20f7382dd24c` .|
+   | Nazwa RG | Nazwa grupy zasobów utworzonej wcześniej w dzierżawie usługi Azure AD. Na przykład *usługa Azure-AD-B2C-monitor*. |
 
-Użyj polecenia cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) , aby wyświetlić listę subskrypcji, do których bieżące konto może uzyskać dostęp w ramach dzierżawy usługi Azure AD. Zapisz identyfikator subskrypcji, która ma być projektem w dzierżawie Azure AD B2C.
+   Poniższy przykład ilustruje tablicę autoryzacji z jedną grupą zabezpieczeń.
 
-```PowerShell
-Get-AzSubscription
-```
+   ```json
+   [
+       {
+           "principalId": "<Replace with group's OBJECT ID>",
+           "principalIdDisplayName": "Azure AD B2C tenant administrators",
+           "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
+       }
+   ]
+   ```
 
-Następnie przejdź do subskrypcji, którą chcesz umieścić w projekcie w dzierżawie Azure AD B2C:
+Po wdrożeniu szablonu może upłynąć kilka minut (zazwyczaj nie więcej niż pięć), aby można było wykonać projekcję zasobu. Możesz zweryfikować wdrożenie w dzierżawie usługi Azure AD i uzyskać szczegółowe informacje o projekcji zasobów. Aby uzyskać więcej informacji, zobacz [Wyświetlanie i zarządzanie dostawcami usług](../lighthouse/how-to/view-manage-service-providers.md).
 
-``` PowerShell
-Select-AzSubscription <subscription ID>
-```
+## <a name="4-select-your-subscription"></a>4. Wybierz subskrypcję
 
-Na koniec Wdróż pobrane i zaktualizowane wcześniej pliki szablonu Azure Resource Manager i parametrów. Zastąp `Location` `TemplateFile` `TemplateParameterFile` odpowiednio wartości, i.
+Po wdrożeniu szablonu i poczekaniu kilku minut na ukończenie projekcji zasobów wykonaj następujące kroki, aby skojarzyć subskrypcję z katalogiem Azure AD B2C.
 
-```PowerShell
-New-AzDeployment -Name "AzureADB2C" `
-                 -Location "centralus" `
-                 -TemplateFile "C:\Users\azureuser\Documents\rgDelegatedResourceManagement.json" `
-                 -TemplateParameterFile "C:\Users\azureuser\Documents\rgDelegatedResourceManagement.parameters.json" `
-                 -Verbose
-```
-
-Pomyślne wdrożenie szablonu generuje dane wyjściowe podobne do następujących (dane wyjściowe zostały obcięte dla zwięzłości):
-
-```Console
-PS /usr/csuser/clouddrive> New-AzDeployment -Name "AzureADB2C" `
->>                  -Location "centralus" `
->>                  -TemplateFile "rgDelegatedResourceManagement.json" `
->>                  -TemplateParameterFile "rgDelegatedResourceManagement.parameters.json" `
->>                  -Verbose
-WARNING: Breaking changes in the cmdlet 'New-AzDeployment' :
-WARNING:  - The cmdlet 'New-AzSubscriptionDeployment' is replacing this cmdlet.
-
-
-WARNING: NOTE : Go to https://aka.ms/azps-changewarnings for steps to suppress this breaking change warning, and other information on breaking changes in Azure PowerShell.
-VERBOSE: 7:25:14 PM - Template is valid.
-VERBOSE: 7:25:15 PM - Create template deployment 'AzureADB2C'
-VERBOSE: 7:25:15 PM - Checking deployment status in 5 seconds
-VERBOSE: 7:25:42 PM - Resource Microsoft.ManagedServices/registrationDefinitions '44444444-4444-4444-4444-444444444444' provisioning status is succeeded
-VERBOSE: 7:25:48 PM - Checking deployment status in 5 seconds
-VERBOSE: 7:25:53 PM - Resource Microsoft.Resources/deployments 'rgAssignment' provisioning status is running
-VERBOSE: 7:25:53 PM - Checking deployment status in 5 seconds
-VERBOSE: 7:25:59 PM - Resource Microsoft.ManagedServices/registrationAssignments '11111111-1111-1111-1111-111111111111' provisioning status is running
-VERBOSE: 7:26:17 PM - Checking deployment status in 5 seconds
-VERBOSE: 7:26:23 PM - Resource Microsoft.ManagedServices/registrationAssignments '11111111-1111-1111-1111-111111111111' provisioning status is succeeded
-VERBOSE: 7:26:23 PM - Checking deployment status in 5 seconds
-VERBOSE: 7:26:29 PM - Resource Microsoft.Resources/deployments 'rgAssignment' provisioning status is succeeded
-
-DeploymentName          : AzureADB2C
-Location                : centralus
-ProvisioningState       : Succeeded
-Timestamp               : 1/31/20 7:26:24 PM
-Mode                    : Incremental
-TemplateLink            :
-Parameters              :
-                          Name                   Type                       Value
-                          =====================  =========================  ==========
-                          mspOfferName           String                     Azure AD B2C Managed Services
-                          mspOfferDescription    String                     Enables Azure Monitor in Azure AD B2C
-...
-```
-
-Po wdrożeniu szablonu może upłynąć kilka minut, zanim będzie można wykonać projekcję zasobu. Może być konieczne odczekanie kilku minut (zazwyczaj nie więcej niż pięć) przed przejściem do następnej sekcji, aby wybrać subskrypcję.
-
-## <a name="select-your-subscription"></a>Wybierz swoją subskrypcję
-
-Po wdrożeniu szablonu i poczekaj kilka minut na ukończenie projekcji zasobów Skojarz swoją subskrypcję z katalogiem Azure AD B2C, wykonując poniższe kroki.
-
-1. **Wyloguj się** z Azure Portal, jeśli użytkownik jest obecnie zalogowany. W tym celu należy wykonać następujące czynności, aby odświeżyć poświadczenia w sesji portalu.
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu Azure AD B2C konta administracyjnego.
-1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** .
-1. Wybierz katalog, który zawiera twoją subskrypcję.
+1. Wyloguj się z Azure Portal, jeśli użytkownik jest obecnie zalogowany (umożliwia to odświeżenie poświadczeń sesji w następnym kroku).
+2. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu **Azure AD B2C** konta administracyjnego. To konto musi być członkiem grupy zabezpieczeń określonej w kroku [Zarządzanie zasobami delegowanymi](#3-delegate-resource-management) .
+3. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** .
+4. Wybierz katalog usługi Azure AD zawierający subskrypcję platformy Azure oraz utworzoną grupę zasobów *Azure-AD-B2C-monitor* .
 
     ![Przełącz katalog](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
-1. Sprawdź, czy wybrano prawidłowy katalog i subskrypcję. W tym przykładzie wybrano wszystkie katalogi i subskrypcje.
+
+1. Sprawdź, czy wybrano prawidłowy katalog i subskrypcję. W tym przykładzie wybrano wszystkie katalogi i wszystkie subskrypcje.
 
     ![Wszystkie katalogi wybrane w & filtr subskrypcji usługi katalogowej](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
 
-## <a name="configure-diagnostic-settings"></a>Konfigurowanie ustawień diagnostycznych
+## <a name="5-configure-diagnostic-settings"></a>5. Konfigurowanie ustawień diagnostycznych
 
 Ustawienia diagnostyczne definiują, gdzie należy wysyłać dzienniki i metryki dla zasobu. Możliwe miejsca docelowe to:
 
 - [Konto usługi Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Rozwiązania [centrów zdarzeń](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+- Rozwiązania [centrów zdarzeń](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 - [Log Analytics obszar roboczy](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
-Jeśli jeszcze tego nie zrobiono, Utwórz wystąpienie wybranego typu docelowego w grupie zasobów określonej w [szablonie Azure Resource Manager](#create-an-azure-resource-manager-template).
+W tym przykładzie użyjemy obszaru roboczego Log Analytics, aby utworzyć pulpit nawigacyjny.
 
-### <a name="create-diagnostic-settings"></a>Tworzenie ustawień diagnostycznych
+### <a name="51-create-diagnostic-settings"></a>5,1 Tworzenie ustawień diagnostycznych
 
 Możesz przystąpić do [tworzenia ustawień diagnostycznych](../active-directory/reports-monitoring/overview-monitoring.md) w Azure Portal.
 
 Aby skonfigurować ustawienia monitorowania dla Azure AD B2C dzienników aktywności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu Azure AD B2C konta administracyjnego. To konto musi być członkiem grupy zabezpieczeń określonej w kroku [Wybierz grupę zabezpieczeń](#32-select-a-security-group) .
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. Wybierz **Azure Active Directory**
 1. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyczne**.
-1. Jeśli w zasobie istnieją istniejące ustawienia, zostanie wyświetlona lista ustawień, które zostały już skonfigurowane. Wybierz opcję **Dodaj ustawienie diagnostyczne** , aby dodać nowe ustawienie, lub **Edytuj** ustawienie, aby edytować istniejące. Każde ustawienie nie może mieć więcej niż jednego z typów docelowych...
+1. Jeśli istnieją jakieś ustawienia dla zasobu, zostanie wyświetlona lista ustawień, które zostały już skonfigurowane. Wybierz opcję **Dodaj ustawienie diagnostyczne** , aby dodać nowe ustawienie, lub wybierz pozycję **Edytuj** , aby edytować istniejące ustawienie. Każde ustawienie nie może mieć więcej niż jednego z typów docelowych.
 
     ![Okienko ustawień diagnostycznych w Azure Portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
 1. Nadaj ustawieniu nazwę, jeśli jeszcze jej nie ma.
-1. Zaznacz pole wyboru dla każdego miejsca docelowego, aby wysłać dzienniki. Wybierz pozycję **Konfiguruj** , aby określić swoje ustawienia zgodnie z opisem w poniższej tabeli.
-
-    | Ustawienie | Opis |
-    |:---|:---|
-    | Zarchiwizuj na koncie magazynu | Nazwa konta magazynu. |
-    | Przesyłaj strumieniowo do centrum zdarzeń | Przestrzeń nazw, w której jest tworzony centrum zdarzeń (jeśli jest to pierwsze dzienniki przesyłania strumieniowego) lub przesyłane strumieniowo do programu (jeśli istnieją już zasoby, które są przesyłane strumieniowo do tej przestrzeni nazw).
-    | Wysyłanie do usługi Log Analytics | Nazwa obszaru roboczego. |
-
+1. Zaznacz pole wyboru dla każdego miejsca docelowego, aby wysłać dzienniki. Wybierz pozycję **Konfiguruj** , aby określić swoje ustawienia zgodnie z **opisem w poniższej tabeli**.
+1. Wybierz pozycję **Wyślij do log Analytics** , a następnie wybierz utworzoną wcześniej **nazwę obszaru roboczego** ( `AzureAdB2C` ).
 1. Wybierz pozycję **AuditLogs** i **SignInLogs**.
 1. Wybierz pozycję **Zapisz**.
 
+> [!NOTE]
+> Po wydaniu zdarzenia [w obszarze roboczym log Analytics](../azure-monitor/platform/data-ingestion-time.md)może upłynąć do 15 minut. Dowiedz się więcej o [Active Directory opóźnień raportowania](../active-directory/reports-monitoring/reference-reports-latencies.md), które mogą mieć wpływ na nieaktualność danych i odgrywają ważną rolę w raportowaniu.
+
+Jeśli zostanie wyświetlony komunikat o błędzie "Aby skonfigurować ustawienia diagnostyczne do korzystania z Azure Monitor dla katalogu Azure AD B2C, należy skonfigurować zarządzanie zasobami delegowanymi". Upewnij się, że logujesz się przy użyciu użytkownika, który jest członkiem [grupy zabezpieczeń](#32-select-a-security-group) , i [Wybierz swoją subskrypcję](#4-select-your-subscription).
+
+## <a name="6-visualize-your-data"></a>6. Wizualizuj dane
+
+Teraz można skonfigurować obszar roboczy Log Analytics do wizualizacji danych i konfigurowania alertów. Te konfiguracje można wprowadzać zarówno w dzierżawie usługi Azure AD, jak i w dzierżawie Azure AD B2C.
+
+### <a name="61-create-a-query"></a>6,1 Tworzenie zapytania
+
+Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w dziennikach Azure Monitor. Zaawansowany język zapytań umożliwia sprzęganie danych z wielu tabel, agregowanie dużych zestawów danych i wykonywanie złożonych operacji przy minimalnym kodzie. Niemal każde pytanie może być odpowiedzią i analizą wykonywaną, o ile dane pomocnicze zostały zebrane, i zrozumieć, jak utworzyć odpowiednie zapytanie. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/log-query/get-started-queries.md).
+
+1. W **obszarze roboczym log Analytics** wybierz pozycję **dzienniki**
+1. W edytorze zapytań Wklej następujące zapytanie dotyczące [języka zapytań Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) . To zapytanie pokazuje użycie zasad według operacji w ciągu ostatnich x dni. Domyślny czas trwania wynosi 90 dni (90d). Zwróć uwagę, że zapytanie jest skoncentrowane tylko na operacji, w której token/kod jest wystawiony przez zasady.
+
+    ```kusto
+    AuditLogs
+    | where TimeGenerated  > ago(90d)
+    | where OperationName contains "issue"
+    | extend  UserId=extractjson("$.[0].id",tostring(TargetResources))
+    | extend Policy=extractjson("$.[1].value",tostring(AdditionalDetails))
+    | summarize SignInCount = count() by Policy, OperationName
+    | order by SignInCount desc  nulls last
+    ```
+
+1. Wybierz pozycję **Uruchom**. Wyniki zapytania są wyświetlane u dołu ekranu.
+1. Aby zapisać zapytanie do późniejszego użycia, wybierz pozycję **Zapisz**.
+
+   ![Log Analytics Edytor dziennika](./media/azure-monitor/query-policy-usage.png)
+
+1. Podaj następujące informacje:
+
+    - **Nazwa** — wprowadź nazwę zapytania.
+    - **Zapisz jako** -SELECT `query` .
+    - Wybierz **kategorię** `Log` .
+
+1. Wybierz pozycję **Zapisz**.
+
+Możesz również zmienić zapytanie, aby wizualizować dane przy użyciu operatora [renderowania](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) .
+
+```kusto
+AuditLogs
+| where TimeGenerated  > ago(90d)
+| where OperationName contains "issue"
+| extend  UserId=extractjson("$.[0].id",tostring(TargetResources))
+| extend Policy=extractjson("$.[1].value",tostring(AdditionalDetails))
+| summarize SignInCount = count() by Policy
+| order by SignInCount desc  nulls last
+| render  piechart
+```
+
+![Log Analytics kołowy edytora dziennika](./media/azure-monitor/query-policy-usage-pie.png)
+
+Aby uzyskać więcej przykładów, zobacz [repozytorium Azure AD B2C Siem](https://aka.ms/b2csiem)w witrynie GitHub.
+
+### <a name="62-create-a-workbook"></a>6,2 Tworzenie skoroszytu
+
+Skoroszyty udostępniają elastyczną kanwę do analizy danych i tworzenia zaawansowanych raportów wizualnych w witrynie Azure Portal. Umożliwiają one naciskanie na wiele źródeł danych z platformy Azure i łączenie ich w ujednolicone interaktywne środowiska. Aby uzyskać więcej informacji, zobacz [Azure monitor skoroszytów](../azure-monitor/platform/workbooks-overview.md).
+
+Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć nowy skoroszyt przy użyciu szablonu galerii JSON. Ten skoroszyt zawiera pulpit nawigacyjny usługi **User Insights** i **uwierzytelniania** dla dzierżawy Azure AD B2C.
+
+1. W **obszarze roboczym log Analytics** wybierz pozycję **skoroszyty**.
+1. Na pasku narzędzi wybierz pozycję **+ Nowa** opcja, aby utworzyć nowy skoroszyt.
+1. Na stronie **nowy skoroszyt** wybierz **Edytor zaawansowany** przy użyciu **</>** opcji na pasku narzędzi.
+
+     ![Szablon galerii](./media/azure-monitor/wrkb-adv-editor.png)
+
+1. Wybierz **szablon galerii**.
+1. Zastąp kod JSON w **szablonie galerii**  zawartością ze [skoroszytu Azure AD B2C Basic](https://raw.githubusercontent.com/azure-ad-b2c/siem/master/workbooks/dashboard.json):
+1. Zastosuj szablon przy użyciu przycisku **Zastosuj** .
+1. Wybierz przycisk **gotowe do edycji** na pasku narzędzi, aby zakończyć edytowanie skoroszytu.
+1. Na koniec Zapisz skoroszyt za pomocą przycisku **Zapisz** na pasku narzędzi.
+1. Podaj **tytuł** , taki jak *Azure AD B2C pulpitu nawigacyjnego*.
+1. Wybierz pozycję **Zapisz**.
+
+    ![Zapisz skoroszyt](./media/azure-monitor/wrkb-title.png)
+
+Skoroszyt będzie wyświetlał raporty w formie pulpitu nawigacyjnego.
+
+![Pierwszy pulpit nawigacyjny skoroszytu](./media/azure-monitor/wkrb-dashboard-1.png)
+
+![Drugi pulpit nawigacyjny skoroszytu](./media/azure-monitor/wrkb-dashboard-2.png)
+
+![Skoroszyt trzeciego pulpitu nawigacyjnego](./media/azure-monitor/wrkb-dashboard-3.png)
+
+
+## <a name="create-alerts"></a>Tworzenie alertów
+
+Alerty są tworzone na podstawie reguł alertów na platformie Azure Monitor i mogą automatycznie uruchamiać zapisane zapytania lub niestandardowe wyszukiwania dziennika w regularnych odstępach czasu. Możesz utworzyć alerty w oparciu o konkretne metryki wydajności lub w momencie, w którym zostają utworzone określone zdarzenia, w przypadku braku zdarzenia, a także w sytuacji, w której wiele zdarzeń zostaje utworzonych w danym przedziale czasu. Na przykład można użyć alertów, aby powiadomić Cię, gdy średnia liczba logowań przekroczy określony próg. Aby uzyskać więcej informacji, zobacz [tworzenie alertów](../azure-monitor/learn/tutorial-response.md).
+
+
+Skorzystaj z poniższych instrukcji, aby utworzyć nowy Alert platformy Azure, który wyśle [wiadomość e-mail z powiadomieniem](../azure-monitor/platform/action-groups.md#configure-notifications) za każdym razem, gdy w **łączu** do poprzedniego okresu zostanie wyświetlonych 25% żądań. Alert będzie uruchamiany co 5 minut i poszukiwany w ciągu ostatnich 24 godzin. Alerty są tworzone przy użyciu języka zapytań Kusto.
+
+
+1. W **obszarze roboczym log Analytics** wybierz pozycję **dzienniki**. 
+1. Utwórz nowe **zapytanie Kusto** przy użyciu poniższego zapytania.
+
+    ```kusto
+    let start = ago(24h);
+    let end = now();
+    let threshold = -25; //25% decrease in total requests.
+    AuditLogs
+    | serialize TimeGenerated, CorrelationId, Result
+    | make-series TotalRequests=dcount(CorrelationId) on TimeGenerated in range(start, end, 1h)
+    | mvexpand TimeGenerated, TotalRequests
+    | where TotalRequests > 0
+    | serialize TotalRequests, TimeGenerated, TimeGeneratedFormatted=format_datetime(todatetime(TimeGenerated), 'yyyy-M-dd [hh:mm:ss tt]')
+    | project   TimeGeneratedFormatted, TotalRequests, PercentageChange= ((toreal(TotalRequests) - toreal(prev(TotalRequests,1)))/toreal(prev(TotalRequests,1)))*100
+    | order by TimeGeneratedFormatted
+    | where PercentageChange <= threshold   //Trigger's alert rule if matched.
+    ```
+
+1. Wybierz pozycję **Uruchom** , aby przetestować zapytanie. Wyniki powinny zostać wyświetlone, jeśli w ciągu ostatnich 24 godzin wystąpi spadek o 25% lub więcej.
+1. Aby utworzyć regułę alertu opartą na powyższym zapytaniu, użyj opcji **+ Nowa reguła alertu** dostępnej na pasku narzędzi.
+1. Na stronie **Tworzenie reguły alertu** wybierz pozycję **nazwa warunku** . 
+1. Na stronie **Konfiguruj logikę sygnału** ustaw następujące wartości, a następnie użyj przycisku **gotowe** , aby zapisać zmiany.
+    * Logika alertu: Ustaw **liczbę wyników** **większą niż** **0**.
+    * Obliczanie na podstawie: Wybierz **1440** dla okresu (w minutach) i **5** , aby uzyskać częstotliwość (w minutach) 
+
+    ![Utwórz warunek reguły alertu](./media/azure-monitor/alert-create-rule-condition.png)
+
+Po utworzeniu alertu przejdź do **obszaru roboczego log Analytics** i wybierz pozycję **alerty**. Ta strona zawiera wszystkie alerty, które zostały wyzwolone w opcji czas trwania ustawiony przez **zakres czasu** .  
+
+### <a name="configure-action-groups"></a>Konfiguruj grupy akcji
+
+Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Możesz uwzględnić wysyłanie połączenia głosowego, wiadomości e-mail i poczty elektronicznej. lub wyzwalając różne typy zautomatyzowanych akcji. Postępuj zgodnie ze wskazówkami [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](../azure-monitor/platform/action-groups.md)
+
+Oto przykład wiadomości e-mail z powiadomieniem o alercie. 
+
+   ![Powiadomienie e-mail](./media/azure-monitor/alert-email-notification.png)
+
+## <a name="multiple-tenants"></a>Wielu dzierżawców
+
+Aby dołączyć wiele Azure AD B2C dzienników dzierżawy do tego samego obszaru roboczego Log Analytics (lub konta usługi Azure Storage lub centrum zdarzeń), należy wykonać oddzielne wdrożenia z różnymi wartościami **nazw oferty msp** . Upewnij się, że obszar roboczy Log Analytics znajduje się w tej samej grupie zasobów co ta, która została skonfigurowana w obszarze [Utwórz lub wybierz grupę zasobów](#1-create-or-choose-resource-group).
+
+Podczas pracy z wieloma obszarami roboczymi Log Analytics Użyj [zapytania między obszarami roboczymi](../azure-monitor/log-query/cross-workspace-query.md) , aby utworzyć zapytania, które działają w wielu obszarach roboczych. Na przykład następujące zapytanie wykonuje sprzężenie dwóch dzienników inspekcji z różnych dzierżawców na podstawie tej samej kategorii (na przykład uwierzytelniania):
+
+```kusto
+workspace("AD-B2C-TENANT1").AuditLogs
+| join  workspace("AD-B2C-TENANT2").AuditLogs
+  on $left.Category== $right.Category
+```
+
+## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
+
+Dzienniki Azure Monitor są przeznaczone do skalowania i obsługi zbierania, indeksowania i przechowywania dużych ilości danych dziennie z dowolnego źródła w przedsiębiorstwie lub wdrożonego na platformie Azure. Domyślnie dzienniki są przechowywane przez 30 dni, ale czas przechowywania można zwiększyć do maksymalnie dwóch lat. Dowiedz się [, jak zarządzać użyciem i kosztami za pomocą dzienników Azure monitor](../azure-monitor/platform/manage-cost-storage.md). Po wybraniu warstwy cenowej można [zmienić okres przechowywania danych](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period).
+
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat dodawania i konfigurowania ustawień diagnostycznych w Azure Monitor, zobacz [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](../azure-monitor/insights/monitor-azure-resource.md).
+* Więcej przykładów znajdziesz w Galerii Azure AD B2C [Siem](https://aka.ms/b2csiem). 
 
-Aby uzyskać informacje o przesyłaniu strumieniowym dzienników usługi Azure AD do centrum zdarzeń, zobacz [Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* Aby uzyskać więcej informacji na temat dodawania i konfigurowania ustawień diagnostycznych w Azure Monitor, zobacz [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](../azure-monitor/insights/monitor-azure-resource.md).
+
+* Aby uzyskać informacje o przesyłaniu strumieniowym dzienników usługi Azure AD do centrum zdarzeń, zobacz [Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

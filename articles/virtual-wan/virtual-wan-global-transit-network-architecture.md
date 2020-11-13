@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102327"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563736"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -127,7 +127,7 @@ Ta flaga jest widoczna, gdy użytkownik edytuje połączenie sieci wirtualnej, p
 
 Wirtualne centra sieci wirtualnej platformy Azure łączą wszystkie punkty końcowe sieci w sieci hybrydowej i potencjalnie widzą cały ruch w sieci tranzytowej. Wirtualne centra sieci WAN można przekonwertować na zabezpieczone centra wirtualne, wdrażając zaporę platformy Azure wewnątrz centrów VWAN w celu włączenia zabezpieczeń, dostępu i kontroli zasad opartych na chmurze. Aranżacja zapór platformy Azure w wirtualnych centrach sieci WAN może być wykonywana przez Menedżera zapory platformy Azure.
 
-[Menedżer zapory platformy Azure](https://go.microsoft.com/fwlink/?linkid=2107683) oferuje funkcje umożliwiające zarządzanie zabezpieczeniami globalnymi sieciami tranzytowymi i skalowanie ich. Menedżer zapory platformy Azure umożliwia centralne zarządzanie routingiem, globalnym zarządzaniem zasadami, zaawansowanymi usługami zabezpieczeń internetowych za pośrednictwem innych firm wraz z zaporą platformy Azure.
+[Menedżer zapory platformy Azure](../firewall-manager/index.yml) oferuje funkcje umożliwiające zarządzanie zabezpieczeniami globalnymi sieciami tranzytowymi i skalowanie ich. Menedżer zapory platformy Azure umożliwia centralne zarządzanie routingiem, globalnym zarządzaniem zasadami, zaawansowanymi usługami zabezpieczeń internetowych za pośrednictwem innych firm wraz z zaporą platformy Azure.
 
 ![bezpieczny koncentrator wirtualny z zaporą platformy Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -177,4 +177,4 @@ Utwórz połączenie za pomocą wirtualnej sieci WAN i Wdróż zaporę platformy
 
 * [Połączenia między lokacjami przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md)
 * [ExpressRoute połączeń przy użyciu wirtualnej sieci WAN](virtual-wan-expressroute-portal.md)
-* [Menedżer zapory platformy Azure do wdrażania usługi Azure PD w VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Menedżer zapory platformy Azure do wdrażania usługi Azure PD w VWAN](../firewall-manager/index.yml)
