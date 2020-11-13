@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314956"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553679"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
@@ -22,7 +22,7 @@ Zewnętrzna tabela wskazuje dane znajdujące się w usłudze Hadoop, w usłudze 
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tabele zewnętrzne w dedykowanej puli SQL i bezserwerowej
 
-### <a name="dedicated-sql-pool"></a>[Dedykowana Pula SQL](#tab/sql-pool) 
+### <a name="dedicated-sql-pool"></a>[Dedykowana pula SQL](#tab/sql-pool) 
 
 W dedykowanej puli SQL można użyć tabeli zewnętrznej do:
 
@@ -64,7 +64,7 @@ Zewnętrzne źródła danych są używane do łączenia się z kontami magazynu.
 
 ### <a name="syntax-for-create-external-data-source"></a>Składnia dla tworzenia zewnętrznego źródła danych
 
-#### <a name="dedicated-sql-pool"></a>[Dedykowana Pula SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Dedykowana pula SQL](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -119,7 +119,7 @@ Typ = `HADOOP` jest opcją obowiązkową w dedykowanej puli SQL i określa, że 
 
 ### <a name="example-for-create-external-data-source"></a>Przykład tworzenia zewnętrznego źródła danych
 
-#### <a name="dedicated-sql-pool"></a>[Dedykowana Pula SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Dedykowana pula SQL](#tab/sql-pool)
 
 Poniższy przykład tworzy zewnętrzne źródło danych dla Azure Data Lake Gen2 wskazujące zestaw danych New York:
 
@@ -388,8 +388,6 @@ Korzystając z możliwości eksploracji Data Lake możesz teraz tworzyć i wysy�
 - Musisz mieć dostęp do obszaru roboczego z co najmniej rolą dostępu ARM współautora danych obiektów blob magazynu do konta ADLS Gen2
 
 - Musisz mieć co najmniej [uprawnienia do tworzenia](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) i wysyłania zapytań dotyczących tabel zewnętrznych w puli SQL lub SQL od
-
-- Połączona usługa skojarzona z kontem ADLS Gen2 **musi mieć dostęp do pliku**. Na przykład jeśli mechanizm uwierzytelniania połączonej usługi jest tożsamością zarządzaną, tożsamość zarządzana w obszarze roboczym musi mieć co najmniej uprawnienie czytelnik magazynu obiektów BLOB na koncie magazynu
 
 Z panelu dane wybierz plik, dla którego chcesz utworzyć zewnętrzną tabelę:
 > [!div class="mx-imgBorder"]

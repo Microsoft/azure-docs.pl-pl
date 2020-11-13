@@ -6,14 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371358"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409204"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Zarządzanie rolami w usłudze Azure Enterprise
 
@@ -34,6 +35,86 @@ Pierwszy administrator rejestracji skonfigurowany podczas aprowizacji rejestracj
 Na przykład jeśli typ uwierzytelniania początkowego jest ustawiony na wartość Mieszane, umowa EA zostanie dodana jako konto Microsoft, a kontakt dla rozliczeń będzie miał uprawnienia administratora EA tylko do odczytu. Jeśli administrator EA nie zatwierdzi autoryzacji konta Microsoft dla istniejącego kontaktu dla rozliczeń, może usunąć danego użytkownika i poprosić klienta o dodanie użytkownika jako administratora tylko do odczytu z kontem służbowym ustawionym tylko na poziomie rejestracji w portalu EA.
 
 Te role są specyficzne dla procesu zarządzania umowami Enterprise Agreement platformy Azure. Są one dodatkiem do wbudowanych ról platformy Azure, które umożliwiają kontrolowanie dostępu do zasobów. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
+
+## <a name="azure-enterprise-portal-hierarchy"></a>Hierarchia witryny Azure Enterprise Portal
+
+Hierarchia witryny Azure Enterprise Portal obejmuje następujące elementy:
+
+- **Azure Enterprise Portal** — portal zarządzania online, który ułatwia zarządzanie kosztami usług w ramach umowy EA platformy Azure. Możesz:
+
+  - Tworzyć hierarchię umowy EA platformy Azure, w tym działy, konta i subskrypcje.
+  - Uzgadniać koszty używanych usług, pobierać raporty użycia i wyświetlać cenniki.
+  - Tworzyć klucze interfejsu API dla rejestracji.
+
+- **Działy** ułatwiają dzielenie kosztów na logiczne grupy. Działy umożliwiają ustawianie budżetu lub limitu przydziału na poziomie działu.
+
+- **Konta** są jednostkami organizacyjnymi w witrynie Azure Enterprise Portal. Konta umożliwiają zarządzanie subskrypcjami i wyświetlanie raportów.
+
+- **Subskrypcje** są najmniejszymi jednostkami w witrynie Azure Enterprise Portal. Są to kontenery dla usług platformy Azure zarządzanych przez administratora usługi.
+
+Na poniższym diagramie przedstawiono proste hierarchie witryny Azure EA Portal.
+
+![Diagram prostych hierarchii witryny Azure EA Portal](./media/understand-ea-roles/ea-hierarchies.png)
+
+## <a name="enterprise-user-roles"></a>Role użytkownika przedsiębiorstwa
+
+W ramach rejestracji przedsiębiorstwa występują następujące role użytkowników administracyjnych:
+
+- Administrator przedsiębiorstwa
+- Administrator działu
+- Właściciel konta
+- Administrator usługi
+- Kontakt dla powiadomień
+
+Role umożliwiają realizowanie zadań w dwóch różnych portalach. Witryna [Azure Enterprise Portal](https://ea.azure.com) służy do zarządzania rozliczeniami i kosztami, a witryna [Azure Portal](https://portal.azure.com) umożliwia zarządzanie usługami platformy Azure.
+
+Role użytkowników są skojarzone z kontem użytkownika. Aby zweryfikować autentyczność użytkowników, każdy użytkownik musi mieć prawidłowe konto służbowe lub Microsoft. Upewnij się, że każde konto jest skojarzone z używanym adresem e-mail. Powiadomienia konta są wysyłane na adres e-mail.
+
+Podczas konfigurowania użytkowników do roli administratora przedsiębiorstwa można przypisać wiele kont. Jednak tylko jedno konto może mieć rolę właściciela konta. Ponadto do jednego konta można przypisać zarówno rolę administratora przedsiębiorstwa, jak i rolę właściciela konta.
+
+### <a name="enterprise-administrator"></a>Administrator przedsiębiorstwa
+
+Użytkownicy z tą rolą mają najwyższy poziom dostępu. Mogą wykonywać następujące czynności:
+
+- Zarządzanie kontami i właścicielami kont.
+- Zarządzanie innymi administratorami przedsiębiorstwa.
+- Zarządzanie administratorami działów.
+- Zarządzanie kontaktami dla powiadomień.
+- Wyświetlanie użycia na wszystkich kontach.
+- Wyświetlanie nienaliczonych opłat na wszystkich kontach.
+
+W ramach rejestracji przedsiębiorstwa może być wielu administratorów przedsiębiorstwa. Administratorom przedsiębiorstwa można przyznać dostęp tylko do odczytu. Wszyscy oni dziedziczą rolę administratora działu.
+
+### <a name="department-administrator"></a>Administrator działu
+
+Użytkownicy z tą rolą mogą wykonywać następujące czynności:
+
+- Tworzenie działów i zarządzanie nimi.
+- Tworzenie nowych właścicieli kont.
+- Wyświetlanie szczegółów użycia dla działów, którymi zarządzają.
+- Wyświetlanie kosztów w przypadku posiadania niezbędnych uprawnień.
+
+Dla każdej rejestracji przedsiębiorstwa można mieć wielu administratorów działów.
+
+Tworząc lub edytując konto administratora działu, można przyznać mu dostęp tylko do odczytu. Dla opcji tylko do odczytu ustaw wartość **Tak**.
+
+### <a name="account-owner"></a>Właściciel konta
+
+Użytkownicy z tą rolą mogą wykonywać następujące czynności:
+
+- Tworzenie subskrypcji i zarządzanie nimi.
+- Zarządzanie administratorami usług.
+- Wyświetlanie użycia dla subskrypcji.
+
+Każde konto wymaga unikatowego konta służbowego lub konta Microsoft. Aby uzyskać więcej informacji na temat ról administracyjnych w witrynie Azure Enterprise Portal, zobacz [Omówienie ról administracyjnych dla umowy Azure Enterprise Agreement na platformie Azure](understand-ea-roles.md).
+
+### <a name="service-administrator"></a>Administrator usługi
+
+Rola administratora usługi ma uprawnienia do zarządzania usługami w witrynie Azure Portal i przypisywania użytkowników do roli współadministratora.
+
+### <a name="notification-contact"></a>Kontakt dla powiadomień
+
+Kontakt dla powiadomień odbiera powiadomienia o użyciu dotyczące rejestracji.
 
 W poniższych sekcjach opisano ograniczenia i możliwości poszczególnych ról.
 
@@ -69,7 +150,7 @@ W poniższych sekcjach opisano ograniczenia i możliwości poszczególnych ról.
 
 ## <a name="add-a-new-enterprise-administrator"></a>Dodawanie nowego administratora przedsiębiorstwa
 
-Administratorzy przedsiębiorstwa mają największe uprawnienia podczas zarządzania rejestracją w portalu Azure EA. Początkowy administrator platformy Azure EA został utworzony podczas konfigurowania umowy EA. Można jednak dodawać i usuwać nowych administratorów w dowolnym momencie. Nowi administratorzy są dodawani tylko przez istniejących administratorów. Aby uzyskać więcej informacji na temat dodawania dodatkowych administratorów przedsiębiorstwa, zobacz sekcję [Tworzenie innego administratora przedsiębiorstwa](ea-portal-get-started.md#create-another-enterprise-administrator). Aby uzyskać więcej informacji o rolach i zadaniach dotyczących rozliczeń, zobacz sekcję [Role i zadania profilów rozliczeniowych](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Administratorzy przedsiębiorstwa mają największe uprawnienia podczas zarządzania rejestracją w portalu Azure EA. Początkowy administrator platformy Azure EA został utworzony podczas konfigurowania umowy EA. Można jednak dodawać i usuwać nowych administratorów w dowolnym momencie. Nowi administratorzy są dodawani tylko przez istniejących administratorów. Aby uzyskać więcej informacji na temat dodawania dodatkowych administratorów przedsiębiorstwa, zobacz sekcję [Tworzenie innego administratora przedsiębiorstwa](ea-portal-administration.md#create-another-enterprise-administrator). Aby uzyskać więcej informacji o rolach i zadaniach dotyczących rozliczeń, zobacz sekcję [Role i zadania profilów rozliczeniowych](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-account-owner-state-from-pending-to-active"></a>Aktualizowanie stanu właściciela konta z „oczekujące” na „aktywne”
 
@@ -79,7 +160,7 @@ Gdy nowi właściciele konta są po raz pierwszy dodawani do rejestracji w ramac
 
 Po utworzeniu działu przez administratora portalu Azure EA administrator oferty Azure Enterprise może dodać administratorów działu i skojarzyć ich z działem. Administrator działu może tworzyć nowe konta. Nowe konta są potrzebne do tworzenia subskrypcji portalu Azure EA.
 
-Aby uzyskać więcej informacji o dodawaniu administratora działu, zobacz [Tworzenie administratora działu w portalu Azure EA](ea-portal-get-started.md#add-a-department-administrator).
+Aby uzyskać więcej informacji o dodawaniu administratora działu, zobacz [Tworzenie administratora działu w portalu Azure EA](ea-portal-administration.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Dostęp do danych użycia i kosztów według roli
 
@@ -114,12 +195,12 @@ W poniższej tabeli przedstawiono relację między rolami administracyjnymi umó
 |Właściciel konta LUB administrator działu|✘ Wyłączone |brak|Brak cen|
 |Brak|Nie dotyczy |Właściciel|Ceny detaliczne|
 
-Rola administratora przedsiębiorstwa i zasady wyświetlania opłat są ustawiane w witrynie Enterprise Portal. Rolę na platformie Azure można zaktualizować w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Rola administratora przedsiębiorstwa i zasady wyświetlania opłat są ustawiane w witrynie Enterprise Portal. Rolę na platformie Azure można zaktualizować w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie dostępem przy użyciu kontroli RBAC i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Manage access to billing information for Azure (Zarządzanie dostępem do informacji rozliczeniowych dla platformy Azure)](manage-billing-access.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Manage access using RBAC and the Azure portal (Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal)](../../role-based-access-control/role-assignments-portal.md)
 - [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)

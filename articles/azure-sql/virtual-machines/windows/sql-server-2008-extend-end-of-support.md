@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c1dd2ba5eb6ee61a0f8cf151649441cbc783166
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784868"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553537"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Rozszerzona pomoc techniczna dla SQL Server 2008 i SQL Server 2008 R2 z platformą Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,9 +45,9 @@ Obrazy wdrożone za pomocą witryny Azure Marketplace są dostarczane z wstępni
 ## <a name="licensing"></a>Licencjonowanie
 Wdrożenia z opcją płatność zgodnie z rzeczywistym użyciem SQL Server 2008 R2 mogą być konwertowane na [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Aby przekonwertować licencję opartą na oprogramowaniu Software Assurance (SA) na płatność zgodnie z rzeczywistym użyciem, klienci powinni zarejestrować się u [dostawcy zasobów](sql-vm-resource-provider-register.md)maszyny wirtualnej SQL. Po tej rejestracji typ licencji SQL będzie można zamiennie zmienić między Korzyść użycia hybrydowego platformy Azure i płatność zgodnie z rzeczywistym użyciem.
+Aby przekonwertować licencję opartą na oprogramowaniu Software Assurance (SA) na płatność zgodnie z rzeczywistym użyciem, klienci powinni zarejestrować się w [rozszerzeniu programu SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). Po tej rejestracji typ licencji SQL będzie można zamiennie zmienić między Korzyść użycia hybrydowego platformy Azure i płatność zgodnie z rzeczywistym użyciem.
 
-Samoinstalowane SQL Server 2008 lub SQL Server 2008 R2 wystąpień na maszynie wirtualnej platformy Azure można zarejestrować u dostawcy zasobów maszyny wirtualnej SQL i przekonwertować typ licencji na płatność zgodnie z rzeczywistym użyciem.
+Na maszynie wirtualnej platformy Azure można zarejestrować samoinstalujące się SQL Server 2008 lub SQL Server 2008 R2, a następnie przekonwertować ich typ licencji na płatność zgodnie z rzeczywistym użyciem.
 
 ## <a name="migration"></a>Migracja
 Można migrować wystąpienia EOS SQL Server na maszynę wirtualną platformy Azure przy użyciu metod ręcznego tworzenia kopii zapasowej/przywracania. Jest to najbardziej typowa Metoda migracji z lokalizacji lokalnej do maszyny wirtualnej platformy Azure.
@@ -71,7 +71,8 @@ Rozwiązania do odzyskiwania po awarii dla EOS SQL Server na maszynie wirtualnej
 - **Azure Site Recovery** : można replikować maszynę wirtualną między strefami i regionami za poorednictwem replikacji Azure Site Recovery. SQL Server wymaga migawek spójnych z aplikacjami w celu zagwarantowania odzyskiwania w przypadku awarii. Azure Site Recovery oferuje co najmniej 1-godzinny cel punktu odzyskiwania oraz 2-godzinny (plus SQL Server) RTO na potrzeby odzyskiwania po awarii SQL Server.
 
 ## <a name="security-patching"></a>Stosowanie poprawek zabezpieczeń
-Rozszerzone aktualizacje zabezpieczeń dla maszyn wirtualnych SQL Server są dostarczane za pośrednictwem kanałów Microsoft Update po zarejestrowaniu maszyny wirtualnej SQL Server z [dostawcą zasobów](sql-vm-resource-provider-register.md)maszyny wirtualnej SQL. Poprawki można pobrać ręcznie lub automatycznie.
+
+Rozszerzone aktualizacje zabezpieczeń dla maszyn wirtualnych SQL Server są dostarczane za pośrednictwem kanałów Microsoft Update po zarejestrowaniu maszyny wirtualnej SQL Server z [rozszerzeniem agenta SQL IaaS](sql-agent-extension-manually-register-single-vm.md). Poprawki można pobrać ręcznie lub automatycznie.
 
 Opcja *Automatyczne stosowanie poprawek* jest domyślnie włączona. Automatyczne stosowanie poprawek umożliwia platformie Azure automatyczne stosowanie poprawek programu SQL Server i systemu operacyjnego. Jeśli zainstalowano rozszerzenie IaaS SQL Server, można określić dzień tygodnia, godzinę i czas trwania okna obsługi. Platforma Azure stosuje poprawki w tym oknie obsługi. Harmonogram okna obsługi korzysta z ustawień regionalnych godziny maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [zautomatyzowane stosowanie poprawek dla SQL Server w usłudze Azure Virtual Machines](automated-patching.md).
 

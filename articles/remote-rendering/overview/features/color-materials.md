@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: ce3174516d8046df53b5290bcfeea03756937129
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201532"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555111"
 ---
 # <a name="color-materials"></a>Materiały kolorów
 
@@ -22,7 +22,7 @@ Materiały koloru są wydajniejsze do renderowania niż w przypadku użycia [mat
 
 Te właściwości są wspólne dla wszystkich materiałów:
 
-* **albedoColor:** Ten kolor jest mnożony przez inne kolory, takie jak *albedoMap* lub * :::no-loc text="vertex"::: kolory*. Jeśli *przezroczystość* jest włączona w materiale, kanał alfa jest używany do dostosowywania nieprzezroczystości, `1` co oznacza całkowite nieprzezroczystość i `0` znaczenie w pełni przezroczyste. Wartość domyślna to biały.
+* **albedoColor:** Ten kolor jest mnożony przez inne kolory, takie jak *albedoMap* lub *:::no-loc text="vertex"::: kolory*. Jeśli *przezroczystość* jest włączona w materiale, kanał alfa jest używany do dostosowywania nieprzezroczystości, `1` co oznacza całkowite nieprzezroczystość i `0` znaczenie w pełni przezroczyste. Wartość domyślna to biały.
 
   > [!NOTE]
   > Ponieważ materiały koloru nie odzwierciedlają środowiska, całkowicie przezroczysty materiał koloru jest niewidoczny. Jest to różne dla [materiałów PBR](pbr-materials.md).
@@ -38,6 +38,12 @@ Te właściwości są wspólne dla wszystkich materiałów:
 * **isDoubleSided:** Jeśli jest ustawiona wartość true, Trójkąty z tym materiałem są renderowane, nawet jeśli lampa jest oglądana na ich powierzchni. Domyślnie ta opcja jest wyłączona. Zobacz też [ :::no-loc text="Single-sided"::: renderowanie](single-sided-rendering.md).
 
 * **TransparencyWritesDepth:** Jeśli flaga TransparencyWritesDepth jest ustawiona na materiale i materiał jest przezroczysty, obiekty korzystające z tego materiału również współtworzą końcowy bufor głębokości. Zapoznaj się z właściwością kolor *przezroczystości* w następnej sekcji. Włączenie tej funkcji jest zalecane, jeśli przypadek użycia wymaga bardziej wiarygodnego [rozmieszczenia](late-stage-reprojection.md) w pełni przezroczystych scen. W przypadku mieszanych, nieprzezroczystych/przezroczystych scen, to ustawienie może spowodować niewiarygodne zachowanie lub artefakty reprojektowe. Z tego powodu domyślnym i zalecanym ustawieniem dla ogólnego przypadku użycia jest wyłączenie tej flagi. Zapisywane wartości głębokości są pobierane z warstwy głębi pikseli obiektu znajdującego się najbliżej aparatu.
+
+* **FresnelEffect:** Ta flaga materiału umożliwia stosowanie dodatku [wygaszania Fresnela](../../overview/features/fresnel-effect.md) na odpowiednich materiałach. Wygląd efektu zależy od innych parametrów wygaszania Fresnela opisanych poniżej. 
+
+* **FresnelEffectColor:** Kolor wygaszania Fresnela używany dla tego materiału. Ważne tylko wtedy, gdy bit efektu wygaszania Fresnela został ustawiony w tym materiale (Zobacz powyżej). Ta właściwość kontroluje kolor podstawowy wygaszania Fresnela (zobacz [wygaszania Fresnela](../../overview/features/fresnel-effect.md) , aby uzyskać pełne wyjaśnienie). Obecnie tylko wartości kanału RGB są ważne, a wartość alfa zostanie zignorowana.
+
+* **FresnelEffectExponent:** Wykładnik wygaszania Fresnela używany dla tego materiału. Ważne tylko wtedy, gdy bit efektu wygaszania Fresnela został ustawiony w tym materiale (Zobacz powyżej). Ta właściwość kontroluje rozproszenie wygaszania Fresnela. Wartość minimalna 0,01 powoduje rozproszenie całego obiektu. Wartość maksymalna 10,0 powoduje ograniczenie największej liczby widocznych krawędzi gracing.
 
 ## <a name="color-material-properties"></a>Właściwości materiału koloru
 

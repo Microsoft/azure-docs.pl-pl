@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209940"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554703"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Samouczek: Zarządzanie flagami funkcji w konfiguracji aplikacji platformy Azure
 
@@ -50,12 +50,13 @@ Aby dodać nową flagę funkcji:
 
     ![Tworzenie flagi funkcji](./media/azure-app-configuration-feature-flag-create.png)
 
-1. Gdy stan jest *włączony*, wybierz pozycję **+ Dodaj filtr** , aby określić dodatkowe warunki do zakwalifikowania stanu. Wprowadź wbudowany lub niestandardowy klucz filtru, a następnie wybierz pozycję **+ Dodaj parametr** , aby skojarzyć jeden lub więcej parametrów z filtrem. Filtry wbudowane obejmują:
+1. Gdy stan jest *włączony* , wybierz pozycję **+ Dodaj filtr** , aby określić dodatkowe warunki do zakwalifikowania stanu. Wprowadź wbudowany lub niestandardowy klucz filtru, a następnie wybierz pozycję **+ Dodaj parametr** , aby skojarzyć jeden lub więcej parametrów z filtrem. Filtry wbudowane obejmują:
 
     | Klucz | Parametry JSON |
     |---|---|
     | Microsoft. PERCENTAGE | {"Value": 0-100 procent} |
     | Microsoft. TimeWindow | {"Start": czas UTC, "koniec": czas UTC} |
+    | Microsoft. określania wartości docelowej | {"Odbiorcy": obiekt BLOB JSON definiujący użytkowników, grupy i procenty wdrożenia. Zobacz przykład poniżej `EnabledFor` elementu [tego pliku ustawień](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Filtr flagi funkcji](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +66,7 @@ Aby zmienić wartość stanu flagi funkcji:
 
 1. Wybierz pozycję **Menedżer funkcji**.
 
-1. Z prawej strony flagi funkcji, którą chcesz zmodyfikować, wybierz wielokropek (**...**), a następnie wybierz pozycję **Edytuj**.
+1. Z prawej strony flagi funkcji, którą chcesz zmodyfikować, wybierz wielokropek ( **...** ), a następnie wybierz pozycję **Edytuj**.
 
 1. Ustaw nowy stan dla flagi funkcji.
 

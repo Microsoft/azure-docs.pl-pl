@@ -1,30 +1,31 @@
 ---
-title: Używanie filtrów funkcji do włączania funkcji dla podzbioru użytkowników
+title: Używanie filtrów funkcji do włączania flag funkcji warunkowej
 titleSuffix: Azure App Configuration
-description: Dowiedz się, jak używać filtrów funkcji, aby włączyć funkcję dla podzbioru użytkowników
+description: Dowiedz się, jak używać filtrów funkcji do włączania flag funkcji warunkowej
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af8df66e02dc9316311f36dec60374a7c4e649b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206765"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554770"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Używanie filtrów funkcji do włączania funkcji dla podzbioru użytkowników
+# <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Używanie filtrów funkcji do włączania flag funkcji warunkowej
 
 Flagi funkcji umożliwiają aktywowanie lub dezaktywowanie funkcji w aplikacji. Prosta flaga funkcji jest włączona lub wyłączona. Aplikacja zawsze działa tak samo. Można na przykład wdrożyć nową funkcję za flagą funkcji. Po włączeniu flagi funkcji wszyscy użytkownicy widzą nową funkcję. Wyłączenie flagi funkcji powoduje ukrycie nowej funkcji.
 
 W przeciwieństwie _Flaga funkcji warunkowej_ pozwala na dynamiczne Włączanie lub wyłączanie flagi funkcji. Aplikacja może zachowywać się inaczej, w zależności od kryteriów flagi funkcji. Załóżmy, że chcesz najpierw pokazać swoją nową funkcję w małym podzbiorze użytkowników. Flaga funkcji warunkowej umożliwia włączenie flagi funkcji dla niektórych użytkowników podczas jej wyłączania dla innych osób. _Filtry funkcji_ określają stan flagi funkcji zawsze wtedy, gdy jest ona szacowana.
 
-`Microsoft.FeatureManagement`Biblioteka zawiera dwa filtry funkcji:
+`Microsoft.FeatureManagement`Biblioteka zawiera trzy filtry funkcji:
 
 - `PercentageFilter` Włącza flagę funkcji na podstawie wartości procentowej.
 - `TimeWindowFilter` Włącza flagę funkcji w określonym przedziale czasu.
+- `TargetingFilter` Włącza flagę funkcji dla określonych użytkowników i grup.
 
 Możesz również utworzyć własny filtr funkcji, który implementuje [interfejs Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
@@ -55,7 +56,7 @@ Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze K
     > [!div class="mx-imgBorder"]
     > ![Edytuj flagę funkcji beta](./media/edit-beta-feature-flag.png)
 
-1. Na ekranie **Edycja** wybierz **przycisk radiowy** , jeśli nie został jeszcze wybrany. Następnie kliknij przycisk **Dodaj filtr** . (Etykieta **przycisku radiowego zmieni się na odczyt** **warunkowy**).
+1. Na ekranie **Edycja** wybierz **przycisk radiowy** , jeśli nie został jeszcze wybrany. Następnie kliknij przycisk **Dodaj filtr** . (Etykieta **przycisku radiowego zmieni się na odczyt** **warunkowy** ).
 
 1. W polu **klucz** wprowadź *wartość Microsoft. PERCENTAGE*.
 
@@ -84,9 +85,9 @@ Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze K
 Aby zobaczyć efekty tej flagi funkcji, uruchom aplikację i naciśnij wielokrotnie przycisk **odświeżania** w przeglądarce. Zobaczysz, że element *beta* pojawia się na pasku narzędzi około 50% czasu. Jest ona ukryta w pozostałej części czasu, ponieważ `PercentageFilter` dezaktywuje funkcję *beta* dla podzestawu żądań. Poniższe wideo pokazuje to zachowanie w działaniu.
 
 > [!div class="mx-imgBorder"]
-> ![PercentageFilter w działaniu](./media/feature-flags-percentagefilter.gif)
+> ![TargetingFilter w działaniu](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Omówienie zarządzania funkcjami](./concept-feature-management.md)
+> [Włącz etapowe wdrażanie funkcji dla docelowych odbiorców](./howto-targetingfilter-aspnet-core.md)

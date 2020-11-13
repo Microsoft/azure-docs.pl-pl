@@ -13,12 +13,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fcb6d4da3d9b044cf722c6333f61a0f8d38f1956
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4c8f0c636e254c4afc2d6cd83a744939096233a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598009"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553628"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Szybki Start: tworzenie SQL Server na maszynie wirtualnej z systemem Windows z Azure PowerShell
 
@@ -150,9 +150,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="register-with-sql-vm-rp"></a>Rejestrowanie za pomocą dostawcy zasobów maszyny wirtualnej SQL 
 
-Aby uzyskać integrację portalu i funkcje maszyny wirtualnej SQL, należy zarejestrować się u [dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
+Aby uzyskać integrację portalu i funkcje maszyny wirtualnej SQL, należy zarejestrować się w [rozszerzeniu programu SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 
-Aby uzyskać pełną funkcjonalność, należy zarejestrować się u dostawcy zasobów w trybie pełnym. Jednak spowoduje to ponowne uruchomienie usługi SQL Server, Dlatego zalecane jest zarejestrowanie w trybie uproszczonym, a następnie przeprowadzenie uaktualnienia do pełnej wersji w oknie obsługi. 
+Aby uzyskać pełną funkcjonalność, należy zarejestrować się z rozszerzeniem w trybie pełnym. Jednak spowoduje to ponowne uruchomienie usługi SQL Server, Dlatego zalecane jest zarejestrowanie w trybie uproszczonym, a następnie przeprowadzenie uaktualnienia do pełnej wersji w oknie obsługi. 
 
 Najpierw Zarejestruj maszynę wirtualną SQL Server w trybie uproszczonym: 
 
@@ -171,7 +171,7 @@ Następnie w oknie obsługi Uaktualnij do trybu pełnego:
 # Get the existing Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
-# Register with SQL VM resource provider in full mode
+# Register with SQL IaaS Agent extension in full mode
 Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
@@ -185,7 +185,7 @@ Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManag
    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Przekaż zwrócony adres IP jako parametr wiersza polecenia do elementu **mstsc**, aby rozpocząć sesję pulpitu zdalnego w nowej maszynie wirtualnej.
+1. Przekaż zwrócony adres IP jako parametr wiersza polecenia do elementu **mstsc** , aby rozpocząć sesję pulpitu zdalnego w nowej maszynie wirtualnej.
 
    ```
    mstsc /v:<publicIpAddress>

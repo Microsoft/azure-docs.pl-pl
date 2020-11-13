@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a9c8fce87b48b47f4bf82e5fd25fda12a25758
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192420"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553509"
 ---
 # <a name="operating-system-upgrade"></a>Uaktualnienie systemu operacyjnego
 W tym dokumencie opisano szczegółowe informacje dotyczące uaktualnień systemu operacyjnego w dużych wystąpieniach platformy HANA.
@@ -29,7 +29,7 @@ W tym dokumencie opisano szczegółowe informacje dotyczące uaktualnień system
 Podczas inicjowania obsługi administracyjnej jednostki w usłudze HLI zespół operacyjny firmy Microsoft instaluje ten system.
 W danym czasie wymagane jest zachowanie systemu operacyjnego (przykład: Poprawka, dostrajanie, uaktualnianie itp.) w jednostce.
 
-Przed wprowadzeniem istotnych zmian w systemie operacyjnym (na przykład uaktualnienia programu SP1 do wersji SP2) należy skontaktować się z zespołem ds. operacyjnych, otwierając bilet pomocy technicznej w celu konsultacji.
+Przed wprowadzeniem istotnych zmian w systemie operacyjnym (na przykład uaktualnieniem programu SP1 do wersji SP2) skontaktuj się z firmą Microsoft Operations Manager, otwierając bilet pomocy technicznej w celu konsultacji.
 
 Dołącz do biletu:
 
@@ -38,11 +38,9 @@ Dołącz do biletu:
 * Poziom poprawki, który ma zostać zastosowany.
 * Data, w której planowana jest ta zmiana. 
 
-Zalecamy otworzenie tego biletu z co najmniej jednego tygodnia przed pożądanym terminem uaktualnienia, z powodu sprawdzania zespołu operacji, jeśli w bloku serwera będzie wymagane uaktualnienie oprogramowania układowego.
-
+Zalecamy otworzenie tego biletu z co najmniej jednego tygodnia przed pożądanym uaktualnieniem, co umożliwi zespołowi oprationemu zapoznanie się z odpowiednią wersją oprogramowania układowego.
 
 Aby uzyskać macierz pomocy technicznej dla różnych wersji SAP HANA z różnymi wersjami systemu Linux, zobacz [uwagi dotyczące oprogramowania SAP #2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -55,16 +53,17 @@ Poniżej przedstawiono kilka typowych znanych problemów podczas uaktualniania:
 Konfiguracja systemu operacyjnego może przekroczyć zalecane ustawienia w miarę upływu czasu w związku z poprawkami, uaktualnieniami systemu i zmianami wprowadzonymi przez klientów. Ponadto firma Microsoft identyfikuje aktualizacje, które są konieczne dla istniejących systemów, aby upewnić się, że są one optymalnie skonfigurowane pod kątem najlepszej wydajności i odporności. Poniższe instrukcje przedstawiają zalecenia dotyczące wydajności sieci, stabilności systemu i optymalnej wydajności platformy HANA.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Zgodne wersje sterowników eNIC/fNIC
-  W celu zapewnienia prawidłowej wydajności sieci i stabilności systemu zaleca się zagwarantowanie, że dla systemu operacyjnego odpowiednie wersje sterowników eNIC i fNIC są zainstalowane zgodnie z poniższą tabelą zgodności. Serwery są dostarczane do klientów ze zgodnymi wersjami. Należy pamiętać, że w niektórych przypadkach podczas stosowania poprawek jądra systemu operacyjnego sterowniki mogą zostać przywrócone do domyślnych wersji sterowników. Upewnij się, że w odpowiedniej wersji sterownika działają operacje publikowania poprawek dla systemu operacyjnego/jądra.
+  W celu zapewnienia prawidłowej wydajności sieci i stabilności systemu zaleca się zagwarantowanie, że odpowiednia wersja systemu operacyjnego eNIC i sterowniki fNIC są zainstalowane zgodnie z poniższą tabelą zgodności. Serwery są dostarczane do klientów ze zgodnymi wersjami. W niektórych przypadkach podczas stosowania poprawek jądra systemu operacyjnego sterowniki mogą zostać przywrócone do domyślnych wersji sterowników. Upewnij się, że w odpowiedniej wersji sterownika działają operacje publikowania poprawek dla systemu operacyjnego/jądra.
        
       
   |  Dostawca systemu operacyjnego    |  Wersja pakietu systemu operacyjnego     |  Wersja oprogramowania układowego  |  Sterownik eNIC |  Sterownik fNIC | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   Szło        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
   |   Szło        |  SLES 12 Z DODATKIEM SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
-  |   Szło        |  SLES 12 SP4            |   3.2.3 i           |  2.3.0.47    |   2.0.0.54   |
+  |   Szło        |  SLES 12 SP4            |   3.2.3 i           |  4.0.0.6     |   2.0.0.60   |
   |   Szło        |  SLES 12 SP2            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
-  |   Szło        |  SLES 12 Z DODATKIEM SP3            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
+  |   Szło        |  SLES 12 Z DODATKIEM SP3            |   3.2.3 i           |  2.3.0.43    |   1.6.0.36   |
+  |   Szło        |  SLES 12 Z DODATKIEM SP5            |   3.2.3 i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7,2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -88,6 +87,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>Kroki instalacji sterowników eNIC/fNIC podczas uaktualniania systemu operacyjnego
+
+* Uaktualnij wersję systemu operacyjnego
+* Usuń pakiety starych RPM
+* Instaluj zgodne sterowniki eNIC/fNIC zgodnie z zainstalowaną wersją systemu operacyjnego
+* Uruchom ponownie system
+* Po ponownym uruchomieniu Sprawdź wersję eNIC/fNIC
+
 
 ### <a name="suse-hlis-grub-update-failure"></a>Niepowodzenie aktualizacji SuSE HLIs GRUB
 Usługa SAP w dużych wystąpieniach platformy Azure Hana (typ I) może być w stanie rozruchowym po uaktualnieniu. Poniższa procedura rozwiązuje ten problem.
@@ -117,7 +125,6 @@ blacklist edac_core
 ```
 Aby zmiany zostały wprowadzone, wymagany jest ponowny rozruch. Wykonaj `lsmod` polecenie i sprawdź, czy moduł nie znajduje się w danych wyjściowych.
 
-
 ### <a name="kernel-parameters"></a>Parametry jądra
    Upewnij się, że są stosowane poprawne ustawienia dla `transparent_hugepage` ,, `numa_balancing` `processor.max_cstate` `ignore_ce` i `intel_idle.max_cstate` .
 
@@ -126,7 +133,6 @@ Aby zmiany zostały wprowadzone, wymagany jest ponowny rozruch. Wykonaj `lsmod` 
 * transparent_hugepage = nigdy
 * numa_balancing = Wyłącz
 * MCE = ignore_ce
-
 
 #### <a name="execution-steps"></a>Kroki wykonywania
 

@@ -6,5 +6,5 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
 ms.locfileid: "90533360"
 ---
-<Token>**dotyczy:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: SQL Server na maszynie wirtualnej platformy Azure </Token> 
+<Token>**dotyczy:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: SQL Server na maszynie wirtualnej platformy Azure</Token> 
 

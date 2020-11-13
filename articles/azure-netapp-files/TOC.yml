@@ -11,8 +11,7 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Konfigurowanie usługi Azure NetApp Files i tworzenie woluminu systemu plików NFS — szablon usługi ARM
-      displayName: Resource Manager
+    - name: Konfigurowanie usługi Azure NetApp Files i tworzenie woluminu NFS
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Pojęcia
   items:
@@ -114,8 +113,6 @@
           href: develop-rest-api-powershell.md
         - name: 'Zestawy SDK, narzędzia interfejsu wiersza polecenia i szablony usługi ARM'
           href: azure-netapp-files-sdk-cli.md
-        - name: Rozwiązywanie problemów związanych z błędami dostawcy zasobów usługi Azure NetApp Files
-          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z pulami pojemności
@@ -126,6 +123,8 @@
           href: troubleshoot-dual-protocol-volumes.md
         - name: Rozwiązywanie problemów z zasadami migawek
           href: troubleshoot-snapshot-policies.md
+        - name: Rozwiązywanie problemów powodowanych przez błędy dostawcy zasobów
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Dokumentacja
   items:
     - name: REST

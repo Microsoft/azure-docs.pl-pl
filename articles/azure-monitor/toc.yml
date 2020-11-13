@@ -180,6 +180,21 @@
               href: app/pricing.md
             - name: Rejestrowanie użycia danych i kosztów
               href: platform/manage-cost-storage.md
+    - name: Metryki usługi Azure Monitor
+      items:
+        - name: Omówienie
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: Eksplorator metryk
+          items:
+            - name: Wprowadzenie do Eksploratora metryk
+              href: platform/metrics-getting-started.md
+            - name: Zaawansowane funkcje Eksploratora metryk
+              href: platform/metrics-charts.md
+            - name: Przykładowe wykresy metryk
+              href: platform/metric-chart-samples.md
+            - name: Rozwiązywanie problemów z wykresami metryk
+              href: platform/metrics-troubleshoot.md
     - name: Dzienniki usługi Azure Monitor
       items:
         - name: Omówienie
@@ -262,21 +277,10 @@
               href: platform/logs-export-logic-app.md
             - name: Wykonywanie zapytań dotyczących eksportowanych danych za pomocą usługi Data Explorer
               href: platform/azure-data-explorer-query-storage.md
-    - name: Metryki usługi Azure Monitor
-      items:
-        - name: Omówienie
-          displayname: Metrics
-          href: platform/data-platform-metrics.md
-        - name: Eksplorator metryk
-          items:
-            - name: Wprowadzenie do Eksploratora metryk
-              href: platform/metrics-getting-started.md
-            - name: Zaawansowane funkcje Eksploratora metryk
-              href: platform/metrics-charts.md
-            - name: Przykładowe wykresy metryk
-              href: platform/metric-chart-samples.md
-            - name: Rozwiązywanie problemów z wykresami metryk
-              href: platform/metrics-troubleshoot.md
+            - name: Wysyłanie do programu Excel
+              href: log-query/log-excel.md
+            - name: Wysyłanie do usługi Power BI
+              href: log-query/log-powerbi.md
     - name: Dzienniki platformy
       items:
         - name: Omówienie
@@ -575,12 +579,16 @@
                   displayname: 'ilogger, logging, log'
                   href: app/ilogger.md
             - name: ASP.NET
-              displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-              href: app/asp-net.md
-            - name: Aplikacje niekorzystające z protokołu HTTP/aplikacje w tle
+              items:
+                - name: Monitorowanie aplikacji ASP.NET
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: Rozwiązywanie problemów z platformą ASP.NET
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: Aplikacje niekorzystające z protokołu HTTP/działające w tle
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: Konsola .NET
+            - name: Konsola ASP.NET
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -590,18 +598,10 @@
                   href: app/java-get-started.md
                 - name: Ślady dzienników
                   href: app/java-trace-logs.md
-                - name: Metryki systemu UNIX
-                  href: app/java-collectd.md
                 - name: Zależności
                   href: app/java-agent.md
                 - name: Filtrowanie danych telemetrycznych
                   href: app/java-filter-telemetry.md
-                - name: Metryki mikrometryczne
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Aplikacja Spring Boot
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                 - name: Rozwiązywanie problemów
                   href: app/java-troubleshoot.md
             - name: Node.js
@@ -637,8 +637,6 @@
             - name: Podsumowanie interfejsu API usługi Application Insights
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
-            - name: Rozwiązywanie problemów z platformą ASP.NET
-              href: app/asp-net-troubleshoot-no-data.md
             - name: Usuwanie usługi Application Insights
               href: app/remove-application-insights.md
         - name: Monitorowanie bez użycia kodu
@@ -1241,6 +1239,8 @@
               href: app/release-notes.md
             - name: Rozszerzenie aplikacji internetowej
               href: app/web-app-extension-release-notes.md
+            - name: Debuger migawek
+              href: app/snapshot-collector-release-notes.md
         - name: Model danych
           items:
             - name: Omówienie
@@ -1323,6 +1323,11 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault Analytics (przestarzałe)
           href: insights/azure-key-vault-deprecated.md
+        - name: Metryki systemu UNIX
+          href: app/java-collectd.md
+        - name: Metryki mikrometryczne
+          displayname: java
+          href: app/micrometer-java.md
         - name: Widoki
           items:
             - name: Projektant widoków

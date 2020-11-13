@@ -48,6 +48,22 @@
           href: tutorial-dr-drill-azure.md
         - name: Przełączenie do trybu failover na platformie Azure
           href: vmware-azure-tutorial-failover-failback.md
+    - name: Odzyskiwanie po awarii usługi Azure VMware Solution na platformę Azure
+      items:
+        - name: Przygotowywanie platformy Azure
+          href: avs-tutorial-prepare-azure.md
+        - name: Przygotowywanie usługi Azure VMware Solution
+          href: avs-tutorial-prepare-avs.md
+        - name: Konfigurowanie replikacji
+          href: avs-tutorial-replication.md
+        - name: Uruchamianie próbnego odzyskiwania
+          href: avs-tutorial-dr-drill-azure.md
+        - name: Przełączenie do trybu failover na platformie Azure
+          href: avs-tutorial-failover.md
+        - name: Ponowne włączanie ochrony maszyn wirtualnych
+          href: avs-tutorial-reprotect.md
+        - name: Powrót po awarii z platformy Azure
+          href: avs-tutorial-failback.md
     - name: Odzyskiwanie po awarii maszyn wirtualnych funkcji Hyper-V na platformę Azure
       items:
         - name: Przygotowywanie platformy Azure

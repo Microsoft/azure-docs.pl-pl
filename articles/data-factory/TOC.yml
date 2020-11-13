@@ -451,6 +451,8 @@
           href: copy-activity-fault-tolerance.md
         - name: Weryfikacja spójności danych
           href: copy-activity-data-consistency.md
+        - name: Kopiowanie dziennika aktywności
+          href: copy-activity-log.md
         - name: Obsługa formatowania i kompresji (starsza wersja)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Przekształcanie danych

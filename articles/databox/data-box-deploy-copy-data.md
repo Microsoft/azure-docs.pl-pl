@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426253"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334673"
 ---
 ::: zone target="docs"
 
@@ -45,7 +45,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Przed rozpoczęciem upewnij się, że:
 
 1. Ukończono [Samouczek: konfigurowanie usługi Azure Data Box](data-box-deploy-set-up.md).
-2. Urządzenie Data Box zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono** .
+2. Urządzenie Data Box zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**.
 3. Masz komputer-host zawierający dane, które mają zostać skopiowane na urządzenie Data Box. Na komputerze hosta wymagane jest:
    * Korzystanie z [obsługiwanego systemu operacyjnego](data-box-system-requirements.md).
    * Połączenie z siecią o dużej szybkości. Zdecydowanie zaleca się posiadanie co najmniej jednego połączenia 10 GbE. Jeśli połączenie 10 GbE nie jest dostępne, użyj połączenia danych 1 GbE (będzie to miało negatywny wpływ na szybkość kopiowania).
@@ -70,11 +70,11 @@ W poniższej tabeli przedstawiono ścieżkę UNC do udziałów na urządzeniu Da
 
 Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące kroki, aby nawiązać połączenie z urządzeniem Data Box.
 
-1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj** . Wybierz pozycję **SMB** , aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
+1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **SMB** , aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
 
     ![Uzyskiwanie poświadczeń udziałów SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. W oknie dialogowym Uzyskiwanie dostępu do udziału i kopiowanie danych skopiuj wartości pól **Nazwa użytkownika** i **Hasło** odpowiedniego udziału. Jeśli hasło zawiera znaki specjalne, przed i po nim dodaj znaki podwójnego cudzysłowu. Następnie wybierz przycisk **OK** .
+2. W oknie dialogowym Uzyskiwanie dostępu do udziału i kopiowanie danych skopiuj wartości pól **Nazwa użytkownika** i **Hasło** odpowiedniego udziału. Jeśli hasło zawiera znaki specjalne, przed i po nim dodaj znaki podwójnego cudzysłowu. Następnie wybierz przycisk **OK**.
     
     ![Uzyskiwanie nazwy użytkownika i hasła udziału](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -103,7 +103,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     
     ![Udziały widoczne w Eksploratorze plików](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-    **Zawsze należy utworzyć w udziale folder na pliki, które chcesz skopiować, a następnie skopiować pliki do tego folderu** . Folder utworzony w ramach udziałów blokowych obiektów blob i stronicowych obiektów blob reprezentuje kontener, do którego dane są przekazywane w postaci obiektów blob. Plików nie można kopiować bezpośrednio do folderu *głównego* na koncie magazynu.
+    **Zawsze należy utworzyć w udziale folder na pliki, które chcesz skopiować, a następnie skopiować pliki do tego folderu**. Folder utworzony w ramach udziałów blokowych obiektów blob i stronicowych obiektów blob reprezentuje kontener, do którego dane są przekazywane w postaci obiektów blob. Plików nie można kopiować bezpośrednio do folderu *głównego* na koncie magazynu.
     
 W przypadku korzystania z klienta systemu Linux użyj następującego polecenia, aby zainstalować udział SMB. Parametr „vers” poniżej to wersja protokołu SMB obsługiwana przez Twój host z systemem Linux. Podłącz odpowiednią wersję w poleceniu poniżej. W przypadku wersji protokołu SMB obsługiwanych przez urządzenia Data Box zobacz [Obsługiwane systemy plików dla klientów systemu Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
@@ -227,13 +227,13 @@ Jeśli podczas kopiowania wystąpią błędy, zostanie wyświetlone powiadomieni
 
 ![Powiadomienie o błędzie kopiowania na stronie Łączenie i kopiowanie](media/data-box-deploy-copy-data/view-errors-1.png)
 
-Wybierz pozycję **Pobierz listę problemów** .
+Wybierz pozycję **Pobierz listę problemów**.
 
-![Błędy pobierania i wyświetlania na stronie Łączenie i kopiowanie 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![Łączenie i kopiowanie, Pobierz listę problemów](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Otwórz listę, aby wyświetlić szczegóły błędu, a następnie wybierz adres URL rozwiązania, aby wyświetlić zalecane rozwiązanie.
 
-![Błędy pobierania i wyświetlania na stronie Łączenie i kopiowanie 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![Łączenie i kopiowanie, pobieranie i wyświetlanie błędów](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Aby uzyskać więcej informacji, zobacz [Wyświetlanie dzienników błędów podczas kopiowania danych na urządzenie Data Box](data-box-logs.md#view-error-log-during-data-copy). Aby uzyskać szczegółową listę błędów występujących podczas kopiowania danych, zobacz [Rozwiązywanie problemów z urządzeniem Data Box](data-box-troubleshoot.md).
 
@@ -279,7 +279,7 @@ Aby uzyskać instrukcje krok po kroku, zobacz [Samouczek: Kopiowanie danych na u
 
 Aby skopiować dane za pośrednictwem interfejsu REST:
 
-1. Aby skopiować dane przy użyciu magazynu obiektów blob usługi Data Box za pośrednictwem interfejsów API REST, możesz nawiązać połączenie za pośrednictwem protokołu *HTTP* lub *HTTPS* .
+1. Aby skopiować dane przy użyciu magazynu obiektów blob usługi Data Box za pośrednictwem interfejsów API REST, możesz nawiązać połączenie za pośrednictwem protokołu *HTTP* lub *HTTPS*.
 2. Do kopiowania danych do magazynu obiektów blob usługi Data Box można użyć programu AzCopy.
 
 Aby uzyskać instrukcje krok po kroku, zobacz [Samouczek: Kopiowanie danych do magazynu obiektów blob usługi Azure Data Box za pośrednictwem interfejsów API REST](data-box-deploy-copy-data-via-nfs.md).

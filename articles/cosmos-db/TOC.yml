@@ -703,6 +703,8 @@
               href: migrate-java-v4-sdk.md
             - name: Migracja do zestawu SDK platformy .NET w wersji 3
               href: migrate-dotnet-v3.md
+            - name: Migracja do zestawu SDK platformy .NET w wersji 2
+              href: migrate-dotnet-v2.md
         - name: Rozwiązywanie problemów
           items:
             - name: Typowe błędy

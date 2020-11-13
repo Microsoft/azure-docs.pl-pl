@@ -1,7 +1,7 @@
 ---
 title: Importowanie danych do projektanta
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak importować dane do programu Azure Machine Learning Designer z różnych źródeł danych.
+description: Dowiedz się, jak importować dane do projektanta Azure Machine Learning przy użyciu Azure Machine Learning zestawów danych i modułu Importuj dane.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985605"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554720"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importowanie danych do programu Azure Machine Learning Designer
 
@@ -89,8 +89,8 @@ Projektant obsługuje tabelaryczne zestawy danych utworzone na podstawie następ
 
 Projektant wewnętrznie rozpoznaje następujące typy danych:
 
-* Ciąg
-* Liczba całkowita
+* String
+* Integer
 * Liczba dziesiętna
 * Wartość logiczna
 * Date

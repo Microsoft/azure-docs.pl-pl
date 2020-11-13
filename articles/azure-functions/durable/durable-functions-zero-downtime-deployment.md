@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093072"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553696"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Wdrożenie bez przestojów dla Durable Functions
 
@@ -25,11 +25,11 @@ Poniższy wykres zawiera porównanie trzech głównych strategii w celu osiągni
 
 | Strategia |  Kiedy stosować | Zalety | Wady |
 | -------- | ------------ | ---- | ---- |
-| [Obsługa wersji](#versioning) |  Aplikacje, które nie są często spotykanymi [zmianami.](durable-functions-versioning.md) | Łatwość zaimplementowania. |  Zwiększony rozmiar aplikacji funkcji w pamięci i liczbie funkcji.<br/>Duplikowanie kodu. |
+| [Przechowywanie wersji](#versioning) |  Aplikacje, które nie są często spotykanymi [zmianami.](durable-functions-versioning.md) | Łatwość zaimplementowania. |  Zwiększony rozmiar aplikacji funkcji w pamięci i liczbie funkcji.<br/>Duplikowanie kodu. |
 | [Sprawdzanie stanu z miejscem](#status-check-with-slot) | System, który nie ma długotrwałych aranżacji trwających dłużej niż 24 godziny lub często nakładających się aranżacji. | Prosta baza kodu.<br/>Nie wymaga dodatkowego zarządzania aplikacjami funkcji. | Wymaga dodatkowego konta magazynu lub zarządzania centrum zadań.<br/>Wymaga okresu czasu, gdy nie są uruchomione żadne aranżacje. |
 | [Routing aplikacji](#application-routing) | System, który nie ma okresów czasu, gdy aranżacje nie działają, takich jak okresy czasowe z aranżacjami w ciągu ostatnich 24 godzin lub z często nakładającymi się aranżacjami. | Obsługuje nowe wersje systemów z ciągle uruchomionymi aranżacjami, które mają istotne zmiany. | Wymaga inteligentnego routera aplikacji.<br/>Można maksymalnie przekroczyć liczbę aplikacji funkcji dozwolonych przez twoją subskrypcję. Wartość domyślna to 100. |
 
-## <a name="versioning"></a>Obsługa wersji
+## <a name="versioning"></a>Przechowywanie wersji
 
 Zdefiniuj nowe wersje funkcji i pozostaw stare wersje w aplikacji funkcji. Jak widać na diagramie, wersja funkcji stanie się częścią nazwy. Ze względu na to, że poprzednie wersje funkcji są zachowywane, wystąpienia aranżacji w locie mogą nadal odwoływać się do nich. Tymczasem żądania nowych wystąpień aranżacji wywołują najnowszą wersję, którą funkcja klienta aranżacji może odwoływać się z poziomu aplikacji.
 
@@ -54,7 +54,7 @@ Aby skonfigurować ten scenariusz, należy wykonać poniższą procedurę.
 
 1. Dla każdego miejsca Utwórz nowe ustawienie aplikacji, na przykład `DurableManagementStorage` . Ustaw jej wartość na parametry połączenia różnych kont magazynu. Te konta magazynu są używane przez rozszerzenie Durable Functions do [niezawodnego wykonywania](./durable-functions-orchestrations.md). Użyj oddzielnego konta magazynu dla każdego miejsca. Nie oznaczaj tego ustawienia jako ustawienia miejsca wdrożenia.
 
-1. Whost.jsaplikacji funkcji w [ sekcji durableTask pliku](durable-functions-bindings.md#hostjson-settings)Określ `azureStorageConnectionStringName` jako nazwę ustawienia aplikacji utworzonego w kroku 3.
+1. Whost.jsaplikacji funkcji w [ sekcji durableTask pliku](durable-functions-bindings.md#hostjson-settings)Określ `connectionStringName` (trwały 2. x) lub `azureStorageConnectionStringName` (trwałe 1. x) jako nazwę ustawienia aplikacji utworzonego w kroku 3.
 
 Na poniższym diagramie przedstawiono opisaną konfigurację miejsc wdrożenia i kont magazynu. W tym potencjalnym scenariuszu preinstalacji wersja 2 aplikacji funkcji jest uruchomiona w miejscu produkcyjnym, natomiast wersja 1 pozostaje w miejscu przejściowym.
 
@@ -71,7 +71,10 @@ Poniższe fragmenty kodu JSON to przykłady ustawienia parametrów połączenia 
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: de93d96085269c2cc8fcf6c18d7e6643facfcaa4
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043275"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372714"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Programowe tworzenie subskrypcji platformy Azure za pomocą najnowszych interfejsów API
 
@@ -798,7 +798,15 @@ Aby zautomatyzować procesy wdrażania w środowisku produkcyjnym/testowym, moż
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Aby tworzyć subskrypcje, musisz mieć rolę właściciela, współautora lub twórcy subskrypcji platformy Azure w sekcji faktury albo rolę właściciela lub współautora w profilu rozliczeniowym lub na koncie rozliczeniowym. Aby uzyskać więcej informacji, zobacz [Role rozliczeniowe i zadania w subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Aby tworzyć subskrypcje, musisz mieć jedną z następujących ról: 
+
+- Właściciel subskrypcji platformy Azure w sekcji faktury
+- Współautor subskrypcji platformy Azure w sekcji faktury
+- Twórca subskrypcji platformy Azure w sekcji faktury
+- Właściciel subskrypcji platformy Azure w ramach profilu rozliczeniowego lub konta rozliczeniowego
+- Współautor subskrypcji platformy Azure w ramach profilu rozliczeniowego lub konta rozliczeniowego
+
+ Aby uzyskać więcej informacji, zobacz [Role rozliczeniowe i zadania w subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 Ponadto, ponieważ wykonujesz wdrożenie przy użyciu szablonu usługi ARM, musisz mieć uprawnienia do zapisu w obiekcie głównym. Dlatego jeśli tworzysz wdrożenie za pomocą usługi ARM w grupie zarządzania, musisz mieć uprawnienia do zapisu w tej grupie zarządzania. Należy pamiętać, że wykonywane jest tu tylko wdrażanie za pomocą usługi ARM. Jeśli jest tworzona subskrypcja, jest ona tworzona tylko w grupie zarządzania określonej w szablonie usługi ARM.
 

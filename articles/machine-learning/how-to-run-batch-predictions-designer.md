@@ -1,7 +1,7 @@
 ---
 title: Uruchamianie prognoz wsadowych za pomocą narzędzia Azure Machine Learning Designer
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak szkolić model i skonfigurować potok prognozowania usługi Batch przy użyciu narzędzia Projektant. Wdróż potok jako sparametryzowanej usługi sieci Web, która może być wyzwalana z dowolnej biblioteki HTTP.
+description: Dowiedz się, jak utworzyć potok przewidywania wsadowego. Wdróż potok jako sparametryzowanej usługi sieci Web i Wyzwól ją z dowolnej biblioteki HTTP.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325449"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553950"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Uruchamianie prognoz wsadowych za pomocą narzędzia Azure Machine Learning Designer
 
