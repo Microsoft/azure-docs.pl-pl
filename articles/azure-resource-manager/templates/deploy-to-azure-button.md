@@ -3,12 +3,12 @@ title: Przycisk Wdróż na platformie Azure
 description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z repozytorium GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490903"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555270"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
 
@@ -19,11 +19,15 @@ Zakres wdrożenia jest określany przez schemat szablonu. Aby uzyskać więcej i
 * [grupy zasobów](deploy-to-resource-group.md)
 * [opłaty](deploy-to-subscription.md)
 * [grupy zarządzania](deploy-to-management-group.md)
-* [dzierżawcy](deploy-to-tenant.md).
+* [dzierżaw](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Użyj wspólnego obrazu
 
 Aby dodać przycisk do strony sieci Web lub repozytorium, użyj następującego obrazu:
+
+```markdown
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+```
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
@@ -48,6 +52,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 Następnie przekonwertuj adres URL na wartość zakodowaną w adresie URL. Możesz użyć kodera online lub uruchomić polecenie. Poniższy przykład programu PowerShell przedstawia sposób kodowania wartości przy użyciu adresu URL.
 
 ```powershell
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
@@ -70,6 +75,8 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 ```
 
 Masz pełny adres URL linku.
+
+Zwykle hostuje szablon w publicznym repozytorium. Jeśli używasz repozytorium prywatnego, musisz dołączyć token, aby uzyskać dostęp do nieprzetworzonej zawartości szablonu. Token wygenerowany przez witrynę GitHub jest ważny tylko przez krótki czas. Należy często aktualizować link.
 
 Jeśli korzystasz [z narzędzia Git z Azure Repos](/azure/devops/repos/git/) zamiast repozytorium GitHub, możesz nadal korzystać z przycisku Wdróż na platformie Azure. Upewnij się, że Twoje repozytorium jest publiczne. Użyj [operacji Items](/rest/api/azure/devops/git/items/get) , aby pobrać szablon. Twoje żądanie powinno mieć następujący format:
 

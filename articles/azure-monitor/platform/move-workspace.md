@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
-ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372280"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555536"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -29,14 +29,14 @@ W ramach tej samej dzierżawy Azure Active Directory musi istnieć źródłowa i
 ```
 
 ## <a name="workspace-move-considerations"></a>Zagadnienia dotyczące przenoszenia obszaru roboczego
-Rozwiązania zarządzane, które są zainstalowane w obszarze roboczym, zostaną przeniesione z Log Analytics operacji przenoszenia obszaru roboczego. Połączone agenci pozostaną połączone i będą wysyłać dane do obszaru roboczego po przeniesieniu. Ponieważ operacja przenoszenia wymaga, aby w obszarze roboczym nie było żadnych połączonych usług, należy usunąć rozwiązania, które korzystają z tego linku, aby umożliwić przeniesienie obszaru roboczego.
-
-Rozwiązania, które należy usunąć, aby można było odłączyć konto usługi Automation:
-
-- Zarządzanie aktualizacjami
-- Śledzenie zmian
-- Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
-- Azure Security Center
+- Rozwiązania zarządzane, które są zainstalowane w obszarze roboczym, zostaną przeniesione z Log Analytics operacji przenoszenia obszaru roboczego. 
+- Klucze obszaru roboczego zostały ponownie wygenerowane przy użyciu przenoszenia obszaru roboczego (podstawowa i pomocnicza). Jeśli klucz obszaru roboczego jest magazynem, zaktualizuj je przy użyciu nowych wygenerowanych kluczy. 
+- Połączone agenci pozostaną połączone i będą wysyłać dane do obszaru roboczego po przeniesieniu. 
+- Ponieważ operacja przenoszenia wymaga, aby w obszarze roboczym nie było żadnych połączonych usług, należy usunąć rozwiązania, które korzystają z tego linku, aby umożliwić przeniesienie obszaru roboczego. Rozwiązania, które należy usunąć, aby można było odłączyć konto usługi Automation:
+  - Zarządzanie aktualizacjami
+  - Śledzenie zmian
+  - Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
+  - Azure Security Center
 
 >[!IMPORTANT]
 > **Klienci z wskaźnikiem na platformę Azure**

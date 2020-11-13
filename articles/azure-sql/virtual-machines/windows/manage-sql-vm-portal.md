@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b563e8ca93487a123f97f0bbb86624dc3be2db0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316974"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556294"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Zarządzanie maszynami wirtualnymi SQL Server na platformie Azure przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ W [Azure Portal](https://portal.azure.com)zasób [**maszyny wirtualne SQL**](htt
 ## <a name="remarks"></a>Uwagi
 
 - Zalecamy używanie zasobu [**maszyny wirtualne SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) do wyświetlania maszyn wirtualnych SQL Server i zarządzania nimi na platformie Azure. Obecnie zasób **maszyn wirtualnych SQL** nie obsługuje zarządzania [końcami](sql-server-2008-extend-end-of-support.md) SQL Server maszyn wirtualnych. Aby zarządzać ustawieniami dla punktów końcowych SQL Server, użyj [karty konfiguracja](#access-the-sql-server-configuration-tab) przestarzałej SQL Server. 
-- Zasób **maszyny wirtualne SQL** jest dostępny tylko dla SQL Server maszyn wirtualnych [zarejestrowanych w dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md). 
+- Zasób **maszyny wirtualne SQL** jest dostępny tylko dla SQL Server maszyn wirtualnych, które zostały [zarejestrowane przy użyciu rozszerzenia agenta SQL IaaS](sql-agent-extension-manually-register-single-vm.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Dostęp do zasobu maszyn wirtualnych SQL
@@ -57,7 +57,7 @@ Aby uzyskać dostęp do zasobu **maszyny wirtualne SQL** , wykonaj następujące
 > Zasób **maszyn wirtualnych SQL** jest przeznaczony dla dedykowanych ustawień SQL Server. Wybierz nazwę maszyny wirtualnej w polu **maszyna wirtualna** , aby otworzyć ustawienia specyficzne dla maszyny wirtualnej, ale nie wyłącznie do SQL Server. 
 
 ## <a name="access-the-sql-server-configuration-tab"></a>Dostęp do karty konfiguracja SQL Server
-Karta **konfiguracja SQL Server** była przestarzała. W tej chwili jest jedyną metodą zarządzania [końcami](sql-server-2008-extend-end-of-support.md) SQL Server maszynami wirtualnymi, a SQL Server maszyn wirtualnych, które nie zostały [zarejestrowane w dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
+Karta **konfiguracja SQL Server** była przestarzała. Teraz jest to jedyna metoda zarządzania [końcowymi](sql-server-2008-extend-end-of-support.md) SQL Server maszynami wirtualnymi, a SQL Server maszyn wirtualnych, które nie zostały [zarejestrowane przy użyciu rozszerzenia agenta SQL IaaS](sql-agent-extension-manually-register-single-vm.md).
 
 Aby uzyskać dostęp do karty **Konfiguracja** przestarzałej SQL Server, przejdź do zasobu **maszyny wirtualne** . Wykonaj następujące kroki:
 

@@ -1,15 +1,15 @@
 ---
 title: Zablokuj zasoby, aby uniemożliwić zmiany
-description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania krytycznych zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
+description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340145"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555672"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -74,19 +74,91 @@ Aby usunąć wszystkie elementy usługi, w tym zablokowaną grupę zasobów infr
 
 ### <a name="arm-template"></a>Szablon ARM
 
-W przypadku użycia szablonu Menedżer zasobów do wdrożenia blokady należy użyć różnych wartości dla nazwy i typu w zależności od zakresu blokady.
+W przypadku używania szablonu Azure Resource Manager (szablonu ARM) do wdrożenia blokady należy mieć świadomość zakresu blokady i zakresu wdrożenia. Aby zastosować blokadę w zakresie wdrożenia, na przykład blokując grupę zasobów lub subskrypcję, nie ustawiaj właściwości Scope. W przypadku blokowania zasobu w ramach zakresu wdrożenia ustaw właściwość Scope.
 
-W przypadku zastosowania blokady do **zasobu** należy użyć następujących formatów:
+Poniższy szablon stosuje blokadę do grupy zasobów, w której jest wdrażana. Zwróć uwagę, że w zasobie nie ma właściwości Scope, ponieważ zakres blokady jest zgodny z zakresem wdrożenia. Ten szablon jest wdrażany na poziomie grupy zasobów.
 
-* Nazwij `{resourceName}/Microsoft.Authorization/{lockName}`
-* Wprowadź `{resourceProviderNamespace}/{resourceType}/providers/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2016-09-01",
+            "name": "rgLock",
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource Group should not be deleted."
+            }
+        }
+    ]
+}
+```
 
-W przypadku stosowania blokady do **grupy zasobów** lub **subskrypcji** należy użyć następujących formatów:
+Aby utworzyć grupę zasobów i zablokować ją, wdróż następujący szablon na poziomie subskrypcji.
 
-* Nazwij `{lockName}`
-* Wprowadź `Microsoft.Authorization/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "name": "[parameters('rgName')]",
+            "location": "[parameters('rgLocation')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "lockDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/locks",
+                            "apiVersion": "2016-09-01",
+                            "name": "rgLock",
+                            "properties": {
+                                "level": "CanNotDelete",
+                                "notes": "Resource group and its resources should not be deleted."
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
-Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service, witrynę sieci Web i blokadę w witrynie sieci Web. Typ zasobu blokady to typ zasobu zasobu do zablokowania i **/providers/Locks**. Nazwa blokady jest tworzona przez połączenie nazwy zasobu z **/Microsoft.Authorization/** i nazwę blokady.
+W przypadku zastosowania blokady do **zasobu** w grupie zasobów Dodaj właściwość Scope. Ustaw zakres na nazwę zasobu do zablokowania.
+
+Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service, witrynę sieci Web i blokadę w witrynie sieci Web. Zakres blokady jest ustawiany na witrynę sieci Web.
 
 ```json
 {
@@ -95,6 +167,10 @@ Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service,
   "parameters": {
     "hostingPlanName": {
       "type": "string"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -103,9 +179,9 @@ Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service,
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "tier": "Free",
         "name": "f1",
@@ -117,9 +193,9 @@ Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service,
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[variables('siteName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -128,9 +204,10 @@ Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service,
       }
     },
     {
-      "type": "Microsoft.Web/sites/providers/locks",
+      "type": "Microsoft.Authorization/locks",
       "apiVersion": "2016-09-01",
-      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "name": "siteLock",
+      "scope": "[concat('Microsoft.Web/sites/', variables('siteName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
       ],
@@ -142,8 +219,6 @@ Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service,
   ]
 }
 ```
-
-Aby zapoznać się z przykładem ustawienia blokady grupy zasobów, zobacz [Tworzenie grupy zasobów i blokowanie jej](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

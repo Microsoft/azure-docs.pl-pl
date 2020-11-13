@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245856"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560858"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Rozwiązania na platformie Azure Virtual Machines
 
@@ -29,7 +29,7 @@ Zacznij wdrożyć maszynę wirtualną DCsv2-Series za pośrednictwem komercyjnej
 
 ### <a name="current-available-sizes-and-regions"></a>Bieżące dostępne rozmiary i regiony
 
-Aby wyświetlić listę wszystkich ogólnie dostępnych poufnych rozmiarów maszyn wirtualnych w dostępnych regionach i strefach dostępności, uruchom następujące polecenie w [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+Aby wyświetlić listę wszystkich ogólnie dostępnych poufnych rozmiarów maszyn wirtualnych w dostępnych regionach i strefach dostępności, uruchom następujące polecenie w [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
 az vm list-skus `
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Wymagania dedykowanego hosta
-Wdrożenie **Standard_DC8_v2** rozmiaru maszyny wirtualnej w rodzinie DCSv2-Series VM zajmie pełny Host i nie będzie współużytkowane z innymi dzierżawcami lub subskrypcjami. Ta rodzina SKU maszyn wirtualnych zapewnia izolację, którą może być potrzebna w celu spełnienia wymagań prawnych dotyczących zgodności i zabezpieczeń, które zwykle są spełnione przez posiadanie dedykowanej usługi hosta. W przypadku wybrania **Standard_DC8_v2** jednostki SKU fizyczny serwer hosta przydzieli wszystkie dostępne zasoby sprzętowe, w tym tylko pamięć sygnatury EPC dla maszyny wirtualnej. Należy pamiętać, że ta funkcja istnieje w ramach projektu infrastruktury i wszystkie funkcje **Standard_DC8_v2** będą obsługiwane. To wdrożenie nie jest takie samo jak [dedykowana usługa hosta platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) dostarczana przez inne rodziny maszyn wirtualnych platformy Azure.
+Wdrożenie **Standard_DC8_v2** rozmiaru maszyny wirtualnej w rodzinie DCSv2-Series VM zajmie pełny Host i nie będzie współużytkowane z innymi dzierżawcami lub subskrypcjami. Ta rodzina SKU maszyn wirtualnych zapewnia izolację, którą może być potrzebna w celu spełnienia wymagań prawnych dotyczących zgodności i zabezpieczeń, które zwykle są spełnione przez posiadanie dedykowanej usługi hosta. W przypadku wybrania **Standard_DC8_v2** jednostki SKU fizyczny serwer hosta przydzieli wszystkie dostępne zasoby sprzętowe, w tym tylko pamięć sygnatury EPC dla maszyny wirtualnej. Należy pamiętać, że ta funkcja istnieje w ramach projektu infrastruktury i wszystkie funkcje **Standard_DC8_v2** będą obsługiwane. To wdrożenie nie jest takie samo jak [dedykowana usługa hosta platformy Azure](../virtual-machines/dedicated-hosts.md) dostarczana przez inne rodziny maszyn wirtualnych platformy Azure.
 
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
@@ -59,14 +59,14 @@ Postępuj zgodnie z samouczkiem szybkiego startu, aby wdrożyć maszynę wirtual
 - **Cennik i dostępność regionalna** — znajdź Cennik DCsv2-Series maszyn wirtualnych na [stronie cennika maszyny wirtualnej](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Sprawdź dostępność [produktów według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) w regionach świadczenia usługi Azure.
 
 
-- **Przydział rdzeni** — może być konieczne zwiększenie limitu przydziału rdzeni w ramach subskrypcji platformy Azure z wartości domyślnej. Twoja subskrypcja może również ograniczyć liczbę rdzeni, które można wdrożyć w niektórych rodzinach rozmiarów maszyn wirtualnych, w tym serii DCsv2. Aby zażądać zwiększenia limitu przydziału, [Otwórz bezpłatnie żądanie pomocy technicznej w trybie online](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) . Uwaga, limity domyślne mogą się różnić w zależności od kategorii subskrypcji.
+- **Przydział rdzeni** — może być konieczne zwiększenie limitu przydziału rdzeni w ramach subskrypcji platformy Azure z wartości domyślnej. Twoja subskrypcja może również ograniczyć liczbę rdzeni, które można wdrożyć w niektórych rodzinach rozmiarów maszyn wirtualnych, w tym serii DCsv2. Aby zażądać zwiększenia limitu przydziału, [Otwórz bezpłatnie żądanie pomocy technicznej w trybie online](../azure-portal/supportability/per-vm-quota-requests.md) . Uwaga, limity domyślne mogą się różnić w zależności od kategorii subskrypcji.
 
   > [!NOTE]
   > Skontaktuj się z pomocą techniczną platformy Azure, jeśli potrzebujesz dużej pojemności. Przydziały platformy Azure to limity kredytowe, a nie gwarancje wydajności. Niezależnie od limitu przydziału opłata jest naliczana tylko za używane rdzenie.
   
 - Zmiana **rozmiaru** — ze względu na wyspecjalizowany sprzęt można zmienić rozmiar poufnych wystąpień obliczeniowych w ramach tej samej rodziny. Na przykład można zmienić rozmiar maszyny wirtualnej serii DCsv2 z jednego rozmiaru serii DCsv2 na inny. Zmienianie rozmiaru niepoufnego rozmiaru obliczeniowego na poufne nie jest obsługiwane.  
 
-- **Obraz** — w celu zapewnienia obsługi rozszerzenia firmy Intel (Intel SGX) w odniesieniu do poufnych wystąpień obliczeniowych wszystkie wdrożenia muszą być uruchamiane na obrazach generacji 2. Usługa Azure CONFIDENTIAL Computing obsługuje obciążenia działające w Ubuntu 18,04 Gen 2, Ubuntu 16,04 Gen 2, Windows Server 2019 Gen2 i Windows Server 2016 Gen 2. Przeczytaj o [obsłudze maszyn wirtualnych 2. generacji na platformie Azure](../virtual-machines/linux/generation-2.md) , aby dowiedzieć się więcej na temat obsługiwanych i nieobsługiwanych scenariuszy. 
+- **Obraz** — w celu zapewnienia obsługi rozszerzenia firmy Intel (Intel SGX) w odniesieniu do poufnych wystąpień obliczeniowych wszystkie wdrożenia muszą być uruchamiane na obrazach generacji 2. Usługa Azure CONFIDENTIAL Computing obsługuje obciążenia działające w Ubuntu 18,04 Gen 2, Ubuntu 16,04 Gen 2, Windows Server 2019 Gen2 i Windows Server 2016 Gen 2. Przeczytaj o [obsłudze maszyn wirtualnych 2. generacji na platformie Azure](../virtual-machines/generation-2.md) , aby dowiedzieć się więcej na temat obsługiwanych i nieobsługiwanych scenariuszy. 
 
 - **Magazyn** — usługa Azure poufne dyski danych maszyn wirtualnych i naszych tymczasowych dysków systemu operacyjnego znajdują się na dyskach interfejsu NVMe. Wystąpienia obsługują tylko SSD w warstwie Premium i SSD w warstwie Standardowa dysków, a nie SSD w warstwie Ultra lub HDD w warstwie Standardowa. Rozmiar maszyny wirtualnej **DC8_v2** nie obsługuje magazynu w warstwie Premium. 
 
@@ -76,7 +76,7 @@ Postępuj zgodnie z samouczkiem szybkiego startu, aby wdrożyć maszynę wirtual
 
 W przypadku korzystania z maszyn wirtualnych na platformie Azure użytkownik jest odpowiedzialny za wdrożenie rozwiązania wysokiej dostępności i odzyskiwania po awarii w celu uniknięcia wszelkich przestojów. 
 
-Dane poufne platformy Azure nie obsługują nadmiarowości strefy za pośrednictwem Strefy dostępności w tym momencie. Aby zapewnić najwyższą dostępność i nadmiarowość na potrzeby danych poufnych, użyj [zestawów dostępności](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Ze względu na ograniczenia sprzętowe zestawy dostępności dla wystąpień z danymi poufnymi mogą mieć maksymalnie 10 domen aktualizacji. 
+Dane poufne platformy Azure nie obsługują nadmiarowości strefy za pośrednictwem Strefy dostępności w tym momencie. Aby zapewnić najwyższą dostępność i nadmiarowość na potrzeby danych poufnych, użyj [zestawów dostępności](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Ze względu na ograniczenia sprzętowe zestawy dostępności dla wystąpień z danymi poufnymi mogą mieć maksymalnie 10 domen aktualizacji. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Wdrożenie z szablonem Azure Resource Manager (ARM)
 
@@ -101,7 +101,7 @@ Określ jeden z następujących rozmiarów w szablonie ARM w zasobów maszyny wi
 
 ### <a name="gen2-os-image"></a>Obraz systemu operacyjnego Gen2
 
-W obszarze **Właściwości**należy również odwoływać się do obrazu w obszarze **obszarze storageprofile**. Użyj *tylko jednego* z następujących obrazów dla **elementu imagereference**.
+W obszarze **Właściwości** należy również odwoływać się do obrazu w obszarze **obszarze storageprofile**. Użyj *tylko jednego* z następujących obrazów dla **elementu imagereference**.
 
 ```json
       "2019-datacenter-gensecond": {

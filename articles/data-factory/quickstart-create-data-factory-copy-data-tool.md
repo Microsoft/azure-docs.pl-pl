@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/10/2020
-ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: 24ebd9a89f94d062672ec7246163abb93396813f
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84735199"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555965"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Szybki Start: Używanie narzędzia Kopiowanie danych do kopiowania danych
 
@@ -37,20 +37,20 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com). 
-1. Z menu Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów:
+1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**  >  **integracja**  >  **Data Factory** :
 
     ![Tworzenie nowej fabryki danych](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**. 
  
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład ** &lt; &gt; ADFTutorialDataFactory**) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład **&lt; &gt; ADFTutorialDataFactory** ) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    ![Komunikat o błędzie występujący, jeśli nazwa jest niedostępna](./media/doc-common-process/name-not-available-error.png)
 1. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
 1. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
      
-   - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy. 
-   - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
+   - Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy. 
+   - Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.   
          
    Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 1. W obszarze **Wersja** wybierz pozycję **V2**.
@@ -60,13 +60,13 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
 1. Wybierz przycisk **Utwórz**.
 
-1. Po zakończeniu tworzenia zostanie wyświetlona strona **Data Factory** . Wybierz kafelek **Tworzenie i monitorowanie**, aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Azure Data Factory.
+1. Po zakończeniu tworzenia zostanie wyświetlona strona **Data Factory** . Wybierz kafelek **Tworzenie i monitorowanie** , aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Azure Data Factory.
    
    ![Strona główna fabryki danych z kafelkiem „Tworzenie i monitorowanie”](./media/doc-common-process/data-factory-home-page.png)
 
 ## <a name="start-the-copy-data-tool"></a>Uruchamianie narzędzia do kopiowania danych
 
-1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiowanie danych**, aby uruchomić narzędzie do kopiowania danych. 
+1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiowanie danych** , aby uruchomić narzędzie do kopiowania danych. 
 
    ![Kafelek „Kopiowanie danych”](./media/doc-common-process/get-started-page.png)
 
@@ -103,11 +103,11 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
    ![Strona „Wybieranie pliku lub folderu wyjściowego”](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
 
-1. Na stronie **Ustawienia** wybierz przycisk **Dalej**, aby użyć konfiguracji domyślnych. 
+1. Na stronie **Ustawienia** wybierz przycisk **Dalej** , aby użyć konfiguracji domyślnych. 
 
-1. Sprawdź wszystkie ustawienia na stronie **Podsumowanie**, a następnie wybierz przycisk **Dalej**. 
+1. Sprawdź wszystkie ustawienia na stronie **Podsumowanie** , a następnie wybierz przycisk **Dalej**. 
 
-1. Na stronie **Zakończono wdrożenie** wybierz pozycję **Monitoruj**, aby monitorować utworzony potok. 
+1. Na stronie **Zakończono wdrożenie** wybierz pozycję **Monitoruj** , aby monitorować utworzony potok. 
 
     ![Strona „Zakończono wdrożenie”](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 

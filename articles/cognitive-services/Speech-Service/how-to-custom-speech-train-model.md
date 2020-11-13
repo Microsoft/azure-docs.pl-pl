@@ -1,38 +1,35 @@
 ---
-title: Uczenie modelu dla usługi Custom Speech-Speech
+title: Uczenie i wdrażanie Custom Speech model-Speech Service
 titleSuffix: Azure Cognitive Services
-description: Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu linii bazowej firmy Microsoft lub modelu niestandardowego. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu.
+description: W tym artykule dowiesz się, jak nauczyć i wdrożyć modele Custom Speech. Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu linii bazowej firmy Microsoft lub modelu niestandardowego. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.author: trbye
+ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84629018"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555791"
 ---
-# <a name="train-a-model-for-custom-speech"></a>Trenowanie modelu dla usługi Custom Speech
+# <a name="train-and-deploy-a-custom-speech-model"></a>Uczenie i wdrażanie modelu Custom Speech
 
-Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu bazowego firmy Microsoft. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu. Te zestawy danych wraz z wcześniej przekazanymi danymi audio są używane do uściślania i uczenia modelu zamiany mowy na tekst.
+W tym artykule dowiesz się, jak nauczyć i wdrożyć modele Custom Speech. Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu bazowego firmy Microsoft. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu. Te zestawy danych wraz z wcześniej przekazanymi danymi audio są używane do uściślania i uczenia modelu zamiany mowy na tekst.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Rozwiązywanie problemów z dokładnością przy użyciu szkoleń
 
-Jeśli napotykasz problemy z rozpoznawaniem z modelem, używanie transkrypcji z etykietami i powiązane dane dla dodatkowego szkolenia może pomóc poprawić dokładność. Użyj tej tabeli, aby określić zestaw danych, który ma być używany do rozwiązywania problemów:
+Jeśli napotykasz problemy z rozpoznawaniem z modelem podstawowym, używanie transkrypcji z etykietami i pokrewnymi danymi do uczenia modelu niestandardowego może pomóc poprawić dokładność. Użyj tej tabeli, aby określić zestaw danych, który ma być używany do rozwiązywania problemów:
 
 | Przypadek użycia | Typ danych |
 | -------- | --------- |
 | Popraw dokładność rozpoznawania w przypadku słownictwa i gramatyki właściwych dla branży, takich jak Terminologia medyczna lub żargon IT. | Pokrewny tekst (zdania/wyrażenia długości) |
 | Zdefiniuj tekst fonetyczny i wyświetloną wyrazu lub terminu, który ma niestandardową wymowę, taką jak nazwy produktów lub akronimy. | Pokrewny tekst (wymowa) |
 | Popraw dokładność rozpoznawania w przypadku stylów, akcentów lub określonych szumów w tle. | Zapisy audio + oznakowane przez człowieka |
-
-> [!IMPORTANT]
-> Jeśli zestaw danych nie został przekazany, zapoznaj się [z tematem przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md). Ten dokument zawiera instrukcje dotyczące przekazywania danych oraz wskazówki dotyczące tworzenia zestawów danych o wysokiej jakości.
 
 ## <a name="train-and-evaluate-a-model"></a>Trenowanie i ocenianie modelu
 
@@ -49,22 +46,37 @@ Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Użyj
 
 W tabeli szkoleń zostanie wyświetlony nowy wpis, który odnosi się do nowo utworzonego modelu. W tabeli jest również wyświetlany stan: przetwarzanie, zakończone powodzeniem, zakończone niepowodzeniem.
 
-## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Oceń dokładność przeszkolonego modelu
+Zobacz, [jak](how-to-custom-speech-evaluate-data.md) oceniać i usprawnić Custom Speech dokładność modelu. Jeśli zdecydowano się na przetestowanie dokładności, ważne jest, aby wybrać akustyczny zestaw danych, który różni się od tego, który był używany z modelem w celu uzyskania realistycznego sensu wydajności modelu.
 
-Możesz sprawdzić dane i oszacować dokładność modeli przy użyciu tych dokumentów:
+## <a name="deploy-a-custom-model"></a>Wdrażanie modelu niestandardowego
 
-- [Inspekcja danych](how-to-custom-speech-inspect-data.md)
-- [Oceń dane](how-to-custom-speech-evaluate-data.md)
+Po przekazaniu i sprawdzeniu danych, ocenie dokładności i przeszkoleniu modelu niestandardowego można wdrożyć niestandardowy punkt końcowy do użycia z aplikacjami, narzędziami i produktami. 
 
-Jeśli zdecydowano się na przetestowanie dokładności, ważne jest, aby wybrać akustyczny zestaw danych, który różni się od tego, który był używany z modelem w celu uzyskania realistycznego sensu wydajności modelu.
+Aby utworzyć nowy niestandardowy punkt końcowy, zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech) i wybierz pozycję **wdrożenie** z menu Custom Speech w górnej części strony. Jeśli jest to pierwsze uruchomienie, Zauważ, że w tabeli nie ma punktów końcowych. Po utworzeniu punktu końcowego należy użyć tej strony do śledzenia wszystkich wdrożonych punktów końcowych.
+
+Następnie wybierz pozycję **Dodaj punkt końcowy** i wprowadź **nazwę** i **Opis** niestandardowego punktu końcowego. Następnie wybierz model niestandardowy, który chcesz skojarzyć z tym punktem końcowym. Na tej stronie można również włączyć rejestrowanie. Rejestrowanie pozwala monitorować ruch punktu końcowego. W przypadku wyłączenia ruch nie będzie przechowywany.
+
+![Jak wdrożyć model](./media/custom-speech/custom-speech-deploy-model.png)
+
+> [!NOTE]
+> Nie zapomnij zaakceptować warunków użytkowania i szczegółów cennika.
+
+Następnie wybierz pozycję **Utwórz**. Ta akcja powoduje powrót do strony **wdrożenia** . Tabela zawiera teraz wpis odpowiadający niestandardowemu punktowi końcowemu. Stan punktu końcowego pokazuje jego bieżący stan. Utworzenie wystąpienia nowego punktu końcowego przy użyciu modeli niestandardowych może potrwać do 30 minut. Gdy stan wdrożenia zmieni się na **ukończone** , punkt końcowy jest gotowy do użycia.
+
+Po wdrożeniu punktu końcowego nazwa punktu końcowego jest wyświetlana jako link. Kliknij link, aby wyświetlić informacje specyficzne dla danego punktu końcowego, takie jak klucz punktu końcowego, adres URL punktu końcowego i przykładowy kod.
+
+## <a name="view-logging-data"></a>Wyświetlanie danych rejestrowania
+
+Dane rejestrowania są dostępne do pobrania w obszarze **punkt końcowy > szczegóły**.
+> [!NOTE]
+>Dane rejestrowania są dostępne przez 30 dni w magazynie firmy Microsoft i zostaną później usunięte. W przypadku, gdy konto magazynu należące do klienta jest połączone z subskrypcją usług poznawczej, dane rejestrowania nie zostaną automatycznie usunięte.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
+* Dowiedz się [, jak używać modelu niestandardowego](how-to-specify-source-language.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 - [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 - [Oceń dane](how-to-custom-speech-evaluate-data.md)
-- [Szkolenie modelu](how-to-custom-speech-train-model.md)

@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743119"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555440"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -25,7 +25,7 @@ Dostępne są inne macierze pomocy technicznej:
 
 ## <a name="vault-support"></a>Obsługa magazynu
 
-Azure Backup używa magazynów Recovery Services, aby organizować kopie zapasowe i zarządzać nimi. Używa również magazynów do przechowywania danych kopii zapasowej.
+Azure Backup korzysta z magazynów Recovery Services do organizowania i zarządzania kopiami zapasowymi dla następujących typów obciążeń — maszyny wirtualne platformy Azure, SQL na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure, udziały plików platformy Azure i obciążenia lokalne przy użyciu Azure Backup agenta, Azure Backup Server i programu System Center DPM. Używa ona również magazynów Recovery Services do przechowywania danych kopii zapasowych dla tych obciążeń.
 
 W poniższej tabeli opisano funkcje magazynów Recovery Services:
 

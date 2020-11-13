@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90967578"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560829"
 ---
 # <a name="confidential-computing-on-azure"></a>Dane poufne na platformie Azure
 
@@ -49,11 +49,11 @@ TEE to środowisko, które wymusza wykonywanie tylko autoryzowanego kodu. Wszyst
 Uruchomione obciążenia w chmurze wymagają zaufania. To zaufanie należy nadać różnym dostawcom, włączając różne składniki aplikacji.
 
 
-**Dostawcy oprogramowania aplikacji**: Ufaj oprogramowaniu, wdrażając Premium, korzystając z funkcji Open Source lub tworząc oprogramowanie w firmie.
+**Dostawcy oprogramowania aplikacji** : Ufaj oprogramowaniu, wdrażając Premium, korzystając z funkcji Open Source lub tworząc oprogramowanie w firmie.
 
-**Dostawcy sprzętu**: Ufaj sprzętowi przy użyciu sprzętu lokalnego lub sprzętu wewnętrznego. 
+**Dostawcy sprzętu** : Ufaj sprzętowi przy użyciu sprzętu lokalnego lub sprzętu wewnętrznego. 
 
-**Dostawcy infrastruktury**: Ufaj dostawcom chmury lub Zarządzaj własnymi lokalnymi centrami danych.
+**Dostawcy infrastruktury** : Ufaj dostawcom chmury lub Zarządzaj własnymi lokalnymi centrami danych.
 
 
 Dane poufne na platformie Azure ułatwiają zaufanie dostawcy usług w chmurze, zmniejszając potrzebę zaufania między różnymi aspektami infrastruktury w chmurze obliczeniowej. Dane poufne platformy Azure minimalizują zaufanie do jądra systemu operacyjnego hosta, funkcji hypervisor, administratora maszyny wirtualnej i administratora hosta.
@@ -68,15 +68,15 @@ Niższa wartość TCB oznacza wyższe zabezpieczenia. Mniejsze ryzyko wystąpien
 
 Dane poufne platformy Azure umożliwiają korzystanie z funkcji danych poufnych w środowisku zwirtualizowanym. Możesz teraz używać narzędzi, oprogramowania i infrastruktury chmurowej do kompilowania na bezpiecznym sprzęcie.  
 
-**Zapobiegaj nieautoryzowanemu dostępowi**: Uruchom poufne dane w chmurze. Dzięki temu platforma Azure zapewnia najlepszą ochronę danych, dzięki czemu nie zmienia się już dziś.
+**Zapobiegaj nieautoryzowanemu dostępowi** : Uruchom poufne dane w chmurze. Dzięki temu platforma Azure zapewnia najlepszą ochronę danych, dzięki czemu nie zmienia się już dziś.
 
-**Zgodność z przepisami**: Migruj do chmury i zapewnia pełną kontrolę nad danymi, aby zaspokoić przepisy rządowe dotyczące ochrony informacji osobistych i bezpiecznego organizacyjnego adresu IP.
+**Zgodność z przepisami** : Migruj do chmury i zapewnia pełną kontrolę nad danymi, aby zaspokoić przepisy rządowe dotyczące ochrony informacji osobistych i bezpiecznego organizacyjnego adresu IP.
 
-**Współpraca bezpiecznych i niezaufanych**: Rozwiązywanie problemów z skalowalnością w całej branży dzięki rozciąganie danych między organizacjami, nawet konkurentami, w celu odblokowania szerokiej analizy danych i dokładniejszego wglądu w dane.
+**Współpraca bezpiecznych i niezaufanych** : Rozwiązywanie problemów z skalowalnością w całej branży dzięki rozciąganie danych między organizacjami, nawet konkurentami, w celu odblokowania szerokiej analizy danych i dokładniejszego wglądu w dane.
 
-**Izolowane przetwarzanie**: oferuje nową fala produktów, które usuwają zobowiązania dotyczące prywatnych danych z przetwarzaniem niewidomym. Dane użytkownika nie mogą być nawet pobierane przez dostawcę usług. 
+**Izolowane przetwarzanie** : oferuje nową fala produktów, które usuwają zobowiązania dotyczące prywatnych danych z przetwarzaniem niewidomym. Dane użytkownika nie mogą być nawet pobierane przez dostawcę usług. 
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Rozpocznij
 ### <a name="azure-compute"></a>Azure Compute
 Twórz aplikacje w oparciu o poufne oferty obliczeniowe IaaS na platformie Azure.
 - Virtual Machines (maszyny wirtualne): [Seria DCsv2](confidential-computing-enclaves.md)
@@ -84,7 +84,7 @@ Twórz aplikacje w oparciu o poufne oferty obliczeniowe IaaS na platformie Azure
 
 ### <a name="azure-security"></a>Zabezpieczenia platformy Azure 
 Upewnij się, że obciążenia są bezpieczne za poorednictwem metod weryfikacji i zarządzania kluczami związanymi ze sprzętem. 
-- Zaświadczanie: [Zaświadczanie Microsoft Azure (wersja zapoznawcza)](https://docs.microsoft.com/azure/attestation/overview)
+- Zaświadczanie: [Zaświadczanie Microsoft Azure (wersja zapoznawcza)](../attestation/overview.md)
 - Zarządzanie kluczami: zarządzane-HSM (wersja zapoznawcza)
 
 ### <a name="develop"></a>Programowanie
@@ -94,7 +94,7 @@ Zacznij korzystać z programowania aplikacji obsługujących enklawy i wdrażaj 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wdróż maszynę wirtualną z serii DCsv2 i zainstaluj na niej zestaw OE.
+Wdróż maszynę wirtualną DCsv2-Series i zainstaluj na niej zestaw OE.
 
 > [!div class="nextstepaction"]
 > [Wdrażanie poufnej maszyny wirtualnej w portalu Azure Marketplace](quick-create-marketplace.md)

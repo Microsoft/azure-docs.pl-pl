@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure szyfrowanie danych — w czasie spoczynku | Microsoft Docs
-description: Ten artykuł zawiera omówienie Microsoft Azure szyfrowanie danych w pamięci podręcznej, ogólne możliwości i ogólne zagadnienia.
+title: Szyfrowanie danych platformy Azure — w ramach usługi REST — zabezpieczenia platformy Azure
+description: Ten artykuł zawiera omówienie usługi Azure Data Encryption w systemie, ogólnych możliwości i ogólnych zagadnień.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412786"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556628"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych magazynowanych platformy Azure
 
@@ -128,7 +128,7 @@ Wszystkie usługi Azure Storage (BLOB Storage, queue storage, Table Storage i Az
 
 Azure SQL Database obecnie obsługuje szyfrowanie w stanie spoczynku dla usług zarządzanych przez firmę Microsoft i scenariuszy szyfrowania po stronie klienta.
 
-Obsługa szyfrowania serwera jest obecnie udostępniana za pomocą funkcji SQL o nazwie Transparent Data Encryption. Gdy Azure SQL Database klient włącza klucz TDE, są automatycznie tworzone i zarządzane dla nich. Szyfrowanie w spoczynku można włączyć na poziomie bazy danych i serwera. Od czerwca 2017 [transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) jest domyślnie włączone dla nowo utworzonych baz danych. Azure SQL Database obsługuje RSA 2048-bitowe klucze zarządzane przez klienta w Azure Key Vault. Aby uzyskać więcej informacji, zobacz [transparent Data Encryption z obsługą Bring Your Own Key w przypadku Azure SQL Database i magazynu danych](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Obsługa szyfrowania serwera jest obecnie udostępniana za pomocą funkcji SQL o nazwie Transparent Data Encryption. Gdy Azure SQL Database klient włącza klucz TDE, są automatycznie tworzone i zarządzane dla nich. Szyfrowanie w spoczynku można włączyć na poziomie bazy danych i serwera. Od czerwca 2017 [transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) jest domyślnie włączone dla nowo utworzonych baz danych. Azure SQL Database obsługuje RSA 2048-bitowe klucze zarządzane przez klienta w Azure Key Vault. Aby uzyskać więcej informacji, zobacz [transparent Data Encryption z obsługą Bring Your Own Key w przypadku Azure SQL Database i magazynu danych](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
 Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za pomocą funkcji [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) . Always Encrypted używa klucza utworzonego i przechowywanego przez klienta. Klienci mogą przechowywać klucz główny w magazynie certyfikatów systemu Windows, Azure Key Vault lub lokalnych sprzętowych modułach zabezpieczeń. Za pomocą SQL Server Management Studio użytkownicy SQL wybierają klucz, którego chcesz użyć do zaszyfrowania kolumny.
 
@@ -140,3 +140,4 @@ Ochrona danych klienta przechowywanych w ramach usług platformy Azure ma najwa�
 
 - Zobacz [modele szyfrowania danych](encryption-models.md) , aby dowiedzieć się więcej na temat kluczy zarządzanych przez usługę i kluczy zarządzanych przez klienta.
 - Dowiedz się, w jaki sposób platforma Azure używa [podwójnego szyfrowania](double-encryption.md) , aby ograniczyć zagrożenia związane z szyfrowaniem danych.
+- Dowiedz się, co firma Microsoft gwarantuje, aby zapewnić [integralność i bezpieczeństwo platformy](platform.md) hostów przechodzących przez proces tworzenia oprogramowania, integracji, operacjonalizacji i napraw potoki.

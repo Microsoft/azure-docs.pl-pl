@@ -13,19 +13,17 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7ec6ab8b52d9d43d898f481a2f36310e5c0897d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530701"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561084"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)
 
-> [!NOTE]
-> Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Ta funkcja [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 *Wtyczka Logowanie jednokrotne w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple* zapewnia Logowanie jednokrotne (SSO) dla kont usługi Azure Active Directory (Azure AD) we wszystkich aplikacjach, które obsługują funkcję logowania jednokrotnego [w przedsiębiorstwie](https://developer.apple.com/documentation/authenticationservices) firmy Apple. Firma Microsoft pracowała ściśle z firmą Apple, aby opracować Tę wtyczkę w celu zwiększenia użyteczności aplikacji przy jednoczesnym zapewnieniu najlepszej ochrony zapewnianej przez firmę Apple i firmę Microsoft.
 
@@ -53,10 +51,10 @@ Aby włączyć wtyczkę logowania jednokrotnego w przedsiębiorstwie firmy Micro
 
 Użyj następujących parametrów, aby skonfigurować wtyczkę logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple:
 
-- **Typ**: redirect
-- **Identyfikator rozszerzenia**: `com.microsoft.azureauthenticator.ssoextension`
-- **Identyfikator zespołu**: (to pole nie jest wymagane w przypadku systemu iOS)
-- **Adresy URL**:
+- **Typ** : redirect
+- **Identyfikator rozszerzenia** : `com.microsoft.azureauthenticator.ssoextension`
+- **Identyfikator zespołu** : (to pole nie jest wymagane w przypadku systemu iOS)
+- **Adresy URL** :
   - `https://login.microsoftonline.com`
   - `https://login.microsoft.com`
   - `https://sts.windows.net`
@@ -80,10 +78,10 @@ Obsługiwane są tylko aplikacje korzystające z natywnych technologii sieci App
 
 Użyj następujących parametrów, aby skonfigurować wtyczkę logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla aplikacji, które nie używają MSAL:
 
-- **Klucz**: `AppAllowList`
-- **Typ**: `String`
-- **Wartość**: rozdzielana przecinkami lista identyfikatorów pakietów aplikacji dla aplikacji, które mogą uczestniczyć w rejestracji jednokrotnej
-- **Przykład**: `com.contoso.workapp, com.contoso.travelapp`
+- **Klucz** : `AppAllowList`
+- **Typ** : `String`
+- **Wartość** : rozdzielana przecinkami lista identyfikatorów pakietów aplikacji dla aplikacji, które mogą uczestniczyć w rejestracji jednokrotnej
+- **Przykład** : `com.contoso.workapp, com.contoso.travelapp`
 
 Zgodne [aplikacje](./application-consent-experience.md) , które są dozwolone przez administratora zarządzania urządzeniami przenośnymi, mogą w trybie dyskretnym uzyskać token dla użytkownika końcowego. W związku z tym ważne jest, aby dodać tylko zaufane aplikacje do listy dozwolonych. 
 
@@ -95,9 +93,9 @@ Domyślnie wtyczka Microsoft Enterprise SSO umożliwia logowanie jednokrotne do 
 
 Włączenie `browser_sso_interaction_enabled` flagi umożliwia aplikacjom MSAL i przeglądarce Safari wykonywanie początkowego uruchamiania i uzyskiwanie poświadczeń udostępnionych. Jeśli wtyczka Microsoft Enterprise SSO nie ma jeszcze udostępnionego poświadczenia, spróbuje je pobrać za każdym razem, gdy zażądano logowania z adresu URL usługi Azure AD w przeglądarce Safari, ASWebAuthenticationSession, SafariViewController lub innej dozwolonej aplikacji natywnej.  
 
-- **Klucz**: `browser_sso_interaction_enabled`
-- **Typ**: `Integer`
-- **Wartość**: 1 lub 0
+- **Klucz** : `browser_sso_interaction_enabled`
+- **Typ** : `Integer`
+- **Wartość** : 1 lub 0
 
 Zalecamy włączenie tej flagi w celu uzyskania bardziej spójnego środowiska dla wszystkich aplikacji. To ustawienie jest domyślnie wyłączone. 
 
@@ -107,9 +105,9 @@ Wtyczka logowania jednokrotnego w przedsiębiorstwie firmy Microsoft zapewnia Lo
 
 Włączenie `disable_explicit_app_prompt` flagi ogranicza zdolność aplikacji natywnych i sieci Web w celu wymuszenia monitu użytkownika końcowego o warstwę protokołu i obejścia logowania JEDNOkrotnego.
 
-- **Klucz**: `disable_explicit_app_prompt`
-- **Typ**: `Integer`
-- **Wartość**: 1 lub 0
+- **Klucz** : `disable_explicit_app_prompt`
+- **Typ** : `Integer`
+- **Wartość** : 1 lub 0
 
 Zalecamy włączenie tej flagi w celu uzyskania bardziej spójnego środowiska dla wszystkich aplikacji. To ustawienie jest domyślnie wyłączone. 
 

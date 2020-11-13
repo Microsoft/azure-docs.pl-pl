@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285383"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556390"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -197,7 +197,7 @@ Katalogi danych FCI muszą znajdować się na udostępnionych dyskach platformy 
 
 ## <a name="register-with-the-sql-vm-rp"></a>Rejestrowanie w ramach jednostki odzyskiwania maszyny wirtualnej SQL
 
-Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją za pomocą dostawcy zasobów maszyny wirtualnej SQL (RP) w [trybie zarządzania uproszczonego](sql-vm-resource-provider-register.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
+Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją za pomocą rozszerzenia programu SQL IaaS Agent (RP) w [trybie zarządzania uproszczonego](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
 
 
 Rejestrowanie maszyny wirtualnej SQL Server w trybie uproszczonym przy użyciu programu PowerShell:  
@@ -217,7 +217,7 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL.
+- Obsługiwane jest tylko rejestrowanie przy użyciu rozszerzenia agenta SQL IaaS w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 01f9ee1ad134c14150d16569fd57e658b160784c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289947"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556322"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu Bezpośrednie miejsca do magazynowania (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -217,7 +217,7 @@ Po skonfigurowaniu klastra trybu failover i wszystkich składników klastra, w t
 
 ## <a name="register-with-the-sql-vm-rp"></a>Rejestrowanie w ramach jednostki odzyskiwania maszyny wirtualnej SQL
 
-Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją z dostawcą zasobów maszyny wirtualnej SQL (RP) w [trybie zarządzania uproszczonego](sql-vm-resource-provider-register.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
+Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją za pomocą rozszerzenia programu SQL IaaS Agent (RP) w [trybie zarządzania uproszczonego](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
 
 
 Rejestrowanie maszyny wirtualnej SQL Server w trybie uproszczonym przy użyciu programu PowerShell:  
@@ -239,7 +239,7 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 - Usługa Azure Virtual Machines obsługuje program Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem na CSV i w ramach [standardowego modułu równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md).
 - Dyski dołączone jako dyski sformatowane w systemie plików NTFS mogą być używane z Bezpośrednie miejsca do magazynowania tylko wtedy, gdy opcja kwalifikowania dysku nie jest zaznaczona lub wyczyszczona, gdy do klastra jest dodawany magazyn. 
-- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL.
+- Obsługiwane jest tylko rejestrowanie przy użyciu rozszerzenia agenta SQL IaaS w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Następne kroki
 

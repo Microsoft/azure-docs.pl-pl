@@ -1,7 +1,7 @@
 ---
 title: Kompiluj & modele uczenia
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak szkolić modele przy użyciu Azure Machine Learning, w tym pracy z popularnymi strukturami, takimi jak Scikit — uczenie się, TensorFlow i PyTorch. Potoki Machine Learning ułatwiają planowanie nienadzorowanych uruchomień, używanie heterogenicznych środowisk obliczeniowych i ponowne używanie części przepływu pracy. I uruchamiania konfiguracje zapewniają szczegółową kontrolę nad celami obliczeniowymi, na których działa proces szkoleniowy.
+description: Dowiedz się, jak szkolić modele przy użyciu Azure Machine Learning. Poznaj różne metody uczenia i wybierz odpowiednie dla projektu.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324818"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555893"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 

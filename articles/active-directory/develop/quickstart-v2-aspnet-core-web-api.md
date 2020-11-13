@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: dc0cdca2355403bc8f5409d9a6ca7f4ae89caf25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947550"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562019"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Szybki Start: Ochrona ASP.NET Core internetowego interfejsu API za pomocą platformy tożsamości firmy Microsoft
 
-W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, jak chronić internetowy interfejs API ASP.NET Core, tak aby był dostępny tylko dla autoryzowanych kont. Kontami mogą być konta osobiste (hotmail.com, outlook.com i inne) oraz konta służbowe w dowolnym wystąpieniu Azure Active Directory (Azure AD).
+W tym przewodniku szybki start pobieramy przykładowy kod interfejsu API sieci Web ASP.NET Core i przeglądasz swój kod, który ogranicza dostęp do zasobów tylko do autoryzowanych kont. Przykład obsługuje autoryzację osobistych kont Microsoft i kont w dowolnej organizacji Azure Active Directory (Azure AD).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Wymagania wstępne
@@ -38,19 +38,19 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, jak
 > 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 > 1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 > 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
-> 1. W obszarze **Zarządzaj**wybierz opcję **rejestracje aplikacji**, a następnie pozycję **Nowa rejestracja**.
+> 1. W obszarze **Zarządzaj** wybierz opcję **rejestracje aplikacji** , a następnie pozycję **Nowa rejestracja**.
 > 1. Wprowadź **nazwę** aplikacji, na przykład `AspNetCoreWebApi-Quickstart` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 > 1. Wybierz pozycję **Zarejestruj**.
-> 1. W obszarze **Zarządzanie**wybierz pozycję **Uwidacznianie interfejsu API**
+> 1. W obszarze **Zarządzanie** wybierz pozycję **Uwidacznianie interfejsu API**
 > 1. Wybierz pozycję **Dodaj zakres** i wybierz pozycję **Zapisz i Kontynuuj** , aby zaakceptować domyślny **Identyfikator URI aplikacji**.
 > 1. W okienku **Dodawanie zakresu** wprowadź następujące wartości:
->    - **Nazwa zakresu**: `access_as_user`
->    - **Kto może wyrazić zgodę?**: **Administratorzy i użytkownicy**
->    - **Nazwa wyświetlana zgody administratora**: `Access AspNetCoreWebApi-Quickstart`
->    - **Opis zgody administratora**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
->    - **Nazwa wyświetlana zgody użytkownika**: `Access AspNetCoreWebApi-Quickstart`
->    - **Opis zgody użytkownika**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
->    - **Stan**: **włączone**
+>    - **Nazwa zakresu** : `access_as_user`
+>    - **Kto może wyrazić zgodę?** : **Administratorzy i użytkownicy**
+>    - **Nazwa wyświetlana zgody administratora** : `Access AspNetCoreWebApi-Quickstart`
+>    - **Opis zgody administratora** : `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
+>    - **Nazwa wyświetlana zgody użytkownika** : `Access AspNetCoreWebApi-Quickstart`
+>    - **Opis zgody użytkownika** : `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
+>    - **Stan** : **włączone**
 > 1. Wybierz pozycję **Dodaj zakres** , aby zakończyć dodawanie zakresu.
 
 ## <a name="step-2-download-the-aspnet-core-project"></a>Krok 2. Pobieranie projektu ASP.NET Core
@@ -74,9 +74,9 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, jak
 >
 >    - Zamień na `Enter_the_Application_Id_here` **Identyfikator aplikacji (klienta)** , która została zarejestrowana w Azure Portal. **Identyfikator aplikacji (klienta)** możesz znaleźć na stronie aplikacji **Przegląd** aplikacji.
 >    - Zamień `Enter_the_Tenant_Info_Here` na jedną z następujących wartości:
->       - Jeśli aplikacja obsługuje **konta tylko w tym katalogu organizacji**, Zastąp tę wartość **identyfikatorem katalogu (dzierżawy)** (identyfikatorem GUID) lub **nazwą dzierżawy** (na przykład `contoso.onmicrosoft.com` ). **Identyfikator katalogu (dzierżawcy)** można znaleźć na stronie **przeglądu** aplikacji.
->       - Jeśli aplikacja obsługuje tryb**Konta w dowolnym katalogu organizacyjnym**, zastąp tę wartość za pomocą wartości `organizations`
->       - Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników**, pozostaw tę wartość jako `common`
+>       - Jeśli aplikacja obsługuje **konta tylko w tym katalogu organizacji** , Zastąp tę wartość **identyfikatorem katalogu (dzierżawy)** (identyfikatorem GUID) lub **nazwą dzierżawy** (na przykład `contoso.onmicrosoft.com` ). **Identyfikator katalogu (dzierżawcy)** można znaleźć na stronie **przeglądu** aplikacji.
+>       - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym** , zastąp tę wartość za pomocą wartości `organizations`
+>       - Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników** , pozostaw tę wartość jako `common`
 >
 > W ramach tego przewodnika Szybki Start nie zmieniaj żadnych innych wartości w *appsettings.js* pliku.
 

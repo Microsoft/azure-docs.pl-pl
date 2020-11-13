@@ -7,15 +7,15 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569887"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555914"
 ---
-# <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu mapowania przepływów danych
+# <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu przepływów danych mapowania
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -36,14 +36,14 @@ W tym samouczku wykonasz następujące czynności:
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * **Konto usługi Azure Storage**. Magazyn ADLS jest używany jako magazyn danych *źródłowych* i *ujścia* . Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md).
 
-Plik, który jest przekształcany w tym samouczku, jest MoviesDB.csv, który można znaleźć [tutaj](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Aby pobrać plik z usługi GitHub, skopiuj zawartość do wybranego edytora tekstu, aby zapisać ją lokalnie jako plik CSV. Aby przekazać plik do konta magazynu, zobacz [przekazywanie obiektów BLOB za pomocą witryny Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Przykłady odwołują się do kontenera o nazwie "przykładowe dane".
+Plik, który jest przekształcany w tym samouczku, jest MoviesDB.csv, który można znaleźć [tutaj](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Aby pobrać plik z usługi GitHub, skopiuj zawartość do wybranego edytora tekstu, aby zapisać ją lokalnie jako plik CSV. Aby przekazać plik do konta magazynu, zobacz [przekazywanie obiektów BLOB za pomocą Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Przykłady odwołują się do kontenera o nazwie "przykładowe dane".
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 W tym kroku utworzysz fabrykę danych i otworzysz środowisko Data Factory, aby utworzyć potok w fabryce danych.
 
 1. Otwórz przeglądarkę **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika Data Factory jest obsługiwany tylko w przeglądarkach sieci Web Microsoft Edge i Google Chrome.
-2. Z menu po lewej stronie wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów:
+2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **integracja**  >  **Data Factory** :
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -55,16 +55,16 @@ W tym kroku utworzysz fabrykę danych i otworzysz środowisko Data Factory, aby 
 4. Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
 5. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
 
-    a. Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
+    a. Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
 
-    b. Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów. 
+    b. Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. 
          
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) i obliczenia (na przykład usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
 8. Wybierz przycisk **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
-10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
+10. Wybierz pozycję **Tworzenie i monitorowanie** , aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Tworzenie potoku za pomocą działania przepływu danych
 
@@ -131,7 +131,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 
     Jeśli klaster debugowania jest aktywny, można sprawdzić logikę, klikając przycisk **Odśwież** , aby wyświetlić dane wyjściowe wyrażenia w porównaniu z używanymi danymi wejściowymi. Istnieje więcej niż jedna odpowiedź, na którą można wykonać tę logikę przy użyciu języka wyrażeń przepływu danych.
 
-    ![Filtrowanie](media/tutorial-data-flow/filter2.png)
+    ![Filtr](media/tutorial-data-flow/filter2.png)
 
     Kliknij przycisk **Zapisz i Zakończ,** gdy skończysz pracę z wyrażeniem.
 
@@ -141,13 +141,13 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Kolejną przekształceniem, który dodasz, jest transformacja **zagregowana** w obszarze **modyfikator schematu**.
 
     ![Zrzut ekranu pokazujący modyfikator schematu agregacji.](media/tutorial-data-flow/agg1.png)
-1. Nazwij **AggregateComedyRatings**przekształcenia agregacji. Na karcie **Grupuj według** wybierz z listy rozwijanej pozycję **Year** , aby grupować agregacje według roku, w którym znajduje się film.
+1. Nazwij **AggregateComedyRatings** przekształcenia agregacji. Na karcie **Grupuj według** wybierz z listy rozwijanej pozycję **Year** , aby grupować agregacje według roku, w którym znajduje się film.
 
     ![Zrzut ekranu pokazujący opcję Year w karcie Grupuj według w obszarze Ustawienia agregacji.](media/tutorial-data-flow/agg2.png)
 1. Przejdź do karty **agregaty** . W lewym polu tekstowym nadaj kolumnie agregującej **AverageComedyRating**. Kliknij pole wyrażenia z prawej strony, aby wprowadzić wyrażenie agregujące za pośrednictwem konstruktora wyrażeń.
 
     ![Zrzut ekranu pokazujący opcję Year na karcie agregacje w obszarze Ustawienia agregacji.](media/tutorial-data-flow/agg3.png)
-1. Aby uzyskać średnią **klasyfikację**kolumn, użyj ```avg()``` funkcji agregującej. Ponieważ **Klasyfikacja** jest ciągiem i ```avg()``` przyjmuje numeryczne dane wejściowe, należy przekonwertować wartość na liczbę za pośrednictwem ```toInteger()``` funkcji. To wyrażenie wygląda następująco:
+1. Aby uzyskać średnią **klasyfikację** kolumn, użyj ```avg()``` funkcji agregującej. Ponieważ **Klasyfikacja** jest ciągiem i ```avg()``` przyjmuje numeryczne dane wejściowe, należy przekonwertować wartość na liczbę za pośrednictwem ```toInteger()``` funkcji. To wyrażenie wygląda następująco:
 
     ```avg(toInteger(Rating))```
 
@@ -160,7 +160,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Następnie chcesz dodać transformację **ujścia** w **miejscu docelowym**.
 
     ![Zrzut ekranu pokazujący, gdzie dodać transformację ujścia w miejscu docelowym.](media/tutorial-data-flow/sink1.png)
-1. Nazwij **ujścia**ujścia. Kliknij pozycję **Nowy** , aby utworzyć zestaw danych ujścia.
+1. Nazwij **ujścia** ujścia. Kliknij pozycję **Nowy** , aby utworzyć zestaw danych ujścia.
 
     ![Zrzut ekranu pokazujący, gdzie można nazwać ujścia i utworzyć nowy zestaw danych ujścia.](media/tutorial-data-flow/sink2.png)
 1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij przycisk Kontynuuj.

@@ -1,7 +1,7 @@
 ---
 title: Wykonaj skrypt języka Python w projektancie
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak przekształcać dane przy użyciu języka Python w programie Azure Machine Learning Designer.
+description: Dowiedz się, jak używać modelu skryptów Execute języka Python w programie Azure Machine Learning Designer do uruchamiania operacji niestandardowych utworzonych w języku Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: 6a393cf2c0787a2bc2111581126cbc261d85f1f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897733"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556237"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Uruchamianie kodu w języku Python w programie Azure Machine Learning Designer
 
@@ -58,7 +58,7 @@ Moduły wejściowe są opcjonalne, ponieważ można generować lub importować d
 
 Projektant udostępnia początkowy skrypt punktu wejścia, który umożliwia edytowanie i wprowadzanie własnego kodu w języku Python. 
 
-W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących się w zestawie danych samochodów, **cenie** i **mocy**, aby utworzyć nową kolumnę, **dolary na minutę**. Ta kolumna przedstawia, jak bardzo płacisz za każdą próbkę, która może być przydatną funkcją do podjęcia decyzji o tym, czy samochód jest dobrym rozwiązaniem dla pieniędzy. 
+W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących się w zestawie danych samochodów, **cenie** i **mocy** , aby utworzyć nową kolumnę, **dolary na minutę**. Ta kolumna przedstawia, jak bardzo płacisz za każdą próbkę, która może być przydatną funkcją do podjęcia decyzji o tym, czy samochód jest dobrym rozwiązaniem dla pieniędzy. 
 
 1. Wybierz moduł **skrypt języka Python** .
 
@@ -83,7 +83,7 @@ W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących si�
     
 1. Prześlij potok.
 
-Teraz masz zestaw danych z nową funkcją **dolarów/HP**, co może być przydatne w szkoleniu zalecenia dotyczącego samochodu. Jest to przykładowa Ekstrakcja funkcji i redukcja liczby wymiarów. 
+Teraz masz zestaw danych z nową funkcją **dolarów/HP** , co może być przydatne w szkoleniu zalecenia dotyczącego samochodu. Jest to przykładowa Ekstrakcja funkcji i redukcja liczby wymiarów. 
 
 ## <a name="next-steps"></a>Następne kroki
 

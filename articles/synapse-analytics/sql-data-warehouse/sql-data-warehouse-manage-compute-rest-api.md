@@ -1,6 +1,6 @@
 ---
 title: Wstrzymywanie, wznawianie i skalowanie przy użyciu interfejsów API REST
-description: Zarządzanie mocą obliczeniową w magazynie danych usługi Azure Synapse Analytics za pomocą interfejsów API REST.
+description: Zarządzanie mocą obliczeniową dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics za pomocą interfejsów API REST.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49702051b5399d5079aacc97c00233a23ba8712d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213282"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556016"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>Interfejsy API REST dla usługi Azure Synapse Analytics Data Warehouse
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Interfejsy API REST dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
-Interfejsy API REST do zarządzania obliczeniami w usłudze Azure Synapse Analytics Data Warehouse.
+Interfejsy API REST do zarządzania obliczeniami dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics.
 
 ## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
 
@@ -64,7 +64,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="get-maintenance-schedule"></a>Pobierz harmonogram konserwacji
 
-Sprawdź harmonogram konserwacji, który został ustawiony dla hurtowni danych.
+Sprawdź harmonogram konserwacji, który został ustawiony dla dedykowanej puli SQL (dawniej SQL DW).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>Ustaw harmonogram konserwacji
 
-Ustawianie i aktualizowanie harmonogramu konserwacji w istniejącym magazynie danych.
+Aby ustawić i zaktualizować harmonogram konserwacji dla istniejącej dedykowanej puli SQL (dawniej SQL DW).
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357475"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555825"
 ---
 # <a name="cicd-for-custom-speech"></a>Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
 
@@ -37,7 +37,7 @@ W ten sposób przepływy pracy powinny zawierać nazwy i przechowywać dane, tes
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>Przepływ pracy CI na potrzeby testowania aktualizacji danych
 
-Głównym celem przepływów pracy ciągłej integracji/ciągłego wdrażania jest utworzenie nowego modelu przy użyciu danych szkoleniowych i przetestowanie tego modelu przy użyciu danych testowych w celu ustalenia, czy [Współczynnik błędów wyrazów](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (raportowanie) został ulepszony w porównaniu z poprzednim najlepszym modelem ("model testu porównawczego"). Jeśli nowy model działa lepiej, będzie on nowym modelem testu porównawczego, na którym porównywane są przyszłe modele.
+Głównym celem przepływów pracy ciągłej integracji/ciągłego wdrażania jest utworzenie nowego modelu przy użyciu danych szkoleniowych i przetestowanie tego modelu przy użyciu danych testowych w celu ustalenia, czy [Współczynnik błędów wyrazów](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (raportowanie) został ulepszony w porównaniu z poprzednim najlepszym modelem ("model testu porównawczego"). Jeśli nowy model działa lepiej, będzie on nowym modelem testu porównawczego, na którym porównywane są przyszłe modele.
 
 Przepływ pracy CI do testowania aktualizacji danych powinien przetestować bieżący model porównawczy przy użyciu zaktualizowanych danych testowych, aby obliczyć zweryfikowane raportowanie błędów systemu Windows. Gwarantuje to, że gdy raportowanie błędów nowego modelu jest porównywane z raportowaniem błędów testów porównawczych, oba modele zostały przetestowane w oparciu o te same dane testowe i są porównywane, podobnie jak na przykład.
 
@@ -84,8 +84,8 @@ Aby uzyskać już zaimplementowane rozwiązanie DevOps dla Custom Speech, przejd
 
 - Skopiuj repozytorium szablonów do swojego konta usługi GitHub, a następnie utwórz zasoby platformy Azure i jednostkę [usług](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) dla przepływów pracy Ci/CD akcji usługi GitHub.
 - Zapoznaj się z tematem "[Pętla wewnętrzna dev](https://mitchdenny.com/the-inner-loop/)". Aktualizowanie szkoleń i testowania danych z gałęzi funkcji, testowanie zmian przy użyciu tymczasowego modelu programowania i zgłaszanie żądania ściągnięcia w celu zaproponowania i przejrzenia zmian.
-- Gdy dane szkoleniowe są aktualizowane w ramach żądania ściągnięcia do *głównego*, nauczenie modeli z przepływem pracy Ci akcji usługi GitHub.
-- Wykonaj zautomatyzowane testowanie dokładności, aby określić [Współczynnik błędów wyrazów](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) dla modelu. Przechowaj wyniki testów w obiekcie blob platformy Azure.
+- Gdy dane szkoleniowe są aktualizowane w ramach żądania ściągnięcia do *głównego* , nauczenie modeli z przepływem pracy Ci akcji usługi GitHub.
+- Wykonaj zautomatyzowane testowanie dokładności, aby określić [Współczynnik błędów wyrazów](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) dla modelu. Przechowaj wyniki testów w obiekcie blob platformy Azure.
 - Wykonaj przepływ pracy na dysku CD, aby utworzyć punkt końcowy, gdy raportowanie błędów systemu Windows poprawi.
 
 ## <a name="next-steps"></a>Następne kroki

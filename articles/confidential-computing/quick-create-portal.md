@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7d952608a4850b840759e05a99bdd14cbe2a3a81
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409548"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560965"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w Azure Portal
 
@@ -49,20 +49,20 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 
 1. Na karcie **Ustawienia podstawowe** wybierz **Subskrypcję** i **Grupę zasobów**.
 
-1. W obszarze **Nazwa maszyny wirtualnej**wprowadź nazwę nowej maszyny wirtualnej.
+1. W obszarze **Nazwa maszyny wirtualnej** wprowadź nazwę nowej maszyny wirtualnej.
 
 1. Wpisz lub wybierz poniższe wartości:
 
-   * **Region**: wybierz odpowiedni region platformy Azure.
+   * **Region** : wybierz odpowiedni region platformy Azure.
 
         > [!NOTE]
-        > Poufne maszyny wirtualne obliczeniowe są uruchamiane tylko na wyspecjalizowanym sprzęcie dostępnym w określonych regionach. Najnowsze dostępne regiony dla maszyn wirtualnych z serii DCsv2 można znaleźć w temacie [dostępne regiony](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+        > Poufne maszyny wirtualne obliczeniowe są uruchamiane tylko na wyspecjalizowanym sprzęcie dostępnym w określonych regionach. Najnowsze dostępne regiony dla DCsv2-Series maszyn wirtualnych można znaleźć w temacie [dostępne regiony](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 1. Skonfiguruj obraz systemu operacyjnego, którego chcesz użyć dla maszyny wirtualnej.
 
-    * **Wybierz obraz**: w tym samouczku wybierz pozycję Ubuntu 18,04 LTS. Możesz również wybrać systemy Windows Server 2019, Windows Server 2016 lub i Ubuntu 16,04 LTS. W przypadku wybrania tej opcji zostanie odpowiednio przekierowany w tym samouczku.
+    * **Wybierz obraz** : w tym samouczku wybierz pozycję Ubuntu 18,04 LTS. Możesz również wybrać systemy Windows Server 2019, Windows Server 2016 lub i Ubuntu 16,04 LTS. W przypadku wybrania tej opcji zostanie odpowiednio przekierowany w tym samouczku.
     
-    * **Przełącz obraz do generacji 2**: poufne maszyny wirtualne obliczeniowe są uruchamiane tylko w obrazach [generacji 2](../virtual-machines/linux/generation-2.md) . Upewnij się, że wybrany obraz jest obrazem generacji 2. Kliknij kartę **Zaawansowane** powyżej miejsca konfiguracji maszyny wirtualnej. Przewiń w dół do momentu znalezienia sekcji "generacja maszyny wirtualnej". Wybierz pozycję Gen 2, a następnie wróć do karty **podstawy** .
+    * **Przełącz obraz do generacji 2** : poufne maszyny wirtualne obliczeniowe są uruchamiane tylko w obrazach [generacji 2](../virtual-machines/generation-2.md) . Upewnij się, że wybrany obraz jest obrazem generacji 2. Kliknij kartę **Zaawansowane** powyżej miejsca konfiguracji maszyny wirtualnej. Przewiń w dół do momentu znalezienia sekcji "generacja maszyny wirtualnej". Wybierz pozycję Gen 2, a następnie wróć do karty **podstawy** .
     
 
         ![Karta Zaawansowane](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -70,36 +70,36 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 
         ![Generacja maszyny wirtualnej](media/quick-create-portal/gen2-virtual-machine.png)
 
-    * **Wróć do konfiguracji podstawowej**: Wróć do karty **podstawowe** przy użyciu nawigacji w górnej części strony.
+    * **Wróć do konfiguracji podstawowej** : Wróć do karty **podstawowe** przy użyciu nawigacji w górnej części strony.
 
-1. Wybierz maszynę wirtualną z poufnymi możliwościami obliczeniowymi w selektorze rozmiarów, wybierając pozycję **Zmień rozmiar**. W selektor rozmiaru maszyny wirtualnej kliknij pozycję **Wyczyść wszystkie filtry**. Wybierz pozycję **Dodaj filtr**, wybierz pozycję **rodzina** dla typu filtru, a następnie wybierz opcję tylko **poufne dane obliczeniowe**.
+1. Wybierz maszynę wirtualną z poufnymi możliwościami obliczeniowymi w selektorze rozmiarów, wybierając pozycję **Zmień rozmiar**. W selektor rozmiaru maszyny wirtualnej kliknij pozycję **Wyczyść wszystkie filtry**. Wybierz pozycję **Dodaj filtr** , wybierz pozycję **rodzina** dla typu filtru, a następnie wybierz opcję tylko **poufne dane obliczeniowe**.
 
-    ![Maszyny wirtualne z serii DCsv2](media/quick-create-portal/dcsv2-virtual-machines.png)
+    ![DCsv2-Series maszyny wirtualne](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > Powinny być widoczne rozmiary **DC1s_v2**, **DC2s_v2**, **DC4s_V2**i **DC8_v2**. Są to jedyne rozmiary maszyn wirtualnych, które obecnie obsługują dane poufne. [Dowiedz się więcej](virtual-machine-solutions.md).
+    > Powinny być widoczne rozmiary **DC1s_v2** , **DC2s_v2** , **DC4s_V2** i **DC8_v2**. Są to jedyne rozmiary maszyn wirtualnych, które obecnie obsługują dane poufne. [Dowiedz się więcej](virtual-machine-solutions.md).
 
 1. Wprowadź następujące informacje:
 
-   * **Typ uwierzytelniania**: wybierz opcję **publiczny klucz SSH** , jeśli tworzysz maszynę wirtualną z systemem Linux. 
+   * **Typ uwierzytelniania** : wybierz opcję **publiczny klucz SSH** , jeśli tworzysz maszynę wirtualną z systemem Linux. 
 
         > [!NOTE]
         > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    * **Nazwa użytkownika**: Wprowadź nazwę administratora maszyny wirtualnej.
+    * **Nazwa użytkownika** : Wprowadź nazwę administratora maszyny wirtualnej.
 
-    * **Klucz publiczny SSH**: w razie potrzeby wprowadź klucz publiczny RSA.
+    * **Klucz publiczny SSH** : w razie potrzeby wprowadź klucz publiczny RSA.
     
-    * **Hasło**: w razie potrzeby wprowadź hasło do uwierzytelniania.
+    * **Hasło** : w razie potrzeby wprowadź hasło do uwierzytelniania.
 
-    * **Publiczne porty przychodzące**: wybierz opcję **Zezwalaj na wybrane porty** i wybierz pozycję **SSH (22)** i **http (80)** na liście **Wybierz publiczne porty wejściowe** . Jeśli wdrażasz maszynę wirtualną z systemem Windows, wybierz pozycję **http (80)** i **protokół RDP (3389)**. W tym przewodniku szybki start ten krok jest niezbędny do nawiązania połączenia z maszyną wirtualną i ukończenia konfiguracji Open enklawy SDK. 
+    * **Publiczne porty przychodzące** : wybierz opcję **Zezwalaj na wybrane porty** i wybierz pozycję **SSH (22)** i **http (80)** na liście **Wybierz publiczne porty wejściowe** . Jeśli wdrażasz maszynę wirtualną z systemem Windows, wybierz pozycję **http (80)** i **protokół RDP (3389)**. W tym przewodniku szybki start ten krok jest niezbędny do nawiązania połączenia z maszyną wirtualną i ukończenia konfiguracji Open enklawy SDK. 
 
      ![Porty wejściowe](media/quick-create-portal/inbound-port-virtual-machine.png)
 
 
 1. Wprowadź zmiany na karcie **dyski** .
 
-   * W przypadku wybrania **DC1s_v2**, **DC2s_v2** **DC4s_V2** maszyny wirtualnej, wybierz typ dysku, który jest **SSD w warstwie Standardowa** lub **SSD w warstwie Premium**. 
+   * W przypadku wybrania **DC1s_v2** , **DC2s_v2** **DC4s_V2** maszyny wirtualnej, wybierz typ dysku, który jest **SSD w warstwie Standardowa** lub **SSD w warstwie Premium**. 
    * W przypadku wybrania maszyny wirtualnej **DC8_v2** wybierz opcję **SSD w warstwie Standardowa** jako typ dysku.
 
 1. Wprowadź zmiany w ustawieniach na poniższych kartach lub Zachowaj ustawienia domyślne.
@@ -109,7 +109,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
     * **Konfiguracja gościa**
     * **Tagi**
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 1. W okienku **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
@@ -146,7 +146,7 @@ Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszynami 
 
 ## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instalowanie zestawu SDK open enklawy (zestaw SDK programu OE) <a id="Install"></a>
 
-Postępuj zgodnie z instrukcjami krok po kroku, aby zainstalować [zestaw OE SDK](https://github.com/openenclave/openenclave) na maszynie wirtualnej z serii DCsv2, na której działa obraz Ubuntu 18,04 LTS Gen 2. 
+Postępuj zgodnie z instrukcjami krok po kroku, aby zainstalować [zestaw programu OE SDK](https://github.com/openenclave/openenclave) na maszynie wirtualnej DCsv2-Series z Ubuntu 18,04 LTS generacji 2. 
 
 Jeśli maszyna wirtualna jest uruchamiana na Ubuntu 16,04 LTS Gen 2, należy postępować zgodnie z [instrukcjami instalacji dla Ubuntu 16,04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md).
 

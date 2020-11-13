@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
-ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84730151"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555417"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Przyrostowe kopiowanie nowych i zmienionych plików na podstawie LastModifiedDate przy użyciu narzędzia Kopiowanie danych
 
@@ -39,8 +39,8 @@ W tym samouczku wykonasz następujące zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* **Konto usługi Azure Storage**: Użyj usługi BLOB Storage dla magazynów danych źródłowych i ujścia. Jeśli nie masz konta usługi Azure Storage, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
+* **Subskrypcja platformy Azure** : jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* **Konto usługi Azure Storage** : Użyj usługi BLOB Storage dla magazynów danych źródłowych i ujścia. Jeśli nie masz konta usługi Azure Storage, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 
 ## <a name="create-two-containers-in-blob-storage"></a>Tworzenie dwóch kontenerów w usłudze BLOB Storage
 
@@ -52,7 +52,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**. Wybierz **Data Factory analityczne**  >  **Data Factory**:
+1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**. Wybierz **Integration**  >  **Data Factory** integracji:
 
    ![Wybierz Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -63,8 +63,8 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
    ![Nazwa niedostępnego komunikatu o błędzie](./media/doc-common-process/name-not-available-error.png)
 
    Jeśli zostanie wyświetlony komunikat o błędzie dotyczącym wartości nazwy, wprowadź inną nazwę dla fabryki danych. Na przykład użyj nazwy _**twojanazwa**_**ADFTutorialDataFactory**. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
-3. W obszarze **subskrypcja**wybierz subskrypcję platformy Azure, w której chcesz utworzyć nową fabrykę danych.
-4. W obszarze **Grupa zasobów**wykonaj jedną z następujących czynności:
+3. W obszarze **subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć nową fabrykę danych.
+4. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
 
     * Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów na liście.
 
@@ -88,15 +88,15 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 2. Na stronie **Właściwości** wykonaj następujące czynności:
 
-    a. W obszarze **Nazwa zadania**wprowadź **DeltaCopyFromBlobPipeline**.
+    a. W obszarze **Nazwa zadania** wprowadź **DeltaCopyFromBlobPipeline**.
 
-    b. W obszarze **zadanie erze lub harmonogram zadań**wybierz pozycję **Uruchom regularnie zgodnie z harmonogramem**.
+    b. W obszarze **zadanie erze lub harmonogram zadań** wybierz pozycję **Uruchom regularnie zgodnie z harmonogramem**.
 
-    c. W obszarze **Typ wyzwalacza**wybierz pozycję **okno wirowania**.
+    c. W obszarze **Typ wyzwalacza** wybierz pozycję **okno wirowania**.
 
-    d. W obszarze **cykl**wprowadź **15 minut**.
+    d. W obszarze **cykl** wprowadź **15 minut**.
 
-    e. Wybierz opcję **Dalej**.
+    e. Wybierz pozycję **Dalej**.
 
     Data Factory tworzy potok o określonej nazwie zadania.
 
@@ -106,13 +106,13 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     a. Wybierz pozycję  **Utwórz nowe połączenie** , aby dodać połączenie.
 
-    b. Wybierz pozycję **Azure Blob Storage** z galerii, a następnie wybierz pozycję **Kontynuuj**:
+    b. Wybierz pozycję **Azure Blob Storage** z galerii, a następnie wybierz pozycję **Kontynuuj** :
 
     ![Wybieranie magazynu blogów platformy Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
     c. Na stronie **Nowa połączona usługa (Azure Blob Storage)** wybierz konto magazynu z listy **nazwa konta magazynu** . Przetestuj połączenie, a następnie wybierz pozycję **Utwórz**.
 
-    d. Wybierz nową połączoną usługę, a następnie wybierz pozycję **dalej**:
+    d. Wybierz nową połączoną usługę, a następnie wybierz pozycję **dalej** :
 
    ![Wybierz nową połączoną usługę](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
@@ -122,21 +122,21 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     ![Wybieranie pliku lub folderu wejściowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
 
-    b. W obszarze **zachowanie ładowania pliku**wybierz pozycję **obciążenie przyrostowe: LastModifiedDate**.
+    b. W obszarze **zachowanie ładowania pliku** wybierz pozycję **obciążenie przyrostowe: LastModifiedDate**.
 
-    c. Wybierz pozycję **kopia binarna** , a następnie wybierz pozycję **dalej**:
+    c. Wybierz pozycję **kopia binarna** , a następnie wybierz pozycję **dalej** :
 
      ![Wybieranie pliku lub folderu wejściowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. Na stronie **docelowy magazyn danych** Wybierz utworzoną usługę **AzureBlobStorage** . To konto magazynu jest takie samo jak magazyn danych źródłowych. Następnie wybierz pozycję **Dalej**.
+5. Na stronie **docelowy magazyn danych** Wybierz utworzoną usługę **AzureBlobStorage** . To konto magazynu jest takie samo jak magazyn danych źródłowych. Następnie wybierz przycisk **Dalej**.
 
 6. Na stronie **Wybieranie pliku lub folderu wyjściowego** wykonaj następujące czynności:
 
-    a. Wyszukaj i wybierz folder **docelowy** , a następnie wybierz pozycję **Wybierz**:
+    a. Wyszukaj i wybierz folder **docelowy** , a następnie wybierz pozycję **Wybierz** :
 
     ![Wybieranie pliku lub folderu wyjściowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
-    b. Wybierz opcję **Dalej**.
+    b. Wybierz pozycję **Dalej**.
 
 7. Na stronie **Ustawienia** wybierz przycisk **Dalej**.
 
@@ -144,11 +144,11 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     ![Strona podsumowania](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
 
-9. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie).
+9. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie** , aby monitorować potok (zadanie).
 
     ![Strona Wdrażanie](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
 
-10. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Aplikacja przełączy się na kartę **monitorowanie** . Zobaczysz stan potoku. Wybierz pozycję **Odśwież**, aby odświeżyć listę. Wybierz link pod **nazwą potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok.
+10. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Aplikacja przełączy się na kartę **monitorowanie** . Zobaczysz stan potoku. Wybierz pozycję **Odśwież** , aby odświeżyć listę. Wybierz link pod **nazwą potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok.
 
     ![Odśwież listę i Wyświetl szczegóły uruchomienia działania](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
@@ -164,7 +164,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     ![Utwórz file1.txt i przekaż go do kontenera źródłowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
-13. Aby powrócić do widoku **uruchomienia potoków** , zaznacz **wszystkie uruchomienia potoków**i poczekaj na ponowne wyzwolenie tego samego potoku.  
+13. Aby powrócić do widoku **uruchomienia potoków** , zaznacz **wszystkie uruchomienia potoków** i poczekaj na ponowne wyzwolenie tego samego potoku.  
 
 14. Po zakończeniu drugiego przebiegu potoku wykonaj powyższe same kroki, aby przejrzeć szczegóły uruchomienia działania.  
 

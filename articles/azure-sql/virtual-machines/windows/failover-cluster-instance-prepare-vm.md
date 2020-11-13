@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164248"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556339"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Przygotowywanie maszyn wirtualnych do FCI (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,9 +47,9 @@ Funkcja klaster trybu failover wymaga, aby maszyny wirtualne były umieszczone w
 
 Starannie wybieraj opcję dostępność maszyny wirtualnej zgodną z zaznaczoną konfiguracją klastra: 
 
- - **Azure Shared disks**: [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) skonfigurowany z domeną błędów i zaktualizuj domenę ustawioną na 1 i umieszczony wewnątrz [grupy umieszczania sąsiedztwa](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Udziały plików w warstwie Premium**: [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) lub [strefa dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Udziały plików w warstwie Premium to jedyna opcja magazynu udostępnionego, w przypadku wybrania stref dostępności jako konfiguracji dostępności dla maszyn wirtualnych. 
- - **Bezpośrednie miejsca do magazynowania**: [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+ - **Azure Shared disks** : [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) skonfigurowany z domeną błędów i zaktualizuj domenę ustawioną na 1 i umieszczony wewnątrz [grupy umieszczania sąsiedztwa](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+ - **Udziały plików w warstwie Premium** : [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) lub [strefa dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Udziały plików w warstwie Premium to jedyna opcja magazynu udostępnionego, w przypadku wybrania stref dostępności jako konfiguracji dostępności dla maszyn wirtualnych. 
+ - **Bezpośrednie miejsca do magazynowania** : [zestaw dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
 >[!IMPORTANT]
 >Nie można ustawić ani zmienić zestawu dostępności po utworzeniu maszyny wirtualnej.
@@ -71,15 +71,15 @@ Maszynę wirtualną platformy Azure można utworzyć przy użyciu obrazu [z](sql
 
 ## <a name="uninstall-sql-server"></a>Odinstaluj SQL Server
 
-W ramach procesu tworzenia FCI należy zainstalować SQL Server jako wystąpienie klastrowane w klastrze trybu failover. *Jeśli wdrożono maszynę wirtualną z obrazem portalu Azure Marketplace bez SQL Server, możesz pominąć ten krok.* W przypadku wdrożenia obrazu z preinstalowanym SQL Server należy wyrejestrować maszynę wirtualną SQL Server z dostawcy zasobów maszyny wirtualnej SQL, a następnie odinstalować SQL Server. 
+W ramach procesu tworzenia FCI należy zainstalować SQL Server jako wystąpienie klastrowane w klastrze trybu failover. *Jeśli wdrożono maszynę wirtualną z obrazem portalu Azure Marketplace bez SQL Server, możesz pominąć ten krok.* W przypadku wdrożenia obrazu z preinstalowanym SQL Server należy wyrejestrować maszynę wirtualną SQL Server z rozszerzenia agenta SQL IaaS, a następnie odinstalować SQL Server. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Wyrejestruj z dostawcy zasobów maszyny wirtualnej SQL
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Wyrejestruj z rozszerzenia programu SQL IaaS Agent
 
-SQL Server obrazy maszyn wirtualnych z witryny Azure Marketplace są automatycznie rejestrowane przy użyciu dostawcy zasobów maszyny wirtualnej SQL. Przed odinstalowaniem wstępnie zainstalowanego wystąpienia SQL Server należy najpierw [wyrejestrować każdą maszynę wirtualną SQL Server z dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server obrazy maszyn wirtualnych z witryny Azure Marketplace są automatycznie rejestrowane przy użyciu rozszerzenia agenta SQL IaaS. Przed odinstalowaniem wstępnie zainstalowanego wystąpienia SQL Server należy najpierw [wyrejestrować każdą maszynę wirtualną SQL Server z rozszerzenia programu SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Odinstaluj SQL Server
 
-Po wyrejestrowaniu z dostawcy zasobów można odinstalować SQL Server. Wykonaj następujące czynności na każdej maszynie wirtualnej: 
+Po wyrejestrowaniu z rozszerzenia można odinstalować SQL Server. Wykonaj następujące czynności na każdej maszynie wirtualnej: 
 
 1. Połącz się z maszyną wirtualną przy użyciu protokołu RDP.
 
@@ -87,14 +87,14 @@ Po wyrejestrowaniu z dostawcy zasobów można odinstalować SQL Server. Wykonaj 
 
 1. Jeśli używasz jednego z obrazów maszyn wirtualnych opartych na SQL Server, Usuń wystąpienie SQL Server:
 
-   1. W obszarze **programy i funkcje**kliknij prawym przyciskiem myszy pozycję **Microsoft SQL Server 201_ (64-bitowe)** i wybierz polecenie **Odinstaluj/Zmień**.
+   1. W obszarze **programy i funkcje** kliknij prawym przyciskiem myszy pozycję **Microsoft SQL Server 201_ (64-bitowe)** i wybierz polecenie **Odinstaluj/Zmień**.
    1. Wybierz pozycję **Usuń**.
    1. Wybierz wystąpienie domyślne.
    1. Usuń wszystkie funkcje w obszarze **usługi aparatu bazy danych**. Nie usuwaj żadnych elementów w obszarze **funkcje udostępnione**. Zobaczysz coś podobnego do poniższego zrzutu ekranu:
 
       ![Wybieranie funkcji](./media/failover-cluster-instance-prepare-vm/03-remove-features.png)
 
-   1. Wybierz pozycję **dalej**, a następnie wybierz pozycję **Usuń**.
+   1. Wybierz pozycję **dalej** , a następnie wybierz pozycję **Usuń**.
    1. Po pomyślnym usunięciu wystąpienia ponownie uruchom maszynę wirtualną. 
 
 ## <a name="open-the-firewall"></a>Otwieranie zapory 
@@ -107,9 +107,9 @@ W tej tabeli przedstawiono informacje o portach, które mogą być konieczne do 
 
    | Przeznaczenie | Port | Uwagi
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | Normalny port dla domyślnych wystąpień SQL Server. Jeśli obraz został użyty z galerii, ten port zostanie automatycznie otwarty. </br> </br> **Używane przez**: wszystkie konfiguracje FCI. |
-   | Sonda kondycji | TCP 59999 | Dowolny otwarty port TCP. Skonfiguruj [sondę kondycji](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) modułu równoważenia obciążenia i klaster, aby używać tego portu. </br> </br> **Używane przez**: FCI z usługą równoważenia obciążenia. |
-   | Udział plików | UDP 445 | Port, którego używa Usługa udziału plików. </br> </br> **Używane przez**: FCI z udziałem plików w warstwie Premium. |
+   | SQL Server | TCP 1433 | Normalny port dla domyślnych wystąpień SQL Server. Jeśli obraz został użyty z galerii, ten port zostanie automatycznie otwarty. </br> </br> **Używane przez** : wszystkie konfiguracje FCI. |
+   | Sonda kondycji | TCP 59999 | Dowolny otwarty port TCP. Skonfiguruj [sondę kondycji](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) modułu równoważenia obciążenia i klaster, aby używać tego portu. </br> </br> **Używane przez** : FCI z usługą równoważenia obciążenia. |
+   | Udział plików | UDP 445 | Port, którego używa Usługa udziału plików. </br> </br> **Używane przez** : FCI z udziałem plików w warstwie Premium. |
 
 ## <a name="join-the-domain"></a>Przyłączenie się do domeny
 

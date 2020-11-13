@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: prognozowanie cen samochodu przy użyciu narzędzia Projektant'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uczenie, ocenę i wdrożenie modelu uczenia maszynowego przy użyciu interfejsu typu "przeciągnij i upuść". Ten samouczek jest częścią jednej z serii dwóch części na przewidywania cen samochodów, przy użyciu regresji liniowej.
+description: Uczenie modelu uczenia maszynowego do przewidywania cen samochodów przy użyciu regresji liniowej. Ten samouczek jest pierwszą częścią dwuczęściowej serii.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404922"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555281"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant
 
@@ -118,7 +118,7 @@ Podczas uczenia modelu trzeba wykonać coś dotyczące brakujących danych. W ty
 
 1. Przeciągnij moduł **Wybierz kolumny w zestawie danych** na kanwę. Upuść moduł poniżej modułu DataSet.
 
-1. Połącz zestaw danych **cen samochodów (RAW)** z modułem **Wybieranie kolumn w zestawie danych** . Przeciągnij z portu wyjściowego zestawu danych, czyli małego okręgu w dolnej części zestawu danych na kanwie, do portu wejściowego **SELECT kolumn w zestawie danych**, czyli małego okręgu w górnej części modułu.
+1. Połącz zestaw danych **cen samochodów (RAW)** z modułem **Wybieranie kolumn w zestawie danych** . Przeciągnij z portu wyjściowego zestawu danych, czyli małego okręgu w dolnej części zestawu danych na kanwie, do portu wejściowego **SELECT kolumn w zestawie danych** , czyli małego okręgu w górnej części modułu.
 
     > [!TIP]
     > Przepływ danych można utworzyć za pomocą potoku po podłączeniu portu wyjściowego jednego modułu do portu wejściowego innego.
@@ -130,7 +130,7 @@ Podczas uczenia modelu trzeba wykonać coś dotyczące brakujących danych. W ty
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję **Edytuj kolumnę**.
 
-1. Rozwiń listę rozwijaną **nazwy kolumn** obok pozycji **Dołącz**, a następnie wybierz pozycję  **wszystkie kolumny**.
+1. Rozwiń listę rozwijaną **nazwy kolumn** obok pozycji **Dołącz** , a następnie wybierz pozycję  **wszystkie kolumny**.
 
 1. Wybierz opcję, **+** Aby dodać nową regułę.
 
@@ -155,7 +155,7 @@ Zestaw danych nadal ma brakujące wartości po usunięciu kolumny **znormalizowa
 > [!TIP]
 > Czyszczenie brakujących wartości z danych wejściowych jest wymaganiem wstępnym w przypadku korzystania z większości modułów w projektancie.
 
-1. W palecie modułów z lewej strony kanwy rozwiń sekcję **transformacja danych**i Znajdź **czysty brakujący moduł danych** .
+1. W palecie modułów z lewej strony kanwy rozwiń sekcję **transformacja danych** i Znajdź **czysty brakujący moduł danych** .
 
 1. Przeciągnij **nieczysty moduł danych** do kanwy potoku. Połącz go z modułem **Wybieranie kolumn w zestawie danych** . 
 
@@ -210,9 +210,9 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
     
     Ta opcja umożliwia wyświetlenie kilku kategorii modułów, których można użyć do zainicjowania algorytmów uczenia.
 
-1. Wybierz **Regression**opcję  >  **regresja liniowa**regresji i przeciągnij ją na kanwę potoku.
+1. Wybierz **Regression** opcję  >  **regresja liniowa** regresji i przeciągnij ją na kanwę potoku.
 
-1. W palecie modułów rozwiń sekcję **szkolenia modułów**i przeciągnij moduł **uczenie modelu** na kanwę.
+1. W palecie modułów rozwiń sekcję **szkolenia modułów** i przeciągnij moduł **uczenie modelu** na kanwę.
 
 1. Połącz dane wyjściowe modułu **regresji liniowej** z lewym wejściem modułu **uczenie modelu** .
 
@@ -221,7 +221,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
     > [!IMPORTANT]
     > Upewnij się, że lewe porty wyjściowe **danych dzielą** łączą się z **modelem uczenia**. Lewy port zawiera zestaw szkoleniowy. Prawidłowy port zawiera zestaw testów.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Zaznacz kolumnę":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację modułu uczenie modelu. Moduł regresja liniowa łączy się z lewym portem modułu uczenia modelowego, a moduł podziału danych łączy się z odpowiednim portem modelu uczenia.":::
 
 1. Wybierz moduł **Train Model** (Trenowanie modelu).
 
@@ -236,7 +236,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
 
     Potok powinien wyglądać następująco:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Zaznacz kolumnę":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku po dodaniu modułu uczenie modelu.":::
 
 ### <a name="add-the-score-model-module"></a>Dodawanie modułu modelu oceny
 
@@ -256,7 +256,7 @@ Użyj modułu **oceny modelu** , aby oszacować, jak dobrze Model przedstawia te
 
     Końcowy potok powinien wyglądać następująco:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Zaznacz kolumnę":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku.":::
 
 ## <a name="submit-the-pipeline"></a>Prześlij potok
 
@@ -285,7 +285,7 @@ Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpie
 
     W tym miejscu możesz zobaczyć przewidywane ceny i rzeczywiste ceny z danych testowych.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Zaznacz kolumnę":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Zrzut ekranu przedstawiający wizualizację danych wyjściowych z wyróżnioną kolumną etykieta z wynikami":::
 
 ### <a name="evaluate-models"></a>Oceń modele
 
@@ -295,11 +295,11 @@ Użyj **modelu szacowania** , aby zobaczyć, jak dobrze szkolony model jest wyko
 
 Następujące statystyki są wyświetlane dla modelu:
 
-* **Średni błąd bezwzględny (Mae)**: Średnia liczba błędów bezwzględnych. Jest to różnica między wartością przewidywaną a wartością rzeczywistą.
-* **Błąd średnika "pierwiastek" z wartości głównej (RMSE)**: pierwiastek kwadratowy średniej wartości kwadratowych błędów prognoz wykonanych na testowym zestawie danych.
-* **Względny błąd absolutny**: iloraz średniej błędów absolutnych i bezwzględnej wartości różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
-* **Błąd względny średniokwadratowy**: iloraz średniej kwadratów błędów i kwadratu różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
-* **Współczynnik wyznaczania**: znany również jako wartość R kwadratowa, ta Metryka statystyczna wskazuje, jak dobrze model dopasowuje dane.
+* **Średni błąd bezwzględny (Mae)** : Średnia liczba błędów bezwzględnych. Jest to różnica między wartością przewidywaną a wartością rzeczywistą.
+* **Błąd średnika "pierwiastek" z wartości głównej (RMSE)** : pierwiastek kwadratowy średniej wartości kwadratowych błędów prognoz wykonanych na testowym zestawie danych.
+* **Względny błąd absolutny** : iloraz średniej błędów absolutnych i bezwzględnej wartości różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
+* **Błąd względny średniokwadratowy** : iloraz średniej kwadratów błędów i kwadratu różnicy między wartościami rzeczywistymi a średnią wszystkich wartości rzeczywistych.
+* **Współczynnik wyznaczania** : znany również jako wartość R kwadratowa, ta Metryka statystyczna wskazuje, jak dobrze model dopasowuje dane.
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 

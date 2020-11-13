@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c49f8b2732a1b62760cec69626d56751971e6a44
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789815"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556441"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Jak za pomocą Azure PowerShell zainicjować obsługę administracyjną SQL Server na platformie Azure Virtual Machines
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="configure-your-subscription"></a>Konfigurowanie subskrypcji
 
-1. Otwórz program PowerShell i nawiąż połączenie z kontem platformy Azure, uruchamiając polecenie **Connect-AzAccount** .
+1. Otwórz program PowerShell i nawiąż połączenie z kontem platformy Azure, uruchamiając polecenie **Connect-AzAccount**.
 
    ```powershell
    Connect-AzAccount
@@ -367,12 +367,17 @@ Maszyna wirtualna została utworzona.
 
 ## <a name="install-the-sql-iaas-agent"></a>Instalacja agenta SQL IaaS
 
-SQL Server maszyny wirtualne obsługują zautomatyzowane funkcje zarządzania przy użyciu [rozszerzenia agenta SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md). Aby zainstalować agenta na nowej maszynie wirtualnej i zarejestrować go u dostawcy zasobów, uruchom polecenie [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) po utworzeniu maszyny wirtualnej. Określ typ licencji dla maszyny wirtualnej SQL Server, wybierając między opcją płatność zgodnie z rzeczywistym użyciem lub przeniesieniem własnych licencji za pośrednictwem [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Aby uzyskać więcej informacji o licencjonowaniu, zobacz [model licencjonowania](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+SQL Server maszyny wirtualne obsługują zautomatyzowane funkcje zarządzania przy użyciu [rozszerzenia agenta SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md). Aby zarejestrować SQL Server przy użyciu rozszerzenia, uruchom polecenie [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) po utworzeniu maszyny wirtualnej. Określ typ licencji dla maszyny wirtualnej SQL Server, wybierając między opcją płatność zgodnie z rzeczywistym użyciem lub przeniesieniem własnych licencji za pośrednictwem [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Aby uzyskać więcej informacji o licencjonowaniu, zobacz [model licencjonowania](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+Istnieją trzy sposoby rejestracji z rozszerzeniem: 
+- [Automatycznie dla wszystkich bieżących i przyszłych maszyn wirtualnych w ramach subskrypcji](sql-agent-extension-automatic-registration-all-vms.md)
+- [Ręczne dla pojedynczej maszyny wirtualnej](sql-agent-extension-manually-register-single-vm.md)
+- [Ręcznie w przypadku wielu maszyn wirtualnych luzem](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>Zatrzymywanie lub usuwanie maszyny wirtualnej
@@ -383,7 +388,7 @@ Jeśli maszyna wirtualna nie musi działać w sposób ciągły, możesz unikną�
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Możesz również trwale usunąć wszystkie zasoby skojarzone z maszyną wirtualną, korzystając z polecenia **Remove-AzResourceGroup** . Spowoduje to również trwałe usunięcie maszyny wirtualnej, dlatego tego polecenia należy używać z rozwagą.
+Możesz również trwale usunąć wszystkie zasoby skojarzone z maszyną wirtualną, korzystając z polecenia **Remove-AzResourceGroup**. Spowoduje to również trwałe usunięcie maszyny wirtualnej, dlatego tego polecenia należy używać z rozwagą.
 
 ## <a name="example-script"></a>Przykładowy skrypt
 

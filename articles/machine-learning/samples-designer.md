@@ -1,7 +1,7 @@
 ---
 title: Przykładowe potoki & zestawy danych dla projektanta
 titleSuffix: Azure Machine Learning
-description: Użyj przykładów w programie Azure Machine Learning Designer, aby przeskakuje i uruchamiać potoki uczenia maszynowego.
+description: Dowiedz się, jak używać przykładów w programie Azure Machine Learning Designer, aby przeskakuje i uruchamiać potoki uczenia maszynowego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074604"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555502"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Przykładowe potoki & zestawy danych dla projektanta Azure Machine Learning
 
@@ -117,8 +117,8 @@ Przykładowe zestawy danych są dostępne w kategorii **przykłady zestawów dan
 
 | Nazwa zestawu danych &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Opis zestawu danych |
 |-------------|:--------------------|
-| Binarny zestaw danych klasyfikacji dochodów z spisu dla dorosłych | Podzbiór bazy danych spisu 1994 przy użyciu pracy dla dorosłych w wieku 16 ze skorygowanym indeksem dochodu > 100.<br/>**Użycie**: klasyfikowanie osób przy użyciu demograficznych w celu przewidywania, czy osoba uzyskuje ponad 50 000 roku.<br/> **Badania pokrewne**: Kohavi, R., Becker, B., (1996). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera|
-|Dane cen samochodów (RAW)|Informacje na temat samochodów i modeli, w tym Cena, funkcje, takie jak liczba cylindrów i MPG, oraz Ocena ryzyka dla ubezpieczenia.<br/> Ocena ryzyka jest początkowo skojarzona z funkcją autoprice. Następnie jest dostosowywany do rzeczywistego ryzyka w procesie znanym jako symbol aktuarialny. Wartość + 3 wskazuje, że jest to ryzykowne i wartość-3, która prawdopodobnie jest bezpieczna.<br/>**Użycie**: przewidywanie oceny ryzyka według funkcji przy użyciu regresji lub klasyfikacji wieloczynnikowa.<br/>**Powiązane badania**: Schlimmer, J.C. (1987). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera. |
+| Binarny zestaw danych klasyfikacji dochodów z spisu dla dorosłych | Podzbiór bazy danych spisu 1994 przy użyciu pracy dla dorosłych w wieku 16 ze skorygowanym indeksem dochodu > 100.<br/>**Użycie** : klasyfikowanie osób przy użyciu demograficznych w celu przewidywania, czy osoba uzyskuje ponad 50 000 roku.<br/> **Badania pokrewne** : Kohavi, R., Becker, B., (1996). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera|
+|Dane cen samochodów (RAW)|Informacje na temat samochodów i modeli, w tym Cena, funkcje, takie jak liczba cylindrów i MPG, oraz Ocena ryzyka dla ubezpieczenia.<br/> Ocena ryzyka jest początkowo skojarzona z funkcją autoprice. Następnie jest dostosowywany do rzeczywistego ryzyka w procesie znanym jako symbol aktuarialny. Wartość + 3 wskazuje, że jest to ryzykowne i wartość-3, która prawdopodobnie jest bezpieczna.<br/>**Użycie** : przewidywanie oceny ryzyka według funkcji przy użyciu regresji lub klasyfikacji wieloczynnikowa.<br/>**Powiązane badania** : Schlimmer, J.C. (1987). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera. |
 | Udostępnione etykiety programu CRM pragnienie |Etykiety z wyzwania KDD 2009 ([orange_small_train_appetency. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)) z przewidywania relacji klientów.|
 |Udostępnione etykiety zmian CRM|Etykiety z wyzwania KDD 2009 ([orange_small_train_churn. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)) z przewidywania relacji klientów.|
 |Udostępniony zestaw danych programu CRM | Te dane pochodzą z wyzwania KDD 2009 ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Zestaw danych zawiera klientów 50 000 z niemieckiej firmy telekomunikacyjnej pomarańczowa. Każdy klient ma 230 funkcje anonimowe, 190, które są liczbowe i 40 są kategorii. Funkcje są bardzo rozrzedzone. |
@@ -129,9 +129,9 @@ Przykładowe zestawy danych są dostępne w kategorii **przykłady zestawów dan
 |Klasyfikacje filmów|Zestaw danych to rozszerzona wersja zestawu danych tweetów filmów. Zestaw danych zawiera klasyfikacje 170K dla filmów, wyodrębnione z dobrze zorganizowanych tweetów w serwisie Twitter. Każde wystąpienie reprezentuje Tweet i jest krotką: identyfikator użytkownika, identyfikator filmu IMDB, klasyfikacja, sygnatura czasowa, liczba ulubionych dla tego tweetu i liczba przesłanych tweetów tego tweetu. Zestaw danych został udostępniony przez. wspomniane, S. Dooms, B. Loni i D. Tikk dla systemów polecających 2014.|
 |Zestaw danych pogody|Codzienne obserwacje pogodowe z NOAA ([scalone dane z 201304 do 201310](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)).<br/>Dane pogodowe obejmują obserwacje z stacji meteorologicznych lotniska, obejmujące okres April-October 2013. Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Identyfikatory stacji pogody zostały zamapowane na odpowiednie identyfikatory portów lotniczych    <br/> -Stacje pogodowe nieskojarzone z najgorętszym portów lotniczych 70 zostały odfiltrowane    <br/> -Kolumna Date została podzielona na oddzielne kolumny Year, month i Day.    <br/> — Wybrano następujące kolumny: AirportID, Year, month, Day, Time, TimeZone, SkyCondition, Visibility, Pogodatype, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, recordType, HourlyPrecip, ALTIMETER|
 |Zestaw danych witryny Wikipedia SP 500|Dane są wyprowadzane z witryny Wikipedia ( https://www.wikipedia.org/) na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.    <br/>Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Wyodrębnij zawartość tekstową dla każdej konkretnej firmy    <br/> -Usuń formatowanie wiki    <br/> -Usuń znaki inne niż alfanumeryczne    <br/> — Konwertuj cały tekst na małe litery    <br/> -Znane kategorie firmy zostały dodane    <br/>Należy zauważyć, że w niektórych firmach nie znaleziono artykułu, więc liczba rekordów jest mniejsza niż 500.|
-|Dane funkcji restauracji| Zestaw metadanych dotyczących restauracji i ich funkcji, takich jak typ żywności, styl rekomendowanych lokali i lokalizacja. <br/>**Sposób użycia**: Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego.<br/> **Badania pokrewne**: Bache, K. i Lichman, M. (2013). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.|
-|Klasyfikacje restauracji| Zawiera klasyfikacje nadawane przez użytkowników dla restauracji w skali od 0 do 2.<br/>**Sposób użycia**: Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego. <br/>**Badania pokrewne**: Bache, K. i Lichman, M. (2013). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.|
-|Restauracje — dane klienta| Zestaw metadanych o klientach, w tym dane demograficzne i preferencje. <br/>**Sposób użycia**: Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego. <br/> **Badania pokrewne**: Bache, K. i Lichman, M. (2013). [Machine Learning-repozytorium](https://archive.ics.uci.edu/ml) Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.|
+|Dane funkcji restauracji| Zestaw metadanych dotyczących restauracji i ich funkcji, takich jak typ żywności, styl rekomendowanych lokali i lokalizacja. <br/>**Sposób użycia** : Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego.<br/> **Badania pokrewne** : Bache, K. i Lichman, M. (2013). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.|
+|Klasyfikacje restauracji| Zawiera klasyfikacje nadawane przez użytkowników dla restauracji w skali od 0 do 2.<br/>**Sposób użycia** : Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego. <br/>**Badania pokrewne** : Bache, K. i Lichman, M. (2013). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.|
+|Restauracje — dane klienta| Zestaw metadanych o klientach, w tym dane demograficzne i preferencje. <br/>**Sposób użycia** : Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego. <br/> **Badania pokrewne** : Bache, K. i Lichman, M. (2013). [Machine Learning-repozytorium](https://archive.ics.uci.edu/ml) Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.|
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

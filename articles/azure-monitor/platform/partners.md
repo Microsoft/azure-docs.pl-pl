@@ -4,14 +4,14 @@ description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich int
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460099"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555643"
 ---
-# <a name="azure-monitor-partner-integrations"></a>Azure Monitor integracje partnerów
+# <a name="azure-monitor-partner-integrations"></a>Integracje partnerów w usłudze Azure Monitor
 
 Na liście w kolejności alfabetycznej. 
 
@@ -253,7 +253,7 @@ Ogranicz zdarzenia i MTTR za pomocą platformy AIOps w celu wyeliminowania szumu
 
 ![Logo SignalFX](./media/partners/signalfx.png)
 
-SignalFx jest liderem analizy operacyjnej w czasie rzeczywistym dla DevOps opartego na danych. Usługa odnajduje i zbiera metryki w każdym składniku w chmurze. Zastępuje on tradycyjne narzędzia do punktów i zapewnia wgląd w czasie rzeczywistym w obecnych środowiskach dynamicznych. Wykorzystując wysoce skalowalną platformę SignalFx, platforma SaaS jest zoptymalizowana pod kątem architektur opartych na kontenerach i mikrousługach, a także oferuje zaawansowane wizualizacje, aktywne alerty i funkcje Klasyfikacja współpracy w różnych organizacjach. SignalFx integruje się bezpośrednio z Azure Monitor, a także za pomocą łączników typu "open source", takich jak *telegraf*, z *statystykami*i *zebranych* w celu zapewnienia najlepszej klasy pulpitów nawigacyjnych, analiz i alertów dla systemu Azure.
+SignalFx jest liderem analizy operacyjnej w czasie rzeczywistym dla DevOps opartego na danych. Usługa odnajduje i zbiera metryki w każdym składniku w chmurze. Zastępuje on tradycyjne narzędzia do punktów i zapewnia wgląd w czasie rzeczywistym w obecnych środowiskach dynamicznych. Wykorzystując wysoce skalowalną platformę SignalFx, platforma SaaS jest zoptymalizowana pod kątem architektur opartych na kontenerach i mikrousługach, a także oferuje zaawansowane wizualizacje, aktywne alerty i funkcje Klasyfikacja współpracy w różnych organizacjach. SignalFx integruje się bezpośrednio z Azure Monitor, a także za pomocą łączników typu "open source", takich jak *telegraf* , z *statystykami* i *zebranych* w celu zapewnienia najlepszej klasy pulpitów nawigacyjnych, analiz i alertów dla systemu Azure.
 
 [Dokumentacja signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -301,9 +301,19 @@ Platforma turbonomic zapewnia automatyzację obciążeń dla chmur hybrydowych p
 
 [Wprowadzenie do platforma turbonomic](https://turbonomic.com/)
 
+## <a name="bmc-helix"></a>Kontroler BMC Helix
+
+![Logo BMC Helix](./media/partners/BMCHelix.png)
+
+BMC Helix to autonomiczna usługa przedsiębiorstwa i platforma Operations SaaS. Integracja z 360-stopniową inteligencją pozwala firmom na proaktywne i predictively odkrywanie, monitorowanie, obsługę, korygowanie, optymalizowanie i dostarczanie środowisk opartych na kanałach międzyfirmowych.
+Ponadto dzięki bezproblemowej integracji narzędzia ITSM i zarządzania operacjami IT (ITOM) BMC Helix umożliwia klientom IT i firmom wyeliminowanie silosów IT, podejmowanie decyzji dotyczących danych i zapewnienie wiodących w branży środowisk klientów.
+Klienci mogą wdrożyć platformę BMC Helix z wybranym wdrożeniem chmury — publicznym, prywatnym lub hybrydowym. Ponadto klienci mają możliwość wyboru rozwiązań AI/ML do wykorzystania od wiodących dostawców branżowych.
+
+[Dowiedz się więcej o BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się więcej o Azure Monitor](../overview.md)
+- [Dowiedz się więcej na temat usługi Azure Monitor](../overview.md)
 - [Uzyskiwanie dostępu do metryk przy użyciu interfejsu API REST](rest-api-walkthrough.md)
 - [Przesyłanie strumieniowe dziennika aktywności do usługi innej niż firmy Microsoft](./activity-log.md#legacy-collection-methods)
 - [Przesyłanie strumieniowe dzienników zasobów do usługi innej niż firmy Microsoft](./resource-logs.md#send-to-azure-event-hubs)

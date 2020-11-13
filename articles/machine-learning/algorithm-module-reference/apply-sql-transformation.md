@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76314542"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555604"
 ---
 # <a name="apply-sql-transformation"></a>Stosowanie przekształcenia SQL
 
@@ -29,11 +29,26 @@ Za pomocą modułu przekształcenie języka SQL można:
 -   Wykonaj instrukcje zapytania SQL, aby filtrować lub modyfikować dane i zwracać wyniki zapytania jako tabelę danych.  
 
 > [!IMPORTANT]
-> Aparat SQL używany w tym module to **SQLite**. Aby uzyskać więcej informacji na temat składni oprogramowania SQLite, zobacz kod SQL, który jest [zrozumiały dla oprogramowania SQLite](https://www.sqlite.org/index.html) , aby uzyskać więcej informacji.  
+> Aparat SQL używany w tym module to **SQLite**. Aby uzyskać więcej informacji na temat składni oprogramowania SQLite, zobacz [SQL jako zrozumiały dla oprogramowania SQLite](https://www.sqlite.org/index.html).
+> Ten moduł spowoduje nieoczekiwanie na dane oprogramowania SQLite, które znajduje się w bazie danych pamięci. w związku z tym wykonanie modułu wymaga dużo więcej pamięci i może wystąpić `Out of memory` błąd. Upewnij się, że komputer ma wystarczającą ilość pamięci RAM.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Jak skonfigurować zastosowanie transformacji SQL  
 
 Moduł może przyjmować do trzech zestawów danych jako dane wejściowe. W przypadku odwoływania się do zestawów danych połączonych z każdym portem wejściowym należy użyć nazw `t1` , `t2` i `t3` . Numer tabeli wskazuje indeks portu wejściowego.  
+
+Poniżej znajduje się przykładowy kod, który pokazuje, jak sprzęgać dwie tabele. T1 i T2 to dwa zestawy danych połączone z lewym i środkowymi portami wejściowymi **zastosowania transformacji SQL** :
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 Pozostała wartość parametru to zapytanie SQL, które używa składni programu SQLite. Wpisując wiele wierszy w polu tekstowym **skrypt SQL** , użyj średnika, aby zakończyć każdą instrukcję. W przeciwnym razie podziały wierszy są konwertowane na spacje.  
 

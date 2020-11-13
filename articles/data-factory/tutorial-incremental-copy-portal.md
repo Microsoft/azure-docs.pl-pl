@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 9bd7c9622ebad602fc4833664e2a47d7c91ea897
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320918"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555349"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Przyrostowe ładowanie danych z Azure SQL Database do magazynu obiektów blob platformy Azure przy użyciu Azure Portal
 
@@ -53,7 +53,7 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
 
 2. **Przygotuj magazyn danych do przechowywania wartości limitu**. W tym samouczku wartość limitu jest przechowywana w bazie danych SQL.
 
-3. **Utwórz potok z następującym przepływem pracy**:
+3. **Utwórz potok z następującym przepływem pracy** :
 
     Potok w tym rozwiązaniu obejmuje następujące działania:
 
@@ -153,7 +153,7 @@ END
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-2. Z menu po lewej stronie wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów:
+2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **integracja**  >  **Data Factory** :
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -165,17 +165,17 @@ END
 4. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych.
 5. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
 
-      - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
-      - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
+      - Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
+      - Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.   
          
         Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 6. Wybierz opcję **V2** w obszarze **Wersja**.
 7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i tak dalej) i usługi obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Kliknij przycisk **Utwórz**.      
-9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
+8. Kliknij pozycję **Utwórz**.      
+9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych** , jak pokazano na poniższej ilustracji.
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
-10. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory.
+10. Kliknij kafelek **Tworzenie i monitorowanie** , aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory.
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem Copy i jednym działaniem StoredProcedure, połączonymi w jednym potoku.
@@ -183,18 +183,18 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 1. Na stronie **Wprowadzenie** interfejsu użytkownika usługi Data Factory kliknij kafelek **Utwórz potok**.
 
    ![Strona Wprowadzenie interfejsu użytkownika usługi Data Factory](./media/doc-common-process/get-started-page.png)    
-3. W panelu Ogólne w obszarze **Właściwości**Określ **IncrementalCopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
+3. W panelu Ogólne w obszarze **Właściwości** Określ **IncrementalCopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
-4. Dodajmy pierwsze działanie wyszukiwania w celu pobrania starej wartości limitu. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Zmień nazwę działania na **LookupOldWaterMarkActivity**.
+4. Dodajmy pierwsze działanie wyszukiwania w celu pobrania starej wartości limitu. W przyborniku **Działania** rozwiń pozycję **Ogólne** , a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Zmień nazwę działania na **LookupOldWaterMarkActivity**.
 
    ![Pierwsze działanie wyszukiwania — nazwa](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
-5. Przejdź do karty **Ustawienia**, a następnie kliknij pozycję **+Nowy** dla pozycji **Źródłowy zestaw danych**. W tym kroku utworzysz zestaw danych reprezentujący dane w tabeli **watermarktable**. Ta tabela zawiera stary limit, który był używany w poprzedniej operacji kopiowania.
+5. Przejdź do karty **Ustawienia** , a następnie kliknij pozycję **+Nowy** dla pozycji **Źródłowy zestaw danych**. W tym kroku utworzysz zestaw danych reprezentujący dane w tabeli **watermarktable**. Ta tabela zawiera stary limit, który był używany w poprzedniej operacji kopiowania.
 
-6. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**. Zobaczysz nowe okno otwarte dla zestawu danych.
+6. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database** , a następnie kliknij przycisk **Kontynuuj**. Zobaczysz nowe okno otwarte dla zestawu danych.
 
 7. W oknie **Ustawianie właściwości** dla zestawu danych wprowadź **WatermarkDataset** dla **nazwy**.
 
-8. W polu **połączona usługa**wybierz pozycję **Nowy**, a następnie wykonaj następujące czynności:
+8. W polu **połączona usługa** wybierz pozycję **Nowy** , a następnie wykonaj następujące czynności:
 
     1. Wprowadź wartość **AzureSqlDatabaseLinkedService** w polu **Nazwa**.
     2. Wybierz serwer dla **nazwy serwera**.
@@ -211,25 +211,25 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
     ![Zestaw danych limitu — ustawienia połączenia](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
 10. Przejdź do edytora potoku, klikając kartę potoku u góry lub klikając nazwę potoku w widoku drzewa po lewej stronie. W oknie dialogowym właściwości działania **Lookup** (Wyszukiwanie) upewnij się, że dla pola **Zestaw danych źródłowych** wybrano wartość **WatermarkDataset**.
 
-11. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij i upuść kolejne działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta potoku. Na karcie **Ogólne** okna właściwości ustaw nazwę **LookupNewWaterMarkActivity**. To działanie wyszukiwania pobiera nową wartość limitu z tabeli zawierającej dane źródłowe do skopiowania do miejsca docelowego.
+11. W przyborniku **Działania** rozwiń pozycję **Ogólne** , a następnie przeciągnij i upuść kolejne działanie **Lookup** (Wyszukiwanie) na powierzchni projektanta potoku. Na karcie **Ogólne** okna właściwości ustaw nazwę **LookupNewWaterMarkActivity**. To działanie wyszukiwania pobiera nową wartość limitu z tabeli zawierającej dane źródłowe do skopiowania do miejsca docelowego.
 
-12. W oknie właściwości dla drugiego działania **Lookup** (Wyszukiwania) przejdź do karty **Ustawienia**, a następnie kliknij pozycję **Nowy**. Utworzysz zestaw danych wskazujący tabelę źródłową zawierającą nową wartość limitu (wartość maksymalna elementu LastModifyTime).
+12. W oknie właściwości dla drugiego działania **Lookup** (Wyszukiwania) przejdź do karty **Ustawienia** , a następnie kliknij pozycję **Nowy**. Utworzysz zestaw danych wskazujący tabelę źródłową zawierającą nową wartość limitu (wartość maksymalna elementu LastModifyTime).
 
-13. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**.
-14. W oknie **Ustawianie właściwości** wpisz **SourceDataset** ( **Nazwa**). Wybierz wartość **AzureSqlDatabaseLinkedService** w polu **Połączona usługa**.
+13. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database** , a następnie kliknij przycisk **Kontynuuj**.
+14. W oknie **Ustawianie właściwości** wpisz **SourceDataset** ( **Nazwa** ). Wybierz wartość **AzureSqlDatabaseLinkedService** w polu **Połączona usługa**.
 15. Wybierz element **[dbo].[data_source_table]** dla pozycji Tabela. Zapytanie zostanie wprowadzone w tym zestawie danych później w tym samouczku. Zapytanie ma pierwszeństwo przed tabelą określaną w tym kroku.
 16. Wybierz pozycję **Zakończ**.
 17. Przejdź do edytora potoku, klikając kartę potoku u góry lub klikając nazwę potoku w widoku drzewa po lewej stronie. W oknie dialogowym właściwości działania **Lookup** (Wyszukiwanie) upewnij się, że dla pola **Zestaw danych źródłowych** wybrano wartość **SourceDataset**.
-18. Wybierz wartość **Zapytanie** w polu **Użyj zapytania**, a następnie wprowadź następujące zapytanie: wybierasz tylko maksymalną wartość **LastModifytime** z tabeli **data_source_table**. Upewnij się, że zaznaczono również **tylko pierwszy wiersz**.
+18. Wybierz wartość **Zapytanie** w polu **Użyj zapytania** , a następnie wprowadź następujące zapytanie: wybierasz tylko maksymalną wartość **LastModifytime** z tabeli **data_source_table**. Upewnij się, że zaznaczono również **tylko pierwszy wiersz**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
     ```
 
     ![Drugie działanie wyszukiwania — zapytanie](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
-19. W przyborniku **działania** rozwiń pozycję **Przenieś & Przekształć**, a następnie przeciągnij i upuść działanie **Copy (kopiowanie** ) z przybornika działania, a następnie ustaw nazwę na **wartość incrementalcopyactivity**.
+19. W przyborniku **działania** rozwiń pozycję **Przenieś & Przekształć** , a następnie przeciągnij i upuść działanie **Copy (kopiowanie** ) z przybornika działania, a następnie ustaw nazwę na **wartość incrementalcopyactivity**.
 
-20. **Połącz oba działania wyszukiwania z działaniem kopiowania**, przeciągając do działania kopiowania **zielony przycisk** dołączony do działania wyszukiwania. Po zmianie koloru obramowania działania kopiowania na niebieski zwolnij przycisk myszy.
+20. **Połącz oba działania wyszukiwania z działaniem kopiowania** , przeciągając do działania kopiowania **zielony przycisk** dołączony do działania wyszukiwania. Po zmianie koloru obramowania działania kopiowania na niebieski zwolnij przycisk myszy.
 
     ![Połączenie działań wyszukiwania z działaniem kopiowania](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. Wybierz **działanie kopiowania** i upewnij się, że w oknie **Właściwości** widać właściwości działania.
@@ -247,9 +247,9 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
         ![Działanie Copy (Kopiowanie) — źródło](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
 23. Przejdź do karty **Ujście** i kliknij pozycję **+Nowy** dla pola **Zestaw danych ujścia**.
 
-24. W tym samouczku magazyn danych ujścia jest typu Azure Blob Storage. W związku z tym wybierz pozycję **Azure Blob Storage**i kliknij przycisk **Kontynuuj** w oknie **Nowy zestaw danych** .
+24. W tym samouczku magazyn danych ujścia jest typu Azure Blob Storage. W związku z tym wybierz pozycję **Azure Blob Storage** i kliknij przycisk **Kontynuuj** w oknie **Nowy zestaw danych** .
 25. W oknie **Wybieranie formatu** wybierz typ formatu danych, a następnie kliknij przycisk **Kontynuuj**.
-25. W oknie **Ustawianie właściwości** wpisz **SinkDataset** ( **Nazwa**). W obszarze **połączona usługa**wybierz pozycję **+ Nowy**. W tym kroku tworzysz połączenie (usługę połączoną) z magazynem **Azure Blob Storage**.
+25. W oknie **Ustawianie właściwości** wpisz **SinkDataset** ( **Nazwa** ). W obszarze **połączona usługa** wybierz pozycję **+ Nowy**. W tym kroku tworzysz połączenie (usługę połączoną) z magazynem **Azure Blob Storage**.
 26. W oknie **Nowa połączona usługa (Azure Blob Storage)** wykonaj następujące czynności:
 
     1. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.
@@ -258,11 +258,11 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
 27. W oknie **Ustawianie właściwości** upewnij się, że wybrano opcję **AzureStorageLinkedService** dla **połączonej usługi**. Następnie wybierz pozycję **Zakończ**.
 28. Przejdź do karty **połączenie** w programie SinkDataset i wykonaj następujące czynności:
-    1. W polu **ścieżka pliku** wprowadź **adftutorial/incrementalcopy**. Kontenerem obiektów blob jest **adftutorial**, a nazwą folderu — **incrementalcopy**. W tym fragmencie kodu założono, że w masz kontener obiektów blob o nazwie adftutorial w magazynie obiektów blob. Utwórz ten kontener, jeśli nie istnieje, lub zastąp go nazwą istniejącego kontenera. Jeśli folder wyjściowy **incrementalcopy** nie istnieje, usługa Azure Data Factory automatycznie go utworzy. Można również za pomocą przycisku **Przeglądaj** pola **Ścieżka pliku** przejść do folderu w kontenerze obiektów blob.
-    2. Dla części **pliku** w polu **ścieżka pliku** wybierz pozycję **Dodaj zawartość dynamiczną [Alt + P]**, a następnie wprowadź `@CONCAT('Incremental-', pipeline().RunId, '.txt')` w otwartym oknie. Następnie wybierz pozycję **Zakończ**. Nazwa pliku jest generowana dynamicznie przy użyciu wyrażenia. Każde uruchomienie potoku ma unikatowy identyfikator. Działanie kopiowania używa identyfikatora uruchomienia do wygenerowania nazwy pliku.
+    1. W polu **ścieżka pliku** wprowadź **adftutorial/incrementalcopy**. Kontenerem obiektów blob jest **adftutorial** , a nazwą folderu — **incrementalcopy**. W tym fragmencie kodu założono, że w masz kontener obiektów blob o nazwie adftutorial w magazynie obiektów blob. Utwórz ten kontener, jeśli nie istnieje, lub zastąp go nazwą istniejącego kontenera. Jeśli folder wyjściowy **incrementalcopy** nie istnieje, usługa Azure Data Factory automatycznie go utworzy. Można również za pomocą przycisku **Przeglądaj** pola **Ścieżka pliku** przejść do folderu w kontenerze obiektów blob.
+    2. Dla części **pliku** w polu **ścieżka pliku** wybierz pozycję **Dodaj zawartość dynamiczną [Alt + P]** , a następnie wprowadź `@CONCAT('Incremental-', pipeline().RunId, '.txt')` w otwartym oknie. Następnie wybierz pozycję **Zakończ**. Nazwa pliku jest generowana dynamicznie przy użyciu wyrażenia. Każde uruchomienie potoku ma unikatowy identyfikator. Działanie kopiowania używa identyfikatora uruchomienia do wygenerowania nazwy pliku.
 
 28. Przejdź do edytora **potoku** , klikając kartę potoku u góry lub klikając nazwę potoku w widoku drzewa po lewej stronie.
-29. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij i upuść działanie **Stored Procedure** (Procedura składowana) z przybornika **Działania** na powierzchnię projektanta potoku. **Połącz** zielone (Powodzenie) wyjście działania **kopiowania** z działaniem **procedury składowanej**.
+29. W przyborniku **Działania** rozwiń pozycję **Ogólne** , a następnie przeciągnij i upuść działanie **Stored Procedure** (Procedura składowana) z przybornika **Działania** na powierzchnię projektanta potoku. **Połącz** zielone (Powodzenie) wyjście działania **kopiowania** z działaniem **procedury składowanej**.
 
 24. Wybierz **działanie procedury składowanej** w Projektancie potoku i zmień jego nazwę na **StoredProceduretoWriteWatermarkActivity**.
 
@@ -271,15 +271,15 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 26. Przejdź do karty **Procedura składowana** i wykonaj następujące czynności:
 
     1. W polu **Nazwa procedury składowanej** wybierz wartość **usp_write_watermark**.
-    2. Aby określić wartości parametrów procedury składowanej, kliknij pozycję **Importuj parametr**, a następnie wprowadź następujące wartości parametrów:
+    2. Aby określić wartości parametrów procedury składowanej, kliknij pozycję **Importuj parametr** , a następnie wprowadź następujące wartości parametrów:
 
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Ciąg | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | LastModifiedtime | Data i godzina | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
-27. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję >>.   
+27. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku** , kliknij pozycję >>.   
 
 28. Opublikuj jednostki (usługi połączone, zestawy danych i potoki) w usłudze Azure Data Factory, wybierając przycisk **Opublikuj wszystko**. Poczekaj, aż zostanie wyświetlony komunikat o pomyślnym opublikowaniu.
 

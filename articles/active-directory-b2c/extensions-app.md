@@ -10,16 +10,16 @@ ms.topic: reference
 ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: accd32f376c6030900a9f9a3c29547118d0a1a7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc536fa4292d794e8d89a2564ad10a3c10dd0a3d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388514"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560864"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: aplikacja rozszerzeń
 
-Po utworzeniu katalogu Azure AD B2C aplikacja o nazwie `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` zostanie utworzona automatycznie wewnątrz nowego katalogu. Ta aplikacja, nazywana **B2C-Extensions-App**, jest widoczna w *rejestracje aplikacji*. Jest on używany przez usługę Azure AD B2C do przechowywania informacji o użytkownikach i atrybutach niestandardowych. Jeśli aplikacja zostanie usunięta, Azure AD B2C nie będzie działać poprawnie, a Twoje środowisko produkcyjne będzie miało oddziaływać.
+Po utworzeniu katalogu Azure AD B2C aplikacja o nazwie `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` zostanie utworzona automatycznie wewnątrz nowego katalogu. Ta aplikacja, nazywana **B2C-Extensions-App** , jest widoczna w *rejestracje aplikacji*. Jest on używany przez usługę Azure AD B2C do przechowywania informacji o użytkownikach i atrybutach niestandardowych. Jeśli aplikacja zostanie usunięta, Azure AD B2C nie będzie działać poprawnie, a Twoje środowisko produkcyjne będzie miało oddziaływać.
 
 > [!IMPORTANT]
 > Nie usuwaj B2C-Extensions-App, chyba że planujesz natychmiastowe usunięcie dzierżawy. Jeśli aplikacja pozostanie usunięta przez ponad 30 dni, informacje o użytkowniku zostaną trwale utracone.
@@ -39,7 +39,7 @@ Jeśli przypadkowo usunięto aplikację B2C-Extensions-App, masz 30 dni na jej o
 1. Przejdź do [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
 1. Zaloguj się do witryny jako Administrator globalny katalogu Azure AD B2C, do którego chcesz przywrócić usuniętą aplikację. Ten Administrator globalny musi mieć adres e-mail podobny do poniższego: `username@{yourTenant}.onmicrosoft.com` .
 1. Wydaj protokół HTTP GET względem adresu URL `https://graph.windows.net/myorganization/deletedApplications` z interfejsem API-Version = 1.6. Ta operacja spowoduje wyświetlenie listy wszystkich aplikacji, które zostały usunięte w ciągu ostatnich 30 dni.
-1. Znajdź aplikację na liście, której nazwa zaczyna się od "B2C-Extension-App" i skopiuj jej `objectid` wartość właściwości.
+1. Znajdź aplikację na liście, której nazwa zaczyna się od "B2C-Extensions-App" i skopiuj jej `objectid` wartość właściwości.
 1. Wydaj wpis HTTP na adres URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore` . Zastąp `{OBJECTID}` część adresu URL z `objectid` poprzedniego kroku.
 
 Teraz powinno być możliwe [wyświetlenie przywróconej aplikacji](#verifying-that-the-extensions-app-is-present) w Azure Portal.

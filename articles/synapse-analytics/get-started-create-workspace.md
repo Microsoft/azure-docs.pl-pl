@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 65d89436486940ad5239dd2c3e83401b82234a21
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515413"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555468"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -47,14 +47,9 @@ Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby 
 ## <a name="create-a-dedicated-sql-pool"></a>Tworzenie dedykowanej puli SQL
 
 1. W programie Synapse Studio w okienku po lewej stronie wybierz pozycję **Zarządzaj**  >  **pulami SQL**.
-1. Wybierz pozycję **nowe** i wprowadź następujące ustawienia:
-
-    |Ustawienie | Sugerowana wartość | 
-    |---|---|---|
-    |**Nazwa puli SQL**| **SQLDB1**|
-    |**Poziom wydajności**|**DW100C**|
-    |||
-
+1. Wybierz pozycję **Nowy**
+1. W obszarze **Nazwa puli SQL** wybierz pozycję **SQLDB1**
+1. Dla opcji **poziom wydajności** wybierz **DW100C**
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Dedykowana Pula SQL będzie gotowa w ciągu kilku minut. Dedykowana Pula SQL jest skojarzona z dedykowaną bazą danych puli SQL o nazwie **SQLDB1**.
 
 Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę można wstrzymać później, aby zmniejszyć koszty.
@@ -62,14 +57,10 @@ Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę
 ## <a name="create-a-serverless-apache-spark-pool"></a>Utwórz bezserwerową pulę Apache Spark
 
 1. W programie Synapse Studio w okienku po lewej stronie wybierz pozycję **Zarządzaj**  >  **pulami Apache Spark**.
-1. Wybierz pozycję **nowe** i wprowadź następujące ustawienia:
-
-    |Ustawienie | Sugerowana wartość | 
-    |---|---|---|
-    |**Nazwa puli Apache Spark**|**Spark1**
-    |**Rozmiar węzła**| **Mały**|
-    |**Liczba węzłów**| Ustaw wartość minimalną na 3 i wartość maksymalną na 3.|
-
+1. Wybierz pozycję **Nowy** 
+1. W obszarze **Nazwa puli Apache Spark** wprowadź **Spark1**.
+1. Dla **rozmiaru węzła** wprowadź **małe**.
+1. Dla **liczby węzłów** ustaw wartość minimalną na 3 i wartość maksymalną na 3.
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Pula Apache Spark będzie gotowa w ciągu kilku sekund.
 
 Podczas wykonywania działania platformy Spark w usłudze Azure Synapse należy określić pulę platformy Spark do użycia. Pula informuje platformę Azure Synapse, ile zasobów platformy Spark ma używać. Płacisz tylko za wykorzystane zasoby. Gdy aktywne zaprzestanie korzystania z puli, zasoby są automatycznie przekroczenia limitu czasu i są odtwarzane.

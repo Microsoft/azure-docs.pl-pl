@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 76e7b3d0b0dd514feb7d16a6bc23d1b908be683f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207210"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555570"
 ---
 # <a name="pbr-materials"></a>Materiały PBR
 
 *Materiały PBR* to jeden z obsługiwanych [typów materiałów](../../concepts/materials.md) w ramach renderowania zdalnego na platformie Azure. Są one używane w przypadku [siatek](../../concepts/meshes.md) , które powinny otrzymać realistyczne oświetlenie.
 
-Sekcja PBR to **P**hysically **B**ased **R**endering i oznacza, że materiał opisuje wizualizacje właściwości powierzchni w sposób fizyczny, tak że realistyczne wyniki są możliwe w przypadku wszystkich warunków oświetlenia. Większość nowoczesnych aparatów gier i narzędzi do tworzenia zawartości obsługuje te materiały, ponieważ są one uznawane za najlepsze przybliżenie rzeczywistych scenariuszy dla renderowania w czasie rzeczywistym.
+Sekcja PBR to **P** hysically **B** ased **R** endering i oznacza, że materiał opisuje wizualizacje właściwości powierzchni w sposób fizyczny, tak że realistyczne wyniki są możliwe w przypadku wszystkich warunków oświetlenia. Większość nowoczesnych aparatów gier i narzędzi do tworzenia zawartości obsługuje te materiały, ponieważ są one uznawane za najlepsze przybliżenie rzeczywistych scenariuszy dla renderowania w czasie rzeczywistym.
 
 ![Przykładowy model Kaska glTF renderowany przez ARR](media/helmet.png)
 
@@ -26,7 +26,7 @@ Materiały PBR nie są rozwiązaniem uniwersalnym, chociaż. Istnieją materiał
 
 Te właściwości są wspólne dla wszystkich materiałów:
 
-* **albedoColor:** Ten kolor jest mnożony przez inne kolory, takie jak *albedoMap* lub * :::no-loc text="vertex "::: kolory*. Jeśli *przezroczystość* jest włączona w materiale, kanał alfa jest używany do dostosowywania nieprzezroczystości, `1` co oznacza całkowite nieprzezroczystość i `0` znaczenie w pełni przezroczyste. Wartość domyślna to biały.
+* **albedoColor:** Ten kolor jest mnożony przez inne kolory, takie jak *albedoMap* lub *:::no-loc text="vertex "::: kolory*. Jeśli *przezroczystość* jest włączona w materiale, kanał alfa jest używany do dostosowywania nieprzezroczystości, `1` co oznacza całkowite nieprzezroczystość i `0` znaczenie w pełni przezroczyste. Wartość domyślna to biały.
 
   > [!NOTE]
   > Gdy materiał PBR jest całkowicie przezroczysty, podobnie jak idealnie czysty fragment, nadal odzwierciedla środowisko. Jasne plamy, takie jak słońce, są nadal widoczne w odbiciu. Różni się to w przypadku [materiałów kolorowych](color-materials.md).
@@ -43,9 +43,15 @@ Te właściwości są wspólne dla wszystkich materiałów:
 
 * **TransparencyWritesDepth:** Jeśli flaga TransparencyWritesDepth jest ustawiona na materiale i materiał jest przezroczysty, obiekty korzystające z tego materiału również współtworzą końcowy bufor głębokości. Sprawdź, czy flaga materiału PBR jest *przezroczysta* w następnej sekcji. Włączenie tej funkcji jest zalecane, jeśli przypadek użycia wymaga bardziej wiarygodnego [rozmieszczenia](late-stage-reprojection.md) w pełni przezroczystych scen. W przypadku mieszanych, nieprzezroczystych/przezroczystych scen, to ustawienie może spowodować niewiarygodne zachowanie lub artefakty reprojektowe. Z tego powodu domyślnym i zalecanym ustawieniem dla ogólnego przypadku użycia jest wyłączenie tej flagi. Zapisywane wartości głębokości są pobierane z warstwy głębi pikseli obiektu znajdującego się najbliżej aparatu.
 
+* **FresnelEffect:** Ta flaga materiału umożliwia stosowanie dodatku [wygaszania Fresnela](../../overview/features/fresnel-effect.md) na odpowiednich materiałach. Wygląd efektu zależy od innych parametrów wygaszania Fresnela opisanych poniżej. 
+
+* **FresnelEffectColor:** Kolor wygaszania Fresnela używany dla tego materiału. Ważne tylko wtedy, gdy bit efektu wygaszania Fresnela został ustawiony w tym materiale (Zobacz powyżej). Ta właściwość kontroluje kolor podstawowy wygaszania Fresnela (zobacz [wygaszania Fresnela](../../overview/features/fresnel-effect.md) , aby uzyskać pełne wyjaśnienie). Obecnie tylko wartości kanału RGB są ważne, a wartość alfa zostanie zignorowana.
+
+* **FresnelEffectExponent:** Wykładnik wygaszania Fresnela używany dla tego materiału. Ważne tylko wtedy, gdy bit efektu wygaszania Fresnela został ustawiony w tym materiale (Zobacz powyżej). Ta właściwość kontroluje rozproszenie wygaszania Fresnela. Wartość minimalna 0,01 powoduje rozproszenie całego obiektu. Wartość maksymalna 10,0 powoduje ograniczenie największej liczby widocznych krawędzi gracing.
+
 ## <a name="pbr-material-properties"></a>Właściwości materiału PBR
 
-Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właściwości *BaseColor*, *metalu*i *chropowatości* do emulowania szerokiego zakresu materiałów rzeczywistych. Szczegółowy opis programu PBR wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji na temat usługi PBR, zobacz [inne źródła](http://www.pbr-book.org). Następujące właściwości są specyficzne dla materiałów PBR:
+Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właściwości *BaseColor* , *metalu* i *chropowatości* do emulowania szerokiego zakresu materiałów rzeczywistych. Szczegółowy opis programu PBR wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji na temat usługi PBR, zobacz [inne źródła](http://www.pbr-book.org). Następujące właściwości są specyficzne dla materiałów PBR:
 
 * **baseColor:** W materiałach PBR *kolor albedo* jest określany jako *kolor podstawowy*. W przypadku renderowania zdalnego na platformie Azure Właściwość *Color albedo* jest już obecna za pomocą wspólnych właściwości materiału, więc nie istnieje dodatkowa Właściwość koloru podstawowego.
 

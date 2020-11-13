@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 56509bfcd267a590946eb750bd74ce1f67aecc00
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285268"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556407"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Tworzenie FCI z udziałem plików w warstwie Premium (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 
 ## <a name="mount-premium-file-share"></a>Zainstaluj udział plików w warstwie Premium
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com). i przejdź do konta magazynu.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). i przejdź do konta magazynu.
 1. Przejdź do obszaru **udziały plików** w obszarze **Usługa plików** , a następnie wybierz udział plików w warstwie Premium, który ma być używany dla magazynu SQL.
 1. Wybierz pozycję **Połącz** , aby wyświetlić parametry połączenia dla udziału plików.
 1. Z listy rozwijanej wybierz literę dysku, której chcesz użyć, a następnie skopiuj oba bloki kodu do Notatnika.
@@ -189,7 +189,7 @@ Po skonfigurowaniu klastra trybu failover można utworzyć SQL Server FCI.
 
 ## <a name="register-with-the-sql-vm-rp"></a>Rejestrowanie w ramach jednostki odzyskiwania maszyny wirtualnej SQL
 
-Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją z dostawcą zasobów maszyny wirtualnej SQL (RP) w [trybie zarządzania uproszczonego](sql-vm-resource-provider-register.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
+Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją za pomocą rozszerzenia programu SQL IaaS Agent (RP) w [trybie zarządzania uproszczonego](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
 
 Zarejestruj maszynę wirtualną SQL Server w trybie uproszczonym przy użyciu programu PowerShell (-LicenseType może być `PAYG` lub `AHUB` ):
 
@@ -210,7 +210,7 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 - Usługa Microsoft Distributed Transaction Coordinator (MSDTC) nie jest obsługiwana w systemie Windows Server 2016 i jego starszych wersjach. 
 - Element FILESTREAM nie jest obsługiwany w przypadku klastra trybu failover z udziałem plików w warstwie Premium. Aby użyć FILESTREAM, wdróż klaster przy użyciu [bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md) lub [udostępnionych dysków platformy Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) .
-- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL. 
+- Obsługiwane jest tylko rejestrowanie przy użyciu rozszerzenia agenta SQL IaaS w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
 
 ## <a name="next-steps"></a>Następne kroki
 

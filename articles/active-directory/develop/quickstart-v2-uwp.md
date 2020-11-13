@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 28d912153b52580727e0fb5086e0a7ae55e8b545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824408"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560931"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Szybki start: wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji platformy UWP
 
-Ten przewodnik Szybki Start używa przykładu kodu do zademonstrowania, w jaki sposób aplikacja platforma uniwersalna systemu Windows (platformy UWP) może zalogować użytkowników z kontami osobistymi lub kontami służbowymi, uzyskać token dostępu i wywołać interfejs API Microsoft Graph. Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
+W tym przewodniku szybki start pobierasz i uruchamiasz przykładowy kod, który pokazuje, jak aplikacja platforma uniwersalna systemu Windows (platformy UWP) może zalogować użytkowników i uzyskać token dostępu w celu wywołania interfejsu API Microsoft Graph. 
+
+Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Wymagania wstępne
@@ -49,13 +51,13 @@ Ten przewodnik Szybki Start używa przykładu kodu do zademonstrowania, w jaki s
 > 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
 > 1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://aka.ms/MobileAppReg) .
 > 1. Wybierz pozycję **Nowa rejestracja**.
-> 1. W obszarze **zarejestruj aplikację**wprowadź informacje o rejestracji aplikacji:
+> 1. W obszarze **zarejestruj aplikację** wprowadź informacje o rejestracji aplikacji:
 >      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `UWP-App-calling-MsGraph`.
 >      - W sekcji **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft (na przykład Skype, Xbox, Outlook.com)**.
 > 1. Wybierz pozycję **zarejestruj** , aby utworzyć aplikację, a następnie Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
-> 1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
+> 1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
 > 1. Wybierz pozycję **Dodaj**  >  **aplikacje mobilne i klasyczne**.
-> 1. W obszarze **identyfikatory URI przekierowania**wybierz opcję `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+> 1. W obszarze **identyfikatory URI przekierowania** wybierz opcję `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 > 1. Wybierz pozycję **Konfiguruj**.
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -90,30 +92,30 @@ Ten przewodnik Szybki Start używa przykładu kodu do zademonstrowania, w jaki s
 >
 > 1. Wyodrębnij archiwum zip do folderu lokalnego w pobliżu katalogu głównego dysku. Na przykład do **C:\Azure-Samples**.
 > 1. Otwórz projekt w programie Visual Studio. Jeśli zostanie wyświetlony monit, zainstaluj platforma uniwersalna systemu Windows obciążenie pracą **programistyczną** i wszystkie poszczególne składniki zestawu SDK.
-> 1. W *MainPage.XAML.cs*Zmień wartość `ClientId` zmiennej na **Identyfikator aplikacji (klienta)** , która została zarejestrowana wcześniej.
+> 1. W *MainPage.XAML.cs* Zmień wartość `ClientId` zmiennej na **Identyfikator aplikacji (klienta)** , która została zarejestrowana wcześniej.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
 >
->    **Identyfikator aplikacji (klienta)** można znaleźć w okienku **Przegląd** aplikacji w Azure Portal (**Azure Active Directory**  >  **rejestracje aplikacji**  >  *{Twoja rejestracja aplikacji}*).
+>    **Identyfikator aplikacji (klienta)** można znaleźć w okienku **Przegląd** aplikacji w Azure Portal ( **Azure Active Directory**  >  **rejestracje aplikacji**  >  *{Twoja rejestracja aplikacji}* ).
 > 1. Utwórz, a następnie wybierz nowy certyfikat testu z podpisem własnym dla pakietu:
->     1. W **Eksplorator rozwiązań**kliknij dwukrotnie plik *Package. appxmanifest* .
+>     1. W **Eksplorator rozwiązań** kliknij dwukrotnie plik *Package. appxmanifest* .
 >     1. Wybierz pozycję **pakowanie**  >  **Wybierz certyfikat...**  >  **Utwórz...**
 >     1. Wprowadź hasło, a następnie wybierz przycisk **OK**.
->     1. Wybierz pozycję **Wybierz z pliku...**, a następnie wybierz utworzony plik *Native_UWP_V2_TemporaryKey. pfx* , a następnie wybierz **przycisk OK**.
+>     1. Wybierz pozycję **Wybierz z pliku...** , a następnie wybierz utworzony plik *Native_UWP_V2_TemporaryKey. pfx* , a następnie wybierz **przycisk OK**.
 >     1. Zamknij plik *Package. appxmanifest* (wybierz **przycisk OK** , jeśli zostanie wyświetlony monit o zapisanie pliku).
->     1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **Native_UWP_V2** i wybierz polecenie **Właściwości**.
->     1. Wybierz pozycję **podpisywanie**, a następnie wybierz plik PFX utworzony w polu listy rozwijanej **Wybierz klucz o silnej nazwie** .
+>     1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **Native_UWP_V2** i wybierz polecenie **Właściwości**.
+>     1. Wybierz pozycję **podpisywanie** , a następnie wybierz plik PFX utworzony w polu listy rozwijanej **Wybierz klucz o silnej nazwie** .
 
 #### <a name="step-4-run-the-application"></a>Krok 4. Uruchamianie aplikacji
 
 Aby uruchomić przykładową aplikację na komputerze lokalnym:
 
-1. Na pasku narzędzi programu Visual Studio wybierz odpowiednią platformę (prawdopodobnie **x64** lub **x86**, a nie ARM). Urządzenie docelowe powinno ulec zmianie z *urządzenia* na *komputer lokalny*.
+1. Na pasku narzędzi programu Visual Studio wybierz odpowiednią platformę (prawdopodobnie **x64** lub **x86** , a nie ARM). Urządzenie docelowe powinno ulec zmianie z *urządzenia* na *komputer lokalny*.
 1. Wybierz kolejno pozycje **Debuguj** > **Uruchom bez debugowania**.
     
-    Jeśli zostanie wyświetlony monit, musisz najpierw włączyć **Tryb dewelopera**, a następnie **uruchomić polecenie bez debugowania** ponownie, aby uruchomić aplikację.
+    Jeśli zostanie wyświetlony monit, musisz najpierw włączyć **Tryb dewelopera** , a następnie **uruchomić polecenie bez debugowania** ponownie, aby uruchomić aplikację.
 
 Gdy zostanie wyświetlone okno aplikacji, możesz wybrać przycisk **Wywołaj Microsoft Graph interfejs API** , wprowadzić poświadczenia i wyrazić zgodę na uprawnienia wymagane przez aplikację. Jeśli to się powiedzie, aplikacja wyświetli informacje o tokenie i dane uzyskane z wywołania do interfejsu API Microsoft Graph.
 

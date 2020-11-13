@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
+ms.date: 11/11/2020
 ms.author: jingwang
-ms.openlocfilehash: becebf5e56840b8430dd8d4a7714229503e677da
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637126"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555400"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Azure Blob Storage do bazy danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -39,9 +39,9 @@ Ten samouczek obejmuje wykonanie następujących kroków:
 > * Monitorowanie uruchomień potoku i działań.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Subskrypcja platformy Azure** . Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Konto usługi Azure Storage** . Magazyn obiektów blob jest używany jako magazyn danych będący *źródłem* . Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md).
-* **Azure SQL Database** . Baza danych jest używana jako magazyn danych będący *ujściem* . Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z instrukcjami [tworzenia bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) .
+* **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+* **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych będący *źródłem*. Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md).
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych będący *ujściem*. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z instrukcjami [tworzenia bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) .
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Tworzenie obiektu blob i tabeli SQL
 
@@ -57,7 +57,7 @@ Teraz przygotuj swój magazyn obiektów blob i bazę danych SQL na potrzeby tego
     Jane,Doe
     ```
 
-1. W magazynie obiektów blob utwórz kontener o nazwie **adftutorial** . W tym kontenerze utwórz folder o nazwie **input** . Następnie przekaż plik **emp.txt** do folderu **input** . Do wykonania tych zadań użyj witryny Azure Portal lub narzędzi takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
+1. W magazynie obiektów blob utwórz kontener o nazwie **adftutorial**. W tym kontenerze utwórz folder o nazwie **input**. Następnie przekaż plik **emp.txt** do folderu **input**. Do wykonania tych zadań użyj witryny Azure Portal lub narzędzi takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
 #### <a name="create-a-sink-sql-table"></a>Tworzenie tabeli SQL ujścia
 
@@ -75,16 +75,16 @@ Teraz przygotuj swój magazyn obiektów blob i bazę danych SQL na potrzeby tego
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Zezwól usługom platformy Azure na dostęp do programu SQL Server. Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest włączone i ma wartość **WŁĄCZ** dla programu SQL Server, aby usługa Data Factory mogła zapisywać dane w programie SQL Server. Aby sprawdzić i włączyć to ustawienie, przejdź do logicznego serwera SQL > Omówienie > Ustaw zaporę serwera> ustaw opcję **Zezwalaj na dostęp do usług platformy Azure** na wartość **włączone** .
+1. Zezwól usługom platformy Azure na dostęp do programu SQL Server. Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest włączone i ma wartość **WŁĄCZ** dla programu SQL Server, aby usługa Data Factory mogła zapisywać dane w programie SQL Server. Aby sprawdzić i włączyć to ustawienie, przejdź do logicznego serwera SQL > Omówienie > Ustaw zaporę serwera> ustaw opcję **Zezwalaj na dostęp do usług platformy Azure** na wartość **włączone**.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usługi Data Factory, aby utworzyć potok w fabryce danych.
 
-1. Otwórz przeglądarkę **Microsoft Edge** lub **Google Chrome** . Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Analytics**  >  **Data Factory** .
-3. Na stronie **Nowa fabryka danych** w polu **Nazwa** wprowadź wartość **ADFTutorialDataFactory** .
+1. Otwórz przeglądarkę **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
+2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **integracja**  >  **Data Factory**.
+3. Na stronie **Nowa fabryka danych** w polu **Nazwa** wprowadź wartość **ADFTutorialDataFactory**.
 
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa* . Jeśli zostanie wyświetlony komunikat o błędzie dotyczącym wartości nazwy, wprowadź inną nazwę dla fabryki danych. (na przykład Twojanazwaadftutorialdatafactory). Reguły nazewnictwa dla artefaktów usługi Data Factory można znaleźć w artykule [Data Factory — reguły nazewnictwa](naming-rules.md).
+   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony komunikat o błędzie dotyczącym wartości nazwy, wprowadź inną nazwę dla fabryki danych. (na przykład Twojanazwaadftutorialdatafactory). Reguły nazewnictwa dla artefaktów usługi Data Factory można znaleźć w artykule [Data Factory — reguły nazewnictwa](naming-rules.md).
 
      ![Nowa fabryka danych](./media/doc-common-process/name-not-available-error.png)
 4. Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
@@ -95,9 +95,9 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
     b. Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. 
          
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
-6. W obszarze **Wersja** wybierz pozycję **V2** .
+6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz pozycję **Utwórz** .
+8. Wybierz przycisk **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
 10. Wybierz pozycję **Tworzenie i monitorowanie** , aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
@@ -111,13 +111,13 @@ W tym kroku utworzysz potok z działaniem kopiowania w fabryce danych. Działani
 
 W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi połączone i zestawy danych, gdy będą potrzebne do skonfigurowania potoku.
 
-1. Na stronie **Zaczynajmy** wybierz pozycję **Utwórz potok** .
+1. Na stronie **Zaczynajmy** wybierz pozycję **Utwórz potok**.
 
    ![Tworzenie potoku](./media/doc-common-process/get-started-page.png)
 
-1. 1. W panelu Ogólne w obszarze **Właściwości** Określ **CopyPipeline** dla **nazwy** . Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
+1. 1. W panelu Ogólne w obszarze **Właściwości** Określ **CopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
-1. W oknie Narzędzie **działania** rozwiń kategorię **przenoszenie i przekształcanie** , a następnie przeciągnij i upuść działanie **Kopiowanie danych** z okna narzędzia do powierzchni projektanta potoku. Wprowadź wartość **CopyFromBlobToSql** w polu **Nazwa** .
+1. W oknie Narzędzie **działania** rozwiń kategorię **przenoszenie i przekształcanie** , a następnie przeciągnij i upuść działanie **Kopiowanie danych** z okna narzędzia do powierzchni projektanta potoku. Wprowadź wartość **CopyFromBlobToSql** w polu **Nazwa**.
 
     ![Działanie kopiowania](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
@@ -129,19 +129,19 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
 1. Przejdź do karty **Źródło** . Wybierz pozycję **+ Nowy** , aby utworzyć źródłowy zestaw danych.
 
-1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage** , a następnie wybierz pozycję **Kontynuuj** . Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
+1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage** , a następnie wybierz pozycję **Kontynuuj**. Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
 
-1. W oknie dialogowym **Wybieranie formatu** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj** .
+1. W oknie dialogowym **Wybieranie formatu** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
 
-1. W oknie dialogowym **Ustawianie właściwości** wpisz **SourceBlobDataset** w polu Nazwa. Zaznacz pole wyboru **pierwszy wiersz jako nagłówek** . W polu tekstowym **połączona usługa** wybierz pozycję **+ Nowy** .
+1. W oknie dialogowym **Ustawianie właściwości** wpisz **SourceBlobDataset** w polu Nazwa. Zaznacz pole wyboru **pierwszy wiersz jako nagłówek**. W polu tekstowym **połączona usługa** wybierz pozycję **+ Nowy**.
 
 1. W oknie dialogowym **Nowa połączona usługa (Azure Blob Storage)** wprowadź **AzureStorageLinkedService** jako nazwę, a następnie wybierz konto magazynu z listy **nazwa konta magazynu** . Test connection wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
-1. Po utworzeniu połączonej usługi zostanie ona wyłączona z powrotem do strony **Ustawianie właściwości** . Wybierz przycisk **Przeglądaj** obok pozycji **Ścieżka pliku** .
+1. Po utworzeniu połączonej usługi zostanie ona wyłączona z powrotem do strony **Ustawianie właściwości** . Wybierz przycisk **Przeglądaj** obok pozycji **Ścieżka pliku**.
 
-1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK** .
+1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
 
-1. Wybierz przycisk **OK** . Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych** .
+1. Wybierz przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
 
     ![Zestaw danych źródłowych](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -152,13 +152,13 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
 1. Przejdź do karty **Ujście** , a następnie wybierz pozycję **+ Nowy** , aby utworzyć zestaw danych będący ujściem.
 
-1. W oknie dialogowym **Nowy zestaw danych** wprowadź wartość "SQL" w polu wyszukiwania, aby odfiltrować łączniki, wybierz pozycję **Azure SQL Database** , a następnie wybierz pozycję **Kontynuuj** . W tym samouczku skopiujesz dane do bazy danych SQL.
+1. W oknie dialogowym **Nowy zestaw danych** wprowadź wartość "SQL" w polu wyszukiwania, aby odfiltrować łączniki, wybierz pozycję **Azure SQL Database** , a następnie wybierz pozycję **Kontynuuj**. W tym samouczku skopiujesz dane do bazy danych SQL.
 
-1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu Nazwa. Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy** . Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których Data Factory używa do nawiązywania połączenia z SQL Database w czasie wykonywania. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
+1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu Nazwa. Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy**. Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których Data Factory używa do nawiązywania połączenia z SQL Database w czasie wykonywania. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
 
 1. W oknie dialogowym **Nowa połączona usługa (Azure SQL Database)** wykonaj następujące czynności:
 
-    a. W obszarze **Nazwa** wprowadź wartość **AzureSqlDatabaseLinkedService** .
+    a. W obszarze **Nazwa** wprowadź wartość **AzureSqlDatabaseLinkedService**.
 
     b. W polu **Nazwa serwera** wybierz swoje wystąpienie programu SQL Server.
 
@@ -174,9 +174,9 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
     ![Zapisywanie nowej połączonej usługi](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Powoduje automatyczne przejście do okna dialogowego **Ustawianie właściwości** . W obszarze **Tabela** wybierz pozycję **[dbo].[emp]** . Następnie wybierz przycisk **OK** .
+1. Powoduje automatyczne przejście do okna dialogowego **Ustawianie właściwości** . W obszarze **Tabela** wybierz pozycję **[dbo].[emp]**. Następnie wybierz przycisk **OK**.
 
-1. Przejdź do karty z potokiem i upewnij się, że w obszarze **Zestaw danych będący ujściem** wybrano pozycję **OutputSqlDataset** .
+1. Przejdź do karty z potokiem i upewnij się, że w obszarze **Zestaw danych będący ujściem** wybrano pozycję **OutputSqlDataset**.
 
     ![Karta potoku](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 
@@ -190,22 +190,22 @@ Kod JSON skojarzony z potokiem można zobaczyć, klikając **kod** w prawym gór
 ## <a name="debug-and-publish-the-pipeline"></a>Debugowanie i publikowanie potoku
 Przed opublikowaniem artefaktów (połączone usługi, zestawy danych i potok) w usłudze Data Factory lub własnym repozytorium Git usługi Azure Repos możesz debugować potok.
 
-1. Aby debugować potok, wybierz na pasku narzędzi pozycję **Debuguj** . Na karcie **Dane wyjściowe** w dolnej części okna wyświetlany jest stan uruchomienia potoku.
+1. Aby debugować potok, wybierz na pasku narzędzi pozycję **Debuguj**. Na karcie **Dane wyjściowe** w dolnej części okna wyświetlany jest stan uruchomienia potoku.
 
-1. Po pomyślnym uruchomieniu potoku na górnym pasku narzędzi wybierz pozycję **Opublikuj wszystko** . Ta akcja powoduje opublikowanie utworzonych jednostek (zestawy danych i potok) w usłudze Data Factory.
+1. Po pomyślnym uruchomieniu potoku na górnym pasku narzędzi wybierz pozycję **Opublikuj wszystko**. Ta akcja powoduje opublikowanie utworzonych jednostek (zestawy danych i potok) w usłudze Data Factory.
 
-1. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano** . Aby wyświetlić komunikaty powiadomień, kliknij pozycję **Pokaż powiadomienia** w prawym górnym rogu (przycisk dzwonka).
+1. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**. Aby wyświetlić komunikaty powiadomień, kliknij pozycję **Pokaż powiadomienia** w prawym górnym rogu (przycisk dzwonka).
 
 ## <a name="trigger-the-pipeline-manually"></a>Ręczne wyzwalanie potoku
 W tym kroku ręcznie wyzwolisz potok, który został opublikowany w poprzednim kroku.
 
-1. Wybierz pozycję **Wyzwól** na pasku narzędzi, a następnie wybierz pozycję **Wyzwól teraz** . Na stronie **uruchomienie potoku** wybierz pozycję **OK** .  
+1. Wybierz pozycję **Wyzwól** na pasku narzędzi, a następnie wybierz pozycję **Wyzwól teraz**. Na stronie **uruchomienie potoku** wybierz pozycję **OK**.  
 
 1. Przejdź do karty **Monitorowanie** po lewej stronie. Widoczne jest uruchomienie potoku, które zostało wyzwolone za pomocą wyzwalacza ręcznego. Możesz użyć linków w kolumnie **Nazwa potoku** , aby wyświetlić szczegóły działania i ponownie uruchomić potok.
 
     [![Monitorowanie uruchomień potoku](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
-1. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybierz link **CopyPipeline** w kolumnie **Nazwa potoku** . W tym przykładzie istnieje tylko jedno działanie, dlatego na liście jest widoczny tylko jeden wpis. Aby uzyskać szczegółowe informacje na temat operacji kopiowania, wybierz link **szczegóły** (ikona okularów) w kolumnie **Nazwa działania** . Zaznacz opcję **wszystkie uruchomienia potoków** u góry, aby wrócić do widoku uruchomienia potoków. Aby odświeżyć widok, wybierz pozycję **Odśwież** .
+1. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybierz link **CopyPipeline** w kolumnie **Nazwa potoku** . W tym przykładzie istnieje tylko jedno działanie, dlatego na liście jest widoczny tylko jeden wpis. Aby uzyskać szczegółowe informacje na temat operacji kopiowania, wybierz link **szczegóły** (ikona okularów) w kolumnie **Nazwa działania** . Zaznacz opcję **wszystkie uruchomienia potoków** u góry, aby wrócić do widoku uruchomienia potoków. Aby odświeżyć widok, wybierz pozycję **Odśwież**.
 
     [![Monitorowanie uruchomień działania](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
@@ -216,32 +216,30 @@ W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok z
 
 1. Przejdź do karty **Tworzenie** po lewej stronie karty Monitorowanie.
 
-1. Przejdź do potoku, kliknij pozycję **Wyzwalacz** na pasku narzędzi, a następnie wybierz pozycję **Nowy/Edytuj** .
+1. Przejdź do potoku, kliknij pozycję **Wyzwalacz** na pasku narzędzi, a następnie wybierz pozycję **Nowy/Edytuj**.
 
 1. W oknie dialogowym **Dodawanie wyzwalaczy** wybierz pozycję **+ Nowy** dla **opcji wybierz obszar wyzwalacza** .
 
 1. W oknie **Nowy wyzwalacz** wykonaj następujące czynności:
 
-    a. W obszarze **Nazwa** wprowadź wartość **RunEveryMinute** .
+    a. W obszarze **Nazwa** wprowadź wartość **RunEveryMinute**.
 
-    b. W obszarze **Koniec** wybierz pozycję **W dniu** .
+    b. Zaktualizuj **datę początkową** dla wyzwalacza. Jeśli data przypada przed bieżącą datą i godziną, wyzwalacz zacznie obowiązywać po opublikowaniu zmiany. 
 
-    c. W obszarze **Dzień zakończenia** wybierz listę rozwijaną.
+    c. W obszarze **strefa czasowa** wybierz listę rozwijaną.
 
-    d. Wybierz opcję **Bieżący dzień** . Domyślnie dzień zakończenia jest ustawiony na następny dzień.
+    d. Ustaw **cykl** na **co 1 minutę**.
 
-    e. Zaktualizuj część **godziny zakończenia** do kilku minut przed bieżącą datą i godziną. Wyzwalacz zostanie aktywowany tylko w przypadku, gdy opublikujesz zmiany. Jeśli ustawisz ją na kilka minut od siebie i nie opublikujesz jej w tym czasie, nie zobaczysz uruchomienia wyzwalacza.
+    e. Zaznacz pole wyboru **Określ datę końcową** i zaktualizuj **koniec** części na kilka minut przed bieżącą datą i godziną. Wyzwalacz zostanie aktywowany tylko w przypadku, gdy opublikujesz zmiany. Jeśli ustawisz ją na kilka minut od siebie i nie opublikujesz jej w tym czasie, nie zobaczysz uruchomienia wyzwalacza.
 
-    f. Wybierz przycisk **OK** .
+    f. Dla opcji **aktywowana** wybierz pozycję **tak**.
 
-    przykład Dla opcji **aktywowana** wybierz pozycję **tak** .
-
-    h. Wybierz przycisk **OK** .
+    przykład Wybierz przycisk **OK**.
 
     > [!IMPORTANT]
     > Za poszczególne uruchomienia potoku są naliczane opłaty, zatem określ stosowną datę zakończenia.
 
-1. Na stronie **Edytowanie wyzwalacza** Sprawdź ostrzeżenie, a następnie wybierz pozycję **Zapisz** . Potok w tym przykładzie nie przyjmuje żadnych parametrów.
+1. Na stronie **Edytowanie wyzwalacza** Sprawdź ostrzeżenie, a następnie wybierz pozycję **Zapisz**. Potok w tym przykładzie nie przyjmuje żadnych parametrów.
 
 1. Kliknij przycisk **Opublikuj wszystko** , aby opublikować zmianę.
 

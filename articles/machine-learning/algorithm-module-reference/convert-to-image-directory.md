@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324900"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555587"
 ---
 # <a name="convert-to-image-directory"></a>Konwertowanie na katalog obrazów
 
@@ -47,7 +47,8 @@ W tym artykule opisano sposób użycia modułu Konwertuj do katalogu obrazów w 
     
     ![Przykładowy zestaw danych obrazu](./media/module/image-sample-dataset.png)
 
-    W przypadku oceniania folder zestawu danych obrazu musi zawierać niesklasyfikowane obrazy.
+    > [!NOTE]
+    > W przypadku wnioskowania folder zestawu danych obrazu musi zawierać tylko obrazy niesklasyfikowane.
 
 1. [Zarejestrowanie zestawu danych obrazu jako zestawu danych](../how-to-create-register-datasets.md) w obszarze roboczym, ponieważ dane wejściowe modułu Convert to Image Directory muszą być **plikami zestawu danych**.
 

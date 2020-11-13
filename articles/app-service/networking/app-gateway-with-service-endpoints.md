@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127828"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560897"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrację z punktami końcowymi usługi
 Istnieją trzy różnice App Service, które wymagają nieco innej konfiguracji integracji z usługą Azure Application Gateway. Różnice obejmują regularne App Service — nazywane również wieloma dzierżawcami, wewnętrznymi Load Balancer (ILB) App Service Environment (ASE) i zewnętrznym środowiskiem ASE. W tym artykule opisano sposób konfigurowania tego programu przy użyciu App Service (wiele dzierżawców) i omówienia zagadnień dotyczących ILB oraz zewnętrznego środowiska ASE.
@@ -36,7 +36,7 @@ W przypadku Azure Portal należy wykonać cztery kroki, aby zainicjować i skonf
 1. Utwórz App Service przy użyciu jednego z przewodników szybki start w dokumentacji App Service, na przykład [.NET Core szybki start](../quickstart-dotnetcore.md)
 2. Utwórz Application Gateway za pomocą [przewodnika Szybki Start dla portalu](../../application-gateway/quick-create-portal.md), ale Pomiń sekcję Dodawanie elementów docelowych zaplecza.
 3. Skonfiguruj [App Service jako zaplecze w Application Gateway](../../application-gateway/configure-web-app-portal.md), ale Pomiń sekcję ograniczanie dostępu.
-4. Na koniec Utwórz [ograniczenie dostępu za pomocą punktów końcowych usługi](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Na koniec Utwórz [ograniczenie dostępu za pomocą punktów końcowych usługi](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 Teraz możesz uzyskiwać dostęp do App Service za pośrednictwem Application Gateway, ale jeśli spróbujesz uzyskać bezpośrednio dostęp do App Service, należy otrzymać błąd HTTP 403 wskazujący, że witryna sieci Web jest zatrzymana.
 

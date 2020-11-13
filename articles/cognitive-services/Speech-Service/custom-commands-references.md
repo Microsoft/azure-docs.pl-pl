@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927655"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561101"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Pojęcia i definicje poleceń niestandardowych
 
@@ -49,20 +49,22 @@ To pole wyboru wskazuje, czy zakres tego parametru jest współużytkowany przez
 ### <a name="required"></a>Wymagane
 To pole wyboru wskazuje, czy wartość tego parametru jest wymagana do realizacji lub uzupełniania poleceń. Musisz skonfigurować odpowiedzi, aby monitować użytkownika o podanie wartości, jeśli parametr jest oznaczony jako wymagany.
 
+Należy pamiętać, że jeśli **parametr wymagany** ma mieć **wartość domyślną** , system nadal będzie monitował o wartość parametru.
+
 ### <a name="type"></a>Typ
 Polecenia niestandardowe obsługują następujące typy parametrów:
 
-* DateTime
+* Data i godzina
 * Lokalizacja geograficzna
 * Liczba
 * String
 
-Wszystkie te typy parametrów obsługują konfigurację wartości domyślnych, którą można skonfigurować przy użyciu Azure Portal.
+Wszystkie te typy parametrów, z wyjątkiem lokalizacji geograficznej, obsługują konfigurację wartości domyślnych, którą można skonfigurować z poziomu portalu.
 
 ### <a name="configuration"></a>Konfiguracja
 Konfiguracja jest właściwością parametru zdefiniowaną tylko dla ciągu typu. Obsługiwane są następujące wartości:
 
-* **Brak** .
+* **Brak**.
 * **Zaakceptuj pełne dane wejściowe** : po włączeniu parametr akceptuje wszelkie wypowiedź wejściowe. Ta opcja jest przydatna, gdy użytkownik potrzebuje parametru z pełnym wypowiedź. Przykładem są adresy pocztowe.
 * **Zaakceptuj wstępnie zdefiniowane wartości wejściowe z wykazu zewnętrznego** : Ta wartość jest używana do konfigurowania parametru, który może przyjmować różne wartości. Przykładem jest katalog sprzedaży. W takim przypadku katalog jest hostowany w zewnętrznym punkcie końcowym sieci Web i można go skonfigurować niezależnie.
 * **Zaakceptuj wstępnie zdefiniowane wartości wejściowe z wykazu wewnętrznego** : Ta wartość jest używana do konfigurowania parametru, który może przyjmować kilka wartości. W takim przypadku należy skonfigurować wartości w programie Speech Studio.
@@ -71,11 +73,11 @@ Konfiguracja jest właściwością parametru zdefiniowaną tylko dla ciągu typu
 ### <a name="validation"></a>Walidacja
 Walidacje to konstrukcje mające zastosowanie do niektórych typów parametrów, które umożliwiają konfigurowanie ograniczeń dotyczących wartości parametru. Obecnie polecenia niestandardowe obsługują walidacje następujących typów parametrów:
 
-* DateTime
+* Data i godzina
 * Liczba
 
 ## <a name="rules-configuration"></a>Konfiguracja reguł
-Reguła w poleceniach niestandardowych jest definiowana przez zestaw *warunków* , które po spełnieniu, wykonywania zestawu *akcji* . Reguły umożliwiają również Konfigurowanie *stanu po wykonaniu* i *oczekiwań* przy następnym włączeniu.
+Reguła w poleceniach niestandardowych jest definiowana przez zestaw *warunków* , które po spełnieniu, wykonywania zestawu *akcji*. Reguły umożliwiają również Konfigurowanie *stanu po wykonaniu* i *oczekiwań* przy następnym włączeniu.
 
 ### <a name="types"></a>Typy
 Polecenia niestandardowe obsługują następujące kategorie reguł:

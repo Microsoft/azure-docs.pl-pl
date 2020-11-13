@@ -12,12 +12,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 05/27/2020
-  ms.openlocfilehash: c951ab3d68b7ad6920941b54b1eb939f88f61e79
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: f8be335fed98d404687002f8c826e881d93e3a10
+  ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92792501"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94556492"
 landingContent:
 - title: Program SQL Server na maszynie wirtualnej platformy Azure
   linkLists:
@@ -58,7 +58,7 @@ landingContent:
     - text: Zarządzanie przy użyciu witryny Azure Portal
       url: windows/manage-sql-vm-portal.md
     - text: Rejestrowanie dostawcy zasobów maszyny wirtualnej z programem SQL
-      url: windows/sql-vm-resource-provider-register.md
+      url: windows/sql-agent-extension-manually-register-single-vm.md
     - text: Automatyczne stosowanie poprawek
       url: windows/automated-patching.md
     - text: Zmiana typu licencji
