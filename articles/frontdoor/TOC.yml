@@ -36,6 +36,10 @@
       href: front-door-quickstart-template-samples.md
 - name: Pojęcia
   items:
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Zaplecza i pule zaplecza
       href: front-door-backend-pool.md
     - name: Buforowanie przy użyciu usługi Front Door

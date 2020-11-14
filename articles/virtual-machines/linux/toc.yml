@@ -45,7 +45,7 @@
     - name: 13 — Monitorowanie maszyn wirtualnych
       href: tutorial-monitor.md
     - name: 14 — Zarządzanie zabezpieczeniami maszyn wirtualnych
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15a — Kompilowanie za pomocą usługi Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 15b — Integrowanie rozwiązania Jenkins z usługą Azure DevOps
@@ -687,7 +687,15 @@
         - name: Synchronizowanie czasu
           href: time-sync.md
         - name: Tagowanie maszyny wirtualnej
-          href: tag.md
+          items:
+            - name: Interfejs wiersza polecenia
+              href: ../tag-cli.md
+            - name: Portal
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: Template
+              href: ../tag-template.md
         - name: Uruchamianie skryptów na maszynie wirtualnej
           href: run-scripts-in-vm.md
           items:

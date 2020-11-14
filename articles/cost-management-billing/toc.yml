@@ -122,6 +122,10 @@
           href: manage/azure-plan-subscription-transfer-partners.md
         - name: Rozpoczynanie pracy w portalu umowy Enterprise Agreement platformy Azure
           href: manage/ea-portal-get-started.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie zarządzania kosztami i rozliczeniami
