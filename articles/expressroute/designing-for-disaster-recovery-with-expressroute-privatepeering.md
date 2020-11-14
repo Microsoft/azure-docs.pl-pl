@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92202417"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projektowanie na potrzeby odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute
@@ -45,7 +45,7 @@ Jednak w przypadku równoważenia obciążenia ruchu między geograficznie nadmi
 
 Rozważmy przykładową sieć zilustrowaną na poniższym diagramie. W przykładzie geograficznie nadmiarowe połączenie ExpressRoute jest ustanawiane między lokalizacją lokalną firmy Contoso i siecią wirtualną firmy Contoso w regionie świadczenia usługi Azure. Na diagramie pełny zielony wiersz wskazuje preferowaną ścieżkę (za pośrednictwem ExpressRoute 1), a jeden z kropek reprezentuje ścieżkę "ścieżka do" (za pośrednictwem ExpressRoute 2).
 
-[![jedno]][1]
+[![1]][1]
 
 Podczas projektowania łączności ExpressRoute na potrzeby odzyskiwania po awarii należy rozważyć następujące kwestie:
 

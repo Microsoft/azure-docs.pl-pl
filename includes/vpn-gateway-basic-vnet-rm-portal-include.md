@@ -9,20 +9,20 @@ ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92328446"
 ---
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W obszarze **Wyszukaj zasoby, usługi i dokumenty (G +/)** wpisz *sieć wirtualną* .
+1. W obszarze **Wyszukaj zasoby, usługi i dokumenty (G +/)** wpisz *sieć wirtualną*.
 
    ![Lokalizowanie strony zasobów Virtual Network](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Strona lokalizowanie zasobu sieci wirtualnej")
 1. Wybierz **Virtual Network** z wyników z **witryny Marketplace** .
 
    ![Wybierz sieć wirtualną](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Strona lokalizowanie zasobu sieci wirtualnej")
-1. Na stronie **Virtual Network** wybierz pozycję **Utwórz** .
+1. Na stronie **Virtual Network** wybierz pozycję **Utwórz**.
 
    ![Strona sieci wirtualnej](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Wybieranie pozycji Utwórz")
 1. Po wybraniu opcji **Utwórz** zostanie otwarta strona **Tworzenie sieci wirtualnej** .
@@ -48,4 +48,4 @@ ms.locfileid: "92328446"
    - **Ochrona DDoS** : podstawowa
    - **Zapora** : wyłączone
 1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić poprawność ustawień sieci wirtualnej.
-1. Po sprawdzeniu poprawności ustawień wybierz pozycję **Utwórz** .
+1. Po sprawdzeniu poprawności ustawień wybierz pozycję **Utwórz**.

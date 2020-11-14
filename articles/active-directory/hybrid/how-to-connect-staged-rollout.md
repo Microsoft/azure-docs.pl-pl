@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278585"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628904"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -45,7 +45,7 @@ Aby zapoznać się z omówieniem tej funkcji, zobacz "Azure Active Directory: co
 
 -   Skonfigurowano wszystkie odpowiednie zasady oznaczania i dostępu warunkowego dla użytkowników, którzy są migrowani do uwierzytelniania w chmurze.
 
--   Jeśli planujesz korzystanie z usługi Azure Multi-Factor Authentication, zalecamy użycie [funkcji rejestracji połączonej do samoobsługowego resetowania hasła (SSPR) i Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) , aby użytkownicy mogli rejestrować swoje metody uwierzytelniania.
+-   Jeśli planujesz korzystanie z usługi Azure Multi-Factor Authentication, zalecamy użycie [funkcji rejestracji połączonej do samoobsługowego resetowania hasła (SSPR) i Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) , aby użytkownicy mogli rejestrować swoje metody uwierzytelniania. Uwaga — w przypadku używania SSPR do resetowania hasła lub zmiany hasła przy użyciu strony Moje profile podczas wdrażania etapowego Azure AD Connect musi synchronizować nowy skrót hasła, co może potrwać do 2 minut po zresetowaniu.
 
 -   Aby można było korzystać z funkcji wdrażania etapowego, musisz być administratorem globalnym w Twojej dzierżawie.
 
@@ -73,7 +73,7 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 - Administratorzy mogą wdrożyć uwierzytelnianie w chmurze przy użyciu grup zabezpieczeń. Aby uniknąć opóźnienia synchronizacji w przypadku używania lokalnych grup zabezpieczeń Active Directory, zalecamy korzystanie z grup zabezpieczeń w chmurze. Mają zastosowanie następujące warunki:
 
-    - Można użyć maksymalnie 10 grup na funkcję. Oznacza to, że można użyć 10 grup dla każdej *synchronizacji skrótów haseł*, *uwierzytelniania przekazywanego*i *BEZproblemowego logowania jednokrotnego*.
+    - Można użyć maksymalnie 10 grup na funkcję. Oznacza to, że można użyć 10 grup dla każdej *synchronizacji skrótów haseł* , *uwierzytelniania przekazywanego* i *BEZproblemowego logowania jednokrotnego*.
     - Zagnieżdżone grupy *nie są obsługiwane*. Ten zakres ma również zastosowanie do publicznej wersji zapoznawczej.
     - Grupy dynamiczne *nie są obsługiwane* w przypadku wdrażania etapowego.
     - Obiekty Contact wewnątrz grupy blokują Dodawanie grupy.
@@ -95,11 +95,11 @@ Aby uzyskać informacje o używaniu poleceń cmdlet programu PowerShell, zobacz 
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pre-Work dla synchronizacji skrótów haseł
 
-1. Włącz *synchronizację skrótów haseł*na   stronie [funkcje opcjonalne](how-to-connect-install-custom.md#optional-features)   w Azure AD Connect. 
+1. Włącz *synchronizację skrótów haseł* na stronie [funkcje opcjonalne](how-to-connect-install-custom.md#optional-features) w Azure AD Connect. 
 
    ![Zrzut ekranu strony "funkcje opcjonalne" w Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
-1. Upewnij się, że cykl *synchronizacji pełnego skrótu hasła* został uruchomiony, aby wszystkie skróty haseł użytkowników zostały zsynchronizowane z usługą Azure AD. Aby sprawdzić stan *synchronizacji skrótów haseł*, można użyć diagnostyki programu PowerShell w obszarze [Rozwiązywanie problemów z synchronizacją skrótów haseł z synchronizacją Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
+1. Upewnij się, że cykl *synchronizacji pełnego skrótu hasła* został uruchomiony, aby wszystkie skróty haseł użytkowników zostały zsynchronizowane z usługą Azure AD. Aby sprawdzić stan *synchronizacji skrótów haseł* , można użyć diagnostyki programu PowerShell w obszarze [Rozwiązywanie problemów z synchronizacją skrótów haseł z synchronizacją Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
    ![Zrzut ekranu przedstawiający dziennik rozwiązywania problemów z AADConnect](./media/how-to-connect-staged-rollout/sr2.png)
 
@@ -109,37 +109,37 @@ Jeśli chcesz przetestować logowanie za pomocą *uwierzytelniania przekazywaneg
 
 1. Zidentyfikuj serwer z systemem Windows Server 2012 R2 lub nowszym, w którym ma zostać uruchomiony agent *uwierzytelniania Pass-through* . 
 
-   *Nie* wybieraj serwera Azure AD Connect.Upewnij się, że serwer jest przyłączony do domeny, umożliwia uwierzytelnienie wybranych użytkowników za pomocą Active Directory i może komunikować się z usługą Azure AD na portach wychodzących i adresach URL. Aby uzyskać więcej informacji, zobacz sekcję "krok 1: Sprawdzanie wymagań wstępnych" [przewodnika Szybki Start: usługa Azure AD bezproblemowe logowanie](how-to-connect-sso-quick-start.md)jednokrotne.
+   *Nie* wybieraj serwera Azure AD Connect. Upewnij się, że serwer jest przyłączony do domeny, umożliwia uwierzytelnienie wybranych użytkowników za pomocą Active Directory i może komunikować się z usługą Azure AD na portach wychodzących i adresach URL. Aby uzyskać więcej informacji, zobacz sekcję "krok 1: Sprawdzanie wymagań wstępnych" [przewodnika Szybki Start: usługa Azure AD bezproblemowe logowanie](how-to-connect-sso-quick-start.md)jednokrotne.
 
-1. [Pobierz agenta uwierzytelniania Azure AD Connect](https://aka.ms/getauthagent)i zainstaluj go na serwerze. 
+1. [Pobierz agenta uwierzytelniania Azure AD Connect](https://aka.ms/getauthagent)i zainstaluj go na serwerze. 
 
-1. Aby włączyć [wysoką dostępność](how-to-connect-sso-quick-start.md), należy zainstalować dodatkowych agentów uwierzytelniania na innych serwerach.
+1. Aby włączyć [wysoką dostępność](how-to-connect-sso-quick-start.md), należy zainstalować dodatkowych agentów uwierzytelniania na innych serwerach.
 
 1. Upewnij się, że [Ustawienia inteligentnego blokady](../authentication/howto-password-smart-lockout.md) zostały odpowiednio skonfigurowane. Pozwoli to zagwarantować, że konta Active Directory lokalnych użytkowników nie są blokowane przez złe uczestników.
 
-Zalecamy włączenie *bezproblemowego logowania jednokrotnego* niezależnie od metody logowania (*Synchronizacja skrótów haseł* lub *uwierzytelnianie przekazywane*) wybieranego do wdrożenia etapowego. Aby włączyć *bezproblemowe logowanie jednokrotne*, postępuj zgodnie z instrukcjami przedpracy w następnej sekcji.
+Zalecamy włączenie *bezproblemowego logowania jednokrotnego* niezależnie od metody logowania ( *Synchronizacja skrótów haseł* lub *uwierzytelnianie przekazywane* ) wybieranego do wdrożenia etapowego. Aby włączyć *bezproblemowe logowanie jednokrotne* , postępuj zgodnie z instrukcjami przedpracy w następnej sekcji.
 
 ## <a name="pre-work-for-seamless-sso"></a>Przedpracuj przed bezproblemowym logowaniem jednokrotnym
 
-Włącz *bezproblemową rejestrację jednokrotną*   w lasach Active Directory przy użyciu programu PowerShell. Jeśli masz więcej niż jeden las Active Directory, włącz go osobno dla każdego lasu.  *Bezproblemowe logowanie jednokrotne* jest wyzwalane tylko dla użytkowników wybranych do wdrożenia etapowego. Nie ma to wpływu na istniejącą konfigurację Federacji.
+Włącz *bezproblemową rejestrację jednokrotną* w lasach Active Directory przy użyciu programu PowerShell. Jeśli masz więcej niż jeden las Active Directory, włącz go osobno dla każdego lasu. *Bezproblemowe logowanie jednokrotne* jest wyzwalane tylko dla użytkowników wybranych do wdrożenia etapowego. Nie ma to wpływu na istniejącą konfigurację Federacji.
 
 Włącz *bezproblemową rejestrację jednokrotną* , wykonując następujące czynności:
 
 1. Zaloguj się do Azure AD Connect Server.
 
-2. Przejdź do folderu *% ProgramFiles% \\ Microsoft Azure Active Directory Connect*   .
+2. Przejdź do folderu *% ProgramFiles% \\ Microsoft Azure Active Directory Connect* .
 
-3. Zaimportuj bezproblemowy moduł programu PowerShell dla *logowania jednokrotnego* , uruchamiając następujące polecenie: 
+3. Zaimportuj bezproblemowy moduł programu PowerShell dla *logowania jednokrotnego* , uruchamiając następujące polecenie: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie  `New-AzureADSSOAuthenticationContext` . To polecenie umożliwia otwarcie okienka, w którym można wprowadzić poświadczenia administratora globalnego dzierżawy.
+4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie umożliwia otwarcie okienka, w którym można wprowadzić poświadczenia administratora globalnego dzierżawy.
 
-5. Wywołanie  `Get-AzureADSSOStatus | ConvertFrom-Json` . To polecenie wyświetla listę Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję. Domyślnie na poziomie dzierżawy jest ustawiona wartość false.
+5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json` . To polecenie wyświetla listę Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję. Domyślnie na poziomie dzierżawy jest ustawiona wartość false.
 
    ![Przykład danych wyjściowych programu Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Wywołanie  `$creds = Get-Credential` . W wierszu polecenia wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
+6. Wywołanie `$creds = Get-Credential` . W wierszu polecenia wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
 
 7. Wywołanie `Enable-AzureADSSOForest -OnPremCredentials $creds` . To polecenie tworzy konto komputera AZUREADSSOACC z lokalnego kontrolera domeny dla lasu Active Directory, który jest wymagany do *bezproblemowego logowania jednokrotnego*.
 
@@ -149,7 +149,7 @@ Włącz *bezproblemową rejestrację jednokrotną* , wykonując następujące cz
 
 ## <a name="enable-staged-rollout"></a>Włącz wdrażanie etapowe
 
-Aby wdrożyć określoną funkcję (*uwierzytelnianie przekazywane*, *synchronizację skrótów haseł*lub *bezproblemowe logowanie jednokrotne*) do wybranego zestawu użytkowników w grupie, postępuj zgodnie z instrukcjami podanymi w następnych sekcjach.
+Aby wdrożyć określoną funkcję ( *uwierzytelnianie przekazywane* , *synchronizację skrótów haseł* lub *bezproblemowe logowanie jednokrotne* ) do wybranego zestawu użytkowników w grupie, postępuj zgodnie z instrukcjami podanymi w następnych sekcjach.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Włącz etapowe wprowadzanie konkretnej funkcji w dzierżawie
 
@@ -165,7 +165,7 @@ Wykonaj następujące czynności:
 
 2. Wybierz łącze **Włącz wdrażanie etapowe dla konta zarządzanego użytkownika (wersja zapoznawcza)** .
 
-   Na przykład jeśli chcesz włączyć *opcję A*, przesuń **skrót hasła** i **bezproblemowo** kontroluje Logowanie jednokrotne do **włączenia**, jak pokazano na poniższych ilustracjach.
+   Na przykład jeśli chcesz włączyć *opcję A* , przesuń **skrót hasła** i **bezproblemowo** kontroluje Logowanie jednokrotne do **włączenia** , jak pokazano na poniższych ilustracjach.
 
    ![Strona Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
@@ -183,7 +183,7 @@ Wykonaj następujące czynności:
 
 Włączono zdarzenia inspekcji dla różnych akcji wykonywanych w celu wdrożenia etapowego:
 
-- Zdarzenie inspekcji po włączeniu wdrożenia etapowego dla *synchronizacji skrótów haseł*, *uwierzytelniania przekazywanego*lub *BEZproblemowego logowania jednokrotnego*.
+- Zdarzenie inspekcji po włączeniu wdrożenia etapowego dla *synchronizacji skrótów haseł* , *uwierzytelniania przekazywanego* lub *BEZproblemowego logowania jednokrotnego*.
 
   >[!NOTE]
   >Zdarzenie inspekcji jest rejestrowane, gdy jest włączone *bezproblemowe logowanie jednokrotne* przy użyciu wdrożenia etapowego.
@@ -192,7 +192,7 @@ Włączono zdarzenia inspekcji dla różnych akcji wykonywanych w celu wdrożeni
 
   ![Okienko "Tworzenie zasad wdrażania dla funkcji" — zmodyfikowano kartę właściwości](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Zdarzenie inspekcji, gdy grupa jest dodawana do *synchronizacji skrótów haseł*, *uwierzytelniania przekazywanego*lub *BEZproblemowego logowania jednokrotnego*.
+- Zdarzenie inspekcji, gdy grupa jest dodawana do *synchronizacji skrótów haseł* , *uwierzytelniania przekazywanego* lub *BEZproblemowego logowania jednokrotnego*.
 
   >[!NOTE]
   >Zdarzenie inspekcji jest rejestrowane, gdy grupa zostanie dodana do *synchronizacji skrótów haseł* na potrzeby wdrożenia etapowego.
@@ -217,7 +217,7 @@ Aby przetestować logowanie za pomocą *synchronizacji skrótów haseł* lub *uw
 
 1. Upewnij się, że logowanie powiodło się w [raporcie aktywności logowania usługi Azure AD](../reports-monitoring/concept-sign-ins.md) , filtrując element userPrincipalName.
 
-Aby przetestować logowanie za pomocą *bezproblemowego logowania JEDNOkrotnego*:
+Aby przetestować logowanie za pomocą *bezproblemowego logowania JEDNOkrotnego* :
 
 1. W intranecie przejdź do [strony aplikacje](https://myapps.microsoft.com) w sesji przeglądarki prywatnej, a następnie wprowadź wartość USERPRINCIPALNAME (UPN) konta użytkownika wybranego do wdrożenia etapowego.
 

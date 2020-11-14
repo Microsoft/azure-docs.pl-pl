@@ -1,19 +1,19 @@
 ---
-title: Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
+title: Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim dla portalu Azure Marketplace
 description: Dowiedz się, jak utworzyć konto komercyjnego portalu Microsoft Marketplace w centrum partnerskim.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: deb64d1c8268268061a8121151c00ccb55902274
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130463"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628785"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
 
@@ -60,14 +60,14 @@ Twój profil wydawcy zawiera nazwę firmy i identyfikator MPN. Jeśli jeszcze te
 
 1. Utwórz identyfikator wydawcy. IDENTYFIKATOR wydawcy jednoznacznie identyfikuje firmę i oferty w witrynie Azure Marketplace i AppSource.
 
-1. Po potwierdzeniu informacji o profilu wydawcy Zaakceptuj warunki i postanowienia, a następnie utwórz konto Centrum partnerskiego, wybierając pozycję **Akceptuj i Kontynuuj** .
+1. Po potwierdzeniu informacji o profilu wydawcy Zaakceptuj warunki i postanowienia, a następnie utwórz konto Centrum partnerskiego, wybierając pozycję **Akceptuj i Kontynuuj**.
 
     > [!IMPORTANT]
     > Aby zaakceptować te warunki, musisz mieć uprawnienia do działania w imieniu firmy.
 
-    Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie. 
-    
-1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia** ustawienia  >  **partnera**  >  **programy** .
+    Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie.
+
+1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wymienione jako zarejestrowane, wybierz pozycję **Ustawienia** (ikona koła zębatego) w prawym górnym rogu > programy **Ustawienia dewelopera**  >  **Programs**.
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Kontynuuj [Dodawanie nowych wydawców do komercyjnego portalu Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,19 +91,19 @@ Korzystając z konta Microsoft Partner Network, łączy on służbową domenę k
 > Aby zalogować się do Microsoft Partner Network, musisz mieć uprawnienia **administratora konta** lub **administratora globalnego** .
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/) przy użyciu konta Microsoft Partner Network.
-1. Wybierz kolejno pozycje **Ustawienia** ustawienia  >  **partnera**  >  **programy**  >  **wprowadzenie** .
+1. Wybierz kolejno pozycje **Ustawienia**  >  **Ustawienia deweloperów**  >  **programy**  >  **wprowadzenie**.
 
    Microsoft Partner Network wykrywa subskrypcję i wyświetla okienko **profilu wydawcy** .
-   
+
 1. Wprowadź nazwę firmy i identyfikator MPN.
 1. Przeczytaj warunki i postanowienia w [Umowie wydawcy firmy Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), a następnie wybierz pozycję **Zaakceptuj i Kontynuuj** , aby zakończyć rejestrację.
 
     > [!IMPORTANT]
     > Aby zaakceptować te warunki, musisz mieć uprawnienia do działania w imieniu firmy.
 
-    Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie. 
-    
-1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia** ustawienia  >  **partnera**  >  **programy** .
+    Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie.
+
+1. Aby sprawdzić, czy konto komercyjnego portalu jest wyświetlane jako zarejestrowane, wybierz kolejno pozycje **Ustawienia** ustawienia  >  **deweloperów**  >  **programy**.
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Kontynuuj [Dodawanie nowych wydawców do komercyjnego portalu Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -112,9 +112,9 @@ Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partner
 >[!NOTE]
 >Aby zarejestrować się w portalu komercyjnym w ramach tego samego konta, na którym się zalogowano, musisz zarejestrować się w centrum partnerskim przy użyciu konta firmowego. Jeśli zarejestrowano się na pojedynczym koncie, Twoja komercyjna Rejestracja w portalu Marketplace zostanie wyświetlona na nowym koncie.
 >
->Poszczególne konta są przeznaczone dla deweloperów pracujących nad nimi. Konta firmowe są przeznaczone dla organizacji i firm. Konta firmowe umożliwiają dostęp do przesyłania aplikacji z dodatkowymi funkcjami. 
+>Poszczególne konta są przeznaczone dla deweloperów pracujących nad nimi. Konta firmowe są przeznaczone dla organizacji i firm. Konta firmowe umożliwiają dostęp do przesyłania aplikacji z dodatkowymi funkcjami.
 >
-> Aby upewnić się, że masz uprawnienia do konfigurowania konta dla firmy, wymagamy dodatkowej weryfikacji kont firmowych po zarejestrowaniu. Ta weryfikacja może potrwać od kilku dni do kilku tygodni i często zawiera połączenie telefoniczne z firmą. Oba typy kont umożliwiają przesyłanie aplikacji, dodatków i usług. Aby uzyskać więcej informacji, zobacz [typy kont, lokalizacje i opłaty](/windows/uwp/publish/account-types-locations-and-fees).
+> Aby upewnić się, że masz uprawnienia do konfigurowania konta dla firmy, wymagamy dodatkowej weryfikacji kont firmowych po zarejestrowaniu. Ta weryfikacja może potrwać od kilku dni do kilku tygodni i często zawiera połączenie telefoniczne z firmą. Oba typy kont umożliwiają przesyłanie aplikacji, dodatków i usług. Aby uzyskać więcej informacji, zobacz [typy kont, lokalizacje i opłaty](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 Gdy zarejestrujesz się w programie komercyjnym Marketplace przy użyciu tego samego konta co program dla deweloperów, możesz zobaczyć wszystkie istniejące rejestracje programu w lewym okienku Centrum partnerskiego.
 
@@ -126,9 +126,9 @@ Gdy zarejestrujesz się w programie komercyjnym Marketplace przy użyciu tego sa
     >[!Important]
     > Aby zaakceptować te warunki, musisz mieć uprawnienia do działania w imieniu firmy.
 
-    Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie. 
-    
-1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia** ustawienia  >  **partnera**  >  **programy** .
+    Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie.
+
+1. Aby sprawdzić, czy konto komercyjnego portalu jest wyświetlane jako zarejestrowane, wybierz kolejno pozycje **Ustawienia** ustawienia  >  **deweloperów**  >  **programy**.
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać pomoc dotyczącą dodawania wydawców, Kontynuuj [Dodawanie nowych wydawców do komercyjnego portalu Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,10 +142,10 @@ Umowa dotycząca publikowania i informacje o profilu firmy przechodzą na nowe k
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Dodaj nowych wydawców do komercyjnego programu Marketplace
 
-Organizacja może mieć wielu wydawców skojarzonych z komercyjnym kontem witryny Marketplace. Istniejący użytkownik może dodać kolejnych wydawców po zalogowaniu się do Centrum partnerskiego, wybierając pozycję **Ustawienia konta**  >  **wydawcy**  >  **Dodaj wydawcę** .
+Organizacja może mieć wielu wydawców skojarzonych z komercyjnym kontem witryny Marketplace. Istniejący użytkownik może dodać kolejnych wydawców po zalogowaniu się do Centrum partnerskiego, wybierając kolejno pozycje **Ustawienia**  >  **Ustawienia dewelopera**  >  **Publisher**  >  **Dodaj wydawcę**.
 
 >[!NOTE]
->Przed dodaniem nowego wydawcy Przejrzyj listę istniejących wydawców, logując się do Centrum partnerskiego i wybierając pozycję **Ustawienia konta**  >  **wydawcy** .
+>Przed dodaniem nowego wydawcy Przejrzyj listę istniejących wydawców, logując się do Centrum partnerskiego i wybierając pozycję **Ustawienia konta**  >  **wydawcy**.
 
 Dodatkowi użytkownicy z tej samej dzierżawy Azure Active Directory mogą wykonać poniższe kroki, aby dodać nowego wydawcę.
 

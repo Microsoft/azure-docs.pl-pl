@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 75ba8e1e2037ba8ef249b548dfb38e5fd1618cb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ec8e4a945f8b8277d05c11bf3673d2e4ab15f9a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564189"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626796"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Jak utworzyć udział plików platformy Azure w warstwie Premium
 
@@ -24,8 +24,8 @@ W tym artykule opisano sposób tworzenia nowego typu konta przy użyciu [Azure P
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Jeśli zamierzasz użyć modułu Azure PowerShell, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Jeśli zamierzasz użyć modułu Azure PowerShell, [Zainstaluj najnowszą wersję](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="create-a-filestorage-storage-account"></a>Utwórz konto magazynu FileStorage
 
@@ -43,7 +43,7 @@ Teraz możesz przystąpić do utworzenia konta magazynu.
 
     ![Strona główna Azure Portal Wybieranie konta magazynu](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-1. W oknie **Konta magazynu**, które zostanie wyświetlone, wybierz pozycję **Dodaj**.
+1. W oknie **Konta magazynu** , które zostanie wyświetlone, wybierz pozycję **Dodaj**.
 1. Wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
 1. W polu **Grupa zasobów** wybierz pozycję **Utwórz nową**. Wprowadź nazwę nowej grupy zasobów, jak pokazano na poniższej ilustracji.
 
@@ -58,8 +58,8 @@ Teraz możesz przystąpić do utworzenia konta magazynu.
 
     ![Jak utworzyć konto magazynu dla udziału plików w warstwie Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
-1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz** , aby przejrzeć ustawienia konta magazynu i utworzyć konto.
+1. Wybierz pozycję **Utwórz**.
 
 Po utworzeniu zasobu konta magazynu przejdź do niego.
 

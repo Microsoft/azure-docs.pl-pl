@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593080"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628122"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metody uwierzytelniania w opcjach Azure Active Directory-Phone
 
@@ -56,6 +56,8 @@ Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure 
 
 Jeśli masz problemy z uwierzytelnianiem za pomocą telefonu w usłudze Azure AD, zapoznaj się z następującymi krokami rozwiązywania problemów:
 
+* "Osiągnięto nasz limit wywołań weryfikacyjnych" lub "osiągnięto nasz limit kodów weryfikacyjnych tekstu" podczas logowania
+   * Użyj aplikacji Micrsoft Authenticator lub kodu weryfikacyjnego, aby zakończyć uwierzytelnianie, lub spróbuj ponownie później.
 * Zablokowany identyfikator obiektu wywołującego na pojedynczym urządzeniu.
    * Przejrzyj wszystkie zablokowane numery skonfigurowane na urządzeniu.
 * Błędny numer telefonu lub nieprawidłowy kod kraju/regionu lub pomyłek między osobistym numerem telefonu a numerem telefonu służbowego.

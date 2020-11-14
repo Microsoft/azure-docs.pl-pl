@@ -4,10 +4,10 @@ description: Przewodnik umożliwiający migrację istniejących Azure Service Bu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "85340739"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrowanie istniejących Azure Service Bus standardowych przestrzeni nazw do warstwy Premium
@@ -21,7 +21,7 @@ W tym artykule opisano sposób migrowania istniejących przestrzeni nazw warstwy
 
 Niektóre punkty do zanotowania:
 
-- Ta migracja ma miejsce, co oznacza, że istniejące aplikacje nadawcy i odbiorcy **nie wymagają żadnych zmian w kodzie ani konfiguracji** . Istniejące parametry połączenia będą automatycznie wskazywały na nową przestrzeń nazw w warstwie Premium.
+- Ta migracja ma miejsce, co oznacza, że istniejące aplikacje nadawcy i odbiorcy **nie wymagają żadnych zmian w kodzie ani konfiguracji**. Istniejące parametry połączenia będą automatycznie wskazywały na nową przestrzeń nazw w warstwie Premium.
 - Przestrzeń nazw **Premium** nie powinna mieć **żadnych jednostek** , aby migracja zakończyła się pomyślnie.
 - Wszystkie **jednostki** w standardowej przestrzeni nazw są **kopiowane** do przestrzeni nazw Premium podczas procesu migracji.
 - Migracja obsługuje jednostki **1 000 na jednostkę obsługi komunikatów** w warstwie Premium. Aby określić liczbę potrzebnych jednostek obsługi komunikatów, Zacznij od liczby jednostek, które znajdują się w bieżącej przestrzeni nazw w warstwie Standardowa.
@@ -89,14 +89,14 @@ Aby przeprowadzić migrację standardowej przestrzeni nazw Service Bus do warstw
 
 Migracja przy użyciu Azure Portal ma ten sam przepływ logiczny co migracja przy użyciu poleceń. Wykonaj następujące kroki, aby przeprowadzić migrację przy użyciu Azure Portal.
 
-1. W menu **nawigacji** w okienku po lewej stronie wybierz pozycję **Migruj do warstwy Premium** . Kliknij przycisk **Rozpocznij** , aby przejść do następnej strony.
+1. W menu **nawigacji** w okienku po lewej stronie wybierz pozycję **Migruj do warstwy Premium**. Kliknij przycisk **Rozpocznij** , aby przejść do następnej strony.
     ![Strona docelowa migracji][]
 
-1. Ukończ **instalację** .
+1. Ukończ **instalację**.
    ![Konfiguracja przestrzeni nazw][]
    1. Utwórz i przypisz przestrzeń nazw Premium, aby przeprowadzić migrację istniejącej standardowej przestrzeni nazw do programu.
         ![Konfiguracja przestrzeni nazw — tworzenie przestrzeni nazw Premium][]
-   1. Wybierz **nazwę po migracji** . Ta nazwa będzie używana w celu uzyskania dostępu do standardowej przestrzeni nazw po zakończeniu migracji.
+   1. Wybierz **nazwę po migracji**. Ta nazwa będzie używana w celu uzyskania dostępu do standardowej przestrzeni nazw po zakończeniu migracji.
         ![Konfiguracja przestrzeni nazw — wybierz nazwę migracji][]
    1. Wybierz pozycję **"dalej"** , aby kontynuować.
 1. Synchronizuj jednostki między przestrzeniami nazw Standard i Premium.

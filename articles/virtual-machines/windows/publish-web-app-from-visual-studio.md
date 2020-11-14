@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "87088397"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publikowanie aplikacji sieci Web ASP.NET na maszynie wirtualnej platformy Azure z poziomu programu Visual Studio
@@ -33,11 +33,11 @@ W poniższej sekcji opisano sposób publikowania istniejącej aplikacji sieci We
 
 1. Otwórz rozwiązanie aplikacji sieci Web w programie Visual Studio 2019.
 2. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie **Publikuj...**
-3. Za pomocą strzałki znajdującej się po prawej stronie, przewiń opcje publikowania do momentu znalezienia **Microsoft Azure Virtual Machines** .  
+3. Za pomocą strzałki znajdującej się po prawej stronie, przewiń opcje publikowania do momentu znalezienia **Microsoft Azure Virtual Machines**.  
 
    ![Strona publikacji — Strzałka w prawo]
 
-4. Wybierz ikonę **Microsoft Azure Virtual Machines** i wybierz pozycję **Publikuj** .
+4. Wybierz ikonę **Microsoft Azure Virtual Machines** i wybierz pozycję **Publikuj**.
 
    ![Strona publikowania — ikona Microsoft Azure maszyny wirtualnej]
 
@@ -87,7 +87,7 @@ Aby opublikować aktualizacje aplikacji sieci Web, wybierz przycisk **Publikuj**
 
 ### <a name="modify-publish-profile-settings"></a>Modyfikowanie ustawień profilu publikowania
 
-Aby wyświetlić i zmodyfikować ustawienia publikowania profilu, wybierz pozycję **Ustawienia..** ..  
+Aby wyświetlić i zmodyfikować ustawienia publikowania profilu, wybierz pozycję **Ustawienia..**..  
 
 ![Strona publikowanie — przycisk Ustawienia]
 

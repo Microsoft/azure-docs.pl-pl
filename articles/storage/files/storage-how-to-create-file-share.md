@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4df4c3d91c30dfd63de9073d8435f6f96c6ecd95
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329408"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626830"
 ---
 # <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
 Aby utworzyć udział plików platformy Azure, musisz odpowiedzieć na trzy pytania dotyczące sposobu ich używania:
@@ -34,17 +34,17 @@ Aby uzyskać więcej informacji na temat tych trzech opcji, zobacz [Planowanie w
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - W tym artykule przyjęto założenie, że utworzono już subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Jeśli zamierzasz używać Azure PowerShell, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Jeśli zamierzasz używać Azure PowerShell, [Zainstaluj najnowszą wersję](/powershell/azure/install-az-ps).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
-Udziały plików platformy Azure są wdrażane na *kontach magazynu*, które są obiektami najwyższego poziomu reprezentującymi udostępnioną pulę magazynu. Ta pula magazynu może służyć do wdrażania wielu udziałów plików. 
+Udziały plików platformy Azure są wdrażane na *kontach magazynu* , które są obiektami najwyższego poziomu reprezentującymi udostępnioną pulę magazynu. Ta pula magazynu może służyć do wdrażania wielu udziałów plików. 
 
 Platforma Azure obsługuje wiele typów kont magazynu dla różnych klientów scenariuszy magazynu, które mogą mieć, ale istnieją dwa główne typy kont magazynu dla Azure Files. Typ konta magazynu, który należy utworzyć, zależy od tego, czy chcesz utworzyć standardowy udział plików, czy udział plików w warstwie Premium: 
 
-- **Konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2)**: GPv2 konta magazynu umożliwiają wdrażanie udziałów plików platformy Azure na sprzęcie opartym na dyskach standardowych/twardych. Oprócz przechowywania udziałów plików platformy Azure GPv2 konta magazynu mogą przechowywać inne zasoby magazynu, takie jak kontenery obiektów blob, kolejki lub tabele. Udziały plików można wdrażać w ramach transakcji zoptymalizowanej (domyślnej), gorąca lub chłodna.
+- **Konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2)** : GPv2 konta magazynu umożliwiają wdrażanie udziałów plików platformy Azure na sprzęcie opartym na dyskach standardowych/twardych. Oprócz przechowywania udziałów plików platformy Azure GPv2 konta magazynu mogą przechowywać inne zasoby magazynu, takie jak kontenery obiektów blob, kolejki lub tabele. Udziały plików można wdrażać w ramach transakcji zoptymalizowanej (domyślnej), gorąca lub chłodna.
 
-- **FileStorage kont magazynu**: FileStorage konta magazynu umożliwiają wdrażanie udziałów plików platformy Azure na sprzęcie opartym na dyskach Premium/SSD (opartym na dysku półprzewodnikowym). Kont FileStorage można używać tylko do przechowywania udziałów plików platformy Azure. nie można wdrażać innych zasobów magazynu (kontenerów obiektów blob, kolejek, tabel itp.) w ramach konta FileStorage.
+- **FileStorage kont magazynu** : FileStorage konta magazynu umożliwiają wdrażanie udziałów plików platformy Azure na sprzęcie opartym na dyskach Premium/SSD (opartym na dysku półprzewodnikowym). Kont FileStorage można używać tylko do przechowywania udziałów plików platformy Azure. nie można wdrażać innych zasobów magazynu (kontenerów obiektów blob, kolejek, tabel itp.) w ramach konta FileStorage.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Aby utworzyć konto magazynu za pośrednictwem Azure Portal, wybierz pozycję **+ Utwórz zasób** z poziomu pulpitu nawigacyjnego. W wynikowym oknie wyszukiwania portalu Azure Marketplace Wyszukaj pozycję **konto magazynu** i wybierz wynikowe wyniki wyszukiwania. Spowoduje to wyświetlenie strony Przegląd kont magazynu; Wybierz pozycję **Utwórz** , aby kontynuować pracę z kreatorem tworzenia konta magazynu.
@@ -61,12 +61,12 @@ Aby utworzyć konto magazynu FileStorage, upewnij się, że przycisk radiowy **w
 ![Zrzut ekranu przedstawiający przycisk radiowy wydajności z wybranym typem Premium i rodzajem konta z wybraną pozycją FileStorage](media/storage-how-to-create-file-share/create-storage-account-2.png)
 
 Inne podstawowe pola są niezależne od wyboru konta magazynu:
-- **Subskrypcja**: subskrypcja konta magazynu do wdrożenia. 
-- **Grupa zasobów**: Grupa zasobów dla konta magazynu, do której ma zostać wdrożone. Możesz utworzyć nową grupę zasobów lub użyć istniejącej grupy zasobów. Grupa zasobów to logiczny kontener przeznaczony do grupowania usług platformy Azure. Podczas tworzenia konta magazynu masz możliwość utworzenia nowej grupy zasobów lub użycia istniejącej grupy zasobów.
-- **Nazwa konta magazynu**: nazwa zasobu konta magazynu, który ma zostać utworzony. Ta nazwa musi być globalnie unikatowa, ale w przeciwnym razie można mieć dowolną nazwę. Nazwa konta magazynu zostanie użyta jako nazwa serwera podczas instalowania udziału plików platformy Azure za pośrednictwem protokołu SMB.
-- **Lokalizacja**: region konta magazynu, w którym ma zostać wdrożone. Może to być region skojarzony z grupą zasobów lub dowolnym innym dostępnym regionem.
-- **Replikacja**: Chociaż jest to nazwa replikacji, to pole faktycznie oznacza **nadmiarowość**; jest to żądany poziom nadmiarowości: lokalna nadmiarowość (LRS), nadmiarowość stref (ZRS), nadmiarowość geograficzna (GRS) i strefa geograficzna — nadmiarowość. Ta lista rozwijana zawiera również informacje o nadmiarowości geograficznej (RA-GRS) dostępu do odczytu i dostęp do odczytu (RA-GZRS), które nie dotyczą udziałów plików platformy Azure; wszystkie udziały plików utworzone na koncie magazynu z tymi wybranymi będzie odpowiednio Geograficznie nadmiarowy lub geograficznie nadmiarowy. Niektóre opcje nadmiarowości mogą nie być dozwolone w zależności od regionu lub wybranego typu konta magazynu.
-- **Warstwa dostępu do obiektów BLOB**: to pole nie ma zastosowania do Azure Files, więc można wybrać jeden z przycisków radiowych. 
+- **Subskrypcja** : subskrypcja konta magazynu do wdrożenia. 
+- **Grupa zasobów** : Grupa zasobów dla konta magazynu, do której ma zostać wdrożone. Możesz utworzyć nową grupę zasobów lub użyć istniejącej grupy zasobów. Grupa zasobów to logiczny kontener przeznaczony do grupowania usług platformy Azure. Podczas tworzenia konta magazynu masz możliwość utworzenia nowej grupy zasobów lub użycia istniejącej grupy zasobów.
+- **Nazwa konta magazynu** : nazwa zasobu konta magazynu, który ma zostać utworzony. Ta nazwa musi być globalnie unikatowa, ale w przeciwnym razie można mieć dowolną nazwę. Nazwa konta magazynu zostanie użyta jako nazwa serwera podczas instalowania udziału plików platformy Azure za pośrednictwem protokołu SMB.
+- **Lokalizacja** : region konta magazynu, w którym ma zostać wdrożone. Może to być region skojarzony z grupą zasobów lub dowolnym innym dostępnym regionem.
+- **Replikacja** : Chociaż jest to nazwa replikacji, to pole faktycznie oznacza **nadmiarowość** ; jest to żądany poziom nadmiarowości: lokalna nadmiarowość (LRS), nadmiarowość stref (ZRS), nadmiarowość geograficzna (GRS) i strefa geograficzna — nadmiarowość. Ta lista rozwijana zawiera również informacje o nadmiarowości geograficznej (RA-GRS) dostępu do odczytu i dostęp do odczytu (RA-GZRS), które nie dotyczą udziałów plików platformy Azure; wszystkie udziały plików utworzone na koncie magazynu z tymi wybranymi będzie odpowiednio Geograficznie nadmiarowy lub geograficznie nadmiarowy. Niektóre opcje nadmiarowości mogą nie być dozwolone w zależności od regionu lub wybranego typu konta magazynu.
+- **Warstwa dostępu do obiektów BLOB** : to pole nie ma zastosowania do Azure Files, więc można wybrać jeden z przycisków radiowych. 
 
 > [!Important]  
 > Wybór warstwy dostępu do obiektów BLOB nie ma wpływu na warstwę udziału plików.
@@ -77,8 +77,8 @@ Sekcja sieci umożliwia skonfigurowanie opcji sieciowych. Te ustawienia są opcj
 #### <a name="the-advanced-blade"></a>Zaawansowany blok
 Sekcja zaawansowane zawiera kilka ważnych ustawień udziałów plików platformy Azure:
 
-- **Wymagany bezpieczny transfer**: to pole wskazuje, czy konto magazynu wymaga szyfrowania podczas przesyłania komunikacji z kontem magazynu. Zaleca się pozostawienie tej funkcji, jeśli jest wymagana obsługa protokołu SMB 2,1, należy ją wyłączyć. Zalecamy wyłączenie szyfrowania, aby ograniczyć dostęp konta magazynu do sieci wirtualnej za pomocą punktów końcowych usługi i/lub prywatnych punktów końcowych.
-- **Duże udziały plików**: to pole umożliwia konto magazynu dla udziałów plików o rozmiarze do 100 TIB. Włączenie tej funkcji ograniczy konto magazynu tylko do lokalnego nadmiarowego i nadmiarowego magazynu strefy. Po włączeniu konta magazynu GPv2 dla dużych udziałów plików nie można wyłączyć funkcji dużego udziału plików. W przypadku kont magazynu FileStorage (konta magazynu dla udziałów plików w warstwie Premium) nie ma tej opcji, ponieważ wszystkie udziały plików w warstwie Premium mogą być skalowane do 100 TiB. 
+- **Wymagany bezpieczny transfer** : to pole wskazuje, czy konto magazynu wymaga szyfrowania podczas przesyłania komunikacji z kontem magazynu. Zaleca się pozostawienie tej funkcji, jeśli jest wymagana obsługa protokołu SMB 2,1, należy ją wyłączyć. Zalecamy wyłączenie szyfrowania, aby ograniczyć dostęp konta magazynu do sieci wirtualnej za pomocą punktów końcowych usługi i/lub prywatnych punktów końcowych.
+- **Duże udziały plików** : to pole umożliwia konto magazynu dla udziałów plików o rozmiarze do 100 TIB. Włączenie tej funkcji ograniczy konto magazynu tylko do lokalnego nadmiarowego i nadmiarowego magazynu strefy. Po włączeniu konta magazynu GPv2 dla dużych udziałów plików nie można wyłączyć funkcji dużego udziału plików. W przypadku kont magazynu FileStorage (konta magazynu dla udziałów plików w warstwie Premium) nie ma tej opcji, ponieważ wszystkie udziały plików w warstwie Premium mogą być skalowane do 100 TiB. 
 
 ![Zrzut ekranu przedstawiający ważne zaawansowane ustawienia, które mają zastosowanie do Azure Files](media/storage-how-to-create-file-share/create-storage-account-3.png)
 
@@ -183,9 +183,9 @@ Na liście udział plików powinny być widoczne wszystkie udziały plików utwo
 
 Nowy blok udział plików powinien pojawić się na ekranie. Wypełnij pola w bloku nowy udział plików, aby utworzyć udział plików:
 
-- **Name**: nazwa udziału plików, który ma zostać utworzony.
-- **Przydział**: przydział udziału plików dla standardowych udziałów plików; udostępniony rozmiar udziału plików dla udziałów plików w warstwie Premium.
-- **Warstwy**: wybrana warstwa udziału plików. To pole jest dostępne tylko w ramach **konta magazynu ogólnego przeznaczenia (GPv2)**. Można wybrać transakcję zoptymalizowaną, gorącą lub chłodną. Warstwę udziału można zmienić w dowolnym momencie. Zalecamy wybranie najwyższej warstwy możliwej podczas migracji, w celu zminimalizowania wydatków transakcji, a następnie przełączenie na niższą warstwę w razie potrzeby po zakończeniu migracji.
+- **Name** : nazwa udziału plików, który ma zostać utworzony.
+- **Przydział** : przydział udziału plików dla standardowych udziałów plików; udostępniony rozmiar udziału plików dla udziałów plików w warstwie Premium.
+- **Warstwy** : wybrana warstwa udziału plików. To pole jest dostępne tylko w ramach **konta magazynu ogólnego przeznaczenia (GPv2)**. Można wybrać transakcję zoptymalizowaną, gorącą lub chłodną. Warstwę udziału można zmienić w dowolnym momencie. Zalecamy wybranie najwyższej warstwy możliwej podczas migracji, w celu zminimalizowania wydatków transakcji, a następnie przełączenie na niższą warstwę w razie potrzeby po zakończeniu migracji.
 
 Wybierz pozycję **Utwórz** , aby ukończyć tworzenie nowego udziału. Należy pamiętać, że jeśli konto magazynu znajduje się w sieci wirtualnej, nie będzie można pomyślnie utworzyć udziału plików platformy Azure, chyba że klient jest również w sieci wirtualnej. Możesz również obejść to ograniczenie do czasu w czasie za pomocą `New-AzRmStorageShare` polecenia cmdlet Azure PowerShell.
 
@@ -226,9 +226,9 @@ New-AzRmStorageShare `
 > Możliwość ustawiania i zmieniania warstw za pośrednictwem programu PowerShell znajduje się w module Podgląd AZ. Storage PowerShell. Te polecenia cmdlet lub ich dane wyjściowe mogą ulec zmianie przed udostępnieniem w ogólnie dostępnym module AZ. Storage PowerShell, dlatego należy utworzyć skrypty z tym zagadnieniem.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Udział plików platformy Azure można utworzyć za pomocą [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create) polecenia. Przy użyciu następujących poleceń interfejsu wiersza polecenia platformy Azure przyjęto założenie, że zostały ustawione zmienne `$resourceGroupName` i `$storageAccountName` zdefiniowane powyżej w sekcji Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure.
+Udział plików platformy Azure można utworzyć za pomocą [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) polecenia. Przy użyciu następujących poleceń interfejsu wiersza polecenia platformy Azure przyjęto założenie, że zostały ustawione zmienne `$resourceGroupName` i `$storageAccountName` zdefiniowane powyżej w sekcji Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure.
 
-Funkcja tworzenia lub przenoszenia udziału plików do określonej warstwy jest dostępna w najnowszej aktualizacji interfejsu wiersza polecenia platformy Azure. Aktualizowanie interfejsu wiersza polecenia platformy Azure jest specyficzne dla używanego dystrybucji systemu operacyjnego/Linux. Aby uzyskać instrukcje dotyczące aktualizowania interfejsu wiersza polecenia platformy Azure w systemie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+Funkcja tworzenia lub przenoszenia udziału plików do określonej warstwy jest dostępna w najnowszej aktualizacji interfejsu wiersza polecenia platformy Azure. Aktualizowanie interfejsu wiersza polecenia platformy Azure jest specyficzne dla używanego dystrybucji systemu operacyjnego/Linux. Aby uzyskać instrukcje dotyczące aktualizowania interfejsu wiersza polecenia platformy Azure w systemie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 > [!Important]  
 > Dla udziałów plików w warstwie Premium `--quota` parametr odnosi się do udostępnionego rozmiaru udziału plików. Udostępniony rozmiar udziału plików to kwota, za którą zostanie naliczona opłata, niezależnie od użycia. Standardowe udziały plików są rozliczane na podstawie użycia, a nie od rozmiaru aprowizacji.
@@ -251,7 +251,7 @@ az storage share-rm create \
 ---
 
 > [!Note]  
-> Nazwa udziału plików musi się składać z samych małych liter. Aby uzyskać szczegółowe informacje o nazewnictwie udziałów plików i plików, zobacz [nazewnictwo i odwoływanie się do udziałów, katalogów, plików i metadanych](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> Nazwa udziału plików musi się składać z samych małych liter. Aby uzyskać szczegółowe informacje o nazewnictwie udziałów plików i plików, zobacz [nazewnictwo i odwoływanie się do udziałów, katalogów, plików i metadanych](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ### <a name="changing-the-tier-of-an-azure-file-share"></a>Zmienianie warstwy udziału plików platformy Azure
 Udziały plików wdrożone w ramach **konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2)** mogą znajdować się w warstwach zoptymalizowanych, gorąca lub chłodna. Warstwę udziału plików platformy Azure można zmienić w dowolnym momencie, z uwzględnieniem kosztów transakcji, zgodnie z powyższym opisem.

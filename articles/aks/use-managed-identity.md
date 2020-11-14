@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371464"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627884"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -27,7 +27,6 @@ Musisz mieć zainstalowany następujący zasób:
 ## <a name="limitations"></a>Ograniczenia
 
 * Klastry AKS z tożsamościami zarządzanymi można włączać tylko podczas tworzenia klastra.
-* Nie można migrować istniejących klastrów AKS do zarządzanych tożsamości.
 * W trakcie operacji **uaktualniania** klastra zarządzana tożsamość jest tymczasowo niedostępna.
 * Dzierżawcy przeniesie/Migruj zarządzane Klastry obsługujące tożsamość nie są obsługiwane.
 * Jeśli klaster został `aad-pod-identity` włączony, w WĘŹLE NMI (tożsamość zarządzana) są modyfikowane węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wysłane do punktu końcowego metadanych są przechwytywane przez NMI, nawet jeśli nie są używane `aad-pod-identity` . AzurePodIdentityException CRD można skonfigurować w taki sposób `aad-pod-identity` , aby informował, że wszelkie żądania kierowane do punktu końcowego metadanych pochodzące z elementu pod, które pasują do etykiet zdefiniowanych w CRD, powinny być przekazywane z serwerem proxy bez żadnego przetwarzania w NMI. Systemowy `kubernetes.azure.com/managedby: aks` wymiarname z etykietą w _polecenia —_ przestrzeń nazw systemu powinna zostać wykluczona w `aad-pod-identity` ramach konfigurowania AzurePodIdentityException CRD. Aby uzyskać więcej informacji, zobacz temat [wyłączanie usługi AAD-pod-Identity dla określonego elementu lub aplikacji](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
@@ -106,6 +105,23 @@ Na koniec Uzyskaj poświadczenia, aby uzyskać dostęp do klastra:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Aktualizowanie istniejącego klastra AKS opartego na jednostce usługi do zarządzanych tożsamości
+
+Teraz można zaktualizować klaster AKS z tożsamościami zarządzanymi przy użyciu następujących poleceń interfejsu wiersza polecenia.
+
+Najpierw zaktualizuj przypisaną tożsamość systemu:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+Następnie zaktualizuj tożsamość przypisaną przez użytkownika:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> Po aktualizacji tożsamości przypisanych do systemu lub przypisanej przez użytkownika do tożsamości zarządzanej wykonaj czynności `az nodepool upgrade --node-image-only` w węzłach, aby zakończyć aktualizację tożsamości zarządzanej.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Przesuwanie własnej płaszczyzny kontroli MI (wersja zapoznawcza)
 Tożsamość niestandardowej płaszczyzny kontroli umożliwia dostęp do istniejącej tożsamości przed utworzeniem klastra. Pozwala to na takie scenariusze, jak używanie niestandardowej sieci wirtualnej lub niepowiązanego typu UDR z tożsamością zarządzaną.
@@ -134,7 +150,7 @@ az extension list
 az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
 ```
 
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
+Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"

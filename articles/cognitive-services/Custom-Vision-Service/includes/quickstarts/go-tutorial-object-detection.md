@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 4b7e0f91dcdf26688cab07ac83142c33de8bbdb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1f07cda0afa7213ca9c803754950c86a3f246469
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90604872"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625449"
 ---
 Ten przewodnik zawiera instrukcje i przykładowy kod ułatwiający rozpoczęcie pracy przy użyciu biblioteki klienta Custom Vision dla języka go w celu utworzenia modelu wykrywania obiektów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -45,7 +45,7 @@ Utwórz nowy plik o nazwie *sample.go* w preferowanym katalogu projektu.
 
 Dodaj następujący kod do skryptu, aby utworzyć nowy projekt Custom Vision Service. Wstaw klucze subskrypcji w odpowiednich definicjach. Ponadto Pobierz adres URL punktu końcowego ze strony Ustawienia w witrynie sieci Web Custom Vision.
 
-Aby określić inne opcje podczas tworzenia projektu (wyjaśnione w przewodniku tworzenia portalu sieci Web dla [czujnika](../../get-started-build-detector.md) ), zobacz metodę " [setproject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) ".
+Aby określić inne opcje podczas tworzenia projektu (wyjaśnione w przewodniku tworzenia portalu sieci Web dla [czujnika](../../get-started-build-detector.md) ), zobacz metodę " [setproject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) ".
 
 ```go
 import(
@@ -93,7 +93,7 @@ func main() {
 
 ## <a name="create-tags-in-the-project"></a>Tworzenie tagów w projekcie
 
-Aby utworzyć tagi klasyfikacji dla projektu, dodaj następujący kod na końcu pliku *sample.go*:
+Aby utworzyć tagi klasyfikacji dla projektu, dodaj następujący kod na końcu pliku *sample.go* :
 
 ```Go
 # Make two tags in the new project
@@ -273,7 +273,7 @@ Uruchom plik *sample.go*.
 go run sample.go
 ```
 
-Dane wyjściowe aplikacji powinny pojawić się w konsoli. Możesz następnie sprawdzić, czy obraz testowy (znajdujący się w folderze **samples/vision/images/Test**) został odpowiednio otagowany i czy region wykrywania jest poprawny.
+Dane wyjściowe aplikacji powinny pojawić się w konsoli. Możesz następnie sprawdzić, czy obraz testowy (znajdujący się w folderze **samples/vision/images/Test** ) został odpowiednio otagowany i czy region wykrywania jest poprawny.
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

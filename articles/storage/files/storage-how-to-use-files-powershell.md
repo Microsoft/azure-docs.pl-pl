@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2d67d3d695ce6ba90e01603e262fb014fffc9709
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b4bd9ece5f010f1294356ad4673543834e5076a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90561588"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626915"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą programu Azure PowerShell 
 W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udziałami plików platformy Azure](storage-files-introduction.md) przy użyciu programu PowerShell. Udziały plików platformy Azure są podobne do innych udziałów plików, ale są przechowywane w chmurze i obsługiwane przez platformę Azure. Udziały plików platformy Azure obsługują protokół SMB (Server Message Block), Protokół NFS (Network File System) (wersja zapoznawcza) i umożliwia udostępnianie plików na wielu komputerach, aplikacjach i wystąpieniach. 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 Konto magazynu to udostępniona pula magazynu, za pomocą której można wdrażać udziały plików platformy Azure. Konto magazynu może zawierać nieograniczoną liczbę udziałów, a udział może obejmować nieograniczoną liczbę plików, nieprzekraczającą limitów pojemności konta magazynu. W tym przykładzie tworzony jest program ogólnego przeznaczenia w wersji 2 (GPv2 Storage), który może magazynować standardowe udziały plików platformy Azure lub inne zasoby magazynu, takie jak obiekty blob lub kolejki, na nośniku rotacyjnym dysku twardego. Azure Files obsługuje również dyski półprzewodnikowe w warstwie Premium (dysków SSD); udziały plików platformy Azure w warstwie Premium można tworzyć na kontach magazynu FileStorage.
 
-W tym przykładzie tworzone jest konto magazynu przy użyciu polecenia cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Konto magazynu ma nazwę *mystorageaccount\<random number>*, a odwołanie do tego konta magazynu jest przechowywane w zmiennej **$storageAcct**. Nazwy kont magazynów muszą być unikatowe, użyj zatem polecenia `Get-Random` w celu dołączenia liczby do nazwy, aby była unikatowa. 
+W tym przykładzie tworzone jest konto magazynu przy użyciu polecenia cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Konto magazynu ma nazwę *mystorageaccount\<random number>* , a odwołanie do tego konta magazynu jest przechowywane w zmiennej **$storageAcct**. Nazwy kont magazynów muszą być unikatowe, użyj zatem polecenia `Get-Random` w celu dołączenia liczby do nazwy, aby była unikatowa. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -70,10 +70,10 @@ New-AzRmStorageShare `
     -QuotaGiB 1024 | Out-Null
 ```
 
-Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą zaczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
+Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą zaczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
 
 ## <a name="use-your-azure-file-share"></a>Korzystanie z udziału plików platformy Azure
-Usługa Azure Files oferuje dwie metody pracy z plikami i folderami w obrębie udziału plików platformy Azure: zgodny ze standardem branżowym [protokół Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [protokół REST usługi Files](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Usługa Azure Files oferuje dwie metody pracy z plikami i folderami w obrębie udziału plików platformy Azure: zgodny ze standardem branżowym [protokół Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) i [protokół REST usługi Files](/rest/api/storageservices/file-service-rest-api). 
 
 Aby zainstalować udział plików za pomocą protokołu SMB, zobacz następujący dokument zgodny z używanym systemem operacyjnym:
 - [Windows](storage-how-to-use-files-windows.md)
@@ -193,7 +193,7 @@ Chociaż `Start-AzStorageFileCopy` polecenie cmdlet jest wygodne w przypadku prz
 ## <a name="create-and-manage-share-snapshots"></a>Tworzenie migawek udziałów i zarządzanie nimi
 Jedną z dodatkowych przydatnych czynności, które można wykonywać na udziałach plików platformy Azure, jest tworzenie migawek udziałów. Migawka zachowuje określony moment w czasie dla udziału plików platformy Azure. Migawki udziałów są podobne do technologii systemów operacyjnych, które być może już znasz, takich jak:
 
-- [Usługa kopiowania woluminów w tle (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) dla systemów plików systemu Windows, takich jak NTFS i ReFS.
+- [Usługa kopiowania woluminów w tle (VSS)](/windows/desktop/VSS/volume-shadow-copy-service-portal) dla systemów plików systemu Windows, takich jak NTFS i ReFS.
 - Migawki [Menedżera woluminów logicznych (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) dla systemów Linux.
 - Migawki [Systemu plików firmy Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) dla systemu macOS 
 

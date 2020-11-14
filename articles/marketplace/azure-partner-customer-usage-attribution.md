@@ -3,17 +3,17 @@ title: Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 description: Zapoznaj się z omówieniem śledzenia użycia klientów na potrzeby rozwiązań w portalu Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337903"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628394"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -74,9 +74,9 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
    * Partnerzy mogą rejestrować wiele identyfikatorów GUID.
    * Partnerzy mogą rejestrować identyfikatory GUID dla szablonów rozwiązań i ofert spoza witryny Marketplace.
 
-1. W prawym górnym rogu wybierz ikonę koła zębatego ustawienia, a następnie wybierz pozycję **Ustawienia dewelopera**.
+1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) w prawym górnym rogu, > **Ustawienia konta**.
 
-1. Na **stronie Ustawienia konta** wybierz pozycję **Dodaj identyfikator GUID śledzenia.**
+1. W obszarze identyfikatory **profilów organizacji**  >  **Identifiers** wybierz pozycję **Dodaj identyfikator GUID śledzenia**.
 
 1. W polu **GUID** wprowadź identyfikator GUID śledzenia. Wprowadź tylko identyfikator GUID bez `pid-` prefiksu. W polu **Opis** wprowadź nazwę lub opis oferty.
 
@@ -183,9 +183,10 @@ W przypadku wdrażania zasobów za pośrednictwem Azure PowerShell należy doł�
 
 Korzystając z interfejsu wiersza polecenia platformy Azure, aby dołączyć identyfikator GUID, Ustaw zmienną środowiskową **AZURE_HTTP_USER_AGENT** . Możesz ustawić tę zmienną w zakresie skryptu. Możesz również ustawić zmienną globalnie dla zakresu powłoki:
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 Aby uzyskać więcej informacji, zobacz [Azure SDK dla języka go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Użyj Terraform
@@ -206,7 +207,6 @@ Partnerzy, którzy chcą wdrożyć wdrożenie za pośrednictwem Terraform, musz�
 
 * Utwórz identyfikator GUID (identyfikator GUID należy dodać dla każdej oferty lub jednostki SKU)
 * Zaktualizuj dostawcę platformy Azure, aby ustawić wartość *partner_id* na identyfikator GUID (nie należy wstępnie naprawić identyfikatora GUID przy użyciu identyfikatora "PID", po prostu ustaw go na rzeczywisty identyfikator GUID).
-
 
 ## <a name="verify-the-guid-deployment"></a>Weryfikowanie wdrożenia identyfikatora GUID
 
@@ -263,11 +263,11 @@ Partnerzy powinni poinformować klientów o wdrożeniach korzystających z przyp
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Powiadomienie dotyczące wdrożeń szablonów Menedżer zasobów
 
-Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
+Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Powiadomienie o wdrożeniach zestawu SDK lub interfejsu API
 
-Podczas wdrażania \<PARTNER> oprogramowania firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
+Podczas wdrażania \<PARTNER> oprogramowania firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
@@ -282,6 +282,7 @@ Dowiedz się więcej o opcjach pomocy technicznej w portalu komercyjnym na [potr
     * Ukończ/Przejrzyj informacje kontaktowe.
     * Szczegóły konsultacji mogą być wstępnie wypełnione lub wybrane z listy rozwijanej.
     * Wprowadź tytuł i opis problemu (Podaj jak najwięcej szczegółów).
+
 1. Kliknij przycisk Submit (Prześlij).
 
 Zapoznaj się z instrukcjami krok po kroku dotyczącymi zrzutów ekranu [korzystających z usług presprzedaży i wdrażania](https://aka.ms/TechConsultInstructions).

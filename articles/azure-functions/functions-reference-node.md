@@ -3,14 +3,14 @@ title: Dokumentacja dla deweloperów języka JavaScript dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu języka JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422556"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628836"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -203,9 +203,9 @@ Kontekst przekazaną do funkcji uwidacznia `executionContext` Właściwość, kt
 
 | Nazwa właściwości  | Typ  | Opis |
 |---------|---------|---------|
-| `invocationId` | Ciąg | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
-| `functionName` | Ciąg | Zawiera nazwę działającej funkcji |
-| `functionDirectory` | Ciąg | Udostępnia katalog aplikacji usługi Functions. |
+| `invocationId` | String | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
+| `functionName` | String | Zawiera nazwę działającej funkcji |
+| `functionDirectory` | String | Udostępnia katalog aplikacji usługi Functions. |
 
 Poniższy przykład pokazuje, jak zwrócić `invocationId` .
 
@@ -508,12 +508,20 @@ W poniższej tabeli przedstawiono bieżące obsługiwane wersje Node.js dla każ
 | Wersja funkcji | Wersja węzła (system Windows) | Wersja węzła (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (zablokowany przez środowisko uruchomieniowe) | n/d |
-| 2.x  | ~ 8<br/>~ 10 (zalecane)<br/>~ 12<sup>*</sup> | ~ 8 (zalecane)<br/>~ 10  |
-| wersji | ~ 10<br/>~ 12 (zalecane)  | ~ 10<br/>~ 12 (zalecane) |
+| 2.x  | `~8`<br/>`~10` Rekomendowane<br/>`~12` | `node|8`<br/>`node|10` Rekomendowane  |
+| wersji | `~10`<br/>`~12` Rekomendowane<br/>`~14` przeglądania  | `node|10`<br/>`node|12` Rekomendowane<br/>`node|14` przeglądania |
 
-<sup>*</sup>Węzeł ~ 12 jest obecnie dozwolony w wersji 2. x środowiska uruchomieniowego funkcji. Jednak w celu uzyskania najlepszej wydajności zalecamy używanie środowiska uruchomieniowego Functions w wersji 3. x z węzłem ~ 12. 
+Bieżącą wersję, która jest używana przez środowisko uruchomieniowe, można zobaczyć, logując się `process.version` z dowolnej funkcji.
 
-Bieżącą wersję, która jest używana przez środowisko uruchomieniowe, można zobaczyć, sprawdzając powyższe ustawienie aplikacji lub przez wydrukowanie `process.version` z dowolnej funkcji. Docelowa wersja na platformie Azure przez ustawienie [Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION na OBSŁUGIWANĄ wersję LTS, na przykład `~10` .
+### <a name="setting-the-node-version"></a>Ustawianie wersji węzła
+
+W przypadku aplikacji funkcji systemu Windows należy określić wersję na platformie Azure, ustawiając dla `WEBSITE_NODE_DEFAULT_VERSION` [Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) obsługiwaną wersję LTS, na przykład `~12` .
+
+W przypadku aplikacji funkcji systemu Linux Uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure, aby zaktualizować wersję węzła.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Zarządzanie zależnościami
 Aby można było używać bibliotek społeczności w kodzie JavaScript, jak pokazano w poniższym przykładzie, należy się upewnić, że wszystkie zależności są zainstalowane na aplikacja funkcji na platformie Azure.

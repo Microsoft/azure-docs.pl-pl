@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "89565858"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Dodawanie znakowania do strony logowania Azure Active Directory organizacji
@@ -37,7 +37,7 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 ### <a name="to-customize-your-branding"></a>Aby dostosować znakowanie
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **Konfiguruj** .
+2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **Konfiguruj**.
 
     ![Strona firmy Contoso — znakowanie firmowe, opcja Konfiguruj wyróżnione](media/customize-branding/company-branding-configure-button.png)
 
@@ -94,7 +94,7 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
             >Niektóre funkcje usługi SharePoint Online oraz pakietu Office 2010 zależą od tego, czy użytkownicy mogą wybrać opcję pozostania zalogowanym. Jeśli ta opcja zostanie ustawiona na **Nie** , użytkownicy mogą otrzymywać dodatkowe i nieoczekiwane monity o zalogowanie.
    
 
-3. Po zakończeniu dodawania znakowania wybierz pozycję **Zapisz** .
+3. Po zakończeniu dodawania znakowania wybierz pozycję **Zapisz**.
 
     Jeśli ten proces spowoduje utworzenie pierwszej niestandardowej konfiguracji znakowania, zostanie ona domyślnie utworzona dla dzierżawy. Jeśli masz dodatkowe konfiguracje, będziesz mieć możliwość wybrania konfiguracji domyślnej.
     
@@ -107,13 +107,13 @@ Po utworzeniu marki niestandardowej można wrócić i zmienić dowolne elementy.
 ### <a name="to-edit-your-custom-branding"></a>Aby edytować niestandardowe znakowanie
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **Konfiguruj** .
+2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **Konfiguruj**.
 
     ![Firma Contoso — Strona znakowania firmy z domyślną konfiguracją](media/customize-branding/company-branding-default-config.png)
 
 3. Na stronie **Konfiguruj znakowanie firmowe** Dodaj, Usuń lub zmień dowolne informacje na podstawie opisów w sekcji [Dostosowywanie strony logowania do usługi Azure AD w](#customize-your-azure-ad-sign-in-page) tym artykule.
 
-4. Wybierz pozycję **Zapisz** .
+4. Wybierz pozycję **Zapisz**.
 
    Uwzględnienie zmian znakowania na stronie logowania może potrwać do godziny.
 
@@ -124,13 +124,13 @@ Nie można zmienić języka oryginalnej konfiguracji z poziomu języka domyślne
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **nowy język** .
+2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **nowy język**.
 
     ![Strona firmy Contoso — znakowanie firmowe z wyróżnioną opcją nowego języka](media/customize-branding/company-branding-new-language.png)
 
 3. Na stronie **Konfiguruj znakowanie firmowe** wybierz swój język (na przykład francuski), a następnie Dodaj przetłumaczone informacje na podstawie opisów w sekcji [Dostosowywanie strony logowania do usługi Azure AD w](#customize-your-azure-ad-sign-in-page) tym artykule.
 
-4. Wybierz pozycję **Zapisz** .
+4. Wybierz pozycję **Zapisz**.
 
     Strona **contoso — firmowy znakowanie** jest aktualizowana, aby pokazać nową konfigurację języka francuskiego.
 

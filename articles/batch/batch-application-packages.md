@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91277703"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
@@ -69,7 +69,7 @@ Jeśli konto magazynu nie zostało jeszcze skonfigurowane, Azure Portal wyświet
 Po połączeniu dwóch kont program Batch może automatycznie wdrożyć pakiety przechowywane na połączonym koncie magazynu w węzłach obliczeniowych.
 
 > [!IMPORTANT]
-> Nie można używać pakietów aplikacji z kontami usługi Azure Storage skonfigurowanymi przy użyciu [reguł zapory](../storage/common/storage-network-security.md)lub z **hierarchiczną przestrzenią nazw** ustawioną na wartość **włączone** .
+> Nie można używać pakietów aplikacji z kontami usługi Azure Storage skonfigurowanymi przy użyciu [reguł zapory](../storage/common/storage-network-security.md)lub z **hierarchiczną przestrzenią nazw** ustawioną na wartość **włączone**.
 
 Usługa Batch używa usługi Azure Storage do przechowywania pakietów aplikacji jako blokowych obiektów BLOB. Opłaty są [naliczone jako normalne](https://azure.microsoft.com/pricing/details/storage/) dla danych blokowych obiektów blob, a rozmiar każdego pakietu nie może przekroczyć maksymalnego rozmiaru bloku obiektów BLOB. Aby uzyskać więcej informacji, zobacz [cele dotyczące skalowalności i wydajności usługi Azure Storage dla kont magazynu](../storage/blobs/scalability-targets.md). Aby zminimalizować koszty, należy wziąć pod uwagę rozmiar i liczbę pakietów aplikacji oraz okresowe usuwanie przestarzałych pakietów.
 
@@ -77,7 +77,7 @@ Usługa Batch używa usługi Azure Storage do przechowywania pakietów aplikacji
 
 Aby wyświetlić aplikacje na koncie w usłudze Batch, wybierz pozycję **aplikacje** w menu nawigacji po lewej stronie.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Zrzut ekranu przedstawiający element menu aplikacje w Azure Portal.":::
 
 Wybranie tej opcji menu spowoduje otwarcie okna **aplikacje** . W tym oknie jest wyświetlany identyfikator każdej aplikacji na Twoim koncie oraz następujące właściwości:
 
@@ -85,13 +85,13 @@ Wybranie tej opcji menu spowoduje otwarcie okna **aplikacje** . W tym oknie jest
 - **Wersja domyślna** : Jeśli ma zastosowanie, wersja aplikacji, która zostanie zainstalowana, jeśli nie zostanie określona żadna wersja podczas wdrażania aplikacji.
 - **Zezwalaj na aktualizacje** : określa, czy aktualizacje i usunięcia pakietu są dozwolone.
 
-Aby wyświetlić [strukturę plików](files-and-directories.md) pakietu aplikacji w węźle obliczeniowym, przejdź do konta partii w Azure Portal. Wybierz pozycję **Pule** . następnie wybierz pulę zawierającą węzeł obliczeniowy. Wybierz węzeł obliczeniowy, na którym jest zainstalowany pakiet aplikacji, a następnie otwórz folder **aplikacje** .
+Aby wyświetlić [strukturę plików](files-and-directories.md) pakietu aplikacji w węźle obliczeniowym, przejdź do konta partii w Azure Portal. Wybierz pozycję **Pule**. następnie wybierz pulę zawierającą węzeł obliczeniowy. Wybierz węzeł obliczeniowy, na którym jest zainstalowany pakiet aplikacji, a następnie otwórz folder **aplikacje** .
 
 ### <a name="view-application-details"></a>Wyświetl szczegóły aplikacji
 
 Aby wyświetlić szczegóły dotyczące aplikacji, wybierz ją w oknie **aplikacje** . Można skonfigurować następujące ustawienia dla aplikacji.
 
-- **Zezwalaj na aktualizacje** : wskazuje, czy pakiety aplikacji mogą być [aktualizowane lub usuwane](#update-or-delete-an-application-package). Wartość domyślna to **Tak** . Jeśli ustawisz wartość **nie** , nie można aktualizować ani usuwać istniejących pakietów aplikacji, ale nadal można dodawać nowe wersje pakietów aplikacji.
+- **Zezwalaj na aktualizacje** : wskazuje, czy pakiety aplikacji mogą być [aktualizowane lub usuwane](#update-or-delete-an-application-package). Wartość domyślna to **Tak**. Jeśli ustawisz wartość **nie** , nie można aktualizować ani usuwać istniejących pakietów aplikacji, ale nadal można dodawać nowe wersje pakietów aplikacji.
 - **Wersja domyślna** : domyślny pakiet aplikacji, który ma być używany podczas wdrażania aplikacji, jeśli nie określono żadnej wersji.
 - **Nazwa wyświetlana** : przyjazna nazwa, która może być używana przez rozwiązanie do przetwarzania wsadowego, gdy wyświetla informacje o aplikacji. Na przykład ta nazwa może być używana w interfejsie użytkownika usługi udostępnianej klientom w usłudze Batch.
 
@@ -99,9 +99,9 @@ Aby wyświetlić szczegóły dotyczące aplikacji, wybierz ją w oknie **aplikac
 
 Aby utworzyć nową aplikację, należy dodać pakiet aplikacji i określić unikatowy identyfikator aplikacji.
 
-Na koncie wsadowym wybierz pozycję **aplikacje** , a następnie wybierz pozycję **Dodaj** .
+Na koncie wsadowym wybierz pozycję **aplikacje** , a następnie wybierz pozycję **Dodaj**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Zrzut ekranu przedstawiający proces tworzenia nowej aplikacji w Azure Portal.":::
 
 Wprowadź następujące informacje:
 
@@ -116,19 +116,19 @@ Wprowadź następujące informacje:
 - Musi być unikatowa w ramach konta wsadowego.
 - Identyfikatory uwzględniają wielkość liter i nie uwzględniają wielkości liter.
 
-Gdy wszystko będzie gotowe, wybierz pozycję **Prześlij** . Po przekazaniu pliku zip na konto usługi Azure Storage Portal wyświetli powiadomienie. W zależności od rozmiaru przekazywanego pliku i szybkości połączenia sieciowego może to potrwać trochę czasu.
+Gdy wszystko będzie gotowe, wybierz pozycję **Prześlij**. Po przekazaniu pliku zip na konto usługi Azure Storage Portal wyświetli powiadomienie. W zależności od rozmiaru przekazywanego pliku i szybkości połączenia sieciowego może to potrwać trochę czasu.
 
 ### <a name="add-a-new-application-package"></a>Dodaj nowy pakiet aplikacji
 
-Aby dodać wersję pakietu aplikacji dla istniejącej aplikacji, wybierz aplikację w sekcji **aplikacje** na koncie usługi Batch, a następnie wybierz pozycję **Dodaj** .
+Aby dodać wersję pakietu aplikacji dla istniejącej aplikacji, wybierz aplikację w sekcji **aplikacje** na koncie usługi Batch, a następnie wybierz pozycję **Dodaj**.
 
-Tak jak w przypadku nowej aplikacji, określ **wersję** nowego pakietu, Przekaż plik. zip w polu **pakiet aplikacji** , a następnie wybierz pozycję **Prześlij** .
+Tak jak w przypadku nowej aplikacji, określ **wersję** nowego pakietu, Przekaż plik. zip w polu **pakiet aplikacji** , a następnie wybierz pozycję **Prześlij**.
 
 ### <a name="update-or-delete-an-application-package"></a>Aktualizowanie lub usuwanie pakietu aplikacji
 
 Aby zaktualizować lub usunąć istniejący pakiet aplikacji, wybierz aplikację w sekcji **aplikacje** na koncie w usłudze Batch. Wybierz wielokropek w wierszu pakietu aplikacji, który chcesz zmodyfikować, a następnie wybierz akcję, którą chcesz wykonać.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Zrzut ekranu przedstawiający Opcje aktualizacji i usuwania pakietów aplikacji w Azure Portal.":::
 
 W przypadku wybrania opcji **Aktualizuj** będzie możliwe przekazanie nowego pliku. zip. Spowoduje to zastąpienie poprzedniego pliku zip przekazanego dla tej wersji.
 

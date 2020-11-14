@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 72c520b0ff135e9f48cd74f0024197ae8606f206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 037137cf5a6e4ddd66fc15e8ad9775ea77177ef6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376348"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625228"
 ---
 Ten przewodnik Szybki Start umożliwia przeszukiwanie pierwszego obrazu przy użyciu biblioteki klienta wyszukiwanie obrazów Bing, która jest otoką dla interfejsu API i zawiera te same funkcje. Ta prosta aplikacja JavaScript wysyła zapytanie dotyczące wyszukania obrazu, analizuje odpowiedź w formacie JSON i wyświetla adres URL pierwszego zwróconego obrazu.
 
@@ -91,12 +91,12 @@ Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://g
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania obrazów Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania obrazów Bing](../../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Czym jest funkcja wyszukiwania obrazów Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)
+* [Czym jest funkcja wyszukiwania obrazów Bing?](../../overview.md)
 * [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Przykłady dla zestawu Azure Cognitive Services SDK w środowisku Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-* [Dokumentacja usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Dokumentacja interfejsu API wyszukiwania obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Dokumentacja usług Azure Cognitive Services](../../../index.yml)
+* [Dokumentacja interfejsu API wyszukiwania obrazów Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

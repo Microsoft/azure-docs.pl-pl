@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006044"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628802"
 ---
 # <a name="tls-support-in-iot-hub"></a>Obsługa protokołu TLS w IoT Hub
 
@@ -94,11 +94,11 @@ Poniższe linki służą do konfigurowania protokołu TLS 1,2 i dozwolonych szyf
 
 | Język | Wersje obsługujące protokół TLS 1,2 | Dokumentacja |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 lub nowszy            | [Powiązań](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Wersja 2.0.0 lub nowsza             | [Powiązań](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Wersja 1.21.4 lub nowsza            | [Powiązań](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Wersja 1.19.0 lub nowsza            | [Powiązań](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Wersja 1.12.2 lub nowsza            | [Powiązań](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 lub nowszy            | [Łącze](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Wersja 2.0.0 lub nowsza             | [Łącze](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Wersja 1.21.4 lub nowsza            | [Łącze](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Wersja 1.19.0 lub nowsza            | [Łącze](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Wersja 1.12.2 lub nowsza            | [Łącze](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ## <a name="use-tls-12-in-your-iot-edge-setup"></a>Korzystanie z protokołu TLS 1,2 w konfiguracji IoT Edge
@@ -107,4 +107,4 @@ Urządzenia IoT Edge można skonfigurować do korzystania z protokołu TLS 1,2 p
 
 ## <a name="device-authentication"></a>Uwierzytelnianie urządzeń
 
-Po pomyślnym uzgadnianiu protokołu TLS IoT Hub można uwierzytelnić urządzenie przy użyciu klucza symetrycznego lub certyfikatu X. 509. W przypadku uwierzytelniania opartego na certyfikatach może to być dowolny certyfikat X. 509, w tym ECC. IoT Hub sprawdza poprawność certyfikatu do podania odcisku palca lub urzędu certyfikacji (CA). IoT Hub nie obsługuje jeszcze wzajemnego uwierzytelniania opartego na protokole X. 509 (mTLS). Aby dowiedzieć się więcej, zobacz [obsługiwane certyfikaty X. 509](iot-hub-devguide-security.md#supported-x509-certificates).
+Po pomyślnym uzgadnianiu protokołu TLS IoT Hub można uwierzytelnić urządzenie przy użyciu klucza symetrycznego lub certyfikatu X. 509. W przypadku uwierzytelniania opartego na certyfikatach może to być dowolny certyfikat X. 509, w tym ECC. IoT Hub sprawdza poprawność certyfikatu do podania odcisku palca lub urzędu certyfikacji (CA). Aby dowiedzieć się więcej, zobacz [obsługiwane certyfikaty X. 509](iot-hub-devguide-security.md#supported-x509-certificates).

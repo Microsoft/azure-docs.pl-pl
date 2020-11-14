@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129596"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628292"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
 
@@ -100,7 +100,7 @@ Poniższy przykład przedstawia ofertę maszyny wirtualnej w portalu Azure Marke
 
 Możesz ograniczyć odnajdywanie i wdrażanie maszyny wirtualnej do określonego zestawu klientów, publikując obraz i cennik jako plan prywatny. Plany prywatne odblokują możliwość tworzenia ofert na wyłączność dla najbliższych klientów i oferowania niestandardowego oprogramowania i warunków. Dostosowane warunki umożliwiają wyróżnianie różnorodnych scenariuszy, w tym w przypadku, gdy użytkownik korzysta z wyspecjalizowanych cen i warunków oraz wczesnego dostępu do ograniczonej wersji oprogramowania. Plany prywatne umożliwiają podanie określonych cen lub produktów do ograniczonego zestawu klientów.
 
-Aby uzyskać więcej informacji, zobacz [plany i cenniki dla ofert komercyjnych](plans-pricing.md) i [prywatnych ofert w portalu Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+Aby uzyskać więcej informacji, zobacz [plany i cenniki dla ofert komercyjnych](plans-pricing.md) i prywatnych ofert w portalu Marketplace [w witrynie Microsoft Commercial Marketplace](private-offers.md).
 
 ## <a name="test-drives"></a>Wersje testowe
 

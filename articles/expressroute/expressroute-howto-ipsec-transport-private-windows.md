@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92208247"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurowanie trybu transportu IPsec dla prywatnej komunikacji równorzędnej ExpressRoute
@@ -43,7 +43,7 @@ Ten diagram przedstawia tunele IPsec do przesyłania w prywatnej komunikacji ró
 ### <a name="working-with-ipsec-policy"></a>Praca z zasadami protokołu IPsec
 
 W systemie Windows szyfrowanie jest skojarzone z zasadami protokołu IPsec. Zasady IPsec określają, który ruch IP jest zabezpieczony i mechanizm zabezpieczeń stosowany do pakietów IP.
-**Zasady protokołu IPSec** składają się z następujących elementów: **list filtrów** , **akcji filtrowania** i **reguł zabezpieczeń** .
+**Zasady protokołu IPSec** składają się z następujących elementów: **list filtrów** , **akcji filtrowania** i **reguł zabezpieczeń**.
 
 Podczas konfigurowania zasad protokołu IPsec ważne jest zapoznanie się z następującą terminologią dotyczącą zasad IPsec:
 
@@ -86,7 +86,7 @@ Upewnij się, że spełniono następujące wymagania wstępne:
 1. Utwórz obiekt zasad grupy i skojarz go z jednostką organizacyjną.
 2. Zdefiniuj **akcję filtru** IPSec.
 3. Zdefiniuj **listę filtrów** IPSec.
-4. Utwórz zasady protokołu IPsec z **regułami zabezpieczeń** .
+4. Utwórz zasady protokołu IPsec z **regułami zabezpieczeń**.
 5. Przypisz obiekt zasad grupy IPsec do jednostki organizacyjnej.
 
 ### <a name="example-values"></a>Przykładowe wartości
@@ -101,7 +101,7 @@ Upewnij się, że spełniono następujące wymagania wstępne:
 
 ## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. Tworzenie obiektu zasad grupy
 
-1. Aby utworzyć nowy obiekt zasad grupy połączony z jednostką organizacyjną, Otwórz przystawkę Zarządzanie zasady grupy i Znajdź jednostkę organizacyjną, do której zostanie połączony obiekt zasad grupy. W przykładzie jednostka organizacyjna nosi nazwę **IPSecOU** . 
+1. Aby utworzyć nowy obiekt zasad grupy połączony z jednostką organizacyjną, Otwórz przystawkę Zarządzanie zasady grupy i Znajdź jednostkę organizacyjną, do której zostanie połączony obiekt zasad grupy. W przykładzie jednostka organizacyjna nosi nazwę **IPSecOU**. 
 
    [![9]][9]
 2. W przystawce Zarządzanie zasady grupy wybierz jednostkę organizacyjną, a następnie kliknij prawym przyciskiem myszy. Na liście rozwijanej kliknij pozycję " **Utwórz obiekt zasad grupy w tej domenie i umieść tu link...** ".
@@ -116,38 +116,38 @@ Upewnij się, że spełniono następujące wymagania wstępne:
 Aby zastosować obiekt zasad grupy do jednostki organizacyjnej, obiekt zasad grupy nie może być połączony tylko z jednostką organizacyjną, ale łącze musi również być włączone.
 
 1. Zlokalizuj utworzony obiekt zasad grupy, kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Edytuj** z listy rozwijanej.
-2. Aby zastosować obiekt zasad grupy do jednostki organizacyjnej, wybierz pozycję **link włączony** .
+2. Aby zastosować obiekt zasad grupy do jednostki organizacyjnej, wybierz pozycję **link włączony**.
 
    [![12]][12]
 
 ## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. Zdefiniuj akcję filtrowania adresów IP
 
-1. Z listy rozwijanej kliknij prawym przyciskiem myszy pozycję **zasady zabezpieczeń IP na Active Directory** , a następnie kliknij pozycję **Zarządzaj listami filtrów IP i akcjami filtrowania..** ..
+1. Z listy rozwijanej kliknij prawym przyciskiem myszy pozycję **zasady zabezpieczeń IP na Active Directory** , a następnie kliknij pozycję **Zarządzaj listami filtrów IP i akcjami filtrowania..**..
 
    [![15]][15]
-2. Na karcie " **Zarządzanie akcjami filtrowania** " kliknij przycisk **Dodaj** .
+2. Na karcie " **Zarządzanie akcjami filtrowania** " kliknij przycisk **Dodaj**.
 
    [![16]][16]
 
-3. W **Kreatorze akcji filtrowania zabezpieczeń IP** kliknij przycisk **dalej** .
+3. W **Kreatorze akcji filtrowania zabezpieczeń IP** kliknij przycisk **dalej**.
 
    [![17]][17]
-4. Nadaj nazwę filtrowi intuicyjnej nazwy, aby można było go później znaleźć. W tym przykładzie Akcja filtrowania jest nazywana. **myEncryption** Możesz również dodać opis. Następnie kliknij przycisk **dalej** .
+4. Nadaj nazwę filtrowi intuicyjnej nazwy, aby można było go później znaleźć. W tym przykładzie Akcja filtrowania jest nazywana. **myEncryption** Możesz również dodać opis. Następnie kliknij przycisk **dalej**.
 
    [![18]][18]
-5. Wartość **Negocjuj zabezpieczenia** pozwala zdefiniować zachowanie, jeśli nie można nawiązać protokołu IPSec z innym komputerem. Wybierz pozycję **Negocjuj zabezpieczenia** , a następnie kliknij przycisk **dalej** .
+5. Wartość **Negocjuj zabezpieczenia** pozwala zdefiniować zachowanie, jeśli nie można nawiązać protokołu IPSec z innym komputerem. Wybierz pozycję **Negocjuj zabezpieczenia** , a następnie kliknij przycisk **dalej**.
 
    [![19]][19]
-6. Na stronie **komunikowanie się z komputerami, które nie obsługują protokołu IPSec** , wybierz opcję nie **Zezwalaj na niezabezpieczoną komunikację** , a następnie kliknij przycisk **dalej** .
+6. Na stronie **komunikowanie się z komputerami, które nie obsługują protokołu IPSec** , wybierz opcję nie **Zezwalaj na niezabezpieczoną komunikację** , a następnie kliknij przycisk **dalej**.
 
    [![20]][20]
 7. Na stronie **ruch i zabezpieczenia IP** wybierz pozycję **niestandardowe** , a następnie kliknij pozycję **Ustawienia.**
 
    [![21]][21]
-8. Na stronie **Ustawienia niestandardowej metody zabezpieczeń** wybierz opcję **integralność danych i szyfrowanie (ESP): SHA1, 3DES** . Następnie kliknij przycisk **OK** .
+8. Na stronie **Ustawienia niestandardowej metody zabezpieczeń** wybierz opcję **integralność danych i szyfrowanie (ESP): SHA1, 3DES**. Następnie kliknij przycisk **OK**.
 
    [![22]][22]
-9. Na stronie **Zarządzanie akcjami filtrowania** można zobaczyć, że filtr **odszyfrowania** został pomyślnie dodany. Kliknij przycisk **Zamknij** .
+9. Na stronie **Zarządzanie akcjami filtrowania** można zobaczyć, że filtr **odszyfrowania** został pomyślnie dodany. Kliknij przycisk **Zamknij**.
 
    [![23]][23]
 
@@ -155,28 +155,28 @@ Aby zastosować obiekt zasad grupy do jednostki organizacyjnej, obiekt zasad gru
 
 Utwórz listę filtrów, która określa zaszyfrowany ruch HTTP z portem docelowym 8080.
 
-1. Aby zakwalifikować, które typy ruchu muszą być szyfrowane, użyj **listy filtrów IP** . Na karcie **Zarządzanie listami filtrów IP** kliknij przycisk **Dodaj** , aby dodać nową listę filtrów adresów IP.
+1. Aby zakwalifikować, które typy ruchu muszą być szyfrowane, użyj **listy filtrów IP**. Na karcie **Zarządzanie listami filtrów IP** kliknij przycisk **Dodaj** , aby dodać nową listę filtrów adresów IP.
 
    [![24]][24]
-2. W polu **name (nazwa** ) wpisz nazwę listy filtrów adresów IP. Na przykład **Azure-onpremises-HTTP8080** . Następnie kliknij przycisk **Add** (Dodaj).
+2. W polu **name (nazwa** ) wpisz nazwę listy filtrów adresów IP. Na przykład **Azure-onpremises-HTTP8080**. Następnie kliknij przycisk **Add** (Dodaj).
 
    [![25]][25]
-3. Na stronie **Opis filtrów IP i dublowany Właściwość** wybierz opcję **dublowany** . Ustawienie dublowane dopasowuje pakiety w obu kierunkach, co umożliwia komunikację dwukierunkową. Następnie kliknij przycisk **Dalej** .
+3. Na stronie **Opis filtrów IP i dublowany Właściwość** wybierz opcję **dublowany**. Ustawienie dublowane dopasowuje pakiety w obu kierunkach, co umożliwia komunikację dwukierunkową. Następnie kliknij przycisk **Dalej**.
 
    [![26]][26]
-4. Na stronie **Źródło ruchu IP** , na liście rozwijanej **adres źródłowy:** wybierz **konkretny adres IP lub podsieć** . 
+4. Na stronie **Źródło ruchu IP** , na liście rozwijanej **adres źródłowy:** wybierz **konkretny adres IP lub podsieć**. 
 
    [![27]][27]
-5. Określ **adres IP lub podsieć** adresu IP, a następnie kliknij przycisk **dalej** .
+5. Określ **adres IP lub podsieć** adresu IP, a następnie kliknij przycisk **dalej**.
 
    [![28]][28]
-6. Określ **adres docelowy:** adres IP lub podsieć. Następnie kliknij przycisk **dalej** .
+6. Określ **adres docelowy:** adres IP lub podsieć. Następnie kliknij przycisk **dalej**.
 
    [![29]][29]
-7. Na stronie **Typ protokołu IP** wybierz opcję **TCP** . Następnie kliknij przycisk **dalej** .
+7. Na stronie **Typ protokołu IP** wybierz opcję **TCP**. Następnie kliknij przycisk **dalej**.
 
    [![30]][30]
-8. Na stronie **port protokołu IP** wybierz **z dowolnego portu** i **do tego portu:** . W polu tekstowym wpisz **8080** . Te ustawienia określają tylko ruch HTTP na porcie docelowym 8080 będzie szyfrowany. Następnie kliknij przycisk **dalej** .
+8. Na stronie **port protokołu IP** wybierz **z dowolnego portu** i **do tego portu:**. W polu tekstowym wpisz **8080** . Te ustawienia określają tylko ruch HTTP na porcie docelowym 8080 będzie szyfrowany. Następnie kliknij przycisk **dalej**.
 
    [![31]][31]
 9. Wyświetl listę filtrów IP.  Konfiguracja listy filtrów IP **Azure-onpremises-HTTP8080** wyzwala szyfrowanie dla całego ruchu zgodnego z następującymi kryteriami:
@@ -192,10 +192,10 @@ Utwórz listę filtrów, która określa zaszyfrowany ruch HTTP z portem docelow
 
 Aby zaszyfrować ten sam typ ruchu w odwrotnym kierunku (od hosta lokalnego do maszyny wirtualnej platformy Azure), potrzebny jest drugi filtr IP. Proces konfigurowania nowego filtru to ten sam proces, który został użyty do skonfigurowania pierwszego filtru IP. Jedyne różnice to źródłowa i docelowa podsieć.
 
-1. Aby dodać nowy filtr IP do listy filtrów IP, wybierz pozycję **Edytuj** .
+1. Aby dodać nowy filtr IP do listy filtrów IP, wybierz pozycję **Edytuj**.
 
    [![33]][33]
-2. Na stronie **Lista filtrów IP** kliknij przycisk **Dodaj** .
+2. Na stronie **Lista filtrów IP** kliknij przycisk **Dodaj**.
 
    [![34]][34]
 3. Utwórz drugi filtr IP przy użyciu ustawień w następującym przykładzie:
@@ -211,16 +211,16 @@ Jeśli wymagane jest szyfrowanie między lokalizacją lokalną a podsiecią plat
 
 Utwórz zasady protokołu IPsec z regułami zabezpieczeń.
 
-1. Wybierz **zasady "IPSecurity" w usłudze Active Directory** skojarzonej z JEDNOSTKą organizacyjną. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Utwórz zasady zabezpieczeń IP** .
+1. Wybierz **zasady "IPSecurity" w usłudze Active Directory** skojarzonej z JEDNOSTKą organizacyjną. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Utwórz zasady zabezpieczeń IP**.
 
    [![37]][37]
-2. Nazwij zasady zabezpieczeń. Na przykład **zasady-Azure-onpremises** . Następnie kliknij przycisk **dalej** .
+2. Nazwij zasady zabezpieczeń. Na przykład **zasady-Azure-onpremises**. Następnie kliknij przycisk **dalej**.
 
    [![38]][38]
 3. Kliknij przycisk **dalej** bez zaznaczania pola wyboru.
 
    [![39]][39]
-4. Sprawdź, czy pole wyboru **Edytuj właściwości** jest zaznaczone, a następnie kliknij przycisk **Zakończ** .
+4. Sprawdź, czy pole wyboru **Edytuj właściwości** jest zaznaczone, a następnie kliknij przycisk **Zakończ**.
 
    [![40]][40]
 
@@ -228,10 +228,10 @@ Utwórz zasady protokołu IPsec z regułami zabezpieczeń.
 
 Dodaj do zasad IPsec **listy filtrów IP** i **akcji filtrowania** , które zostały wcześniej skonfigurowane.
 
-1. Na karcie **reguły** właściwości zasad http kliknij przycisk **Dodaj** .
+1. Na karcie **reguły** właściwości zasad http kliknij przycisk **Dodaj**.
 
    [![41]][41]
-2. Na stronie powitalnej kliknij przycisk **Dalej** .
+2. Na stronie powitalnej kliknij przycisk **Dalej**.
 
    [![42]][42]
 3. Reguła zawiera opcję definiowania trybu protokołu IPsec: tryb tunelu lub Tryb transportu.
@@ -240,22 +240,22 @@ Dodaj do zasad IPsec **listy filtrów IP** i **akcji filtrowania** , które zost
 
    * Tryb transportu szyfruje tylko ładunek i przyczepę ESP; Nagłówek IP oryginalnego pakietu nie jest szyfrowany. W trybie transportu Źródło IP i docelowe adresy IP pakietów nie są zmieniane.
 
-   Wybierz opcję **Ta reguła nie określa tunelu** , a następnie kliknij przycisk **dalej** .
+   Wybierz opcję **Ta reguła nie określa tunelu** , a następnie kliknij przycisk **dalej**.
 
    [![43]][43]
-4. **Typ sieci** definiuje, które połączenie sieciowe jest skojarzone z zasadami zabezpieczeń. Wybierz pozycję **wszystkie połączenia sieciowe** , a następnie kliknij przycisk **dalej** .
+4. **Typ sieci** definiuje, które połączenie sieciowe jest skojarzone z zasadami zabezpieczeń. Wybierz pozycję **wszystkie połączenia sieciowe** , a następnie kliknij przycisk **dalej**.
 
    [![44]][44]
-5. Wybierz utworzoną wcześniej listę filtrów IP,  **Azure-onpremises-HTTP8080** , a następnie kliknij przycisk **dalej** .
+5. Wybierz utworzoną wcześniej listę filtrów IP,  **Azure-onpremises-HTTP8080** , a następnie kliknij przycisk **dalej**.
 
    [![45]][45]
 6. Wybierz istniejącą **wcześniej akcję filtrowania** .
 
    [![46]][46]
-7. System Windows obsługuje cztery różne typy uwierzytelniania: Kerberos, certyfikaty, NTLMv2 i klucz wstępny. Ponieważ pracujemy z hostami przyłączonymi do domeny, wybierz opcję **Active Directory domyślne (protokół Kerberos V5)** , a następnie kliknij przycisk **dalej** .
+7. System Windows obsługuje cztery różne typy uwierzytelniania: Kerberos, certyfikaty, NTLMv2 i klucz wstępny. Ponieważ pracujemy z hostami przyłączonymi do domeny, wybierz opcję **Active Directory domyślne (protokół Kerberos V5)** , a następnie kliknij przycisk **dalej**.
 
    [![47]][47]
-8. Nowe zasady tworzą regułę zabezpieczeń: **Azure-onpremises-HTTP8080** . Kliknij pozycję **OK** .
+8. Nowe zasady tworzą regułę zabezpieczeń: **Azure-onpremises-HTTP8080**. Kliknij przycisk **OK**.
 
    [![48]][48]
 
@@ -266,7 +266,7 @@ Zasady IPsec wymagają, aby wszystkie połączenia HTTP na porcie docelowym 8080
 1. Wyświetl zasady. Zasady grupy zabezpieczeń są zdefiniowane, ale nie zostały jeszcze przypisane.
 
    [![49]][49]
-2. Aby przypisać zasady grupy zabezpieczeń do jednostki organizacyjnej **IPSecOU** , kliknij prawym przyciskiem myszy zasady zabezpieczeń i wybierz pozycję **Przypisz** .
+2. Aby przypisać zasady grupy zabezpieczeń do jednostki organizacyjnej **IPSecOU** , kliknij prawym przyciskiem myszy zasady zabezpieczeń i wybierz pozycję **Przypisz**.
    Wszystkie komputery THT należące do jednostki organizacyjnej będą mieć przypisane zasady grupy zabezpieczeń.
 
    [![50]][50]

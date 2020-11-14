@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92204643"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Weryfikowanie połączenia usługi ExpressRoute
@@ -36,7 +36,7 @@ Celem tego dokumentu jest ułatwienie użytkownikowi zidentyfikowania, czy wyst�
 
 ## <a name="overview"></a>Omówienie
 Na poniższym diagramie przedstawiono logiczne połączenie sieci klienta z siecią firmy Microsoft przy użyciu ExpressRoute.
-[![jedno]][1]
+[![1]][1]
 
 Na powyższym diagramie liczba wskazuje kluczowe punkty sieciowe. Te punkty sieciowe są przywoływane w tym artykule o ile ich skojarzona liczba. W zależności od modelu łączności ExpressRoute — połączenie z programem Exchange w chmurze, punkt-punkt połączenia Ethernet lub dowolne z nich (IPVPN) — punkty sieciowe 3 i 4 mogą być przełącznikami (urządzeniami warstwy 2) lub routerami (urządzeniami warstwy 3). W modelu łączności bezpośredniej nie ma punktów sieciowych 3 i 4; Zamiast tego (2) są bezpośrednio połączone z MSEE za pośrednictwem ciemnego włókna. Najważniejsze przedstawiane punkty sieci są następujące:
 
@@ -85,7 +85,7 @@ W Azure Portal Otwórz blok obwodu ExpressRoute. W sekcji ![3][3] w bloku Expres
 
 W ExpressRoute Essentials *stan obwodu* wskazuje stan obwodu po stronie firmy Microsoft. *Stan dostawcy* wskazuje, czy *nie zainicjowano* obsługi obwodu na stronie Dostawca usług. 
 
-Aby obwód usługi ExpressRoute był uruchomiony, musi być *włączony* *stan obwodu* , a *stan dostawcy* musi być *zainicjowany* .
+Aby obwód usługi ExpressRoute był uruchomiony, musi być *włączony* *stan obwodu* , a *stan dostawcy* musi być *zainicjowany*.
 
 > [!NOTE]
 > Po skonfigurowaniu obwodu ExpressRoute, jeśli *stan obwodu* wykreśla się w stanie niewłączonym, skontaktuj się z [Pomoc techniczna firmy Microsoft][Support]. Z drugiej strony, jeśli *stan dostawcy* jest wykreślony w stanie nieaprowizacji, skontaktuj się z dostawcą usług.

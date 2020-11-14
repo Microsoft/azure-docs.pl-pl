@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 723d93b9a5e986501278bdee35835cfa0c234711
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "94555864"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal

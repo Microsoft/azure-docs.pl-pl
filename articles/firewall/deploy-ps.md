@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować zaporę
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 08/28/2020
+ms.date: 11/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62640aa02c76c13b2c49b2e33aea742f6b8a09e4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071707"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628353"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell
 
@@ -29,9 +29,9 @@ W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema pods
 
 * **AzureFirewallSubnet** — w tej podsieci znajduje się zapora.
 * **Workload-SN** — w tej podsieci znajduje się serwer obciążeń. Ruch sieciowy tej podsieci przechodzi przez zaporę.
-* **Jump-SN** — w tej podsieci znajduje się serwer przesiadkowy. Serwer przesiadkowy ma publiczny adres IP, z którym możesz nawiązać połączenie przy użyciu pulpitu zdalnego. Stamtąd możesz połączyć się (przy użyciu innego pulpitu zdalnego) z serwerem obciążeń.
+* **AzureBastionSubnet** — podsieć używana na potrzeby usługi Azure bastionu, która jest używana do nawiązywania połączenia z serwerem obciążeń. Aby uzyskać więcej informacji na temat usługi Azure bastionu, zobacz [co to jest Azure bastionu?](../bastion/bastion-overview.md)
 
-![Infrastruktura sieci samouczka](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+![Infrastruktura sieci samouczka](media/deploy-ps/tutorial-network.png)
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -63,56 +63,55 @@ Grupa zasobów zawiera wszystkie zasoby wdrożenia.
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 ```
 
-### <a name="create-a-vnet"></a>Tworzenie sieci wirtualnej
+### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Tworzenie sieci wirtualnej i hosta usługi Azure bastionu
 
-Ta sieć wirtualna ma trzy podsieci:
+Ta sieć wirtualna ma cztery podsieci:
 
 > [!NOTE]
 > Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurepowershell
+$Bastionsub = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.0.0/27
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
-$Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
 Teraz Utwórz sieć wirtualną:
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
--Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $FWsub, $Worksub, $Jumpsub
+-Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $Bastionsub, $FWsub, $Worksub
 ```
-
-### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
-
-Teraz utwórz maszyny wirtualne przesiadkową i obciążeń, a następnie umieść je w odpowiednich podsieciach.
-Po wyświetleniu monitu wpisz nazwę użytkownika i hasło maszyny wirtualnej.
-
-Utwórz Srv-Jump maszynę wirtualną.
+### <a name="create-public-ip-address-for-azure-bastion-host"></a>Utwórz publiczny adres IP dla hosta usługi Azure bastionu
 
 ```azurepowershell
-New-AzVm `
-    -ResourceGroupName Test-FW-RG `
-    -Name "Srv-Jump" `
-    -Location "East US" `
-    -VirtualNetworkName Test-FW-VN `
-    -SubnetName Jump-SN `
-    -OpenPorts 3389 `
-    -Size "Standard_DS2"
+$publicip = New-AzPublicIpAddress -ResourceGroupName Test-FW-RG -Location "East US" `
+   -Name Bastion-pip -AllocationMethod static -Sku standard
 ```
 
-Utwórz maszynę wirtualną obciążenia bez publicznego adresu IP.
+### <a name="create-azure-bastion-host"></a>Tworzenie hosta usługi Azure bastionu
+
+```azurepowershell
+New-AzBastion -ResourceGroupName Test-FW-RG -Name Bastion-01 -PublicIpAddress $publicip -VirtualNetwork $testVnet
+```
+### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
+
+Teraz Utwórz maszynę wirtualną obciążenia i umieść ją w odpowiedniej podsieci.
+Po wyświetleniu monitu wpisz nazwę użytkownika i hasło maszyny wirtualnej.
+
+
+Utwórz maszynę wirtualną obciążenia.
 Po wyświetleniu monitu wpisz nazwę użytkownika i hasło maszyny wirtualnej.
 
 ```azurepowershell
 #Create the NIC
-$NIC = New-AzNetworkInterface -Name Srv-work -ResourceGroupName Test-FW-RG `
- -Location "East US" -Subnetid $testVnet.Subnets[1].Id 
+$wsn = Get-AzVirtualNetworkSubnetConfig -Name  Workload-SN -VirtualNetwork $testvnet
+$NIC01 = New-AzNetworkInterface -Name Srv-Work -ResourceGroupName Test-FW-RG -Location "East us" -Subnet $wsn
 
 #Define the virtual machine
 $VirtualMachine = New-AzVMConfig -VMName Srv-Work -VMSize "Standard_DS2"
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName Srv-Work -ProvisionVMAgent -EnableAutoUpdate
-$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
-$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2016-Datacenter' -Version latest
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC01.Id
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2019-Datacenter' -Version latest
 
 #Create the virtual machine
 New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -Verbose
@@ -127,7 +126,7 @@ Teraz Wdróż zaporę w sieci wirtualnej.
 $FWpip = New-AzPublicIpAddress -Name "fw-pip" -ResourceGroupName Test-FW-RG `
   -Location "East US" -AllocationMethod Static -Sku Standard
 # Create the firewall
-$Azfw = New-AzFirewall -Name Test-FW01 -ResourceGroupName Test-FW-RG -Location "East US" -VirtualNetworkName Test-FW-VN -PublicIpName fw-pip
+$Azfw = New-AzFirewall -Name Test-FW01 -ResourceGroupName Test-FW-RG -Location "East US" -VirtualNetwork $testVnet -PublicIpAddress $FWpip
 
 #Save the firewall private IP address for future use
 
@@ -205,24 +204,20 @@ Set-AzFirewall -AzureFirewall $Azfw
 W celach testowych w ramach tej procedury skonfiguruj podstawowe i pomocnicze adresy serwera DNS. To nie jest ogólne wymaganie dotyczące zapory platformy Azure.
 
 ```azurepowershell
-$NIC.DnsSettings.DnsServers.Add("209.244.0.3")
-$NIC.DnsSettings.DnsServers.Add("209.244.0.4")
-$NIC | Set-AzNetworkInterface
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.3")
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.4")
+$NIC01 | Set-AzNetworkInterface
 ```
 
 ## <a name="test-the-firewall"></a>Testowanie zapory
 
 Teraz Przetestuj zaporę, aby upewnić się, że działa zgodnie z oczekiwaniami.
 
-1. Zanotuj prywatny adres IP dla maszyny wirtualnej **SRV** :
+1. Połącz się z maszyną wirtualną **SRV** z usługą bastionu i zaloguj się. 
 
-   ```
-   $NIC.IpConfigurations.PrivateIpAddress
-   ```
+   :::image type="content" source="media/deploy-ps/bastion.png" alt-text="Połącz przy użyciu bastionu.":::
 
-1. Połącz pulpit zdalny z maszyną wirtualną z **przeskokiem SRV** i zaloguj się. W tym miejscu Otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **SRV** i zaloguj się.
-
-3. W obszarze **SRV (Pracuj**) Otwórz okno programu PowerShell i uruchom następujące polecenia:
+3. W obszarze **SRV (Pracuj** ) Otwórz okno programu PowerShell i uruchom następujące polecenia:
 
    ```
    nslookup www.google.com

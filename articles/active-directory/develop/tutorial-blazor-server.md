@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aaf716b4ac4c49f1d852e917ba818a10ecb541c4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873187"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628037"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Samouczek: Tworzenie aplikacji serwera Blazor, która używa platformy tożsamości firmy Microsoft do uwierzytelniania
 
-Serwer Blazor zapewnia obsługę hostingu składników Razor na serwerze w aplikacji ASP.NET Core. W tym samouczku dowiesz się, jak zaimplementować uwierzytelnianie i pobrać dane z Microsoft Graph w aplikacji Blazor Server przy użyciu platformy tożsamości firmy Microsoft.
+Serwer Blazor zapewnia obsługę hostingu składników Razor na serwerze w aplikacji ASP.NET Core. W tym samouczku dowiesz się, jak zaimplementować uwierzytelnianie i pobierać dane z Microsoft Graph w aplikacji Blazor Server przy użyciu platformy tożsamości firmy Microsoft i rejestrowania aplikacji w usłudze Azure Active Directory (Azure AD).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Mamy również samouczek dotyczący [BLAZOR WASM](tutorial-blazor-webassembly.md).
+
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz nową aplikację serwera Blazor skonfigurowaną do korzystania z Azure Active Directory (Azure AD) na potrzeby uwierzytelniania
@@ -35,14 +37,14 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Każda aplikacja, która używa Azure Active Directory (Azure AD) do uwierzytelniania, musi być zarejestrowana w usłudze Azure AD. Postępuj zgodnie z instrukcjami w temacie [Rejestrowanie aplikacji](quickstart-register-app.md) z następującymi dodatkami:
 
-- W przypadku **obsługiwanych typów kont**wybierz opcję **konta tylko w tym katalogu organizacji**.
+- W przypadku **obsługiwanych typów kont** wybierz opcję **konta tylko w tym katalogu organizacji**.
 - Pozostaw pole listy rozwijanej **Identyfikator URI przekierowania** jako **Sieć Web** i wprowadź wartość `https://localhost:5001/signin-oidc` . Domyślnym portem dla aplikacji działającej w Kestrel jest 5001. Jeśli aplikacja jest dostępna na innym porcie, określ ten numer portu zamiast `5001` .
 
-W obszarze **uwierzytelnianie**  >  **niejawnie Udziel**zaznacz pola wyboru dla **tokenów dostępu** i **tokenów identyfikatorów**, a następnie wybierz przycisk **Zapisz** .
+W obszarze **uwierzytelnianie**  >  **niejawnie Udziel** zaznacz pola wyboru dla **tokenów dostępu** i **tokenów identyfikatorów** , a następnie wybierz przycisk **Zapisz** .
 
 Na koniec, ponieważ aplikacja wywołuje chroniony interfejs API (w tym przypadku Microsoft Graph), wymaga klucza tajnego klienta, aby zweryfikować jego tożsamość, gdy żąda tokenu dostępu do wywołania tego interfejsu API.
 
-1. W ramach tej samej rejestracji aplikacji w obszarze **Zarządzaj**wybierz pozycję **Certyfikaty & wpisy tajne**.
+1. W ramach tej samej rejestracji aplikacji w obszarze **Zarządzaj** wybierz pozycję **Certyfikaty & wpisy tajne**.
 2. Utwórz **nowy klucz tajny klienta** , który nigdy nie wygaśnie.
 3. Zanotuj **wartość** wpisu tajnego, ponieważ będzie ona używana w następnym kroku. Nie możesz uzyskać dostępu do niego ponownie po przejściu z tego okienka. Można jednak utworzyć go ponownie zgodnie z wymaganiami.
 
@@ -91,9 +93,9 @@ Przed rozpoczęciem Wyloguj się z aplikacji, ponieważ będziesz wprowadzać zm
 Teraz zaktualizujesz rejestrację i kod aplikacji w celu ściągnięcia wiadomości e-mail użytkownika i wyświetlenia komunikatów w aplikacji. Aby to osiągnąć, najpierw Zwiększ uprawnienia rejestracji aplikacji w usłudze Azure AD, aby umożliwić dostęp do danych poczty e-mail. Następnie Dodaj kod do aplikacji Blazor, aby pobrać i wyświetlić te dane na jednej z stron.
 
 1. W Azure Portal wybierz aplikację w **rejestracje aplikacji**.
-1. W obszarze **Zarządzaj**wybierz pozycję **uprawnienia interfejsu API**.
-1. Wybierz pozycję **Dodaj**  >  **Microsoft Graph**uprawnienia.
-1. Wybierz pozycję **uprawnienia delegowane**, a następnie wyszukaj i wybierz uprawnienie **poczta. odczyt** .
+1. W obszarze **Zarządzaj** wybierz pozycję **uprawnienia interfejsu API**.
+1. Wybierz pozycję **Dodaj**  >  **Microsoft Graph** uprawnienia.
+1. Wybierz pozycję **uprawnienia delegowane** , a następnie wyszukaj i wybierz uprawnienie **poczta. odczyt** .
 1. Wybierz pozycję **Dodaj uprawnienia**.
 
 W *appsettings.jsw* pliku Zaktualizuj swój kod, tak aby pobierał odpowiedni token z odpowiednimi uprawnieniami. Dodaj "mail. Read" po zakresie "User. Read" w obszarze "DownstreamAPI". Określa zakresy (lub uprawnienia), do których aplikacja będzie żądać dostępu.

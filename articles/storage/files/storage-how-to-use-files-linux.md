@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004786"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626745"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
@@ -47,19 +47,19 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj `dnf` Menedżera pakietów:
+    W **Fedora** , **Red Hat Enterprise Linux 8 +** i **CentOS 8 +** , użyj `dnf` Menedżera pakietów:
 
     ```bash
     sudo dnf install cifs-utils
     ```
 
-    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS**Użyj `yum` Menedżera pakietów:
+    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS** Użyj `yum` Menedżera pakietów:
 
     ```bash
     sudo yum install cifs-utils 
     ```
 
-    W systemie **openSUSE**Użyj `zypper` Menedżera pakietów:
+    W systemie **openSUSE** Użyj `zypper` Menedżera pakietów:
 
     ```bash
     sudo zypper install cifs-utils
@@ -67,9 +67,9 @@ uname -r
 
     W przypadku innych dystrybucji Użyj odpowiedniego Menedżera pakietów lub [Skompiluj ze źródła](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Najnowsza wersja interfejsu wiersza polecenia platformy Azure (CLI).** Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) i wybieranie systemu operacyjnego. Jeśli wolisz używać modułu Azure PowerShell w programie PowerShell 6 lub nowszym, możesz jednak przedstawić poniższe instrukcje dla interfejsu wiersza polecenia platformy Azure.
+* **Najnowsza wersja interfejsu wiersza polecenia platformy Azure (CLI).** Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) i wybieranie systemu operacyjnego. Jeśli wolisz używać modułu Azure PowerShell w programie PowerShell 6 lub nowszym, możesz jednak przedstawić poniższe instrukcje dla interfejsu wiersza polecenia platformy Azure.
 
-* **Upewnij się, że port 445 jest otwarty**: protokół SMB komunikuje się za pośrednictwem portu TCP 445 — Sprawdź, czy Zapora nie blokuje portów TCP 445 z komputera klienckiego.  Zastąp `<your-resource-group>` , a `<your-storage-account>` następnie uruchom następujący skrypt:
+* **Upewnij się, że port 445 jest otwarty** : protokół SMB komunikuje się za pośrednictwem portu TCP 445 — Sprawdź, czy Zapora nie blokuje portów TCP 445 z komputera klienckiego.  Zastąp `<your-resource-group>` , a `<your-storage-account>` następnie uruchom następujący skrypt:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -99,7 +99,7 @@ Aby używać udziału plików platformy Azure z dystrybucją systemu Linux, nale
 W razie potrzeby można zainstalować ten sam udział plików platformy Azure w wielu punktach instalacji.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Zainstaluj udział plików platformy Azure na żądanie z `mount`
-1. **Utwórz folder dla punktu instalacji**: Zastąp `<your-resource-group>` , `<your-storage-account>` , i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
+1. **Utwórz folder dla punktu instalacji** : Zastąp `<your-resource-group>` , `<your-storage-account>` , i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -135,7 +135,7 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
 Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `sudo umount $mntPath` programu do odinstalowania udziału.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Utwórz trwały punkt instalacji dla udziału plików platformy Azure `/etc/fstab`
-1. **Utwórz folder dla punktu instalacji**: folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
+1. **Utwórz folder dla punktu instalacji** : folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -174,7 +174,7 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Użyj poniższego polecenia, aby dołączyć następujący wiersz do `/etc/fstab` **programu: w poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, które oznaczają odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć `uid` `gid` opcji instalacji i ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. `dir_mode`W razie potrzeby można również użyć i `file_mode` skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia.
+1. **Użyj poniższego polecenia, aby dołączyć następujący wiersz do `/etc/fstab`** programu: w poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, które oznaczają odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć `uid` `gid` opcji instalacji i ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. `dir_mode`W razie potrzeby można również użyć i `file_mode` skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia.
 
     ```bash
     # This command assumes you have logged in with az login
@@ -207,19 +207,19 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
     sudo apt update
     sudo apt install autofs
     ```
-    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj `dnf` Menedżera pakietów:
+    W **Fedora** , **Red Hat Enterprise Linux 8 +** i **CentOS 8 +** , użyj `dnf` Menedżera pakietów:
     ```bash
     sudo dnf install autofs
     ```
-    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS**Użyj `yum` Menedżera pakietów:
+    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS** Użyj `yum` Menedżera pakietów:
     ```bash
     sudo yum install autofs 
     ```
-    W systemie **openSUSE**Użyj `zypper` Menedżera pakietów:
+    W systemie **openSUSE** Użyj `zypper` Menedżera pakietów:
     ```bash
     sudo zypper install autofs
     ```
-2. **Utwórz punkt instalacji dla udziałów**:
+2. **Utwórz punkt instalacji dla udziałów** :
    ```bash
     sudo mkdir /fileshares
     ```
@@ -326,5 +326,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files:
 
 * [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
-* [Często zadawane pytania](../storage-files-faq.md)
+* [Często zadawane pytania](./storage-files-faq.md)
 * [Rozwiązywanie problemów](storage-troubleshoot-linux-file-connection-problems.md)

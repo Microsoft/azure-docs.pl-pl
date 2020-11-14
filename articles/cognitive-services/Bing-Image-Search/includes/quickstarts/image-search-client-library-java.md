@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: d7433da99fa1aa607b8c85ce6c8f44adcc6c6f89
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f155868483a0b00ed5ecb6f02ad3ee5440e6e45a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87375531"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625428"
 ---
 Ten przewodnik Szybki Start umożliwia przeszukiwanie pierwszego obrazu przy użyciu biblioteki klienta wyszukiwanie obrazów Bing, która jest otoką dla interfejsu API i zawiera te same funkcje. Ta prosta aplikacja w języku Java wysyła zapytanie dotyczące wyszukania obrazu, analizuje odpowiedź w formacie JSON i wyświetla adres URL pierwszego zwróconego obrazu.
 
@@ -22,7 +22,7 @@ Kod źródłowy dla tego przykładu jest dostępny [w witrynie GitHub](https://g
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Najnowsza wersja zestawu [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
+Najnowsza wersja zestawu [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK)
 
 Zainstaluj zależności biblioteki klienta wyszukiwanie obrazów Bing przy użyciu programu Maven, Gradle lub innego systemu zarządzania zależnościami. Plik POM systemu Maven wymaga następującej deklaracji:
 
@@ -92,12 +92,12 @@ else {
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania obrazów Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania obrazów Bing](../../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Czym jest funkcja wyszukiwania obrazów Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Czym jest funkcja wyszukiwania obrazów Bing?](../../overview.md)  
 * [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Przykłady dla zestawu Azure Cognitive Services SDK w języku Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Dokumentacja usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Dokumentacja interfejsu API wyszukiwania obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Dokumentacja usług Azure Cognitive Services](../../../index.yml)
+* [Dokumentacja interfejsu API wyszukiwania obrazów Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

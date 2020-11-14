@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa61046ee87c1cac3c8a8bb93ed97b577019e016
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85602724"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628445"
 ---
 # <a name="azure-firewall-certifications"></a>Certyfikaty zapory platformy Azure
 
@@ -48,7 +48,7 @@ Następujące certyfikaty zapory platformy Azure dotyczą globalnej platformy Az
 - GLBA (USA)
 - Niemcy C5
 - GxP (FDA 21 CFR Part 11)
-- HIPPA
+- HIPAA
 - HITECH Act (US)
 - HITRUST
 - ISO 20000-1:2011

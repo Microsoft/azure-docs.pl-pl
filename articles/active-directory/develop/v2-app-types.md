@@ -1,6 +1,6 @@
 ---
 title: Typy aplikacji dla platformy tożsamości firmy Microsoft | Azure
-description: Typy aplikacji i scenariuszy obsługiwane przez punkt końcowy Microsoft Identity platform (v 2.0).
+description: Typy aplikacji i scenariuszy obsługiwane przez punkt końcowy platformy tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: aaddev, fasttrack-edit, contperfq2
+ms.openlocfilehash: 4c72d1b4b78c0b7ca9e7fa1f6468beb6fdd4b247
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103156"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628088"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
-Punkt końcowy Microsoft Identity platform (v 2.0) obsługuje uwierzytelnianie dla różnych nowoczesnych architektur aplikacji, wszystkie z nich oparte na standardach branżowych [OAuth 2,0 lub OpenID Connect Connect](active-directory-v2-protocols.md). W tym artykule opisano typy aplikacji, które można skompilować przy użyciu platformy tożsamości firmy Microsoft, niezależnie od preferowanego języka lub platformy. Te informacje ułatwiają zrozumienie scenariuszy wysokiego poziomu przed [rozpoczęciem pracy z kodem](v2-overview.md#getting-started).
+Punkt końcowy platformy tożsamości firmy Microsoft obsługuje uwierzytelnianie dla różnych nowoczesnych architektur aplikacji, wszystkie z nich oparte na standardach branżowych [OAuth 2,0 lub OpenID Connect Connect](active-directory-v2-protocols.md). W tym artykule opisano typy aplikacji, które można skompilować przy użyciu platformy tożsamości firmy Microsoft, niezależnie od preferowanego języka lub platformy. Te informacje ułatwiają zrozumienie scenariuszy wysokiego poziomu przed rozpoczęciem pracy z kodem w [scenariuszach aplikacji](authentication-flows-app-scenarios.md#application-scenarios).
 
 ## <a name="the-basics"></a>Podstawy
 
@@ -81,10 +81,9 @@ W aplikacjach serwera sieci Web przepływ uwierzytelniania logowania wykonuje na
 
 Tożsamość użytkownika można sprawdzić, sprawdzając token identyfikatora przy użyciu publicznego klucza podpisywania otrzymanego z punktu końcowego platformy tożsamości firmy Microsoft. Ustawiono plik cookie sesji, który może służyć do identyfikowania użytkownika na kolejnych żądaniach strony.
 
-Aby zapoznać się z tym scenariuszem w działaniu, wypróbuj jedną z przykładów kodu logowania aplikacji sieci Web w sekcji [wprowadzenie do platformy tożsamości firmy Microsoft](v2-overview.md#getting-started) .
+Aby wyświetlić ten scenariusz w działaniu, wypróbuj przykłady kodu w [aplikacji sieci Web, która jest w scenariuszu użytkownika](scenario-web-app-sign-user-overview.md).
 
 Oprócz prostej logowania aplikacja serwera sieci Web może potrzebować dostępu do innej usługi sieci Web, takiej jak interfejs API REST. W takim przypadku aplikacja serwera sieci Web jest zaangażowana w połączony przepływ OpenID Connect Connect i OAuth 2,0 przy użyciu [przepływu kodu autoryzacji oauth 2,0](v2-oauth2-auth-code-flow.md). Aby uzyskać więcej informacji na temat tego scenariusza, zapoznaj [się z artykułem wprowadzenie do usługi Web Apps i interfejsów API sieci Web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
-
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web
 
@@ -106,7 +105,7 @@ Internetowy interfejs API może odbierać tokeny dostępu z wszystkich typów ap
 
 ![Pokazuje przepływ uwierzytelniania interfejsu API sieci Web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Aby dowiedzieć się, jak zabezpieczyć internetowy interfejs API za pomocą tokenów dostępu OAuth2, zapoznaj się z przykładami kodu interfejsu API sieci Web w sekcji [wprowadzenie do platformy tożsamości firmy Microsoft](v2-overview.md#getting-started) .
+Aby dowiedzieć się, jak zabezpieczyć interfejs API sieci Web przy użyciu tokenów dostępu OAuth2, zapoznaj się z przykładami kodu interfejsu API sieci Web w [scenariuszu chronionego interfejsu API sieci Web](scenario-protected-web-api-overview.md).
 
 W wielu przypadkach interfejsy API sieci Web muszą również wykonywać żądania wychodzące do innych podrzędnych interfejsów API sieci Web zabezpieczonych przez platformę tożsamości firmy Microsoft. W tym celu interfejsy API sieci Web mogą korzystać z usługi **Flow,** co umożliwia interfejsowi API sieci Web wymianę przychodzącego tokenu dostępu dla innego tokenu dostępu, który będzie używany w żądaniach wychodzących. Aby uzyskać więcej informacji, zobacz [Microsoft Identity platform i OAuth 2,0 w imieniu usługi Flow](v2-oauth2-on-behalf-of-flow.md).
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119899"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628139"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Uzyskiwanie i buforowanie tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
@@ -115,6 +115,10 @@ Gdy klient zażąda tokenu dostępu, usługa Azure AD zwraca również wynik uwi
 - Identyfikator dzierżawy zawiera dzierżawcę, w którym znaleziono użytkownika. Dla użytkowników-Gości (scenariusze B2B usługi Azure AD) identyfikator dzierżawy jest dzierżawcą gościa, a nie z unikatowym dzierżawcą. Po dostarczeniu tokenu w nazwie użytkownika wynik uwierzytelniania zawiera również informacje o tym użytkowniku. W przypadku poufnych przepływów klientów, w których tokeny są żądane bez użytkownika (dla aplikacji), informacje o użytkowniku mają wartość null.
 - Zakresy, dla których token został wystawiony.
 - Unikatowy identyfikator użytkownika.
+
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>Doświadczonych Uzyskiwanie dostępu do buforowanych tokenów użytkownika w aplikacjach i usługach w tle
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

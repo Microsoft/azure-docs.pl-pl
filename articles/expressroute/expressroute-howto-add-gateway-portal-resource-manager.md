@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91761836"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute przy użyciu Azure Portal
@@ -42,7 +42,7 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
     * Przestrzeń adresowa podsieci = "192.168.1.0/24"
 * Grupa zasobów = "TestRG"
 * Location = "Wschodnie stany USA"
-* Nazwa podsieci bramy: "GatewaySubnet" zawsze należy nazwać sieci bramy *GatewaySubnet* .
+* Nazwa podsieci bramy: "GatewaySubnet" zawsze należy nazwać sieci bramy *GatewaySubnet*.
     * Przestrzeń adresowa podsieci bramy = "192.168.200.0/26"
 * Nazwa bramy = "ERGW"
 * Publiczna nazwa IP bramy = "MyERGWVIP"
@@ -60,11 +60,11 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
 
 1. **Nazwa** dla podsieci zostanie automatycznie wypełniona wartością „GatewaySubnet”. Ta wartość jest wymagana, aby platforma Azure mogła rozpoznać podsieć jako podsieć bramy. Dostosuj wartości **zakresu adresów** , które mają być zgodne z wymaganiami dotyczącymi konfiguracji. Zalecamy utworzenie podsieci bramy z/27 lub większą (/26,/25 itd.). Następnie wybierz przycisk **OK** , aby zapisać wartości i utworzyć podsieć bramy.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Dodaj podsieć bramy":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Dodawanie podsieci":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Tworzenie bramy sieci wirtualnej
 
-1. W portalu po lewej stronie wybierz pozycję **Utwórz zasób** , a następnie w polu wyszukiwania wpisz ciąg "Virtual Network Gateway". Znajdź **bramę sieci wirtualnej** w zwracanym wyszukiwaniu i wybierz wpis. Na stronie **Brama sieci wirtualnej** wybierz pozycję **Utwórz** .
+1. W portalu po lewej stronie wybierz pozycję **Utwórz zasób** , a następnie w polu wyszukiwania wpisz ciąg "Virtual Network Gateway". Znajdź **bramę sieci wirtualnej** w zwracanym wyszukiwaniu i wybierz wpis. Na stronie **Brama sieci wirtualnej** wybierz pozycję **Utwórz**.
 1. Na stronie **Tworzenie bramy sieci wirtualnej** wprowadź lub wybierz następujące ustawienia:
 
     | Ustawienie | Wartość |
@@ -75,19 +75,19 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
     | Region (Region) | Zmień pole **region** tak, aby wskazywało lokalizację, w której znajduje się Twoja sieć wirtualna. Jeśli lokalizacja nie wskazuje regionu, w którym znajduje się Twoja sieć wirtualna, Sieć wirtualna nie zostanie wyświetlona na liście rozwijanej "Wybierz sieć wirtualną". |
     | Typ bramy | Wybierz **ExpressRoute**|
     | Jednostka SKU | Wybierz jednostkę SKU bramy z listy rozwijanej. |
-    | Sieć wirtualna | Wybierz pozycję *TestVNet* . |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy** .|
+    | Sieć wirtualna | Wybierz pozycję *TestVNet*. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**.|
     | Nazwa publicznego adresu IP | Podaj nazwę publicznego adresu IP. |
 
 1. Wybierz pozycję **Przegląd + Utwórz** , a następnie **Utwórz** , aby rozpocząć tworzenie bramy. Ustawienia zostaną zweryfikowane i brama zostanie wdrożona. Tworzenie bramy sieci wirtualnej może potrwać do 45 minut.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Dodaj podsieć bramy":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Utwórz pola strony bramy sieci wirtualnej":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli Brama ExpressRoute nie jest już potrzebna, Znajdź bramę w grupie zasobów Sieć wirtualna i wybierz pozycję **Usuń** . Upewnij się, że brama nie ma żadnych połączeń z obwodem.
+Jeśli Brama ExpressRoute nie jest już potrzebna, Znajdź bramę w grupie zasobów Sieć wirtualna i wybierz pozycję **Usuń**. Upewnij się, że brama nie ma żadnych połączeń z obwodem.
 
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Dodaj podsieć bramy":::
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Usuń bramę sieci wirtualnej":::
 
 ## <a name="next-steps"></a>Następne kroki
 Po utworzeniu bramy sieci wirtualnej można połączyć sieć wirtualną z obwodem ExpressRoute. 

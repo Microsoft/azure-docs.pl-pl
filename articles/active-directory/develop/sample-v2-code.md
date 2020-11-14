@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 10/21/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e56748df2fb69ace4e9b8d9f6908bc8013176a19
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b3ea370a686e272a1d8ea201dd953fc09c1098ee
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287815"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628190"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)
 
@@ -60,6 +60,8 @@ W poniższych przykładach przedstawiono aplikacje sieci Web, które logują uż
 | ![Ten obraz pokazuje logo platformy ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET — szybki start](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-z ograniczeniami-Scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[MSGraph — szkolenia — aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [MS-Identity-Python-webapp-Authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [MS-Identity-Python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | Samouczek dotyczący logowania [aplikacji sieci Web](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) dla użytkowników w języku Python                   | Samouczek języka Python — Użytkownicy i wywołania [aplikacji sieci Web](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [Aplikacja internetowa](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) ze znakiem w języku Python — użytkownicy z B2C                    |  |
 | ![Ten obraz pokazuje logo języka Ruby](media/sample-v2-code/logo_ruby.png) |                   | [MSGraph — szkolenia — rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Publiczne aplikacje dla komputerów stacjonarnych i mobilnych
@@ -141,6 +143,6 @@ W poniższych przykładach pokazano, jak chronić funkcję platformy Azure przy 
 
 Aby dowiedzieć się więcej na temat [przykładów](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) i samouczków demonstrujących różne wzorce użycia dla interfejsu API Microsoft Graph, w tym uwierzytelniania za pomocą usługi Azure AD, zobacz [Microsoft Graph przykłady społeczności & samouczków](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)

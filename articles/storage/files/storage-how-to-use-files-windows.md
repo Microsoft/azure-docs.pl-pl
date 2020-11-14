@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329350"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626898"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -46,7 +46,7 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 Otwarty port 445: protokół SMB wymaga otwartego portu TCP 445; połączenia zakończą się niepowodzeniem, jeśli port 445 będzie zablokowany. Możesz sprawdzić, czy Zapora blokuje port 445 przy użyciu `Test-NetConnection` polecenia cmdlet. Aby dowiedzieć się, jak obejść zablokowany port 445, zobacz sekcję [Przyczyna 1: port 445 jest zablokowany](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) w przewodniku rozwiązywania problemów systemu Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
-Aby używać udziału plików platformy Azure w systemie Windows, musisz go zainstalować, czyli przypisać do niego literę dysku bądź ścieżkę do punktu instalacji, lub uzyskiwać do niego dostęp za pośrednictwem jego [ścieżki UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+Aby używać udziału plików platformy Azure w systemie Windows, musisz go zainstalować, czyli przypisać do niego literę dysku bądź ścieżkę do punktu instalacji, lub uzyskiwać do niego dostęp za pośrednictwem jego [ścieżki UNC](/windows/win32/fileio/naming-a-file). 
 
 W tym artykule jest wykorzystywany klucz konta magazynu w celu uzyskania dostępu do udziału plików. Klucz konta magazynu to klucz administratora dla konta magazynu, w tym uprawnienia administratora do wszystkich plików i folderów w udziale plików, do którego uzyskujesz dostęp, a także dla wszystkich udziałów plików i innych zasobów magazynu (obiektów blob, kolejek, tabel itp.) zawartych w ramach konta magazynu. Jeśli nie jest to wystarczające dla obciążenia, [Azure File Sync](storage-sync-files-planning.md) mogą być używane lub można użyć [uwierzytelniania opartego na tożsamościach za pośrednictwem protokołu SMB](storage-files-active-directory-overview.md).
 
@@ -67,12 +67,12 @@ Aby uzyskać ten skrypt:
 
 1. Wybierz pozycję **Połącz**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="przyklad":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Zrzut ekranu przedstawiający ikonę połączenia dla udziału plików.":::
 
 1. Wybierz literę dysku, w której ma zostać zainstalowany udział.
 1. Skopiuj podany skrypt.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="przyklad":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Przykładowy tekst":::
 
 1. Wklej skrypt do powłoki na hoście, na którym chcesz zainstalować udział plików, a następnie uruchom go.
 
@@ -88,7 +88,7 @@ Udział plików platformy Azure został już zainstalowany.
     
     ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Przykład: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
+1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Na przykład: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![Zrzut ekranu przedstawiający okno dialogowe „Mapowanie dysku sieciowego”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
@@ -110,16 +110,16 @@ Przejdź do elementu lub elementu nadrzędnego, który należy przywrócić. Kli
 
 ![Menu dla wybranego katalogu wyświetlane po kliknięciu prawym przyciskiem myszy](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
 
-Wybierz pozycję **Poprzednie wersje**, aby wyświetlić listę migawek udziału dla tego katalogu. Załadowanie listy może potrwać kilka sekund w zależności od szybkości sieci i liczby migawek udziałów w katalogu.
+Wybierz pozycję **Poprzednie wersje** , aby wyświetlić listę migawek udziału dla tego katalogu. Załadowanie listy może potrwać kilka sekund w zależności od szybkości sieci i liczby migawek udziałów w katalogu.
 
 ![Karta Poprzednie wersje](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
 
-Możesz wybrać pozycję **Otwórz**, aby otworzyć określoną migawkę. 
+Możesz wybrać pozycję **Otwórz** , aby otworzyć określoną migawkę. 
 
 ![Otwarta migawka](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
 
 #### <a name="restore-from-a-previous-version"></a>Uaktualnianie z poprzedniej wersji
-Wybierz pozycję **Przywróć**, aby rekursywnie skopiować zawartość całego katalogu podczas tworzenia migawki udziału do oryginalnej lokalizacji.
+Wybierz pozycję **Przywróć** , aby rekursywnie skopiować zawartość całego katalogu podczas tworzenia migawki udziału do oryginalnej lokalizacji.
 
  ![Przycisk Przywróć w komunikacie ostrzegawczym](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
@@ -196,11 +196,11 @@ Po utworzeniu tego klucza rejestru należy ponownie uruchomić serwer, aby wył�
 ### <a name="smb-resources"></a>Zasoby dotyczące protokołu SMB
 - [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Przestań używać protokołu SMB 1)
 - [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Informacje o produktach korzystających z protokołu SMB 1)
-- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Wykrywanie protokołu SMB 1 w środowisku za pomocą modułu DSCEA)
-- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Wyłączanie protokołu SMB 1 za pomocą zasad grupy)
+- [Discover SMB 1 in your environment with DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea) (Wykrywanie protokołu SMB 1 w środowisku za pomocą modułu DSCEA)
+- [Disabling SMB 1 through Group Policy](/archive/blogs/secguide/disabling-smbv1-through-group-policy) (Wyłączanie protokołu SMB 1 za pomocą zasad grupy)
 
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files:
 - [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
-- [Często zadawane pytania](../storage-files-faq.md)
-- [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Często zadawane pytania](./storage-files-faq.md)
+- [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)

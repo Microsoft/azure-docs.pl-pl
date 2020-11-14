@@ -3,12 +3,12 @@ title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 4569b31f990687fb9658d2bf251045e27ecf91a2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d6469ada7fcb46c732cc7fbe081059ef41d89a40
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480960"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626779"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
@@ -50,7 +50,10 @@ W poniższej tabeli wymieniono wersje Service Fabric i ich daty końcowe pomocy 
 | 7.1.456.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,1 |31 marca 2021 |
 | 7.1.458.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,1 |31 marca 2021 |
 | 7.1.459.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,1 |31 marca 2021 |
+| 7.1.503.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,1 |31 marca 2021 |
 | 7.2.413.* | 7.0.470.* |Mniejsze niż lub równe wersji 4,2 |Bieżąca wersja, dlatego bez daty zakończenia |
+| 7.2.432.* | 7.0.470.* |Mniejsze niż lub równe wersji 4,2 |Bieżąca wersja, dlatego bez daty zakończenia |
+| 7.2.433.* | 7.0.470.* |Mniejsze niż lub równe wersji 4,2 |Bieżąca wersja, dlatego bez daty zakończenia |
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -126,5 +129,8 @@ W poniższej tabeli wymieniono nazwy wersji Service Fabric i odpowiadające im n
 | 7,1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 | 7,1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7,1 CU6 | 7.1.459.9590 | 7.1.455.1 |
+| 7,1 CU8 | 7.1.503.9590 | Nie dotyczy |
 | 7,2 RTO | 7.2.413.9590 | Nie dotyczy |
+| 7,2 ZASTOSUJESZ PAKIETU CU2 | 7.2.432.9590 | 7.2.431.1 |
+| 7,2 CU3 | 7.2.433.9590 | Nie dotyczy |
 
