@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09af5d9af749d43f9d15f42daee6b562a877397b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451640"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94633376"
 ---
 *Rozgrzewanie pamięci podręcznej*  
 Dysk z pamięcią podręczną hosta w trybie tylko do odczytu może dać wyższą liczbę operacji we/wy na sekundę. Aby uzyskać maksymalną wydajność odczytu z pamięci podręcznej hosta, należy najpierw wykonać rozgrzewanie pamięci podręcznej tego dysku. Zapewnia to, że odczytywanie systemu IOs, które narzędzie testuje na woluminie CacheReads, rzeczywiście trafi pamięć podręczną, a nie dysk bezpośrednio. Liczba trafień w pamięci podręcznej powoduje dodatkowe IOPS z dysku z włączoną obsługą jednej pamięci podręcznej.
@@ -21,24 +21,22 @@ Dysk z pamięcią podręczną hosta w trybie tylko do odczytu może dać wyższ�
 > [!IMPORTANT]
 > Przed uruchomieniem testu porównawczego należy przeprowadzić rozgrzewanie pamięci podręcznej, za każdym razem, gdy maszyna wirtualna jest ponownie uruchamiana.
 
-## <a name="tools"></a>Narzędzia
-
-### <a name="iometer"></a>Iometer
+## <a name="iometer"></a>Iometer
 
 [Pobierz narzędzie IOMeter](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) na maszynie wirtualnej.
 
-#### <a name="test-file"></a>Plik testowy
+### <a name="test-file"></a>Plik testowy
 
 IOMeter używa pliku testowego, który jest przechowywany w woluminie, na którym jest uruchamiany test porównawczy. Dysk IT odczytuje i zapisuje dane w tym pliku testowym w celu mierzenia liczby operacji we/wy na dysku. IOMeter tworzy ten plik testowy, jeśli nie został on podany. Utwórz plik testowy 200 GB o nazwie iobw. TST na woluminach CacheReads i NoCacheWrites.
 
-#### <a name="access-specifications"></a>Specyfikacje dostępu
+### <a name="access-specifications"></a>Specyfikacje dostępu
 
 Specyfikacje, rozmiar we/wy żądania,% odczyt/zapis,% losowy/sekwencyjny, są konfigurowane przy użyciu karty "specyfikacje dostępu" w IOMeter. Utwórz specyfikację dostępu dla każdego scenariusza opisanego poniżej. Utwórz specyfikacje dostępu i "Zapisz" z odpowiednią nazwą, taką jak – RandomWrites \_ 8K, RandomReads \_ 8K. Po uruchomieniu scenariusza testowego wybierz odpowiednią specyfikację.
 
 Poniżej przedstawiono przykładowe specyfikacje dostępu dla scenariusza maksymalnego liczby operacji we/wy zapisu.  
     ![Przykładowe specyfikacje dostępu dla maksymalnej liczby operacji we/wy zapisu](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
-#### <a name="maximum-iops-test-specifications"></a>Wymagania dotyczące maksymalnej liczby testów IOPS
+### <a name="maximum-iops-test-specifications"></a>Wymagania dotyczące maksymalnej liczby testów IOPS
 
 Aby zademonstrować maksymalną liczbę operacji we/wy, użyj mniejszego rozmiaru żądania. Użyj rozmiaru żądania 8K i Utwórz specyfikacje losowego zapisu i odczytu.
 
@@ -47,7 +45,7 @@ Aby zademonstrować maksymalną liczbę operacji we/wy, użyj mniejszego rozmiar
 | RandomWrites \_ 8K |8 tys. |100 |0 |
 | RandomReads \_ 8K |8 tys. |100 |100 |
 
-#### <a name="maximum-throughput-test-specifications"></a>Wymagania dotyczące maksymalnej przepływności
+### <a name="maximum-throughput-test-specifications"></a>Wymagania dotyczące maksymalnej przepływności
 
 Aby zademonstrować maksymalną przepływność, użyj większego rozmiaru żądania. Użyj 64 K żądania rozmiaru i Utwórz specyfikacje losowego zapisu i odczytu.
 
@@ -56,7 +54,7 @@ Aby zademonstrować maksymalną przepływność, użyj większego rozmiaru żąd
 | RandomWrites \_ 64 KB |64 K |100 |0 |
 | RandomReads \_ 64 KB |64 K |100 |100 |
 
-#### <a name="run-the-iometer-test"></a>Uruchom test IOMeter
+### <a name="run-the-iometer-test"></a>Uruchom test IOMeter
 
 Wykonaj poniższe kroki, aby rozgrzać pamięć podręczną
 
@@ -92,15 +90,15 @@ Po rozpoczęciu rozgrzewania dysku pamięci podręcznej wykonaj scenariusze test
 
 Poniżej znajdują się zrzuty ekranu wyników testu IOMeter w przypadku połączonych operacji we/wy i przepływności.
 
-#### <a name="combined-reads-and-writes-maximum-iops"></a>Połączone operacje odczytu i zapisu maksymalnej liczby IOPS
+### <a name="combined-reads-and-writes-maximum-iops"></a>Połączone operacje odczytu i zapisu maksymalnej liczby IOPS
 
 ![Połączone operacje odczytu i zapisu maksymalnej liczby IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
 
-#### <a name="combined-reads-and-writes-maximum-throughput"></a>Połączone operacje odczytu i zapisu, maksymalna przepływność
+### <a name="combined-reads-and-writes-maximum-throughput"></a>Połączone operacje odczytu i zapisu, maksymalna przepływność
 
 ![Połączone operacje odczytu i zapisu, maksymalna przepływność](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
 
-### <a name="fio"></a>FIO
+## <a name="fio"></a>FIO
 
 FIO to popularne narzędzie do monitorowania wydajności magazynu na maszynach wirtualnych z systemem Linux. Umożliwia wybór różnych rozmiarów operacji we/wy, sekwencyjnych lub losowych odczytów i zapisów. Powoduje to zduplikowanie wątków roboczych lub procesów w celu wykonania określonych operacji we/wy. Można określić typ operacji we/wy, które każdy wątek roboczy musi wykonać przy użyciu plików zadań. Utworzyliśmy jeden plik zadania na scenariusz przedstawiony w poniższych przykładach. Możesz zmienić specyfikacje w tych plikach zadań, aby testować różne obciążenia działające w Premium Storage. W przykładach korzystamy z standardowej maszyny wirtualnej usługi DS 14 z systemem **Ubuntu**. Użyj tego samego Instalatora opisanego na początku sekcji porównawczej i rozgrzewania pamięci podręcznej przed uruchomieniem testów porównawczych.
 
@@ -114,7 +112,7 @@ apt-get install fio
 
 Używamy czterech wątków roboczych do prowadzenia operacji zapisu i czterech wątków roboczych do prowadzenia operacji odczytu na dyskach. Pracownicy zapisu są kierowani ruchem na woluminie "nocache", który ma 10 dysków z pamięcią podręczną ustawioną na wartość "none". Pracownicy odczytu są kierowani ruchem na woluminie "readcache", który ma jeden dysk z pamięcią podręczną ustawioną na wartość "ReadOnly".
 
-#### <a name="maximum-write-iops"></a>Maksymalna liczba operacji we/wy zapisu
+### <a name="maximum-write-iops"></a>Maksymalna liczba operacji we/wy zapisu
 
 Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną liczbę operacji we/wy zapisu. Nadaj mu nazwę "fiowrite.ini".
 
@@ -155,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 Podczas przebiegu testu można sprawdzić liczbę operacji we/wy zapisu, które są dostarczane przez maszynę wirtualną i dyski w warstwie Premium. Jak pokazano w poniższym przykładzie, maszyna wirtualna DS14 zapewnia maksymalny limit liczby operacji we/wy zapisu wynoszący 50 000 operacji wejścia/wyjścia na sekundę.  
     ![Liczba dostarczanych dysków maszyn wirtualnych IOPS i Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
-#### <a name="maximum-read-iops"></a>Maksymalna liczba operacji we/wy odczytu
+### <a name="maximum-read-iops"></a>Maksymalna liczba operacji we/wy odczytu
 
 Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną liczbę operacji we/wy odczytu. Nadaj mu nazwę "fioread.ini".
 
@@ -196,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 Podczas przebiegu testu można zobaczyć liczbę IOPS operacji odczytu, które są dostarczane przez maszynę wirtualną i dyski w warstwie Premium. Jak pokazano w poniższym przykładzie, maszyna wirtualna DS14 dostarcza ponad 64 000 operacji we/wy odczytu. Jest to kombinacja dysku i wydajności pamięci podręcznej.  
     ![Zrzut ekranu przedstawiający liczbę dysków maszyn wirtualnych IOPS i Premium zapisu, które są dostarczane.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
-#### <a name="maximum-read-and-write-iops"></a>Maksymalna liczba operacji we/wy odczytu i zapisu
+### <a name="maximum-read-and-write-iops"></a>Maksymalna liczba operacji we/wy odczytu i zapisu
 
 Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną łączną liczbę operacji we/wy odczytu i zapisu. Nadaj mu nazwę "fioreadwrite.ini".
 
@@ -254,6 +252,6 @@ sudo fio --runtime 30 fioreadwrite.ini
 Podczas przebiegu testowego można zobaczyć liczbę operacji we/wy odczytu i zapisu, które są dostarczane przez maszynę wirtualną i dyski w warstwie Premium. Jak pokazano w poniższym przykładzie, maszyna wirtualna DS14 dostarcza ponad 100 000 operacji we/wy odczytu i zapisu. Jest to kombinacja dysku i wydajności pamięci podręcznej.  
     ![Połączone operacje we/wy odczytu i zapisu](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
 
-#### <a name="maximum-combined-throughput"></a>Maksymalna łączna przepływność
+### <a name="maximum-combined-throughput"></a>Maksymalna łączna przepływność
 
 Aby uzyskać maksymalną łączną przepustowość odczytu i zapisu, użyj większego rozmiaru bloku i dużej głębokości kolejki z wieloma wątkami wykonującymi operacje odczytu i zapisu. Można użyć rozmiaru bloku 64 KB i głębokości kolejki 128.
