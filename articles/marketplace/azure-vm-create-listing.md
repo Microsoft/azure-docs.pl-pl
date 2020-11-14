@@ -7,37 +7,37 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 2af96c0c2e850d8e1be67c23e71aa677773c1e03
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284856"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629601"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Jak skonfigurować szczegóły listy ofert dla maszyn wirtualnych
 
-Na stronie z **listą ofert** zdefiniujesz szczegóły oferty, takie jak nazwa oferty, opis, linki i kontakty.
+Na stronie z **listą ofert** (wybierz z menu po lewej stronie w centrum partnerskim) Zdefiniuj szczegóły oferty, takie jak nazwa oferty, opis, linki i kontakty.
 
 > [!NOTE]
-> Twoja oferta zawiera informacje, takie jak opis, dokumenty, zrzuty ekranu i warunki użytkowania, nie musi być w języku angielskim, tak długo, jak opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w systemie \<non-English language> ". Możesz także podać adres URL, aby połączyć się z witryną, która oferuje zawartość w języku innym niż ten, który jest używany w zawartości oferty.
+> Twoja oferta zawiera informacje, takie jak opis, dokumenty, zrzuty ekranu i warunki użytkowania, nie musi być w języku angielskim, tak długo, jak opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w systemie \<non-English language> ". Możesz również podać adres internetowy, aby połączyć się z witryną, która oferuje zawartość w języku innym niż ten, który jest używany w zawartości oferty.
 
 ## <a name="marketplace-details"></a>Szczegóły witryny Marketplace
 
 ### <a name="name"></a>Nazwa
 
-Nazwa wprowadzona w tym miejscu jest pokazywana klientom jako tytuł oferty. To pole jest wypełniane przy użyciu nazwy wprowadzonej w polu **alias oferty** podczas tworzenia oferty. Tę nazwę można później zmienić. Nazwa:
+Nazwa wprowadzona w tym miejscu jest pokazywana klientom jako tytuł oferty. To pole jest wypełniane automatycznie nazwą wprowadzoną w polu **alias oferty** podczas tworzenia oferty. Nazwa:
 
-- Mogą być znakami towarowymi. Można dołączyć znaki towarowe i praw autorskich.
+- Może zawierać znaki towarowe i praw autorskich.
 - Nie może zawierać więcej niż 50 znaków.
 - Nie może zawierać znaków emoji.
 
 ### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 
-Podaj krótki opis oferty, który ma być wyświetlany w wynikach wyszukiwania w portalu Azure Marketplace. Może zawierać maksymalnie 100 znaków.
+Podaj krótki opis oferty, która ma być wyświetlana w wynikach wyszukiwania w portalu Azure Marketplace. Może zawierać maksymalnie 100 znaków.
 
-### <a name="long-summary"></a>Długie podsumowanie
+### <a name="short-description"></a>Krótki opis
 
-Podaj dłuższy opis oferty, która będzie wyświetlana w wynikach wyszukiwania w portalu Azure Marketplace. Może zawierać maksymalnie 256 znaków.
+Podaj dłuższy opis oferty, która ma być wyświetlana w wynikach wyszukiwania w portalu Azure Marketplace. Może zawierać maksymalnie 256 znaków.
 
 ### <a name="description"></a>Opis
 
@@ -53,10 +53,10 @@ Wprowadź adres sieci Web zasad zachowania poufności informacji organizacji. Up
 
 ## <a name="useful-links"></a>Przydatne łącza
 
-Podaj uzupełniające dokumenty online dotyczące Twojej oferty. Aby dodać łącze, wybierz opcję **Dodaj łącze**, a następnie wykonaj następujące pola:
+Podaj uzupełniające dokumenty online dotyczące Twojej oferty. Aby dodać łącze, wybierz pozycję **Dodaj łącze** i wypełnij następujące pola:
 
-- **Nazwa**: klienci będą widzieli nazwę na stronie szczegółów.
-- **Link (adres URL)**: wprowadź link umożliwiający klientom Wyświetlanie dokumentu w trybie online.
+- **Nazwa** : klienci będą widzieli nazwę na stronie szczegółów.
+- **Link** : wprowadź adres sieci Web, który umożliwia klientom Wyświetlanie dokumentu w trybie online.
 
 ## <a name="customer-support-links"></a>Linki obsługi klienta
 
@@ -67,21 +67,17 @@ Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktowa
 
 ## <a name="partner-support-contact"></a>Kontakt z pomocą techniczną partnera
 
-Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Te informacje nie są wymienione w witrynie Azure Marketplace.
-
-- Nazwa
-- E-mail
-- Telefon
+Podaj **nazwę** , **adres e-mail** i **telefon** dla partnerów firmy Microsoft do użycia, gdy klienci otworzą bilet pomocy technicznej. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 ## <a name="engineering-contact"></a>Kontakt inżynieryjny
 
-Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Te informacje nie są wymienione w witrynie Azure Marketplace.
+Podaj **nazwę** , **adres e-mail** i **telefon** dla firmy Microsoft do użycia w przypadku problemów z ofertą, w tym problemy z certyfikatem. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
-- Nazwa
-- E-mail
-- Telefon
+## <a name="cloud-solution-provider-program-contact"></a>Kontakt z programem dostawcy rozwiązań w chmurze
 
-## <a name="azure-marketplace-media"></a>Nośniki portalu Azure Marketplace
+Podaj **imię i nazwisko** , **adres e-mail** i **telefon** osoby, która obsługuje program CSP (jeśli dotyczy). Te informacje nie są wymienione w witrynie Azure Marketplace. W przypadku **materiałów marketingowych programu CSP** należy wprowadzić adres sieci Web, w którym partnerzy tego programu mogą wyświetlać materiały marketingowe.
+
+## <a name="marketplace-media"></a>Multimedia dla portalu Marketplace
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
@@ -90,7 +86,7 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, należy się upewnić, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-### <a name="azure-marketplace-logos"></a>Logo portalu Azure Marketplace
+### <a name="logos"></a>Graficznych
 
 Podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** i **średnich** logo. Opcjonalnie można zastąpić je innymi obrazami później.
 
@@ -114,8 +110,8 @@ Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Filmy wide
 
 Aby uzyskać dodatkowe zasoby dotyczące aukcji z witryny Marketplace, zobacz [najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](gtm-offer-listing-best-practices.md).
 
-Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej karty w menu po lewej stronie, w **wersji zapoznawczej odbiorcy**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie planów](azure-vm-create-plans.md)
+- [Utwórz odbiorcę w wersji zapoznawczej](azure-vm-create-preview.md)

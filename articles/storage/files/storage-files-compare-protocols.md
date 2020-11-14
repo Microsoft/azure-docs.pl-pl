@@ -8,26 +8,26 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568475"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629312"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
 
-Azure Files oferuje dwa protokoły do łączenia i instalowania udziałów plików platformy Azure. [Protokół SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [sieciowy system plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Azure Files nie obsługuje obecnie dostępu do protokołu wieloprotokołowego, więc udział może być tylko udziałem NFS lub udziałem SMB. Z tego powodu zalecamy określenie protokołu, który najlepiej odpowiada Twoim potrzebom przed utworzeniem udziałów plików platformy Azure.
+Azure Files oferuje dwa protokoły do łączenia i instalowania udziałów plików platformy Azure. [Protokół SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) i [sieciowy system plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Azure Files nie obsługuje obecnie dostępu do protokołu wieloprotokołowego, więc udział może być tylko udziałem NFS lub udziałem SMB. Z tego powodu zalecamy określenie protokołu, który najlepiej odpowiada Twoim potrzebom przed utworzeniem udziałów plików platformy Azure.
 
 ## <a name="differences-at-a-glance"></a>Różnice w skrócie
 
-|Cecha  |NFS (wersja zapoznawcza)  |SMB  |
+|Obiekt feature  |NFS (wersja zapoznawcza)  |SMB  |
 |---------|---------|---------|
 |Protokoły dostępu     |SYSTEM PLIKÓW NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Obsługiwane systemy operacyjne     |Jądro systemu Linux w wersji 4.3 +         |Windows 2008 R2 +, jądro systemu Linux w wersji 4.11 +         |
 |[Dostępne warstwy](storage-files-planning.md#storage-tiers)     |Premium Storage         |Usługa Premium Storage, zoptymalizowana pod kątem transakcji, gorąca, chłodna         |
 |[Nadmiarowość](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
-|Uwierzytelnianie     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
+|Authentication     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
 |Uprawnienia     |Uprawnienia w stylu systemu UNIX         |Uprawnienia w stylu systemu plików NTFS         |
 |Semantyka systemu plików     |Zgodne ze standardem POSIX         |Nie jest zgodny ze standardem POSIX         |
 |Rozróżnianie wielkości liter     |Uwzględnianie wielkości liter         |Bez uwzględniania wielkości liter         |
@@ -64,7 +64,7 @@ Wszystkie dane Azure Files są szyfrowane w stanie spoczynku. W celu szyfrowania
 - [Prywatny punkt końcowy](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [Sieć VPN typu punkt-lokacja (P2S)](../../vpn-gateway/point-to-site-about.md)
-    - [Lokacja-lokacja](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [Lokacja-lokacja](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Publiczny punkt końcowy z ograniczeniami](storage-files-networking-overview.md#storage-account-firewall-settings)
 

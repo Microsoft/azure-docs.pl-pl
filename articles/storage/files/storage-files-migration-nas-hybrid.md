@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510309"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629210"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z magazynu dołączanego do sieci (NAS) do wdrożenia chmury hybrydowej za pomocą Azure File Sync
 
@@ -151,7 +151,7 @@ Tle
       /MIR
    :::column-end:::
    :::column span="1":::
-      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i "*usunięcia*" zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Flaga */Mir* jest doskonałym rozwiązaniem dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
+      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i " *usunięcia* " zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Flaga */Mir* jest doskonałym rozwiązaniem dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,13 +208,13 @@ Zakończono Migrowanie udziału/grupy udziałów do wspólnego katalogu główne
 Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkich***  grup synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do wartości lepiej dopasowanej do wykorzystania pamięci podręcznej, powiedz 20%. 
+> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Wróć do * **wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do bardziej dopasowanej do wykorzystania pamięci podręcznej, wypowiedz 20%. 
 
 Zasady wolnego miejsca na woluminie w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działała zgodnie z oczekiwaniami. O ile nie jest to cel, aby można było korzystać tylko z przestrzeni nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne i zachowuje resztę miejsca do magazynowania w innym scenariuszu.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia *Robocopy po stronie* serwera systemu Windows. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany. Celem jest osiągnięcie ilości wolnego miejsca na 99% w woluminie.
+Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia RoboCopy w przypadku, gdy w systemie Windows Server po stronie serwera nie powiedzie się polecenie _. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany. Celem jest osiągnięcie ilości wolnego miejsca na 99% w woluminie.
 
 Zezwalaj na postęp synchronizacji i warstwowanie w chmurze Zwolnij miejsce na dysku. Można obserwować, że w Eksploratorze plików systemu Windows Server.
 
@@ -226,6 +226,6 @@ Skorzystaj z linku w poniższej sekcji, aby rozwiązywać problemy związane z A
 
 Istnieje więcej informacji na temat udziałów plików platformy Azure i Azure File Sync. Poniższe artykuły ułatwiają zapoznanie się z zaawansowanymi opcjami, najlepszymi rozwiązaniami, a także zawiera pomoc dotyczącą rozwiązywania problemów. Te artykuły zawierają link do [dokumentacji udziału plików platformy Azure](storage-files-introduction.md) zgodnie z potrzebami.
 
-* [Omówienie usługi AFS](https://aka.ms/AFS)
+* [Omówienie usługi AFS](./storage-sync-files-planning.md)
 * [Podręcznik wdrażania AFS](storage-files-deployment-guide.md)
 * [Rozwiązywanie problemów z systemem AFS](storage-sync-files-troubleshoot.md)

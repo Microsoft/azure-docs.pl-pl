@@ -1,7 +1,7 @@
 ---
 title: Wdrażanie modeli ml do aplikacji Azure Functions (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model w aplikacji Azure Functions.
+description: Dowiedz się, jak używać Azure Machine Learning do pakowania i wdrażania modelu jako usługi sieci Web w aplikacji Azure Functions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d17967c24fbbb127c1d3eaee5acd5b78c3e3b902
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324595"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630349"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Wdróż model uczenia maszynowego w Azure Functions (wersja zapoznawcza)
 

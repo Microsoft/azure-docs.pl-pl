@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540947"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630502"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z usługą Azure IoT Connector for FHIR (wersja zapoznawcza)
 
-W tym artykule przedstawiono procedurę rozwiązywania problemów z typowym łącznikiem usługi Azure IoT dla FHIR * komunikatów o błędach i warunków.  
+W tym artykule przedstawiono kroki rozwiązywania problemów z typowym łącznikiem usługi Azure IoT pod kątem zasobów współdziałania w ramach usług opieki zdrowotnej (FHIR&#174;).  
 
 Dowiesz się również, jak utworzyć kopie łącznika usługi Azure IoT dla FHIR JSON mapowania konwersji (na przykład: Device i FHIR).  
 
@@ -191,6 +191,4 @@ Zapoznaj się z często zadawanymi pytaniami dotyczącymi łącznika usługi Azu
 >[!div class="nextstepaction"]
 >[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md)
 
-* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
-
-FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza). FHIR jest zastrzeżonym znakiem towarowym HL7 i jest używany z uprawnieniem HL7.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675793"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629448"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
 Azure File Sync nawiązuje połączenie z serwerami lokalnymi w celu Azure Files, włączając synchronizację z obsługą wielolokacją i funkcjami obsługi warstw w chmurze. W związku z tym serwer lokalny musi być połączony z Internetem. Administrator IT musi zdecydować najlepszą ścieżkę serwera, aby uzyskać dostęp do usług Azure Cloud Services.
@@ -109,7 +109,7 @@ Jeśli &ast; . AFS.Azure.NET lub &ast; . one.Microsoft.com jest zbyt szeroki, mo
 
 Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz określić udziały plików platformy Azure na koncie magazynu globalnie nadmiarowy (GRS). W takim przypadku udziały plików platformy Azure zostaną przełączone w tryb failover do sparowanego regionu w przypadku długotrwałej awarii regionalnej. Azure File Sync używa tych samych regionalnych par jako magazynu. W przypadku korzystania z kont magazynu GRS należy włączyć dodatkowe adresy URL, aby umożliwić serwerowi komunikowanie się z sparowanym regionem Azure File Sync. Poniższa tabela wywołuje ten "sparowany region". Ponadto istnieje adres URL profilu Menedżera ruchu, który musi zostać włączony. Dzięki temu ruch sieciowy może być bezproblemowo kierowany do sparowanego regionu w przypadku przełączenia w tryb failover i nosi nazwę "adres URL odnajdywania" w poniższej tabeli.
 
-| Chmura  | Region | Podstawowy adres URL punktu końcowego | Region sparowany | Adres URL odnajdywania |
+| Chmura  | Region (Region) | Podstawowy adres URL punktu końcowego | Region sparowany | Adres URL odnajdywania |
 |--------|--------|----------------------|---------------|---------------|
 | Publiczne |Australia Wschodnia | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.one.Microsoft.com | Australia Południowo-Wschodnia | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.one.Microsoft.com |
 | Publiczne |Australia Południowo-Wschodnia | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.one.Microsoft.com | Australia Wschodnia | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.one.Microsoft.com |
@@ -117,10 +117,10 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 | Publiczne | Kanada Środkowa | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.one.Microsoft.com | Kanada Wschodnia | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.one.Microsoft.com |
 | Publiczne | Kanada Wschodnia | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.one.Microsoft.com | Kanada Środkowa | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.one.Microsoft.com |
 | Publiczne | Indie Środkowe | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-CIN.one.Microsoft.com | Indie Południowe | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CIN.one.Microsoft.com |
-| Publiczne | Środkowe stany USA | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.one.Microsoft.com | Wschodnie stany USA 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.one.Microsoft.com |
+| Publiczne | Central US | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.one.Microsoft.com | Wschodnie stany USA 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.one.Microsoft.com |
 | Publiczne | Azja Wschodnia | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.one.Microsoft.com | Southeast Asia | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.one.Microsoft.com |
 | Publiczne | East US | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.one.Microsoft.com | Zachodnie stany USA | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.one.Microsoft.com |
-| Publiczne | Wschodnie stany USA 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.one.Microsoft.com | Środkowe stany USA | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.one.Microsoft.com |
+| Publiczne | Wschodnie stany USA 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.one.Microsoft.com | Central US | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.one.Microsoft.com |
 | Publiczne | Niemcy Północne | https: \/ /germanynorth01.AFS.Azure.NET | Niemcy Środkowo-Zachodnie | https: \/ /TM-germanywestcentral01.AFS.Azure.NET |
 | Publiczne | Niemcy Środkowo-Zachodnie | https: \/ /germanywestcentral01.AFS.Azure.NET | Niemcy Północne | https: \/ /TM-germanynorth01.AFS.Azure.NET |
 | Publiczne | Japan East | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
@@ -154,7 +154,7 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista dozwolonych adresów IP Azure File Sync
 Azure File Sync obsługuje używanie [tagów usługi](../../virtual-network/service-tags-overview.md), które reprezentują grupę prefiksów adresów IP dla danej usługi platformy Azure. Za pomocą tagów usługi można tworzyć reguły zapory, które umożliwiają komunikację z usługą Azure File Sync. Tag usługi dla Azure File Sync ma wartość `StorageSyncService` .
 
-Jeśli używasz Azure File Sync w ramach platformy Azure, możesz użyć nazwy tagu usługi bezpośrednio w sieciowej grupie zabezpieczeń, aby zezwolić na ruch. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz [Network Security Groups](../../virtual-network/security-overview.md).
+Jeśli używasz Azure File Sync w ramach platformy Azure, możesz użyć nazwy tagu usługi bezpośrednio w sieciowej grupie zabezpieczeń, aby zezwolić na ruch. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz [Network Security Groups](../../virtual-network/network-security-groups-overview.md).
 
 Jeśli używasz Azure File Sync lokalnie, możesz użyć interfejsu API znacznika usługi, aby uzyskać określone zakresy adresów IP dla listy dozwolonych dla zapory. Istnieją dwie metody uzyskiwania tych informacji:
 
@@ -164,9 +164,9 @@ Jeśli używasz Azure File Sync lokalnie, możesz użyć interfejsu API znacznik
     - [Chiny platformy Azure](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure (Niemcy)](https://www.microsoft.com/download/details.aspx?id=57064)
 - Interfejs API odnajdowania tagów usługi (wersja zapoznawcza) umożliwia programistyczne pobieranie bieżącej listy tagów usługi. W wersji zapoznawczej interfejs API odnajdowania tagów usługi może zwracać informacje, które są mniej aktualne niż zwracane przez informacje z dokumentów JSON opublikowanych w centrum pobierania Microsoft. Możesz użyć powierzchni interfejsu API na podstawie preferencji automatyzacji:
-    - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [Interfejs API REST](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Interfejs wiersza polecenia platformy Azure](/cli/azure/network#az-network-list-service-tags)
 
 Ponieważ interfejs API odnajdowania tagów usługi nie jest aktualizowany tak często, jak dokumenty JSON opublikowane w centrum pobierania Microsoft, zalecamy użycie dokumentu JSON w celu zaktualizowania listy dozwolonych zapór lokalnych. Można to zrobić w następujący sposób:
 

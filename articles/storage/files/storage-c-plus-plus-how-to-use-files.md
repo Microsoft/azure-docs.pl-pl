@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515397"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629703"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Programowanie dla Azure Files przy użyciu języka C++
 
@@ -32,7 +32,7 @@ W tym samouczku dowiesz się, jak wykonywać podstawowe operacje na Azure Files.
 * Utworzenie sygnatury dostępu współdzielonego (klucza SAS) dla pliku, która używa zasad dostępu współdzielonego zdefiniowanych w udziale.
 
 > [!Note]  
-> Ponieważ do Azure Files można uzyskać dostęp za pośrednictwem protokołu SMB, można napisać proste aplikacje, które uzyskują dostęp do udziału plików platformy Azure przy użyciu standardowych klas i funkcji we/wy języka C++. W tym artykule opisano sposób pisania aplikacji, które korzystają z zestawu SDK usługi Azure Storage w języku C++, który korzysta z [interfejsu API REST](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) w celu komunikowania się z Azure Files.
+> Ponieważ do Azure Files można uzyskać dostęp za pośrednictwem protokołu SMB, można napisać proste aplikacje, które uzyskują dostęp do udziału plików platformy Azure przy użyciu standardowych klas i funkcji we/wy języka C++. W tym artykule opisano sposób pisania aplikacji, które korzystają z zestawu SDK usługi Azure Storage w języku C++, który korzysta z [interfejsu API REST](/rest/api/storageservices/file-service-rest-api) w celu komunikowania się z Azure Files.
 
 ## <a name="create-a-c-application"></a>Tworzenie aplikacji języka C++
 
@@ -41,7 +41,7 @@ Aby skompilować przykłady, należy zainstalować bibliotekę klienta usługi A
 Aby zainstalować klienta usługi Azure Storage 2.4.0 dla języka C++, można użyć jednej z następujących metod:
 
 * System **Linux:** Postępuj zgodnie z instrukcjami podanymi w [bibliotece klienta usługi Azure Storage dla strony Readme języka C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
-* **System Windows:** W programie Visual Studio kliknij kolejno pozycje **narzędzia Menedżer &gt; pakietów NuGet &gt; konsola Menedżera**pakietów. Wpisz następujące polecenie w [konsoli Menedżera pakietów NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) i naciśnij klawisz **Enter**.
+* **System Windows:** W programie Visual Studio kliknij kolejno pozycje **narzędzia Menedżer &gt; pakietów NuGet &gt; konsola Menedżera** pakietów. Wpisz następujące polecenie w [konsoli Menedżera pakietów NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) i naciśnij klawisz **Enter**.
   
 
 ```powershell
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Wyliczanie plików i katalogów w udziale plików platformy Azure
 
-Aby uzyskać listę plików i katalogów w ramach udziału, można łatwo wykonać wywołania **list_files_and_directories** na **cloud_file_directory** odwołanie. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **list_file_and_directory_item**, należy wywołać metodę **list_file_and_directory_item. as _file** , aby uzyskać obiekt **cloud_file** lub metodę **list_file_and_directory_item. as _directory** , aby uzyskać obiekt **cloud_file_directory** .
+Aby uzyskać listę plików i katalogów w ramach udziału, można łatwo wykonać wywołania **list_files_and_directories** na **cloud_file_directory** odwołanie. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **list_file_and_directory_item** , należy wywołać metodę **list_file_and_directory_item. as _file** , aby uzyskać obiekt **cloud_file** lub metodę **list_file_and_directory_item. as _directory** , aby uzyskać obiekt **cloud_file_directory** .
 
 Poniższy kod ilustruje sposób pobierania i wyprowadzania identyfikatorów URI każdego elementu w katalogu głównym udziału.
 

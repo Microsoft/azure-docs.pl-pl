@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 14fd5378f37ebfc20b2d7084c08f15ea8f7a00b2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394258"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630536"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Eksportowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza) za pomocą ustawień diagnostycznych
 
-W tym artykule dowiesz się, jak wyeksportować łącznik usługi Azure IoT dla dzienników metryk FHIR *. Funkcja umożliwiająca rejestrowanie metryk jest [**ustawieniami diagnostycznymi**](../azure-monitor/platform/diagnostic-settings.md) w Azure Portal. 
+W tym artykule dowiesz się, jak wyeksportować łącznik usługi Azure IoT pod kątem szybkich zasobów współdziałania usług opieki zdrowotnej (FHIR&#174;) * dzienników metryk. Funkcja umożliwiająca rejestrowanie metryk jest [**ustawieniami diagnostycznymi**](../azure-monitor/platform/diagnostic-settings.md) w Azure Portal. 
 
 > [!TIP]
 > Postępuj zgodnie ze wskazówkami zawartymi w temacie [Włączanie rejestrowania diagnostycznego w usłudze Azure API for FHIR i Azure IoT Connector dla FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) w celu skonfigurowania rejestrowania inspekcji.
@@ -60,6 +60,4 @@ Zapoznaj się z często zadawanymi pytaniami dotyczącymi łącznika usługi Azu
 >[!div class="nextstepaction"]
 >[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md)
 
-* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
-
-FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza). FHIR jest zastrzeżonym znakiem towarowym HL7 i jest używany z uprawnieniem HL7.

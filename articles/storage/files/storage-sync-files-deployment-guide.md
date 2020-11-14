@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 128a974c41b1c09196ecab2070136d9568b08f5d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331791"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629482"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -48,7 +48,7 @@ Zdecydowanie zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](sto
     > [!Important]  
     > Jeśli planujesz korzystać z interfejsu użytkownika rejestracji serwera, zamiast rejestrować się bezpośrednio w programie PowerShell, musisz użyć programu PowerShell 5,1.
 
-1. Jeśli wybrano opcję użycia programu PowerShell 5,1, należy się upewnić, że jest zainstalowany co najmniej program .NET 4.7.2. Dowiedz się więcej na temat [.NET Framework wersji i zależności](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) w systemie.
+1. Jeśli wybrano opcję użycia programu PowerShell 5,1, należy się upewnić, że jest zainstalowany co najmniej program .NET 4.7.2. Dowiedz się więcej na temat [.NET Framework wersji i zależności](/dotnet/framework/migration-guide/versions-and-dependencies) w systemie.
 
     > [!Important]  
     > W przypadku instalowania programu .NET 4.7.2 + w systemie Windows Server Core należy zainstalować z `quiet` `norestart` flagami i lub instalacja nie powiedzie się. Na przykład w przypadku instalowania programu .NET 4,8 polecenie będzie wyglądać następująco:
@@ -56,7 +56,7 @@ Zdecydowanie zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](sto
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. Moduł AZ PowerShell, który można zainstalować, postępując zgodnie z instrukcjami znajdującymi się tutaj: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. Moduł AZ PowerShell, który można zainstalować, postępując zgodnie z instrukcjami znajdującymi się tutaj: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > Moduł AZ. StorageSync jest teraz instalowany automatycznie podczas instalacji modułu AZ PowerShell.
@@ -573,7 +573,7 @@ Jeśli jednak zmienisz harmonogram w taki sposób, że będzie to możliwe, na w
 
 Domyślna maksymalna liczba migawek VSS na wolumin (64), a także harmonogram domyślny, który ma zostać uwzględniony, spowoduje to, że w ciągu maksymalnie 45 dni poprzednich wersji może zostać przywrócony pracownik przetwarzający informacje, w zależności od liczby migawek VSS, które można przechowywać na woluminie.
 
-Jeśli maks. 64 migawek VSS na wolumin nie jest prawidłowym ustawieniem, można [zmienić tę wartość za pomocą klucza rejestru](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Jeśli maks. 64 migawek VSS na wolumin nie jest prawidłowym ustawieniem, można [zmienić tę wartość za pomocą klucza rejestru](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Aby nowe ograniczenie zaczęły obowiązywać, należy ponownie uruchomić polecenie cmdlet, aby włączyć zgodność poprzedniej wersji na każdym woluminie, który był wcześniej włączony, z flagą-Force, aby pobrać nową maksymalną liczbę migawek VSS na wolumin. Spowoduje to powstanie nowo obliczonej liczby zgodnych dni. Należy pamiętać, że ta zmiana zacznie obowiązywać tylko w przypadku nowych plików warstwowych i nadpisać wszelkie dostosowania w harmonogramie usługi VSS, który miał być wykonany.
 
 <a id="proactive-recall"></a>
@@ -599,7 +599,7 @@ Firma rozproszona globalnie ma biura oddziałów w Stanach Zjednoczonych i India
 
 # <a name="powershell"></a>[Program PowerShell](#tab/proactive-powershell)
 
-Właściwości punktu końcowego serwera można modyfikować w programie PowerShell za pomocą polecenia cmdlet [Set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
+Właściwości punktu końcowego serwera można modyfikować w programie PowerShell za pomocą polecenia cmdlet [Set-AzStorageSyncServerEndpoint](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
 
 ```powershell
 # Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"

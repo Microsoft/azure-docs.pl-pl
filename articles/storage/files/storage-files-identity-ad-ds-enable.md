@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 6251894018ceeb2a99ebb62939b6e446fea825a2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 948b30cbf37ae5f4f357860569579d8591412414
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220724"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630400"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Część 1: Włączanie uwierzytelniania AD DS dla udziałów plików platformy Azure 
 
@@ -28,20 +28,20 @@ Polecenia cmdlet w module AzFilesHybrid PowerShell wprowadzają niezbędne modyf
 
 ### <a name="download-azfileshybrid-module"></a>Pobierz moduł AzFilesHybrid
 
-- [Pobierz i rozpakuj moduł AzFilesHybrid (ga module: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) Należy pamiętać, że szyfrowanie AES 256 Kerberos jest obsługiwane w programie v 0.2.2 lub nowszym. Jeśli włączono funkcję z wersją AzFilesHybrid na 0.2.2 v i chcesz ją zaktualizować w celu obsługi szyfrowania AES 256 Kerberos, zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
+- [Pobierz i rozpakuj moduł AzFilesHybrid (ga module: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) Należy pamiętać, że szyfrowanie AES 256 Kerberos jest obsługiwane w programie v 0.2.2 lub nowszym. Jeśli włączono funkcję z wersją AzFilesHybrid na 0.2.2 v i chcesz ją zaktualizować w celu obsługi szyfrowania AES 256 Kerberos, zapoznaj się z [tym artykułem](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
 - Zainstaluj i wykonaj moduł w urządzeniu przyłączonym do lokalnego AD DS z poświadczeniami AD DS, które mają uprawnienia do tworzenia konta logowania do usługi lub konta komputera w docelowej usłudze AD.
 -  Uruchom skrypt przy użyciu lokalnego poświadczenia AD DS, które jest synchronizowane z usługą Azure AD. Poświadczenia lokalnego AD DS muszą mieć właściciela konta magazynu lub uprawnienia roli współautor platformy Azure.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Uruchom Join-AzStorageAccountForAuth
 
-`Join-AzStorageAccountForAuth`Polecenie cmdlet wykonuje odpowiednik przyłączania do domeny w trybie offline w imieniu określonego konta magazynu. Skrypt używa polecenia cmdlet do utworzenia [konta komputera](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) w domenie usługi AD. Jeśli z jakiegoś powodu nie możesz użyć konta komputera, możesz zmienić skrypt, aby utworzyć [konto logowania do usługi](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) . Jeśli zdecydujesz się uruchomić polecenie ręcznie, wybierz konto najlepiej dopasowane do danego środowiska.
+`Join-AzStorageAccountForAuth`Polecenie cmdlet wykonuje odpowiednik przyłączania do domeny w trybie offline w imieniu określonego konta magazynu. Skrypt używa polecenia cmdlet do utworzenia [konta komputera](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) w domenie usługi AD. Jeśli z jakiegoś powodu nie możesz użyć konta komputera, możesz zmienić skrypt, aby utworzyć [konto logowania do usługi](/windows/win32/ad/about-service-logon-accounts) . Jeśli zdecydujesz się uruchomić polecenie ręcznie, wybierz konto najlepiej dopasowane do danego środowiska.
 
 Konto AD DS utworzone przez polecenie cmdlet reprezentuje konto magazynu. Jeśli konto AD DS jest tworzone w ramach jednostki organizacyjnej (OU), która wymusza wygaśnięcie hasła, należy zaktualizować hasło przed maksymalnym okresem ważności hasła. Nie można zaktualizować hasła konta przed tą datą spowoduje błędy uwierzytelniania podczas uzyskiwania dostępu do udziałów plików platformy Azure. Aby dowiedzieć się, jak zaktualizować hasło, zobacz [Aktualizacja hasła konta AD DS](storage-files-identity-ad-ds-update-password.md).
 
 Zastąp wartości symboli zastępczych własnymi parametrami poniżej przed wykonaniem polecenia w programie PowerShell.
 > [!IMPORTANT]
-> Polecenie cmdlet Join do domeny utworzy konto usługi AD reprezentujące konto magazynu (udział plików) w usłudze AD. Możesz zarejestrować się jako konto komputera lub konto logowania do usługi, aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) . W przypadku kont komputerów istnieje domyślny okres ważności hasła ustawiony w usłudze AD w ciągu 30 dni. Podobnie konto logowania do usługi może mieć ustawiony domyślny okres ważności hasła dla domeny usługi AD lub jednostki organizacyjnej (OU).
-> W przypadku obu typów kont zalecamy sprawdzenie wieku ważności hasła skonfigurowanego w środowisku usługi AD i zaplanowanie [aktualizacji hasła tożsamości konta](storage-files-identity-ad-ds-update-password.md) usługi AD przed maksymalnym okresem ważności hasła. Można rozważyć [utworzenie nowej jednostki organizacyjnej (OU) usługi AD w usłudze AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) i wyłączenie zasad wygasania haseł na [kontach komputerów](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) lub kontach logowania do usługi. 
+> Polecenie cmdlet Join do domeny utworzy konto usługi AD reprezentujące konto magazynu (udział plików) w usłudze AD. Możesz zarejestrować się jako konto komputera lub konto logowania do usługi, aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania](./storage-files-faq.md#security-authentication-and-access-control) . W przypadku kont komputerów istnieje domyślny okres ważności hasła ustawiony w usłudze AD w ciągu 30 dni. Podobnie konto logowania do usługi może mieć ustawiony domyślny okres ważności hasła dla domeny usługi AD lub jednostki organizacyjnej (OU).
+> W przypadku obu typów kont zalecamy sprawdzenie wieku ważności hasła skonfigurowanego w środowisku usługi AD i zaplanowanie [aktualizacji hasła tożsamości konta](storage-files-identity-ad-ds-update-password.md) usługi AD przed maksymalnym okresem ważności hasła. Można rozważyć [utworzenie nowej jednostki organizacyjnej (OU) usługi AD w usłudze AD](/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) i wyłączenie zasad wygasania haseł na [kontach komputerów](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) lub kontach logowania do usługi. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -89,7 +89,7 @@ Jeśli skrypt został już wykonany `Join-AzStorageAccountForAuth` powyżej, prz
 
 ### <a name="checking-environment"></a>Sprawdzanie środowiska
 
-Najpierw należy sprawdzić stan środowiska. W odróżnieniu od tego należy sprawdzić, czy [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) jest zainstalowana i czy powłoka jest wykonywana z uprawnieniami administratora. Następnie sprawdź, czy zainstalowano [moduł Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0), i zainstaluj go, jeśli tego nie zrobiono. Po zakończeniu tych sprawdzeń Sprawdź AD DS, aby sprawdzić, czy [konto komputera](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślne) lub [konto logowania do usługi](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) , które zostało już utworzone przy użyciu nazwy SPN/UPN jako "CIFS/Twoje konto-Storage-Name-tutaj. plik. Core. Windows. NET". Jeśli konto nie istnieje, utwórz je zgodnie z opisem w następnej sekcji.
+Najpierw należy sprawdzić stan środowiska. W odróżnieniu od tego należy sprawdzić, czy [Active Directory PowerShell](/powershell/module/addsadministration/?view=win10-ps) jest zainstalowana i czy powłoka jest wykonywana z uprawnieniami administratora. Następnie sprawdź, czy zainstalowano [moduł Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0), i zainstaluj go, jeśli tego nie zrobiono. Po zakończeniu tych sprawdzeń Sprawdź AD DS, aby sprawdzić, czy [konto komputera](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślne) lub [konto logowania do usługi](/windows/win32/ad/about-service-logon-accounts) , które zostało już utworzone przy użyciu nazwy SPN/UPN jako "CIFS/Twoje konto-Storage-Name-tutaj. plik. Core. Windows. NET". Jeśli konto nie istnieje, utwórz je zgodnie z opisem w następnej sekcji.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Ręczne tworzenie tożsamości reprezentującej konto magazynu w usłudze AD
 

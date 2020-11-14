@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/13/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: 851470971335f144ebe0f9b602a8adc7d5ee06cf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536221"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629754"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -27,19 +27,19 @@ ms.locfileid: "94536221"
 
 Usługa przetwarzanie obrazów platformy Azure zapewnia dostęp do zaawansowanych algorytmów, które przetwarzają obrazy i zwracają informacje na podstawie interesujących Cię funkcji wizualizacji. Na przykład przetwarzanie obrazów może określić, czy obraz zawiera zawartość dla dorosłych, znaleźć określone marki lub obiekty, czy też znaleźć ludzkie twarze.
 
-Możesz tworzyć przetwarzanie obrazów aplikacje za pomocą zestawu SDK biblioteki klienta lub bezpośrednio wywołując interfejs API REST. Na tej stronie ogólnie omówiono, co można zrobić za pomocą przetwarzania obrazów.
+Możesz tworzyć przetwarzanie obrazów aplikacje za pomocą [zestawu SDK biblioteki klienta](./quickstarts-sdk/client-library.md) lub bezpośrednio wywołując [interfejs API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) . Na tej stronie ogólnie omówiono, co można zrobić za pomocą przetwarzania obrazów.
+
+## <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
+
+Przetwarzanie obrazów obejmuje możliwości [optycznego rozpoznawania znaków (OCR)](concept-recognizing-text.md) . Możesz użyć nowego interfejsu API odczytu do wyodrębnienia wydrukowanych i odręcznych tekstu z obrazów i dokumentów. Korzysta ona z najnowszych modeli i współpracuje z tekstem na różnych powierzchniach i w tle. Obejmują one potwierdzenia, plakaty, karty biznesowe, litery i tablice. Dwa interfejsy API OCR obsługują wyodrębnianie drukowanego tekstu w [kilku językach](./language-support.md). Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](./quickstarts-sdk/client-library.md) .
 
 ## <a name="computer-vision-for-digital-asset-management"></a>przetwarzanie obrazów do zarządzania cyfrowymi zasobami
 
 Przetwarzanie obrazów może obsługiwać wiele scenariuszy zarządzania zasobami cyfrowymi. Ponosisz biznesową proces organizowania, przechowywania i pobierania rozbudowanych zasobów multimedialnych oraz zarządzania prawami i uprawnieniami cyfrowymi. Na przykład firma może chcieć grupować i identyfikować obrazy na podstawie widocznych logo, twarzy, obiektów, kolorów i tak dalej. Możesz też chcieć automatycznie [generować podpisy dla obrazów](./Tutorials/storage-lab-tutorial.md) i dołączać słowa kluczowe, aby umożliwić ich wyszukiwanie. Aby uzyskać informacje na temat całościowego rozwiązania z użyciem Cognitive Services, platformy Azure Wyszukiwanie poznawcze i inteligentnych raportów, zobacz [Przewodnik dotyczący akceleratora rozwiązań wyszukiwania](https://github.com/Azure-Samples/azure-search-knowledge-mining) w witrynie GitHub. Aby zapoznać się z innymi przykładami, zobacz repozytorium [szablonów rozwiązań przetwarzanie obrazów](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
-## <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
-
-Przetwarzanie obrazów obejmuje możliwości [optycznego rozpoznawania znaków (OCR)](concept-recognizing-text.md) . Możesz użyć nowego interfejsu API odczytu do wyodrębnienia wydrukowanych i odręcznych tekstu z obrazów i dokumentów. Korzysta ona z najnowszych modeli i współpracuje z tekstem na różnych powierzchniach i w tle. Obejmują one potwierdzenia, plakaty, karty biznesowe, litery i tablice. Dwa interfejsy API OCR obsługują wyodrębnianie drukowanego tekstu w [kilku językach](./language-support.md). Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](#next-steps) .
-
 ## <a name="analyze-images-for-insight"></a>Analizowanie obrazów w celu uzyskania szczegółowych informacji
 
-Można analizować obrazy, aby zapewnić wgląd w ich funkcje i cechy wizualne. Wszystkie funkcje w poniższej tabeli są udostępniane przez interfejs API [analizowania obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](#next-steps) .
+Można analizować obrazy, aby zapewnić wgląd w ich funkcje i cechy wizualne. Wszystkie funkcje w poniższej tabeli są udostępniane przez interfejs API [analizowania obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](./quickstarts-sdk/client-library.md) .
 
 
 ### <a name="tag-visual-features"></a>Tagowanie funkcji wizualnych
@@ -113,8 +113,6 @@ Jak w przypadku wszystkich usług Cognitive Services, deweloperzy korzystający 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Rozpocznij pracę z przetwarzaniem obrazów, korzystając z przewodnika Szybki start:
+Rozpocznij pracę z przetwarzanie obrazów, postępując zgodnie z przewodnikiem Szybki Start w preferowanym języku deweloperskim:
 
-- [Szybki Start: przetwarzanie obrazów Biblioteka kliencka platformy .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Szybki Start: przetwarzanie obrazów biblioteki klienckiej języka Python](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [Szybki Start: przetwarzanie obrazów Biblioteka kliencka Java](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [Szybki Start: przetwarzanie obrazówa Biblioteka kliencka](./quickstarts-sdk/client-library.md)

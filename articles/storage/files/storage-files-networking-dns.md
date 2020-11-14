@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320272"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630196"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurowanie przekazywania DNS dla usługi Azure Files
 Azure Files umożliwia tworzenie prywatnych punktów końcowych dla kont magazynu zawierających udziały plików. Mimo że jest to przydatne w przypadku wielu różnych aplikacji, prywatne punkty końcowe są szczególnie przydatne do łączenia się z udziałami plików platformy Azure z sieci lokalnej przy użyciu połączenia VPN lub ExpressRoute za pomocą komunikacji równorzędnej. 
@@ -43,7 +43,7 @@ Aby można było skonfigurować przekazywanie DNS do Azure Files, należy wykona
 
 - Konto magazynu zawierające udział plików platformy Azure, który chcesz zainstalować. Aby dowiedzieć się, jak utworzyć konto magazynu i udział plików platformy Azure, zobacz [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md).
 - Prywatny punkt końcowy dla konta magazynu. Aby dowiedzieć się, jak utworzyć prywatny punkt końcowy dla Azure Files, zobacz [Tworzenie prywatnego punktu końcowego](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- [Najnowsza wersja](https://docs.microsoft.com/powershell/azure/install-az-ps) modułu Azure PowerShell.
+- [Najnowsza wersja](/powershell/azure/install-az-ps) modułu Azure PowerShell.
 
 > [!Important]  
 > W tym przewodniku przyjęto założenie, że używasz serwera DNS w systemie Windows Server w środowisku lokalnym. Wszystkie kroki opisane w tym przewodniku są możliwe z dowolnym serwerem DNS, a nie tylko z serwerem DNS systemu Windows.
@@ -110,7 +110,7 @@ New-AzDnsForwarder `
 
 Warto również sprawdzić, czy jest to przydatne/konieczne, aby podać kilka dodatkowych parametrów:
 
-| Nazwa parametru | Type | Opis |
+| Nazwa parametru | Typ | Opis |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Domyślnie serwery DNS zostaną wdrożone w tej samej grupie zasobów co sieć wirtualna. Jeśli nie jest to potrzebne, ten parametr pozwala wybrać alternatywną grupę zasobów, która ma zostać wdrożona w programie. |
 | `DnsForwarderRootName` | `string` | Domyślnie serwery DNS wdrożone na platformie Azure mają nazwy `DnsFwder-*` , w których gwiazdka jest wypełniana przez iterator. Ten parametr zmienia katalog główny tej nazwy (tj. `DnsFwder` ). |

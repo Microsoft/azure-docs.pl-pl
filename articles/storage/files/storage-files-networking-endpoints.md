@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612833"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629856"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurowanie punktów końcowych sieci Azure Files
 
@@ -31,7 +31,7 @@ Zalecamy zapoznanie się z [zagadnieniami dotyczącymi sieci Azure Files](storag
 
 - W tym artykule przyjęto założenie, że utworzono już subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - W tym artykule założono, że masz już utworzony udział plików platformy Azure na koncie magazynu, z którym chcesz nawiązać połączenie ze środowiska lokalnego. Aby dowiedzieć się, jak utworzyć udział plików platformy Azure, zobacz [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md).
-- Jeśli zamierzasz używać Azure PowerShell, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Jeśli zamierzasz używać Azure PowerShell, [Zainstaluj najnowszą wersję](/powershell/azure/install-az-ps).
 - Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Konfiguracje punktów końcowych
@@ -45,9 +45,9 @@ Punkty końcowe można skonfigurować w taki sposób, aby ograniczyć dostęp si
 
 Utworzenie prywatnego punktu końcowego dla konta magazynu spowoduje wdrożenie następujących zasobów platformy Azure:
 
-- **Prywatny punkt końcowy**: zasób platformy Azure reprezentujący prywatny punkt końcowy konta magazynu. Można to traktować jako zasób, który nawiązuje połączenie z kontem magazynu i interfejsem sieciowym.
-- **Interfejs sieciowy (nic)**: interfejs sieciowy, który utrzymuje prywatny adres IP w określonej podsieci/sieci wirtualnej. Jest to dokładnie ten sam zasób, który jest wdrażany podczas wdrażania maszyny wirtualnej, ale nie jest przypisywany do maszyny wirtualnej, jest własnością prywatnego punktu końcowego.
-- **Prywatna strefa DNS**: Jeśli nigdy nie wdrożono prywatnego punktu końcowego dla tej sieci wirtualnej, zostanie wdrożona nowa prywatna strefa DNS dla sieci wirtualnej. Zostanie również utworzony rekord DNS A dla konta magazynu w tej strefie DNS. Jeśli w tej sieci wirtualnej wdrożono już prywatny punkt końcowy, nowy rekord konta magazynu zostanie dodany do istniejącej strefy DNS. Wdrażanie strefy DNS jest opcjonalne, ale zdecydowanie zalecane i wymagane, Jeśli instalujesz udziały plików platformy Azure za pomocą jednostki usługi AD lub przy użyciu interfejsu API FileREST.
+- **Prywatny punkt końcowy** : zasób platformy Azure reprezentujący prywatny punkt końcowy konta magazynu. Można to traktować jako zasób, który nawiązuje połączenie z kontem magazynu i interfejsem sieciowym.
+- **Interfejs sieciowy (nic)** : interfejs sieciowy, który utrzymuje prywatny adres IP w określonej podsieci/sieci wirtualnej. Jest to dokładnie ten sam zasób, który jest wdrażany podczas wdrażania maszyny wirtualnej, ale nie jest przypisywany do maszyny wirtualnej, jest własnością prywatnego punktu końcowego.
+- **Prywatna strefa DNS** : Jeśli nigdy nie wdrożono prywatnego punktu końcowego dla tej sieci wirtualnej, zostanie wdrożona nowa prywatna strefa DNS dla sieci wirtualnej. Zostanie również utworzony rekord DNS A dla konta magazynu w tej strefie DNS. Jeśli w tej sieci wirtualnej wdrożono już prywatny punkt końcowy, nowy rekord konta magazynu zostanie dodany do istniejącej strefy DNS. Wdrażanie strefy DNS jest opcjonalne, ale zdecydowanie zalecane i wymagane, Jeśli instalujesz udziały plików platformy Azure za pomocą jednostki usługi AD lub przy użyciu interfejsu API FileREST.
 
 > [!Note]  
 > W tym artykule jest stosowany sufiks DNS konta magazynu dla publicznych regionów platformy Azure `core.windows.net` . Ten komentarz dotyczy również suwerennych chmur platformy Azure, takich jak chmura dla instytucji rządowych w Stanach Zjednoczonych i Azure (Chiny) — po prostu zastępuje odpowiednie sufiksy dla danego środowiska. 

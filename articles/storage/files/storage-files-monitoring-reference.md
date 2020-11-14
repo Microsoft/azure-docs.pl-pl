@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: c6f4b932bb8f16af3c0368ab219bd8a12bf2face
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f6dc523050fdcdbf54a6b9864f0a752698a85eed
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357984"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628938"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Informacje o danych monitorowania Azure Files
 
@@ -36,7 +36,7 @@ Azure Files oferuje następujące metryki pojemności w Azure Monitor.
 
 #### <a name="azure-files"></a>Azure Files
 
-W tej tabeli przedstawiono [Azure Files metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+W tej tabeli przedstawiono [Azure Files metryki](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Metryka | Opis |
 | ------------------- | ----------------- |

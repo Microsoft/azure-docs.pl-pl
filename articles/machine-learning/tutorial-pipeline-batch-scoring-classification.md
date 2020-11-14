@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: potoki ML do oceniania partii'
 titleSuffix: Azure Machine Learning
-description: W tym samouczku utworzysz potok uczenia maszynowego w celu przeprowadzenia oceny wsadowej na modelu klasyfikacji obrazu. Azure Machine Learning pozwala skupić się na uczeniu maszynowym zamiast infrastruktury i automatyzacji.
+description: W tym samouczku utworzysz potok uczenia maszynowego w celu przeprowadzenia oceny wsadowej. Skup się na uczeniu maszynowym zamiast infrastruktury i automatyzacji.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309458"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629635"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Samouczek: Tworzenie potoku Azure Machine Learning na potrzeby oceniania partii
 

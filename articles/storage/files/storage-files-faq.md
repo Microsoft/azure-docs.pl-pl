@@ -7,22 +7,22 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1eddca26152f27ced20bbae66b3265639b97e64e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746823"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629499"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
-[Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
+[Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące Azure Files funkcji i funkcji, w tym używania Azure File Sync z Azure Files. Jeśli nie widzisz odpowiedzi na pytanie, możesz skontaktować się z nami za pomocą następujących kanałów (w kolejności eskalacji):
 
 1. Sekcja komentarzy w tym artykule.
-2. [Microsoft Q&stronie pytania dotyczącej usługi Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
+2. [Microsoft Q&stronie pytania dotyczącej usługi Azure Storage](/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w Azure Portal na karcie **Pomoc** wybierz przycisk **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi** .
+4. pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w Azure Portal na karcie **Pomoc** wybierz przycisk **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi**.
 
 ## <a name="general"></a>Ogólne
 * <a id="why-files-useful"></a>
@@ -80,7 +80,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * <a id="file-locking"></a>
   **Czy Azure Files obsługuje blokowanie plików?**  
-    Tak, Azure Files w pełni obsługuje blokowanie plików w stylu SMB/Windows, [Zobacz szczegóły](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+    Tak, Azure Files w pełni obsługuje blokowanie plików w stylu SMB/Windows, [Zobacz szczegóły](/rest/api/storageservices/managing-file-locks).
 
 * <a id="give-us-feedback"></a>
   **Chcemy zobaczyć konkretną funkcję dodaną do Azure Files. Czy można je dodać?**  
@@ -107,7 +107,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     Wydajność będzie się różnić w zależności od ustawień środowiska, konfiguracji i tego, czy jest to synchronizacja początkowa czy ciągła synchronizacja. Aby uzyskać więcej informacji, zobacz [Azure File Sync metryki wydajności](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Jeśli ten sam plik zostanie zmieniony na dwóch serwerach w tym samym czasie, co się dzieje?**  
-    Azure File Sync korzysta z prostej strategii rozwiązywania konfliktów: zachowujemy zmiany w plikach, które są zmieniane w dwóch punktach końcowych w tym samym czasie. Ostatnio zapisywana zmiana zachowuje oryginalną nazwę pliku. Starszy plik (określony przez LastWriteTime) ma nazwę punktu końcowego i numer konfliktu dołączony do nazwy pliku. W przypadku punktów końcowych serwera nazwa punktu końcowego jest nazwą serwera. W przypadku punktów końcowych w chmurze nazwa punktu końcowego to **chmura** . Nazwa jest zgodna z tą taksonomią: 
+    Azure File Sync korzysta z prostej strategii rozwiązywania konfliktów: zachowujemy zmiany w plikach, które są zmieniane w dwóch punktach końcowych w tym samym czasie. Ostatnio zapisywana zmiana zachowuje oryginalną nazwę pliku. Starszy plik (określony przez LastWriteTime) ma nazwę punktu końcowego i numer konfliktu dołączony do nazwy pliku. W przypadku punktów końcowych serwera nazwa punktu końcowego jest nazwą serwera. W przypadku punktów końcowych w chmurze nazwa punktu końcowego to **chmura**. Nazwa jest zgodna z tą taksonomią: 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -158,7 +158,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     
 * <a id="afs-resource-move"></a>
   **Czy mogę przenieść usługę synchronizacji magazynu i/lub konto magazynu do innej grupy zasobów, subskrypcji lub dzierżawy usługi Azure AD?**  
-   Tak, usługa synchronizacji magazynu i/lub konto magazynu można przenieść do innej grupy zasobów, subskrypcji lub dzierżawy usługi Azure AD. Po przeniesieniu usługi synchronizacji magazynu lub konta magazynu musisz nadać aplikacji Microsoft. StorageSync dostęp do konta magazynu (Sprawdź, [czy Azure File Sync ma dostęp do konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Tak, usługa synchronizacji magazynu i/lub konto magazynu można przenieść do innej grupy zasobów, subskrypcji lub dzierżawy usługi Azure AD. Po przeniesieniu usługi synchronizacji magazynu lub konta magazynu musisz nadać aplikacji Microsoft. StorageSync dostęp do konta magazynu (Sprawdź, [czy Azure File Sync ma dostęp do konta magazynu](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Podczas tworzenia punktu końcowego w chmurze usługa synchronizacji magazynu i konto magazynu muszą znajdować się w tej samej dzierżawie usługi Azure AD. Po utworzeniu punktu końcowego w chmurze można przenieść usługę synchronizacji magazynu i konto magazynu do różnych dzierżawców usługi Azure AD.
@@ -184,7 +184,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
     - Azure File Sync zachowuje i replikuje wszystkie poufne listy kontroli dostępu lub listy DACL (niezależnie od tego, czy Active Directory lub lokalne) wszystkie punkty końcowe serwera, do których jest synchronizowana. 
     
-    Aby uzyskać kompleksową reprezentację wszystkich protokołów obsługiwanych przez usługi Azure Storage, można przyjrzeć się do [autoryzacji dostępu do usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) . 
+    Aby uzyskać kompleksową reprezentację wszystkich protokołów obsługiwanych przez usługi Azure Storage, można przyjrzeć się do [autoryzacji dostępu do usługi Azure Storage](../common/storage-auth.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) . 
     
 * <a id="encryption-at-rest"></a>
 **Jak upewnić się, że mój udział plików platformy Azure jest szyfrowany w spoczynku?**  
@@ -209,14 +209,14 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * <a id="data-compliance-policies"></a>
 **Jakie zasady zgodności danych Azure Files obsługiwać?**  
 
-   Azure Files uruchamiana na podstawie tej samej architektury magazynu, która jest używana w innych usługach magazynu w usłudze Azure Storage. Azure Files stosuje te same zasady zgodności danych, które są używane w innych usługach Azure Storage. Aby uzyskać więcej informacji na temat zgodności danych usługi Azure Storage, możesz zapoznać się z [ofertą zgodności z usługą Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), a następnie przejść do [Centrum zaufania firmy Microsoft](https://microsoft.com/trustcenter/default.aspx).
+   Azure Files uruchamiana na podstawie tej samej architektury magazynu, która jest używana w innych usługach magazynu w usłudze Azure Storage. Azure Files stosuje te same zasady zgodności danych, które są używane w innych usługach Azure Storage. Aby uzyskać więcej informacji na temat zgodności danych usługi Azure Storage, możesz zapoznać się z [ofertą zgodności z usługą Azure Storage](../common/storage-compliance-offerings.md), a następnie przejść do [Centrum zaufania firmy Microsoft](https://microsoft.com/trustcenter/default.aspx).
 
 * <a id="file-auditing"></a>
 **Jak przeprowadzić inspekcję dostępu do plików i zmian w Azure Files?**
 
   Dostępne są dwie opcje zapewniające funkcje inspekcji dla Azure Files:
-  - Jeśli użytkownicy uzyskują bezpośredni dostęp do udziału plików platformy Azure, [dzienniki usługi Azure Storage (wersja zapoznawcza)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) mogą być używane do śledzenia zmian plików i dostępu użytkowników. Te dzienniki mogą służyć do rozwiązywania problemów, a żądania są rejestrowane na podstawie najlepszego wysiłku.
-  - Jeśli użytkownicy uzyskują dostęp do udziału plików platformy Azure za pośrednictwem systemu Windows Server, na którym zainstalowano agenta Azure File Sync, użyj [zasad inspekcji](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) lub produktu innej firmy do śledzenia zmian plików i dostępu użytkowników w systemie Windows Server. 
+  - Jeśli użytkownicy uzyskują bezpośredni dostęp do udziału plików platformy Azure, [dzienniki usługi Azure Storage (wersja zapoznawcza)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) mogą być używane do śledzenia zmian plików i dostępu użytkowników. Te dzienniki mogą służyć do rozwiązywania problemów, a żądania są rejestrowane na podstawie najlepszego wysiłku.
+  - Jeśli użytkownicy uzyskują dostęp do udziału plików platformy Azure za pośrednictwem systemu Windows Server, na którym zainstalowano agenta Azure File Sync, użyj [zasad inspekcji](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) lub produktu innej firmy do śledzenia zmian plików i dostępu użytkowników w systemie Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & uwierzytelniania AD DS platformy Azure
 * <a id="ad-support-devices"></a>
@@ -247,7 +247,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * <a id="ad-aad-smb-files"></a>
 **Jak sprawdzić, czy na moim koncie magazynu włączono uwierzytelnianie AD DS i pobrać informacje o domenie?**
 
-    Aby uzyskać instrukcje, zobacz [tutaj](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+    Aby uzyskać instrukcje, zobacz [tutaj](./storage-files-identity-ad-ds-enable.md#confirm-the-feature-is-enabled).
 
 * <a id=""></a>
 **Czy Azure Files uwierzytelnianie usługi Azure AD obsługuje maszyny wirtualne z systemem Linux?**
@@ -288,19 +288,14 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     Tak, możesz włączyć uwierzytelnianie usługi AD w udziale plików zarządzanym przez usługę Azure File Sync. Zmiany w katalogu/plikach list ACL systemu plików NTFS na lokalnych serwerach plików będą należeć do Azure Files i na odwrót.
 
 * <a id="ad-aad-smb-files"></a>
-**Jak sprawdzić, czy włączono uwierzytelnianie usługi AD na moim koncie magazynu i informacje o domenie usługi AD?**
-
-    Możesz zapoznać się z instrukcjami podanymi w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) , aby sprawdzić, czy Azure Files na koncie magazynu jest włączone uwierzytelnianie usługi AD i pobrać informacje o domenie usługi AD.
-
-* <a id="ad-aad-smb-files"></a>
 **Czy istnieje różnica w tworzeniu konta komputera lub konta logowania do usługi w celu reprezentowania konta magazynu w usłudze AD?**
 
-    Utworzenie [konta komputera](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślnego) lub [konta logowania do usługi](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) nie ma żadnego wpływu na sposób działania uwierzytelniania Azure Files. Możesz wybrać własny wybór sposobu reprezentowania konta magazynu jako tożsamości w środowisku usługi AD. Domyślny DomainAccountType ustawiony w Join-AzStorageAccountForAuth polecenie cmdlet to konto komputera. Jednak okres ważności hasła skonfigurowany w środowisku usługi AD może być różny dla konta logowania komputera lub usługi i należy wziąć pod uwagę w przypadku [aktualizacji hasła tożsamości konta magazynu w usłudze AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
+    Utworzenie [konta komputera](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślnego) lub [konta logowania do usługi](/windows/win32/ad/about-service-logon-accounts) nie ma żadnego wpływu na sposób działania uwierzytelniania Azure Files. Możesz wybrać własny wybór sposobu reprezentowania konta magazynu jako tożsamości w środowisku usługi AD. Domyślny DomainAccountType ustawiony w Join-AzStorageAccountForAuth polecenie cmdlet to konto komputera. Jednak okres ważności hasła skonfigurowany w środowisku usługi AD może być różny dla konta logowania komputera lub usługi i należy wziąć pod uwagę w przypadku [aktualizacji hasła tożsamości konta magazynu w usłudze AD](./storage-files-identity-ad-ds-update-password.md).
  
 * <a id="ad-support-rest-apis"></a>
 **Czy istnieją interfejsy API REST obsługujące pobieranie/Ustawianie/kopiowanie katalogów/list ACL systemu Windows?**
 
-    Tak. Obsługujemy interfejsy API REST, które pobierają, ustawiają lub kopiują listy ACL systemu plików NTFS dla katalogów lub plików w przypadku korzystania z interfejsu API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (lub nowszego). Obsługujemy również utrwalanie list ACL systemu Windows w narzędziach opartych na platformie REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+    Tak. Obsługujemy interfejsy API REST, które pobierają, ustawiają lub kopiują listy ACL systemu plików NTFS dla katalogów lub plików w przypadku korzystania z interfejsu API REST [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (lub nowszego). Obsługujemy również utrwalanie list ACL systemu Windows w narzędziach opartych na platformie REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
 
 ## <a name="network-file-system"></a>Sieciowy system plików
 
@@ -324,7 +319,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * <a id="port-445-blocked"></a>
 **Mój usługodawca internetowy lub blokuje port 445, który kończy się niepowodzeniem Azure Files instalacji. Co mam zrobić?**
 
-    Można dowiedzieć się więcej [na temat różnych sposobów obejścia zablokowanego portu 445 w tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files zezwala tylko na połączenia przy użyciu protokołu SMB 3,0 (z obsługą szyfrowania) spoza regionu lub centrum danych. Protokół SMB 3,0 wprowadził wiele funkcji zabezpieczeń, w tym szyfrowanie kanałów, które są bardzo bezpieczne do użycia w Internecie. Możliwe, że port 445 został zablokowany ze względu na historyczne przyczyny luk w zabezpieczeniach, które znajdują się w mniejszych wersjach protokołu SMB. W idealnym przypadku port powinien być blokowany tylko dla ruchu SMB 1,0, a protokół SMB 1,0 powinien być wyłączony na wszystkich klientach.
+    Można dowiedzieć się więcej [na temat różnych sposobów obejścia zablokowanego portu 445 w tym miejscu](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked). Azure Files zezwala tylko na połączenia przy użyciu protokołu SMB 3,0 (z obsługą szyfrowania) spoza regionu lub centrum danych. Protokół SMB 3,0 wprowadził wiele funkcji zabezpieczeń, w tym szyfrowanie kanałów, które są bardzo bezpieczne do użycia w Internecie. Możliwe, że port 445 został zablokowany ze względu na historyczne przyczyny luk w zabezpieczeniach, które znajdują się w mniejszych wersjach protokołu SMB. W idealnym przypadku port powinien być blokowany tylko dla ruchu SMB 1,0, a protokół SMB 1,0 powinien być wyłączony na wszystkich klientach.
 
 * <a id="expressroute-not-required"></a>
 **Czy muszę używać usługi Azure ExpressRoute do nawiązywania połączenia z usługą Azure Files lub korzystania z Azure File Sync lokalnie?**  
@@ -339,7 +334,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Jak mogę utworzyć kopię zapasową mojego udziału plików platformy Azure?**  
-    Można użyć okresowych [migawek udziałów](storage-snapshots-files.md) do ochrony przed przypadkowym usunięciem. Można również użyć narzędzia do tworzenia kopii zapasowych AzCopy, Robocopy lub innych firm, które umożliwia utworzenie kopii zapasowej zainstalowanego udziału plików. Azure Backup oferuje kopię zapasową Azure Files. Dowiedz się więcej [na temat tworzenia kopii zapasowych udziałów plików platformy Azure przez Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
+    Można użyć okresowych [migawek udziałów](storage-snapshots-files.md) do ochrony przed przypadkowym usunięciem. Można również użyć narzędzia do tworzenia kopii zapasowych AzCopy, Robocopy lub innych firm, które umożliwia utworzenie kopii zapasowej zainstalowanego udziału plików. Azure Backup oferuje kopię zapasową Azure Files. Dowiedz się więcej [na temat tworzenia kopii zapasowych udziałów plików platformy Azure przez Azure Backup](../../backup/backup-afs.md).
 
 ## <a name="share-snapshots"></a>Migawki udziałów
 
@@ -450,11 +445,11 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 ## <a name="features-and-interoperability-with-other-services"></a>Funkcje i współdziałanie z innymi usługami
 * <a id="cluster-witness"></a>
 **Czy mogę użyć mojego udziału plików platformy Azure jako *monitora udziału plików* dla mojego klastra trybu failover systemu Windows Server?**  
-    Obecnie ta konfiguracja nie jest obsługiwana w przypadku udziału plików platformy Azure. Aby uzyskać więcej informacji na temat sposobu konfigurowania tego programu dla usługi Azure Blob Storage, zobacz [wdrażanie monitora chmury dla klastra trybu failover](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+    Obecnie ta konfiguracja nie jest obsługiwana w przypadku udziału plików platformy Azure. Aby uzyskać więcej informacji na temat sposobu konfigurowania tego programu dla usługi Azure Blob Storage, zobacz [wdrażanie monitora chmury dla klastra trybu failover](/windows-server/failover-clustering/deploy-cloud-witness).
 
 * <a id="containers"></a>
 **Czy mogę zainstalować udział plików platformy Azure w ramach wystąpienia kontenera platformy Azure?**  
-    Tak, udziały plików platformy Azure są dobrym rozwiązaniem, gdy chcesz utrwalać informacje poza okresem istnienia wystąpienia kontenera. Aby uzyskać więcej informacji, zobacz [Instalowanie udziału plików platformy Azure przy użyciu usługi Azure Container Instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
+    Tak, udziały plików platformy Azure są dobrym rozwiązaniem, gdy chcesz utrwalać informacje poza okresem istnienia wystąpienia kontenera. Aby uzyskać więcej informacji, zobacz [Instalowanie udziału plików platformy Azure przy użyciu usługi Azure Container Instances](../../container-instances/container-instances-volume-azure-files.md).
 
 * <a id="rest-rename"></a>
 **Czy istnieje operacja zmiany nazwy w interfejsie API REST?**  
@@ -468,7 +463,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

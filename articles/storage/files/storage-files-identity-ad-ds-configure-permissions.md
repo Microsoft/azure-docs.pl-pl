@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761145"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629176"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
@@ -44,7 +44,7 @@ Poniższa tabela zawiera uprawnienia usługi Azure RBAC powiązane z tą konfigu
 
 ## <a name="supported-permissions"></a>Obsługiwane uprawnienia
 
-Azure Files obsługuje pełny zestaw podstawowych i zaawansowanych list ACL systemu Windows. Można wyświetlać i konfigurować listy ACL systemu Windows dla katalogów i plików w udziale plików platformy Azure, instalując udział, a następnie używając Eksploratora plików systemu Windows, uruchamiając polecenie [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) systemu Windows lub polecenie [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
+Azure Files obsługuje pełny zestaw podstawowych i zaawansowanych list ACL systemu Windows. Można wyświetlać i konfigurować listy ACL systemu Windows dla katalogów i plików w udziale plików platformy Azure, instalując udział, a następnie używając Eksploratora plików systemu Windows, uruchamiając polecenie [icacls](/windows-server/administration/windows-commands/icacls) systemu Windows lub polecenie [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) . 
 
 Aby skonfigurować listy ACL z uprawnieniami administratora, należy zainstalować udział przy użyciu klucza konta magazynu z maszyny wirtualnej przyłączonej do domeny. Postępuj zgodnie z instrukcjami w następnej sekcji, aby zainstalować udział plików platformy Azure z wiersza polecenia i skonfigurować listy ACL systemu Windows.
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Udostępniamy również [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
+Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Udostępniamy również [wskazówki](./storage-files-faq.md#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
 
 ## <a name="configure-windows-acls"></a>Skonfiguruj listy ACL systemu Windows
 
@@ -102,9 +102,9 @@ Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do 
 1. Wybierz pozycję **Edytuj.** Aby zmienić uprawnienia.
 1. Możesz zmienić uprawnienia istniejących użytkowników lub wybrać przycisk **Dodaj...** , aby przyznać uprawnienia nowym użytkownikom.
 1. W oknie monitu do dodawania nowych użytkowników wprowadź nazwę docelowej nazwy użytkownika, do której chcesz udzielić uprawnień, w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
-1.    Wybierz przycisk **OK**.
+1.    Kliknij przycisk **OK**.
 1.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
-1.    Wybierz przycisk **Zastosuj**.
+1.    Wybierz pozycję **Zastosuj**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurowanie list ACL systemu Windows przy użyciu icacls
 
@@ -114,7 +114,7 @@ Użyj następującego polecenia systemu Windows, aby przyznać pełne uprawnieni
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Aby uzyskać więcej informacji na temat używania icacls do ustawiania list ACL systemu Windows i różnych typów obsługiwanych uprawnień, zobacz [informacje dotyczące wiersza polecenia dla icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Aby uzyskać więcej informacji na temat używania icacls do ustawiania list ACL systemu Windows i różnych typów obsługiwanych uprawnień, zobacz [informacje dotyczące wiersza polecenia dla icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Następne kroki
 

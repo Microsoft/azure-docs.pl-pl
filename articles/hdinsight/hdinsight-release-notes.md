@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 0c14e5537385b7518fd08d9d3599993bc6d82f88
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 11/12/2020
+ms.openlocfilehash: 1ae4e2a1e0d67a0a09c19b517245ffc6d92d17df
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535505"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629924"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -23,20 +23,28 @@ Ten artykuł zawiera informacje **o najnowszych aktualizacjach wersji usługi Az
 
 Usługa Azure HDInsight to jedna z najpopularniejszych usług dla klientów korporacyjnych na potrzeby analiz typu open source na platformie Azure.
 
-## <a name="release-date-10082020"></a>Data wydania: 10/08/2020
+Jeśli chcesz subskrybować informacje o wersji, zobacz wersje w [tym repozytorium GitHub](https://github.com/hdinsight/release-notes/releases).
+
+## <a name="release-date-11092020"></a>Data wydania: 11/09/2020
 
 Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
 
 ## <a name="new-features"></a>Nowe funkcje
-### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>Prywatne klastry usługi HDInsight bez publicznego adresu IP i prywatnego (wersja zapoznawcza)
-Usługa HDInsight obsługuje teraz tworzenie klastrów bez publicznego adresu IP i prywatnego połączenia z klastrami w wersji zapoznawczej. Klienci mogą używać nowych zaawansowanych ustawień sieci, aby utworzyć w pełni izolowany klaster bez publicznego adresu IP i korzystać z własnych prywatnych punktów końcowych w celu uzyskania dostępu do klastra. 
+### <a name="hdinsight-identity-broker-hib-is-now-ga"></a>Usługa HDInsight Identity Broker (HIB) jest teraz GA
+Usługa HDInsight Identity Broker (HIB), która umożliwia uwierzytelnianie OAuth dla klastrów ESP, jest teraz ogólnie dostępna w tej wersji. W przypadku klastrów HIB utworzonych po tej wersji będą dostępne najnowsze funkcje HIB:
+- Wysoka dostępność (HA)
+- Obsługa Multi-Factor Authentication (MFA)
+- Użytkownicy federacyjne logują się bez synchronizacji skrótów haseł w usłudze AAD — DS Aby uzyskać więcej informacji, zobacz [dokumentację Hib](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker).
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Przechodzenie do zestawów skalowania maszyn wirtualnych platformy Azure
-Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. Począwszy od tej wersji, usługa stopniowo przeprowadzi migrację do [zestawów skalowania maszyn wirtualnych platformy Azure](../virtual-machine-scale-sets/overview.md). Cały proces może potrwać miesiące. Po przeprowadzeniu migracji regionów i subskrypcji nowo utworzone klastry usługi HDInsight będą uruchamiane w zestawach skalowania maszyn wirtualnych bez akcji klienta. Nie oczekiwano zmiany krytycznej.
+Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. Począwszy od tej wersji, usługa stopniowo przeprowadzi migrację do [zestawów skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Cały proces może potrwać miesiące. Po przeprowadzeniu migracji regionów i subskrypcji nowo utworzone klastry usługi HDInsight będą uruchamiane w zestawach skalowania maszyn wirtualnych bez akcji klienta. Nie oczekiwano zmiany krytycznej.
 
 ## <a name="deprecation"></a>Przestarzałe
-#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
-Typ klastra usług HDInsight 3,6 ML zostanie zakończony przez gru 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
+Typ klastra usług HDInsight 3,6 ML ma koniec wsparcia z grudnia 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML po 31 2020 grudnia. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+
+### <a name="disabled-vm-sizes"></a>Wyłączone rozmiary maszyn wirtualnych
+Począwszy od listopada 16 2020, Usługa HDInsight będzie blokować nowym klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 maszyn wirtualnych. Nie ma to wpływu na istniejących klientów, którzy korzystali z tych rozmiarów maszyn wirtualnych w ciągu ostatnich trzech miesięcy. Począwszy od stycznia 9 2021, Usługa HDInsight będzie blokować wszystkim klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 rozmiary maszyn wirtualnych. Istniejące klastry będą działać w postaci, w jakiej jest. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
 
 ## <a name="behavior-changes"></a>Zmiany zachowania
 Brak zmian w zachowaniu dla tej wersji.
@@ -47,8 +55,16 @@ Następujące zmiany zostaną wykonane w przyszłych wydaniach.
 ### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Możliwość wybierania różnych dozorcy rozmiary maszyn wirtualnych dla usług Spark, Hadoop i ML
 Usługa HDInsight obecnie nie obsługuje dostosowywania rozmiaru węzła dozorcy dla typów klastrów usługi Spark, Hadoop i ML. Domyślnie A2_v2/a2 rozmiary maszyn wirtualnych, które są dostępne bezpłatnie. W nadchodzącym wydaniu można wybrać dozorcy rozmiar maszyny wirtualnej, który jest najbardziej odpowiedni dla danego scenariusza. Dozorcy węzły z maszyną wirtualną o rozmiarze innym niż A2_v2/a2 będą obciążane opłatami. Maszyny wirtualne A2_v2 i a2 są nadal udostępniane bezpłatnie.
 
+### <a name="default-cluster-version-will-be-changed-to-40"></a>Domyślna wersja klastra zostanie zmieniona na 4,0
+Od lutego 2021 domyślna wersja klastra usługi HDInsight zostanie zmieniona z 3,6 na 4,0. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [dostępne wersje](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions). Dowiedz się więcej na temat Nowości w usłudze [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release)
+
+### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Usługa HDInsight 3,6 koniec wsparcia z 30 2021 czerwca
+Usługa HDInsight 3,6 zostanie zakończona. Od czerwca 30 2021 klienci nie mogą tworzyć nowych klastrów usługi HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
+
 ## <a name="bug-fixes"></a>Poprawki błędów
 Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów. 
+### <a name="fix-issue-for-restarting-vms-in-cluster"></a>Rozwiązywanie problemów związanych z ponownym uruchamianiem maszyn wirtualnych w klastrze
+Problem związany z ponownym uruchamianiem maszyn wirtualnych w klastrze został rozwiązany. [Aby ponownie uruchomić węzły w klastrze, można użyć programu PowerShell lub interfejsu API REST](https://docs.microsoft.com/azure/hdinsight/cluster-reboot-vm) .
 
 ## <a name="component-version-change"></a>Zmiana wersji składnika
 Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](./hdinsight-component-versioning.md).

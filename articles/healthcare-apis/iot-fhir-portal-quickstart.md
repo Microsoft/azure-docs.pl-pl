@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f36d842e14c91850bfeba47e9fef61d4747c33a9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394513"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630570"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Szybki Start: wdrażanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) przy użyciu Azure Portal
 
-Łącznik usługi Azure IoT dla FHIR * to opcjonalna funkcja interfejsu API platformy Azure dla FHIR, która zapewnia możliwość pozyskiwania danych z Internetu (IoMT) urządzeń. W fazie zapoznawczej Funkcja łącznika usługi Azure IoT dla FHIR jest dostępna bezpłatnie. W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
+Łącznik usługi Azure IoT dla szybkich zasobów współdziałania (FHIR&#174;) * to opcjonalna funkcja interfejsu API platformy Azure dla FHIR, która zapewnia możliwość pozyskiwania danych z Internetu (IoMT) urządzeń. W fazie zapoznawczej Funkcja łącznika usługi Azure IoT dla FHIR jest dostępna bezpłatnie. W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 - Wdrażanie i Konfigurowanie łącznika usługi Azure IoT dla FHIR przy użyciu Azure Portal
 - Wysyłanie danych do łącznika usługi Azure IoT dla FHIR za pomocą symulowanego urządzenia
 - Wyświetlanie zasobów utworzonych przez łącznik usługi Azure IoT dla FHIR w interfejsie API platformy Azure dla FHIR
@@ -207,6 +207,4 @@ Dowiedz się, jak skonfigurować łącznik usługi IoT przy użyciu szablonów m
 >[!div class="nextstepaction"]
 >[Łącznik usługi Azure IoT dla szablonów mapowania FHIR](iot-mapping-templates.md)
 
-* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
-
-FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza). FHIR jest zastrzeżonym znakiem towarowym HL7 i jest używany z uprawnieniem HL7.

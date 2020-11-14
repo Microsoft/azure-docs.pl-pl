@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7e703137b7954dd152f976069770a0c8c4a0f34c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90564172"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629822"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą witryny Azure Portal 
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w systemach Windows, Linux i macOS. W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z udziałami plików platformy Azure przy użyciu witryny [Azure Portal](https://portal.azure.com/).
@@ -31,12 +31,12 @@ Aby utworzyć udział plików platformy Azure, wykonaj następujące czynności:
 
 3. W menu w górnej części strony **usługi plików** kliknij pozycję **udział plików**. Zostanie rozwinięta strona **Nowy udział plików**.
 4. W polu **Nazwa** wpisz ciąg *myshare*.
-5. Kliknij przycisk **OK**, aby utworzyć udział plików platformy Azure.
+5. Kliknij przycisk **OK** , aby utworzyć udział plików platformy Azure.
 
-Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą zaczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
+Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą zaczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
 
 ## <a name="use-your-azure-file-share"></a>Korzystanie z udziału plików platformy Azure
-Azure Files oferuje trzy metody pracy z plikami i folderami w udziale plików platformy Azure: standardowy branżowy [protokół SMB (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)), protokół sieciowy systemu plików (NFS) i [Protokół REST](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Azure Files oferuje trzy metody pracy z plikami i folderami w udziale plików platformy Azure: standardowy branżowy [protokół SMB (Server Message Block](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)), protokół sieciowy systemu plików (NFS) i [Protokół REST](/rest/api/storageservices/file-service-rest-api). 
 
 Aby zainstalować udział plików za pomocą protokołu SMB, zobacz następujący dokument zgodny z używanym systemem operacyjnym:
 - [Windows](storage-how-to-use-files-windows.md)
@@ -61,7 +61,7 @@ Aby utworzyć nowy katalog o nazwie *myDirectory* w katalogu głównym udziału 
 
 1. Na stronie **Usługa plików** wybierz udział plików **myshare**. Zostanie otwarta strona udziału plików.
 2. W menu w górnej części strony wybierz pozycję **+ Dodaj katalog**. Zostanie rozwinięta strona **Nowy katalog**.
-3. Wpisz nazwę *myDirectory*, a następnie kliknij przycisk **OK**.
+3. Wpisz nazwę *myDirectory* , a następnie kliknij przycisk **OK**.
 
 #### <a name="upload-a-file"></a>Przekazywanie pliku 
 Aby można było zademonstrować przekazywanie pliku, najpierw musisz utworzyć lub wybrać plik do przekazania. Możesz to zrobić w dowolny sposób. Po wybraniu pliku do przekazania:

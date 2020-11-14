@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394870"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629669"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Przepływ danych łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
 
-Ten artykuł zawiera omówienie przepływu danych w łączniku usługi Azure IoT dla FHIR *. Dowiesz się [więcej na temat](https://www.hl7.org/fhir/observation.html) różnych etapów przetwarzania danych w ramach łącznika usługi Azure IoT dla FHIR, które przekształcają dane urządzeń w FHIRe zasoby.
+Ten artykuł zawiera omówienie przepływu danych w usłudze Azure IoT Connector na potrzeby szybkich zasobów współdziałania w ramach usług opieki zdrowotnej (FHIR&#174;) *. Dowiesz się [więcej na temat](https://www.hl7.org/fhir/observation.html) różnych etapów przetwarzania danych w ramach łącznika usługi Azure IoT dla FHIR, które przekształcają dane urządzeń w FHIRe zasoby.
 
 ![Łącznik usługi Azure IoT dla przepływu danych FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -36,7 +36,7 @@ Normalizacja to kolejny etap, w którym dane urządzenia są pobierane z powyżs
 
 Proces normalizacji nie tylko upraszcza przetwarzanie danych na późniejszym etapie, ale również zapewnia możliwość tworzenia projektu jednego komunikatu wejściowego w wielu znormalizowanych wiadomościach. Na przykład urządzenie może wysyłać wiele nieistotnych oznak dla temperatury ciała, współczynnika pulsu, naciskania krwi oraz stawki za ponowne oddychanie w pojedynczym komunikacie. Ten komunikat wejściowy utworzy cztery osobne zasoby FHIR. Każdy zasób reprezentuje inny klucz istotny, a komunikat wejściowy jest rzutowany na cztery różne znormalizowane komunikaty.
 
-## <a name="group"></a>Group (Grupa)
+## <a name="group"></a>Grupa
 Grupa jest następnym etapem, w którym znormalizowane wiadomości dostępne z poprzedniego etapu są grupowane przy użyciu trzech różnych parametrów: tożsamości urządzenia, typu pomiaru i okresu.
 
 Grupowanie tożsamości urządzeń i typów pomiarów umożliwia użycie typu pomiaru [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) . Ten typ zapewnia zwięzły sposób przedstawiania serii pomiarów z urządzenia w FHIR. I okres określa czas, w którym obserwacje zasobów wygenerowanych przez łącznik usługi Azure IoT dla FHIR są zapisywane w interfejsie API platformy Azure dla FHIR.
@@ -44,7 +44,7 @@ Grupowanie tożsamości urządzeń i typów pomiarów umożliwia użycie typu po
 > [!NOTE]
 > Wartość przedziału czasu jest domyślnie równa 15 minut i nie można jej skonfigurować do korzystania z wersji zapoznawczej.
 
-## <a name="transform"></a>Przekształcanie
+## <a name="transform"></a>Przekształcenie
 Na etapie transformacji pogrupowane komunikaty są przetwarzane za pomocą szablonów mapowania FHIR. Komunikaty pasujące do typu szablonu są przekształcane na FHIR, które są określone za pośrednictwem mapowania.
 
 W tym momencie zasób [urządzenia](https://www.hl7.org/fhir/device.html) wraz z jego skojarzonym zasobem [pacjenta](https://www.hl7.org/fhir/patient.html) jest również pobierany z serwera FHIR przy użyciu identyfikatora urządzenia znajdującego się w komunikacie. Te zasoby są dodawane jako odniesienia do tworzonego zasobu.
@@ -64,6 +64,4 @@ Kliknij poniżej następny krok, aby dowiedzieć się, jak utworzyć szablony ma
 >[!div class="nextstepaction"]
 >[Łącznik usługi Azure IoT dla szablonów mapowania FHIR](iot-mapping-templates.md)
 
-* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
-
-FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza). FHIR jest zastrzeżonym znakiem towarowym HL7 i jest używany z uprawnieniem HL7. 

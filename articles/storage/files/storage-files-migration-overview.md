@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785616"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628921"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -78,7 +78,7 @@ Jak korzystać z tabeli:
 
 Scenariusz bez linku jeszcze nie ma opublikowanego przewodnika migracji. Sprawdź, czy w tej tabeli od czasu są aktualizowane aktualizacje. Nowe prowadnice zostaną opublikowane, gdy staną się dostępne.
 
-| Źródło | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
+| Element źródłowy | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
 |:---|:--|:--|
 | | Kombinacja narzędzi:| Kombinacja narzędzi: |
 | System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync i wstępnie rozsiane pliki w chmurze](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
@@ -134,7 +134,7 @@ W tej sekcji opisano narzędzia, które ułatwiają planowanie i uruchamianie mi
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy firmy Microsoft Corporation
 
-RoboCopy jest jednym z narzędzi, które są najbardziej odpowiednie do migracji plików. Jest to część systemu Windows. Główna [Dokumentacja Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) to przydatne zasoby dla wielu opcji tego narzędzia.
+RoboCopy jest jednym z narzędzi, które są najbardziej odpowiednie do migracji plików. Jest to część systemu Windows. Główna [Dokumentacja Robocopy](/windows-server/administration/windows-commands/robocopy) to przydatne zasoby dla wielu opcji tego narzędzia.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize od oprogramowania DŻEMów GmbH
 

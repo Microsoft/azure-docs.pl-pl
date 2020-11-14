@@ -7,19 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628987"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630366"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Szyfrowanie IPSec podczas przesyłania dla usługi Azure HDInsight
 
 W tym artykule omówiono implementację szyfrowania podczas przesyłania komunikacji między węzłami klastra usługi Azure HDInsight.
-
-> [!Note]
-> Szyfrowanie podczas przesyłania jest obecnie włączone dla następujących regionów: Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2.
 
 ## <a name="background"></a>Tło
 
@@ -31,7 +28,7 @@ Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane przy uży
 
 ## <a name="enable-encryption-in-transit"></a>Włącz szyfrowanie podczas przesyłania
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Aby utworzyć nowy klaster z włączonym szyfrowaniem przy użyciu Azure Portal, wykonaj następujące czynności:
 
@@ -42,7 +39,7 @@ Aby utworzyć nowy klaster z włączonym szyfrowaniem przy użyciu Azure Portal,
 
 1. Na karcie **zabezpieczenia i sieć** zaznacz pole wyboru **Włącz szyfrowanie podczas przesyłania** .
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Utwórz klaster — karta Zabezpieczenia i sieć.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Tworzenie klastra — Włącz szyfrowanie podczas przesyłania.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Tworzenie klastra z włączonym szyfrowaniem przy użyciu interfejsu wiersza polecenia platformy Azure
 

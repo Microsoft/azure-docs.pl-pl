@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510341"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630485"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migracja do Azure File Sync
 
@@ -32,7 +32,7 @@ Azure File Sync jest usługą firmy Microsoft w chmurze opartą na dwóch głów
 
 Ten artykuł koncentruje się na krokach migracji. Jeśli przed migracją chcesz dowiedzieć się więcej o Azure File Sync, zalecamy następujące artykuły:
 
-* [Azure File Sync — przegląd](https://aka.ms/AFS "Omówienie")
+* [Azure File Sync — przegląd](./storage-sync-files-planning.md "Omówienie")
 * [Azure File Sync — Przewodnik wdrażania](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Cele migracji
@@ -155,7 +155,7 @@ Tle
       /MIR
    :::column-end:::
    :::column span="1":::
-      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i "*usunięcia*" zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Jest to doskonałe rozwiązanie dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
+      Umożliwia uruchamianie tego polecenia RoboCopy kilka razy, sekwencyjnie w tym samym miejscu docelowym/miejscu docelowym. Identyfikuje, co zostało wcześniej skopiowane, i pominie go. Tylko zmiany, dodatki i " *usunięcia* " zostaną przetworzone, które wystąpiły od momentu ostatniego uruchomienia. Jeśli polecenie nie było wcześniej uruchamiane, nic nie zostanie pominięte. Jest to doskonałe rozwiązanie dla lokalizacji źródłowych, które są nadal aktywnie używane i zmieniane.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,13 +210,13 @@ Zakończono Migrowanie udziału/grupy udziałów do wspólnego katalogu główne
 Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z StorSimple do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkich***  grup synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do bardziej dopasowanej do wykorzystania pamięci podręcznej, wypowiedz 20%. 
+> Po przeniesieniu wszystkich danych z StorSimple do systemu Windows Server i zakończeniu migracji: Wróć do * **wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do wartości lepiej dopasowanej do wykorzystania pamięci podręcznej, powiedz 20%. 
 
 Zasady wolnego miejsca na woluminie w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działała zgodnie z oczekiwaniami. O ile nie jest to cel, aby mieć tylko przestrzeń nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia *Robocopy po stronie* serwera systemu Windows. W takim przypadku szybkość pobierania jest prawdopodobnie lepsza niż szybkość przekazywania. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany.
+Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia RoboCopy w przypadku, gdy w systemie Windows Server po stronie serwera nie powiedzie się polecenie _. W takim przypadku szybkość pobierania jest prawdopodobnie lepsza niż szybkość przekazywania. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany.
 
 Zezwalaj na postęp synchronizacji i warstwowanie w chmurze Zwolnij miejsce na dysku. Można obserwować, że w Eksploratorze plików systemu Windows Server.
 
@@ -233,6 +233,6 @@ Zawartość migracji:
 
 Azure File Sync zawartość:
 
-* [Omówienie usługi AFS](https://aka.ms/AFS)
+* [Omówienie usługi AFS](./storage-sync-files-planning.md)
 * [Podręcznik wdrażania AFS](storage-files-deployment-guide.md)
 * [Rozwiązywanie problemów z systemem AFS](storage-sync-files-troubleshoot.md)

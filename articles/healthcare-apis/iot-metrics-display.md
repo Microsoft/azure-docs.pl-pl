@@ -1,21 +1,21 @@
 ---
-title: Wyświetlanie i Konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza)
+title: Wyświetlanie i konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza)
 description: W tym artykule opisano sposób wyświetlania i konfigurowania usługi Azure IoT Connector for FHIR (wersja zapoznawcza).
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 9a4e2c4dfe8a9de28688afe0dd036cecb7ce2b39
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 79a7b18986f4bed503cd5493a7d74325a13fe535
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381222"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630519"
 ---
-# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Wyświetlanie i Konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza) 
+# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Wyświetlanie i konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza) 
 
 W tym artykule dowiesz się, jak wyświetlać i konfigurować łącznik usługi Azure IoT na potrzeby szybkich zasobów współdziałania w ramach usług opieki zdrowotnej (FHIR&#174;) * metryki.
 
@@ -41,6 +41,9 @@ W tym artykule dowiesz się, jak wyświetlać i konfigurować łącznik usługi 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;IoT Connector&quot;, na którym jest wyświetlany wykres liniowy okresu &quot;1-godzinnego&quot; dla łącznika 1." lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metric-types-for-azure-iot-connector-for-fhir-preview"></a>Typy metryk dla łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza) 
+
+> [!TIP]
+> Informacje o przepływie danych w łączniku usługi Azure IoT dla FHIR można znaleźć w przewodniku rozwiązywania problemów z usługą Azure IoT Connector [for FHIR (wersja zapoznawcza)](./iot-data-flow.md) i [usługą Azure IoT Connector for FHIR (wersja zapoznawcza)](./iot-troubleshoot-guide.md) .
 
 Metryki łącznika IoT, które można wyświetlić, są wymienione w poniższej tabeli:
 

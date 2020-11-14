@@ -8,15 +8,15 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394241"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630553"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Szablony mapowania łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
-W tym artykule szczegółowo opisano sposób konfigurowania łącznika usługi Azure IoT dla FHIR * przy użyciu szablonów mapowania.
+W tym artykule szczegółowo opisano sposób konfigurowania łącznika usługi Azure IoT na potrzeby szybkich zasobów współdziałania w usłudze opieki zdrowotnej (FHIR&#174;) * przy użyciu szablonów
 
 Łącznik usługi Azure IoT dla FHIR wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia** , jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR** , steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
 
@@ -362,7 +362,7 @@ Reprezentuje typ danych [SampledData](http://hl7.org/fhir/datatypes.html#Sampled
 |**DefaultPeriod**|Domyślny okres w milisekundach do użycia. 
 |**Jednostka**|Jednostka, która ma zostać ustawiona w pochodzeniu SampledData. 
 
-#### <a name="quantity"></a>Liczba
+#### <a name="quantity"></a>Ilość
 Przedstawia typ danych FHIR [ilość](http://hl7.org/fhir/datatypes.html#Quantity) . Jeśli w grupowaniu występuje więcej niż jedna wartość, zostanie użyta tylko pierwsza wartość. Po nadejściu nowej wartości, która mapuje na tę samą obserwację, spowoduje zastąpienie starej wartości.
 
 | Właściwość | Opis 
@@ -567,6 +567,4 @@ Zapoznaj się z często zadawanymi pytaniami dotyczącymi usługi Azure IoT Conn
 >[!div class="nextstepaction"]
 >[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md)
 
-* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
-
-FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza). FHIR jest zastrzeżonym znakiem towarowym HL7 i jest używany z uprawnieniem HL7.

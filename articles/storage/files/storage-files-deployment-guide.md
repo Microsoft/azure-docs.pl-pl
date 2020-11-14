@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034502"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629244"
 ---
 # <a name="how-to-deploy-azure-files"></a>Jak wdrożyć usługę Pliki Azure
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego protokołu SMB. W tym artykule przedstawiono, jak praktycznie wdrożyć Azure Files w organizacji.
@@ -22,7 +22,7 @@ Zdecydowanie zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](sto
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że wykonano już następujące czynności:
 
-- Utworzono konto usługi Azure Storage z żądanymi opcjami odporności i szyfrowania w żądanym regionie. Zobacz [Tworzenie konta magazynu,](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) Aby uzyskać instrukcje krok po kroku dotyczące sposobu tworzenia konta magazynu.
+- Utworzono konto usługi Azure Storage z żądanymi opcjami odporności i szyfrowania w żądanym regionie. Zobacz [Tworzenie konta magazynu,](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) Aby uzyskać instrukcje krok po kroku dotyczące sposobu tworzenia konta magazynu.
 - Utworzono udział plików platformy Azure z żądanym limitem przydziału na koncie magazynu. Zobacz [Tworzenie udziału plików](storage-how-to-create-file-share.md) , aby uzyskać instrukcje krok po kroku dotyczące sposobu tworzenia udziału plików.
 
 ## <a name="transfer-data-into-azure-files"></a>Przesyłanie danych do Azure Files
@@ -63,7 +63,7 @@ Poniższe kroki spowodują zaimportowanie danych z lokalizacji lokalnej do udzia
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Można określić wiele udziałów z kontem magazynu. Aby uzyskać więcej informacji [, zobacz przygotowanie pliku CSV zestawu danych](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
+    Można określić wiele udziałów z kontem magazynu. Aby uzyskać więcej informacji [, zobacz przygotowanie pliku CSV zestawu danych](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) .
 
 5. Utwórz plik CSV driveset. Plik CSV driveset zawiera listę dysków dostępnych dla lokalnego agenta eksportu. Na przykład następujące pliki CSV driveset zawierają listę `X:` dysków, `Y:` i, `Z:` które mają być używane w zadaniu lokalnego eksportu:
 
@@ -74,7 +74,7 @@ Poniższe kroki spowodują zaimportowanie danych z lokalizacji lokalnej do udzia
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Aby uzyskać więcej informacji [, zobacz przygotowanie pliku CSV driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
+    Aby uzyskać więcej informacji [, zobacz przygotowanie pliku CSV driveset](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) .
 
 6. Użyj [Narzędzia WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) , aby skopiować dane na jeden lub więcej dysków twardych.
 
@@ -88,7 +88,7 @@ Poniższe kroki spowodują zaimportowanie danych z lokalizacji lokalnej do udzia
 7. [Utwórz zadanie importu](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
-Robocopy to dobrze znane narzędzie do kopiowania, które jest dostarczane z systemami Windows i Windows Server. Robocopy może służyć do transferowania danych do Azure Files przez zainstalowanie udziału plików lokalnie, a następnie użycie zainstalowanej lokalizacji jako miejsca docelowego w poleceniu Robocopy. Korzystanie z Robocopy jest bardzo proste:
+Robocopy to dobrze znane narzędzie do kopiowania, które jest dołączone do systemu Windows i Windows Server. Robocopy może służyć do transferowania danych do Azure Files przez zainstalowanie udziału plików lokalnie, a następnie użycie zainstalowanej lokalizacji jako miejsca docelowego w poleceniu Robocopy. Korzystanie z Robocopy jest bardzo proste:
 
 1. [Zainstaluj udział plików platformy Azure](storage-how-to-use-files-windows.md). W celu uzyskania optymalnej wydajności zalecamy zainstalowanie udziału plików platformy Azure lokalnie na serwerze, który zawiera dane. W niektórych przypadkach, na przykład gdy serwer plików, który obsługuje dane, jest urządzeniem NAS, może to nie być możliwe. W takim przypadku warto zainstalować udział plików platformy Azure na komputerze. W tym przykładzie `net use` jest używany w wierszu polecenia, aby zainstalować udział plików:
 
@@ -102,12 +102,12 @@ Robocopy to dobrze znane narzędzie do kopiowania, które jest dostarczane z sys
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopy ma znaczną liczbę opcji w celu zmodyfikowania zachowania kopiowania zgodnie z potrzebami. Aby uzyskać więcej informacji, zobacz stronę ręczną [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) .
+    Robocopy ma znaczną liczbę opcji w celu zmodyfikowania zachowania kopiowania zgodnie z potrzebami. Aby uzyskać więcej informacji, zobacz stronę ręczną [Robocopy](/windows-server/administration/windows-commands/robocopy) .
 
-### <a name="azcopy"></a>Narzędzie AzCopy
+### <a name="azcopy"></a>AzCopy
 AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych do i z Azure Files, a także do usługi Azure Blob Storage przy użyciu prostych poleceń z optymalną wydajnością. Korzystanie z AzCopy jest łatwe:
 
-1. Pobierz [najnowszą wersję programu AzCopy w systemie Windows](https://aka.ms/downloadazcopy) lub [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
+1. Pobierz [najnowszą wersję programu AzCopy w systemie Windows](https://aka.ms/downloadazcopy) lub [Linux](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json#download-azcopy).
 2. Użyj `azcopy` w wierszu polecenia, aby przenieść dane do udziału plików platformy Azure. Składnia w systemie Windows jest następująca: 
 
     ```
@@ -120,7 +120,7 @@ AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych do i z 
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy ma znaczną liczbę opcji w celu zmodyfikowania zachowania kopiowania zgodnie z potrzebami. Aby uzyskać więcej informacji, zobacz [AzCopy w systemie Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) i [AzCopy w systemie Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    AzCopy ma znaczną liczbę opcji w celu zmodyfikowania zachowania kopiowania zgodnie z potrzebami. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>Automatycznie Instaluj na wymaganych komputerach/serwerach
 Aby zastąpić udział plików lokalnych, warto wstępnie zainstalować udziały na maszynach, na których będą używane. Można to zrobić automatycznie na liście maszyn.

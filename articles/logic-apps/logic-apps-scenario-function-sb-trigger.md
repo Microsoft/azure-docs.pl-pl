@@ -1,22 +1,22 @@
 ---
 title: Wywoływanie aplikacji logiki za pomocą usługi Azure Functions
-description: Tworzenie usługi Azure Functions, która wywołuje lub wyzwala Aplikacje logiki przez nasłuchiwanie w usłudze Azure Service Bus
+description: Wywołaj lub Wyzwól Aplikacje logiki przy użyciu Azure Functions i Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013779"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629737"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Wywołaj lub Wyzwól Aplikacje logiki przy użyciu Azure Functions i Azure Service Bus
 
-Możesz użyć [Azure Functions](../azure-functions/functions-overview.md) , aby wyzwolić aplikację logiki, gdy zachodzi potrzeba wdrożenia długotrwałego odbiornika lub zadania. Można na przykład utworzyć funkcję platformy Azure, która nasłuchuje w kolejce [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) i natychmiast uruchamia aplikację logiki jako wyzwalacz wypychania.
+Możesz użyć [Azure Functions](../azure-functions/functions-overview.md) , aby wyzwolić aplikację logiki, gdy zachodzi potrzeba wdrożenia długotrwałego odbiornika lub zadania. Na przykład można utworzyć funkcję, która nasłuchuje w kolejce [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) i natychmiast uruchamia aplikację logiki jako wyzwalacz wypychania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -24,7 +24,7 @@ Możesz użyć [Azure Functions](../azure-functions/functions-overview.md) , aby
 
 * Przestrzeń nazw Azure Service Bus. Jeśli nie masz przestrzeni nazw, [najpierw utwórz swój obszar nazw](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Aplikacja funkcji platformy Azure, która jest kontenerem dla usługi Azure Functions. Jeśli nie masz aplikacji funkcji, [najpierw Utwórz aplikację funkcji](../azure-functions/functions-create-first-azure-function.md)i upewnij się, że wybrano pozycję .NET jako stos środowiska uruchomieniowego.
+* Aplikacja funkcji, która jest kontenerem dla funkcji. Jeśli nie masz aplikacji funkcji, [najpierw Utwórz aplikację funkcji](../azure-functions/functions-create-first-azure-function.md)i upewnij się, że wybrano pozycję .NET jako stos środowiska uruchomieniowego.
 
 * Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -50,7 +50,7 @@ W tym scenariuszu masz funkcję uruchamiającego każdą aplikację logiki, któ
 
    1. W wyzwalaczu żądania wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-   1. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON**wprowadź przykładowy ładunek, a następnie wybierz pozycję **gotowe**.
+   1. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON** wprowadź przykładowy ładunek, a następnie wybierz pozycję **gotowe**.
 
       ![Wprowadź przykładowy ładunek](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -94,7 +94,7 @@ W tym scenariuszu masz funkcję uruchamiającego każdą aplikację logiki, któ
 
    ![Wygenerowany adres URL wywołania zwrotnego dla wyzwalacza](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Utwórz funkcję platformy Azure
+## <a name="create-a-function"></a>Tworzenie funkcji
 
 Następnie Utwórz funkcję, która działa jako wyzwalacz i nasłuchuje kolejki.
 

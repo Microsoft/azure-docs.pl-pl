@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4d89fb4bcedb58aa156e75aaefc87479797dcd37
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577976"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630145"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -22,7 +22,7 @@ W tym artykule wymieniono niektóre typowe problemy związane z udziałami plik�
 
 ### <a name="cause-1-share-was-throttled"></a>Przyczyna 1: udział został ograniczony
 
-Żądania są ograniczane, gdy osiągnięto limity operacji we/wy na sekundę (IOPS), ruch przychodzący lub wychodzący dla udziału plików. Aby zrozumieć limity dla udziałów plików w warstwach Standardowa i Premium, zobacz [elementy docelowe udziałów plików i skalowania plików](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
+Żądania są ograniczane, gdy osiągnięto limity operacji we/wy na sekundę (IOPS), ruch przychodzący lub wychodzący dla udziału plików. Aby zrozumieć limity dla udziałów plików w warstwach Standardowa i Premium, zobacz [elementy docelowe udziałów plików i skalowania plików](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
 
 Aby potwierdzić, że Twój udział jest ograniczany, możesz uzyskać dostęp do metryk platformy Azure w portalu i korzystać z nich.
 
@@ -45,8 +45,8 @@ Aby potwierdzić, że Twój udział jest ograniczany, możesz uzyskać dostęp d
 
 ### <a name="solution"></a>Rozwiązanie
 
-- Jeśli używasz standardowego udziału plików, Włącz [duże udziały plików](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) na koncie magazynu. Duże udziały plików obsługują do 10 000 operacji we/wy na udział.
-- W przypadku korzystania z udziału plików w warstwie Premium Zwiększ rozmiar udostępnianego udziału plików, aby zwiększyć limit operacji we/wy. Aby dowiedzieć się więcej, zobacz sekcję "informacje o aprowizacji dla udziałów plików w warstwie Premium" w [przewodniku planowania Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares).
+- Jeśli używasz standardowego udziału plików, Włącz [duże udziały plików](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) na koncie magazynu. Duże udziały plików obsługują do 10 000 operacji we/wy na udział.
+- W przypadku korzystania z udziału plików w warstwie Premium Zwiększ rozmiar udostępnianego udziału plików, aby zwiększyć limit operacji we/wy. Aby dowiedzieć się więcej, zobacz sekcję "informacje o aprowizacji dla udziałów plików w warstwie Premium" w [przewodniku planowania Azure Files](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Przyczyna 2: duże obciążenie metadanych lub przestrzeni nazw
 

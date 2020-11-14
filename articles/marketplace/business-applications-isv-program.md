@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126740"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630298"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -38,10 +38,10 @@ Uczestnictwo w tym programie wymaga przejrzenia i zaakceptowania [uzupełnienia 
 > Ten krok wymaga od *właściciela* lub roli *Menedżera* w centrum partnerskim konta do podpisywania umów prawnych.
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
-1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) i wybierz pozycję **Ustawienia dewelopera** .
-1. Wybierz pozycję **umowy** .
+1. Wybierz pozycję **Ustawienia** (ikona koła zębatego), a następnie **Ustawienia dewelopera**.
+1. Wybierz pozycję **umowy**.
 1. Wybierz łącze wersja i Wyświetl umowę.
-1. Aby wyrazić zgodę i zaakceptować umowę, wybierz pozycję **Akceptuj umowę** .
+1. Aby wyrazić zgodę i zaakceptować umowę, wybierz pozycję **Akceptuj umowę**.
 
 ## <a name="set-up-your-billing-information"></a>Skonfiguruj informacje dotyczące rozliczeń
 
@@ -51,11 +51,12 @@ Skonfiguruj informacje dotyczące rozliczeń dla programu Business Applications 
 > Ten krok wymaga od *właściciela* lub roli *Menedżera* w centrum partnerskim konta do aktualizowania informacji dotyczących rozliczeń.
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
-1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) i wybierz pozycję **Ustawienia dewelopera** .
-1. W obszarze **konto** wybierz pozycję **profil rozliczeń** .
-1. Przejrzyj podstawowe informacje kontaktowe i rozliczeń, które są wypełniane przez firmę prawną i wprowadź niezbędne aktualizacje.
+1. Wybierz pozycję **Ustawienia** (ikona koła zębatego), a następnie **Ustawienia dewelopera**.
+1. W obszarze **Ustawienia konta** wybierz pozycję **profil rozliczeń**.
+1. Przejrzyj podstawowe informacje kontaktowe i rozliczeń, które są wypełniane przez jednostkę prawną.
+1. Aby wprowadzić zmiany, wybierz pozycję **Aktualizuj**.
 1. W razie potrzeby podaj ustawienia identyfikator podatkowy/NIP.
-1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+1. Aby zapisać zmiany, wybierz pozycję **Aktualizuj**.
 
 > [!NOTE]
 > W dowolnym momencie możesz zaktualizować profil rozliczeń. Nie można jednak później zmienić *nazwy firmy* i *kraju* adres rozliczeniowy.

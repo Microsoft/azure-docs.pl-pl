@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716012"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630179"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Linux (SMB)
 
@@ -61,14 +61,14 @@ Aby rozwiązać ten problem, użyj [Narzędzia do rozwiązywania problemów w ce
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Przyczyna 1: nieszyfrowany kanał komunikacyjny
 
-Ze względów bezpieczeństwa połączenia z udziałami plików platformy Azure są blokowane, jeśli kanał komunikacyjny nie jest szyfrowany i jeśli próba połączenia nie pochodzi z tego samego centrum danych, w którym znajdują się udziały plików platformy Azure. Nieszyfrowane połączenia w tym samym centrum danych też mogą być blokowane, jeśli ustawienie [Wymagany bezpieczny transfer](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) jest włączone na koncie magazynu. Szyfrowany kanał komunikacyjny jest udostępniany tylko wtedy, gdy system operacyjny klienta użytkownika obsługuje szyfrowanie protokołu SMB.
+Ze względów bezpieczeństwa połączenia z udziałami plików platformy Azure są blokowane, jeśli kanał komunikacyjny nie jest szyfrowany i jeśli próba połączenia nie pochodzi z tego samego centrum danych, w którym znajdują się udziały plików platformy Azure. Nieszyfrowane połączenia w tym samym centrum danych też mogą być blokowane, jeśli ustawienie [Wymagany bezpieczny transfer](../common/storage-require-secure-transfer.md) jest włączone na koncie magazynu. Szyfrowany kanał komunikacyjny jest udostępniany tylko wtedy, gdy system operacyjny klienta użytkownika obsługuje szyfrowanie protokołu SMB.
 
 Aby dowiedzieć się więcej, zobacz [Wymagania wstępne dotyczące instalowania udziału plików platformy Azure za pomocą systemu Linux i pakietu cifs utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Rozwiązanie dla przyczyny 1
 
 1. Nawiąż połączenie z klientem obsługującym szyfrowanie SMB lub Połącz się z maszyną wirtualną w tym samym centrum danych co konto usługi Azure Storage, które jest używane na potrzeby udziału plików platformy Azure.
-2. Upewnij się, że ustawienie [wymagany bezpieczny transfer](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) jest wyłączone na koncie magazynu, jeśli klient nie obsługuje szyfrowania SMB.
+2. Upewnij się, że ustawienie [wymagany bezpieczny transfer](../common/storage-require-secure-transfer.md) jest wyłączone na koncie magazynu, jeśli klient nie obsługuje szyfrowania SMB.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Przyczyna 2: na koncie magazynu są włączone reguły sieci wirtualnej lub zapory 
 
@@ -76,7 +76,7 @@ Jeśli reguły sieci wirtualnej i zapory są skonfigurowane na koncie magazynu, 
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 
-Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../common/storage-network-security.md).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>Przekroczono limit przydziału dysku "[odmowa uprawnień] podczas próby otwarcia pliku
@@ -95,19 +95,19 @@ Istnieje limit przydziału otwartych dojść do 2 000 dla jednego pliku lub kata
 
 Zmniejsz liczbę równoczesnych dojść otwartych, zamykając niektóre uchwyty, a następnie spróbuj ponownie wykonać operację.
 
-Aby wyświetlić otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) programu PowerShell.  
+Aby wyświetlić otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) programu PowerShell.  
 
-Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
+Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Kopiowanie plików do i z Azure Files w systemie Linux
 
 - Jeśli nie masz wymaganego minimalnego rozmiaru operacji we/wy, zalecamy użycie 1 MiB jako rozmiaru we/wy w celu uzyskania optymalnej wydajności.
 - Użyj odpowiedniej metody copy:
-    - Użyj [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) do dowolnego transferu między dwoma udziałami plików.
+    - Użyj [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) do dowolnego transferu między dwoma udziałami plików.
     - Użycie opcji CP lub DD z równoległością może zwiększyć szybkość kopiowania, a liczba wątków zależy od przypadku użycia i obciążenia. W poniższych przykładach użyto sześciu: 
     - przykład CP (CP użyje domyślnego rozmiaru bloku systemu plików jako rozmiaru fragmentu): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - DD przykład (to polecenie jawnie ustawia rozmiar fragmentu na 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -144,13 +144,13 @@ Kod błędu: 403
 
 ### <a name="solution-for-cause-1"></a>Rozwiązanie dla przyczyny 1
 
-Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Przyczyna 2: Twoje konto użytkownika nie ma dostępu do konta magazynu
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 
-Przejdź do konta magazynu, na którym znajduje się udział plików platformy Azure, kliknij pozycję **Kontrola dostępu (IAM)** i sprawdź, czy konto użytkownika ma dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [jak zabezpieczyć konto magazynu za pomocą kontroli dostępu opartej na rolach na platformie Azure (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Przejdź do konta magazynu, na którym znajduje się udział plików platformy Azure, kliknij pozycję **Kontrola dostępu (IAM)** i sprawdź, czy konto użytkownika ma dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [jak zabezpieczyć konto magazynu za pomocą kontroli dostępu opartej na rolach na platformie Azure (RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Nie można usunąć pliku lub katalogu z udziału plików platformy Azure
@@ -162,12 +162,12 @@ Ten problem występuje zwykle, gdy plik lub katalog ma otwarte dojście.
 
 Jeśli klienci SMB zamknęli wszystkie otwarte dojścia, a problem nadal wystąpi, wykonaj następujące czynności:
 
-- Użyj polecenia cmdlet programu PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) , aby wyświetlić otwarte dojścia.
+- Użyj polecenia cmdlet programu PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) , aby wyświetlić otwarte dojścia.
 
-- Użyj polecenia cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) programu PowerShell, aby zamknąć otwarte dojścia. 
+- Użyj polecenia cmdlet [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) programu PowerShell, aby zamknąć otwarte dojścia. 
 
 > [!Note]  
-> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Niska wydajność w udziale usługi Azure File zainstalowanym na maszynie wirtualnej z systemem Linux
@@ -192,11 +192,11 @@ Możesz również sprawdzić, czy poprawne opcje są używane, uruchamiając pol
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
 ```
 
-Jeśli **pamięć podręczna = Strict** lub **serverino** nie jest obecna, Odinstaluj i Zainstaluj Azure Files ponownie, uruchamiając polecenie instalacji z [dokumentacji](../storage-how-to-use-files-linux.md). Następnie ponownie sprawdź, czy wpis **/etc/fstab** ma poprawne opcje.
+Jeśli **pamięć podręczna = Strict** lub **serverino** nie jest obecna, Odinstaluj i Zainstaluj Azure Files ponownie, uruchamiając polecenie instalacji z [dokumentacji](./storage-how-to-use-files-linux.md). Następnie ponownie sprawdź, czy wpis **/etc/fstab** ma poprawne opcje.
 
 ### <a name="cause-2-throttling"></a>Przyczyna 2: ograniczanie przepustowości
 
-Istnieje możliwość ograniczenia przepustowości, a Twoje żądania są wysyłane do kolejki. Można to sprawdzić, wykorzystując [metryki usługi Azure Storage w Azure monitor](../common/storage-metrics-in-azure-monitor.md).
+Istnieje możliwość ograniczenia przepustowości, a Twoje żądania są wysyłane do kolejki. Można to sprawdzić, wykorzystując [metryki usługi Azure Storage w Azure monitor](../blobs/monitor-blob-storage.md).
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 
@@ -294,7 +294,7 @@ Jeśli nie możesz wykonać uaktualnienia do najnowszych wersji jądra, możesz 
 ## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>"CIFS VFS: Error-22 przy IOCTL do uzyskiwania listy interfejsów" podczas instalowania udziału plików platformy Azure przy użyciu protokołu SMB 3,0
 
 ### <a name="cause"></a>Przyczyna
-Ten błąd jest rejestrowany, ponieważ Azure Files [obecnie nie obsługuje wielokanałowości SMB](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+Ten błąd jest rejestrowany, ponieważ Azure Files [obecnie nie obsługuje wielokanałowości SMB](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### <a name="solution"></a>Rozwiązanie
 Ten błąd może zostać zignorowany.

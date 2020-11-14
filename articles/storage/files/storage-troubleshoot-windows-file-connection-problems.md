@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075130"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630162"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
@@ -30,14 +30,14 @@ Podczas próby zainstalowania udziału plików może zostać wyświetlony nastę
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Przyczyna 1: nieszyfrowany kanał komunikacyjny
 
-Ze względów bezpieczeństwa połączenia z udziałami plików platformy Azure są blokowane, jeśli kanał komunikacyjny nie jest szyfrowany i jeśli próba połączenia nie pochodzi z tego samego centrum danych, w którym znajdują się udziały plików platformy Azure. Nieszyfrowane połączenia w tym samym centrum danych też mogą być blokowane, jeśli ustawienie [Wymagany bezpieczny transfer](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) jest włączone na koncie magazynu. Szyfrowany kanał komunikacyjny jest udostępniany tylko wtedy, gdy system operacyjny klienta użytkownika obsługuje szyfrowanie protokołu SMB.
+Ze względów bezpieczeństwa połączenia z udziałami plików platformy Azure są blokowane, jeśli kanał komunikacyjny nie jest szyfrowany i jeśli próba połączenia nie pochodzi z tego samego centrum danych, w którym znajdują się udziały plików platformy Azure. Nieszyfrowane połączenia w tym samym centrum danych też mogą być blokowane, jeśli ustawienie [Wymagany bezpieczny transfer](../common/storage-require-secure-transfer.md) jest włączone na koncie magazynu. Szyfrowany kanał komunikacyjny jest udostępniany tylko wtedy, gdy system operacyjny klienta użytkownika obsługuje szyfrowanie protokołu SMB.
 
 Systemy Windows 8, Windows Server 2012 i nowsze wersje negocjują żądania obejmujące protokół SMB 3.0, który obsługuje szyfrowanie.
 
 ### <a name="solution-for-cause-1"></a>Rozwiązanie dla przyczyny 1
 
 1. Nawiąż połączenie z klientem obsługującym szyfrowanie SMB (system Windows 8, Windows Server 2012 lub nowszy) lub Połącz się z maszyną wirtualną w tym samym centrum danych co konto usługi Azure Storage, które jest używane w udziale plików platformy Azure.
-2. Upewnij się, że ustawienie [wymagany bezpieczny transfer](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) jest wyłączone na koncie magazynu, jeśli klient nie obsługuje szyfrowania SMB.
+2. Upewnij się, że ustawienie [wymagany bezpieczny transfer](../common/storage-require-secure-transfer.md) jest wyłączone na koncie magazynu, jeśli klient nie obsługuje szyfrowania SMB.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Przyczyna 2: na koncie magazynu są włączone reguły sieci wirtualnej lub zapory 
 
@@ -45,7 +45,7 @@ Jeśli reguły sieci wirtualnej i zapory są skonfigurowane na koncie magazynu, 
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 
-Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci** . Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../common/storage-network-security.md).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Przyczyna 3: uprawnienia na poziomie udziału są nieprawidłowe w przypadku korzystania z uwierzytelniania opartego na tożsamościach
 
@@ -55,10 +55,10 @@ Jeśli użytkownicy uzyskują dostęp do udziału plików platformy Azure przy u
 
 Sprawdź, czy uprawnienia zostały prawidłowo skonfigurowane:
 
-- **Active Directory (AD)** zobacz [przypisywanie uprawnień na poziomie udziału do tożsamości](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+- **Active Directory (AD)** zobacz [przypisywanie uprawnień na poziomie udziału do tożsamości](./storage-files-identity-ad-ds-assign-permissions.md).
 
     Przypisania uprawnień na poziomie udziału są obsługiwane dla grup i użytkowników, które zostały zsynchronizowane z Active Directory (AD) do Azure Active Directory (Azure AD) przy użyciu Azure AD Connect.  Upewnij się, że grupy i użytkownicy, którym przypisano uprawnienia na poziomie udziału, nie są obsługiwane grupy "tylko w chmurze".
-- **Azure Active Directory Domain Services (AD DS platformy Azure)** zobacz [przypisywanie uprawnień dostępu do tożsamości](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
+- **Azure Active Directory Domain Services (AD DS platformy Azure)** zobacz [przypisywanie uprawnień dostępu do tożsamości](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Błąd 53, błąd 67 lub błąd 87 podczas instalowania lub odinstalowywania udziału plików platformy Azure
@@ -111,7 +111,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>Rozwiązanie dla przyczyny 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Rozwiązanie 1 — użycie usługi Azure File Sync
-Azure File Sync można przekształcić lokalny serwer systemu Windows w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Usługa Azure File Sync działa przez port 443 i może służyć jako obejście w celu uzyskania dostępu do usługi Azure Files z klientów, którzy mają zablokowany port 445. [Dowiedz się, jak skonfigurować Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync można przekształcić lokalny serwer systemu Windows w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Usługa Azure File Sync działa przez port 443 i może służyć jako obejście w celu uzyskania dostępu do usługi Azure Files z klientów, którzy mają zablokowany port 445. [Dowiedz się, jak skonfigurować Azure File Sync](./storage-sync-files-extend-servers.md).
 
 #### <a name="solution-2---use-vpn"></a>Rozwiązanie 2 — użycie sieci VPN
 Skonfigurowanie sieci VPN do określonego konta magazynu spowoduje, że ruch przejdzie przez bezpieczny tunel, a nie przez Internet. Postępuj zgodnie z [instrukcjami konfigurowania sieci VPN](storage-files-configure-p2s-vpn-windows.md), aby uzyskać dostęp do usługi Azure Files z systemu Windows.
@@ -120,7 +120,7 @@ Skonfigurowanie sieci VPN do określonego konta magazynu spowoduje, że ruch prz
 Skontaktuj się z działem IT lub usługodawcą internetowym, aby otworzyć port 445 wychodzące do [zakresów adresów IP platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Rozwiązanie 4 — użycie narzędzi opartych na interfejsie API REST, takich jak Eksplorator usługi Storage/Powershell
-Azure Files obsługuje również protokół REST oprócz protokołu SMB. Dostęp do funkcji REST działa przez port 443 (standardowy protokół TCP). Istnieją różne narzędzia, które są napisane przy użyciu interfejsu API REST, które oferują rozbudowany interfejs użytkownika. [Eksplorator usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) jest jednym z nich. [Pobierz i zainstaluj Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) i połącz się ze swoim udziałem plików obsługiwanym przez usługę Azure Files. Można również użyć [programu PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) , który również jest interfejsem API REST użytkownika.
+Azure Files obsługuje również protokół REST oprócz protokołu SMB. Dostęp do funkcji REST działa przez port 443 (standardowy protokół TCP). Istnieją różne narzędzia, które są napisane przy użyciu interfejsu API REST, które oferują rozbudowany interfejs użytkownika. [Eksplorator usługi Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) jest jednym z nich. [Pobierz i zainstaluj Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) i połącz się ze swoim udziałem plików obsługiwanym przez usługę Azure Files. Można również użyć [programu PowerShell](./storage-how-to-use-files-powershell.md) , który również jest interfejsem API REST użytkownika.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Przyczyna 2: NTLMv1 jest włączona
 
@@ -130,7 +130,7 @@ Aby ustalić, czy jest to przyczyną błędu, sprawdź, czy następujący podklu
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
-Aby uzyskać więcej informacji, zobacz temat [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) w witrynie TechNet.
+Aby uzyskać więcej informacji, zobacz temat [LmCompatibilityLevel](/previous-versions/windows/it-pro/windows-2000-server/cc960646(v=technet.10)) w witrynie TechNet.
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 
@@ -143,18 +143,18 @@ Przywróć wartość **LmCompatibilityLevel** do wartości domyślnej równej 3 
 
 ### <a name="cause"></a>Przyczyna
 
-Błąd 1816 występuje po osiągnięciu górnego limitu współbieżnych otwartych dojść, które są dozwolone dla pliku lub katalogu w udziale plików platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Files scale targets (Cele skalowania usługi Azure Files)](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets).
+Błąd 1816 występuje po osiągnięciu górnego limitu współbieżnych otwartych dojść, które są dozwolone dla pliku lub katalogu w udziale plików platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Files scale targets (Cele skalowania usługi Azure Files)](./storage-files-scale-targets.md#azure-files-scale-targets).
 
 ### <a name="solution"></a>Rozwiązanie
 
-Zmniejsz liczbę współbieżnych dojść otwartych przez zamknięcie niektórych uchwytów, a następnie ponów próbę. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Storage listy kontrolnej wydajności i skalowalności](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Zmniejsz liczbę współbieżnych dojść otwartych przez zamknięcie niektórych uchwytów, a następnie ponów próbę. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Storage listy kontrolnej wydajności i skalowalności](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
-Aby wyświetlić otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) programu PowerShell.  
+Aby wyświetlić otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) programu PowerShell.  
 
-Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
+Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Błąd "Brak dostępu" podczas próby uzyskania dostępu do udziału plików platformy Azure lub usunięcie go  
@@ -167,13 +167,13 @@ Kod błędu: 403
 
 ### <a name="solution-for-cause-1"></a>Rozwiązanie dla przyczyny 1
 
-Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci** . Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Przyczyna 2: Twoje konto użytkownika nie ma dostępu do konta magazynu
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 
-Przejdź do konta magazynu, na którym znajduje się udział plików platformy Azure, kliknij pozycję **Kontrola dostępu (IAM)** i sprawdź, czy konto użytkownika ma dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [jak zabezpieczyć konto magazynu za pomocą kontroli dostępu opartej na rolach na platformie Azure (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Przejdź do konta magazynu, na którym znajduje się udział plików platformy Azure, kliknij pozycję **Kontrola dostępu (IAM)** i sprawdź, czy konto użytkownika ma dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [jak zabezpieczyć konto magazynu za pomocą kontroli dostępu opartej na rolach na platformie Azure (RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Nie można usunąć pliku lub katalogu z udziału plików platformy Azure
@@ -199,15 +199,15 @@ Chociaż dojścia do plików i dzierżawy dają istotny cel, czasami dojścia do
 Rozwiązanie tego problemu zależy od tego, czy jest to spowodowane przez oddzielone dojście do pliku, czy dzierżawę. 
 
 ### <a name="cause-1"></a>Przyczyna 1
-Dojście do pliku uniemożliwia modyfikowanie lub usuwanie pliku/katalogu. Do wyświetlania otwartych dojść można użyć polecenia cmdlet programu PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) . 
+Dojście do pliku uniemożliwia modyfikowanie lub usuwanie pliku/katalogu. Do wyświetlania otwartych dojść można użyć polecenia cmdlet programu PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) . 
 
 Jeśli wszyscy klienci SMB zamknęli swoje otwarte dojścia do pliku/katalogu i problem nadal wystąpi, można wymusić zamknięcie dojścia do pliku.
 
 ### <a name="solution-1"></a>Rozwiązanie 1
-Aby wymusić zamknięcie dojścia do pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) . 
+Aby wymusić zamknięcie dojścia do pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) . 
 
 > [!Note]  
-> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 ### <a name="cause-2"></a>Przyczyna 2
 Dzierżawa pliku uniemożliwia zmodyfikowanie lub usunięcie pliku. Możesz sprawdzić, czy plik ma dzierżawę pliku z następującym programem PowerShell, zastępując `<resource-group>` ,, `<storage-account>` `<file-share>` i `<path-to-file>` z odpowiednimi wartościami dla danego środowiska:
@@ -262,8 +262,8 @@ Podczas próby przetransferowania plików do usługi plików platformy Azure mo�
 - Jeśli nie masz wymaganego minimalnego rozmiaru operacji we/wy, zalecamy użycie 1 MiB jako rozmiaru we/wy w celu uzyskania optymalnej wydajności.
 -   Jeśli znasz końcowy rozmiar pliku, który jest rozszerzany przy użyciu zapisu, a oprogramowanie nie ma problemów ze zgodnością, gdy niezapisany ogon w pliku zawiera zera, a następnie ustaw rozmiar pliku z góry, zamiast wprowadzać każdy zapis rozszerzający.
 -   Użyj odpowiedniej metody copy:
-    -   Użyj [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) do dowolnego transferu między dwoma udziałami plików.
-    -   Użyj [Robocopy](/azure/storage/files/storage-files-deployment-guide#robocopy) między udziałami plików na komputerze lokalnym.
+    -   Użyj [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) do dowolnego transferu między dwoma udziałami plików.
+    -   Użyj [Robocopy](./storage-files-deployment-guide.md#robocopy) między udziałami plików na komputerze lokalnym.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Zagadnienia dotyczące Windows 8.1 lub systemu Windows Server 2012 R2
 
@@ -290,7 +290,7 @@ Jeśli udział plików platformy Azure jest mapowany jako administrator przy uż
 Domyślnie Eksplorator plików systemu Windows nie jest uruchomiony jako administrator. Jeśli uruchomisz polecenie net use z wiersza polecenia z uprawnieniami administracyjnymi, możesz mapować dysk sieciowy jako administrator. Ze względu na to, że mapowane dyski są skoncentrowane na użytkownikach, zalogowane konto użytkownika nie wyświetla dysków, jeśli są one zainstalowane przy użyciu innego konta użytkownika.
 
 ### <a name="solution"></a>Rozwiązanie
-Zainstaluj udział z wiersza polecenia bez administratora. Alternatywnie możesz skorzystać z [tego tematu TechNet](https://technet.microsoft.com/library/ee844140.aspx) , aby skonfigurować wartość rejestru **EnableLinkedConnections** .
+Zainstaluj udział z wiersza polecenia bez administratora. Alternatywnie możesz skorzystać z [tego tematu TechNet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)) , aby skonfigurować wartość rejestru **EnableLinkedConnections** .
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>Polecenie net use kończy się niepowodzeniem, jeśli konto magazynu zawiera ukośnik
@@ -376,20 +376,20 @@ Na przykład można ustawić 0x100000 i sprawdzić, czy wydajność staje się l
 
 ### <a name="cause"></a>Przyczyna
 
-AadDsTenantNotFound Wystąpił błąd podczas próby [włączenia uwierzytelniania Azure Active Directory Domain Services (azure AD DS) na Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) na koncie magazynu, w którym [usługa Azure AD Domain Service (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) nie została utworzona w dzierżawie usługi Azure AD skojarzonej subskrypcji.  
+AadDsTenantNotFound Wystąpił błąd podczas próby [włączenia uwierzytelniania Azure Active Directory Domain Services (azure AD DS) na Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) na koncie magazynu, w którym [usługa Azure AD Domain Service (Azure AD DS)](../../active-directory-domain-services/overview.md) nie została utworzona w dzierżawie usługi Azure AD skojarzonej subskrypcji.  
 
 ### <a name="solution"></a>Rozwiązanie
 
-Włącz usługę Azure AD DS w dzierżawie usługi Azure AD subskrypcji, w której wdrożono konto magazynu. Do utworzenia domeny zarządzanej wymagane są uprawnienia administratora dzierżawy usługi Azure AD. Jeśli nie jesteś administratorem dzierżawy usługi Azure AD, skontaktuj się z administratorem i postępuj zgodnie ze wskazówkami krok po kroku, aby [włączyć Azure Active Directory Domain Services przy użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Włącz usługę Azure AD DS w dzierżawie usługi Azure AD subskrypcji, w której wdrożono konto magazynu. Do utworzenia domeny zarządzanej wymagane są uprawnienia administratora dzierżawy usługi Azure AD. Jeśli nie jesteś administratorem dzierżawy usługi Azure AD, skontaktuj się z administratorem i postępuj zgodnie ze wskazówkami krok po kroku, aby [utworzyć i skonfigurować domenę zarządzaną Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Nie można zainstalować Azure Files przy użyciu poświadczeń usługi AD 
 
 ### <a name="self-diagnostics-steps"></a>Kroki samodiagnostyki
-Najpierw upewnij się, że wykonano wszystkie cztery kroki, aby [włączyć Azure Files uwierzytelnianie usługi AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+Najpierw upewnij się, że wykonano wszystkie cztery kroki, aby [włączyć Azure Files uwierzytelnianie usługi AD](./storage-files-identity-auth-active-directory-enable.md).
 
-Następnie spróbuj zainstalować [udział plików platformy Azure z kluczem konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Jeśli instalacja nie powiodła się, Pobierz [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) , aby pomóc w sprawdzeniu, czy środowisko klienta działa, Wykryj niezgodną konfigurację klienta, która spowoduje niepowodzenie dostępu do Azure Files, zawiera wskazówki dotyczące samoobsługowego rozwiązywania problemów, a następnie zbiera ślady diagnostyki.
+Następnie spróbuj zainstalować [udział plików platformy Azure z kluczem konta magazynu](./storage-how-to-use-files-windows.md). Jeśli instalacja nie powiodła się, Pobierz [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) , aby pomóc w sprawdzeniu, czy środowisko klienta działa, Wykryj niezgodną konfigurację klienta, która spowoduje niepowodzenie dostępu do Azure Files, zawiera wskazówki dotyczące samoobsługowego rozwiązywania problemów, a następnie zbiera ślady diagnostyki.
 
 Po trzecie można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth, aby przeprowadzić zestaw podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w [wersji AzFilesHybrid 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Należy uruchomić to polecenie cmdlet z użytkownikiem usługi AD, który ma uprawnienia właściciela do docelowego konta magazynu.  
 ```PowerShell
@@ -399,13 +399,13 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyczące niepowodzeń:
-1. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem konta magazynu kerb1 lub kerb2. Jeśli hasło jest niepoprawne, można uruchomić polecenie [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) w celu zresetowania hasła. 
+1. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem konta magazynu kerb1 lub kerb2. Jeśli hasło jest niepoprawne, można uruchomić polecenie [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) w celu zresetowania hasła. 
 2. CheckADObject: Upewnij się, że w Active Directory znajduje się obiekt, który reprezentuje konto magazynu i ma poprawną nazwę SPN (główna nazwa usługi). Jeśli nazwa SPN nie została prawidłowo skonfigurowana, uruchom polecenie cmdlet Set-AD zwrócone w poleceniu cmdlet Debug, aby skonfigurować nazwę SPN.
-3. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD. Jeśli komputer nie jest przyłączony do usługi AD, zapoznaj się z tym [artykułem](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) , aby uzyskać instrukcje dotyczące przyłączania do domeny.
+3. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD. Jeśli komputer nie jest przyłączony do usługi AD, zapoznaj się z tym [artykułem](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) , aby uzyskać instrukcje dotyczące przyłączania do domeny.
 4. CheckPort445Connectivity: Sprawdź, czy port 445 jest otwarty dla połączenia SMB. Jeśli wymagany port nie jest otwarty, Skorzystaj z narzędzia do rozwiązywania problemów [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) w przypadku problemów z łącznością z Azure Files.
 5. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych. 
 6. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu. Jeśli nie ma prawidłowego tokenu Kerberos, uruchom polecenie cmdlet Klist-CIFS/Storage-account-name. plik. Core. Windows. NET i Przeanalizuj kod błędu do katalogu głównego — spowoduje to niepowodzenie pobierania biletu.
-7. CheckStorageAccountDomainJoined: Sprawdź, czy uwierzytelnianie usługi AD zostało włączone i czy są wypełniane właściwości usługi AD konta. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) , aby włączyć uwierzytelnianie AD DS w Azure Files. 
+7. CheckStorageAccountDomainJoined: Sprawdź, czy uwierzytelnianie usługi AD zostało włączone i czy są wypełniane właściwości usługi AD konta. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](./storage-files-identity-ad-ds-enable.md) , aby włączyć uwierzytelnianie AD DS w Azure Files. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Nie można skonfigurować uprawnień na poziomie katalogu/pliku (listy ACL systemu Windows) przy użyciu Eksploratora plików systemu Windows
 
@@ -417,7 +417,7 @@ Podczas próby skonfigurowania list ACL systemu Windows za pomocą Eksploratora 
 
 ### <a name="solution"></a>Rozwiązanie
 
-Zalecamy użycie [Narzędzia icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) w celu skonfigurowania uprawnień na poziomie katalogu/pliku jako obejścia. 
+Zalecamy użycie [Narzędzia icacls](/windows-server/administration/windows-commands/icacls) w celu skonfigurowania uprawnień na poziomie katalogu/pliku jako obejścia. 
 
 ## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Błędy podczas uruchamiania Join-AzStorageAccountForAuth polecenia cmdlet
 
@@ -431,7 +431,7 @@ Ten błąd jest najprawdopodobniej wyzwalany przez błąd składniowy w poleceni
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Azure Files obsługę lokalnego uwierzytelniania AD DS szyfrowania AES 256 Kerberos
 
-Wprowadzono obsługę szyfrowania AES 256 Kerberos dla Azure Files uwierzytelniania przy użyciu usługi AzFilesHybrid w systemie Premium AD DS [0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Jeśli włączono uwierzytelnianie AD DS przy użyciu modułu w wersji niższej niż v 0.2.2, konieczne będzie pobranie najnowszego modułu AzFilesHybrid (v 0.2.2 +) i uruchomienie programu PowerShell poniżej. Jeśli nie włączono jeszcze AD DS uwierzytelniania na koncie magazynu, możesz wykonać te [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) dotyczące włączania. 
+Wprowadzono obsługę szyfrowania AES 256 Kerberos dla Azure Files uwierzytelniania przy użyciu usługi AzFilesHybrid w systemie Premium AD DS [0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Jeśli włączono uwierzytelnianie AD DS przy użyciu modułu w wersji niższej niż v 0.2.2, konieczne będzie pobranie najnowszego modułu AzFilesHybrid (v 0.2.2 +) i uruchomienie programu PowerShell poniżej. Jeśli nie włączono jeszcze AD DS uwierzytelniania na koncie magazynu, możesz wykonać te [wskazówki](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) dotyczące włączania. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"

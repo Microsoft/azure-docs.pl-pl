@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 93dd73b5a9149474be771537f47b448c5c4d7d8f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486393"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629329"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,11 +26,11 @@ Warto zrozumieć niektóre kluczowe terminy związane z uwierzytelnianiem w usł
 
 -   **Uwierzytelnianie Kerberos**
 
-    Kerberos to protokół uwierzytelniania używany do weryfikacji tożsamości użytkownika lub hosta. Aby uzyskać więcej informacji na temat protokołu Kerberos, zobacz temat [uwierzytelnianie Kerberos — Omówienie](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
+    Kerberos to protokół uwierzytelniania używany do weryfikacji tożsamości użytkownika lub hosta. Aby uzyskać więcej informacji na temat protokołu Kerberos, zobacz temat [uwierzytelnianie Kerberos — Omówienie](/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **Protokół bloku komunikatów serwera (SMB)**
 
-    SMB jest standardowym protokołem udostępniania plików w branży. Protokół SMB jest również znany jako wspólny internetowy system plików lub CIFS. Aby uzyskać więcej informacji na temat protokołu SMB, zobacz [Omówienie protokołów SMB i CIFS firmy Microsoft](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+    SMB jest standardowym protokołem udostępniania plików w branży. Protokół SMB jest również znany jako wspólny internetowy system plików lub CIFS. Aby uzyskać więcej informacji na temat protokołu SMB, zobacz [Omówienie protokołów SMB i CIFS firmy Microsoft](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 -   **Azure Active Directory (Azure AD)**
 
@@ -42,7 +42,7 @@ Warto zrozumieć niektóre kluczowe terminy związane z uwierzytelnianiem w usł
 
 - **Active Directory Domain Services lokalne (AD DS)**
 
-    Integracja Active Directory Domain Services lokalnych (AD DS) z programem Azure Files udostępnia metody przechowywania danych katalogowych podczas udostępniania ich użytkownikom i administratorom sieci. Zabezpieczenia są zintegrowane z AD DS za pomocą uwierzytelniania logowania i kontroli dostępu do obiektów w katalogu. Za pomocą pojedynczego logowania do sieci administratorzy mogą zarządzać danymi katalogowymi i organizacją w całej sieci, a autoryzowani użytkownicy sieci mogą uzyskiwać dostęp do zasobów w dowolnym miejscu w sieci. AD DS jest zazwyczaj akceptowana przez przedsiębiorstwa w środowiskach lokalnych, a poświadczenia AD DS są używane jako tożsamość kontroli dostępu. Aby uzyskać więcej informacji, zobacz [Active Directory Domain Services przegląd](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+    Integracja Active Directory Domain Services lokalnych (AD DS) z programem Azure Files udostępnia metody przechowywania danych katalogowych podczas udostępniania ich użytkownikom i administratorom sieci. Zabezpieczenia są zintegrowane z AD DS za pomocą uwierzytelniania logowania i kontroli dostępu do obiektów w katalogu. Za pomocą pojedynczego logowania do sieci administratorzy mogą zarządzać danymi katalogowymi i organizacją w całej sieci, a autoryzowani użytkownicy sieci mogą uzyskiwać dostęp do zasobów w dowolnym miejscu w sieci. AD DS jest zazwyczaj akceptowana przez przedsiębiorstwa w środowiskach lokalnych, a poświadczenia AD DS są używane jako tożsamość kontroli dostępu. Aby uzyskać więcej informacji, zobacz [Active Directory Domain Services przegląd](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 -   **Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)**
 
@@ -116,7 +116,7 @@ Poniższy diagram przedstawia przepływ pracy na potrzeby uwierzytelniania usłu
 
 - Po drugie, wszyscy użytkownicy, którzy istnieją w usłudze Azure AD, mogą być uwierzytelniani i autoryzowani. Użytkownik może być tylko w chmurze lub hybrydowym. Synchronizacja z usługi Azure AD do platformy Azure AD DS jest zarządzana przez platformę bez konieczności konfigurowania użytkownika. Jednak klient musi być przyłączony do domeny w usłudze Azure AD DS, nie może być przyłączony lub zarejestrowany w usłudze Azure AD. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagram przedstawiający lokalne uwierzytelnianie AD DS do udziałów plików platformy Azure za pośrednictwem protokołu SMB.":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="4b":::
 
 ### <a name="enable-identity-based-authentication"></a>Włączanie uwierzytelniania opartego na tożsamościach
 
@@ -128,7 +128,7 @@ Po włączeniu uwierzytelniania AD DS platformy Azure AD DS lub lokalnego można
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Konfigurowanie uprawnień na poziomie katalogu lub pliku dla Azure Files
 
-Udziały plików platformy Azure wymuszają standardowe uprawnienia do plików systemu Windows zarówno na poziomie katalogu, jak i pliku, łącznie z katalogiem głównym. Konfiguracja uprawnień na poziomie katalogu lub pliku jest obsługiwana w przypadku protokołu SMB i REST. Zainstaluj docelowy udział plików z maszyny wirtualnej i Skonfiguruj uprawnienia za pomocą Eksploratora plików systemu Windows, [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)systemu Windows lub polecenia [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) .
+Udziały plików platformy Azure wymuszają standardowe uprawnienia do plików systemu Windows zarówno na poziomie katalogu, jak i pliku, łącznie z katalogiem głównym. Konfiguracja uprawnień na poziomie katalogu lub pliku jest obsługiwana w przypadku protokołu SMB i REST. Zainstaluj docelowy udział plików z maszyny wirtualnej i Skonfiguruj uprawnienia za pomocą Eksploratora plików systemu Windows, [icacls](/windows-server/administration/windows-commands/icacls)systemu Windows lub polecenia [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) .
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Użyj klucza konta magazynu dla uprawnień administratora
 
@@ -139,7 +139,7 @@ Użytkownik z kluczem konta magazynu może uzyskać dostęp do udziałów plikó
 
 ### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Zachowaj listy ACL katalogów i plików podczas importowania danych do udziałów plików platformy Azure
 
-Azure Files obsługuje zachowanie list ACL na poziomie katalogu lub pliku podczas kopiowania danych do udziałów plików platformy Azure. Listy ACL z katalogu lub pliku można kopiować do udziałów plików platformy Azure przy użyciu Azure File Sync lub wspólnych zestawów narzędzi przenoszenia plików. Na przykład można użyć [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) z `/copy:s` flagą, aby skopiować dane, a także listy ACL do udziału plików platformy Azure. Listy ACL są domyślnie zachowywane, nie jest wymagane włączenie uwierzytelniania opartego na tożsamościach na koncie magazynu w celu zachowania list ACL.
+Azure Files obsługuje zachowanie list ACL na poziomie katalogu lub pliku podczas kopiowania danych do udziałów plików platformy Azure. Listy ACL z katalogu lub pliku można kopiować do udziałów plików platformy Azure przy użyciu Azure File Sync lub wspólnych zestawów narzędzi przenoszenia plików. Na przykład można użyć [Robocopy](/windows-server/administration/windows-commands/robocopy) z `/copy:s` flagą, aby skopiować dane, a także listy ACL do udziału plików platformy Azure. Listy ACL są domyślnie zachowywane, nie jest wymagane włączenie uwierzytelniania opartego na tożsamościach na koncie magazynu w celu zachowania list ACL.
 
 ## <a name="pricing"></a>Cennik
 Nie ma dodatkowej opłaty za usługę w celu włączenia uwierzytelniania opartego na tożsamościach za pośrednictwem protokołu SMB na koncie magazynu. Aby uzyskać więcej informacji na temat cen, zobacz [Azure Files ceny](https://azure.microsoft.com/pricing/details/storage/files/) i [Azure AD Domain Services cennika](https://azure.microsoft.com/pricing/details/active-directory-ds/).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267792"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629363"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Zagadnienia dotyczące sieci Azure File Sync
 Możesz połączyć się z udziałem plików platformy Azure na dwa sposoby:
@@ -53,9 +53,9 @@ Azure File Sync wymaga zakresów adresów IP dla następujących usług, identyf
 | Azure File Sync | Usługa Azure File Sync, reprezentowana przez obiekt usługi synchronizacji magazynu, jest odpowiedzialna za podstawową aktywność synchronizacji danych między udziałem plików platformy Azure a serwerem plików systemu Windows. | `StorageSyncService` |
 | Azure Files | Wszystkie dane zsynchronizowane za pośrednictwem Azure File Sync są przechowywane w udziale plików platformy Azure. Pliki zmienione na serwerach plików systemu Windows są replikowane do udziału plików platformy Azure, a pliki warstwowe na lokalnym serwerze plików są bezproblemowo pobierane podczas żądania przez użytkownika. | `Storage` |
 | Azure Resource Manager | Azure Resource Manager jest interfejsem zarządzania dla platformy Azure. Wszystkie wywołania zarządzania, w tym Azure File Sync rejestracji serwera i trwającego serwera synchronizacji, są tworzone przez Azure Resource Manager. | `AzureResourceManager` |
-| Usługa Azure Active Directory | Azure Active Directory lub usługa Azure AD zawiera podmioty zabezpieczeń wymagane do autoryzacji rejestracji serwera względem usługi synchronizacji magazynu oraz jednostki usługi wymagane do Azure File Sync mają autoryzację w celu uzyskania dostępu do zasobów w chmurze. | `AzureActiveDirectory` |
+| Azure Active Directory | Azure Active Directory lub usługa Azure AD zawiera podmioty zabezpieczeń wymagane do autoryzacji rejestracji serwera względem usługi synchronizacji magazynu oraz jednostki usługi wymagane do Azure File Sync mają autoryzację w celu uzyskania dostępu do zasobów w chmurze. | `AzureActiveDirectory` |
 
-Jeśli używasz Azure File Sync w ramach platformy Azure, nawet jeśli jest to inny region, możesz użyć nazwy znacznika usługi bezpośrednio w sieciowej grupie zabezpieczeń, aby zezwolić na ruch do tej usługi. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz [Network Security Groups](../../virtual-network/security-overview.md). 
+Jeśli używasz Azure File Sync w ramach platformy Azure, nawet jeśli jest to inny region, możesz użyć nazwy znacznika usługi bezpośrednio w sieciowej grupie zabezpieczeń, aby zezwolić na ruch do tej usługi. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz [Network Security Groups](../../virtual-network/network-security-groups-overview.md). 
 
 Jeśli używasz Azure File Sync lokalnie, możesz użyć interfejsu API znacznika usługi, aby uzyskać określone zakresy adresów IP dla listy dozwolonych dla zapory. Istnieją dwie metody uzyskiwania tych informacji:
 
@@ -65,9 +65,9 @@ Jeśli używasz Azure File Sync lokalnie, możesz użyć interfejsu API znacznik
     - [Chiny platformy Azure](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure (Niemcy)](https://www.microsoft.com/download/details.aspx?id=57064)
 - Interfejs API odnajdowania tagów usługi (wersja zapoznawcza) umożliwia programistyczne pobieranie bieżącej listy tagów usługi. W wersji zapoznawczej interfejs API odnajdowania tagów usługi może zwracać informacje, które są mniej aktualne niż zwracane przez informacje z dokumentów JSON opublikowanych w centrum pobierania Microsoft. Możesz użyć powierzchni interfejsu API na podstawie preferencji automatyzacji:
-    - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [Interfejs API REST](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Interfejs wiersza polecenia platformy Azure](/cli/azure/network#az-network-list-service-tags)
 
 Aby dowiedzieć się więcej o tym, jak używać interfejsu API tagów usługi do pobierania adresów usług, zobacz [Lista dozwolonych adresów IP Azure File Sync](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 
@@ -172,4 +172,4 @@ Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobac
 
 ## <a name="see-also"></a>Zobacz też
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
-- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)

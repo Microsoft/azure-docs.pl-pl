@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322203"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630281"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -45,7 +45,7 @@ Migracje do udziałów plików platformy Azure z woluminów StorSimple za pośre
 
 Udziały plików platformy Azure otwierają zupełnie nowy świat sprzedaży do tworzenia struktury wdrożenia usług plików. Udział plików platformy Azure to tylko udział SMB w chmurze, który można skonfigurować w taki sposób, aby użytkownicy mieli dostęp bezpośrednio za pośrednictwem protokołu SMB przy użyciu znanego uwierzytelniania Kerberos i istniejących uprawnień systemu plików NTFS (list ACL plików i folderów) pracujących natywnie. Dowiedz się więcej na temat [dostępu opartego na tożsamościach do udziałów plików platformy Azure](storage-files-active-directory-overview.md).
 
-Alternatywą dla dostępu bezpośredniego jest [Azure File Sync](https://aka.ms/AFS). Azure File Sync to bezpośrednia funkcja analogowa umożliwiająca StorSimple pamięci podręcznej często używanych plików w środowisku lokalnym.
+Alternatywą dla dostępu bezpośredniego jest [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync to bezpośrednia funkcja analogowa umożliwiająca StorSimple pamięci podręcznej często używanych plików w środowisku lokalnym.
 
 Azure File Sync jest usługą firmy Microsoft w chmurze opartą na dwóch głównych składnikach:
 
@@ -56,7 +56,7 @@ Udziały plików platformy Azure zachowują ważne aspekty odtwarzania plików d
 
 Ten artykuł koncentruje się na krokach migracji. Jeśli chcesz dowiedzieć się więcej na temat Azure File Sync przed migracją, zobacz następujące artykuły:
 
-* [Przegląd Azure File Sync](https://aka.ms/AFS "Omówienie")
+* [Przegląd Azure File Sync](./storage-sync-files-planning.md "Omówienie")
 * [Przewodnik wdrażania Azure File Sync](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Klucz szyfrowania danych usługi StorSimple
@@ -244,7 +244,7 @@ W tej sekcji opisano sposób konfigurowania zadania migracji i dokładnego mapow
         ![Zadanie migracji serii StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Zrzut ekranu przedstawiający formularz tworzenia nowego zadania dla zadania usługi przekształcania danych.")
     :::column-end:::
     :::column:::
-        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Źródło</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Menedżer urządzeń. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Menedżer urządzeń Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
+        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Element źródłowy</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Menedżer urządzeń. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Menedżer urządzeń Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
     :::column-end:::
 :::row-end:::
 
@@ -385,7 +385,7 @@ Zarejestrowane lokalne wystąpienie systemu Windows Server musi być gotowe i po
 * [Jak skonfigurować sieć VPN z systemem Windows P2S](storage-files-configure-p2s-vpn-windows.md)
 * [Jak skonfigurować sieć VPN z systemem Linux P2S](storage-files-configure-p2s-vpn-linux.md)
 * [Jak skonfigurować przekazywanie DNS](storage-files-networking-dns.md)
-* [Konfigurowanie systemu plików DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Konfigurowanie systemu plików DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -535,7 +535,7 @@ Jeśli używasz Azure File Sync, być może trzeba będzie utworzyć udziały SM
 
 Jeśli masz wdrożenie systemu plików DFS-N, możesz wskazać DFN-Namespaces do nowej lokalizacji folderu na serwerze. Jeśli nie masz wdrożenia systemu plików DFS-N, a urządzenie 8100 lub 8600 zostało udostępnione lokalnie z wystąpieniem systemu Windows Server, możesz to zrobić, korzystając z tego serwera. Następnie przyłącz się do nowego wystąpienia systemu Windows Server z obsługą Azure File Sync. W trakcie tego procesu nadaj serwerowi taką samą nazwę serwera i nazwy udziałów jak stary serwer, aby przecinanie pozostawało przezroczyste dla użytkowników, zasad grupy i skryptów.
 
-Dowiedz się więcej o [systemie plików DFS-N](https://aka.ms/AzureFiles/Namespaces).
+Dowiedz się więcej o [systemie plików DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## <a name="deprovision"></a>Anulowanie aprowizacji
 
@@ -561,7 +561,7 @@ Migracja została ukończona.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj [Azure File Sync: aka.MS/AFS](https://aka.ms/AFS).
+* Poznaj [Azure File Sync: aka.MS/AFS](./storage-sync-files-planning.md).
 * Zapoznaj się z elastycznością zasad obsługi [warstw w chmurze](storage-sync-cloud-tiering.md) .
 * [Włącz Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) w udziałach plików platformy Azure w celu planowania migawek i definiowania harmonogramów przechowywania kopii zapasowych.
 * Jeśli widzisz w Azure Portal, że niektóre pliki nie są synchronizowane, zapoznaj się z [przewodnikiem rozwiązywania problemów](storage-sync-files-troubleshoot.md) , aby rozwiązać te problemy.

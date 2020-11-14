@@ -2,13 +2,13 @@
 title: Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 description: Skonfiguruj Application Gateway platformy Azure, aby bezpiecznie uwidaczniać aplikacje sieci Web działające w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
-ms.date: 10/13/2020
-ms.openlocfilehash: 7956ea51421f5cfa893942401c1d9a5871039689
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/13/2020
+ms.openlocfilehash: 02e439989c985354dbe06fa3e231d5daf7099d70
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578490"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629051"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 
@@ -21,19 +21,19 @@ Dostępne są następujące możliwości:
 
 Aby zapoznać się z pełną listą funkcji, zobacz [Azure Application Gateway Features](../application-gateway/features.md). 
 
-W tym artykule pokazano, jak za pomocą usługi applicate Gateway przed farmą serwerów sieci Web chronić aplikację sieci Web działającą w rozwiązaniu VMware platformy Azure. 
+W tym artykule przedstawiono sposób użycia Application Gateway przed farmą serwerów sieci Web w celu ochrony aplikacji sieci Web działającej w rozwiązaniu VMware platformy Azure. 
 
 ## <a name="topology"></a>Topologia
 Na diagramie przedstawiono sposób, w jaki Application Gateway jest używany do ochrony maszyn wirtualnych IaaS platformy Azure, zestawów skalowania maszyn wirtualnych platformy Azure lub serwerów lokalnych. Application Gateway traktuje maszyny wirtualne rozwiązań VMware platformy Azure jako serwery lokalne. 
 
-![Application Gateway chroni maszyny wirtualne rozwiązań VMware platformy Azure.](media/protect-azure-vmware-solution-with-application-gateway/app-gateway-protects.png)
+![Diagram przedstawiający sposób, w jaki Application Gateway chronią maszyny wirtualne IaaS platformy Azure, zestawy skalowania maszyn wirtualnych platformy Azure lub serwery lokalne.](media/protect-azure-vmware-solution-with-application-gateway/app-gateway-protects.png)
 
 > [!IMPORTANT]
 > Usługa Azure Application Gateway jest obecnie jedyną obsługiwaną metodą udostępniania aplikacji sieci Web działających na maszynach wirtualnych rozwiązań VMware platformy Azure.
 
 Na diagramie przedstawiono scenariusz testowania używany do sprawdzania poprawności Application Gateway przy użyciu aplikacji sieci Web rozwiązań VMware platformy Azure.
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Application Gateway integrację z rozwiązaniem VMware platformy Azure, które uruchamia aplikacje sieci Web" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram przedstawiający Scenariusz testowania używany do sprawdzania poprawności Application Gateway przy użyciu aplikacji sieci Web rozwiązań VMware platformy Azure." border="false":::
 
 Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci. Ma publiczny adres IP platformy Azure. Zalecane jest aktywowanie standardowej ochrony DDoS dla sieci wirtualnej. Serwer sieci Web jest hostowany w chmurze prywatnej rozwiązań VMware platformy Azure za NSX T0 i T1 routery. Rozwiązanie VMware platformy Azure używa [Global REACH ExpressRoute](../expressroute/expressroute-global-reach.md) , aby umożliwić komunikację z systemami centralnymi i lokalnymi.
 
@@ -48,7 +48,7 @@ Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci
 
 2. Podaj podstawowe informacje, jak na poniższym rysunku: następnie wybierz kolejno pozycje **Dalej: frontony>**. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/create-app-gateway.png" alt-text="Tworzenie Application Gateway":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/create-app-gateway.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie strony bramy aplikacji w Azure Portal.":::
 
 3. Wybierz typ adresu IP frontonu. W obszarze publiczne wybierz istniejący publiczny adres IP lub Utwórz nowy. Wybierz pozycję **Dalej: nadkończenie>**.
 
@@ -92,7 +92,7 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 
 1. W chmurze prywatnej Utwórz dwie różne pule maszyn wirtualnych. Jeden reprezentuje Contoso i drugą firmę fabrikam. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs.png" alt-text="Utwórz maszyny wirtualne.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Zrzut ekranu przedstawiający podsumowanie szczegółów serwera sieci Web w kliencie VSphere.":::
 
     Do zilustrowania tego samouczka użyto systemu Windows Server 2016 z zainstalowaną rolą Internet Information Services (IIS). Po zainstalowaniu maszyn wirtualnych Uruchom następujące polecenia programu PowerShell, aby skonfigurować usługi IIS na każdej z maszyn wirtualnych. 
 
@@ -103,13 +103,13 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 
 2. W istniejącym wystąpieniu bramy aplikacji wybierz pozycję **Pule zaplecza** z menu po lewej stronie, wybierz pozycję  **Dodaj** , a następnie wprowadź szczegóły nowej puli. Wybierz pozycję **Dodaj** w okienku po prawej stronie.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-02.png" alt-text="Dodaj pule zaplecza." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-02.png":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png" alt-text="Zrzut ekranu przedstawiający stronę pule zaplecza służącą do dodawania pul zaplecza." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png":::
 
 3. W sekcji **detektory** Utwórz nowy odbiornik dla każdej witryny sieci Web. Wprowadź szczegóły dla każdego odbiornika i wybierz pozycję **Dodaj**.
 
 4. Po lewej stronie wybierz pozycję **Ustawienia http** i wybierz pozycję **Dodaj** w okienku po lewej stronie. Wypełnij szczegóły, aby utworzyć nowe ustawienie HTTP, a następnie wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-03.png" alt-text="Wypełnij szczegóły, aby utworzyć nowe ustawienie HTTP, a następnie wybierz pozycję Zapisz." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-03.png":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-03.png" alt-text="Zrzut ekranu strony ustawień protokołu HTTP, aby utworzyć nowe ustawienie protokołu HTTP." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-03.png":::
 
 5. Utwórz reguły w sekcji **reguły** w menu po lewej stronie. Skojarz każdą regułę z odpowiednim odbiornikiem. Wybierz pozycję **Dodaj**.
 
@@ -117,7 +117,7 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 
 7. Przetestuj połączenie. Otwórz preferowaną przeglądarkę i przejdź do różnych witryn sieci Web hostowanych w środowisku rozwiązań VMware platformy Azure, na przykład http://www.fabrikam.com .
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-07.png" alt-text="Przetestuj połączenie.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-07.png" alt-text="Zrzut ekranu przedstawiający stronę przeglądarki przedstawiającą pomyślne testowanie połączenia.":::
 
 ### <a name="routing-by-url"></a>Routing według adresu URL
 
@@ -125,7 +125,7 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
 
 1. W chmurze prywatnej Utwórz pulę maszyn wirtualnych do reprezentowania kolektywu serwerów sieci Web. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs.png" alt-text="Utwórz pulę maszyn wirtualnych w rozwiązaniu VMware platformy Azure.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool.png" alt-text="Zrzut ekranu strony w programie VMSphere Client pokazujący podsumowanie innej maszyny wirtualnej.":::
 
     Do zilustrowania tego samouczka użyto systemu Windows Server 2016 z zainstalowaną rolą usług IIS. Po zainstalowaniu maszyn wirtualnych Uruchom następujące polecenia programu PowerShell, aby skonfigurować usługi IIS dla poszczególnych samouczków dotyczących maszyn wirtualnych. 
 
@@ -160,31 +160,31 @@ Ta procedura pokazuje, jak definiować pule adresów zaplecza przy użyciu maszy
    1. Wybierz pozycję **Dodaj**. 
    1. Powtórz ten proces dla **obrazów contoso** i **wideo firmy Contoso** , dodając jako element docelowy jedną unikatową maszynę wirtualną. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-02.png" alt-text="Dodaj trzy nowe pule zaplecza." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-02.png":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png" alt-text="Zrzut ekranu przedstawiający stronę pule zaplecza z dodaniem trzech nowych pul zaplecza." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png":::
 
 3. W sekcji **detektory** Utwórz nowy odbiornik typu Basic przy użyciu portu 8080.
 
 4. Na lewym pasku nawigacyjnym wybierz pozycję **Ustawienia http** i wybierz pozycję **Dodaj** w okienku po lewej stronie. Wypełnij szczegóły, aby utworzyć nowe ustawienie HTTP, a następnie wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-04.png" alt-text="Konfiguracja ustawień widzę.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-04.png" alt-text="Zrzut ekranu przedstawiający stronę Dodawanie ustawienia protokołu HTTP, która zawiera konfigurację ustawień protokołu HTTP.":::
 
 5. Utwórz reguły w sekcji **reguły** w menu po lewej stronie. Skojarz każdą regułę z wcześniej utworzonym odbiornikiem. Następnie skonfiguruj główną pulę zaplecza i ustawienia protokołu HTTP. Wybierz pozycję **Dodaj**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-07.png" alt-text="Utwórz reguły w sekcji reguły w menu po lewej stronie.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-07.png" alt-text="Zrzut ekranu przedstawiający stronę Dodawanie reguły routingu w celu skonfigurowania reguł routingu do celu zaplecza.":::
 
 6. Przetestuj konfigurację. Uzyskaj dostęp do bramy Application Gateway na Azure Portal i skopiuj publiczny adres IP w sekcji **Przegląd** . 
 
    1. Otwórz nowe okno przeglądarki i wprowadź adres URL `http://<app-gw-ip-address>:8080` . 
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Przetestuj konfigurację z Azure Portal.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-08.png" alt-text="Zrzut ekranu przedstawiający stronę przeglądarki z pomyślnym testem konfiguracji.":::
 
    1. Zmień adres URL na `http://<app-gw-ip-address>:8080/images/test.htm`.
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Zmień adres URL.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-09.png" alt-text="Zrzut ekranu przedstawiający inny udany test z nowym adresem URL.":::
 
    1. Zmień adres URL na `http://<app-gw-ip-address>:8080/video/test.htm` .
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Ponownie Zmień adres URL.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-10.png" alt-text="Zrzut ekranu przedstawiający pomyślne testowanie przy użyciu końcowego adresu URL.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

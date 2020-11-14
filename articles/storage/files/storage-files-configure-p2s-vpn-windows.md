@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da49d1c94584393bfef066d61c1caf360b249c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6253deb53229172cd499a6aa14b8d8f19bc07b63
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515316"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629261"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Windows do użytku z usługą Azure Files
 Za pomocą połączenia sieci VPN typu punkt-lokacja (P2S) można instalować udziały plików platformy Azure za pośrednictwem protokołu SMB spoza platformy Azure bez konieczności otwierania portu 445. Połączenie sieci VPN typu punkt-lokacja to połączenie sieci VPN między platformą Azure i pojedynczym klientem. Aby można było użyć połączenia sieci VPN P2S z Azure Files, należy skonfigurować połączenie sieci VPN P2S dla każdego klienta, który chce nawiązać połączenie. Jeśli masz wielu klientów, którzy muszą nawiązać połączenie z udziałami plików platformy Azure z sieci lokalnej, możesz użyć połączenia sieci VPN typu lokacja-lokacja (S2S) zamiast połączenia punkt-lokacja dla każdego klienta. Aby dowiedzieć się więcej, zobacz [Konfigurowanie sieci VPN typu lokacja-lokacja do użycia z usługą Azure Files](storage-files-configure-s2s-vpn.md).
@@ -22,7 +22,7 @@ Zdecydowanie zalecamy zapoznanie się z [zagadnieniami dotyczącymi sieci w celu
 W tym artykule szczegółowo opisano procedurę konfigurowania sieci VPN typu punkt-lokacja w systemie Windows (klienta systemu Windows i systemu Windows Server) w celu zainstalowania udziałów plików platformy Azure bezpośrednio w środowisku lokalnym. Jeśli chcesz kierować ruchem Azure File Sync przez sieć VPN, zobacz [konfigurowanie Azure File Sync serwera proxy i ustawień zapory](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Najnowsza wersja modułu Azure PowerShell. Aby uzyskać więcej informacji na temat sposobu instalowania Azure PowerShell, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) i wybieranie systemu operacyjnego. Jeśli wolisz używać interfejsu wiersza polecenia platformy Azure w systemie Windows, możesz zapoznać się z poniższymi instrukcjami dla Azure PowerShell.
+- Najnowsza wersja modułu Azure PowerShell. Aby uzyskać więcej informacji na temat sposobu instalowania Azure PowerShell, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps) i wybieranie systemu operacyjnego. Jeśli wolisz używać interfejsu wiersza polecenia platformy Azure w systemie Windows, możesz zapoznać się z poniższymi instrukcjami dla Azure PowerShell.
 
 - Udział plików platformy Azure, który chcesz zainstalować lokalnie. Udziały plików platformy Azure są wdrażane w ramach kont magazynu, które są konstrukcjami zarządzanymi, które reprezentują udostępnioną pulę magazynów, w której można wdrożyć wiele udziałów plików, a także inne zasoby magazynu, takie jak kontenery obiektów blob lub kolejki. Więcej informacji na temat wdrażania udziałów plików platformy Azure i kont magazynu można znaleźć w temacie [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md).
 
@@ -212,7 +212,7 @@ Export-PfxCertificate `
 ```
 
 ## <a name="configure-the-vpn-client"></a>Konfigurowanie klienta VPN
-Brama sieci wirtualnej platformy Azure utworzy pakiet do pobrania z plikami konfiguracyjnymi wymaganymi do zainicjowania połączenia sieci VPN na lokalnym komputerze z systemem Windows. Skonfigurujemy połączenie sieci VPN przy użyciu funkcji [Always On VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) w systemie Windows 10/Windows Server 2016 +. Ten pakiet zawiera również pakiety wykonywalne, które spowodują skonfigurowanie starszego klienta sieci VPN systemu Windows w razie potrzeby. W tym przewodniku używa się zawsze w sieci VPN, a nie starszej wersji klienta sieci VPN systemu Windows, ponieważ klient sieci VPN zawsze włączony umożliwia użytkownikom końcowym łączenie się z siecią VPN platformy Azure lub rozłączanie się z nią bez posiadania uprawnień administratora. 
+Brama sieci wirtualnej platformy Azure utworzy pakiet do pobrania z plikami konfiguracyjnymi wymaganymi do zainicjowania połączenia sieci VPN na lokalnym komputerze z systemem Windows. Skonfigurujemy połączenie sieci VPN przy użyciu funkcji [Always On VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/) w systemie Windows 10/Windows Server 2016 +. Ten pakiet zawiera również pakiety wykonywalne, które spowodują skonfigurowanie starszego klienta sieci VPN systemu Windows w razie potrzeby. W tym przewodniku używa się zawsze w sieci VPN, a nie starszej wersji klienta sieci VPN systemu Windows, ponieważ klient sieci VPN zawsze włączony umożliwia użytkownikom końcowym łączenie się z siecią VPN platformy Azure lub rozłączanie się z nią bez posiadania uprawnień administratora. 
 
 Poniższy skrypt zainstaluje certyfikat klienta wymagany do uwierzytelnienia w bramie sieci wirtualnej, pobierze i zainstaluje pakiet sieci VPN. Pamiętaj, aby zamienić `<computer1>` i na `<computer2>` żądane komputery. Ten skrypt można uruchomić na tyle maszyn, ile potrzebujesz, dodając do tablicy więcej sesji programu PowerShell `$sessions` . Twoje konto użytkowania musi być kontem administratora na każdej z tych maszyn. Jeśli jedna z tych maszyn jest maszyną lokalną, z której korzystasz ze skryptu, należy uruchomić skrypt z poziomu sesji programu PowerShell z podwyższonym poziomem uprawnień. 
 

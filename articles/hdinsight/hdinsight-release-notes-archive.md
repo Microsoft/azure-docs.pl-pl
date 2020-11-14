@@ -8,18 +8,48 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: d8b36676c9b95992bdcf382c1f474b56e30ad3fb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3973e32fdc724bd3c0894d6aaf2eb06ad3ba3adc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535556"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629941"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
 
 ## <a name="summary"></a>Podsumowanie
 
 Azure HDInsight jest jedną z najpopularniejszych usług używanych przez klientów korporacyjnych na potrzeby analizy w narzędziach typu open source Apache Hadoop i Apache Spark na platformie Azure.
+
+## <a name="release-date-10082020"></a>Data wydania: 10/08/2020
+
+Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
+
+### <a name="new-features"></a>Nowe funkcje
+#### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>Prywatne klastry usługi HDInsight bez publicznego adresu IP i prywatnego (wersja zapoznawcza)
+Usługa HDInsight obsługuje teraz tworzenie klastrów bez publicznego adresu IP i prywatnego połączenia z klastrami w wersji zapoznawczej. Klienci mogą używać nowych zaawansowanych ustawień sieci, aby utworzyć w pełni izolowany klaster bez publicznego adresu IP i korzystać z własnych prywatnych punktów końcowych w celu uzyskania dostępu do klastra. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Przechodzenie do zestawów skalowania maszyn wirtualnych platformy Azure
+Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. Począwszy od tej wersji, usługa stopniowo przeprowadzi migrację do [zestawów skalowania maszyn wirtualnych platformy Azure](../virtual-machine-scale-sets/overview.md). Cały proces może potrwać miesiące. Po przeprowadzeniu migracji regionów i subskrypcji nowo utworzone klastry usługi HDInsight będą uruchamiane w zestawach skalowania maszyn wirtualnych bez akcji klienta. Nie oczekiwano zmiany krytycznej.
+
+### <a name="deprecation"></a>Przestarzałe
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
+Typ klastra usług HDInsight 3,6 ML zostanie zakończony przez gru 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+
+### <a name="behavior-changes"></a>Zmiany zachowania
+Brak zmian w zachowaniu dla tej wersji.
+
+### <a name="upcoming-changes"></a>Nadchodzące zmiany
+Następujące zmiany zostaną wykonane w przyszłych wydaniach.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Możliwość wybierania różnych dozorcy rozmiary maszyn wirtualnych dla usług Spark, Hadoop i ML
+Usługa HDInsight obecnie nie obsługuje dostosowywania rozmiaru węzła dozorcy dla typów klastrów usługi Spark, Hadoop i ML. Domyślnie A2_v2/a2 rozmiary maszyn wirtualnych, które są dostępne bezpłatnie. W nadchodzącym wydaniu można wybrać dozorcy rozmiar maszyny wirtualnej, który jest najbardziej odpowiedni dla danego scenariusza. Dozorcy węzły z maszyną wirtualną o rozmiarze innym niż A2_v2/a2 będą obciążane opłatami. Maszyny wirtualne A2_v2 i a2 są nadal udostępniane bezpłatnie.
+
+### <a name="bug-fixes"></a>Poprawki błędów
+Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów. 
+
+### <a name="component-version-change"></a>Zmiana wersji składnika
+Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](./hdinsight-component-versioning.md).
 
 ## <a name="release-date-09282020"></a>Data wydania: 09/28/2020
 
@@ -518,7 +548,7 @@ Usługi Apache Storm i l nie są dostępne w usłudze HDInsight 4,0.
 
 Nowe aktualizacje i możliwości są dostępne w następujących kategoriach:
 
-*  ***Aktualizacja usługi Hadoop i innych projektów typu "open source"** _ — oprócz poprawek do 1000 + błędów w 20 + projektach typu "open source" Ta aktualizacja zawiera nową wersję programu _ *Spark (2,3)* * i **Kafka (1,0)** .
+*  ***Aktualizacja usługi Hadoop i innych projektów typu "open source"** _ — oprócz poprawek do 1000 + błędów w 20 + projektach typu "open source" Ta aktualizacja zawiera nową wersję programu _ *Spark (2,3)* * i **Kafka (1,0)**.
 
     a.  [**Nowe funkcje w Apache Spark 2,3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -1418,7 +1448,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 | USTERKA — 98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | Dostęp do rodziny kolumn HBase jest autoryzowany przez otagowaną kolumnę w rodzinie kolumn                                       |
 | USTERKA — 99883              | [Hive-19073](https://issues.apache.org/jira/browse/HIVE-19073), [Hive-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer mogą mangle stałe kolumny                                                                             |
 
-**Inne**
+**Inne problemy**
 
 | **Identyfikator błędu Hortonworks** | **Apache JIRA**                                                                                                                        | **Podsumowanie**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1787,11 +1817,11 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 
 |**Składnik Apache**|**Apache JIRA**|**Podsumowanie**|**Szczegóły**|
 |--|--|--|--|
-|**Platforma Spark 2,3** |**NIE DOTYCZY** |**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |-Istnieje dokument "" wycofania "i przewodnik" zmiana sposobu działania ", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />— W przypadku części SQL należy zapoznać się z innym szczegółowym przewodnikiem migracji (od 2,2 do 2,3). https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Platforma Spark 2,3** |**Nie dotyczy** |**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |-Istnieje dokument "" wycofania "i przewodnik" zmiana sposobu działania ", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />— W przypadku części SQL należy zapoznać się z innym szczegółowym przewodnikiem migracji (od 2,2 do 2,3). https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |platforma Spark |[**GAŁĄŹ-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Zadanie platformy Spark zostało pomyślnie zakończone, ale wystąpił pełny błąd przydziału dysku systemu plików HDFS |**Scenariusz:** Uruchamianie polecenia **INSERT overwrite** w przypadku ustawienia limitu przydziału w folderze Kosz użytkownika, który uruchamia polecenie.<br /><br />**Poprzednie zachowanie:** Zadanie powiedzie się, mimo że przeniesienie danych do kosza nie powiedzie się. Wynik może źle zawierać niektóre z danych znajdujących się wcześniej w tabeli.<br /><br />**Nowe zachowanie:** Po niepowodzeniu przejścia do folderu kosza pliki są trwale usuwane.|
-|**Kafka 1,0**|**NIE DOTYCZY**|**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1,0**|**Nie dotyczy**|**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/Ranger** | |Dodatkowe zasady programu Hive Ranger wymagane do wstawienia zastąpienia |**Scenariusz:** Dodatkowe zasady programu Hive Ranger wymagane do **wstawienia zastąpienia**<br /><br />**Poprzednie zachowanie:** Pomyślne **Wstawianie ZAstąpień** w programie Hive przebiega pomyślnie.<br /><br />**Nowe zachowanie:** Podczas uaktualniania do HDP-2.6. x z powodu błędu wystąpił nieoczekiwane nieudane zapytania dotyczące **zastępowania** programu Hive:<br /><br />Wystąpił błąd podczas kompilowania instrukcji: niepowodzenie: HiveAccessControlException uprawnień: użytkownik JKowalski nie ma uprawnienia do zapisu w/tmp/ \* (State = 42000, Code = 40000)<br /><br />Od HDP-2.6.0 zapytania programu Hive **INSERT OVERWRITE** wymagają zasad identyfikatora URI Ranger, aby zezwalać na operacje zapisu, nawet jeśli użytkownik ma uprawnienia do zapisu udzielone za pomocą zasad systemu plików HDFS.<br /><br />**Obejście/oczekiwanie na akcję klienta:**<br /><br />1. Utwórz nowe zasady w ramach repozytorium Hive.<br />2. na liście rozwijanej, w której znajduje się baza danych, wybierz pozycję Identyfikator URI.<br />3. Zaktualizuj ścieżkę (przykład:/tmp/*)<br />4. Dodaj użytkowników i grupę i Zapisz.<br />5. Ponów próbę wstawienia zapytania.|
-|**HDFS**|**NIE DOTYCZY** |System plików HDFS powinien obsługiwać wiele identyfikatorów URI usługi KMS |**Poprzednie zachowanie:** Właściwość DFS. Encryption. Key. Provider. URI została użyta do skonfigurowania ścieżki dostawcy usługi KMS.<br /><br />**Nowe zachowanie:** system plików DFS. Encryption. Key. Provider. URI jest obecnie przestarzały na rzecz platformy Hadoop. Security. Key. Provider. Path w celu skonfigurowania ścieżki dostawcy usługi KMS.|
+|**HDFS**|**Nie dotyczy** |System plików HDFS powinien obsługiwać wiele identyfikatorów URI usługi KMS |**Poprzednie zachowanie:** Właściwość DFS. Encryption. Key. Provider. URI została użyta do skonfigurowania ścieżki dostawcy usługi KMS.<br /><br />**Nowe zachowanie:** system plików DFS. Encryption. Key. Provider. URI jest obecnie przestarzały na rzecz platformy Hadoop. Security. Key. Provider. Path w celu skonfigurowania ścieżki dostawcy usługi KMS.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opcja wyłączania usługi Scheduler |**Dotyczy składnika:** Zeppelin-Server<br /><br />**Poprzednie zachowanie:** W poprzednich wersjach programu Zeppelin nie było możliwości wyłączenia usługi Scheduler.<br /><br />**Nowe zachowanie:** Domyślnie użytkownicy nie będą już widzieć usługi Scheduler, ponieważ jest ona domyślnie wyłączona.<br /><br />**Obejście/oczekiwanie na akcję klienta:** Jeśli chcesz włączyć usługę Scheduler, musisz dodać azeppelin. Notes. cronus. Enable z wartością true w obszarze Custom Zeppelin site w ustawieniach Zeppelin z Ambari.|
 
 ### <a name="known-issues"></a>Znane problemy
