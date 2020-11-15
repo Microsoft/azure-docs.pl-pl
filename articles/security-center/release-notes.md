@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372345"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636124"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -37,7 +37,8 @@ Aktualizacje w listopadzie obejmują:
 
 - [29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [NIST SP 800 171 R2 dodano do Security Center pulpitu nawigacyjnego zgodności z przepisami](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-
+- [Lista rekomendacji zawiera teraz filtry](#recommendations-list-now-includes-filters)
+- [Ulepszone i rozszerzone środowisko aprowizacji](#auto-provisioning-experience-improved-and-expanded)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
 
@@ -78,6 +79,30 @@ Aby zastosować Standard do subskrypcji i stale monitorować stan zgodności, u�
 Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
 
+### <a name="recommendations-list-now-includes-filters"></a>Lista rekomendacji zawiera teraz filtry
+
+Teraz można filtrować listę zaleceń dotyczących zabezpieczeń zgodnie z zakresem kryteriów. W poniższym przykładzie lista zaleceń została przefiltrowana w celu wyświetlenia zaleceń, które:
+
+- są **ogólnie dostępne** (tj. nie wersja zapoznawcza)
+- dotyczy **kont magazynu**
+- Pomoc techniczna dotycząca **szybkiego rozwiązywania problemów**
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filtry listy rekomendacji":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>Ulepszone i rozszerzone środowisko aprowizacji
+
+Funkcja autoaprowizacji pozwala zmniejszyć obciążenie związane z zarządzaniem przez zainstalowanie wymaganych rozszerzeń na nowych maszynach wirtualnych platformy Azure, które mogą korzystać z ochrony Security Center. 
+
+W miarę zwiększania Azure Security Center, opracowano więcej rozszerzeń i Security Center może monitorować większą listę typów zasobów. Narzędzia do samoobsługowego udostępniania zostały teraz rozwinięte w celu obsługi dodatkowych rozszerzeń i typów zasobów, wykorzystując możliwości Azure Policy.
+
+Teraz można skonfigurować funkcję samoobsługowego udostępniania:
+
+- Agent usługi Log Analytics
+- Nowy Dodatek Azure Policy dla Kubernetes
+- Nowy Agent zależności firmy Microsoft
+
+Dowiedz się więcej w temacie [Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center](security-center-enable-data-collection.md).
 
 ## <a name="october-2020"></a>Październik 2020 r.
 
@@ -139,7 +164,7 @@ Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](upda
 
 Azure Resource Graph to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów dzięki możliwości wykonywania zapytań na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu możesz efektywnie zarządzać środowiskiem. 
 
-Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Na przykład:
+Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Przykład:
 
 - Wykorzystanie spisu zasobów (ARG)
 - Zarejestrowano przykładowe zapytanie ARG dotyczące [identyfikowania kont bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -270,7 +295,7 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)

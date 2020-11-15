@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341964"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636711"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Zapobiegaj usunięciu lub zmianie zasobów Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,7 +26,7 @@ Administrator może chcieć zablokować konto usługi Azure Cosmos, bazę danych
 
 W przypadku zastosowania blokady w zakresie nadrzędnym wszystkie zasoby w tym zakresie dziedziczą tę samą blokadę. Nawet zasoby dodawane później dziedziczą blokadę z elementu nadrzędnego. Pierwszeństwo ma najbardziej restrykcyjną blokadę dziedziczenia.
 
-W przeciwieństwie do kontroli dostępu opartej na rolach blokady zarządzania są używane do stosowania ograniczenia do wszystkich użytkowników i ról. Aby dowiedzieć się więcej na temat RBAC dla Azure Cosmos DB Zobacz, [Kontrola dostępu oparta na rolach w Azure Cosmos DB](role-based-access-control.md).
+W przeciwieństwie do kontroli dostępu opartej na rolach platformy Azure, można użyć blokad zarządzania do zastosowania ograniczeń dla wszystkich użytkowników i ról. Aby dowiedzieć się więcej o usłudze Azure RBAC dla Azure Cosmos DB Zobacz, [w Azure Cosmos DB kontrola dostępu oparta na rolach platformy Azure](role-based-access-control.md).
 
 Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszczyźnie zarządzania, która składa się z operacji wysyłanych do witryny https://management.azure.com. Blokady nie ograniczają sposobu wykonywania własnych funkcji przez zasoby. Zmiany zasobów są ograniczone, ale operacje zasobów nie są ograniczone. Na przykład blokada tylko do odczytu w kontenerze usługi Azure Cosmos uniemożliwia usunięcie lub zmodyfikowanie kontenera. Nie uniemożliwia to tworzenia, aktualizowania ani usuwania danych w kontenerze. Transakcje danych są dozwolone, ponieważ te operacje nie są wysyłane do witryny https://management.azure.com.
 
@@ -73,7 +73,7 @@ az lock create --name $lockName \
     --resource $accountName
 ```
 
-### <a name="template"></a>Szablon
+### <a name="template"></a>Template
 
 W przypadku zastosowania blokady do zasobu Azure Cosmos DB należy użyć następujących formatów:
 

@@ -5,14 +5,14 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/24/2020
+ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dbc0f34e57297b9879a865511f6e7b4ed7ca2a3c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82628524"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636898"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -33,6 +33,10 @@ W celu zwiększenia bezpieczeństwa i zarządzania usługa Azure Red Hat OpenShi
 ## <a name="cluster-and-node"></a>Klaster i węzeł
 
 Węzły usługi Azure Red Hat OpenShift są uruchamiane na maszynach wirtualnych platformy Azure. Można połączyć magazyn z węzłami i składnikami programu.
+
+## <a name="service-level-agreement"></a>Umowa dotycząca poziomu usług
+
+W systemie Azure Red Hat Umowa dotycząca poziomu usług OpenShift można zagwarantować, że usługa będzie dostępna przez 99,95% czasu. Aby uzyskać więcej informacji na temat umowy SLA, zobacz [Azure Red Hat OPENSHIFT SLA](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
 
 ## <a name="next-steps"></a>Następne kroki
 

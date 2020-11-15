@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 17edd0a402fc6db2b3690074bdc0c652b107c7d0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b4c14417a31f28ea5d6475b3f84ee079d990dd6b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541389"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637068"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure z poziomu wiersza polecenia
 
@@ -250,7 +250,8 @@ Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zar�
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
     
-    <a name="the-new-azfunctionapp-cmdlet-creates-the-function-app-in-azure-if-youre-using-python-37-or-36-change--runtimeversion-to-37-or-36-respectively"></a>Polecenie cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) tworzy aplikację funkcji na platformie Azure. Jeśli używasz języka Python 3,7 lub 3,6, odpowiednio zmień `-RuntimeVersion` na `3.7` lub `3.6` .
+    Polecenie cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) tworzy aplikację funkcji na platformie Azure. Jeśli używasz języka Python 3,7 lub 3,6, odpowiednio zmień `-RuntimeVersion` na `3.7` lub `3.6` .
+
     ---
     
     W poprzednim przykładzie Zastąp ciąg `<STORAGE_NAME>` nazwą konta użytego w poprzednim kroku i Zastąp ciąg `<APP_NAME>` globalnie unikatową nazwą, która jest odpowiednia dla Ciebie.  `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 

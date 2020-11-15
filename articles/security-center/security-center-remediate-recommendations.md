@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569139"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637092"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Rekomendacje dotyczące korygowania w usłudze Azure Security Center
 
@@ -38,7 +38,14 @@ Po przejrzeniu wszystkich zaleceń Zdecyduj, które z nich należy skorygować w
 
 ## <a name="quick-fix-remediation"></a>Szybkie rozwiązywanie problemów<a name="one-click"></a>
 
-Szybkie rozwiązanie pozwala szybko skorygować zalecenia dotyczące wielu zasobów. Jest on dostępny tylko dla konkretnych zaleceń. Szybka naprawa upraszcza korygowanie i pozwala szybko zwiększyć swój Bezpieczny wynik, zwiększając bezpieczeństwo środowiska.
+Szybka naprawa upraszcza korygowanie i pozwala szybko zwiększyć swój Bezpieczny wynik, zwiększając bezpieczeństwo środowiska.
+
+Szybkie rozwiązanie pozwala szybko skorygować zalecenia dotyczące wielu zasobów. 
+
+> [!TIP]
+> Szybka poprawka jest dostępna tylko dla konkretnych zaleceń. Aby znaleźć zalecenia z opcją szybkie rozwiązanie, użyj dedykowanego filtru w górnej części listy zaleceń:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Użyj filtrów powyżej listy zaleceń, aby znaleźć zalecenia z opcją szybkie rozwiązanie":::
 
 Aby zaimplementować szybkie korygowanie poprawek:
 

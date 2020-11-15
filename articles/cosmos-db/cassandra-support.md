@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ae4281350efc96fab6c4e2898cbcddf83bf29cd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073120"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636966"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -50,7 +50,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 | blob  | Tak |
 | boolean  | Tak |
 | counter  | Tak |
-| date  | Tak |
+| data  | Tak |
 | decimal  | Tak |
 | double  | Tak |
 | float  | Tak |
@@ -86,17 +86,24 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje
 | writetime | Tak |
 | rzutowanie | Nie |
 
-\* Interfejs API Cassandra obsługuje token jako projekcję/selektor i zezwala tylko na token (PK) po lewej stronie klauzuli WHERE. Na przykład `WHERE token(pk) > 1024` jest obsługiwany, ale `WHERE token(pk) > token(100)` nie jest obsługiwany.
+> [!NOTE]
+> \* Interfejs API Cassandra obsługuje token jako projekcję/selektor i zezwala tylko na token (PK) po lewej stronie klauzuli WHERE. Na przykład `WHERE token(pk) > 1024` jest obsługiwany, ale `WHERE token(pk) > token(100)` **nie** jest obsługiwany.
+
 
 
 Funkcje agregujące:
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| min | Tak |
-| max | Tak |
 | śr | Tak |
 | count | Tak |
+| min | Tak |
+| max | Tak |
+| Suma | Tak |
+
+> [!NOTE]
+> Funkcje agregujące pracują z regularnymi kolumnami, ale agregacje kolumn **nie** są obsługiwane.
+
 
 Funkcje konwersji obiektów blob:
  
@@ -200,7 +207,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanyc
 
 Hostowaną natywną powłokę Cassandra (CQLSH v 5.0.1) można otworzyć bezpośrednio z Eksplorator danych w [Azure Portal](data-explorer.md) lub w [Eksploratorze Cosmos platformy Azure](https://cosmos.azure.com/). Przed włączeniem powłoki CQL należy [włączyć funkcję notesów](enable-notebooks.md) na koncie (jeśli nie została jeszcze włączona, zostanie wyświetlony monit po kliknięciu `Open Cassandra Shell` ). Zapoznaj się z wyróżnioną uwagą w temacie [Włączanie notesów dla kont Azure Cosmos DB](enable-notebooks.md) dla obsługiwanych regionów świadczenia usługi Azure.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Otwórz CQLSH&quot;:::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Otwórz CQLSH":::
 
 Możesz również nawiązać połączenie z interfejs API Cassandra w Azure Cosmos DB przy użyciu CQLSH zainstalowanego na komputerze lokalnym. Jest on dostarczany z Apache Cassandra 3.1.1 i działa poza ramką przez ustawienie zmiennych środowiskowych. Poniższe sekcje zawierają instrukcje dotyczące instalowania, konfigurowania i nawiązywania połączeń interfejs API Cassandra w programie Azure Cosmos DB w systemie Windows lub Linux przy użyciu CQLSH.
 
@@ -224,7 +231,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
@@ -260,7 +267,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB zapewnia możliwość wyboru sp�
 
 ## <a name="permission-and-role-management"></a>Zarządzanie uprawnieniami i rolami
 
-Azure Cosmos DB obsługuje kontrolę dostępu opartą na rolach (RBAC) na potrzeby aprowizacji, obracania klawiszy, wyświetlania metryk oraz haseł do odczytu i zapisu oraz kluczy, które można uzyskać za pośrednictwem [Azure Portal](https://portal.azure.com). Azure Cosmos DB nie obsługuje ról dla działań CRUD.
+Azure Cosmos DB obsługuje funkcję kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure na potrzeby aprowizacji, rotacji kluczy, wyświetlania metryk oraz haseł do odczytu i zapisu oraz kluczy, które można uzyskać za pośrednictwem [Azure Portal](https://portal.azure.com). Azure Cosmos DB nie obsługuje ról dla działań CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Opcje przestrzeni kluczy i tabeli
 

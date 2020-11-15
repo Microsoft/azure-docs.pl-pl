@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: ee286540d4fd740c5e7c1f8bd693fddd625eeae2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6c364cf84bada2a951ef3f224ea836885f0e3c1e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398151"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636320"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Samouczek: odbieranie danych urządzenia za pomocą usługi Azure IoT Hub
 
-Łącznik usługi Azure IoT dla FHIR * oferuje możliwość pozyskiwania danych z urządzeń z Internetu (IoMT) do usługi Azure API dla FHIR. [Łącznik wdrażania usługi Azure IoT dla FHIR (wersja zapoznawcza) korzystający z narzędzia Azure Portal](iot-fhir-portal-quickstart.md) szybki start przedstawia przykład urządzenia zarządzanego przez platformę Azure IoT Central [wysyłanie danych telemetrycznych](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) do łącznika usługi Azure IoT dla FHIR. Łącznik usługi Azure IoT dla FHIR może również współdziałać z urządzeniami, które są obsługiwane i zarządzane za pomocą usługi Azure IoT Hub. Ten samouczek zawiera opis procedury łączenia i kierowania danych urządzenia z usługi IoT Hub Azure FHIR do usługi Azure IoT Connector dla.
+Łącznik usługi Azure IoT dla szybkich zasobów współdziałania (FHIR&#174;) * oferuje możliwość pozyskiwania danych z urządzeń z Internetu (IoMT) do usługi Azure API dla FHIR. [Łącznik wdrażania usługi Azure IoT dla FHIR (wersja zapoznawcza) korzystający z narzędzia Azure Portal](iot-fhir-portal-quickstart.md) szybki start przedstawia przykład urządzenia zarządzanego przez platformę Azure IoT Central [wysyłanie danych telemetrycznych](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) do łącznika usługi Azure IoT dla FHIR. Łącznik usługi Azure IoT dla FHIR może również współdziałać z urządzeniami, które są obsługiwane i zarządzane za pomocą usługi Azure IoT Hub. Ten samouczek zawiera opis procedury łączenia i kierowania danych urządzenia z usługi IoT Hub Azure FHIR do usługi Azure IoT Connector dla.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -113,6 +113,4 @@ Dowiedz się, jak skonfigurować łącznik usługi IoT przy użyciu szablonów m
 >[!div class="nextstepaction"]
 >[Łącznik usługi Azure IoT dla szablonów mapowania FHIR](iot-mapping-templates.md)
 
-* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
-
-FHIR to zastrzeżony znak towarowy firmy HL7 i jest używany za jej pozwoleniem.
+* W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza). FHIR jest zastrzeżonym znakiem towarowym HL7 i jest używany z uprawnieniem HL7.

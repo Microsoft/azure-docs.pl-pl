@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745802"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636984"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera Azure Files (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [Utwórz `Premium_LRS` Konto usługi Azure Storage](../storage/files/storage-how-to-create-premium-fileshare.md) z następującymi konfiguracjami do obsługi udziałów NFS:
 - rodzaj konta: FileStorage
 - wymagany bezpieczny transfer (Włącz tylko ruch HTTPS): FAŁSZ
-- Wybierz sieć wirtualną węzłów agenta w obszarze zapory i sieci wirtualne
+- w obszarze zapory i sieci wirtualne wybierz sieć wirtualną węzłów agenta, aby utworzyć konto magazynu w MC_ grupie zasobów.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Utwórz klasę magazynu udziału plików NFS
 
@@ -239,7 +239,7 @@ Zapisz `nfs-sc.yaml` plik z manifestem poniżej, edytując odpowiednie symbole z
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Należy pamiętać, że ponieważ udział plików NFS jest na koncie Premium, minimalny rozmiar udziału plików wynosi 100 GB. W przypadku utworzenia obwodu PVC o małym rozmiarze magazynu może wystąpić błąd "nie można utworzyć udziału plików... rozmiar (5)... ".
+
 
 ## <a name="windows-containers"></a>Kontenery systemu Windows
 

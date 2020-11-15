@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 30cdc9924d41fdbe27156fcf90688d4baf440487
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210370"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636864"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Apache Kafka z rejestrem schematu z usługą Azure HDInsight
 
@@ -34,7 +34,7 @@ W tej sekcji wdrażamy klaster Kafka zarządzany przez usługę HDInsight z węz
 
 1. Wybierz przycisk **Wdróż na platformie Azure** poniżej, aby zalogować się do platformy Azure i otworzyć szablon Menedżer zasobów.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/schema-registry/hdi-deploy-to-azure1.png"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
 
 1. W szablonie wdrożenia niestandardowego Wypełnij pola zgodnie z poniższym opisem:
 
@@ -42,7 +42,7 @@ W tej sekcji wdrażamy klaster Kafka zarządzany przez usługę HDInsight z węz
     |---|---|
     |Subskrypcja|Z listy rozwijanej wybierz subskrypcję platformy Azure używaną na potrzeby klastra.|
     |Grupa zasobów|Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**.|
-    |Region|Z listy rozwijanej wybierz region, w którym tworzony jest klaster.|
+    |Region (Region)|Z listy rozwijanej wybierz region, w którym tworzony jest klaster.|
     |Nazwa klastra|Podaj globalnie unikatową nazwę. Lub pozostaw jako-is, aby użyć nazwy domyślnej.|
     |Nazwa użytkownika logowania klastra|Podaj nazwę użytkownika — wartość domyślna to **admin**.|
     |Hasło logowania klastra|Podaj hasło.|
@@ -71,13 +71,13 @@ Rejestr schematu musi wiedzieć, że usługa dozorcy może współistnieć z kla
     export password='PASSWORD'
     ```
 
-1. Wyodrębnij poprawną nazwę klastra z wielkością liter. Wykonaj następujące polecenie:
+1. Wyodrębnij poprawną nazwę klastra z wielkością liter. Uruchom następujące polecenie:
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
 
-1. Wyodrębnij hosty Kafka dozorcy. Wykonaj następujące polecenie:
+1. Wyodrębnij hosty Kafka dozorcy. Uruchom następujące polecenie:
 
     ```bash
     export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
@@ -87,7 +87,7 @@ Rejestr schematu musi wiedzieć, że usługa dozorcy może współistnieć z kla
 
     Zanotuj tę wartość, ponieważ zostanie użyta później.
 
-1. Wyodrębnij hosty brokera Kafka. Wykonaj następujące polecenie:
+1. Wyodrębnij hosty brokera Kafka. Uruchom następujące polecenie:
 
     ```bash
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
@@ -95,7 +95,7 @@ Rejestr schematu musi wiedzieć, że usługa dozorcy może współistnieć z kla
     echo $KAFKABROKERS
     ```
 
-1. Otwórz plik właściwości rejestru schematu w trybie edycji. Wykonaj następujące polecenie:
+1. Otwórz plik właściwości rejestru schematu w trybie edycji. Uruchom następujące polecenie:
 
     ```bash
     sudo nano /etc/schema-registry/schema-registry.properties
@@ -113,7 +113,7 @@ Rejestr schematu musi wiedzieć, że usługa dozorcy może współistnieć z kla
     debug=true
     ```
 
-1. Aby zapisać plik, użyj **kombinacji klawiszy Ctrl + X**, **Y**, a następnie klawisz **Enter**.
+1. Aby zapisać plik, użyj **kombinacji klawiszy Ctrl + X** , **Y** , a następnie klawisz **Enter**.
 
 1. Uruchom rejestr schematu i wskaż go, aby użyć zaktualizowanego pliku właściwości rejestru schematu. Wykonaj następujące polecenia:
 
@@ -215,7 +215,7 @@ W tej sekcji będziemy odczytywać dane z standardowego wejścia i zapisywać je
     }
     ```
 
-    Użyj poniższego polecenia, aby uruchomić **producenta konsoli programu Kafka Avro**:
+    Użyj poniższego polecenia, aby uruchomić **producenta konsoli programu Kafka Avro** :
 
     ```bash
     /usr/bin/kafka-avro-console-producer     --broker-list $KAFKABROKERS     --topic agkafkaschemareg     --property parse.key=true --property key.schema='{"type" : "int", "name" : "id"}'     --property value.schema='{ "type" : "record", "name" : "example_schema", "namespace" : "com.example", "fields" : [ { "name" : "cust_id", "type" : "int", "doc" : "Id of the customer account" }, { "name" : "year", "type" : "int", "doc" : "year of expense" }, { "name" : "expenses", "type" : {"type": "array", "items": "float"}, "doc" : "Expenses for the year" } ], "doc:" : "A basic schema for storing messages" }'

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d63d21f4c49e3c7aef035208477ac9fc79f2e51
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101735"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637187"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Konfigurowanie dostępu do Azure Cosmos DB z sieci wirtualnych (VNet)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -40,17 +40,17 @@ W poniższych sekcjach opisano sposób konfigurowania punktu końcowego usługi 
 
 1. W bloku **wszystkie zasoby** znajdź konto Azure Cosmos DB, które chcesz zabezpieczyć.
 
-1. Wybierz pozycję **zapory i sieci wirtualne** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci** .
+1. Wybierz pozycję **zapory i sieci wirtualne** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do podsieci istniejącej sieci wirtualnej, w obszarze **sieci wirtualne** wybierz pozycję **Dodaj istniejącą sieć wirtualną platformy Azure** .
+1. Aby udzielić dostępu do podsieci istniejącej sieci wirtualnej, w obszarze **sieci wirtualne** wybierz pozycję **Dodaj istniejącą sieć wirtualną platformy Azure**.
 
-1. Wybierz **subskrypcję** , z której chcesz dodać sieć wirtualną platformy Azure. Wybierz **sieci wirtualne** i **podsieci** platformy Azure, dla których chcesz zapewnić dostęp do konta Azure Cosmos DB. Następnie wybierz pozycję **Włącz** , aby włączyć wybrane sieci z punktami końcowymi usługi dla elementu "Microsoft. AzureCosmosDB". Po zakończeniu wybierz pozycję **Dodaj** .
+1. Wybierz **subskrypcję** , z której chcesz dodać sieć wirtualną platformy Azure. Wybierz **sieci wirtualne** i **podsieci** platformy Azure, dla których chcesz zapewnić dostęp do konta Azure Cosmos DB. Następnie wybierz pozycję **Włącz** , aby włączyć wybrane sieci z punktami końcowymi usługi dla elementu "Microsoft. AzureCosmosDB". Po zakończeniu wybierz pozycję **Dodaj**.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć":::
 
 1. Po włączeniu konta Azure Cosmos DB dostępu z sieci wirtualnej zezwoli on na ruch tylko z tej wybranej podsieci. Dodana Sieć wirtualna i podsieć powinna zostać wyświetlona, jak pokazano na poniższym zrzucie ekranu:
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Wybierz sieć wirtualną i podsieć":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Pomyślnie skonfigurowano sieć wirtualną i podsieć":::
 
 > [!NOTE]
 > Aby włączyć punkty końcowe usługi sieci wirtualnej, wymagane są następujące uprawnienia do subskrypcji:
@@ -64,15 +64,15 @@ Poniżej przedstawiono wskazówki dotyczące rejestrowania subskrypcji przy uży
 
 1. W bloku **wszystkie zasoby** znajdź konto Azure Cosmos DB, które chcesz zabezpieczyć.  
 
-1. Wybierz pozycję **zapory i sieci wirtualne platformy Azure** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci** .  
+1. Wybierz pozycję **zapory i sieci wirtualne platformy Azure** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci**.  
 
-1. Aby udzielić dostępu do nowej sieci wirtualnej platformy Azure, w obszarze **sieci wirtualne** wybierz pozycję **Dodaj nową sieć wirtualną** .  
+1. Aby udzielić dostępu do nowej sieci wirtualnej platformy Azure, w obszarze **sieci wirtualne** wybierz pozycję **Dodaj nową sieć wirtualną**.  
 
-1. Podaj szczegóły wymagane do utworzenia nowej sieci wirtualnej, a następnie wybierz pozycję **Utwórz** . Podsieć zostanie utworzona z punktem końcowym usługi dla "Microsoft. AzureCosmosDB".
+1. Podaj szczegóły wymagane do utworzenia nowej sieci wirtualnej, a następnie wybierz pozycję **Utwórz**. Podsieć zostanie utworzona z punktem końcowym usługi dla "Microsoft. AzureCosmosDB".
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć dla nowej sieci wirtualnej":::
 
-Jeśli konto Azure Cosmos DB jest używane przez inne usługi platformy Azure, takie jak Azure Wyszukiwanie poznawcze lub dostęp za pośrednictwem usług Stream Analytics lub Power BI, zezwolisz na dostęp poprzez wybranie opcji **Akceptuj połączenia z poziomu globalnych centrów danych platformy Azure** .
+Jeśli konto Azure Cosmos DB jest używane przez inne usługi platformy Azure, takie jak Azure Wyszukiwanie poznawcze lub dostęp za pośrednictwem usług Stream Analytics lub Power BI, zezwolisz na dostęp poprzez wybranie opcji **Akceptuj połączenia z poziomu globalnych centrów danych platformy Azure**.
 
 Aby mieć pewność, że masz dostęp do metryk Azure Cosmos DB z poziomu portalu, musisz włączyć opcję **Zezwalaj na dostęp z poziomu Azure Portal** . Aby dowiedzieć się więcej na temat tych opcji, zobacz artykuł [Konfigurowanie zapory IP](how-to-configure-firewall.md) . Po włączeniu dostępu wybierz pozycję **Zapisz** , aby zapisać ustawienia.
 
@@ -82,11 +82,11 @@ Aby mieć pewność, że masz dostęp do metryk Azure Cosmos DB z poziomu portal
 
 1. Wybierz pozycję **zapory i sieci wirtualne** z menu Ustawienia.  
 
-1. Aby usunąć regułę sieci wirtualnej lub podsieci, wybierz pozycję **...** obok sieci wirtualnej lub podsieci, a następnie wybierz pozycję **Usuń** .
+1. Aby usunąć regułę sieci wirtualnej lub podsieci, wybierz pozycję **...** obok sieci wirtualnej lub podsieci, a następnie wybierz pozycję **Usuń**.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Usuwanie sieci wirtualnej":::
 
-1. Aby zastosować zmiany, wybierz pozycję **Zapisz** .
+1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
 ## <a name="configure-a-service-endpoint-by-using-azure-powershell"></a><a id="configure-using-powershell"></a>Konfigurowanie punktu końcowego usługi przy użyciu Azure PowerShell
 
@@ -322,7 +322,7 @@ W tej chwili integracja [powłoki Mongo](https://devblogs.microsoft.com/cosmosdb
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Czy można określić zarówno punkt końcowy usługi sieci wirtualnej, jak i zasady kontroli dostępu IP na koncie usługi Azure Cosmos? 
 
-Można włączyć zarówno punkt końcowy usługi sieci wirtualnej, jak i zasady kontroli dostępu IP (Zapora) na koncie usługi Azure Cosmos. Te dwie funkcje uzupełniają się i wspólnie zapewniają izolację i bezpieczeństwo konta usługi Azure Cosmos. Użycie zapory IP gwarantuje, że statyczne adresy IP będą mogły uzyskiwać dostęp do Twojego konta. 
+Można włączyć zarówno punkt końcowy usługi sieci wirtualnej, jak i zasady kontroli dostępu IP (nazywane także zaporą) na koncie usługi Azure Cosmos. Te dwie funkcje uzupełniają się i wspólnie zapewniają izolację i bezpieczeństwo konta usługi Azure Cosmos. Użycie zapory IP gwarantuje, że statyczne adresy IP będą mogły uzyskiwać dostęp do Twojego konta. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>Jak mogę ograniczyć dostęp do podsieci w ramach sieci wirtualnej? 
 
@@ -336,7 +336,7 @@ Gdy są dodawane reguły dostępu zapory IP lub sieci wirtualnej, tylko żądani
 
 Po włączeniu punktu końcowego usługi dla Azure Cosmos DB w podsieci źródło ruchu docierające do konta jest przełączane z publicznego adresu IP do sieci wirtualnej i podsieci. Jeśli konto usługi Azure Cosmos ma zaporę opartą na protokole IP, ruch z podsieci z obsługą usługi nie będzie już zgodny z regułami zapory IP i dlatego zostanie odrzucony. Wykonaj kroki, aby bezproblemowo migrować z zapory opartej na protokole IP do kontroli dostępu opartej na sieci wirtualnej.
 
-### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Czy istnieją dodatkowe uprawnienia RBAC dla kont usługi Azure Cosmos z punktami końcowymi usługi sieci wirtualnej?
+### <a name="are-additional-azure-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Czy dla kont Azure Cosmos z punktami końcowymi usługi sieci wirtualnej są spełnione dodatkowe uprawnienia kontroli RBAC platformy Azure?
 
 Po dodaniu punktów końcowych usługi sieci wirtualnej do konta usługi Azure Cosmos, aby wprowadzić zmiany w ustawieniach konta, musisz mieć dostęp do `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` akcji dla wszystkich sieci wirtualnych skonfigurowanych na koncie Azure Cosmos. To uprawnienie jest wymagane, ponieważ proces autoryzacji sprawdza dostęp do zasobów (takich jak zasoby bazy danych i sieci wirtualnej) przed ocenami wszystkich właściwości.
  

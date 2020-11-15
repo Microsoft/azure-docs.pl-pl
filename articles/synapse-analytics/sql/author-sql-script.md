@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3618ba28403882ee1f949a2bbc97e586674b3772
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317561"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635293"
 ---
 # <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Korzystanie ze skryptów SQL w usłudze Azure Synapse Studio (wersja zapoznawcza)
 
@@ -73,6 +73,18 @@ Wybierając menu **Akcje** w obszarze dane, możesz wybrać kilka akcji, takich 
 Aby poznać dostępny gest, kliknij prawym przyciskiem myszy węzły baz danych SQL.
  
 ![Nowa baza danych skryptów](media/author-sql-script/new-script-database.png)
+
+## <a name="create-folders-and-move-sql-scripts-into-a-folder"></a>Tworzenie folderów i przenoszenie skryptów SQL do folderu
+
+W menu Akcje w obszarze Projektowanie skryptów SQL Wybierz pozycję "nowy folder" z menu "akcje" w sekcji Tworzenie skryptów SQL. I wpisz nazwę nowego folderu w oknie podręcznym. 
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+
+Aby przenieść skrypt SQL do folderu, możesz wybrać skrypt SQL i wybrać polecenie "Przenieś do" z menu Akcje. Następnie znajdź folder docelowy w nowym oknie i Przenieś skrypt SQL do wybranego folderu. Możesz również szybko przeciągnąć skrypt SQL i upuścić go w folderze.  
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-move-folder.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

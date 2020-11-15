@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070507"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634875"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
 
-Azure Load Balancer jest P4 modelu połączeń systemów otwartych (OSI), który obsługuje zarówno scenariusze przychodzące, jak i wychodzące. Dystrybuuje przepływy przychodzące, które docierają do frontonu modułu równoważenia obciążenia z wystąpieniami puli zaplecza.
+Azure Load Balancer znajduje się na P4 modelu połączeń systemów otwartych (OSI), który obsługuje zarówno scenariusze przychodzące, jak i wychodzące. Dystrybuuje przepływy przychodzące, które docierają do frontonu modułu równoważenia obciążenia z wystąpieniami puli zaplecza.
 
 **Publiczna** Load Balancer w przypadku zintegrowania z usługą AKS służy do dwóch celów:
 
@@ -93,13 +93,13 @@ Azure Load Balancer zapewnia łączność wychodzącą z sieci wirtualnej opróc
 
 Podobnie jak w przypadku wszystkich reguł Load Balancer, reguły wychodzące mają taką samą znaną składnię jak równoważenie obciążenia i reguły NAT dla ruchu przychodzącego:
 
-***Adresy IP frontonu + parametry + Pula zaplecza***
+***adresy IP frontonu + parametry + Pula zaplecza** _
 
 Reguła ruchu wychodzącego konfiguruje wychodzące NAT dla wszystkich maszyn wirtualnych identyfikowanych przez pulę zaplecza, które mają zostać przetłumaczone na fronton. I parametry zapewniają dodatkową kontrolę nad algorytmem NAT dla ruchu wychodzącego.
 
 Reguła ruchu wychodzącego może być używana z tylko jednym publicznym adresem IP, ale reguły ruchu wychodzącego ułatwiają skalowanie w ramach ruchu wychodzącego NAT. Można użyć wielu adresów IP do zaplanowania scenariuszy o dużej skali i można użyć reguł ruchu wychodzącego, aby wyeliminować wzorce podatności na ruch wydechowy. Każdy dodatkowy adres IP dostarczony przez fronton zapewnia 64 000 portów tymczasowych dla Load Balancer, które mają być używane jako porty. 
 
-W przypadku korzystania ze *standardowego* modułu równoważenia obciążenia jednostki SKU z zarządzanymi publicznymi adresami IP, które są tworzone domyślnie, można skalować liczbę zarządzanych wychodzących adresów IP, używając **`load-balancer-managed-ip-count`** parametru.
+W przypadku korzystania z usługi równoważenia obciążenia _Standard * z zarządzanymi publicznymi adresami IP, które są tworzone domyślnie, można skalować liczbę zarządzanych publicznych adresów IP, używając **`load-balancer-managed-ip-count`** parametru.
 
 Aby zaktualizować istniejący klaster, uruchom następujące polecenie. Ten parametr można również ustawić podczas tworzenia klastra, aby miał wiele zarządzanych publicznych adresów IP.
 
@@ -229,7 +229,7 @@ Aby bezpiecznie przechodzić powyżej 100 węzłów, trzeba dodać więcej adres
 > [!IMPORTANT]
 > Aby uniknąć problemów z łącznością lub skalowaniem, należy [obliczyć wymagany limit przydziału i sprawdzić wymagania][requirements] przed rozpoczęciem dostosowywania *allocatedOutboundPorts* .
 
-Można również użyć **`load-balancer-outbound-ports`** parametrów podczas tworzenia klastra, ale należy również określić albo, **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** lub **`load-balancer-outbound-ip-prefixes`** .  Na przykład:
+Można również użyć **`load-balancer-outbound-ports`** parametrów podczas tworzenia klastra, ale należy również określić albo, **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** lub **`load-balancer-outbound-ip-prefixes`** .  Przykład:
 
 ```azurecli-interactive
 az aks create \
@@ -266,7 +266,7 @@ Jeśli spodziewasz się wielu krótkich połączeń i nie ma żadnych połącze�
  
 *outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
-Na przykład jeśli masz 3 *nodeVMs*i 50 000 *desiredAllocatedOutboundPorts*, musisz mieć co najmniej 3 *outboundIPs*. Zaleca się dołączenie dodatkowej pojemności wychodzącego adresu IP poza potrzebami. Ponadto należy uwzględnić automatyczne skalowanie klastra i możliwość uaktualniania puli węzłów przy obliczaniu wydajności wychodzącego adresu IP. W przypadku automatycznego skalowania klastra sprawdź bieżącą liczbę węzłów i maksymalną liczbę węzłów i użyj wyższej wartości. W przypadku uaktualniania należy uwzględnić dodatkową maszynę wirtualną węzłową dla każdej puli węzłów, która umożliwia uaktualnianie.
+Na przykład jeśli masz 3 *nodeVMs* i 50 000 *desiredAllocatedOutboundPorts* , musisz mieć co najmniej 3 *outboundIPs*. Zaleca się dołączenie dodatkowej pojemności wychodzącego adresu IP poza potrzebami. Ponadto należy uwzględnić automatyczne skalowanie klastra i możliwość uaktualniania puli węzłów przy obliczaniu wydajności wychodzącego adresu IP. W przypadku automatycznego skalowania klastra sprawdź bieżącą liczbę węzłów i maksymalną liczbę węzłów i użyj wyższej wartości. W przypadku uaktualniania należy uwzględnić dodatkową maszynę wirtualną węzłową dla każdej puli węzłów, która umożliwia uaktualnianie.
 
 - Podczas ustawiania *IdleTimeoutInMinutes* na inną wartość niż domyślnie 30 minut należy wziąć pod uwagę, jak długo obciążenia będą wymagały połączenia wychodzącego. Należy również wziąć pod uwagę domyślną wartość limitu czasu dla usługi równoważenia obciążenia w *warstwie Standardowa* używanej poza AKS wynosi 4 minuty. Wartość *IdleTimeoutInMinutes* , która dokładniej odzwierciedla Twoje określone obciążenie AKS może pomóc w zmniejszeniu wyczerpania spalin spowodowanych przez nawiązanie połączeń, które nie są już używane.
 

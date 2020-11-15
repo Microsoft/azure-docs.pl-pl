@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5b2457018daf716052b81a8b99c21e3248f185eb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 19b4c8466e88159839ce1f43a5ba282b1bb3ec9e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096788"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636932"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Zabezpieczenia w usłudze Azure Cosmos DB — omówienie
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,7 +63,7 @@ Przyjrzyjmy się szczegółowo Dig.
 |Bezpieczeństwo sieci|Korzystanie z zapory IP jest pierwszą warstwą ochrony, aby zabezpieczyć bazę danych. Azure Cosmos DB obsługuje kontroli dostępu opartej na protokole IP na potrzeby obsługi zapory przychodzącej. Kontroli dostępu opartej na protokole IP są podobne do reguł zapory używanych przez tradycyjne systemy baz danych, ale są rozszerzane, dzięki czemu konto bazy danych usługi Azure Cosmos jest dostępne tylko z zatwierdzonego zestawu maszyn lub usług w chmurze. Więcej informacji znajduje się w artykule [obsługa Azure Cosmos DB zapory](how-to-configure-firewall.md) .<br><br>Azure Cosmos DB umożliwia włączenie określonego adresu IP (168.61.48.0), zakresu adresów IP (168.61.48.0/8) oraz kombinacji adresów IP i zakresów. <br><br>Wszystkie żądania pochodzące z maszyn spoza tej listy dozwolonych są blokowane przez Azure Cosmos DB. Żądania z zatwierdzonych maszyn i usług w chmurze muszą ukończyć proces uwierzytelniania, aby uzyskać kontrolę dostępu do zasobów.<br><br> Możesz użyć [tagów usługi sieci wirtualnej](../virtual-network/service-tags-overview.md) , aby uzyskać izolację sieci i chronić zasoby Azure Cosmos DB z poziomu ogólnego Internetu. Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład AzureCosmosDB) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.|
 |Autoryzacja|Azure Cosmos DB używa kodu uwierzytelniania komunikatów (HMAC) dla autoryzacji. <br><br>Każde żądanie jest zmieszane przy użyciu klucza tajnego konta, a kolejny zakodowany skrót Base-64 jest wysyłany z każdym wywołaniem do Azure Cosmos DB. Aby sprawdzić poprawność żądania, usługa Azure Cosmos DB używa poprawnego klucza tajnego i właściwości do wygenerowania skrótu, a następnie porównuje wartość z tą w żądaniu. Jeśli dwie wartości są zgodne, operacja jest autoryzowana pomyślnie, a żądanie jest przetwarzane, w przeciwnym razie wystąpi błąd autoryzacji i żądanie zostało odrzucone.<br><br>Możesz użyć [klucza podstawowego](#primary-keys)lub [tokenu zasobu](secure-access-to-data.md#resource-tokens) , co pozwala uzyskać szczegółowy dostęp do zasobu, takiego jak dokument.<br><br>Dowiedz się więcej w temacie [Zabezpieczanie dostępu do zasobów Azure Cosmos DB](secure-access-to-data.md).|
 |Użytkownicy i uprawnienia|Przy użyciu klucza podstawowego dla konta można tworzyć zasoby użytkowników i zasoby uprawnień dla poszczególnych baz danych. Token zasobu jest skojarzony z uprawnieniem w bazie danych i określa, czy użytkownik ma dostęp (do odczytu i zapisu, tylko do odczytu lub brak dostępu) do zasobu aplikacji w bazie danych. Zasoby aplikacji obejmują kontener, dokumenty, załączniki, procedury składowane, wyzwalacze i UDF. Token zasobu jest następnie używany podczas uwierzytelniania w celu zapewnienia lub odmowy dostępu do zasobu.<br><br>Dowiedz się więcej w temacie [Zabezpieczanie dostępu do zasobów Azure Cosmos DB](secure-access-to-data.md).|
-|Integracja z usługą Active Directory (RBAC)| Możesz także zapewnić lub ograniczyć dostęp do konta Cosmos, bazy danych, kontenera i ofert (przepływności) przy użyciu funkcji kontroli dostępu (IAM) w Azure Portal. IAM zapewnia kontrolę dostępu opartą na rolach i integruje się z Active Directory. Możesz użyć wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [integracji Active Directory](role-based-access-control.md) .|
+|Integracja z usługą Active Directory (Azure RBAC)| Możesz także zapewnić lub ograniczyć dostęp do konta Cosmos, bazy danych, kontenera i ofert (przepływności) przy użyciu funkcji kontroli dostępu (IAM) w Azure Portal. IAM zapewnia kontrolę dostępu opartą na rolach i integruje się z Active Directory. Możesz użyć wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [integracji Active Directory](role-based-access-control.md) .|
 |Replikacja globalna|Azure Cosmos DB oferuje dystrybucję globalną gotowe, która umożliwia replikację danych do każdego z dostępnych w całym świecie centrów dane platformy Azure z kliknięciem przycisku. Replikacja globalna pozwala skalować globalnie i zapewniać dostęp do danych na całym świecie o małym opóźnieniu.<br><br>W kontekście zabezpieczeń replikacja globalna zapewnia ochronę danych przed awariami regionalnymi.<br><br>Dowiedz się więcej z artykułu [Distribute data globally](distribute-data-globally.md) (Globalna dystrybucja danych).|
 |Praca w trybie failover w regionach|Jeśli dane zostały zreplikowane w więcej niż jednym centrum danych, Azure Cosmos DB automatycznie przenoszone przez operacje, gdy regionalne centrum danych przejdzie do trybu offline. Można utworzyć listę priorytetów regionów trybu failover przy użyciu regionów, w których dane są replikowane. <br><br>Więcej informacji na temat [regionalnych trybu failover znajduje się w Azure Cosmos DB](high-availability.md).|
 |Replikacja lokalna|Nawet w ramach jednego centrum danych Azure Cosmos DB automatycznie replikuje dane pod kątem wysokiej dostępności, zapewniając wybór [poziomów spójności](consistency-levels.md). Ta replikacja gwarantuje dostępność na 99,99 [% dla wszystkich](https://azure.microsoft.com/support/legal/sla/cosmos-db) kont w jednym regionie, a wszystkie konta wieloregionowe ze spójną spójnością i 99,999% odczytu na wszystkich wieloregionowych kontach baz danych.|
@@ -80,7 +80,7 @@ Przyjrzyjmy się szczegółowo Dig.
 |Konta administracyjne z silnymi hasłami|Trudno jest sądzić, że nawet musimy wymienić ten wymóg, ale w przeciwieństwie do niektórych naszych konkurentów nie ma możliwości posiadania konta administracyjnego bez hasła w Azure Cosmos DB.<br><br> Zabezpieczenia przez uwierzytelnianie oparte na kluczach tajnych TLS i HMAC są domyślnie rozszerzania.|
 |Certyfikaty zabezpieczeń i ochrony danych| Najbardziej aktualną listę certyfikatów zawiera ogólna [Witryna zgodności platformy Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) , a także najnowszy [dokument zgodności platformy Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) ze wszystkimi certyfikatami (Search for Cosmos). Aby uzyskać bardziej skoncentrowany odczyt, zapoznaj się z dniem 25 kwietnia 2018. [Azure #CosmosDB: Secure, Private, zgodny, który zawiera SOC 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High i wiele innych.
 
-Poniższy zrzut ekranu pokazuje, jak można użyć rejestrowania inspekcji i dzienników aktywności do monitorowania konta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Obowiązki dostawcy i klienta bazy danych":::
+Poniższy zrzut ekranu pokazuje, jak można użyć rejestrowania inspekcji i dzienników aktywności do monitorowania konta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="dzienniki aktywności dla Azure Cosmos DB":::
 
 <a id="primary-keys"></a>
 
@@ -99,7 +99,7 @@ Oprócz dwóch kluczy podstawowych dla konta Cosmos DB istnieją dwa klucze tylk
 
 Klucze podstawowe, pomocnicze, tylko do odczytu i odczyt-zapis można pobrać i ponownie wygenerować przy użyciu Azure Portal. Aby uzyskać instrukcje, zobacz [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu](manage-with-cli.md#regenerate-account-key).
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Obowiązki dostawcy i klienta bazy danych":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Kontrola dostępu (IAM) w Azure Portal-demonstrowanie zabezpieczeń bazy danych NoSQL":::
 
 ## <a name="next-steps"></a>Następne kroki
 

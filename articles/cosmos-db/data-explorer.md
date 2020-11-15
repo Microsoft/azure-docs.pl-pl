@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096805"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637119"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Praca z danymi za pomocą eksploratora usługi Azure Cosmos 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,21 +26,21 @@ Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który u
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Dostęp do Eksploratora Azure Cosmos DB
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/). 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/). 
 
-2. W obszarze **wszystkie zasoby** Znajdź i przejdź do konta Azure Cosmos DB, wybierz pozycję klucze i skopiuj **podstawowe parametry połączenia** .  
+2. W obszarze **wszystkie zasoby** Znajdź i przejdź do konta Azure Cosmos DB, wybierz pozycję klucze i skopiuj **podstawowe parametry połączenia**.  
 
-3. Przejdź do lokalizacji https://cosmos.azure.com/ , wklej parametry połączenia i wybierz pozycję **Połącz** . Korzystając z parametrów połączenia, można uzyskać dostęp do Eksploratora Azure Cosmos DB bez żadnych limitów czasu.  
+3. Przejdź do lokalizacji https://cosmos.azure.com/ , wklej parametry połączenia i wybierz pozycję **Połącz**. Korzystając z parametrów połączenia, można uzyskać dostęp do Eksploratora Azure Cosmos DB bez żadnych limitów czasu.  
 
    Jeśli chcesz udostępnić innym użytkownikom tymczasowy dostęp do konta Azure Cosmos DB, możesz to zrobić za pomocą adresów URL odczytu i zapisu i odczytu. 
 
-4. Otwórz blok **Eksplorator danych** , wybierz pozycję **Otwórz pełny ekran** . W wyskakującym oknie dialogowym można wyświetlić dwa adresy URL dostępu — **Odczyt i zapis** i **Odczyt** . Te adresy URL umożliwiają tymczasowe udostępnianie konta Azure Cosmos DB innym użytkownikom. Dostęp do konta wygasa przez 24 godziny, po którym można ponownie nawiązać połączenie przy użyciu nowego adresu URL dostępu lub parametrów połączenia. 
+4. Otwórz blok **Eksplorator danych** , wybierz pozycję **Otwórz pełny ekran**. W wyskakującym oknie dialogowym można wyświetlić dwa adresy URL dostępu — **Odczyt i zapis** i **Odczyt**. Te adresy URL umożliwiają tymczasowe udostępnianie konta Azure Cosmos DB innym użytkownikom. Dostęp do konta wygasa przez 24 godziny, po którym można ponownie nawiązać połączenie przy użyciu nowego adresu URL dostępu lub parametrów połączenia. 
 
    Do **odczytu i zapisu** — gdy udostępniasz adres URL Read-Write innym użytkownikom, mogą oni wyświetlać i modyfikować bazy danych, kolekcje, zapytania i inne zasoby skojarzone z danym kontem.
 
    **Odczyt** — w przypadku udostępniania adresu URL tylko do odczytu innym użytkownikom mogą wyświetlać bazy danych, kolekcje, zapytania i inne zasoby skojarzone z tym konkretnym kontem. Na przykład jeśli chcesz udostępnić wyniki zapytania członkom zespołu, którzy nie mają dostępu do Azure Portal lub konta Azure Cosmos DB, możesz podać te adresy URL.
 
-   Wybierz typ dostępu, za pomocą którego chcesz otworzyć konto, a następnie kliknij przycisk **Otwórz** . Po otwarciu Eksploratora środowisko działa tak samo, jak w przypadku korzystania z karty Eksplorator danych w Azure Portal.
+   Wybierz typ dostępu, za pomocą którego chcesz otworzyć konto, a następnie kliknij przycisk **Otwórz**. Po otwarciu Eksploratora środowisko działa tak samo, jak w przypadku korzystania z karty Eksplorator danych w Azure Portal.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Otwórz Eksploratora Azure Cosmos DB":::
 
@@ -50,7 +50,7 @@ Obecnie **otwarte pełne środowisko ekranu** , które umożliwia udostępnianie
 
 Obecnie wyświetlanie dokumentów zawierających identyfikator UUID nie jest obsługiwane w Eksplorator danych. Nie ma to wpływu na ładowanie kolekcji, tylko Wyświetlanie pojedynczych dokumentów lub zapytań zawierających te dokumenty. Aby wyświetlić te dokumenty i zarządzać nimi, użytkownicy powinni nadal korzystać z narzędzia, które było pierwotnie używane do tworzenia tych dokumentów.
 
-Klienci otrzymujący błędy HTTP-401 mogą być ze względu na niewystarczające uprawnienia kontroli dostępu do konta platformy Azure klienta, szczególnie jeśli konto ma niestandardową rolę RBAC. Wszelkie role niestandardowe muszą mieć `Microsoft.DocumentDB/databaseAccounts/listKeys/*` Akcja, aby użyć Eksplorator danych, jeśli logujesz się przy użyciu poświadczeń Azure Active Directory.
+Klienci otrzymujący błędy HTTP-401 mogą być z powodu niewystarczających uprawnień RBAC platformy Azure dla konta platformy Azure klienta, szczególnie jeśli konto ma rolę niestandardową. Wszelkie role niestandardowe muszą mieć `Microsoft.DocumentDB/databaseAccounts/listKeys/*` Akcja, aby użyć Eksplorator danych, jeśli logujesz się przy użyciu poświadczeń Azure Active Directory.
 
 ## <a name="next-steps"></a>Następne kroki
 

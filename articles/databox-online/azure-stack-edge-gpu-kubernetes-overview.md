@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899245"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636922"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes na urządzeniu GPU z systemem Azure Stack Edge
 
@@ -67,7 +67,7 @@ Ponieważ nowe wersje Kubernetes staną się dostępne, klaster można uaktualni
 
 ## <a name="access-monitoring"></a>Dostęp, monitorowanie
 
-Klaster Kubernetes na urządzeniu Azure Stack EDGE Pro umożliwia kontrolę dostępu opartą na rolach (RBAC). Aby uzyskać więcej informacji, zobacz temat [Kontrola dostępu oparta na rolach dla klastra Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-rbac.md).
+Klaster Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro umożliwia Kubernetes kontrolę dostępu opartą na rolach (Kubernetes RBAC). Aby uzyskać więcej informacji, zobacz [Kubernetes kontroli dostępu opartej na rolach na urządzeniu GPU Azure Stack Edge](azure-stack-edge-gpu-kubernetes-rbac.md).
 
 Możesz również monitorować kondycję klastra i zasobów za pośrednictwem pulpitu nawigacyjnego Kubernetes. Dzienniki kontenerów są również dostępne. Aby uzyskać więcej informacji, zobacz [Korzystanie z pulpitu nawigacyjnego Kubernetes do monitorowania kondycji klastra Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 

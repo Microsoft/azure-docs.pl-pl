@@ -1,22 +1,22 @@
 ---
-title: Kontrola dostępu oparta na rolach w usłudze Azure Cosmos DB
-description: Dowiedz się, jak Azure Cosmos DB zapewnia ochronę bazy danych za pomocą integracji z usługą Active Directory (RBAC).
+title: Kontrola dostępu oparta na rolach na platformie Azure w Azure Cosmos DB
+description: Dowiedz się, jak Azure Cosmos DB zapewnia ochronę bazy danych za pomocą integracji z usługą Active Directory (Azure RBAC).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f0d42e2e3dfb7e11d3c74ad1280bb867a85e2f8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 950a3c03d5c2c76ad417634833c473ee65adb9b9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085470"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636643"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Kontrola dostępu oparta na rolach w usłudze Azure Cosmos DB
+# <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Kontrola dostępu oparta na rolach na platformie Azure w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB zapewnia wbudowaną funkcję kontroli dostępu opartej na rolach (RBAC) dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
+Azure Cosmos DB zapewnia wbudowaną funkcję kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
 
 ## <a name="built-in-roles"></a>Wbudowane role
 
@@ -30,11 +30,11 @@ Poniżej przedstawiono wbudowane role obsługiwane przez Azure Cosmos DB:
 |[Operator Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Może udostępniać konta, bazy danych i kontenery usługi Azure Cosmos. Nie można uzyskać dostępu do żadnych danych ani używać Eksplorator danych.|
 
 > [!IMPORTANT]
-> Obsługa RBAC w Azure Cosmos DB dotyczy tylko operacji na płaszczyźnie kontroli. Operacje płaszczyzny danych są zabezpieczane przy użyciu kluczy podstawowych lub tokenów zasobów. Aby dowiedzieć się więcej, zobacz [bezpieczny dostęp do danych w Azure Cosmos DB](secure-access-to-data.md)
+> Obsługa funkcji RBAC platformy Azure w Azure Cosmos DB ma zastosowanie tylko do operacji na płaszczyźnie kontroli. Operacje płaszczyzny danych są zabezpieczane przy użyciu kluczy podstawowych lub tokenów zasobów. Aby dowiedzieć się więcej, zobacz [bezpieczny dostęp do danych w Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>Zarządzanie tożsamościami i dostępem (IAM)
 
-Okienko **kontroli dostępu (IAM)** w Azure Portal służy do konfigurowania kontroli dostępu opartej na rolach dla zasobów usługi Azure Cosmos. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup. Poniższy zrzut ekranu przedstawia Active Directory integrację (RBAC) przy użyciu funkcji kontroli dostępu (IAM) w Azure Portal:
+Okienko **kontroli dostępu (IAM)** w Azure Portal służy do konfigurowania kontroli dostępu opartej na rolach na platformie Azure Cosmos. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup. Poniższy zrzut ekranu przedstawia Active Directory integrację (Azure RBAC) przy użyciu funkcji kontroli dostępu (IAM) w Azure Portal:
 
 :::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Kontrola dostępu (IAM) w zabezpieczeniach bazy danych Azure Portal.":::
 

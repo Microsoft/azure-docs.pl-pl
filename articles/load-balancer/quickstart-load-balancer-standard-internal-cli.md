@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 852589e7ba1896ad493c5b8c300240490a516b64
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 51f02d9f059ef87f7c1627102508b8b2aa7f537a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518247"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636303"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -122,6 +122,14 @@ Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu polecenia [AZ Networ
     --priority 200
 ```
 
+## <a name="create-backend-servers"></a>Tworzenie serwerów zaplecza
+
+W tej sekcji utworzysz:
+
+* Interfejsy sieciowe dla serwerów wewnętrznej bazy danych.
+* Plik konfiguracji chmury o nazwie **cloud-init.txt** dla konfiguracji serwera.
+* Dwie maszyny wirtualne, które mają być używane jako serwery zaplecza dla modułu równoważenia obciążenia.
+
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>Utwórz interfejsy sieciowe dla maszyn wirtualnych
 
 Utwórz dwa interfejsy sieciowe za pomocą [AZ Network nic Create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
@@ -158,13 +166,6 @@ Utwórz dwa interfejsy sieciowe za pomocą [AZ Network nic Create](https://docs.
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-
-## <a name="create-backend-servers"></a>Tworzenie serwerów zaplecza
-
-W tej sekcji utworzysz:
-
-* Plik konfiguracji chmury o nazwie **cloud-init.txt** dla konfiguracji serwera.
-* Dwie maszyny wirtualne, które mają być używane jako serwery zaplecza dla modułu równoważenia obciążenia.
 
 ### <a name="create-cloud-init-configuration-file"></a>Tworzenie pliku konfiguracji Cloud-init
 

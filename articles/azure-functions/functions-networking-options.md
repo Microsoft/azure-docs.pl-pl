@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578844"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636473"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -97,8 +97,8 @@ Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storag
 1. Utwórz lub skonfiguruj inne konto magazynu.  To konto magazynu jest zabezpieczane za pomocą punktów końcowych usługi i łącz naszą funkcję.
 1. [Utwórz udział plików](../storage/files/storage-how-to-create-file-share.md#create-file-share) na koncie bezpiecznego magazynu.
 1. Włącz punkty końcowe usługi lub prywatny punkt końcowy dla konta magazynu.  
-    * Należy pamiętać, aby włączyć podsieć dedykowaną aplikacjom funkcji, jeśli jest używany punkt końcowy usługi.
-    * Pamiętaj, aby utworzyć rekord DNS i skonfigurować aplikację do [pracy z prywatnymi](#azure-dns-private-zones) punktami końcowymi punktów końcowych, jeśli używany jest prywatny punkt końcowy.  Konto magazynu będzie wymagało prywatnego punktu końcowego dla `file` zasobów i `blob` .  W przypadku korzystania z pewnych funkcji, takich jak Durable Functions, będzie również konieczne `queue` i `table` dostępne za pośrednictwem połączenia prywatnego punktu końcowego.
+    * W przypadku korzystania z połączeń prywatnych punktów końcowych konto magazynu będzie wymagało prywatnego punktu końcowego dla `file` `blob` zasobów i.  W przypadku korzystania z pewnych funkcji, takich jak Durable Functions, będzie również konieczne `queue` i `table` dostępne za pośrednictwem połączenia prywatnego punktu końcowego.
+    * W przypadku korzystania z punktów końcowych usługi należy włączyć podsieć dedykowaną aplikacjom funkcji dla kont magazynu.
 1. Obowiązkowe Skopiuj zawartość pliku i obiektu BLOB z konta magazynu aplikacji funkcji na zabezpieczone konto magazynu i udział plików.
 1. Skopiuj parametry połączenia dla tego konta magazynu.
 1. Zaktualizuj **Ustawienia aplikacji** w obszarze **Konfiguracja** dla aplikacji funkcji w następujący sposób:
@@ -106,6 +106,9 @@ Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storag
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` do parametrów połączenia dla zabezpieczonego konta magazynu.
     - `WEBSITE_CONTENTSHARE` Nazwa udziału plików utworzonego na koncie bezpiecznego magazynu.
     - Utwórz nowe ustawienie o nazwie `WEBSITE_CONTENTOVERVNET` i wartości `1` .
+    - Jeśli konto magazynu korzysta z połączeń prywatnych punktów końcowych, należy sprawdzić lub dodać następujące ustawienia
+        - `WEBSITE_VNET_ROUTE_ALL` o wartości `1` .
+        - `WEBSITE_DNS_SERVER` o wartości `168.63.129.16` 
 1. Zapisz ustawienia aplikacji.  
 
 Aplikacja funkcji zostanie uruchomiona ponownie i zostanie teraz połączona z bezpiecznym kontem magazynu.

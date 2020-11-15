@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903209"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635912"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Nawiązywanie połączenia z klastrem Kubernetes i zarządzanie nim za pomocą polecenia kubectl na urządzeniu z systemem Azure Stack EDGE Pro GPU
 
@@ -44,7 +44,7 @@ Po utworzeniu klastra Kubernetes można uzyskać dostęp do tego klastra w celu 
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>Konfigurowanie dostępu do klastra za pośrednictwem RBAC
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Konfigurowanie dostępu do klastra za pośrednictwem Kubernetes RBAC
 
 Po utworzeniu klastra Kubernetes można użyć *polecenia kubectl* za pośrednictwem pliku Cmdlines, aby uzyskać dostęp do klastra. 
 
@@ -125,7 +125,7 @@ W tym podejściu utworzysz przestrzeń nazw i użytkownika. Następnie należy s
     Na przykład, jeśli węzeł główny Kubernetes miał uruchomioną 1.15.2, zainstaluj program v 1.15.2 na komputerze klienckim.
 
     > [!IMPORTANT]
-    > Pobierz klienta, który jest skośny, nie więcej niż jedną wersję pomocniczą z serwera głównego. Wersja klienta, ale może prowadzić do programu głównego do jednej wersji pomocniczej. Na przykład wzorzec v 1.3 powinien współpracować z węzłami v 1.1, v 1.2 i v 1.3 i powinien współpracować z klientami w wersji 1.2, v 1.3 i v 1.4. Aby uzyskać więcej informacji na temat wersji klienta Kubernetes, zobacz [zasady obsługi systemu Kubernetes wersja i wersja](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Aby uzyskać więcej informacji na temat wersji Kubernetes Server w Azure Stack EDGE Pro, przejdź do pozycji Pobierz Kubernetes Server version.<!-- insert link-->
+    > Pobierz klienta, który odbiega od wersji głównej nie więcej niż o jedną wersję podrzędną. Wersja klienta, ale może prowadzić do programu głównego do jednej wersji pomocniczej. Na przykład wzorzec v 1.3 powinien współpracować z węzłami v 1.1, v 1.2 i v 1.3 i powinien współpracować z klientami w wersji 1.2, v 1.3 i v 1.4. Aby uzyskać więcej informacji na temat wersji klienta Kubernetes, zobacz [zasady obsługi systemu Kubernetes wersja i wersja](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Aby uzyskać więcej informacji na temat wersji Kubernetes Server w Azure Stack EDGE Pro, przejdź do pozycji Pobierz Kubernetes Server version.<!-- insert link-->
     > Czasami program `kubectl` jest preinstalowany w systemie, jeśli jest uruchomiony program Docker for Windows lub inne narzędzia. Ważne jest, aby pobrać określoną wersję programu `kubectl` zgodnie z opisem w tej sekcji, aby współdziałać z tym klastrem Kubernetes. 
 
     Instalacja trwa kilka minut.

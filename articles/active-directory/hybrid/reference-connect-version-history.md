@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604074"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636881"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -37,7 +37,12 @@ Pobierz| [Pobierz Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6157
 >[!NOTE]
 >Wydanie nowej wersji Azure AD Connect to proces, który wymaga kilku kroków kontroli jakości, aby zapewnić działanie usługi i przechodząc przez ten proces, numer wersji nowej wersji, a także stan wydania zostanie zaktualizowany w celu odzwierciedlenia najnowszego stanu.
 W trakcie tego procesu numer wersji wersji będzie wyświetlany jako "X" w pozycji pomocniczej numer wersji, jak w "1.3. X. 0" — oznacza to, że informacje o wersji w tym dokumencie są prawidłowe dla wszystkich wersji zaczynających się od "1,3". Po sfinalizowaniu procesu wydania numer wersji zostanie zaktualizowany do ostatnio wydanej wersji, a stan wydania zostanie zaktualizowany na "zwolnione do pobrania i Autouaktualnianie".
-Nie wszystkie wersje Azure AD Connect będą udostępniane do autouaktualniania. Stan wersji wskazuje, czy wersja jest udostępniona do autouaktualnienia, czy tylko do pobrania. Jeśli automatyczne uaktualnianie zostało włączone na serwerze Azure AD Connect, serwer zostanie automatycznie uaktualniony do najnowszej wersji Azure AD Connect wydanej na potrzeby automatycznego uaktualniania. Należy pamiętać, że nie wszystkie konfiguracje Azure AD Connect mogą być stosowane do autouaktualnienia. Skorzystaj z tego linku, aby dowiedzieć się więcej na temat [autouaktualniania](how-to-connect-install-automatic-upgrade.md)
+Nie wszystkie wersje Azure AD Connect będą udostępniane do autouaktualniania. Stan wersji wskazuje, czy wersja jest udostępniona do autouaktualnienia, czy tylko do pobrania. Jeśli automatyczne uaktualnianie zostało włączone na serwerze Azure AD Connect, serwer zostanie automatycznie uaktualniony do najnowszej wersji Azure AD Connect wydanej na potrzeby automatycznego uaktualniania. Należy pamiętać, że nie wszystkie konfiguracje Azure AD Connect mogą być stosowane do autouaktualnienia. 
+
+Aby wyjaśnić użycie autouaktualniania, należy wypchnąć wszystkie ważne aktualizacje i poprawki krytyczne. Nie musi to być Najnowsza wersja, ponieważ nie wszystkie wersje będą wymagane/zawierają poprawkę do krytycznego problemu z zabezpieczeniami (tylko jeden przykład wielu). Problem taki jak w przypadku nowej wersji zapewnianej przez funkcję autoupgrade. Jeśli nie ma takich problemów, nie ma aktualizacji wypychanych przy użyciu funkcji autoupgrade, a ogólnie w przypadku korzystania z najnowszej wersji usługi autoupgrade należy dobrać.
+Jeśli jednak chcesz uzyskać wszystkie najnowsze funkcje i aktualizacje, najlepszym sposobem sprawdzenia, czy jest to konieczne, aby sprawdzić Tę stronę i zainstalować ją zgodnie z potrzebami. 
+
+Skorzystaj z tego linku, aby dowiedzieć się więcej na temat [autouaktualniania](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
 > Od 1 listopada, 2020 rozpocznie się wdrożenie procesu wycofywania, dzięki czemu wersje Azure AD Connect wydane ponad 18 miesięcy temu będą przestarzałe. W tym momencie rozpocznie ten proces przez zaniechanie wszystkich wydań Azure AD Connect w wersji 1.3.20.0 (opublikowanej w dniu 4/24/2019) i starszej wersji, a my sprawdzimy, czy starsze wersje Azure AD Connect są dostępne za każdym razem, gdy są nowe wersje.

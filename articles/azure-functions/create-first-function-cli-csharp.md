@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 036629bd72f8219c2d7b1877dd1672291ed3d98a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b87408669dbb9268d6e3cd47b410b888ef1a19c2
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425119"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637153"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka C# na platformie Azure z poziomu wiersza polecenia
 
@@ -28,6 +28,8 @@ Istnieje również oparta na [Visual Studio Code wersja](create-first-function-v
 Przed rozpoczęciem należy wykonać następujące czynności:
 
 + Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [Zestaw .NET Core SDK 3,1](https://www.microsoft.com/net/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) w wersji 3. x.
 
@@ -49,6 +51,8 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 
 + Uruchom, `az login` Aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
 
++ Uruchom `dotnet --list-sdks` , aby sprawdzić, czy zainstalowano zestaw .NET Core SDK w wersji 3.1. x
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 + W terminalu lub oknie poleceń Uruchom polecenie, `func --version` Aby sprawdzić, czy Azure Functions Core Tools są w wersji 3. x.
@@ -56,6 +60,8 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 + Uruchom `(Get-Module -ListAvailable Az).Version` i sprawdź wersję 5,0 lub nowszą. 
 
 + Uruchom, `Connect-AzAccount` Aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
+
++ Uruchom `dotnet --list-sdks` , aby sprawdzić, czy zainstalowano zestaw .NET Core SDK w wersji 3.1. x
 
 ---
 

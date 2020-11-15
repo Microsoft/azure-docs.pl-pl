@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e69cf8d90f004d397778c2eeb6b5f774196574
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 99cad2a4218995ad10488d97ce19eeef36b642ae
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098743"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637000"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Podstawa zabezpieczeń platformy Azure dla Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -138,7 +138,7 @@ Aby uzyskać więcej informacji na temat używania tagów usługi: https://docs.
 
 - Cosmos DB powinien używać punktu końcowego usługi sieci wirtualnej
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) na platformie Azure i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 
 Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -285,15 +285,15 @@ Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki** : Aby skonfigurować kontrolę dostępu opartą na ROLACH (RBAC) i zachować spis zasobów Azure Cosmos DB, można użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
+**Wskazówki** : możesz użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal, aby skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure i zachować spis zasobów Azure Cosmos DB. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
 
-Azure Cosmos DB zapewnia wbudowaną kontrolę RBAC dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w usłudze Azure Active Directory (AD) może przypisywać te role platformy Azure do użytkowników, grup, podmiotów usługi lub tożsamości zarządzanych, aby udzielać lub odmawiać dostępu do zasobów i operacji na zasobach Azure Cosmos DB.
+Azure Cosmos DB zapewnia wbudowaną rolę RBAC platformy Azure dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w usłudze Azure Active Directory (AD) może przypisywać te role platformy Azure do użytkowników, grup, podmiotów usługi lub tożsamości zarządzanych, aby udzielać lub odmawiać dostępu do zasobów i operacji na zasobach Azure Cosmos DB.
 
 Przy użyciu modułu Azure AD PowerShell można również wykonywać zapytania ad hoc w celu odnajdywania kont, które są członkami grup administracyjnych. 
 
 Ponadto niektóre akcje w Azure Cosmos DB mogą być kontrolowane przy użyciu kluczy podstawowych Azure Active Directory i dla konta.  Użyj ustawienia konta "disableKeyBasedMetadataWriteAccess", aby kontrolować dostęp do klucza.
 
-Informacje na temat kontroli dostępu opartej na rolach w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Informacje na temat kontroli dostępu opartej na rolach na platformie Azure w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 Tworzenie własnych ról niestandardowych przy użyciu akcji Azure Cosmos DB (przestrzeń nazw Microsoft.DocumentDB): https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
@@ -529,9 +529,9 @@ Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki** : Azure Cosmos DB zapewnia wbudowaną kontrolę dostępu opartą na ROLACH (RBAC) dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
+**Wskazówki** : Azure Cosmos DB zapewnia wbudowaną kontrolę dostępu opartą na rolach (Azure RBAC) na potrzeby typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
 
-Jak zaimplementować RBAC w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Jak zaimplementować usługę Azure RBAC w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 **Monitorowanie Azure Security Center** : nie dotyczy
 
