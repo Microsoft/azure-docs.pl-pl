@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd0ba19739b75e72541ac84d6b1696ab2819dee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317430"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638873"
 ---
 # <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -127,13 +127,17 @@ Jeśli przechowywane dane nie są podzielone na partycje, rozważ ich partycjono
 
 Analizatora zoptymalizowanych pod kątem wydajności można użyć podczas wykonywania zapytań dotyczących plików CSV. Aby uzyskać szczegółowe informacje, zobacz [PARSER_VERSION](develop-openrowset.md).
 
+## <a name="manually-create-statistics-for-csv-files"></a>Ręczne tworzenie statystyk dla plików CSV
+
+Pula SQL bezserwerowa opiera się na statystyce do generowania optymalnych planów wykonywania zapytań. W razie potrzeby dane statystyczne zostaną automatycznie utworzone dla kolumn w plikach Parquet. W tej chwili statystyki nie są tworzone automatycznie dla kolumn w plikach CSV i należy tworzyć statystyki ręcznie w przypadku kolumn używanych w zapytaniach, szczególnie w odniesieniu do tych, które są używane w różnych, sprzężeniach, gdzie, klauzuli ORDER BY i GROUP BY. Aby uzyskać szczegółowe informacje, sprawdź [statystyki w puli SQL bezserwerowej](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) .
+
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Korzystanie z CETAS w celu zwiększenia wydajności zapytań i sprzężeń
 
 [CETAS](develop-tables-cetas.md) to jedna z najważniejszych funkcji dostępnych w puli SQL bez użycia serwera. CETAS to równoległa operacja, która tworzy metadane tabeli zewnętrznej i eksportuje wyniki zapytania SELECT do zestawu plików na koncie magazynu.
 
 Można użyć CETAS do przechowywania często używanych części zapytań, takich jak sprzężone tabele odwołań, do nowego zestawu plików. Następnie można dołączyć do tej pojedynczej tabeli zewnętrznej zamiast powtarzających się wspólnych sprzężeń w wielu zapytaniach.
 
-Ponieważ CETAS generuje pliki Parquet, statystyki zostaną automatycznie utworzone, gdy pierwsze zapytanie odwołuje się do tej tabeli zewnętrznej, co spowodowało zwiększenie wydajności.
+Ponieważ CETAS generuje pliki Parquet, statystyki zostaną automatycznie utworzone, gdy pierwsze zapytanie odwołuje się do tej tabeli zewnętrznej, co spowodowało zwiększenie wydajności kolejnych zapytań tabeli docelowej wygenerowanej przy użyciu CETAS.
 
 ## <a name="azure-ad-pass-through-performance"></a>Wydajność przekazująca usługi Azure AD
 

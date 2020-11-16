@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071374"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638907"
 ---
 # <a name="api-management-advanced-policies"></a>Zaawansowane zasady usługi API Management
 
@@ -156,7 +156,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 ### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>Przykłady
@@ -255,6 +255,7 @@ Te zasady poziomu operacji nie przesyłają dalej żądań do usługi wewnętrzn
 | Timeout = "Integer"                             | Czas (w sekundach) oczekiwania na zwrócenie nagłówków odpowiedzi HTTP przez usługę zaplecza przed podjęciem błędu limitu czasu. Wartość minimalna to 0 s. Wartości większe niż 240 sekund mogą nie być honorowane, ponieważ źródłowa infrastruktura sieciowa może porzucić bezczynne połączenia po tym czasie. | Nie       | Brak    |
 | Postępuj zgodnie z przekierowaniami = "false &#124; true"          | Określa, czy przekierowania z usługi wewnętrznej bazy danych następuje przez bramę, czy zwracane do obiektu wywołującego.                                                                                                                                                                                                    | Nie       | fałsz   |
 | buffer-Request-Body = "false &#124; true"       | Kiedy wartość "true" żądania jest buforowana i zostanie ponownie użyta podczas [ponawiania](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Nie       | fałsz   |
+| buffer-Response = "false &#124; true" | Ma wpływ na przetwarzanie rozsegmentów odpowiedzi. Po ustawieniu na wartość "false" każdy fragment otrzymany od zaplecza jest natychmiast zwracany do obiektu wywołującego. Po ustawieniu na "true" fragmenty są buforowane (rozmiarze 8 KB, chyba że zostanie wykryta końca strumienia) i dopiero następnie zwrócone do obiektu wywołującego. | Nie | true |
 | Niepowodzenie-w-Error-status-Code = "false &#124; true" | Po ustawieniu na wartość true Wyzwalaj [w sekcji Error](api-management-error-handling-policies.md) dla kodów odpowiedzi z zakresu od 400 do 599 włącznie.                                                                                                                                                                      | Nie       | fałsz   |
 
 ### <a name="usage"></a>Użycie
@@ -867,7 +868,7 @@ Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące.
 | Atrybut | Opis                                                              | Wymagane |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nazwa zmiennej.                                                | Tak      |
-| wartość     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
+| value     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
 
 ### <a name="usage"></a>Użycie
 
@@ -955,7 +956,7 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 | source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Nie dotyczy     |
 | ważność  | Określa poziom ważności śledzenia. Dozwolone wartości to `verbose` , `information` , `error` (od najniższego do najwyższego). | Nie       | Pełny |
 | name      | Nazwa właściwości.                                                                                                     | Tak      | Nie dotyczy     |
-| wartość     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
+| value     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -1025,7 +1026,7 @@ W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasa
 
 | Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślne |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| dla       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all` -Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
+| for       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all` -Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
 
 ### <a name="usage"></a>Użycie
 

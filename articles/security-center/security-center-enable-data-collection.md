@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/12/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: e25b8af3dd56078a3febe436b74af8f94cdcc485
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636008"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638771"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
 
@@ -24,7 +24,7 @@ Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualiza
 Dane są zbierane przy użyciu:
 
 - **Agent log Analytics** , który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
-- **Rozszerzenia maszyny wirtualnej** , takie jak [dodatek Azure Policy dla Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), które mogą również dostarczać dane do Security Center dotyczących wyspecjalizowanych typów zasobów.
+- **Rozszerzenia zabezpieczeń** , takie jak [dodatek Azure Policy dla Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), które mogą również dostarczać dane do Security Center dotyczących wyspecjalizowanych typów zasobów.
 
 > [!TIP]
 > Jak Security Center, typy zasobów, które mogą być monitorowane, również zostały nahodowane. Liczba rozszerzeń została również osiągnięta. Funkcja autoaprowizacji została rozszerzona o obsługę dodatkowych typów zasobów, wykorzystując możliwości Azure Policy.

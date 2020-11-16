@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: e04d7fa1f319ca3969d8acdc0235e2838bb3a88d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19ad45eec78d53261bf1781808339152c69a0136
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997609"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638839"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importowanie analizy zagrożeń do usługi Azure Sentinel
 
@@ -36,7 +36,7 @@ Analiza zagrożeń (TI) można zintegrować z wskaźnikiem na platformie Azure z
 - Wbudowane szablony reguł **analizy** umożliwiają generowanie alertów zabezpieczeń i zdarzeń przy użyciu zaimportowanej analizy zagrożeń.
 - Wizualizuj najważniejsze informacje o analizie zagrożeń na platformie Azure — za pomocą **skoroszytu analizy zagrożeń**.
 
-Analiza zagrożeń zapewnia również przydatny kontekst w innych środowiskach usługi Azure wskaźnikowych, takich jak **łowiectwo** i **notesy**, a chociaż nie zostały omówione w tym artykule, te środowiska są rozwiązywane w [tym wspaniałym wpisie w blogu przez Ian Hellen w notesach Jupyter w wskaźniku](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), który obejmuje korzystanie z CTI w notesach.
+Analiza zagrożeń zapewnia również przydatny kontekst w innych środowiskach usługi Azure wskaźnikowych, takich jak **łowiectwo** i **notesy** , a chociaż nie zostały omówione w tym artykule, te środowiska są rozwiązywane w [tym wspaniałym wpisie w blogu przez Ian Hellen w notesach Jupyter w wskaźniku](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), który obejmuje korzystanie z CTI w notesach.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Łączniki danych wskaźnikowych platformy Azure na potrzeby analizy zagrożeń
 
@@ -44,7 +44,7 @@ Podobnie jak w przypadku wszystkich innych danych zdarzeń w usłudze Azure — 
 
 ### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>Dodawanie wskaźników zagrożeń do wskaźnika platformy Azure przy użyciu łącznika danych platform analizy zagrożeń
 
-Wiele organizacji używa rozwiązań platformy analizy zagrożeń (TIP) do agregowania kanałów informacyjnych wskaźnika zagrożeń z różnych źródeł, do nadzoru nad danymi na platformie, a następnie do wybierania wskaźników zagrożeń, które mają być stosowane do różnych rozwiązań zabezpieczeń, takich jak urządzenia sieciowe, zaawansowane rozwiązania ochrony przed zagrożeniami lub rozwiązań Siem, takie jak platformy Azure. Jeśli Twoja organizacja korzysta z zintegrowanego rozwiązania TIP, takiego jak MISP, anomali ThreatStream, ThreatConnect lub Palo Alto Networks "MineMeld, **Łącznik danych platformy analizy zagrożeń** umożliwia użycie porady do importowania wskaźników zagrożeń do usługi Azure wskaźnikowej. Ponieważ łącznik współpracuje z [interfejsem API usługi Microsoft Graph Security tiIndicators](https://docs.microsoft.com/graph/api/resources/tiindicator) w ten sposób, łącznik może być również używany przez dowolną platformę do analizy zagrożeń, aby korzystać z interfejsu API tiIndicators w celu wysyłania wskaźników do usługi Azure wskaźnikowego (oraz do innych rozwiązań zabezpieczeń firmy Microsoft, takich jak usługa Defender ATP).
+Wiele organizacji używa rozwiązań platformy analizy zagrożeń (TIP) do agregowania kanałów informacyjnych wskaźnika zagrożeń z różnych źródeł, do nadzoru nad danymi na platformie, a następnie do wybierania wskaźników zagrożeń, które mają być stosowane do różnych rozwiązań zabezpieczeń, takich jak urządzenia sieciowe, zaawansowane rozwiązania ochrony przed zagrożeniami lub rozwiązań Siem, takie jak platformy Azure. Jeśli Twoja organizacja korzysta z zintegrowanego rozwiązania TIP, takiego jak MISP, anomali ThreatStream, ThreatConnect, EclecticIQ platform, ThreatQ Threat Intelligence lub Palo Alto Networks "MineMeld, **Łącznik danych platformy analizy zagrożeń** umożliwia użycie porady do importowania wskaźników zagrożeń do usługi Azure wskaźnikowej. Ponieważ łącznik współpracuje z [interfejsem API usługi Microsoft Graph Security tiIndicators](https://docs.microsoft.com/graph/api/resources/tiindicator) w ten sposób, łącznik może być również używany przez dowolną platformę do analizy zagrożeń, aby korzystać z interfejsu API tiIndicators w celu wysyłania wskaźników do usługi Azure wskaźnikowego (oraz do innych rozwiązań zabezpieczeń firmy Microsoft, takich jak usługa Defender ATP).
 
 :::image type="content" source="media/import-threat-intelligence/threat-intel-import-path.png" alt-text="Ścieżka importu analizy zagrożeń":::
 
@@ -78,7 +78,7 @@ Te informacje zawsze pochodzą z Azure Active Directory przez proces o nazwie **
 
 1. Wybierz nazwę rejestracji aplikacji, wybierz przycisk radiowy **pojedynczej dzierżawy** i wybierz pozycję **zarejestruj**.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-register-application.png" alt-text="Rejestrowanie aplikacji":::
 
 1. Na wyświetlonym ekranie Skopiuj wartości identyfikatora **aplikacji (klienta)** i **identyfikatora katalogu (dzierżawy)** . Poniżej znajdują się dwie pierwsze informacje potrzebne do skonfigurowania wskazówki lub niestandardowego rozwiązania do wysyłania wskaźników zagrożeń do platformy Azure.
 
@@ -96,15 +96,15 @@ Te informacje zawsze pochodzą z Azure Active Directory przez proces o nazwie **
 
 1. Wybierz pozycję **ThreatIndicators. ReadWrite. OwnedBy** i wybierz pozycję **Dodaj uprawnienia** , aby dodać to uprawnienie do listy uprawnień aplikacji.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-1.png" alt-text="Określanie uprawnień":::
 
 **Uzyskaj zgodę od organizacji, aby przyznać te uprawnienia**
 
 1. Aby udzielić zgody, musisz mieć Azure Active Directory administratora globalnego, aby wybrać przycisk **Udziel zgody administratora dla dzierżawy** na stronie uprawnień interfejsu API aplikacji. Jeśli nie masz roli administratora globalnego na Twoim koncie, ten przycisk nie będzie dostępny i musisz polecić administratora globalnego z Twojej organizacji, aby wykonać ten krok.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-api-permissions-2.png" alt-text="Udzielenie zgody":::
 
-1. Po udzieleniu zgody na swoją aplikację w obszarze **stan**powinien zostać wyświetlony zielony znacznik wyboru.
+1. Po udzieleniu zgody na swoją aplikację w obszarze **stan** powinien zostać wyświetlony zielony znacznik wyboru.
  
 Teraz, gdy Twoja aplikacja została zarejestrowana i przyznano uprawnienia, możesz uzyskać ostatnią rzecz swojej listy — klucz tajny klienta dla aplikacji.
 
@@ -114,9 +114,9 @@ Teraz, gdy Twoja aplikacja została zarejestrowana i przyznano uprawnienia, moż
 
 1. Wybierz pozycję **certyfikaty & wpisy tajne** z menu, a następnie kliknij przycisk **Nowy klient** , aby uzyskać klucz tajny (klucz interfejsu API) dla aplikacji.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Pobierz klucz tajny klienta":::
 
-1. Kliknij przycisk **Dodaj** i **Pamiętaj, aby skopiować klucz tajny klienta**, ponieważ nie możesz ponownie pobrać tego klucza tajnego, Jeśli opuścisz Tę stronę. Ta wartość będzie potrzebna podczas konfigurowania wskazówki lub niestandardowego rozwiązania.
+1. Kliknij przycisk **Dodaj** i **Pamiętaj, aby skopiować klucz tajny klienta** , ponieważ nie możesz ponownie pobrać tego klucza tajnego, Jeśli opuścisz Tę stronę. Ta wartość będzie potrzebna podczas konfigurowania wskazówki lub niestandardowego rozwiązania.
 
 #### <a name="input-this-information-into-your-tip-solution-or-custom-application"></a>Wprowadź te informacje w rozwiązaniu TIP lub aplikacji niestandardowej
 
@@ -145,7 +145,7 @@ W ciągu kilku minut wskaźniki zagrożeń powinny zacząć przepływać do tego
 
 Najbardziej powszechnie przyjętym standardem branżowym na potrzeby przesyłania analizy zagrożeń jest [kombinacja formatu danych Stix i protokołu TAXII](https://oasis-open.github.io/cti-documentation/). Jeśli Twoja organizacja uzyskuje wskaźniki zagrożeń z rozwiązań, które obsługują bieżącą wersję STIX/TAXII (2,0 lub 2,1), możesz użyć łącznika danych **analizy zagrożeń-TAXII** , aby przenieść wskaźniki zagrożeń na platformę Azure. Łącznik Threat Intelligence-TAXII Data Connector umożliwia wbudowanemu klientowi TAXII na platformie Azure wskaźnik do importowania analizy zagrożeń z serwerów TAXII 2. x.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Ścieżka importu analizy zagrożeń":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-taxii-import-path.png" alt-text="Ścieżka importu TAXII":::
  
 Wykonaj następujące kroki, aby zaimportować STIX sformatowane wskaźniki zagrożeń do wskaźnika platformy Azure z serwera TAXII:
 
@@ -285,9 +285,9 @@ Aby zaimportować wskaźniki zagrożeń do wskaźnika wskaźnikowego platformy A
 
 1. Wybierz z menu pozycję **Łączniki danych** , wybierz pozycję **Analiza zagrożeń — TAXII** z galerii łączników, a następnie kliknij przycisk **Otwórz stronę łącznika** .
 
-1. Wpisz **nazwę** tej kolekcji serwera TAXII, **główny adres URL interfejsu API**, **identyfikator kolekcji**, **nazwę użytkownika** (jeśli jest to wymagane) i **hasło** (jeśli jest wymagane), a następnie kliknij przycisk **Dodaj** .
+1. Wpisz **nazwę** tej kolekcji serwera TAXII, **główny adres URL interfejsu API** , **identyfikator kolekcji** , **nazwę użytkownika** (jeśli jest to wymagane) i **hasło** (jeśli jest wymagane), a następnie kliknij przycisk **Dodaj** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Konfigurowanie serwerów TAXII":::
  
 Powinno zostać wyświetlone potwierdzenie, że połączenie z serwerem TAXII zostało pomyślnie ustanowione i można powtórzyć krok (4) powyżej tyle razy, ile jest to konieczne, aby połączyć się z wieloma kolekcjami z tego samego lub różnych serwerów TAXII.
 
@@ -307,7 +307,7 @@ Po pomyślnym zaimportowaniu wskaźników zagrożeń do funkcji wskaźnikowej pl
 
 Wyniki powinny wyglądać podobnie do wskaźnika przykładowego zagrożenia pokazanego poniżej:
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Ścieżka importu analizy zagrożeń":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-sample-query.png" alt-text="Przykładowe dane zapytania":::
  
 ## <a name="manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel"></a>Zarządzaj wskaźnikami zagrożeń w nowym obszarze analizy zagrożeń platformy Azure — wskaźnikiem
 
@@ -322,21 +322,21 @@ Przyjrzyjmy się dwóm z najczęstszych zadań, tworząc nowe wskaźniki zagroż
 
 1. Wybierz przycisk **Dodaj nowy** w górnym menu strony.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Ścieżka importu analizy zagrożeń" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-add-new-indicator.png" alt-text="Dodaj nowy wskaźnik zagrożeń" lightbox="media/import-threat-intelligence/threat-intel-add-new-indicator.png":::
 
 1. Wybierz typ wskaźnika, a następnie Wypełnij wymagane pola oznaczone czerwoną gwiazdką (*) w panelu **Nowy wskaźnik** .
 
-1. Wybierz przycisk **Zastosuj**. Wskaźnik zostanie dodany do siatki wskaźników i jest również wysyłany do tabeli ThreatIntelligenceIndicator w **dziennikach**.
+1. Wybierz pozycję **Zastosuj**. Wskaźnik zostanie dodany do siatki wskaźników i jest również wysyłany do tabeli ThreatIntelligenceIndicator w **dziennikach**.
 
 Tagowanie wskaźników zagrożeń jest łatwym sposobem grupowania ich ze sobą, aby ułatwić ich znalezienie. Zazwyczaj można zastosować tag do wskaźników związanych z konkretnym zdarzeniem lub do wskaźników reprezentujących zagrożenia od konkretnego znanego aktora lub dobrze znanej kampanii atakującej. Możesz oznakować wskaźniki zagrożeń indywidualnie lub wskaźniki wielokrotnego wyboru i oznaczyć je wszystkie jednocześnie. Pokazano poniżej przykład tagowania wielu wskaźników z IDENTYFIKATORem zdarzenia. Ze względu na to, że znakowanie jest bezpłatne, zaleca się utworzenie standardowych konwencji nazewnictwa dla tagów wskaźnika zagrożeń. Do każdego wskaźnika można zastosować wiele tagów.
 
-:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Ścieżka importu analizy zagrożeń" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/import-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Zastosuj znaczniki do wskaźników zagrożeń" lightbox="media/import-threat-intelligence/threat-intel-tagging-indicators.png":::
 
 ## <a name="analytics-puts-your-threat-indicators-to-work-detecting-potential-threats"></a>Analiza sprawia, że wskaźniki zagrożeń umożliwiają wykrywanie potencjalnych zagrożeń
 
-Twoje wskaźniki zagrożeń są przekazywane do wskaźnika wskaźnikowego platformy Azure; zobaczysz, jak wyświetlać i zarządzać nimi. teraz Zobacz, co można zrobić. Najważniejszym przypadkiem użycia dla wskaźników zagrożeń w rozwiązaniach SIEM, takich jak platforma Azure, to zasady analizy.  Te reguły oparte na wskaźnikach porównują zdarzenia pierwotne ze źródeł danych ze wskaźnikami zagrożeń w celu wykrywania zagrożeń bezpieczeństwa w organizacji. W **analizie**wskaźnikowej platformy Azure można tworzyć reguły analityczne, które są uruchamiane zgodnie z harmonogramem i generować alerty zabezpieczeń. Reguły są określane przez zapytania, a także konfiguracje, które określają częstotliwość uruchamiania reguły, jakiego rodzaju wyniki zapytania powinny generować alerty zabezpieczeń i wszystkie automatyczne odpowiedzi wyzwalane podczas generowania alertów.
+Twoje wskaźniki zagrożeń są przekazywane do wskaźnika wskaźnikowego platformy Azure; zobaczysz, jak wyświetlać i zarządzać nimi. teraz Zobacz, co można zrobić. Najważniejszym przypadkiem użycia dla wskaźników zagrożeń w rozwiązaniach SIEM, takich jak platforma Azure, to zasady analizy.  Te reguły oparte na wskaźnikach porównują zdarzenia pierwotne ze źródeł danych ze wskaźnikami zagrożeń w celu wykrywania zagrożeń bezpieczeństwa w organizacji. W **analizie** wskaźnikowej platformy Azure można tworzyć reguły analityczne, które są uruchamiane zgodnie z harmonogramem i generować alerty zabezpieczeń. Reguły są określane przez zapytania, a także konfiguracje, które określają częstotliwość uruchamiania reguły, jakiego rodzaju wyniki zapytania powinny generować alerty zabezpieczeń i wszystkie automatyczne odpowiedzi wyzwalane podczas generowania alertów.
 
-Mimo że zawsze możesz tworzyć nowe reguły analizy od podstaw, wskaźnik na platformie Azure obejmuje zestaw wbudowanych szablonów reguł utworzonych przez inżynierów zabezpieczeń firmy Microsoft, których można użyć jako-lub zmodyfikować, aby zaspokoić Twoje potrzeby. Można łatwo identyfikować szablony reguł korzystające ze wskaźników zagrożeń, ponieważ są one zatytułowane zaczynające się od "**TI map**...". Wszystkie te szablony reguł działają podobnie, a jedyna różnica polega na tym, że używany jest typ wskaźników zagrożeń (domena, adres e-mail, skrót pliku, adres IP lub adres URL) i typ zdarzenia, względem którego ma być zgodny. Każdy szablon zawiera listę wymaganych źródeł danych, które są potrzebne do działania reguły, aby można było szybko zobaczyć, jeśli masz wymagane zdarzenia już zaimportowane na platformie Azure.
+Mimo że zawsze możesz tworzyć nowe reguły analizy od podstaw, wskaźnik na platformie Azure obejmuje zestaw wbudowanych szablonów reguł utworzonych przez inżynierów zabezpieczeń firmy Microsoft, których można użyć jako-lub zmodyfikować, aby zaspokoić Twoje potrzeby. Można łatwo identyfikować szablony reguł korzystające ze wskaźników zagrożeń, ponieważ są one zatytułowane zaczynające się od " **TI map**...". Wszystkie te szablony reguł działają podobnie, a jedyna różnica polega na tym, że używany jest typ wskaźników zagrożeń (domena, adres e-mail, skrót pliku, adres IP lub adres URL) i typ zdarzenia, względem którego ma być zgodny. Każdy szablon zawiera listę wymaganych źródeł danych, które są potrzebne do działania reguły, aby można było szybko zobaczyć, jeśli masz wymagane zdarzenia już zaimportowane na platformie Azure.
 
 Przyjrzyjmy się jednemu z tych szablonów reguł i dowiesz się, jak włączyć i skonfigurować regułę do generowania alertów zabezpieczeń przy użyciu wskaźników zagrożeń zaimportowanych do platformy Azure. W tym przykładzie użyjemy szablonu reguły o nazwie " **Mapowanie TI" jednostki IP na platformie Azure**. Ta reguła będzie pasować do dowolnego wskaźnika zagrożeń typu adresu IP ze wszystkimi zdarzeniami aktywności platformy Azure. Po znalezieniu dopasowania zostanie wygenerowany **alert** , a także odpowiednie **zdarzenie** dotyczące badania przez zespół operacji zabezpieczających. Ta reguła analizy będzie działać pomyślnie tylko w przypadku włączenia jednego lub obu łączników danych **analizy zagrożeń** (w celu zaimportowania wskaźników zagrożeń) oraz łącznika danych **aktywności platformy Azure** (w celu zaimportowania zdarzeń na poziomie subskrypcji platformy Azure).
 
@@ -350,11 +350,11 @@ Przyjrzyjmy się jednemu z tych szablonów reguł i dowiesz się, jak włączyć
 
 1. Przejdź do reguły zatytułowanej **Mapowanie TI jednostki IP do platformy Azure** i upewnij się, że zostały połączone wszystkie wymagane źródła danych, jak pokazano poniżej.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-required-data-sources.png" alt-text="Wymagane źródła danych":::
 
 1. Wybierz tę regułę, a następnie wybierz przycisk **Utwórz regułę** . Spowoduje to otwarcie Kreatora w celu skonfigurowania reguły. Wypełnij ustawienia tutaj i wybierz przycisk **Dalej: Ustaw logikę reguł >** .
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-create-analytics-rule.png" alt-text="Utwórz regułę analizy":::
 
 1. Część logiki reguły w Kreatorze zawiera:
     - Zapytanie, które będzie używane w regule.
@@ -374,7 +374,7 @@ Przyjrzyjmy się jednemu z tych szablonów reguł i dowiesz się, jak włączyć
 
 Możesz pozostawić ustawienia domyślne lub zmienić dowolne z nich w celu spełnienia wymagań. Gdy skończysz, wybierz przycisk **Dalej: automatyczna odpowiedź >**
 
-1. Ten krok kreatora umożliwia skonfigurowanie dowolnej automatyzacji, która ma być wyzwalana po wygenerowaniu alertu zabezpieczeń na podstawie tej reguły analizy. Automatyzacja na platformie Azure — Wskaźnikowanie odbywa się przy użyciu **elementy PlayBook**, obsługiwanego przez Azure Logic Apps. Aby dowiedzieć się więcej, zobacz ten [Samouczek: Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik](./tutorial-respond-threats-playbook.md). W tym przykładzie po prostu wybierzemy przycisk **Dalej: przejrzyj >** , aby kontynuować.
+1. Ten krok kreatora umożliwia skonfigurowanie dowolnej automatyzacji, która ma być wyzwalana po wygenerowaniu alertu zabezpieczeń na podstawie tej reguły analizy. Automatyzacja na platformie Azure — Wskaźnikowanie odbywa się przy użyciu **elementy PlayBook** , obsługiwanego przez Azure Logic Apps. Aby dowiedzieć się więcej, zobacz ten [Samouczek: Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik](./tutorial-respond-threats-playbook.md). W tym przykładzie po prostu wybierzemy przycisk **Dalej: przejrzyj >** , aby kontynuować.
 
 1. Ten ostatni krok sprawdza poprawność ustawień w regule. Gdy wszystko będzie gotowe do włączenia reguły, wybierz przycisk **Utwórz** , a wszystko jest gotowe.
 
@@ -397,7 +397,7 @@ Zapoznaj się z tematem jak znaleźć skoroszyt analizy zagrożeń dostarczony n
 
 1. Przejdź do skoroszytu zatytułowanego **Analiza zagrożeń** i sprawdź, czy w tabeli **ThreatIntelligenceIndicator** znajdują się dane, jak pokazano poniżej.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-verify-data.png" alt-text="Weryfikacja danych":::
  
 1. Wybierz przycisk **Zapisz** i wybierz lokalizację platformy Azure, w której ma zostać zapisany skoroszyt. Ten krok jest wymagany, jeśli zamierzasz zmodyfikować skoroszyt w dowolny sposób i zapisać zmiany.
 
@@ -417,7 +417,7 @@ Zapoznaj się z tematem jak znaleźć skoroszyt analizy zagrożeń dostarczony n
 
 1. Wybierz przycisk **gotowe do edycji** . Utworzono nowy wykres dla skoroszytu.
 
-    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Ścieżka importu analizy zagrożeń":::
+    :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Wykres słupkowy":::
 
 Skoroszyty zapewniają zaawansowane interaktywne pulpity nawigacyjne, które zapewniają wgląd we wszystkie aspekty platformy Azure. Istnieje cała partia, którą można wykonać ze skoroszytami, a w przypadku, gdy udostępnione szablony są doskonałym punktem wyjścia, prawdopodobnie zechcesz szczegółowe w programie i dostosować te szablony lub utworzyć nowe pulpity nawigacyjne łączące wiele różnych źródeł danych, dzięki czemu można wizualizować dane na różne sposoby. Ze względu na to, że skoroszyty na platformie Azure są oparte na Azure Monitor skoroszytach, dostępna jest już Obszerna dokumentacja i wiele innych szablonów. W tym artykule zawarto informacje na temat [tworzenia interaktywnych raportów przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). 
 

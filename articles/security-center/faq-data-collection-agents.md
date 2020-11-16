@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341842"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638818"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -91,7 +91,7 @@ Lokalizacja domyślnego obszaru roboczego zależy od regionu platformy Azure:
 Aby uzyskać pełną listę aplikacji i usług monitorowanych przez agenta, zobacz [co to jest monitorowane przez Azure monitor?](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
-> Należy pamiętać, że w przypadku niektórych usług, takich jak Zapora platformy Azure, jeśli włączono rejestrowanie i wybrano zasób z czatem do zarejestrowania (na przykład ustawienie dziennika na *pełne*) może zostać wyświetlony znaczący wpływ na potrzeby magazynu log Analytics obszaru roboczego. 
+> Należy pamiętać, że w przypadku niektórych usług, takich jak Zapora platformy Azure, jeśli włączono rejestrowanie i wybrano zasób z czatem do zarejestrowania (na przykład ustawienie dziennika na *pełne* ) może zostać wyświetlony znaczący wpływ na potrzeby magazynu log Analytics obszaru roboczego. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Czy mogę usunąć domyślne obszary robocze utworzone przez Security Center?
@@ -109,14 +109,19 @@ Można wybrać istniejący obszar roboczy Log Analytics do przechowywania danych
 
 Aby wybrać istniejący obszar roboczy Log Analytics:
 
-1. W obszarze **zasady zabezpieczeń — zbieranie danych**wybierz opcję **Użyj innego obszaru roboczego**.
+1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+1. Wybierz odpowiednią subskrypcję.
+1. Otwórz stronę **autoaprowizacji**
+1. W przypadku agenta Log Analytics wybierz pozycję **Edytuj konfigurację**. 
 
-    ![Użyj innego obszaru roboczego][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Konfiguracja agenta Log Analytics do użycia podczas wdrażania automatycznej" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. Z menu rozwijanego wybierz obszar roboczy, w którym mają być przechowywane zebrane dane.
+1. Wybierz pozycję **Połącz maszyny wirtualne platformy Azure z innym obszarem roboczym** i wybierz istniejący obszar roboczy.
 
-    > [!NOTE]
-    > W menu rozwijanym są wyświetlane tylko obszary robocze, do których masz dostęp i znajdują się w subskrypcji platformy Azure.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Wybór obszaru roboczego innego niż domyślny dla agenta Log Analytics do raportowania" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > Lista zawiera tylko obszary robocze, do których masz dostęp, i które znajdują się w subskrypcji platformy Azure.
 
 1. Wybierz pozycję **Zapisz**. Zostanie wyświetlony monit o ponowne skonfigurowanie monitorowanych maszyn wirtualnych.
 
@@ -124,9 +129,8 @@ Aby wybrać istniejący obszar roboczy Log Analytics:
     - Wybierz pozycję **tak** , jeśli chcesz, aby nowe ustawienia obszaru roboczego były **stosowane do wszystkich maszyn wirtualnych**. Ponadto wszystkie maszyny wirtualne połączone z Security Center utworzonym obszarem roboczym są ponownie połączone z nowym docelowym obszarem roboczym.
 
     > [!NOTE]
-    > W przypadku wybrania opcji **tak**nie usuwaj żadnych obszarów roboczych utworzonych przez Security Center, dopóki wszystkie maszyny wirtualne nie zostaną ponownie połączone z nowym docelowym obszarem roboczym. Ta operacja kończy się niepowodzeniem, jeśli obszar roboczy zostanie zbyt wcześnie usunięty.
+    > W przypadku wybrania opcji **tak** nie usuwaj żadnych obszarów roboczych utworzonych przez Security Center, dopóki wszystkie maszyny wirtualne nie zostaną ponownie połączone z nowym docelowym obszarem roboczym. Ta operacja kończy się niepowodzeniem, jeśli obszar roboczy zostanie zbyt wcześnie usunięty.
 
-    - Aby anulować operację, wybierz pozycję **Anuluj**.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Co zrobić, jeśli Agent Log Analytics został już zainstalowany jako rozszerzenie na maszynie wirtualnej?<a name="mmaextensioninstalled"></a>
 
@@ -162,14 +166,19 @@ Jeśli usuniesz rozszerzenie Microsoft Monitoring, Security Center nie będzie w
 
 ## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Jak mogę zatrzymać automatyczną instalację agenta i tworzenie obszaru roboczego?
 
-Automatyczne Inicjowanie obsługi dla subskrypcji w zasadach zabezpieczeń można wyłączyć, ale nie jest to zalecane. Wyłączenie automatycznych limitów aprowizacji Security Center zaleceń i alertów. Aby wyłączyć automatyczne Inicjowanie obsługi:
+Automatyczne Inicjowanie obsługi dla subskrypcji w zasadach zabezpieczeń można wyłączyć, ale nie jest to zalecane. Wyłączanie limitów udostępniania autoaprowizacji Security Center zaleceń i alertów. Aby wyłączyć automatyczne Inicjowanie obsługi:
 
-1. Jeśli subskrypcja ma włączoną usługę Azure Defender, Otwórz zasady zabezpieczeń dla tej subskrypcji i wybierz pozycję **Azure Defender off**.
+1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+1. Wybierz odpowiednią subskrypcję.
+1. Jeśli subskrypcja ma włączoną usługę Azure Defender, Otwórz **plan usługi Azure Defender** i wybierz pozycję **Azure Defender off**.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Włączanie lub wyłączanie usługi Azure Defender":::
 
-1. Następnie wyłącz automatyczne Inicjowanie obsługi, wybierając pozycję **wyłączone** na stronie **zasady zabezpieczeń — zbieranie danych** .
-   ![Zbieranie danych][2]
+1. Na stronie **autozastrzeganie** wybierz opcję pióro i Wyłącz funkcję autoaprowizacji na stronie  **zbierania danych zasady zabezpieczeń** .
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Włącz autowdrażanie dla agenta Log Analytics":::
+
+1. Wybierz pozycję **Zapisz**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Czy należy zrezygnować z automatycznej instalacji agenta i tworzenia obszaru roboczego?
@@ -232,18 +241,16 @@ Automatyczna obsługa administracyjna jest zdecydowanie zalecana w celu uzyskani
 
 Jeśli ta funkcja została włączona, ale teraz chcesz ją wyłączyć:
 
-1. W [Azure Portal](https://portal.azure.com)Otwórz **Security Center** i wybierz pozycję **zasady zabezpieczeń**.
+1. W [Azure Portal](https://portal.azure.com)Otwórz **Security Center** i wybierz pozycję **Cennik i ustawienia**.
 
 1. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczne Inicjowanie obsługi.
 
-    **Zasady zabezpieczeń — zostanie otwarte zbieranie danych** .
-
-1. W obszarze **autoinicjowanie obsługi**wybierz pozycję **wyłączone**.
+1. W obszarze **autoinicjowanie obsługi** wyłącz przełącznik dla agenta log Analytics.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Jak mogę włączyć zbieranie danych?
 
-Zbieranie danych dla subskrypcji platformy Azure można włączyć w zasadach zabezpieczeń. Aby włączyć zbieranie danych. [Zaloguj się do Azure Portal](https://portal.azure.com), wybierz pozycję **Przeglądaj**, wybierz pozycję **Security Center**, a następnie wybierz pozycję **zasady zabezpieczeń**. Wybierz subskrypcję, dla której chcesz włączyć automatyczną obsługę administracyjną. Po wybraniu zasad zabezpieczeń subskrypcji zostanie otwarte **zbieranie danych** . W obszarze **autoinicjowanie obsługi**wybierz pozycję **włączone**.
+Zbieranie danych dla subskrypcji platformy Azure można włączyć w zasadach zabezpieczeń. Aby włączyć zbieranie danych. [Zaloguj się do Azure Portal](https://portal.azure.com), wybierz pozycję **Przeglądaj** , wybierz pozycję **Security Center** , a następnie wybierz pozycję **zasady zabezpieczeń**. Wybierz subskrypcję, dla której chcesz włączyć automatyczną obsługę administracyjną. Po wybraniu zasad zabezpieczeń subskrypcji zostanie otwarte **zbieranie danych** . W obszarze **autoinicjowanie obsługi** wybierz pozycję **włączone**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Co się stanie, gdy zbieranie danych jest włączone?
