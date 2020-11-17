@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f9fcdd2ce17e967be432f8edc910dcf2fcdbed3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377265"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650907"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Utwórz lub Zaktualizuj grupę dynamiczną w Azure Active Directory
 
@@ -102,7 +102,7 @@ W przypadku **ostatniej zaktualizowanego stanu członkostwa** można wyświetli�
 - **W toku**: aktualizacje są obecnie w toku.
 - **Nieznane**: nie można pobrać czasu ostatniego aktualizowania. Grupa może być nowa.
 
-Jeśli wystąpi błąd podczas przetwarzania reguły członkostwa dla określonej grupy, w górnej części **strony Przegląd** dla grupy zostanie wyświetlony alert. Jeśli nie można przetworzyć oczekujących aktualizacji dynamicznego członkostwa dla wszystkich grup w organizacji przez ponad 24 godziny, w górnej części **wszystkich grup**zostanie wyświetlony alert.
+Jeśli wystąpi błąd podczas przetwarzania reguły członkostwa dla określonej grupy, w górnej części **strony Przegląd** dla grupy zostanie wyświetlony alert. Jeśli nie można przetworzyć oczekujących aktualizacji dynamicznego członkostwa dla wszystkich grup w organizacji przez ponad 24 godziny, w górnej części **wszystkich grup** zostanie wyświetlony alert.
 
 ![przetwarzanie alertów komunikatów o błędach](./media/groups-create-rule/processing-error.png)
 

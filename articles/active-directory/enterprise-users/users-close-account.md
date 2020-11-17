@@ -3,22 +3,22 @@ title: Zamknij konto służbowe w niezarządzanej organizacji usługi Azure AD
 description: Jak zamknąć konto służbowe w niezarządzanym Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 11/20/2020
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 142143f96314539051ea44c00c6ff95cb2650566
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376413"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650210"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Zamknij konto służbowe w niezarządzanej organizacji usługi Azure AD
 
@@ -28,7 +28,7 @@ Użytkownicy w organizacji niezarządzanej są często tworzeniu podczas tworzen
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed zamknięciem konta należy potwierdzić następujące elementy:
 
@@ -45,7 +45,7 @@ Aby zamknąć niezarządzane konto służbowe, wykonaj następujące czynności:
 
 1. Zaloguj się, aby [zamknąć konto](https://go.microsoft.com/fwlink/?linkid=873123), używając konta, które chcesz zamknąć.
 
-1. Na **stronie Moje żądania danych**wybierz pozycję **Zamknij konto**.
+1. Na **stronie Moje żądania danych** wybierz pozycję **Zamknij konto**.
 
     ![Moje żądania danych — zamykanie konta](./media/users-close-account/close-account.png)
 

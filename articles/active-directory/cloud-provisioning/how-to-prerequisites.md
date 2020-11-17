@@ -7,31 +7,27 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74754c973dbe11d954a1714e9a98d99de639acd4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226900"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651145"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Wymagania wstępne aprowizacji w chmurze programu Azure AD Connect
 Ten artykuł zawiera wskazówki dotyczące sposobu wybierania i używania usługi Azure Active Directory (Azure AD) w celu nawiązania połączenia z chmurą jako rozwiązania do obsługi tożsamości.
-
-
 
 ## <a name="cloud-provisioning-agent-requirements"></a>Wymagania dotyczące agenta aprowizacji w chmurze
 Aby skorzystać z Azure AD Connect aprowizacji w chmurze, potrzebne są następujące elementy:
     
 - Konto administratora tożsamości hybrydowej dla dzierżawy usługi Azure AD, które nie jest użytkownikiem-gościem.
 - Serwer lokalny dla agenta aprowizacji z systemem Windows 2012 R2 lub nowszym.  Ten serwer powinien być serwerem warstwy 0 na podstawie [Active Directory modelu warstwy administracyjnej](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Administrator domeny lub poświadczenia administratora przedsiębiorstwa aby utworzyć Azure AD Connect gMSA synchronizacji chmury (konto usługi zarządzane przez grupę), aby uruchomić usługę agenta.
 - Lokalne konfiguracje zapory.
-
->[!NOTE]
->Agenta aprowizacji można obecnie zainstalować tylko na serwerach w języku angielskim. Zainstalowanie pakietu językowego w języku angielskim na serwerze innym niż angielski nie jest prawidłowym obejściem problemu i spowoduje niepowodzenie instalacji agenta. 
 
 Pozostała część dokumentu zawiera instrukcje krok po kroku dotyczące tych wymagań wstępnych.
 
@@ -57,7 +53,9 @@ Uruchom [Narzędzie IdFix](/office365/enterprise/prepare-directory-attributes-fo
         | --- | --- |
         | **80** | Pobiera listy odwołania certyfikatów (CRL) podczas weryfikacji certyfikatu TLS/SSL.  |
         | **443** | Obsługuje całą komunikację wychodzącą z usługą. |
+        |**8082**|Wymagane do instalacji i, jeśli chcesz skonfigurować swój administracyjny interfejs API.  Ten port można usunąć po zainstalowaniu agenta i jeśli nie planujesz korzystać z interfejsu API.   |
         | **8080** (opcjonalnie) | Agenci raportują swój stan co 10 minut przez port 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. |
+   
      
    - Jeśli Zapora wymusza reguły zależne od użytkowników inicjujących, należy otworzyć te porty dla ruchu z usług systemu Windows, które działają jako usługa sieciowa.
    - Jeśli zapora lub serwer proxy umożliwia określenie bezpiecznych sufiksów, Dodaj połączenia do \* . msappproxy.NET i \* . ServiceBus.Windows.NET. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
@@ -66,6 +64,17 @@ Uruchom [Narzędzie IdFix](/office365/enterprise/prepare-directory-attributes-fo
 
 >[!NOTE]
 > Instalowanie agenta aprowizacji w chmurze w systemie Windows Server Core nie jest obsługiwane.
+
+## <a name="group-managed-service-accounts"></a>Konta usług zarządzane przez grupę
+Konto usługi zarządzane przez grupę to zarządzane konto domeny zapewniające automatyczne zarządzanie hasłami, uproszczone zarządzanie nazwami główna usługi (SPN), możliwość delegowania zarządzania do innych administratorów, a także rozszerza te funkcje na wiele serwerów.  Azure AD Connect Cloud Sync obsługuje i używa gMSA do uruchamiania agenta.  Podczas instalacji zostanie wyświetlony monit o podanie poświadczeń administracyjnych w celu utworzenia tego konta.  Konto będzie wyświetlane jako (domain\provAgentgMSA $).  Aby uzyskać więcej informacji na temat gMSA, zobacz [konta usług zarządzane przez grupę](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+### <a name="prerequisites-for-gmsa"></a>Wymagania wstępne dotyczące gMSA:
+1.  Schemat Active Directory w lesie domeny gMSA należy zaktualizować do systemu Windows Server 2012
+2.  [Moduły RSAT programu PowerShell](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) na kontrolerze domeny
+3.  Co najmniej jeden kontroler domeny w domenie musi działać pod kontrolą systemu Windows Server 2012.
+4.  Serwer przyłączony do domeny, na którym jest instalowany Agent, musi być w systemie Windows Server 2012 lub nowszym.
+
+Aby zapoznać się z instrukcjami dotyczącymi sposobu uaktualniania istniejącego agenta do używania konta gMSA, zobacz [konta usług zarządzane przez grupę](how-to-install.md#group-managed-service-accounts).
 
 
 ### <a name="additional-requirements"></a>Wymagania dodatkowe
@@ -90,6 +99,8 @@ Aby włączyć protokół TLS 1,2, wykonaj następujące kroki.
     ```
 
 1. Uruchom ponownie serwer.
+
+
 
 
 ## <a name="next-steps"></a>Następne kroki 

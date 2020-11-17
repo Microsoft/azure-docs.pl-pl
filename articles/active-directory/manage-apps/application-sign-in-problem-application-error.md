@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759542"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651587"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Na stronie aplikacji jest wyświetlany komunikat o błędzie po zalogowaniu się użytkownika
 
@@ -29,7 +29,7 @@ W tym scenariuszu Azure Active Directory (Azure AD) podpisuje użytkownika w pro
 
 Istnieje kilka możliwych przyczyn, dla których aplikacja nie zaakceptował odpowiedzi z usługi Azure AD. Jeśli komunikat o błędzie nie identyfikuje jasno braku odpowiedzi, spróbuj wykonać następujące czynności:
 
--   Jeśli aplikacja jest galerią usługi Azure AD, upewnij się, że wykonano kroki opisane w temacie jak debugować Logowanie jednokrotne oparte na protokole [SAML do aplikacji w usłudze Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Jeśli aplikacja jest galerią usługi Azure AD, upewnij się, że wykonano kroki opisane w temacie jak debugować Logowanie jednokrotne oparte na protokole [SAML do aplikacji w usłudze Azure AD](./debug-saml-sso-issues.md).
 
 -   Użyj narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler) , aby przechwycić żądanie SAML, odpowiedź i token.
 
@@ -60,7 +60,7 @@ Aby dodać atrybut w konfiguracji usługi Azure AD, który będzie wysyłany w o
 
    Aby dodać atrybut:
 
-   1. Wybierz pozycję **Dodaj atrybut**. Wprowadź **nazwę**i wybierz **wartość** z listy rozwijanej.
+   1. Wybierz pozycję **Dodaj atrybut**. Wprowadź **nazwę** i wybierz **wartość** z listy rozwijanej.
 
    1.  Wybierz pozycję **Zapisz**. W tabeli zostanie wyświetlony nowy atrybut.
 
@@ -72,7 +72,7 @@ Aby dodać atrybut w konfiguracji usługi Azure AD, który będzie wysyłany w o
 
 Logowanie do aplikacji nie powiodło się, ponieważ odpowiedź SAML nie zawiera atrybutu, takiego jak rola. Lub nie powiedzie się, ponieważ aplikacja oczekuje innego formatu lub wartości atrybutu **NameID** (identyfikator użytkownika).
 
-Jeśli używasz [zautomatyzowanej aprowizacji użytkowników usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) , aby tworzyć, konserwować i usuwać użytkowników w aplikacji, sprawdź, czy użytkownik został zainicjowany do aplikacji SaaS. Aby uzyskać więcej informacji, zobacz [nie zainicjowano obsługi administracyjnej użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
+Jeśli używasz [zautomatyzowanej aprowizacji użytkowników usługi Azure AD](../app-provisioning/user-provisioning.md) , aby tworzyć, konserwować i usuwać użytkowników w aplikacji, sprawdź, czy użytkownik został zainicjowany do aplikacji SaaS. Aby uzyskać więcej informacji, zobacz [nie zainicjowano obsługi administracyjnej użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Dodawanie atrybutu do konfiguracji aplikacji usługi Azure AD
 
@@ -95,13 +95,13 @@ Aby zmienić wartość identyfikatora użytkownika, wykonaj następujące kroki:
 
 7. Po załadowaniu aplikacji wybierz pozycję **Logowanie jednokrotne** w okienku nawigacji.
 
-8. W obszarze **atrybuty użytkownika**wybierz unikatowy identyfikator użytkownika z listy rozwijanej **Identyfikator użytkownika** .
+8. W obszarze **atrybuty użytkownika** wybierz unikatowy identyfikator użytkownika z listy rozwijanej **Identyfikator użytkownika** .
 
 ## <a name="change-the-nameid-format"></a>Zmień format NameID
 
-Jeśli aplikacja oczekuje innego formatu atrybutu **NameID** (identyfikator użytkownika), zobacz [Edytowanie NameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) , aby zmienić format NameID.
+Jeśli aplikacja oczekuje innego formatu atrybutu **NameID** (identyfikator użytkownika), zobacz [Edytowanie NameID](../develop/active-directory-saml-claims-customization.md#editing-nameid) , aby zmienić format NameID.
 
-Usługa Azure AD wybiera format atrybutu **NameID** (identyfikator użytkownika) w oparciu o wybraną wartość lub format żądany przez aplikację w elemencie SAML AuthRequest. Aby uzyskać więcej informacji, zobacz sekcję "NameIDPolicy" [protokołu SAML logowania](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy)jednokrotnego.
+Usługa Azure AD wybiera format atrybutu **NameID** (identyfikator użytkownika) w oparciu o wybraną wartość lub format żądany przez aplikację w elemencie SAML AuthRequest. Aby uzyskać więcej informacji, zobacz sekcję "NameIDPolicy" [protokołu SAML logowania](../develop/single-sign-on-saml-protocol.md#nameidpolicy)jednokrotnego.
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>Aplikacja oczekuje innej metody podpisu dla odpowiedzi SAML
 
@@ -124,7 +124,7 @@ Aby zmienić, które części tokenu SAML są podpisane cyfrowo przez usługę A
 
 7. Po załadowaniu aplikacji wybierz pozycję **Logowanie jednokrotne** w okienku nawigacji.
 
-8. W obszarze **certyfikat podpisywania SAML**wybierz pozycję  **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
+8. W obszarze **certyfikat podpisywania SAML** wybierz pozycję  **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
 
 9. Wybierz **opcję podpisywania** , której aplikacja oczekuje spośród następujących opcji:
 
@@ -157,11 +157,11 @@ Aby zmienić algorytm podpisywania, wykonaj następujące kroki:
 
 7. Po załadowaniu aplikacji wybierz pozycję **Logowanie** jednokrotne w okienku nawigacji po lewej stronie aplikacji.
 
-8. W obszarze **certyfikat podpisywania SAML**wybierz pozycję **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
+8. W obszarze **certyfikat podpisywania SAML** wybierz pozycję **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
 
-9. Jako **algorytm podpisywania**wybierz opcję **SHA-1** .
+9. Jako **algorytm podpisywania** wybierz opcję **SHA-1** .
 
    Przy następnym zalogowaniu się użytkownika do aplikacji usługa Azure AD podpisuje token SAML przy użyciu algorytmu SHA-1.
 
 ## <a name="next-steps"></a>Następne kroki
-[Jak debugować Logowanie jednokrotne oparte na języku SAML do aplikacji w usłudze Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+[Jak debugować Logowanie jednokrotne oparte na języku SAML do aplikacji w usłudze Azure AD](./debug-saml-sso-issues.md).

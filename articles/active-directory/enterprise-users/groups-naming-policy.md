@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e404b3eeadd8eef45e413eea2bd753d08cc505ca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489458"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650635"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Wymuś zasady nazewnictwa w grupach Microsoft 365 w Azure Active Directory
 
@@ -85,7 +85,7 @@ Wybrani Administratorzy mogą być wykluczeni z tych zasad, we wszystkich obcią
 ## <a name="configure-naming-policy-in-azure-portal"></a>Skonfiguruj zasady nazewnictwa w Azure Portal
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta administratora grupy.
-1. Wybierz pozycję **grupy** , a następnie wybierz pozycję **zasady nazewnictwa** , aby otworzyć stronę Zasady nazewnictwa.
+1. Wybierz pozycję **grupy**, a następnie wybierz pozycję **zasady nazewnictwa** , aby otworzyć stronę Zasady nazewnictwa.
 
     ![Otwórz stronę Zasady nazewnictwa w centrum administracyjnym](./media/groups-naming-policy/policy.png)
 

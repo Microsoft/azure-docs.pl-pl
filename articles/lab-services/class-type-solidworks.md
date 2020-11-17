@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651808"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Konfigurowanie laboratorium dla klas inżynieryjnych za pomocą SOLIDWORKS
 
@@ -24,22 +24,22 @@ W tym artykule przedstawiono sposób konfigurowania klasy korzystającej z SOLID
 
 W ramach licencjonowania sieci SOLIDWORKS wymagane jest zainstalowanie i aktywowanie Menedżera licencji SolidNetWork na serwerze licencji.  Ten serwer licencji zazwyczaj znajduje się w sieci lokalnej lub prywatnej sieci na platformie Azure.  Aby uzyskać więcej informacji na temat sposobu konfigurowania Menedżera licencji SolidNetWork na serwerze, zobacz [Instalowanie i aktywowanie Menedżera licencji](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) w przewodniku instalacji SolidWorks.  Podczas ustawiania tego ustawienia należy zapamiętać **numer portu** i [**numer seryjny**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) , które są używane, ponieważ będą potrzebne w kolejnych krokach.
 
-Po skonfigurowaniu serwera licencji należy połączyć równorzędną [sieć wirtualną](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) z [kontem laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  Komunikacja równorzędna sieci musi zostać wykonana przed utworzeniem laboratorium, aby maszyny wirtualne laboratorium mogły uzyskiwać dostęp do serwera licencji i w inny sposób.
+Po skonfigurowaniu serwera licencji należy połączyć równorzędną [sieć wirtualną](./how-to-connect-peer-virtual-network.md) z [kontem laboratorium](./tutorial-setup-lab-account.md).  Komunikacja równorzędna sieci musi zostać wykonana przed utworzeniem laboratorium, aby maszyny wirtualne laboratorium mogły uzyskiwać dostęp do serwera licencji i w inny sposób.
 
 > [!NOTE]
-> Należy sprawdzić, czy odpowiednie porty są otwarte w zaporze, aby umożliwić komunikację między maszynami wirtualnymi laboratorium a serwerem licencji.  Na przykład zapoznaj się z instrukcjami dotyczącymi [modyfikowania portów komputera Menedżera licencji dla zapory systemu Windows](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) , które pokazują, jak dodać reguły ruchu przychodzącego i wychodzącego do zapory serwera licencji.  Może być również konieczne otwarcie portów na maszynach wirtualnych laboratorium.  Postępuj zgodnie z instrukcjami w artykule dotyczącym [ustawień zapory dla laboratoriów](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) , aby uzyskać więcej informacji na ten temat, w tym o tym, jak uzyskać publiczny adres IP laboratorium.
+> Należy sprawdzić, czy odpowiednie porty są otwarte w zaporze, aby umożliwić komunikację między maszynami wirtualnymi laboratorium a serwerem licencji.  Na przykład zapoznaj się z instrukcjami dotyczącymi [modyfikowania portów komputera Menedżera licencji dla zapory systemu Windows](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) , które pokazują, jak dodać reguły ruchu przychodzącego i wychodzącego do zapory serwera licencji.  Może być również konieczne otwarcie portów na maszynach wirtualnych laboratorium.  Postępuj zgodnie z instrukcjami w artykule dotyczącym [ustawień zapory dla laboratoriów](./how-to-configure-firewall-settings.md) , aby uzyskać więcej informacji na ten temat, w tym o tym, jak uzyskać publiczny adres IP laboratorium.
 
 ## <a name="lab-configuration"></a>Konfiguracja laboratorium
 
-Aby rozpocząć pracę z tym laboratorium, musisz zacząć korzystać z subskrypcji platformy Azure i konta laboratorium. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). Po otrzymaniu subskrypcji platformy Azure Możesz utworzyć nowe konto laboratorium w Azure Lab Services. Aby uzyskać więcej informacji na temat tworzenia nowego konta laboratorium, zobacz Samouczek dotyczący [konfigurowania konta laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Możesz również użyć istniejącego konta laboratorium.
+Aby rozpocząć pracę z tym laboratorium, musisz zacząć korzystać z subskrypcji platformy Azure i konta laboratorium. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). Po otrzymaniu subskrypcji platformy Azure Możesz utworzyć nowe konto laboratorium w Azure Lab Services. Aby uzyskać więcej informacji na temat tworzenia nowego konta laboratorium, zobacz Samouczek dotyczący [konfigurowania konta laboratorium](./tutorial-setup-lab-account.md). Możesz również użyć istniejącego konta laboratorium.
 
 ### <a name="lab-account-settings"></a>Ustawienia konta laboratorium
 
-Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji o sposobie włączania obrazów z portalu Marketplace, zobacz artykuł dotyczący [sposobu określania obrazów portalu Marketplace dostępnych dla twórców laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji o sposobie włączania obrazów z portalu Marketplace, zobacz artykuł dotyczący [sposobu określania obrazów portalu Marketplace dostępnych dla twórców laboratorium](./specify-marketplace-images.md).
 
 | Ustawienie konta laboratorium | Instrukcje |
 | ------------------- | ------------ |
-|Obraz witryny Marketplace| Włącz obraz systemu Windows 10 Pro do użycia w ramach konta laboratorium.|
+|Obraz z witryny Marketplace| Włącz obraz systemu Windows 10 Pro do użycia w ramach konta laboratorium.|
 
 > [!NOTE]
 > Oprócz systemu Windows 10 SOLIDWORKS obsługuje inne wersje systemu Windows.  Aby uzyskać szczegółowe informacje, zobacz [wymagania systemowe SolidWorks](https://www.solidworks.com/sw/support/SystemRequirements.html) .
@@ -76,7 +76,7 @@ Kroki opisane w tej sekcji pokazują, jak skonfigurować maszynę wirtualną sza
     > [!NOTE]
     > W oknie dialogowym **Dodawanie serwera** zostanie wyświetlony monit o **numer portu** używany przez serwer licencji oraz nazwę lub adres IP serwera licencji.
 
-## <a name="cost"></a>Koszty
+## <a name="cost"></a>Cost (Koszt)
 
 Przyjrzyjmy się możliwemu szacunkowi kosztów dla tej klasy. To oszacowanie nie obejmuje kosztu uruchomienia serwera licencji. Będziemy używać klasy 25 studentów. Zaplanowana godzina klasy wynosi 20 godzin. Ponadto każdy student otrzymuje limit 10 godzin dla prac domowych lub przydziałów poza zaplanowanym czasem klasy. Wybrany rozmiar maszyny wirtualnej to **mały procesor GPU (wizualizacja)**, czyli 160 jednostek laboratorium.
 

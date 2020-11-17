@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604329"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651281"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Zarządzanie przypisaniem użytkowników dla aplikacji w Azure Active Directory
 
@@ -58,7 +58,7 @@ Aby wymagać przypisania użytkownika do aplikacji:
 Aby dowiedzieć się, jak przypisywać lub cofać przypisanie, użytkownika lub grupę przy użyciu Azure Portal, zobacz [serie szybkiego startu w zarządzaniu aplikacjami](add-application-portal-assign-users.md).
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Przypisywanie i cofanie przypisania użytkowników i grup w przypadku aplikacji przy użyciu interfejs API programu Graph
-Za pomocą interfejs API programu Graph można przypisywać i cofać przypisanie użytkowników oraz grup dla aplikacji. Aby dowiedzieć się więcej, zobacz [przypisania ról aplikacji](https://docs.microsoft.com/graph/api/resources/approleassignment).
+Za pomocą interfejs API programu Graph można przypisywać i cofać przypisanie użytkowników oraz grup dla aplikacji. Aby dowiedzieć się więcej, zobacz [przypisania ról aplikacji](/graph/api/resources/approleassignment).
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Przypisywanie użytkowników i grup do aplikacji przy użyciu programu PowerShell
 1. Otwórz wiersz polecenia programu Windows PowerShell z podwyższonym poziomem uprawnień.
@@ -81,11 +81,11 @@ Za pomocą interfejs API programu Graph można przypisywać i cofać przypisanie
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Więcej informacji o sposobie przypisywania użytkownika do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Więcej informacji o sposobie przypisywania użytkownika do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
 Aby przypisać grupę do aplikacji dla przedsiębiorstw, należy zamienić element `Get-AzureADUser` with `Get-AzureADGroup` i zastąpić `New-AzureADUserAppRoleAssignment` go `New-AzureADGroupAppRoleAssignment` .
 
-Więcej informacji o sposobie przypisywania grupy do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Więcej informacji o sposobie przypisywania grupy do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Przykład
 
@@ -154,6 +154,6 @@ Ten przykład przypisuje użytkownikowi Britta Simon do aplikacji [analizy w mie
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zobacz wszystkie moje grupy](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw](remove-user-or-group-access-portal.md)
+- [Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw]()
 - [Wyłączanie logowania użytkownika dla aplikacji dla przedsiębiorstw](disable-user-sign-in-portal.md)
-- [Zmiana nazwy lub logo aplikacji dla przedsiębiorstw](change-name-or-logo-portal.md)
+- [Zmiana nazwy lub logo aplikacji dla przedsiębiorstw](./add-application-portal-configure.md)

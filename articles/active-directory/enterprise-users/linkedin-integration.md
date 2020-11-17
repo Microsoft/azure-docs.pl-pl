@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d70676e117a71fbd194e921b4755ba5d196871c7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377464"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650312"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integracja połączeń konta LinkedIn w Azure Active Directory
 
@@ -42,7 +42,7 @@ Połączenia konta LinkedIn można włączyć tylko dla użytkowników, którzy 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com/) przy użyciu konta, które jest administratorem globalnym dla organizacji usługi Azure AD.
 1. Wybierz pozycję **Użytkownicy**.
 1. Na stronie **Użytkownicy** wybierz pozycję **Ustawienia użytkownika**.
-1. W obszarze **połączenia konta serwisu LinkedIn**użytkownicy mogą łączyć swoje konta w celu uzyskiwania dostępu do połączeń LinkedIn w niektórych aplikacjach firmy Microsoft. Żadne dane nie są udostępniane, dopóki użytkownicy nie wyrazią zgody na połączenie swoich kont.
+1. W obszarze **połączenia konta serwisu LinkedIn** użytkownicy mogą łączyć swoje konta w celu uzyskiwania dostępu do połączeń LinkedIn w niektórych aplikacjach firmy Microsoft. Żadne dane nie są udostępniane, dopóki użytkownicy nie wyrazią zgody na połączenie swoich kont.
 
     * Wybierz opcję **tak** , aby włączyć usługę dla wszystkich użytkowników w organizacji
     * Wybierz **wybraną grupę** , aby włączyć usługę tylko dla grupy wybranych użytkowników w organizacji

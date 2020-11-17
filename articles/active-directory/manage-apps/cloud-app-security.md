@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62a77c1b21a6d602a2d54f56a2ed294fe800ac38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e3e0c10a7ec6b42420db30955ae4911bca27cc0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763656"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651230"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Aplikacja w chmurze — widoczność i kontrola
 
@@ -34,10 +34,10 @@ Użyj funkcji odnajdywania aplikacji Microsoft Cloud (funkcja Azure Active Direc
 - Zaawansowane raporty wykrywania IT w tle
 - Kontrola zaakceptowanych aplikacji
  
-### <a name="learn-more"></a>Dowiedz się więcej
+### <a name="learn-more"></a>Więcej informacji
 
-- [Odkryj i Zarządzaj w tle w sieci ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Aplikacje odnalezione za pomocą Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
+- [Odkryj i Zarządzaj w tle w sieci ](/cloud-app-security/tutorial-shadow-it)
+- [Aplikacje odnalezione za pomocą Cloud App Security ](/cloud-app-security/discovered-apps)
  
 ## <a name="user-session-visibility-and-control"></a>Widoczność i kontrola sesji użytkownika 
 
@@ -51,21 +51,21 @@ Za pomocą tego formantu można:
 - Kontrolowanie dostępu do plików  
 - Ochrona dokumentów przy pobieraniu  
  
-### <a name="learn-more"></a>Dowiedz się więcej
+### <a name="learn-more"></a>Więcej informacji
 
-- [Ochrona aplikacji za pomocą kontroli sesji w Cloud App Security ](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Ochrona aplikacji za pomocą kontroli sesji w Cloud App Security ](/cloud-app-security/proxy-intro-aad)
  
 ## <a name="advanced-app-visibility-and-controls"></a>Zaawansowana widoczność i kontrolki aplikacji 
 
 Łączniki aplikacji korzystają z interfejsów API dostawców aplikacji w celu zapewnienia lepszej widoczności i kontroli przez Microsoft Cloud App Security za pośrednictwem aplikacji, z którymi nawiązywane jest połączenie. Cloud App Security korzysta z interfejsów API dostarczonych przez dostawcę chmury. Każda usługa ma własne ograniczenia dotyczące struktury i interfejsu API, takie jak ograniczanie przepustowości, limity interfejsu API, dynamiczne przesunięcia czasowe okien interfejsu API i inne. Zespół produktu Cloud App Security pracował z tymi usługami w celu zoptymalizowania użycia interfejsów API i zapewnienia najlepszej wydajności. Biorąc pod uwagę różne ograniczenia usług nakładających się na interfejsy API, aparaty Cloud App Security używają ich maksymalnej dozwolonej pojemności. Niektóre operacje, takie jak skanowanie wszystkich plików w dzierżawie, wymagają wielu wywołań interfejsu API, dzięki czemu są rozłożone w dłuższym okresie. Niektóre zasady mogą działać przez kilka godzin lub dni. 
  
-### <a name="learn-more"></a>Dowiedz się więcej  
+### <a name="learn-more"></a>Więcej informacji  
 
-- [Łączenie aplikacji w Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Łączenie aplikacji w Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Odkryj i Zarządzaj w tle w sieci ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Aplikacje odnalezione za pomocą Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
-- [Ochrona aplikacji za pomocą kontroli sesji w Cloud App Security ](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-- [Łączenie aplikacji w Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Odkryj i Zarządzaj w tle w sieci ](/cloud-app-security/tutorial-shadow-it)
+- [Aplikacje odnalezione za pomocą Cloud App Security ](/cloud-app-security/discovered-apps)
+- [Ochrona aplikacji za pomocą kontroli sesji w Cloud App Security ](/cloud-app-security/proxy-intro-aad)
+- [Łączenie aplikacji w Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)

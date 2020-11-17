@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226951"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650101"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Rozwiązywanie problemów z obsługą chmury
 
@@ -43,15 +43,15 @@ Te elementy można zweryfikować w Azure Portal i na serwerze lokalnym, na któr
 
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure i jest w dobrej kondycji, wykonaj następujące kroki.
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1. Na ekranie **Azure AD Provisioning (wersja zapoznawcza)** wybierz pozycję **Przejrzyj wszystkich agentów**.
 
-   ![Przejrzyj wszystkich agentów](media/how-to-install/install7.png)</br>
+   ![Przejrzyj wszystkich agentów](media/how-to-install/install-7.png)</br>
  
 1. Na ekranie **na lokalnym agencie aprowizacji** można zobaczyć zainstalowanych agentów. Sprawdź, czy dany Agent jest tam i jest oznaczony jako w *dobrej kondycji*.
 
-   ![Ekran lokalnych agentów aprowizacji](media/how-to-install/install8.png)</br>
+   ![Ekran lokalnych agentów aprowizacji](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>Weryfikowanie portu
 
@@ -59,14 +59,14 @@ Sprawdź, czy platforma Azure nasłuchuje na porcie 443 i czy Agent może się z
 
 Ten test sprawdza, czy agenci mogą komunikować się z platformą Azure przez port 443. Otwórz przeglądarkę i przejdź do poprzedniego adresu URL z serwera, na którym zainstalowano agenta.
 
-![Weryfikacja osiągalności portów](media/how-to-install/verify2.png)
+![Weryfikacja osiągalności portów](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>Na serwerze lokalnym
 
 Aby sprawdzić, czy agent działa, wykonaj następujące kroki.
 
 1. Na serwerze z zainstalowanym agentem Otwórz pozycję **usługi** , przechodząc do niej lub klikając **polecenie Uruchom program**  >  **Run**  >  **Services. msc**.
-1. W obszarze **usługi**upewnij się, że **Microsoft Azure AD Connect agent Aktualizator** i **Microsoft Azure AD Connect Agent aprowizacji** jest tam i ich stan jest *uruchomiony*.
+1. W obszarze **usługi** upewnij się, że **Microsoft Azure AD Connect agent Aktualizator** i **Microsoft Azure AD Connect Agent aprowizacji** jest tam i ich stan jest *uruchomiony*.
 
    ![Ekran usług](media/how-to-troubleshoot/troubleshoot1.png)
 
@@ -86,7 +86,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki.
 
 1. Zaloguj się na serwerze przy użyciu konta administratora.
 1. Otwórz **usługi** , przechodząc do niej lub naciskając **pozycję Uruchom**  >  **Run**  >  **Services. msc**.
-1. W obszarze **usługi**kliknij dwukrotnie pozycję **Microsoft Azure AD Połącz agenta aprowizacji**.
+1. W obszarze **usługi** kliknij dwukrotnie pozycję **Microsoft Azure AD Połącz agenta aprowizacji**.
 1. Na karcie **Logowanie** Zmień **to konto** na administratora domeny. Następnie uruchom ponownie usługę. 
 
    ![Karta logowanie](media/how-to-troubleshoot/troubleshoot3.png)

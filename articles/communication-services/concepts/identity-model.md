@@ -9,43 +9,59 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517771"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651247"
 ---
 # <a name="identity-model"></a>Model tożsamości
 
-Usługi komunikacyjne Azure to usługa Identity niezależny od. Ten projekt ma wiele zalet:
-- Ponowne używanie istniejących tożsamości z systemu zarządzania tożsamościami
-- Elastyczność scenariuszy integracji
+Usługi komunikacyjne Azure to usługa niezależny od Identity. Ten projekt oferuje wiele korzyści:
+
+- Ponownie używa istniejących tożsamości z systemu zarządzania tożsamościami
+- Zapewnia elastyczność scenariuszy integracji
 - Utrzymuje tożsamość prywatną w usłudze Azure Communications Services
 
-Zamiast duplikowania istniejących informacji w systemie zachowasz relację mapowania, która jest specyficzna dla Twojej sprawy biznesowej. Na przykład mapowanie tożsamości 1:1, 1: N, N:1, N:M. Identyfikatory zewnętrzne (na przykład numery telefonów, użytkowników, urządzeń, aplikacji i GUID) nie mogą być używane jako tożsamość komunikacji Azure. Tokeny dostępu wygenerowane dla tożsamości usługi komunikacyjnej platformy Azure są używane do uzyskiwania dostępu do elementów podstawowych, takich jak rozmowa lub wywoływanie. 
+Zamiast duplikowania informacji w systemie zachowasz relację mapowania wymaganą przez przypadek biznesowy. Na przykład można mapować tożsamości 1:1, 1: N, N:1, N:M. Identyfikatory zewnętrzne, takie jak numery telefonów, użytkownicy, urządzenia, aplikacje i identyfikatory GUID nie mogą być używane do obsługi tożsamości w usłudze Azure Communications Services. Tokeny dostępu wygenerowane dla tożsamości usługi Azure Communications Services są używane w celu uzyskania dostępu do elementów podstawowych, takich jak rozmowa lub wywoływanie.
 
 ## <a name="identity"></a>Tożsamość
 
-Tożsamości są tworzone przy użyciu biblioteki administracyjnej usługi Azure Communication Service. Tożsamość służy jako identyfikator w konwersacjach i służy do tworzenia tokenów dostępu. Ta sama tożsamość może uczestniczyć w wielu jednoczesnych sesjach na wielu urządzeniach. Tożsamość może mieć jednocześnie wiele tokenów dostępu. Usunięcie tożsamości, zasobu lub subskrypcji spowoduje unieważnienie wszystkich tokenów dostępu i usunięcie wszystkich danych przechowywanych dla tej tożsamości. Usunięta tożsamość nie może wydać nowych tokenów dostępu ani uzyskać dostępu do danych wcześniej przechowywanych (na przykład komunikatów czatu). 
+Tożsamości można tworzyć przy użyciu biblioteki administracyjnej usług Azure Communication Services. Tożsamość służy jako identyfikator w konwersacji. Służy do tworzenia tokenów dostępu. Ta sama tożsamość może uczestniczyć w wielu jednoczesnych sesjach na wielu urządzeniach. Tożsamość może mieć jednocześnie wiele tokenów dostępu. 
 
-Opłata nie jest naliczana według liczby posiadanych tożsamości, ale przez użycie elementów podstawowych. Liczba tożsamości nie musi ograniczać się do mapowania tożsamości aplikacji na tożsamości usług Azure Communications Services. Ze względu na to, że mapowanie jest odpowiedzialne za ochronę prywatności. Jeśli użytkownik aplikacji ma zostać usunięty z systemu, należy usunąć wszystkie tożsamości, które zostały skojarzone z tym użytkownikiem.
+Usunięcie tożsamości, zasobu lub subskrypcji unieważnia wszystkie tokeny dostępu. Ta akcja spowoduje również usunięcie wszystkich danych przechowywanych dla tożsamości. Usunięta tożsamość nie może tworzyć nowych tokenów dostępu ani uzyskiwać dostępu do wcześniej przechowywanych danych (na przykład komunikatów czatu). 
 
-Usługi komunikacyjne platformy Azure nie udostępniają specjalnych tożsamości użytkownikom anonimowym. Nie przechowuje mapowania między użytkownikami i tożsamościami, ale nie ma informacji o tym, czy tożsamość jest anonimowa. Koncepcję można zaprojektować zgodnie z wymaganiami. Nasze zalecenie polega na utworzeniu nowej tożsamości dla anonimowego użytkownika aplikacji. W przypadku posiadania prawidłowego tokenu dostępu każdy może uzyskać dostęp do nieusuniętej zawartości tożsamości. Na przykład wiadomości czatu wysyłane przez użytkownika. Dostęp jest ograniczony tylko do zakresów, które są częścią tokenu dostępu. Więcej szczegółów na temat zakresów znajdują się w sekcji *token dostępu*.
+Nie jest naliczana opłata za liczbę posiadanych tożsamości. Zamiast tego opłaty są naliczone za użycie elementów podstawowych. Liczba tożsamości nie musi ograniczać sposobu mapowania tożsamości aplikacji do tożsamości usług Azure Communications Services. 
 
-### <a name="mapping-of-identities"></a>Mapowanie tożsamości
+Dzięki swobody mapowania jest odpowiedzialna za prywatność. Jeśli użytkownik chce zostać usunięty z systemu, należy usunąć wszystkie tożsamości, które są skojarzone z tym użytkownikiem.
 
-Usługi komunikacyjne platformy Azure nie są replikowane w ramach funkcji IMS. Nie pozwala klientom na korzystanie z tożsamości specyficznych dla klienta. Na przykład numer telefonu lub adres e-mail. Zamiast tego udostępnia unikatowe identyfikatory, które można przypisać do tożsamości aplikacji. Usługi komunikacyjne platformy Azure nie przechowują żadnych informacji, co może ujawnić rzeczywistą tożsamość Twoich użytkowników.
+Usługi komunikacyjne platformy Azure nie udostępniają specjalnych tożsamości użytkownikom anonimowym. Nie zachowuje mapowania między użytkownikami i tożsamościami i nie może określić, czy tożsamość jest anonimowa. Koncepcję tożsamości można zaprojektować zgodnie z potrzebami. Nasze zalecenie polega na utworzeniu nowej tożsamości dla każdego użytkownika anonimowego w każdej aplikacji. 
 
-Zamiast duplikowania zaleca się projektowanie, jak użytkownicy z domeny tożsamości zostaną zamapowane na tożsamości usługi Azure Communications Service. Można przestrzegać dowolnego rodzaju wzorca 1:1, 1: N, N:1 lub M:N. Można zdecydować, czy pojedynczy użytkownik jest mapowany na jedną tożsamość, czy na wiele tożsamości. Po utworzeniu nowej tożsamości zaleca się przechowywanie mapowania tej tożsamości dla użytkowników lub użytkowników aplikacji. Ponieważ tożsamości wymagają tokenów dostępu w celu użycia elementów pierwotnych, tożsamość musi być znana użytkownikowi lub użytkownikom aplikacji.
+Każdy, kto ma prawidłowy token dostępu, może uzyskać dostęp do bieżącej zawartości tożsamości. Na przykład użytkownicy mogą uzyskiwać dostęp do wysłanych komunikatów rozmowy. Dostęp jest ograniczony tylko do zakresów, które są częścią tokenu dostępu. Aby uzyskać więcej informacji, zobacz sekcję [tokeny dostępu](#access-tokens) w tym artykule.
 
-Jeśli używasz relacyjnej bazy danych do przechowywania użytkowników, implementacja może się różnić w zależności od scenariusza mapowania. W scenariuszach z mapowaniem 1:1 lub N:1 można dodać do tabeli kolumnę *CommunicationServicesId* w celu przechowywania tożsamości usług Azure Communications Services. W scenariuszach z relacją 1: N lub N:M warto rozważyć utworzenie oddzielnej tabeli w relacyjnej bazie danych.
+### <a name="identity-mapping"></a>Mapowanie tożsamości
 
-## <a name="access-token"></a>Token dostępu
+Usługi komunikacyjne Azure nie replikują funkcji systemu zarządzania tożsamościami platformy Azure. Nie pozwala klientom na korzystanie z tożsamości specyficznych dla klienta. Na przykład klienci nie mogą używać numeru telefonu ani adresu e-mail. Zamiast tego usługi komunikacyjne platformy Azure udostępniają unikatowe identyfikatory. Te unikatowe identyfikatory można przypisać do tożsamości aplikacji. Usługi komunikacyjne Azure nie przechowują żadnych informacji, które mogą ujawnić rzeczywistą tożsamość użytkowników.
 
-Token dostępu jest tokenem JWT, który może służyć do uzyskiwania dostępu do elementów podstawowych usługi Azure Communications Service. Wystawiony token dostępu ma ochronę integralności, nie można zmienić jego oświadczeń po wydaniu. Oznacza to, że ręczna zmiana właściwości, takich jak tożsamość, wygaśnięcie lub zakresy, spowoduje, że token dostępu jest nieprawidłowy. Użycie elementów podstawowych z niezweryfikowanymi tokenami spowoduje odmowę dostępu do elementu podstawowego. 
+Aby uniknąć duplikowania informacji w systemie, Zaplanuj sposób mapowania użytkowników z domeny tożsamości do tożsamości usług Azure Communications Services. Można przestrzegać dowolnego rodzaju wzorca. Można na przykład użyć 1:1, 1: N, N:1 lub M:N. Zdecyduj, czy pojedynczy użytkownik jest mapowany na jedną tożsamość, czy na wiele tożsamości. 
 
-Właściwości tokenu dostępu to: *tożsamość, wygaśnięcie* i *zakresy*. Token dostępu jest zawsze ważny przez 24 godziny. Po upływie tego czasu token dostępu jest unieważniony i nie można go użyć w celu uzyskania dostępu do żadnego elementu podstawowego. Tożsamość musi mieć sposób, aby zażądać nowego tokenu dostępu z usługi po stronie serwera. *Zakres* parametru definiuje niepusty zestaw elementów podstawowych, który może być używany. Usługi komunikacyjne platformy Azure obsługują następujące zakresy tokenów dostępu:
+Po utworzeniu nowej tożsamości należy przechowywać jej mapowanie do użytkownika lub użytkowników aplikacji. Ponieważ tożsamości wymagają tokenów dostępu do używania elementów podstawowych, tożsamość musi być znana użytkownikowi lub użytkownikom aplikacji.
+
+Jeśli używasz relacyjnej bazy danych do przechowywania informacji o użytkowniku, możesz dostosować projekt na podstawie scenariusza mapowania. W scenariuszach, które mapują 1:1 lub N:1, można dodać `CommunicationServicesId` kolumnę do tabeli w celu przechowywania tożsamości usług Azure Communications Services. W scenariuszach korzystających z relacji 1: N lub N:M można rozważyć utworzenie oddzielnej tabeli w relacyjnej bazie danych.
+
+## <a name="access-tokens"></a>Tokeny dostępu
+
+Token dostępu to token sieci Web JSON (JWT), którego można użyć do uzyskania dostępu do elementów podstawowych usługi komunikacyjnej platformy Azure. Wystawiony token dostępu ma ochronę integralności. Oznacza to, że jego oświadczenia nie mogą być zmieniane po wydaniu. Dlatego ręczna zmiana właściwości, takich jak tożsamość, wygaśnięcie lub zakresy, spowoduje unieważnienie tokenu dostępu. Jeśli elementy podstawowe są używane z niezweryfikowanymi tokenami, dostęp do elementów podstawowych zostanie odrzucony. 
+
+Właściwości tokenu dostępu są następujące:
+* Identity.
+* Datę.
+* Zakresy.
+
+Token dostępu jest zawsze ważny przez 24 godziny. Po jego wygaśnięciu token dostępu jest unieważniony i nie można go użyć w celu uzyskania dostępu do żadnego elementu podstawowego. 
+
+Tożsamość musi umożliwiać zażądanie nowego tokenu dostępu z usługi po stronie serwera. Parametr *SCOPE* definiuje niepusty zestaw elementów podstawowych, które mogą być używane. Usługi komunikacyjne platformy Azure obsługują następujące zakresy tokenów dostępu.
 
 |Nazwa|Opis|
 |---|---|
@@ -53,15 +69,20 @@ Właściwości tokenu dostępu to: *tożsamość, wygaśnięcie* i *zakresy*. To
 |VoIP|  Przyznaje możliwość wywoływania tożsamości i numerów telefonów|
 
 
-Jeśli chcesz odwołać token dostępu przed jego wygaśnięciem, możesz użyć biblioteki administracyjnej usługi Azure Communications Service. Odwołanie tokenu nie jest natychmiastowe i może potrwać do 15 minut. Usunięcie tożsamości, zasobu lub subskrypcji spowoduje unieważnienie wszystkich tokenów dostępu. Jeśli chcesz usunąć dostęp użytkownika do określonych funkcji, Odwołaj wszystkie tokeny dostępu. Następnie wydaj nowy token dostępu z bardziej ograniczonym zestawem zakresów.
-Rotacja kluczy dostępu usługi Azure Communication Service spowoduje odwołanie wszystkich aktywnych tokenów dostępu utworzonych przy użyciu poprzedniego klucza dostępu. Wszystkie tożsamości utracą dostęp do usługi komunikacyjnej platformy Azure i są wymagane do wystawienia nowych tokenów dostępu. 
+Aby odwołać token dostępu przed upływem jego czasu wygaśnięcia, użyj biblioteki administracyjnej usług Azure Communication Services. Odwołanie tokenu nie jest natychmiastowe. Propagowanie może potrwać do 15 minut. Usunięcie tożsamości, zasobu lub subskrypcji odwołuje wszystkie tokeny dostępu. 
 
-Zalecamy wystawianie tokenów dostępu w usłudze po stronie serwera, a nie w aplikacji klienta. Przyczyną tego jest fakt, że wydawanie wymaga klucza dostępu lub tożsamości zarządzanej. Nie jest to zalecane ze względów bezpieczeństwa, aby udostępnić klucze dostępu aplikacji klienta. Aplikacja kliencka powinna używać zaufanego punktu końcowego usługi, który może uwierzytelniać klientów, i wystawiać token dostępu w ich imieniu. Więcej szczegółowych informacji o architekturze można znaleźć [tutaj](./client-and-server-architecture.md).
+Jeśli chcesz usunąć dostęp użytkownika do określonych funkcji, Odwołaj wszystkie tokeny dostępu. Następnie wydaj nowy token dostępu, który ma bardziej ograniczony zestaw zakresów.
 
-W przypadku buforowania tokenów dostępu do magazynu zapasowego zalecamy korzystanie z szyfrowania. Token dostępu jest poufnymi danymi i może być używany do złośliwego działania, jeśli nie jest chroniony. W przypadku posiadania tokenu dostępu można zainicjować zestaw SDK i uzyskać dostęp do interfejsu API. Dostępny interfejs API jest ograniczony tylko w oparciu o zakresy, które ma token dostępu. Zalecamy wydawanie tokenów dostępu tylko z zakresami, które są wymagane.
+W usłudze Azure Communications Services rotacja kluczy dostępu odwołuje wszystkie aktywne tokeny dostępu, które zostały utworzone przy użyciu poprzedniego klucza dostępu. Wszystkie tożsamości tracą dostęp do usług Azure Communications Services i muszą wydać nowe tokeny dostępu. 
+
+Zalecamy wystawianie tokenów dostępu w usłudze po stronie serwera, a nie w aplikacji klienta. Powodem jest to, że wydawanie wymaga klucza dostępu lub tożsamości zarządzanej. Ze względów bezpieczeństwa nie zaleca się udostępniania kluczy dostępu za pomocą aplikacji klienta. 
+
+Aplikacja kliencka powinna używać zaufanego punktu końcowego usługi, który może uwierzytelniać klientów. Punkt końcowy powinien wystawiać tokeny dostępu w ich imieniu. Aby uzyskać więcej informacji, zobacz [Architektura klienta i serwera](./client-and-server-architecture.md).
+
+W przypadku buforowania tokenów dostępu do magazynu zapasowego zalecamy korzystanie z szyfrowania. Token dostępu to poufne dane. Może służyć do złośliwego działania, jeśli nie jest chroniony. Osoba, która ma token dostępu, może uruchomić zestaw SDK i uzyskać dostęp do interfejsu API. Dostępny interfejs API jest ograniczony tylko w zależności od zakresów, których dotyczy token dostępu. Zalecamy wystawianie tokenów dostępu, które mają tylko wymagane zakresy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do zarządzania tokenami, zobacz [Tworzenie tokenów dostępu i zarządzanie nimi](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
-* Aby zapoznać się z wprowadzeniem do uwierzytelniania, zobacz [uwierzytelnianie w usłudze Azure Communications Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
-* Aby uzyskać wprowadzenie do danych w miejscu zamieszkania i prywatności, zobacz [dostępność regionów i dane w miejscu zamieszkania](https://docs.microsoft.com/azure/communication-services/concepts/privacy)
+* Aby zapoznać się z wprowadzeniem do zarządzania tokenami, zobacz [Tworzenie tokenów dostępu i zarządzanie nimi](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+* Aby zapoznać się z wprowadzeniem do uwierzytelniania, zobacz [uwierzytelnianie w usłudze Azure Communications Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
+* Aby uzyskać wprowadzenie do danych w miejscu zamieszkania i prywatności, zobacz [dostępność regionów i dane w miejscu zamieszkania](https://docs.microsoft.com/azure/communication-services/concepts/privacy).

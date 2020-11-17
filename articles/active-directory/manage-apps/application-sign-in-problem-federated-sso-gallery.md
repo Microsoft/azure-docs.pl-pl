@@ -12,20 +12,20 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357916"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651553"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych czynności w celu lepszego zdiagnozowania i zautomatyzowania kroków rozwiązania:
 
-- Zainstaluj [rozszerzenie moje aplikacje bezpieczne przeglądarki](access-panel-extension-problem-installing.md) , aby pomóc Azure Active Directory (Azure AD) w celu zapewnienia lepszej diagnozowania i rozwiązywania problemów podczas korzystania ze środowiska testowego w Azure Portal.
-- Odtwórz błąd przy użyciu środowiska testowego na stronie Konfiguracja aplikacji w Azure Portal. Dowiedz się więcej na temat [debugowania aplikacji logowania jednokrotnego opartego na protokole SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Zainstaluj [rozszerzenie moje aplikacje bezpieczne przeglądarki](./access-panel-deployment-plan.md) , aby pomóc Azure Active Directory (Azure AD) w celu zapewnienia lepszej diagnozowania i rozwiązywania problemów podczas korzystania ze środowiska testowego w Azure Portal.
+- Odtwórz błąd przy użyciu środowiska testowego na stronie Konfiguracja aplikacji w Azure Portal. Dowiedz się więcej na temat [debugowania aplikacji logowania jednokrotnego opartego na protokole SAML](./debug-saml-sso-issues.md)
 
-Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal z rozszerzeniem moje aplikacje bezpieczne przeglądarki, nie musisz ręcznie wykonać poniższe kroki, aby otworzyć stronę konfiguracyjną Logowanie jednokrotne oparte na protokole SAML.
+Jeśli używasz [środowiska testowego](./debug-saml-sso-issues.md) w Azure Portal z rozszerzeniem moje aplikacje bezpieczne przeglądarki, nie musisz ręcznie wykonać poniższe kroki, aby otworzyć stronę konfiguracyjną Logowanie jednokrotne oparte na protokole SAML.
 
 Aby otworzyć stronę konfiguracji logowania jednokrotnego opartego na protokole SAML:
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator**.
@@ -88,7 +88,7 @@ Usługa Azure AD nie obsługuje żądania SAML wysłanego przez aplikację na po
 
 **Rozwiązanie**
 
-1. Przechwyć żądanie SAML. Postępuj zgodnie z samouczkiem jak debugować Logowanie jednokrotne oparte na protokole [SAML do aplikacji w usłudze Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) , aby dowiedzieć się, jak przechwycić żądanie SAML.
+1. Przechwyć żądanie SAML. Postępuj zgodnie z samouczkiem jak debugować Logowanie jednokrotne oparte na protokole [SAML do aplikacji w usłudze Azure AD](./debug-saml-sso-issues.md) , aby dowiedzieć się, jak przechwycić żądanie SAML.
 1. Skontaktuj się z dostawcą aplikacji i udostępnij następujące informacje:
     - Żądanie SAML
     - [Wymagania dotyczące protokołu SAML logowania jednokrotnego usługi Azure AD](../develop/single-sign-on-saml-protocol.md)
@@ -174,5 +174,5 @@ Porównaj zasób, do którego żądasz dostępu, w kodzie ze skonfigurowanymi up
 
 ## <a name="next-steps"></a>Następne kroki
 - [Seria szybkiego startu w zarządzaniu aplikacjami](add-application-portal-assign-users.md)
-- [Jak debugować Logowanie jednokrotne oparte na protokole SAML do aplikacji w usłudze Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Wymagania dotyczące protokołu SAML logowania jednokrotnego usługi Azure AD](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Jak debugować Logowanie jednokrotne oparte na protokole SAML do aplikacji w usłudze Azure AD](./debug-saml-sso-issues.md)
+- [Wymagania dotyczące protokołu SAML logowania jednokrotnego usługi Azure AD](../develop/single-sign-on-saml-protocol.md)

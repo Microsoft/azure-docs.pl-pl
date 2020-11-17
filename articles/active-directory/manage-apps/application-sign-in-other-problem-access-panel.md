@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: e03598ab53a9061a59e18041b2f3f4dc04e1b110
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424535"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651622"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje
 
@@ -100,8 +100,8 @@ Aby zresetować hasło użytkownika, wykonaj następujące kroki:
 
 ### <a name="enable-self-service-password-reset"></a>Włączanie samoobsługowego resetowania hasła
 Aby włączyć funkcję samoobsługowego resetowania hasła, wykonaj następujące kroki wdrażania:
--   [Zezwalaj użytkownikom na Resetowanie swoich haseł Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
--   [Zezwól użytkownikom na Resetowanie lub zmienianie Active Directory haseł lokalnych](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Zezwalaj użytkownikom na Resetowanie swoich haseł Azure Active Directory](../authentication/tutorial-enable-sspr.md)
+-   [Zezwól użytkownikom na Resetowanie lub zmienianie Active Directory haseł lokalnych](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Sprawdź stan usługi uwierzytelniania wieloskładnikowego użytkownika
 Aby sprawdzić stan usługi uwierzytelniania wieloskładnikowego użytkownika, wykonaj następujące kroki:
@@ -113,7 +113,7 @@ Aby sprawdzić stan usługi uwierzytelniania wieloskładnikowego użytkownika, w
 6. Wybierz przycisk **Multi-Factor Authentication** w górnej części okienka.
 7. Po załadowaniu **portalu administracyjnego Multi-Factor Authentication** upewnij się, że jesteś na karcie **Użytkownicy** .
 8. Znajdź użytkownika na liście użytkowników, wyszukując, filtrując lub sortując.
-9. Wybierz użytkownika z listy użytkowników i **Włącz**, **Wyłącz**lub **wymuszj** uwierzytelnianie wieloskładnikowe zgodnie z potrzebami.
+9. Wybierz użytkownika z listy użytkowników i **Włącz**, **Wyłącz** lub **wymuszj** uwierzytelnianie wieloskładnikowe zgodnie z potrzebami.
    >[!NOTE]
    >Jeśli użytkownik jest w stanie **wymuszonym** , można ustawić je jako czasowo **wyłączone** , aby umożliwić im powrót do konta. Po ponownym uruchomieniu programu można zmienić jego stan na ponownie **włączony** , aby wymagać od nich ponownego zarejestrowania informacji kontaktowych podczas kolejnego logowania. Alternatywnie możesz wykonać kroki opisane w [informacji kontaktowych dotyczących uwierzytelniania użytkownika](#check-a-users-authentication-contact-info) , aby sprawdzić lub ustawić dla nich te dane.
 

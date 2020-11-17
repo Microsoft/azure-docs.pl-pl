@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak utworzyć statyczny adres IP i używać go w usłudze równoważenia obciążenia usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 03/09/2020
-ms.openlocfilehash: 3055b5d32055d0ed0e3870f16f6af95407a68cd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/14/2020
+ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651893"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Używanie statycznego publicznego adresu IP i etykiety DNS w usłudze Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób tworzenia statycznego publicznego adresu IP i prz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 W tym artykule opisano użycie *standardowego* adresu IP jednostki SKU przy użyciu modułu równoważenia obciążenia ze *standardową* jednostką SKU. Aby uzyskać więcej informacji, zobacz [typy adresów IP i metody alokacji na platformie Azure][ip-sku].
 
@@ -73,6 +73,9 @@ az role assignment create \
 ```
 
 Alternatywnie można użyć tożsamości zarządzanej przypisanej przez system do uprawnień zamiast nazwy głównej usługi. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md).
+
+> [!IMPORTANT]
+> W przypadku dostosowania wychodzącego adresu IP upewnij się, że tożsamość klastra ma uprawnienia zarówno do wychodzącego publicznego adresu IP, jak i tego przychodzącego publicznego adresu IP.
 
 Aby utworzyć usługę *równoważenia obciążenia* przy użyciu statycznego publicznego adresu IP, Dodaj `loadBalancerIP` Właściwość i wartość statycznego publicznego adresu IP do manifestu YAML. Utwórz plik o nazwie `load-balancer-service.yaml` i skopiuj w następującym YAML. Podaj własny publiczny adres IP utworzony w poprzednim kroku. Poniższy przykład ustawia również adnotację z grupą zasobów o nazwie Moja *zasobów*. Podaj własną nazwę grupy zasobów.
 

@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7ec8a913634322be5a1eb854972cfa2a0217381
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604210"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651927"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opcje logowania jednokrotnego w usłudze Azure AD
 
 Logowanie jednokrotne zapewnia wiele korzyści w porównaniu z tradycyjnymi metodami logowania.
 
-- **Logowanie jednokrotne**umożliwia użytkownikom logowanie jednokrotne przy użyciu jednego konta, aby uzyskać dostęp do urządzeń przyłączonych do domeny, zasobów firmy, aplikacji jako usługi (SaaS) i aplikacji sieci Web. Po zalogowaniu użytkownik może uruchamiać aplikacje z poziomu portalu pakietu Office 365 lub aplikacji Moje aplikacje. Administratorzy mogą scentralizować zarządzanie kontami użytkowników i automatycznie dodawać lub usuwać dostęp użytkowników do aplikacji w oparciu o członkostwo w grupach.
+- **Logowanie jednokrotne** umożliwia użytkownikom logowanie jednokrotne przy użyciu jednego konta, aby uzyskać dostęp do urządzeń przyłączonych do domeny, zasobów firmy, aplikacji jako usługi (SaaS) i aplikacji sieci Web. Po zalogowaniu użytkownik może uruchamiać aplikacje z poziomu portalu pakietu Office 365 lub aplikacji Moje aplikacje. Administratorzy mogą scentralizować zarządzanie kontami użytkowników i automatycznie dodawać lub usuwać dostęp użytkowników do aplikacji w oparciu o członkostwo w grupach.
 
-- **Bez logowania jednokrotnego**użytkownicy muszą pamiętać hasła specyficzne dla aplikacji i zalogować się do każdej aplikacji. Pracownicy działu IT muszą tworzyć i aktualizować konta użytkowników dla każdej aplikacji, takiej jak Microsoft 365, Box i Salesforce. Użytkownicy muszą pamiętać swoje hasła, a także poświęcać czas na zalogowanie się do każdej aplikacji.
+- **Bez logowania jednokrotnego** użytkownicy muszą pamiętać hasła specyficzne dla aplikacji i zalogować się do każdej aplikacji. Pracownicy działu IT muszą tworzyć i aktualizować konta użytkowników dla każdej aplikacji, takiej jak Microsoft 365, Box i Salesforce. Użytkownicy muszą pamiętać swoje hasła, a także poświęcać czas na zalogowanie się do każdej aplikacji.
 
 Aby dowiedzieć się więcej o logowaniu jednokrotnym, zobacz [co to jest logowanie jednokrotne?](what-is-single-sign-on.md).
 
@@ -49,7 +49,7 @@ Poniższa tabela zawiera podsumowanie metod logowania jednokrotnego i linki do d
 | [Połączone](#linked-sign-on) | Chmura i lokalna | Wybierz pozycję dołączone logowanie, gdy aplikacja jest skonfigurowana pod kątem logowania jednokrotnego w innej usłudze dostawcy tożsamości. Ta opcja nie powoduje dodania logowania jednokrotnego do aplikacji. Jednak aplikacja może już mieć zaimplementowane Logowanie jednokrotne przy użyciu innej usługi, takiej jak Active Directory Federation Services.|
 | [Wyłączone](#disabled-sso) | Chmura i lokalna | Wybierz pozycję wyłączone Logowanie jednokrotne, jeśli aplikacja nie jest gotowa do skonfigurowania do rejestracji jednokrotnej. Ten tryb jest wartością domyślną podczas tworzenia aplikacji.|
 | [Zintegrowane uwierzytelnianie systemu Windows (IWA)](#integrated-windows-authentication-iwa-sso) | tylko lokalne | Wybierz pozycję IWA Logowanie jednokrotne dla aplikacji korzystających ze [zintegrowanego uwierzytelniania systemu Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)lub aplikacji obsługujących oświadczenia. W przypadku IWA łączniki serwera proxy aplikacji używają ograniczonego delegowania protokołu Kerberos (KCD) do uwierzytelniania użytkowników w aplikacji. |
-| [Na podstawie nagłówka](#header-based-sso) | tylko lokalne | Użyj logowania jednokrotnego opartego na nagłówkach, gdy aplikacja używa nagłówków do uwierzytelniania. Logowanie jednokrotne oparte na nagłówkach wymaga PingAccess dla usługi Azure AD. Serwer proxy aplikacji używa usługi Azure AD do uwierzytelniania użytkownika, a następnie przekazuje ruch przez usługę łącznika.  |
+| [Na podstawie nagłówka](#header-based-sso) | tylko lokalne | Użyj logowania jednokrotnego opartego na nagłówkach, gdy aplikacja używa nagłówków do uwierzytelniania. Serwer proxy aplikacji używa usługi Azure AD do uwierzytelniania użytkownika, a następnie przekazuje ruch przez usługę łącznika.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect Connect and OAuth
 
@@ -59,11 +59,11 @@ Aby uzyskać więcej informacji, zobacz:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Microsoft Identity platform Developer Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- [Microsoft Identity platform Developer Guide](../develop/index.yml).
 
 ## <a name="saml-sso"></a>Logowanie jednokrotne SAML
 
-Za pomocą **logowania jednokrotnego SAML**usługa Azure AD uwierzytelnia się w aplikacji przy użyciu konta usługi Azure AD użytkownika. Usługa Azure AD komunikuje informacje logowania do aplikacji za pomocą protokołu połączenia. Korzystając z logowania jednokrotnego opartego na protokole SAML, można mapować użytkowników na określone role aplikacji na podstawie reguł zdefiniowanych w oświadczeniach SAML.
+Za pomocą **logowania jednokrotnego SAML** usługa Azure AD uwierzytelnia się w aplikacji przy użyciu konta usługi Azure AD użytkownika. Usługa Azure AD komunikuje informacje logowania do aplikacji za pomocą protokołu połączenia. Korzystając z logowania jednokrotnego opartego na protokole SAML, można mapować użytkowników na określone role aplikacji na podstawie reguł zdefiniowanych w oświadczeniach SAML.
 
 Wybierz Logowanie jednokrotne oparte na protokole SAML, gdy aplikacja je obsługuje.
 
@@ -137,7 +137,7 @@ Połączenie połączone umożliwia usłudze Azure AD udostępnianie logowania j
 
 ### <a name="linked-sign-on-for-application-migration"></a>Logowanie połączone do migracji aplikacji
 
-Połączone logowanie może zapewnić spójny interfejs użytkownika podczas migrowania aplikacji w określonym czasie. Jeśli migrujesz aplikacje do Azure Active Directory, możesz użyć połączenia połączonego, aby szybko publikować linki do wszystkich aplikacji, które mają zostać zmigrowane.  Użytkownicy mogą znaleźć wszystkie linki w [portalu webapps](../user-help/active-directory-saas-access-panel-introduction.md) lub [uruchamianiu aplikacji Microsoft 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Użytkownicy nie będą wiedzieli, że uzyskują dostęp do połączonej aplikacji lub zmigrowanej aplikacji.  
+Połączone logowanie może zapewnić spójny interfejs użytkownika podczas migrowania aplikacji w określonym czasie. Jeśli migrujesz aplikacje do Azure Active Directory, możesz użyć połączenia połączonego, aby szybko publikować linki do wszystkich aplikacji, które mają zostać zmigrowane.  Użytkownicy mogą znaleźć wszystkie linki w [portalu webapps](../user-help/my-apps-portal-end-user-access.md) lub [uruchamianiu aplikacji Microsoft 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Użytkownicy nie będą wiedzieli, że uzyskują dostęp do połączonej aplikacji lub zmigrowanej aplikacji.  
 
 Po uwierzytelnieniu użytkownika w połączonej aplikacji należy utworzyć rekord konta, aby użytkownik końcowy mógł uzyskać dostęp do logowania jednokrotnego. Inicjowanie obsługi tego rekordu konta może odbywać się automatycznie lub może być wykonywane ręcznie przez administratora.
 
@@ -180,24 +180,14 @@ Ten diagram wyjaśnia przepływ, gdy użytkownik uzyskuje dostęp do aplikacji l
 
 ## <a name="header-based-sso"></a>Logowanie jednokrotne oparte na nagłówkach
 
-Logowanie jednokrotne oparte na nagłówkach działa dla aplikacji, które używają nagłówków HTTP do uwierzytelniania. Ta metoda logowania używa usługi uwierzytelniania innej firmy o nazwie PingAccess. Użytkownik musi tylko uwierzytelniać się w usłudze Azure AD.
+Logowanie jednokrotne oparte na nagłówkach działa dla aplikacji, które używają nagłówków HTTP do uwierzytelniania.
 
-Wybierz pozycję Logowanie jednokrotne oparte na nagłówkach, gdy serwer proxy aplikacji i PingAccess są skonfigurowane dla aplikacji.
+Wybierz pozycję Logowanie jednokrotne oparte na nagłówkach, gdy serwer proxy aplikacji jest skonfigurowany dla aplikacji lokalnej.
 
-Aby skonfigurować uwierzytelnianie oparte na nagłówkach, zobacz [uwierzytelnianie oparte na nagłówkach logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-with-ping-access.md).
+Aby dowiedzieć się więcej na temat uwierzytelniania opartego na nagłówkach, zobacz [Logowanie jednokrotne oparte na nagłówkach](application-proxy-configure-single-sign-on-with-headers.md).
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Co to jest PingAccess dla usługi Azure AD?
-
-Korzystając z PingAccess dla usługi Azure AD, użytkownicy mogą uzyskiwać dostęp do aplikacji, które używają nagłówków do uwierzytelniania i logowania jednokrotnego. Serwer proxy aplikacji traktuje te aplikacje, takie jak inne, za pomocą usługi Azure AD do uwierzytelniania dostępu, a następnie przekazywania ruchu przez usługę łącznika. Po wystąpieniu uwierzytelniania usługa PingAccess dokonuje translacji tokenu dostępu usługi Azure AD do formatu nagłówka, który jest wysyłany do aplikacji.
-
-Użytkownicy nie będą zarejestrowani w przypadku logowania się do korzystania z aplikacji firmowych. Mogą oni nadal korzystać z dowolnego miejsca na dowolnym urządzeniu. Łączniki serwera proxy aplikacji kierują ruch zdalny do wszystkich aplikacji, a Równoważenie obciążenia będzie kontynuowane automatycznie.
-
-### <a name="how-do-i-get-a-license-for-pingaccess"></a>Jak mogę uzyskać licencji na PingAccess?
-
-Ponieważ ten scenariusz jest oferowany przez partnerstwo między usługą Azure AD i PingAccess, potrzebujesz licencji dla obu usług. Jednak subskrypcje Azure AD — wersja Premium obejmują podstawową licencję PingAccess, która obejmuje maksymalnie 20 aplikacji. Jeśli musisz opublikować więcej niż 20 aplikacji opartych na nagłówkach, możesz uzyskać dodatkową licencję z PingAccess.
-
-Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Seria szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md)
 * [Planowanie wdrożenia logowania jednokrotnego](plan-sso-deployment.md)
+* [Logowanie jednokrotne z aplikacjami lokalnymi](application-proxy-config-sso-how-to.md)

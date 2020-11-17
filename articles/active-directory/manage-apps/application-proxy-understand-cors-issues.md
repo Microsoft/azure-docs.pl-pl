@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759933"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651859"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Zrozumienie i rozwiązywanie problemów serwer proxy aplikacji usługi Azure Active Directory CORS
 
-[Współużytkowanie zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/)   Czasami mogą wystąpić wyzwania dla aplikacji i interfejsów API publikowanych za pomocą serwer proxy aplikacji usługi Azure Active Directory. W tym artykule omówiono zagadnienia i rozwiązania CORS serwer proxy aplikacji usługi Azure AD platformy Azure.
+[Współużytkowanie zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/) może czasami stwarzać wyzwania dla aplikacji i interfejsów API publikowanych za pomocą serwer proxy aplikacji usługi Azure Active Directory. W tym artykule omówiono zagadnienia i rozwiązania CORS serwer proxy aplikacji usługi Azure AD platformy Azure.
 
-Zabezpieczenia przeglądarki zazwyczaj uniemożliwiają stronom sieci Web wykonywanie żądań AJAX do innej domeny. To ograniczenie jest nazywane *zasadami tego samego źródła*i uniemożliwia złośliwym lokacjom odczytywanie poufnych danych z innej lokacji. Czasami jednak może być konieczne, aby inne Lokacje wywoływały internetowy interfejs API. CORS to W3C standard, który umożliwia serwerowi złagodzenie zasad tego samego źródła i Zezwalanie na niektóre żądania między źródłami podczas odrzucania innych.
+Zabezpieczenia przeglądarki zazwyczaj uniemożliwiają stronom sieci Web wykonywanie żądań AJAX do innej domeny. To ograniczenie jest nazywane *zasadami tego samego źródła* i uniemożliwia złośliwym lokacjom odczytywanie poufnych danych z innej lokacji. Czasami jednak może być konieczne, aby inne Lokacje wywoływały internetowy interfejs API. CORS to W3C standard, który umożliwia serwerowi złagodzenie zasad tego samego źródła i Zezwalanie na niektóre żądania między źródłami podczas odrzucania innych.
 
 ## <a name="understand-and-identify-cors-issues"></a>Zrozumienie i identyfikowanie problemów CORS
 
@@ -66,7 +66,7 @@ Poprzedni problem z modelem CORS można rozwiązać na jeden z kilku sposobów.
 
 ### <a name="option-1-set-up-a-custom-domain"></a>Opcja 1: Skonfiguruj domenę niestandardową
 
-Użyj [domeny niestandardowej](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) serwer proxy aplikacji usługi Azure AD platformy Azure do publikowania z tego samego źródła, bez konieczności wprowadzania zmian w źródłach aplikacji, kodzie lub nagłówkach. 
+Użyj [domeny niestandardowej](./application-proxy-configure-custom-domain.md) serwer proxy aplikacji usługi Azure AD platformy Azure do publikowania z tego samego źródła, bez konieczności wprowadzania zmian w źródłach aplikacji, kodzie lub nagłówkach. 
 
 ### <a name="option-2-publish-the-parent-directory"></a>Opcja 2: publikowanie katalogu nadrzędnego
 
@@ -114,7 +114,7 @@ Możesz zmienić aplikację, aby obsługiwała mechanizm CORS poprzez dodanie na
 
 Nie można rozwiązać niektórych problemów CORS, na przykład gdy aplikacja przekieruje się do *login.microsoftonline.com* w celu uwierzytelnienia, a token dostępu wygasa. Wywołanie CORS nie powiedzie się. Obejście tego scenariusza polega na przekroczeniu okresu istnienia tokenu dostępu, aby zapobiec jego wygaśnięciu podczas sesji użytkownika. Aby uzyskać więcej informacji o tym, jak to zrobić, zobacz [konfigurowalne okresy istnienia tokenu w usłudze Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD](application-proxy-deployment-plan.md) 
-- [Dostęp zdalny do aplikacji lokalnych za serwer proxy aplikacji usługi Azure Active Directory](application-proxy.md) 
+- [Dostęp zdalny do aplikacji lokalnych za serwer proxy aplikacji usługi Azure Active Directory](application-proxy.md)

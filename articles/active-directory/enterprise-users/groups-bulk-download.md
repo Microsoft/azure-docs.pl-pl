@@ -4,21 +4,21 @@ description: Pobierz zbiorczo właściwości grupy w centrum administracyjnym pl
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db800f3827d1b818115c886412ff7d4ffea3e768
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5bf7d0a650d73127a87475d4fcda9cff266040eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376860"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650873"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Pobierz zbiorczo listę grup w Azure Active Directory
 

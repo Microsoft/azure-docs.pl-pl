@@ -3,12 +3,12 @@ title: Praca z elementami Reliable Collections
 description: Poznaj najlepsze rozwiązania dotyczące pracy z niezawodnymi kolekcjami w aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255799"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651910"
 ---
 # <a name="working-with-reliable-collections"></a>Praca z elementami Reliable Collections
 Service Fabric oferuje model programowania stanowego dostępny dla deweloperów platformy .NET za pośrednictwem niezawodnych kolekcji. W Service Fabric udostępnia niezawodne słowniki i niezawodne klasy kolejek. W przypadku korzystania z tych klas stan jest partycjonowany (na potrzeby skalowalności), replikowany (na potrzeby dostępności) i transakcyjny w ramach partycji (dla semantyki KWASowej). Przyjrzyjmy się typowi użycia niezawodnego obiektu słownika i zobacz, co faktycznie robi.
@@ -35,6 +35,7 @@ catch (TimeoutException)
 {
    // choose how to handle the situation where you couldn't get a lock on the file because it was 
    // already in use. You might delay and retry the operation
+   await Task.Delay(100);
 }
 ```
 

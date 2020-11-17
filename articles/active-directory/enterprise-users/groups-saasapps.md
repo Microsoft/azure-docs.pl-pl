@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c78b61798e72d87ec245082a5822bcfc58a1b61
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 58d5cc64b21207efbdefdafe020248212eed7efe
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377112"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650567"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Używanie grupy do zarządzania dostępem do aplikacji SaaS
 
@@ -35,7 +35,7 @@ Korzystając z Azure Active Directory (Azure AD) z planem licencjonowania Azure 
 1. W [centrum administracyjnym usługi Azure AD](https://aad.portal.azure.com)wybierz pozycję **aplikacje dla przedsiębiorstw**.
 2. Wybierz aplikację dodaną z galerii aplikacji, aby ją otworzyć.
 3. Wybierz pozycję **Użytkownicy i grupy**, a następnie wybierz pozycję **Dodaj użytkownika**.
-4. Na stronie **Dodawanie przypisania**wybierz pozycję **Użytkownicy i grupy** , aby otworzyć listę Wybieranie **użytkowników i grup** .
+4. Na stronie **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** , aby otworzyć listę Wybieranie **użytkowników i grup** .
 6. Wybierz dowolną liczbę grup lub użytkowników, a następnie kliknij lub naciśnij pozycję **Wybierz** , aby dodać je do listy **Dodaj przypisanie** . Na tym etapie można także przypisać rolę do użytkownika.
 7. Wybierz pozycję **Przypisz** , aby przypisać użytkowników lub grupy do wybranej aplikacji przedsiębiorstwa.
 

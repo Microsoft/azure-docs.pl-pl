@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbe37938249ee02c7deb4081a96aa1be2d8b7cb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1ccd17dc4112bd286257a6ed95ecc55dd13af428
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377232"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650754"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a>Sprawdzanie poprawności reguły członkostwa w grupie dynamicznej (wersja zapoznawcza) w Azure Active Directory
 
@@ -35,11 +35,11 @@ Na karcie **Weryfikowanie reguł** można wybrać użytkowników do sprawdzania 
 
 ![Dodaj użytkowników, aby zweryfikować istniejącą regułę](./media/groups-dynamic-rule-validation/validate-tab-add-users.png)
 
-Po wybraniu opcji użytkownicy lub urządzenia z selektora, a **następnie wybraniu opcji**Walidacja zostanie automatycznie uruchomiona, a wyniki walidacji zostaną wyświetlone.
+Po wybraniu opcji użytkownicy lub urządzenia z selektora, a **następnie wybraniu opcji** Walidacja zostanie automatycznie uruchomiona, a wyniki walidacji zostaną wyświetlone.
 
 ![Wyświetl wyniki weryfikacji reguły](./media/groups-dynamic-rule-validation/validate-tab-results.png)
 
-Wyniki wskazują, czy użytkownik jest członkiem grupy, czy nie. Jeśli reguła jest nieprawidłowa lub występuje problem z siecią, wynik będzie wyświetlany jako **nieznany**. W przypadku **nieznanego**szczegółowego komunikatu o błędzie opisano problem i akcje.
+Wyniki wskazują, czy użytkownik jest członkiem grupy, czy nie. Jeśli reguła jest nieprawidłowa lub występuje problem z siecią, wynik będzie wyświetlany jako **nieznany**. W przypadku **nieznanego** szczegółowego komunikatu o błędzie opisano problem i akcje.
 
 ![Wyświetl szczegóły wyników weryfikacji reguły](./media/groups-dynamic-rule-validation/validate-tab-view-details.png)
 

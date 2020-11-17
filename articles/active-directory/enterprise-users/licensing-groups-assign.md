@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376596"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650584"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory
 
@@ -39,7 +39,7 @@ W tym przykładzie organizacja usługi Azure AD zawiera grupę zabezpieczeń o n
 
 1. Wybierz pozycję **licencje** , aby otworzyć stronę, na której można wyświetlić wszystkie produkty objętego w organizacji i zarządzać nimi.
 
-1. W obszarze **wszystkie produkty**wybierz pozycję Office 365 Enterprise E5 i Enterprise Mobility + Security E3, wybierając pozycję nazwy produktów. Aby rozpocząć przypisanie, wybierz pozycję **Przypisz** w górnej części strony.
+1. W obszarze **wszystkie produkty** wybierz pozycję Office 365 Enterprise E5 i Enterprise Mobility + Security E3, wybierając pozycję nazwy produktów. Aby rozpocząć przypisanie, wybierz pozycję **Przypisz** w górnej części strony.
 
    ![Wybierz produkty, aby przypisać licencje](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
@@ -59,7 +59,7 @@ W przypadku przypisywania licencji do grupy usługa Azure AD przetwarza wszystki
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Krok 2. sprawdzenie, czy początkowe przypisanie zostało zakończone
 
-1. Przejdź do **Azure Active Directory**  >  **grup**Azure Active Directory. Wybierz grupę, do której przypisano licencje.
+1. Przejdź do **Azure Active Directory**  >  **grup** Azure Active Directory. Wybierz grupę, do której przypisano licencje.
 
 1. Na stronie Grupa wybierz pozycję **licencje**. Dzięki temu można szybko potwierdzić, czy licencje zostały w pełni przypisane do użytkowników i czy występują błędy, które należy wziąć pod uwagę. Dostępne są następujące informacje:
 
@@ -81,7 +81,7 @@ W przypadku przypisywania licencji do grupy usługa Azure AD przetwarza wszystki
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Krok 3. sprawdzenie, czy występują problemy z licencją i rozwiązywanie problemów
 
-1. Przejdź do **Azure Active Directory**  >  **grup**Azure Active Directory i Znajdź grupę, do której zostały przypisane licencje.
+1. Przejdź do **Azure Active Directory**  >  **grup** Azure Active Directory i Znajdź grupę, do której zostały przypisane licencje.
 1. Na stronie Grupa wybierz pozycję **licencje**. Powiadomienie na stronie zawiera 10 użytkowników, do których nie można przypisać licencji. Otwórz go, aby wyświetlić listę wszystkich użytkowników w stanie błąd licencjonowania dla tej grupy.
 1. Kolumna **przydziałów zakończonych niepowodzeniem** informuje nas, że nie można przypisać do użytkowników obu licencji na produkt. **Górna przyczyna kolumny niepowodzenie** zawiera przyczynę niepowodzenia. W tym przypadku jest to **sprzeczne plany usługi**.
 

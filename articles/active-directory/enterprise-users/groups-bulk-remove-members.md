@@ -4,21 +4,21 @@ description: Usuń członków grupy w operacjach zbiorczych w centrum administra
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da3da152fa8d0f568ee0f4075dafb8da8c3bf8a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376824"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650858"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Zbiorcze usuwanie członków grupy w Azure Active Directory
 
@@ -70,7 +70,7 @@ Na stronie **wyniki operacji zbiorczej** można zobaczyć stan wszystkich oczeku
 
 [![Sprawdź stan na stronie wyników operacji zbiorczych](./media/groups-bulk-remove-members/bulk-center.png)](./media/groups-bulk-remove-members/bulk-center.png#lightbox)
 
-Aby uzyskać szczegółowe informacje na temat każdego elementu wiersza w ramach operacji zbiorczej, wybierz wartości z kolumny **# Success**, **# Failure**lub **Total Requests** . Jeśli wystąpią błędy, zostaną wyświetlone przyczyny niepowodzenia.
+Aby uzyskać szczegółowe informacje na temat każdego elementu wiersza w ramach operacji zbiorczej, wybierz wartości z kolumny **# Success**, **# Failure** lub **Total Requests** . Jeśli wystąpią błędy, zostaną wyświetlone przyczyny niepowodzenia.
 
 ## <a name="bulk-removal-service-limits"></a>Limity usługi usuwania zbiorczego
 

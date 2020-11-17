@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367737"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651944"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplikacje wieloznaczne w Azure Active Directory serwerze proxy aplikacji
 
@@ -45,7 +45,7 @@ Możesz publikować aplikacje z symbolami wieloznacznymi, jeśli oba, wewnętrzn
 
 > http (s)://*.\<domain\>
 
-Przykład: `http(s)://*.adventure-works.com`.
+Na przykład: `http(s)://*.adventure-works.com`.
 
 Ponieważ wewnętrzne i zewnętrzne adresy URL mogą korzystać z różnych domen, najlepszym rozwiązaniem powinna być taka sama. Podczas publikowania aplikacji zostanie wyświetlony komunikat o błędzie, jeśli jeden z adresów URL nie ma symbolu wieloznacznego.
 
@@ -72,9 +72,9 @@ W przypadku korzystania z domen niestandardowych należy utworzyć wpis DNS z re
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Aby upewnić się, że rekord CNAME został prawidłowo skonfigurowany, można użyć [polecenia nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) na jednym z docelowych punktów końcowych, na przykład `expenses.adventure-works.com` .  Odpowiedź powinna zawierać już wymieniony alias ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
+Aby upewnić się, że rekord CNAME został prawidłowo skonfigurowany, można użyć [polecenia nslookup](/windows-server/administration/windows-commands/nslookup) na jednym z docelowych punktów końcowych, na przykład `expenses.adventure-works.com` .  Odpowiedź powinna zawierać już wymieniony alias ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę w przypadku aplikacji wieloznacznych.
 
@@ -84,7 +84,7 @@ W przypadku aplikacji z symbolami wieloznacznymi **wewnętrzny adres URL** musi 
 
 ![W przypadku wewnętrznego adresu URL Użyj formatu http (s)://*. \<> domeny](./media/application-proxy-wildcard/22.png)
 
-W przypadku konfigurowania **zewnętrznego adresu URL**należy użyć następującego formatu: `https://*.<custom domain>`
+W przypadku konfigurowania **zewnętrznego adresu URL** należy użyć następującego formatu: `https://*.<custom domain>`
 
 ![W przypadku zewnętrznego adresu URL Użyj formatu https://*. \<> domeny niestandardowej](./media/application-proxy-wildcard/21.png)
 
@@ -156,7 +156,7 @@ Konfiguracja implementuje następującą strukturę:
 
 ![Pokazuje strukturę zaimplementowaną przez przykładową konfigurację](./media/application-proxy-wildcard/05.png)
 
-| Kolor | Opis |
+| Color (Kolor) | Opis |
 | ---   | ---         |
 | Blue (Niebieski)  | Aplikacje jawnie opublikowane i widoczne w Azure Portal. |
 | Szary  | Aplikacje, które można uzyskać za pomocą aplikacji nadrzędnej. |
@@ -169,11 +169,11 @@ Należy upewnić się, że istnieją rekordy CNAME wskazujące `finance.adventur
 
 Zgodnie z [opisanymi krokami](application-proxy-add-on-premises-application.md)ten scenariusz wymaga następujących ustawień:
 
-- W **wewnętrznym adresie URL**ustawiasz opcję **finanse** zamiast symbolu wieloznacznego.
+- W **wewnętrznym adresie URL** ustawiasz opcję **finanse** zamiast symbolu wieloznacznego.
 
     ![Przykład: Ustaw wartość finanse zamiast symbolu wieloznacznego w wewnętrznym adresie URL](./media/application-proxy-wildcard/52.png)
 
-- W **zewnętrznym adresie URL**ustawiasz opcję **finanse** zamiast symbolu wieloznacznego.
+- W **zewnętrznym adresie URL** ustawiasz opcję **finanse** zamiast symbolu wieloznacznego.
 
     ![Przykład: Ustaw finanse zamiast symbolu wieloznacznego w zewnętrznym adresie URL](./media/application-proxy-wildcard/53.png)
 
