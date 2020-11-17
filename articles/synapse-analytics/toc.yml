@@ -130,6 +130,8 @@
             - name: Rozwiązywanie problemów z łącznością w programie Synapse Studio
               href: troubleshoot/troubleshoot-synapse-studio-powershell.md
               displayname: powershell
+            - name: Rozwiązywanie problemów z łącznością między funkcją Synapse Studio i magazynem
+              href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Bezpieczeństwo

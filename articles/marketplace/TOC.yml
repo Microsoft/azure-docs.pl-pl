@@ -143,10 +143,12 @@
               href: azure-vm-create-properties.md
             - name: Konfigurowanie wpisu oferty maszyny wirtualnej
               href: azure-vm-create-listing.md
-            - name: Tworzenie planów maszyn wirtualnych
-              href: azure-vm-create-plans.md
             - name: Dodawanie odbiorców w wersji zapoznawczej
               href: azure-vm-create-preview.md
+            - name: Tworzenie planów maszyn wirtualnych
+              href: azure-vm-create-plans.md
+            - name: Odsprzedaż za pośrednictwem dostawców CSP
+              href: azure-vm-create-resell-csp.md
             - name: Tworzenie zasobów technicznych maszyny wirtualnej
               items:
                 - name: Tworzenie maszyny wirtualnej na podstawie zatwierdzonej bazy

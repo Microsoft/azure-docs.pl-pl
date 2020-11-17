@@ -19,6 +19,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Włączanie na maszynach wirtualnych za pośrednictwem usługi Azure Policy
       href: virtual-machines-policy-enable.md
+    - name: Naprawianie uszkodzonego konta usługi Automanage
+      href: repair-automanage-account.md
 - name: Zasoby
   expanded: true
   items:

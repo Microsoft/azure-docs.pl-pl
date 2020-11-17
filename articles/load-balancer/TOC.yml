@@ -67,9 +67,9 @@
       href: load-balancer-ha-ports-overview.md
     - name: Wiele frontonów
       href: load-balancer-multivip-overview.md
-    - name: Wychodzący serwer proxy
+    - name: Translacja SNAT dla połączeń wychodzących do Internetu
       href: load-balancer-outbound-connections.md
-    - name: Reguły ruchu wychodzącego
+    - name: Konfigurowanie reguł ruchu wychodzącego
       href: outbound-rules.md
     - name: Resetowanie protokołu TCP w wyniku upływu limitu czasu bezczynności
       href: load-balancer-tcp-reset.md

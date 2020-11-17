@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 21736e257a31e65c6cd9ea4a6e1f65cf21bf61d1
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2193914011126848df10c3ad49d9e3381e3c7b86
+  ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91715746"
+  ms.lasthandoff: 11/15/2020
+  ms.locfileid: "94635436"
 landingContent:
 - title: Informacje o usłudze Blob Storage
   linkLists:
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Dostęp do danych obiektów blob za pomocą konta usługi Azure AD
-      url: authorize-blob-access-portal.md
+      url: authorize-data-operations-portal.md
     - text: Zarządzanie uprawnieniami dostępu przy użyciu kontroli dostępu opartej na rolach platformy Azure
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Autoryzacja dostępu do magazynu obiektów blob za pomocą tożsamości zarządzanej

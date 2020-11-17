@@ -47,8 +47,6 @@
           href: customize-person-model-overview.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Nawiązywanie połączenia z usługą Azure
-      href: connect-to-azure.md
     - name: Zarządzanie kontem połączonym z platformą Azure
       href: manage-account-connected-to-azure.md
     - name: Przekazywanie i indeksowanie wideo

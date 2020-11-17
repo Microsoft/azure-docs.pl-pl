@@ -6,4 +6,4 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
 ms.locfileid: "90533207"
 ---
-<Token>**dotyczy:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure SQL Database </Token> 
+<Token>**dotyczy:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure SQL Database</Token> 

@@ -163,7 +163,7 @@ Odpowiedzi z interfejsu API wyszukiwania obrazów Bing są zwracane w formacie J
 > [!div class="nextstepaction"]
 > [Utwórz aplikację jednostronicową](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest interfejs API wyszukiwania obrazów Bing?](../overview.md)  
 * [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)

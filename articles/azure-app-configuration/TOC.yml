@@ -106,8 +106,10 @@
           href: concept-disaster-recovery.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Włączanie funkcji dla podzbioru użytkowników
+    - name: Włączanie funkcji dla procentu użytkowników
       href: howto-feature-filters-aspnet-core.md
+    - name: Włączanie funkcji dla określonych użytkowników/grup
+      href: howto-targetingfilter-aspnet-core.md
     - name: Używanie etykiet dla konfiguracji poszczególnych środowisk
       href: howto-labels-aspnet-core.md
     - name: Importowanie lub eksportowanie danych konfiguracji

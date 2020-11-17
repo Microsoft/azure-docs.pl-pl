@@ -28,8 +28,6 @@
       items:
         - name: Zmiana języka źródłowego rozpoznawania mowy
           href: how-to-specify-source-language.md
-        - name: Zwiększanie dokładności za pomocą mowy niestandardowej
-          href: how-to-custom-speech.md
         - name: Używanie skompresowanych formatów dźwiękowych danych wejściowych
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: Dostosowywanie
       items:
+        - name: Czym jest usługa Custom Speech?
+          href: custom-speech-overview.md
         - name: Testowanie modelu przy użyciu plików audio w programie Speech Studio
           href: quickstarts/speech-studio-test-model.md
         - name: Przygotowywanie danych dla usługi Custom Speech
           href: how-to-custom-speech-test-and-train.md
         - name: Inspekcja danych usługi Custom Speech
           href: how-to-custom-speech-inspect-data.md
-        - name: Ocena dokładności usługi Custom Speech
+        - name: Ocenianie i poprawianie dokładności usługi Custom Speech
           href: how-to-custom-speech-evaluate-data.md
-        - name: Zwiększanie dokładności usługi Custom Speech
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Trenowanie modelu dla usługi Custom Speech
+        - name: Trenowanie i wdrażanie modelu usługi Custom Speech
           href: how-to-custom-speech-train-model.md
-        - name: Wdrażanie modelu niestandardowego
-          href: how-to-custom-speech-deploy-model.md
         - name: Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Tworzenie transkrypcji oznaczonych etykietą przez użytkownika
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Eksportowanie aplikacji z poleceniami niestandardowymi jako umiejętności
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: Aktualizowanie polecenia z poziomu aplikacji klienckiej
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Aktualizowanie polecenia z poziomu internetowego punktu końcowego
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Wdrażanie
                   items:
                     - name: Ciągłe wdrażanie za pomocą usługi Azure DevOps

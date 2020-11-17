@@ -2,6 +2,8 @@
   href: cut-planes.md
 - name: Debugowanie renderowania
   href: debug-rendering.md
+- name: Efekt Fresnela
+  href: fresnel-effect.md
 - name: Hierarchiczne zastępowanie stanu
   href: override-hierarchical-state.md
 - name: Aparat fotograficzny

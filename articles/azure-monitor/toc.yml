@@ -275,7 +275,7 @@
               href: platform/logs-data-export.md
             - name: Eksportowanie za pomocą usługi Logic Apps
               href: platform/logs-export-logic-app.md
-            - name: Wykonywanie zapytań dotyczących eksportowanych danych za pomocą usługi Data Explorer
+            - name: Tworzenie zapytań o dane za pomocą usługi Azure Data Explorer
               href: platform/azure-data-explorer-query-storage.md
             - name: Wysyłanie do programu Excel
               href: log-query/log-excel.md
