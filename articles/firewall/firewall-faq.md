@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413007"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653423"
 ---
 # <a name="azure-firewall-faq"></a>Zapora platformy Azure — często zadawane pytania
 
@@ -40,9 +40,9 @@ Zapora platformy Azure obsługuje reguły i kolekcje reguł. Kolekcja reguł jes
 
 Istnieją trzy typy kolekcji reguł:
 
-* *Reguły aplikacji* : Skonfiguruj w pełni kwalifikowane nazwy domen (FQDN), do których można uzyskać dostęp z podsieci.
-* *Reguły sieci* : Skonfiguruj reguły, które zawierają adresy źródłowe, protokoły, porty docelowe i adresy docelowe.
-* *Reguły NAT* : Konfigurowanie reguł DNAT w celu zezwalania na przychodzące połączenia internetowe.
+* *Reguły aplikacji*: Skonfiguruj w pełni kwalifikowane nazwy domen (FQDN), do których można uzyskać dostęp z podsieci.
+* *Reguły sieci*: Skonfiguruj reguły, które zawierają adresy źródłowe, protokoły, porty docelowe i adresy docelowe.
+* *Reguły NAT*: Konfigurowanie reguł DNAT w celu zezwalania na przychodzące połączenia internetowe.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Czy Zapora platformy Azure obsługuje filtrowanie ruchu przychodzącego?
 
@@ -50,7 +50,7 @@ Zapora platformy Azure obsługuje filtrowanie przychodzące i wychodzące. Ochro
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Które usługi rejestrowania i analizy są obsługiwane przez zaporę systemu Azure?
 
-Zapora platformy Azure jest zintegrowana z Azure Monitor do przeglądania i analizowania dzienników zapory. Dzienniki mogą być wysyłane do Log Analytics, usługi Azure Storage lub Event Hubs. Można je analizować w Log Analytics lub przy użyciu różnych narzędzi, takich jak program Excel i Power BI. Aby uzyskać więcej informacji, zobacz [Samouczek: monitorowanie dzienników zapory platformy Azure](tutorial-diagnostics.md).
+Zapora platformy Azure jest zintegrowana z Azure Monitor do przeglądania i analizowania dzienników zapory. Dzienniki mogą być wysyłane do Log Analytics, usługi Azure Storage lub Event Hubs. Można je analizować w Log Analytics lub przy użyciu różnych narzędzi, takich jak program Excel i Power BI. Aby uzyskać więcej informacji, zobacz [Samouczek: monitorowanie dzienników zapory platformy Azure](./firewall-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Jak Zapora platformy Azure różni się od istniejących usług, takich jak urządzeń WUS w portalu Marketplace?
 
@@ -139,9 +139,9 @@ Nie. Reguły translatora adresów sieciowych niejawnie Dodaj odpowiednią reguł
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Jak działają symbole wieloznaczne w nazwie FQDN docelowej reguły aplikacji?
 
-Obecnie symboli wieloznacznych można używać tylko po lewej stronie nazwy FQDN. Na przykład * *_. contoso.com_* i * *_contoso.com_*.
+Obecnie symboli wieloznacznych można używać tylko po lewej stronie nazwy FQDN. Na przykład **_. contoso.com_* i **_contoso.com_*.
 
-Skonfigurowanie * *_. contoso.com_* umożliwia *anyvalue*. contoso.com, ale nie contoso.com (wierzchołk domeny). Jeśli chcesz zezwolić na wierzchołk domeny, musisz jawnie skonfigurować go jako docelową nazwę FQDN.
+Skonfigurowanie **_. contoso.com_* umożliwia *anyvalue*. contoso.com, ale nie contoso.com (wierzchołk domeny). Jeśli chcesz zezwolić na wierzchołk domeny, musisz jawnie skonfigurować go jako docelową nazwę FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Co to jest *stan aprowizacji: niepowodzenie* ?
 
@@ -217,7 +217,7 @@ Nie, przeniesienie grupy adresów IP do innej grupy zasobów nie jest obecnie ob
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Jaki jest limit czasu bezczynności TCP dla zapory platformy Azure?
 
-Standardowe zachowanie zapory sieciowej polega na zapewnieniu aktywności połączeń TCP i niezwłocznego ich zamknięcia w przypadku braku aktywności. Limit czasu bezczynności protokołu TCP zapory platformy Azure to cztery minuty. Tego ustawienia nie można skonfigurować. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana. Typowym zastosowaniem jest utrzymywanie aktywności protokołu TCP. Ta metoda utrzymuje, że połączenie jest aktywne przez dłuższy czas. Aby uzyskać więcej informacji, zobacz [przykłady dla platformy .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+Standardowe zachowanie zapory sieciowej polega na zapewnieniu aktywności połączeń TCP i niezwłocznego ich zamknięcia w przypadku braku aktywności. Limit czasu bezczynności protokołu TCP zapory platformy Azure to cztery minuty. Tego ustawienia nie można skonfigurować. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana. Typowym zastosowaniem jest utrzymywanie aktywności protokołu TCP. Ta metoda utrzymuje, że połączenie jest aktywne przez dłuższy czas. Aby uzyskać więcej informacji, zobacz [przykłady dla platformy .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Czy mogę wdrożyć zaporę platformy Azure bez publicznego adresu IP?
 

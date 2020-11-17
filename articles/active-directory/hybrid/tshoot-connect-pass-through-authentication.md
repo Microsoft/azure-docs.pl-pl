@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741197"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652522"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelnianiem przekazywanym usługi Azure Active Directory
 
@@ -157,6 +157,8 @@ W przypadku błędów związanych z agentem uwierzytelniania Otwórz aplikację 
 
 Aby uzyskać szczegółową analizę, Włącz dziennik "Session" (kliknij prawym przyciskiem myszy wewnątrz aplikacji Podgląd zdarzeń, aby znaleźć tę opcję). Nie uruchamiaj agenta uwierzytelniania z włączonym tym dziennikiem podczas normalnych operacji; służy tylko do rozwiązywania problemów. Zawartość dziennika jest widoczna tylko po ponownym wyłączaniu dziennika.
 
+Manifest zdarzeń agenta PTA można znaleźć [tutaj](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster).
+
 ### <a name="detailed-trace-logs"></a>Szczegółowe dzienniki śledzenia
 
 Aby rozwiązać problemy związane z logowaniem użytkownika, poszukaj dzienników śledzenia w programie **%ProgramData%\MICROSOFT\AZURE AD Connect \\ Authentication Agent\Trace**. Te dzienniki zawierają przyczyny niepowodzenia logowania określonego użytkownika przy użyciu funkcji uwierzytelniania przekazywanego. Te błędy są również mapowane na przyczyny niepowodzenia logowania widoczne w poprzedniej tabeli przyczyn niepowodzeń logowania. Poniżej znajduje się przykładowy wpis dziennika:
@@ -187,7 +189,7 @@ Jeśli rejestrowanie inspekcji jest włączone, dodatkowe informacje można znal
 
 ## <a name="performance-monitor-counters"></a>Liczniki Monitora wydajności
 
-Innym sposobem monitorowania agentów uwierzytelniania jest śledzenie określonych liczników monitora wydajności na każdym serwerze, na którym jest zainstalowany agent uwierzytelniania. Użyj następujących liczników globalnych (**# PTA uwierzytelniania**, **#PTA nieudanych uwierzytelnień** i **#PTA**uwierzytelnień) i liczników błędów (**# PTA uwierzytelniania**):
+Innym sposobem monitorowania agentów uwierzytelniania jest śledzenie określonych liczników monitora wydajności na każdym serwerze, na którym jest zainstalowany agent uwierzytelniania. Użyj następujących liczników globalnych (**# PTA uwierzytelniania**, **#PTA nieudanych uwierzytelnień** i **#PTA** uwierzytelnień) i liczników błędów (**# PTA uwierzytelniania**):
 
 ![Liczniki Monitora wydajności uwierzytelniania przekazywanego](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

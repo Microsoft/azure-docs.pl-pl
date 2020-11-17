@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850595"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652148"
 ---
 # <a name="azure-firewall-features"></a>Funkcje usługi Azure Firewall
 
@@ -103,7 +103,7 @@ Dzięki temu można wykonać następujące scenariusze:
 
 Wszystkie zdarzenia są zintegrowane z usługą Azure Monitor, co umożliwia archiwizowanie dzienników na koncie magazynu, przesyłanie strumieniowe zdarzeń do centrum Event Hub lub wysyłanie ich do dzienników usługi Azure Monitor. Przykłady dzienników Azure Monitor można znaleźć w temacie [Azure monitor Logs dla zapory platformy Azure](log-analytics-samples.md).
 
-Aby uzyskać więcej informacji, zobacz [Samouczek: monitorowanie dzienników i metryk zapory platformy Azure](tutorial-diagnostics.md). 
+Aby uzyskać więcej informacji, zobacz [Samouczek: monitorowanie dzienników i metryk zapory platformy Azure](./firewall-diagnostics.md). 
 
 Skoroszyt zapory platformy Azure zapewnia elastyczną kanwę do analizy danych w zaporze platformy Azure. Można go użyć do tworzenia rozbudowanych raportów wizualnych w Azure Portal. Aby uzyskać więcej informacji, zobacz [monitorowanie dzienników przy użyciu skoroszytu zapory platformy Azure](firewall-workbook.md).
 

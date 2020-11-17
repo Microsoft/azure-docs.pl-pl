@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6fd26b4965b92f5f06a008d67e2d585fd1b41b7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840204"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652080"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Samouczek: Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik
 
@@ -39,7 +39,7 @@ Ten samouczek ułatwia korzystanie z usługi Security elementy PlayBook w wskaź
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Co to jest element PlayBook zabezpieczeń na platformie Azure — wskaźnik?
 
-Element PlayBook zabezpieczeń to zbiór procedur, które mogą być uruchamiane z obszaru wskaźnikowego platformy Azure w odpowiedzi na alert. Element PlayBook zabezpieczeń może pomóc zautomatyzować i zorganizować odpowiedź i można ją uruchomić ręcznie lub skonfigurować do automatycznego uruchamiania po wyzwoleniu określonych alertów. Zabezpieczenia elementy PlayBook na platformie Azure wskazują na [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), co oznacza, że otrzymujesz wszystkie funkcje, szerszym i wbudowane szablony Logic Apps. Każdy element PlayBook jest tworzony dla wybranej subskrypcji, ale po przeszukaniu na stronie elementy PlayBook zobaczysz wszystkie elementy PlayBook w ramach dowolnych subskrypcji.
+Element PlayBook zabezpieczeń to zbiór procedur, które mogą być uruchamiane z obszaru wskaźnikowego platformy Azure w odpowiedzi na alert. Element PlayBook zabezpieczeń może pomóc zautomatyzować i zorganizować odpowiedź i można ją uruchomić ręcznie lub skonfigurować do automatycznego uruchamiania po wyzwoleniu określonych alertów. Zabezpieczenia elementy PlayBook na platformie Azure wskazują na [Azure Logic Apps](../logic-apps/logic-apps-overview.md), co oznacza, że otrzymujesz wszystkie funkcje, szerszym i wbudowane szablony Logic Apps. Każdy element PlayBook jest tworzony dla wybranej subskrypcji, ale po przeszukaniu na stronie elementy PlayBook zobaczysz wszystkie elementy PlayBook w ramach dowolnych subskrypcji.
 
 > [!NOTE]
 > Elementy PlayBook wykorzystać Azure Logic Apps, dlatego opłaty są naliczane. Odwiedź stronę cennika usługi [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), aby zapoznać się ze szczegółami.
@@ -60,7 +60,7 @@ Elementy PlayBook zabezpieczeń można uruchomić ręcznie lub automatycznie. Ur
 Wykonaj następujące kroki, aby utworzyć nowy element PlayBook zabezpieczeń na platformie Azure:
 
 1. Otwórz pulpit nawigacyjny wskaźników **platformy Azure** .
-2. W obszarze **Konfiguracja**wybierz pozycję **elementy PlayBook**.
+2. W obszarze **Konfiguracja** wybierz pozycję **elementy PlayBook**.
 
    ![Aplikacja logiki](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
@@ -105,7 +105,7 @@ Wiele, jeśli nie większość z tych alertów, jest zgodny ze wzorcami cykliczn
 Aby zautomatyzować odpowiedzi:
 
 1. Wybierz Alert, dla którego chcesz zautomatyzować odpowiedź.
-1. Na stronie **Edytowanie reguły alertu** w obszarze **Automatyzacja w czasie rzeczywistym**wybierz **wyzwolone element PlayBook** , które chcesz uruchomić po dopasowaniu tej reguły alertu.
+1. Na stronie **Edytowanie reguły alertu** w obszarze **Automatyzacja w czasie rzeczywistym** wybierz **wyzwolone element PlayBook** , które chcesz uruchomić po dopasowaniu tej reguły alertu.
 1. Wybierz pozycję **Zapisz**.
 
    ![Automatyzacja w czasie rzeczywistym](./media/tutorial-detect-threats/rt-configuration.png)
@@ -118,5 +118,3 @@ Aby zautomatyzować odpowiedzi:
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób uruchamiania element PlayBook na platformie Azure. Przejdź do strony z [możliwością aktywnego wyszukiwania w poszukiwaniu zagrożeń](hunting.md) przy użyciu platformy Azure.
-
-
