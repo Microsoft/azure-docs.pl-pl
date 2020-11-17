@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613059"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648076"
 ---
 # <a name="manage-your-cache"></a>Zarządzanie pamięcią podręczną
 
@@ -58,7 +58,7 @@ Aby ponownie uaktywnić zatrzymaną pamięć podręczną, kliknij przycisk **Uru
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 Tymczasowe wstrzymywanie pamięci podręcznej za pomocą polecenia [AZ HPC-cache Stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) . Ta akcja jest prawidłowa tylko wtedy, gdy stan pamięci podręcznej jest w **dobrej kondycji** lub ma negatywny wpływ na **wydajność**.
 
@@ -113,7 +113,7 @@ Aby opróżnić pamięć podręczną, kliknij przycisk **opróżniania** , a nas
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 Użyj [AZ HPC-cache Flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) , aby wymusić zapisanie wszystkich zmienionych danych w pamięci podręcznej dla obiektów docelowych magazynu.
 
@@ -161,7 +161,7 @@ Kliknij przycisk **Uaktualnij** , aby rozpocząć aktualizację oprogramowania. 
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 W interfejsie wiersza polecenia platformy Azure na końcu raportu o stanie pamięci podręcznej są uwzględniane nowe informacje o oprogramowaniu. (Użyj [AZ HPC-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) do check). Wyszukaj ciąg "upgradeStatus" w komunikacie.
 
@@ -225,7 +225,7 @@ Po zatrzymaniu pamięci podręcznej kliknij przycisk **Usuń** , aby trwale usun
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 Użyj interfejsu wiersza polecenia platformy Azure [AZ HPC-cache Delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) , aby trwale usunąć pamięć podręczną.
 

@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404786"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647940"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
 
@@ -30,14 +30,14 @@ Zgodnie z opisem w poniższej tabeli *rozmiar procesora GPU* jest przeznaczony d
 
 | Rozmiar | Rdzenie | Pamięć RAM | Opis | 
 | ---- | ----- | --- | ----------- | 
-| Mały procesor GPU (obliczenia) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z mocy obliczeniowej, takich jak sztuczna inteligencja (AI) i uczenie głębokie. |
+| Mały procesor GPU (obliczenia) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NC6](../virtual-machines/nc-series.md) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z mocy obliczeniowej, takich jak sztuczna inteligencja (AI) i uczenie głębokie. |
 
 Rozmiary procesora GPU *wizualizacji* są przeznaczone dla aplikacji intensywnie korzystających z grafiki.  Na przykład [Typ klasy inżynieryjnej SolidWorks](./class-type-solidworks.md) pokazuje użycie **małego procesora GPU (wizualizacji)** .  Procesor GPU wizualizacji jest odpowiedni dla tego typu klasy, ponieważ uczniowie współpracują z środowiskiem projektowania (CAD) SOLIDWORKS 3W na potrzeby modelowania i wizualizacji obiektów stałych.
 
 | Rozmiar | Rdzenie | Pamięć RAM | Opis | 
 | ---- | ----- | --- | ----------- | 
-| Mały procesor GPU (wizualizacja) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
-| Średni procesor GPU (wizualizacja) | -&nbsp;12 &nbsp; rdzeni<br>-&nbsp;112 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
+| Mały procesor GPU (wizualizacja) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV6](../virtual-machines/nv-series.md) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
+| Średni procesor GPU (wizualizacja) | -&nbsp;12 &nbsp; rdzeni<br>-&nbsp;112 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
 
 > [!NOTE]
 > Niektóre z tych rozmiarów maszyn wirtualnych mogą nie być widoczne na liście podczas tworzenia laboratorium zajęć. Lista jest wypełniana na podstawie bieżącej pojemności lokalizacji laboratorium. Jeśli twórca konta laboratorium [umożliwia twórcom laboratorium wybranie lokalizacji dla laboratorium](allow-lab-creator-pick-lab-location.md), możesz spróbować wybrać inną lokalizację dla laboratorium i sprawdzić, czy rozmiar maszyny wirtualnej jest dostępny. Aby uzyskać dostęp do maszyn wirtualnych, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -76,7 +76,7 @@ Aby ręcznie zainstalować sterowniki dla rozmiaru procesora GPU, wykonaj nastę
 1. Po zainstalowaniu sterowników i innego oprogramowania, które są wymagane dla danej klasy, wybierz pozycję **Publikuj** , aby utworzyć maszyny wirtualne uczniów.
 
 > [!NOTE]
-> Jeśli używasz obrazu systemu Linux, po pobraniu instalatora Zainstaluj sterowniki, postępując zgodnie z instrukcjami w temacie [Install cuda drivers in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#install-cuda-drivers-on-n-series-vms).
+> Jeśli używasz obrazu systemu Linux, po pobraniu instalatora Zainstaluj sterowniki, postępując zgodnie z instrukcjami w temacie [Install cuda drivers in Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Instalowanie wizualizacji sterowników procesora GPU
 
@@ -85,8 +85,8 @@ Aby ręcznie zainstalować sterowniki dla rozmiaru procesora GPU, wykonaj nastę
 1. Podczas [tworzenia laboratorium](./how-to-manage-classroom-labs.md)w Kreatorze tworzenia laboratorium wyłącz ustawienie **Zainstaluj sterowniki procesora GPU** .
 1. Po utworzeniu laboratorium Połącz się z szablonową maszyną wirtualną w celu zainstalowania odpowiednich sterowników.
 1. Zainstaluj sterowniki siatki dostarczone przez firmę Microsoft na maszynie wirtualnej szablonu, postępując zgodnie z instrukcjami dotyczącymi systemu operacyjnego:
-   -  [Sterowniki sieci NVIDIA systemu Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)
-   -  [Sterowniki siatki NVIDIA systemu Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#nvidia-grid-drivers)
+   -  [Sterowniki sieci NVIDIA systemu Windows](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   -  [Sterowniki siatki NVIDIA systemu Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
   
 1. Uruchom ponownie szablon maszyny wirtualnej.
 1. Sprawdź, czy sterowniki są poprawnie zainstalowane, postępując zgodnie z instrukcjami w sekcji [Sprawdzanie zainstalowanych sterowników](how-to-setup-lab-gpu.md#validate-the-installed-drivers) .
@@ -96,9 +96,9 @@ Aby ręcznie zainstalować sterowniki dla rozmiaru procesora GPU, wykonaj nastę
 W tej sekcji opisano, jak sprawdzić, czy sterowniki procesora GPU są prawidłowo zainstalowane.
 
 #### <a name="windows-images"></a>Obrazy systemu Windows
-1.  Postępuj zgodnie z instrukcjami w sekcji "Weryfikowanie instalacji sterowników" [w temacie Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych z serii N z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
+1.  Postępuj zgodnie z instrukcjami w sekcji "Weryfikowanie instalacji sterowników" [w temacie Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych z serii N z systemem Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
 1.  Jeśli używasz procesora GPU *wizualizacji* , możesz również:
-    - Wyświetlanie i dostosowywanie ustawień procesora GPU w panelu sterowania NVIDIA. W tym celu w **Panelu sterowania systemu Windows**wybierz pozycję **sprzęt**, a następnie wybierz pozycję **Panel sterowania firmy NVIDIA**.
+    - Wyświetlanie i dostosowywanie ustawień procesora GPU w panelu sterowania NVIDIA. W tym celu w **Panelu sterowania systemu Windows** wybierz pozycję **sprzęt**, a następnie wybierz pozycję **Panel sterowania firmy NVIDIA**.
 
       ![Zrzut ekranu przedstawiający panel sterowania systemu Windows z linkiem panelu sterowania NVIDIA](./media/how-to-setup-gpu/control-panel-nvidia-settings.png) 
 
@@ -110,7 +110,7 @@ W tej sekcji opisano, jak sprawdzić, czy sterowniki procesora GPU są prawidło
       > Ustawienia panelu sterowania NVIDIA są dostępne tylko dla *wizualizacji* GPU.  Jeśli spróbujesz otworzyć Panel sterowania NVIDIA dla procesora GPU, zostanie wyświetlony następujący błąd: "Ustawienia wyświetlania NVIDIA nie są dostępne.  Obecnie nie używasz wyświetlania dołączonego do procesora GPU NVIDIA ".  Podobnie informacje o wydajności procesora GPU w Menedżerze zadań są udostępniane tylko dla wizualizacji GPU.
 
 #### <a name="linux-images"></a>Obrazy systemu Linux
-Postępuj zgodnie z instrukcjami w sekcji "Weryfikowanie instalacji sterowników" [w temacie Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych z serii N z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
+Postępuj zgodnie z instrukcjami w sekcji "Weryfikowanie instalacji sterowników" [w temacie Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych z serii N z systemem Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
@@ -118,6 +118,3 @@ Zobacz następujące artykuły:
 - [Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi](how-to-manage-classroom-labs.md)
 - [SOLIDWORKS typ klasy projektowania (CAD) dla komputerów](class-type-solidworks.md)
 - [MATLAB (laboratorium macierzowe) typ klasy](class-type-matlab.md)
-
-
-

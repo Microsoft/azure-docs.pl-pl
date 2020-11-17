@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f39bd874c1f5a1be42ca1c88e6ea2fe8df22f87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005823"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648212"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowe skalowanie klastra Service Fabricowego 
 
@@ -121,5 +121,5 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 Aby rozpocząć implementowanie własnej logiki automatycznego skalowania, zapoznaj się z następującymi pojęciami i przydatnymi interfejsami API:
 
 - [Skalowanie ręczne lub przy użyciu reguł skalowania automatycznego](./service-fabric-cluster-scale-in-out.md)
-- [Biblioteki zarządzania systemu Azure Fluent dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (przydatne do współdziałania z podstawowymi zestawami skalowania maszyn wirtualnych w klastrze Service Fabric)
+- [Biblioteki zarządzania platformy Azure dla platformy .NET](https://github.com/Azure/azure-libraries-for-net) (przydatne do współdziałania z podstawowymi zestawami skalowania maszyn wirtualnych w klastrze Service Fabric)
 - [System. Fabric. FabricClient](/dotnet/api/system.fabric.fabricclient) (przydatny do współpracy z klastrem Service Fabric i jego węzłami)

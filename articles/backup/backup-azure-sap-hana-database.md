@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure przy u
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172979"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649443"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -16,7 +16,7 @@ Bazy danych SAP HANA są obciążeniami krytycznymi, które wymagają niewielkie
 
 W tym artykule pokazano, jak utworzyć kopię zapasową SAP HANA baz danych, które są uruchomione na maszynach wirtualnych platformy Azure, do magazynu Recovery Services Azure Backup.
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 > [!div class="checklist"]
 >
 > * Tworzenie i Konfigurowanie magazynu
@@ -59,9 +59,9 @@ Prywatne punkty końcowe umożliwiają bezpieczne nawiązywanie połączenia z s
 
 Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Użyj znacznika usługi *AzureBackup* , aby zezwolić na dostęp wychodzący do Azure Backup. Oprócz znacznika Azure Backup należy również zezwolić na połączenie z uwierzytelnianiem i transferem danych, tworząc podobne [reguły sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md#service-tags) dla usługi Azure AD (*usługi azureactivedirectory*) i usługi Azure Storage (*Magazyn*).  Poniższe kroki opisują proces tworzenia reguły dla tagu Azure Backup:
 
-1. W obszarze **wszystkie usługi**przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
+1. W obszarze **wszystkie usługi** przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
 
-1. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .
+1. W obszarze **Ustawienia** wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .
 
 1. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](../virtual-network/manage-network-security-group.md#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na *tag usługi* i **znacznik usługi docelowej** jest ustawiony na *AzureBackup*.
 
@@ -95,16 +95,16 @@ Podczas tworzenia kopii zapasowej bazy danych SAP HANA działającej na maszynie
 
 ## <a name="discover-the-databases"></a>Odnajdywanie baz danych
 
-1. W magazynie w obszarze **wprowadzenie**wybierz pozycję **kopia zapasowa**. W **miejscu, w którym jest uruchomione Twoje obciążenie?** wybierz pozycję **SAP HANA na maszynie wirtualnej platformy Azure**.
+1. W magazynie w obszarze **wprowadzenie** wybierz pozycję **kopia zapasowa**. W **miejscu, w którym jest uruchomione Twoje obciążenie?** wybierz pozycję **SAP HANA na maszynie wirtualnej platformy Azure**.
 2. Wybierz pozycję **Rozpocznij odnajdywanie**. Spowoduje to zainicjowanie odnajdywania niechronionych maszyn wirtualnych z systemem Linux w regionie magazynu.
 
    * Po odnajdywaniu w portalu są wyświetlane niechronione maszyny wirtualne wymienione według nazwy i grupy zasobów.
    * Jeśli maszyna wirtualna nie znajduje się w oczekiwany sposób, sprawdź, czy kopia zapasowa została już utworzona w magazynie.
    * Wiele maszyn wirtualnych może mieć taką samą nazwę, ale należą do różnych grup zasobów.
 
-3. W obszarze **wybierz Virtual Machines**wybierz link, aby pobrać skrypt, który zapewnia uprawnienia do usługi Azure Backup do uzyskiwania dostępu do maszyn wirtualnych SAP HANA na potrzeby odnajdywania bazy danych.
+3. W obszarze **wybierz Virtual Machines** wybierz link, aby pobrać skrypt, który zapewnia uprawnienia do usługi Azure Backup do uzyskiwania dostępu do maszyn wirtualnych SAP HANA na potrzeby odnajdywania bazy danych.
 4. Uruchom skrypt na każdej maszynie wirtualnej, w której znajdują się SAP HANA bazy danych, których kopię zapasową chcesz utworzyć.
-5. Po uruchomieniu skryptu na maszynach wirtualnych w obszarze **wybierz Virtual Machines**Wybierz Maszyny wirtualne. Następnie wybierz pozycję **odkryj baz danych**.
+5. Po uruchomieniu skryptu na maszynach wirtualnych w obszarze **wybierz Virtual Machines** Wybierz Maszyny wirtualne. Następnie wybierz pozycję **odkryj baz danych**.
 6. Azure Backup odnajduje wszystkie SAP HANA bazy danych na maszynie wirtualnej. Podczas odnajdywania Azure Backup rejestruje maszynę wirtualną w magazynie i instaluje rozszerzenie na maszynie wirtualnej. Żaden Agent nie jest zainstalowany w bazie danych.
 
     ![Odnajdź SAP HANA bazy danych](./media/backup-azure-sap-hana-database/hana-discover.png)
@@ -116,10 +116,10 @@ Teraz Włącz tworzenie kopii zapasowej.
 1. W kroku 2 Wybierz pozycję **Konfiguruj kopię zapasową**.
 
     ![Skonfiguruj kopię zapasową](./media/backup-azure-sap-hana-database/configure-backup.png)
-2. W obszarze **Wybierz elementy do utworzenia kopii zapasowej**wybierz wszystkie bazy danych, które mają być chronione > **OK**.
+2. W obszarze **Wybierz elementy do utworzenia kopii zapasowej** wybierz wszystkie bazy danych, które mają być chronione > **OK**.
 
     ![Wybierz elementy do utworzenia kopii zapasowej](./media/backup-azure-sap-hana-database/select-items.png)
-3. W obszarze **zasady tworzenia kopii**zapasowych  >  **Wybierz pozycję Zasady tworzenia kopii**zapasowych, Utwórz nowe zasady tworzenia kopii zapasowych baz danych, zgodnie z poniższymi instrukcjami.
+3. W obszarze **zasady tworzenia kopii** zapasowych  >  **Wybierz pozycję Zasady tworzenia kopii** zapasowych, Utwórz nowe zasady tworzenia kopii zapasowych baz danych, zgodnie z poniższymi instrukcjami.
 
     ![Wybieranie zasad kopii zapasowych](./media/backup-azure-sap-hana-database/backup-policy.png)
 4. Po utworzeniu zasad w menu **kopia zapasowa** wybierz pozycję **Włącz kopię zapasową**.
@@ -153,7 +153,7 @@ Określ ustawienia zasad w następujący sposób:
 
    ![Wybierz częstotliwość tworzenia kopii zapasowych](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. W obszarze **Zakres przechowywania**Skonfiguruj ustawienia przechowywania dla pełnej kopii zapasowej.
+3. W obszarze **Zakres przechowywania** Skonfiguruj ustawienia przechowywania dla pełnej kopii zapasowej.
     * Domyślnie wszystkie opcje są zaznaczone. Wyczyść limity zakresu przechowywania, których nie chcesz używać, i ustaw te, które chcesz wykonać.
     * Minimalny okres przechowywania dla dowolnego typu kopii zapasowej (pełny/różnicowa/log) wynosi siedem dni.
     * Punkty odzyskiwania są oznaczone do przechowywania na podstawie ich zakresu przechowywania. Jeśli na przykład wybierzesz codzienne tworzenie pełnej kopii zapasowej, każdego dnia będzie wyzwalana tylko jedna pełna kopia zapasowa.
@@ -169,11 +169,16 @@ Określ ustawienia zasad w następujący sposób:
     ![Zasady różnicowych kopii zapasowych](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Przyrostowe kopie zapasowe nie są obecnie obsługiwane.
+    > Przyrostowe kopie zapasowe są teraz obsługiwane w publicznej wersji zapoznawczej. Można wybrać różnicową lub przyrostową kopię zapasową, ale nie oba jednocześnie.
+7. W obszarze **zasady przyrostowej kopii zapasowej** wybierz pozycję **Włącz** , aby otworzyć kontrolki częstotliwość i przechowywanie.
+    * Co więcej, można wyzwolić jedną przyrostową kopię zapasową dziennie.
+    * Przyrostowe kopie zapasowe mogą być przechowywane przez maksymalnie 180 dni. Jeśli potrzebujesz dłuższego okresu przechowywania, musisz użyć pełnych kopii zapasowych.
+
+    ![Zasady przyrostowych kopii zapasowych](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
 7. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
 8. Wybierz pozycję **kopia zapasowa dziennika** , aby dodać zasady kopii zapasowej dziennika transakcyjnego,
-    * W obszarze **kopia zapasowa dziennika**wybierz pozycję **Włącz**.  Nie można go wyłączyć, ponieważ SAP HANA zarządza wszystkimi kopiami zapasowymi dzienników.
+    * W obszarze **kopia zapasowa dziennika** wybierz pozycję **Włącz**.  Nie można go wyłączyć, ponieważ SAP HANA zarządza wszystkimi kopiami zapasowymi dzienników.
     * Ustaw kontrolkę częstotliwość i przechowywanie.
 
     > [!NOTE]
@@ -190,8 +195,8 @@ Określ ustawienia zasad w następujący sposób:
 Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową można uruchomić na żądanie w następujący sposób:
 
 1. W menu magazyn wybierz pozycję **elementy kopii zapasowej**.
-2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie wybierz pozycję **Utwórz kopię zapasową teraz**.
-3. W obszarze **kopia zapasowa**wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie wybierz przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
+2. W obszarze **elementy kopii zapasowej** wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie wybierz pozycję **Utwórz kopię zapasową teraz**.
+3. W obszarze **kopia zapasowa** wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie wybierz przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
 4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
 
 Domyślnie przechowywanie kopii zapasowych na żądanie to 45 dni.
@@ -202,7 +207,7 @@ Jeśli chcesz utworzyć lokalną kopię zapasową bazy danych, której kopia zap
 
 1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
 1. Wyłącz kopie zapasowe dzienników i ustaw wykaz kopii zapasowych w systemie plików dla odpowiedniej bazy danych.
-1. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja**systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
+1. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
 1. Ustaw **enable_auto_log_backup** na wartość **nie**.
 1. Ustaw **log_backup_using_backint** na **wartość false**.
 1. Ustaw **catalog_backup_using_backint** na **wartość false**.

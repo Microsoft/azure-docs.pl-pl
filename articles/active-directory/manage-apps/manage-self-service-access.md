@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfa7530617830de99d752edcf4545300525ddbe8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362369"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649215"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Jak skonfigurować przypisanie aplikacji samoobsługi
 
-Zanim użytkownicy będą mogli samodzielnie wykrywać aplikacje ze swoich aplikacji, musisz włączyć **samoobsługowy dostęp do aplikacji** do wszystkich aplikacji, które mają pozwolić użytkownikom na samodzielne odnajdowanie i zażądać dostępu do programu. Ta funkcja jest dostępna dla aplikacji, które zostały dodane z [galerii usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [platformy Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) lub zostały dodane za pośrednictwem [zgody użytkownika lub administratora](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
+Zanim użytkownicy będą mogli samodzielnie wykrywać aplikacje ze swoich aplikacji, musisz włączyć **samoobsługowy dostęp do aplikacji** do wszystkich aplikacji, które mają pozwolić użytkownikom na samodzielne odnajdowanie i zażądać dostępu do programu. Ta funkcja jest dostępna dla aplikacji, które zostały dodane z [galerii usługi Azure AD](./add-application-portal.md), [platformy Azure serwer proxy aplikacji usługi Azure AD](./application-proxy.md) lub zostały dodane za pośrednictwem [zgody użytkownika lub administratora](../develop/application-consent-experience.md). 
 
 Ta funkcja to świetny sposób oszczędzania czasu i pieniędzy jako grupy IT i jest wysoce zalecany w ramach wdrożenia nowoczesnych aplikacji z Azure Active Directory.
 

@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1617015d6d4a026d5dadda667dcd03447a20c288
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427632"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649504"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje
 
@@ -50,14 +50,14 @@ Aby skonfigurować ustawienia zgody użytkowników za pomocą Azure Portal:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator).
 1. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i uprawnienia do**  >  **ustawień zgody użytkownika**.
-1. W obszarze **wyrażanie zgody użytkownika na aplikacje**wybierz ustawienie zgody, które chcesz skonfigurować dla wszystkich użytkowników.
+1. W obszarze **wyrażanie zgody użytkownika na aplikacje** wybierz ustawienie zgody, które chcesz skonfigurować dla wszystkich użytkowników.
 1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Ustawienia zgody użytkownika":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Możesz użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), aby wybrać zasady zgody aplikacji, które regulują zgodę użytkownika na aplikacje.
+Możesz użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), aby wybrać zasady zgody aplikacji, które regulują zgodę użytkownika na aplikacje.
 
 #### <a name="disable-user-consent"></a>Wyłącz wyrażanie zgody użytkownika
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>Wyrażanie zgody na ryzyko
 
-Wyrażanie ryzyka krok po kroku pomaga zmniejszyć narażenie użytkowników na złośliwe aplikacje, które podejmują [nielegalne żądania zgody](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Jeśli firma Microsoft wykryje ryzykowne żądanie zgody użytkownika końcowego, żądanie będzie wymagało zgody administratora na "krok po kroku". Ta funkcja jest domyślnie włączona, ale powoduje to zmianę zachowania tylko wtedy, gdy jest włączona zgoda użytkownika końcowego.
+Wyrażanie ryzyka krok po kroku pomaga zmniejszyć narażenie użytkowników na złośliwe aplikacje, które podejmują [nielegalne żądania zgody](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Jeśli firma Microsoft wykryje ryzykowne żądanie zgody użytkownika końcowego, żądanie będzie wymagało zgody administratora na "krok po kroku". Ta funkcja jest domyślnie włączona, ale powoduje to zmianę zachowania tylko wtedy, gdy jest włączona zgoda użytkownika końcowego.
 
 Po wykryciu ryzykownego żądania zgody w monicie zostanie wyświetlony komunikat informujący o konieczności zatwierdzenia przez administratora. Jeśli [przepływ pracy żądania zgody administratora](configure-admin-consent-workflow.md) jest włączony, użytkownik może wysłać żądanie do administratora w celu dalszej kontroli bezpośrednio z poziomu monitu o zgodę. Jeśli nie jest włączona, zostanie wyświetlony następujący komunikat:
 
@@ -114,9 +114,9 @@ W takim przypadku zdarzenie inspekcji zostanie również zarejestrowane z katego
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Wyłączenie lub ponowne włączenie zgody na ryzyko krok po kroku przy użyciu programu PowerShell
 
-Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączyć krok do zgody administratora wymagany w [przypadkach, w](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)których firma Microsoft wykryje ryzyko lub ponownie je włączać, jeśli wcześniej została wyłączona.
+Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączyć krok do zgody administratora wymagany w [przypadkach, w](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)których firma Microsoft wykryje ryzyko lub ponownie je włączać, jeśli wcześniej została wyłączona.
 
-1. Upewnij się, że używasz modułu [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) i moduł [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) .
+1. Upewnij się, że używasz modułu [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) i moduł [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) .
 
     ```powershell
     Remove-Module AzureAD
@@ -147,7 +147,7 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączy�
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _BlockUserConsentForRiskyApps_   | Wartość logiczna |  Flaga oznaczająca, czy zgoda użytkownika zostanie zablokowana w przypadku wykrycia ryzykownego żądania. |
+    | _BlockUserConsentForRiskyApps_   | Boolean |  Flaga oznaczająca, czy zgoda użytkownika zostanie zablokowana w przypadku wykrycia ryzykownego żądania. |
 
 1. Zaktualizuj wartość ustawień dla żądanej konfiguracji:
 
@@ -182,7 +182,7 @@ Dodatkowe informacje:
 * [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
 * [Dowiedz się, jak zarządzać zgodą na aplikacje i oszacować wnioski o zgodę](manage-consent-requests.md)
 * [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
-* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
+* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
 * [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

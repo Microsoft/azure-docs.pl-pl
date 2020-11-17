@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9559e22a8396de93bbe46f20b76855d9ff00f753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa74424dddd7577eb942f72f038f5bd56854abac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763724"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648195"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Nieoczekiwany monit o zgodę podczas logowania się do aplikacji
 
@@ -39,7 +39,7 @@ Dodatkowe monity można oczekiwać w różnych scenariuszach:
 
 * Użytkownik, który pierwotnie wyraził zgodę na dostęp do aplikacji, był administratorem, ale nie zaakceptował w imieniu całej organizacji.
 
-* Aplikacja korzysta z funkcji [przyrostowej i dynamicznej,](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) aby zażądać dodatkowych uprawnień po wstępnym udzieleniu zgody. Jest to często używane, gdy opcjonalne funkcje aplikacji wymagają uprawnień poza tymi, które są wymagane do obsługi funkcji bazowych.
+* Aplikacja korzysta z funkcji [przyrostowej i dynamicznej,](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) aby zażądać dodatkowych uprawnień po wstępnym udzieleniu zgody. Jest to często używane, gdy opcjonalne funkcje aplikacji wymagają uprawnień poza tymi, które są wymagane do obsługi funkcji bazowych.
 
 * Zgoda została odwołana po wstępnym przypisaniu.
 
@@ -47,8 +47,6 @@ Dodatkowe monity można oczekiwać w różnych scenariuszach:
 
 ## <a name="next-steps"></a>Następne kroki
 
--   [Aplikacje, uprawnienia i zgoda w Azure Active Directory (punkt końcowy v 1.0)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Aplikacje, uprawnienia i zgoda w Azure Active Directory (punkt końcowy v 1.0)](../develop/quickstart-register-app.md)
 
--   [Zakresy, uprawnienia i zgody w Azure Active Directory (punkt końcowy v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Zakresy, uprawnienia i zgody w Azure Active Directory (punkt końcowy v 2.0)](../develop/v2-permissions-and-consent.md)

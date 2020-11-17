@@ -16,16 +16,16 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 846e1a83f3cba5f87210ae4f825b5fac4f1569c6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368387"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648382"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Dodawanie lub usuwanie przypisań ról platformy Azure dla użytkowników zewnętrznych Gości przy użyciu Azure Portal
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia lepsze zarządzanie zabezpieczeniami w dużych organizacjach, a także małych i średnich firm pracujących z zewnętrznymi współpracownikami, dostawcami lub osobami niezależnymi, które potrzebują dostępu do określonych zasobów w środowisku, ale niekoniecznie do całej infrastruktury lub wszelkich zakresów związanych z rozliczeniami. Możesz korzystać z możliwości w [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) , aby współpracować z zewnętrznymi użytkownikami gościa i korzystać z usługi Azure RBAC, aby udzielać tylko uprawnień, które użytkownicy-Goście potrzebują w danym środowisku.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia lepsze zarządzanie zabezpieczeniami w dużych organizacjach, a także małych i średnich firm pracujących z zewnętrznymi współpracownikami, dostawcami lub osobami niezależnymi, które potrzebują dostępu do określonych zasobów w środowisku, ale niekoniecznie do całej infrastruktury lub wszelkich zakresów związanych z rozliczeniami. Możesz korzystać z możliwości w [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) , aby współpracować z zewnętrznymi użytkownikami gościa i korzystać z usługi Azure RBAC, aby udzielać tylko uprawnień, które użytkownicy-Goście potrzebują w danym środowisku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,13 +49,13 @@ Natywni członkowie katalogu (Użytkownicy z członkami) mają różne uprawnien
 
 Wykonaj następujące kroki, aby dodać użytkownika-gościa do katalogu przy użyciu strony Azure Active Directory.
 
-1. Upewnij się, że ustawienia współpracy zewnętrznej Twojej organizacji zostały skonfigurowane tak, aby można było zapraszać Gości. Aby uzyskać więcej informacji, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../active-directory/b2b/delegate-invitations.md).
+1. Upewnij się, że ustawienia współpracy zewnętrznej Twojej organizacji zostały skonfigurowane tak, aby można było zapraszać Gości. Aby uzyskać więcej informacji, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../active-directory/external-identities/delegate-invitations.md).
 
 1. W Azure Portal kliknij pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **nowy użytkownik-Gość**.
 
     ![Nowa funkcja użytkownika-gościa w Azure Portal](./media/role-assignments-external-users/invite-guest-user.png)
 
-1. Postępuj zgodnie z instrukcjami, aby dodać nowego użytkownika-gościa. Aby uzyskać więcej informacji, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
+1. Postępuj zgodnie z instrukcjami, aby dodać nowego użytkownika-gościa. Aby uzyskać więcej informacji, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory).
 
 Po dodaniu użytkownika-gościa do katalogu można wysłać użytkownikowi gość bezpośredni link do udostępnionej aplikacji lub kliknąć adres URL wykupu w wiadomości e-mail z zaproszeniem.
 
@@ -65,7 +65,7 @@ Aby użytkownik-gość mógł uzyskać dostęp do katalogu, musi zakończyć pro
 
 ![Uprawnienia do przeglądania zaproszenia użytkownika-gościa](./media/role-assignments-external-users/invite-review-permissions.png)
 
-Aby uzyskać więcej informacji na temat procesu zaproszenia, zobacz [Azure Active Directory realizacji zaproszeń do współpracy B2B](../active-directory/b2b/redemption-experience.md).
+Aby uzyskać więcej informacji na temat procesu zaproszenia, zobacz [Azure Active Directory realizacji zaproszeń do współpracy B2B](../active-directory/external-identities/redemption-experience.md).
 
 ## <a name="add-a-role-assignment-for-a-guest-user"></a>Dodawanie przypisania roli dla użytkownika-gościa
 
@@ -73,7 +73,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy przypisać rolę. Aby d
 
 1. W Azure Portal kliknij pozycję **wszystkie usługi**.
 
-1.  Wybierz zestaw zasobów, do których odnosi się ten dostęp, nazywany również zakresem. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów**lub zasób.
+1.  Wybierz zestaw zasobów, do których odnosi się ten dostęp, nazywany również zakresem. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub zasób.
 
 1. Kliknij konkretny zasób.
 
@@ -111,7 +111,7 @@ Jeśli użytkownik-Gość nie znajduje się jeszcze w Twoim katalogu, możesz za
 
 1. W Azure Portal kliknij pozycję **wszystkie usługi**.
 
-1.  Wybierz zestaw zasobów, do których odnosi się ten dostęp, nazywany również zakresem. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów**lub zasób.
+1.  Wybierz zestaw zasobów, do których odnosi się ten dostęp, nazywany również zakresem. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub zasób.
 
 1. Kliknij konkretny zasób.
 
@@ -145,7 +145,7 @@ Jeśli użytkownik-Gość nie znajduje się jeszcze w Twoim katalogu, możesz za
 
 1. Wyślij link zaproszenia do użytkownika-gościa, aby zakończyć proces zaproszenia.
 
-    Aby uzyskać więcej informacji na temat procesu zaproszenia, zobacz [Azure Active Directory realizacji zaproszeń do współpracy B2B](../active-directory/b2b/redemption-experience.md).
+    Aby uzyskać więcej informacji na temat procesu zaproszenia, zobacz [Azure Active Directory realizacji zaproszeń do współpracy B2B](../active-directory/external-identities/redemption-experience.md).
 
 ## <a name="remove-a-guest-user-from-your-directory"></a>Usuń użytkownika-gościa z katalogu
 
@@ -183,7 +183,7 @@ Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Na przykład uż
 
 ![Użytkownik-Gość nie może przeglądać użytkowników w katalogu](./media/role-assignments-external-users/directory-no-users.png)
 
-Jeśli użytkownik-Gość potrzebuje dodatkowych uprawnień w katalogu, można przypisać rolę katalogu do użytkownika-gościa. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Jeśli użytkownik-Gość potrzebuje dodatkowych uprawnień w katalogu, można przypisać rolę katalogu do użytkownika-gościa. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
 
 ![Przypisywanie roli czytelnicy Directory](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,17 +193,17 @@ Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Nawet jeśli uż
 
 ![Użytkownik-Gość nie może przeglądać podmiotów zabezpieczeń w celu przypisania ról](./media/role-assignments-external-users/directory-no-browse.png)
 
-Jeśli użytkownik-Gość wie o dokładnej nazwie logowania w katalogu, może udzielić dostępu. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Jeśli użytkownik-Gość wie o dokładnej nazwie logowania w katalogu, może udzielić dostępu. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Użytkownik-Gość nie może zarejestrować aplikacji ani utworzyć jednostek usługi
 
-Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Jeśli użytkownik-Gość musi mieć możliwość rejestrowania aplikacji lub tworzenia jednostek usługi, można dodać użytkownika-gościa do roli [Deweloper aplikacji](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Jeśli użytkownik-Gość musi mieć możliwość rejestrowania aplikacji lub tworzenia jednostek usługi, można dodać użytkownika-gościa do roli [Deweloper aplikacji](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
 
 ![Użytkownik-Gość nie może zarejestrować aplikacji](./media/role-assignments-external-users/directory-access-denied.png)
 
 ### <a name="guest-user-does-not-see-the-new-directory"></a>Użytkownik-Gość nie widzi nowego katalogu
 
-Jeśli użytkownik-Gość uzyska dostęp do katalogu, ale nie zobaczy nowego katalogu wymienionego w Azure Portal podczas próby przełączenia się w okienku **katalogów i subskrypcji** , upewnij się, że użytkownik-Gość ukończy proces zaproszenia. Aby uzyskać więcej informacji na temat procesu zaproszenia, zobacz [Azure Active Directory realizacji zaproszeń do współpracy B2B](../active-directory/b2b/redemption-experience.md).
+Jeśli użytkownik-Gość uzyska dostęp do katalogu, ale nie zobaczy nowego katalogu wymienionego w Azure Portal podczas próby przełączenia się w okienku **katalogów i subskrypcji** , upewnij się, że użytkownik-Gość ukończy proces zaproszenia. Aby uzyskać więcej informacji na temat procesu zaproszenia, zobacz [Azure Active Directory realizacji zaproszeń do współpracy B2B](../active-directory/external-identities/redemption-experience.md).
 
 ### <a name="guest-user-does-not-see-resources"></a>Użytkownik-Gość nie widzi zasobów
 
@@ -213,7 +213,7 @@ Jeśli użytkownik-Gość uzyska dostęp do katalogu, ale nie widzi zasobów, do
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../active-directory/b2b/add-users-administrator.md)
-- [Właściwości Azure Active Directory użytkownika współpracy B2B](../active-directory/b2b/user-properties.md)
-- [Elementy wiadomości e-mail z zaproszeniem do współpracy B2B — Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
+- [Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../active-directory/external-identities/add-users-administrator.md)
+- [Właściwości Azure Active Directory użytkownika współpracy B2B](../active-directory/external-identities/user-properties.md)
+- [Elementy wiadomości e-mail z zaproszeniem do współpracy B2B — Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)
 - [Dodawanie użytkownika-gościa jako współadministratora](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

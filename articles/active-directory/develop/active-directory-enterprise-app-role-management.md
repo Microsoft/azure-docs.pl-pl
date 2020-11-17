@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 376086d0fc84e04645215b26ba896cf22f3f9c57
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704552"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647889"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -62,16 +62,16 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
       ![Przycisk "Modyfikuj uprawnienia"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
+    >[!NOTE]
+    >Rola Administrator aplikacji w chmurze i administrator aplikacji nie będą działały w tym scenariuszu, ponieważ potrzebujemy uprawnień administratora globalnego do odczytu i zapisu w katalogu.
+
     c. Wybierz następujące uprawnienia z listy (jeśli nie masz tych jeszcze) i wybierz pozycję **Modyfikuj uprawnienia**.
 
       ![Lista uprawnień i przycisk Modyfikuj uprawnienia](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-    > [!Note]
-    > Rola Administrator aplikacji w chmurze i administrator aplikacji nie będą działały w tym scenariuszu, ponieważ potrzebujemy uprawnień administratora globalnego do odczytu i zapisu w katalogu.
-
     d. Zaakceptuj zgodę. Użytkownik jest ponownie zalogowany do systemu.
 
-    e. Zmień wersję na **beta**i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
+    e. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -79,9 +79,7 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
       ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      > [!Note]
-      > Już trwa proces uaktualniania interfejsów API, aby klienci mogli zobaczyć zakłócenia w usłudze.
-
+      
     f. Z listy pobranych nazw głównych usług Pobierz tę, którą chcesz zmodyfikować. Możesz również użyć kombinacji klawiszy Ctrl + F, aby przeszukać aplikację ze wszystkich wymienionych nazw podmiotów usługi. Wyszukaj identyfikator obiektu skopiowanego ze strony **Właściwości** , a następnie użyj następującego zapytania, aby uzyskać dostęp do jednostki usługi:
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
@@ -92,8 +90,8 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
       ![Szczegóły właściwości appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      > [!Note]
-      > Jeśli używasz aplikacji niestandardowej (a nie aplikacji portalu Azure Marketplace), zobaczysz dwie role domyślne: User i msiam_access. W przypadku aplikacji Marketplace msiam_access jest jedyną rolą domyślną. Nie musisz wprowadzać żadnych zmian w rolach domyślnych.
+      
+      Jeśli używasz aplikacji niestandardowej (a nie aplikacji portalu Azure Marketplace), zobaczysz dwie role domyślne: User i msiam_access. W przypadku aplikacji Marketplace msiam_access jest jedyną rolą domyślną. Nie musisz wprowadzać żadnych zmian w rolach domyślnych.
 
     h. Generuj nowe role dla swojej aplikacji.
 
@@ -128,8 +126,8 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
       }
       ```
 
-      > [!Note]
-      > Nowe role można dodawać tylko po msiam_access dla operacji patch. Ponadto możesz dodać dowolną liczbę ról, ile potrzebujesz w organizacji. Usługa Azure AD wyśle wartość tych ról jako wartość żądania w odpowiedzi SAML. Aby wygenerować wartości identyfikatora GUID dla identyfikatora nowych ról, użyj narzędzi sieci Web, takich jak [Ta](https://www.guidgenerator.com/)
+      
+      Nowe role można dodawać tylko po msiam_access dla operacji patch. Ponadto możesz dodać dowolną liczbę ról, ile potrzebujesz w organizacji. Usługa Azure AD wyśle wartość tych ról jako wartość żądania w odpowiedzi SAML. Aby wygenerować wartości identyfikatora GUID dla identyfikatora nowych ról, użyj narzędzi sieci Web, takich jak [Ta](https://www.guidgenerator.com/)
 
     i. Wróć do Eksploratora grafów i Zmień metodę z **Get** na **patch**. Należy zastosować poprawki do obiektu jednostki usługi, aby uzyskać odpowiednie role przez zaktualizowanie właściwości **appRoles** , takiej jak pokazana w poprzednim przykładzie. Wybierz pozycję **Uruchom zapytanie** , aby wykonać operację patch. Komunikat o powodzeniu potwierdza utworzenie roli.
 
@@ -143,8 +141,8 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
     ![Okienko "Edytuj przypisanie" i okienko "Wybieranie roli"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-    > [!Note]
-    > Aby wyświetlić nowe role, należy odświeżyć sesję w Azure Portal.
+    
+    Aby wyświetlić nowe role, należy odświeżyć sesję w Azure Portal.
 
 8. Zaktualizuj tabelę **atrybutów** , aby zdefiniować niestandardowe mapowanie tego żądania roli.
 
@@ -154,8 +152,8 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
     | -------------- | ----------------|
     | Nazwa roli  | user.assignedroles |
 
-    >[!NOTE]
-    >Jeśli rola roli ma wartość null, usługa Azure AD nie będzie wysyłać tej wartości do tokenu i jest to ustawienie domyślne dla każdego projektu.
+    
+    Jeśli rola roli ma wartość null, usługa Azure AD nie będzie wysyłać tej wartości do tokenu i jest to ustawienie domyślne dla każdego projektu.
 
     a. Kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **atrybuty użytkownika & oświadczenia** .
 
@@ -185,7 +183,7 @@ Aby zaktualizować istniejącą rolę, wykonaj następujące czynności:
 
 2. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
 
-3. Zmień wersję na **beta**i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
+3. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -223,7 +221,7 @@ Aby usunąć istniejącą rolę, wykonaj następujące czynności:
 
 2. Zaloguj się do witryny programu Graph Explorer przy użyciu konta administratora globalnego lub współadministratora dzierżawy.
 
-3. Zmień wersję na **beta**i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
+3. Zmień wersję na **beta** i Pobierz listę jednostek usługi z dzierżawy za pomocą następującego zapytania:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -253,15 +251,15 @@ Aby usunąć istniejącą rolę, wykonaj następujące czynności:
 
     d. Wybierz pozycję **Uruchom zapytanie**.
 
-    > [!NOTE]
-    > Upewnij się, że masz rolę msiam_access, a identyfikator jest zgodny w wygenerowanej roli.
+    
+    Upewnij się, że masz rolę msiam_access, a identyfikator jest zgodny w wygenerowanej roli.
 
-7. Po wyłączeniu roli Usuń ten blok roli z sekcji **appRoles** . Zachowaj metodę jako **poprawkę**i wybierz pozycję **Uruchom zapytanie**.
+7. Po wyłączeniu roli Usuń ten blok roli z sekcji **appRoles** . Zachowaj metodę jako **poprawkę** i wybierz pozycję **Uruchom zapytanie**.
 
 8. Po uruchomieniu kwerendy rola zostanie usunięta.
 
-    > [!NOTE]
-    > Aby można było usunąć tę rolę, należy ją wyłączyć.
+    
+    Aby można było usunąć tę rolę, należy ją wyłączyć.
 
 ## <a name="next-steps"></a>Następne kroki
 

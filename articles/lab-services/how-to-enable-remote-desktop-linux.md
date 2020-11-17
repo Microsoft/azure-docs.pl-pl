@@ -3,12 +3,12 @@ title: Włączanie graficznego pulpitu zdalnego dla systemu Linux w Azure Lab Se
 description: Dowiedz się, jak włączyć pulpit zdalny dla maszyn wirtualnych z systemem Linux w laboratorium w Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251613"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647957"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Włączanie graficznego pulpitu zdalnego dla maszyn wirtualnych z systemem Linux w Azure Lab Services
 W tym artykule przedstawiono sposób wykonywania następujących zadań:
@@ -38,7 +38,7 @@ X2Go używa tego samego portu, który jest już włączony dla protokołu SSH.  
 > W niektórych przypadkach, takich jak Ubuntu LTS 18,04, X2Go zapewnia lepszą wydajność.  W przypadku użycia protokołu RDP i powiadomienia podczas współpracy ze środowiskiem graficznym, rozważ podjęcie próby X2Go, ponieważ może to poprawić wydajność.
 
 > [!IMPORTANT]
->  Niektóre obrazy z witryny Marketplace mają już zainstalowane graficzne środowisko pulpitu i serwer usług pulpitu zdalnego.  Na przykład [Data Science Virtual Machine dla systemu Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) ma już [zainstalowany serwer pulpit Xfce i x2go, który umożliwia akceptowanie połączeń klienckich](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Niektóre obrazy z witryny Marketplace mają już zainstalowane graficzne środowisko pulpitu i serwer usług pulpitu zdalnego.  Na przykład [Data Science Virtual Machine dla systemu Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) ma już [zainstalowany serwer pulpit Xfce i x2go, który umożliwia akceptowanie połączeń klienckich](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Włącz Podłączanie pulpitu zdalnego dla protokołu RDP
 
@@ -73,7 +73,7 @@ Wykonaj poniższe kroki, aby skonfigurować maszynę wirtualną szablonu:
     ![Parametry połączenia SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Zainstaluj protokół RDP lub X2Go wraz z wybranym środowiskiem graficznym.  Zapoznaj się z następującymi instrukcjami:
-    - [Instalowanie i Konfigurowanie protokołu RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Instalowanie i Konfigurowanie protokołu RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Instalowanie i Konfigurowanie X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Nawiązywanie połączenia z szablonową maszyną wirtualną za pomocą graficznego interfejsu użytkownika
@@ -82,7 +82,7 @@ Po skonfigurowaniu maszyny wirtualnej z szablonem instruktor może nawiązać po
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Klient Pulpit zdalny Microsoft (RDP)
 
-Klient Pulpit zdalny Microsoft (RDP) służy do nawiązywania połączenia z szablonową maszyną wirtualną, która ma skonfigurowany protokół RDP.  Klienta Pulpit zdalny można używać w systemach Windows, Chromebooks, Mac i innych.  Aby uzyskać więcej informacji, zapoznaj się z artykułem na [pulpit zdalny klientów](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) .
+Klient Pulpit zdalny Microsoft (RDP) służy do nawiązywania połączenia z szablonową maszyną wirtualną, która ma skonfigurowany protokół RDP.  Klienta Pulpit zdalny można używać w systemach Windows, Chromebooks, Mac i innych.  Aby uzyskać więcej informacji, zapoznaj się z artykułem na [pulpit zdalny klientów](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) .
 
 Postępuj zgodnie z poniższymi instrukcjami w zależności od typu komputera używanego do nawiązywania połączenia z szablonową maszyną wirtualną:
 

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c6fc9a4716f1427257b3bbf18e5fa653567e141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c208da657d30d4a0f5b6f171693c5c6abc2b358b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763384"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649186"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Wyłącz logowania użytkowników dla aplikacji dla przedsiębiorstw w Azure Active Directory
 
@@ -31,15 +31,15 @@ Można łatwo wyłączyć aplikację przedsiębiorstwa, aby uniemożliwić użyt
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
 1. Wybierz pozycję **wszystkie usługi**, wpisz **Azure Active Directory** w polu tekstowym, a następnie wybierz klawisz **Enter**.
-1. W okienku **Azure Active Directory**  -   ***DirectoryName*** (czyli okienku usługi Azure AD dla katalogu, którym zarządzasz) wybierz pozycję **aplikacje dla przedsiębiorstw**.
+1. W okienku **Azure Active Directory**  -   **_DirectoryName_*_ (czyli okienku usługi Azure AD dla katalogu, którym zarządzasz) wybierz pozycję _ aplikacje dla* przedsiębiorstw**.
 1. W okienku **aplikacje dla przedsiębiorstw — wszystkie aplikacje** zostanie wyświetlona lista aplikacji, którymi można zarządzać. Wybierz aplikację.
-1. W okienku ***nazwa_aplikacji*** (czyli okienku z nazwą wybranej aplikacji w tytule) wybierz pozycję **Właściwości**.
-1. W okienku ***appname***  -  **Właściwości** programu nazwa_aplikacji wybierz pozycję **nie** , aby **umożliwić użytkownikom logowanie się?**.
+1. W okienku **_nazwa_aplikacji_*_ (czyli okienku z nazwą wybranej aplikacji w tytule) wybierz pozycję _* właściwości**.
+1. W okienku **właściwości _nazwa_aplikacji_*_-_*** wybierz pozycję **nie** , aby **włączyć Logowanie użytkowników?**.
 1. Wybierz polecenie **Zapisz** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Wyłączenie aplikacji nieznajdującej się na liście przy użyciu programu Azure AD PowerShell
 
-Jeśli znasz identyfikator aplikacji, która nie jest wyświetlana na liście aplikacji dla przedsiębiorstw (na przykład dlatego, że aplikacja została usunięta lub jednostka usługi nie została jeszcze utworzona z powodu wstępnej autoryzacji przez firmę Microsoft), możesz ręcznie utworzyć nazwę główną usługi dla aplikacji, a następnie wyłączyć ją przy użyciu [polecenia cmdlet programu AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Jeśli znasz identyfikator aplikacji, która nie jest wyświetlana na liście aplikacji dla przedsiębiorstw (na przykład dlatego, że aplikacja została usunięta lub jednostka usługi nie została jeszcze utworzona z powodu wstępnej autoryzacji przez firmę Microsoft), możesz ręcznie utworzyć nazwę główną usługi dla aplikacji, a następnie wyłączyć ją przy użyciu [polecenia cmdlet programu AzureAD PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
 
 ```PowerShell
 # The AppId of the app to be disabled
@@ -60,5 +60,5 @@ if ($servicePrincipal) {
 
 * [Zobacz wszystkie moje grupy](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](assign-user-or-group-access-portal.md)
-* [Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw](remove-user-or-group-access-portal.md)
-* [Zmiana nazwy lub logo aplikacji dla przedsiębiorstw](change-name-or-logo-portal.md)
+* [Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw](./assign-user-or-group-access-portal.md)
+* [Zmiana nazwy lub logo aplikacji dla przedsiębiorstw](./add-application-portal-configure.md)

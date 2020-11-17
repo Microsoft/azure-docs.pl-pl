@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396692"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647906"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Przewodnik konfigurowania komputera z szablonem systemu Windows w Azure Lab Services
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>Dostosowania usługi OneDrive
 
-Istnieje wiele [dostosowań, które można wykonać w usłudze OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Przyjrzyjmy się niektórym bardziej typowym dostosowaniu.
+Istnieje wiele [dostosowań, które można wykonać w usłudze OneDrive](/onedrive/use-group-policy). Przyjrzyjmy się niektórym bardziej typowym dostosowaniu.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Przenoszenie znanych folderów systemu Windows w trybie dyskretnym do usługi OneDrive
 
@@ -61,7 +61,7 @@ Jeśli korzystasz z komputera, który nie używa Active Directory, użytkownicy 
 
 Jeśli maszyna wirtualna jest połączona z usługą Active Directory, możesz ustawić na komputerze szablonu Automatyczne monitowanie uczniów o przeniesienie znanych folderów do usługi OneDrive.  
 
-Musisz najpierw pobrać identyfikator organizacji.  Aby uzyskać więcej instrukcji, zobacz [Znajdowanie identyfikatora organizacji Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Identyfikator organizacji można także uzyskać, korzystając z następującego programu PowerShell.
+Musisz najpierw pobrać identyfikator organizacji.  Aby uzyskać więcej instrukcji, zobacz [Znajdowanie identyfikatora organizacji Microsoft 365](/onedrive/find-your-office-365-tenant-id).  Identyfikator organizacji można także uzyskać, korzystając z następującego programu PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ Jeśli komputer szablonu wymaga pakietu Office, zalecamy instalację pakietu Off
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Zmienianie Microsoft 365 kanału aktualizacji
 
-Za pomocą narzędzia konfiguracji pakietu Office można ustawić, jak często pakiet Office otrzymuje aktualizacje. Jeśli jednak chcesz zmodyfikować częstotliwość otrzymywania aktualizacji przez pakiet Office po instalacji, możesz zmienić adres URL kanału aktualizacji. Adresy URL kanału aktualizacji można znaleźć w temacie [Zmienianie kanału aktualizacji Microsoft 365 aplikacje dla urządzeń w organizacji](https://docs.microsoft.com/deployoffice/change-update-channels). W poniższym przykładzie pokazano, jak ustawić Microsoft 365 na korzystanie z kanału aktualizacji miesięcznej.
+Za pomocą narzędzia konfiguracji pakietu Office można ustawić, jak często pakiet Office otrzymuje aktualizacje. Jeśli jednak chcesz zmodyfikować częstotliwość otrzymywania aktualizacji przez pakiet Office po instalacji, możesz zmienić adres URL kanału aktualizacji. Adresy URL kanału aktualizacji można znaleźć w temacie [Zmienianie kanału aktualizacji Microsoft 365 aplikacje dla urządzeń w organizacji](/deployoffice/change-update-channels). W poniższym przykładzie pokazano, jak ustawić Microsoft 365 na korzystanie z kanału aktualizacji miesięcznej.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ Za pomocą programu PowerShell można także aktualizować Microsoft Store aplik
 
 ### <a name="stop-automatic-windows-updates"></a>Zatrzymaj automatyczne aktualizacje systemu Windows
 
-Po zaktualizowaniu systemu Windows do najnowszej wersji można rozważyć zatrzymanie aktualizacji systemu Windows.  Aktualizacje automatyczne mogą potencjalnie zakłócać zaplanowaną godzinę klasy.  Jeśli kurs jest już uruchomiony, rozważ zaproszenie uczniów o ręczne sprawdzenie dostępności aktualizacji lub ustawienie automatycznych aktualizacji na czas poza godzinami zaplanowanych klas.  Aby uzyskać więcej informacji na temat opcji dostosowywania dla Windows Update, zobacz [Zarządzanie dodatkowymi ustawieniami Windows Update](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+Po zaktualizowaniu systemu Windows do najnowszej wersji można rozważyć zatrzymanie aktualizacji systemu Windows.  Aktualizacje automatyczne mogą potencjalnie zakłócać zaplanowaną godzinę klasy.  Jeśli kurs jest już uruchomiony, rozważ zaproszenie uczniów o ręczne sprawdzenie dostępności aktualizacji lub ustawienie automatycznych aktualizacji na czas poza godzinami zaplanowanych klas.  Aby uzyskać więcej informacji na temat opcji dostosowywania dla Windows Update, zobacz [Zarządzanie dodatkowymi ustawieniami Windows Update](/windows/deployment/update/waas-wu-settings).
 
 Automatyczne aktualizacje systemu Windows można zatrzymać przy użyciu poniższego skryptu programu PowerShell.
 
@@ -226,7 +226,7 @@ Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-Appx
 
 Zainstaluj inne aplikacje, które są często używane do uczenia się w aplikacji ze sklepu Windows. Sugestie obejmują aplikacje, takie jak [aplikacja Microsoft tablica](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft Teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4)i [Minecraft Education Edition](https://education.minecraft.net/). Te aplikacje należy instalować ręcznie za pomocą Sklepu Windows lub za pomocą odpowiednich witryn sieci Web na maszynie wirtualnej szablonu.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W tym artykule przedstawiono kroki opcjonalne umożliwiające przygotowanie maszyny wirtualnej szablonu systemu Windows dla efektywnej klasy.  Kroki obejmują zainstalowanie usługi OneDrive i zainstalowanie Microsoft 365, zainstalowanie aktualizacji dla systemu Windows i zainstalowanie aktualizacji dla Microsoft Store aplikacji.  Omówiono również sposób ustawiania aktualizacji dla harmonogramu, który najlepiej sprawdza się w przypadku danej klasy.  
 

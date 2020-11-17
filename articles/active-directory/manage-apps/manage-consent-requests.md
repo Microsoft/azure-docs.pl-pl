@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4664bdd515c815dbd742c0d4e05f1e5c03978526
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420459"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649196"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Zarządzanie zgodą na aplikacje i ocenianie żądań zgody
 
-Firma Microsoft [zaleca](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations) wyłączenie zgody użytkowników końcowych na aplikacje. Dzięki temu proces podejmowania decyzji jest scentralizowany przez zespół administratorów ds. zabezpieczeń i tożsamości.
+Firma Microsoft [zaleca](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) wyłączenie zgody użytkowników końcowych na aplikacje. Dzięki temu proces podejmowania decyzji jest scentralizowany przez zespół administratorów ds. zabezpieczeń i tożsamości.
 
 Po wyłączeniu lub ograniczeniu zgody użytkownika końcowego należy pamiętać o kilku istotnych kwestiach, aby zapewnić bezpieczeństwo organizacji przy jednoczesnym wykorzystaniu aplikacji o krytycznym znaczeniu dla firmy. Te kroki są kluczowe, aby zminimalizować wpływ na zespół pomocy technicznej i administratorów IT w organizacji, jednocześnie uniemożliwiając korzystanie z niezarządzanych kont w aplikacjach innych firm.
 
@@ -35,13 +35,13 @@ Po wyłączeniu lub ograniczeniu zgody użytkownika końcowego należy pamięta�
 
 ## <a name="auditing-and-monitoring"></a>Inspekcja i monitorowanie
 
-1. [Przeprowadź inspekcję aplikacji i Udziel uprawnień](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) w organizacji, aby upewnić się, że żadne nieuzasadnione lub podejrzane aplikacje nie uzyskały wcześniej dostępu do danych.
+1. [Przeprowadź inspekcję aplikacji i Udziel uprawnień](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) w organizacji, aby upewnić się, że żadne nieuzasadnione lub podejrzane aplikacje nie uzyskały wcześniej dostępu do danych.
 
-2. Zapoznaj się z informacjami dotyczącymi [wykrywania i korygowania nielegalnych dotacji w pakiecie Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) w celu uzyskania dodatkowych najlepszych rozwiązań i zabezpieczenia przed podejrzanymi aplikacjami żądającymi zgody OAuth.
+2. Zapoznaj się z informacjami dotyczącymi [wykrywania i korygowania nielegalnych dotacji w pakiecie Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) w celu uzyskania dodatkowych najlepszych rozwiązań i zabezpieczenia przed podejrzanymi aplikacjami żądającymi zgody OAuth.
 
 3. Jeśli Twoja organizacja ma odpowiednią licencję:
 
-    * Skorzystaj [z dodatkowych funkcji inspekcji aplikacji OAuth w Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
+    * Skorzystaj [z dodatkowych funkcji inspekcji aplikacji OAuth w Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
     * Użyj [skoroszytów Azure monitor do monitorowania uprawnień i](../reports-monitoring/howto-use-azure-monitor-workbooks.md) działań związanych z zgodą. Skoroszyt *Informacje o zgodzie* zawiera widok aplikacji według liczby nieudanych żądań zgody. Może to być przydatne w przypadku określania priorytetów aplikacji dla administratorów do przeglądania i decydowania, czy należy przyznać im zgodę administratora.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Dodatkowe zagadnienia dotyczące zmniejszenia liczby problemów
@@ -75,7 +75,7 @@ Poniższa lista zawiera pewne zalecenia, które należy wziąć pod uwagę podcz
 
 * **Zapoznaj się z żądanymi uprawnieniami.**
 
-   Uprawnienia wymagane przez aplikację są wymienione w [monicie o zgodę](../develop/application-consent-experience.md). Powiększanie tytułu uprawnienia spowoduje wyświetlenie opisu uprawnienia. Opis uprawnień aplikacji zwykle kończy się na "bez zalogowanego użytkownika". Opis delegowanych uprawnień zwykle kończy się na "w imieniu zalogowanego użytkownika". Uprawnienia do interfejsu API Microsoft Graph są opisane w dokumentacji [uprawnień Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) — zapoznaj się z dokumentacją dotyczącą innych interfejsów API, aby zrozumieć, jakie uprawnienia są ujawniane.
+   Uprawnienia wymagane przez aplikację są wymienione w [monicie o zgodę](../develop/application-consent-experience.md). Powiększanie tytułu uprawnienia spowoduje wyświetlenie opisu uprawnienia. Opis uprawnień aplikacji zwykle kończy się na "bez zalogowanego użytkownika". Opis delegowanych uprawnień zwykle kończy się na "w imieniu zalogowanego użytkownika". Uprawnienia do interfejsu API Microsoft Graph są opisane w dokumentacji [uprawnień Microsoft Graph](/graph/permissions-reference) — zapoznaj się z dokumentacją dotyczącą innych interfejsów API, aby zrozumieć, jakie uprawnienia są ujawniane.
 
    Jeśli nie rozumiesz żądanego uprawnienia, nie *udzielaj zgody*.
 
@@ -97,15 +97,15 @@ Poniższa lista zawiera pewne zalecenia, które należy wziąć pod uwagę podcz
 Aby uzyskać instrukcje krok po kroku dotyczące udzielania zgody administratora na poziomie dzierżawy z Azure Portal przy użyciu programu Azure AD PowerShell lub z poziomu monitu o zgodę, zobacz [przyznawanie zgody administratora w całej dzierżawie](grant-admin-consent.md) .
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Udzielanie zgody w imieniu określonego użytkownika
-Zamiast udzielania zgody na całą organizację, administrator może także użyć [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) , aby przyznać zgodę na delegowane uprawnienia w imieniu pojedynczego użytkownika. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu w imieniu użytkownika](https://docs.microsoft.com/graph/auth-v2-user).
+Zamiast udzielania zgody na całą organizację, administrator może także użyć [interfejsu API Microsoft Graph](/graph/use-the-api) , aby przyznać zgodę na delegowane uprawnienia w imieniu pojedynczego użytkownika. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu w imieniu użytkownika](/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Ograniczanie dostępu użytkowników do aplikacji
-Dostęp użytkowników do aplikacji można nadal ograniczyć nawet w przypadku udzielenia zgody administratora całej dzierżawy. Aby uzyskać więcej informacji na temat wymagania przypisania użytkownika do aplikacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
+Dostęp użytkowników do aplikacji można nadal ograniczyć nawet w przypadku udzielenia zgody administratora całej dzierżawy. Aby uzyskać więcej informacji na temat wymagania przypisania użytkownika do aplikacji, zobacz [metody przypisywania użytkowników i grup](./assign-user-or-group-access-portal.md).
 
 Aby uzyskać więcej szerszego omówienia, w tym sposób obsługi dodatkowych złożonych scenariuszy, zobacz [Korzystanie z usługi Azure AD do zarządzania dostępem do aplikacji](what-is-access-management.md).
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Wyłącz wszystkie przyszłe operacje wyrażania zgody użytkownika na dowolną aplikację
-Wyłączenie zgody użytkownika na cały katalog uniemożliwi użytkownikom końcowym przesyłanie ich do żadnej aplikacji. Administratorzy mogą w dalszym ciągu wyrazić zgodę w imieniu użytkownika. Aby dowiedzieć się więcej o zgodzie aplikacji oraz o tym, dlaczego warto lub nie chcieć wyrazić zgodę, przeczytaj artykuł [Informacje o zgodzie użytkownika i administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Wyłączenie zgody użytkownika na cały katalog uniemożliwi użytkownikom końcowym przesyłanie ich do żadnej aplikacji. Administratorzy mogą w dalszym ciągu wyrazić zgodę w imieniu użytkownika. Aby dowiedzieć się więcej o zgodzie aplikacji oraz o tym, dlaczego warto lub nie chcieć wyrazić zgodę, przeczytaj artykuł [Informacje o zgodzie użytkownika i administratora](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 Aby wyłączyć wszystkie przyszłe operacje wyrażania zgody użytkowników w całym katalogu, wykonaj następujące kroki:
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny.**
@@ -116,7 +116,7 @@ Aby wyłączyć wszystkie przyszłe operacje wyrażania zgody użytkowników w c
 6.  Wyłącz wszystkie przyszłe operacje wyrażania zgody użytkownika przez ustawienie opcji **Użytkownicy mogą zezwalać aplikacjom na dostęp do ich** przełączników danych **, a następnie** kliknij przycisk **Zapisz** .
 
 ## <a name="next-steps"></a>Następne kroki
-* [Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
 * [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](configure-user-consent.md)
-* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
+* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)

@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763588"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648059"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurowanie zachowania Azure Active Directory logowania dla aplikacji przy użyciu zasad odnajdywania obszaru głównego
 
@@ -207,7 +207,7 @@ Aby zastosować zasady HRD po utworzeniu, można przypisać je do wielu nazw gł
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Krok 2. zlokalizuj jednostkę usługi, do której chcesz przypisać zasady  
 Potrzebujesz **identyfikatora objectid** nazwy głównej usługi, do której chcesz przypisać zasady. Istnieje kilka sposobów znajdowania **identyfikatora** obiektu nazw podmiotów usługi.    
 
-Możesz użyć portalu lub można wysyłać zapytania do [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Możesz również przejść do [narzędzia Eksplorator wykresu](https://developer.microsoft.com/graph/graph-explorer) i zalogować się do konta usługi Azure AD, aby zobaczyć wszystkie nazwy główne usługi w organizacji. 
+Możesz użyć portalu lub można wysyłać zapytania do [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Możesz również przejść do [narzędzia Eksplorator wykresu](https://developer.microsoft.com/graph/graph-explorer) i zalogować się do konta usługi Azure AD, aby zobaczyć wszystkie nazwy główne usługi w organizacji. 
 
 Ponieważ używasz programu PowerShell, możesz użyć następującego polecenia cmdlet, aby wyświetlić listę jednostek usługi i ich identyfikatorów.
 
@@ -267,6 +267,6 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Następne kroki
-- Aby uzyskać więcej informacji na temat sposobu działania uwierzytelniania w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../develop/authentication-scenarios.md).
+- Aby uzyskać więcej informacji na temat sposobu działania uwierzytelniania w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../develop/authentication-vs-authorization.md).
 - Aby uzyskać więcej informacji na temat logowania jednokrotnego użytkownika, zobacz Logowanie jednokrotne [do aplikacji w Azure Active Directory](what-is-single-sign-on.md).
 - Odwiedź [platformę tożsamości firmy Microsoft](../develop/v2-overview.md) , aby zapoznać się z omówieniem całej zawartości związanej z deweloperem.

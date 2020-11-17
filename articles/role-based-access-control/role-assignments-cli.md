@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597661"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648365"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "91597661"
 Aby dodać lub usunąć przypisania ról, musisz mieć:
 
 - `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
-- [Bash w Azure Cloud Shell](/azure/cloud-shell/overview) lub [interfejs wiersza polecenia platformy Azure](/cli/azure)
+- [Bash w Azure Cloud Shell](../cloud-shell/overview.md) lub [interfejs wiersza polecenia platformy Azure](/cli/azure)
 
 ## <a name="steps-to-add-a-role-assignment"></a>Kroki umożliwiające dodanie przypisania roli
 
@@ -52,7 +52,7 @@ W przypadku grupy usługi Azure AD wymagany jest identyfikator obiektu grupy. Ab
 az ad group show --group "{groupName}" --query "objectId" --output tsv
 ```
 
-**Nazwa główna usługi**
+**Jednostka usługi**
 
 W przypadku jednostki usługi Azure AD (tożsamości używanej przez aplikację) wymagany jest identyfikator obiektu jednostki usługi. Aby uzyskać identyfikator obiektu, można użyć [AZ AD Sp list](/cli/azure/ad/sp#az_ad_sp_list). Dla jednostki usługi Użyj identyfikatora obiektu, a **nie** identyfikatora aplikacji.
 
@@ -362,4 +362,4 @@ az role assignment delete --assignee "alain@example.com" \
 ## <a name="next-steps"></a>Następne kroki
 
 - [Lista przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-list-cli.md)
-- [Zarządzanie zasobami i grupami zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Zarządzanie zasobami i grupami zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/management/manage-resources-cli.md)

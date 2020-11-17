@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445733"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647923"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Włącz zagnieżdżoną wirtualizację na maszynie wirtualnej szablonu Azure Lab Services ręcznie
 
@@ -25,19 +25,19 @@ W tym artykule opisano sposób konfigurowania wirtualizacji zagnieżdżonej na m
 
 Poniższe kroki opisują akcje wymagane do włączenia funkcji Hyper-V w systemie Windows Server przy użyciu dowolnej Menedżer serwera.  Po pomyślnym zakończeniu instalacji Menedżer funkcji Hyper-V będzie dostępny do dodawania, modyfikowania i usuwania maszyn wirtualnych klienta.
 
-1. W **Menedżer serwera**na stronie Pulpit nawigacyjny kliknij pozycję **Dodaj role i funkcje**.
+1. W **Menedżer serwera** na stronie Pulpit nawigacyjny kliknij pozycję **Dodaj role i funkcje**.
 2. Na stronie **Zanim rozpoczniesz** kliknij przycisk **Dalej**.
 3. Na stronie **Wybieranie typu instalacji** Zachowaj domyślny wybór instalacji opartej na rolach lub funkcjach, a następnie kliknij przycisk **dalej**.
 4. Na stronie **Wybieranie serwera docelowego** wybierz opcję Wybierz serwer z puli serwerów.   Bieżący serwer zostanie już wybrany.  Kliknij przycisk Dalej.
 5. Na **Wybieranie ról serwera** Wybierz **funkcji Hyper-V**.  
 6. Zostanie wyświetlone okno podręczne **Kreator dodawania ról i funkcji** .  Wybierz opcję **Dołącz narzędzia do zarządzania (jeśli dotyczy)**.  Kliknij przycisk **Dodaj funkcje** .
 7. Na stronie **Wybieranie ról serwera** kliknij przycisk **Dalej**.
-8. Na **stronie Wybieranie funkcji**kliknij przycisk **dalej**.
+8. Na **stronie Wybieranie funkcji** kliknij przycisk **dalej**.
 9. Na stronie **Hyper-V** kliknij przycisk **Dalej**.
 10. Na stronie **Tworzenie przełączników wirtualnych** zaakceptuj ustawienia domyślne, a następnie kliknij przycisk **dalej**.
 11. Na stronie **migracja maszyny wirtualnej** zaakceptuj wartości domyślne, a następnie kliknij przycisk **dalej**.
 12. Na stronie **magazyny domyślne** zaakceptuj wartości domyślne, a następnie kliknij przycisk **dalej**.
-13. Na stronie **Potwierdzanie opcji instalacji** zaznacz pole wyboru **Automatycznie uruchom ponownie serwer docelowy, jeśli**jest to wymagane.
+13. Na stronie **Potwierdzanie opcji instalacji** zaznacz pole wyboru **Automatycznie uruchom ponownie serwer docelowy, jeśli** jest to wymagane.
 14. Po wyświetleniu okna podręcznego **Kreatora dodawania ról i funkcji** kliknij przycisk **tak**.
 15. Kliknij przycisk **Zainstaluj**.
 16. Zaczekaj na stronę **postęp instalacji** , aby wskazać, że rola funkcji Hyper-V została ukończona.  Komputer może zostać ponownie uruchomiony w trakcie instalacji.
@@ -47,7 +47,7 @@ Poniższe kroki opisują akcje wymagane do włączenia funkcji Hyper-V w systemi
 
 Wszystkie maszyny wirtualne klienta funkcji Hyper-V, w których są tworzone, muszą mieć adres IP w sieci NAT.  Sieć NAT zostanie utworzona później.  Jednym ze sposobów przypisywania adresów IP jest skonfigurowanie hosta. w tym przypadku szablon maszyny wirtualnej laboratorium jako serwer DHCP.  Poniżej przedstawiono kroki wymagane do włączenia roli DHCP.
 
-1. W **Menedżer serwera**na stronie **pulpit nawigacyjny** kliknij pozycję **Dodaj role i funkcje**.
+1. W **Menedżer serwera** na stronie **pulpit nawigacyjny** kliknij pozycję **Dodaj role i funkcje**.
 2. Na stronie **Zanim rozpoczniesz** kliknij przycisk **Dalej**.
 3. Na **Wybieranie typu instalacji** Wybierz **Instalacja roli lub funkcji** a następnie kliknij przycisk **Dalej**.
 4. Na stronie **Wybieranie serwera docelowego** wybierz bieżący serwer z puli serwerów, a następnie kliknij przycisk **dalej**.
@@ -66,7 +66,7 @@ Wszystkie maszyny wirtualne klienta funkcji Hyper-V, w których są tworzone, mu
 
 ## <a name="enable-routing-and-remote-access-role"></a>Włączanie roli Routing i dostęp zdalny
 
-1. W **Menedżer serwera**na stronie **pulpit nawigacyjny** kliknij pozycję **Dodaj role i funkcje**.
+1. W **Menedżer serwera** na stronie **pulpit nawigacyjny** kliknij pozycję **Dodaj role i funkcje**.
 2. Na stronie **Zanim rozpoczniesz** kliknij przycisk **Dalej**.
 3. Na **Wybieranie typu instalacji** Wybierz **Instalacja roli lub funkcji** a następnie kliknij przycisk **Dalej**.
 4. Na stronie **Wybieranie serwera docelowego** wybierz bieżący serwer z puli serwerów, a następnie kliknij przycisk **dalej**.
@@ -154,9 +154,9 @@ Aby dodać zakres DHCP, należy wykonać poniższe czynności.  W tym artykule N
 15. Na stronie **Uaktywnij zakres** wybierz pozycję **tak, chcę uaktywnić ten zakres teraz**.  Kliknij przycisk **Dalej**.
 16. Na stronie **Kończenie pracy Kreatora nowych zakresów** kliknij przycisk **Zakończ**.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
-Teraz komputer z szablonem jest gotowy do tworzenia maszyn wirtualnych funkcji Hyper-V.   Aby uzyskać instrukcje dotyczące tworzenia maszyn wirtualnych funkcji Hyper-V, zobacz temat [Tworzenie maszyny wirtualnej w funkcji Hyper-v](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) .  Zobacz również [Centrum oceny firmy Microsoft](https://www.microsoft.com/evalcenter/) , aby wyewidencjonować dostępne systemy operacyjne i oprogramowanie.
+Teraz komputer z szablonem jest gotowy do tworzenia maszyn wirtualnych funkcji Hyper-V.   Aby uzyskać instrukcje dotyczące tworzenia maszyn wirtualnych funkcji Hyper-V, zobacz temat [Tworzenie maszyny wirtualnej w funkcji Hyper-v](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) .  Zobacz również [Centrum oceny firmy Microsoft](https://www.microsoft.com/evalcenter/) , aby wyewidencjonować dostępne systemy operacyjne i oprogramowanie.
 
 ## <a name="next-steps"></a>Następne kroki
 

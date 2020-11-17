@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0339e9f7688555b4d99c2d3255461b5675f642ff
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88690276"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649555"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Błąd "nie można uzyskać dostępu do tej aplikacji firmowej" podczas korzystania z aplikacji serwera proxy aplikacji
 
@@ -87,7 +87,7 @@ Sprawdź, czy wszystkie wymagane porty są otwarte. W przypadku wymaganych port�
 
 ## <a name="check-for-other-connector-errors"></a>Sprawdź inne błędy łącznika
 
-Jeśli żaden z powyższych elementów nie rozwiąże problemu, następnym krokiem jest wyszukanie problemów lub błędów za pomocą łącznika. Niektóre typowe błędy można zobaczyć w [dokumencie Rozwiązywanie problemów](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors).
+Jeśli żaden z powyższych elementów nie rozwiąże problemu, następnym krokiem jest wyszukanie problemów lub błędów za pomocą łącznika. Niektóre typowe błędy można zobaczyć w [dokumencie Rozwiązywanie problemów](./application-proxy-troubleshoot.md#connector-errors).
 
 Możesz również przejrzeć dzienniki łączników, aby zidentyfikować wszelkie błędy. Wiele komunikatów o błędach udostępnia konkretne zalecenia dotyczące poprawek. Aby wyświetlić dzienniki, zobacz [dokumentację łączników](application-proxy-connectors.md#under-the-hood).
 

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309374"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649147"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -121,7 +121,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. wspólny](#microsoftdevtestlab) |
 | [Microsoft. LabServices](#microsoftlabservices) |
 | [Microsoft. VisualStudio](#microsoftvisualstudio) |
-| **Migrate** |
+| **Migrate (Migracja)** |
 | [Microsoft. Migrowanie](#microsoftmigrate) |
 | [Microsoft. OffAzure](#microsoftoffazure) |
 | **Monitorowanie** |
@@ -271,7 +271,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Obliczenia
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -629,7 +629,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -792,7 +792,7 @@ Usługa platformy Azure: klasyczny model wdrażania — Sieć wirtualna
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml), [azure bastionu](../bastion/index.yml), [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Zapora platformy](../firewall/index.yml)Azure, [usługa frontonu](../frontdoor/index.yml)platformy Azure, [link prywatny platformy Azure](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [wirtualna sieć WAN](../virtual-wan/index.yml), [VPN Gateway](../vpn-gateway/index.yml)
+Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml), [azure bastionu](../bastion/index.yml), [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Zapora platformy](../firewall/index.yml)Azure, [usługa frontonu](../frontdoor/index.yml)platformy Azure, [link prywatny platformy Azure](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [wirtualna sieć WAN](../virtual-wan/index.yml), [VPN Gateway](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -1866,7 +1866,7 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/storageDomains/operationResults/Read | Wyświetla lub pobiera wyniki operacji |
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
-## <a name="web"></a>Internet
+## <a name="web"></a>Sieć Web
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -3850,7 +3850,7 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), [wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](../sql-data-warehouse/index.yml)
+Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), [wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -4331,7 +4331,7 @@ Usługa platformy Azure: [Azure Analysis Services](../analysis-services/index.ym
 
 ### <a name="microsoftdatabricks"></a>Microsoft. datacegły
 
-Usługa platformy Azure: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
+Usługa platformy Azure: [Azure Databricks](/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -4619,7 +4619,7 @@ Usługa platformy Azure: [Eksplorator danych platformy Azure](/azure/data-explor
 
 ### <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
 
-Usługa platformy Azure: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
+Usługa platformy Azure: [Power BI Embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -4712,7 +4712,7 @@ Usługa platformy Azure: [usługa Azure łańcucha bloków](../blockchain/workbe
 
 ### <a name="microsoftbotservice"></a>Microsoft. BotService
 
-Usługa platformy Azure: [Azure bot Service](https://docs.microsoft.com/azure/bot-service/)
+Usługa platformy Azure: [Azure bot Service](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -6187,7 +6187,7 @@ Usługa platformy Azure: [Logic Apps](../logic-apps/index.yml)
 
 ### <a name="microsoftrelay"></a>Microsoft. Relay
 
-Usługa platformy Azure: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
+Usługa platformy Azure: [Azure Relay](../azure-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -6257,7 +6257,7 @@ Usługa platformy Azure: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 ### <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-Usługa platformy Azure: [Service Bus](../service-bus/index.md)
+Usługa platformy Azure: [Service Bus](../service-bus-messaging/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -6957,7 +6957,7 @@ Usługa platformy Azure: [Azure Lab Services](../lab-services/index.yml)
 
 ### <a name="microsoftvisualstudio"></a>Microsoft. VisualStudio
 
-Usługa platformy Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
+Usługa platformy Azure: [Azure DevOps](/azure/devops/)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -6976,7 +6976,7 @@ Usługa platformy Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/
 > | Microsoft. VisualStudio/Project/Delete | Usuń projekt |
 > | Microsoft. VisualStudio/Project/Read | Odczytaj projekt |
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 ### <a name="microsoftmigrate"></a>Microsoft. Migrowanie
 
@@ -7436,7 +7436,7 @@ Usługa platformy Azure: [Azure Migrate](../migrate/migrate-services-overview.md
 > | Microsoft. OffAzure/VMwareSites/vCenter/odczyt | Pobiera właściwości programu VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vcenters/Write | Tworzy lub aktualizuje program VMware vCenter |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorowanie
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -8924,7 +8924,7 @@ Usługa platformy Azure: [Azure Arc](../azure-arc/index.yml)
 
 ### <a name="microsoftkubernetes"></a>Microsoft. Kubernetes
 
-Usługa platformy Azure: [Azure ARC z włączonym Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Usługa platformy Azure: [Azure ARC z włączonym Kubernetes](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -9677,7 +9677,7 @@ Usługa platformy Azure: szczegółowe informacje o monitorowaniu firmy Microsof
 
 ### <a name="microsoftbingmaps"></a>Microsoft. BingMaps
 
-Usługa platformy Azure: [mapy Bing](https://docs.microsoft.com/BingMaps/)
+Usługa platformy Azure: [mapy Bing](/BingMaps/)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |

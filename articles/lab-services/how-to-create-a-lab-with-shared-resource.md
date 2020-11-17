@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4bf4127dc163bb5f034e077b84664828374ba87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776446"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647974"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Jak utworzyć laboratorium z udostępnionym zasobem w Azure Lab Services
 
@@ -38,12 +38,12 @@ Jednym z najpopularniejszych zasobów udostępnionych jest serwer licencji, poni
 Serwer licencji musi być połączony z siecią wirtualną, która jest połączona z laboratorium, dlatego serwer licencji musi znajdować się w tym samym regionie, w którym znajduje się konto laboratorium.
 
 #### <a name="static-private-ip-and-mac-address"></a>Statyczny prywatny adres IP i MAC
-Domyślnie maszyny wirtualne mają dynamiczny prywatny adres IP, przed skonfigurowaniem [dowolnego oprogramowania Ustaw prywatny adres IP na statyczny](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). Spowoduje to skonfigurowanie prywatnego adresu IP i adres MAC, który ma być statyczny.  
+Domyślnie maszyny wirtualne mają dynamiczny prywatny adres IP, przed skonfigurowaniem [dowolnego oprogramowania Ustaw prywatny adres IP na statyczny](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Spowoduje to skonfigurowanie prywatnego adresu IP i adres MAC, który ma być statyczny.  
 
 #### <a name="control-access"></a>Kontrola dostępu
 Kontrolowanie dostępu do serwera licencji jest kluczem.  Po skonfigurowaniu dostępu do maszyny wirtualnej nadal będzie konieczna konserwacja, rozwiązywanie problemów i aktualizowanie.  Poniżej przedstawiono kilka różnych sposobów wykonania tej czynności.
-- [Konfigurowanie dostępu just in Time (JIT) w Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
-- [Konfigurowanie sieciowej grupy zabezpieczeń w celu ograniczenia dostępu.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Konfigurowanie dostępu just in Time (JIT) w Azure Security Center.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Konfigurowanie sieciowej grupy zabezpieczeń w celu ograniczenia dostępu.](../virtual-network/network-security-groups-overview.md)
 - [Skonfiguruj bastionu, aby umożliwić bezpieczny dostęp do serwera licencji.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Konto laboratorium

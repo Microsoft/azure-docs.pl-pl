@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392654"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649266"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurowanie zasad protokołu IPsec/IKE dla połączeń międzylokacyjnej sieci VPN lub połączeń typu sieć wirtualna-sieć wirtualna
 
@@ -34,9 +34,8 @@ Ten artykuł zawiera instrukcje dotyczące tworzenia i konfigurowania zasad prot
 
 > [!IMPORTANT]
 > 1. Należy pamiętać, że zasady protokołu IPsec/IKE działają tylko w następujących jednostkach SKU bramy:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (oparte na trasach)
->    * ***Standard*** i ***HighPerformance*** (oparte na trasach)
-> 2. Można określić tylko ***jedną*** kombinację zasad dla danego połączenia.
+>    * ***VpnGw1, VpnGw2, VpnGw3** _ (oparte na trasach) _ ***Standard** _ i _*_HighPerformance_*_ (oparte na trasach)
+> 2. Można określić tylko _*_jedną_*_ kombinację zasad dla danego połączenia.
 > 3. Należy określić wszystkie algorytmy i parametry dla IKE (tryb główny) i IPsec (tryb szybki). Określenie zasad częściowych nie jest dozwolone.
 > 4. Zapoznaj się z wymaganiami dostawcy urządzeń sieci VPN, aby upewnić się, że zasady są obsługiwane na lokalnych urządzeniach sieci VPN. Połączenia S2S lub VNet-Sieć wirtualna nie mogą ustalić, czy zasady są niezgodne.
 
@@ -56,7 +55,7 @@ Instrukcje zawarte w tym artykule ułatwiają konfigurowanie i Konfigurowanie za
 
 W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły klucza konfigurowalne przez klientów:
 
-| **IPsec/IKEv2**  | **Opcje**    |
+| _ *IPSec/IKEv2**  | **Opcje**    |
 | ---  | --- 
 | Szyfrowanie IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integralność IKEv2  | SHA384, SHA256, SHA1, MD5  |
@@ -153,7 +152,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Połącz się z subskrypcją i Utwórz nową grupę zasobów
 
-Upewnij się, że program PowerShell został przełączony do trybu umożliwiającego korzystanie z poleceń cmdlet usługi Resource Manager. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
+Upewnij się, że program PowerShell został przełączony do trybu umożliwiającego korzystanie z poleceń cmdlet usługi Resource Manager. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
 Otwórz konsolę programu PowerShell i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 

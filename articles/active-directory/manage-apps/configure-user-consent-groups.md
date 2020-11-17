@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d5c42675b182fbc34354c75778214463adfe491f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427646"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648144"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy
 
-Właściciele grup i zespołów mogą autoryzować aplikacje, takie jak aplikacje opublikowane przez dostawców innych firm, w celu uzyskania dostępu do danych organizacji skojarzonych z grupą. Na przykład właściciel zespołu w usłudze Microsoft Teams może zezwalać aplikacji na odczytywanie wszystkich zespołów komunikatów w zespole lub wyświetlanie listy profilu podstawowego członków grupy. Aby dowiedzieć się więcej, zobacz temat [wyrażanie zgody na zasoby w usłudze Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) .
+Właściciele grup i zespołów mogą autoryzować aplikacje, takie jak aplikacje opublikowane przez dostawców innych firm, w celu uzyskania dostępu do danych organizacji skojarzonych z grupą. Na przykład właściciel zespołu w usłudze Microsoft Teams może zezwalać aplikacji na odczytywanie wszystkich zespołów komunikatów w zespole lub wyświetlanie listy profilu podstawowego członków grupy. Aby dowiedzieć się więcej, zobacz temat [wyrażanie zgody na zasoby w usłudze Microsoft Teams](/microsoftteams/resource-specific-consent) .
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Zarządzanie zgodą właściciela grupy na aplikacje
 
@@ -42,9 +42,9 @@ W tym przykładzie wszyscy właściciele grupy mogą wyrazić zgodę na aplikacj
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), aby włączyć lub wyłączyć możliwość wyrażania zgody na dostęp do danych organizacji przez właścicieli grup.
+Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), aby włączyć lub wyłączyć możliwość wyrażania zgody na dostęp do danych organizacji przez właścicieli grup.
 
-1. Upewnij się, że używasz modułu [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) i moduł [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) .
+1. Upewnij się, że używasz modułu [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) i moduł [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) .
 
     ```powershell
     Remove-Module AzureAD
@@ -76,7 +76,7 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPrevie
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Wartość logiczna | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
+    | _EnableGroupSpecificConsent_   | Boolean | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid (identyfikator GUID) | Jeśli _EnableGroupSpecificConsent_ jest ustawiona na wartość "true", a ta wartość jest ustawiona na identyfikator obiektu grupy, członkowie wskazanej grupy będą uprawnieni do przyznawania uprawnień specyficznych dla grupy do grup, których są właścicielami. |
 
 1. Zaktualizuj wartości ustawień dla żądanej konfiguracji:
@@ -121,7 +121,7 @@ Dodatkowe informacje:
 * [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
 * [Dowiedz się, jak zarządzać zgodą na aplikacje i oszacować wnioski o zgodę](manage-consent-requests.md)
 * [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
-* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
+* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
 * [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

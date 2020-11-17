@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania widoku w czasie rzecz
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116715"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648110"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -19,7 +19,7 @@ Ta funkcja obsługuje następujące metody kontroli dostępu do dzienników, zda
 
 - AKS bez włączonej autoryzacji RBAC Kubernetes
 - AKS włączone z autoryzacją RBAC Kubernetes
-    - AKS skonfigurowany przy użyciu powiązania roli klastra ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS skonfigurowany przy użyciu powiązania roli klastra **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
 - AKS włączone z logowaniem jednokrotnym opartym na protokole SAML Azure Active Directory (AD)
 
 Te instrukcje wymagają zarówno dostępu administracyjnego do klastra Kubernetes, jak i w przypadku konfigurowania do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników, dostępu administracyjnego do usługi Azure AD.
@@ -50,7 +50,7 @@ Aby wyeliminować konieczność stosowania dodatkowych zmian w konfiguracji, aby
 
 Aby móc korzystać z funkcji danych na żywo (wersja zapoznawcza) z nowym użytkownikiem, musisz być członkiem roli [współautor](../../role-based-access-control/built-in-roles.md#contributor) w zasobie klastra AKS. Azure Monitor dla kontenerów, gdy jest włączone, jest skonfigurowany do uwierzytelniania przy użyciu tego użytkownika domyślnie. Jeśli w klastrze nie ma powiązania roli clusterMonitoringUser, w zamian jest używana wartość **clusterUser** w ramach uwierzytelniania.
 
-AKS to nowe powiązanie roli w styczniu 2020, dlatego klastry utworzone przed 2020 stycznia nie są dostępne. Jeśli masz klaster, który został utworzony przed stycznia 2020, nowy **clusterMonitoringUser** można dodać do istniejącego klastra przez wykonanie operacji Put w klastrze lub wykonanie jakiejkolwiek innej operacji w klastrze określona wykonuje operację Put w klastrze, na przykład aktualizując wersję klastra.
+AKS to nowe powiązanie roli w styczniu 2020, dlatego klastry utworzone przed 2020 stycznia nie są dostępne. Jeśli masz klaster, który został utworzony przed stycznia 2020, nowy **clusterMonitoringUser** można dodać do istniejącego klastra, WYKONUJĄC operację Put w klastrze lub wykonując inną operację w klastrze, która wykonuje operację Put w klastrze, na przykład aktualizując wersję klastra.
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Klaster Kubernetes bez włączonego RBAC
 

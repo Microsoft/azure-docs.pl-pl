@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545348"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648246"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -87,7 +87,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 
 Aby wykonać te kroki, potrzebne są:
 
-- [Bash w Azure Cloud Shell](/azure/cloud-shell/overview) lub [interfejs wiersza polecenia platformy Azure](/cli/azure)
+- [Bash w Azure Cloud Shell](../cloud-shell/overview.md) lub [interfejs wiersza polecenia platformy Azure](/cli/azure)
 - Administrator konta subskrypcji, która ma zostać przetransferowana w katalogu źródłowym
 - Rola [właściciela](built-in-roles.md#owner) w katalogu docelowym
 
@@ -111,7 +111,7 @@ Aby wykonać te kroki, potrzebne są:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Zainstaluj rozszerzenie grafu zasobów platformy Azure
 
- Rozszerzenie interfejsu wiersza polecenia platformy Azure dla [wykresu zasobów platformy Azure](../governance/resource-graph/index.yml), *grafy zasobów* , umożliwia używanie [AZ Graph](/cli/azure/ext/resource-graph/graph) Command do wykonywania zapytań dotyczących zasobów zarządzanych przez Azure Resource Manager. To polecenie będzie używane w dalszych krokach.
+ Rozszerzenie interfejsu wiersza polecenia platformy Azure dla [wykresu zasobów platformy Azure](../governance/resource-graph/index.yml), *grafy zasobów*, umożliwia używanie [AZ Graph](/cli/azure/ext/resource-graph/graph) Command do wykonywania zapytań dotyczących zasobów zarządzanych przez Azure Resource Manager. To polecenie będzie używane w dalszych krokach.
 
 1. Użyj [AZ Extension list](/cli/azure/extension#az_extension_list) , aby sprawdzić, czy masz zainstalowane rozszerzenie *grafu zasobów* .
 

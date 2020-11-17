@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38d8261bf141248fd143f27c74e0761e54f73f9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371222"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649334"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Bezpieczny dostęp do lokalnych interfejsów API przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
-Mogą być dostępne interfejsy API logiki biznesowej działające lokalnie lub hostowane na maszynach wirtualnych w chmurze. Natywne aplikacje dla systemów Android, iOS, Mac lub Windows muszą współdziałać z punktami końcowymi interfejsu API w celu korzystania z danych lub zapewnienia interakcji z użytkownikiem. Usługa Azure serwer proxy aplikacji usługi Azure AD i [Biblioteka Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) umożliwiają bezpieczne dostęp do lokalnych interfejsów API przez natywne aplikacje. Serwer proxy aplikacji usługi Azure Active Directory to szybsze i bardziej bezpieczne rozwiązanie niż otwieranie portów zapory i kontrolowanie uwierzytelniania i autoryzacji w warstwie aplikacji.
+Mogą być dostępne interfejsy API logiki biznesowej działające lokalnie lub hostowane na maszynach wirtualnych w chmurze. Natywne aplikacje dla systemów Android, iOS, Mac lub Windows muszą współdziałać z punktami końcowymi interfejsu API w celu korzystania z danych lub zapewnienia interakcji z użytkownikiem. Usługa Azure serwer proxy aplikacji usługi Azure AD i [Biblioteka Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) umożliwiają bezpieczne dostęp do lokalnych interfejsów API przez natywne aplikacje. Serwer proxy aplikacji usługi Azure Active Directory to szybsze i bardziej bezpieczne rozwiązanie niż otwieranie portów zapory i kontrolowanie uwierzytelniania i autoryzacji w warstwie aplikacji.
 
 W tym artykule przedstawiono sposób konfigurowania rozwiązania serwer proxy aplikacji usługi Azure AD platformy Azure do hostowania usługi internetowego interfejsu API, do której aplikacje natywne mogą uzyskać dostęp.
 
@@ -34,9 +34,9 @@ Na poniższym diagramie przedstawiono, jak za pomocą usługi Azure serwer proxy
 
 ![Dostęp do interfejsu API serwer proxy aplikacji usługi Azure AD platformy Azure](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-Usługa Azure serwer proxy aplikacji usługi Azure AD stanowi szkielet rozwiązania, działającego jako publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API i zapewniający uwierzytelnianie i autoryzację. Możesz uzyskać dostęp do interfejsów API z rozległej macierzy platform przy użyciu bibliotek [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) .
+Usługa Azure serwer proxy aplikacji usługi Azure AD stanowi szkielet rozwiązania, działającego jako publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API i zapewniający uwierzytelnianie i autoryzację. Możesz uzyskać dostęp do interfejsów API z rozległej macierzy platform przy użyciu bibliotek [Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) .
 
-Ponieważ uwierzytelnianie i autoryzacja w usłudze Azure serwer proxy aplikacji usługi Azure AD są oparte na usłudze Azure AD, można użyć dostępu warunkowego usługi Azure AD w celu zapewnienia, że tylko zaufane urządzenia mają dostęp do interfejsów API opublikowanych za pomocą serwera proxy aplikacji. Użyj funkcji Dołącz do usługi Azure AD lub hybrydowej usługi Azure AD dla komputerów stacjonarnych, a usługa Intune zarządzana na urządzeniach. Możesz również korzystać z funkcji Azure Active Directory — wersja Premium, takich jak platforma Azure Multi-Factor Authentication i zabezpieczenia w ramach uczenia maszynowego w [usłudze Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
+Ponieważ uwierzytelnianie i autoryzacja w usłudze Azure serwer proxy aplikacji usługi Azure AD są oparte na usłudze Azure AD, można użyć dostępu warunkowego usługi Azure AD w celu zapewnienia, że tylko zaufane urządzenia mają dostęp do interfejsów API opublikowanych za pomocą serwera proxy aplikacji. Użyj funkcji Dołącz do usługi Azure AD lub hybrydowej usługi Azure AD dla komputerów stacjonarnych, a usługa Intune zarządzana na urządzeniach. Możesz również korzystać z funkcji Azure Active Directory — wersja Premium, takich jak platforma Azure Multi-Factor Authentication i zabezpieczenia w ramach uczenia maszynowego w [usłudze Azure Identity Protection](../identity-protection/overview-identity-protection.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -63,9 +63,9 @@ Aby opublikować interfejs API sieci Web SecretAPI za pomocą serwera proxy apli
 
 1. Po zainstalowaniu łącznika serwera proxy aplikacji na stronie **Dodawanie własnej aplikacji lokalnej** :
 
-   1. Obok pozycji **Nazwa**wprowadź *SecretAPI*.
+   1. Obok pozycji **Nazwa** wprowadź *SecretAPI*.
 
-   1. W polu **wewnętrzny adres URL**wprowadź adres URL używany do uzyskiwania dostępu do interfejsu API z intranetu.
+   1. W polu **wewnętrzny adres URL** wprowadź adres URL używany do uzyskiwania dostępu do interfejsu API z intranetu.
 
    1. Upewnij się, że **wstępne uwierzytelnianie** jest ustawione na **Azure Active Directory**.
 
@@ -96,7 +96,7 @@ Interfejs API sieci Web został opublikowany za pomocą usługi Azure serwer pro
 1. Na stronie **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
 > [!NOTE]
-> Interfejsy API korzystające ze zintegrowanego uwierzytelniania systemu Windows mogą wymagać [dodatkowych czynności](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd).
+> Interfejsy API korzystające ze zintegrowanego uwierzytelniania systemu Windows mogą wymagać [dodatkowych czynności](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## <a name="register-the-native-app-and-grant-access-to-the-api"></a>Zarejestruj aplikację natywną i Udziel dostępu do interfejsu API
 
@@ -108,13 +108,13 @@ Aby zarejestrować aplikację natywną AppProxyNativeAppSample:
 
 1. Na stronie **zarejestruj aplikację** :
 
-   1. W polu **Nazwa**wprowadź *AppProxyNativeAppSample*.
+   1. W polu **Nazwa** wprowadź *AppProxyNativeAppSample*.
 
    1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 
-   1. W obszarze **adres URL przekierowania**wybierz pozycję **Klient publiczny (Mobile & Desktop)**, a następnie wprowadź *https://login.microsoftonline.com/common/oauth2/nativeclient* .
+   1. W obszarze **adres URL przekierowania** wybierz pozycję **Klient publiczny (Mobile & Desktop)**, a następnie wprowadź *https://login.microsoftonline.com/common/oauth2/nativeclient* .
 
-   1. Wybierz pozycję **zarejestruj**i poczekaj na pomyślne zarejestrowanie aplikacji.
+   1. Wybierz pozycję **zarejestruj** i poczekaj na pomyślne zarejestrowanie aplikacji.
 
       ![Rejestrowanie nowej aplikacji](./media/application-proxy-secure-api-access/8-create-reg-ga.png)
 

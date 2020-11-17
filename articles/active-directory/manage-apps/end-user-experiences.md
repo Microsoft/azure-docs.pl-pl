@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605128"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649232"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Środowisko użytkownika końcowego dla aplikacji w Azure Active Directory
 
@@ -37,13 +37,13 @@ Domyślnie wszystkie aplikacje są wyświetlane na jednej stronie. Można jednak
 
 Moje aplikacje są oddzielone od Azure Portal i nie wymagają, aby użytkownicy mieli subskrypcję platformy Azure ani subskrypcję Microsoft 365.
 
-Aby uzyskać więcej informacji o usłudze Azure AD moje aplikacje, zobacz [wprowadzenie do moich aplikacji](../user-help/active-directory-saas-access-panel-introduction.md).
+Aby uzyskać więcej informacji o usłudze Azure AD moje aplikacje, zobacz [wprowadzenie do moich aplikacji](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="microsoft-365-application-launcher"></a>Microsoft 365 uruchamiania aplikacji
 
 W przypadku organizacji, które mają wdrożone Microsoft 365 aplikacje przypisane do użytkowników za pomocą usługi Azure AD również będą wyświetlane w portalu pakietu Office 365 pod adresem [https://portal.office.com/myapps](https://portal.office.com/myapps) . Dzięki temu użytkownicy w organizacji mogą korzystać z aplikacji bez konieczności korzystania z drugiego portalu i są zalecanym rozwiązaniem do uruchamiania aplikacji dla organizacji korzystających z Microsoft 365.
 
-Aby uzyskać więcej informacji na temat uruchamiania aplikacji pakietu Office 365, zobacz temat Wyświetlanie [aplikacji w programie uruchamiania aplikacji pakietu office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Aby uzyskać więcej informacji na temat uruchamiania aplikacji pakietu Office 365, zobacz temat Wyświetlanie [aplikacji w programie uruchamiania aplikacji pakietu office 365](/previous-versions/office/office-365-api/).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Bezpośrednie logowanie do aplikacji federacyjnych
 

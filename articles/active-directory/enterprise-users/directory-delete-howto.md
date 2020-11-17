@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 189eaf3a08ce0e8411ce67170fdf1a895cbc56d2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377282"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647719"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Usuwanie dzierżawy w Azure Active Directory
 
@@ -121,7 +121,7 @@ Możesz utworzyć samoobsługowe produkty do rejestracji, takie jak Microsoft Po
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym w organizacji. Jeśli próbujesz usunąć organizację "contoso" z początkową domyślną domeną contoso.onmicrosoft.com, zaloguj się przy użyciu nazwy UPN, takiej jak admin@contoso.onmicrosoft.com .
 
-2. Wybierz pozycję **licencje**, a następnie wybierz pozycję **produkty do rejestracji**samoobsługowej. Wszystkie produkty do samodzielnej rejestracji można zobaczyć niezależnie od subskrypcji opartych na miejscu. Wybierz produkt, który chcesz trwale usunąć. Oto przykład w programie Microsoft Power BI:
+2. Wybierz pozycję **licencje**, a następnie wybierz pozycję **produkty do rejestracji** samoobsługowej. Wszystkie produkty do samodzielnej rejestracji można zobaczyć niezależnie od subskrypcji opartych na miejscu. Wybierz produkt, który chcesz trwale usunąć. Oto przykład w programie Microsoft Power BI:
 
     ![Zrzut ekranu przedstawiający stronę "licencje-samoobsługowe produkty do rejestracji".](./media/directory-delete-howto/licenses-page.png)
 
@@ -129,7 +129,7 @@ Możesz utworzyć samoobsługowe produkty do rejestracji, takie jak Microsoft Po
 
     ![Zrzut ekranu przedstawiający stronę "licencje — produkty samoobsługowego tworzenia konta" z otwartym oknem "Usuń produkt samoobsługowego tworzenia nowego konta".](./media/directory-delete-howto/delete-product.png)
 
-4. Wybranie **opcji tak**spowoduje zainicjowanie usuwania produktu samoobsługi. Istnieje powiadomienie informujące o tym, że usuwanie jest w toku.  
+4. Wybranie **opcji tak** spowoduje zainicjowanie usuwania produktu samoobsługi. Istnieje powiadomienie informujące o tym, że usuwanie jest w toku.  
 
     ![Zrzut ekranu przedstawiający stronę "licencje — produkty samoobsługowego tworzenia konta" z wyświetlonym powiadomieniem "Usuwanie w toku".](./media/directory-delete-howto/progress-message.png)
 

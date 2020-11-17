@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533524"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648025"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurowanie laboratorium do uczenia się danych za pomocą notesów Python i Jupyter
 W tym artykule opisano, jak skonfigurować maszynę wirtualną szablonu (VM) w usłudze laboratoryjnej z narzędziami, które są konieczne do nauki uczniów, jak korzystać z [notesów Jupyter](http://jupyter-notebook.readthedocs.io/)oraz jak uczniowie mogą łączyć się z notesami na ich maszynach wirtualnych.
@@ -29,7 +29,7 @@ Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzysk
 
 | Ustawienie konta laboratorium | Instrukcje |
 | ------------------- | ------------ |
-| Obraz witryny Marketplace | W ramach konta laboratorium należy włączyć jeden z obrazów portalu Azure Marketplace oparty na potrzebach systemu operacyjnego: <br/><ul><li>Data Science Virtual Machine — Windows Server 2019</li><li>Data Science Virtual Machine – Ubuntu 18,04</li></ul> |
+| Obraz z witryny Marketplace | W ramach konta laboratorium należy włączyć jeden z obrazów portalu Azure Marketplace oparty na potrzebach systemu operacyjnego: <br/><ul><li>Data Science Virtual Machine — Windows Server 2019</li><li>Data Science Virtual Machine – Ubuntu 18,04</li></ul> |
 
 > [!NOTE]
 > W tym artykule są wykorzystywane obrazy maszyn wirtualnych do analizy danych dostępne w portalu Azure Marketplace, ponieważ są one wstępnie skonfigurowane przy użyciu Jupyter Notebook. Obrazy te zawierają jednak również wiele innych narzędzi programistycznych i modelowania do nauki o danych. Jeśli nie chcesz, aby te dodatkowe narzędzia i chcą mieć uproszczoną konfigurację z tylko notesami Jupyter, Utwórz niestandardowy obraz maszyny wirtualnej. Przykład [instalacji JupyperHub na platformie Azure](http://tljh.jupyter.org/en/latest/install/azure.html). Po utworzeniu obrazu niestandardowego można przekazać go do galerii obrazów udostępnionych, aby użyć obrazu w Azure Lab Services. Dowiedz się więcej o [korzystaniu z galerii obrazów udostępnionych w Azure Lab Services](how-to-attach-detach-shared-image-gallery.md). 
@@ -86,7 +86,7 @@ Jeśli masz uczniów z maszynami wirtualnymi z systemem Linux, możesz skorzysta
 W poniższych sekcjach znajdują się szczegółowe informacje o tych sposobach łączenia się z notesami Jupyter. 
 
 #### <a name="ssh-to-virtual-machine"></a>SSH z maszyną wirtualną
-Studenci mogą łączyć się za pośrednictwem protokołu SSH z maszynami wirtualnymi z systemem Linux z sesji terminalu. Aby uzyskać szczegółowe instrukcje, zobacz [jak uzyskać dostęp do laboratorium zajęć](how-to-use-classroom-lab.md). Jeśli korzystają z komputera klienckiego z systemem Windows, należy włączyć klienta SSH, [pobierając pobieranie lub](https://www.putty.org/) włączając [OpenSSH w systemie Windows](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) do protokołu SSH z wiersza polecenia. 
+Studenci mogą łączyć się za pośrednictwem protokołu SSH z maszynami wirtualnymi z systemem Linux z sesji terminalu. Aby uzyskać szczegółowe instrukcje, zobacz [jak uzyskać dostęp do laboratorium zajęć](how-to-use-classroom-lab.md). Jeśli korzystają z komputera klienckiego z systemem Windows, należy włączyć klienta SSH, [pobierając pobieranie lub](https://www.putty.org/) włączając [OpenSSH w systemie Windows](/windows-server/administration/openssh/openssh_install_firstuse) do protokołu SSH z wiersza polecenia. 
 
 1.  Uruchom maszynę wirtualną.
 2.  Po uruchomieniu maszyny wirtualnej kliknij pozycję **Połącz**, co spowoduje wyświetlenie okna dialogowego zawierającego ciąg polecenia SSH, który będzie wyglądać podobnie do poniższego przykładu:
@@ -169,7 +169,7 @@ Oto przykład możliwego oszacowania kosztów dla tej klasy: 25 studentów * (20
 
 Więcej szczegółowych informacji na temat cen można znaleźć w temacie [Azure Lab Services Cennik](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 W tym artykule omówiono procedurę tworzenia laboratorium dla klasy notesów Jupyter. Możesz użyć podobnej konfiguracji dla innych klas uczenia maszynowego.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -3,22 +3,22 @@ title: Odwoływanie dostępu użytkownika w nagłej sytuacji Azure Active Direct
 description: Jak odwołać wszystkie prawa dostępu dla użytkownika w Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92376401"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649691"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Odwołaj dostęp użytkownika w Azure Active Directory
 
@@ -113,9 +113,9 @@ Jako administrator w Azure Active Directory Otwórz program PowerShell, uruchom 
 
 Po wykonaniu powyższych czynności Administratorzy nie mogą uzyskać nowych tokenów dla żadnej aplikacji powiązanej z Azure Active Directory. Czas upływający między odwołaniem a użytkownikiem, który utraci dostęp, zależy od tego, w jaki sposób aplikacja udziela dostępu:
 
-- W przypadku **aplikacji korzystających z tokenów dostępu**użytkownik utraci dostęp po wygaśnięciu tokenu dostępu.
+- W przypadku **aplikacji korzystających z tokenów dostępu** użytkownik utraci dostęp po wygaśnięciu tokenu dostępu.
 
-- W przypadku aplikacji korzystających z **tokenów sesji**istniejące sesje kończą się zaraz po wygaśnięciu tokenu. Jeśli wyłączony stan użytkownika zostanie zsynchronizowany z aplikacją, aplikacja może automatycznie odwołać istniejące sesje użytkownika, jeśli jest ono skonfigurowane.  Czas trwania zależy od częstotliwości synchronizacji między aplikacją a usługą Azure AD.
+- W przypadku aplikacji korzystających z **tokenów sesji** istniejące sesje kończą się zaraz po wygaśnięciu tokenu. Jeśli wyłączony stan użytkownika zostanie zsynchronizowany z aplikacją, aplikacja może automatycznie odwołać istniejące sesje użytkownika, jeśli jest ono skonfigurowane.  Czas trwania zależy od częstotliwości synchronizacji między aplikacją a usługą Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

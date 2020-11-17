@@ -3,19 +3,19 @@ title: Przewodnik dotyczący kontrolowania zachowania zamykania systemu Windows 
 description: Procedura automatycznego zamykania bezczynnej maszyny wirtualnej z systemem Windows i usuwania polecenia zamykania systemu Windows.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541564"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647702"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Przewodnik kontrolowania zachowania zamykania systemu Windows
 
 Azure Lab Services zapewnia kilka kontroli kosztów, aby upewnić się, że maszyny wirtualne z systemem Windows nie działają nieoczekiwanie:
- - [Ustawianie harmonogramu](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Ustawianie przydziałów dla użytkowników](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Włączanie automatycznego zamykania po rozłączeniu](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Ustawianie harmonogramu](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Ustawianie przydziałów dla użytkowników](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Włączanie automatycznego zamykania po rozłączeniu](./how-to-enable-shutdown-disconnect.md)
 
 Nawet z tymi kontrolami kosztów istnieją sytuacje, w których maszyna wirtualna z systemem Windows może być nieoczekiwanie nadal uruchamiana; w związku z tym należy odliczyć od przydziału studenta:
 
@@ -25,7 +25,7 @@ Nawet z tymi kontrolami kosztów istnieją sytuacje, w których maszyna wirtualn
 
 - **Polecenie zamykania systemu Windows służy do wyłączania maszyny wirtualnej**
   
-    Student może użyć polecenia zamykania systemu Windows lub innych mechanizmów zamykania dostępnych w systemie Windows, aby wyłączyć maszynę wirtualną zamiast używać [Azure Lab Services przycisku Zatrzymaj](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  W takim przypadku, z perspektywy Azure Lab Services, maszyna wirtualna jest nadal używana.
+    Student może użyć polecenia zamykania systemu Windows lub innych mechanizmów zamykania dostępnych w systemie Windows, aby wyłączyć maszynę wirtualną zamiast używać [Azure Lab Services przycisku Zatrzymaj](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  W takim przypadku, z perspektywy Azure Lab Services, maszyna wirtualna jest nadal używana.
     
 W tym przewodniku przedstawiono kroki umożliwiające automatyczne zamknięcie bezczynnej maszyny wirtualnej z systemem Windows i usunięcie polecenia Windows Shutdown z menu **Start** .  
 

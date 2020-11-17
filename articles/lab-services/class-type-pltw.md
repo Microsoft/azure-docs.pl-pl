@@ -3,12 +3,12 @@ title: Konfigurowanie projektu do realizacji w laboratoriach z Azure Lab Service
 description: Dowiedz się, jak skonfigurować laboratoria do uczenia się projektów w sposób klasy.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: 8585d09759319eef04da5ed68fec603cfa390093
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e3783ae4fa07bf783841022903c4bcf3ab6fbe23
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497269"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648008"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Konfigurowanie laboratoriów dla liderów projektu — klasy metod
 
@@ -53,12 +53,12 @@ ms.locfileid: "94497269"
 Zapoznaj się z witryną usługi PLTW, aby uzyskać [pełną listę oprogramowania](https://www.pltw.org/pltw-software) dla każdej klasy.
 
 ## <a name="lab-configuration"></a>Konfiguracja laboratorium
-Aby skonfigurować laboratoria dla usługi PLTW, musisz mieć subskrypcję platformy Azure i konto laboratorium, aby rozpocząć pracę. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). Po otrzymaniu subskrypcji platformy Azure Możesz utworzyć nowe konto laboratorium w Azure Lab Services. Aby uzyskać więcej informacji na temat tworzenia nowego konta laboratorium, zobacz Samouczek dotyczący [konfigurowania konta laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Możesz również użyć istniejącego konta laboratorium.
+Aby skonfigurować laboratoria dla usługi PLTW, musisz mieć subskrypcję platformy Azure i konto laboratorium, aby rozpocząć pracę. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). Po otrzymaniu subskrypcji platformy Azure Możesz utworzyć nowe konto laboratorium w Azure Lab Services. Aby uzyskać więcej informacji na temat tworzenia nowego konta laboratorium, zobacz Samouczek dotyczący [konfigurowania konta laboratorium](./tutorial-setup-lab-account.md). Możesz również użyć istniejącego konta laboratorium.
 
 Po utworzeniu konta laboratorium należy utworzyć osobne laboratoria dla każdej sesji klasy PLTW, którą oferuje Twoja szkoła.  Zalecamy również utworzenie oddzielnych obrazów dla każdego typu klasy PLTW.  Aby uzyskać więcej informacji na temat struktury laboratoriów i obrazów, Przeczytaj wpis w blogu: [przechodzenie z laboratorium fizycznego do Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
 ### <a name="lab-account-settings"></a>Ustawienia konta laboratorium
-Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji o sposobie włączania obrazów z portalu Marketplace, zobacz artykuł dotyczący [sposobu określania obrazów portalu Marketplace dostępnych dla twórców laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji o sposobie włączania obrazów z portalu Marketplace, zobacz artykuł dotyczący [sposobu określania obrazów portalu Marketplace dostępnych dla twórców laboratorium](./specify-marketplace-images.md).
 
 | Ustawienie konta laboratorium | Instrukcje |
 | -------------------- | ----- |
@@ -73,26 +73,26 @@ Rozmiar maszyny wirtualnej, która jest zalecana dla klas PLTW, zależy od typó
 |Rozmiar maszyny wirtualnej| **Duże**.  Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Zalecamy korzystanie z tego rozmiaru dla następujących klas PLTW: wprowadzenie do projektowania inżynieryjnego, zasady inżynierii, podstawowe informacje o nauce komputerowej, zasady analizy komputera i informacje o nauce komputerowej.
 
 ### <a name="licensing-server"></a>Serwer licencjonowania
-Większość oprogramowania, które jest używane w powyższych klasach PLTW, *_nie_* może wymagać dostępu do serwera licencji.  Należy jednak uzyskać dostęp do serwera licencji, jeśli planujesz używać modelu licencjonowania sieci usługi Autodesk dla następującego oprogramowania:
+Większość oprogramowania, które jest używane w powyższych klasach PLTW,*_nie_* może wymagać dostępu do serwera licencji.  Należy jednak uzyskać dostęp do serwera licencji, jeśli planujesz używać modelu licencjonowania sieci usługi Autodesk dla następującego oprogramowania:
 -   Revit
 -   Inwentarz
 -   Kamera zapasowa
 
 Aby korzystać z licencjonowania sieci w oprogramowaniu Autodesk, [PLTW zawiera szczegółowe instrukcje](https://www.pltw.org/pltw-software) dotyczące instalowania Menedżera licencji programu Autodesk na serwerze licencjonowania.  Ten serwer licencjonowania zazwyczaj znajduje się w sieci lokalnej lub hostowanej na maszynie wirtualnej platformy Azure w ramach usługi Azure Virtual Network (VNet).
 
-Po skonfigurowaniu serwera licencji należy połączyć sieć [wirtualną](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) z [kontem laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Komunikacja równorzędna sieci musi zostać wykonana _before * utworzenie laboratorium, aby maszyny wirtualne laboratorium mogły uzyskać dostęp do serwera licencji i inne sposoby.
+Po skonfigurowaniu serwera licencji należy połączyć sieć [wirtualną](./how-to-connect-peer-virtual-network.md) z [kontem laboratorium](./tutorial-setup-lab-account.md). Komunikacja równorzędna sieci musi zostać wykonana _before * utworzenie laboratorium, aby maszyny wirtualne laboratorium mogły uzyskać dostęp do serwera licencji i inne sposoby.
 
 Wygenerowane pliki licencji programu Autodesk osadzają adres MAC serwera licencjonowania.  Jeśli zdecydujesz się hostować serwer licencjonowania przy użyciu maszyny wirtualnej platformy Azure, pamiętaj, aby upewnić się, że adres MAC serwera licencji nie jest zmieniany.   W przeciwnym razie, jeśli adres MAC ulegnie zmianie, należy ponownie wygenerować pliki licencjonowania.  Postępuj zgodnie z poniższymi wskazówkami, aby uniemożliwić zmianę adresu MAC:
 
-- [Ustaw statyczny prywatny adres IP i Mac](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource#static-private-ip-and-mac-address) dla maszyny wirtualnej platformy Azure, która hostuje serwer licencjonowania.
+- [Ustaw statyczny prywatny adres IP i Mac](./how-to-create-a-lab-with-shared-resource.md#static-private-ip-and-mac-address) dla maszyny wirtualnej platformy Azure, która hostuje serwer licencjonowania.
 - Upewnij się, że skonfigurowano sieć wirtualną konta laboratorium i serwera licencjonowania w region\location, która ma wystarczającą pojemność maszyn wirtualnych, dzięki czemu nie trzeba będzie przenosić tych zasobów do nowego region\location w przyszłości.
 
-Aby uzyskać więcej informacji, zapoznaj się z artykułem [jak skonfigurować serwer licencjonowania jako zasób udostępniony](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource) .
+Aby uzyskać więcej informacji, zapoznaj się z artykułem [jak skonfigurować serwer licencjonowania jako zasób udostępniony](./how-to-create-a-lab-with-shared-resource.md) .
 
 ### <a name="template-machine"></a>Komputer szablonu
 Niektóre z plików instalacyjnych, które są potrzebne do PLTW, są duże i mogą być kopiowane po ich pobraniu do maszyny szablonu laboratorium.
 
-Zamiast pobierać pliki instalacji na maszynę szablonu i instalować wszystko, zalecamy tworzenie obrazów PLTW w środowisku fizycznym.  Następnie możesz zaimportować obrazy do galerii obrazów udostępnionych, aby można było używać tych obrazów niestandardowych do tworzenia laboratoriów.  Aby uzyskać szczegółowe informacje, zapoznaj się z następującym artykułem: [przekazywanie obrazu niestandardowego do galerii obrazów udostępnionych](https://docs.microsoft.com/azure/lab-services/upload-custom-image-shared-image-gallery).
+Zamiast pobierać pliki instalacji na maszynę szablonu i instalować wszystko, zalecamy tworzenie obrazów PLTW w środowisku fizycznym.  Następnie możesz zaimportować obrazy do galerii obrazów udostępnionych, aby można było używać tych obrazów niestandardowych do tworzenia laboratoriów.  Aby uzyskać szczegółowe informacje, zapoznaj się z następującym artykułem: [przekazywanie obrazu niestandardowego do galerii obrazów udostępnionych](./upload-custom-image-shared-image-gallery.md).
 
 Poniższe zalecenia dotyczą najważniejszych zadań związanych z konfigurowaniem laboratorium:
 
@@ -103,11 +103,11 @@ Poniższe zalecenia dotyczą najważniejszych zadań związanych z konfigurowani
     > [!NOTE]    
     > Gdy instalujesz aplikacje Autodesk, komputer, na którym instalujesz program Autodesk, musi być w stanie komunikować się z serwerem licencjonowania (Kreator instalacji usługi Autodesk wyświetli monit o podanie nazwy komputera, na którym jest hostowany serwer licencji).  Jeśli serwer licencjonowania jest obsługiwany na maszynie wirtualnej platformy Azure, może być konieczne poczekanie na zainstalowanie programu Autodesk na komputerze z szablonem laboratorium, aby Kreator instalacji usługi Autodesk mógł uzyskać dostęp do serwera licencjonowania
 
-    b.  [Zainstaluj i skonfiguruj usługę OneDrive](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive) (lub inne opcje tworzenia kopii zapasowych, które mogą być używane przez szkołę).
+    b.  [Zainstaluj i skonfiguruj usługę OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive) (lub inne opcje tworzenia kopii zapasowych, które mogą być używane przez szkołę).
     
-    c.  [Zainstaluj i skonfiguruj aktualizacje systemu Windows](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-updates).
+    c.  [Zainstaluj i skonfiguruj aktualizacje systemu Windows](./how-to-prepare-windows-template.md#install-and-configure-updates).
 
-1.  Przekaż obraz niestandardowy do [galerii obrazów udostępnionych, która jest dołączona do Twojego konta laboratorium](https://docs.microsoft.com/azure/lab-services/how-to-attach-detach-shared-image-gallery).
+1.  Przekaż obraz niestandardowy do [galerii obrazów udostępnionych, która jest dołączona do Twojego konta laboratorium](./how-to-attach-detach-shared-image-gallery.md).
 
 1.  Utwórz laboratorium i wybierz obraz niestandardowy przekazany w poprzednim kroku.
 
@@ -118,9 +118,9 @@ Poniższe zalecenia dotyczą najważniejszych zadań związanych z konfigurowani
 ## <a name="student-devices"></a>Urządzenia ucznia
 Studenci mogą łączyć się z maszynami wirtualnymi laboratorium z komputerów Windows\Mac i Chromebooks.  Poniżej znajdują się linki do instrukcji dla każdej z tych opcji:
 
-- [Łączenie z systemu Windows](https://docs.microsoft.com/azure/lab-services/how-to-use-classroom-lab#connect-to-the-vm)
-- [Połącz z komputera Mac](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-mac-remote-desktop)
-- [Łączenie z Chromebook](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-chromebook-remote-desktop)
+- [Łączenie z systemu Windows](./how-to-use-classroom-lab.md#connect-to-the-vm)
+- [Połącz z komputera Mac](./connect-virtual-machine-mac-remote-desktop.md)
+- [Łączenie z Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
 ## <a name="cost"></a>Cost (Koszt)
 Przyjrzyjmy się możliwemu szacunkowi kosztów dla powyższych klas PLTW.  To oszacowanie nie obejmuje kosztu uruchomienia serwera licencjonowania lub korzystania z galerii obrazów udostępnionych.  Będziemy używać klasy 25 studentów.  Zaplanowana godzina klasy wynosi 20 godzin.  Ponadto każdy student otrzymuje limit 10 godzin dla prac domowych lub przydziałów poza zaplanowanym czasem klasy.  Zapoznaj się z poniższymi szacunkami kosztów dla rozmiaru **dużych** i **małych procesorów GPU (wizualizacji)** .
@@ -145,4 +145,4 @@ Następne kroki są wspólne do konfigurowania dowolnego laboratorium:
 - [Dodaj użytkowników](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Ustaw przydział](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ustawianie harmonogramu](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Linki do rejestracji w wiadomościach e-mail z uczniami](how-to-configure-student-usage.md#send-invitations-to-users). 
+- [Linki do rejestracji w wiadomościach e-mail z uczniami](how-to-configure-student-usage.md#send-invitations-to-users).
