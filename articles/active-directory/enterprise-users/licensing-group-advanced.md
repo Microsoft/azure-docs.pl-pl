@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 08/13/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f16dea1f81f7f6a35409d8481550fd000864b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4f298cf7487e00f6ee6a8aa8913fd32f8c6beee
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376701"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647107"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
 
@@ -28,7 +28,7 @@ Skorzystaj z poniższych informacji i przykładów, aby uzyskać bardziej zaawan
 
 ## <a name="usage-location"></a>Lokalizacja użycia
 
-Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. W [Azure Portal](https://portal.azure.com)można określić lokalizację użycia w **User** &gt; **Profile** &gt; **ustawieniach**profilu użytkownika.
+Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. W [Azure Portal](https://portal.azure.com)można określić lokalizację użycia w **User** &gt; **Profile** &gt; **ustawieniach** profilu użytkownika.
 
 W przypadku przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu. Jeśli masz użytkowników w wielu lokalizacjach, upewnij się, że zostały one odzwierciedlone prawidłowo w zasobach użytkownika przed dodaniem użytkowników do grup z licencjami.
 
@@ -217,7 +217,7 @@ W przypadku korzystania z licencjonowania opartego na grupach warto zapoznać si
 
 - Automatyzacja zarządzania licencjami nie reaguje automatycznie na wszystkie typy zmian w środowisku. Na przykład można wypróbować Brak licencji, co może spowodować, że niektórzy użytkownicy będą w stanie błąd. Aby zwolnić dostępną liczbę miejsc, możesz usunąć niektóre bezpośrednio przypisane licencje od innych użytkowników. Jednak system nie reaguje automatycznie na tę zmianę i naprawia użytkowników w tym stanie błędu.
 
-  Aby obejść te ograniczenia, możesz przejść do bloku **grupy** w usłudze Azure AD, a następnie kliknąć pozycję **przetwórz**ponownie. To polecenie przetwarza wszystkich użytkowników w tej grupie i rozwiązuje Stany błędów, jeśli jest to możliwe.
+  Aby obejść te ograniczenia, możesz przejść do bloku **grupy** w usłudze Azure AD, a następnie kliknąć pozycję **przetwórz** ponownie. To polecenie przetwarza wszystkich użytkowników w tej grupie i rozwiązuje Stany błędów, jeśli jest to możliwe.
 
 ## <a name="next-steps"></a>Następne kroki
 

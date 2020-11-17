@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628904"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646580"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -73,7 +73,7 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 - Administratorzy mogą wdrożyć uwierzytelnianie w chmurze przy użyciu grup zabezpieczeń. Aby uniknąć opóźnienia synchronizacji w przypadku używania lokalnych grup zabezpieczeń Active Directory, zalecamy korzystanie z grup zabezpieczeń w chmurze. Mają zastosowanie następujące warunki:
 
-    - Można użyć maksymalnie 10 grup na funkcję. Oznacza to, że można użyć 10 grup dla każdej *synchronizacji skrótów haseł* , *uwierzytelniania przekazywanego* i *BEZproblemowego logowania jednokrotnego*.
+    - Można użyć maksymalnie 10 grup na funkcję. Oznacza to, że można użyć 10 grup dla każdej *synchronizacji skrótów haseł*, *uwierzytelniania przekazywanego* i *BEZproblemowego logowania jednokrotnego*.
     - Zagnieżdżone grupy *nie są obsługiwane*. Ten zakres ma również zastosowanie do publicznej wersji zapoznawczej.
     - Grupy dynamiczne *nie są obsługiwane* w przypadku wdrażania etapowego.
     - Obiekty Contact wewnątrz grupy blokują Dodawanie grupy.
@@ -99,7 +99,7 @@ Aby uzyskać informacje o używaniu poleceń cmdlet programu PowerShell, zobacz 
 
    ![Zrzut ekranu strony "funkcje opcjonalne" w Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
-1. Upewnij się, że cykl *synchronizacji pełnego skrótu hasła* został uruchomiony, aby wszystkie skróty haseł użytkowników zostały zsynchronizowane z usługą Azure AD. Aby sprawdzić stan *synchronizacji skrótów haseł* , można użyć diagnostyki programu PowerShell w obszarze [Rozwiązywanie problemów z synchronizacją skrótów haseł z synchronizacją Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
+1. Upewnij się, że cykl *synchronizacji pełnego skrótu hasła* został uruchomiony, aby wszystkie skróty haseł użytkowników zostały zsynchronizowane z usługą Azure AD. Aby sprawdzić stan *synchronizacji skrótów haseł*, można użyć diagnostyki programu PowerShell w obszarze [Rozwiązywanie problemów z synchronizacją skrótów haseł z synchronizacją Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
    ![Zrzut ekranu przedstawiający dziennik rozwiązywania problemów z AADConnect](./media/how-to-connect-staged-rollout/sr2.png)
 
@@ -117,7 +117,7 @@ Jeśli chcesz przetestować logowanie za pomocą *uwierzytelniania przekazywaneg
 
 1. Upewnij się, że [Ustawienia inteligentnego blokady](../authentication/howto-password-smart-lockout.md) zostały odpowiednio skonfigurowane. Pozwoli to zagwarantować, że konta Active Directory lokalnych użytkowników nie są blokowane przez złe uczestników.
 
-Zalecamy włączenie *bezproblemowego logowania jednokrotnego* niezależnie od metody logowania ( *Synchronizacja skrótów haseł* lub *uwierzytelnianie przekazywane* ) wybieranego do wdrożenia etapowego. Aby włączyć *bezproblemowe logowanie jednokrotne* , postępuj zgodnie z instrukcjami przedpracy w następnej sekcji.
+Zalecamy włączenie *bezproblemowego logowania jednokrotnego* niezależnie od metody logowania (*Synchronizacja skrótów haseł* lub *uwierzytelnianie przekazywane*) wybieranego do wdrożenia etapowego. Aby włączyć *bezproblemowe logowanie jednokrotne*, postępuj zgodnie z instrukcjami przedpracy w następnej sekcji.
 
 ## <a name="pre-work-for-seamless-sso"></a>Przedpracuj przed bezproblemowym logowaniem jednokrotnym
 
@@ -149,7 +149,7 @@ Włącz *bezproblemową rejestrację jednokrotną* , wykonując następujące cz
 
 ## <a name="enable-staged-rollout"></a>Włącz wdrażanie etapowe
 
-Aby wdrożyć określoną funkcję ( *uwierzytelnianie przekazywane* , *synchronizację skrótów haseł* lub *bezproblemowe logowanie jednokrotne* ) do wybranego zestawu użytkowników w grupie, postępuj zgodnie z instrukcjami podanymi w następnych sekcjach.
+Aby wdrożyć określoną funkcję (*uwierzytelnianie przekazywane*, *synchronizację skrótów haseł* lub *bezproblemowe logowanie jednokrotne*) do wybranego zestawu użytkowników w grupie, postępuj zgodnie z instrukcjami podanymi w następnych sekcjach.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Włącz etapowe wprowadzanie konkretnej funkcji w dzierżawie
 
@@ -165,7 +165,7 @@ Wykonaj następujące czynności:
 
 2. Wybierz łącze **Włącz wdrażanie etapowe dla konta zarządzanego użytkownika (wersja zapoznawcza)** .
 
-   Na przykład jeśli chcesz włączyć *opcję A* , przesuń **skrót hasła** i **bezproblemowo** kontroluje Logowanie jednokrotne do **włączenia** , jak pokazano na poniższych ilustracjach.
+   Na przykład jeśli chcesz włączyć *opcję A*, przesuń **skrót hasła** i **bezproblemowo** kontroluje Logowanie jednokrotne do **włączenia**, jak pokazano na poniższych ilustracjach.
 
    ![Strona Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
@@ -178,12 +178,13 @@ Wykonaj następujące czynności:
    >[!NOTE]
    >Członkowie w grupie są automatycznie włączeni do wdrożenia etapowego. Grupy zagnieżdżone i dynamiczne nie są obsługiwane w przypadku wdrażania etapowego.
    >Podczas dodawania nowej grupy Użytkownicy w grupie (do 200 użytkowników dla nowej grupy) zostaną zaktualizowani, aby używać immidiatly uwierzytelniania zarządzanego. Edytowanie grupy (Dodawanie lub usuwanie użytkowników) może zająć do 24 godzin.
+   >Bezproblemowe logowanie jednokrotne ma zastosowanie tylko wtedy, gdy użytkownicy znajdują się w grupie bezproblemowej rejestracji jednokrotnej, a także w grupie PTA lub PHS.
 
 ## <a name="auditing"></a>Inspekcja
 
 Włączono zdarzenia inspekcji dla różnych akcji wykonywanych w celu wdrożenia etapowego:
 
-- Zdarzenie inspekcji po włączeniu wdrożenia etapowego dla *synchronizacji skrótów haseł* , *uwierzytelniania przekazywanego* lub *BEZproblemowego logowania jednokrotnego*.
+- Zdarzenie inspekcji po włączeniu wdrożenia etapowego dla *synchronizacji skrótów haseł*, *uwierzytelniania przekazywanego* lub *BEZproblemowego logowania jednokrotnego*.
 
   >[!NOTE]
   >Zdarzenie inspekcji jest rejestrowane, gdy jest włączone *bezproblemowe logowanie jednokrotne* przy użyciu wdrożenia etapowego.
@@ -192,7 +193,7 @@ Włączono zdarzenia inspekcji dla różnych akcji wykonywanych w celu wdrożeni
 
   ![Okienko "Tworzenie zasad wdrażania dla funkcji" — zmodyfikowano kartę właściwości](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Zdarzenie inspekcji, gdy grupa jest dodawana do *synchronizacji skrótów haseł* , *uwierzytelniania przekazywanego* lub *BEZproblemowego logowania jednokrotnego*.
+- Zdarzenie inspekcji, gdy grupa jest dodawana do *synchronizacji skrótów haseł*, *uwierzytelniania przekazywanego* lub *BEZproblemowego logowania jednokrotnego*.
 
   >[!NOTE]
   >Zdarzenie inspekcji jest rejestrowane, gdy grupa zostanie dodana do *synchronizacji skrótów haseł* na potrzeby wdrożenia etapowego.
@@ -217,7 +218,7 @@ Aby przetestować logowanie za pomocą *synchronizacji skrótów haseł* lub *uw
 
 1. Upewnij się, że logowanie powiodło się w [raporcie aktywności logowania usługi Azure AD](../reports-monitoring/concept-sign-ins.md) , filtrując element userPrincipalName.
 
-Aby przetestować logowanie za pomocą *bezproblemowego logowania JEDNOkrotnego* :
+Aby przetestować logowanie za pomocą *bezproblemowego logowania JEDNOkrotnego*:
 
 1. W intranecie przejdź do [strony aplikacje](https://myapps.microsoft.com) w sesji przeglądarki prywatnej, a następnie wprowadź wartość USERPRINCIPALNAME (UPN) konta użytkownika wybranego do wdrożenia etapowego.
 
@@ -239,7 +240,7 @@ Odp.: tak, możesz użyć tej funkcji w dzierżawie produkcyjnej, ale zalecamy, 
 
 **P: czy ta funkcja może służyć do utrzymania stałego "współistnienia", gdzie niektórzy użytkownicy używają uwierzytelniania federacyjnego, a inne korzystają z uwierzytelniania w chmurze?**
 
-Odp.: nie, ta funkcja została zaprojektowana na potrzeby migrowania z federacyjnego do uwierzytelniania w chmurze w etapach, a następnie ostatecznie przetniesz uwierzytelnianie w chmurze. Nie zalecamy użycia stałego stanu mieszanego, ponieważ takie podejście może prowadzić do nieoczekiwanych przepływów uwierzytelniania.
+Odp.: nie, ta funkcja została zaprojektowana na potrzeby testowania uwierzytelniania w chmurze. Po pomyślnym przetestowaniu kilku grup użytkowników należy wyciąć je do uwierzytelniania w chmurze. Nie zalecamy użycia stałego stanu mieszanego, ponieważ takie podejście może prowadzić do nieoczekiwanych przepływów uwierzytelniania.
 
 **P: Czy można użyć programu PowerShell, aby wykonać etapowe wdrażanie?**
 

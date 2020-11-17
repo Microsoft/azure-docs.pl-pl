@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460358"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646240"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Rozwiązywanie problemów z logowaniem jednokrotnym na podstawie hasła w usłudze Azure AD
 
@@ -36,7 +36,7 @@ Ten problem zwykle występuje, gdy dostawca aplikacji zmienił stronę logowania
 
 Chociaż firma Microsoft ma technologie wykrywające przerwy w integracji, mogą nie być możliwe do wyszukania problemów od razu lub problemy są rozwiązywane nieco czasu. W przypadku, gdy jedna z tych integracji nie działa prawidłowo, należy otworzyć sprawę pomocy technicznej, aby można było ją rozwiązać tak szybko, jak to możliwe.
 
-**Jeśli jesteś w kontakcie z dostawcą aplikacji,** Wyślij je, aby firma Microsoft mogła współpracować z nimi w celu natywnej integracji swojej aplikacji z Azure Active Directory. Aby rozpocząć pracę, możesz wysłać dostawcę do [listy aplikacji w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) .
+**Jeśli jesteś w kontakcie z dostawcą aplikacji,** Wyślij je, aby firma Microsoft mogła współpracować z nimi w celu natywnej integracji swojej aplikacji z Azure Active Directory. Aby rozpocząć pracę, możesz wysłać dostawcę do [listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md) .
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Poświadczenia są wypełnione i przesłane, ale strona wskazuje, że poświadczenia są niepoprawne
 
@@ -62,7 +62,7 @@ Na wypadek, gdyby poprzednie sugestie nie zadziałały, może się zdarzyć, że
 
 Firma Microsoft ma technologie umożliwiające automatyczne wykrywanie w przypadku przerwania integracji aplikacji, jednak może nie być możliwe znalezienie problemów od razu lub problemy mogą zostać naprawione. Jeśli integracja nie działa prawidłowo, można otworzyć przypadek pomocy technicznej w celu jego ustalenia tak szybko, jak to możliwe. 
 
-Oprócz tego, **Jeśli kontaktuje się z dostawcą aplikacji,** **Wysyłaj je do nas** , aby możemy z nich współpracować, aby w sposób natywny zintegrować swoją aplikację z Azure Active Directory. Aby rozpocząć pracę, możesz wysłać dostawcę do [listy aplikacji w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) .
+Oprócz tego, **Jeśli kontaktuje się z dostawcą aplikacji,** **Wysyłaj je do nas** , aby możemy z nich współpracować, aby w sposób natywny zintegrować swoją aplikację z Azure Active Directory. Aby rozpocząć pracę, możesz wysłać dostawcę do [listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md) .
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Sprawdź, czy strona logowania aplikacji ostatnio się zmieniła lub wymaga dodatkowego pola
 
@@ -70,7 +70,7 @@ Jeśli strona logowania aplikacji została zmieniona drastycznie, czasami może 
 
 Firma Microsoft ma technologie umożliwiające automatyczne wykrywanie w przypadku przerwania integracji aplikacji, jednak może nie być możliwe znalezienie problemów od razu lub problemy mogą zostać naprawione. Jeśli integracja nie działa prawidłowo, można otworzyć przypadek pomocy technicznej w celu jego ustalenia tak szybko, jak to możliwe. 
 
-Oprócz tego, **Jeśli kontaktuje się z dostawcą aplikacji,** **Wysyłaj je do nas** , aby możemy z nich współpracować, aby w sposób natywny zintegrować swoją aplikację z Azure Active Directory. Aby rozpocząć pracę, możesz wysłać dostawcę do [listy aplikacji w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) .
+Oprócz tego, **Jeśli kontaktuje się z dostawcą aplikacji,** **Wysyłaj je do nas** , aby możemy z nich współpracować, aby w sposób natywny zintegrować swoją aplikację z Azure Active Directory. Aby rozpocząć pracę, możesz wysłać dostawcę do [listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md) .
 
 ## <a name="capture-sign-in-fields-for-an-app"></a>Przechwytywanie pól logowania dla aplikacji
 
@@ -103,7 +103,7 @@ Aby skonfigurować Logowanie jednokrotne oparte na haśle przy użyciu automatyc
 
 ### <a name="manually-capture-sign-in-fields-for-an-app"></a>Ręczne przechwytywanie pól logowania dla aplikacji
 
-Aby ręcznie przechwycić pola logowania, musisz mieć zainstalowane rozszerzenie przeglądarki Moje aplikacje. Ponadto przeglądarka nie może działać w trybie *InPrivate*, *incognito*lub *prywatnym* .
+Aby ręcznie przechwycić pola logowania, musisz mieć zainstalowane rozszerzenie przeglądarki Moje aplikacje. Ponadto przeglądarka nie może działać w trybie *InPrivate*, *incognito* lub *prywatnym* .
 
 Aby skonfigurować Logowanie jednokrotne na podstawie hasła dla aplikacji przy użyciu funkcji ręcznego rejestrowania pól logowania, wykonaj następujące czynności:
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com/). Zaloguj się jako Administrator globalny lub współadministrator.
@@ -117,7 +117,7 @@ Aby skonfigurować Logowanie jednokrotne na podstawie hasła dla aplikacji przy 
 7. Po załadowaniu aplikacji wybierz pozycję **Logowanie** jednokrotne w okienku nawigacji po lewej stronie.
 8. Wybierz tryb **logowania opartego na hasłach** .
 9. Wprowadź **adres URL logowania**, który jest stroną, w której użytkownicy wprowadzają nazwę użytkownika i hasło w celu zalogowania się. *Upewnij się, że pola logowania są widoczne na stronie dla podania adresu URL*.
-10. Wybierz **pozycję * &lt; &gt; * Konfiguruj ustawienia logowanie**jednokrotne hasła.
+10. Wybierz **pozycję *&lt; &gt;* Konfiguruj ustawienia logowanie** jednokrotne hasła.
 11. Wybierz pozycję **ręcznie Wykryj pola logowania**.
 14. Wybierz przycisk **OK**.
 15. Wybierz pozycję **Zapisz**.
@@ -145,11 +145,11 @@ Podczas ręcznego wykrywania nie działa następujące zachowania:
 - Ręczne przechwytywanie będzie prawdopodobnie działało, ale Logowanie jednokrotne nie odbywa się, gdy użytkownicy przechodzą do aplikacji z moich aplikacji.
 
 Jeśli występują jakieś problemy, wykonaj następujące czynności:
-- Upewnij się, że masz *zainstalowaną i włączoną*najnowszą wersję rozszerzenia przeglądarki Moje aplikacje.
-- Upewnij się, że w trakcie procesu przechwytywania przeglądarka nie jest w trybie *incognito*, *InPrivate*lub *Private* . Rozszerzenie my Apps nie jest obsługiwane w tych trybach.
-- Upewnij się, że użytkownicy nie próbują zalogować się do aplikacji z aplikacji w trybie *incognito*, *InPrivate*lub *Private*.
+- Upewnij się, że masz *zainstalowaną i włączoną* najnowszą wersję rozszerzenia przeglądarki Moje aplikacje.
+- Upewnij się, że w trakcie procesu przechwytywania przeglądarka nie jest w trybie *incognito*, *InPrivate* lub *Private* . Rozszerzenie my Apps nie jest obsługiwane w tych trybach.
+- Upewnij się, że użytkownicy nie próbują zalogować się do aplikacji z aplikacji w trybie *incognito*, *InPrivate* lub *Private*.
 - Spróbuj ponownie wykonać ręczną procedurę przechwytywania. Upewnij się, że czerwone znaczniki znajdują się nad poprawnymi polami.
-- Jeśli proces przechwytywania ręcznego wydaje się przestać odpowiadać lub strona logowania nie odpowiada, spróbuj ponownie wykonać ręczną procedurę przechwytywania. Ale tym razem po zakończeniu procesu naciśnij klawisz F12, aby otworzyć konsolę dewelopera przeglądarki. Wybierz kartę **konsola** . Wpisz **window. Location = "* &lt; adres URL logowania, który został określony podczas konfigurowania &gt; aplikacji*"**, a następnie naciśnij klawisz ENTER. Powoduje to wymuszenie przekierowania strony kończącego proces przechwytywania i przechowywania przechwyconych pól.
+- Jeśli proces przechwytywania ręcznego wydaje się przestać odpowiadać lub strona logowania nie odpowiada, spróbuj ponownie wykonać ręczną procedurę przechwytywania. Ale tym razem po zakończeniu procesu naciśnij klawisz F12, aby otworzyć konsolę dewelopera przeglądarki. Wybierz kartę **konsola** . Wpisz **window. Location = "*&lt; adres URL logowania, który został określony podczas konfigurowania &gt; aplikacji*"**, a następnie naciśnij klawisz ENTER. Powoduje to wymuszenie przekierowania strony kończącego proces przechwytywania i przechowywania przechwyconych pól.
 
 ## <a name="request-support"></a>Żądaj obsługi 
 Jeśli podczas konfigurowania logowania jednokrotnego i przypisywania użytkowników zostanie wyświetlony komunikat o błędzie, Otwórz bilet pomocy technicznej. Dołącz możliwie najwięcej następujących informacji:

@@ -4,21 +4,21 @@ description: Dodaj użytkowników zbiorczo w centrum administracyjnym usługi Az
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 08/11/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8e6ab8fd726eaba309f0949020139901dd3712f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 42e26e9b1e3548d3caeff58079ec489c2d282a63
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376533"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646886"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
 
@@ -65,7 +65,7 @@ Wiersze pobranego szablonu CSV są następujące:
 
    [![Plik CSV zawiera nazwy i identyfikatory użytkowników do utworzenia](./media/users-bulk-add/add-csv-file.png)](./media/users-bulk-add/add-csv-file.png#lightbox)
 
-1. Na stronie **Tworzenie zbiorcze użytkownika** w obszarze Przekaż plik CSV przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij**zostanie uruchomiony Walidacja pliku CSV.
+1. Na stronie **Tworzenie zbiorcze użytkownika** w obszarze Przekaż plik CSV przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij** zostanie uruchomiony Walidacja pliku CSV.
 1. Po zweryfikowaniu zawartości pliku zostanie wyświetlony **plik pomyślnie przekazane**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.
 1. Gdy plik zostanie pomyślnie zweryfikowany, wybierz pozycję **Prześlij** , aby rozpocząć operację zbiorczą platformy Azure, która importuje nowych użytkowników.
 1. Po zakończeniu operacji importowania zobaczysz powiadomienie o stanie zadania operacji zbiorczej.
@@ -85,7 +85,7 @@ Następnie możesz sprawdzić, czy utworzone przez Ciebie użytkownicy znajdują
 1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
 1. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
-1. W obszarze **Pokaż**wybierz opcję **Wszyscy użytkownicy** i sprawdź, czy utworzone przez Ciebie użytkownicy znajdują się na liście.
+1. W obszarze **Pokaż** wybierz opcję **Wszyscy użytkownicy** i sprawdź, czy utworzone przez Ciebie użytkownicy znajdują się na liście.
 
 ### <a name="verify-users-with-powershell"></a>Weryfikowanie użytkowników przy użyciu programu PowerShell
 

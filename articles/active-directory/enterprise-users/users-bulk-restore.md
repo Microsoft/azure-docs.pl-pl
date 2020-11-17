@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4031356c3a2ff51f6f3da8b53dd0dcc9fd5a426
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d141637286ed931701e82d29088186de32ff9f9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376437"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646784"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Przywracanie zbiorcze usuniętych użytkowników w Azure Active Directory
 
@@ -57,7 +57,7 @@ Wiersze pobranego szablonu CSV są następujące:
 
     :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Wybierz lokalny plik CSV, w którym chcesz wyświetlić listę użytkowników, których chcesz dodać":::
 
-1. Na stronie **przywracanie zbiorcze** w obszarze **Przekaż plik CSV**przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij**zostanie uruchomiony Walidacja pliku CSV.
+1. Na stronie **przywracanie zbiorcze** w obszarze **Przekaż plik CSV** przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij** zostanie uruchomiony Walidacja pliku CSV.
 1. Gdy zawartość pliku zostanie sprawdzona, zostanie wyświetlony **plik przekazany pomyślnie**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.
 1. Gdy plik zostanie pomyślnie zweryfikowany, wybierz pozycję **Prześlij** , aby rozpocząć operację zbiorczą platformy Azure, która przywraca użytkowników.
 1. Po zakończeniu operacji przywracania zobaczysz powiadomienie, że operacja zbiorcza zakończyła się pomyślnie.
@@ -77,7 +77,7 @@ Następnie możesz sprawdzić, czy przywróconi użytkownicy znajdują się w or
 1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
 1. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
-1. W obszarze **Pokaż**wybierz pozycję **Wszyscy użytkownicy** i sprawdź, czy na liście znajdują się użytkownicy, których przywrócono.
+1. W obszarze **Pokaż** wybierz pozycję **Wszyscy użytkownicy** i sprawdź, czy na liście znajdują się użytkownicy, których przywrócono.
 
 ### <a name="view-users-with-powershell"></a>Wyświetlanie użytkowników przy użyciu programu PowerShell
 

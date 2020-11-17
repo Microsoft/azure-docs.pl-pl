@@ -8,19 +8,19 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0136f7677aa722e578ac54c4f7d34338e47b0f7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517179"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646614"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Ulepszenia zarządzania użytkownikami (wersja zapoznawcza) w Azure Active Directory
 
@@ -41,7 +41,7 @@ Zmiany w wersji zapoznawczej obejmują:
 
 Wersja zapoznawcza jest domyślnie włączona, więc można z niej korzystać od razu. Najnowsze funkcje i ulepszenia można sprawdzić, wybierając pozycję funkcje w **wersji zapoznawczej** na stronie **Wszyscy użytkownicy** . Wszystkie strony, które zostały zaktualizowane w ramach tej wersji zapoznawczej, będą wyświetlać tag podglądu. Jeśli masz jakieś problemy, możesz przełączyć się z powrotem do starszego środowiska:
 
-1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) i wybierz pozycję **Użytkownicy** .
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) i wybierz pozycję **Użytkownicy**.
 1. Na stronie **Użytkownicy — wszyscy użytkownicy** wybierz transparent w górnej części strony.
 1. W okienku **Podgląd funkcji** Włącz opcję **ulepszone zarządzanie użytkownikami** .
 
@@ -88,7 +88,7 @@ Niektóre kolumny są domyślnie wyświetlane. Aby dodać inne kolumny, wybierz 
 Wybierz wpis w kolumnie **wystawca tożsamości** dla dowolnego użytkownika, aby wyświetlić dodatkowe szczegóły dotyczące wystawcy, w tym typ logowania i Identyfikator przypisany do wystawcy. Wpisy w kolumnie **wystawca tożsamości** mogą być wielowartościowe. Jeśli istnieje wielu wystawców tożsamości użytkownika, zobaczysz wielokrotność wyrazu w kolumnie **wystawca tożsamości** na stronach **Wszyscy użytkownicy** i **usunięci użytkownicy** , a w okienku szczegółów zostanie wyświetlona lista wszystkich wystawców.
 
 > [!NOTE]
-> Kolumna **źródłowa** jest zastępowana wieloma kolumnami, takimi jak **Typ utworzenia** , **zsynchronizowany katalog** i **wystawca tożsamości** na potrzeby bardziej szczegółowego filtrowania.
+> Kolumna **źródłowa** jest zastępowana wieloma kolumnami, takimi jak **Typ utworzenia**, **zsynchronizowany katalog** i **wystawca tożsamości** na potrzeby bardziej szczegółowego filtrowania.
 
 ## <a name="user-list-search"></a>Wyszukiwanie listy użytkowników
 
@@ -138,9 +138,9 @@ Możesz wyświetlić łączną liczbę użytkowników na stronach **Wszyscy uży
 Pytanie | Odpowiedź
 -------- | ------
 Dlaczego usunięty użytkownik jest nadal wyświetlany po upływie daty trwałego usunięcia? | Data trwałego usunięcia jest wyświetlana w strefie czasowej UTC, więc może być niezgodna z bieżącą strefą czasową. Ponadto ta data to Najwcześniejsza data, po upływie którego użytkownik zostanie trwale usunięty z organizacji, więc może nadal być przetwarzany. Trwale usunięci użytkownicy zostaną automatycznie usunięci z listy.
-Co dzieje się z możliwościami zbiorczymi dla użytkowników i Gości? | Operacje zbiorcze są nadal dostępne dla użytkowników i Gości, w tym zbiorcze tworzenie, zapraszanie zbiorcze, zbiorcze usuwanie i pobieranie użytkowników. Właśnie zostały one scalone w menu o nazwie **operacje zbiorcze** . Możesz znaleźć opcje **operacji zbiorczych** w górnej części strony **Wszyscy użytkownicy** .
-Co się stało z kolumną źródłową? | Kolumna **źródłowa** została zastąpiona innymi kolumnami, które zawierają podobne informacje, a jednocześnie umożliwiają filtrowanie tych wartości niezależnie. Przykłady obejmują **Typ tworzenia** , **zsynchronizowany katalog** i **wystawcę tożsamości** .
-Co się stało z kolumną Nazwa użytkownika? | Kolumna **Nazwa użytkownika** nadal istnieje, ale została zmieniona na **nazwę główną użytkownika** . Lepiej odzwierciedla informacje zawarte w tej kolumnie. Zauważ również, że pełna główna nazwa użytkownika jest teraz wyświetlana dla Gości B2B. Jest to zgodne z tym, co uzyskasz w programie MS Graph.  
+Co dzieje się z możliwościami zbiorczymi dla użytkowników i Gości? | Operacje zbiorcze są nadal dostępne dla użytkowników i Gości, w tym zbiorcze tworzenie, zapraszanie zbiorcze, zbiorcze usuwanie i pobieranie użytkowników. Właśnie zostały one scalone w menu o nazwie **operacje zbiorcze**. Możesz znaleźć opcje **operacji zbiorczych** w górnej części strony **Wszyscy użytkownicy** .
+Co się stało z kolumną źródłową? | Kolumna **źródłowa** została zastąpiona innymi kolumnami, które zawierają podobne informacje, a jednocześnie umożliwiają filtrowanie tych wartości niezależnie. Przykłady obejmują **Typ tworzenia**, **zsynchronizowany katalog** i **wystawcę tożsamości**.
+Co się stało z kolumną Nazwa użytkownika? | Kolumna **Nazwa użytkownika** nadal istnieje, ale została zmieniona na **nazwę główną użytkownika**. Lepiej odzwierciedla informacje zawarte w tej kolumnie. Zauważ również, że pełna główna nazwa użytkownika jest teraz wyświetlana dla Gości B2B. Jest to zgodne z tym, co uzyskasz w programie MS Graph.  
 
 ## <a name="next-steps"></a>Następne kroki
 

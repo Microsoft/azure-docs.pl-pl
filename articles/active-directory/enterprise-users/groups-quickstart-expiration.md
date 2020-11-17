@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 842cd92e451b8d959dcf04135da504d7cf85a16e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379152"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647209"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Szybki Start: Ustawianie Microsoft 365ych grup do wygaśnięcia w Azure Active Directory
 
@@ -63,7 +63,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 3. Podaj adres e-mail, na który mają być wysyłane powiadomienia dotyczące wygaśnięcia, jeśli grupa nie ma właściciela.
 
-4. **W tym**przewodniku szybki start ustaw opcję **Włącz wygasanie dla tych grup Microsoft 365** .
+4. **W tym** przewodniku szybki start ustaw opcję **Włącz wygasanie dla tych grup Microsoft 365** .
 
 5. Wybierz przycisk **Zapisz**, aby zapisać ustawienia wygasania, gdy wszystko będzie gotowe.
 
@@ -74,12 +74,12 @@ Gotowe. W tym przewodniku szybki start pomyślnie ustawiono zasady wygasania dla
 ### <a name="to-remove-the-expiration-policy"></a>Aby usunąć zasady wygasania
 
 1. Upewnij się, że zalogowano się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym organizacji usługi Azure AD.
-2. Wybierz **Azure Active Directory**pozycję  >  **Groups**  >  **wygaśnięcie**grup Azure Active Directory.
+2. Wybierz **Azure Active Directory** pozycję  >  **Groups**  >  **wygaśnięcie** grup Azure Active Directory.
 3. Ustaw opcję **Włącz wygasanie dla tych grup Microsoft 365** na **none**.
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>Aby wyłączyć tworzenie grup przez użytkowników
 
-1. Wybierz **Azure Active Directory**pozycję  >  **grupy**Azure Active Directory  >  **Ogólne**. 
+1. Wybierz **Azure Active Directory** pozycję  >  **grupy** Azure Active Directory  >  **Ogólne**. 
 2. Ustawienie **Użytkownicy mogą tworzyć grupy Microsoft 365 w portalach platformy Azure** do **nie**.
 
 ## <a name="next-steps"></a>Następne kroki

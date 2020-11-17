@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b73a6b8c024cfa5ed7188bbf3fed2bbb7142a2a0
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186641"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646376"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -21,7 +21,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 **Wdrożenie** |  **Pomoc techniczna**
 --- | ---
 **Witryna Azure Portal** | Obsługiwane.
-**PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
+**Program PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
 **Interfejs API REST** | Obsługiwane.
 **Interfejs wiersza polecenia** | Nie jest obecnie obsługiwana.
 
@@ -131,7 +131,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 18,04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-ogólny do 4.15.0-112-Generic </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-ogólny do 5.0.0-58-Generic </br> 5.3.0-19-Generic do 5.3.0-65-Generic </br> 5.4.0-37-Generic to 5.4.0-42-Generic</br> 4.15.0-1009-Azure to 4.15.0-1092-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1036-Azure </br> 5.3.0-1007-Azure to 5.3.0-1032-Azure </br> 5.4.0-1020-Azure to 5.4.0-1022-Azure </br> 5.0.0-60-Generic & 5.3.0-1035-Azure do 9,36 poprawka gorącej poprawki * *|
 18,04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-ogólny do 4.15.0-108-Generic </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-ogólny do 5.0.0-52-Generic </br> 5.3.0-19-Generic do 5.3.0-61-Generic </br> 4.15.0-1009-Azure to 4.15.0-1089-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1036-Azure </br> 5.3.0-1007-Azure to 5.3.0-1031-Azure </br> 4.15.0-109-Generic, 5.0.0-53-Generic, 5.3.0-62-Generic, 4.15.0-1091-Azure & 5.3.0-1032-Azure do 9,35 poprawka "Hot Fix" * *|
 |||
-20,04 LTS |[9,38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-ogólny do 5.4.0-48 </br> -Generic 5.4.0-1010-Azure to 5.4.0-1026-Azure </br> 5.4.0-51-Generic, 5.4.0-52-Generic, 5.8.0-23-Generic, 5.4.0-1031-Azure do 9,38 poprawka gorącej poprawki * *
+20,04 LTS |[9,38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-ogólny do 5.4.0-48 </br> -Generic 5.4.0-1010-Azure to 5.4.0-1026-Azure </br> 5.4.0-51-Generic, 5.4.0-52-Generic, 5.8.0-23-Generic, 5.8.0-25-Generic, 5.4.0-1031-Azure do 9,38 poprawka na gorąco * *
 20,04 LTS |[9,37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-ogólny do 5.4.0-45 </br> -Generic 5.4.0-1010-Azure to 5.4.0-1023-Azure </br> 5.4.0-47-Generic, 5.4.0-48-Generic, 5.4.0-1025-Azure, 5.4.0-1026-Azure do 9,37 poprawka na gorąco * *
 20,04 LTS |[9,36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-ogólny do 5.4.0-42 </br> -Generic 5.4.0-1010-Azure to 5.4.0-1022-Azure
 
@@ -146,7 +146,7 @@ Debian 7 |  [9,34](https://support.microsoft.com/help/4570609), [9,35](https://s
 Debian 8 | [9,35](https://support.microsoft.com/help/4573888/, ), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/) | 3.16.0-4-amd64 do 3.16.0-11-amd64, 4.9.0 -0. BPO. 4-amd64 do 4.9.0 -0. BPO. 11-amd64 |
 Debian 8 | [9,34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 do 3.16.0-10-amd64, 4.9.0 -0. BPO. 4-amd64 do 4.9.0 -0. BPO. 11-amd64 |
 |||
-Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 do 4.9.0-13-amd64 </br> 4.19.0 -0. BPO. 1-amd64 do 4.19.0 -0. BPO. 11-amd64 </br> 4.19.0 -0. BPO. 1-Cloud-amd64 do 4.19.0 -0. BPO. 11-Cloud-amd64 </br> 
+Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 do 4.9.0-13-amd64 </br> 4.19.0 -0. BPO. 1-amd64 do 4.19.0 -0. BPO. 11-amd64 </br> 4.19.0 -0. BPO. 1-Cloud-amd64 do 4.19.0 -0. BPO. 11-Cloud-amd64 </br> 4.9.0-14-amd64, 4.19.0 -0. BPO. 12-amd64, 4.19.0 -0. BPO. 12-Cloud-amd64 do 9,38 poprawka na gorąco * *
 Debian 9,1 | [9,37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 do 4.9.0-13-amd64, 4.19.0 -0. BPO. 6-amd64 do 4.19.0 -0. BPO. 10-amd64, 4.19.0 -0. BPO. 6-Cloud-amd64 do 4.19.0 -0. BPO. 10-Cloud-amd64
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane SUSE Linux Enterprise Server 12 wersji jądra dla usługi Azure Virtual Machines
@@ -280,11 +280,11 @@ Wewnętrzny moduł równoważenia obciążenia | Obsługiwane | Skojarz wstępni
 Publiczny adres IP | Obsługiwane | Skojarz istniejący publiczny adres IP z kartą sieciową. Lub Utwórz publiczny adres IP i skojarz go z kartą sieciową przy użyciu skryptu Azure Automation w planie odzyskiwania.
 SIECIOWEJ grupy zabezpieczeń na karcie sieciowej | Obsługiwane | Skojarz sieciowej grupy zabezpieczeń z kartą sieciową przy użyciu skryptu Azure Automation w planie odzyskiwania.
 SIECIOWEJ grupy zabezpieczeń w podsieci | Obsługiwane | Skojarz sieciowej grupy zabezpieczeń z podsiecią, używając skryptu Azure Automation w planie odzyskiwania.
-Zarezerwowany (statyczny) adres IP | Obsługiwane | Jeśli karta sieciowa na źródłowej maszynie wirtualnej ma statyczny adres IP, a podsieć docelowa ma ten sam adres IP, jest on przypisany do maszyny wirtualnej przełączonej w tryb failover.<br/><br/> Jeśli podsieć docelowa nie ma dostępnego tego samego adresu IP, jeden z dostępnych adresów IP w podsieci jest zarezerwowany dla maszyny wirtualnej.<br/><br/> Można również określić stały adres IP i podsieć w ustawieniach **replikowanych elementów**  >  **Ustawienia** elementy  >  **obliczeniowe i**  >  **sieciowe** .
+Zarezerwowany (statyczny) adres IP | Obsługiwane | Jeśli karta sieciowa na źródłowej maszynie wirtualnej ma statyczny adres IP, a podsieć docelowa ma ten sam adres IP, jest on przypisany do maszyny wirtualnej przełączonej w tryb failover.<br/><br/> Jeśli podsieć docelowa nie ma dostępnego tego samego adresu IP, jeden z dostępnych adresów IP w podsieci jest zarezerwowany dla maszyny wirtualnej.<br/><br/> Można również określić stały adres IP i podsieć w ustawieniach **replikowanych elementów**  >  **Ustawienia** elementy  >  **obliczeniowe i**  >  **sieciowe**.
 Dynamiczny adres IP | Obsługiwane | Jeśli karta sieciowa w źródle ma dynamiczne adresowanie IP, karta sieciowa na maszynie wirtualnej w trybie failover jest również domyślnie dynamiczna.<br/><br/> Jeśli jest to wymagane, można je zmodyfikować na stały adres IP.
 Wiele adresów IP | Nieobsługiwane | Po przełączeniu maszyny wirtualnej w tryb failover, która ma kartę sieciową z wieloma adresami IP, zachowywany jest tylko podstawowy adres IP karty sieciowej w regionie źródłowym. Aby przypisać wiele adresów IP, można dodać maszyny wirtualne do [planu odzyskiwania](recovery-plan-overview.md) i dołączyć skrypt, aby przypisać dodatkowe adresy IP do planu, lub wprowadzić zmianę ręcznie lub za pomocą skryptu po przejściu do trybu failover.
 Traffic Manager     | Obsługiwane | Można wstępnie skonfigurować Traffic Manager tak, aby ruch był kierowany do punktu końcowego w regionie źródłowym w regularnych odstępach czasu i do punktu końcowego w regionie docelowym w przypadku przejścia w tryb failover.
-System DNS platformy Azure | Obsługiwane |
+Azure DNS | Obsługiwane |
 Niestandardowe DNS    | Obsługiwane |
 Nieuwierzytelniony serwer proxy | Obsługiwane | [Dowiedz się więcej](./azure-to-azure-about-networking.md)
 Uwierzytelniony serwer proxy | Nieobsługiwane | Jeśli maszyna wirtualna używa uwierzytelnionego serwera proxy do łączności wychodzącej, nie może być replikowana przy użyciu Azure Site Recovery.

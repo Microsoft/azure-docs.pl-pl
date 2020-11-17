@@ -10,24 +10,24 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 07/07/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50915aebc9cb76c7bb67235e40564ff32ce656b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ec9a215d25ce1177b015b392c4f36d7547be521
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376677"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647022"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Zmień przypisania licencji dla użytkownika lub grupy w Azure Active Directory
 
 W tym artykule opisano sposób przenoszenia użytkowników i grup między planami licencji usługi w Azure Active Directory (Azure AD). Podejście do usługi Azure AD ma na celu upewnienie się, że podczas zmiany licencji nie utracisz usługi ani danych. Użytkownicy powinni bezproblemowo przełączać się między usługami. W krokach przydziału planu licencji w tym artykule opisano zmianę użytkownika lub grupy w pakiecie Office 365 E1 na pakiet Office 365 E3, ale kroki dotyczą wszystkich planów licencji. Podczas aktualizowania przypisań licencji dla użytkownika lub grupy, usuwanie przypisania licencji i nowe przypisania są wprowadzane jednocześnie, aby użytkownicy nie utracili dostępu do swoich usług podczas zmian licencji lub zobaczą konflikty licencji między planami.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed zaktualizowaniem przypisań licencji należy sprawdzić, czy pewne założenia są spełnione dla wszystkich użytkowników lub grup, które mają zostać zaktualizowane. Jeśli założenia nie są spełnione dla wszystkich użytkowników w grupie, migracja może zakończyć się niepowodzeniem. W związku z tym niektórzy użytkownicy mogą utracić dostęp do usług lub danych. Upewnij się, że:
 

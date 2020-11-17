@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8fdeefab150a2992edf40076a44c936d35b14dc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376404"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646597"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Ogranicz uprawnienia dostępu gościa (wersja zapoznawcza) w Azure Active Directory
 
@@ -42,7 +42,7 @@ Wprowadziliśmy zmiany w istniejących kontrolkach Azure Portal dla uprawnień u
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień administratora globalnego.
 1. Na stronie Przegląd **Azure Active Directory** organizacji wybierz pozycję **Ustawienia użytkownika**.
-1. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
+1. W obszarze **użytkownicy zewnętrzni** wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
 1. Na stronie **Ustawienia współpracy zewnętrznej** wybierz opcję **dostęp użytkownika-Gość jest ograniczony do właściwości i członkostw własnych opcji obiektów katalogu** .
 
     ![Strona ustawień współpracy zewnętrznej usługi Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)

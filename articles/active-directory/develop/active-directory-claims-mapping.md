@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275796"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647600"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -239,6 +239,9 @@ Istnieją pewne zestawy oświadczeń, które określają, jak i kiedy są używa
 
 Aby kontrolować, jakie oświadczenia są emitowane i skąd pochodzą dane, użyj właściwości zasad mapowania oświadczeń. Jeśli nie ustawiono zasad, System wystawia tokeny, które obejmują podstawowy zestaw oświadczeń, podstawowy zestaw oświadczeń i wszelkie [opcjonalne oświadczenia](active-directory-optional-claims.md) , które aplikacja wybrała do odebrania.
 
+> [!NOTE]
+> Oświadczenia w podstawowym zestawie oświadczeń są obecne w każdym tokenie, niezależnie od tego, jaka właściwość jest ustawiona na.
+
 ### <a name="include-basic-claim-set"></a>Uwzględnij podstawowy zestaw roszczeń
 
 **Ciąg:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Aby kontrolować, jakie oświadczenia są emitowane i skąd pochodzą dane, uży
 - W przypadku ustawienia wartości true wszystkie oświadczenia w podstawowym zestawie oświadczeń są emitowane w tokenach, których dotyczą zasady.
 - W przypadku ustawienia wartości false oświadczenia w podstawowym zestawie oświadczeń nie znajdują się w tokenach, chyba że są one indywidualnie dodawane we właściwości schematu oświadczeń tych samych zasad.
 
-> [!NOTE]
-> Oświadczenia w podstawowym zestawie oświadczeń są obecne w każdym tokenie, niezależnie od tego, jaka właściwość jest ustawiona na.
+
 
 ### <a name="claims-schema"></a>Schemat oświadczeń
 
@@ -260,7 +262,7 @@ Aby kontrolować, jakie oświadczenia są emitowane i skąd pochodzą dane, uży
 **Typ danych:** Obiekt BLOB JSON z co najmniej jednym wpisem schematu roszczeń
 
 **Podsumowanie:** Ta właściwość określa, które oświadczenia są obecne w tokenach, których dotyczą zasady, oprócz podstawowego zestawu oświadczeń i podstawowego zestawu oświadczeń.
-Niektóre informacje są wymagane dla każdego wpisu schematu roszczeń zdefiniowanego w tej właściwości. Określ miejsce, z którego pochodzą dane (para**wartości**, **źródła/identyfikatora**lub **para Source/ExtensionID**), a które są emitowane jako (**Typ zgłoszenia**).
+Niektóre informacje są wymagane dla każdego wpisu schematu roszczeń zdefiniowanego w tej właściwości. Określ miejsce, z którego pochodzą dane (para **wartości**, **źródła/identyfikatora** lub **para Source/ExtensionID**), a które są emitowane jako (**Typ zgłoszenia**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementy wpisów schematu roszczeń
 
@@ -439,8 +441,7 @@ Zasady mapowania oświadczeń można przypisywać tylko do obiektów głównych 
 
 W usłudze Azure AD wiele scenariuszy jest możliwe, gdy można dostosować oświadczenia emitowane w tokenach dla określonych podmiotów usługi. W tej sekcji omówiono kilka typowych scenariuszy, które mogą pomóc w opanujesz, jak używać typu zasad mapowania oświadczeń.
 
-> [!NOTE]
-> Podczas tworzenia zasad mapowania oświadczeń można także wyemitować oświadczenie z atrybutu rozszerzenia schematu katalogu w tokenach. Użyj *ExtensionID* dla atrybutu rozszerzenia zamiast *identyfikatora* w `ClaimsSchema` elemencie.  Aby uzyskać więcej informacji na temat atrybutów rozszerzeń, zobacz [Używanie atrybutów rozszerzenia schematu katalogu](active-directory-schema-extensions.md).
+Podczas tworzenia zasad mapowania oświadczeń można także wyemitować oświadczenie z atrybutu rozszerzenia schematu katalogu w tokenach. Użyj *ExtensionID* dla atrybutu rozszerzenia zamiast *identyfikatora* w `ClaimsSchema` elemencie.  Aby uzyskać więcej informacji na temat atrybutów rozszerzeń, zobacz [Używanie atrybutów rozszerzenia schematu katalogu](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -531,7 +532,7 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)
 - Aby dowiedzieć się więcej na temat atrybutów rozszerzenia, zobacz [Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach](active-directory-schema-extensions.md).

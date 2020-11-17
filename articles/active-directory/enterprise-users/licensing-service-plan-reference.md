@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/27/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7b74fe368e10a0cd6ee63196d4330c456d56ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: db07f18b97936389d9b2360f7d4476c67d9f284a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377489"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646903"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nazwy produktów i identyfikatory planów usług na potrzeby licencjonowania
 

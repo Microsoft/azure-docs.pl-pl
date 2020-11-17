@@ -110,14 +110,24 @@
       href: disaster-recovery.md
 - name: Pojęcia
   items:
-    - name: Uwierzytelnianie
+    - name: Authentication
       href: authentication.md
-    - name: Lista bezpiecznych adresów URL
-      href: safe-url-list.md
     - name: Środowisko usługi Windows Virtual Desktop
       href: environment-setup.md
-    - name: Określanie opóźnienia połączenia użytkownika
-      href: connection-latency.md
+    - name: Łączność sieciowa
+      items:
+        - name: Opis łączności sieciowej
+          href: network-connectivity.md
+        - name: Krótka ścieżka protokołu RDP
+          href: shortpath.md
+        - name: 'Implementowanie jakości usług (QoS, Quality of Service)'
+          href: rdp-quality-of-service-qos.md
+        - name: Lista bezpiecznych adresów URL
+          href: safe-url-list.md
+        - name: Zagadnienia dotyczące przepustowości
+          href: rdp-bandwidth.md
+        - name: Określanie opóźnienia połączenia użytkownika
+          href: connection-latency.md
     - name: Dostęp delegowany w usłudze Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Metody równoważenia obciążenia puli hostów
@@ -168,8 +178,6 @@
       href: linux-overview.md
     - name: Obsługiwane ustawienia pliku RDP
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: Wskazówki dotyczące sieci
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: Wskazówki dotyczące określania rozmiarów maszyn wirtualnych
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interfejs wiersza polecenia platformy Azure

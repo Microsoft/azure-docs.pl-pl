@@ -7,25 +7,25 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: tutorial
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf911a240456871275abbd7f1e7313a1d2289b98
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ba6ba2bccf45f7f18e26fb073a2b992167a5c9be
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379064"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647328"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Samouczek: automatyczne dodawanie lub usuwanie członków grupy
 
 W Azure Active Directory (Azure AD) można automatycznie dodawać lub usuwać użytkowników do grup zabezpieczeń lub grup Microsoft 365, dzięki czemu nie zawsze trzeba wykonać to ręcznie. Zawsze, gdy wszystkie właściwości użytkownika lub urządzenia są zmieniane, usługa Azure AD szacuje wszystkie dynamiczne reguły grupy w organizacji usługi Azure AD, aby sprawdzić, czy zmiana powinna dodawać lub usuwać członków.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Utwórz automatycznie wypełnioną grupę użytkowników-Gości z firmy partnerskiej
 > * Przypisywanie licencji do grupy w celu umożliwienia użytkownikom-gościom uzyskanie dostępu do funkcji specyficznych dla partnera
@@ -89,10 +89,10 @@ Możliwe, że Twoim ostatecznym celem jako administratora jest przypisanie wszys
 **Aby usunąć grupę użytkowników-gości**
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym w Twojej organizacji.
-2. Wybierz **Azure Active Directory**  >  **grupy**Azure Active Directory. Wybierz grupę **Guest users Contoso**, wybierz symbol wielokropka (...), a następnie wybierz polecenie **Usuń**. Podczas usuwania grupy zostaną usunięte wszystkie przypisane licencje.
+2. Wybierz **Azure Active Directory**  >  **grupy** Azure Active Directory. Wybierz grupę **Guest users Contoso**, wybierz symbol wielokropka (...), a następnie wybierz polecenie **Usuń**. Podczas usuwania grupy zostaną usunięte wszystkie przypisane licencje.
 
 **Aby przywrócić grupę Wszyscy użytkownicy**
-1. Wybierz **Azure Active Directory**  >  **grupy**Azure Active Directory. Wybierz nazwę grupy **Wszyscy użytkownicy**, aby otworzyć grupę.
+1. Wybierz **Azure Active Directory**  >  **grupy** Azure Active Directory. Wybierz nazwę grupy **Wszyscy użytkownicy**, aby otworzyć grupę.
 1. Wybierz pozycję **Reguły członkostwa dynamicznego**, wyczyść tekst w regule, a następnie wybierz polecenie **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki

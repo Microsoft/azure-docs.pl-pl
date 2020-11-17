@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b8ed75a87d1ac638e5ca55058a3d1ad7fcdffa
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eaf033f7da7a5bd4882d0c78a2321640aa64d8ac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135351"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646563"
 ---
 # <a name="what-is-hr-driven-provisioning"></a>Co to jest obsługa administracyjna oparta na HR?
 
@@ -44,6 +44,5 @@ Informacje na temat Microsoft Identity Manager i obsługiwanych przez nią syste
 ## <a name="next-steps"></a>Następne kroki 
 - [Co to jest zarządzanie cyklem życia tożsamości](what-is-identity-lifecycle-management.md)
 - [Co to jest aprowizacja?](what-is-provisioning.md)
-- [Co to jest inicjowanie obsługi aplikacji?](what-is-app-provisioning.md)
-- [Co to jest inicjowanie obsługi administracyjnej między katalogami?](what-is-inter-directory-provisioning.md)
-- [Co to jest inicjowanie obsługi katalogów?](what-is-inter-directory-provisioning.md)
+- [Co to jest aprowizacja aplikacji?](what-is-app-provisioning.md)
+- [Co to jest aprowizacja między katalogami?](what-is-inter-directory-provisioning.md)

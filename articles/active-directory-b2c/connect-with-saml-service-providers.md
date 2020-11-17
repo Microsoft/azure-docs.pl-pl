@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575972"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647668"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -100,8 +100,8 @@ Następnie Przekaż potwierdzenie SAML i certyfikat podpisywania odpowiedzi do A
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do dzierżawy Azure AD B2C.
 1. W obszarze **zasady** wybierz opcję **Struktura środowiska tożsamości** , a następnie pozycję **klucze zasad**.
-1. Wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Opcje**  >  **Przekaż**.
-1. Wprowadź **nazwę** , na przykład *SamlIdpCert*. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
+1. Wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Opcje**  >  **Przekaż**.
+1. Wprowadź **nazwę**, na przykład *SamlIdpCert*. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
 1. Przekaż certyfikat przy użyciu kontrolki przekazywania pliku.
 1. Wprowadź hasło certyfikatu.
 1. Wybierz pozycję **Utwórz**.
@@ -131,7 +131,7 @@ Można zmienić wartość `IssuerUri` metadanych. Jest to identyfikator URI wyst
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
-        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>-->
+        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml</Item>-->
       </Metadata>
       <CryptographicKeys>
         <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -260,7 +260,7 @@ Końcowy plik zasad jednostki uzależnionej powinien wyglądać podobnie do nast
 
 Zapisz zmiany i przekaż nowy plik zasad. Po przekazaniu obu zasad (rozszerzenia i plików jednostek uzależnionych) Otwórz przeglądarkę internetową i przejdź do metadanych zasad.
 
-Metadane dostawcy tożsamości zasad Azure AD B2C są informacje używane w protokole SAML do ujawnienia konfiguracji dostawcy tożsamości SAML. Metadane określają lokalizację usług, takich jak logowanie i wylogowywanie, certyfikaty, metoda logowania itd. Metadane zasad Azure AD B2C są dostępne pod następującym adresem URL. Zamień `tenant-name` na nazwę dzierżawy Azure AD B2C i `policy-name` nazwę (identyfikator) zasad na przykład,.../B2C_1A_SAML2_signup_signin/SAMLP/Metadata:
+Metadane dostawcy tożsamości zasad Azure AD B2C są informacje używane w protokole SAML do ujawnienia konfiguracji dostawcy tożsamości SAML. Metadane określają lokalizację usług, takich jak logowanie i wylogowywanie, certyfikaty, metoda logowania itd. Metadane zasad Azure AD B2C są dostępne pod następującym adresem URL. Zamień `tenant-name` na nazwę dzierżawy Azure AD B2C i `policy-name` nazwę (identyfikator) zasad na przykład,.../B2C_1A_signup_signin_saml/SAMLP/Metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -273,10 +273,10 @@ Twoje zasady niestandardowe i dzierżawa Azure AD B2C są teraz gotowe. Następn
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji** , a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *SAMLApp1*.
 1. W obszarze **obsługiwane typy kont** wybierz opcję **konta tylko w tym katalogu organizacji**
-1. W obszarze **Identyfikator URI przekierowania** wybierz pozycję **Sieć Web** , a następnie wprowadź `https://localhost` . Tę wartość należy zmodyfikować później w manifeście rejestracji aplikacji.
+1. W obszarze **Identyfikator URI przekierowania** wybierz pozycję **Sieć Web**, a następnie wprowadź `https://localhost` . Tę wartość należy zmodyfikować później w manifeście rejestracji aplikacji.
 1. Wybierz pozycję **Zarejestruj**.
 
 ### <a name="42-update-the-app-manifest"></a>4,2. Zaktualizuj manifest aplikacji
@@ -339,10 +339,10 @@ Metadane można skonfigurować w ramach dostawcy usług jako "metadane statyczne
 
 Niektóre lub wszystkie następujące elementy są zwykle wymagane:
 
-* **Metadane** : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Wystawca** : wartość żądania SAML `issuer` musi być zgodna z jednym z identyfikatorów URI skonfigurowanych w `identifierUris` elemencie manifestu rejestracji aplikacji. Jeśli nazwa żądania SAML `issuer` nie istnieje w `identifierUris` elemencie, [Dodaj ją do manifestu rejestracji aplikacji](#identifieruris). Na przykład `https://contoso.onmicrosoft.com/app-name`. 
-* **Adres URL logowania/punkt końcowy SAML/adres URL SAML** : Sprawdź wartość w Azure AD B2C pliku metadanych zasad SAML dla `<SingleSignOnService>` elementu XML
-* **Certyfikat** : jest to *B2C_1A_SamlIdpCert* , ale bez klucza prywatnego. Aby uzyskać klucz publiczny certyfikatu:
+* **Metadane**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **Wystawca**: wartość żądania SAML `issuer` musi być zgodna z jednym z identyfikatorów URI skonfigurowanych w `identifierUris` elemencie manifestu rejestracji aplikacji. Jeśli nazwa żądania SAML `issuer` nie istnieje w `identifierUris` elemencie, [Dodaj ją do manifestu rejestracji aplikacji](#identifieruris). Na przykład `https://contoso.onmicrosoft.com/app-name`. 
+* **Adres URL logowania/punkt końcowy SAML/adres URL SAML**: Sprawdź wartość w Azure AD B2C pliku metadanych zasad SAML dla `<SingleSignOnService>` elementu XML
+* **Certyfikat**: jest to *B2C_1A_SamlIdpCert*, ale bez klucza prywatnego. Aby uzyskać klucz publiczny certyfikatu:
 
     1. Przejdź do adresu URL metadanych określonego powyżej.
     1. Skopiuj wartość z `<X509Certificate>` elementu.
@@ -428,7 +428,7 @@ Oferujemy kompletne przykładowe zasady, których można użyć do testowania z 
 
 1. Pobieranie [przykładowych zasad logowania zainicjowanych przez protokół SAML-Sp](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. Zaktualizuj `TenantId` , aby dopasować nazwę dzierżawy, na przykład *contoso.b2clogin.com*
-1. Zachowaj nazwę zasad *B2C_1A_SAML2_signup_signin*
+1. Zachowaj nazwę zasad *B2C_1A_signup_signin_saml*
 
 ## <a name="supported-and-unsupported-saml-modalities"></a>Obsługiwane i nieobsługiwane procedury SAML
 

@@ -5,14 +5,14 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: duau
-ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55eefe7a7490df050aa7ebc2bb41fbadcc8d8279
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819078"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646342"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Dołączanie domeny głównej lub domeny wierzchołkowej do usługi Front Door
 Drzwi frontonu platformy Azure używają rekordów CNAME do weryfikowania własności domeny do dołączania domen niestandardowych. Drzwi z przodu nie ujawniają adresu IP frontonu skojarzonego z Twoim profilem drzwi. W związku z tym nie można zmapować domeny Apex na adres IP, jeśli zamierzasz dołączyć ją do usługi Azure front-drzwi.
@@ -40,9 +40,9 @@ Możesz użyć Azure Portal do dołączenia domeny wierzchołka na swoich drzwia
 
 1. Wybierz pozycję **OK** , aby przesłać zmiany.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-apex-alias-record.png" alt-text="Rekord aliasu dla wierzchołka strefy&quot;:::
+    :::image type="content" source="./media/front-door-apex-domain/front-door-apex-alias-record.png" alt-text="Rekord aliasu dla wierzchołka strefy":::
 
-1. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem przednim, a także mapowania rekordu CNAME &quot;afdverify" (przykład- `afdverify.contosonews.com` ) do tego, aby można było używać go do dołączania do domeny w profilu przednim drzwi.
+1. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem przednim, a także mapowania rekordu CNAME "afdverify" (przykład- `afdverify.contosonews.com` ) do tego, aby można było używać go do dołączania do domeny w profilu przednim drzwi.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Dołącz domenę niestandardową do swoich drzwi
 
@@ -54,19 +54,15 @@ Możesz użyć Azure Portal do dołączenia domeny wierzchołka na swoich drzwia
 
 1. Wybierz pozycję **Zapisz** , aby przesłać zmiany.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Rekord aliasu dla wierzchołka strefy&quot;:::
-
-1. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem przednim, a także mapowania rekordu CNAME &quot;afdverify":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Menu domen niestandardowych":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Włączanie protokołu HTTPS w domenie niestandardowej
 
-1. Wybierz domenę niestandardową, która została dodana, i poniżej sekcji adres **https domeny niestandardowej**Zmień stan na **włączone**.
+1. Wybierz domenę niestandardową, która została dodana, i poniżej sekcji adres **https domeny niestandardowej** Zmień stan na **włączone**.
 
 1. Wybierz  **Typ zarządzania certyfikatami** , aby *użyć swojego certyfikatu*.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Rekord aliasu dla wierzchołka strefy&quot;:::
-
-1. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem przednim, a także mapowania rekordu CNAME &quot;afdverify":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Ustawienia protokołu HTTPS dla domeny niestandardowej":::    
 
    > [!WARNING]
    > Typ zarządzania certyfikatami z przodu nie jest obecnie obsługiwany dla wierzchołków lub domen głównych. Jedyną opcją dostępną w przypadku włączania protokołu HTTPS na wierzchołku lub domenie głównej dla drzwi zewnętrznych jest użycie własnego niestandardowego certyfikatu TLS/SSL hostowanego na Azure Key Vault.

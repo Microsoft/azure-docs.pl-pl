@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376557"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647039"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji dla grupy w Azure Active Directory
 
@@ -58,7 +58,7 @@ Poniższe sekcje zawierają opis każdego potencjalnego problemu i sposobu jego 
 
 Aby sprawdzić, ile licencji jest dostępnych, przejdź do pozycji **Azure Active Directory**  >  **licencje**  >  **wszystkie produkty**.
 
-Aby sprawdzić, którzy użytkownicy i które grupy korzystają z licencji, wybierz produkt. W obszarze **Licencjonowani użytkownicy**zobaczysz listę wszystkich użytkowników, którzy mają przypisane licencje bezpośrednio lub za pośrednictwem co najmniej jednej grupy. W obszarze **grupy licencjonowane**zostaną wyświetlone wszystkie grupy, które mają przypisane te produkty.
+Aby sprawdzić, którzy użytkownicy i które grupy korzystają z licencji, wybierz produkt. W obszarze **Licencjonowani użytkownicy** zobaczysz listę wszystkich użytkowników, którzy mają przypisane licencje bezpośrednio lub za pośrednictwem co najmniej jednej grupy. W obszarze **grupy licencjonowane** zostaną wyświetlone wszystkie grupy, które mają przypisane te produkty.
 
 Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten błąd jako _CountViolation_.
 
@@ -87,7 +87,7 @@ Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten bł
 
 ## <a name="usage-location-isnt-allowed"></a>Lokalizacja użycia nie jest dozwolona
 
-**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i przepisy. Aby można było przypisać licencję do użytkownika, należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w **User**  >  **Profile**  >  sekcji**Edycja** profilu użytkownika w Azure Portal.
+**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i przepisy. Aby można było przypisać licencję do użytkownika, należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w **User**  >  **Profile**  >  sekcji **Edycja** profilu użytkownika w Azure Portal.
 
 Gdy usługa Azure AD podejmie próbę przypisania licencji grupy do użytkownika, którego lokalizacja użycia nie jest obsługiwana, kończy się niepowodzeniem i rejestruje błąd użytkownika.
 

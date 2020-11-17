@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0bbd11577f903d70ecace2cb5859a8c2121f483b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489611"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647396"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Zmień statyczną składową grupy na dynamiczną Azure Active Directory
 
@@ -40,11 +40,11 @@ Członkostwo w grupie można zmienić z statycznej na dynamiczną (lub odwrotnie
 
 Poniżej przedstawiono przykład zmiany grupy z statycznej na członkostwo dynamiczne dla grupy użytkowników.
 
-1. Na stronie **Właściwości** wybranej grupy wybierz **Typ członkostwa** **użytkownika dynamicznego** , a następnie wybierz pozycję tak w oknie dialogowym wyjaśniającym zmiany członkostwa w grupie, aby kontynuować. 
+1. Na stronie **Właściwości** wybranej grupy wybierz **Typ członkostwa** **użytkownika dynamicznego**, a następnie wybierz pozycję tak w oknie dialogowym wyjaśniającym zmiany członkostwa w grupie, aby kontynuować. 
   
    ![Wybierz typ członkostwa użytkownika dynamicznego](./media/groups-change-type/select-group-to-convert.png)
   
-2. Wybierz pozycję **Dodaj zapytanie dynamiczne** , a następnie podaj regułę.
+2. Wybierz pozycję **Dodaj zapytanie dynamiczne**, a następnie podaj regułę.
   
    ![Wprowadź regułę dla grupy dynamicznej](./media/groups-change-type/enter-rule.png)
   

@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921405"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647617"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Zarządzanie kontami użytkowników Azure AD B2C przy użyciu Microsoft Graph
 
@@ -60,7 +60,7 @@ Użytkownik z kontem klienta może zalogować się przy użyciu wielu tożsamoś
 
 W interfejsie API Microsoft Graph zarówno tożsamość lokalna, jak i federacyjna są przechowywane w `identities` atrybucie użytkownika, który jest typu [objectIdentity][graph-objectIdentity]. `identities`Kolekcja reprezentuje zestaw tożsamości używany do logowania się do konta użytkownika. Ta kolekcja umożliwia użytkownikowi zalogowanie się do konta użytkownika przy użyciu dowolnej skojarzonej tożsamości.
 
-| Właściwość   | Type |Opis|
+| Właściwość   | Typ |Opis|
 |:---------------|:--------|:----------|
 |signInType|ciąg| Określa typy logowania użytkownika w katalogu. Dla konta lokalnego:  `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3`  `userName` lub dowolnego innego typu. Konto społecznościowe musi być ustawione na wartość  `federated` .|
 |issuer|ciąg|Określa wystawcę tożsamości. W przypadku kont lokalnych ( **signInType** gdzie nie signInType `federated` ) ta właściwość jest domyślną nazwą domeny dzierżawy lokalnej usługi B2C, na przykład `contoso.onmicrosoft.com` . W przypadku tożsamości społecznościowej (gdzie **signInType** is  `federated` ) wartością jest nazwa wystawcy, na przykład `facebook.com`|
@@ -145,7 +145,7 @@ Po uzyskaniu przykładowego kodu skonfiguruj go dla środowiska, a następnie Sk
 1. Uruchom aplikację za pomocą `dotnet` polecenia:
 
     ```console
-    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
 Aplikacja wyświetla listę poleceń, które można wykonać. Na przykład Pobierz wszystkich użytkowników, uzyskaj jednego użytkownika, Usuń użytkownika, zaktualizuj hasło użytkownika i Importuj zbiorczo.

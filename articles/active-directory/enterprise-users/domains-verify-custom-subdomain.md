@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b85bc6485c4ea21cbdc224a6978db40d8dcdf105
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 330a34f38aaa73fca8290d1638219fa8f517e1cb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93402215"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647379"
 ---
 # <a name="change-subdomain-authentication-type-in-azure-active-directory"></a>Zmień typ uwierzytelniania poddomen w Azure Active Directory
 

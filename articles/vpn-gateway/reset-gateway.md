@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: e39884f6d62fc43943f892aed0dac650a01d6c40
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd25c7638bd7e178cdb963ba528cccefde6b9eca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462968"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646512"
 ---
 # <a name="reset-a-vpn-gateway"></a>Resetowanie bramy VPN Gateway
 
@@ -28,7 +28,7 @@ Jeśli połączenie nie zostanie przywrócone po pierwszym ponownym rozruchu kom
 
 Jeśli po dwóch ponownych uruchomieniach nadal występują problemy z łącznością między różnymi lokalizacjami, Otwórz żądanie pomocy technicznej z Azure Portal.
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 Przed zresetowaniem bramy dla każdego tunelu połączenia sieci VPN typu lokacja-lokacja (site-to site, S2S) korzystającego z protokołu IPsec należy sprawdzić kluczowe elementy wymienione poniżej. Brak zgodności którychkolwiek elementów spowoduje przerwanie połączenia tuneli sieci VPN S2S. Weryfikowanie i poprawianie konfiguracji usług lokalnych i bram sieci VPN platformy Azure powoduje zaoszczędzenie niepotrzebnych ponownych uruchomień i zakłóceń dla innych połączeń roboczych na bramach.
 
@@ -46,13 +46,13 @@ Bramę sieci VPN Menedżer zasobów można zresetować przy użyciu Azure Portal
 
 [!INCLUDE [portal steps](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-## <a name="powershell"></a><a name="ps"></a>Program PowerShell
+## <a name="powershell"></a><a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Model wdrażania usługi Resource Manager
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Polecenie cmdlet służące do **resetowania bramy jest resetowane-AzVirtualNetworkGateway**. Przed przeprowadzeniem resetowania upewnij się, że masz najnowszą wersję programu [PowerShell AZ cmdlets](https://docs.microsoft.com/powershell/module/az.network). Poniższy przykład resetuje bramę sieci wirtualnej o nazwie VNet1GW w grupie zasobów TestRG1:
+Polecenie cmdlet służące do **resetowania bramy jest resetowane-AzVirtualNetworkGateway**. Przed przeprowadzeniem resetowania upewnij się, że masz najnowszą wersję programu [PowerShell AZ cmdlets](/powershell/module/az.network). Poniższy przykład resetuje bramę sieci wirtualnej o nazwie VNet1GW w grupie zasobów TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -65,7 +65,7 @@ Po otrzymaniu zwracanego wyniku możesz założyć, że Resetowanie bramy zakoń
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Klasyczny model wdrażania
 
-Polecenie cmdlet służące do **resetowania bramy jest resetowane-azurevnetgateway nastąpi**. Polecenia cmdlet Azure PowerShell do zarządzania usługami muszą być zainstalowane lokalnie na pulpicie. Nie można użyć Azure Cloud Shell. Przed przeprowadzeniem resetowania upewnij się, że masz najnowszą wersję [poleceń cmdlet programu PowerShell do zarządzania usługami (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Korzystając z tego polecenia, upewnij się, że używasz pełnej nazwy sieci wirtualnej. Klasyczne sieci wirtualnych, które zostały utworzone przy użyciu portalu, mają długą nazwę, która jest wymagana dla programu PowerShell. Możesz wyświetlić długą nazwę za pomocą polecenia "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
+Polecenie cmdlet służące do **resetowania bramy jest resetowane-azurevnetgateway nastąpi**. Polecenia cmdlet Azure PowerShell do zarządzania usługami muszą być zainstalowane lokalnie na pulpicie. Nie można użyć Azure Cloud Shell. Przed przeprowadzeniem resetowania upewnij się, że masz najnowszą wersję [poleceń cmdlet programu PowerShell do zarządzania usługami (SM)](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Korzystając z tego polecenia, upewnij się, że używasz pełnej nazwy sieci wirtualnej. Klasyczne sieci wirtualnych, które zostały utworzone przy użyciu portalu, mają długą nazwę, która jest wymagana dla programu PowerShell. Możesz wyświetlić długą nazwę za pomocą polecenia "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
 
 Poniższy przykład resetuje bramę dla sieci wirtualnej o nazwie "Group TestRG1 sieci testvnet1" (która jest wyświetlana jako "sieci testvnet1" w portalu):
 
@@ -86,7 +86,7 @@ StatusCode     : OK
 
 ## <a name="azure-cli"></a><a name="cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby zresetować bramę, użyj polecenia [AZ Network VNET-Gateway Reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway) . Poniższy przykład resetuje bramę sieci wirtualnej o nazwie VNet5GW w grupie zasobów TestRG5:
+Aby zresetować bramę, użyj polecenia [AZ Network VNET-Gateway Reset](/cli/azure/network/vnet-gateway) . Poniższy przykład resetuje bramę sieci wirtualnej o nazwie VNet5GW w grupie zasobów TestRG5:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5
