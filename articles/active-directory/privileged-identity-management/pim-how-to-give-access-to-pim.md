@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009566"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835207"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegowanie dostępu do Privileged Identity Management
 
 Aby delegować dostęp do Privileged Identity Management (PIM), Administrator globalny może przypisywać innych użytkowników do roli administrator ról uprzywilejowanych. Domyślnie administratorzy zabezpieczeń i czytelnicy zabezpieczeń mają dostęp tylko do odczytu do Privileged Identity Management. Aby udzielić dostępu do Privileged Identity Management, pierwszy użytkownik może przypisać inne osoby do roli **administrator ról uprzywilejowanych** . Rola Administrator ról uprzywilejowanych jest wymagana do zarządzania tylko rolami usługi Azure AD. Uprawnienia administratora roli uprzywilejowanej nie są wymagane do zarządzania ustawieniami zasobów platformy Azure.
 
 > [!NOTE]
-> Zarządzanie Privileged Identity Management wymaga platformy Azure Multi-Factor Authentication. Ponieważ konta Microsoft nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication, użytkownik, który zaloguje się za pomocą konto Microsoft, nie może uzyskać dostępu do Privileged Identity Management.
+> Zarządzanie Privileged Identity Management wymaga Multi-Factor Authentication usługi Azure AD. Ponieważ konta Microsoft nie mogą zarejestrować się w usłudze Azure AD Multi-Factor Authentication, użytkownik, który zaloguje się za pomocą konto Microsoft, nie może uzyskać dostępu do Privileged Identity Management.
 
 Upewnij się, że w roli administratora roli uprzywilejowanej są zawsze co najmniej dwóch użytkowników, na wypadek gdy jeden użytkownik jest zablokowany lub jego konto zostanie usunięte.
 

@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369832"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835377"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Przypisywanie ról usługi Azure AD w Privileged Identity Management
 
@@ -137,7 +137,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
     ![Wybierz użytkownika lub grupę do przypisania](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. W obszarze **Dodaj zarządzane elementy członkowskie**wybierz **przycisk OK** , aby dodać użytkownika do roli.
+1. W obszarze **Dodaj zarządzane elementy członkowskie** wybierz **przycisk OK** , aby dodać użytkownika do roli.
 
 1. Na liście ról wybierz właśnie przypisaną rolę, aby wyświetlić listę członków.
 
@@ -147,7 +147,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 1. Teraz, gdy użytkownik kwalifikuje się do roli, daj im znać, że mogą go aktywować zgodnie z instrukcjami w temacie [Aktywowanie ról usługi Azure AD w Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Uprawnieni Administratorzy są proszeni o zarejestrowanie się w usłudze Azure Multi-Factor Authentication podczas aktywacji. Jeśli użytkownik nie może zarejestrować się na potrzeby uwierzytelniania wieloskładnikowego lub używa konto Microsoft (na przykład @outlook.com ), musisz trwale wprowadzić wszystkie swoje role.
+    Uprawnieni Administratorzy są proszeni o zarejestrowanie się w usłudze Azure AD Multi-Factor Authentication podczas aktywacji. Jeśli użytkownik nie może zarejestrować się na potrzeby uwierzytelniania wieloskładnikowego lub używa konto Microsoft (na przykład @outlook.com ), musisz trwale wprowadzić wszystkie swoje role.
 
 ## <a name="make-a-role-assignment-permanent"></a>Tworzenie trwałego przypisania roli
 

@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c3cd91fb2a878567dc4b09fbddfcf448ec95edd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368540"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835394"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Skonfiguruj ustawienia grupy uprzywilejowanego dostępu (wersja zapoznawcza) w Privileged Identity Management
 
@@ -92,7 +92,7 @@ Można też wybrać jedną z następujących opcji **aktywnego** przydziału cza
 
 ## <a name="require-multi-factor-authentication"></a>Wymagaj uwierzytelniania wieloskładnikowego
 
-Privileged Identity Management zapewnia opcjonalne wymuszanie Multi-Factor Authentication platformy Azure dla dwóch różnych scenariuszy.
+Privileged Identity Management zapewnia opcjonalne Wymuszanie usługi Azure AD Multi-Factor Authentication dla dwóch różnych scenariuszy.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Wymagaj Multi-Factor Authentication przy aktywnym przypisaniu
 
@@ -102,7 +102,7 @@ Aby upewnić się, że administrator zasobów spełniający przypisanie, należy
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Wymagaj Multi-Factor Authentication podczas aktywacji
 
-Możesz wymagać od użytkowników, którzy kwalifikują się do roli, aby udowodnić, którzy korzystają z usługi Azure Multi-Factor Authentication, zanim będą mogli ją aktywować. Uwierzytelnianie wieloskładnikowe gwarantuje, że użytkownik jest odpowiedzialny za to, że są one z rozsądną pewnością. Wymuszanie tej opcji chroni zasoby o znaczeniu krytycznym w sytuacjach, gdy naruszone konto użytkownika mogło ulec naruszeniu.
+Możesz wymagać od użytkowników, którzy kwalifikują się do roli, aby udowodnić, kto używa usługi Azure AD Multi-Factor Authentication, zanim będzie można aktywować. Uwierzytelnianie wieloskładnikowe gwarantuje, że użytkownik jest odpowiedzialny za to, że są one z rozsądną pewnością. Wymuszanie tej opcji chroni zasoby o znaczeniu krytycznym w sytuacjach, gdy naruszone konto użytkownika mogło ulec naruszeniu.
 
 Aby wymagać uwierzytelniania wieloskładnikowego przed aktywacją, zaznacz pole **wymagaj Multi-Factor Authentication przy aktywacji** .
 

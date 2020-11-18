@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961894"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833813"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów z aplikacjami węzłów w systemie Azure App Service Windows
 
@@ -121,13 +121,13 @@ Przeczytaj [node.js aplikacje debugowania w systemie Windows](https://tomasz.jan
 
 Wiele aplikacji chce nawiązać połączenia wychodzące w ramach zwykłych operacji. Na przykład w przypadku zgłoszenia żądania w aplikacji węzła warto skontaktować się z interfejsem API REST w innym miejscu i uzyskać informacje dotyczące przetwarzania żądania. Podczas wykonywania wywołań http lub https warto używać agenta Keep Alive. Podczas wykonywania tych wywołań wychodzących można użyć modułu agentkeepalive jako agenta Keep Alive.
 
-Moduł agentkeepalive gwarantuje, że gniazda są ponownie używane na maszynie wirtualnej usługi Azure WEBAPP. Utworzenie nowego gniazda dla każdego żądania wychodzącego powoduje dodanie narzutu do aplikacji. Gdy aplikacja ponownie używa gniazd do żądań wychodzących, zapewnia, że aplikacja nie przekroczy maxSockets przyznanych na maszynę wirtualną. Zalecenie dotyczące Azure App Service polega na ustawieniu wartości maxSockets agentKeepAlive na łącznie (4 wystąpienia node.exe \* 40 maxSockets/Instance) 160 gniazd na maszynę wirtualną.
+Moduł agentkeepalive gwarantuje, że gniazda są ponownie używane na maszynie wirtualnej usługi Azure WEBAPP. Utworzenie nowego gniazda dla każdego żądania wychodzącego powoduje dodanie narzutu do aplikacji. Gdy aplikacja ponownie używa gniazd do żądań wychodzących, zapewnia, że aplikacja nie przekroczy maxSockets przyznanych na maszynę wirtualną. Zalecenie dotyczące Azure App Service polega na ustawieniu wartości maxSockets agentKeepAlive na łącznie (4 wystąpienia node.exe \* 32 maxSockets/Instance) 128 gniazd na maszynę wirtualną.
 
 Przykładowa konfiguracja [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) :
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000

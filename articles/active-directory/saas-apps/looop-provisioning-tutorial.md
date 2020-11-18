@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356828"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835071"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Looop na potrzeby automatycznego aprowizacji użytkowników
 
@@ -73,7 +73,7 @@ Aby skonfigurować Looop automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -81,11 +81,11 @@ Aby skonfigurować Looop automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Looop** , a następnie wybierz pozycję **Looop** w panelu wyniki. 
+4. W polu wyszukiwania wpisz **Looop**, a następnie wybierz pozycję **Looop** w panelu wyniki. 
 
     ![Looop na liście wyników](common/search-new-app.png)
 
-5. Wybierz przycisk **Utwórz konto w usłudze Looop** , który przekieruje Cię do strony logowania usługi Looop. 
+5. Wybierz przycisk **Utwórz konto dla Looop** , który przekieruje Cię do strony logowania usługi Looop. 
 
     ![Looop OIDC Dodaj](media/looop-provisioning-tutorial/signup.png)
 
@@ -103,7 +103,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-looop-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Looop w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -119,7 +119,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź `https://<organisation_domain>.looop.co/scim/v2` **adres URL dzierżawy**. Na przykład: `https://demo.looop.co/scim/v2`. Wprowadź wartość, która została pobrana i zapisana wcześniej z Looop w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą Looop. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Looop ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź `https://<organisation_domain>.looop.co/scim/v2` **adres URL dzierżawy**. Na przykład `https://demo.looop.co/scim/v2`. Wprowadź wartość, która została pobrana i zapisana wcześniej z Looop w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą Looop. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Looop ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -135,7 +135,23 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do Looop w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Looop for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Looop atrybuty użytkownika](media/looop-provisioning-tutorial/userattributes.png)
+   |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+   |---|---|---|
+   |userName|Ciąg|&check;|
+   |aktywne|Wartość logiczna|
+   |emails[type eq "work"].value|Ciąg|
+   |name.givenName|Ciąg|
+   |name.familyName|Ciąg|
+   |externalId|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: użytkownik: obszar|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_1|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_2|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: custom_3|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: employee_id|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Location|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: Position|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: Looop: 2.0: User: startAt|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do łącznika meta Networks**.
 
@@ -143,7 +159,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do łącznika meta Networks w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w łączniku meta Networks dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty grupy Looop](media/looop-provisioning-tutorial/groupattributes.png)
+    |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+    |---|---|---|
+    |displayName|Ciąg|&check;|
+    |elementy członkowskie|Tematy pomocy|
+    |externalId|Ciąg|
+
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

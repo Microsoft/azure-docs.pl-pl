@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378758"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834442"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD
 
@@ -33,7 +33,7 @@ Ten artykuł zawiera wskazówki dotyczące zarządzania kontami dostępu awaryjn
 Organizacja może potrzebować używania konta dostępu awaryjnego w następujących sytuacjach:
 
 - Konta użytkowników są federacyjne, a Federacja jest obecnie niedostępna z powodu przerwy w działaniu sieci lub dostawcy tożsamości. Na przykład jeśli Host dostawcy tożsamości w Twoim środowisku został wyłączony, użytkownicy mogą nie być w stanie zalogować się, gdy usługa Azure AD przekieruje do swojego dostawcy tożsamości.
-- Administratorzy są rejestrowani za pomocą usługi Azure Multi-Factor Authentication i wszystkie ich poszczególne urządzenia są niedostępne lub usługa jest niedostępna. Aby aktywować rolę, użytkownicy mogą nie być w stanie wykonać Multi-Factor Authentication. Na przykład awaria sieci w komórce uniemożliwia im odpowiadanie na rozmowy telefoniczne lub odbieranie wiadomości tekstowych, ale tylko dwa mechanizmy uwierzytelniania zarejestrowane na urządzeniu.
+- Administratorzy są rejestrowani za pomocą usługi Azure AD Multi-Factor Authentication i wszystkie ich poszczególne urządzenia są niedostępne lub usługa jest niedostępna. Aby aktywować rolę, użytkownicy mogą nie być w stanie wykonać Multi-Factor Authentication. Na przykład awaria sieci w komórce uniemożliwia im odpowiadanie na rozmowy telefoniczne lub odbieranie wiadomości tekstowych, ale tylko dwa mechanizmy uwierzytelniania zarejestrowane na urządzeniu.
 - Osoba z najnowszym dostępem administratora globalnego opuściła organizację. Usługa Azure AD zapobiega usuwaniu ostatniego konta administratora globalnego, ale nie zapobiega usuwaniu ani wyłączaniu konta w środowisku lokalnym. W każdej sytuacji organizacja nie może odzyskać konta.
 - Nieprzewidziane okoliczności, takie jak klęski żywiołowej katastrofy, podczas których może być niedostępny telefon komórkowy lub inne sieci. 
 
@@ -44,7 +44,7 @@ Utwórz dwa lub więcej kont dostępu awaryjnego. Konta te powinny być kontami 
 Podczas konfigurowania tych kont muszą zostać spełnione następujące wymagania:
 
 - Konta dostępu awaryjnego nie powinny być skojarzone z żadnym użytkownikiem w organizacji. Upewnij się, że Twoje konta nie są połączone z telefonami przenośnymi dostarczonymi przez pracownika, tokenami sprzętowymi, które podróżują z poszczególnymi pracownikami lub innymi poświadczeniami specyficznymi dla pracownika. To zabezpieczenie obejmuje sytuacje, w których pojedynczy pracownik jest nieosiągalny, gdy jest wymagana poświadczenie. Ważne jest, aby upewnić się, że wszystkie zarejestrowane urządzenia są przechowywane w znanej, zabezpieczonej lokalizacji z wieloma środkami komunikacji z usługą Azure AD.
-- Mechanizm uwierzytelniania używany na potrzeby konta dostępu awaryjnego powinien być różny od tego, który jest używany przez inne konta administracyjne, w tym inne konta dostępu awaryjnego.  Jeśli na przykład normalne logowanie administratora jest realizowane za pośrednictwem lokalnej usługi MFA, usługa Azure MFA będzie innym mechanizmem.  Jeśli jednak usługa Azure MFA jest podstawową częścią uwierzytelniania dla kont administracyjnych, należy wziąć pod uwagę inne podejście, takie jak używanie dostępu warunkowego z zewnętrznym dostawcą usług MFA za pomocą niestandardowych kontrolek.
+- Mechanizm uwierzytelniania używany na potrzeby konta dostępu awaryjnego powinien być różny od tego, który jest używany przez inne konta administracyjne, w tym inne konta dostępu awaryjnego.  Jeśli na przykład normalne logowanie administratora jest realizowane za pośrednictwem lokalnej usługi MFA, usługa Azure AD MFA będzie innym mechanizmem.  Jeśli jednak usługa Azure AD MFA jest podstawową częścią uwierzytelniania dla kont administracyjnych, należy wziąć pod uwagę inne podejście, takie jak używanie dostępu warunkowego z zewnętrznym dostawcą usług MFA za pomocą niestandardowych kontrolek.
 - Urządzenie lub poświadczenia nie mogą wygasnąć lub być w zakresie automatycznego oczyszczania z powodu braku użycia.  
 - Należy zmienić przypisanie roli administratora globalnego na stałe dla kont dostępu awaryjnego. 
 
@@ -87,7 +87,7 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 ### <a name="create-an-alert-rule"></a>Tworzenie reguły alertu
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta przypisanego do roli współautor monitorowania w programie Azure monitor.
-1. Wybierz pozycję **wszystkie usługi** , wprowadź ciąg "log Analytics" w obszarze wyszukiwania, a następnie wybierz pozycję **log Analytics obszary robocze**.
+1. Wybierz pozycję **wszystkie usługi**, wprowadź ciąg "log Analytics" w obszarze wyszukiwania, a następnie wybierz pozycję **log Analytics obszary robocze**.
 1. Wybierz obszar roboczy.
 1. W obszarze roboczym wybierz pozycję **alerty**  >  **Nowa reguła alertu**.
     1. W obszarze **zasób** Sprawdź, czy subskrypcja jest tą, z którą chcesz skojarzyć regułę alertu.
@@ -109,7 +109,7 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 
         ![Logika alertu](./media/security-emergency-access/alert-image2.png)
 
-    1. Wybierz pozycję **Gotowe**. Teraz możesz wyświetlić szacowany koszt miesięczny tego alertu.
+    1. Kliknij **Gotowe**. Teraz możesz wyświetlić szacowany koszt miesięczny tego alertu.
 1. Wybierz grupę akcji użytkowników, którzy będą powiadamiani o alertach. Jeśli chcesz go utworzyć, zobacz [Tworzenie grupy akcji](#create-an-action-group).
 1. Aby dostosować powiadomienia e-mail wysyłane do członków grupy akcji, wybierz akcje w obszarze **Dostosuj akcje**.
 1. W obszarze **szczegóły alertu** Określ nazwę reguły alertu i Dodaj opcjonalny opis.

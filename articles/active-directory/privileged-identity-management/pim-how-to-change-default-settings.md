@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 391d4d6cb925eec0ea7be19eb6fa6849aa38985e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369747"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835241"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management
 
@@ -81,7 +81,7 @@ Można też wybrać jedną z następujących opcji **aktywnego** przydziału cza
 
 ## <a name="require-multi-factor-authentication"></a>Wymagaj uwierzytelniania wieloskładnikowego
 
-Privileged Identity Management zapewnia opcjonalne wymuszanie Multi-Factor Authentication platformy Azure dla dwóch różnych scenariuszy.
+Privileged Identity Management zapewnia opcjonalne Wymuszanie usługi Azure AD Multi-Factor Authentication dla dwóch różnych scenariuszy.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Wymagaj Multi-Factor Authentication przy aktywnym przypisaniu
 
@@ -91,7 +91,7 @@ Aby upewnić się, że administrator spełniający przypisanie, można wymusić 
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Wymagaj Multi-Factor Authentication podczas aktywacji
 
-Możesz wymagać od użytkowników, którzy kwalifikują się do roli, aby udowodnić, którzy korzystają z usługi Azure Multi-Factor Authentication, zanim będą mogli ją aktywować. Uwierzytelnianie wieloskładnikowe gwarantuje, że użytkownik jest odpowiedzialny za to, że są one z rozsądną pewnością. Wymuszanie tej opcji chroni zasoby o znaczeniu krytycznym w sytuacjach, gdy naruszone konto użytkownika mogło ulec naruszeniu.
+Możesz wymagać od użytkowników, którzy kwalifikują się do roli, aby udowodnić, kto używa usługi Azure AD Multi-Factor Authentication, zanim będzie można aktywować. Uwierzytelnianie wieloskładnikowe gwarantuje, że użytkownik jest odpowiedzialny za to, że są one z rozsądną pewnością. Wymuszanie tej opcji chroni zasoby o znaczeniu krytycznym w sytuacjach, gdy naruszone konto użytkownika mogło ulec naruszeniu.
 
 Aby wymagać uwierzytelniania wieloskładnikowego przed aktywacją, zaznacz pole **wymagaj Multi-Factor Authentication przy aktywacji** na karcie przypisanie **Ustawienia Edytuj rolę**.
 
@@ -151,7 +151,7 @@ Za pomocą suwaka **aktywacje** można ustawić maksymalny czas (w godzinach), p
 
 Użyj przełącznika **powiadomienia** , aby określić, czy administratorzy będą otrzymywać powiadomienia e-mail po aktywowaniu ról. To powiadomienie może być przydatne do wykrywania aktywacji nieautoryzowanych lub illegitimate.
 
-Po wybraniu opcji **Włącz**powiadomienia są wysyłane do:
+Po wybraniu opcji **Włącz** powiadomienia są wysyłane do:
 
 - Administrator ról uprzywilejowanych
 - Administrator zabezpieczeń
@@ -167,8 +167,8 @@ Użyj przełącznika **bilet zdarzeń/żądania** , aby wymagać od uprawnionych
 
 Użyj przełącznika **Multi-Factor Authentication** , aby określić, czy użytkownicy muszą weryfikować swoją tożsamość za pomocą usługi MFA, zanim będą mogli aktywować swoje role. Muszą oni tylko weryfikować swoją tożsamość tylko raz na sesję, a nie za każdym razem, gdy aktywują rolę. Po włączeniu usługi MFA należy wziąć pod uwagę dwie wskazówki:
 
-- Użytkownicy, którzy mają konta Microsoft dla swoich adresów e-mail (zazwyczaj @outlook.com ale nie zawsze), nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication. Jeśli chcesz przypisać role do użytkowników z kontami Microsoft, należy udostępnić im trwałych administratorów lub wyłączyć uwierzytelnianie wieloskładnikowe dla tej roli.
-- Nie można wyłączyć usługi Azure Multi-Factor Authentication dla ról o wysokim poziomie uprawnień dla usługi Azure AD i Microsoft 365. Ta funkcja zabezpieczeń pomaga chronić następujące role:  
+- Użytkownicy, którzy mają konta Microsoft dla swoich adresów e-mail (zazwyczaj @outlook.com ale nie zawsze), nie mogą zarejestrować się w usłudze Azure AD Multi-Factor Authentication. Jeśli chcesz przypisać role do użytkowników z kontami Microsoft, należy udostępnić im trwałych administratorów lub wyłączyć uwierzytelnianie wieloskładnikowe dla tej roli.
+- Nie można wyłączyć usługi Azure AD Multi-Factor Authentication dla ról o wysokim poziomie uprawnień dla usługi Azure AD i Microsoft 365. Ta funkcja zabezpieczeń pomaga chronić następujące role:  
   
   - Azure Information Protection administrator
   - Administrator rozliczeń

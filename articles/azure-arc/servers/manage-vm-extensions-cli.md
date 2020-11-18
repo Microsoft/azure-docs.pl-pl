@@ -4,18 +4,26 @@ description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtua
 ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 59c984f4adaec2261d1b08748aa5a91c8246418d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: bf0a3e0940efc7e79adbe9f763ffdf34ea690fac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359119"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833269"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Włączanie rozszerzeń maszyn wirtualnych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym artykule opisano sposób wdrażania i odinstalowywania rozszerzeń maszyn wirtualnych platformy Azure, które są obsługiwane przez serwery z obsługą usługi Azure ARC, na maszynę hybrydową z systemem Linux lub Windows przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
+
+## <a name="install-the-azure-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia platformy Azure
+
+Polecenia ConnectedMachine nie są dostarczane jako część interfejsu wiersza polecenia platformy Azure. Przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure do zarządzania rozszerzeniami maszyn wirtualnych na serwerze hybrydowym zarządzanym przez serwery z obsługą łuku należy załadować rozszerzenie ConnectedMachine. Uruchom następujące polecenie, aby je pobrać:
+
+```azurecli
+az extension add --name connectedmachine
+```
 
 ## <a name="enable-extension"></a>Włącz rozszerzenie
 

@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9699f425b296f1c88162c78b8f86de74303747be
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658336"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835496"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Scentralizowanie zarządzania aplikacjami za pomocą usługi Azure AD
 
@@ -62,7 +62,7 @@ Tożsamość jest Linchpin dla bezpieczeństwa. Jeśli tożsamość zostanie nar
 
 |Cechy  |Opis| Zalecenie |
 |---------|---------| ---------|
-|Azure MFA|Azure Multi-Factor Authentication (MFA) to rozwiązanie firmy Microsoft służące do przeprowadzania weryfikacji dwuetapowej. Korzystając z zaakceptowanych przez administratora metod uwierzytelniania, usługa Azure MFA pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania dotyczące prostego procesu logowania.| [Włącz usługę MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) dla użytkowników.  |
+|Usługa Azure AD MFA|Usługa Azure AD Multi-Factor Authentication (MFA) to rozwiązanie firmy Microsoft do weryfikacji dwuetapowej. Przy użyciu zaakceptowanych przez administratora metod uwierzytelniania usługa Azure AD MFA pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania dotyczące prostego procesu logowania.| [Włącz usługę MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) dla użytkowników.  |
 |Dostęp warunkowy|Za pomocą dostępu warunkowego można zaimplementować zautomatyzowane decyzje dotyczące kontroli dostępu, które mogą uzyskiwać dostęp do aplikacji w chmurze na podstawie warunków.| Zapoznaj się z [ustawieniami domyślnymi zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) i [typowymi zasadami](../conditional-access/concept-conditional-access-policy-common.md) używanymi przez klientów. | 
 |Identity Protection|Usługa Identity Protection korzysta z informacji uzyskanych od firmy Microsoft w organizacjach z usługą Azure AD, przestrzenią użytkownika z kontami Microsoft oraz w grach z konsolą Xbox w celu ochrony użytkowników. Microsoft analizuje 6 500 000 000 000 sygnałów dziennie w celu identyfikowania i ochrony klientów przed zagrożeniami.|Włącz [domyślne zasady ochrony tożsamości](../identity-protection/concept-identity-protection-policies.md) udostępniane przez naszą usługę. | 
 
@@ -73,7 +73,7 @@ Zarządzanie tożsamościami pomaga organizacjom w osiągnięciu równowagi mię
 |---------|---------| ---------|
 |ELM|Zarządzanie prawami w usłudze Azure AD może pomóc użytkownikom zarówno w organizacji, jak i poza nią, efektywniejsze zarządzanie dostępem do aplikacji.| Zezwalaj użytkownikom innym niż Administratorzy na zarządzanie dostępem do aplikacji za pomocą [pakietów dostępu](../governance/entitlement-management-access-package-first.md).|
 |Przeglądy dostępu|Dostęp użytkownika do aplikacji może być regularnie przeglądany, aby upewnić się, że tylko odpowiednie osoby mają stały dostęp.| [Przejrzyj dostęp](../governance/access-reviews-overview.md) do najbardziej poufnych aplikacji. |
-|Log Analytics|Generowanie raportów o tym, kto uzyskuje dostęp do aplikacji i zapisuje je w wybranym narzędziu SIEM, aby skorelować dane między źródłami danych a z upływem czasu.| Włącz usługę [log Analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) i skonfiguruj alerty dla zdarzeń krytycznych związanych z aplikacjami. |
+|Usługa Log Analytics|Generowanie raportów o tym, kto uzyskuje dostęp do aplikacji i zapisuje je w wybranym narzędziu SIEM, aby skorelować dane między źródłami danych a z upływem czasu.| Włącz usługę [log Analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) i skonfiguruj alerty dla zdarzeń krytycznych związanych z aplikacjami. |
 
 
 ## <a name="scenario-5-hybrid-secure-access"></a>Scenariusz 5: bezpieczny dostęp do hybrydowego dostępu

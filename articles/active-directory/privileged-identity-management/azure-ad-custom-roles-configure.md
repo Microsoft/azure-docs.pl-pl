@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e483c5cdb7e5acc0677b0d0cf2b41c390eef0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb23e60539c704dac457ab6e8706ec0cfe350ed9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371566"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835326"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Konfigurowanie ról niestandardowych usługi Azure AD w Privileged Identity Management
 
@@ -64,9 +64,9 @@ Ponadto możesz wybrać jedną z następujących opcji *aktywnego* przydziału c
 - **Zezwalaj na trwałe aktywne przypisanie**: Administratorzy mogą przypisywać trwałe aktywne członkowstwo.
 - **Wygasa aktywne przypisanie po**: Administratorzy mogą wymagać, aby wszystkie aktywne przypisania miały określoną datę początkową i końcową.
 
-### <a name="require-azure-multi-factor-authentication"></a>Wymaganie usługi Azure Multi-Factor Authentication
+### <a name="require-azure-ad-multi-factor-authentication"></a>Wymagaj Multi-Factor Authentication usługi Azure AD
 
-Privileged Identity Management zapewnia opcjonalne wymuszanie Multi-Factor Authentication platformy Azure dla dwóch różnych scenariuszy.
+Privileged Identity Management zapewnia opcjonalne Wymuszanie usługi Azure AD Multi-Factor Authentication dla dwóch różnych scenariuszy.
 
 - **Wymagaj Multi-Factor Authentication przy aktywnym przypisaniu**
 
@@ -74,7 +74,7 @@ Privileged Identity Management zapewnia opcjonalne wymuszanie Multi-Factor Authe
 
 - **Wymagaj Multi-Factor Authentication podczas aktywacji**
 
-  Możesz wymagać od uprawnionych użytkowników przypisanych do roli w celu zarejestrowania się w usłudze Azure Multi-Factor Authentication, zanim będzie możliwe jej aktywowanie. Ten proces zapewnia, że użytkownik, który żąda aktywacji, jest odpowiedzialny za uzyskanie odpowiednich pewności. Wymuszanie tej opcji chroni role krytyczne w sytuacjach, gdy nastąpiło naruszenie zabezpieczeń konta użytkownika. Aby wymagać, aby uprawniony członek mógł uruchomić usługę Azure Multi-Factor Authentication przed aktywacją, zaznacz pole **wymagaj Multi-Factor Authentication na aktywację** .
+  Przed aktywowaniem programu można wymagać od uprawnionych użytkowników przypisanych do roli w celu zarejestrowania się w usłudze Azure AD Multi-Factor Authentication. Ten proces zapewnia, że użytkownik, który żąda aktywacji, jest odpowiedzialny za uzyskanie odpowiednich pewności. Wymuszanie tej opcji chroni role krytyczne w sytuacjach, gdy nastąpiło naruszenie zabezpieczeń konta użytkownika. Aby wymagać, aby uprawniony członek mógł uruchomić usługę Azure AD Multi-Factor Authentication przed aktywacją, zaznacz pole **wymagaj Multi-Factor Authentication na aktywację** .
 
 Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie wieloskładnikowe i Privileged Identity Management](pim-how-to-require-mfa.md).
 

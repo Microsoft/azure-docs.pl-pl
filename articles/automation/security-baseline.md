@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070694"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833303"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -886,7 +886,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 * [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+* [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1040,7 +1040,7 @@ W przypadku korzystania z funkcji hybrydowego procesu roboczego elementu Runbook
 
 * [Używanie uwierzytelniania elementu Runbook z tożsamościami zarządzanymi](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Jak utworzyć Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [Jak utworzyć Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/authentication.md)
 

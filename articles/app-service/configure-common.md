@@ -5,13 +5,13 @@ keywords: Azure App Service, aplikacja sieci Web, ustawienia aplikacji, zmienne 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152041"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833660"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
@@ -25,7 +25,7 @@ W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybie
 
 ![Wyszukaj App Services](./media/configure-common/search-for-app-services.png)
 
-W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji**konfiguracji.
+W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji** konfiguracji.
 
 ![Ustawienia aplikacji](./media/configure-common/open-ui.png)
 
@@ -112,7 +112,7 @@ Za pomocą interfejsu wiersza polecenia platformy Azure można tworzyć ustawien
 
 ## <a name="configure-connection-strings"></a>Konfigurowanie parametrów połączenia
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji**konfiguracji.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji** konfiguracji.
 
 ![Ustawienia aplikacji](./media/configure-common/open-ui.png)
 
@@ -224,7 +224,7 @@ Jeśli aplikacja używa modułów, które są oparte na adresie URL zamiast obs�
 
 ## <a name="configure-path-mappings"></a>Konfiguruj mapowania ścieżek
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **mapowania ścieżki**konfiguracji.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **mapowania ścieżki** konfiguracji.
 
 ![Mapowania ścieżki](./media/configure-common/open-path.png)
 
@@ -236,7 +236,7 @@ W przypadku aplikacji systemu Windows można dostosować mapowania programu obs�
 
 Mapowania obsługi umożliwiają dodawanie niestandardowych procesorów skryptów do obsługi żądań dla określonych rozszerzeń plików. Aby dodać niestandardową procedurę obsługi, kliknij pozycję **Nowy program obsługi**. Skonfiguruj procedurę obsługi w następujący sposób:
 
-- **Rozszerzenie**. Rozszerzenie pliku, które ma być obsługiwane, np. * \* php* lub *Handler. FCGI*.
+- **Rozszerzenie**. Rozszerzenie pliku, które ma być obsługiwane, np. *\* php* lub *Handler. FCGI*.
 - **Procesor skryptu**. Ścieżka bezwzględna procesora skryptu do użytkownika. Żądania do plików, które pasują do rozszerzenia pliku, są przetwarzane przez procesor skryptów. Użyj ścieżki, `D:\home\site\wwwroot` Aby odwołać się do katalogu głównego aplikacji.
 - **Argumenty**. Opcjonalne argumenty wiersza polecenia dla procesora skryptów.
 
@@ -289,7 +289,7 @@ Zobacz [Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Se
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
-[Witryna Azure Portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Konfigurowanie niestandardowej nazwy domeny w Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Konfigurowanie środowisk przejściowych w usłudze Azure App Service]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: ./web-sites-monitor.md

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095564"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833507"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
 
@@ -71,12 +71,12 @@ Profil publikowania to poświadczenie na poziomie aplikacji. Skonfiguruj swój p
 
 1. Przejdź do usługi App Service w Azure Portal. 
 
-1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania** .
+1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania**.
 
 1. Zapisz pobrany plik. Zawartość pliku zostanie użyta do utworzenia wpisu tajnego usługi GitHub.
 
 > [!NOTE]
-> Od 2020 października aplikacje sieci Web dla systemu Linux będą potrzebować ustawienia aplikacji `WEBSITE_WEBDEPLOY_USE_SCM` ustawionego na `true` **przed pobraniem profilu publikowania** . To wymaganie zostanie usunięte w przyszłości.
+> Od 2020 października aplikacje sieci Web dla systemu Linux będą potrzebować ustawienia aplikacji `WEBSITE_WEBDEPLOY_USE_SCM` ustawionego na `true` **przed pobraniem profilu publikowania**. To wymaganie zostanie usunięte w przyszłości.
 
 # <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
@@ -110,7 +110,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/applevel)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
+W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
 
 Aby użyć [poświadczeń na poziomie aplikacji](#generate-deployment-credentials), wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego. Nazwij klucz tajny `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
@@ -124,7 +124,7 @@ Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_
 
 # <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
+W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
 
 Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 

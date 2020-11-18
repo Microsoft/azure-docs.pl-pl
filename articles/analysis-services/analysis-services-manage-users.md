@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014906"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833796"
 ---
 # <a name="authentication-and-user-permissions"></a>Uwierzytelnianie i uprawnienia użytkownika
 
@@ -22,7 +22,7 @@ Azure Analysis Services obsługuje funkcję [współpracy B2B usługi Azure AD](
 
 ![Architektura uwierzytelniania Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie aplikacje i narzędzia klienckie używają co najmniej jednej z Analysis Services [bibliotek klienckich](/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) w celu nawiązania połączenia z serwerem. 
 
@@ -32,7 +32,7 @@ Aplikacje klienckie, takie jak program Excel i Power BI Desktop, oraz narzędzia
 
 W zależności od używanej aplikacji lub narzędzia klienckiego typ uwierzytelniania oraz sposób logowania mogą się różnić. Każda aplikacja może obsługiwać różne funkcje do łączenia się z usługami w chmurze, takimi jak Azure Analysis Services.
 
-Power BI Desktop, Visual Studio i SSMS obsługują Active Directory uwierzytelnianie uniwersalne, interaktywną metodę, która również obsługuje usługę Azure Multi-Factor Authentication (MFA). Usługa Azure MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zapewnieniu prostego procesu logowania. Zapewnia silne uwierzytelnianie z kilkoma opcjami weryfikacji (połączenie telefoniczne, wiadomość tekstowa, karty inteligentne z numerem PIN lub powiadomieniem aplikacji mobilnej). Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację. **Zalecane jest uwierzytelnianie uniwersalne**.
+Power BI Desktop, Visual Studio i SSMS obsługują Active Directory uwierzytelnianie uniwersalne, interaktywną metodę, która również obsługuje usługę Azure AD Multi-Factor Authentication (MFA). Usługa Azure AD MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zapewnieniu prostego procesu logowania. Zapewnia silne uwierzytelnianie z kilkoma opcjami weryfikacji (połączenie telefoniczne, wiadomość tekstowa, karty inteligentne z numerem PIN lub powiadomieniem aplikacji mobilnej). Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację. **Zalecane jest uwierzytelnianie uniwersalne**.
 
 Jeśli logujesz się do platformy Azure przy użyciu konta systemu Windows, a uwierzytelnianie uniwersalne nie jest wybrane lub jest niedostępne (Excel), jest wymagane [Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) . W przypadku federacji usługi Azure AD i Microsoft 365 są uwierzytelniani przy użyciu poświadczeń lokalnych i mogą uzyskiwać dostęp do zasobów platformy Azure.
 
@@ -44,13 +44,13 @@ Serwery Azure Analysis Services obsługują połączenia z programu [SSMS v 17.1
 
 *  Obsługuje użytkowników systemu Azure B2B zalogowanych do platformy Azure jako dzierżawca. Podczas nawiązywania połączenia z serwerem użytkownicy-Goście muszą wybrać Active Directory uniwersalnego uwierzytelniania podczas nawiązywania połączenia z serwerem.
 
-*  Obsługuje Multi-Factor Authentication (MFA). Usługa Azure MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji z zakresu opcji weryfikacji: połączenia telefonicznego, wiadomości tekstowej, kart inteligentnych z numerem PIN lub powiadomień aplikacji mobilnej. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
+*  Obsługuje Multi-Factor Authentication (MFA). Usługa Azure AD MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji z zakresu opcji weryfikacji: połączenia telefonicznego, wiadomości tekstowej, kart inteligentnych z numerem PIN lub powiadomień aplikacji mobilnej. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
 
 ### <a name="visual-studio"></a>Visual Studio
 
 Program Visual Studio nawiązuje połączenie z Azure Analysis Services przy użyciu uwierzytelniania uniwersalnego Active Directory z obsługą usługi MFA. Użytkownicy są monitowani o zalogowanie się do platformy Azure przy pierwszym wdrożeniu. Użytkownicy muszą zalogować się do platformy Azure przy użyciu konta z uprawnieniami administratora serwera na serwerze, na którym są wdrażane. Po pierwszym zalogowaniu się do platformy Azure jest przypisywany token. Token znajduje się w pamięci podręcznej w przypadku przyszłych ponownych połączeń.
 
-### <a name="power-bi-desktop"></a>Program Power BI Desktop
+### <a name="power-bi-desktop"></a>Power BI Desktop
 
 Power BI Desktop nawiązuje połączenie z Azure Analysis Services przy użyciu uwierzytelniania uniwersalnego Active Directory z obsługą usługi MFA. Użytkownicy są monitowani o zalogowanie się do platformy Azure przy pierwszym połączeniu. Użytkownicy muszą zalogować się do platformy Azure przy użyciu konta należącego do administratora serwera lub roli bazy danych.
 

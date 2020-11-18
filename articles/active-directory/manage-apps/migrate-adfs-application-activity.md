@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee1734e61ffe59fccf3ad35c1f0c607882f7f40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659201"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835513"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Korzystanie z raportu działania aplikacji AD FS (wersja zapoznawcza) w celu migrowania aplikacji do usługi Azure AD
 
@@ -76,7 +76,7 @@ W poniższej tabeli wymieniono wszystkie testy konfiguracji, które są wykonywa
 
 |Wynik  |Pass/Warning/niepowodzenie  |Opis  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> Wykryto co najmniej jedną regułę migrowalna dla AdditionalAuthentication.       | Przekaż/Ostrzegaj          | Jednostka uzależniona ma reguły monitowania o uwierzytelnianie wieloskładnikowe (MFA). Aby przejść do usługi Azure AD, Przetłumacz te reguły na zasady dostępu warunkowego. Jeśli używasz lokalnej usługi MFA, zalecamy przejście na usługę Azure MFA. [Dowiedz się więcej na temat dostępu warunkowego](../authentication/concept-mfa-howitworks.md).        |
+|Test-ADFSRPAdditionalAuthenticationRules <br> Wykryto co najmniej jedną regułę migrowalna dla AdditionalAuthentication.       | Przekaż/Ostrzegaj          | Jednostka uzależniona ma reguły monitowania o uwierzytelnianie wieloskładnikowe (MFA). Aby przejść do usługi Azure AD, Przetłumacz te reguły na zasady dostępu warunkowego. Jeśli używasz lokalnej usługi MFA, zalecamy przejście na usługę Azure AD MFA. [Dowiedz się więcej na temat dostępu warunkowego](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> Jednostka uzależniona ma AdditionalWSFedEndpoint ustawioną wartość true.       | Powodzenie/niepowodzenie          | Jednostka uzależniona w AD FS umożliwia wielu punktów końcowych potwierdzenia WS-Fed.Obecnie usługa Azure AD obsługuje tylko jeden.Jeśli masz scenariusz, w którym ten wynik blokuje migrację, [daj nam znać](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> Jednostka uzależniona ustawił AllowedAuthenticationClassReferences.       | Powodzenie/niepowodzenie          | To ustawienie w AD FS pozwala określić, czy aplikacja jest skonfigurowana tak, aby zezwalać tylko na określone typy uwierzytelniania. Zalecamy korzystanie z dostępu warunkowego w celu osiągnięcia tej możliwości. Jeśli masz scenariusz, w którym ten wynik blokuje migrację, [daj nam znać](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication).  [Dowiedz się więcej na temat dostępu warunkowego](../authentication/concept-mfa-howitworks.md).          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | Powodzenie/niepowodzenie          | To ustawienie w AD FS pozwala określić, czy aplikacja jest skonfigurowana do ignorowania plików cookie logowania jednokrotnego i **zawsze monitować o uwierzytelnienie**. W usłudze Azure AD sesja uwierzytelniania może być zarządzana przy użyciu zasad dostępu warunkowego w celu osiągnięcia podobnego zachowania. [Dowiedz się więcej o konfigurowaniu zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego](../conditional-access/howto-conditional-access-session-lifetime.md).          |

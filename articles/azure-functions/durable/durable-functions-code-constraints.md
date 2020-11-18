@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392620"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833099"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Ograniczenia kodu funkcji programu Orchestrator
 
@@ -18,7 +18,7 @@ Durable Functions jest rozszerzeniem [Azure Functions](../functions-overview.md)
 
 ## <a name="orchestrator-code-constraints"></a>Ograniczenia kodu orkiestratora
 
-Funkcje programu Orchestrator używają określania [źródła zdarzeń](/azure/architecture/patterns/event-sourcing) , aby zapewnić niezawodne wykonywanie i zachować stan zmiennej lokalnej. [Zachowanie powtarzania](durable-functions-orchestrations.md#reliability) kodu programu Orchestrator tworzy ograniczenia dotyczące typu kodu, który można napisać w funkcji programu Orchestrator. Na przykład funkcje programu Orchestrator muszą być *deterministyczne* : funkcja programu Orchestrator będzie powtarzana wielokrotnie i musi generować ten sam wynik za każdym razem.
+Funkcje programu Orchestrator używają określania [źródła zdarzeń](/azure/architecture/patterns/event-sourcing) , aby zapewnić niezawodne wykonywanie i zachować stan zmiennej lokalnej. [Zachowanie powtarzania](durable-functions-orchestrations.md#reliability) kodu programu Orchestrator tworzy ograniczenia dotyczące typu kodu, który można napisać w funkcji programu Orchestrator. Na przykład funkcje programu Orchestrator muszą być *deterministyczne*: funkcja programu Orchestrator będzie powtarzana wielokrotnie i musi generować ten sam wynik za każdym razem.
 
 ### <a name="using-deterministic-apis"></a>Korzystanie z deterministycznych interfejsów API
 
@@ -30,8 +30,8 @@ W poniższej tabeli przedstawiono przykłady interfejsów API, które należy un
 
 | Kategoria interfejsu API | Przyczyna | Obejście |
 | ------------ | ------ | ---------- |
-| Daty i godziny  | Interfejsy API, które zwracają bieżącą datę lub godzinę, są niejednoznaczne, ponieważ zwracana wartość jest inna dla każdego powtórzenia. | Użyj `CurrentUtcDateTime` interfejsu API w programie .NET, `currentUtcDateTime` interfejsu API w języku JavaScript lub `current_utc_datetime` interfejsu API w programie Python, które są bezpieczne do odtworzenia. |
-| Identyfikatory GUID i identyfikatory UUID  | Interfejsy API, które zwracają losowy identyfikator GUID lub UUID, są niejednoznaczne, ponieważ wygenerowana wartość jest inna dla każdego powtórzenia. | Użyj `NewGuid` programu .NET lub `newGuid` JavaScript, aby bezpiecznie generować losowe identyfikatory GUID. |
+| Daty i godziny  | Interfejsy API, które zwracają bieżącą datę lub godzinę, są niejednoznaczne, ponieważ zwracana wartość jest inna dla każdego powtórzenia. | Użyj właściwości [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) w programie .NET, `currentUtcDateTime` interfejsie API w języku JavaScript lub `current_utc_datetime` interfejsie API języka Python, który jest bezpieczny do odtworzenia. |
+| Identyfikatory GUID i identyfikatory UUID  | Interfejsy API, które zwracają losowy identyfikator GUID lub UUID, są niejednoznaczne, ponieważ wygenerowana wartość jest inna dla każdego powtórzenia. | Użyj [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) w programie .NET lub `newGuid` JavaScript, aby bezpiecznie generować losowe identyfikatory GUID. |
 | Liczby losowe | Interfejsy API, które zwracają liczby losowe, są niejednoznaczne, ponieważ wygenerowana wartość jest inna dla każdego powtórzenia. | Użyj funkcji działania, aby zwrócić liczbę losową do aranżacji. Wartości zwracane funkcji działania są zawsze bezpieczne do powtórzenia. |
 | Powiązania | Powiązania wejściowe i wyjściowe zwykle wykonują we/wy i są niejednoznaczne. Funkcja programu Orchestrator nie może bezpośrednio używać nawet powiązania klienta [aranżacji](durable-functions-bindings.md#orchestration-client) i [klienta jednostki](durable-functions-bindings.md#entity-client) . | Użyj powiązań wejściowych i wyjściowych w ramach funkcji klienta lub działania. |
 | Sieć | Wywołania sieciowe obejmują systemy zewnętrzne i nie są niejednoznaczne. | Użyj funkcji działania, aby wykonać wywołania sieciowe. Jeśli musisz wykonać wywołanie HTTP z funkcji programu Orchestrator, możesz również użyć [trwałych interfejsów API protokołu HTTP](durable-functions-http-features.md#consuming-http-apis). |
@@ -57,7 +57,7 @@ Niezawodna aranżacja może działać w sposób ciągły przez dni, miesiące, l
 > [!NOTE]
 > W tej sekcji opisano wewnętrzne szczegóły implementacji dla trwałej struktury zadań. Możesz korzystać z trwałych funkcji bez znajomości tych informacji. Jest ona przeznaczona tylko do zrozumienia zachowania powtarzania.
 
-Zadania, które mogą bezpiecznie oczekiwać w funkcjach programu Orchestrator, są czasami określane jako *zadania trwałe*. W ramach trwałej struktury zadań są tworzone i zarządzane te zadania. Przykłady to zadania zwracane przez **CallActivityAsync** , **WaitForExternalEvent** i **OnTime** w funkcjach programu .NET Orchestrator.
+Zadania, które mogą bezpiecznie oczekiwać w funkcjach programu Orchestrator, są czasami określane jako *zadania trwałe*. W ramach trwałej struktury zadań są tworzone i zarządzane te zadania. Przykłady to zadania zwracane przez **CallActivityAsync**, **WaitForExternalEvent** i **OnTime** w funkcjach programu .NET Orchestrator.
 
 Te zadania trwałe są wewnętrznie zarządzane przez listę `TaskCompletionSource` obiektów w programie .NET. Podczas odtwarzania te zadania są tworzone w ramach wykonywania kodu programu Orchestrator. Są one kończone, ponieważ Dyspozytor wylicza odpowiednie zdarzenia historii.
 

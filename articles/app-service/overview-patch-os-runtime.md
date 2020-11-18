@@ -3,13 +3,13 @@ title: Erze poprawek systemu operacyjnego i środowiska uruchomieniowego
 description: Dowiedz się, jak Azure App Service aktualizować system operacyjny i środowiska uruchomieniowe, jakie środowiska uruchomieniowe i poprawki mają być używane przez aplikacje oraz jak uzyskać powiadomienia o aktualizacjach.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
-ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961520"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833490"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Stosowanie poprawek systemu operacyjnego i środowiska uruchomieniowego w Azure App Service
 

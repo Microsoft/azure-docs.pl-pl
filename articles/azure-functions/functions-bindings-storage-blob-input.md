@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a46c272ee2f7aa2d6621e3dc2db81605ba0363f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325780"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833116"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Powiązanie danych wejściowych magazynu obiektów blob platformy Azure dla Azure Functions
 
@@ -175,6 +175,15 @@ W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do okre�
 
 W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
 
+`dataType`Właściwość określa, które powiązanie jest używane. Dostępne są następujące wartości, które obsługują różne strategie powiązań:
+
+| Wartość powiązania | Domyślne | Opis | Przykład |
+| --- | --- | --- | --- |
+| `undefined` | T | Używa rozbudowanego powiązania | `def main(input: func.InputStream)` |
+| `string` | N | Używa powiązania ogólnego i rzutuje typ danych wejściowych na `string` | `def main(input: str)` |
+| `binary` | N | Używa powiązania ogólnego i rzutuje wejściowego obiektu BLOB jako `bytes` obiekt Python | `def main(input: bytes)` |
+
+
 Oto kod języka Python:
 
 ```python
@@ -304,12 +313,13 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | nie dotyczy | Musi być ustawiony na `blob` . |
-|**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Wyjątki są zanotowane w sekcji [użycie](#usage) . |
-|**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.|
+|**Wprowadź** | n/d | Musi być ustawiony na `blob` . |
+|**wskazywa** | n/d | Musi być ustawiony na `in` . Wyjątki są zanotowane w sekcji [użycie](#usage) . |
+|**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.|
 |**ścieżka** |**Blobpath ścieżką** | Ścieżka do obiektu BLOB. |
 |**połączenia** |**Połączenie**| Nazwa ustawienia aplikacji, które zawiera [Parametry połączenia magazynu](../storage/common/storage-configure-connection-string.md) , które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem magazynu obsługującym tylko obiekty blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|nie dotyczy | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
+|**Typu**| n/d | W przypadku języków z typem dynamicznym określa typ danych bazowych. Możliwe wartości to `string` , `binary` , lub `stream` . Aby uzyskać bardziej szczegółowe informacje, zobacz [pojęcia wyzwalacze i powiązania](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
+|n/d | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

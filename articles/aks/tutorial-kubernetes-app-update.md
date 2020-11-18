@@ -4,13 +4,13 @@ description: Z tego samouczka dotyczącego usługi Azure Kubernetes Service (AKS
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576442"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833915"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Samouczek: aktualizowanie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 Następnie otwórz adres IP usługi w lokalnej przeglądarce internetowej:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanej aplikacji do głosowania platformy Azure, otwartej przy użyciu lokalnej przeglądarki sieci Web i hosta lokalnego.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanej aplikacji do głosowania platformy Azure otwartej w lokalnej przeglądarce sieci Web.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

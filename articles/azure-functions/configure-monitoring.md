@@ -3,13 +3,13 @@ title: Skonfiguruj monitorowanie dla Azure Functions
 description: Dowiedz się, jak połączyć aplikację funkcji, aby Application Insights do monitorowania i jak skonfigurować zbieranie danych.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217188"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833082"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Jak skonfigurować monitorowanie dla Azure Functions
 
@@ -238,7 +238,7 @@ Aby przejrzeć tworzony zasób Application Insights, zaznacz go, aby rozwinąć 
 
 ![Włącz Application Insights podczas tworzenia aplikacji funkcji](media/functions-monitoring/enable-ai-new-function-app.png)
 
-Po wybraniu opcji **Utwórz**zasób Application Insights zostanie utworzony za pomocą aplikacji funkcji, która ma `APPINSIGHTS_INSTRUMENTATIONKEY` ustawioną wartość ustawienia aplikacji. Wszystko jest gotowe do użycia.
+Po wybraniu opcji **Utwórz** zasób Application Insights zostanie utworzony za pomocą aplikacji funkcji, która ma `APPINSIGHTS_INSTRUMENTATIONKEY` ustawioną wartość ustawienia aplikacji. Wszystko jest gotowe do użycia.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Dodawanie do istniejącej aplikacji funkcji 
@@ -258,9 +258,9 @@ Jeśli zasoby Application Insights nie zostały utworzone w aplikacji funkcji, w
     | **Nowa nazwa zasobu** | Unikatowa nazwa aplikacji | Najłatwiej używać tej samej nazwy, co aplikacja funkcji, która musi być unikatowa w subskrypcji. | 
     | **Lokalizacja** | West Europe | Jeśli to możliwe, użyj tego samego [regionu](https://azure.microsoft.com/regions/) , w którym znajduje się aplikacja funkcji lub która znajduje się blisko tego regionu. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Włączanie Application Insights z poziomu portalu":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Tworzenie zasobu Application Insights":::
 
-1. Wybierz przycisk **Zastosuj**. 
+1. Wybierz pozycję **Zastosuj**. 
 
    Zasób Application Insights jest tworzony w tej samej grupie zasobów i subskrypcji co aplikacja funkcji. Po utworzeniu zasobu Zamknij okno Application Insights.
 

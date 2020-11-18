@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378639"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834459"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -114,7 +114,7 @@ Oceń konta, które są przypisane lub kwalifikujące się do roli administrator
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Włącz uwierzytelnianie wieloskładnikowe i Zarejestruj wszystkie inne konta administratora niefederacyjnego z wysokim poziomem uprawnień pojedynczego użytkownika
 
-Wymagaj usługi Azure Multi-Factor Authentication (MFA) podczas logowania dla wszystkich użytkowników, którzy są trwale przypisani do co najmniej jednej roli administratora usługi Azure AD: Administrator globalny, administrator ról uprzywilejowanych, administrator programu Exchange i administrator programu SharePoint. Skorzystaj z przewodnika, aby włączyć [uwierzytelnianie wieloskładnikowe (MFA) dla kont administratorów](../authentication/howto-mfa-userstates.md) i upewnić się, że wszyscy użytkownicy zostali zarejestrowani w usłudze [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Więcej informacji można znaleźć w sekcji Krok 2 i krok 3 przewodnika [Ochrona dostępu do danych i usług w Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Wymagaj usługi Azure AD Multi-Factor Authentication (MFA) przy logowaniu dla wszystkich użytkowników, którzy są trwale przypisani do co najmniej jednej roli administratora usługi Azure AD: Administrator globalny, administrator ról uprzywilejowanych, administrator programu Exchange i administrator programu SharePoint. Skorzystaj z przewodnika, aby włączyć [uwierzytelnianie wieloskładnikowe (MFA) dla kont administratorów](../authentication/howto-mfa-userstates.md) i upewnić się, że wszyscy użytkownicy zostali zarejestrowani w usłudze [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Więcej informacji można znaleźć w sekcji Krok 2 i krok 3 przewodnika [Ochrona dostępu do danych i usług w Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Etap 2: eliminowanie często używanych ataków
 
@@ -135,7 +135,7 @@ Zwiększenie "przyłączenie własnego urządzenia" i korzystanie z zasad domowy
 * Upewnij się, że Twoje konta są używane do celów administracyjnych:
 
   * Masz dołączone do nich działające adresy e-mail
-  * Zarejestrowano w usłudze Azure Multi-Factor Authentication lub korzystać z lokalnej usługi MFA
+  * Zarejestrowano w usłudze Azure AD Multi-Factor Authentication lub korzystać z lokalnej usługi MFA
 * Poproszenie użytkowników o uzasadnienie biznesowe dla dostępu administracyjnego.
 * Usuń dostęp administratora dla tych użytkowników i usług, które ich nie potrzebują.
 
@@ -240,7 +240,7 @@ Zalecamy wykonanie następujących czynności:
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Kontynuuj wprowadzanie silniejszych uwierzytelnień dla wszystkich użytkowników
 
-Wymagaj od wysoce narażonych użytkowników posiadania nowoczesnego, silnego uwierzytelniania, takiego jak Azure MFA lub Windows Hello. Przykłady wysoce narażonych użytkowników obejmują:
+Wymagaj, aby wysoce narażony użytkownicy mieli nowoczesne, silne uwierzytelnianie, takie jak Azure AD MFA lub Windows Hello. Przykłady wysoce narażonych użytkowników obejmują:
 
 * C-Suite Executives
 * Kierownicy wysokiego poziomu

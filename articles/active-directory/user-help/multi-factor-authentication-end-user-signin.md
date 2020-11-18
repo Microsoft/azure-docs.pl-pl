@@ -13,17 +13,17 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056032"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834170"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Logowanie się do konta służbowego przy użyciu metody weryfikacji dwuskładnikowej
 
 > [!NOTE]
-> Celem tego artykułu jest przeprowadzenie typowych czynności związanych z logowaniem. Aby uzyskać pomoc przy rejestrowaniu lub rozwiązywaniu problemów, zobacz problem [z usługą Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+> Celem tego artykułu jest przeprowadzenie typowych czynności związanych z logowaniem. Aby uzyskać pomoc przy rejestrowaniu lub rozwiązywaniu problemów, zobacz problem [z usługą Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Jakie będzie środowisko logowania?
 Środowisko logowania różni się w zależności od tego, co jest używane jako drugi czynnik: połączenie telefoniczne, aplikacja uwierzytelniania lub teksty. Wybierz opcję, która najlepiej opisuje to, co robisz:
@@ -83,7 +83,7 @@ Czasami nie masz telefonu ani urządzenia skonfigurowanego jako preferowana meto
    ![Użyj alternatywnej metody](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Następne kroki
-- Jeśli masz problemy z zalogowaniem się przy użyciu weryfikacji dwuetapowej, uzyskaj więcej informacji na temat problemów [z usługą Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- Jeśli masz problemy z zalogowaniem się przy użyciu weryfikacji dwuetapowej, uzyskaj więcej informacji na temat problemów [z usługą Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Dowiedz się, jak [zarządzać ustawieniami weryfikacji dwuetapowej](multi-factor-authentication-end-user-manage-settings.md).
 

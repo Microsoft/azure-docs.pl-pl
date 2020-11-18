@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798129"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834153"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Wyświetlanie i wyszukiwanie ostatnich działań związanych z logowaniem ze strony Moje logowania
 
@@ -46,7 +46,7 @@ Przed określeniem elementu jest niepoprawna, upewnij się, że nie widzisz fał
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Jeśli zobaczysz nieudane logowanie
 
-Jeśli zalogowanie nie powiedzie się, może to oznaczać, że poświadczenia zostały wpisane w nieprawidłowy sposób. Może to również oznaczać, że osoba atakująca próbuje odgadnąć hasło. Aby odpowiedzieć na to ryzyko, nie musisz zmieniać hasła, ale zalecamy zarejestrowanie się w usłudze Azure Multi-Factor Authentication (MFA). Za pomocą uwierzytelniania wieloskładnikowego, nawet jeśli haker eliminuje hasło, nie wystarczy uzyskać dostępu do konta.
+Jeśli zalogowanie nie powiedzie się, może to oznaczać, że poświadczenia zostały wpisane w nieprawidłowy sposób. Może to również oznaczać, że osoba atakująca próbuje odgadnąć hasło. Aby odpowiedzieć na to ryzyko, nie musisz zmieniać hasła, ale zalecamy zarejestrowanie się w usłudze Azure AD Multi-Factor Authentication (MFA). Za pomocą uwierzytelniania wieloskładnikowego, nawet jeśli haker eliminuje hasło, nie wystarczy uzyskać dostępu do konta.
 
 ![Niepowodzenie kafelka logowania](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

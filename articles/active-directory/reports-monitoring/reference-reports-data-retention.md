@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393459"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834714"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Jak długo dane są raportowane przez usługę Azure AD Store?
 
@@ -65,7 +65,7 @@ W przypadku sygnałów zabezpieczeń proces zbierania jest uruchamiany, gdy uży
 | :--                    | :--           | :--                 | :--                 |
 | Dzienniki inspekcji             | 7 dni        | 30 dni             | 30 dni             |
 | Logowania               | 7 dni        | 30 dni             | 30 dni             |
-| Użycie usługi Azure MFA        | 30 dni       | 30 dni             | 30 dni             |
+| Użycie usługi Azure AD MFA        | 30 dni       | 30 dni             | 30 dni             |
 
 Dane dotyczące inspekcji i logowania można zachować dłużej niż domyślny okres przechowywania opisany powyżej przez kierowanie go do konta usługi Azure Storage przy użyciu Azure Monitor. Aby uzyskać więcej informacji, zobacz [Archiwizowanie dzienników usługi Azure AD na koncie usługi Azure Storage](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
