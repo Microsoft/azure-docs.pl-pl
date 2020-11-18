@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb9d9e7c60344a2a4c538c6d3bf59e337e4569c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461278"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836329"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory uwierzytelnianie przekazywane: często zadawane pytania
 
@@ -37,7 +37,7 @@ Uwierzytelnianie przekazywane jest bezpłatną funkcją. Nie są potrzebne żadn
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Czy [dostęp warunkowy](../conditional-access/overview.md) działa z uwierzytelnianiem przekazującym?
 
-Tak. Wszystkie możliwości dostępu warunkowego, w tym Azure Multi-Factor Authentication, działają z uwierzytelnianiem przekazującym.
+Tak. Wszystkie funkcje dostępu warunkowego, w tym usługa Azure AD Multi-Factor Authentication, działają z uwierzytelnianiem przekazującym.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Czy uwierzytelnianie przekazywane obsługuje "alternatywny identyfikator" jako nazwę użytkownika, a nie "userPrincipalName"?
 Tak, logowanie przy użyciu wartości innej niż nazwa UPN, takiej jak alternatywny adres e-mail, jest obsługiwane zarówno w przypadku uwierzytelniania przekazywanego (PTA), jak i synchronizacji skrótów haseł (PHS). Aby uzyskać więcej informacji na temat [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md).

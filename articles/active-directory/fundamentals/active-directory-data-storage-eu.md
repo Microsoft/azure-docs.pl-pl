@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8b013723707c4a3a087a90674227c3d41c5108
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395893"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836941"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Magazyn danych tożsamości dla klientów europejskich w Azure Active Directory
 Dane tożsamości są przechowywane w usłudze Azure AD w lokalizacji geograficznej na podstawie adresu dostarczonego przez organizację podczas subskrybowania usługi online firmy Microsoft, takiej jak Microsoft 365 i Azure. Aby uzyskać informacje o tym, gdzie są przechowywane dane tożsamości, możesz użyć sekcji [gdzie znajdują się Twoje dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Centrum zaufania Microsoft.
 
 W przypadku klientów, którzy podały adres w Europie, usługa Azure AD przechowuje większość danych tożsamości w obrębie europejskich centrów Datacenter. Ten dokument zawiera informacje dotyczące wszelkich danych przechowywanych poza Europą przez usługi Azure AD.
 
-## <a name="microsoft-azure-multi-factor-authentication"></a>Microsoft Azure Multi-Factor Authentication
+## <a name="microsoft-azure-ad-multi-factor-authentication"></a>Microsoft Azure AD Multi-Factor Authentication
 
-W przypadku usługi Azure Multi-Factor Authentication opartej na chmurze uwierzytelnianie zostanie ukończone w najbliższym centrum danych dla użytkownika. Centra danych dla platformy Azure Multi-Factor Authentication istnieją w Ameryka Północna, Europie i Azja i Pacyfik.
+W przypadku usługi Azure AD Multi-Factor Authentication opartej na chmurze uwierzytelnianie zostanie ukończone w najbliższym centrum danych dla użytkownika. Centra danych dla usługi Azure AD Multi-Factor Authentication istnieją w Ameryka Północna, Europie i Azja i Pacyfik.
 
 * Uwierzytelnianie wieloskładnikowe przy użyciu połączeń telefonicznych pochodzi z centrów danych USA i są kierowane przez dostawców globalnych.
 * Uwierzytelnianie wieloskładnikowe za pomocą wiadomości SMS jest kierowane przez globalnych dostawców.
@@ -34,7 +34,7 @@ W przypadku usługi Azure Multi-Factor Authentication opartej na chmurze uwierzy
     * Usługi specyficzne dla dostawcy urządzenia, takie jak powiadomienia wypychane firmy Apple, mogą znajdować się poza Europą.
 * Żądania uwierzytelniania wieloskładnikowego używające kodów OATH pochodzących z centrów danych UE są weryfikowane w Unii Europejskiej.
 
-Aby uzyskać więcej informacji o tym, jakie informacje o użytkowniku są zbierane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i opartą na chmurze usługę Azure MFA, zobacz [zbieranie danych użytkownika w usłudze azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
+Aby uzyskać więcej informacji o tym, jakie informacje o użytkowniku są zbierane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i usługę Azure AD MFA opartą na chmurze, zobacz [zbieranie danych użytkownika w usłudze azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
 
 ## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Pojedyncze Sign-On oparte na hasłach dla aplikacji dla przedsiębiorstw
  

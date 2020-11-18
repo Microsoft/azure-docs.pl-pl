@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355706"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836295"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie synchronizacji adresatów Cofense na potrzeby automatycznej aprowizacji użytkowników
 
@@ -77,7 +77,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla synchronizacji adresatów Cofense w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -107,44 +107,44 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do synchronizacji adresatów Cofense w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowywania kont użytkowników w synchronizacji Cofense adresatów dla operacji aktualizacji.  Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-   |Atrybut|Typ|
-   |---|---|
+   |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
+   |---|---|---|
+   |externalId|Ciąg|&check;|
    |userName|Ciąg|
-   |externalId|Ciąg|
    |aktywne|Wartość logiczna|
    |displayName|Ciąg|
    |Nazwa. sformatowana|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Name. honorificSuffix|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Home"]. Value|Ciąg|
-   |braky [Type EQ "Other"]. Value|Ciąg|
-   |numer telefonu [typ EQ "pager"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
-   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
-   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
-   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
-   |adresy [typ EQ "Work"]. locale|Ciąg|
-   |addresss [Type EQ "Work"]. region|Ciąg|
-   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |Name. honorificSuffix|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |numer telefonu [typ EQ "Home"]. Value|String|
+   |braky [Type EQ "Other"]. Value|String|
+   |numer telefonu [typ EQ "pager"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |adresy [Type EQ "Other"]. sformatowane|String|
+   |adresy [typ EQ "Work"]. sformatowane|String|
+   |adresy [typ EQ "Work"]. streetAddress|String|
+   |adresy [typ EQ "Work"]. locale|String|
+   |addresss [Type EQ "Work"]. region|String|
+   |addresss [Type EQ "Work"]. KodPocztowy|String|
    |addresss [Type EQ "Work"]. Country|Ciąg|
    |title|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |wiadomości e-mail [Type EQ "Home"]. Value|Ciąg|
-   |wiadomości e-mail [Type EQ "Other"]. Value|Ciąg|
+   |wiadomości e-mail [Type EQ "Home"]. Value|String|
+   |wiadomości e-mail [Type EQ "Other"]. Value|String|
    |preferredLanguage|Ciąg|
    |nickName|Ciąg|
    |userType|Ciąg|
    |locale|Ciąg|
    |timezone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

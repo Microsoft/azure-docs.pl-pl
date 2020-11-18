@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370206"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836686"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Szybkie reagowanie na bezpieczne tożsamości za pomocą usługi Azure AD
 
@@ -75,7 +75,7 @@ Poniższa tabela służy do wyróżniania kluczowych akcji dla następujących s
 
 | Zalecana akcja | Szczegóły |
 | --- | --- |
-| [Włącz połączone środowisko rejestracji usługi Azure MFA i SSPR, aby uprościć rejestrację użytkowników](../authentication/howto-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła. |
+| [Włącz połączone środowisko rejestracji usługi Azure AD MFA i SSPR, aby uprościć rejestrację użytkowników](../authentication/howto-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska w ramach usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła. |
 | [Konfigurowanie ustawień usługi MFA dla organizacji](../authentication/howto-mfa-getstarted.md) | Upewnij się, że konta są chronione przed naruszeniem zabezpieczeń za pomocą uwierzytelniania wieloskładnikowego |
 | [Włączanie samoobsługowego resetowania hasła](../authentication/tutorial-enable-sspr.md) | Pozwala to zmniejszyć liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu lub w aplikacji |
 | [Implementuj zapisywanie zwrotne haseł](../authentication/tutorial-enable-sspr-writeback.md) (jeśli są używane tożsamości hybrydowe) | Zezwalaj na zapisywanie zmian haseł w chmurze z powrotem do lokalnego środowiska Active Directory systemu Windows Server. |
@@ -105,11 +105,11 @@ Poniższa tabela służy do wyróżniania kluczowych akcji dla następujących s
 
 | Zalecana akcja | Szczegóły |
 | --- | --- |
-| [Włącz połączone środowisko rejestracji usługi Azure MFA i SSPR, aby uprościć rejestrację użytkowników](../authentication/howto-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła. |
+| [Włącz połączone środowisko rejestracji usługi Azure AD MFA i SSPR, aby uprościć rejestrację użytkowników](../authentication/howto-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska w ramach usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła. |
 | [Konfigurowanie ustawień usługi MFA dla organizacji](../authentication/howto-mfa-getstarted.md) | Upewnij się, że konta są chronione przed naruszeniem zabezpieczeń za pomocą uwierzytelniania wieloskładnikowego |
 | [Włączanie samoobsługowego resetowania hasła](../authentication/tutorial-enable-sspr.md) | Pozwala to zmniejszyć liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu lub w aplikacji |
 | [Implementuj zapisywanie zwrotne haseł](../authentication/tutorial-enable-sspr-writeback.md) (jeśli są używane tożsamości hybrydowe) | Zezwalaj na zapisywanie zmian haseł w chmurze z powrotem do lokalnego środowiska Active Directory systemu Windows Server. |
-| [Włączenie zasad ochrony tożsamości w celu wymuszenia rejestracji usługi MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Zarządzanie rozwinięciem usługi Azure Multi-Factor Authentication (MFA). |
+| [Włączenie zasad ochrony tożsamości w celu wymuszenia rejestracji usługi MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Zarządzanie rozwinięciem usługi Azure AD Multi-Factor Authentication (MFA). |
 | [Włącz zasady dotyczące użytkowników i zagrożeń logowania dla ochrony tożsamości](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Włączanie zasad logowania i użytkownika ochrony tożsamości. Zalecanymi zasadami logowania jest ukierunkowanie na logowanie średnie ryzyko i wymaganie uwierzytelniania wieloskładnikowego. Zasady użytkownika powinny być przeznaczone dla użytkowników o wysokim ryzyku wymagającym akcji zmiany hasła. |
 | Tworzenie i Włączanie zasad dostępu warunkowego | [Uwierzytelnianie wieloskładnikowe dla administratorów programu chroniące konta z przypisanymi prawami administracyjnymi.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Zablokuj starsze protokoły uwierzytelniania ze względu na zwiększone ryzyko związane ze starszymi protokołami uwierzytelniania.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Wymagaj uwierzytelniania wieloskładnikowego na potrzeby zarządzania platformą Azure w celu ochrony zasobów uprzywilejowanych przez dowolnych użytkowników uzyskujących dostęp do zasobów platformy Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Włącz synchronizację skrótów haseł](../hybrid/how-to-connect-password-hash-synchronization.md) (jeśli są używane tożsamości hybrydowe) | Zapewniaj nadmiarowość uwierzytelniania i zwiększaj bezpieczeństwo (w tym blokadę inteligentną, blokadę adresów IP oraz możliwość odnajdywania przecieków poświadczeń). |

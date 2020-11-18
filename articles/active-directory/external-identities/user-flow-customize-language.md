@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576516"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837094"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Dostosowanie języka w Azure Active Directory (wersja zapoznawcza)
 
@@ -146,7 +146,7 @@ Programy Chrome i Firefox żądają swojego języka zestawu. Jeśli jest to obs�
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 
-Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływu użytkownika są udostępniane przez usługę Azure AD. Języki powiadomień usługi uwierzytelniania wieloskładnikowego (MFA) są udostępniane przez [usługę Azure MFA](../authentication/concept-mfa-howitworks.md).
+Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływu użytkownika są udostępniane przez usługę Azure AD. Języki powiadomień usługi uwierzytelniania wieloskładnikowego (MFA) są udostępniane przez [usługę Azure AD MFA](../authentication/concept-mfa-howitworks.md).
 
 | Język              | Kod języka | Przepływy użytkowników         | Powiadomienia usługi MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
@@ -156,7 +156,7 @@ Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływ
 | Kataloński               | urzędu certyfikacji            | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Czeski                 | Rejestr            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Duński                | da            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
-| niemiecki                | de            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
+| Niemiecki                | de            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Grecki                 | Colon            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Angielski               | en            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Hiszpański               | es            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
@@ -175,7 +175,7 @@ Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływ
 | japoński              | ja            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Kazachski                | kk            | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Kannada               | kN            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) |
-| koreański                | Ko            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
+| Koreański                | Ko            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Litewski            | lt            | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Łotewski               | LV            | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) |
 | Malayalam             | ml            | ![Zielony znacznik wyboru.](./media/user-flow-customize-language/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-customize-language/no.png) |

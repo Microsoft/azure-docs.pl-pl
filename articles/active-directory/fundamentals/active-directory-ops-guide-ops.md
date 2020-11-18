@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370954"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836839"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Dokumentacja podręcznika obsługi ogólnej Azure Active Directory
 
@@ -43,7 +43,7 @@ Zarządzanie Azure Active Directory wymaga ciągłego wykonywania kluczowych zad
 | Monitoruj dzienniki hybrydowe: przekazywanie agentów uwierzytelniania | Zespół operacji IAM |
 | Monitoruj dzienniki hybrydowe: usługa zapisywania zwrotnego haseł | Zespół operacji IAM |
 | Monitorowanie dzienników hybrydowych: lokalna Brama ochrony haseł | Zespół operacji IAM |
-| Monitoruj dzienniki hybrydowe: rozszerzenie NPS usługi Azure MFA (jeśli dotyczy) | Zespół operacji IAM |
+| Monitoruj dzienniki hybrydowe: rozszerzenie NPS usługi Azure AD MFA (jeśli dotyczy) | Zespół operacji IAM |
 
 Podczas przeglądania listy może być konieczne przypisanie właściciela do zadań, w których brakuje właściciela, lub dostosować własność do zadań z właścicielami, które nie są wyrównane do powyższych zaleceń.
 
@@ -86,7 +86,7 @@ Podczas monitorowania kondycji środowiska należy natychmiast rozwiązać wszys
 
 ### <a name="on-premises-agents-logs"></a>Dzienniki agentów lokalnych
 
-Niektóre usługi zarządzania tożsamościami i dostępem wymagają agentów lokalnych do włączania scenariuszy hybrydowych. Przykłady obejmują Resetowanie hasła, uwierzytelnianie przekazywane (PTA), Azure serwer proxy aplikacji usługi Azure AD i rozszerzenie NPS usługi Azure MFA. Jest to kluczowy plan bazowy zespołu operacji i monitoruje kondycję tych składników przez archiwizowanie i analizowanie dzienników agentów składników przy użyciu rozwiązań, takich jak System Center Operations Manager lub SIEM. Jest to równie ważne w przypadku zespołu operacji INFOSEC lub pomocy technicznej zrozumienie, jak rozwiązywać problemy z wzorcem błędów.
+Niektóre usługi zarządzania tożsamościami i dostępem wymagają agentów lokalnych do włączania scenariuszy hybrydowych. Przykładami mogą być: Resetowanie hasła, uwierzytelnianie przekazywane (PTA), platforma Azure serwer proxy aplikacji usługi Azure AD i rozszerzenie NPS usługi Azure AD MFA. Jest to kluczowy plan bazowy zespołu operacji i monitoruje kondycję tych składników przez archiwizowanie i analizowanie dzienników agentów składników przy użyciu rozwiązań, takich jak System Center Operations Manager lub SIEM. Jest to równie ważne w przypadku zespołu operacji INFOSEC lub pomocy technicznej zrozumienie, jak rozwiązywać problemy z wzorcem błędów.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Agenci w lokalnych dziennikach rejestrują zalecaną czytelność
 
@@ -94,7 +94,7 @@ Niektóre usługi zarządzania tożsamościami i dostępem wymagają agentów lo
 - [Rozwiązywanie problemów z samoobsługowym resetowaniem hasła — Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: Rozwiązywanie problemów z uwierzytelnianiem przekazywanym](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Rozwiązywanie problemów z kodami błędów dla rozszerzenia serwera NPS usługi Azure MFA](../authentication/howto-mfa-nps-extension-errors.md)
+- [Rozwiązywanie problemów z kodami błędów dla rozszerzenia serwera NPS usługi Azure AD MFA](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Zarządzanie agentami lokalnymi
 

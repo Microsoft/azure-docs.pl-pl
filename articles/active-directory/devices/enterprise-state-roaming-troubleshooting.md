@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705728"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837213"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Rozwiązywanie problemów Enterprise State Roaming ustawień w Azure Active Directory
 
@@ -76,7 +76,7 @@ Enterprise State Roaming wymaga zarejestrowania urządzenia w usłudze Azure AD.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming i Multi-Factor Authentication 
 
-W pewnych warunkach Enterprise State Roaming nie mogą synchronizować danych w przypadku skonfigurowania usługi Azure Multi-Factor Authentication. Aby uzyskać więcej informacji na temat tych objawów, zobacz dokument pomocy technicznej [KB3193683](https://support.microsoft.com/kb/3193683). 
+W pewnych warunkach Enterprise State Roaming nie mogą synchronizować danych, jeśli usługa Azure AD Multi-Factor Authentication jest skonfigurowana. Aby uzyskać więcej informacji na temat tych objawów, zobacz dokument pomocy technicznej [KB3193683](https://support.microsoft.com/kb/3193683). 
 
 **Potencjalny problem**: Jeśli na urządzeniu skonfigurowano wymaganie Multi-Factor Authentication w portalu Azure Active Directory, nie można zsynchronizować ustawień podczas logowania się do urządzenia z systemem Windows 10 przy użyciu hasła. Ten typ konfiguracji Multi-Factor Authentication jest przeznaczony do ochrony konta administratora platformy Azure. Użytkownicy administracyjni mogą nadal synchronizować się, logując się na urządzeniach z systemem Windows 10 przy użyciu numeru PIN Microsoft Passport for Work lub wykonując Multi-Factor Authentication podczas uzyskiwania dostępu do innych usług platformy Azure, takich jak Microsoft 365.
 

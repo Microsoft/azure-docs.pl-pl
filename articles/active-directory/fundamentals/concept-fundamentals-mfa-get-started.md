@@ -1,6 +1,6 @@
 ---
-title: Multi-Factor Authentication platformy Azure dla Twojej organizacji — Azure Active Directory
-description: Dowiedz się więcej o dostępnych funkcjach Multi-Factor Authentication platformy Azure dla Twojej organizacji w oparciu o model licencji
+title: Multi-Factor Authentication usługi Azure AD dla Twojej organizacji — Azure Active Directory
+description: Dowiedz się więcej o dostępnych funkcjach usługi Azure AD Multi-Factor Authentication w organizacji w oparciu o model licencji
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: daveba
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093d9fdd75b8a4a581faa0708cf97ea67774d734
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 85e7f02f8cbda6218396bf4a9a4654a113b7817c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241722"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836746"
 ---
-# <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Omówienie Multi-Factor Authentication platformy Azure dla Twojej organizacji
+# <a name="overview-of-azure-ad-multi-factor-authentication-for-your-organization"></a>Omówienie Multi-Factor Authentication usługi Azure AD dla Twojej organizacji
 
-Istnieje wiele sposobów włączania usługi Azure Multi-Factor Authentication dla użytkowników Azure Active Directory (AD) na podstawie licencji należących do organizacji. 
+Istnieje wiele sposobów włączania usługi Azure AD Multi-Factor Authentication dla użytkowników Azure Active Directory (AD) na podstawie licencji należących do organizacji. 
 
 ![Zbadaj sygnały i wymuś uwierzytelnianie MFA w razie konieczności](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
@@ -36,7 +36,7 @@ Klienci korzystający z bezpłatnych korzyści płynących z usługi Azure AD mo
 
 W przypadku klientów z Microsoft 365 są dostępne dwie opcje:
 
-* Usługa Azure Multi-Factor Authentication jest włączona lub wyłączona dla wszystkich użytkowników w przypadku wszystkich zdarzeń związanych z logowaniem. Nie ma możliwości włączania uwierzytelniania wieloskładnikowego tylko dla podzbioru użytkowników lub tylko w określonych scenariuszach. Zarządzanie odbywa się za pomocą portalu pakietu Office 365. 
+* Usługa Azure AD Multi-Factor Authentication jest włączona lub wyłączona dla wszystkich użytkowników w przypadku wszystkich zdarzeń związanych z logowaniem. Nie ma możliwości włączania uwierzytelniania wieloskładnikowego tylko dla podzbioru użytkowników lub tylko w określonych scenariuszach. Zarządzanie odbywa się za pomocą portalu pakietu Office 365. 
 * Aby ulepszyć środowisko użytkownika, należy przeprowadzić uaktualnienie do Azure AD — wersja Premium P1 lub P2 i korzystać z dostępu warunkowego. Aby uzyskać więcej informacji, zobacz Zabezpieczanie zasobów Microsoft 365 przy użyciu usługi uwierzytelniania wieloskładnikowego.
 
 ## <a name="azure-ad-premium-p1"></a>Usługa Azure AD — wersja Premium P1
@@ -62,6 +62,6 @@ Zapewnia najmocniejszą pozycję zabezpieczeń i ulepszone środowisko użytkown
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, zapoznaj się z samouczkiem [dotyczącym zabezpieczania zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
+Aby rozpocząć, zapoznaj się z samouczkiem, aby [zabezpieczyć zdarzenia logowania użytkowników w usłudze Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
 
-Aby uzyskać więcej informacji na temat licencjonowania, zobacz [funkcje i licencje dla platformy Azure Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).
+Aby uzyskać więcej informacji na temat licencjonowania, zobacz [funkcje i licencje dla usługi Azure AD Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).

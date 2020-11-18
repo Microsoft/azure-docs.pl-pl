@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371056"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836992"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania uwierzytelnianiem Azure Active Directory
 
@@ -95,7 +95,7 @@ Hasła nie są wystarczająco bezpieczne, aby zapobiec uzyskiwaniu dostępu do �
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Odporność uwierzytelniania w przypadku awarii lokalnej
 
-Oprócz korzyści płynących z uproszczenia i włączenia wykrywania nieujawnionych poświadczeń, synchronizacja skrótów haseł w usłudze Azure AD (PHS) i usługa Azure MFA umożliwiają użytkownikom dostęp do aplikacji SaaS i Microsoft 365 w przypadku awarii w środowisku lokalnym z powodu cyberattacks, takich jak [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Możliwe jest również włączenie PHS w połączeniu z Federacją. Włączenie PHS umożliwia rezerwowe uwierzytelnianie, gdy usługi federacyjne nie są dostępne.
+Oprócz zalet prostoty i włączania przecieków poświadczeń, synchronizacja skrótów haseł w usłudze Azure AD (PHS) i usługa Azure AD MFA umożliwiają użytkownikom dostęp do aplikacji SaaS i Microsoft 365 w przypadku awarii w środowisku lokalnym z powodu cyberattacks, takich jak [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Możliwe jest również włączenie PHS w połączeniu z Federacją. Włączenie PHS umożliwia rezerwowe uwierzytelnianie, gdy usługi federacyjne nie są dostępne.
 
 Jeśli Twoja organizacja lokalna nie ma strategii odporności na awarie lub ma taką, która nie jest zintegrowana z usługą Azure AD, należy wdrożyć usługę Azure AD PHS i zdefiniować plan odzyskiwania po awarii, który obejmuje PHS. Włączenie usługi Azure AD PHS umożliwi użytkownikom uwierzytelnianie w usłudze Azure AD, jeśli lokalne Active Directory będą niedostępne.
 
@@ -309,7 +309,7 @@ Poniżej znajduje się lista aplikacji z uprawnieniami, które mogą być Scruti
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Aplikacje otrzymują pełną personifikację użytkownika zalogowanego użytkownika. Na przykład:
+- Aplikacje otrzymują pełną personifikację użytkownika zalogowanego użytkownika. Przykład:
 
 |Zasób | Uprawnienie |
 | :- | :- |

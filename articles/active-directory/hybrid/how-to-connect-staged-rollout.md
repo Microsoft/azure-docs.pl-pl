@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646580"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836397"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
-Wdrażanie etapowe pozwala na selektywne testowanie grup użytkowników z możliwościami uwierzytelniania w chmurze, takimi jak Azure Multi-Factor Authentication (MFA), dostęp warunkowy, Ochrona tożsamości dla nieujawnionych poświadczeń, zarządzanie tożsamościami i inne, przed wycięciem przez domeny.  W tym artykule omówiono sposób tworzenia przełącznika. Przed rozpoczęciem wdrożenia przemieszczanego należy jednak wziąć pod uwagę konsekwencje, jeśli co najmniej jeden z następujących warunków jest spełniony:
+Wdrażanie etapowe pozwala na selektywne testowanie grup użytkowników z możliwościami uwierzytelniania w chmurze, takimi jak usługa Azure AD Multi-Factor Authentication (MFA), dostęp warunkowy, Ochrona tożsamości na potrzeby przecieków poświadczeń, zarządzania tożsamościami i innych, przed wycinaniem domen.  W tym artykule omówiono sposób tworzenia przełącznika. Przed rozpoczęciem wdrożenia przemieszczanego należy jednak wziąć pod uwagę konsekwencje, jeśli co najmniej jeden z następujących warunków jest spełniony:
     
 -  Obecnie używasz lokalnego serwera Multi-Factor Authentication. 
 -  Do uwierzytelniania są używane karty inteligentne. 
@@ -45,7 +45,7 @@ Aby zapoznać się z omówieniem tej funkcji, zobacz "Azure Active Directory: co
 
 -   Skonfigurowano wszystkie odpowiednie zasady oznaczania i dostępu warunkowego dla użytkowników, którzy są migrowani do uwierzytelniania w chmurze.
 
--   Jeśli planujesz korzystanie z usługi Azure Multi-Factor Authentication, zalecamy użycie [funkcji rejestracji połączonej do samoobsługowego resetowania hasła (SSPR) i Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) , aby użytkownicy mogli rejestrować swoje metody uwierzytelniania. Uwaga — w przypadku używania SSPR do resetowania hasła lub zmiany hasła przy użyciu strony Moje profile podczas wdrażania etapowego Azure AD Connect musi synchronizować nowy skrót hasła, co może potrwać do 2 minut po zresetowaniu.
+-   Jeśli planujesz korzystanie z usługi Azure AD Multi-Factor Authentication, zalecamy użycie [połączonej rejestracji do samoobsługowego resetowania hasła (SSPR) i Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) , aby użytkownicy mogli rejestrować swoje metody uwierzytelniania. Uwaga — w przypadku używania SSPR do resetowania hasła lub zmiany hasła przy użyciu strony Moje profile podczas wdrażania etapowego Azure AD Connect musi synchronizować nowy skrót hasła, co może potrwać do 2 minut po zresetowaniu.
 
 -   Aby można było korzystać z funkcji wdrażania etapowego, musisz być administratorem globalnym w Twojej dzierżawie.
 

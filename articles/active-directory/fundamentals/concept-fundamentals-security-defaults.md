@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705337"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836771"
 ---
 # <a name="what-are-security-defaults"></a>Co to są wartości domyślne zabezpieczeń?
 
 Zarządzanie zabezpieczeniami może być trudne z typowymi atakami związanymi z tożsamościami, takimi jak rozpylanie, odtwarzanie i wyłudzanie informacji. Ustawienia domyślne zabezpieczeń ułatwiają ochronę organizacji przed atakami ze wstępnie skonfigurowanymi ustawieniami zabezpieczeń:
 
-- Wymaganie, aby wszyscy użytkownicy rejestrowali się w usłudze Azure Multi-Factor Authentication.
+- Wymaganie, aby wszyscy użytkownicy rejestrowali się w usłudze Azure AD Multi-Factor Authentication.
 - Wymaganie od administratorów wykonywania uwierzytelniania wieloskładnikowego.
 - Blokowanie starszych protokołów uwierzytelniania.
 - Wymaganie od użytkowników uwierzytelniania wieloskładnikowego w razie potrzeby.
@@ -52,13 +52,13 @@ Firma Microsoft udostępnia wartości domyślne zabezpieczeń dla wszystkich uż
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Ujednolicona Rejestracja Multi-Factor Authentication
 
-Wszyscy użytkownicy w dzierżawie muszą zarejestrować się w celu korzystania z uwierzytelniania wieloskładnikowego (MFA) w formie Multi-Factor Authentication platformy Azure. Użytkownicy mają 14 dni na rejestrację w usłudze Azure Multi-Factor Authentication przy użyciu aplikacji Microsoft Authenticator. Po upływie 14 dni użytkownik nie będzie mógł się zalogować, dopóki Rejestracja nie zostanie zakończona. 14-dniowy okres użytkownika rozpoczyna się po pierwszym pomyślnym zalogowaniu interakcyjnym po włączeniu ustawień domyślnych zabezpieczeń.
+Wszyscy użytkownicy w dzierżawie muszą zarejestrować się w celu korzystania z uwierzytelniania wieloskładnikowego (MFA) w formie Multi-Factor Authentication usługi Azure AD. Użytkownicy mają 14 dni na rejestrację w usłudze Azure AD Multi-Factor Authentication przy użyciu aplikacji Microsoft Authenticator. Po upływie 14 dni użytkownik nie będzie mógł się zalogować, dopóki Rejestracja nie zostanie zakończona. 14-dniowy okres użytkownika rozpoczyna się po pierwszym pomyślnym zalogowaniu interakcyjnym po włączeniu ustawień domyślnych zabezpieczeń.
 
 ### <a name="protecting-administrators"></a>Ochrona administratorów
 
 Użytkownicy z uprzywilejowanym dostępem mają zwiększony dostęp do Twojego środowiska. Ze względu na moc tych kont należy traktować je z uwzględnieniem specjalnych zaopieki. Jedną z typowych metod ulepszania ochrony uprzywilejowanych kont jest wymaganie, aby w celu zalogowania się była silniejsza weryfikacja konta. W usłudze Azure AD możesz uzyskać silniejszą weryfikację konta, wymagając uwierzytelniania wieloskładnikowego.
 
-Po zakończeniu rejestracji w usłudze Azure Multi-Factor Authentication, następujące dziewięć ról administratora usługi Azure AD będzie wymagane do przeprowadzenia dodatkowego uwierzytelniania przy każdym logowaniu:
+Po zakończeniu rejestracji w usłudze Azure AD Multi-Factor Authentication do przeprowadzenia dodatkowego uwierzytelniania przy każdym logowaniu będzie wymagane następujące dziewięć ról administratora usługi Azure AD:
 
 - Administrator globalny
 - Administrator programu SharePoint
@@ -120,7 +120,7 @@ Poniższe zagadnienia dodatkowe są związane z wdrażaniem ustawień domyślnyc
 
 ### <a name="authentication-methods"></a>Metody uwierzytelniania
 
-Te bezpłatne wartości domyślne zabezpieczeń umożliwiają rejestrację i korzystanie z platformy Azure Multi-Factor Authentication **przy użyciu tylko aplikacji Microsoft Authenticator przy użyciu powiadomień**. Dostęp warunkowy umożliwia korzystanie z dowolnej metody uwierzytelniania, która ma zostać włączona przez administratora.
+Te bezpłatne wartości domyślne zabezpieczeń umożliwiają rejestrację i korzystanie z usługi Azure AD Multi-Factor Authentication **przy użyciu tylko aplikacji Microsoft Authenticator przy użyciu powiadomień**. Dostęp warunkowy umożliwia korzystanie z dowolnej metody uwierzytelniania, która ma zostać włączona przez administratora.
 
 | Metoda | Domyślne ustawienia zabezpieczeń | Dostęp warunkowy |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Te bezpłatne wartości domyślne zabezpieczeń umożliwiają rejestrację i kor
 | Kod weryfikacyjny z aplikacji mobilnej lub tokenu sprzętowego | X * * | X |
 | Wiadomość SMS na telefon |   | X |
 | Wywołanie telefonu |   | X |
-| Hasła aplikacji |   | X * * * |
+| Hasła aplikacji |   | X * * _ |
 
-- * * Użytkownicy mogą używać kodów weryfikacyjnych z aplikacji Microsoft Authenticator, ale mogą się rejestrować tylko przy użyciu opcji powiadomień.
-- Hasła aplikacji są dostępne tylko w ramach usługi MFA dla poszczególnych użytkowników ze starszymi scenariuszami uwierzytelniania tylko wtedy, gdy są włączone przez administratorów.
+- _ * Użytkownicy mogą używać kodów weryfikacyjnych z aplikacji Microsoft Authenticator, ale mogą się rejestrować tylko przy użyciu opcji powiadomień.
+- * * Hasła aplikacji są dostępne tylko w ramach usługi MFA dla poszczególnych użytkowników ze starszymi scenariuszami uwierzytelniania tylko wtedy, gdy są włączone przez administratorów.
 
 ### <a name="disabled-mfa-status"></a>Stan wyłączonej usługi MFA
 
-Jeśli Twoja organizacja jest poprzednim użytkownikiem opartym na systemie Azure Multi-Factor Authentication na poziomie użytkownika, nie musisz otrzymywać alertów, aby nie wyświetlać użytkowników w stanie **włączony** lub **wymuszany** , Jeśli zobaczysz stronę stanu usługi uwierzytelniania wieloskładnikowego. **Wyłączone** to odpowiedni stan dla użytkowników korzystających z domyślnych ustawień zabezpieczeń lub opartych na dostępie warunkowym Multi-Factor Authentication platformy Azure.
+Jeśli Twoja organizacja jest poprzednim użytkownikiem opartym na użytkownikach usługi Azure AD Multi-Factor Authentication, nie musisz otrzymywać alertów, aby nie wyświetlać użytkowników w stanie "_ *Enabled**" lub **wymuszać** się na stronie stanu usługi uwierzytelniania wieloskładnikowego. **Wyłączone** to odpowiedni stan dla użytkowników korzystających z domyślnych ustawień zabezpieczeń lub Multi-Factor Authentication usługi Azure AD opartych na dostępie warunkowym.
 
 ### <a name="conditional-access"></a>Dostęp warunkowy
 
@@ -149,7 +149,7 @@ Poniżej przedstawiono przewodnik krok po kroku dotyczący sposobu konfigurowani
 - [Wymaganie uwierzytelniania wieloskładnikowego do zarządzania platformą Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Blokowanie starszego uwierzytelniania](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Wymaganie uwierzytelniania wieloskładnikowego dla wszystkich użytkowników](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Wymagaj rejestracji w usłudze Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) — wymaga Azure AD Identity Protection części Azure AD — wersja Premium P2.
+- [Wymagaj rejestracji w usłudze Azure AD MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) — wymaga Azure AD Identity Protection części Azure AD — wersja Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Włączanie ustawień domyślnych zabezpieczeń
 

@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358331"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836363"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory uwierzytelniania przekazywanego: szczegółowe głębokiej wiedzy technicznej
 Ten artykuł zawiera omówienie sposobu działania uwierzytelniania przekazywanego za pomocą usługi Azure Active Directory (Azure AD). Aby uzyskać szczegółowe informacje techniczne i o zabezpieczeniach, zobacz artykuł [głębokie szczegółowe zabezpieczeń](how-to-connect-pta-security-deep-dive.md) .
@@ -43,7 +43,7 @@ Gdy użytkownik próbuje zalogować się do aplikacji zabezpieczonej przez usłu
 8. Agent sprawdza poprawność nazwy użytkownika i hasła do Active Directory przy użyciu standardowych interfejsów API systemu Windows, która jest podobnym mechanizmem do działania Active Directory Federation Services (AD FS). Nazwa użytkownika może być lokalną domyślną nazwą użytkownika, zazwyczaj `userPrincipalName` lub innym atrybutem skonfigurowanym w Azure AD Connect (znanym jako `Alternate ID` ).
 9. Lokalny Active Directory kontroler domeny (DC) oblicza żądanie i zwraca odpowiednią odpowiedź (powodzenie, Niepowodzenie, wygasłe hasło lub użytkownik jest zablokowany) do agenta.
 10. Z kolei Agent uwierzytelniania zwraca tę odpowiedź z powrotem do usługi Azure AD.
-11. Usługa Azure AD oblicza odpowiedź i reaguje na użytkownika zgodnie z potrzebami. Na przykład usługa Azure AD bezpośrednio podpisuje użytkownika lub żąda od platformy Azure Multi-Factor Authentication.
+11. Usługa Azure AD oblicza odpowiedź i reaguje na użytkownika zgodnie z potrzebami. Na przykład usługa Azure AD bezpośrednio podpisuje użytkownika lub żąda usługi Azure AD Multi-Factor Authentication.
 12. Jeśli logowanie użytkownika zakończyło się pomyślnie, użytkownik może uzyskać dostęp do aplikacji.
 
 Na poniższym diagramie przedstawiono wszystkie składniki i czynności, które należy wykonać:

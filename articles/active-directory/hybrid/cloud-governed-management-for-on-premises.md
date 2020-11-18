@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413449"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836465"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Jak usługa Azure AD zapewnia zarządzanie zarządzane przez chmurę dla obciążeń lokalnych
 
@@ -39,7 +39,7 @@ Ten dokument przedstawia strategię firmy Microsoft dotyczącą IDaaS hybrydowyc
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Podejście usługi Azure AD do zarządzania tożsamościami zarządzanymi przez chmurę
 
-W miarę jak organizacje przechodzą na chmurę, muszą mieć pewność, że mają kontrolę nad ich pełnym środowiskiem — większym wpływem na działania, które są obsługiwane przez automatyzację i proaktywne szczegółowe informacje. " **Zarządzanie zarządzane przez chmurę** " opisuje, w jaki sposób organizacje zarządzają użytkownikami, aplikacjami, grupami i urządzeniami w chmurze oraz zarządza nimi.
+W miarę jak organizacje przechodzą na chmurę, muszą mieć pewność, że mają kontrolę nad ich pełnym środowiskiem — większym wpływem na działania, które są obsługiwane przez automatyzację i proaktywne szczegółowe informacje. "**Zarządzanie zarządzane przez chmurę**" opisuje, w jaki sposób organizacje zarządzają użytkownikami, aplikacjami, grupami i urządzeniami w chmurze oraz zarządza nimi.
 
 W tym nowoczesnym świecie organizacje muszą mieć możliwość efektywnego zarządzania na dużą skalę z powodu rozprzestrzeniania się aplikacji SaaS oraz rosnącej roli współpracy i tożsamości zewnętrznych. Nowe ryzyko dotyczące krajobrazu w chmurze oznacza, że organizacja musi być wydajniejsza — złośliwy aktor, który zagraża użytkownikowi chmury, może mieć wpływ na aplikacje w chmurze i lokalne.
 
@@ -89,7 +89,7 @@ Gdy organizacja jest gotowa do przenoszenia aplikacji zintegrowanej z usługą A
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Zarządzanie zarządzane przez chmurę dla lokalnych aplikacji opartych na Federacji
 
-W przypadku organizacji, która korzysta już z lokalnego dostawcy tożsamości, przeniesienie aplikacji do usługi Azure AD umożliwia bezpieczniejsze dostęp oraz łatwiejsze środowisko administracyjne do zarządzania Federacją. Usługa Azure AD umożliwia konfigurowanie szczegółowych kontroli dostępu dla poszczególnych aplikacji, w tym usługi Azure Multi-Factor Authentication, przy użyciu dostępu warunkowego usługi Azure AD. Usługa Azure AD obsługuje więcej możliwości, w tym certyfikaty podpisywania tokenów specyficznych dla aplikacji oraz konfigurowalne daty wygaśnięcia certyfikatu. Te funkcje, narzędzia i wskazówki umożliwiają organizacjom wycofanie lokalnych dostawców tożsamości. Firma Microsoft może na przykład przenieść aplikacje 17 987 z wewnętrznego Active Directory Federation Services firmy Microsoft (AD FS) do usługi Azure AD.
+W przypadku organizacji, która korzysta już z lokalnego dostawcy tożsamości, przeniesienie aplikacji do usługi Azure AD umożliwia bezpieczniejsze dostęp oraz łatwiejsze środowisko administracyjne do zarządzania Federacją. Usługa Azure AD umożliwia konfigurowanie szczegółowych kontroli dostępu dla poszczególnych aplikacji, w tym Multi-Factor Authentication usługi Azure AD, przy użyciu dostępu warunkowego usługi Azure AD. Usługa Azure AD obsługuje więcej możliwości, w tym certyfikaty podpisywania tokenów specyficznych dla aplikacji oraz konfigurowalne daty wygaśnięcia certyfikatu. Te funkcje, narzędzia i wskazówki umożliwiają organizacjom wycofanie lokalnych dostawców tożsamości. Firma Microsoft może na przykład przenieść aplikacje 17 987 z wewnętrznego Active Directory Federation Services firmy Microsoft (AD FS) do usługi Azure AD.
 
 ![Ewolucja usługi Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 
@@ -111,7 +111,7 @@ Organizacje mogą zautomatyzować proces cyklu życia dostępu za pomocą techno
 
 ## <a name="future-directions"></a>Przyszłe instrukcje
 
-W środowiskach hybrydowych, strategia firmy Microsoft polega na włączeniu wdrożeń, w których **chmura jest płaszczyzną kontroli tożsamości** , a lokalnymi katalogami i innymi systemami tożsamości, takimi jak Active Directory i inne aplikacje lokalne, są celem aprowizacji użytkowników z dostępem. Ta strategia będzie nadal zapewniać prawa, tożsamości i dostęp do tych aplikacji oraz obciążeń, które są na nich zależne. W tym stanie organizacje będą mogły zwiększyć produktywność użytkowników końcowych w całości z chmury.
+W środowiskach hybrydowych, strategia firmy Microsoft polega na włączeniu wdrożeń, w których **chmura jest płaszczyzną kontroli tożsamości**, a lokalnymi katalogami i innymi systemami tożsamości, takimi jak Active Directory i inne aplikacje lokalne, są celem aprowizacji użytkowników z dostępem. Ta strategia będzie nadal zapewniać prawa, tożsamości i dostęp do tych aplikacji oraz obciążeń, które są na nich zależne. W tym stanie organizacje będą mogły zwiększyć produktywność użytkowników końcowych w całości z chmury.
 
 ![Architektura usługi Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266786"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837111"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory często zadawane pytania dotyczące zarządzania urządzeniami
 
@@ -27,7 +27,7 @@ ms.locfileid: "89266786"
 Odp **.:** Urządzenia z systemem Windows 10, które są dołączone do hybrydowej usługi Azure AD, nie są wyświetlane w obszarze **urządzenia użytkowników**.
 Użyj widoku **wszystkie urządzenia** w Azure Portal. Można również użyć polecenia cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) programu PowerShell.
 
-W obszarze **urządzenia użytkowników**są wyświetlane tylko następujące urządzenia:
+W obszarze **urządzenia użytkowników** są wyświetlane tylko następujące urządzenia:
 
 - Wszystkie urządzenia osobiste, które nie są dołączone do hybrydowej usługi Azure AD. 
 - Wszystkie urządzenia z systemem innym niż Windows 10 lub Windows Server 2016.
@@ -198,7 +198,7 @@ Odp **.:** Czy skonfigurowano pewne reguły dostępu warunkowego, aby wymagały 
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: Dlaczego niektórzy użytkownicy nie pobierają odpowiedzi na platformę Azure Multi-Factor Authentication na urządzeniach dołączonych do usługi Azure AD?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: Dlaczego niektórzy użytkownicy nie pobierają odpowiedzi usługi Azure AD Multi-Factor Authentication na urządzeniach przyłączonych do usługi Azure AD?
 
 Odp **.:** Użytkownik może dołączyć lub zarejestrować urządzenie w usłudze Azure AD przy użyciu Multi-Factor Authentication. Następnie samo urządzenie będzie zaufanym drugim czynnikiem dla tego użytkownika. Za każdym razem, gdy ten sam użytkownik loguje się na urządzeniu i uzyskuje dostęp do aplikacji, usługa Azure AD traktuje urządzenie jako drugi czynnik. Dzięki temu użytkownik może bezproblemowo uzyskiwać dostęp do aplikacji bez dodatkowych Multi-Factor Authenticationych. 
 

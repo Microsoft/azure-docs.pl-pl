@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371889"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836822"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plany wdrażania usługi Azure Active Directory
 Szukasz kompleksowej wskazówki dotyczącej wdrażania możliwości usług Azure Active Directory (Azure AD)? Plany wdrażania usługi Azure AD przeprowadzą Cię przez wartość biznesową, zagadnienia dotyczące planowania i procedury operacyjne, które są potrzebne do pomyślnego wdrożenia wspólnych możliwości usługi Azure AD.
@@ -40,13 +40,13 @@ Role mogą zawierać następujące elementy:
 
 **Poziom zaangażowania może obejmować:**
 
-- **R**esponsible do implementacji planu i wyniku projektu 
+- **R** esponsible do implementacji planu i wyniku projektu 
 
 - **Pproval planu i wyniku projektu** 
 
-- **C**ondystrybucyjny do planu i wyniku projektu 
+- **C** ondystrybucyjny do planu i wyniku projektu 
 
-- **Nformedm planu i wyniku**projektu
+- **Nformedm planu i wyniku** projektu
 
 
 ## <a name="best-practices-for-a-pilot"></a>Najlepsze rozwiązania dla pilotażu
@@ -61,7 +61,7 @@ Rozszerzanie wdrożenia do większych grup użytkowników powinno odbywać się 
 
 | Możliwość | Opis|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure Multi-Factor Authentication (MFA) to rozwiązanie firmy Microsoft służące do przeprowadzania weryfikacji dwuetapowej. Korzystając z zaakceptowanych przez administratora metod uwierzytelniania, usługa Azure MFA pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania dotyczące prostego procesu logowania. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Usługa Azure AD Multi-Factor Authentication (MFA) to rozwiązanie firmy Microsoft do weryfikacji dwuetapowej. Przy użyciu zaakceptowanych przez administratora metod uwierzytelniania usługa Azure AD MFA pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania dotyczące prostego procesu logowania. |
 | [Dostęp warunkowy](../conditional-access/plan-conditional-access.md)| Za pomocą dostępu warunkowego można zaimplementować zautomatyzowane decyzje dotyczące kontroli dostępu, które mogą uzyskiwać dostęp do aplikacji w chmurze na podstawie warunków. |
 | [Samoobsługowe resetowanie haseł](../authentication/howto-sspr-deployment.md)| Funkcja samoobsługowego resetowania hasła pomaga użytkownikom resetować swoje hasła bez interwencji administratora, kiedy i gdzie potrzebują. |
 | [Logowanie bez hasła](../authentication/howto-authentication-passwordless-deployment.md) | Zaimplementuj uwierzytelnianie bezhasła przy użyciu aplikacji Microsoft Authenticator lub kluczy zabezpieczeń FIDO2 w organizacji |

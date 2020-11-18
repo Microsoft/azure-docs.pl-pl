@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077969"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836924"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Przewodnik wdrażania funkcji usługi Azure Active Directory
 
@@ -57,7 +57,7 @@ W tej fazie Administratorzy mogą włączyć podstawowe funkcje zabezpieczeń, a
 | [Wdrażanie Multi-Factor Authentication usługi Azure AD przy użyciu zasad dostępu warunkowego](../authentication/howto-mfa-getstarted.md) | Wymaganie od użytkowników weryfikacji dwuetapowej podczas uzyskiwania dostępu do poufnych aplikacji przy użyciu zasad dostępu warunkowego. | Usługa Azure AD — wersja Premium P1 |
 | [Włącz Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Włącz śledzenie ryzykownych logowań i zagrożonych poświadczeń dla użytkowników w organizacji. | Usługa Azure AD — wersja Premium P2 |
 | [Korzystanie z wykrywania ryzyka w celu wyzwalania zmian związanych z uwierzytelnianiem wieloskładnikowym i hasłami](../authentication/tutorial-risk-based-sspr-mfa.md) | Włącz automatyzację, która może wyzwalać zdarzenia, takie jak uwierzytelnianie wieloskładnikowe, Resetowanie hasła i blokowanie logowania na podstawie ryzyka. | Usługa Azure AD — wersja Premium P2 |
-| [Włącz rejestrację łączną do samoobsługowego resetowania haseł i usługi Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła. | Usługa Azure AD — wersja Premium P1 |
+| [Włącz rejestrację łączną do samoobsługowego resetowania haseł i usługi Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska w ramach usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła. | Usługa Azure AD — wersja Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Faza 2: Importowanie użytkowników, Włączanie synchronizacji i zarządzanie urządzeniami
 
