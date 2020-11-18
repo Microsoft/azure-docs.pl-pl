@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 234f772b4a77b780f0b0c1faf307c93847e5caf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87310722"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701895"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Co to jest autoinstrumentation lub bezkodowe Azure Monitor Application Insights?
 
@@ -23,17 +23,17 @@ Application Insights jest zintegrowana z różnymi dostawcami zasobów i działa
 
 W miarę dodawania większej liczby integracji macierz funkcji autoinstrumentacja jest złożona. W poniższej tabeli przedstawiono bieżący stan sprawy, jak to jest pomoc techniczna dla różnych dostawców zasobów, języków i środowisk.
 
-|Dostawca środowisk/zasobów | .NET            | .NET Core       | Java            | Node.js         |
-|------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service w systemie Windows  | GA, OnBD *       | GA, zgoda      | Prywatna wersja zapoznawcza | Prywatna wersja zapoznawcza |
-|Azure App Service w systemie Linux    | Nie dotyczy             | Nieobsługiwane   | Publiczna wersja zapoznawcza  | Publiczna wersja zapoznawcza  |
-|Azure App Service w AKS      | Nie dotyczy             | W projekcie       | W projekcie       | W projekcie       |
-|Azure Functions — podstawowa       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
-|Azure Functions — zależności| Nieobsługiwane   | Nieobsługiwane   | Publiczna wersja zapoznawcza  | Nieobsługiwane   |
-|Azure Kubernetes Service      | Nie dotyczy             | W projekcie       | Za poorednictwem agenta   | W projekcie       |
-|Okna maszyn wirtualnych platformy Azure             | Publiczna wersja zapoznawcza  | Nieobsługiwane   | Nieobsługiwane   | Nieobsługiwane   |
-|Lokalne okna maszyn wirtualnych       | GA, zgoda      | Nieobsługiwane   | Za poorednictwem agenta   | Nieobsługiwane   |
-|Autonomiczny Agent — dowolna ENV.   | Nieobsługiwane   | Nieobsługiwane   | Publiczna wersja zapoznawcza  | Nieobsługiwane   |
+|Dostawca środowisk/zasobów          | .NET            | .NET Core       | Java            | Node.js         |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
+|Azure App Service w systemie Windows           | GA, OnBD *       | GA, zgoda      | Prywatna wersja zapoznawcza | Prywatna wersja zapoznawcza |
+|Azure App Service w systemie Linux             | Nie dotyczy             | Nieobsługiwane   | Prywatna wersja zapoznawcza | Publiczna wersja zapoznawcza  |
+|Azure App Service w AKS               | Nie dotyczy             | W projekcie       | W projekcie       | W projekcie       |
+|Azure Functions — podstawowa                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
+|Azure Functions zależności systemu Windows | Nieobsługiwane   | Nieobsługiwane   | Publiczna wersja zapoznawcza  | Nieobsługiwane   |
+|Azure Kubernetes Service               | Nie dotyczy             | W projekcie       | Za poorednictwem agenta   | W projekcie       |
+|Okna maszyn wirtualnych platformy Azure                      | Publiczna wersja zapoznawcza  | Nieobsługiwane   | Nieobsługiwane   | Nieobsługiwane   |
+|Lokalne okna maszyn wirtualnych                | GA, zgoda      | Nieobsługiwane   | Za poorednictwem agenta   | Nieobsługiwane   |
+|Autonomiczny Agent — dowolna ENV.            | Nieobsługiwane   | Nieobsługiwane   | Ogólna dostępność              | Nieobsługiwane   |
 
 * OnBD jest domyślnie skrócona — Application Insights zostanie włączona automatycznie po wdrożeniu aplikacji w obsługiwanych środowiskach. 
 

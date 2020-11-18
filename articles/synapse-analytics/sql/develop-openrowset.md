@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337750"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701759"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -129,7 +129,7 @@ Poniżej znajdziesz odpowiednie <storage account path> wartości, które zostan�
 Określa ścieżkę w magazynie, która wskazuje folder lub plik, który ma zostać odczytany. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z danego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
 
 Możesz użyć symboli wieloznacznych, aby docelowa była wiele plików lub folderów. Dozwolone jest użycie wielu niesąsiadujących symboli wieloznacznych.
-Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population* :  
+Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Jeśli określisz unstructured_data_path jako folder, zapytanie puli SQL bezserwerowe pobierze pliki z tego folderu. 
@@ -156,7 +156,7 @@ Klauzula WITH umożliwia określenie kolumn, które mają być odczytywane z pli
     > Nazwy kolumn w plikach Parquet uwzględniają wielkość liter. Jeśli określisz nazwę kolumny z wielkością liter inną niż nazwa kolumny w pliku Parquet, wartości NULL zostaną zwrócone dla tej kolumny.
 
 
-column_name = nazwa kolumny wyjściowej. W przypadku podanej nazwy zastępuje nazwę kolumny w pliku źródłowym.
+column_name = nazwa kolumny wyjściowej. W przypadku podanej nazwy zastępuje ona nazwę kolumny w pliku źródłowym i w nazwie kolumny podanej w ścieżce JSON, jeśli istnieje. Jeśli nie podano json_path, zostanie ona automatycznie dodana jako "$ .column_name". Sprawdź json_path argument w celu zachowania.
 
 column_type = typ danych dla kolumny wyjściowej. Niejawna konwersja typu danych zostanie przeprowadzona tutaj.
 
@@ -171,11 +171,16 @@ WITH (
 )
 ```
 
+json_path = [wyrażenie ścieżki JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) do kolumny lub właściwości zagnieżdżonej. Domyślny [tryb ścieżki](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) to swobodny.
+
+> [!NOTE]
+> W zapytaniu w trybie Strict nie powiedzie się z błędem, jeśli podana ścieżka nie istnieje. Zapytanie w trybie swobodny zostanie wykonane pomyślnie, a wyrażenie ścieżki JSON zwróci wartość NULL.
+
 **\<bulk_options>**
 
 FIELDTERMINATOR = "field_terminator"
 
-Określa terminator pola do użycia. Domyślny terminator pola jest przecinkiem (" **,** ").
+Określa terminator pola do użycia. Domyślny terminator pola jest przecinkiem ("**,**").
 
 ROWTERMINATOR = "row_terminator" "
 
@@ -273,7 +278,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |date |
+| ELEMENTEM |DATE |data |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |
@@ -359,6 +364,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>Określanie kolumn przy użyciu ścieżek JSON
+
+Poniższy przykład pokazuje, jak można użyć [wyrażeń ścieżki JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) w klauzuli with i ilustruje różnicę między trybami ścieżki ścisłej i swobodny: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>Następne kroki

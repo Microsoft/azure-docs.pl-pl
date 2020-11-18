@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517159"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701572"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas projektowania aplikacji w chmurze. Zasoby szkoleniowe wraz z pytaniami i pojęciami związanymi z bezpieczeństwem, które należy wziąć pod uwagę podczas wymagań i fazy projektowania [cyklu życia Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do zaprojektowania bezpieczniejszej aplikacji.
@@ -217,7 +217,7 @@ Używanie mechanizmów uwierzytelniania i autoryzacji dostarczonych przez platfo
 
 Koncepcja [najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege) oznacza umożliwienie użytkownikom dokładnego poziomu dostępu i kontroli potrzebnych do wykonywania zadań i nic więcej.
 
-Czy deweloper oprogramowania musi mieć prawa administratora domeny? Czy asystent administracyjny musi mieć dostęp do kontrolek administracyjnych na komputerze osobistym? Ocenianie dostępu do oprogramowania nie jest inne. Jeśli używasz [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md) w celu zapewnienia użytkownikom różnych możliwości i uprawnień w aplikacji, nie będziesz mieć dostępu do wszystkich elementów. Ograniczając dostęp do co jest wymagane dla każdej roli, należy ograniczyć ryzyko wystąpienia problemu z zabezpieczeniami.
+Czy deweloper oprogramowania musi mieć prawa administratora domeny? Czy asystent administracyjny musi mieć dostęp do kontrolek administracyjnych na komputerze osobistym? Ocenianie dostępu do oprogramowania nie jest inne. W przypadku korzystania z [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) na platformie Azure w celu zapewnienia użytkownikom różnych możliwości i uprawnień w aplikacji użytkownik nie będzie miał dostępu do wszystkiego. Ograniczając dostęp do co jest wymagane dla każdej roli, należy ograniczyć ryzyko wystąpienia problemu z zabezpieczeniami.
 
 Upewnij się, że aplikacja wymusza [najmniejsze uprawnienia](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) w całym wzorcu dostępu.
 
@@ -233,7 +233,7 @@ Zaimplementuj dostęp *just-in-Time* (JIT), aby jeszcze bardziej obniżyć czas 
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Wymagaj ponownego uwierzytelniania dla ważnych transakcji
 
-[Sfałszowanie żądań między lokacjami](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (znane również jako *XSRF* lub *CSRF* ) jest atakiem na aplikacje hostowane w sieci Web, w których złośliwa aplikacja internetowa ma wpływ na interakcję między przeglądarką klienta a aplikacją sieci Web, która ufa tej przeglądarce. Możliwe jest ataki między lokacjami, ponieważ przeglądarki sieci Web wysyłają automatyczne typy tokenów uwierzytelniania przy użyciu każdego żądania do witryny sieci Web.
+[Sfałszowanie żądań między lokacjami](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (znane również jako *XSRF* lub *CSRF*) jest atakiem na aplikacje hostowane w sieci Web, w których złośliwa aplikacja internetowa ma wpływ na interakcję między przeglądarką klienta a aplikacją sieci Web, która ufa tej przeglądarce. Możliwe jest ataki między lokacjami, ponieważ przeglądarki sieci Web wysyłają automatyczne typy tokenów uwierzytelniania przy użyciu każdego żądania do witryny sieci Web.
 Ta forma wykorzystywania jest również znana jako *atak dwukrotnego kliknięcia* lub *sesji* , ponieważ atakujący wykorzystuje wcześniej uwierzytelnioną sesję użytkownika.
 
 Najlepszym sposobem obrony przed tym rodzajem ataku jest poproszenie użytkownika o coś, że tylko użytkownik może podać przed każdą ważną transakcją, taką jak zakup, Dezaktywacja konta lub zmiana hasła. Użytkownik może poproszony o ponowne wprowadzenie hasła, wykonanie CAPTCHA lub przesłanie klucza tajnego, który będzie miał tylko użytkownik. Najbardziej typowym podejściem jest token tajny.
@@ -244,7 +244,7 @@ Utrata kluczy i poświadczeń jest typowym problemem. Jedyną czynnością, któ
 
 Zawsze umieszczaj klucze, certyfikaty, wpisy tajne i parametry połączenia w rozwiązaniu do zarządzania kluczami. Możesz użyć scentralizowanego rozwiązania, w którym klucze i wpisy tajne są przechowywane w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń). Platforma Azure udostępnia moduł HSM w chmurze z [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault jest *magazynem wpisów tajnych* : jest to scentralizowana usługa w chmurze służąca do przechowywania wpisów tajnych aplikacji. Key Vault zabezpiecza poufne dane przez przechowywanie wpisów tajnych aplikacji w jednej, centralnej lokalizacji i zapewnianie bezpiecznego dostępu, kontroli uprawnień i rejestrowania dostępu.
+Key Vault jest *magazynem wpisów tajnych*: jest to scentralizowana usługa w chmurze służąca do przechowywania wpisów tajnych aplikacji. Key Vault zabezpiecza poufne dane przez przechowywanie wpisów tajnych aplikacji w jednej, centralnej lokalizacji i zapewnianie bezpiecznego dostępu, kontroli uprawnień i rejestrowania dostępu.
 
 Wpisy tajne są przechowywane w poszczególnych *magazynach*. Każdy magazyn ma własne zasady konfiguracji i zabezpieczeń umożliwiające kontrolę dostępu. Dostęp do danych można uzyskać za pomocą interfejsu API REST lub zestawu SDK klienta, który jest dostępny dla większości języków programowania.
 

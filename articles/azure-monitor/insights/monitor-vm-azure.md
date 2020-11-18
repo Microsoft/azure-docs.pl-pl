@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491634"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738105"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -170,7 +170,7 @@ Azure Monitor dla maszyn wirtualnych umożliwia zbieranie wstępnie określonego
 
 
 > [!NOTE]
-> Dane wydajności zbierane przez agenta Log Analytics są zapisywane w tabeli *wydajności* , podczas gdy Azure monitor dla maszyn wirtualnych zbiera je do tabeli *InsightsMetrics* . Są to te same dane, ale tabele mają inną strukturę. Jeśli masz istniejące zapytania na podstawie *wydajności* , trzeba będzie je ponownie napisać, aby użyć *InsightsMetrics*.
+> Dane wydajności zbierane przez agenta Log Analytics są zapisywane w tabeli *wydajności* , podczas gdy Azure monitor dla maszyn wirtualnych zbiera je do tabeli *InsightsMetrics* . Są to te same dane, ale tabele mają inną strukturę. Jeśli masz istniejące zapytania na podstawie *wydajności*, trzeba będzie je ponownie napisać, aby użyć *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Alerty
@@ -207,7 +207,7 @@ Na przykład, aby utworzyć alert, który sprawdza, czy maszyny wirtualne w dane
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Aby utworzyć alert, jeśli wystąpiła zbyt wiele nieudanych logowań na wszyst
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

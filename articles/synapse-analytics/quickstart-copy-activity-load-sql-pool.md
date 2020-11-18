@@ -1,6 +1,6 @@
 ---
-title: Przewodnik Szybki Start dotyczący ładowania danych do puli SQL przy użyciu działania kopiowania
-description: Ładowanie danych do puli SQL za pomocą usługi Azure Synapse Analytics
+title: 'Szybki Start: aby załadować dane do dedykowanej puli SQL przy użyciu działania kopiowania'
+description: Użyj działania kopiowania potoku w usłudze Azure Synapse Analytics, aby załadować dane do dedykowanej puli SQL.
 services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 12b5530ccf154220b11f9d1286d629caf2209475
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 542fde3ac951bf60d999361dc114491515fb9528
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280924"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94735249"
 ---
-# <a name="quickstart-load-data-into-sql-pool-using-copy-activity"></a>Szybki Start: ładowanie danych do puli SQL przy użyciu działania kopiowania
+# <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>Szybki Start: ładowanie danych do dedykowanej puli SQL przy użyciu działania kopiowania
 
-Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie i analizowanie danych. Pula SQL oferuje możliwości obliczeniowe i magazynowe oparte na języku T-SQL. Po utworzeniu puli SQL w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i dostarczać w celu szybszego wglądu w informacje analityczne.
+Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie i analizowanie danych. Dedykowana Pula SQL oferuje oparte na języku T-SQL możliwości obliczeniowe i magazynowe. Po utworzeniu dedykowanej puli SQL w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i dostarczać w celu szybszego wglądu w informacje analityczne.
 
-W tym przewodniku szybki start dowiesz się, jak *ładować dane z Azure SQL Database do usługi Azure Synapse Analytics*. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych. Podobnie podobny przepływ dotyczy kopiowania danych między innymi źródła i ujścia.
+W tym przewodniku szybki start dowiesz się, jak *ładować dane z Azure SQL Database do usługi Azure Synapse Analytics*. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych. Ten podobny przepływ ma zastosowanie do kopiowania danych dla innych źródeł i ujścia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,13 +29,13 @@ W tym przewodniku szybki start dowiesz się, jak *ładować dane z Azure SQL Dat
 * Obszar roboczy usługi Azure Synapse: Tworzenie obszaru roboczego Synapse przy użyciu Azure Portal zgodnie z instrukcjami w [przewodniku szybki start: Tworzenie obszaru roboczego Synapse](quickstart-create-workspace.md).
 * Azure SQL Database: w tym samouczku dane są kopiowane z przykładowego zestawu danych Adventure Works LT w Azure SQL Database. Tę przykładową bazę danych można utworzyć w SQL Database, postępując zgodnie z instrukcjami w temacie [Tworzenie przykładowej bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). Można też użyć innych magazynów danych, wykonując podobne kroki.
 * Konto usługi Azure Storage: usługa Azure Storage jest używana jako obszar *przejściowy* w operacji kopiowania. Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
-* Azure Synapse Analytics: używasz puli SQL jako magazynu danych ujścia. Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie puli SQL](quickstart-create-sql-pool-portal.md) na potrzeby kroków, aby je utworzyć.
+* Azure Synapse Analytics: dedykowana Pula SQL jest używana jako magazyn danych ujścia. Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie dedykowanej puli SQL](quickstart-create-sql-pool-portal.md) w celu wykonania czynności, aby ją utworzyć.
 
 ### <a name="navigate-to-the-synapse-studio"></a>Przejdź do Synapse Studio
 
-Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby otwierania programu Synapse Studio:
+Po utworzeniu obszaru roboczego Synapse masz dwa sposoby otwierania Synapse Studio:
 
-* Otwórz obszar roboczy Synapse w [Azure Portal](https://ms.portal.azure.com/#home). W górnej części sekcji Przegląd wybierz pozycję Uruchom program **Synapse Studio**.
+* Otwórz obszar roboczy Synapse w [Azure Portal](https://ms.portal.azure.com/#home). Wybierz pozycję **Otwórz** na karcie Otwórz kartę Synapse Studio w sekcji wprowadzenie.
 * Otwórz [usługę Azure Synapse Analytics](https://web.azuresynapse.net/) i zaloguj się do swojego obszaru roboczego.
 
 W tym przewodniku szybki start użyjemy obszaru roboczego o nazwie "adftest2020". Spowoduje to automatyczne przejście na stronę główną programu Synapse Studio.
@@ -44,7 +44,7 @@ W tym przewodniku szybki start użyjemy obszaru roboczego o nazwie "adftest2020"
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 
-W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu informacji o połączeniu z innymi usługami. W tej sekcji utworzysz następujące dwa rodzaje połączonych usług: Azure SQL Database i Azure Data Lake Storage Gen2 połączone usługi.
+W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu informacji o połączeniu z innymi usługami. W tej sekcji utworzysz następujące dwa rodzaje połączonych usług: Azure SQL Database i Azure Data Lake Storage Gen2 (ADLS Gen2) połączone usługi.
 
 1. Na stronie głównej programu Synapse Studio wybierz kartę **Zarządzanie** na lewym pasku nawigacyjnym.
 1. W obszarze połączenia zewnętrzne wybierz pozycję połączone usługi.
@@ -66,7 +66,7 @@ W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu i
  
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 
-Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji utworzysz potok zawierający działanie kopiowania, które pozyskuje dane z Azure SQL Database w puli SQL.
+Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji utworzysz potok zawierający działanie kopiowania, które pobiera dane z Azure SQL Database do dedykowanej puli SQL.
 
 1. Przejdź do karty **integracja** . Wybierz ikonę znaku plus obok nagłówka potoki i wybierz pozycję potok.
 
@@ -84,7 +84,7 @@ Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji
    ![Konfigurowanie właściwości źródłowego zestawu danych](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
 1. Po zakończeniu wybierz **przycisk OK** .
 1. Wybierz działanie kopiowania i przejdź do karty ujścia. Wybierz pozycję **Nowy** , aby utworzyć nowy zestaw danych ujścia.
-1. Wybierz **pulę usługi SQL Analytics** jako magazyn danych, a następnie wybierz pozycję **Kontynuuj**.
+1. Wybierz **dedykowaną pulę SQL Synapse platformy Azure** jako magazyn danych, a następnie wybierz pozycję **Kontynuuj**.
 1. W okienku  **Ustawianie właściwości** wybierz pulę usługi SQL Analytics utworzoną w ramach wcześniejszego kroku. Jeśli zapisujesz do istniejącej tabeli, w obszarze *Nazwa tabeli* wybierz ją z listy rozwijanej. W przeciwnym razie zaznacz opcję "Edytuj" i wprowadź nową nazwę tabeli. Po zakończeniu wybierz **przycisk OK** .
 1. Dla ustawień zestawu danych ujścia, Włącz **AutoCreate Table** w polu opcji tabeli.
 
@@ -121,8 +121,8 @@ W tej sekcji ręcznie wyzwolimy potok opublikowany w poprzednim kroku.
 
    ![Szczegóły działania](media/quickstart-copy-activity-load-sql-pool/activity-details.png)
 
-1. Aby przełączyć się z powrotem do widoku uruchomienia potoków, wybierz link **wszystkie uruchomienia potoku** u góry. Wybierz pozycję **Odśwież** , aby odświeżyć listę.
-1. Sprawdź, czy dane są poprawnie zapisywane w puli SQL.
+1. Aby przełączyć się z powrotem do widoku uruchomienia potoków, wybierz link **wszystkie uruchomienia potoku** u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę.
+1. Sprawdź, czy dane są poprawnie zapisywane w dedykowanej puli SQL.
 
 
 ## <a name="next-steps"></a>Następne kroki

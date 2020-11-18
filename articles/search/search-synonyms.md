@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f1fa07b94072d37cf83320b6c8956d3b412f12
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948644"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701120"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonimy w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,7 +23,7 @@ Na platformie Azure Wyszukiwanie poznawcze rozwinięcie synonimu odbywa się w c
 
 ## <a name="create-synonyms"></a>Utwórz synonimy
 
-Brak obsługi portalu do tworzenia synonimów, ale można użyć interfejsu API REST lub zestawu .NET SDK. Aby rozpocząć pracę z usługą REST, zalecamy [Korzystanie z programu Poster](search-get-started-postman.md) i formułowanie żądań przy użyciu tego interfejsu API: [Tworzenie map synonimów](/rest/api/searchservice/create-synonym-map). W przypadku deweloperów języka C# można rozpocząć pracę z [dodawaniem synonimów w usłudze Azure poznawcze wyszukiwanie przy użyciu języka C#](search-synonyms-tutorial-sdk.md).
+Brak obsługi portalu do tworzenia synonimów, ale można użyć interfejsu API REST lub zestawu .NET SDK. Aby rozpocząć pracę z usługą REST, zalecamy [opublikowanie i Visual Studio Code](search-get-started-rest.md) oraz formułowanie żądań przy użyciu tego interfejsu API: [Tworzenie map synonimów](/rest/api/searchservice/create-synonym-map). W przypadku deweloperów języka C# można rozpocząć pracę z [dodawaniem synonimów w usłudze Azure poznawcze wyszukiwanie przy użyciu języka C#](search-synonyms-tutorial-sdk.md).
 
 Opcjonalnie, jeśli używasz [kluczy zarządzanych przez klienta](search-security-manage-encryption-keys.md) do szyfrowania po stronie usługi — w spoczynku, możesz zastosować tę ochronę do zawartości mapy synonimów.
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6dd64ae8b7b7307d7dcd510d1fdb877365c6f36
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675949"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701844"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu starszej biblioteki klienta Microsoft. Azure. Search v10
 
@@ -55,7 +55,7 @@ Wywołania usługi wymagają punktu końcowego adresu URL i klucza dostępu dla 
 
    Pobierz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
-![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
+![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-rest/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
 Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -69,9 +69,9 @@ Zacznij od otwierania programu Visual Studio i tworzenia nowego projektu aplikac
 
 W przypadku tego projektu należy użyć wersji 10 `Microsoft.Azure.Search` pakietu NuGet i najnowszego `Microsoft.Extensions.Configuration.Json` pakietu NuGet.
 
-1. W obszarze **Narzędzia**  >  **Menedżer pakietów NuGet** wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania.** .. 
+1. W obszarze **Narzędzia**  >  **Menedżer pakietów NuGet** wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania.**.. 
 
-1. Kliknij pozycję **Browse (Przeglądaj)** .
+1. Kliknij pozycję **Browse (Przeglądaj)**.
 
 1. Wyszukaj `Microsoft.Azure.Search` i wybierz wersję 10.
 
@@ -86,9 +86,9 @@ W przypadku tego projektu należy użyć wersji 10 `Microsoft.Azure.Search` paki
 
 1. W obszarze Dodaj nowy element Wyszukaj ciąg "JSON", aby zwrócić listę typów elementów związanych ze standardem JSON.
 
-1. Wybierz **plik JSON** , Nazwij plik "appsettings.json", a następnie kliknij przycisk **Dodaj** . 
+1. Wybierz **plik JSON**, Nazwij plik "appsettings.json", a następnie kliknij przycisk **Dodaj**. 
 
-1. Dodaj plik do katalogu wyjściowego. Kliknij prawym przyciskiem myszy appsettings.jsna i wybierz pozycję **Właściwości** . W obszarze **Kopiuj do katalogu wyjściowego** wybierz opcję **Kopiuj, jeśli nowszy** .
+1. Dodaj plik do katalogu wyjściowego. Kliknij prawym przyciskiem myszy appsettings.jsna i wybierz pozycję **Właściwości**. W obszarze **Kopiuj do katalogu wyjściowego** wybierz opcję **Kopiuj, jeśli nowszy**.
 
 1. Skopiuj poniższy kod JSON do nowego pliku JSON. 
 

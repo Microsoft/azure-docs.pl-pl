@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: b2f66f9d4a96bda323413ac9016f582f5605e6cd
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a5cc0fdf0473cb8ceafd164a34df6f0bd66dd6d3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073329"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737442"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Wersje systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK
 Program udostępnia aktualne informacje o najnowszych wersjach systemu operacyjnego gościa platformy Azure dla Cloud Services. Te informacje ułatwiają zaplanowanie ścieżki uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli skonfigurujesz role do korzystania z *automatycznych* aktualizacji systemu operacyjnego gościa zgodnie z opisem w [ustawieniach aktualizacji systemu operacyjnego gościa platformy Azure][Azure Guest OS Update Settings], nie trzeba przeczytywać tej strony.
@@ -42,6 +42,9 @@ Nie wiesz, jak zaktualizować system operacyjny gościa? Sprawdź [to][cloud upd
 
 ## <a name="news-updates"></a>Aktualizacje wiadomości
 
+###### <a name="november-17-2020"></a>**17 listopada 2020**
+System operacyjny gościa w październiku został opublikowany. 
+
 ###### <a name="october-10-2020"></a>**10 października 2020**
 Wydano system operacyjny gościa w trybie gościnnym. 
 
@@ -60,7 +63,7 @@ Wydano system operacyjny gościa.
 ###### <a name="may-4-2020"></a>**4 maja 2020**
 System operacyjny gościa w kwietniu został opublikowany. 
 
-###### <a name="april-2-2020"></a>**2 kwietnia 2020**
+###### <a name="april-2-2020"></a>**2 kwietnia 2020 r.**
 Wydano system operacyjny gościa w marcu. 
 
 ###### <a name="march-5-2020"></a>**5 marca 2020**
@@ -143,15 +146,16 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-6.24 _202010-02 |  17 listopada 2020  |  Wpis 6,26  |  
 |  WA-GOŚĆ-OS-6.23 _202009-01  |  10 października 2020  |  Wpis 6,25  |  
-|  WA-GOŚĆ-OS-6.22 _202008-02  |  5 września 2020  |  Wpis 6,24  |  
+|~~WA-GOŚĆ-OS-6.22 _202008-02~~|  5 września 2020  |  17 listopada 2020  |  
 |~~WA-GOŚĆ-OS-6.21 _202007-01~~|  17 sierpnia 2020  |  10 października 2020  |  
 |~~WA-GOŚĆ-OS-6.20 _202006-02~~|  10 sierpnia 2020  |  5 września 2020  |  
 |~~WA-GOŚĆ-OS-6.19 _202005-02~~|  2 czerwca 2020  |  17 sierpnia 2020  |  
 |~~WA-GOŚĆ-OS-6.18 _202004-01~~|  4 maja 2020  |  10 sierpnia 2020  |  
-|~~WA-GOŚĆ-OS-6.17 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
+|~~WA-GOŚĆ-OS-6.17 _202003-01~~|  2 kwietnia 2020 r.  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-6.16 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
-|~~WA-GOŚĆ-OS-6.15 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
+|~~WA-GOŚĆ-OS-6.15 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020 r.  |  
 |~~WA-GOŚĆ-OS-6.14 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
 |~~WA-GOŚĆ-OS-6.13 _201911-01~~| 5 grudnia 2019 | 24 stycznia 2020 |  
 |~~WA-GOŚĆ-OS-6,12 _201910-01~~| 1 listopada 2019 r. | 8 stycznia 2020 |  
@@ -179,15 +183,16 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-5.48 _202010-02  |  17 listopada 2020  |  Wpis 5,50  | 
 |  WA-GOŚĆ-OS-5.47 _202009-01  |  10 października 2020  |  Wpis 5,49  | 
-|  WA-GOŚĆ-OS-5.46 _202008-02  |  5 września 2020  |  Wpis 5,48  |  
+|~~WA-GOŚĆ-OS-5.46 _202008-02~~|  5 września 2020  |  17 listopada 2020  |  
 |~~WA-GOŚĆ-OS-5.45 _202007-01~~|  17 sierpnia 2020  |  10 października 2020  |  
 |~~WA-GOŚĆ-OS-5.44 _202006-02~~|  10 sierpnia 2020  |  5 września 2020  |  
 |~~WA-GOŚĆ-OS-5.43 _202005-02~~|  2 czerwca 2020  |  17 sierpnia 2020  |  
 |~~WA-GOŚĆ-OS-5.42 _202004-01~~|  4 maja 2020  |  10 sierpnia 2020  |  
-|~~WA-GOŚĆ-OS-5.41 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
+|~~WA-GOŚĆ-OS-5.41 _202003-01~~|  2 kwietnia 2020 r.  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-5.40 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
-|~~WA-GOŚĆ-OS-5.39 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
+|~~WA-GOŚĆ-OS-5.39 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020 r.  |  
 |~~WA-GOŚĆ-OS-5.38 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
 |~~WA-GOŚĆ-OS-5.37 _201911-01~~| 5 grudnia 2019 | 24 stycznia 2020 |  
 |~~WA-GOŚĆ-OS-5.36 _201910-01~~| 1 listopada 2019 r. | 8 stycznia 2020 |  
@@ -212,15 +217,16 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-4.83 _202010-02  |  17 listopada 2020  |  Wpis 4,85  | 
 |  WA-GOŚĆ-OS-4.82 _202009-01  |  10 października 2020  |  Wpis 4,84  | 
-|  WA-GOŚĆ-OS-4.81 _202008-02  |  5 września 2020  |  Wpis 4,83  | 
+|~~WA-GOŚĆ-OS-4.81 _202008-02~~|  5 września 2020  |  17 listopada 2020  | 
 |~~WA-GOŚĆ-OS-4.80 _202007-01~~|  17 sierpnia 2020  |  10 października 2020  | 
 |~~WA-GOŚĆ-OS-4.79 _202006-02~~|  10 sierpnia 2020  |  5 września 2020  | 
 |~~WA-GOŚĆ-OS-4.78 _202005-02~~|  2 czerwca 2020  |  17 sierpnia 2020  |  
 |~~WA-GOŚĆ-OS-4.77 _202004-01~~|  4 maja 2020  |  10 sierpnia 2020  |  
-|~~WA-GOŚĆ-OS-4.76 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
+|~~WA-GOŚĆ-OS-4.76 _202003-01~~|  2 kwietnia 2020 r.  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-4.75 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
-|~~WA-GOŚĆ-OS-4.74 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
+|~~WA-GOŚĆ-OS-4.74 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020 r.  |  
 |~~WA-GOŚĆ-OS-4.73 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
 |~~WA-GOŚĆ-OS-4.72 _201911-01~~| 5 grudnia 2019 | 24 stycznia 2020 |  
 |~~WA-GOŚĆ-OS-4.71 _201910-01~~| 1 listopada 2019 r. | 8 stycznia 2020 |  
@@ -245,15 +251,16 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-3.90 _202010-02  |  17 listopada 2020  |  Wpis 3,92  |  
 |  WA-GOŚĆ-OS-3.89 _202009-01  |  10 października 2020  |  Wpis 3,91  |  
-|  WA-GOŚĆ-OS-3.88 _202008-02  |  5 września 2020  |  Wpis 3,90  |  
+|~~WA-GOŚĆ-OS-3.88 _202008-02~~|  5 września 2020  |  17 listopada 2020  |  
 |~~WA-GOŚĆ-OS-3.87 _202007-01~~|  17 sierpnia 2020  |  10 października 2020  |  
 |~~WA-GOŚĆ-OS-3.86 _202006-02~~|  10 sierpnia 2020  |  5 września 2020  |  
 |~~WA-GOŚĆ-OS-3.85 _202005-02~~|  2 czerwca 2020  |  17 sierpnia 2020  |  
 |~~WA-GOŚĆ-OS-3.84 _202004-01~~|  4 maja 2020  |  10 sierpnia 2020  |  
-|~~WA-GOŚĆ-OS-3.83 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
+|~~WA-GOŚĆ-OS-3.83 _202003-01~~|  2 kwietnia 2020 r.  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-3.82 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
-|~~WA-GOŚĆ-OS-3.81 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
+|~~WA-GOŚĆ-OS-3.81 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020 r.  |  
 |~~WA-GOŚĆ-OS-3.80 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
 |~~WA-GOŚĆ-OS-3.79 _201911-01~~| 5 grudnia 2019 | 24 stycznia 2020 |  
 |~~WA-GOŚĆ-OS-3.78 _201910-01~~| 1 listopada 2019 r. | 8 stycznia 2020 |  
@@ -278,15 +285,16 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-2.103 _202010-02  |  17 listopada 2020  |  Wpis 2,105  |  
 |  WA-GOŚĆ-OS-2.102 _202009-01  |  10 października 2020  |  Wpis 2,104  |  
-|  WA-GOŚĆ-OS-2.101 _202008-02  |  5 września 2020  |  Wpis 2,103  |  
+|~~WA-GOŚĆ-OS-2.101 _202008-02~~|  5 września 2020  |  17 listopada 2020 |    
 |~~WA-GOŚĆ-OS-2.100 _202007-01~~|  17 sierpnia 2020  |  10 października 2020  |  
 |~~WA-GOŚĆ-OS-2.99 _202006-02~~|  10 sierpnia 2020  | 5 września 2020  |  
 |~~WA-GOŚĆ-OS-2.98 _202005-02~~|  2 czerwca 2020  |  17 sierpnia 2020  |  
 |~~WA-GOŚĆ-OS-2.97 _202004-01~~|  4 maja 2020  |  10 sierpnia 2020  |  
-|~~WA-GOŚĆ-OS-2.96 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
+|~~WA-GOŚĆ-OS-2.96 _202003-01~~|  2 kwietnia 2020 r.  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-2.95 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
-|~~WA-GOŚĆ-OS-2.94 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
+|~~WA-GOŚĆ-OS-2.94 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020 r.  |  
 |~~WA-GOŚĆ-OS-2.93 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
 |~~WA-GOŚĆ-OS-2.92 _201911-01~~| 5 grudnia 2019 | 24 stycznia 2020 |  
 |~~WA-GOŚĆ-OS-2.91 _201910-01~~| 1 listopada 2019 r. | 8 stycznia 2020 |  

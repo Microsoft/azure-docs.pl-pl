@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408926"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701052"
 ---
 # <a name="security-control-v2-data-protection"></a>Kontrola zabezpieczeń v2: Ochrona danych
 
@@ -34,9 +34,9 @@ Możesz użyć usługi Azure SQL Information Protection, aby pomóc w klasyfikac
 
 - [Jak wdrożyć usługę Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Odpowiedzialność** : udostępnione
+**Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -50,19 +50,19 @@ Możesz użyć usługi Azure SQL Information Protection, aby pomóc w klasyfikac
 |--|--|--|--|
 | DP-2 | 13,2, 2,10 | SC-7, AC-4 |
 
-Ochrona poufnych danych dzięki ograniczeniu dostępu przy użyciu Access Control opartego na rolach platformy Azure (RBAC), kontroli dostępu opartej na sieci i określonych kontrolek w usługach platformy Azure (takich jak szyfrowanie w SQL i innych bazach danych). 
+Ochrona poufnych danych przez ograniczenie dostępu przy użyciu kontroli dostępu opartej na rolach (Azure RBAC), kontroli dostępu opartej na sieci i określonych kontrolek w usługach platformy Azure (takich jak szyfrowanie w bazach danych SQL i innych). 
 
 Aby zapewnić spójną kontrolę dostępu, wszystkie typy kontroli dostępu powinny być wyrównane do strategii segmentacji przedsiębiorstwa. Strategię segmentacji przedsiębiorstwa należy również uzyskać informacje o lokalizacji poufnych lub krytycznych danych i systemów.
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i chroniącą przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft zaimplementował pewne domyślne funkcje i możliwości ochrony danych.
 
-- [Access Control oparte na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md)
+- [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [Zrozumienie ochrony danych klientów na platformie Azure](../fundamentals/protection-customer-data.md)
 
-**Odpowiedzialność** : udostępnione
+**Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -88,9 +88,9 @@ Jeśli jest to wymagane do zapewnienia zgodności ochrony przed utratą danych (
 
 - [Włączanie usługi Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Odpowiedzialność** : udostępnione
+**Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ Domyślnie platforma Azure zapewnia szyfrowanie danych przesyłanych między cen
 
 - [Podwójne szyfrowanie danych na platformie Azure podczas przesyłania](../fundamentals/double-encryption.md#data-in-transit)
 
-**Odpowiedzialność** : udostępnione
+**Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -146,9 +146,9 @@ Platforma Azure zapewnia szyfrowanie danych przechowywanych domyślnie. W przypa
 
 - [Szyfrowanie danych przy podwójnej obspoczynku na platformie Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Odpowiedzialność** : udostępnione
+**Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

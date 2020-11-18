@@ -7,22 +7,24 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e43f324a8c32615eded782e75291b575852c4382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393755"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737256"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Tworzenie bramy sieci VPN opartej na trasach za pomocą interfejsu wiersza polecenia
 
 Ten artykuł pomaga szybko utworzyć opartą na trasach bramę sieci VPN platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Brama sieci VPN jest używana podczas tworzenia połączenia sieci VPN z siecią lokalną. Do łączenia się z usługą sieci wirtualnych można także użyć bramy sieci VPN.
 
-Kroki opisane w tym artykule spowodują utworzenie sieci wirtualnej, podsieci, podsieci bramy i bramy sieci VPN opartej na trasach (bramy sieci wirtualnej). Aby można było utworzyć bramę sieci wirtualnej, może upłynąć do 45 minut. Po zakończeniu tworzenia bramy można utworzyć połączenia. Te kroki wymagają subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Kroki opisane w tym artykule spowodują utworzenie sieci wirtualnej, podsieci, podsieci bramy i bramy sieci VPN opartej na trasach (bramy sieci wirtualnej). Aby można było utworzyć bramę sieci wirtualnej, może upłynąć do 45 minut. Po zakończeniu tworzenia bramy można utworzyć połączenia. Te kroki wymagają subskrypcji platformy Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Ten artykuł wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -56,7 +58,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Przesłanie żądania dotyczącego publicznego adresu IP
@@ -67,7 +69,7 @@ Brama sieci VPN musi mieć dynamicznie przydzieloną publiczny adres IP. Publicz
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Tworzenie bramy sieci VPN

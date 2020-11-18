@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369968"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734382"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -25,9 +25,11 @@ Aby skonfigurować ustawienia DNS dla prywatnych punktów końcowych, można uż
 - **Użyj pliku hosta (zalecane tylko do testowania)**. Aby zastąpić serwer DNS, można użyć pliku hosta na maszynie wirtualnej.  
 - **Użyj prywatnej strefy DNS**. Za pomocą [prywatnych stref DNS](../dns/private-dns-privatednszone.md) można zastąpić rozpoznawanie nazw DNS dla określonego prywatnego punktu końcowego. Prywatna strefa DNS może być połączona z siecią wirtualną w celu rozpoznania określonych domen.
 - **Użyj usługi przesyłania dalej DNS (opcjonalnie)**. Możesz użyć usługi przesyłania dalej DNS, aby zastąpić rozpoznawanie nazw DNS dla określonego zasobu linku prywatnego. Jeśli [serwer DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) jest hostowany w sieci wirtualnej, można utworzyć regułę przekazywania DNS w celu użycia prywatnej strefy DNS w celu uproszczenia konfiguracji wszystkich prywatnych zasobów łączy.
- 
+
 > [!IMPORTANT]
 > Nie zaleca się przesłonięcia strefy, która aktywnie używa do rozpoznawania publicznych punktów końcowych. Połączenia z zasobami nie będą działać prawidłowo, bez przekazywania DNS do publicznej usługi DNS. Aby uniknąć problemów, Utwórz inną nazwę domeny lub postępuj według sugerowanej nazwy dla każdej usługi poniżej. 
+
+
 
 ## <a name="azure-services-dns-zone-configuration"></a>Konfiguracja strefy DNS usług platformy Azure
 Usługi platformy Azure będą tworzyć rekordy DNS o nazwie kanonicznej (CNAME) w publicznej usłudze DNS, aby przekierować rozwiązanie do sugerowanej nazwy domeny prywatnej. Można zastąpić rozwiązanie przy użyciu prywatnego adresu IP prywatnych punktów końcowych. 
@@ -93,6 +95,8 @@ W oparciu o Twoje preferencje w ramach rozpoznawania nazw DNS są dostępne nast
 - [Obciążenia lokalne przy użyciu usługi przesyłania dalej DNS](#on-premises-workloads-using-a-dns-forwarder)
 - [Obciążenia sieci wirtualnej i lokalne przy użyciu usługi przesyłania dalej DNS](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
+> [!NOTE]
+> [Serwer proxy usługi DNS zapory platformy Azure](../firewall/dns-settings.md#dns-proxy) może służyć jako usługa przesyłania dalej DNS dla [obciążeń lokalnych](#on-premises-workloads-using-a-dns-forwarder) i [obciążeń sieci wirtualnych przy użyciu usługi przesyłania dalej DNS](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 
 ## <a name="virtual-network-workloads-without-custom-dns-server"></a>Obciążenia sieci wirtualnej bez niestandardowego serwera DNS
 
@@ -123,7 +127,7 @@ Ten model można rozszerzyć na wiele równorzędnych sieci wirtualnych, które 
 
 W tym scenariuszu istnieje topologia sieci typu [Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) z sieciami szprych, które udostępniają wspólny prywatny punkt końcowy, a wszystkie sieci wirtualne szprych są połączone z tą samą prywatną strefą DNS. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Centrum i szprycha z systemem DNS dostarczonym przez platformę Azure":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Obciążenia lokalne przy użyciu usługi przesyłania dalej DNS
 
@@ -144,7 +148,7 @@ Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 
 Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z sieci lokalnej, która używa usługi przesyłania dalej DNS wdrożonej na platformie Azure, w której rozwiązanie jest nawiązywane przez prywatną strefę DNS [połączoną z siecią wirtualną](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Lokalne przy użyciu Azure DNS":::
 
 Tę konfigurację można rozszerzyć dla sieci lokalnej, w której znajduje się już rozwiązanie DNS. Lokalne rozwiązanie DNS musi być skonfigurowane do przekazywania ruchu DNS do Azure DNS za pośrednictwem [usługi przesyłania dalej warunkowego](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) , która odwołuje się do usługi przesyłania dalej DNS wdrożonej na platformie Azure.
 
@@ -164,7 +168,7 @@ Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z sieci 
 > [!IMPORTANT]
 > Warunkowe przekazywanie należy wykonać do zalecanej [publicznej usługi przesyłania dalej strefy DNS](#azure-services-dns-zone-configuration). Na przykład: `database.windows.net` zamiast **privatelink**. Database.Windows.NET.
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Lokalne przekazywanie do Azure DNS":::
 
 ## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>Obciążenia sieci wirtualnej i lokalne przy użyciu usługi przesyłania dalej DNS
 
@@ -191,7 +195,7 @@ Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 
 Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z sieci lokalnej i wirtualnej, która korzysta z usługi przesyłania dalej DNS wdrożonej na platformie Azure, gdzie rozwiązanie jest nawiązywane przez prywatną strefę DNS [połączoną z siecią wirtualną](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Scenariusz hybrydowy":::
 
 ## <a name="next-steps"></a>Następne kroki
 - [Dowiedz się więcej o prywatnych punktach końcowych](private-endpoint-overview.md)

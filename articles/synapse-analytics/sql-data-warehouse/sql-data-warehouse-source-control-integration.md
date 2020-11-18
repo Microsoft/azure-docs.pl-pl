@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313297"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701001"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integracja kontroli źródła dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
 W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z kontrolą źródła.  Integracja kontroli źródła to pierwszy krok w tworzeniu potoku ciągłej integracji i wdrażania przy użyciu dedykowanego zasobu puli SQL w usłudze Azure Synapse Analytics.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 - Utwórz konto w [organizacji usługi Azure DevOps](https://azure.microsoft.com/services/devops/)
 - Przejdź do samouczka [Tworzenie i łączenie](create-data-warehouse-portal.md)
@@ -37,7 +37,7 @@ W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Dat
 
    ![Zarządzanie połączeniami](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Zarządzanie połączeniami")
 
-3. Połącz się z projektem, wybierając pozycję **Zarządzaj połączeniami** , a następnie połącz się z **projektem**.
+3. Połącz się z projektem, wybierając pozycję **Zarządzaj połączeniami**, a następnie połącz się z **projektem**.
  ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Połącz")
 
 
@@ -85,7 +85,7 @@ Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu prog
 
    ![Sprawdź](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Weryfikowanie zmian")
 
-4. ( **Opcjonalnie** ) Użyj opcji Porównaj schemat i zaktualizuj zmiany w docelowym hurtowni danych przy użyciu SSDT, aby upewnić się, że definicje obiektów w repozytorium Azure Repository i repozytorium lokalnym odzwierciedlają magazyn danych.
+4. (**Opcjonalnie**) Użyj opcji Porównaj schemat i zaktualizuj zmiany w docelowym hurtowni danych przy użyciu SSDT, aby upewnić się, że definicje obiektów w repozytorium Azure Repository i repozytorium lokalnym odzwierciedlają magazyn danych.
 
 ## <a name="next-steps"></a>Następne kroki
 

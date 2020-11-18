@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 43b28c9f2efc8ffe17e0bf21b1c395d64e89b6a8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660019"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737247"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w usłudze Azure Virtual Network (iniekcja sieci wirtualnej)
 
@@ -31,6 +31,7 @@ Należy zarejestrować dostawcę zasobów chmury usługi Azure wiosny *Microsoft
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## <a name="virtual-network-requirements"></a>Wymagania dotyczące sieci wirtualnej
 Sieć wirtualna, w której jest wdrażane wystąpienie usługi w chmurze Azure wiosennej, musi spełniać następujące wymagania:

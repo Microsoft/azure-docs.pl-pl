@@ -4,27 +4,27 @@ description: W tym artykule opisano Cennik, rozliczenia, fakturowania i wypłaty
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130327"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738326"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
-W tym artykule opisano zagadnienia dotyczące cen, rozliczeń, fakturowania i wypłaty dla komercyjnego portalu Microsoft Marketplace. 
+W tym artykule opisano zagadnienia dotyczące cen, rozliczeń, fakturowania i wypłaty dla komercyjnego portalu Microsoft Marketplace.
 
 ## <a name="transactions-by-listing-option"></a>Opcja transakcji według listy
 
-Wydawca lub firma Microsoft odpowiada za zarządzanie transakcjami licencji na oprogramowanie dla ofert w portalu komercyjnym. Opcja wystaw wybrana dla oferty określa, kto będzie zarządzał transakcją. Zobacz [Wybierz opcję wyświetlania listy](./determine-your-listing-type.md#choose-a-listing-option) dostępności i wyjaśnień każdej opcji publikacji.
+Wydawca lub firma Microsoft odpowiada za zarządzanie transakcjami licencji na oprogramowanie dla ofert w portalu komercyjnym. Opcja wystaw wybrana dla oferty określa, kto będzie zarządzał transakcją. Aby uzyskać informacje na temat dostępności i wyjaśnień każdej opcji publikowania, zobacz [wprowadzenie do opcji wyświetlania](determine-your-listing-type.md) .
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Skontaktuj się z nami, bezpłatnej wersji próbnej i opcji BYOL
 
-Wydawcy mogą wybrać opcje _kontakt z_ nami i _bezpłatna wersja próbna_ , które umożliwiają promocję i pozyskiwanie użytkowników. W przypadku niektórych typów ofert wydawcy mogą wybrać opcję "Przenieś własną licencję" (BYOL), aby umożliwić klientom kupowanie subskrypcji oferty przy użyciu licencji zakupionej bezpośrednio od Ciebie. Dzięki tym opcjom firma Microsoft nie uczestniczy bezpośrednio w transakcjach licencji na oprogramowanie wydawcy i nie ma żadnej powiązanej opłaty za transakcje. 
+Wydawcy mogą wybrać opcje _kontakt z_ nami i _bezpłatna wersja próbna_, które umożliwiają promocję i pozyskiwanie użytkowników. W przypadku niektórych typów ofert wydawcy mogą wybrać opcję "Przenieś własną licencję" (BYOL), aby umożliwić klientom kupowanie subskrypcji oferty przy użyciu licencji zakupionej bezpośrednio od Ciebie. Dzięki tym opcjom firma Microsoft nie uczestniczy bezpośrednio w transakcjach licencji na oprogramowanie wydawcy i nie ma żadnej powiązanej opłaty za transakcje.
 
 Wydawca jest odpowiedzialny za obsługę wszystkich aspektów transakcji licencjonowania oprogramowania. Obejmuje to, ale nie jest ograniczone do kolejności, realizacji, pomiaru, rozliczeń, fakturowania, płatności i kolekcji. Po wybraniu opcji kontakt ze mną wydawcy zadbają o 100% opłat za Licencjonowanie oprogramowania wydawcy zebranych od klienta.
 
@@ -84,7 +84,15 @@ W przypadku scenariuszy publikowania Transact można bezpłatnie udostępnić li
 
 Oprócz korzystania z typów ofert i modeli rozliczeń w celu Zarabiaj oferty, możesz wykonać transakcję prywatną, zapełnić z użyciem wynegocjowanych, cenników specyficznych dla transakcji lub konfiguracji niestandardowych. Oferty prywatne są obsługiwane przez wszystkie trzy opcje publikacji Transact.
 
-Ta opcja umożliwia korzystanie z wyższych lub niższych cen niż publicznie dostępna oferta. Oferty prywatne mogą służyć do rabatu lub dodania wersji Premium do oferty. Oferty prywatne można udostępnić jednemu lub większej liczbie klientów, korzystając z białej listy subskrypcji platformy Azure na poziomie oferty.
+Ta opcja umożliwia korzystanie z wyższych lub niższych cen niż publicznie dostępna oferta. Możesz użyć ofert prywatnych do rabatu lub dodania wersji Premium do oferty. Oferty prywatne można udostępnić jednemu lub większej liczbie klientów, zmieniając ich subskrypcję platformy Azure na poziomie oferty.
+
+### <a name="commercial-marketplace-service-fees"></a>Komercyjne opłaty za usługę Marketplace
+
+Opłata za usługę magazynu w warstwie Standardowa jest naliczana 20%, gdy klienci kupują ofertę Transact z komercyjnej witryny Marketplace. Aby uzyskać szczegółowe informacje o tej opłacie, zobacz sekcję 5c [umowy Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
+
+W przypadku niektórych ofert transakcyjnych publikowanych na rynku komercyjnym możesz zakwalifikować się do obniżenia opłaty za usługę magazynu o 10%. Aby oferta zakwalifikować się, musi zostać wystawiona przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace w danym miesiącu, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego.
+
+Zmniejszona opłata za usługę Marketplace dotyczy współsprzedaży platformy Azure z zachęcani SaaS, maszyn wirtualnych, aplikacji zarządzanych i innych, które są dostępne w ramach komercyjnych rozwiązań IaaS dostępnych w portalu komercyjnym. Płatne oferty SaaS skojarzone z jedną aplikacją Microsoft Teams lub co najmniej dwoma dodatkami Microsoft 365 (Excel, PowerPoint, Word, Outlook i SharePoint) i opublikowane w Microsoft AppSource również otrzymują rabat.
 
 ### <a name="examples"></a>Przykłady
 
@@ -143,10 +151,6 @@ W tym scenariuszu firma Microsoft Bills $100,00 na potrzeby licencji na oprogram
 |---------|---------|
 |Firma Microsoft płaci 80% kosztu licencji <br> \* Firma Microsoft płaci 90% kosztu licencji dla wszystkich zakwalifikowanych aplikacji SaaS   |   $80,00 miesięcznie <br> \* $90,00 miesięcznie    |
 |Firma Microsoft utrzymuje 20% kosztów licencji <br> \* Firma Microsoft utrzymuje 10% kosztów licencji na wszystkie kwalifikowane aplikacje SaaS.  |  $20,00 miesięcznie <br> \* $10,00     |
-
-### <a name="reduced-service-fee"></a>Obniżona opłata za usługę
-
-W przypadku niektórych ofert opublikowanych w portalu komercyjnym firma Microsoft obniży opłatę za usługę Marketplace z 20% (zgodnie z opisem w [umowie Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace w danym miesiącu, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego. Zmniejszona opłata za usługę Marketplace dotyczy współsprzedaży platformy Azure zachęcani SaaS, maszyn wirtualnych, aplikacji zarządzanych i innych oferowanych z nich ofert IaaS z obsługą transakcji dostępnych za pośrednictwem komercyjnej witryny Marketplace. Płatne oferty SaaS skojarzone z jedną aplikacją Microsoft Teams lub co najmniej dwa dodatki Microsoft 365 (Excel, PowerPoint, Word, Outlook i SharePoint) i opublikowane w witrynie AppSource otrzymują również rabat.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faktury dla klientów, płatności, rozliczeń i kolekcji
 

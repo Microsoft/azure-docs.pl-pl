@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: aee3f5602d0bd1ff12717d903d662ce4605de61d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683764"
+ms.locfileid: "94701791"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP shortpath (wersja zapoznawcza)
 
@@ -176,7 +176,7 @@ Aby sprawdzić, czy połączenia korzystają z protokołu RDP shortpath, Otwórz
 Aby sprawdzić, czy sesja używa protokołu RDP shortpath transport:
 
 1. Nawiąż połączenie z pulpitem maszyny wirtualnej przy użyciu klienta pulpitu wirtualnego systemu Windows.
-2. Uruchom Podgląd zdarzeń i przejdź do następującego węzła: **Dzienniki aplikacji i usług > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > operacyjnego**
+2. Uruchom Podgląd zdarzeń i przejdź do następującego węzła: **Dzienniki aplikacji i usług > microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/operacyjny**
 3. Aby określić, czy używany jest transport RDP shortpath, poszukaj zdarzenia o IDENTYFIKATORze 131.
 
 ### <a name="using-log-analytics-to-verify-shortpath-connectivity"></a>Weryfikowanie łączności shortpath przy użyciu Log Analytics

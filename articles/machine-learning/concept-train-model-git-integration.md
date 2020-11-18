@@ -1,20 +1,20 @@
 ---
 title: Integracja z usługą git dla Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, w jaki sposób Azure Machine Learning integruje się z lokalnym repozytorium git. Podczas przesyłania szkolenia z katalogu lokalnego, który jest repozytorium git, informacje o repozytorium, rozgałęzieniu i bieżącym zatwierdzeniu są śledzone w ramach przebiegu.
+description: Dowiedz się, w jaki sposób Azure Machine Learning integruje się z lokalnym repozytorium git, aby śledzić repozytorium, gałąź i bieżące informacje o zatwierdzaniu w ramach przebiegu szkoleniowego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
-ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324769"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701640"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integracja z usługą git dla Azure Machine Learning
 
@@ -153,9 +153,9 @@ Informacje dotyczące usługi git są przechowywane we właściwościach przebie
 ### <a name="azure-portal"></a>Azure Portal
 
 1. W [portalu Studio](https://ml.azure.com)wybierz swój obszar roboczy.
-1. Wybierz pozycję __eksperymenty__ , a następnie wybierz jedno z eksperymentów.
+1. Wybierz pozycję __eksperymenty__, a następnie wybierz jedno z eksperymentów.
 1. Wybierz jeden z przebiegów z kolumny __numer uruchomienia__ .
-1. Wybierz pozycję dane __wyjściowe + dzienniki__ , a następnie rozwiń pozycję __dzienniki__ i wpisy w usłudze __Azure__ . Wybierz łącze zaczynające się od __### \_ platformy Azure__.
+1. Wybierz pozycję dane __wyjściowe + dzienniki__, a następnie rozwiń pozycję __dzienniki__ i wpisy w usłudze __Azure__ . Wybierz łącze zaczynające się od __### \_ platformy Azure__.
 
 Zarejestrowane informacje zawierają tekst podobny do następującego:
 

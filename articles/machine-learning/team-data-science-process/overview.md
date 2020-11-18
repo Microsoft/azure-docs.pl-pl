@@ -1,5 +1,5 @@
 ---
-title: Co to jest zespołowe przetwarzanie danych?
+title: Co to jest zespołowe przetwarzanie danych dla celów naukowych?
 description: Zapewnia metodologię do nauki o danych, która umożliwia dostarczanie rozwiązań do analizy predykcyjnej i inteligentnych aplikacji.
 services: machine-learning
 author: marktab
@@ -8,17 +8,17 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: overview
-ms.date: 1/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a341d33c957af8fe7423bda80f1d34a7f59cdd6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91362235"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738003"
 ---
-# <a name="what-is-the-team-data-science-process"></a>Co to jest zespołowe przetwarzanie danych?
+# <a name="what-is-the-team-data-science-process"></a>Co to jest zespołowe przetwarzanie danych dla celów naukowych?
 
 Proces nauki o danych zespołowych (przetwarzania TDSP) to Agile, iteracyjna metodologia analityczna danych, która umożliwia wydajne dostarczanie rozwiązań do analizy predykcyjnej i inteligentnych aplikacji. PRZETWARZANIA TDSP pomaga ulepszyć współpracę zespołową i uczenie się, sugerując, w jaki sposób role zespołu najlepiej współpracują ze sobą. PRZETWARZANIA TDSP zawiera najlepsze rozwiązania i struktury od firmy Microsoft i innych liderów branżowych, aby pomóc w pomyślnym wdrożeniu inicjatyw dotyczących analizy danych. Ma ona na celu pomoc firmom w pełnym wykorzystaniu zalet programu analitycznego.
 
@@ -100,7 +100,7 @@ Oto przykład zespołu pracującego nad wieloma projektami i udostępniając ró
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Narzędzia i programy do wykonania projektu
 
-Wprowadzenie procesów w większości organizacji jest trudne. Narzędzia udostępniane do wdrożenia procesu nauki o danych i cyklu życia obniżają bariery i zwiększają spójność ich wdrażania. PRZETWARZANIA TDSP zawiera początkowy zestaw narzędzi i skryptów umożliwiający szybkie rozpoczęcie wdrażania przetwarzania TDSP w zespole. Pomaga również zautomatyzować niektóre typowe zadania związane z analizą danych, takie jak Eksploracja danych i modelowanie linii bazowej. Istnieje dobrze zdefiniowana struktura, która umożliwia osobom Współtworzenie współużytkowanych narzędzi i narzędzi w repozytorium kodu udostępnionego zespołu. Te zasoby mogą być następnie wykorzystywane przez inne projekty w zespole lub w organizacji. PRZETWARZANIA TDSP również planuje, aby umożliwić wkładowanie narzędzi i narzędzi do całej społeczności. Narzędzia przetwarzania TDSP mogą być klonowane z usługi [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Wprowadzenie procesów w większości organizacji jest trudne. Narzędzia udostępniane do wdrożenia procesu nauki o danych i cyklu życia obniżają bariery i zwiększają spójność ich wdrażania. PRZETWARZANIA TDSP zawiera początkowy zestaw narzędzi i skryptów umożliwiający szybkie rozpoczęcie wdrażania przetwarzania TDSP w zespole. Pomaga również zautomatyzować niektóre typowe zadania związane z analizą danych, takie jak Eksploracja danych i modelowanie linii bazowej. Istnieje dobrze zdefiniowana struktura, która umożliwia osobom Współtworzenie współużytkowanych narzędzi i narzędzi w repozytorium kodu udostępnionego zespołu. Te zasoby mogą być następnie wykorzystywane przez inne projekty w zespole lub w organizacji.  Firma Microsoft udostępnia rozbudowane narzędzia w [Azure Machine Learning](../index.yml) obsługujące zarówno środowisko Open Source (Python, R, ONNX i Common-Learning Frameworks), jak również własne narzędzia firmy Microsoft (AutoML).
 
 
 ## <a name="next-steps"></a>Następne kroki

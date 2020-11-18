@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f950cb63b5083a85ab5420434abdd9a720115b1a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76119622"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734552"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Rozwiązywanie problemów z wadliwą maszyną wirtualną platformy Azure przy użyciu wirtualizacji zagnieżdżonej na platformie Azure
 
@@ -72,7 +72,7 @@ Aby można było zainstalować wadliwą maszynę wirtualną, maszyna ratownicza 
 
 3.  Otwórz przystawkę Zarządzanie dyskami (diskmgmt. msc). Upewnij się, że dysk uszkodzonej maszyny wirtualnej jest ustawiony na **tryb offline**.
 
-4.  Otwórz Menedżera funkcji Hyper-V: w **Menedżer serwera**wybierz **rolę funkcji Hyper-v**. Kliknij prawym przyciskiem myszy serwer, a następnie wybierz **Menedżera funkcji Hyper-V**.
+4.  Otwórz Menedżera funkcji Hyper-V: w **Menedżer serwera** wybierz **rolę funkcji Hyper-v**. Kliknij prawym przyciskiem myszy serwer, a następnie wybierz **Menedżera funkcji Hyper-V**.
 
 5.  W Menedżerze funkcji Hyper-V kliknij prawym przyciskiem myszy ratowniczą maszynę wirtualną, a następnie wybierz pozycję **Nowa**  >  **maszyna wirtualna**  >  **dalej**.
 
@@ -96,7 +96,7 @@ Aby można było zainstalować wadliwą maszynę wirtualną, maszyna ratownicza 
 
     ![obraz przedstawiający Dodawanie nowego dysku twardego](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-14. Na stronie **fizyczny dysk twardy**wybierz dysk USZKODZONEJ maszyny wirtualnej, która została podłączona do maszyny wirtualnej platformy Azure. Jeśli nie widzisz żadnych dysków na liście, sprawdź, czy dysk jest ustawiony do trybu offline przy użyciu przystawki Zarządzanie dyskami.
+14. Na stronie **fizyczny dysk twardy** wybierz dysk USZKODZONEJ maszyny wirtualnej, która została podłączona do maszyny wirtualnej platformy Azure. Jeśli nie widzisz żadnych dysków na liście, sprawdź, czy dysk jest ustawiony do trybu offline przy użyciu przystawki Zarządzanie dyskami.
 
     ![obraz dotyczący instalowania dysku](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -111,7 +111,7 @@ Aby można było zainstalować wadliwą maszynę wirtualną, maszyna ratownicza 
 
 1.  Po przejściu maszyny wirtualnej w tryb online Zamknij maszynę wirtualną w Menedżerze funkcji Hyper-V.
 
-2.  [Odinstaluj i Odłącz dysk systemu operacyjnego](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [Odinstaluj i Odłącz dysk systemu operacyjnego](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk
 ).
 3.  [Zastąp dysk systemu operacyjnego używany przez maszynę wirtualną za pomocą naprawionego dysku systemu operacyjnego](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).

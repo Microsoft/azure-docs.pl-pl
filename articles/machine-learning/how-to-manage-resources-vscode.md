@@ -1,7 +1,7 @@
 ---
 title: Tworzenie rozszerzenia VS Code zasobów i zarządzanie nimi (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Tworzenie zasobów i zarządzanie nimi przy użyciu rozszerzenia VS Code
+description: Dowiedz się, jak tworzyć zasoby Azure Machine Learning i zarządzać nimi przy użyciu rozszerzenia Visual Studio Code Azure Machine Learning.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319346"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701419"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Zarządzanie zasobami Azure Machine Learning przy użyciu rozszerzenia VS Code (wersja zapoznawcza)
 
@@ -56,8 +56,8 @@ Alternatywne metody tworzenia obszaru roboczego obejmują:
 1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
 1. Kliknij prawym przyciskiem myszy obszar roboczy, który chcesz usunąć.
 1. Wybierz, czy chcesz usunąć:
-    - *Tylko obszar roboczy* : Ta opcja usuwa **tylko** zasób platformy Azure obszaru roboczego. Grupa zasobów, konta magazynu i inne zasoby, do których dołączono obszar roboczy, nadal znajdują się na platformie Azure.
-    - *Ze skojarzonymi zasobami* : Ta opcja usuwa obszar roboczy **i** wszystkie skojarzone z nim zasoby.
+    - *Tylko obszar roboczy*: Ta opcja usuwa **tylko** zasób platformy Azure obszaru roboczego. Grupa zasobów, konta magazynu i inne zasoby, do których dołączono obszar roboczy, nadal znajdują się na platformie Azure.
+    - *Ze skojarzonymi zasobami*: Ta opcja usuwa obszar roboczy **i** wszystkie skojarzone z nim zasoby.
 
 ## <a name="datastores"></a>Magazyny danych
 
@@ -80,7 +80,7 @@ Aby uzyskać więcej informacji, zobacz [magazyny](concept-data.md#datastores)da
     1. Wybierz typ magazynu danych.
     1. Wybierz zasób magazynu. Możesz wybrać zasób magazynu skojarzony z obszarem roboczym lub wybrać dowolny prawidłowy zasób magazynu w ramach subskrypcji platformy Azure.
     1. Wybierz kontener, w którym dane są wewnątrz wcześniej wybranego zasobu magazynu.
-1. Plik konfiguracji jest wyświetlany w VS Code. Jeśli plik konfiguracji jest zadowalający, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+1. Plik konfiguracji jest wyświetlany w VS Code. Jeśli plik konfiguracji jest zadowalający, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 ### <a name="manage-a-datastore"></a>Zarządzanie magazynem danych
 
@@ -96,8 +96,8 @@ Aby uzyskać więcej informacji, zobacz [magazyny](concept-data.md#datastores)da
 
 Rozszerzenie obsługuje obecnie następujące typy zestawów danych:
 
-- *Tabelaryczny* : umożliwia zmaterializowania danych do elementu Dataframe (Pandas lub PySpark).
-- *Plik* : plik lub Kolekcja plików. Umożliwia pobieranie lub Instalowanie plików w ramach obliczeń.
+- *Tabelaryczny*: umożliwia zmaterializowania danych do elementu Dataframe (Pandas lub PySpark).
+- *Plik*: plik lub Kolekcja plików. Umożliwia pobieranie lub Instalowanie plików w ramach obliczeń.
 
 Aby uzyskać więcej informacji, zobacz [zestawy danych](concept-data.md#datasets)
 
@@ -159,12 +159,12 @@ Aby uzyskać więcej informacji, zobacz [środowiska](concept-environments.md).
 1. W wierszu polecenia:
     1. Podaj nazwę środowiska
     1. Zdefiniuj konfigurację środowiska:
-        - *Nadzorowane środowiska* : wstępnie skonfigurowane środowiska w Azure Machine Learning. Możesz bardziej dostosować środowisko, modyfikując `dependencies` Właściwość w pliku JSON. Dowiedz się więcej o [środowiskach nadzorowanych](resource-curated-environments.md).
-        - *Plik zależności Conda* : w środowiskach AnaConDa można podać plik zawierający definicję środowiska.
-        - *Plik wymagań PIP* : w środowiskach PIP można podać plik zawierający definicję środowiska.
-        - *Istniejące środowisko Conda* : Ta opcja wyszukuje środowiska Conda na komputerze lokalnym i próbuje skompilować środowisko z wybranego środowiska.
-        - *Niestandardowe* : Definiowanie własnych kanałów i zależności
-    1. Plik konfiguracji zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+        - *Nadzorowane środowiska*: wstępnie skonfigurowane środowiska w Azure Machine Learning. Możesz bardziej dostosować środowisko, modyfikując `dependencies` Właściwość w pliku JSON. Dowiedz się więcej o [środowiskach nadzorowanych](resource-curated-environments.md).
+        - *Plik zależności Conda*: w środowiskach AnaConDa można podać plik zawierający definicję środowiska.
+        - *Plik wymagań PIP*: w środowiskach PIP można podać plik zawierający definicję środowiska.
+        - *Istniejące środowisko Conda*: Ta opcja wyszukuje środowiska Conda na komputerze lokalnym i próbuje skompilować środowisko z wybranego środowiska.
+        - *Niestandardowe*: Definiowanie własnych kanałów i zależności
+    1. Plik konfiguracji zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 ### <a name="view-environment-configurations"></a>Wyświetl konfiguracje środowiska
 
@@ -182,7 +182,7 @@ Aby edytować zależności i konfiguracje dla określonego środowiska w rozszer
 1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
 1. Rozwiń węzeł **środowiska** wewnątrz obszaru roboczego.
 1. Kliknij prawym przyciskiem myszy środowisko, które chcesz wyświetlić, a następnie wybierz polecenie **Edytuj środowisko**.
-1. Po wprowadzeniu zmian, jeśli masz pewność, że konfiguracja zostanie osiągnięta, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+1. Po wprowadzeniu zmian, jeśli masz pewność, że konfiguracja zostanie osiągnięta, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 ## <a name="experiments"></a>Eksperymenty
 
@@ -307,7 +307,7 @@ Aby uzyskać więcej informacji, zobacz [cele obliczeń](concept-compute-target.
 1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
 1. Rozwiń węzeł **Klastry obliczeniowe** w obszarze roboczym.
 1. Kliknij prawym przyciskiem myszy obliczenia, które chcesz edytować, a następnie wybierz pozycję **Edytuj obliczenia**.
-1. Plik konfiguracji do obliczenia zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+1. Plik konfiguracji do obliczenia zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 ### <a name="delete-compute"></a>Usuń obliczenia
 
@@ -327,15 +327,15 @@ Aby utworzyć konfigurację uruchamiania w rozszerzeniu:
     1. Wybierz lub Utwórz nowe środowisko.
     1. Wpisz nazwę skryptu, który chcesz uruchomić, lub naciśnij klawisz **Enter** w przeglądarce, aby uzyskać skrypt na komputerze lokalnym.
     1. Obowiązkowe Wybierz, czy chcesz utworzyć odwołanie do danych dla danego przebiegu szkoleniowego. Spowoduje to wyświetlenie monitu o zdefiniowanie zestawu danych w konfiguracji przebiegu.
-        1. Wybierz jeden z zarejestrowanego zestawu danych, aby połączyć się z konfiguracją uruchomieniową plik konfiguracji dla tego elementu DataSet zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
-    1. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+        1. Wybierz jeden z zarejestrowanego zestawu danych, aby połączyć się z konfiguracją uruchomieniową plik konfiguracji dla tego elementu DataSet zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+    1. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 ### <a name="edit-run-configuration"></a>Edytuj konfigurację uruchomieniową
 
 1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
 1. Rozwiń węzeł klaster obliczeniowy w węźle **Klastry obliczeniowe** obszaru roboczego.
 1. Kliknij prawym przyciskiem myszy konfigurację uruchamiania, którą chcesz edytować, a następnie wybierz polecenie **Edytuj konfigurację uruchomieniową**.
-1. Plik konfiguracji dla konfiguracji przebiegu zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+1. Plik konfiguracji dla konfiguracji przebiegu zostanie otwarty w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 ### <a name="delete-run-configuration"></a>Usuń konfigurację przebiegu
 
@@ -357,7 +357,7 @@ Aby uzyskać więcej informacji, zobacz [modele](concept-azure-machine-learning-
     1. Podaj nazwę modelu
     1. Wybierz, czy model jest plikiem czy folderem.
     1. Znajdź model na komputerze lokalnym.
-    1. Plik konfiguracji dla modelu w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+    1. Plik konfiguracji dla modelu w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 ### <a name="view-model-properties"></a>Wyświetl właściwości modelu
 
@@ -401,7 +401,7 @@ Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi sieci Web](conc
     1. Podaj nazwę modelu.
     1. Podaj skrypt do uruchomienia podczas oceniania modelu.
     1. Podaj plik zależności Conda.
-    1. Plik konfiguracji dla danego wdrożenia zostanie wyświetlony w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+    1. Plik konfiguracji dla danego wdrożenia zostanie wyświetlony w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
 
 > [!NOTE]
 > Alternatywnie możesz kliknąć prawym przyciskiem myszy zarejestrowany model w węźle *modele* i wybrać polecenie **Wdróż usługę z zarejestrowanego modelu**.
@@ -421,7 +421,7 @@ Oprócz tworzenia i usuwania wdrożeń, można wyświetlać i edytować ustawien
 1. Rozwiń węzeł **punkty końcowe** w obszarze roboczym.
 1. Kliknij prawym przyciskiem myszy wdrożenie, które chcesz zarządzać:
     - Aby edytować ustawienia, wybierz pozycję **Edytuj usługę**.
-        - Plik konfiguracji dla danego wdrożenia zostanie wyświetlony w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code ( **Wyświetl > paletę poleceń** ) i wpisz **Azure ml: Zapisz i Kontynuuj**.
+        - Plik konfiguracji dla danego wdrożenia zostanie wyświetlony w edytorze. Jeśli masz pewność, że używasz konfiguracji, wybierz pozycję **Zapisz i Kontynuuj** lub Otwórz paletę poleceń vs Code (**Wyświetl > paletę poleceń**) i wpisz **Azure ml: Zapisz i Kontynuuj**.
     - Aby wyświetlić ustawienia konfiguracji wdrożenia, wybierz pozycję **Wyświetl właściwości usługi**.
 
 ## <a name="next-steps"></a>Następne kroki

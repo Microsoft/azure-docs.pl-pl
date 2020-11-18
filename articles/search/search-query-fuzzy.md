@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934892"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701589"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Wyszukiwanie rozmyte pozwala poprawić błędy pisowni i literówki
 
@@ -73,7 +73,7 @@ Na platformie Azure Wyszukiwanie poznawcze, poza terminem i odległością (maks
 
 ## <a name="testing-fuzzy-search"></a>Testowanie wyszukiwania rozmytego
 
-W przypadku prostych testów zalecamy [Eksplorator wyszukiwania](search-explorer.md) lub [notkę](search-get-started-postman.md) do iteracji w wyrażeniu zapytania. Oba narzędzia są interaktywne, co oznacza, że możesz szybko przejść przez wiele wariantów okresu i oszacować odpowiedzi z powrotem.
+W przypadku prostych testów zalecamy [Eksplorator wyszukiwania](search-explorer.md) lub [notkę](search-get-started-rest.md) do iteracji w wyrażeniu zapytania. Oba narzędzia są interaktywne, co oznacza, że możesz szybko przejść przez wiele wariantów okresu i oszacować odpowiedzi z powrotem.
 
 Gdy wyniki są niejednoznaczne, [wyróżnianie trafień](search-pagination-page-layout.md#hit-highlighting) może ułatwić identyfikację dopasowania w odpowiedzi. 
 
@@ -132,7 +132,7 @@ Zwróć uwagę, że zwracana jest taka sama odpowiedź, ale teraz zamiast dopaso
 
 Tym rozwiniętym przykładem jest zilustrowanie przejrzystości, którą wyróżnianie trafień może doprowadzić do niejednoznacznych wyników. We wszystkich przypadkach zwracany jest ten sam dokument. Czy korzystasz z identyfikatorów dokumentów w celu sprawdzenia dopasowania, być może pominięto zmianę z "Special" na "SQL".
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze (architektura analizy zapytań)](search-lucene-query-architecture.md)
 + [Eksplorator wyszukiwania](search-explorer.md)

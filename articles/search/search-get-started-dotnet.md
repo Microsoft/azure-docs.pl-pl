@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53deb7dc853de969ad6b6679ee728a3f132b6309
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f3e43a6b72d8de25de3220a9a6ac4e0b3986a467
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759088"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701810"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Azure.Search.Documents
 
@@ -50,9 +50,9 @@ Wywołania usługi wymagają punktu końcowego adresu URL i klucza dostępu dla 
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-2. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi, wymagany w przypadku tworzenia lub usuwania obiektów. Istnieją dwa wymienne klucze podstawowe i pomocnicze. Możesz użyć jednej z nich.
+2. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi, wymagany w przypadku tworzenia lub usuwania obiektów. Istnieją dwa wymienne klucze podstawowe i pomocnicze. Możesz użyć jednej z nich.
 
-   ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
+   ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-rest/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
 Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -60,7 +60,7 @@ Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do u
 
 Po utworzeniu projektu dodaj bibliotekę kliencką. [PakietAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) składa się z jednej biblioteki klienckiej, która zapewnia wszystkie interfejsy API używane do pracy z usługą wyszukiwania w programie .NET.
 
-1. W obszarze **Narzędzia**  >  **Menedżer pakietów NuGet**wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania.**.. 
+1. W obszarze **Narzędzia**  >  **Menedżer pakietów NuGet** wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania.**.. 
 
 1. Kliknij pozycję **Browse (Przeglądaj)**.
 
@@ -70,7 +70,7 @@ Po utworzeniu projektu dodaj bibliotekę kliencką. [PakietAzure.Search.Document
 
 ### <a name="create-a-search-client"></a>Tworzenie klienta wyszukiwania
 
-1. W **program.cs**Zmień przestrzeń nazw na, `AzureSearch.SDK.Quickstart.v11` a następnie Dodaj następujące `using` dyrektywy.
+1. W **program.cs** Zmień przestrzeń nazw na, `AzureSearch.SDK.Quickstart.v11` a następnie Dodaj następujące `using` dyrektywy.
 
    ```csharp
    using Azure;
@@ -134,7 +134,7 @@ W tym przykładzie metody synchroniczne Azure.Search.Docbiblioteki uments są u�
     }
     ```
 
-1. W **program.cs**Utwórz obiekt [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) , a następnie Wywołaj metodę, aby wyrazić [indeks w](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) usłudze wyszukiwania.
+1. W **program.cs** Utwórz obiekt [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) , a następnie Wywołaj metodę, aby wyrazić [indeks w](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) usłudze wyszukiwania.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -175,7 +175,7 @@ W przypadku usługi Azure Wyszukiwanie poznawcze dokumenty wyszukiwania są stru
 
 Podczas przekazywania dokumentów należy użyć obiektu [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) . `IndexDocumentsBatch`Obiekt zawiera kolekcję [akcji](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions), z których każdy zawiera dokument i Właściwość informującą platformę Azure wyszukiwanie poznawcze czynności do wykonania ([przekazywanie, scalanie, usuwanie i mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. W **program.cs**Utwórz tablicę dokumentów i akcji indeksu, a następnie Przekaż tablicę do `IndexDocumentsBatch` . Poniższe dokumenty są zgodne ze indeksem hoteli-szybkiego startu V11, zdefiniowanym przez klasę hotelu.
+1. W **program.cs** Utwórz tablicę dokumentów i akcji indeksu, a następnie Przekaż tablicę do `IndexDocumentsBatch` . Poniższe dokumenty są zgodne ze indeksem hoteli-szybkiego startu V11, zdefiniowanym przez klasę hotelu.
 
     ```csharp
     // Load documents (using a subset of fields for brevity)
@@ -212,7 +212,7 @@ W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W 
 
 Klasa [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) reprezentuje wyniki.
 
-1. W **program.cs**Utwórz metodę WriteDocuments, która drukuje wyniki wyszukiwania w konsoli programu.
+1. W **program.cs** Utwórz metodę WriteDocuments, która drukuje wyniki wyszukiwania w konsoli programu.
 
     ```csharp
     private static void WriteDocuments(SearchResults<Hotel> searchResults)

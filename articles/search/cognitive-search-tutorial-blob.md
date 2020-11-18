@@ -7,28 +7,34 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: e9d438349f3a080f52050f22a0f991140b3e6b4d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 11/17/2020
+ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699157"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738054"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie REST i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
-Jeśli w usłudze Azure Blob Storage znajduje się tekst lub obrazy bez struktury, [potok wzbogacenia AI](cognitive-search-concept-intro.md) może wyodrębnić informacje i utworzyć nową zawartość, która jest przydatna w przypadku wyszukiwania pełnotekstowego lub scenariuszy wyszukiwania w bazie wiedzy. Mimo że potok może przetwarzać obrazy, ten samouczek REST koncentruje się na tekście, stosowaniu wykrywania języka i przetwarzania języka naturalnego w celu utworzenia nowych pól, których można użyć w zapytaniach, aspektach i filtrach.
+Jeśli w usłudze Azure Blob Storage znajduje się tekst lub obrazy bez struktury, [potok wzbogacenia AI](cognitive-search-concept-intro.md) może wyodrębnić informacje i utworzyć nową zawartość z obiektów blob, które są przydatne w przypadku wyszukiwania pełnotekstowego lub scenariuszy wyszukiwania w bazie wiedzy. Mimo że potok może przetwarzać obrazy, ten samouczek REST koncentruje się na tekście, stosowaniu wykrywania języka i przetwarzania języka naturalnego w celu utworzenia nowych pól, których można użyć w zapytaniach, aspektach i filtrach.
 
 W tym samouczku jest używany program Poster i [interfejsy API REST wyszukiwania](/rest/api/searchservice/) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Zacznij od całego dokumentu (tekst bez struktury), takiego jak PDF, HTML, DOCX i PPTX, w usłudze Azure Blob Storage.
-> * Zdefiniuj potok, który wyodrębnia tekst, wykrywa język, rozpoznaje jednostki i wykrywa kluczowe frazy.
-> * Zdefiniuj indeks do przechowywania danych wyjściowych (nieprzetworzona zawartość oraz pary nazwa-wartość w postaci potoku).
-> * Wykonaj potok, aby rozpocząć transformacje i analizę oraz utworzyć i załadować indeks.
+> * Konfigurowanie usług i kolekcji programu Poster.
+> * Utwórz potok wzbogacania, który wyodrębnia tekst, wykrywa język, rozpoznaje jednostki i wykrywa kluczowe frazy.
+> * Utwórz indeks do przechowywania danych wyjściowych (nieprzetworzona zawartość oraz pary nazwa-wartość w postaci potoku).
+> * Wykonaj potok, aby wykonać przekształcenia i analizę, i załadować indeks.
 > * Eksplorowanie wyników przy użyciu wyszukiwania pełnotekstowego i zaawansowanej składni zapytań.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+
+## <a name="overview"></a>Omówienie
+
+Ten samouczek używa języka C# i interfejsów API REST platformy Azure Wyszukiwanie poznawcze w celu utworzenia źródła danych, indeksu, indeksatora i zestawu umiejętności. Zaczniesz korzystać z całych dokumentów (tekstu bez struktury), takich jak PDF, HTML, DOCX i PPTX w usłudze Azure Blob Storage, a następnie uruchamiać je za pomocą zestawu umiejętności, aby wyodrębnić jednostki, kluczowe frazy i inny tekst w plikach zawartości.
+
+Ten zestawu umiejętności korzysta z wbudowanych umiejętności opartych na interfejsy API usług Cognitive Services. Kroki w potoku obejmują wykrywanie języka na tekst, wyodrębnianie kluczowych fraz i rozpoznawanie jednostek (organizacje). Nowe informacje są przechowywane w nowych polach, które mogą być używane w zapytaniach, aspektach i filtrach.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,6 +50,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 1. Otwórz ten [folder w usłudze OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) i w lewym górnym rogu, kliknij pozycję **Pobierz** , aby skopiować pliki do komputera. 
 
 1. Kliknij prawym przyciskiem myszy plik zip i wybierz polecenie **Wyodrębnij wszystko**. Istnieje 14 plików różnych typów. W tym ćwiczeniu należy użyć 7.
+
+Opcjonalnie możesz również pobrać kod źródłowy, plik kolekcji programu Poster dla tego samouczka. Kod źródłowy można znaleźć pod adresem [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial) .
 
 ## <a name="1---create-services"></a>1 — Tworzenie usług
 
@@ -107,7 +115,7 @@ Trzeci składnik to Wyszukiwanie poznawcze platformy Azure, który można [utwor
 
 Tak jak w przypadku usługi Azure Blob Storage, poświęć chwilę na zebranie klucza dostępu. Ponadto po rozpoczęciu tworzenia struktury żądań należy podać punkt końcowy i klucz interfejsu API administratora używany do uwierzytelniania każdego żądania.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Pobierz klucz API i adres URL administratora dla usługi Azure Wyszukiwanie poznawcze
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Kopiowanie klucza API administratora — klucz i adres URL dla usługi Azure Wyszukiwanie poznawcze
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Pobierz nazwę usługi wyszukiwania. Nazwę usługi można potwierdzić, przeglądając adres URL punktu końcowego. Jeśli adres URL punktu końcowego to `https://mydemo.search.windows.net` , nazwa usługi to `mydemo` .
 
@@ -131,7 +139,7 @@ W obszarze nagłówki ustaw wartość "Content-Type" na wartość `application/j
 
 ## <a name="3---create-the-pipeline"></a>3 — Tworzenie potoku
 
-W przypadku usługi Azure Wyszukiwanie poznawcze przetwarzanie AI odbywa się podczas indeksowania (lub pozyskiwania danych). W tej części przewodnika utworzono cztery obiekty: Źródło danych, definicja indeksu, zestawu umiejętności, indeksator. 
+Na platformie Azure Wyszukiwanie poznawcze wzbogacanie odbywa się podczas indeksowania (lub pozyskiwania danych). W tej części przewodnika utworzono cztery obiekty: Źródło danych, definicja indeksu, zestawu umiejętności, indeksator. 
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 
@@ -350,7 +358,7 @@ Jeśli otrzymujesz błąd 403 lub 404, sprawdź, czy żądanie jest poprawnie sk
 
     ```json
     {
-      "name":"cog-search-demo-idxr",    
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",

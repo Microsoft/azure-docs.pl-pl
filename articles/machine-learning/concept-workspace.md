@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 65cdf444386d1b10cf225010c55170e5b47b3eb4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541355"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701657"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Co to jest obszar roboczy usługi Azure Machine Learning?
 
@@ -89,7 +89,7 @@ Można również wykonać następujące zadania zarządzania obszarem roboczym:
 Istnieje wiele sposobów tworzenia obszaru roboczego:  
 
 * Użyj [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) dla interfejsu typu punkt-i-kliknięcie, aby przeprowadzić Cię przez każdy krok.
-* Użyj [zestawu SDK Azure Machine Learning dla języka Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) , aby utworzyć obszar roboczy na bieżąco ze skryptów języka Python lub notesów Jupiter
+* Użyj [zestawu SDK Azure Machine Learning dla języka Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) , aby utworzyć obszar roboczy na bieżąco ze skryptów języka Python lub notesów Jupyter
 * Użyj [szablonu Azure Resource Manager](how-to-create-workspace-template.md) lub [interfejsu wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md) , gdy zachodzi potrzeba automatyzacji lub dostosowania tworzenia przy użyciu firmowych standardów zabezpieczeń.
 * Jeśli pracujesz w Visual Studio Code, użyj [rozszerzenia vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 

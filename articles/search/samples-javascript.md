@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6cd696bf0853b1e6bafc06f2e99b2808970fed25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686855"
+ms.locfileid: "94701827"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Przykłady kodu JavaScript dla Wyszukiwanie poznawcze platformy Azure
 
@@ -38,7 +38,7 @@ Zestaw Azure SDK dla języka Java zawiera wiele przykładów i [stronę wprowadz
 | [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [indeksatory](search-indexer-overview.md).|
 | [Zestawu umiejętności](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [umiejętności](cognitive-search-working-with-skillsets.md) , które są dołączonymi indeksatorami i które wykonują wzbogacanie oparte na AI podczas indeksowania. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [mapy synonimów](search-synonyms.md).  |
-| [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Zapytania są tylko do odczytu. To przykładowe zapytanie jest wykonywane względem publicznego indeksu hostowanego przez firmę Microsoft.  |
+| [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Ilustruje wykonywanie zapytania względem publicznego indeksu tylko do odczytu hostowanego przez firmę Microsoft.  |
 
 ## <a name="typescript-samples"></a>Przykłady języka TypeScript
 
@@ -51,7 +51,7 @@ Zestaw SDK zawiera również przykłady języka TypeScript, które są wymienion
 | [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [indeksatory](search-indexer-overview.md).|
 | [Zestawu umiejętności](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [umiejętności](cognitive-search-working-with-skillsets.md) , które są dołączonymi indeksatorami i które wykonują wzbogacanie oparte na AI podczas indeksowania. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [mapy synonimów](search-synonyms.md).  |
-| [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Ilustruje wykonywanie zapytania względem publicznego indeksu tylko do odczytu hostowanego przez firmę Microsoft.  |
+| [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Ilustruje wykonywanie zapytania względem publicznego indeksu tylko do odczytu hostowanego przez firmę Microsoft.  |
 
 ## <a name="documentation-samples"></a>Przykłady dokumentacji
 
@@ -59,7 +59,7 @@ Następujące przykłady zawierają skojarzony artykuł w [dokumentacji usługi 
 
 | Samples | Opis | 
 |---------|-------------|
-| [Start](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/Quickstart) | Kod źródłowy do [szybkiego startu: Tworzenie indeksu wyszukiwania w języku JavaScript](search-get-started-javascript.md).  |
+| [Start](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Kod źródłowy do [szybkiego startu: Tworzenie indeksu wyszukiwania w języku JavaScript](search-get-started-javascript.md).  |
 
 ## <a name="standalone-samples"></a>Przykłady autonomiczne
 

@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ad5c73fee93d935ad050cea8feca2754649a61f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 476a2cf0d5886ffa677461a5a8156cdfa4a168a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058509"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701783"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w programie PowerShell przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)]()
 > * [C#](./search-get-started-dotnet.md)
-> * [Poster (REST)](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > 
@@ -44,9 +44,9 @@ Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla ka
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-2. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+2. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
+![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-rest/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
 Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -127,7 +127,7 @@ Ten indeks ma nazwę "Hotele-Szybki Start" i zawiera definicje pól widoczne pon
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
-3. Aby utworzyć indeks usługi, uruchom polecenie z **$URL**, **$Headers**i **$Body** . 
+3. Aby utworzyć indeks usługi, uruchom polecenie z **$URL**, **$Headers** i **$Body** . 
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
@@ -277,7 +277,7 @@ Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu 
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
-1. Uruchom polecenie z **$URL**, **$Headers**i **$Body** , aby załadować dokumenty do indeksu hoteli-szybkiego startu.
+1. Uruchom polecenie z **$URL**, **$Headers** i **$Body** , aby załadować dokumenty do indeksu hoteli-szybkiego startu.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
@@ -394,7 +394,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

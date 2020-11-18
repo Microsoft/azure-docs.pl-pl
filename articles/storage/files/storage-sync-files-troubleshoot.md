@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: dd9e67b8cea88421986d4ca9e3545c6dce618672
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626405"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737017"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -115,7 +115,7 @@ Jeśli zobaczysz ten komunikat i udział plików platformy Azure aktualnie nie j
 
 1. W Azure Portal przejdź do udziału plików platformy Azure.  
 2. Kliknij prawym przyciskiem myszy udział plików platformy Azure, a następnie wybierz polecenie **Edytuj metadane**.
-3. Kliknij prawym przyciskiem myszy pozycję **SyncService** , a następnie wybierz pozycję **Usuń**.
+3. Kliknij prawym przyciskiem myszy pozycję **SyncService**, a następnie wybierz pozycję **Usuń**.
 
 <a id="cloud-endpoint-authfailed"></a>**Tworzenie punktu końcowego w chmurze kończy się niepowodzeniem z powodu tego błędu: "AuthorizationFailed"**  
 Ten błąd występuje, jeśli konto użytkownika nie ma wystarczających uprawnień do utworzenia punktu końcowego w chmurze. 
@@ -1004,7 +1004,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Upewnij się, że Azure File Sync ma dostęp do konta magazynu.**  
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Kliknij pozycję **Kontrola dostępu (IAM)** po lewej stronie spisu treści.
-1. Kliknij kartę **przypisania roli** , aby wyświetlić listę użytkowników i aplikacji ( *nazwy główne usługi* ), które mają dostęp do konta magazynu.
+1. Kliknij kartę **przypisania roli** , aby wyświetlić listę użytkowników i aplikacji (*nazwy główne usługi*), które mają dostęp do konta magazynu.
 1. Sprawdź, czy na liście zostanie wyświetlona usługa **Microsoft. StorageSync** lub **hybrydowy File Sync Service** (stara nazwa aplikacji) z rolą **czytelnik i dostęp do danych** . 
 
     ![Zrzut ekranu jednostki usługi hybrydowej usługi File Sync na karcie Kontrola dostępu konta magazynu](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
@@ -1013,7 +1013,7 @@ if ($fileShare -eq $null) {
 
     - Kliknij pozycję **Dodaj**.
     - W polu **rola** wybierz pozycję **czytnik i dostęp do danych**.
-    - W polu **Wybierz** wpisz **Microsoft. StorageSync** , wybierz rolę, a następnie kliknij przycisk **Zapisz**.
+    - W polu **Wybierz** wpisz **Microsoft. StorageSync**, wybierz rolę, a następnie kliknij przycisk **Zapisz**.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1266,7 +1266,24 @@ Jeśli wystąpią problemy z Azure File Sync na serwerze, należy najpierw wykon
 
 Jeśli problem nie zostanie rozwiązany, uruchom narzędzie AFSDiag i Wyślij plik. zip do inżyniera pomocy technicznej przypisanego do Twojego przypadku w celu przeprowadzenia dalszej diagnostyki.
 
-Aby uruchomić AFSDiag, wykonaj następujące czynności:
+Aby uruchomić AFSDiag, wykonaj poniższe kroki.
+
+W przypadku agenta w wersji v11 lub nowszej:
+1. Otwórz okno programu PowerShell z podwyższonym poziomem uprawnień, a następnie uruchom następujące polecenia (naciśnij klawisz Enter po każdym poleceniu):
+
+    > [!NOTE]
+    >AFSDiag utworzy katalog wyjściowy i folder Temp w nim przed zbieraniem dzienników i spowoduje usunięcie folderu tymczasowego po wykonaniu. Określ lokalizację wyjściową, która nie zawiera danych.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Odtwórz problem. Po zakończeniu wprowadź **D**.
+3. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony. 
+
+W przypadku agenta w wersji V10 i starszych:
 1. Utwórz katalog, w którym zostaną zapisane dane wyjściowe AFSDiag (na przykład C:\Output).
     > [!NOTE]
     >AFSDiag usunie całą zawartość z katalogu wyjściowego przed zbieraniem dzienników. Określ lokalizację wyjściową, która nie zawiera danych.
@@ -1283,7 +1300,8 @@ Aby uruchomić AFSDiag, wykonaj następujące czynności:
 5. Odtwórz problem. Po zakończeniu wprowadź **D**.
 6. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony.
 
-## <a name="see-also"></a>Zobacz też
+
+## <a name="see-also"></a>Zobacz także
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files często zadawane pytania](storage-files-faq.md)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)

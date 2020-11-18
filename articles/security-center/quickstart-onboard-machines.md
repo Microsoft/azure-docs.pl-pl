@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 88c34be45a832f8944217630568927bc7d52fd88
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660206"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734358"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 
@@ -21,7 +21,7 @@ Security Center może monitorować stan zabezpieczeń na komputerach spoza platf
 
 Komputery spoza platformy Azure można połączyć w dowolny z następujących sposobów:
 
-- Korzystanie z [**zalecane**: serwerów z funkcją Azure Arc
+- Korzystanie z serwerów z obsługą usługi Azure ARC (**zalecane**)
 - Ze stron Security Center w Azure Portal (**wprowadzenie** i **spis**)
 
 Każdy z tych elementów został opisany na tej stronie.

@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660767"
+ms.locfileid: "94701317"
 ---
 # <a name="list-blobs-with-net"></a>Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET
 
@@ -64,6 +64,10 @@ Można zwrócić metadane obiektu BLOB z wynikami.
 - Jeśli używasz zestawu SDK platformy .NET V12, określ wartość **metadanych** dla wyliczenia [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
 - Jeśli używasz zestawu SDK platformy .NET V11, określ wartość **metadanych** dla wyliczenia [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Usługa Azure Storage obejmuje metadane z zwróconymi wszystkimi obiektami BLOB, więc nie trzeba wywoływać jednej z metod **FetchAttributes** w tym kontekście, aby pobrać metadane obiektu BLOB.
+
+### <a name="list-blob-versions-or-snapshots"></a>Wyświetl listę wersji lub migawek obiektów BLOB
+
+Aby wyświetlić listę wersji lub migawek obiektów BLOB za pomocą biblioteki klienta .NET V12, określ parametr [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) w polu **wersja** lub **migawka** . Wersje i migawki są wymienione na liście od najstarszych do najnowszych. Aby uzyskać więcej informacji na temat wyświetlania wersji, zobacz [Lista wersji obiektów BLOB](versioning-enable.md#list-blob-versions).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Płaska lista w porównaniu z listą hierarchiczną
 

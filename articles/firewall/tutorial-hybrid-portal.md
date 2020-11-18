@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 89a6239a28c66ab24f423c19baf0d329f87b38d5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 78e934a90b8d4e8feccf18a5cada3ec4920e1642
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658608"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734457"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal
 
@@ -88,16 +88,17 @@ Teraz Utwórz sieć wirtualną:
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Sieć** wybierz pozycję **Sieć wirtualna**.
-7. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
+1. Wybierz pozycję **Utwórz**.
+1. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
 1. W obszarze **Nazwa wpisz nazwę** **koncentratora sieci wirtualnej**.
-2. Wybierz pozycję **Dalej: adresy IP**.
-3. W **polu przestrzeń adresowa IPv4** wpisz **10.5.0.0/16**.
-6. W obszarze **Nazwa podsieci** wybierz pozycję **domyślne**.
-7. dla **Name** typu nazwy **AzureFirewallSubnet**. Zapora będzie znajdować się w tej podsieci, a nazwą podsieci **musi** być AzureFirewallSubnet.
-8. W obszarze **zakres adresów** wpisz **10.5.0.0/26**. 
-9. Wybierz pozycję **Zapisz**.
-10. Wybierz pozycję **Przejrzyj i utwórz**.
-11. Wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Dalej: adresy IP**.
+1. W **polu przestrzeń adresowa IPv4** Usuń domyślny adres i wpisz **10.5.0.0/16**.
+1. W obszarze **Nazwa podsieci** wybierz pozycję **Dodaj podsieć**.
+1. Dla **nazwy podsieci** wpisz **AzureFirewallSubnet**. Zapora będzie znajdować się w tej podsieci, a nazwą podsieci **musi** być AzureFirewallSubnet.
+1. W obszarze **zakres adresów podsieci** wpisz **10.5.0.0/26**. 
+1. Wybierz pozycję **Dodaj**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-the-spoke-virtual-network"></a>Tworzenie sieci wirtualnej będącej szprychą
 
@@ -107,11 +108,11 @@ Teraz Utwórz sieć wirtualną:
 1. W obszarze **Nazwa** wpisz **VNET-szprych**.
 2. W **obszarze region** wybierz pozycję **(US) Wschodnie stany USA**.
 3. Wybierz pozycję **Dalej: adresy IP**.
-4. W **polu przestrzeń adresowa IPv4** wpisz **10.6.0.0/16**.
-6. W obszarze **Nazwa podsieci** wybierz pozycję **domyślne**.
-7. w obszarze **Nazwa** wpisz **SN-obciążenie**.
-8. W obszarze **zakres adresów** wpisz **10.6.0.0/24**. 
-9. Wybierz pozycję **Zapisz**.
+4. W **polu przestrzeń adresowa IPv4** Usuń domyślny adres i wpisz **10.6.0.0/16**.
+6. W obszarze **Nazwa podsieci** wybierz pozycję **Dodaj podsieć**.
+7. Dla **nazwy podsieci** wpisz **SN-obciążeń**.
+8. W obszarze **zakres adresów podsieci** wpisz **10.6.0.0/24**. 
+9. Wybierz pozycję **Dodaj**.
 10. Wybierz pozycję **Przejrzyj i utwórz**.
 11. Wybierz pozycję **Utwórz**.
 
@@ -123,11 +124,11 @@ Teraz Utwórz sieć wirtualną:
 1. W obszarze **Nazwa** wpisz **VNET-lokalnego**.
 2. W **obszarze region** wybierz pozycję **(US) Wschodnie stany USA**.
 3. Wybierz pozycję **Dalej: adresy IP**
-4. W **polu przestrzeń adresowa IPv4** wpisz **192.168.0.0/16**.
-5. W obszarze **Nazwa podsieci** wybierz pozycję **domyślne**.
-7. w obszarze **Nazwa** wpisz **SN-Corp**.
-8. W polu **Zakres adresów** wpisz wartość **192.168.1.0/24**. 
-9. Wybierz pozycję **Zapisz**.
+4. W **polu przestrzeń adresowa IPv4** Usuń domyślny adres i wpisz **192.168.0.0/16**.
+5. W obszarze **Nazwa podsieci** wybierz pozycję **Dodaj podsieć**.
+7. W obszarze **Nazwa podsieci** wpisz **SN-Corp**.
+8. W obszarze **zakres adresów podsieci** wpisz **192.168.1.0/24**. 
+9. Wybierz pozycję **Dodaj**.
 10. Wybierz pozycję **Przejrzyj i utwórz**.
 11. Wybierz pozycję **Utwórz**.
 
@@ -272,21 +273,31 @@ Teraz nawiąż komunikację równorzędną pomiędzy siecią wirtualną koncentr
 1. Otwórz grupę zasobów **PD-hybrydowy-test** i wybierz sieć wirtualną **koncentratora** sieci wirtualnej.
 2. W lewej kolumnie Wybierz pozycję **Komunikacja równorzędna**.
 3. Wybierz pozycję **Dodaj**.
-4. W obszarze **Nazwa** wpisz **HubtoSpoke**.
-5. Dla **sieci wirtualnej** wybierz opcję Sieć wirtualna **-szprycha**
-6. Aby uzyskać nazwę komunikacji równorzędnej z VNetSpoke do koncentratora sieci wirtualnej, wpisz **SpoketoHub**.
-7. Wybierz pozycję **Zezwalaj na tranzyt bramy**.
-8. Wybierz przycisk **OK**.
+4. W **tej sieci wirtualnej**:
+ 
+   
+   |Nazwa ustawienia  |Wartość  |
+   |---------|---------|
+   |Nazwa łącza komunikacji równorzędnej| HubtoSpoke|
+   |Ruch do zdalnej sieci wirtualnej|   Zezwalaj (wartość domyślna)      |
+   |Ruch przekierowany z zdalnej sieci wirtualnej    |   Zezwalaj (wartość domyślna)      |
+   |Brama sieci wirtualnej     |  Użyj bramy tej sieci wirtualnej       |
+    
+5. W obszarze **zdalna Sieć wirtualna**:
 
-### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>Konfigurowanie dodatkowych ustawień komunikacji równorzędnej SpoketoHub
+   |Nazwa ustawienia  |Wartość  |
+   |---------|---------|
+   |Nazwa łącza komunikacji równorzędnej | SpoketoHub|
+   |Model wdrażania sieci wirtualnej| Resource Manager|
+   |Subskrypcja|\<your subscription\>|
+   |Sieć wirtualna| VNet-Spoke
+   |Ruch do zdalnej sieci wirtualnej     |   Zezwalaj (wartość domyślna)      |
+   |Ruch przekierowany z zdalnej sieci wirtualnej    |   Zezwalaj (wartość domyślna)      |
+   |Brama sieci wirtualnej     |  Korzystanie z bramy zdalnej sieci wirtualnej       |
 
-Należy włączyć **ruch przekierowany dalej** w komunikacji równorzędnej SpoketoHub.
+5. Wybierz pozycję **Dodaj**.
 
-1. Otwórz grupę zasobów **PD-hybrydowy-test** i wybierz **sieć wirtualną sieci wirtualnej.**
-2. W lewej kolumnie Wybierz pozycję **Komunikacja równorzędna**.
-3. Wybierz komunikację równorzędną **SpoketoHub** .
-4. W obszarze **Zezwalaj na ruch przesłany z sieci wirtualnej do sieci wirtualnej — szprych** wybierz pozycję **włączone**.
-5. Wybierz pozycję **Zapisz**.
+   :::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="Komunikacja równorzędna sieci wirtualnych":::
 
 ## <a name="create-the-routes"></a>Tworzenie tras
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380215"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701606"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -209,8 +209,10 @@ Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów
 
 | Nazwa FQDN                                          | Port      | Zastosowanie      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Ten adres jest używany do poprawnego działania Azure Policy. (obecnie w wersji zapoznawczej w AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Ten adres służy do ściągania wbudowanych zasad z usługi GitHub w celu zapewnienia prawidłowego działania Azure Policy. (obecnie w wersji zapoznawczej w AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Ten adres służy do ściągania zasad Kubernetes i zgłaszania stanu zgodności klastra do usługi zasad. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Ten adres służy do ściągania artefaktów wbudowanych zasad. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Ten adres jest używany do poprawnego działania Azure Policy.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Ten adres służy do ściągania wbudowanych zasad z usługi GitHub w celu zapewnienia prawidłowego działania Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy dodatek, który wysyła dane telemetryczne do punktu końcowego usługi Application Insights. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Ogranicz ruch wychodzący przy użyciu zapory platformy Azure

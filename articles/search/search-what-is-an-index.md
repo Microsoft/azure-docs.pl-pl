@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932886"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701137"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Tworzenie podstawowego indeksu wyszukiwania na platformie Azure Wyszukiwanie poznawcze
 
@@ -59,7 +59,7 @@ Dotarcie do ostatecznego projektu indeksu jest procesem iteracyjnym. Często zac
 
    ![Dodaj stronę indeksu pokazującą atrybuty według typu danych](media/search-what-is-an-index//field-definitions.png "Dodaj stronę indeksu pokazującą atrybuty według typu danych")
 
-1. Pobierz schemat indeksu przy użyciu polecenia [Pobierz indeks (interfejs API REST)](/rest/api/searchservice/get-index) i narzędzia do testowania sieci Web, takiego jak [Poster](search-get-started-postman.md). Teraz masz reprezentację w formacie JSON indeksu, który można dostosować do kodu.
+1. Pobierz schemat indeksu przy użyciu polecenia [Pobierz indeks (interfejs API REST)](/rest/api/searchservice/get-index) i narzędzia do testowania sieci Web, takiego jak [Poster](search-get-started-rest.md). Teraz masz reprezentację w formacie JSON indeksu, który można dostosować do kodu.
 
 1. [Załaduj swój indeks z danymi](search-what-is-data-import.md). Usługa Azure Wyszukiwanie poznawcze akceptuje dokumenty JSON. Aby programowo załadować dane, można użyć programu Poster z dokumentami JSON w ładunku żądania. Jeśli dane nie są łatwo wyrażone w formacie JSON, ten krok będzie najbardziej pracochłonny. 
 
@@ -70,7 +70,7 @@ Dotarcie do ostatecznego projektu indeksu jest procesem iteracyjnym. Często zac
 Podczas opracowywania Planuj częste ponowne kompilacje. Ponieważ struktury fizyczne są tworzone w usłudze, [usuwanie i odtwarzanie indeksów](search-howto-reindex.md) jest niezbędne w przypadku większości modyfikacji istniejącej definicji pola. Możesz rozważyć pracę z podzbiorem danych, aby szybciej tworzyć kompilacje. 
 
 > [!Tip]
-> Kod, a nie podejście portalu, jest zalecany do pracy nad projektem indeksu i importem danych jednocześnie. Alternatywnie narzędzia takie jak [Poster i interfejs API REST](search-get-started-postman.md) są przydatne do testowania koncepcji, gdy projekty programistyczne są nadal w fazie wczesnych faz. Możesz wprowadzić przyrostowe zmiany definicji indeksu w treści żądania, a następnie wysłać żądanie do usługi, aby ponownie utworzyć indeks przy użyciu zaktualizowanego schematu.
+> Kod, a nie podejście portalu, jest zalecany do pracy nad projektem indeksu i importem danych jednocześnie. Alternatywnie narzędzia takie jak [Poster i Visual Studio Code](search-get-started-rest.md) są przydatne do testowania koncepcji, gdy projekty programistyczne są nadal w fazie wczesnych faz. Możesz wprowadzić przyrostowe zmiany definicji indeksu w treści żądania, a następnie wysłać żądanie do usługi, aby ponownie utworzyć indeks przy użyciu zaktualizowanego schematu.
 
 ## <a name="index-schema"></a>Schemat indeksu
 
@@ -169,7 +169,7 @@ Pola mają nazwę, typ, który klasyfikuje przechowywane dane, oraz atrybuty, kt
 
 ### <a name="data-types"></a>Typy danych
 
-| Type | Opis |
+| Typ | Opis |
 |------|-------------|
 | Edm.String |Tekst, który można opcjonalnie uzyskać tokeny na potrzeby wyszukiwania pełnotekstowego (dzielenia wyrazów, szukania rdzeni itd.). |
 | Collection(Edm.String) |Lista ciągów, które opcjonalnie można podzielić na tokeny na potrzeby wyszukiwania pełnotekstowego. Nie ma teoretycznej górnej granicy liczby elementów w kolekcji, ale rozmiar ładunku w kolekcjach jest ograniczony do 16 MB. |

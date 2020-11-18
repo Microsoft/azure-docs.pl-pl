@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/13/2020
-ms.openlocfilehash: ac56aab233c9d07ea7e82a4eefc4918746e3bdbe
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592519"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738530"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -30,7 +30,7 @@ Program współsprzedażowy jest dostępny dla **oprogramowania utworzonego za p
 
 Oferty, które uzyskują dostęp **do usługi Azure IP zachęcani** , mają dodatkowe korzyści z witryny Marketplace:
 
-- Opłata za usługę Marketplace jest zmniejszana z 20% do 10%. Ten Rabat dotyczy oferty IaaS lub SaaS sprzedawanej za pomocą komercyjnej witryny Marketplace. Aby uzyskać więcej informacji, zobacz [zmniejszona opłata za usługę](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) , aby uzyskać więcej szczegółów.
+- Opłata za usługę Marketplace jest zmniejszana z 20% do 10%. Ten Rabat dotyczy oferty IaaS lub SaaS sprzedawanej za pomocą komercyjnej witryny Marketplace. Aby uzyskać więcej informacji, zobacz [komercyjne opłaty za usługę Marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) , aby uzyskać więcej szczegółów.
 - Partnerzy dostawcy rozwiązań w chmurze (CSP) otrzymują zachętę 10% do sprzedaży oferty IaaS lub SaaS. Dowiedz się więcej na temat programu CSP w [programie Cloud Solution Provider](cloud-solution-providers.md).
 - Sprzedaż oferty za pomocą komercyjnej witryny Marketplace przyczynia się do realizacji zobowiązań dotyczących użycia platformy Azure przez klientów. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **"uprawniający do korzystania z platformy Azure"** w Azure Portal. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md).
 - Oferty mające na celu osiągnięcie **zachęcani usługi Azure IP do współdzielenia** lub **Business Applications współsprzedażowego stanu zachęcani** będą otrzymywać wskaźnik **"preferowanych rozwiązań"** w lokalizacjach w sklepie. Wskaźnik promuje jakość, wydajność i możliwość zaspokajania potrzeb klientów w pewnym regionie lub obszarze rozwiązania. Dowiedz się więcej na temat [preferowanych rozwiązań w Microsoft AppSource i witrynie Azure Marketplace](preferred-solutions.md).
@@ -54,7 +54,7 @@ W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w c
 Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonując poniższe kroki. Aby uzyskać więcej informacji, zobacz [sprzedawanie opcji w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** , a następnie wybierz ofertę, którą chcesz utworzyć.
+1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**, a następnie wybierz ofertę, którą chcesz utworzyć.
 
     > [!NOTE]
     > Możesz dołączyć do programu do współsprzedaży z nową ofertą, która nie została jeszcze opublikowana, lub z już opublikowaną ofertą.
@@ -63,15 +63,15 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
 
-1. Podaj podstawowe szczegóły dotyczące aukcji, aby pomóc sprzedającym firmy Microsoft w szybkim posortowaniu i znalezieniu oferty w sekcji **wystawiania** . ( *Wymagane: wszystkie pola).*
+1. Podaj podstawowe szczegóły dotyczące aukcji, aby pomóc sprzedającym firmy Microsoft w szybkim posortowaniu i znalezieniu oferty w sekcji **wystawiania** . (*Wymagane: wszystkie pola).*
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Ten obraz przedstawia sekcję wystawiania na karcie współsprzedaż.":::  
 
-1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. ( *Wymagane: klient z jednym modułem stronicowania i talią klienta).*
+1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. (*Wymagane: klient z jednym modułem stronicowania i talią klienta).*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Ten obraz przedstawia sekcję dokumenty na karcie współsprzedaż.":::
 
-1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie. ( *Wymagane: kontakt dla każdej lokalizacji geograficznej, w której oferta jest* udostępniona).
+1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie. (*Wymagane: kontakt dla każdej lokalizacji geograficznej, w której oferta jest* udostępniona).
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Ten obraz przedstawia sekcję kontakty na karcie współsprzedaż.":::
 

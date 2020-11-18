@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190163"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701453"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Access control in Azure Data Lake Storage Gen1 (Kontrola dostępu w usłudze Azure Data Lake Storage Gen1)
 
@@ -75,7 +75,7 @@ Poniżej przedstawiono niektóre typowe scenariusze, które ułatwiają zrozumie
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Odczyt      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Dołącz do | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Usuwanie    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Usuń    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Utwórz    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Lista      | Biuro           |   `--X`   |   `R-X`    |  `---`      | `---`          |
@@ -194,7 +194,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>Maska
 
-Jak pokazano w algorytmie kontroli dostępu, maska ogranicza dostęp dla **użytkowników nazwanych**, **grupy będącej właścicielem**i **nazwanych grup**.  
+Jak pokazano w algorytmie kontroli dostępu, maska ogranicza dostęp dla **użytkowników nazwanych**, **grupy będącej właścicielem** i **nazwanych grup**.  
 
 > [!NOTE]
 > W przypadku nowego konta Data Lake Storage Gen1 maska listy ACL dostępu do folderu głównego ("/") jest domyślnie ustawiona na RWX.
@@ -216,7 +216,7 @@ Gdy nowy plik lub folder jest tworzony w istniejącym folderze, domyślna lista 
 
 ### <a name="umask"></a>umask
 
-Podczas tworzenia pliku lub folderu maska umask jest używany do modyfikowania sposobu ustawiania domyślnych list ACL dla elementu podrzędnego. Maska umask jest wartością 9-bitową w folderach nadrzędnych, która zawiera wartość RWX dla **użytkownika będącego właścicielem**, **grupy będącej właścicielem**i **innych**.
+Podczas tworzenia pliku lub folderu maska umask jest używany do modyfikowania sposobu ustawiania domyślnych list ACL dla elementu podrzędnego. Maska umask jest wartością 9-bitową w folderach nadrzędnych, która zawiera wartość RWX dla **użytkownika będącego właścicielem**, **grupy będącej właścicielem** i **innych**.
 
 Maska umask dla Azure Data Lake Storage Gen1 jest stałą wartością ustawioną na 007. Ta wartość jest tłumaczona na
 
@@ -280,7 +280,11 @@ Wpisy na listach ACL są przechowywane jako identyfikatory GUID odpowiadające u
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Dlaczego na listach ACL w witrynie Azure Portal są czasami wyświetlane identyfikatory GUID?
 
-Identyfikator GUID jest wyświetlany w przypadku, gdy dany użytkownik nie istnieje już w usłudze Azure AD. Zwykle dzieje się tak, gdy użytkownik opuścił firmę lub jego konto w usłudze Azure AD zostało usunięte.
+Identyfikator GUID jest wyświetlany w przypadku, gdy dany użytkownik nie istnieje już w usłudze Azure AD. Zwykle dzieje się tak, gdy użytkownik opuścił firmę lub jego konto w usłudze Azure AD zostało usunięte. Ponadto upewnij się, że używasz odpowiedniego identyfikatora do ustawiania list kontroli dostępu (szczegóły poniżej).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>W przypadku korzystania z nazwy głównej usługi, którego identyfikatora należy użyć do ustawiania list kontroli dostępu?
+
+W witrynie Azure Portal przejdź do pozycji **Azure Active Directory — > aplikacje dla przedsiębiorstw** i wybierz aplikację. Na karcie **Przegląd** powinna zostać wyświetlona nazwa obiektu, która jest używana podczas dodawania list kontroli dostępu do danych (a nie identyfikatora aplikacji).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Czy Data Lake Storage Gen1 obsługuje dziedziczenie list ACL?
 
@@ -297,6 +301,6 @@ Nie, ale domyślne listy kontroli dostępu mogą być używane do ustawienia lis
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)

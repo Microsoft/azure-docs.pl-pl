@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9af6311165f50023cfca8f9253f77b4c84c25dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7589b13dc517a23e8d9d65907fb3342e4e2490a9
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500933"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734365"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -33,12 +33,11 @@ Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej mo
 * Wdrażanie maszyn wirtualnych w podsieci
 * Testowanie filtrów ruchu
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
-
+- Ten artykuł wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 

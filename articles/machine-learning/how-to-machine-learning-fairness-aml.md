@@ -1,26 +1,24 @@
 ---
 title: Ocena atrakcyjności modeli ML w języku Python (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak ocenić atrakcyjność modeli w Azure Machine Learning
+description: Dowiedz się, jak oceniać i łagodzenie atrakcyjności modeli uczenia maszynowego przy użyciu Fairlearn i zestawu SDK języka Python Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337886"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701188"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Użyj Azure Machine Learning z pakietem typu open source Fairlearn do oceny sprawiedliwości modeli ML (wersja zapoznawcza)
-
-
 
 W tym przewodniku krok po kroku dowiesz się, jak używać pakietu języka Python Open Source [Fairlearn](https://fairlearn.github.io/) z Azure Machine Learning, aby wykonać następujące zadania:
 
@@ -306,7 +304,7 @@ Jeśli interesuje Cię porównanie wielu modeli i dowiesz się, jak ich oceny uc
     ```
 
 
-    Podobnie jak w poprzedniej sekcji, można wykonać jedną z opisanych powyżej ścieżek (za pośrednictwem **eksperymentów** lub **modeli** ) w programie Azure Machine Learning Studio, aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji i porównać te dwa modele pod kątem godziwości i wydajności.
+    Podobnie jak w poprzedniej sekcji, można wykonać jedną z opisanych powyżej ścieżek (za pośrednictwem **eksperymentów** lub **modeli**) w programie Azure Machine Learning Studio, aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji i porównać te dwa modele pod kątem godziwości i wydajności.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Przekazywanie nieskorygowanych i nieuczciwych informacji o godziwym wglądie

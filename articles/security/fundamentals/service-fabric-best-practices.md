@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410016"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700950"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Service Fabric
 Wdrażanie aplikacji na platformie Azure jest szybkie, łatwe i ekonomiczne. Przed wdrożeniem aplikacji w chmurze w środowisku produkcyjnym zapoznaj się z naszą listą najważniejszych i zalecanych najlepszych rozwiązań dotyczących implementowania bezpiecznych klastrów w aplikacji.
@@ -60,7 +60,7 @@ Istnieją trzy [scenariusze](../../service-fabric/service-fabric-cluster-securit
 -   Zabezpieczenia między węzłami: ten scenariusz zabezpiecza komunikację między maszynami wirtualnymi i komputerami w klastrze. Ta forma zabezpieczeń zapewnia, że tylko komputery autoryzowane do przyłączenia do klastra mogą hostować aplikacje i usługi w klastrze.
 W tym scenariuszu klastry działające na platformie Azure lub autonomiczne klastry działające w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](../../service-fabric/service-fabric-windows-cluster-x509-security.md) lub dla maszyn z [systemem Windows Server](../../service-fabric/service-fabric-windows-cluster-windows-security.md) .
 -   Zabezpieczenia klient-węzeł: ten scenariusz zabezpiecza komunikację między klientem Service Fabric i poszczególnymi węzłami w klastrze.
--   Role-Based Access Control (RBAC): w tym scenariuszu są używane oddzielne tożsamości (certyfikaty, usługa Azure AD itd.) dla każdej roli klienta i administratora, która uzyskuje dostęp do klastra. Tożsamości ról są określane podczas tworzenia klastra.
+-   Service Fabric kontroli dostępu opartej na rolach (Service Fabric RBAC): w tym scenariuszu są używane oddzielne tożsamości (certyfikaty, usługa Azure AD itd.) dla każdej roli klienta i administratora, która uzyskuje dostęp do klastra. Tożsamości ról są określane podczas tworzenia klastra.
 
 >[!NOTE]
 >**Zalecenia dotyczące zabezpieczeń klastrów platformy Azure:** Użyj zabezpieczeń usługi Azure AD do uwierzytelniania klientów i certyfikatów na potrzeby zabezpieczeń między węzłami.
@@ -132,7 +132,7 @@ Certyfikat musi spełniać następujące wymagania dotyczące certyfikatów SSL/
 -   Nazwa podmiotu certyfikatu musi być zgodna z nazwą domeny używaną w celu uzyskania dostępu do usługi w chmurze.
 
     - Uzyskaj niestandardową nazwę domeny, która ma być używana do uzyskiwania dostępu do usługi w chmurze.
-    - Zażądaj certyfikatu od urzędu certyfikacji z nazwą podmiotu zgodną z niestandardową nazwą domeny usługi. Na przykład jeśli niestandardowa nazwa domeny to __contoso__**. com** , certyfikat z urzędu certyfikacji powinien mieć nazwę podmiotu **. contoso.com** lub __www__**. contoso.com**.
+    - Zażądaj certyfikatu od urzędu certyfikacji z nazwą podmiotu zgodną z niestandardową nazwą domeny usługi. Na przykład jeśli niestandardowa nazwa domeny to __contoso__**. com**, certyfikat z urzędu certyfikacji powinien mieć nazwę podmiotu **. contoso.com** lub __www__**. contoso.com**.
 
     >[!NOTE]
     >Nie można uzyskać certyfikatu SSL/TLS z urzędu certyfikacji dla domeny __cloudapp__**.NET** .
@@ -172,7 +172,7 @@ Aby dowiedzieć się więcej na temat konfigurowania magazynu kluczy, zobacz [co
 Po utworzeniu aplikacji do reprezentowania klastra Przypisz użytkowników do ról, które są obsługiwane przez Service Fabric: tylko do odczytu i administrator. Można przypisać te role przy użyciu Azure Portal.
 
 >[!NOTE]
-> Aby uzyskać więcej informacji o korzystaniu z ról w Service Fabric, zobacz [Access Control oparte na rolach dla klientów Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
+> Aby uzyskać więcej informacji o korzystaniu z ról w Service Fabric, zobacz [Service Fabric kontroli dostępu opartej na rolach dla klientów Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Usługa Azure Service Fabric obsługuje dwa typy kontroli dostępu dla klientów, którzy są połączeni z [klastrem Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrator i użytkownik. Administrator klastra może użyć kontroli dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Kontrola dostępu sprawia, że klaster jest bezpieczniejszy.
 

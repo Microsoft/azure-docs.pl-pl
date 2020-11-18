@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 8919ae8f43cd699b0ff79afc7ac39cbb39d2798e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626760"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737833"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
@@ -78,34 +78,31 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 
 ## <a name="october-2020-guest-os"></a>System operacyjny gościa 2020 października
->[!NOTE] 
-
->System operacyjny gościa w październiku jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa z października uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
 
 | Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  Aktualizacja zbiorcza programu IE | 2,103, 3,90, 4,83 | 8 SEP, 2020 |
-|  Rel 20-10 |  [4580325]  |  Aktualizacja Flash | 3,90, 4,83, 5,48, 6,24 | 13 października 2020 |
-|  Rel 20-10 |  [4577668]  |  Najnowsza aktualizacja zbiorcza | 6,24 | 13 października 2020 |
-|  Rel 20-10 |  [4580346]  |  Najnowsza aktualizacja zbiorcza | 5,48 | 13 października 2020 |
-|  Rel 20-10 |  [4580970]  |  Obsługa aktualizacji stosu | 2,103 | 13 października 2020 |
-|  Rel 20-10 |  [4580345]  |  Zestawienie miesięczne | 2,103 | 13 października 2020 |
-|  Rel 20-10 |  [4578952]  |  Pakiet zbiorczy zabezpieczeń i jakości .NET Framework 3.5.1 | 2,103 | 13 października 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,103 | 13 października 2020 |
-|  Rel 20-10 |  [4566426]  |  Obsługa aktualizacji stosu | 3,90 | 14 lipca 2020 |
-|  Rel 20-10 |  [4580382]  |  Zestawienie miesięczne | 3,90 | 13 października 2020 |
-|  Rel 20-10 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,90 | 13 października 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,90 | 13 października 2020 |
-|  Rel 20-10 |  [4566425]  |  Obsługa aktualizacji stosu | 4,83 | 14 lipca 2020 |
-|  Rel 20-10 |  [4580347]  |  Zestawienie miesięczne | 4,83 | 13 października 2020 |
-|  Rel 20-10 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,83 | 13 października 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,83 | 13 października 2020 |
-|  Rel 20-10 |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | 4,83 | 19 sierpnia 2020 |
-|  Rel 20-10 |  [4576750]  |  Obsługa aktualizacji stosu | 5,48 | 8 SEP, 2020 |
-|  Rel 20-10 |  [4494175]  |  Włączenia mikrokodu | 5,48 | 1, 2020 |
-|  Rel 20-10 |  [4577667]  |  Obsługa aktualizacji stosu | 6,24 | 13 października 2020 |
-|  Rel 20-10 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,24 | 13 października 2020 |
-|  Rel 20-10 |  [4494174]  |  Włączenia mikrokodu | 6,24 | 3, 2020 |
+|  Rel 20-10 |  [4577010]  |  Aktualizacja zbiorcza programu IE | [2,103], [3,90], [4,83] | 8 SEP, 2020 |
+|  Rel 20-10 |  [4580325]  |  Aktualizacja Flash | [3,90], [4,83], [5,48], [6,24] | 13 października 2020 |
+|  Rel 20-10 |  [4577668]  |  Najnowsza aktualizacja zbiorcza | [6,24] | 13 października 2020 |
+|  Rel 20-10 |  [4580346]  |  Najnowsza aktualizacja zbiorcza | [5,48] | 13 października 2020 |
+|  Rel 20-10 |  [4580970]  |  Obsługa aktualizacji stosu | [2,103] | 13 października 2020 |
+|  Rel 20-10 |  [4580345]  |  Zestawienie miesięczne | [2,103] | 13 października 2020 |
+|  Rel 20-10 |  [4578952]  |  Pakiet zbiorczy zabezpieczeń i jakości .NET Framework 3.5.1 | [2,103] | 13 października 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [2,103] | 13 października 2020 |
+|  Rel 20-10 |  [4566426]  |  Obsługa aktualizacji stosu | [3,90] | 14 lipca 2020 |
+|  Rel 20-10 |  [4580382]  |  Zestawienie miesięczne | [3,90] | 13 października 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [3,90] | 13 października 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [3,90] | 13 października 2020 |
+|  Rel 20-10 |  [4566425]  |  Obsługa aktualizacji stosu | [4,83] | 14 lipca 2020 |
+|  Rel 20-10 |  [4580347]  |  Zestawienie miesięczne | [4,83] | 13 października 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [4,83] | 13 października 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [4,83] | 13 października 2020 |
+|  Rel 20-10 |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | [4,83] | 19 sierpnia 2020 |
+|  Rel 20-10 |  [4576750]  |  Obsługa aktualizacji stosu | [5,48] | 8 SEP, 2020 |
+|  Rel 20-10 |  [4494175]  |  Włączenia mikrokodu | [5,48] | 1, 2020 |
+|  Rel 20-10 |  [4577667]  |  Obsługa aktualizacji stosu | [6,24] | 13 października 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | [6,24] | 13 października 2020 |
+|  Rel 20-10 |  [4494174]  |  Włączenia mikrokodu | [6,24] | 3, 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -130,6 +127,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,103]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,48]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,24]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>System operacyjny gościa z września 2020
@@ -1885,7 +1887,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 014 |[3004361] |Luka w zabezpieczeniach protokołu SMB może pozwolić na obejście funkcji zabezpieczeń |4,17, 3,24, 2,36 |Nie dotyczy |
 | MS15-015 |[3031432] |Luka w zabezpieczeniach w systemie Microsoft Windows może pozwolić na podniesienie uprawnień |4,17, 3,24, 2,36 |Nie dotyczy |
 | MS15 — 016 |[3029944] |Luka w składniku grafiki firmy Microsoft może umożliwić ujawnienie informacji |4,17, 3,24, 2,36 |NIE DOTYCZY |
-| NIE DOTYCZY |[3004375] |Aktualizacja w celu usprawnienia inspekcji wiersza polecenia systemu Windows<p/>**Uwaga** : Ta funkcja jest zainstalowana, ale klucz rejestru, aby go włączyć, jest wyłączony |4,17, 3,24, 2,36 |Nie dotyczy |
+| NIE DOTYCZY |[3004375] |Aktualizacja w celu usprawnienia inspekcji wiersza polecenia systemu Windows<p/>**Uwaga**: Ta funkcja jest zainstalowana, ale klucz rejestru, aby go włączyć, jest wyłączony |4,17, 3,24, 2,36 |Nie dotyczy |
 
 ## <a name="january-2015-guest-os"></a>System operacyjny gościa w styczniu 2015
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |

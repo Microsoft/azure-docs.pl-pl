@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b563fac9044dccd832aa42c0193eed24cad26754
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854497"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737918"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cykl życia wsparcia platformy Azure Red Hat OpenShift 4
 
@@ -97,18 +97,16 @@ Zapoznaj się z następującym przewodnikiem dotyczącym [historycznej wersji pl
 
 |Wersja OCP|Wersja nadrzędna|Ogólna dostępność usługi Azure Red Hat OpenShift|Koniec okresu istnienia|
 |-|-|-|-|
-|4.3|Luty 2020 r.|Maj 2020 r.|Sierpień 2020 r.|
-|4.4|Maj 2020 r.|Sierpień 2020 r.|4,6 GA|
-|4.5|Lipiec 2020 r.|Październik 2020|4,7 GA
-|4,6|* Wczesny kwartał, 2020|* Późny kwartał, 2020|4,8 GA|
+|4.3|Styczeń 2020 r.|Kwiecień 2020 r.| Sierpień 2020 r.|
+|4.4|Maj 2020 r.|Lipiec 2020 r.|4,6 GA|
+|4.5|Lipiec 2020 r.| Listopad 2020 r.|4,7 GA
+|4,6|Październik 2020 r.| Grudzień 2020|4,8 GA|
 
-\*_Oczekiwanie na potwierdzenie daty wydania nadrzędnego._
-
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Co się stanie, gdy użytkownik uaktualnia klaster OpenShift z nieobsługiwaną wersją pomocniczą?**
 
-Jeśli korzystasz z wersji N-2 lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji N-2 do N-1 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Na przykład:
+Jeśli korzystasz z wersji N-2 lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji N-2 do N-1 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Przykład:
 * Jeśli najstarsza obsługiwana wersja usługi Azure Red Hat OpenShift to 4.4. z i używasz programu 4.3. z lub starszej wersji, jesteś poza pomocą techniczną.
 * Gdy uaktualnienie z programu 4.3. z do 4.4. z lub nowsze powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej.
 

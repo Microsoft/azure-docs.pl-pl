@@ -15,23 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4d034aefe59a661bfb0694feba36a669aa274ac
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054028"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737935"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Network translatora adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Ten samouczek można wykonać przy użyciu Azure Cloud Shell lub uruchomić odpowiednie polecenia lokalnie.  Jeśli nie korzystasz z Azure Cloud Shell, [Zaloguj się teraz](https://shell.azure.com) , aby przejść przez początkową konfigurację.
-Jeśli zdecydujesz się uruchomić te polecenia lokalnie, musisz zainstalować interfejs wiersza polecenia.  Ten samouczek wymaga korzystania z wersji interfejsu wiersza polecenia platformy Azure w wersji 2.0.71 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
-
+- Ten artykuł wymaga wersji 2.0.71 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

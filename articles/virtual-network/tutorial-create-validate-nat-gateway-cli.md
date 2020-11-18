@@ -15,24 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d4467e557105100fc32940c05fa349722689867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ec054d55432ad2680314b4ff91a067d37b629d4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054378"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734333"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure i testowanie usługi translatora adresów sieciowych
 
 W tym samouczku utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyn wirtualnych na platformie Azure. Aby przetestować bramę NAT, należy wdrożyć źródłową i docelową maszynę wirtualną. Przetestujesz bramę translatora adresów sieciowych, wykonując połączenia wychodzące z publicznym adresem IP. Te połączenia będą pochodzić z lokalizacji źródłowej dla docelowej maszyny wirtualnej. W tym samouczku przedstawiono lokalizację źródłową i docelową dwóch różnych sieci wirtualnych w tej samej grupie zasobów tylko dla uproszczenia.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Ten samouczek można wykonać przy użyciu Azure Cloud Shell lub uruchomić odpowiednie polecenia lokalnie.  Jeśli Azure Cloud Shell nie zostały użyte, należy [zalogować się teraz](https://shell.azure.com).
-
-Jeśli zdecydujesz się uruchomić te polecenia lokalnie, musisz zainstalować interfejs wiersza polecenia.  Ten samouczek wymaga korzystania z wersji interfejsu wiersza polecenia platformy Azure w wersji 2.0.71 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
-
+- Ten artykuł wymaga wersji 2.0.71 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
