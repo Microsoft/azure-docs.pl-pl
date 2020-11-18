@@ -19,8 +19,10 @@
   items:
     - name: Udostępnianie danych
       href: share-your-data.md
+      displayName: 'Azure CLI, az datashare account create, az datashare create'
     - name: Akceptowanie i odbieranie danych
       href: subscribe-to-data-share.md
+      displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: Pojęcia
   items:
     - name: Terminologia związana z usługą Azure Data Share

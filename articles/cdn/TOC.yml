@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: Pojęcia
   items:
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Jak działa buforowanie
       href: cdn-how-caching-works.md
     - name: Dostarczanie zawartości w Chinach
