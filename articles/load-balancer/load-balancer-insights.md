@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897595"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686246"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Korzystanie z usługi Insights do monitorowania i konfigurowania Azure Load Balancer
 
-Za poorednictwem [Azure monitor dla sieci](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview)są udostępniane wizualizacje zależności funkcjonalnych i wstępnie skonfigurowany pulpit nawigacyjny metryk dla modułów równoważenia obciążenia. Te wizualizacje ułatwiają podejmowanie świadomych decyzji projektowych i szybkie lokalizowanie, diagnozowanie i rozwiązywanie wszelkich błędów.
+Za poorednictwem Azure Monitor dla sieci są udostępniane wizualizacje zależności funkcjonalnych i wstępnie skonfigurowany pulpit nawigacyjny metryk dla modułów równoważenia obciążenia. Te wizualizacje ułatwiają podejmowanie świadomych decyzji projektowych i szybkie lokalizowanie, diagnozowanie i rozwiązywanie wszelkich błędów.
 
 >[!NOTE] 
 >Należy pamiętać, że ta funkcja jest dostępna w wersji zapoznawczej, a wstępnie skonfigurowany pulpit nawigacyjny może ulec zmianie, aby ulepszyć środowisko pracy.

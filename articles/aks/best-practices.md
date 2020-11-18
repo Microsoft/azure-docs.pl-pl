@@ -4,12 +4,12 @@ description: Kolekcja operatorów klastra i najlepszych rozwiązań dla dewelope
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008784"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686263"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące operatorów i deweloperów do kompilowania aplikacji i zarządzania nimi w usłudze Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Jako operator klastra współpracują z właścicielami i programistami aplikacj
 * [Najlepsze rozwiązania dotyczące zaawansowanych funkcji usługi Scheduler](operator-best-practices-advanced-scheduler.md)
     * Obejmuje użycie przyrządów i tolerowania, selektorów węzłów i koligacji oraz koligacji między i.
 * [Najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji](operator-best-practices-identity.md)
-    * Obejmuje integrację z Azure Active Directory przy użyciu kontroli dostępu opartej na rolach (RBAC) i tożsamości pod.
+    * Obejmuje integrację z Azure Active Directory przy użyciu kontroli dostępu opartej na rolach (Kubernetes RBAC) przy użyciu usług Azure RBAC i tożsamości pod.
 
 **Zabezpieczenia**
 

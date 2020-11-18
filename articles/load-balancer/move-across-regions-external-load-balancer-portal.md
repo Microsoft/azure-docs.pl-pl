@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808706"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693753"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Przenoszenie zewnętrznego modułu równoważenia obciążenia do innego regionu przy użyciu Azure Portal
 
 Istnieją różne scenariusze, w których należy przenieść zewnętrzny moduł równoważenia obciążenia z jednego regionu do innego. Na przykład możesz chcieć utworzyć inny zewnętrzny moduł równoważenia obciążenia z tą samą konfiguracją na potrzeby testowania. Możesz również przenieść zewnętrzny moduł równoważenia obciążenia do innego regionu w ramach planowania odzyskiwania po awarii.
 
-W sensie literału nie można przenieść zewnętrznego modułu równoważenia obciążenia platformy Azure z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager do eksportowania istniejącej konfiguracji i publicznego adresu IP zewnętrznego modułu równoważenia obciążenia. Następnie można przemieścić zasób w innym regionie, eksportując moduł równoważenia obciążenia i publiczny adres IP do szablonu, modyfikując parametry w taki sposób, aby były zgodne z regionem docelowym, a następnie wdrażając szablon w nowym regionie. Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Eksportowanie grup zasobów do szablonów](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+W sensie literału nie można przenieść zewnętrznego modułu równoważenia obciążenia platformy Azure z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager do eksportowania istniejącej konfiguracji i publicznego adresu IP zewnętrznego modułu równoważenia obciążenia. Następnie można przemieścić zasób w innym regionie, eksportując moduł równoważenia obciążenia i publiczny adres IP do szablonu, modyfikując parametry w taki sposób, aby były zgodne z regionem docelowym, a następnie wdrażając szablon w nowym regionie. Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Eksportowanie grup zasobów do szablonów](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -32,7 +32,7 @@ W sensie literału nie można przenieść zewnętrznego modułu równoważenia o
 
 - Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie zewnętrznych modułów równoważenia obciążenia w regionie docelowym. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
 
-- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie modułów równoważenia obciążenia. Zobacz [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).
+- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie modułów równoważenia obciążenia. Zobacz [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).
 
 ## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
 W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równoważenia obciążenia do przenoszenia przy użyciu szablonu Menedżer zasobów i przenieść konfigurację zewnętrznego modułu równoważenia obciążenia do regionu docelowego przy użyciu Azure Portal. Najpierw należy wyeksportować konfigurację publicznego adresu IP zewnętrznego modułu równoważenia obciążenia.
@@ -110,7 +110,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
             },
         ```
 
-        Aby uzyskać informacje o różnicach między podstawowymi i standardowymi adresami IP jednostki SKU, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Aby uzyskać informacje o różnicach między podstawowymi i standardowymi adresami IP jednostki SKU, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Metoda alokacji publicznego adresu IP** i **limit czasu bezczynności**. Można zmienić metodę alokacji publicznego adresu IP, zmieniając właściwość **publicIPAllocationMethod** z **dynamicznego** na **statyczny** lub **statycznie** na **dynamiczny**. Limit czasu bezczynności można zmienić, zmieniając właściwość **idleTimeoutInMinutes** na żądaną wartość. Wartość domyślna to **4**.
 
@@ -136,18 +136,18 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
         ```
 
-        Aby uzyskać informacje na temat metod alokacji i wartości limitu czasu bezczynności, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Aby uzyskać informacje na temat metod alokacji i wartości limitu czasu bezczynności, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](../virtual-network/virtual-network-public-ip-address.md).
 
  
 13. Wybierz pozycję **Zapisz** w edytorze online.
 
-14. Wybierz **BASICS**pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
+14. Wybierz **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
 
 15. Wybierz **pozycję podstawową**  >  **grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy publiczny adres IP. Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego publicznego adresu IP.
 
-16. Sprawdź, **BASICS**czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony publiczny adres IP.
+16. Sprawdź, **BASICS** czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony publiczny adres IP.
 
-17. W obszarze **Ustawienia**Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów.
+17. W obszarze **Ustawienia** Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów.
 
 18. Zaznacz pole wyboru **warunki i postanowienia** .
 
@@ -257,7 +257,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
                 "tier": "Regional"
             },
         ```
-      Aby uzyskać informacje dotyczące różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+      Aby uzyskać informacje dotyczące różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md).
 
     * **Reguły równoważenia obciążenia**. Można dodawać lub usuwać reguły równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów w template.jssekcji **loadBalancingRules** w pliku:
 
@@ -385,17 +385,17 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
                 ]
         ```
 
-         Aby uzyskać więcej informacji, zobacz [Load Balancer reguły ruchu wychodzącego](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
+         Aby uzyskać więcej informacji, zobacz [Load Balancer reguły ruchu wychodzącego](./load-balancer-outbound-connections.md#outboundrules).
 
 12. Wybierz pozycję **Zapisz** w edytorze online.
 
-13. Wybierz **BASICS**pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy zewnętrzny moduł równoważenia obciążenia.
+13. Wybierz **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy zewnętrzny moduł równoważenia obciążenia.
 
 15. Wybierz **pozycję podstawową**  >  **grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy moduł równoważenia obciążenia. Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego zewnętrznego modułu równoważenia obciążenia. Możesz też wybrać istniejącą grupę zasobów utworzoną wcześniej dla publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego zewnętrznego modułu równoważenia obciążenia.
 
-16. Sprawdź, **BASICS**czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony zewnętrzny moduł równoważenia obciążenia.
+16. Sprawdź, **BASICS** czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony zewnętrzny moduł równoważenia obciążenia.
 
-17. W obszarze **Ustawienia**Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów. Sprawdź, czy identyfikatory zasobów są wypełnione dla wszystkich publicznych adresów IP w konfiguracji.
+17. W obszarze **Ustawienia** Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów. Sprawdź, czy identyfikatory zasobów są wypełnione dla wszystkich publicznych adresów IP w konfiguracji.
 
 18. Zaznacz pole wyboru **warunki i postanowienia** .
 
@@ -414,5 +414,5 @@ Aby zatwierdzić zmiany i zakończyć przenoszenie publicznego adresu IP i zewn�
 W tym samouczku przeniesiono zewnętrzny moduł równoważenia obciążenia platformy Azure z jednego regionu do innego i wyczyszczono zasoby źródłowe. Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
-- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](../site-recovery/azure-to-azure-tutorial-migrate.md)

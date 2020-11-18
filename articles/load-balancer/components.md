@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317448"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685515"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
@@ -141,7 +141,7 @@ Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wycho
 - Aby rozpocząć korzystanie z Load Balancer, zobacz [tworzenie usługa Load Balancer w warstwie Standardowa publicznego](quickstart-load-balancer-standard-public-portal.md) .
 - Dowiedz się więcej o [Azure Load Balancer](load-balancer-overview.md).
 - Informacje o [publicznym adresie IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- Informacje o [prywatnym adresie IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+- Informacje o [prywatnym adresie IP](../virtual-network/private-ip-addresses.md)
 - Dowiedz się więcej o korzystaniu z [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md).
 - Dowiedz się więcej na temat [diagnostyki usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md).
 - Więcej informacji [na temat resetowania protokołu TCP w trybie bezczynności](load-balancer-tcp-reset.md).

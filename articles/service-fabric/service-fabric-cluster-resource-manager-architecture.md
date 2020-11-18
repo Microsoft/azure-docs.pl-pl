@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e7d5d4b730ef1669bd9bb7d74e35924061f5580
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0aff55810508fedcf354fba3d9fca9f7a402029b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146215"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685838"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Omówienie architektury usługi Resource Manager dla klastra
 Menedżer zasobów klastra Service Fabric jest usługą centralną, która działa w klastrze. Zarządza żądanym stanem usług w klastrze, szczególnie w odniesieniu do zużycia zasobów i wszelkich reguł umieszczania. 
@@ -43,7 +43,7 @@ Przyjrzyjmy się na poniższym diagramie:
 
 <center>
 
-![Diagram przedstawiający Thow usługi Menedżer zasobów klastra agreguje wszystkie informacje z agentów lokalnych i reaguje na podstawie bieżącej konfiguracji.][Image1]
+![Diagram pokazujący, że usługa Menedżer zasobów klastra agreguje wszystkie informacje z agentów lokalnych i reaguje na jego bieżącą konfigurację.][Image1]
 </center>
 
 W czasie wykonywania istnieje wiele zmian, które mogą wystąpić. Załóżmy na przykład, że ilość zasobów niektórych usług zużywa zmiany, niektóre usługi kończą się niepowodzeniem, a niektóre węzły przyłączają się i opuszczają klaster. Wszystkie zmiany w węźle są agregowane i okresowo wysyłane do usługi Menedżer zasobów klastra (1, 2), gdzie są agregowane, analizowane i przechowywane. Co kilka sekund usługa sprawdza zmiany i określa, czy wymagane są jakieś akcje (3). Na przykład może to zauważyć, że niektóre puste węzły zostały dodane do klastra. W związku z tym decyduje się przenieść niektóre usługi do tych węzłów. Menedżer zasobów klastra może również zauważyć, że określony węzeł jest przeciążony lub że pewne usługi nie uległy awarii lub zostały usunięte, zwalniając zasoby w innym miejscu.

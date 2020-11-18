@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 362f46290bbe2008f9fb862a8711577050050192
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675809"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693253"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Typy i kompozycje zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -59,9 +59,9 @@ Jeśli wykonano ten [Przewodnik Szybki Start, aby utworzyć indeks demonstracyjn
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Jak operacje zapytań są włączane przez indeks
 
-Projekt indeksu i projekt zapytania są ściśle powiązane z platformą Azure Wyszukiwanie poznawcze. Podstawowym faktem, że wiadomo, że *schemat indeksu* , z atrybutami każdego pola, określa rodzaj zapytania, które można skompilować. 
+Projekt indeksu i projekt zapytania są ściśle powiązane z platformą Azure Wyszukiwanie poznawcze. Podstawowym faktem, że wiadomo, że *schemat indeksu*, z atrybutami każdego pola, określa rodzaj zapytania, które można skompilować. 
 
-Atrybuty indeksu w polu ustawiają dozwolone operacje — czy pole można *wyszukiwać* w indeksie, *pobrać* z wyników, do *sortowania* , *filtrować* i tak dalej. W przykładowym ciągu zapytania `"$orderby": "Rating"` działa tylko, ponieważ pole Rating jest oznaczone jako do *sortowania* w schemacie indeksu. 
+Atrybuty indeksu w polu ustawiają dozwolone operacje — czy pole można *wyszukiwać* w indeksie, *pobrać* z wyników, do *sortowania*, *filtrować* i tak dalej. W przykładowym ciągu zapytania `"$orderby": "Rating"` działa tylko, ponieważ pole Rating jest oznaczone jako do *sortowania* w schemacie indeksu. 
 
 ![Definicja indeksu dla przykładu hotelu](./media/search-query-overview/hotel-sample-index-definition.png "Definicja indeksu dla przykładu hotelu")
 
@@ -78,8 +78,8 @@ Wymagane elementy w żądaniu zapytania obejmują następujące składniki:
 
 + Punkt końcowy usługi i kolekcja dokumentów indeksu, wyrażone jako adres URL zawierający stałe i zdefiniowane przez użytkownika składniki: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Tylko REST) jest konieczne, ponieważ wiele wersji interfejsu API jest dostępnych przez cały czas. 
-+ **`api-key`** , zapytanie lub klucz API-Key, uwierzytelnia żądanie do usługi.
-+ **`queryType`** — prosta lub pełna, która może zostać pominięta, jeśli używasz wbudowanej domyślnej składni prostej.
++ **`api-key`**, zapytanie lub klucz API-Key, uwierzytelnia żądanie do usługi.
++ **`queryType`**— prosta lub pełna, która może zostać pominięta, jeśli używasz wbudowanej domyślnej składni prostej.
 + **`search`** lub **`filter`** zawiera kryteria dopasowania, które można określić, jeśli chcesz przeprowadzić puste wyszukiwanie. Oba typy zapytań są omówione w sekcji prostego analizatora, ale nawet zapytania zaawansowane wymagają parametru wyszukiwania do przekazywania złożonych wyrażeń zapytania.
 
 Wszystkie inne parametry wyszukiwania są opcjonalne. Aby zapoznać się z pełną listą atrybutów, zobacz [create index (REST)](/rest/api/searchservice/create-index). Aby lepiej poznać, jak parametry są używane podczas przetwarzania, zobacz [jak wyszukiwanie pełnotekstowe działa na platformie Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md).
@@ -91,7 +91,7 @@ W poniższej tabeli przedstawiono interfejsy API i oparte na narzędziach podej�
 | Metodologia | Opis |
 |-------------|-------------|
 | [Eksplorator wyszukiwania (portal)](search-explorer.md) | Udostępnia pasek wyszukiwania i opcje dotyczące opcji indeks i wersja interfejsu API. Wyniki są zwracane jako dokumenty JSON. Zalecane do eksploracji, testowania i weryfikacji. <br/>[Dowiedz się więcej.](search-get-started-portal.md#query-index) | 
-| [Ogłoś lub inne narzędzia REST](search-get-started-postman.md) | Narzędzia do testowania sieci Web to doskonały wybór w zakresie opracowywania wywołań REST. Interfejs API REST obsługuje wszystkie możliwe operacje na platformie Azure Wyszukiwanie poznawcze. W tym artykule dowiesz się, jak skonfigurować nagłówek i treść żądania HTTP w celu wysyłania żądań do usługi Azure Wyszukiwanie poznawcze.  |
+| [Ogłoś lub inne narzędzia REST](search-get-started-rest.md) | Narzędzia do testowania sieci Web to doskonały wybór w zakresie opracowywania wywołań REST. Interfejs API REST obsługuje wszystkie możliwe operacje na platformie Azure Wyszukiwanie poznawcze. W tym artykule dowiesz się, jak skonfigurować nagłówek i treść żądania HTTP w celu wysyłania żądań do usługi Azure Wyszukiwanie poznawcze.  |
 | [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Klient, który może służyć do wykonywania zapytań względem indeksu Wyszukiwanie poznawcze platformy Azure.  <br/>[Dowiedz się więcej.](search-howto-dotnet-sdk.md)  |
 | [Wyszukaj dokumenty (interfejs API REST)](/rest/api/searchservice/search-documents) | Pobieranie lub OGŁASZAnie metod na indeksie przy użyciu parametrów zapytania dla dodatkowych danych wejściowych.  |
 

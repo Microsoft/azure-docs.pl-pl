@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536535"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693736"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -141,8 +141,8 @@ W diagnostyce aplikacji można wyświetlać zdarzenia pogrupowane w następując
 ## <a name="storage"></a>Storage
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji zabezpieczeń usługi Azure Storage oraz informacje podsumowujące dotyczące tych możliwości.
 
-### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
-Konto magazynu można zabezpieczyć za pomocą Access Control Role-Based (RBAC). Ograniczanie dostępu na podstawie [konieczności znajomości](https://en.wikipedia.org/wiki/Need_to_know) i [najniższych](https://en.wikipedia.org/wiki/Principle_of_least_privilege) zasad zabezpieczeń jest niezbędne dla organizacji, które chcą wymuszać zasady zabezpieczeń dostępu do danych. Te prawa dostępu są przyznawane przez przypisanie odpowiedniej roli platformy Azure do grup i aplikacji w określonym zakresie. Do przypisywania uprawnień użytkownikom można używać [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md), takich jak współautor konta magazynu. Dostęp do kluczy magazynu dla konta magazynu przy użyciu modelu [Azure Resource Manager](../../storage/blobs/security-recommendations.md) można kontrolować za pośrednictwem Role-Based Access Control (RBAC).
+### <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
+Konto magazynu można zabezpieczyć za pomocą kontroli dostępu opartej na rolach (Azure RBAC). Ograniczanie dostępu na podstawie [konieczności znajomości](https://en.wikipedia.org/wiki/Need_to_know) i [najniższych](https://en.wikipedia.org/wiki/Principle_of_least_privilege) zasad zabezpieczeń jest niezbędne dla organizacji, które chcą wymuszać zasady zabezpieczeń dostępu do danych. Te prawa dostępu są przyznawane przez przypisanie odpowiedniej roli platformy Azure do grup i aplikacji w określonym zakresie. Do przypisywania uprawnień użytkownikom można używać [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md), takich jak współautor konta magazynu. Dostęp do kluczy magazynu dla konta magazynu przy użyciu modelu [Azure Resource Manager](../../storage/blobs/security-recommendations.md) można kontrolować za pomocą funkcji RBAC platformy Azure.
 
 ### <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
 [Sygnatura dostępu współdzielonego (SAS, shared access signature)](../../storage/common/storage-sas-overview.md) zapewnia delegowany dostęp do zasobów w ramach konta magazynu. Sygnatura dostępu współdzielonego oznacza, że można udzielić klientowi ograniczonych uprawnień do obiektów na koncie magazynu przez określony czas i z określonym zestawem uprawnień. Można przyznać te ograniczone uprawnienia bez konieczności udostępniania kluczy dostępu do konta.
@@ -336,7 +336,7 @@ Firma Microsoft używa wielu rozwiązań w zakresie zabezpieczeń i usług w cel
 
 -   [Uwierzytelnianie oparte na tokenach](../../active-directory/develop/authentication-vs-authorization.md) umożliwia uwierzytelnianie za pośrednictwem Azure Active Directory.
 
--   [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/built-in-roles.md) umożliwia udzielanie dostępu na podstawie przypisanej roli użytkownika, dzięki czemu użytkownicy mogą łatwo przydzielać użytkownikom tylko te dane, których potrzebują do wykonywania swoich zadań. Można dostosować RBAC na model biznesowy organizacji i tolerancję ryzyka.
+-   [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/built-in-roles.md) umożliwia udzielanie dostępu na podstawie przypisanej roli użytkownika, dzięki czemu użytkownicy mogą łatwo przydzielać użytkownikom tylko te dane, których potrzebują do wykonywania swoich zadań. Kontrolę RBAC platformy Azure można dostosować na model biznesowy organizacji i tolerancję ryzyka.
 
 -   [Zintegrowana usługa zarządzania tożsamościami (tożsamość hybrydowa)](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) pozwala zachować kontrolę dostępu użytkowników w wewnętrznych centrach danych i na platformach w chmurze, tworząc pojedynczą tożsamość użytkownika w celu uwierzytelniania i autoryzacji do wszystkich zasobów.
 

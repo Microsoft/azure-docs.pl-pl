@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c7a8fb63f775a76342849957f070861fd200a9d3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685668"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -65,7 +65,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 Istnieją pewne dodatkowe opcje, których można użyć do dostosowania reguł analizy do niestandardowego formatu CSv:
 - ESCAPE_CHAR = "char" określa znak w pliku, który jest używany do wyprowadzania siebie i wszystkich wartości ograniczników w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości.
 ESCAPE_CHAR parametr zostanie zastosowany, niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu musi być zmieniony przy użyciu innego znaku cudzysłowu. Znak quota może pojawić się w wartości kolumny tylko wtedy, gdy wartość jest hermetyzowana przy użyciu znaków cudzysłowu.
-- FIELDTERMINATOR = "field_terminator" Określa terminator pola, które ma być używane. Domyślny terminator pola jest przecinkiem (" **,** ")
+- FIELDTERMINATOR = "field_terminator" Określa terminator pola, które ma być używane. Domyślny terminator pola jest przecinkiem ("**,**")
 - ROWTERMINATOR = "row_terminator" Określa terminator wiersza, który ma być używany. Domyślnym terminatorem wiersza jest znak nowego wiersza: **\r\n**.
 
 ## <a name="file-schema"></a>Schemat pliku
@@ -219,7 +219,7 @@ Przykłady zapytań umożliwiające uzyskiwanie dostępu do elementów z powtór
 
 Możesz dowiedzieć się więcej o wysyłaniu zapytań do różnych typów danych przy użyciu przykładowych zapytań.
 
-### <a name="tools"></a>narzędzia
+### <a name="tools"></a>Narzędzia
 
 Narzędzia potrzebne do wysyłania zapytań:
     - Azure Synapse Studio (wersja zapoznawcza)

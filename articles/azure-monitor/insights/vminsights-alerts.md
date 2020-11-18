@@ -5,16 +5,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
-ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: f582f0dc7547a607351fcfc4ff9d39e8c5a077df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254809"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686181"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Jak utworzyć alerty z Azure Monitor dla maszyn wirtualnych
 [Alerty w usłudze Azure monitor](../platform/alerts-overview.md) aktywnie powiadamiać o interesujących danych i wzorcach danych monitorowania. Azure Monitor dla maszyn wirtualnych nie obejmuje wstępnie skonfigurowanych reguł alertów, ale można je utworzyć na podstawie zbieranych danych. Ten artykuł zawiera wskazówki dotyczące tworzenia reguł alertów, w tym zestawu przykładowych zapytań.
+
+> [!IMPORTANT]
+> Alerty opisane w tym artykule są oparte na zapytaniach dzienników z zebranych danych Azure Monitor dla maszyn wirtualnych. Różni się to od alertów utworzonych przez [Azure monitor na potrzeby kondycji gościa maszyny wirtualnej](vminsights-health-overview.md) , która jest obecnie dostępna w publicznej wersji zapoznawczej. Ponieważ ta funkcja jest niemal ogólnie dostępna, wskazówki dotyczące alertów zostaną skonsolidowane.
 
 
 ## <a name="alert-rule-types"></a>Typy reguł alertów
@@ -29,11 +32,11 @@ Istnieją dwa typy alertów dziennika w Azure Monitor:
 ## <a name="alert-rule-walkthrough"></a>Przewodnik po regule alertu
 Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z Azure Monitor dla maszyn wirtualnych. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności.
 
-Zacznij od utworzenia nowej reguły alertu zgodnie z procedurą w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../platform/alerts-log.md). Dla **zasobu**wybierz obszar roboczy log Analytics używany przez Azure monitor maszyny wirtualne w ramach subskrypcji. Ponieważ zasób docelowy dla reguł alertów dziennika jest zawsze obszarem roboczym Log Analytics, zapytanie dziennika musi zawierać dowolny filtr dla określonych maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych. 
+Zacznij od utworzenia nowej reguły alertu zgodnie z procedurą w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../platform/alerts-log.md). Dla **zasobu** wybierz obszar roboczy log Analytics używany przez Azure monitor maszyny wirtualne w ramach subskrypcji. Ponieważ zasób docelowy dla reguł alertów dziennika jest zawsze obszarem roboczym Log Analytics, zapytanie dziennika musi zawierać dowolny filtr dla określonych maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych. 
 
 W przypadku **warunku** reguły alertu Użyj jednego z zapytań w [poniższej sekcji](#sample-alert-queries) jako **zapytanie wyszukiwania**. Zapytanie musi zwracać Właściwość liczbową o nazwie *AggregatedValue*. Powinno ono podsumowywać dane według komputera, aby można było utworzyć oddzielny alert dla każdej maszyny wirtualnej, która przekracza wartość progową.
 
-W **logice alertu**wybierz pozycję **pomiar metryki** , a następnie podaj **wartość progową**. W obszarze **wyzwalanie alertów opartych na**Określ, ile razy należy przekroczyć wartość progową przed utworzeniem alertu. Na przykład prawdopodobnie nie zachodzi, że procesor przekroczy próg raz, a następnie powraca do normalnego, ale należy zachować ostrożność, jeśli przekroczy próg z wielu kolejnych pomiarów.
+W **logice alertu** wybierz pozycję **pomiar metryki** , a następnie podaj **wartość progową**. W obszarze **wyzwalanie alertów opartych na** Określ, ile razy należy przekroczyć wartość progową przed utworzeniem alertu. Na przykład prawdopodobnie nie zachodzi, że procesor przekroczy próg raz, a następnie powraca do normalnego, ale należy zachować ostrożność, jeśli przekroczy próg z wielu kolejnych pomiarów.
 
 **Obliczona na podstawie** sekcji określa, jak często jest wykonywane zapytanie i przedział czasu dla zapytania. W przykładzie przedstawionym poniżej zapytanie zostanie uruchomione co 15 minut i zostanie obliczone wartości wydajności zebrane w ciągu ostatnich 15 minut.
 

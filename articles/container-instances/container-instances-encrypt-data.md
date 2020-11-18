@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091359"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686280"
 ---
 # <a name="encrypt-deployment-data"></a>Szyfrowanie danych wdrożenia
 
@@ -27,7 +27,7 @@ Możesz polegać na kluczach zarządzanych przez firmę Microsoft do szyfrowania
 |    |    Klucze zarządzane przez firmę Microsoft     |     Klucze zarządzane przez klienta     |
 |----|----|----|
 |    **Operacje szyfrowania/odszyfrowywania**    |    Azure    |    Azure    |
-|    **Magazyn kluczy**    |    Magazyn kluczy firmy Microsoft    |    Azure Key Vault    |
+|    **Magazyn kluczy**    |    Magazyn kluczy firmy Microsoft    |    W usłudze Azure Key Vault    |
 |    **Odpowiedzialność za kluczowe rotacje**    |    Microsoft    |    Klient    |
 |    **Dostęp do klucza**    |    Tylko firma Microsoft    |    Firma Microsoft, klient    |
 
@@ -59,7 +59,7 @@ Jeśli nie możesz pomyślnie utworzyć jednostki usługi:
 
 ### <a name="create-a-key-vault-resource"></a>Tworzenie zasobu Key Vault
 
-Utwórz Azure Key Vault przy użyciu [Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [interfejsu wiersza polecenia](../key-vault/secrets/quick-create-cli.md)lub [programu PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Utwórz Azure Key Vault przy użyciu [Azure Portal](../key-vault/general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../key-vault/general/quick-create-cli.md)lub [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 W przypadku właściwości magazynu kluczy należy użyć następujących wytycznych: 
 * Nazwa: wymagana jest unikatowa nazwa. 
@@ -73,7 +73,7 @@ W przypadku właściwości magazynu kluczy należy użyć następujących wytycz
 
 ### <a name="generate-a-new-key"></a>Generuj nowy klucz 
 
-Po utworzeniu magazynu kluczy przejdź do zasobu w Azure Portal. W menu nawigacji po lewej stronie bloku zasób w obszarze Ustawienia kliknij pozycję **klucze** . W widoku dla "klucze" kliknij pozycję "Generuj/Importuj", aby wygenerować nowy klucz. Użyj dowolnej unikatowej nazwy dla tego klucza oraz wszelkich innych preferencji w zależności od wymagań. 
+Po utworzeniu magazynu kluczy przejdź do zasobu w Azure Portal. W menu nawigacji po lewej stronie bloku zasób w obszarze Ustawienia kliknij pozycję **klucze**. W widoku dla "klucze" kliknij pozycję "Generuj/Importuj", aby wygenerować nowy klucz. Użyj dowolnej unikatowej nazwy dla tego klucza oraz wszelkich innych preferencji w zależności od wymagań. 
 
 ![Generuj nowy klucz](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,8 +81,8 @@ Po utworzeniu magazynu kluczy przejdź do zasobu w Azure Portal. W menu nawigacj
 
 Utwórz nowe zasady dostępu, aby umożliwić usłudze ACI dostęp do klucza.
 
-* Po wygenerowaniu klucza z powrotem w bloku zasobów magazynu kluczy w obszarze Ustawienia kliknij pozycję **zasady dostępu** .
-* Na stronie "zasady dostępu" dla magazynu kluczy kliknij pozycję **Dodaj zasady dostępu** .
+* Po wygenerowaniu klucza z powrotem w bloku zasobów magazynu kluczy w obszarze Ustawienia kliknij pozycję **zasady dostępu**.
+* Na stronie "zasady dostępu" dla magazynu kluczy kliknij pozycję **Dodaj zasady dostępu**.
 * Ustaw *uprawnienia klucza* do uwzględniania uprawnień klucza **Get** i **unotoki** ![ zestawu kluczy](./media/container-instances-encrypt-data/set-key-permissions.png)
 * W obszarze *Wybieranie podmiotu zabezpieczeń* wybierz pozycję **Usługa wystąpienia kontenera platformy Azure**
 * Kliknij pozycję **Dodaj** u dołu 

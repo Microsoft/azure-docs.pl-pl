@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 2ffa5d65675b8fe6eeecbcc71c49d7aa8ebb7eaf
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a48a13fa18025254ee31344868d10181ae87c65e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657775"
+ms.locfileid: "94685481"
 ---
 # <a name="azure-built-in-roles"></a>Role wbudowane platformy Azure
 
@@ -393,7 +393,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Obliczenia
+## <a name="compute"></a>Compute
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -1162,7 +1162,7 @@ Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowa
 }
 ```
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 
 ### <a name="avere-contributor"></a>Współautor avere
@@ -2587,7 +2587,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 }
 ```
 
-## <a name="web"></a>Sieć Web
+## <a name="web"></a>Internet
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
@@ -7760,8 +7760,7 @@ Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowa
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/sharedKeys/Action | Pobiera klucze wspólne dla obszaru roboczego. Klucze te służą do łączenia agentów programu Microsoft Operational Insights z obszarem roboczym. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/storageinsightconfigs/* | Odczyt/zapis/Usuwanie konfiguracji usługi Magazyn analizy dzienników. |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
-> | [Microsoft. Monitor obciążenia został](resource-provider-operations.md#microsoftworkloadmonitor)/Monitors/* |  |
-> | [Microsoft. Monitor obciążenia został](resource-provider-operations.md#microsoftworkloadmonitor)/notificationSettings/* |  |
+> | [Microsoft. Monitor obciążenia został](resource-provider-operations.md#microsoftworkloadmonitor)/Monitors/* | Uzyskaj informacje na temat monitorów kondycji maszyn wirtualnych gościa.  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |
@@ -7812,7 +7811,6 @@ Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowa
         "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
-        "Microsoft.WorkloadMonitor/notificationSettings/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",
         "Microsoft.AlertsManagement/smartGroups/*"

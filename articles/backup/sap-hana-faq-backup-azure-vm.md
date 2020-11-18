@@ -3,12 +3,12 @@ title: Często zadawane pytania — tworzenie kopii zapasowych baz danych platfo
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych SAP HANA baz danych przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a1d6012ec064b5ec582896ac3484161a6e25f2bf
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659968"
+ms.locfileid: "94686110"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -26,7 +26,7 @@ Nie. Zakończone pomyślnie zadania tworzenia kopii zapasowej nie generują aler
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Czy można zobaczyć zaplanowane zadania tworzenia kopii zapasowej w menu zadania tworzenia kopii zapasowej?
 
-W menu zadania tworzenia kopii zapasowej będą wyświetlane tylko zadania tworzenia kopii zapasowych ad hoc. W przypadku zaplanowanych zadań Użyj [Azure monitor](./backup-azure-monitoring-use-azuremonitor.md).
+Menu zadania tworzenia kopii zapasowej będzie zawierać tylko zadania tworzenia kopii zapasowej na żądanie. W przypadku zaplanowanych zadań Użyj [Azure monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>Czy przyszłe bazy danych są automatycznie dodawane do zadania tworzenia kopii zapasowej?
 
@@ -39,7 +39,7 @@ Prawidłowym sposobem zatrzymania ochrony tej bazy danych jest wykonanie **opera
 
 ### <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-the-behavior-be"></a>Jeśli zmienię nazwę bazy danych po jej włączeniu, jakie będzie zachowanie?
 
-Baza danych o zmienionej nazwie jest traktowana jako nowa baza danych. W związku z tym usługa będzie traktować tę sytuację tak, jakby baza danych nie została znaleziona, a kopie zapasowe kończą się niepowodzeniem. Baza danych o zmienionej nazwie będzie wyświetlana jako nowa baza danych i musi być skonfigurowana do ochrony.
+Baza danych o zmienionej nazwie jest traktowana jako nowa baza danych. W związku z tym, usługa będzie traktować tę sytuację tak, jakby baza danych nie została znaleziona, i spowoduje niepowodzenie wykonywania kopii zapasowych. Baza danych o zmienionej nazwie będzie wyświetlana jako nowa baza danych i musi być skonfigurowana do ochrony.
 
 ### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Jakie są wymagania wstępne dotyczące tworzenia kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure?
 
@@ -47,7 +47,7 @@ Zapoznaj się z [wymaganiami wstępnymi](tutorial-backup-sap-hana-db.md#prerequi
 
 ### <a name="what-permissions-should-be-set-so-azure-can-back-up-sap-hana-databases"></a>Jakie uprawnienia należy ustawić, aby platforma Azure mogła tworzyć kopie zapasowe baz danych SAP HANA.
 
-Uruchomienie skryptu przed rejestracją ustawia wymagane uprawnienia, aby system Azure mógł tworzyć kopie zapasowe baz danych SAP HANA. Możesz znaleźć więcej informacji na temat tego, co robi skrypt [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)przed rejestracją.
+Uruchomienie skryptu przed rejestracją ustawia wymagane uprawnienia, aby system Azure mógł tworzyć kopie zapasowe baz danych SAP HANA. Więcej informacji na temat tego, co robi skrypt przed rejestracją, znajduje się w [tym miejscu](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Czy kopie zapasowe będą wykonywane po przeprowadzeniu migracji SAP HANA z SDC do MDC?
 
@@ -62,13 +62,13 @@ Obecnie nie mamy możliwości skonfigurowania rozwiązania wyłącznie dla wirtu
 1. Zaczekaj na ukończenie aktualnie uruchomionej kopii zapasowej w wymaganej bazie danych (Sprawdź, czy w programie Studio została ukończona).
 1. Wyłącz kopie zapasowe dzienników i ustaw kopię zapasową wykazu w **systemie plików** dla żądanej bazy danych, wykonując następujące czynności:
 1. Kliknij dwukrotnie pozycję **SYSTEMDB**  ->  **Konfiguracja** SYSTEMDB  ->  **Wybierz pozycję Filtr bazy danych**  ->  **(Dziennik)**
-    1. Ustaw enable_auto_log_backup na **nie**
-    1. Ustaw catalog_backup_using_backint na **wartość false**
+    1. Ustaw enable_auto_log_backup na wartość **nie**.
+    1. Ustaw catalog_backup_using_backint na **wartość false**.
 1. Wykonaj kopię zapasową na żądanie (pełna/różnicowa/przyrostowo) w odpowiedniej bazie danych i poczekaj na zakończenie tworzenia kopii zapasowej i wykazu.
-1. Jeśli chcesz również przenieść kopie zapasowe dziennika do systemu plików, ustaw enable_auto_log_backup na **tak**
+1. Jeśli chcesz również przenieść kopie zapasowe dziennika do systemu plików, ustaw enable_auto_log_backup na **tak**.
 1. Przywróć poprzednie ustawienia, aby umożliwić tworzenie kopii zapasowych w magazynie platformy Azure:
-    1. Ustaw wartość enable_auto_log_backup na **tak**
-    1. Ustaw catalog_backup_using_backint na **wartość true**
+    1. Ustaw wartość enable_auto_log_backup na **tak**.
+    1. Ustaw catalog_backup_using_backint na **wartość true**.
 
 >[!NOTE]
 >Przeniesienie kopii zapasowych do lokalnego systemu plików i ponowne przełączenie do magazynu platformy Azure może spowodować przerwanie przez łańcuch dziennika kopii zapasowych dziennika w magazynie. Spowoduje to wyzwolenie pełnej kopii zapasowej, która po pomyślnym zakończeniu rozpocznie tworzenie kopii zapasowych dzienników.
@@ -77,7 +77,7 @@ Obecnie nie mamy możliwości skonfigurowania rozwiązania wyłącznie dla wirtu
 
 Obecnie Azure Backup nie ma możliwości zrozumienia konfiguracji HSR. Oznacza to, że podstawowy i pomocniczy węzeł HSR będą traktowane jako dwie pojedyncze, niepowiązane maszyny wirtualne. Najpierw musisz skonfigurować kopię zapasową w węźle podstawowym. Po przełączeniu w tryb failover kopia zapasowa musi być skonfigurowana w węźle pomocniczym (który będzie teraz węzłem podstawowym). Nie istnieje automatyczne przełączanie kopii zapasowej do drugiego węzła.
 
-Aby utworzyć kopię zapasową danych z aktywnego (podstawowego) węzła w dowolnym momencie, możesz **przełączyć ochronę**  do węzła pomocniczego, który teraz stał się serwerem podstawowym po zakończeniu pracy awaryjnej.
+Aby utworzyć kopię zapasową danych z aktywnego (podstawowego) węzła w dowolnym momencie, możesz **przełączyć ochronę** do węzła pomocniczego, który teraz stał się serwerem podstawowym po zakończeniu pracy awaryjnej.
 
 Aby przeprowadzić tę **ochronę przed przełączeniem**, wykonaj następujące kroki:
 
@@ -85,7 +85,7 @@ Aby przeprowadzić tę **ochronę przed przełączeniem**, wykonaj następujące
 - Uruchamianie [skryptu przed rejestracją](https://aka.ms/scriptforpermsonhana) w węźle pomocniczym
 - [Odnajdywanie baz danych](tutorial-backup-sap-hana-db.md#discover-the-databases) w węźle pomocniczym i Konfigurowanie na nich [kopii zapasowych](tutorial-backup-sap-hana-db.md#configure-backup)
 
-Te kroki należy wykonać ręcznie po każdym przejściu w tryb failover. Te kroki można wykonać za pomocą wiersza polecenia/REST protokołu HTTP oprócz Azure Portal. Aby zautomatyzować te kroki, możesz użyć elementu Runbook platformy Azure.
+Kroki te należy wykonać ręcznie po każdym przejściu w tryb failover. Te kroki można wykonać za pomocą wiersza polecenia/REST protokołu HTTP oprócz Azure Portal. Aby zautomatyzować te kroki, możesz użyć elementu Runbook platformy Azure.
 
 Oto szczegółowy przykład sposobu, w jaki należy wykonać **ochronę przełącznika** :
 
@@ -129,36 +129,36 @@ Tak, można użyć kopii zapasowych przesyłania strumieniowego wyzwalanych w ba
 
 ### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Różne opcje dostępne podczas tworzenia nowych zasad dla SAP HANA kopii zapasowej
 
-Przed utworzeniem zasad należy jasno mieć wymagania dotyczące punktu odzyskiwania i RTO oraz jego odpowiednich kosztów.
+Przed utworzeniem zasad należy wyczyścić wymagania dotyczące punktu odzyskiwania i RTO oraz odpowiednie konsekwencje dotyczące kosztów.
 
-RPO (cel punktu odzyskiwania) wskazuje, ile utraci dane dla użytkownika/klienta. Jest to określane przez częstotliwość tworzenia kopii zapasowych dziennika. Częstsze kopie zapasowe dzienników wskazują niższy cel punktu odzyskiwania, a minimalna wartość obsługiwana przez usługę Azure Backup wynosi 15 minut, co oznacza, że częstotliwość tworzenia kopii zapasowych dziennika może wynosić 15 minut lub więcej.
+RPO (cel punktu odzyskiwania) wskazuje, ile utraconych danych jest akceptowalnych dla użytkownika/klienta. Jest to określane przez częstotliwość tworzenia kopii zapasowych dziennika. Częstsze kopie zapasowe dzienników wskazują niższy cel punktu odzyskiwania, a minimalna wartość obsługiwana przez usługę Azure Backup to 15 minut. Częstotliwość tworzenia kopii zapasowych dziennika może wynosić 15 minut lub więcej.
 
 RTO (cel czasu odzyskiwania) wskazuje, jak szybko dane powinny zostać przywrócone do ostatniego dostępnego punktu w czasie po przypadku utraty danych. Jest to zależne od strategii odzyskiwania wykorzystywanej przez platformę HANA, która zwykle zależy od liczby plików wymaganych do przywrócenia. Ma to również wpływ na koszty, a Poniższa tabela powinna pomóc w zrozumieniu wszystkich scenariuszy i ich skutków.
 
-|Zasady tworzenia kopii zapasowych  |Cel czasu odzyskiwania  |Cost (Koszt)  |
+|Zasady tworzenia kopii zapasowej  |Cel czasu odzyskiwania  |Cost (Koszt)  |
 |---------|---------|---------|
 |Dzienny pełny dziennik i dzienniki     |   Najszybciej, ponieważ potrzebujemy tylko jednej pełnej kopii i wymaganych dzienników do przywracania do punktu w czasie      |    Opcja Costliest, ponieważ pełna kopia jest wykonywana codziennie, więc więcej i więcej danych jest gromadzonych w zapleczu do czasu przechowywania   |
-|Cotygodniowe pełne + dzienne różnice i dzienniki     |   Opcja wolniejsza niż powyżej, ale szybsza niż poniżej, ponieważ potrzebujemy jednej pełnej kopii i jednego dziennika różnicowego + w przypadku przywracania do punktu w czasie      |    Mniej kosztowna opcja, ponieważ dzienna różnica jest zwykle mniejsza niż pełna, a pełna kopia jest wykonywana tylko raz w tygodniu.      |
+|Cotygodniowe pełne + dzienne różnice i dzienniki     |   Wolniejsza niż powyższa opcja, ale szybsza niż Następna opcja, ponieważ potrzebujemy jednej pełnej kopii i jednego różnicowego kopiowania + dzienników do przywracania do punktu w czasie      |    Mniej kosztowna opcja, ponieważ dzienna różnica jest zwykle mniejsza niż pełna, a pełna kopia jest wykonywana tylko raz w tygodniu.      |
 |Cotygodniowe pełne + dzienne przyrostowe dzienniki     |  Najwolniejsze, ponieważ potrzebujemy jednej kopii przyrostowej + "n" i dzienników na potrzeby odzyskiwania do punktu w czasie       |     Najtańsza opcja, ponieważ dzienne przyrosty będzie mniejsze niż różnicowa, a pełna kopia jest wykonywana tylko raz w tygodniu    |
 
 > [!NOTE]
-> Powyższe opcje są najczęściej używane, ale nie tylko. Na przykład jeden może zawierać cotygodniowe pełne kopie zapasowe i różnice dwa razy w tygodniu + tydzień +.
+> Powyższe opcje są najczęściej używane, ale nie są jedynymi opcjami. Można na przykład utworzyć cotygodniowe pełne kopie zapasowe i różnice dwa razy w tygodniu + tydzień +.
 
-W związku z tym, jeden może wybrać wariant zasad na podstawie celów punktu odzyskiwania i RTO oraz kosztów.
+W związku z tym można wybrać wariant zasad w oparciu o cele punktu odzyskiwania i RTO oraz zagadnienia dotyczące kosztów.
 
 ### <a name="impact-of-modifying-a-policy"></a>Wpływ modyfikowania zasad
 
-Należy pamiętać o kilku zasadach, jednocześnie określając wpływ przełączania zasad elementu kopii zapasowej z zasad 1 (P1) do zasad 2 (P2) lub zasad edycji 1 (P1).
+Podczas określania wpływu przełączania zasad elementu kopii zapasowej z zasad 1 (P1) do zasad 2 (P2) lub zasad edycji 1 (P1) należy pamiętać o kilku zasadach.
 
-- Wszystkie zmiany są również stosowane z mocą wsteczną. Najnowsze zasady tworzenia kopii zapasowych są stosowane również w pozostałej części punktów odzyskiwania. Załóżmy na przykład, że dzienne pełne przechowywanie to 30 dni, a 10 punktów odzyskiwania zostały wykonane zgodnie z aktualnie aktywnymi zasadami. Jeśli dzienne pełne przechowywanie zostanie zmienione na 10 dni, wówczas czas wygaśnięcia tego punktu zostanie również ponownie obliczony jako czas rozpoczęcia + 10 dni i usunięty, jeśli wygasł.
-- Zakres zmian obejmuje również dzień tworzenia kopii zapasowych, typ kopii zapasowej wraz z przechowywaniem. Na przykład: Jeśli zasady zostaną zmienione z codziennego zapełnienia na tydzień w niedziele, wszystkie wcześniejsze pełne, które nie znajdują się w niedziele, zostaną oznaczone do usunięcia.
-- Element nadrzędny nie zostanie usunięty, dopóki element podrzędny nie zostanie aktywny/nie wygasł. Każdy typ kopii zapasowej ma czas wygaśnięcia zgodnie z aktualnie aktywnymi zasadami. Ale pełny typ kopii zapasowej jest traktowany jako element nadrzędny dla kolejnych "różnic", "przyrostów" i "dzienników". "Różniczka" i "log" nie są nadrzędne dla innych osób. Wartość "Increment" może być elementem nadrzędnym dla kolejnych "przyrostowych". Nawet wtedy, gdy element "Parent" jest oznaczony do usunięcia, nie są usuwane w rzeczywistości, jeśli podrzędne "różnice" lub "dzienniki" nie wygasły. Na przykład jeśli zasady są zmieniane z codziennego zapełnienia na tydzień w niedziele, wszystkie wcześniejsze pełne, które nie znajdują się w niedziele, zostaną oznaczone do usunięcia. Ale nie są usuwane w rzeczywistości, dopóki dzienniki, które zostały wykonane codziennie, nie wygasły. Innymi słowy, są one zachowywane zgodnie z najnowszym czasem trwania dziennika. Po wygaśnięciu dzienników zarówno dzienniki, jak i pełne zostaną usunięte.
+- Wszystkie zmiany są również stosowane z mocą wsteczną. Najnowsze zasady tworzenia kopii zapasowych są stosowane również w pozostałej części punktów odzyskiwania. Załóżmy na przykład, że dzienne pełne przechowywanie to 30 dni, a 10 punktów odzyskiwania zostały wykonane zgodnie z aktualnie aktywnymi zasadami. Jeśli dzienne pełne przechowywanie zostanie zmienione na 10 dni, wówczas czas wygaśnięcia tego punktu zostanie również ponownie obliczony jako czas rozpoczęcia + 10 dni i usunięte, jeśli wygasły.
+- Zakres zmian obejmuje również dzień tworzenia kopii zapasowych, typ kopii zapasowej wraz z przechowywaniem. Na przykład: Jeśli zasady zostaną zmienione z codziennego zapełnienia na tydzień w niedziele, wszystkie wcześniejsze pełne, które nie są w niedziele, będą oznaczone do usunięcia.
+- Element nadrzędny nie zostanie usunięty, dopóki element podrzędny nie zostanie aktywny/nie wygasł. Każdy typ kopii zapasowej ma czas wygaśnięcia zgodnie z aktualnie aktywnymi zasadami. Ale pełny typ kopii zapasowej jest traktowany jako element nadrzędny dla kolejnych "różnic", "przyrostów" i "dzienników". Elementy "Differential" i "log" nie są nadrzędne dla innych osób. Wartość "Increment" może być elementem nadrzędnym dla kolejnych "przyrostowych". Nawet wtedy, gdy element "Parent" jest oznaczony do usunięcia, nie jest usuwany, jeśli podrzędne "różniczke" lub "Logs" nie wygasły. Na przykład jeśli zasady są zmieniane z codziennego zapełnienia na tydzień w niedziele, wszystkie wcześniejsze pełne, które nie są w niedziele, będą oznaczone do usunięcia. Ale nie są usuwane w rzeczywistości, dopóki dzienniki, które zostały wykonane codziennie, nie wygasły. Innymi słowy, są one zachowywane zgodnie z najnowszym czasem trwania dziennika. Po wygaśnięciu dzienników zarówno dzienniki, jak i pełne zostaną usunięte.
 
-Za pomocą tych zasad, jeden może odczytać poniższą tabelę, aby poznać konsekwencje zmiany zasad.
+Za pomocą tych zasad można przeczytać poniższą tabelę, aby poznać konsekwencje zmiany zasad.
 
 |Stare zasady/nowe zasady  |Dzienne pełne i dzienniki  | Zapełnienia tygodniowo + dzienne różnice i dzienniki  |Tygodniowe zapełnienia + dzienne przyrosty + dzienniki  |
 |---------|---------|---------|---------|
-|Dzienne pełne i dzienniki     |   -      |    Poprzednie pełne, które nie znajdują się w tym samym dniu tygodnia, są oznaczone do usunięcia, ale pozostają do momentu okresu przechowywania dziennika     |    Poprzednie pełne, które nie znajdują się w tym samym dniu tygodnia, są oznaczone do usunięcia, ale pozostają do momentu okresu przechowywania dziennika     |
+|Dzienne pełne i dzienniki     |   -      |    Poprzednie pełne zapełnienia, które nie są w tym samym dniu tygodnia, są oznaczane do usunięcia, ale utrzymywane do momentu okresu przechowywania dziennika     |    Poprzednie pełne zapełnienia, które nie są w tym samym dniu tygodnia, są oznaczane do usunięcia, ale utrzymywane do momentu okresu przechowywania dziennika     |
 |Zapełnienia tygodniowo + dzienne różnice i dzienniki     |   Poprzednie cotygodniowe pełne przechowywanie jest ponownie obliczane zgodnie z najnowszymi zasadami. Poprzednie różnice są natychmiast usuwane      |    -     |    Poprzednie różnice są natychmiast usuwane     |
 |Tygodniowe zapełnienia + dzienne przyrosty + dzienniki     |     Poprzednie cotygodniowe pełne przechowywanie jest ponownie obliczane zgodnie z najnowszymi zasadami. Poprzednie przyrosty są natychmiast usuwane    |     Poprzednie przyrosty są natychmiast usuwane    |    -     |
 

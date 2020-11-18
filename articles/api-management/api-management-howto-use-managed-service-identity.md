@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558033"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686229"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure API Management
 
@@ -123,9 +123,9 @@ Po utworzeniu wystąpienia ma ono następujące dodatkowe właściwości:
 > [!NOTE]
 > Wystąpienie API Management może mieć zarówno tożsamości przypisane do systemu, jak i przypisane przez użytkownika. W tym przypadku właściwość będzie `type` `SystemAssigned,UserAssigned` .
 
-### <a name="supported-scenarios"></a>Obsługiwane scenariusze
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Obsługiwane scenariusze przy użyciu tożsamości przypisanej do systemu
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Uzyskaj niestandardowy certyfikat TLS/SSL dla wystąpienia API Management z Azure Key Vault
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Uzyskaj niestandardowy certyfikat TLS/SSL dla wystąpienia API Management z Azure Key Vault
 Można użyć tożsamości przypisanej do systemu API Management wystąpienia, aby pobrać niestandardowe certyfikaty TLS/SSL przechowywane w Azure Key Vault. Następnie można przypisać te certyfikaty do domen niestandardowych w wystąpieniu API Management. Należy pamiętać o następujących kwestiach:
 
 - Typem zawartości wpisu tajnego musi być *Application/x-PKCS12*.
@@ -262,7 +262,7 @@ Poniższy przykład przedstawia szablon Azure Resource Manager, który zawiera n
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości API Management
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości API Management
 
 Można użyć tożsamości przypisanej do systemu do uwierzytelniania na zapleczu za pomocą zasad [uwierzytelniania zarządzanych tożsamości](api-management-authentication-policies.md#ManagedIdentity) .
 
@@ -281,7 +281,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 3. Na karcie **przypisane przez użytkownika** wybierz pozycję **Dodaj**.
 4. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Wybory umożliwiające włączenie tożsamości zarządzanej przypisanej do systemu" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Wybory dotyczące włączania tożsamości zarządzanej przypisanej przez użytkownika" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -387,9 +387,32 @@ Gdy usługa zostanie utworzona, ma następujące dodatkowe właściwości:
 > [!NOTE]
 > Wystąpienie API Management może mieć zarówno tożsamości przypisane do systemu, jak i przypisane przez użytkownika. W tym przypadku właściwość będzie `type` `SystemAssigned,UserAssigned` .
 
-### <a name="supported-scenarios"></a>Obsługiwane scenariusze
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Obsługiwane scenariusze przy użyciu tożsamości zarządzanej przypisanej przez użytkownika
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości przypisanej do użytkownika
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Uzyskaj niestandardowy certyfikat TLS/SSL dla wystąpienia API Management z Azure Key Vault
+Możesz użyć dowolnej tożsamości przypisanej do użytkownika, aby ustanowić relację zaufania między wystąpieniem API Management i magazynem kluczy. Tego zaufania można następnie użyć do pobrania niestandardowych certyfikatów protokołu TLS/SSL przechowywanych w Azure Key Vault. Następnie można przypisać te certyfikaty do domen niestandardowych w wystąpieniu API Management. 
+
+Należy pamiętać o następujących kwestiach:
+
+- Typem zawartości wpisu tajnego musi być *Application/x-PKCS12*.
+- Użyj punktu końcowego tajnego certyfikatu Key Vault, który zawiera wpis tajny.
+
+> [!Important]
+> Jeśli nie podano wersji tego obiektu certyfikatu, program API Management automatycznie uzyska nowszą wersję certyfikatu w ciągu czterech godzin od jego zaktualizowania w Key Vault.
+
+Aby uzyskać pełny szablon, zobacz [API Management z użyciem protokołu SSL opartego na magazynie kluczy przy użyciu tożsamości przypisanej do użytkownika](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+
+W tym szablonie zostaną wdrożone następujące narzędzia:
+
+* Azure API Management
+* Tożsamość przypisana przez użytkownika zarządzanego przez platformę Azure
+* Magazyn kluczy platformy Azure do przechowywania certyfikatu SSL/TLS
+
+Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości przypisanej do użytkownika
 
 Możesz użyć tożsamości przypisanej do użytkownika do uwierzytelniania na zapleczu, korzystając z zasad [uwierzytelniania zarządzanych tożsamości](api-management-authentication-policies.md#ManagedIdentity) .
 

@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320505"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685821"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
@@ -46,9 +46,9 @@ Zestawy skalowania umożliwiają wdrażanie kolekcji maszyn wirtualnych jako zes
 Aby uzyskać więcej informacji, Przeczytaj [Service Fabric typy węzłów i zestawy skalowania maszyn wirtualnych](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Wystąpienia maszyn wirtualnych są przyłączone za [modułem równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-overview.md), który jest skojarzony z [publicznym adresem IP](../virtual-network/public-ip-addresses.md) i etykietą DNS.  W przypadku inicjowania obsługi administracyjnej klastra z * &lt; klastrem &gt; *nazwa DNS, * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* to etykieta DNS skojarzona z modułem równoważenia obciążenia przed zestawem skalowania.
+Wystąpienia maszyn wirtualnych są przyłączone za [modułem równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-overview.md), który jest skojarzony z [publicznym adresem IP](../virtual-network/public-ip-addresses.md) i etykietą DNS.  W przypadku inicjowania obsługi administracyjnej klastra z *&lt; klastrem &gt;* nazwa DNS, *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* to etykieta DNS skojarzona z modułem równoważenia obciążenia przed zestawem skalowania.
 
-Maszyny wirtualne w klastrze mają tylko [prywatne adresy IP](../virtual-network/private-ip-addresses.md).  Ruch związany z zarządzaniem i ruch usługi są kierowane przez publiczny moduł równoważenia obciążenia.  Ruch sieciowy jest kierowany do tych maszyn za pośrednictwem reguł translatora adresów sieciowych (połączenia klientów z określonymi węzłami/wystąpieniami) lub reguł równoważenia obciążenia (ruch przechodzi do działania okrężnego maszyn wirtualnych).  Moduł równoważenia obciążenia ma skojarzony publiczny adres IP z nazwą DNS w formacie: * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Publiczny adres IP jest innym zasobem platformy Azure w grupie zasobów.  W przypadku zdefiniowania wielu typów węzłów w klastrze dla każdego typu węzła/zestawu skalowania zostanie utworzony moduł równoważenia obciążenia. Lub można skonfigurować pojedynczy moduł równoważenia obciążenia dla wielu typów węzłów.  Typ węzła podstawowego ma etykietę DNS * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, inne typy węzłów mają etykietę DNS * &lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
+Maszyny wirtualne w klastrze mają tylko [prywatne adresy IP](../virtual-network/private-ip-addresses.md).  Ruch związany z zarządzaniem i ruch usługi są kierowane przez publiczny moduł równoważenia obciążenia.  Ruch sieciowy jest kierowany do tych maszyn za pośrednictwem reguł translatora adresów sieciowych (połączenia klientów z określonymi węzłami/wystąpieniami) lub reguł równoważenia obciążenia (ruch przechodzi do działania okrężnego maszyn wirtualnych).  Moduł równoważenia obciążenia ma skojarzony publiczny adres IP z nazwą DNS w formacie: *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Publiczny adres IP jest innym zasobem platformy Azure w grupie zasobów.  W przypadku zdefiniowania wielu typów węzłów w klastrze dla każdego typu węzła/zestawu skalowania zostanie utworzony moduł równoważenia obciążenia. Lub można skonfigurować pojedynczy moduł równoważenia obciążenia dla wielu typów węzłów.  Typ węzła podstawowego ma etykietę DNS *&lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, inne typy węzłów mają etykietę DNS *&lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Konta magazynu
 Każdy typ węzła klastra jest obsługiwany przez [konto usługi Azure Storage](../storage/common/storage-introduction.md) i dyski zarządzane.
@@ -69,11 +69,11 @@ Oprócz certyfikatów klienta Azure Active Directory można również skonfiguro
 Aby uzyskać więcej informacji, zapoznaj się z artykułem [Zabezpieczenia klienta-węzła](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
-Role-Based Access Control (RBAC) umożliwia przypisywanie szczegółowych kontroli dostępu do zasobów platformy Azure.  Można przypisać różne reguły dostępu do subskrypcji, grup zasobów i zasobów.  Reguły RBAC są dziedziczone wzdłuż hierarchii zasobów, chyba że zostaną zastąpione na niższym poziomie.  Można przypisać dowolnych grup użytkowników lub użytkowników w usłudze AAD za pomocą reguł RBAC, aby wyznaczeni Użytkownicy i grupy mogli modyfikować klaster.  Aby uzyskać więcej informacji, zapoznaj się z [omówieniem usługi Azure RBAC](../role-based-access-control/overview.md).
+Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia przypisywanie szczegółowych kontroli dostępu do zasobów platformy Azure.  Można przypisać różne reguły dostępu do subskrypcji, grup zasobów i zasobów.  Reguły RBAC platformy Azure są dziedziczone wzdłuż hierarchii zasobów, chyba że zostaną zastąpione na niższym poziomie.  Można przypisać dowolnych grup użytkowników lub użytkowników w usłudze AAD przy użyciu reguł RBAC platformy Azure, aby wyznaczeni Użytkownicy i grupy mogli modyfikować klaster.  Aby uzyskać więcej informacji, zapoznaj się z [omówieniem usługi Azure RBAC](../role-based-access-control/overview.md).
 
 Service Fabric obsługuje również kontrolę dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.  
 
-Aby uzyskać więcej informacji, Przeczytaj [Service Fabric Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Aby uzyskać więcej informacji, Przeczytaj [Service Fabric kontroli dostępu opartej na rolach](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci 
 Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) kontrolują ruch przychodzący i wychodzący podsieci, maszyny wirtualnej lub konkretnej karty sieciowej.  Domyślnie, gdy wiele maszyn wirtualnych jest umieszczanych w tej samej sieci wirtualnej, mogą komunikować się ze sobą za pośrednictwem dowolnego portu.  Jeśli chcesz ograniczyć komunikację między maszynami, możesz zdefiniować sieciowych grup zabezpieczeń do segmentacji sieci lub izolowania maszyn wirtualnych od siebie.  Jeśli w klastrze istnieje wiele typów węzłów, można zastosować sieciowych grup zabezpieczeń do podsieci, aby uniemożliwić komunikację między maszynami należącymi do różnych typów węzłów.  

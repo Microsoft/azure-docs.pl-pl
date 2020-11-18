@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: df611e01fefacd22f4dc026a819d4c71ede6e7e3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970405"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686093"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem usługi Windows Server Failover Clustering i Azure Shared Disk
 
@@ -35,12 +35,12 @@ Ten artykuł koncentruje się na sposobie przenoszenia z jednej instalacji ASCS/
 Obecnie można używać dysków SSD w warstwie Premium platformy Azure jako dysku udostępnionego platformy Azure dla wystąpienia SAP ASCS/SCS. Stosowane są następujące ograniczenia:
 
 -  [Usługa Azure Ultra Disk](../../disks-types.md#ultra-disk) nie jest obsługiwana jako dysk udostępniony platformy Azure dla obciążeń SAP. Obecnie nie jest możliwe umieszczenie maszyn wirtualnych platformy Azure przy użyciu usługi Azure Ultra Disk w zestawie dostępności
--  [Dysk udostępniony platformy Azure](../../windows/disks-shared.md) z dyskami SSD w warstwie Premium jest obsługiwany tylko w przypadku maszyn wirtualnych w zestawie dostępności. Nie jest on obsługiwany w Strefy dostępności wdrożenia. 
+-  [Dysk udostępniony platformy Azure](../../disks-shared.md) z dyskami SSD w warstwie Premium jest obsługiwany tylko w przypadku maszyn wirtualnych w zestawie dostępności. Nie jest on obsługiwany w Strefy dostępności wdrożenia. 
 -  Wartość dysku udostępnionego na platformie Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) określa, ile węzłów klastra może używać dysku udostępnionego. Zwykle w przypadku wystąpienia SAP ASCS/SCS można skonfigurować dwa węzły w klastrze trybu failover systemu Windows, w związku z czym wartość dla parametru `maxShares` musi być równa 2.
 -  Wszystkie maszyny wirtualne klastra SAP ASCS/SCS muszą zostać wdrożone w tej samej [grupie umieszczania usługi Azure zbliżeniowe](../../windows/proximity-placement-groups.md).   
    Mimo że można wdrożyć maszyny wirtualne klastra systemu Windows w zestawie dostępności przy użyciu udostępnionego dysku platformy Azure bez PPG, usługa PPG zapewni bliską fizyczną bliskość udostępnionych dysków platformy Azure i maszyn wirtualnych klastra, a tym samym osiągnięcie mniejszych opóźnień między maszynami wirtualnymi i warstwą magazynowania.    
 
-Aby uzyskać więcej informacji na temat ograniczeń dotyczących dysku udostępnionego platformy Azure, przejrzyj dokładnie sekcję [ograniczenia](../../linux/disks-shared.md#limitations) w dokumentacji dysku udostępnionego platformy Azure.  
+Aby uzyskać więcej informacji na temat ograniczeń dotyczących dysku udostępnionego platformy Azure, przejrzyj dokładnie sekcję [ograniczenia](../../disks-shared.md#limitations) w dokumentacji dysku udostępnionego platformy Azure.  
 
 > [!IMPORTANT]
 > Podczas wdrażania klastra trybu failover systemu Windows z systemem SAP ASCS/SCS przy użyciu udostępnionego dysku platformy Azure należy pamiętać, że wdrożenie będzie działać z jednym udostępnionym dyskiem w jednym klastrze magazynu. Będzie to miało wpływ na wystąpienie oprogramowania SAP ASCS/SCS w przypadku problemów z klastrem magazynu, w którym wdrożono dysk udostępniony platformy Azure.  
@@ -56,7 +56,7 @@ Aby uzyskać więcej informacji na temat ograniczeń dotyczących dysku udostęp
 
 Obsługiwane są zarówno systemy Windows Server 2016, jak i Windows Server 2019 (Użyj najnowszych obrazów centrum danych).
 
-Zdecydowanie zalecamy korzystanie z **systemu Windows Server 2019 Datacenter**w taki sposób, jak:
+Zdecydowanie zalecamy korzystanie z **systemu Windows Server 2019 Datacenter** w taki sposób, jak:
 - Usługa klastra pracy awaryjnej systemu Windows 2019 jest uwzględniana przez platformę Azure
 - Dodano integrację i świadomość konserwacji hosta platformy Azure oraz udoskonalone środowisko monitorowania dla zdarzeń planu platformy Azure.
 - Możliwe jest użycie rozproszonej nazwy sieciowej (jest to opcja domyślna). W związku z tym nie ma potrzeby posiadania dedykowanego adresu IP dla nazwy sieci klastra. Ponadto nie ma potrzeby konfigurowania tego adresu IP w wewnętrznej Load Balancer platformy Azure. 
@@ -95,7 +95,7 @@ Zarówno serwer replikacji z kolejki 1 (ERS1), jak i kolejki serwer replikacji 2
 
 ## <a name="infrastructure-preparation"></a>Przygotowanie infrastruktury
 
-Oprócz **istniejącego** wystąpienia programu SAP **PR1** ASCS/SCS zostanie zainstalowany nowy **PR2**identyfikatora SID SAP.  
+Oprócz **istniejącego** wystąpienia programu SAP **PR1** ASCS/SCS zostanie zainstalowany nowy **PR2** identyfikatora SID SAP.  
 
 ### <a name="host-names-and-ip-addresses"></a>Nazwy hostów i adresy IP
 
@@ -103,11 +103,11 @@ Oprócz **istniejącego** wystąpienia programu SAP **PR1** ASCS/SCS zostanie za
 | --- | --- | --- |---| ---|
 | pierwszy węzeł klastra ASCS/SCS klaster |PR1-ASCS-10 |10.0.0.4 |PR1-ASCS-avset |PR1PPG |
 | klaster ASCS/SCS drugiego węzła klastra |PR1-ASCS-11 |10.0.0.5 |PR1-ASCS-avset |PR1PPG |
-| Nazwa sieci klastra | pr1clust |10.0.0.42 (**tylko** w przypadku klastra win 2016) | nie dotyczy | nie dotyczy |
-| **SID1** Nazwa sieci klastra ASCS | pr1-ascscl |10.0.0.43 | nie dotyczy | nie dotyczy |
-| **SID1** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.44 | nie dotyczy | nie dotyczy |
-| **SID2** Nazwa sieci klastra ASCS | pr2-ascscl |10.0.0.45 | nie dotyczy | nie dotyczy |
-| **SID2** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.46 | nie dotyczy | nie dotyczy |
+| Nazwa sieci klastra | pr1clust |10.0.0.42 (**tylko** w przypadku klastra win 2016) | n/d | n/d |
+| **SID1** Nazwa sieci klastra ASCS | pr1-ascscl |10.0.0.43 | n/d | n/d |
+| **SID1** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.44 | n/d | n/d |
+| **SID2** Nazwa sieci klastra ASCS | pr2-ascscl |10.0.0.45 | n/d | n/d |
+| **SID2** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.46 | n/d | n/d |
 
 ### <a name="create-azure-internal-load-balancer"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure
 
@@ -121,17 +121,17 @@ Należy dodać konfigurację do istniejącego modułu równoważenia obciążeni
 - Konfiguracja zaplecza  
     Już w miejscu — maszyny wirtualne zostały już dodane do puli zaplecza, podczas gdy Konfigurowanie dla usługi SAP SID **PR1**
 - Port sondy
-    - Port 620**Nr** [**62002**] pozostaw opcję domyślną dla protokołu (TCP), interwał (5), próg złej kondycji (2)
+    - Port 620 **Nr** [**62002**] pozostaw opcję domyślną dla protokołu (TCP), interwał (5), próg złej kondycji (2)
 - Reguły równoważenia obciążenia
     - W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję Porty HA
     - W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-        - 32**Nr** TCP [**3202**]
-        - 36**Nr** TCP [**3602**]
-        - 39**Nr** TCP [**3902**]
-        - 81**Nr** TCP [**8102**]
-        - 5**Nr**13 TCP [**50213**]
-        - 5**Nr**14 TCP [**50214**]
-        - 5**Nr**16 TCP [**50216**]
+        - 32 **Nr** TCP [**3202**]
+        - 36 **Nr** TCP [**3602**]
+        - 39 **Nr** TCP [**3902**]
+        - 81 **Nr** TCP [**8102**]
+        - 5 **Nr** 13 TCP [**50213**]
+        - 5 **Nr** 14 TCP [**50214**]
+        - 5 **Nr** 16 TCP [**50216**]
         - Skojarz z adresem IP frontonu **PR2** ASCS, sondą kondycji i istniejącą pulą zaplecza.  
 
     - Upewnij się, że limit czasu bezczynności (w minutach) jest ustawiony na wartość maksymalną 30 i że jest włączony swobodny adres IP (bezpośredni zwrot serwera).
@@ -146,16 +146,16 @@ W przypadku, gdy w kolejce jest również klastrowane serwer replikacji 2 (ERS2)
   Maszyny wirtualne zostały już dodane do puli zaplecza ILB.  
 
 - Nowy port sondy
-    - Port 621**Nr**  [**62112**] pozostaw opcję domyślną dla protokołu (TCP), interwał (5), próg złej kondycji (2)
+    - Port 621 **Nr**  [**62112**] pozostaw opcję domyślną dla protokołu (TCP), interwał (5), próg złej kondycji (2)
 
 - Nowe reguły równoważenia obciążenia
     - W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję Porty HA
     - W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-        - 32**Nr** TCP [**3212**]
-        - 33**Nr** TCP [**3312**]
-        - 5**Nr**13 TCP [**51212**]
-        - 5**Nr**14 TCP [**51212**]
-        - 5**Nr**16 TCP [**51212**]
+        - 32 **Nr** TCP [**3212**]
+        - 33 **Nr** TCP [**3312**]
+        - 5 **Nr** 13 TCP [**51212**]
+        - 5 **Nr** 14 TCP [**51212**]
+        - 5 **Nr** 16 TCP [**51212**]
         - Skojarz z adresem IP frontonu **PR2** ERS2, sondą kondycji i istniejącą pulą zaplecza.  
 
     - Upewnij się, że limit czasu bezczynności (w minutach) jest ustawiony na wartość Max, np. 30, i że jest włączony swobodny adres IP (bezpośredni zwrot serwera).
@@ -293,7 +293,7 @@ Korzystając z funkcji sondowania wewnętrznego modułu równoważenia obciąże
 Nie będzie to jednak działało w niektórych konfiguracjach klastra, ponieważ aktywne jest tylko jedno wystąpienie. Drugie wystąpienie jest pasywne i nie może akceptować żadnego obciążenia. Funkcja sondowania pomaga, gdy moduł równoważenia obciążenia wewnętrznego platformy Azure wykryje, które wystąpienie jest aktywne i ma tylko aktywne wystąpienie.  
 
 > [!IMPORTANT]
-> W tej przykładowej konfiguracji **ProbePort** jest ustawiony na 620**Nr**. W przypadku wystąpienia SAP ASCS o numerze **02** to 620**02**.
+> W tej przykładowej konfiguracji **ProbePort** jest ustawiony na 620 **Nr**. W przypadku wystąpienia SAP ASCS o numerze **02** to 620 **02**.
 > Należy dostosować konfigurację tak, aby odpowiadała numerom wystąpień SAP i identyfikatorowi SID SAP.
 
 Aby dodać port sondy, Uruchom ten moduł programu PowerShell na jednej z maszyn wirtualnych klastra:

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556374"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685940"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,13 +40,13 @@ Wystąpienia klastra trybu failover z SQL Server w usłudze Azure Virtual Machin
 Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania dotyczące kworum z maszynami wirtualnymi SQL Server na platformie Azure](hadr-cluster-best-practices.md#quorum). 
 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 W tradycyjnych lokalnych środowiskach klastrowanych klaster trybu failover systemu Windows używa sieci magazynowania (SAN), która jest dostępna w obu węzłach jako magazyn udostępniony. Pliki SQL Server są hostowane w magazynie udostępnionym, a tylko aktywny węzeł może uzyskać do nich dostęp jednocześnie. 
 
 SQL Server na maszynach wirtualnych platformy Azure oferuje różne opcje jako rozwiązanie magazynu udostępnionego do wdrożenia SQL Server wystąpienia klastra trybu failover: 
 
-||[Dyski udostępnione platformy Azure](../../../virtual-machines/windows/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Dyski udostępnione platformy Azure](../../../virtual-machines/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Minimalna wersja systemu operacyjnego**| Wszystko |Windows Server 2012|Windows Server 2016|
 |**Minimalna wersja SQL Server**|Wszystko|SQL Server 2012|SQL Server 2016|
@@ -58,12 +58,12 @@ W pozostałej części tej sekcji wymieniono zalety i ograniczenia dotyczące po
 
 ### <a name="azure-shared-disks"></a>Dyski udostępnione platformy Azure
 
-[Usługa Azure Shared disks](../../../virtual-machines/windows/disks-shared.md) jest funkcją usługi [Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Klaster trybu failover systemu Windows Server obsługuje używanie dysków udostępnionych platformy Azure z wystąpieniem klastra trybu failover. 
+[Usługa Azure Shared disks](../../../virtual-machines/disks-shared.md) jest funkcją usługi [Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Klaster trybu failover systemu Windows Server obsługuje używanie dysków udostępnionych platformy Azure z wystąpieniem klastra trybu failover. 
 
-**Obsługiwany system operacyjny** : wszystkie   
-**Obsługiwana wersja programu SQL** : wszystkie     
+**Obsługiwany system operacyjny**: wszystkie   
+**Obsługiwana wersja programu SQL**: wszystkie     
 
-**Zalety** : 
+**Zalety**: 
 - Przydatne w przypadku aplikacji, które chcą migrować do platformy Azure, zachowując swoją architekturę wysokiej dostępności i odzyskiwania po awarii (HADR cluster) zgodnie z oczekiwaniami. 
 - Program może migrować klastrowane aplikacje na platformę Azure, ponieważ jest to spowodowane obsługą trwałych rezerwacji SCSI (SCSI PR). 
 - Obsługuje udostępnione usługi Azure SSD w warstwie Premium i Azure Ultra Disk Storage.
@@ -71,7 +71,7 @@ W pozostałej części tej sekcji wymieniono zalety i ograniczenia dotyczące po
 - Obsługuje funkcję FILESTREAM.
 
 
-**Ograniczenia** : 
+**Ograniczenia**: 
 - Maszyny wirtualne muszą być umieszczone w tym samym zestawie dostępności i w grupie umieszczania sąsiedztwa.
 - Strefy dostępności nie są obsługiwane.
 - Buforowanie dysków SSD w warstwie Premium nie jest obsługiwane.
@@ -82,8 +82,8 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z dyskam
 
 [Bezpośrednie miejsca do magazynowania](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) to funkcja systemu Windows Server, która jest obsługiwana z klastrem trybu failover w usłudze Azure Virtual Machines. Zapewnia wirtualną sieć SAN opartą na oprogramowaniu.
 
-**Obsługiwane systemy operacyjne** : Windows Server 2016 i nowsze   
-**Obsługiwana wersja programu SQL** : SQL Server 2016 i nowsze   
+**Obsługiwane systemy operacyjne**: Windows Server 2016 i nowsze   
+**Obsługiwana wersja programu SQL**: SQL Server 2016 i nowsze   
 
 
 **Korzysta** 
@@ -104,8 +104,8 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z bezpo�
 
 [Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) są funkcją [Azure Files](../../../storage/files/index.yml). Udziały plików w warstwie Premium są oparte na dyskach SSD i stale mają małe opóźnienia. Są one w pełni obsługiwane do użycia z wystąpieniami klastra trybu failover dla SQL Server 2012 lub nowszych w systemie Windows Server 2012 lub nowszym. Udziały plików w warstwie Premium zapewniają większą elastyczność, ponieważ można zmieniać rozmiar i skalować udział plików bez przestojów.
 
-**Obsługiwane systemy operacyjne** : Windows Server 2012 i nowsze   
-**Obsługiwana wersja programu SQL** : SQL Server 2012 i nowsze   
+**Obsługiwane systemy operacyjne**: Windows Server 2012 i nowsze   
+**Obsługiwana wersja programu SQL**: SQL Server 2012 i nowsze   
 
 **Korzysta** 
 - Tylko udostępnione rozwiązanie magazynu dla maszyn wirtualnych rozprzestrzenia się w wielu strefach dostępności. 
@@ -122,8 +122,8 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z udzia�
 
 Istnieją rozwiązania klastrów partnerskich z obsługiwaną przestrzenią dyskową. 
 
-**Obsługiwany system operacyjny** : wszystkie   
-**Obsługiwana wersja programu SQL** : wszystkie   
+**Obsługiwany system operacyjny**: wszystkie   
+**Obsługiwana wersja programu SQL**: wszystkie   
 
 Jeden przykład używa oprogramowanie SIOS DataKeeper jako magazynu. Aby uzyskać więcej informacji, zapoznaj się z wpisem w blogu Cluster-in [trybu failover i oprogramowanie SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ Jeden przykład używa oprogramowanie SIOS DataKeeper jako magazynu. Aby uzyska�
 
 Możesz również uwidocznić magazyn udostępnionych bloków docelowych iSCSI za pośrednictwem usługi Azure ExpressRoute. 
 
-**Obsługiwany system operacyjny** : wszystkie   
-**Obsługiwana wersja programu SQL** : wszystkie   
+**Obsługiwany system operacyjny**: wszystkie   
+**Obsługiwana wersja programu SQL**: wszystkie   
 
 Na przykład NetApp prywatny Storage (NPS) ujawnia obiekt docelowy iSCSI za pośrednictwem ExpressRoute z Equinixem do maszyn wirtualnych platformy Azure.
 

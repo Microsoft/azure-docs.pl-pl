@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 09/15/2020
-ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/16/2020
+ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331961"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685430"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
 
@@ -25,7 +25,7 @@ W tym samouczku dowiesz się, jak korzystać z centrum wiedzy Synapse Studio.
 
 Istnieją dwa sposoby znajdowania centrum wiedzy w programie Synapse Studio:
 
-  1. W centrum Narzędzia główne w obszarze przydatne linki kliknij pierwszy link o nazwie **centrum wiedzy**.
+  1. W centrum Narzędzia główne w prawym górnym rogu strony kliknij pozycję **nauka**.
   2. Na pasku menu u góry kliknij pozycję **?** a następnie  **centrum merytoryczne**.
 
 Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
@@ -39,7 +39,7 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Eksplorowanie magazynu obiektów BLOB za pomocą puli SQL bezserwerowej
 
-1. Przejdź do **centrum wiedzy** , a następnie kliknij pozycję **Użyj przykładów natychmiast**
+1. Przejdź do **centrum wiedzy**, a następnie kliknij pozycję **Użyj przykładów natychmiast**
 1. Wybieranie **danych zapytania przy użyciu języka SQL** 
 1. Kliknij pozycję **Użyj przykładów natychmiast**
 1. Spowoduje to utworzenie nowego skryptu SQL.
@@ -47,7 +47,7 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 1. Kliknij przycisk Uruchom. Zostanie uruchomiony wybrany tekst.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Ładowanie większej ilości danych NYC taksówki
-1. Przejdź do **centrum wiedzy** , a następnie kliknij przycisk **Przeglądaj dostępne przykłady** 
+1. Przejdź do **centrum wiedzy**, a następnie kliknij przycisk **Przeglądaj dostępne przykłady** 
 1. Wybierz kartę **skrypty SQL** u góry
 1. Wybierz pozycję **Załaduj zestaw danych Taxicab New York**
 1. W obszarze **dane wejściowe** wybierz **pozycję Wybierz istniejącą pulę** i wybierz pozycję **SQLDB1**

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973448"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693403"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
 
@@ -54,7 +54,7 @@ Podczas wypychania danych do indeksu istnieje kilka kluczowych zagadnień, któr
 Sześć kluczowych czynników, które należy wziąć pod uwagę:
 
 + **Warstwa usług i liczba partycji/replik** — Dodawanie partycji i zwiększanie warstwy spowoduje zwiększenie szybkości indeksowania.
-+ **Indeksowanie schematu** — Dodawanie pól i Dodawanie dodatkowych właściwości do pól (takich jak *Wyszukiwanie*, *facetable*dodanie lub *filtrowanie*) zmniejsza szybkość indeksowania.
++ **Indeksowanie schematu** — Dodawanie pól i Dodawanie dodatkowych właściwości do pól (takich jak *Wyszukiwanie*, *facetable* dodanie lub *filtrowanie*) zmniejsza szybkość indeksowania.
 + **Rozmiar wsadu** — optymalny rozmiar wsadu zależy od schematu indeksu i zestawu danych.
 + **Liczba wątków/procesów roboczych** — pojedynczy wątek nie będzie całkowicie korzystał z szybkości indeksowania
 + **Strategia ponawiania** — w celu zoptymalizowania indeksowania należy użyć strategii ponawiania prób wycofywania.
@@ -71,9 +71,9 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+1. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-   ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
+   ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-rest/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
 ## <a name="2---set-up-your-environment"></a>2 — Konfigurowanie środowiska
 
@@ -90,7 +90,7 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 ## <a name="3---explore-the-code"></a>3 — Eksplorowanie kodu
 
-Po aktualizacji *appsettings.jsw*programie przykładowego programu w **OptimizeDataIndexing. sln** powinien być gotowy do kompilowania i uruchamiania.
+Po aktualizacji *appsettings.jsw* programie przykładowego programu w **OptimizeDataIndexing. sln** powinien być gotowy do kompilowania i uruchamiania.
 
 Ten kod pochodzi od [przewodnika Szybki Start języka C#](search-get-started-dotnet.md). Bardziej szczegółowe informacje na temat pracy z zestawem SDK platformy .NET można znaleźć w tym artykule.
 
@@ -162,7 +162,7 @@ Schemat indeksu może mieć znaczny wpływ na szybkość indeksowania. Ze wzglę
 Usługa Azure Wyszukiwanie poznawcze obsługuje następujące interfejsy API w celu załadowania jednego lub wielu dokumentów do indeksu:
 
 + [Dodawanie, aktualizowanie lub usuwanie dokumentów (interfejs API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Klasa IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) lub [Klasa IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [Klasa IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) lub [Klasa IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 Indeksowanie dokumentów w partiach znacznie poprawi wydajność indeksowania. Te partie mogą należeć do 1000 dokumentów lub maksymalnie 16 MB na partię.
 

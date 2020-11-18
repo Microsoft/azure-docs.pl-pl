@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b74baebd964ee43658f74e0050dff838e29f9b8a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bd69f239a1c65040c44da776186ab8d955f5e333
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409063"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693190"
 ---
 # <a name="security-control-network-security"></a>Kontrola zabezpieczeń: zabezpieczenia sieci
 
@@ -148,7 +148,7 @@ Aby uprościć konfigurację zabezpieczeń, można również użyć grup zabezpi
 
 Zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla zasobów sieciowych za pomocą Azure Policy.
 
-Możesz również użyć planów platformy Azure, aby uprościć duże wdrożenia platformy Azure przez spakowanie kluczowych artefaktów środowiska, takich jak szablony Menedżera zasobów platformy Azure, kontrolki RBAC i zasady, w ramach jednej definicji planu. Możesz zastosować plan do nowych subskrypcji i dostosować kontrolę i zarządzanie przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć duże wdrożenia platformy Azure przez pakowanie kluczowych artefaktów, takich jak szablony usługi Azure Resources, formanty RBAC platformy Azure i zasady, w ramach jednej definicji planu. Możesz zastosować plan do nowych subskrypcji i dostosować kontrolę i zarządzanie przy użyciu wersji.
 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
 

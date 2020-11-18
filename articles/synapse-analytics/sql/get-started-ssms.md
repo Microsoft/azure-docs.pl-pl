@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311121"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686212"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -45,18 +45,18 @@ Przed rozpoczęciem upewnij się, że masz następujące wymagania wstępne:
 
 ## <a name="connect"></a>Połącz
 
-### <a name="dedicated-sql-pool"></a>Dedykowana Pula SQL
+### <a name="dedicated-sql-pool"></a>Dedykowana pula SQL
 
 Aby nawiązać połączenie z usługą Synapse SQL przy użyciu dedykowanej puli SQL, wykonaj następujące kroki: 
 
 1. Otwórz SQL Server Management Studio (SSMS). 
-1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz** : 
+1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz**: 
   
     ![Łączenie z serwerem 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nazwa serwera** : wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
-   * **Uwierzytelnianie** : Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**.
-   * **Nazwa użytkownika** i **hasło** : Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
+   * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
+   * **Uwierzytelnianie**: Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**.
+   * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
 
 1. Rozwiń SQL Server platformy Azure w **Eksplorator obiektów**. Można wyświetlić bazy danych skojarzone z serwerem, takie jak Przykładowa baza danych AdventureWorksDW. Bazę danych można rozwinąć, aby wyświetlić tabele:
    
@@ -68,13 +68,13 @@ Aby nawiązać połączenie z usługą Synapse SQL przy użyciu dedykowanej puli
 Aby nawiązać połączenie z usługą Synapse SQL przy użyciu puli SQL bezserwerowej, wykonaj następujące kroki: 
 
 1. Otwórz SQL Server Management Studio (SSMS).
-1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz** : 
+1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz**: 
    
     ![Łączenie z serwerem 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nazwa serwera** : wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
-   * **Uwierzytelnianie** : Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **uwierzytelnianie zintegrowane Active Directory** :
-   * **Nazwa użytkownika** i **hasło** : Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
+   * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
+   * **Uwierzytelnianie**: Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **uwierzytelnianie zintegrowane Active Directory**:
+   * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
    * Wybierz pozycję **Połącz**.
 
 4. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń *demonstrację* , aby zobaczyć zawartość w przykładowej bazie danych.
@@ -84,7 +84,7 @@ Aby nawiązać połączenie z usługą Synapse SQL przy użyciu puli SQL bezserw
 
 ## <a name="run-a-sample-query"></a>Uruchamianie przykładowego zapytania
 
-### <a name="dedicated-sql-pool"></a>Dedykowana Pula SQL
+### <a name="dedicated-sql-pool"></a>Dedykowana pula SQL
 
 Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotyczące danych.
 
@@ -104,7 +104,7 @@ Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotycząc
    
     ![Wyniki zapytania 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="serverless-sql-pool"></a>Pula SQL bezserwerowa
+### <a name="serverless-sql-pool"></a>Bezserwerowa pula SQL
 
 Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotyczące danych.
 

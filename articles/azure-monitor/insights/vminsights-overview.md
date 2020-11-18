@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eaf2d7075ca09aeb3cfaa2dfea81fd0f8d65ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022500"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685311"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>Co to jest Azure Monitor dla maszyn wirtualnych?
+# <a name="overview-of-azure-monitor-for-vms"></a>Omówienie usługi Azure Monitor dla maszyn wirtualnych
 
 Azure Monitor dla maszyn wirtualnych monitoruje wydajność i kondycję maszyn wirtualnych i zestawów skalowania maszyn wirtualnych, w tym ich uruchomione procesy i zależności od innych zasobów. Może ona pomóc zapewnić przewidywalną wydajność i dostępność najważniejszych aplikacji, identyfikując wąskie gardła wydajności i problemy z siecią, a także pomaga zrozumieć, czy problem jest związany z innymi zależnościami.
 
@@ -26,8 +26,6 @@ Azure Monitor dla maszyn wirtualnych obsługuje systemy operacyjne Windows i Lin
 - Maszyny wirtualne hostowane w innym środowisku chmury
   
 
-
-
 Azure Monitor dla maszyn wirtualnych przechowuje dane w dziennikach Azure Monitor, co pozwala na dostarczanie zaawansowanej agregacji i filtrowania oraz analizowanie trendów danych w miarę upływu czasu. Możesz wyświetlić te dane bezpośrednio z maszyny wirtualnej lub użyć Azure Monitor, aby dostarczyć Zagregowany widok wielu maszyn wirtualnych.
 
 ![Perspektywa usługi Virtual Machine Insights w Azure Portal](media/vminsights-overview/vminsights-azmon-directvm.png)
@@ -37,6 +35,7 @@ Azure Monitor dla maszyn wirtualnych przechowuje dane w dziennikach Azure Monito
 Nie ma bezpośredniego kosztu Azure Monitor dla maszyn wirtualnych, ale opłaty są naliczane za aktywność w obszarze roboczym Log Analytics. W oparciu o Cennik opublikowany na [stronie cennika Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)Azure monitor dla maszyn wirtualnych opłaty są naliczane za:
 
 - Dane pozyskane z agentów i przechowywane w obszarze roboczym.
+- Dane stanu kondycji zbierane z kondycji gościa (wersja zapoznawcza)
 - Reguły alertów na podstawie danych dziennika i kondycji.
 - Powiadomienia wysyłane z reguł alertów.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517567"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693162"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Ramka zabezpieczeń: Autoryzacja | Środki zaradcze 
 | Produkt/usługa | Artykuł |
@@ -32,11 +32,11 @@ ms.locfileid: "94517567"
 | **Brama usługi IoT Cloud** | <ul><li>[Nawiązywanie połączenia z bramą w chmurze przy użyciu tokenów z najniższymi uprawnieniami](#cloud-least-privileged)</li></ul> |
 | **Centrum zdarzeń Azure** | <ul><li>[Użyj klucza sygnatury dostępu współdzielonego tylko do wysyłania do generowania tokenów urządzeń](#sendonly-sas)</li><li>[Nie używaj tokenów dostępu zapewniających bezpośredni dostęp do centrum zdarzeń](#access-tokens-hub)</li><li>[Łączenie z centrum zdarzeń przy użyciu kluczy SAS, które mają minimalne wymagane uprawnienia](#sas-minimum-permissions)</li></ul> |
 | **Baza danych dokumentów platformy Azure** | <ul><li>[Użyj tokenów zasobów do łączenia się z Azure Cosmos DB, jeśli to możliwe](#resource-docdb)</li></ul> |
-| **Granica zaufania platformy Azure** | <ul><li>[Włącz szczegółowe zarządzanie dostępem do subskrypcji platformy Azure przy użyciu RBAC](#grained-rbac)</li></ul> |
-| **Service Fabric granic zaufania** | <ul><li>[Ograniczanie dostępu klienta do operacji klastra przy użyciu RBAC](#cluster-rbac)</li></ul> |
+| **Granica zaufania platformy Azure** | <ul><li>[Włączanie szczegółowego zarządzania dostępem do subskrypcji platformy Azure przy użyciu usługi Azure RBAC](#grained-rbac)</li></ul> |
+| **Service Fabric granic zaufania** | <ul><li>[Ograniczanie dostępu klienta do operacji klastra przy użyciu funkcji RBAC platformy Azure](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Przeprowadzenie modelowania zabezpieczeń i użycie zabezpieczeń na poziomie pola, gdy jest to wymagane](#modeling-field)</li></ul> |
 | **Portal programu Dynamics CRM** | <ul><li>[Należy przeprowadzić modelowanie zabezpieczeń kont portalu, pamiętając, że model zabezpieczeń portalu różni się od reszty programu CRM](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Przyznawanie szczegółowych uprawnień dla zakresu jednostek w usłudze Azure Table Storage](#permission-entities)</li><li>[Włącz konto usługi Azure Storage Role-Based Access Control (RBAC) przy użyciu Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Przyznawanie szczegółowych uprawnień dla zakresu jednostek w usłudze Azure Table Storage](#permission-entities)</li><li>[Włącz funkcję kontroli dostępu opartej na rolach (Azure RBAC) na koncie usługi Azure Storage przy użyciu Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Klient mobilny** | <ul><li>[Implementowanie niejawnego wykrywania Zdjęcia zabezpieczeń systemu lub korzenia](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Słabe odwołanie do klasy w programie WCF](#weak-class-wcf)</li><li>[WCF — implementowanie kontroli autoryzacji](#wcf-authz)</li></ul> |
 | **Interfejs API sieci Web** | <ul><li>[Implementowanie właściwego mechanizmu autoryzacji w interfejsie API sieci Web ASP.NET](#authz-aspnet)</li></ul> |
@@ -229,7 +229,7 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Odwołania**              | Nie dotyczy  |
 | **Kroki** | Token zasobu jest skojarzony z zasobem uprawnień Azure Cosmos DB i przechwytuje relację między użytkownikiem bazy danych a uprawnieniem, które użytkownik ma dla określonego zasobu Azure Cosmos DB aplikacji (np. kolekcji, dokumentu). Zawsze używaj tokenu zasobów, aby uzyskać dostęp do Azure Cosmos DB, jeśli klient nie może być zaufany z obsługą kluczy Master lub tylko do odczytu, takich jak aplikacja użytkownika końcowego, taka jak klient mobilny lub komputer stacjonarny. Użyj klucza głównego lub kluczy tylko do odczytu z aplikacji zaplecza, które mogą bezpiecznie przechowywać te klucze.|
 
-## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Włącz szczegółowe zarządzanie dostępem do subskrypcji platformy Azure przy użyciu RBAC
+## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Włączanie szczegółowego zarządzania dostępem do subskrypcji platformy Azure przy użyciu usługi Azure RBAC
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -237,10 +237,10 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../../role-based-access-control/role-assignments-portal.md)  |
-| **Kroki** | Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Korzystając z modelu RBAC, można udzielić użytkownikom tylko takiego dostępu, jakiego potrzebują do wykonania swoich zadań.|
+| **Odwołania**              | [Dodawanie i usuwanie przypisań ról platformy Azure w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Kroki** | Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Korzystając z funkcji RBAC systemu Azure, można przyznać tylko dostęp, który użytkownicy potrzebują do wykonywania swoich zadań.|
 
-## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Ograniczanie dostępu klienta do operacji klastra przy użyciu RBAC
+## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Ograniczanie dostępu klienta do operacji klastra przy użyciu Service Fabric RBAC
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -248,7 +248,7 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Środowisko — Azure |
-| **Odwołania**              | [Kontrola dostępu oparta na rolach dla klientów Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **Odwołania**              | [Service Fabric kontroli dostępu opartej na rolach dla klientów Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Kroki** | <p>Usługa Azure Service Fabric obsługuje dwa różne typy kontroli dostępu dla klientów, którzy są połączeni z klastrem Service Fabric: administrator i użytkownik. Kontrola dostępu pozwala administratorowi klastra ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników, co sprawia, że klaster jest bezpieczniejszy.</p><p>Administratorzy mają pełny dostęp do możliwości zarządzania (w tym możliwości odczytu i zapisu). Użytkownicy domyślnie mają dostęp tylko do odczytu do funkcji zarządzania (na przykład możliwości zapytania) i możliwość rozpoznawania aplikacji i usług.</p><p>Podczas tworzenia klastra należy określić dwie role klienta (administrator i klient), dostarczając oddzielne certyfikaty dla każdego z nich.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Przeprowadzenie modelowania zabezpieczeń i użycie zabezpieczeń na poziomie pola, gdy jest to wymagane
@@ -284,7 +284,7 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Odwołania**              | [Jak delegować dostęp do obiektów na koncie usługi Azure Storage przy użyciu sygnatury dostępu współdzielonego](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Kroki** | W niektórych scenariuszach firmy usługa Azure Table Storage może być wymagana do przechowywania danych poufnych, które są przeznaczone dla różnych stron. Na przykład poufne dane odnoszące się do różnych krajów/regionów. W takich przypadkach sygnatury dostępu współdzielonego mogą być tworzone przez określenie zakresów partycji i klucza wiersza, aby użytkownik mógł uzyskać dostęp do danych specyficznych dla określonego kraju/regionu.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Włącz konto usługi Azure Storage Role-Based Access Control (RBAC) przy użyciu Azure Resource Manager
+## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Włącz funkcję kontroli dostępu opartej na rolach (Azure RBAC) na koncie usługi Azure Storage przy użyciu Azure Resource Manager
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Jak zabezpieczyć konto magazynu za pomocą Role-Based Access Control (RBAC)](../../storage/blobs/security-recommendations.md) |
+| **Odwołania**              | [Jak zabezpieczyć konto magazynu za pomocą kontroli dostępu opartej na rolach (Azure RBAC)](../../storage/blobs/security-recommendations.md) |
 | **Kroki** | <p>Podczas tworzenia nowego konta magazynu należy wybrać model wdrożenia klasyczny lub Azure Resource Manager. Klasyczny model tworzenia zasobów na platformie Azure zezwala tylko na dostęp do subskrypcji i z kolei na koncie magazynu.</p><p>W modelu Azure Resource Manager należy umieścić konto magazynu w grupie zasobów i kontrolować dostęp do płaszczyzny zarządzania tego konkretnego konta magazynu przy użyciu Azure Active Directory. Na przykład możesz nadać określonym użytkownikom możliwość uzyskiwania dostępu do kluczy konta magazynu, a inni użytkownicy mogą wyświetlać informacje o koncie magazynu, ale nie mogą uzyskać dostępu do kluczy konta magazynu.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementowanie niejawnego wykrywania Zdjęcia zabezpieczeń systemu lub korzenia

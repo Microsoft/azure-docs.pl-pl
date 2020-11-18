@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311066"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686161"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Synapse SQL za pomocą programu Visual Studio i SSDT
 
@@ -52,9 +52,9 @@ Aby skorzystać z tego samouczka, należy dysponować następującymi składnika
    
     ![Łączenie z serwerem](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Nazwa serwera** : wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
-   * **Uwierzytelnianie** : wybierz opcję **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane** :
-   * **Nazwa użytkownika** i **hasło** : Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
+   * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
+   * **Uwierzytelnianie**: wybierz opcję **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**:
+   * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
    * Kliknij przycisk **Podłącz**.
 5. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń węzeł AdventureWorksDW, aby zobaczyć tabele w przykładowej bazie danych.
    

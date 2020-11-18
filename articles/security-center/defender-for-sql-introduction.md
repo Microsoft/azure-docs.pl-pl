@@ -3,17 +3,17 @@ title: Azure Defender for SQL — korzyści i funkcje
 description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender dla programu SQL Server.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372539"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693464"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Wprowadzenie do usługi Azure Defender dla programu SQL
 
@@ -25,7 +25,7 @@ Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defende
 |----|:----|
 |Stan wydania:|**Usługa Azure Defender dla serwerów usługi Azure SQL Database** — ogólnie dostępna (ga)<br>**Usługa Azure Defender dla serwerów SQL na komputerach** — wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Na [stronie cennika](security-center-pricing.md) są naliczane opłaty za dwa plany tworzące **usługę Azure Defender for SQL** .|
-|Chronione wersje programu SQL:|Azure SQL Database <br>Wystąpienie zarządzane Azure SQL<br>Azure Synapse Analytics (dawniej SQL DW)<br>SQL Server (wszystkie obsługiwane wersje)|
+|Chronione wersje programu SQL:|Azure SQL Database <br>Wystąpienie zarządzane Azure SQL<br>Dedykowana Pula SQL na platformie Azure Synapse (dawniej: SQL DW)<br>SQL Server (wszystkie obsługiwane wersje)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
 
@@ -36,7 +36,7 @@ Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defende
 - **Usługa Azure Defender dla serwerów usługi Azure SQL Database** chroni:
   - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
   - [Wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Dedykowana Pula SQL na platformie Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - **Usługa Azure Defender dla serwerów SQL na maszynach (wersja zapoznawcza)** rozszerza ochronę natywnych serwerów SQL na platformie Azure w celu zapewnienia pełnej obsługi środowisk hybrydowych i ochrony serwerów SQL (wszystkie obsługiwane wersje) hostowanych na platformie Azure, w innych środowiskach w chmurze, a nawet na maszynach lokalnych
 

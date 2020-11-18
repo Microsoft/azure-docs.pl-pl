@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37db72b2b5dadfba930ca003121140fd99c4736d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425287"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686076"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Podstawa zabezpieczeń platformy Azure dla Azure Load Balancer
 
@@ -30,7 +30,7 @@ Platforma Azure oferuje dwa typy ofert Load Balancer, w warstwach Standardowa i 
 
 Użycie usługa Load Balancer w warstwie Standardowa jest zalecane w przypadku obciążeń produkcyjnych, a zazwyczaj podstawowa Load Balancer jest używana tylko do testowania, ponieważ typ podstawowy jest domyślnie otwarty dla połączeń z Internetu i nie wymaga grup zabezpieczeń sieci do działania. 
 
-- [Połączenia wychodzące na platformie Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrule)
+- [Połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md)
 
 - [Uaktualnij Load Balancer publicznej platformy Azure](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 

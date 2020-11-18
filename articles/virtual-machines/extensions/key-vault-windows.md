@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c5c536b95360c536998a5de87e9307918b15630
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913963"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685991"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -27,7 +27,7 @@ Rozszerzenie maszyny wirtualnej Key Vault obsługuje poniższe wersje systemu Wi
 - Windows Server 2016
 - Windows Server 2012
 
-Key Vault VM Extensio jest również obsługiwana na niestandardowej lokalnej maszynie wirtualnej, która została przekazana i przekonwertowana na wyspecjalizowany obraz do użycia na platformie Azure przy użyciu instalacji podstawowej systemu Windows Server 2019.
+Rozszerzenie maszyny wirtualnej Key Vault jest również obsługiwane na niestandardowej lokalnej maszynie wirtualnej, która została przekazana i przekonwertowana na wyspecjalizowany obraz do użycia na platformie Azure przy użyciu instalacji podstawowej systemu Windows Server 2019.
 
 ### <a name="supported-certificate-content-types"></a>Obsługiwane typy zawartości certyfikatów
 
@@ -81,7 +81,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> Właściwość "authenticationSettings" jest **wymagana** tylko w przypadku maszyn wirtualnych z **tożsamościami przypisanymi przez użytkownika** .
+> Właściwość "authenticationSettings" jest **wymagana** tylko w przypadku maszyn wirtualnych z **tożsamościami przypisanymi przez użytkownika**.
 > Określa tożsamość do użycia podczas uwierzytelniania do Key Vault.
 
 
@@ -89,10 +89,10 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | data |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForWindows | ciąg |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1,0 | int |
 | pollingIntervalInS | 3600 | ciąg |
 | certificateStoreName | MY | ciąg |
 | linkOnRenewal | fałsz | boolean |

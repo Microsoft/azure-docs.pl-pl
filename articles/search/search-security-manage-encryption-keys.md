@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682914"
+ms.locfileid: "94693447"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -52,7 +52,7 @@ W tym scenariuszu są używane następujące narzędzia i usługi.
 Należy mieć aplikację wyszukiwania, która może utworzyć zaszyfrowany obiekt. W tym kodzie będziesz odwoływać się do klucza magazynu kluczy i Active Directory informacji o rejestracji. Ten kod może być działającą aplikacją lub kodem prototypu, takim jak [przykładowy kod C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> Do wywoływania interfejsów API REST, które tworzą indeksy i mapy synonimów, które zawierają parametr klucza szyfrowania, można użyć programu [Poster](search-get-started-postman.md) lub [Azure PowerShell](./search-get-started-powershell.md) . W tej chwili nie jest obsługiwane Dodawanie klucza do indeksów lub mapowań synonimów.
+> Do wywołania interfejsów API REST, które tworzą indeksy i mapy synonimów, które zawierają parametr klucza szyfrowania, można użyć programu [Poster lub Visual Studio Code](search-get-started-rest.md)lub [Azure PowerShell](./search-get-started-powershell.md). W tej chwili nie jest obsługiwane Dodawanie klucza do indeksów lub mapowań synonimów.
 
 ## <a name="1---enable-key-recovery"></a>1 — Włączanie odzyskiwania klucza
 

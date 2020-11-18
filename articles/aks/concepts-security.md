@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b81b592cf35d0ca13d1c7bd2281ce35cce827a3c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057862"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686025"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono podstawowe koncepcje zabezpieczania aplikacji w pro
     - [Izolacja obliczeniowa](#compute-isolation)
   - [Uaktualnienia klastra](#cluster-upgrades)
     - [Cordon i opróżnianie](#cordon-and-drain)
-  - [Zabezpieczenia sieci](#network-security)
+  - [Bezpieczeństwo sieci](#network-security)
     - [Sieciowe grupy zabezpieczeń platformy Azure](#azure-network-security-groups)
   - [Kubernetes Secret](#kubernetes-secrets)
   - [Następne kroki](#next-steps)
@@ -36,7 +36,7 @@ W programie AKS główne składniki programu Kubernetes są częścią usługi z
 
 Domyślnie serwer interfejsu API Kubernetes używa publicznego adresu IP i w pełni kwalifikowanej nazwy domeny (FQDN). Dostęp do punktu końcowego serwera interfejsu API można ograniczyć za pomocą [autoryzowanych zakresów adresów IP][authorized-ip-ranges]. Można również utworzyć w pełni [prywatny klaster][private-clusters] , aby ograniczyć dostęp serwera API do sieci wirtualnej.
 
-Dostęp do serwera interfejsu API można kontrolować za pomocą kontroli dostępu opartej na rolach Kubernetes (RBAC) i Azure Active Directory. Aby uzyskać więcej informacji, zobacz [integracja z usługą Azure AD za pomocą AKS][aks-aad].
+Dostęp do serwera interfejsu API można kontrolować za pomocą Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) i funkcji RBAC platformy Azure. Aby uzyskać więcej informacji, zobacz [integracja z usługą Azure AD za pomocą AKS][aks-aad].
 
 ## <a name="node-security"></a>Zabezpieczenia węzła
 
@@ -50,7 +50,7 @@ Węzły są wdrażane w prywatnej podsieci sieci wirtualnej, bez przypisanych pu
 
 Aby zapewnić magazyn, węzły używają usługi Azure Managed Disks. W przypadku większości rozmiarów węzłów maszyny wirtualnej są to dyski w warstwie Premium obsługiwane przez dysków SSD o wysokiej wydajności. Dane przechowywane na dyskach zarządzanych są automatycznie szyfrowane w ramach platformy Azure. Aby zwiększyć nadmiarowość, te dyski również są bezpiecznie replikowane w centrum danych platformy Azure.
 
-Środowiska Kubernetes, w AKS lub w innym miejscu, obecnie nie są całkowicie bezpieczne w celu zagwarantowania użycia wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń*, lub bardziej precyzyjna kontrola dostępu oparta na ROLACH (RBAC) dla węzłów, trudniejsze luki w zabezpieczeniach. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation].
+Środowiska Kubernetes, w AKS lub w innym miejscu, obecnie nie są całkowicie bezpieczne w celu zagwarantowania użycia wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń*, lub bardziej precyzyjne Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) dla węzłów, utrudniają luki w zabezpieczeniach. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Izolacja obliczeniowa
 

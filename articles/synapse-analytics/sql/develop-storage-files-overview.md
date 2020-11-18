@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315934"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685685"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Dostęp do magazynu zewnętrznego przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 

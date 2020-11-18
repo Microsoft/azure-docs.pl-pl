@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323821"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685753"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu Azure Data Studio (wersja zapoznawcza)
 
@@ -50,7 +50,7 @@ Połączenie wymaga następujących parametrów:
 >
 > - `<Azure Synapse workspace name>`. sql.azuresynapse.net
 
-Wybierz pozycję **uwierzytelnianie systemu Windows** , **Azure Active Directory** lub **Identyfikator logowania SQL** jako **Typ uwierzytelniania**.
+Wybierz pozycję **uwierzytelnianie systemu Windows**, **Azure Active Directory** lub **Identyfikator logowania SQL** jako **Typ uwierzytelniania**.
 
 Aby użyć **logowania SQL** jako typu uwierzytelniania, Dodaj parametry nazwy użytkownika/hasła:
 
@@ -61,11 +61,11 @@ Aby użyć Azure Active Directory, należy wybrać wymagany typ uwierzytelniania
 
 ![Uwierzytelnianie za pomocą usługi AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Poniższy zrzut ekranu przedstawia **szczegóły połączenia** dla **uwierzytelniania systemu Windows** :
+Poniższy zrzut ekranu przedstawia **szczegóły połączenia** dla **uwierzytelniania systemu Windows**:
 
 ![Uwierzytelnianie systemu Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Poniższy zrzut ekranu przedstawia **szczegóły połączenia** przy użyciu **logowania SQL** :
+Poniższy zrzut ekranu przedstawia **szczegóły połączenia** przy użyciu **logowania SQL**:
 
 ![Identyfikator logowania SQL](./media/get-started-azure-data-studio/2-database-details.png)
 

@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 84fc49df2838a66969b449dee5b416c2a0f86f86
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309284"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685923"
 ---
 # <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Samouczek: używanie bezserwerowej puli SQL do analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio
 
@@ -102,7 +102,7 @@ Poniższy fragment kodu przedstawia wynik rocznej liczby kolarstwuówek:
 
 ![Roczna liczba taksówki kolarstwu fragmentu wyniku](./media/tutorial-data-analyst/4.png)
 
-Dane można wizualizować w programie Synapse Studio, przełączając **tabelę** w widok **wykresu** . Można wybrać różne typy wykresów, takie jak **obszar** , **pasek** , **kolumna** , **linia** , **Wykres kołowy** i **punktowy**. W takim przypadku Wykreśl wykres **kolumnowy** z kolumną **Category** ustawioną na **current_year** :
+Dane można wizualizować w programie Synapse Studio, przełączając **tabelę** w widok **wykresu** . Można wybrać różne typy wykresów, takie jak **obszar**, **pasek**, **kolumna**, **linia**, **Wykres kołowy** i **punktowy**. W takim przypadku Wykreśl wykres **kolumnowy** z kolumną **Category** ustawioną na **current_year**:
 
 ![Wykres kolumnowy przedstawiający kolarstwu na rok](./media/tutorial-data-analyst/5.png)
 
