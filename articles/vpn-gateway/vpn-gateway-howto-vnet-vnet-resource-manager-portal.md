@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 723d93b9a5e986501278bdee35835cfa0c234711
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94555864"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660546"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -74,58 +74,58 @@ W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu t
 **Wartości dla VNet1:**
 
 * **Ustawienia sieci wirtualnej**
-  * **Nazwa** : VNet1
-  * **Przestrzeń adresowa** : 10.1.0.0/16
-  * **Subskrypcja** : wybierz subskrypcję, której chcesz użyć.
-  * **Grupa zasobów** : TestRG1
-  * **Lokalizacja** : Wschodnie stany USA
+  * **Nazwa**: VNet1
+  * **Przestrzeń adresowa**: 10.1.0.0/16
+  * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
+  * **Grupa zasobów**: TestRG1
+  * **Lokalizacja**: Wschodnie stany USA
   * **Podsieć**
-    * **Nazwa** : fronton
-    * **Zakres adresów** : 10.1.0.0/24
+    * **Nazwa**: fronton
+    * **Zakres adresów**: 10.1.0.0/24
 
 * **Ustawienia bramy sieci wirtualnej**
-  * **Nazwa** : VNet1GW
-  * **Grupa zasobów** : Wschodnie stany USA
-  * **Generacja** : generacja 1
-  * **Typ bramy** : Wybierz pozycję **Sieć VPN**.
-  * **Typ sieci VPN** : wybierz pozycję **Route * based**.
-  * **Jednostka SKU** : VpnGw1
-  * **Sieć wirtualna** : VNet1
-  * **Zakres adresów podsieci bramy** : 10.1.255.0/27
-  * **Publiczny adres IP** : Utwórz nowy
-  * **Nazwa publicznego adresu IP** : VNet1GWpip
+  * **Nazwa**: VNet1GW
+  * **Grupa zasobów**: Wschodnie stany USA
+  * **Generacja**: generacja 1
+  * **Typ bramy**: Wybierz pozycję **Sieć VPN**.
+  * **Typ sieci VPN**: wybierz pozycję **Route * based**.
+  * **Jednostka SKU**: VpnGw1
+  * **Sieć wirtualna**: VNet1
+  * **Zakres adresów podsieci bramy**: 10.1.255.0/27
+  * **Publiczny adres IP**: Utwórz nowy
+  * **Nazwa publicznego adresu IP**: VNet1GWpip
 
 * **Połączenie**
-  * **Nazwa** : VNet1toVNet4
-  * **Klucz współużytkowany** : możesz samodzielnie utworzyć klucz współużytkowany. Podczas tworzenia połączenia między sieciami wirtualnymi wartości muszą być zgodne. W tym ćwiczeniu należy użyć abc123.
+  * **Nazwa**: VNet1toVNet4
+  * **Klucz współużytkowany**: możesz samodzielnie utworzyć klucz współużytkowany. Podczas tworzenia połączenia między sieciami wirtualnymi wartości muszą być zgodne. W tym ćwiczeniu należy użyć abc123.
 
 **Wartości dla sieci vnet4:**
 
 * **Ustawienia sieci wirtualnej**
-  * **Nazwa** : sieci vnet4
-  * **Przestrzeń adresowa** : 10.41.0.0/16
-  * **Subskrypcja** : wybierz subskrypcję, której chcesz użyć.
-  * **Grupa zasobów** : TestRG4
-  * **Lokalizacja** : zachodnie stany USA
+  * **Nazwa**: sieci vnet4
+  * **Przestrzeń adresowa**: 10.41.0.0/16
+  * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
+  * **Grupa zasobów**: TestRG4
+  * **Lokalizacja**: zachodnie stany USA
   * **Podsieć**
-  * **Nazwa** : fronton
-  * **Zakres adresów** : 10.41.0.0/24
+  * **Nazwa**: fronton
+  * **Zakres adresów**: 10.41.0.0/24
 
 * **Ustawienia bramy sieci wirtualnej**
-  * **Nazwa** : VNet4GW
-  * **Grupa zasobów** : zachodnie stany USA
-  * **Generacja** : generacja 1
-  * **Typ bramy** : Wybierz pozycję **Sieć VPN**.
-  * **Typ sieci VPN** : wybierz pozycję **oparta na trasach**.
-  * **Jednostka SKU** : VpnGw1
-  * **Sieć wirtualna** : sieci vnet4
-  * **Zakres adresów podsieci bramy** : 10.41.255.0/27
-  * **Publiczny adres IP** : Utwórz nowy
-  * **Nazwa publicznego adresu IP** : VNet4GWpip
+  * **Nazwa**: VNet4GW
+  * **Grupa zasobów**: zachodnie stany USA
+  * **Generacja**: generacja 1
+  * **Typ bramy**: Wybierz pozycję **Sieć VPN**.
+  * **Typ sieci VPN**: wybierz pozycję **oparta na trasach**.
+  * **Jednostka SKU**: VpnGw1
+  * **Sieć wirtualna**: sieci vnet4
+  * **Zakres adresów podsieci bramy**: 10.41.255.0/27
+  * **Publiczny adres IP**: Utwórz nowy
+  * **Nazwa publicznego adresu IP**: VNet4GWpip
 
 * **Połączenie**
-  * **Nazwa** : VNet4toVNet1
-  * **Klucz współużytkowany** : możesz samodzielnie utworzyć klucz współużytkowany. Podczas tworzenia połączenia między sieciami wirtualnymi wartości muszą być zgodne. W tym ćwiczeniu należy użyć abc123.
+  * **Nazwa**: VNet4toVNet1
+  * **Klucz współużytkowany**: możesz samodzielnie utworzyć klucz współużytkowany. Podczas tworzenia połączenia między sieciami wirtualnymi wartości muszą być zgodne. W tym ćwiczeniu należy użyć abc123.
 
 ## <a name="create-and-configure-vnet1"></a>Utwórz i skonfiguruj VNet1
 
@@ -157,7 +157,7 @@ Po skonfigurowaniu VNet1 Utwórz sieci vnet4 i bramę sieci vnet4, powtarzając 
 
 Po zakończeniu bram sieci wirtualnej dla VNet1 i sieci vnet4 można utworzyć połączenia bramy sieci wirtualnej. W tej sekcji opisano tworzenie połączenia z sieci VNet1 do sieci VNet4. Następujące kroki działają tylko w przypadku sieci wirtualnych należących do tej samej subskrypcji. Jeśli Twoje sieci wirtualne znajdują się w różnych subskrypcjach, do utworzenia połączenia musisz użyć programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). Jeśli jednak Twoje sieci wirtualne znajdują się w różnych grupach zasobów w tej samej subskrypcji, możesz utworzyć połączenie między nimi przy użyciu portalu.
 
-1. W witrynie Azure Portal wybierz pozycję **Wszystkie zasoby** , wprowadź frazę *brama sieci wirtualnej* w polu wyszukiwania, a następnie przejdź do bramy sieci wirtualnej dla swojej sieci wirtualnej. Na przykład **VNet1GW**. Wybierz bramę, aby otworzyć stronę **bramy sieci wirtualnej** .
+1. W witrynie Azure Portal wybierz pozycję **Wszystkie zasoby**, wprowadź frazę *brama sieci wirtualnej* w polu wyszukiwania, a następnie przejdź do bramy sieci wirtualnej dla swojej sieci wirtualnej. Na przykład **VNet1GW**. Wybierz bramę, aby otworzyć stronę **bramy sieci wirtualnej** .
 1. Na stronie Brama przejdź do pozycji **ustawienia — >połączenia**. Następnie wybierz pozycję **+ Dodaj**.
 
    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Strona połączeń":::
@@ -167,13 +167,13 @@ Po zakończeniu bram sieci wirtualnej dla VNet1 i sieci vnet4 można utworzyć p
 
    Na stronie **Dodawanie połączenia** wprowadź wartości dla połączenia:
 
-   * **Nazwa** : Wprowadź nazwę połączenia. Na przykład *VNet1toVNet4*.
+   * **Nazwa**: Wprowadź nazwę połączenia. Na przykład *VNet1toVNet4*.
 
-   * **Typ połączenia** : wybierz z listy rozwijanej pozycję **Sieć wirtualna-sieć wirtualna** .
+   * **Typ połączenia**: wybierz z listy rozwijanej pozycję **Sieć wirtualna-sieć wirtualna** .
 
-   * **Pierwsza Brama sieci wirtualnej** : to pole jest wypełniane automatycznie, ponieważ to połączenie jest tworzone z określonej bramy sieci wirtualnej.
+   * **Pierwsza Brama sieci wirtualnej**: to pole jest wypełniane automatycznie, ponieważ to połączenie jest tworzone z określonej bramy sieci wirtualnej.
 
-   * **Druga Brama sieci wirtualnej** : to pole jest bramą sieci wirtualnej VNET, z którą chcesz utworzyć połączenie. Wybierz pozycję **Wybierz inną bramę sieci wirtualnej** , aby otworzyć stronę **Wybieranie bramy sieci wirtualnej**.
+   * **Druga Brama sieci wirtualnej**: to pole jest bramą sieci wirtualnej VNET, z którą chcesz utworzyć połączenie. Wybierz pozycję **Wybierz inną bramę sieci wirtualnej**, aby otworzyć stronę **Wybieranie bramy sieci wirtualnej**.
 
       :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Wybieranie bramy":::
 
@@ -181,8 +181,8 @@ Po zakończeniu bram sieci wirtualnej dla VNet1 i sieci vnet4 można utworzyć p
 
      * Wybierz bramę sieci wirtualnej, z którą chcesz nawiązać połączenie.
 
-   * **Klucz współużytkowany (PSK)** : w tym polu Wprowadź klucz współużytkowany dla połączenia. Klucz można wygenerować lub utworzyć samodzielnie. W przypadku połączenia lokacja-lokacja używany klucz jest taki sam dla urządzenia lokalnego oraz połączenia bramy sieci wirtualnej. Koncepcja jest tutaj podobna, z tym że zamiast połączenia z urządzeniem sieci VPN następuje połączenie z inną bramą sieci wirtualnej.
-1. Wybierz przycisk **OK** , aby zapisać zmiany.
+   * **Klucz współużytkowany (PSK)**: w tym polu Wprowadź klucz współużytkowany dla połączenia. Klucz można wygenerować lub utworzyć samodzielnie. W przypadku połączenia lokacja-lokacja używany klucz jest taki sam dla urządzenia lokalnego oraz połączenia bramy sieci wirtualnej. Koncepcja jest tutaj podobna, z tym że zamiast połączenia z urządzeniem sieci VPN następuje połączenie z inną bramą sieci wirtualnej.
+1. Wybierz przycisk **OK**, aby zapisać zmiany.
 
 ## <a name="configure-the-vnet4-gateway-connection"></a>Konfigurowanie połączenia bramy sieci vnet4
 
@@ -191,7 +191,7 @@ Następnie utwórz połączenie od sieci vnet4 do VNet1. W portalu Znajdź bram�
 ## <a name="verify-your-connections"></a>Sprawdź połączenia
 
 1. W witrynie Azure Portal znajdź bramę sieci wirtualnej. 
-1. Na stronie **Brama sieci wirtualnej** kliknij pozycję **Połączenia** , aby wyświetlić stronę **Połączenia** dla bramy sieci wirtualnej. Po nawiązaniu połączenia zostaną wyświetlone wartości **stanu** **połączona**.
+1. Na stronie **Brama sieci wirtualnej** kliknij pozycję **Połączenia**, aby wyświetlić stronę **Połączenia** dla bramy sieci wirtualnej. Po nawiązaniu połączenia zostaną wyświetlone wartości **stanu** **połączona**.
 
    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Weryfikuj połączenia":::
 1. W kolumnie **Nazwa** wybierz jedno z połączeń, aby wyświetlić więcej informacji. Po rozpoczęciu przepływu danych zostaną wyświetlone wartości dla **danych wejściowych** i **danych wyjściowych**.
@@ -210,6 +210,6 @@ Ta sekcja zawiera odpowiedzi na często zadawane pytań dotyczące połączeń m
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje na temat sposobu ograniczania ruchu sieciowego do zasobów w sieci wirtualnej, zobacz [Zabezpieczenia sieci](../virtual-network/security-overview.md).
+* Aby uzyskać informacje na temat sposobu ograniczania ruchu sieciowego do zasobów w sieci wirtualnej, zobacz [Zabezpieczenia sieci](../virtual-network/network-security-groups-overview.md).
 
 * Aby uzyskać informacje na temat sposobu kierowania ruchu platformy Azure między platformą Azure a zasobami lokalnymi i internetowymi, zobacz artykuł [Routing ruchu w sieci wirtualnej](../virtual-network/virtual-networks-udr-overview.md).

@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797636"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659730"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Zarządzanie kosztami dla Azure Lab Services
 
@@ -31,7 +31,7 @@ To oszacowanie może nie zawierać wszystkich możliwych kosztów. Niektóre zas
 
 ## <a name="analyze-the-previous-months-usage"></a>Analizuj użycie poprzedniego miesiąca
 
-Analiza kosztów służy do przeglądania użycia poprzedniego miesiąca, aby pomóc w ustaleniu dowolnych dostosowań dla laboratorium. Podział kosztów ponoszonych w ramach [analizy kosztów subskrypcji](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis)można znaleźć w temacie. W Azure Portal możesz wprowadzić **subskrypcje** w polu wyszukiwania, a następnie wybrać opcję **subskrypcje** . 
+Analiza kosztów służy do przeglądania użycia poprzedniego miesiąca, aby pomóc w ustaleniu dowolnych dostosowań dla laboratorium. Podział kosztów ponoszonych w ramach [analizy kosztów subskrypcji](../cost-management-billing/costs/quick-acm-cost-analysis.md)można znaleźć w temacie. W Azure Portal możesz wprowadzić **subskrypcje** w polu wyszukiwania, a następnie wybrać opcję **subskrypcje** . 
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający pole wyszukiwania i opcję subskrypcje.](./media/cost-management-guide/subscription-search.png)
@@ -46,7 +46,7 @@ Wybierz pozycję **Analiza kosztów** w lewym okienku w obszarze **Cost Manageme
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający analizę kosztów subskrypcji na wykresie.](./media/cost-management-guide/subscription-cost-analysis.png)
 
-Ten pulpit nawigacyjny umożliwia dokładne analizowanie kosztów, w tym możliwość eksportowania do różnych typów plików zgodnie z harmonogramem. Aby uzyskać więcej informacji, zobacz [Cost Management + Omówienie rozliczeń](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+Ten pulpit nawigacyjny umożliwia dokładne analizowanie kosztów, w tym możliwość eksportowania do różnych typów plików zgodnie z harmonogramem. Aby uzyskać więcej informacji, zobacz [Cost Management + Omówienie rozliczeń](../cost-management-billing/cost-management-billing-overview.md).
 
 Można filtrować według typu zasobu. Użycie `microsoft.labservices/labaccounts` spowoduje wyświetlenie tylko kosztu związanego z usługami Lab Services.
 
@@ -57,7 +57,7 @@ Poniższy zrzut ekranu przedstawia przykład analizy kosztów.
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu pokazujący przykładową analizę kosztów dla subskrypcji.](./media/cost-management-guide/cost-analysis.png)
 
-Domyślnie istnieje sześć kolumn: **zasób**, **Typ zasobu**, **Lokalizacja**, **Nazwa grupy zasobów**, **Tagi**i **koszt**. Kolumna **Resource** zawiera informacje o koncie laboratorium, nazwie laboratorium i maszynie wirtualnej. Wiersze pokazujące konto laboratorium, nazwę laboratorium i domyślny (drugi i trzeci wiersz) są kosztami laboratorium. Używane maszyny wirtualne mają koszt, który można wyświetlić w przypadku wierszy, które wyświetlają konto laboratorium, nazwę laboratorium, domyślną i nazwę maszyny wirtualnej. 
+Domyślnie istnieje sześć kolumn: **zasób**, **Typ zasobu**, **Lokalizacja**, **Nazwa grupy zasobów**, **Tagi** i **koszt**. Kolumna **Resource** zawiera informacje o koncie laboratorium, nazwie laboratorium i maszynie wirtualnej. Wiersze pokazujące konto laboratorium, nazwę laboratorium i domyślny (drugi i trzeci wiersz) są kosztami laboratorium. Używane maszyny wirtualne mają koszt, który można wyświetlić w przypadku wierszy, które wyświetlają konto laboratorium, nazwę laboratorium, domyślną i nazwę maszyny wirtualnej. 
 
 W tym przykładzie dodanie pierwszego i drugiego wiersza (Rozpocznij od **aaalab/dockerlab**) spowoduje udostępnienie łącznego kosztu laboratorium "dockerlab" w ramach konta laboratorium "aaalab".
 
@@ -70,7 +70,7 @@ Aby uzyskać ogólny koszt galerii obrazów, Zmień typ zasobu na `Microsoft.Com
 
 Niektóre szkoły wyższe używały konta laboratorium i grupy zasobów jako sposobów rozdzielania klas. Każda klasa ma własne konto laboratorium i grupę zasobów. 
 
-W okienku analiza kosztów Dodaj filtr oparty na nazwie grupy zasobów z odpowiednią nazwą grupy zasobów dla klasy. Następnie będą widoczne tylko koszty tej klasy. Umożliwia to wyraźniejsze rozróżnianie klas podczas wyświetlania kosztów. Możesz użyć funkcji [zaplanowana eksport](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) w analizie kosztów, aby pobrać koszty każdej klasy w oddzielnych plikach.
+W okienku analiza kosztów Dodaj filtr oparty na nazwie grupy zasobów z odpowiednią nazwą grupy zasobów dla klasy. Następnie będą widoczne tylko koszty tej klasy. Umożliwia to wyraźniejsze rozróżnianie klas podczas wyświetlania kosztów. Możesz użyć funkcji [zaplanowana eksport](../cost-management-billing/costs/tutorial-export-acm-data.md) w analizie kosztów, aby pobrać koszty każdej klasy w oddzielnych plikach.
 
 ## <a name="manage-costs"></a>Zarządzanie kosztami
 
@@ -90,7 +90,7 @@ Te ustawienia można skonfigurować zarówno na poziomie konta laboratorium, jak
 > [!NOTE]
 > To ustawienie jest dostępne tylko dla maszyn wirtualnych z systemem Windows.
 
-Gdy ustawienie **bezczynne użytkownicy rozłączenia nie są** włączone, użytkownik zostanie odłączony od wszystkich maszyn w laboratorium, gdy system operacyjny Windows uzna, że sesja jest bezczynna (w tym szablonów maszyn wirtualnych). [Definicja systemu operacyjnego Windows do bezczynności](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) używa dwóch kryteriów: 
+Gdy ustawienie **bezczynne użytkownicy rozłączenia nie są** włączone, użytkownik zostanie odłączony od wszystkich maszyn w laboratorium, gdy system operacyjny Windows uzna, że sesja jest bezczynna (w tym szablonów maszyn wirtualnych). [Definicja systemu operacyjnego Windows do bezczynności](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) używa dwóch kryteriów: 
 
 * Nieobecność użytkownika: brak klawiatury lub myszy.
 * Brak użycia zasobów: wszystkie procesory i wszystkie dyski były bezczynne przez określony procent czasu.
@@ -107,7 +107,7 @@ Aby automatycznie zamknąć bezczynne maszyny wirtualne z systemem Windows, nale
 Na przykład, jeśli skonfigurujesz ustawienia w następujący sposób:
  
 * **Rozłącz użytkowników, gdy maszyny wirtualne są w stanie bezczynności**: 15 minut po wykryciu stanu bezczynności.
-* **Zamknij maszyny wirtualne, gdy użytkownicy odłączają**się: 5 minut po rozłączeniu użytkownika.
+* **Zamknij maszyny wirtualne, gdy użytkownicy odłączają** się: 5 minut po rozłączeniu użytkownika.
  
 Maszyny wirtualne z systemem Windows zostaną automatycznie zamknięte przez 20 minut od momentu ich zatrzymania przez użytkownika. 
  
@@ -122,7 +122,7 @@ Ustawienie **odłączania maszyn wirtualnych, gdy użytkownicy** obsługują zar
 * W systemie Linux połączenie SSH zostało rozłączone.
  
 > [!NOTE]
-> Obsługiwane są tylko [określone dystrybucje i wersje systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) .
+> Obsługiwane są tylko [określone dystrybucje i wersje systemu Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) .
  
 Możesz określić, jak długo maszyny wirtualne powinny czekać, aby użytkownik mógł ponownie nawiązać połączenie przed automatycznym zamknięciem. 
 
@@ -160,6 +160,6 @@ Niektóre koszty nie są uwzględniane w usługach Lab Services, ale mogą być 
 
 Laboratoria mogą łączyć się z innymi zasobami platformy Azure za pomocą sieci wirtualnej. Po usunięciu laboratorium należy usunąć sieć wirtualną i inne zasoby.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Miejmy nadzieję informacje przedstawione w tym artykule zawierają lepsze zrozumienie narzędzi, które mogą pomóc w zmniejszeniu kosztów użytkowania.

@@ -8,19 +8,19 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441582"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660699"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Dodawanie połączenia lokacja-lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN (klasyczne)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 >
 >
@@ -71,8 +71,8 @@ Jeśli masz już sieć VPN typu lokacja-lokacja z bramą dynamicznego routingu, 
 2. Skonfiguruj nową bramę i Utwórz tunel VPN. Aby uzyskać instrukcje, zobacz [Określanie jednostki SKU i typu sieci VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Upewnij się, że typ routingu jest określony jako "dynamiczny".
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Jeśli nie masz sieci wirtualnej typu lokacja-lokacja:
-1. Utwórz sieć wirtualną lokacja-lokacja, wykonując następujące instrukcje: [utwórz Virtual Network z połączeniem sieci VPN typu lokacja-lokacja](vpn-gateway-site-to-site-create.md).  
-2. Konfigurowanie bramy routingu dynamicznego przy użyciu następujących instrukcji: [skonfiguruj VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Upewnij się, że wybrano opcję **Routing dynamiczny** dla danego typu bramy.
+1. Utwórz sieć wirtualną lokacja-lokacja, wykonując następujące instrukcje: [utwórz Virtual Network z połączeniem sieci VPN typu lokacja-lokacja](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Konfigurowanie bramy routingu dynamicznego przy użyciu następujących instrukcji: [skonfiguruj VPN Gateway](./vpn-gateway-howto-site-to-site-classic-portal.md). Upewnij się, że wybrano opcję **Routing dynamiczny** dla danego typu bramy.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. Wyeksportuj plik konfiguracji sieci
 

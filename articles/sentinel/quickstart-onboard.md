@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b33f3e58f82d52e77437c29f7e5219926b2578c3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106981"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660665"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki start: wdrażanie usługi Azure Sentinel
 
@@ -32,7 +32,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 - Aktywną subskrypcję platformy Azure, jeśli jej nie masz, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-- Log Analytics obszar roboczy. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Aby uzyskać więcej informacji na temat Log Analytics obszarów roboczych, zobacz [projektowanie Azure monitor dzienników wdrożenia](../azure-monitor/platform/design-logs-deployment.md).
+- Log Analytics obszar roboczy. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../azure-monitor/learn/quick-create-workspace.md). Aby uzyskać więcej informacji na temat Log Analytics obszarów roboczych, zobacz [projektowanie Azure monitor dzienników wdrożenia](../azure-monitor/platform/design-logs-deployment.md).
 
 - Aby włączyć wskaźnik na platformie Azure, musisz mieć uprawnienia współautora do subskrypcji, w której znajduje się obszar roboczy wskaźnik platformy Azure. 
 - Aby korzystać z platformy Azure, musisz mieć uprawnienia współautora lub czytelnika w grupie zasobów, do której należy obszar roboczy.
@@ -57,7 +57,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 ## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik <a name="enable"></a>
 
-1. Zaloguj się do Portalu Azure. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
+1. Zaloguj się w witrynie Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
 
 1. Wyszukaj i wybierz pozycję **wskaźnik na platformie Azure**.
 

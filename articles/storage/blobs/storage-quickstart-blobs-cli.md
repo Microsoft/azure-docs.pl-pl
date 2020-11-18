@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88520774"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660342"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -27,19 +27,9 @@ Interfejs wiersza polecenia platformy Azure to środowisko wiersza polecenia pla
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-## <a name="install-the-azure-cli-locally"></a>Instalowanie interfejsu wiersza polecenia platformy Azure lokalnie
-
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.46 lub nowszej. Uruchom polecenie `az --version`, aby sprawdzić wersję. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
-Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz się zalogować i uwierzytelnić. Ten krok nie jest konieczny, jeśli używasz Azure Cloud Shell. Aby zalogować się do interfejsu wiersza polecenia platformy Azure, uruchom `az login` i Uwierzytelnij w oknie przeglądarki:
-
-```azurecli
-az login
-```
-
-Aby uzyskać więcej informacji o uwierzytelnianiu za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
+- Ten artykuł wymaga wersji 2.0.46 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="authorize-access-to-blob-storage"></a>Autoryzuj dostęp do magazynu obiektów BLOB
 

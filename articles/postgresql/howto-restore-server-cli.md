@@ -8,27 +8,25 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c7e8f0fc3a90a0811d38840004f7ae12a9a225ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef397eb67c1f60c14fb36bf455236d84b730f611
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708513"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659577"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Kopie zapasowe serwerów Azure Database for PostgreSQL są podejmowane okresowo w celu włączenia funkcji przywracania. Korzystając z tej funkcji, można przywrócić serwer i wszystkie jego bazy danych do wcześniejszego punktu w czasie na nowym serwerze.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby ukończyć ten przewodnik, musisz:
-- [Serwer Azure Database for PostgreSQL i baza danych](quickstart-create-server-database-azure-cli.md)
+Aby ukończyć ten przewodnik:
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Potrzebny jest [serwer Azure Database for PostgreSQL i baza danych](quickstart-create-server-database-azure-cli.md).
 
- 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+ - Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="set-backup-configuration"></a>Ustawianie konfiguracji kopii zapasowej
 
@@ -69,9 +67,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 `az postgres server restore`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Sugerowana wartość | Opis  |
+| Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupa zasobów, w której znajduje się serwer źródłowy.  |
+| resource-group |  myresourcegroup |  Grupa zasobów, w której znajduje się serwer źródłowy.  |
 | name | mydemoserver-restored | Nazwa nowego serwera utworzonego za pomocą polecenie przywracania. |
 | restore-point-in-time | 2018 R-03-13T13:59:00Z | Wybierz punkt w czasie, do którego chcesz przywrócić. Ta data i godzina musi przypadać w okresie przechowywania kopii zapasowej serwera źródłowego. Użyj formatu daty i godziny ISO8601. Na przykład możesz użyć własnej lokalnej strefy czasowej, takiej jak `2018-03-13T05:59:00-08:00` . Można również użyć formatu UTC Zulu, na przykład `2018-03-13T13:59:00Z` . |
 | source-server | mydemoserver | Nazwa lub identyfikator serwera źródłowego, z którego ma zostać przeprowadzone przywrócenie. |
@@ -109,7 +107,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 `az postgres server georestore`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Sugerowana wartość | Opis  |
+| Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nazwa grupy zasobów, do której należy nowy serwer.|
 |name | mydemoserver-georestore | Nazwa nowego serwera. |

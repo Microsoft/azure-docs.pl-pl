@@ -3,12 +3,12 @@ title: Zarządzanie certyfikatami w klastrze usługi Azure Service Fabric
 description: Opisuje, jak dodać nowe certyfikaty, certyfikat przerzucania i usunąć certyfikat do lub z klastra Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd4440d76bed9d110c13baab9f4e67b3a5c64c0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869766"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660920"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Add or remove certificates for a Service Fabric cluster in Azure (Dodawanie lub usuwanie certyfikatów dla klastra usługi Service Fabric na platformie Azure)
 Zaleca się zapoznanie się ze sposobem, w jaki Service Fabric używa certyfikatów X. 509, i zna [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md). Przed kontynuowaniem należy zrozumieć, czym jest certyfikat klastra i co jest używane w programie.
@@ -18,7 +18,7 @@ Domyślne zachowanie ładowania certyfikatu zestawu SDK usługi Azure Service Fa
 Usługa Service Fabric pozwala określić dwa certyfikaty klastra, podstawowe i pomocnicze, podczas konfigurowania zabezpieczeń certyfikatów podczas tworzenia klastra, oprócz certyfikatów klienta. Zapoznaj się z tematem [Tworzenie klastra platformy Azure za pośrednictwem portalu](service-fabric-cluster-creation-via-portal.md) lub [Tworzenie klastra platformy Azure za pośrednictwem Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) , aby uzyskać szczegółowe informacje na temat konfigurowania ich w czasie tworzenia. W przypadku określenia tylko jednego certyfikatu klastra podczas tworzenia, który jest używany jako certyfikat podstawowy. Po utworzeniu klastra można dodać nowy certyfikat jako pomocniczy.
 
 > [!NOTE]
-> W przypadku bezpiecznego klastra będzie zawsze potrzebny co najmniej jeden prawidłowy (nieodwołany i niewygasły) wdrożony certyfikat klastra (podstawowy lub pomocniczy) (jeśli nie, klaster przestanie działać). 90 dni, zanim wszystkie prawidłowe certyfikaty osiągną wygaśnięcie, system generuje śledzenie ostrzeżeń oraz zdarzenie kondycji ostrzeżenia w węźle. W tym artykule nie ma obecnie poczty e-mail ani żadnych innych powiadomień, które Service Fabric wysyłali. 
+> W przypadku bezpiecznego klastra będzie zawsze potrzebny co najmniej jeden prawidłowy (nieodwołany i niewygasły) wdrożony certyfikat klastra (podstawowy lub pomocniczy) (jeśli nie, klaster przestanie działać). 90 dni, zanim wszystkie prawidłowe certyfikaty osiągną wygaśnięcie, system generuje śledzenie ostrzeżeń i zdarzenie kondycji ostrzeżenia w węźle. Obecnie są to jedyne powiadomienia Service Fabric wysyłane do wygaśnięcia certyfikatu.
 > 
 > 
 
@@ -26,7 +26,7 @@ Usługa Service Fabric pozwala określić dwa certyfikaty klastra, podstawowe i 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Dodawanie pomocniczego certyfikatu klastra przy użyciu portalu
-Nie można dodać pomocniczego certyfikatu klastra za pomocą Azure Portal przy użyciu programu Azure PowerShell. Ten proces jest opisany w dalszej części tego dokumentu.
+Nie można dodać pomocniczego certyfikatu klastra za pomocą Azure Portal; Użyj Azure PowerShell. Ten proces jest opisany w dalszej części tego dokumentu.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Usuwanie certyfikatu klastra przy użyciu portalu
 W przypadku bezpiecznego klastra będzie zawsze potrzebny co najmniej jeden ważny (nieodwołany i niewygasły) certyfikat. Certyfikat wdrożony z najpóźniejszym terminem wygaśnięcia w przyszłości będzie używany, a usunięcie go spowoduje, że klaster przestanie działać. Upewnij się, że usunięto certyfikat, którego ważność wygasła, lub nieużywany certyfikat, który wkrótce wygaśnie.

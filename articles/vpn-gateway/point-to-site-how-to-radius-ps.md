@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: bce381ba4916bc58d2c7acf8d69b323dbdf972aa
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64a4eb1b473c8944dadea4e1ee4323dfe4e9bcde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544787"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661124"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania usługi RADIUS: PowerShell
 
@@ -119,7 +119,7 @@ Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z t
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd* , *BackEnd* i *GatewaySubnet* . Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
+2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd*, *BackEnd* i *GatewaySubnet*. Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -152,7 +152,7 @@ Przed utworzeniem i skonfigurowaniem bramy sieci wirtualnej należy prawidłowo 
 2. Skonfiguruj bramę sieci VPN jako klienta RADIUS na serwerze RADIUS. Podczas dodawania tego klienta usługi RADIUS należy określić utworzoną sieć wirtualną GatewaySubnet. 
 3. Po skonfigurowaniu serwera RADIUS Pobierz adres IP serwera RADIUS i wspólny klucz tajny, który powinni używać klienci usługi RADIUS do komunikowania się z serwerem RADIUS. Jeśli serwer RADIUS należy do sieci wirtualnej platformy Azure, użyj adresu IP urzędu certyfikacji serwera usługi RADIUS.
 
-Artykuł [serwera zasad sieciowych (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) zawiera wskazówki dotyczące konfigurowania serwera usługi Windows RADIUS (NPS) na potrzeby uwierzytelniania domeny usługi AD.
+Artykuł [serwera zasad sieciowych (NPS)](/windows-server/networking/technologies/nps/nps-top) zawiera wskazówki dotyczące konfigurowania serwera usługi Windows RADIUS (NPS) na potrzeby uwierzytelniania domeny usługi AD.
 
 ## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a> Tworzenie bramy sieci VPN
 
@@ -252,13 +252,13 @@ Konfiguracja klienta sieci VPN umożliwia urządzeniom łączenie się z siecią
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Nawiązywanie połączenia z klienta sieci VPN dla komputerów Mac
 
-W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz** .
+W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz**.
 
   ![Połączenie z komputerem Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Aby zweryfikować połączenie
 
-1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all* .
+1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
 2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP należy do określonej podczas konfiguracji połączenia punkt-lokacja puli adresów klienta sieci VPN. Wyniki są podobne, jak w następującym przykładzie:
 
    ```
@@ -292,4 +292,4 @@ Często zadawane pytania dotyczą P2S przy użyciu uwierzytelniania usługi RADI
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/) (Maszyny wirtualne). Aby dowiedzieć się więcej o sieci i maszynach wirtualnych, zobacz [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).
+Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](../index.yml) (Maszyny wirtualne). Aby dowiedzieć się więcej o sieci i maszynach wirtualnych, zobacz [Azure and Linux VM network overview](../virtual-machines/network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).

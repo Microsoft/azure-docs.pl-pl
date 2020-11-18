@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
-ms.openlocfilehash: 17c3e9ee157cedd31be39f472f619a2df9ae32a6
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594185"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659611"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: Akceptowanie i odbieranie danych przy użyciu usługi Azure Data Share  
 
@@ -100,17 +100,40 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Otwórz zaproszenie
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Możesz otworzyć zaproszenie z poczty e-mail lub bezpośrednio z Azure Portal. 
 
    Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com> udziału danych platformy Azure**. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
 
-   Aby otworzyć zaproszenie z Azure Portal bezpośrednio, Wyszukaj **zaproszenia udziału danych** w Azure Portal. Spowoduje to przejście do listy zaproszeń udziału danych.
+   Aby otworzyć zaproszenie z Azure Portal bezpośrednio, Wyszukaj **zaproszenia udziału danych** w Azure Portal. Ta akcja spowoduje przejście do listy zaproszeń udziału danych.
 
    ![Lista zaproszeń](./media/invitations.png "Lista zaproszeń") 
 
 1. Wybierz udział, który chcesz wyświetlić. 
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Przygotuj środowisko interfejsu wiersza polecenia platformy Azure, a następnie Wyświetl zaproszenia.
+
+Zacznij od przygotowania środowiska dla interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Uruchom polecenie [AZ datashare zaproszenia użytkownika list](/cli/azure/ext/datashare/datashare/consumer/invitation#ext_datashare_az_datashare_consumer_invitation_list) , aby wyświetlić bieżące zaproszenia:
+
+```azurecli
+az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
+```
+
+Skopiuj swój identyfikator zaproszenia do użycia w następnej sekcji.
+
+---
+
 ## <a name="accept-invitation"></a>Zaakceptuj zaproszenie
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Upewnij się, że wszystkie pola są przeglądane, w tym **warunki użytkowania**. Jeśli akceptujesz warunki użytkowania, musisz zaznaczyć pole wyboru, aby wskazać, że zgadzasz się. 
 
    ![Warunki użytkowania](./media/terms-of-use.png "Warunki użytkowania") 
@@ -125,11 +148,27 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
    ![Zaakceptuj opcje](./media/accept-options.png "Zaakceptuj opcje") 
 
-   Spowoduje to przejście do otrzymanego udziału w Twoim koncie udostępniania danych. 
+   Ta akcja spowoduje przejście do otrzymanego udziału na koncie udziału danych. 
 
    Jeśli nie chcesz zaakceptować zaproszenia, wybierz pozycję *Odrzuć*. 
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Użyj polecenia [AZ datashare Consumer Share-Subscription Create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) , aby utworzyć udział danych.
+
+```azurecli
+az datashare consumer share-subscription create --resource-group share-rg \
+  --name "Fabrikam Solutions" --account-name FabrikamDataShareAccount \
+  --invitation-id 89abcdef-0123-4567-89ab-cdef01234567 \
+  --source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
+```
+
+---
+
 ## <a name="configure-received-share"></a>Konfiguruj odebrany udział
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz otrzymywać dane.
 
 1. Wybierz kartę **zestawy danych** . Zaznacz pole wyboru obok zestawu danych, do którego chcesz przypisać miejsce docelowe. Wybierz pozycję **+ Mapuj, aby** wybrać docelowy magazyn danych. 
@@ -146,16 +185,123 @@ Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz otrzymywa�
 
    ![Włącz harmonogram migawek](./media/enable-snapshot-schedule.png "Włącz harmonogram migawek")
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane dane.
+
+1. Uruchom polecenie [AZ datashare Consumer Share-Subscription-DataSet](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) , aby uzyskać identyfikator zestawu danych:
+
+   ```azurecli
+   az datashare consumer share-subscription list-source-dataset \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "[0].dataSetId"
+   ```
+
+1. Uruchom polecenie [AZ Storage account Create](/cli/azure/storage/account#az_storage_account_create) , aby utworzyć konto magazynu dla tego udziału danych:
+
+   ```azurecli
+   az storage account create --resource-group "share-rg" --name "FabrikamDataShareAccount" \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+1. Aby uzyskać identyfikator konta magazynu, użyj polecenia [AZ Storage account show](/cli/azure/storage/account#az_storage_account_show) :
+
+   ```azurecli
+   az storage account show --resource-group "share-rg" --name "FabrikamDataShareAccount" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "id"
+   ```
+
+1. Użyj następującego polecenia, aby uzyskać identyfikator podmiotu zabezpieczeń konta:
+
+   ```azurecli
+   az datashare account show --resource-group "share-rg" --name "cli_test_consumer_account" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "identity.principalId"
+   ```
+
+1. Użyj polecenia [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisanie roli dla podmiotu zabezpieczeń konta:
+
+   ```azurecli
+   az role assignment create --role "01234567-89ab-cdef-0123-456789abcdef" \
+     --assignee-object-id 6789abcd-ef01-2345-6789-abcdef012345 
+     --assignee-principal-type ServicePrincipal --scope 456789ab-cdef-0123-4567-89abcdef0123 \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+1. Utwórz zmienną dla mapowania opartą na IDENTYFIKATORze zestawu danych:
+
+   ```azurecli
+   $mapping='{\"data_set_id\":\"' + $dataset_id + '\",\"container_name\":\"newcontainer\",
+     \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
+   ```
+
+1. Użyj polecenia [AZ datashare Consumer DataSet-Mapping Create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) , aby utworzyć mapowanie zestawu danych:
+
+   ```azurecli
+   az datashare consumer dataset-mapping create --resource-group "share-rg" \
+     --name "consumer-data-set-mapping" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" --mapping $mapping \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+1. Uruchom polecenie [AZ datashare Consumer Share-Subscription Synchronize Start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) , aby rozpocząć synchronizację zestawu danych.
+
+   ```azurecli
+   az datashare consumer share-subscription synchronization start \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount"  \
+     --share-subscription-name "Fabrikam Solutions" --synchronization-mode "Incremental" \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+   Uruchom polecenie [AZ datashare Consumer Share-Subscription list synchronizacji](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) , aby wyświetlić listę Twoich synchronizacji:
+
+   ```azurecli
+   az datashare consumer share-subscription synchronization list \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+   Aby wyświetlić ustawienia synchronizacji ustawione w udziale, użyj polecenia [AZ datashare Consumer Share-Subscription-Source-Synchronization-Setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) .
+
+   ```azurecli
+   az datashare consumer share-subscription list-source-share-synchronization-setting \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+---
+
 ## <a name="trigger-a-snapshot"></a>Wyzwalanie migawki
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Te kroki dotyczą tylko udostępniania opartego na migawce.
 
 1. Możesz wyzwolić migawkę, wybierając kartę **szczegóły** , a następnie pozycję **Wyzwalaj migawkę**. Tutaj można wyzwolić pełną lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję pełna kopia. 
 
    ![Wyzwalanie migawki](./media/trigger-snapshot.png "Wyzwalanie migawki") 
 
-1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych** , a następnie kliknij link w ścieżce docelowej. 
+1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych**, a następnie kliknij link w ścieżce docelowej. 
 
    ![Zestawy danych dla odbiorców](./media/consumer-datasets.png "Mapowanie zestawu danych klienta") 
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Uruchom polecenie [AZ datashare Consumer Trigger Create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) , aby wyzwolić migawkę:
+
+```azurecli
+az datashare consumer trigger create --resource-group "share-rg" \
+  --name "share_test_trigger" --account-name "FabrikamDataShareAccount" \
+  --share-subscription-name "Fabrikam Solutions" --recurrence-interval "Day" \
+  --synchronization-time "2020-04-23 18:00:00 +00:00" --kind ScheduleBased \
+  --subscription 11111111-1111-1111-1111-111111111111
+```
+
+> [!NOTE]
+> Użyj tego polecenia tylko dla udostępniania opartego na migawce.
+
+---
 
 ## <a name="view-history"></a>Wyświetlanie historii
 Ten krok dotyczy tylko udostępniania opartego na migawce. Aby wyświetlić historię migawek, wybierz pozycję Karta **historia** . W tym miejscu znajdziesz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni.

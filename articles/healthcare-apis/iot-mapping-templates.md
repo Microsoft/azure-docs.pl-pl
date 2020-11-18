@@ -8,17 +8,17 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: f348a8d8755402d6426f19eabc432f54e3fb8e42
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630553"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659662"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Szablony mapowania łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
 W tym artykule szczegółowo opisano sposób konfigurowania łącznika usługi Azure IoT na potrzeby szybkich zasobów współdziałania w usłudze opieki zdrowotnej (FHIR&#174;) * przy użyciu szablonów
 
-Łącznik usługi Azure IoT dla FHIR wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia** , jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR** , steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
+Łącznik usługi Azure IoT dla FHIR wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia**, jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR**, steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
 
 Szablony mapowania składają się na dokument JSON w oparciu o ich typ. Te dokumenty JSON są następnie dodawane do łącznika usługi Azure IoT dla FHIR za pomocą Azure Portal. Dokument mapowania urządzeń zostanie dodany za pomocą strony **Konfigurowanie mapowania urządzenia** i dokumentu mapowania FHIR na stronie **Konfigurowanie mapowania FHIR** .
 
@@ -60,7 +60,7 @@ Sam ładunek zawartości jest komunikatem centrum zdarzeń platformy Azure, któ
 ```
 
 ### <a name="mapping-with-json-path"></a>Mapowanie przy użyciu ścieżki JSON
-Dwa typy szablonów zawartości urządzeń obsługiwane dzisiaj polegają na ścieżce JSON do obu elementów zgodnych z wymaganym szablonem i wyodrębnionymi wartościami. Więcej informacji na temat ścieżki JSON można znaleźć [tutaj](https://goessner.net/articles/JsonPath/). Oba typy szablonów używają implementacji w formacie [JSON platformy .NET](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) do rozpoznawania wyrażeń ścieżki JSON.
+Trzy typy szablonów zawartości urządzeń obsługiwane dzisiaj polegają na ścieżce JSON, aby oba były zgodne z wymaganym szablonem i wyodrębnionymi wartościami. Więcej informacji na temat ścieżki JSON można znaleźć [tutaj](https://goessner.net/articles/JsonPath/). Wszystkie trzy typy szablonów używają implementacji w formacie [JSON platformy .NET](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) do rozpoznawania wyrażeń ścieżki JSON.
 
 #### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
 JsonPathContentTemplate umożliwia dopasowanie i wyodrębnianie wartości z komunikatu centrum zdarzeń przy użyciu ścieżki JSON.
@@ -71,8 +71,8 @@ JsonPathContentTemplate umożliwia dopasowanie i wyodrębnianie wartości z komu
 |**TypeMatchExpression**|Wyrażenie ścieżki JSON, które jest oceniane względem ładunku centrum zdarzeń. Jeśli zostanie znaleziony pasujący JToken, szablon jest uznawany za dopasowanie. Wszystkie kolejne wyrażenia są oceniane względem wyodrębnionego JToken dopasowanego tutaj.|`$..[?(@heartRate)]`
 |**TimestampExpression**|Wyrażenie ścieżki JSON wyodrębniające wartość sygnatury czasowej OccurenceTimeUtc pomiaru.|`$.endDate`
 |**DeviceIdExpression**|Wyrażenie ścieżki JSON umożliwiające wyodrębnienie identyfikatora urządzenia.|`$.deviceId`
-|**PatientIdExpression**|*Opcjonalnie* : wyrażenie ścieżki JSON do wyodrębnienia identyfikatora pacjenta.|`$.patientId`
-|**EncounterIdExpression**|*Opcjonalnie* : wyrażenie ścieżki JSON do wyodrębnienia napotkanego identyfikatora.|`$.encounterId`
+|**PatientIdExpression**|*Opcjonalnie*: wyrażenie ścieżki JSON do wyodrębnienia identyfikatora pacjenta.|`$.patientId`
+|**EncounterIdExpression**|*Opcjonalnie*: wyrażenie ścieżki JSON do wyodrębnienia napotkanego identyfikatora.|`$.encounterId`
 |**Wartości []. Pełna**|Nazwa, która ma zostać skojarzona z wartością wyodrębnioną przez kolejne wyrażenie. Służy do powiązania wymaganej wartości/składnika w szablonie mapowania FHIR. |`hr`
 |**Wartości []. ValueExpression**|Wyrażenie ścieżki JSON umożliwiające wyodrębnienie wymaganej wartości.|`$.heartRate`
 |**Wartości []. Wymagane**|Wartość musi być obecna w ładunku.  Jeśli nie zostanie znaleziona, pomiar nie zostanie wygenerowany i zostanie wygenerowany InvalidOperationException.|`true`
@@ -251,10 +251,12 @@ JsonPathContentTemplate umożliwia dopasowanie i wyodrębnianie wartości z komu
     }
 }
 ```
+
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
+
 IotJsonPathContentTemplate jest podobna do JsonPathContentTemplate, z wyjątkiem DeviceIdExpression i TimestampExpression nie są wymagane.
 
-Założenie, że podczas korzystania z tego szablonu komunikaty są oceniane, są wysyłane przy użyciu [zestawów SDK urządzeń IoT Hub platformy Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). W przypadku korzystania z tych zestawów SDK tożsamość urządzenia (przy założeniu, że identyfikator urządzenia z usługi Azure IoT Hub/Centrala) jest zarejestrowana jako identyfikator dla zasobu urządzenia na serwerze docelowym FHIR, a sygnatura czasowa komunikatu jest znana. Jeśli używasz zestawów SDK urządzeń z platformą Azure IoT Hub, ale używamy właściwości niestandardowych w treści komunikatu dla tożsamości urządzenia lub sygnatury czasowej, możesz nadal korzystać z JsonPathContentTemplate.
+Przyjęto założenie, że w przypadku korzystania z tego szablonu komunikaty oceniane zostały wysłane przy użyciu funkcji [SDK urządzeń IoT Hub platformy Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) lub usługi  [Eksportowanie danych (starszej)](../iot-central/core/howto-export-data-legacy.md) w [usłudze Azure IoT Central](../iot-central/core/overview-iot-central.md). W przypadku korzystania z tych zestawów SDK tożsamość urządzenia (przy założeniu, że identyfikator urządzenia z usługi Azure IoT Hub/Centrala) jest zarejestrowana jako identyfikator dla zasobu urządzenia na serwerze docelowym FHIR, a sygnatura czasowa komunikatu jest znana. Jeśli używasz zestawów SDK urządzeń z platformą Azure IoT Hub, ale używamy właściwości niestandardowych w treści komunikatu dla tożsamości urządzenia lub sygnatury czasowej, możesz nadal korzystać z JsonPathContentTemplate.
 
 *Uwaga: w przypadku korzystania z IotJsonPathContentTemplate, TypeMatchExpression powinien rozwiązać cały komunikat jako JToken. Zapoznaj się z poniższymi przykładami.* 
 ##### <a name="examples"></a>Przykłady
@@ -329,6 +331,101 @@ Założenie, że podczas korzystania z tego szablonu komunikaty są oceniane, s�
             "valueName": "diastolic"
         }
     ]
+}
+```
+
+#### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
+
+IotCentralJsonPathContentTemplate również nie wymaga DeviceIdExpression i TimestampExpression, i jest używany podczas oceniania komunikatów przez funkcję [eksportowania danych](../iot-central/core/howto-export-data.md) w [usłudze Azure IoT Central](../iot-central/core/overview-iot-central.md). W przypadku korzystania z tej funkcji tożsamość urządzenia (przy założeniu, że identyfikator urządzenia z usługi Azure IoT Central jest zarejestrowany jako identyfikator dla zasobu urządzenia na serwerze docelowym FHIR) i sygnatura czasowa komunikatu. Jeśli używasz funkcji eksportu danych IoT Central platformy Azure, ale używamy właściwości niestandardowych w treści komunikatu dla tożsamości urządzenia lub sygnatury czasowej, możesz nadal korzystać z JsonPathContentTemplate.
+
+*Uwaga: w przypadku korzystania z IotCentralJsonPathContentTemplate, TypeMatchExpression powinien rozwiązać cały komunikat jako JToken. Zapoznaj się z poniższymi przykładami.* 
+##### <a name="examples"></a>Przykłady
+---
+**Częstotliwość serca**
+
+*Wiadomość*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "HeartRate": "88",
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Szablon*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.HeartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+---
+**Nacisk na krew**
+
+*Wiadomość*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "BloodPressure": {
+            "Diastolic": "87",
+            "Systolic": "123"
+        }
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Szablon*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "bloodPressure",
+        "typeMatchExpression": "$..[?(@telemetry.BloodPressure.Diastolic && @telemetry.BloodPressure.Systolic)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Diastolic",
+                "valueName": "bp_diastolic"
+            },
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Systolic",
+                "valueName": "bp_systolic"
+            }
+        ]
+    }
 }
 ```
 

@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
-ms.openlocfilehash: 867f12b026a56b7cab8530ef30c4a2f2c325f6b1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/15/2020
+ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637789"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659985"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Skonfiguruj własne środowisko IR jako serwer proxy dla Azure-SSIS IR w Azure Data Factory
 
@@ -28,8 +28,8 @@ W tym artykule opisano sposób uruchamiania pakietów SQL Server Integration Ser
 Korzystając z tej funkcji, można uzyskać dostęp do danych lokalnie bez konieczności [przyłączania Azure-SSIS IR do sieci wirtualnej](./join-azure-ssis-integration-runtime-virtual-network.md). Ta funkcja jest przydatna, gdy sieć firmowa ma zbyt złożoną konfigurację lub że zasady są zbyt restrykcyjne, aby móc wstrzyknąć do niej Azure-SSIS IR.
 
 Ta funkcja przerywa zadanie przepływu danych SSIS w dwóch zadaniach tymczasowych, gdy ma to zastosowanie: 
-* **Lokalne zadanie przemieszczania** : to zadanie uruchamia składnik przepływu danych, który nawiązuje połączenie z lokalnym magazynem danych na własnym hostowanym środowisku IR. Przenosi dane z lokalnego magazynu danych do obszaru przejściowego w usłudze Azure Blob Storage lub na odwrót.
-* **Zadanie przemieszczania w chmurze** : to zadanie służy do uruchamiania składnika przepływu danych, który nie łączy się z lokalnym magazynem danych w Azure-SSIS IR. Przenosi dane z obszaru przejściowego w usłudze Azure Blob Storage do magazynu danych w chmurze lub odwrotnie.
+* **Lokalne zadanie przemieszczania**: to zadanie uruchamia składnik przepływu danych, który nawiązuje połączenie z lokalnym magazynem danych na własnym hostowanym środowisku IR. Przenosi dane z lokalnego magazynu danych do obszaru przejściowego w usłudze Azure Blob Storage lub na odwrót.
+* **Zadanie przemieszczania w chmurze**: to zadanie służy do uruchamiania składnika przepływu danych, który nie łączy się z lokalnym magazynem danych w Azure-SSIS IR. Przenosi dane z obszaru przejściowego w usłudze Azure Blob Storage do magazynu danych w chmurze lub odwrotnie.
 
 Jeśli zadanie przepływu danych przenosi dane z lokalizacji lokalnej do chmury, to pierwsze i drugie zadania etapowe będą odpowiednio wykonywane lokalnie i w chmurze. Jeśli zadanie przepływu danych przenosi dane z chmury do lokalnego, wówczas pierwsze i drugie zadania przemieszczania będą odpowiednio w chmurze i lokalnych zadaniach tymczasowych. Jeśli zadanie przepływu danych przenosi dane ze środowisk lokalnych do lokalnego, wówczas pierwsze i drugie zadania przemieszczania będą zarówno lokalnymi zadaniami przemieszczania. Jeśli zadanie przepływu danych przenosi dane z chmury do chmury, ta funkcja nie ma zastosowania.
 
@@ -43,24 +43,34 @@ Następnie możesz skonfigurować własne środowisko IR w tej samej fabryce dan
 
 Na koniec pobierasz i instalujesz najnowszą wersję samoobsługowego środowiska IR, a także dodatkowe sterowniki i środowisko uruchomieniowe na maszynie lokalnej lub maszynie wirtualnej platformy Azure w następujący sposób:
 - Pobierz i zainstaluj najnowszą wersję [samodzielnego środowiska IR](https://www.microsoft.com/download/details.aspx?id=39717).
-- Jeśli używasz połączeń obiektów i osadzania bazy danych (OLEDB)/Open Database Connectivity (ODBC) w swoich pakietach, Pobierz i zainstaluj odpowiednie sterowniki na tym samym komputerze, na którym zainstalowano własne środowisko IR, jeśli jeszcze tego nie zrobiono.  
+- W przypadku używania łączników obiektów do łączenia i osadzania baz danych (OLEDB), Open Database Connectivity (ODBC) lub ADO.NET w pakietach, Pobierz i zainstaluj odpowiednie sterowniki na tym samym komputerze, na którym zainstalowano własne środowisko IR, jeśli jeszcze tego nie zrobiono.  
 
   Jeśli używasz starszej wersji sterownika OLEDB dla SQL Server (SQL Server Native Client [SQLNCLI]), [Pobierz wersję 64-bitową](https://www.microsoft.com/download/details.aspx?id=50402).  
 
   Jeśli używasz najnowszej wersji sterownika OLEDB dla SQL Server (MSOLEDBSQL), [Pobierz wersję 64-bitową](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  Jeśli używasz sterowników OLEDB/ODBC dla innych systemów baz danych, takich jak PostgreSQL, MySQL, Oracle i tak dalej, możesz pobrać 64-bitowe wersje z ich witryn sieci Web.
+  Jeśli używasz sterowników OLEDB/ODBC/ADO. NET dla innych systemów baz danych, takich jak PostgreSQL, MySQL, Oracle i tak dalej, możesz pobrać 64-bitowe wersje z ich witryn sieci Web.
 - Jeśli jeszcze tego nie zrobiono, [Pobierz i zainstaluj 64-bitową wersję środowiska uruchomieniowego Visual C++ (VC)](https://www.microsoft.com/download/details.aspx?id=40784) na tym samym komputerze, na którym zainstalowano własne środowisko IR.
 
-## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Przygotowywanie usługi połączonej Azure Blob Storage do przemieszczania
+### <a name="enable-windows-authentication-for-on-premises-staging-tasks"></a>Włącz uwierzytelnianie systemu Windows dla lokalnych zadań przemieszczania
+
+Jeśli lokalne zadania przemieszczania w samoobsługowym środowisku IR wymagają uwierzytelniania systemu Windows, [Skonfiguruj pakiety usług SSIS w taki sposób, aby korzystały z tego samego uwierzytelniania systemu Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+
+Lokalne zadania przemieszczania będą wywoływane przy użyciu samodzielnego konta usługi IR (domyślnie *NT SERVICE\DIAHostService*), a Twoje magazyny danych będą dostępne przy użyciu konta uwierzytelniania systemu Windows. Oba konta wymagają przypisania pewnych zasad zabezpieczeń do nich. Na komputerze z własnym obsługą podczerwieni przejdź do pozycji **zasady zabezpieczeń lokalnych**  >  **Zasady lokalne**  >  **Przypisywanie praw użytkownika**, a następnie wykonaj następujące czynności:
+
+1. Przypisz *limity przydziałów pamięci dla procesu* i *Zastąp zasady tokenów na poziomie procesu* do samodzielnego konta usługi IR. To powinno nastąpić automatycznie podczas instalacji własnego środowiska IR przy użyciu domyślnego konta usługi. Jeśli nie, przypisz te zasady ręcznie. W przypadku użycia innego konta usługi Przypisz do niego te same zasady.
+
+1. Przypisz *Logowanie jako zasady usługi* do konta uwierzytelniania systemu Windows.
+
+## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Przygotowywanie usługi połączonej Blob Storage platformy Azure na potrzeby przemieszczania
 
 Jeśli jeszcze tego nie zrobiono, Utwórz połączoną usługę Azure Blob Storage w tej samej fabryce danych, w której skonfigurowano Azure-SSIS IR. Aby to zrobić, zobacz [Tworzenie połączonej usługi Azure Data Factory](./quickstart-create-data-factory-portal.md#create-a-linked-service). Pamiętaj, aby wykonać następujące czynności:
-- W obszarze **Magazyn danych** wybierz pozycję **Azure Blob Storage** .  
+- W obszarze **Magazyn danych** wybierz pozycję **Azure Blob Storage**.  
 - W przypadku **połączenia za pośrednictwem środowiska Integration Runtime** wybierz pozycję **AutoResolveIntegrationRuntime** (nie Azure-SSIS IR ani własne środowisko IR), ponieważ używamy domyślnego Azure IR do pobierania poświadczeń dostępu dla BLOB Storage platformy Azure.
-- W obszarze **Metoda uwierzytelniania** wybierz pozycję **klucz konta** , **Identyfikator URI sygnatury dostępu współdzielonego** lub **nazwę główną usługi** .  
+- W **obszarze Metoda uwierzytelniania** wybierz pozycję **klucz konta**, **Identyfikator URI sygnatury dostępu współdzielonego**, **nazwę główną usługi** lub **tożsamość zarządzana**.  
 
-    >[!TIP]
-    >W przypadku wybrania metody **głównej usługi** Udziel nazwy głównej usługi co najmniej roli *współautor danych obiektu blob magazynu* . Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties).
+>[!TIP]
+>W przypadku wybrania metody **głównej usługi** Udziel nazwy głównej usługi co najmniej roli *współautor danych obiektu blob magazynu* . Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). W przypadku wybrania metody **zarządzanej tożsamości** Udziel swojej tożsamości zarządzanej przez usługę ADF odpowiednie role, aby uzyskać dostęp do usługi Azure Blob Storage. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Azure Blob Storage przy użyciu uwierzytelniania Azure Active Directory za pomocą tożsamości zarządzanej ADF](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Przygotowywanie usługi połączonej Azure Blob Storage do przemieszczania](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -68,7 +78,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz połączoną usługę Azure Blob Stora
 
 Po przygotowaniu samodzielnego środowiska IR i usługi połączonej Azure Blob Storage na potrzeby przemieszczania można teraz skonfigurować nowe lub istniejące Azure-SSIS IR przy użyciu samodzielnego środowiska IR jako serwera proxy w portalu lub aplikacji usługi Fabryka danych. Przed wykonaniem tej czynności, jeśli istniejący Azure-SSIS IR jest już uruchomiony, Zatrzymaj go, a następnie uruchom go ponownie.
 
-1. W okienku **Konfiguracja środowiska Integration Runtime** Pomiń poprzednie sekcje **Ustawienia ogólne** i **Ustawienia SQL** , wybierając pozycję **dalej** . 
+1. W okienku **Konfiguracja środowiska Integration Runtime** Pomiń poprzednie sekcje **Ustawienia ogólne** i **Ustawienia SQL** , wybierając pozycję **dalej**. 
 
 1. W sekcji **Ustawienia zaawansowane** wykonaj następujące czynności:
 
@@ -80,7 +90,7 @@ Po przygotowaniu samodzielnego środowiska IR i usługi połączonej Azure Blob 
 
    1. W polu **ścieżka przemieszczania** Określ kontener obiektów BLOB na wybranym koncie usługi Azure Blob Storage lub pozostaw to pole puste, aby użyć domyślnego ustawienia do przemieszczania.
 
-   1. Wybierz opcję **Kontynuuj** .
+   1. Wybierz opcję **Kontynuuj**.
 
    ![Ustawienia zaawansowane przy użyciu samodzielnego środowiska IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -129,7 +139,7 @@ Podczas projektowania nowych pakietów zawierających zadania przepływu danych 
 ![Włącz Właściwość ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 Możesz również włączyć tę właściwość, gdy uruchamiasz istniejące pakiety, bez konieczności ręcznego zmiany ich po jednym.  Dostępne są dwie opcje:
-- **Opcja A** : Otwórz, Odbuduj i ponownie Wdróż projekt zawierający te pakiety z najnowszą SSDTą do uruchomienia na Azure-SSIS IR. Następnie można włączyć właściwość przez ustawienie dla odpowiednich menedżerów połączeń *wartości true* . W przypadku uruchamiania pakietów z programu SSMS menedżerowie połączeń są wyświetlani na karcie **menedżerowie połączeń** okna podręcznego **Wykonaj pakiet** .
+- **Opcja A**: Otwórz, Odbuduj i ponownie Wdróż projekt zawierający te pakiety z najnowszą SSDTą do uruchomienia na Azure-SSIS IR. Następnie można włączyć właściwość przez ustawienie dla odpowiednich menedżerów połączeń *wartości true* . W przypadku uruchamiania pakietów z programu SSMS menedżerowie połączeń są wyświetlani na karcie **menedżerowie połączeń** okna podręcznego **Wykonaj pakiet** .
 
   ![Włącz ConnectByProxy Property2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -147,19 +157,11 @@ Możesz również włączyć tę właściwość, gdy uruchamiasz istniejące pak
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Debugowanie zadań przemieszczania lokalnego i w chmurze
 
-Na własnym hostowanym środowisku IR można znaleźć dzienniki środowiska uruchomieniowego w folderze *C:\ProgramData\SSISTelemetry* oraz dzienniki wykonywania lokalnych zadań tymczasowych w folderze *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Dzienniki wykonywania zadań przemieszczania w chmurze można znaleźć w SSISDB lub określonych ścieżkach rejestrowania, w zależności od tego, czy Twoje pakiety są przechowywane w SSISDB, czy nie. W dziennikach wykonywania zadań przemieszczania w chmurze można również znaleźć unikatowe identyfikatory lokalnych zadań tymczasowych. 
+Na własnym hostowanym środowisku IR można znaleźć dzienniki środowiska uruchomieniowego w folderze *C:\ProgramData\SSISTelemetry* oraz dzienniki wykonywania lokalnych zadań tymczasowych w folderze *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Dzienniki wykonywania zadań przemieszczania w chmurze można znaleźć w SSISDB, określonych ścieżkach plików rejestrowania lub Azure Monitor w zależności od tego, czy pakiety są przechowywane w SSISDB, Włącz [integrację Azure monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor)itp. W dziennikach wykonywania zadań przemieszczania w chmurze można również znaleźć unikatowe identyfikatory lokalnych zadań tymczasowych. 
 
 ![Unikatowy identyfikator pierwszego zadania przemieszczania](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
-## <a name="use-windows-authentication-in-on-premises-staging-tasks"></a>Używanie uwierzytelniania systemu Windows w lokalnych zadaniach tymczasowych
-
-Jeśli lokalne zadania przemieszczania w samoobsługowym środowisku IR wymagają uwierzytelniania systemu Windows, [Skonfiguruj pakiety usług SSIS w taki sposób, aby korzystały z tego samego uwierzytelniania systemu Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
-
-Lokalne zadania przemieszczania będą wywoływane przy użyciu samodzielnego konta usługi IR (domyślnie *NT SERVICE\DIAHostService* ), a Twoje magazyny danych będą dostępne przy użyciu konta uwierzytelniania systemu Windows. Oba konta wymagają przypisania pewnych zasad zabezpieczeń do nich. Na komputerze z własnym obsługą podczerwieni przejdź do pozycji **zasady zabezpieczeń lokalnych**  >  **Zasady lokalne**  >  **Przypisywanie praw użytkownika** , a następnie wykonaj następujące czynności:
-
-1. Przypisz *limity przydziałów pamięci dla procesu* i *Zastąp zasady tokenów na poziomie procesu* do samodzielnego konta usługi IR. To powinno nastąpić automatycznie podczas instalacji własnego środowiska IR przy użyciu domyślnego konta usługi. Jeśli nie, przypisz te zasady ręcznie. W przypadku użycia innego konta usługi Przypisz do niego te same zasady.
-
-1. Przypisz *Logowanie jako zasady usługi* do konta uwierzytelniania systemu Windows.
+Jeśli zostały zgłoszone bilety obsługi klienta, możesz wybrać przycisk **Wyślij dzienniki** na karcie **diagnostyka** w **Microsoft Integration Runtime Configuration Manager** zainstalowanej na samoobsługowym środowisku IR, aby wysłać najnowsze dzienniki operacji/wykonywania.
 
 ## <a name="billing-for-the-on-premises-and-cloud-staging-tasks"></a>Rozliczenia dla zadań przemieszczania lokalnego i w chmurze
 
@@ -167,7 +169,25 @@ Opłaty za lokalne zadania przemieszczania uruchamiane w ramach własnego środo
 
 Zadania przemieszczania w chmurze, które są uruchamiane w Azure-SSIS IR nie są rozliczane oddzielnie, ale w przypadku Azure-SSIS IR, w którym jest naliczana wartość określona w artykule [cennik Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
 
-## <a name="enabling-tls-12"></a>Włączanie protokołu TLS 1.2
+## <a name="enable-custom3rd-party-components"></a>Włącz składniki niestandardowe/inne firmy 
+
+Aby włączyć składniki niestandardowe/inne firmy do uzyskiwania dostępu do danych lokalnych przy użyciu samodzielnego środowiska IR jako serwera proxy dla Azure-SSIS IR, wykonaj następujące instrukcje:
+
+1. Zainstaluj składniki niestandardowe/innych firm ukierunkowane na SQL Server 2017 na Azure-SSIS IR za pośrednictwem [konfiguracji niestandardowych Standard/Express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+
+1. Utwórz następujące klucze rejestru DTSPath w samoobsługowym środowisku IR, jeśli jeszcze nie istnieją: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` i `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` .
+ 
+1. Zainstaluj składniki niestandardowe/inne firmy przeznaczone dla SQL Server 2017 na samoobsługowym środowisku IR w DTSPath powyżej i upewnij się, że proces instalacji:
+
+   1. Tworzy `<DTSPath>` , `<DTSPath>/Connections` , `<DTSPath>/PipelineComponents` , i `<DTSPath>/UpgradeMappings` foldery, jeśli jeszcze nie istnieją.
+   
+   1. Tworzy własny plik XML dla mapowań rozszerzeń w `<DTSPath>/UpgradeMappings` folderze.
+   
+   1. Instaluje wszystkie zestawy, do których odwołują się zestawy składników niestandardowych/innych firm w globalnej pamięci podręcznej zestawów (GAC).
+
+Oto [przykład składnika innej firmy](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) , który używa konfiguracji Express Custom i samodzielnego środowiska IR jako serwera proxy dla Azure-SSIS IR.
+
+## <a name="enforce-tls-12"></a>Wymuszanie protokołu TLS 1.2
 
 Jeśli musisz użyć silnego szyfrowania/bezpieczniejszego protokołu sieciowego (TLS 1,2) i wyłączyć starsze wersje protokołu SSL/TLS na własnym hostowanym środowisku IR, możesz pobrać i uruchomić główny skrypt *. cmd* , który znajduje się w folderze *CustomSetupScript/UserScenarios/TLS 1,2* naszego publicznego kontenera w wersji zapoznawczej.  Korzystając z [Eksplorator usługi Azure Storage](https://storageexplorer.com/), możesz nawiązać połączenie z naszym publicznym kontenerem w wersji zapoznawczej, wprowadzając następujący identyfikator URI SAS:
 
@@ -175,8 +195,10 @@ Jeśli musisz użyć silnego szyfrowania/bezpieczniejszego protokołu sieciowego
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
-- Obecnie obsługiwane są tylko zadania przepływu danych z OLEDB/ODBC/źródłami plików prostych lub lokalizacjami docelowymi OLEDB.
-- Obecnie są obsługiwane tylko usługi połączone z usługą Azure Blob Storage, które są skonfigurowane przy użyciu *klucza konta* , *identyfikatora URI sygnatury dostępu współdzielonego (SAS)* lub uwierzytelniania jednostki *usługi* .
+- Obecnie obsługiwane są tylko składniki przepływu danych wbudowane/preinstalowane w systemie Azure-SSIS IR Standard Edition, z wyjątkiem składników Hadoop/HDFS/DQS, zobacz [wszystkie wbudowane/preinstalowane składniki w Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Obecnie obsługiwane są tylko składniki przepływu danych inne niż niestandardowe/inne firmy, które są zapisywane w kodzie zarządzanym (.NET Framework) — te w kodzie natywnym (C++) nie są obecnie obsługiwane.
+- Zmiana wartości zmiennych w zadaniach tymczasowych i w chmurze nie jest obecnie obsługiwana.
+- Zmiana wartości zmiennych typu Object w lokalnych zadaniach tymczasowych nie zostanie odzwierciedlona w innych zadaniach.
 - *ParameterMapping* w źródle OLEDB nie jest obecnie obsługiwany. Aby obejść ten element, użyj *polecenia SQL ze zmiennej* jako *AccessMode* i USE *Expression* , aby wstawić zmienne/parametry do polecenia SQL. Jako ilustracja Zobacz pakiet *ParameterMappingSample. dtsx* , który można znaleźć w folderze *SelfHostedIRProxy/ograniczenia* naszego publicznego kontenera w wersji zapoznawczej. Korzystając z Eksplorator usługi Azure Storage, możesz nawiązać połączenie z naszym publicznym kontenerem w wersji zapoznawczej, wprowadzając powyższy identyfikator URI SAS.
 
 ## <a name="next-steps"></a>Następne kroki

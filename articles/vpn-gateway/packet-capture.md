@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073108"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661039"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurowanie przechwytywania pakietów dla bram sieci VPN
 
@@ -318,7 +318,7 @@ Poniższe przykłady danych JSON i schematu JSON zawierają wyjaśnienia każdej
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>Konfigurowanie przechwytywania pakietów przy użyciu programu PowerShell
 
-W poniższych przykładach przedstawiono polecenia programu PowerShell, które uruchamiają i zatrzymują przechwytywanie pakietów. Aby uzyskać więcej informacji na temat opcji parametrów, zobacz [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+W poniższych przykładach przedstawiono polecenia programu PowerShell, które uruchamiają i zatrzymują przechwytywanie pakietów. Aby uzyskać więcej informacji na temat opcji parametrów, zobacz [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Rozpocznij przechwytywanie pakietów dla bramy sieci VPN
 
@@ -354,7 +354,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Sugerowany minimalny czas trwania przechwytywania pakietów to 600 sekund. Ze względu na problemy z synchronizacją między wieloma składnikami w ścieżce krótsze przechwycenia pakietów może nie zapewniać kompletnych danych.
 - Pliki danych przechwytywania pakietów są generowane w formacie PCAP. Otwórz pliki PCAP za pomocą programu Wireshark lub innych powszechnie dostępnych aplikacji.
 - Przechwytywanie pakietów nie jest obsługiwane w bramach opartych na zasadach.
-- Jeśli `SASurl` parametr nie jest prawidłowo skonfigurowany, śledzenie może zakończyć się niepowodzeniem z błędami magazynu. Aby zapoznać się z przykładami prawidłowego generowania `SASurl` parametru, zobacz [stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+- Jeśli `SASurl` parametr nie jest prawidłowo skonfigurowany, śledzenie może zakończyć się niepowodzeniem z błędami magazynu. Aby zapoznać się z przykładami prawidłowego generowania `SASurl` parametru, zobacz [stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 
 
 

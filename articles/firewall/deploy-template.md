@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89071724"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660257"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Szybki Start: wdrażanie zapory platformy Azure przy użyciu szablonu Strefy dostępności-ARM
 
@@ -21,7 +21,7 @@ W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Szablon tworzy testowe środowisko sieciowe za pomocą zapory. Sieć ma jedną sieć wirtualną (VNet) z trzema podsieciami: *AzureFirewallSubnet*, *ServersSubnet*i *JumpboxSubnet*. Każda podsieć *ServersSubnet* i *JumpboxSubnet* ma jedną, dwurdzeniową maszynę wirtualną z systemem Windows Server.
+Szablon tworzy testowe środowisko sieciowe za pomocą zapory. Sieć ma jedną sieć wirtualną (VNet) z trzema podsieciami: *AzureFirewallSubnet*, *ServersSubnet* i *JumpboxSubnet*. Każda podsieć *ServersSubnet* i *JumpboxSubnet* ma jedną, dwurdzeniową maszynę wirtualną z systemem Windows Server.
 
 Zapora znajduje się w podsieci *AzureFirewallSubnet* i ma kolekcję reguł aplikacji z pojedynczą regułą, która umożliwia dostęp do programu `www.microsoft.com` .
 
@@ -56,7 +56,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Wdróż szablon ARM na platformie Azure:
 
@@ -93,4 +93,4 @@ Nie usuwaj grupy zasobów i zapory, jeśli planujesz kontynuować pracę z samou
 Następnie możesz monitorować dzienniki usługi Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Samouczek: monitorowanie dzienników usługi Azure Firewall](tutorial-diagnostics.md)
+> [Samouczek: monitorowanie dzienników usługi Azure Firewall](./firewall-diagnostics.md)

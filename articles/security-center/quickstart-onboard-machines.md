@@ -3,25 +3,25 @@ title: Połącz maszyny spoza platformy Azure z usługą Azure Security Center
 description: Dowiedz się, jak połączyć maszyny spoza platformy Azure w celu Security Center
 author: memildin
 ms.author: memildin
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 88c34be45a832f8944217630568927bc7d52fd88
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340873"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660206"
 ---
-#  <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
+# <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 
-Security Center może monitorować stan zabezpieczeń na komputerach spoza platformy Azure, ale najpierw należy połączyć je z platformą Azure. 
+Security Center może monitorować stan zabezpieczeń na komputerach spoza platformy Azure, ale najpierw należy połączyć je z platformą Azure.
 
 Komputery spoza platformy Azure można połączyć w dowolny z następujących sposobów:
 
-- Korzystanie z usługi Azure ARC (**zalecane**)
+- Korzystanie z [**zalecane**: serwerów z funkcją Azure Arc
 - Ze stron Security Center w Azure Portal (**wprowadzenie** i **spis**)
 
 Każdy z tych elementów został opisany na tej stronie.
@@ -30,21 +30,21 @@ Każdy z tych elementów został opisany na tej stronie.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Dodawanie maszyn spoza platformy Azure przy użyciu usługi Azure Arc
 
-Usługa Azure Arc jest preferowanym sposobem dodawania maszyn nienależących do platformy Azure do Azure Security Center.
+Serwery z obsługą usługi Azure Arc są preferowanym sposobem dodawania maszyn nienależących do platformy Azure do Azure Security Center.
 
-Komputer z włączonym użyciem usługi Azure Arc jest zasobem platformy Azure i pojawia się w Security Center z zaleceniami, takimi jak inne zasoby platformy Azure. 
+Komputer z serwerami z obsługą usługi Azure Arc jest zasobem platformy Azure i pojawia się w Security Center z zaleceniami, takimi jak inne zasoby platformy Azure.
 
-Ponadto usługa Azure Arc oferuje ulepszone możliwości, takie jak opcja włączania zasad na maszynie, wdrażanie agenta Log Analytics jako rozszerzenia, uproszczenie wdrażania z innymi usługami platformy Azure i nie tylko. Aby zapoznać się z omówieniem korzyści, zobacz [obsługiwane scenariusze](../azure-arc/servers/overview.md#supported-scenarios).
+Ponadto serwery z obsługą usługi Azure Arc zapewniają rozszerzone możliwości, takie jak opcja włączania zasad konfiguracji gościa na maszynie, wdrożenie agenta Log Analytics jako rozszerzenia, uproszczenie wdrażania z innymi usługami platformy Azure i inne. Aby zapoznać się z omówieniem korzyści, zobacz [obsługiwane scenariusze](../azure-arc/servers/overview.md#supported-scenarios).
+
+Dowiedz się więcej o [serwerach z obsługą usługi Azure Arc](../azure-arc/servers/overview.md).
 
 **Aby wdrożyć usługę Azure ARC:**
 
 - Na jednej maszynie postępuj zgodnie z instrukcjami w [przewodniku szybki start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-- Aby wdrożyć usługę Azure Arc w dużej skali, zobacz [łączenie maszyn hybrydowych z platformą Azure na dużą skalę](../azure-arc/servers/onboard-service-principal.md)
-
-Dowiedz się więcej o [usłudze Azure Arc](../azure-arc/servers/overview.md).
+- Aby połączyć wiele maszyn w odpowiedniej skali z serwerami z włączoną funkcją ARC, zobacz [łączenie maszyn hybrydowych z platformą Azure na dużą skalę](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
-> W przypadku dołączania maszyn AWS łącznik Security Center dla AWS w niewidoczny sposób obsługuje wdrożenie usługi Azure Arc. Dowiedz się więcej w temacie [Łączenie kont AWS z Azure Security Center](quickstart-onboard-aws.md).
+> W przypadku dołączania maszyn, na których działa usługa AWS, łącznik Security Center dla AWS w niewidoczny sposób obsługuje wdrożenie usługi Azure Arc. Dowiedz się więcej w temacie [Łączenie kont AWS z Azure Security Center](quickstart-onboard-aws.md).
 
 ::: zone-end
 
@@ -62,11 +62,11 @@ Dowiedz się więcej o [usłudze Azure Arc](../azure-arc/servers/overview.md).
     > [!TIP]
     > Możesz również otworzyć przycisk Dodaj maszyny ze strony **spisu** **Dodaj serwery spoza platformy Azure** .
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Karta wprowadzenie na stronie pierwsze kroki":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Dodawanie maszyn spoza platformy Azure ze strony spisu zasobów":::
 
     Zostanie wyświetlona lista obszarów roboczych usługi Log Analytics. Jeśli ma to zastosowanie, lista zawiera domyślny obszar roboczy utworzony przez usługę Security Center po włączeniu automatycznej aprowizacji. Wybierz ten obszar roboczy lub inny obszar roboczy, którego chcesz użyć.
 
-    Możesz dodać komputery do istniejącego obszaru roboczego lub utworzyć nowy obszar roboczy. 
+    Możesz dodać komputery do istniejącego obszaru roboczego lub utworzyć nowy obszar roboczy.
 
 1. Opcjonalnie, aby utworzyć nowy obszar roboczy, wybierz opcję  **Utwórz nowy obszar roboczy**.
 
@@ -79,9 +79,10 @@ Dowiedz się więcej o [usłudze Azure Arc](../azure-arc/servers/overview.md).
     - [Dołączanie maszyn z systemem Linux](#onboard-your-linux-machines)
     - [Dołączanie maszyn z systemem Windows](#onboard-your-windows-machines)
 
-
 ### <a name="onboard-your-azure-stack-vms"></a>Dołączanie maszyn wirtualnych Azure Stack
+
 Aby dodać maszyny wirtualne Azure Stack, należy uzyskać informacje na stronie **Zarządzanie agentami** oraz skonfigurować rozszerzenie maszyny wirtualnej do **zarządzania Azure monitor, aktualizacji i konfiguracji** na maszynach wirtualnych uruchomionych w Azure Stack.
+
 1. Na stronie **Zarządzanie agentami** Skopiuj **Identyfikator obszaru roboczego** i **klucz podstawowy** do Notatnika.
 1. Zaloguj się do portalu **Azure Stack** i Otwórz stronę **maszyny wirtualne** .
 1. Wybierz maszynę wirtualną, która ma być chroniona za pomocą Security Center.
@@ -95,16 +96,17 @@ Aby dodać maszyny wirtualne Azure Stack, należy uzyskać informacje na stronie
 1. Na stronie Konfiguracja **rozszerzenia instalacji** wklej **Identyfikator obszaru roboczego** i **klucz obszaru roboczego (klucz podstawowy)** skopiowane do Notatnika w poprzednim kroku.
 1. Po zakończeniu konfiguracji wybierz **przycisk OK**. Stan rozszerzenia zostanie wyświetlony po **pomyślnym zainicjowaniu obsługi administracyjnej**. Aby maszyna wirtualna była wyświetlana w Security Center, może upłynąć do godziny.
 
-
 ### <a name="onboard-your-linux-machines"></a>Dołączanie maszyn z systemem Linux
+
 Aby dodać maszyny z systemem Linux, musisz wykonać polecenie WGET na stronie **zarządzania agentami** .
+
 1. Na stronie **Zarządzanie agentami** Skopiuj polecenie **Wget** do Notatnika. Zapisz ten plik do lokalizacji dostępnej z komputera z systemem Linux.
 1. Na komputerze z systemem Linux Otwórz plik za pomocą polecenia WGET. Zaznacz całą zawartość i skopiuj ją i wklej do konsoli terminala.
 1. Po zakończeniu instalacji możesz sprawdzić, czy *omsagent* jest zainstalowany, uruchamiając polecenie *pgrep* . Polecenie zwróci identyfikator PID *omsagent* .
     Dzienniki dla agenta można znaleźć pod adresem: */var/opt/Microsoft/omsagent/ \<workspace id> /log/* nowy Security Center komputer z systemem Linux może potrwać do 30 minut.
 
-
 ### <a name="onboard-your-windows-machines"></a>Dołączanie maszyn z systemem Windows
+
 Aby dodać maszyny z systemem Windows, potrzebne są informacje na stronie **Zarządzanie** agentami oraz pobranie odpowiedniego pliku agenta (32/64-bitowy).
 1. Wybierz link **Pobierz agenta systemu Windows** odpowiadający typowi procesora komputera, aby pobrać plik instalacji.
 1. Na stronie **Zarządzanie agentami** Skopiuj **Identyfikator obszaru roboczego** i **klucz podstawowy** do Notatnika.
@@ -117,20 +119,21 @@ Aby dodać maszyny z systemem Windows, potrzebne są informacje na stronie **Zar
     1. Na stronie **gotowy do instalacji** przejrzyj ustawienia, które mają zostać zastosowane, a następnie wybierz pozycję **Zainstaluj**.
     1. Na stronie **Konfiguracja została ukończona pomyślnie** wybierz pozycję **Zakończ**.
 
-Po zakończeniu **log Analytics Agent** zostanie wyświetlony w **Panelu sterowania**. Możesz tam przejrzeć konfigurację i sprawdzić, czy agent został połączony.
+Po zakończeniu tego procesu **program Microsoft Monitoring Agent** zostanie wyświetlony w **Panelu sterowania**. Możesz tam przejrzeć konfigurację i sprawdzić, czy agent został połączony.
 
 Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 
 ## <a name="verifying"></a>Weryfikacj
+
 Gratulacje! Teraz możesz zobaczyć maszyny platformy Azure i inne niż platformy Azure razem w jednym miejscu. Otwórz [stronę spisu](asset-inventory.md) zasobów i odfiltruj do odpowiednich typów zasobów. Te ikony odróżniają typy:
 
   ![Ikona ASC dla maszyny spoza platformy Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Maszyna spoza platformy Azure
 
   ![Ikona ASC dla maszyny platformy Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Maszyna wirtualna platformy Azure
 
-  ![Ikona ASC dla maszyny usługi Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Komputer z obsługą usługi Azure Arc
+  ![Ikona ASC dla serwera usługi Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Serwer z włączonym usługą Azure Arc
 
 ## <a name="next-steps"></a>Następne kroki
 

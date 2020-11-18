@@ -1,26 +1,26 @@
 ---
-title: Korzystanie z tożsamości usługi AAD w usłudze sieci Web
+title: Używanie tożsamości usługi Azure AD z usługą sieci Web
 titleSuffix: Azure Machine Learning
-description: Użyj tożsamości usługi AAD w usłudze sieci Web w usłudze Azure Kubernetes Service, aby uzyskać dostęp do zasobów w chmurze podczas oceniania.
+description: Użyj tożsamości usługi Azure AD z usługą sieci Web w usłudze Azure Kubernetes, aby uzyskać dostęp do zasobów w chmurze podczas oceniania.
 services: machine-learning
 ms.author: larryfr
 author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 02/10/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1789f83f048a2ab0fb75aa33635e58b0850b865b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7b76c81a78bfd3eb57a54f1d23ba1b154b09b3e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319134"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660155"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Używanie tożsamości usługi Azure AD z usługą internetową uczenia maszynowego w usłudze Azure Kubernetes Service
 
-W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Active Directory (AAD) do wdrożonego modelu uczenia maszynowego w usłudze Azure Kubernetes. Projekt [tożsamości usługi AAD pod](https://github.com/Azure/aad-pod-identity) jest umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze przy użyciu [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) i Kubernetes podstawowych. Dzięki temu usługa sieci Web może bezpiecznie uzyskiwać dostęp do zasobów platformy Azure bez konieczności osadzania poświadczeń ani zarządzania tokenami bezpośrednio w `score.py` skrypcie. W tym artykule opisano kroki umożliwiające utworzenie i zainstalowanie tożsamości platformy Azure w klastrze usługi Azure Kubernetes i przypisanie tożsamości do wdrożonej usługi sieci Web.
+W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Active Directory (Azure AD) do wdrożonego modelu uczenia maszynowego w usłudze Azure Kubernetes. Projekt [tożsamości usługi Azure AD pod](https://github.com/Azure/aad-pod-identity) , umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze przy użyciu [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) i Kubernetes podstawowych. Dzięki temu usługa sieci Web może bezpiecznie uzyskiwać dostęp do zasobów platformy Azure bez konieczności osadzania poświadczeń ani zarządzania tokenami bezpośrednio w `score.py` skrypcie. W tym artykule opisano kroki umożliwiające utworzenie i zainstalowanie tożsamości platformy Azure w klastrze usługi Azure Kubernetes i przypisanie tożsamości do wdrożonej usługi sieci Web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,7 +30,7 @@ W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Activ
 
 - Usługa sieci Web Azure Machine Learning wdrożona w klastrze AKS.
 
-## <a name="create-and-install-an-azure-identity-in-your-aks-cluster"></a>Tworzenie i Instalowanie tożsamości platformy Azure w klastrze AKS
+## <a name="create-and-install-an-azure-identity"></a>Utwórz i zainstaluj tożsamość platformy Azure
 
 1. Aby określić, czy klaster AKS jest włączony RBAC, użyj następującego polecenia:
 
@@ -40,40 +40,17 @@ W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Activ
 
     To polecenie zwraca wartość, `true` Jeśli RBAC jest włączona. Ta wartość Określa polecenie do użycia w następnym kroku.
 
-1. Aby zainstalować [tożsamość usługi AAD pod](https://github.com/Azure/aad-pod-identity#getting-started) w klastrze AKS, użyj jednego z następujących poleceń:
+1. Zainstaluj [tożsamość usługi Azure AD pod](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) w klastrze AKS.
 
-    * Jeśli klaster AKS ma **włączoną funkcję RBAC** , użyj następującego polecenia:
-    
-        ```azurecli-interactive
-        kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-        ```
-    
-    * Jeśli w klastrze AKS **nie włączono kontroli RBAC** , użyj następującego polecenia:
-    
-        ```azurecli-interactive
-        kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-        ```
-    
-        Dane wyjściowe polecenia są podobne do następującego tekstu:
+1. [Utwórz tożsamość na platformie Azure](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#2-create-an-identity-on-azure) , postępując zgodnie z instrukcjami wyświetlanymi na stronie projektu tożsamości usługi Azure AD pod.
 
-        ```text
-        customresourcedefinition.apiextensions.k8s.io/azureassignedidentities.aadpodidentity.k8s.io created
-        customresourcedefinition.apiextensions.k8s.io/azureidentitybindings.aadpodidentity.k8s.io created
-        customresourcedefinition.apiextensions.k8s.io/azureidentities.aadpodidentity.k8s.io created
-        customresourcedefinition.apiextensions.k8s.io/azurepodidentityexceptions.aadpodidentity.k8s.io created
-        daemonset.apps/nmi created
-        deployment.apps/mic created
-        ```
+1. [Wdróż AzureIdentity](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#3-deploy-azureidentity) , postępując zgodnie z instrukcjami wyświetlanymi na stronie projektu tożsamości usługi Azure AD pod.
 
-1. [Utwórz tożsamość platformy Azure](https://github.com/Azure/aad-pod-identity#2-create-an-azure-identity) , postępując zgodnie z instrukcjami wyświetlanymi na stronie projektu tożsamości usługi AAD pod.
+1. [Wdróż AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#5-deploy-azureidentitybinding) , postępując zgodnie z instrukcjami wyświetlanymi na stronie projektu tożsamości usługi Azure AD pod.
 
-1. [Zainstaluj tożsamość platformy Azure](https://github.com/Azure/aad-pod-identity#3-install-the-azure-identity) , postępując zgodnie z instrukcjami wyświetlanymi na stronie projektu tożsamości usługi AAD pod.
+1. Jeśli tożsamość platformy Azure utworzona w poprzednim kroku nie znajduje się w tej samej grupie zasobów węzła dla klastra AKS, postępuj zgodnie z instrukcjami [przypisywania roli](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/#user-assigned-identities-that-are-not-within-the-node-resource-group) przedstawionymi na stronie projektu tożsamości usługi Azure AD pod.
 
-1. [Zainstaluj powiązanie tożsamości platformy Azure](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding) , postępując zgodnie z instrukcjami wyświetlanymi na stronie projektu tożsamości usługi AAD pod.
-
-1. Jeśli tożsamość platformy Azure utworzona w poprzednim kroku nie znajduje się w tej samej grupie zasobów co klaster AKS, postępuj zgodnie z instrukcjami [ustawionymi dla mikrofonu](https://github.com/Azure/aad-pod-identity#6-set-permissions-for-mic) , postępując zgodnie z instrukcjami wyświetlanymi na stronie projektu tożsamości usługi AAD pod.
-
-## <a name="assign-azure-identity-to-machine-learning-web-service"></a>Przypisywanie tożsamości platformy Azure do usługi sieci Web Machine Learning
+## <a name="assign-azure-identity-to-web-service"></a>Przypisywanie tożsamości platformy Azure do usługi sieci Web
 
 W poniższych krokach użyto tożsamości platformy Azure utworzonej w poprzedniej sekcji i przypiszesz ją do usługi sieci Web AKS za pomocą **etykiety selektora**.
 
@@ -83,7 +60,7 @@ Najpierw zidentyfikuj nazwę i przestrzeń nazw wdrożenia w klastrze AKS, do kt
 kubectl get deployment --selector=isazuremlapp=true --all-namespaces --show-labels
 ```
 
-Dodaj etykietę selektora tożsamości platformy Azure do wdrożenia, edytując specyfikację wdrażania. Wartość selektora powinna być taka, która została zdefiniowana w kroku 5 [instalacji powiązania tożsamości platformy Azure](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding).
+Dodaj etykietę selektora tożsamości platformy Azure do wdrożenia, edytując specyfikację wdrażania. Wartość selektora powinna być taka, którą zdefiniowano w kroku 5 [wdrożenia AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#5-deploy-azureidentitybinding).
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -110,38 +87,32 @@ spec:
       ...
 ```
 
-Aby sprawdzić, czy etykieta została prawidłowo dodana, uruchom następujące polecenie.
+Aby sprawdzić, czy etykieta została prawidłowo dodana, uruchom następujące polecenie. Należy również sprawdzić stan nowo utworzonych zasobników.
 
 ```azurecli-interactive
-   kubectl get deployment <name of deployment> -n azureml-<name of workspace> --show-labels
+   kubectl get pod -n azureml-<name of workspace> --show-labels
 ```
 
-Aby wyświetlić wszystkie Stany pod stanami, uruchom następujące polecenie.
+Usługi sieci Web dla tego wdrożenia mogą teraz uzyskiwać dostęp do zasobów platformy Azure za pomocą tożsamości platformy Azure bez konieczności osadzania poświadczeń w kodzie.
 
-```azurecli-interactive
-    kubectl get pods -n azureml-<name of workspace>
-```
-
-Usługi sieci Web dla tego wdrożenia mogą teraz uzyskiwać dostęp do zasobów platformy Azure za pomocą tożsamości platformy Azure bez konieczności osadzania poświadczeń w kodzie. 
-
-## <a name="assign-the-appropriate-roles-to-your-azure-identity"></a>Przypisywanie odpowiednich ról do tożsamości platformy Azure
+## <a name="assign-roles-to-your-azure-identity"></a>Przypisywanie ról do tożsamości platformy Azure
 
 [Przypisz swoją tożsamość zarządzaną platformy Azure z odpowiednimi rolami](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) , aby uzyskać dostęp do innych zasobów platformy Azure. Upewnij się, że przypisywane role mają poprawne **akcje dotyczące danych**. Na przykład [rola czytnika danych obiektów blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) będzie miała uprawnienia do odczytu obiektu blob magazynu, podczas gdy ogólna [rola czytnika](../role-based-access-control/built-in-roles.md#reader) może nie być.
 
-## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Używanie tożsamości platformy Azure z usługą sieci Web Machine Learning
+## <a name="use-azure-identity-with-your-web-service"></a>Używanie tożsamości platformy Azure z usługą sieci Web
 
 Wdróż model w klastrze AKS. `score.py`Skrypt może zawierać operacje wskazujące zasoby platformy Azure, do których ma dostęp Twoja tożsamość platformy Azure. Upewnij się, że zainstalowano wymagane zależności biblioteki klienta dla zasobu, do którego próbujesz uzyskać dostęp. Poniżej przedstawiono kilka przykładów użycia tożsamości platformy Azure do uzyskiwania dostępu do różnych zasobów platformy Azure z usługi.
 
 ### <a name="access-key-vault-from-your-web-service"></a>Dostęp do Key Vault z usługi sieci Web
 
-Jeśli masz uprawnienia do odczytu tożsamości platformy Azure do wpisu tajnego w ramach **Key Vault** , `score.py` możesz uzyskać do niego dostęp przy użyciu następującego kodu.
+Jeśli masz uprawnienia do odczytu tożsamości platformy Azure do wpisu tajnego w ramach **Key Vault**, `score.py` możesz uzyskać do niego dostęp przy użyciu następującego kodu.
 
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 
 my_vault_name = "yourkeyvaultname"
-my_vault_url = "https://{}.vault.azure.net/".format(my_vault_name) 
+my_vault_url = "https://{}.vault.azure.net/".format(my_vault_name)
 my_secret_name = "sample-secret"
 
 # This will use your Azure Managed Identity
@@ -157,7 +128,7 @@ secret = secret_client.get_secret(my_secret_name)
 
 ### <a name="access-blob-from-your-web-service"></a>Dostęp do obiektu BLOB z usługi sieci Web
 
-Jeśli masz dostęp do odczytu tożsamości platformy Azure do danych wewnątrz **obiektu blob magazynu** , `score.py` możesz uzyskać do niego dostęp przy użyciu następującego kodu.
+Jeśli masz dostęp do odczytu tożsamości platformy Azure do danych wewnątrz **obiektu blob magazynu**, `score.py` możesz uzyskać do niego dostęp przy użyciu następującego kodu.
 
 ```python
 from azure.identity import DefaultAzureCredential

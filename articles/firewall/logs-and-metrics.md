@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: victorh
-ms.openlocfilehash: a0333f9afa69b533ac28dc302987e6d057bfeeb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69890e2d846a63a70c1b7459b1df13ce5e891289
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090163"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659475"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Dzienniki i metryki usługi Azure Firewall
 
@@ -155,10 +155,10 @@ Następujące metryki są dostępne dla zapory platformy Azure:
     Jednostka: procent
 
    Ta metryka ma dwa wymiary:
-  - Stan: możliwe wartości są *zdrowe*, *w*złej *kondycji*.
+  - Stan: możliwe wartości są *zdrowe*, *w* złej *kondycji*.
   - Przyczyna: wskazuje przyczynę odpowiedniego stanu zapory. 
 
-     W przypadku używania portów podłączania adresów sieciowych > 95%, są one uznawane za wyczerpane, a kondycja wynosi 50% ze stanem o**obniżonym obniżyć** i Przyczyna =**port**. Zapora nadal przetwarza ruch i nie ma to wpływu na istniejące połączenia. Jednak sporadycznie mogą wystąpić problemy z ustanawianiem nowych połączeń.
+     W przypadku używania portów podłączania adresów sieciowych > 95%, są one uznawane za wyczerpane, a kondycja wynosi 50% ze stanem o **obniżonym obniżyć** i Przyczyna =**port**. Zapora nadal przetwarza ruch i nie ma to wpływu na istniejące połączenia. Jednak sporadycznie mogą wystąpić problemy z ustanawianiem nowych połączeń.
 
      Jeśli porty źródłowego translatora adresów sieciowych są używane < 95%, Zapora jest uznawana za w dobrej kondycji, a kondycja jest wyświetlana jako 100%.
 
@@ -173,6 +173,6 @@ Następujące metryki są dostępne dla zapory platformy Azure:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak monitorować dzienniki i metryki zapory platformy Azure, zobacz [Samouczek: monitorowanie dzienników zapory platformy Azure](tutorial-diagnostics.md).
+- Aby dowiedzieć się, jak monitorować dzienniki i metryki zapory platformy Azure, zobacz [Samouczek: monitorowanie dzienników zapory platformy Azure](./firewall-diagnostics.md).
 
 - Aby dowiedzieć się więcej o metrykach w Azure Monitor, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md).

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
-ms.openlocfilehash: 27d48ef8961aa0b7fde4a92195ea92a1ec20c3f0
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594202"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659628"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Samouczek: Udostępnianie danych przy użyciu usługi Azure Data Share  
 
@@ -98,6 +98,8 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Tworzenie konta udziału danych
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure.
 
 1. Wybierz przycisk menu w lewym górnym rogu portalu, a następnie wybierz pozycję **Utwórz zasób** (+).
@@ -111,16 +113,60 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
      **Ustawienie** | **Sugerowana wartość** | **Opis pola**
     |---|---|---|
     | Subskrypcja | Twoja subskrypcja | Wybierz subskrypcję platformy Azure, która ma być używana dla konta udziału danych.|
-    | Grupa zasobów | *Testuj grupę zasobów* | Użyj istniejącej grupy zasobów lub utwórz nową. |
+    | Grupa zasobów | *testresourcegroup* | Użyj istniejącej grupy zasobów lub utwórz nową. |
     | Lokalizacja | *Wschodnie stany USA 2* | Wybierz region dla konta udziału danych.
     | Nazwa | *datashareaccount* | Określ nazwę konta udziału danych. |
     | | |
 
-1. Wybierz pozycję **Przegląd + Utwórz** , a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
+1. Wybierz pozycję **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
 
 1. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure.
+
+Zacznij od przygotowania środowiska dla interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Użyj następujących poleceń, aby utworzyć zasób:
+
+1. Użyj polecenia [AZ Account Set](/cli/azure/account#az_account_set) , aby ustawić subskrypcję jako bieżącą subskrypcję domyślną:
+
+   ```azurecli
+   az account set --subscription 00000000-0000-0000-0000-000000000000
+   ```
+
+1. Uruchom polecenie [AZ Provider Register](/cli/azure/provider#az_provider_register) , aby zarejestrować dostawcę zasobów:
+
+   ```azurecli
+   az provider register --name "Microsoft.DataShare"
+   ```
+
+1. Uruchom polecenie [az group create](/cli/azure/group#az_group_create), aby utworzyć grupę zasobów lub użyć istniejącej grupy zasobów:
+
+   ```azurecli
+   az group create --name testresourcegroup --location "East US 2"
+   ```
+
+1. Uruchom polecenie [AZ datashare Account Create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) , aby utworzyć konto udziału danych:
+
+   ```azurecli
+   az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
+   ```
+
+   Uruchom polecenie [AZ datashare Account List](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) , aby wyświetlić konta udziałów danych:
+
+   ```azurecli
+   az datashare account list --resource-group testresourcegroup
+   ```
+
+---
+
 ## <a name="create-a-share"></a>Tworzenie udziału
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Przejdź do strony Przegląd udostępniania danych.
 
@@ -163,6 +209,38 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 1. Wybierz opcję **Kontynuuj**.
 
 1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+1. Uruchom polecenie [AZ Storage account Create](/cli/azure/storage/account#az_storage_account_create) , aby utworzyć udział danych:
+
+   ```azurecli
+   az storage account create --resource-group testresourcegroup --name ContosoMarketplaceAccount
+   ```
+
+1. Użyj polecenia [AZ Storage Container Create](/cli/azure/storage/container#az_storage_container_create) , aby utworzyć kontener dla udziału w poprzednim poleceniu:
+
+   ```azurecli
+   az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
+   ```
+
+1. Uruchom polecenie [AZ datashare Create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) , aby utworzyć udział danych:
+
+   ```azurecli
+   az datashare create --resource-group testresourcegroup \
+     --name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount \
+     --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
+   ```
+
+1. Użyj polecenia [AZ datashare zaproszenia Create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create) , aby utworzyć zaproszenie dla określonego adresu:
+
+   ```azurecli
+   az datashare invitation create --resource-group testresourcegroup \
+     --name DataShareInvite --share-name ContosoMarketplaceDataShare \
+     --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
+   ```
+
+---
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia.
 

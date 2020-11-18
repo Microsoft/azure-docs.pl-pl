@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9502f3fbd50aad756e15daa4db1badda2abf9ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442159"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660070"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -23,7 +23,7 @@ Ten artykuł pomoże Ci połączyć sieci wirtualne przy użyciu typu połączen
 Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager i użyto w nich interfejsu wiersza polecenia platformy Azure. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -134,7 +134,7 @@ W przykładach stosujemy następujące wartości:
    ```azurecli
    az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
    ```
-3. Utwórz dodatkową przestrzeń adresową dla podsieci zaplecza. Zwróć uwagę, że w tym kroku określana jest zarówno przestrzeń adresowa utworzona wcześniej, jak i dodatkowa przestrzeń adresowa, którą chcemy dodać. Wynika to z tego, że wykonanie polecenia [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) zastąpi wcześniejsze ustawienia. Pamiętaj, aby w przypadku korzystania z tego polecenia określić wszystkie prefiksy adresu.
+3. Utwórz dodatkową przestrzeń adresową dla podsieci zaplecza. Zwróć uwagę, że w tym kroku określana jest zarówno przestrzeń adresowa utworzona wcześniej, jak i dodatkowa przestrzeń adresowa, którą chcemy dodać. Wynika to z tego, że wykonanie polecenia [az network vnet update](/cli/azure/network/vnet) zastąpi wcześniejsze ustawienia. Pamiętaj, aby w przypadku korzystania z tego polecenia określić wszystkie prefiksy adresu.
 
    ```azurecli
    az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -214,10 +214,10 @@ Mamy teraz dwie sieci wirtualne z bramami sieci VPN. Następny krok polega na ut
    ```
    "activeActive": false, 
    "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
    "enableBgp": false, 
    "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
    "gatewayDefaultSite": null, 
@@ -356,7 +356,7 @@ Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozb
 
    Skopiuj dane wyjściowe z wiersza "id:". Wyślij identyfikator i nazwę bramy sieci wirtualnej (VNet5GW) do administratora Subskrypcji 1 za pomocą poczty e-mail lub innej metody.
 
-3. **[Subskrypcja 1]** W tym kroku zostanie utworzone połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet5. Dla klucza współużytkowanego można użyć własnych wartości, ale klucz ten musi być zgodny w przypadku obu połączeń. Tworzenie połączenia może nieco potrwać.Połącz się z Subskrypcją 1.
+3. **[Subskrypcja 1]** W tym kroku zostanie utworzone połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet5. Dla klucza współużytkowanego można użyć własnych wartości, ale klucz ten musi być zgodny w przypadku obu połączeń. Tworzenie połączenia może nieco potrwać. Połącz się z Subskrypcją 1.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
@@ -378,5 +378,5 @@ Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozb
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą maszyn wirtualnych](https://docs.microsoft.com/azure/).
+* Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą maszyn wirtualnych](../index.yml).
 * Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).

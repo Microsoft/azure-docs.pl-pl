@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: c8e454f523f081681d359dfd852c5f88d69a99d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579355"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661056"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Badaj pliki Parquet za pomocą puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -35,7 +35,7 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Upewnij się, że masz dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub niestandardowej tożsamości platformy Azure, konieczne będzie skonfigurowanie [poświadczeń na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub niestandardowej tożsamości platformy Azure, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
 > Upewnij się, że używasz pewnego sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ), ponieważ wartości ciągów w plikach PARQUET są kodowane przy użyciu kodowania UTF-8.

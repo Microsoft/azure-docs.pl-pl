@@ -208,7 +208,7 @@
 - name: Dokumentacja (nowość!)
   items:
     - name: Interfejsy API REST
-      href: 'https://docs.microsoft.com/rest/api/securityinsights/'
+      href: /rest/api/securityinsights/
     - name: Schemat normalizacji sieci
       href: normalization-schema.md
 - name: Zasoby
@@ -218,7 +218,7 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure'
-      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
+      href: /archive/blogs/azuresecurity/
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Cennik

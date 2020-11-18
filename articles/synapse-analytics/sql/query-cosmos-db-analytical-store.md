@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579389"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661022"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w usłudze Azure Synapse link (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/s
 W tym artykule dowiesz się, jak napisać zapytanie z pulą SQL bezserwerową, która będzie wysyłać zapytania do danych z Azure Cosmos DB kontenerów z włączonym łączem Synapse. Następnie można dowiedzieć się więcej o tworzeniu widoków puli SQL bezserwerowych za pośrednictwem kontenerów Azure Cosmos DB i łączeniu ich z modelami Power BI w [tym](./tutorial-data-analyst.md) samouczku. 
 
 > [!IMPORTANT]
-> W tym samouczku jest stosowany kontener ze [zdefiniowanym schematem Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). W zapytaniu niezależnym od serwera Pula SQL zapewnia [Azure Cosmos DB schemat pełnej wierności](#full-fidelity-schema) , który zostanie zmieniony na podstawie opinii o wersji zapoznawczej. Nie należy polegać na schemacie zestawu wyników `OPENROWSET` funkcji bez `WITH` klauzuli, która odczytuje dane z kontenera z pełnym schematem wierności, ponieważ środowisko zapytania może zostać zmienione i wyrównane z dobrze zdefiniowanym schematem. Opublikuj swoją opinię na [forum opinii usługi Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) lub skontaktuj się z [zespołem produktu](mailto:cosmosdbsynapselink@microsoft.com) , aby uzyskać opinię.
+> W tym samouczku jest stosowany kontener z [dobrze zdefiniowanym schematem Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). W zapytaniu, że niezależna od serwera Pula SQL zapewnia [Azure Cosmos DB schemat pełnej wierności](#full-fidelity-schema) jest zachowaniem tymczasowym, które zmieni się na podstawie opinii o wersji zapoznawczej. Nie należy polegać na schemacie zestawu wyników `OPENROWSET` funkcji bez `WITH` klauzuli, która odczytuje dane z kontenera z pełnym schematem wierności, ponieważ środowisko zapytania może być wyrównane i zmieniane w oparciu o dobrze zdefiniowany schemat. Opublikuj swoją opinię na [forum opinii usługi Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) lub skontaktuj się z [zespołem ds. produktów](mailto:cosmosdbsynapselink@microsoft.com) , aby przekazać opinię.
 
 ## <a name="overview"></a>Omówienie
 

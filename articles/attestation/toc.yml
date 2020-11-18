@@ -11,6 +11,8 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: quickstart-azure-cli.md
 - name: Samouczki
   items:
     - name: Tworzenie zasad zaświadczania

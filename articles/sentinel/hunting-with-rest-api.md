@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377704"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660852"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Zarządzanie wytransmisję strumieniowąami i zapytaniami na platformie Azure przy użyciu interfejsu API REST
 
 Punkty kontrolne platformy Azure, które są wbudowane w składniku Azure Monitor Log Analytics, umożliwiają korzystanie z interfejsu API REST Log Analytics w celu zarządzania wytransmisję strumieniowąmi i zapytaniami. W tym dokumencie przedstawiono sposób tworzenia zapytań polowania i zarządzania nimi za pomocą interfejsu API REST.  Zapytania utworzone w ten sposób będą wyświetlane w interfejsie użytkownika usługi Azure wskaźnikowej.
 
-Aby uzyskać więcej informacji na temat [interfejsu API zapisane wyszukiwania](https://docs.microsoft.com/rest/api/loganalytics/savedsearches), zobacz ostateczne informacje o interfejsie API REST.
+Aby uzyskać więcej informacji na temat [interfejsu API zapisane wyszukiwania](/rest/api/loganalytics/savedsearches), zobacz ostateczne informacje o interfejsie API REST.
 
 ## <a name="api-examples"></a>Przykłady dotyczące interfejsu API
 
@@ -46,7 +46,7 @@ W poniższych przykładach Zamień te symbole zastępcze na zamiennik określony
 
 ### <a name="example-1"></a>Przykład 1
 
-Ten przykład pokazuje, jak utworzyć lub zaktualizować zapytanie polowania dla danego obszaru roboczego wskaźnikowego platformy Azure.  W przypadku zapytania transmisję strumieniową Zastąp ciąg *"Category": "zapytania łowieckie"* " *Category": "transmisję strumieniową Query"* w **treści żądania** : 
+Ten przykład pokazuje, jak utworzyć lub zaktualizować zapytanie polowania dla danego obszaru roboczego wskaźnikowego platformy Azure.  W przypadku zapytania transmisję strumieniową Zastąp ciąg *"Category": "zapytania łowieckie"* " *Category": "transmisję strumieniową Query"* w **treści żądania**: 
 
 #### <a name="request-header"></a>Nagłówek żądania
 

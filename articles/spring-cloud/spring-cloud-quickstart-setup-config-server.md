@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 906aeaf87bfd71202064fae856a86985637985eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337791"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659543"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Szybki Start: Konfigurowanie serwera konfiguracji chmury z platformą Azure
 
@@ -57,9 +57,19 @@ Poniższa procedura umożliwia skonfigurowanie serwera konfiguracji przy użyciu
 
 2. W sekcji **repozytorium domyślne** Ustaw **Identyfikator URI** na " https://github.com/Azure-Samples/piggymetrics-config ".
 
-3. Wybierz pozycję **Zastosuj** , aby zapisać zmiany.
+3. Kliknij przycisk **Weryfikuj**.
 
-    ![Zrzut ekranu przedstawiający Portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Przejdź do serwera konfiguracji](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. Po zakończeniu walidacji kliknij pozycję **Zastosuj** , aby zapisać zmiany.
+
+    ![Sprawdzanie poprawności serwera konfiguracji](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. Aktualizacja konfiguracji może potrwać kilka minut.
+ 
+    ![Aktualizowanie serwera konfiguracji](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. Po zakończeniu konfiguracji należy otrzymać powiadomienie.
 
 #### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/Azure-CLI)
 
@@ -78,7 +88,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 Poniższa procedura wyjaśnia, jak rozwiązywać problemy z ustawieniami serwera konfiguracji.
 
 1. W Azure Portal przejdź do strony **Przegląd** usługi i wybierz pozycję **dzienniki**. 
-1. Wybierz pozycję **zapytania** i **Pokaż dzienniki aplikacji, które zawierają warunki "Error" lub "Exception** ". 
+1. Wybierz pozycję **zapytania** i **Pokaż dzienniki aplikacji, które zawierają warunki "Error" lub "Exception**". 
 1. Kliknij przycisk **Uruchom**. 
 1. Jeśli w dziennikach znajdziesz błąd **Java. lang. illegalStateException** , oznacza to, że usługa w chmurze sprężynowej nie może zlokalizować właściwości z serwera konfiguracji.
 

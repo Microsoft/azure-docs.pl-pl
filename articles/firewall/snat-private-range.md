@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 272f5b747efbc3776b1b2ba7c3546ade717c2452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 858343b6c5081b52d9e93909f9d52eaccd88a584
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231371"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660274"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Zakresy prywatnych adresów IP zapory systemu Azure
 
@@ -22,7 +22,9 @@ Ta logika działa prawidłowo w przypadku kierowania ruchu bezpośrednio do Inte
 
 Jeśli Twoja organizacja używa zakresu publicznego adresu IP dla sieci prywatnych, Zapora platformy Azure SNATs ruch do jednego z prywatnych adresów IP zapory w AzureFirewallSubnet. Można jednak skonfigurować zaporę platformy Azure w taki sposób, aby **nie** przywiązać do tego zakresu publicznych adresów IP. Na przykład, aby określić pojedynczy adres IP, można określić go następująco: `192.168.1.10` . Aby określić zakres adresów IP, można określić go następująco: `192.168.1.0/24` .
 
-Aby skonfigurować zaporę platformy Azure w taki sposób, aby nigdy nie były kierowane adresy IP, należy użyć wartości **0.0.0.0/0** jako zakresu prywatnych adresów IP. W przypadku tej konfiguracji zapora platformy Azure nigdy nie może kierować ruchu bezpośrednio do Internetu. Aby skonfigurować zaporę w taki sposób, aby zawsze używała adresów IP bez względu na adres docelowy, użyj wartości **255.255.255.255/32** jako zakresu prywatnego adresu.
+- Aby skonfigurować zaporę platformy Azure w taki sposób, aby **nigdy nie** były kierowane adresy IP, należy użyć wartości **0.0.0.0/0** jako zakresu prywatnych adresów IP. W przypadku tej konfiguracji zapora platformy Azure nigdy nie może kierować ruchu bezpośrednio do Internetu. 
+
+- Aby skonfigurować zaporę w taki sposób, aby **zawsze** używała adresów IP bez względu na adres docelowy, użyj wartości **255.255.255.255/32** jako zakresu prywatnego adresu.
 
 > [!IMPORTANT]
 > Jeśli chcesz określić własne zakresy prywatnych adresów IP i zachować domyślne zakresy organizacji IANA RFC 1918, upewnij się, że Lista niestandardowa nadal zawiera zakres w dokumencie IANA RFC 1918. 
@@ -40,7 +42,7 @@ W przypadku nowej zapory polecenie Azure PowerShell jest następujące:
 > [!NOTE]
 > IANAPrivateRanges jest rozwinięty do bieżących ustawień domyślnych w zaporze platformy Azure, podczas gdy inne zakresy są do niej dodawane. Aby zachować wartość domyślną IANAPrivateRanges w specyfikacji zakresu prywatnego, należy pozostawać w `PrivateRange` specyfikacji, jak pokazano w poniższych przykładach.
 
-Aby uzyskać więcej informacji, zobacz polecenie [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
+Aby uzyskać więcej informacji, zobacz polecenie [New-AzFirewall](/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 
 ### <a name="existing-firewall"></a>Istniejąca Zapora
 
@@ -67,7 +69,7 @@ Do sekcji można dodać następujące elementy `additionalProperties` :
 Możesz użyć Azure Portal, aby określić zakresy prywatnych adresów IP dla zapory.
 
 1. Wybierz grupę zasobów, a następnie wybierz zaporę.
-2. Na stronie **Przegląd** , **prywatne zakresy adresów IP**wybierz wartość domyślną **Iana RFC 1918**.
+2. Na stronie **Przegląd** , **prywatne zakresy adresów IP** wybierz wartość domyślną **Iana RFC 1918**.
 
    Zostanie otwarta strona **Edytowanie prefiksów prywatnych adresów IP** :
 

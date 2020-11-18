@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aeb43f1b9f53a9f57cc436ced1db1bc3feed02d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8573d9e55299382392927b532966a6e6fdd8c439
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843264"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659764"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Jak skonfigurować protokół BGP na bramach sieci VPN platformy Azure przy użyciu programu PowerShell
 W tym artykule przedstawiono kroki umożliwiające włączenie protokołu BGP w ramach połączenia sieci VPN między lokacjami (S2S) i połączenia między sieciami wirtualnymi przy użyciu modelu wdrażania Menedżer zasobów i programu PowerShell.
@@ -75,7 +75,7 @@ $Connection15 = "VNet1toSite5"
 ```
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Połącz się z subskrypcją i Utwórz nową grupę zasobów
-Aby użyć poleceń cmdlet Menedżer zasobów, upewnij się, że przełączono do trybu programu PowerShell. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
+Aby użyć poleceń cmdlet Menedżer zasobów, upewnij się, że przełączono do trybu programu PowerShell. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
 Otwórz konsolę programu PowerShell i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ed0a60c88c33af70b7d780d6c4735c5f8e65b35b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145875"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660410"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: PowerShell
 
@@ -69,7 +69,7 @@ $DNS = "10.2.1.4"
    New-AzResourceGroup -Name $RG -Location $Location
    ```
 
-1. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwę *frontony* i *GatewaySubnet* . Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
+1. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwę *frontony* i *GatewaySubnet*. Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
@@ -110,8 +110,8 @@ $DNS = "10.2.1.4"
 
 W tym kroku należy skonfigurować i utworzyć bramę sieci wirtualnej dla sieci wirtualnej.
 
-* Zmienna - GatewayType musi przyjąć wartość **Vpn** , a zmienna - VpnType musi przyjąć wartość **RouteBased** .
-* Parametr -VpnClientProtocol służy do określania typów tuneli, które mają zostać włączone. Dostępne są opcje tunelu **OpenVPN, SSTP** i **IKEv2** . Możesz włączyć jedną z nich lub dowolną obsługiwaną kombinację. Jeśli chcesz włączyć wiele typów, określ nazwy oddzielone przecinkami. Nie można jednocześnie włączyć OpenVPN i SSTP. Klient strongSwan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2. Klienci w systemie Windows będą najpierw próbowali użyć protokołu IKEv2, a jeśli połączenie nie zostanie nawiązane, użyją protokołu SSTP. Klienta OpenVPN można użyć do nawiązania połączenia z typem tunelu OpenVPN.
+* Zmienna - GatewayType musi przyjąć wartość **Vpn**, a zmienna - VpnType musi przyjąć wartość **RouteBased**.
+* Parametr -VpnClientProtocol służy do określania typów tuneli, które mają zostać włączone. Dostępne są opcje tunelu **OpenVPN, SSTP** i **IKEv2**. Możesz włączyć jedną z nich lub dowolną obsługiwaną kombinację. Jeśli chcesz włączyć wiele typów, określ nazwy oddzielone przecinkami. Nie można jednocześnie włączyć OpenVPN i SSTP. Klient strongSwan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2. Klienci w systemie Windows będą najpierw próbowali użyć protokołu IKEv2, a jeśli połączenie nie zostanie nawiązane, użyją protokołu SSTP. Klienta OpenVPN można użyć do nawiązania połączenia z typem tunelu OpenVPN.
 * Jednostka SKU bramy sieci wirtualnej "podstawowa" nie obsługuje uwierzytelniania IKEv2, OpenVPN ani usługi RADIUS. Jeśli planujesz, aby klienci z systemem Mac mogli łączyć się z siecią wirtualną, nie używaj podstawowej jednostki SKU.
 * Tworzenie bramy sieci VPN może zająć do 45 minut, zależnie od wybranej [jednostki sku bramy](vpn-gateway-about-vpn-gateway-settings.md). W tym przykładzie użyto protokołu IKEv2.
 
@@ -228,8 +228,8 @@ $profile.VPNProfileSASUrl
 
 ### <a name="mac-vpn-client"></a>Klient sieci VPN dla komputerów Mac
 
-W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz** .
-Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Jeśli występują problemy z połączeniem, sprawdź, czy Brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana w przypadku klientów na komputery Mac.
+W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz**.
+Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) . Jeśli występują problemy z połączeniem, sprawdź, czy Brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana w przypadku klientów na komputery Mac.
 
   ![Połączenie z komputerem Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -237,7 +237,7 @@ Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://doc
 
 Te instrukcje dotyczą klientów w systemie Windows.
 
-1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all* .
+1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
 2. Przejrzyj wyniki. Zwróć uwagę, że otrzymany adres IP jest jednym z adresów w puli adresów klienta sieci VPN typu punkt-lokacja określonego w konfiguracji. Wyniki są podobne, jak w następującym przykładzie:
 
    ```
@@ -324,7 +324,7 @@ Częstą praktyką jest użycie certyfikatu głównego do zarządzania dostępem
 
 **Aby odwołać:**
 
-1. Pobierz odcisk palca certyfikatu klienta. Aby uzyskać więcej informacji, zobacz [Jak pobrać odcisk palca certyfikatu](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Pobierz odcisk palca certyfikatu klienta. Aby uzyskać więcej informacji, zobacz [Jak pobrać odcisk palca certyfikatu](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 
 1. Skopiuj informacje do edytora tekstu i usuń wszelkie spacje, tak aby powstał ciąg bez odstępów. Ten ciąg jest deklarowany jako zmienna w następnym kroku.
 
@@ -385,6 +385,6 @@ Aby uzyskać dodatkowe informacje punkt-lokacja, zobacz [często zadawane pytani
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/) (Maszyny wirtualne). Aby dowiedzieć się więcej o sieci i maszynach wirtualnych, zobacz [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).
+Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](../index.yml) (Maszyny wirtualne). Aby dowiedzieć się więcej o sieci i maszynach wirtualnych, zobacz [Azure and Linux VM network overview](../virtual-machines/network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).
 
 Aby uzyskać informacje dotyczące rozwiązywania problemów z połączeniem typu punkt-lokacja, zobacz [Troubleshooting: Azure point-to-site connections problems (Rozwiązywanie problemów: problemy z połączeniami typu punkt-lokacja na platformie Azure)](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

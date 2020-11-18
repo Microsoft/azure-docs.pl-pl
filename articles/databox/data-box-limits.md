@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660925"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660427"
 ---
 # <a name="azure-data-box-limits"></a>Limity Azure Data Box
 
@@ -28,7 +28,7 @@ Te limity należy wziąć pod uwagę podczas wdrażania i obsługi urządzenie D
 - Urządzenie Data Box może przechowywać maksymalnie 500 000 000 plików dla importu i eksportu.
 - Urządzenie Data Box obsługuje maksymalnie 512 kontenerów lub udziałów w chmurze. Katalogi najwyższego poziomu w udziale użytkownika stają się kontenerami lub udziałami plików platformy Azure w chmurze. 
 - Urządzenie Data Box pojemność użycia może być mniejsza niż 80 TB z powodu użycia przestrzeni metadanych systemu plików ReFS.
-- Urządzenie Data Box obsługuje maksymalnie 5 połączeń klienckich jednocześnie w udziale NFS. 
+- Urządzenie Data Box obsługuje maksymalnie 10 połączeń klienta jednocześnie w udziale NFS.
 
 ## <a name="azure-storage-limits"></a>Limity usługi Azure Storage
 

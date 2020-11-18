@@ -167,7 +167,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs API REST
-      href: 'https://docs.microsoft.com/rest/api/labservices/'
+      href: /rest/api/labservices/
     - name: Moduł programu PowerShell Az.LabServices (wersja zapoznawcza)
       href: reference-powershell-module.md
 - name: Zasoby

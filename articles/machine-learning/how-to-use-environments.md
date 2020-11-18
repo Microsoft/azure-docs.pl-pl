@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f3056c500453c2249d66a05079334851c851df33
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 67b2dacb9debae1990d51be8ca47c76b7342cf67
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616624"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660121"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Tworzenie & korzystania ze środowisk oprogramowania w programie Azure Machine Learning
 
@@ -95,7 +95,7 @@ myenv = Environment.from_conda_specification(name = "myenv",
                                              file_path = "path-to-conda-specification-file")
 
 # From a pip requirements file
-myenv = Environment.from_pip_requirements(name = "myenv"
+myenv = Environment.from_pip_requirements(name = "myenv",
                                           file_path = "path-to-pip-requirements-file")                                          
 ```
 
@@ -110,7 +110,7 @@ Po włączeniu platformy Docker Azure Machine Learning kompiluje obraz platformy
 myenv.docker.enabled = True
 ```
 
-Nowo utworzony obraz platformy Docker jest domyślnie wyświetlany w rejestrze kontenerów skojarzonym z obszarem roboczym.  Nazwa repozytorium ma postać *Azure/azureml_ \<uuid\>*. Część unikatowego identyfikatora ( *UUID* ) nazwy odpowiada skrótowi obliczonemu na podstawie konfiguracji środowiska. Ta zgodność umożliwia usłudze określenie, czy obraz danego środowiska już istnieje do ponownego użycia.
+Nowo utworzony obraz platformy Docker jest domyślnie wyświetlany w rejestrze kontenerów skojarzonym z obszarem roboczym.  Nazwa repozytorium ma postać *Azure/azureml_ \<uuid\>*. Część unikatowego identyfikatora (*UUID*) nazwy odpowiada skrótowi obliczonemu na podstawie konfiguracji środowiska. Ta zgodność umożliwia usłudze określenie, czy obraz danego środowiska już istnieje do ponownego użycia.
 
 #### <a name="use-a-prebuilt-docker-image"></a>Używanie prekompilowanego obrazu platformy Docker
 

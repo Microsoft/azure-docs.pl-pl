@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e0fc50647e926ea919f70b888f3efc303713fe1e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 43b28c9f2efc8ffe17e0bf21b1c395d64e89b6a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631193"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660019"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w usłudze Azure Virtual Network (iniekcja sieci wirtualnej)
 
@@ -27,7 +27,7 @@ Wdrożenie umożliwia:
 * Umożliwienie klientom kontrolowania przychodzącej i wychodzącej komunikacji sieciowej dla chmury wiosennej platformy Azure
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Należy zarejestrować dostawcę zasobów w chmurze usługi Azure wiosny `Microsoft.AppPlatform` zgodnie z instrukcjami [rejestrowania dostawcy zasobów na Azure Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) lub przez uruchomienie następującego polecenia AZ CLI:
+Należy zarejestrować dostawcę zasobów chmury usługi Azure wiosny *Microsoft. AppPlatform* i *Microsoft. ContainerService* zgodnie z instrukcjami dotyczącymi [rejestrowania dostawcy zasobów na Azure Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) lub przez uruchomienie następującego polecenia AZ CLI:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -35,21 +35,21 @@ az provider register --namespace Microsoft.AppPlatform
 ## <a name="virtual-network-requirements"></a>Wymagania dotyczące sieci wirtualnej
 Sieć wirtualna, w której jest wdrażane wystąpienie usługi w chmurze Azure wiosennej, musi spełniać następujące wymagania:
 
-* **Lokalizacja** : Sieć wirtualna musi znajdować się w tej samej lokalizacji co wystąpienie usługi chmurowej Azure wiosennej.
-* **Subskrypcja** : Sieć wirtualna musi znajdować się w tej samej subskrypcji co wystąpienie usługi chmurowej Azure wiosennej.
-* **Podsieci** : Sieć wirtualna musi zawierać dwie podsieci dedykowane dla wystąpienia usługi w chmurze Azure wiosny: 
+* **Lokalizacja**: Sieć wirtualna musi znajdować się w tej samej lokalizacji co wystąpienie usługi chmurowej Azure wiosennej.
+* **Subskrypcja**: Sieć wirtualna musi znajdować się w tej samej subskrypcji co wystąpienie usługi chmurowej Azure wiosennej.
+* **Podsieci**: Sieć wirtualna musi zawierać dwie podsieci dedykowane dla wystąpienia usługi w chmurze Azure wiosny: 
     * Jeden dla środowiska uruchomieniowego usługi
     * Jeden dla aplikacji mikrousług rozruchu sprężynowego. 
     * Istnieje relacja jeden do jednego między tymi podsieciami i wystąpieniem usługi w chmurze sieci Azure ze sprężyną. Dla każdego wdrażanego wystąpienia usługi należy użyć nowej podsieci, a Każda podsieć może zawierać tylko jedno wystąpienie usługi.
-* **Przestrzeń adresowa** : jeden blok CIDR do/28 dla podsieci środowiska uruchomieniowego usługi i inny blok CIDR do/24 dla podsieci aplikacji mikrousług rozruchowych.
-* **Tabela tras** : podsieci nie mogą mieć skojarzonej istniejącej tabeli tras.
+* **Przestrzeń adresowa**: jeden blok CIDR do/28 dla podsieci środowiska uruchomieniowego usługi i inny blok CIDR do/24 dla podsieci aplikacji mikrousług rozruchowych.
+* **Tabela tras**: podsieci nie mogą mieć skojarzonej istniejącej tabeli tras.
 
 Poniższe procedury opisują konfigurację sieci wirtualnej, aby zawierała wystąpienie chmury wiosennej platformy Azure.
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 Jeśli masz już sieć wirtualną do hostowania wystąpienia usługi w chmurze ze sprężyną Azure, pomiń krok 1, 2 i 3. Możesz rozpocząć od kroku 4, aby przygotować podsieci dla sieci wirtualnej.
 
-1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób** . W portalu Azure Marketplace wybierz pozycję **Sieć**  >  **Sieć wirtualna** .
+1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. W portalu Azure Marketplace wybierz pozycję **Sieć**  >  **Sieć wirtualna**.
 
 1. W oknie dialogowym **Tworzenie sieci wirtualnej** wprowadź lub wybierz następujące informacje:
 
@@ -60,21 +60,21 @@ Jeśli masz już sieć wirtualną do hostowania wystąpienia usługi w chmurze z
     |Nazwa             |Wprowadzenie do *platformy Azure-sprężyny w chmurze*                   |
     |Lokalizacja         |Wybierz **Wschodnie stany USA**                                |
 
-1. Kliknij przycisk **Dalej: adresy IP >** . 
+1. Kliknij przycisk **Dalej: adresy IP >**. 
  
 1. W polu przestrzeń adresowa IPv4 wprowadź 10.1.0.0/16.
 
-1. Wybierz pozycję **Dodaj podsieć** , a następnie wprowadź *podsieć Service-Runtime-Subnet* dla **nazwy podsieci** i 10.1.0.0/24 dla **zakresu adresów podsieci** . Następnie kliknij przycisk **Dodaj** .
+1. Wybierz pozycję **Dodaj podsieć**, a następnie wprowadź *podsieć Service-Runtime-Subnet* dla **nazwy podsieci** i 10.1.0.0/24 dla **zakresu adresów podsieci**. Następnie kliknij przycisk **Dodaj**.
 
-1. Ponownie wybierz pozycję **Dodaj podsieć** , a następnie wprowadź **nazwę podsieci** i **zakres adresów podsieci** , na przykład *Apps-Subnet* i i 10.1.1.0/24.  Kliknij pozycję **Dodaj** .
+1. Ponownie wybierz pozycję **Dodaj podsieć** , a następnie wprowadź **nazwę podsieci** i **zakres adresów podsieci**, na przykład *Apps-Subnet* i i 10.1.1.0/24.  Kliknij pozycję **Dodaj**.
 
-1. Kliknij pozycję **Przejrzyj i utwórz** . Pozostaw resztę jako domyślne i kliknij przycisk **Utwórz** .
+1. Kliknij pozycję **Przejrzyj i utwórz**. Pozostaw resztę jako domyślne i kliknij przycisk **Utwórz**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Udziel uprawnienia usługi do sieci wirtualnej
 
 Wybierz wcześniej utworzoną sieć wirtualną *Azure-sprężynę i chmurę* .
 
-1. Wybierz pozycję **Kontrola dostępu (IAM)** , a następnie wybierz pozycję **Dodaj > Dodaj przypisanie roli** .
+1. Wybierz pozycję **Kontrola dostępu (IAM)**, a następnie wybierz pozycję **Dodaj > Dodaj przypisanie roli**.
 
     ![Kontrola dostępu do usługi v-NET](./media/spring-cloud-v-net-injection/access-control.png)
 
@@ -85,7 +85,7 @@ Wybierz wcześniej utworzoną sieć wirtualną *Azure-sprężynę i chmurę* .
     |Rola     |Wybierz **właściciela**                                  |
     |Wybierz pozycję   |Wprowadź *dostawcę zasobów chmury Azure wiosny*      |
 
-    Następnie wybierz pozycję *dostawca zasobów w chmurze Azure wiosny* , a następnie kliknij przycisk **Zapisz** .
+    Następnie wybierz pozycję *dostawca zasobów w chmurze Azure wiosny*, a następnie kliknij przycisk **Zapisz**.
 
     ![Przyznaj dostawcy zasobów chmury Azure wiosny do usługi v-NET](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
 
@@ -110,13 +110,13 @@ az role assignment create \
 
 1. W górnym polu wyszukiwania Wyszukaj **chmurę Azure wiosnę** i wybierz z wyniku pozycję **chmura Wiosenna platformy Azure** .
 
-1. Na stronie **chmura ze sprężyną Azure** wybierz pozycję **+ Dodaj** .
+1. Na stronie **chmura ze sprężyną Azure** wybierz pozycję **+ Dodaj**.
 
 1. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej. 
 
 1. Wybierz tę samą grupę zasobów i region, w której znajduje się sieć wirtualna.
 
-1. W **obszarze** **Szczegóły usługi** wybierz pozycję *Azure-Sprężyna-chmura-Sieć wirtualna* .
+1. W **obszarze** **Szczegóły usługi** wybierz pozycję *Azure-Sprężyna-chmura-Sieć wirtualna*.
 
 1. Wybierz kartę **Sieć** i wybierz następujące opcje:
 
@@ -129,9 +129,9 @@ az role assignment create \
 
     ![Karta Tworzenie sieci](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
 
-1. Kliknij pozycję **Przejrzyj i utwórz** .
+1. Kliknij pozycję **Przejrzyj i utwórz**.
 
-1. Sprawdź specyfikacje i kliknij przycisk **Utwórz** .
+1. Sprawdź specyfikacje i kliknij przycisk **Utwórz**.
 
 Po wdrożeniu zostaną utworzone dwie dodatkowe grupy zasobów w ramach subskrypcji, co umożliwi hostowanie zasobów sieciowych dla wystąpienia usługi w chmurze wiosny Azure.  Przejdź do **strony głównej** , a następnie wybierz pozycję **grupy zasobów** z górnych elementów menu, aby znaleźć następujące nowe grupy zasobów.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761728"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660733"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Lepsze zarządzanie centrum operacji zabezpieczeń przy użyciu metryk zdarzeń
 
@@ -39,7 +39,7 @@ Tabela **SecurityIncident** jest wbudowana w wskaźnik platformy Azure. Znajdzie
 
 Za każdym razem, gdy tworzysz lub aktualizujesz zdarzenie, do tabeli zostanie dodany nowy wpis dziennika. Pozwala to na śledzenie zmian wprowadzonych w zdarzeniach i pozwala na jeszcze bardziej zaawansowane metryki SOC, ale należy to wiedzieć o tym podczas konstruowania zapytań dla tej tabeli, ponieważ może być konieczne usunięcie zduplikowanych wpisów dla zdarzenia (zależnie od dokładnego zapytania, które jest uruchomione). 
 
-Jeśli na przykład chcesz zwrócić listę wszystkich incydentów posortowanych według numeru zdarzenia, ale potrzebujesz tylko zwrócić najnowszy dziennik na zdarzenie, możesz to zrobić za pomocą [operatora podsumowania](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) KQL z `arg_max()` [funkcją agregacji](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction):
+Jeśli na przykład chcesz zwrócić listę wszystkich incydentów posortowanych według numeru zdarzenia, ale potrzebujesz tylko zwrócić najnowszy dziennik na zdarzenie, możesz to zrobić za pomocą [operatora podsumowania](/azure/data-explorer/kusto/query/summarizeoperator) KQL z `arg_max()` [funkcją agregacji](/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
 
 ```Kusto
@@ -82,9 +82,9 @@ Aby uzupełnić tabelę **SecurityIncidents** , udostępniamy szablon skoroszytu
 
 Ten nowy szablon skoroszytu można znaleźć, wybierając **skoroszyty** z menu nawigacyjnego wskaźnikowego platformy Azure i wybierając kartę **Szablony** . Wybierz opcję **wydajność operacji zabezpieczeń** z galerii, a następnie kliknij jeden z przycisków **Wyświetl zapisany skoroszyt** i **Wyświetl szablon** .
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabela zdarzeń zabezpieczeń":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galeria skoroszytów zdarzeń zabezpieczeń":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabela zdarzeń zabezpieczeń":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Ukończono skoroszyt zdarzeń zabezpieczeń":::
 
 Możesz użyć szablonu, aby utworzyć własne niestandardowe skoroszyty dostosowane do konkretnych potrzeb.
 

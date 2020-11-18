@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398511"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660937"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Jak zweryfikować przepływność sieci VPN do sieci wirtualnej
 
@@ -119,7 +119,7 @@ Pobierz [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Aby 
 1. Po wykonaniu poprzednich kroków wykonaj te same czynności z cofniętymi rolami, aby węzeł serwera był teraz węzłem klienta i na odwrót.
 
 > [!Note]
-> Iperf nie jest jedynym narzędziem. [NTTTCP jest alternatywnym rozwiązaniem do testowania](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf nie jest jedynym narzędziem. [NTTTCP jest alternatywnym rozwiązaniem do testowania](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Testowanie maszyn wirtualnych z systemem Windows
 
@@ -225,7 +225,7 @@ W szczególności analiza śladów przechwytywania pakietów (Wireshark/Monitor 
 
 Nawet jeśli ogólna przepływność oceniona przy poprzednich krokach (iPERF/NTTTCP/itp.) była dobra, może wystąpić powolne polecenie ping do pliku podczas korzystania z Eksploratora Windows lub przeciąganie i upuszczanie przez sesję RDP. Ten problem jest zwykle spowodowany przez jeden lub oba z następujących czynników:
 
-* Aplikacje do kopiowania plików, takie jak Eksplorator Windows i RDP, nie używają wielu wątków podczas kopiowania plików. Aby uzyskać lepszą wydajność, należy użyć wielowątkowej aplikacji do kopiowania plików, takiej jak [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) , do kopiowania plików przy użyciu 16 lub 32 wątków. Aby zmienić numer wątku dla kopiowania plików w RichCopy, kliknij pozycję **Akcja**  >  **Kopiuj opcje**  >  **pliku Kopiuj**.
+* Aplikacje do kopiowania plików, takie jak Eksplorator Windows i RDP, nie używają wielu wątków podczas kopiowania plików. Aby uzyskać lepszą wydajność, należy użyć wielowątkowej aplikacji do kopiowania plików, takiej jak [RichCopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) , do kopiowania plików przy użyciu 16 lub 32 wątków. Aby zmienić numer wątku dla kopiowania plików w RichCopy, kliknij pozycję **Akcja**  >  **Kopiuj opcje**  >  **pliku Kopiuj**.
 
    ![Problemy związane z kopiowaniem plików](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Nawet jeśli ogólna przepływność oceniona przy poprzednich krokach (iPERF/NT
    > Nie wszystkie aplikacje działają tak samo, jak nie wszystkie wątki są wykorzystywane przez wszystkie aplikacje/procesy. Po uruchomieniu testu można zobaczyć, że niektóre wątki są puste i nie będą zapewniać dokładnych wyników przepływności.
    > Aby sprawdzić wydajność transferu plików aplikacji, należy użyć wielowątkowości przez zwiększenie liczby wątków w pomyślnym lub zmniejszeniu, aby znaleźć optymalną przepływność aplikacji lub transferu plików.
 
-* Niewystarczająca szybkość odczytu/zapisu dysku maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z usługą Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
+* Niewystarczająca szybkość odczytu/zapisu dysku maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z usługą Azure Storage](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Zewnętrzny interfejs połączony z urządzeniem lokalnym
 

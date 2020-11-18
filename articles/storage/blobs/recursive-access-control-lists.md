@@ -9,18 +9,18 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff86b95f9d6a02c9ea24837b782ce729cdcacded
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577145"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659924"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
 
 Dziedziczenie listy ACL jest już dostępne dla nowych elementów podrzędnych, które są tworzone w katalogu nadrzędnym. Teraz można także dodawać, aktualizować i usuwać listy ACL rekursywnie dla istniejących elementów podrzędnych katalogu nadrzędnego bez konieczności wprowadzania tych zmian indywidualnie dla każdego elementu podrzędnego.
 
-[Biblioteki](#libraries)  |  [Przykłady](#code-samples)  |  [Najlepsze rozwiązania](#best-practice-guidelines)  |  [Przekaż opinię](#provide-feedback)
+[Biblioteki](#libraries)  |  [Przykłady](#code-samples)  |  [Najlepsze rozwiązania](#best-practice-guidelines)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -1106,7 +1106,7 @@ Aby zobaczyć przykład, który przetwarza listy ACL cyklicznie w partiach przez
 
 ---
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Ta sekcja zawiera linki do bibliotek i przykładów kodu.
 
@@ -1153,13 +1153,7 @@ Aby zmniejszyć opóźnienie, zalecamy uruchomienie cyklicznego procesu listy AC
 
 Maksymalna liczba list ACL, które można zastosować do katalogu lub pliku, to 32 listy ACL dostępu i domyślne listy ACL 32. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-<a id="provide-feedback"></a>
-
-### <a name="provide-feedback-or-report-issues"></a>Prześlij opinię lub zgłoś problemy
-
-Możesz podać swoją opinię lub zgłosić problem pod adresem  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
-
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 - [Znane problemy](data-lake-storage-known-issues.md)

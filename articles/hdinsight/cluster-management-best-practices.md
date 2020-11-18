@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3a96a7116c83bf9ea2c3798c335c6cefcbdbc36d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542322"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659492"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania klastrem usługi HDInsight
 
@@ -49,7 +49,7 @@ Poznaj najlepsze rozwiązania dotyczące zarządzania klastrami usługi HDInsigh
 
 | Błąd | Więcej informacji |
 |---|---|
-| Brak limitu przydziału | Istnieją przydziały dla liczby przydziałów, które można utworzyć w ramach subskrypcji w poszczególnych regionach. Aby uzyskać więcej informacji, zobacz [Planowanie pojemności: przydziały](./hdinsight-capacity-planning.md). |
+| Brak limitu przydziału | Istnieją przydziały dla liczby rdzeni, które można utworzyć w ramach subskrypcji w każdym regionie. Aby uzyskać więcej informacji, zobacz [Planowanie pojemności: przydziały](./hdinsight-capacity-planning.md). |
 | Nie ma więcej dostępnych adresów IP | Każda sieć wirtualna ma ograniczoną liczbę adresów IP. Podczas tworzenia klastra usługi HDInsight każdy węzeł (w tym węzły dozorcy i Gateway) używa niektórych z tych przydzielonych adresów IP. Jeśli wszystkie adresy IP są używane, ten błąd wystąpi.  |
 | Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) nie zezwalają na komunikację z dostawcami zasobów usługi HDInsight | Jeśli używasz sieciowych grup zabezpieczeń lub tras zdefiniowanych przez użytkownika (UDR) do kontrolowania ruchu przychodzącego do klastra usługi HDInsight, musisz się upewnić, że klaster może komunikować się z krytycznymi usługami Azure Health i Management. Aby uzyskać więcej informacji, zobacz [Tagi usług sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) dla usługi Azure HDInsight](./hdinsight-service-tags.md) |
 | Ponowne użycie nazwy klastra | Jeśli używasz wcześniej używanej nazwy klastra, musisz poczekać X liczbę minut przed ponownym utworzeniem klastra. W przeciwnym razie zostanie wyświetlony komunikat o tym, że zasób już istnieje. |

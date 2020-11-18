@@ -3,12 +3,12 @@ title: Podręcznik administratora Azure Lab Services | Microsoft Docs
 description: Ten przewodnik pomaga administratorom, którzy tworzą konta laboratorium i zarządzają nimi przy użyciu Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 8670a9d56575dbfb6d3e565ec97191581dc612a8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1fadc58926b00c75ab888dad86e45b181059a38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491039"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659849"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
 Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria, które są zawarte w ramach konta laboratorium. Ten artykuł zawiera ogólne omówienie związanych zasobów platformy Azure oraz wskazówki dotyczące ich tworzenia.
@@ -19,7 +19,7 @@ Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwyk
 - Konta laboratorium, udostępnione galerii obrazów i wersje obrazów są hostowane w ramach subskrypcji.
 - Możesz mieć konto laboratorium i galerię obrazów udostępnionych w tej samej grupie zasobów. Na tym diagramie znajdują się one w różnych grupach zasobów.
 
-Aby uzyskać więcej informacji na temat architektury, przeczytaj artykuł: [podstawy architektury Labs](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals)
+Aby uzyskać więcej informacji na temat architektury, przeczytaj artykuł: [podstawy architektury Labs](./classroom-labs-fundamentals.md)
 
 ## <a name="subscription"></a>Subskrypcja
 Twój Uniwersytet ma co najmniej jedną subskrypcję platformy Azure. Subskrypcja służy do zarządzania rozliczeniami i zabezpieczeniami dla wszystkich resources\services platformy Azure, które są używane w ramach tego konta, w tym kont laboratorium.
@@ -58,7 +58,7 @@ Na poniższej liście przedstawiono scenariusze, w których może być korzystne
 
 - **Oddzielanie budżetu według konta laboratorium**
   
-    Zamiast zgłaszać wszystkie koszty laboratorium za pomocą jednego konta laboratorium, może być konieczne bardziej przejrzysty budżet. Można na przykład utworzyć konta laboratorium dla działu matematycznego, działu nauki komputerowego i tak dalej, aby rozdzielić budżet między działy.  Następnie można wyświetlić koszt poszczególnych poszczególnych kont laboratorium przy użyciu [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+    Zamiast zgłaszać wszystkie koszty laboratorium za pomocą jednego konta laboratorium, może być konieczne bardziej przejrzysty budżet. Można na przykład utworzyć konta laboratorium dla działu matematycznego, działu nauki komputerowego i tak dalej, aby rozdzielić budżet między działy.  Następnie można wyświetlić koszt poszczególnych poszczególnych kont laboratorium przy użyciu [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md).
 
 - **Izolowanie laboratoriów pilotażowych z active\production Labs**
   
@@ -141,18 +141,18 @@ Lokalizacja, w której znajduje się laboratorium, różni się w zależności o
 
   - **Konto laboratorium jest połączone z siecią wirtualną (VNet)**
   
-    Konto laboratorium może być połączone [z siecią wirtualną](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) , gdy znajdują się w tym samym regionie.  Gdy konto laboratorium jest połączone z siecią wirtualną, laboratoria są tworzone automatycznie w tym samym regionie co konto laboratorium i Sieć wirtualna.
+    Konto laboratorium może być połączone [z siecią wirtualną](./how-to-connect-peer-virtual-network.md) , gdy znajdują się w tym samym regionie.  Gdy konto laboratorium jest połączone z siecią wirtualną, laboratoria są tworzone automatycznie w tym samym regionie co konto laboratorium i Sieć wirtualna.
 
     > [!NOTE]
-    > Gdy konto laboratorium jest połączone z siecią wirtualną, ustawienie Zezwalaj na wybór przez **twórcę laboratorium do wybrania lokalizacji laboratorium** jest wyłączone. Dodatkowe informacje na temat tego ustawienia można znaleźć w artykule: [Zezwalaj na twórcę laboratorium w celu wybrania lokalizacji dla laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
+    > Gdy konto laboratorium jest połączone z siecią wirtualną, ustawienie Zezwalaj na wybór przez **twórcę laboratorium do wybrania lokalizacji laboratorium** jest wyłączone. Dodatkowe informacje na temat tego ustawienia można znaleźć w artykule: [Zezwalaj na twórcę laboratorium w celu wybrania lokalizacji dla laboratorium](./allow-lab-creator-pick-lab-location.md).
     
-  - * * Żadna Sieć wirtualna nie jest w trybie komunikacji równorzędnej * *_, a_* twórcy laboratorium nie mogą wybierać location_ laboratoryjnych *
+  - * * Żadna Sieć wirtualna nie jest w trybie komunikacji równorzędnej **_, a_* twórcy laboratorium nie mogą wybierać location_ laboratoryjnych *
   
-    Gdy **nie ma sieci wirtualnej z** siecią wirtualną przy użyciu konta laboratorium, *a* [twórcy laboratorium **nie** mogą wybrać lokalizacji laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), laboratoria są automatycznie tworzone w regionie, który ma dostępną pojemność maszyny wirtualnej.  W Azure Lab Services szuka dostępności w [regionach, które znajdują się w tej samej lokalizacji geograficznej co konto laboratorium](https://azure.microsoft.com/global-infrastructure/regions).
+    Gdy **nie ma sieci wirtualnej z** siecią wirtualną przy użyciu konta laboratorium, *a* [twórcy laboratorium **nie** mogą wybrać lokalizacji laboratorium](./allow-lab-creator-pick-lab-location.md), laboratoria są automatycznie tworzone w regionie, który ma dostępną pojemność maszyny wirtualnej.  W Azure Lab Services szuka dostępności w [regionach, które znajdują się w tej samej lokalizacji geograficznej co konto laboratorium](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - * * Żadna Sieć wirtualna nie ma komunikacji równorzędnej * *_, a_* twórcy laboratorium mogą wybrać laboratorium location_ *
+  - * * Żadna Sieć wirtualna nie ma komunikacji równorzędnej **_, a_* twórcy laboratorium mogą wybrać laboratorium location_ *
        
-    Jeśli nie ma **żadnej** komunikacji równorzędnej sieci wirtualnej, a [twórcy laboratorium nie mogą wybrać lokalizacji laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), lokalizacje, które mogą zostać wybrane przez twórcę laboratorium, są oparte na dostępnej pojemności.
+    Jeśli nie ma **żadnej** komunikacji równorzędnej sieci wirtualnej, a [twórcy laboratorium nie mogą wybrać lokalizacji laboratorium](./allow-lab-creator-pick-lab-location.md), lokalizacje, które mogą zostać wybrane przez twórcę laboratorium, są oparte na dostępnej pojemności.
 
 > [!NOTE]
 > Aby zapewnić wystarczającą pojemność maszyny wirtualnej dla regionu, ważne jest, aby najpierw zażądać pojemności za pomocą konta laboratorium lub podczas tworzenia laboratorium.
@@ -169,18 +169,18 @@ Gdy Administratorzy lub twórcy laboratorium tworzą laboratorium, mogą wybrać
 
 | Rozmiar | Specyfikacje | Seria | Sugerowane użycie |
 | ---- | ----- | ------ | ------------- |
-| Mały| <ul><li>2 rdzenie</li><li>3,5 GB PAMIĘCI RAM</li> | [Standardowa_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar najlepiej nadaje się w przypadku wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o małym ruchu, małych i średnich baz danych. |
-| Średniaa | <ul><li>4 rdzenie</li><li>7 GB PAMIĘCI RAM</li> | [Standardowa_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy. |
-| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 rdzenie</li><li>16 GB PAMIĘCI RAM</li></ul> | [Standardowa_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy.
-| Duży | <ul><li>8 rdzeni</li><li>16 GB PAMIĘCI RAM</li></ul>  | [Standardowa_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
-| Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 rdzeni</li><li>32 GB pamięci RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
-| Mały procesor GPU (wizualizacja) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li>  | [Standardowa_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
-| Mały procesor GPU (obliczenia) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z komputerów, takich jak sztuczna inteligencja i uczenie głębokie. |
-| Średni procesor GPU (wizualizacja) | <ul><li>12 rdzeni</li><li>112 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
+| Mały| <ul><li>2 rdzenie</li><li>3,5 GB PAMIĘCI RAM</li> | [Standardowa_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar najlepiej nadaje się w przypadku wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o małym ruchu, małych i średnich baz danych. |
+| Średniaa | <ul><li>4 rdzenie</li><li>7 GB PAMIĘCI RAM</li> | [Standardowa_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy. |
+| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 rdzenie</li><li>16 GB PAMIĘCI RAM</li></ul> | [Standardowa_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy.
+| Duży | <ul><li>8 rdzeni</li><li>16 GB PAMIĘCI RAM</li></ul>  | [Standardowa_A8_v2](../virtual-machines/av2-series.md) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
+| Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 rdzeni</li><li>32 GB pamięci RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
+| Mały procesor GPU (wizualizacja) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li>  | [Standardowa_NV6](../virtual-machines/nv-series.md) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
+| Mały procesor GPU (obliczenia) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NC6](../virtual-machines/nc-series.md) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z komputerów, takich jak sztuczna inteligencja i uczenie głębokie. |
+| Średni procesor GPU (wizualizacja) | <ul><li>12 rdzeni</li><li>112 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
 
 ## <a name="manage-identity"></a>Zarządzanie tożsamością
 
-Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)można przypisać następujące role, aby zapewnić dostęp do kont laboratorium i laboratoriów:
+Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md)można przypisać następujące role, aby zapewnić dostęp do kont laboratorium i laboratoriów:
 
 - **Właściciel konta laboratorium**
 
@@ -200,7 +200,7 @@ Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.micro
 
 - **Twórca laboratorium**
 
-    Aby utworzyć laboratoria na koncie laboratorium, nauczycieli musi być członkiem roli **twórca laboratorium** .  Gdy nauczycieli tworzy laboratorium, są one automatycznie dodawane jako właściciel laboratorium.  Zapoznaj się z samouczkiem dotyczącym [dodawania użytkownika do roli **twórca laboratorium**](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+    Aby utworzyć laboratoria na koncie laboratorium, nauczycieli musi być członkiem roli **twórca laboratorium** .  Gdy nauczycieli tworzy laboratorium, są one automatycznie dodawane jako właściciel laboratorium.  Zapoznaj się z samouczkiem dotyczącym [dodawania użytkownika do roli **twórca laboratorium**](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role). 
 
 - **Owner\contributor Lab**
   
@@ -217,7 +217,7 @@ Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.micro
 Oto kilka porad ułatwiających Przypisywanie ról:
    - Zazwyczaj tylko administratorzy powinni być członkami ról **właściciela** konta laboratorium lub **współautora** . może być więcej niż jeden owner\contributor.
    - Aby dać nauczycieli możliwość tworzenia nowych laboratoriów i zarządzania przez nich laboratoriami, wystarczy przypisać dostęp do roli **twórca laboratorium** .
-   - Aby dać nauczycieli możliwość zarządzania określonymi laboratoriami, ale *nie* ma możliwości tworzenia nowych laboratoriów; należy przypisać dostęp do roli **właściciel** lub **współautor** dla każdej z laboratoriów, którymi będą zarządzać.  Na przykład możesz chcieć zezwolić zarówno profesor, jak i Asystentowi nauczania na Współtworzenie laboratorium.  Zapoznaj się z przewodnikiem, jak [dodać użytkownika jako właściciela do laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+   - Aby dać nauczycieli możliwość zarządzania określonymi laboratoriami, ale *nie* ma możliwości tworzenia nowych laboratoriów; należy przypisać dostęp do roli **właściciel** lub **współautor** dla każdej z laboratoriów, którymi będą zarządzać.  Na przykład możesz chcieć zezwolić zarówno profesor, jak i Asystentowi nauczania na Współtworzenie laboratorium.  Zapoznaj się z przewodnikiem, jak [dodać użytkownika jako właściciela do laboratorium](./how-to-add-user-lab-owner.md).
 
 ## <a name="pricing"></a>Cennik
 
@@ -274,4 +274,3 @@ Następne kroki wspólne dla konfigurowania środowiska laboratoryjnego.
 - [Przewodnik po konfiguracji laboratorium](setup-guide.md)
 - [Zarządzanie kosztami dla laboratoriów](cost-management-guide.md)
 - [Używanie Azure Lab Services w zespołach](lab-services-within-teams-overview.md)
-

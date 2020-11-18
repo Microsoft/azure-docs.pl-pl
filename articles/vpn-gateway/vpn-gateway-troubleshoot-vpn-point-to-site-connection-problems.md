@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660988"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Rozwiązywanie problemów: problemy z połączeniem punkt-lokacja platformy Azure
 
@@ -71,7 +71,7 @@ Aby przygotowywać system Windows 10 lub Server 2016 pod kątem protokołu IKEv2
 
 1. Zainstaluj aktualizację.
 
-   | Wersja systemu operacyjnego | Date | Numer/link |
+   | Wersja systemu operacyjnego | Data | Numer/link |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 w wersji 1607 | 17 stycznia 2018 r. | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 w wersji 1703 | 17 stycznia 2018 r. | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -168,7 +168,7 @@ Wyodrębnij pakiet konfiguracji klienta sieci VPN i Znajdź plik. cer. Aby zains
 1. Otwórz mmc.exe.
 2. Dodaj przystawkę **Certyfikaty** .
 3. Wybierz konto **komputera** dla komputera lokalnego.
-4. Kliknij prawym przyciskiem myszy węzeł **Zaufane główne** urzędy certyfikacji. Kliknij pozycję **wszystko —**  >  **Importuj**zadanie i przejdź do pliku CER wyodrębnionego z pakietu konfiguracji klienta sieci VPN.
+4. Kliknij prawym przyciskiem myszy węzeł **Zaufane główne** urzędy certyfikacji. Kliknij pozycję **wszystko —**  >  **Importuj** zadanie i przejdź do pliku CER wyodrębnionego z pakietu konfiguracji klienta sieci VPN.
 5. Uruchom ponownie komputer. 
 6. Spróbuj zainstalować klienta sieci VPN.
 
@@ -178,7 +178,7 @@ Wyodrębnij pakiet konfiguracji klienta sieci VPN i Znajdź plik. cer. Aby zains
 
 Podczas próby zapisania zmian dla bramy sieci VPN w Azure Portal zostanie wyświetlony następujący komunikat o błędzie:
 
-**Nie można zapisać &lt; *nazwy bramy*bramy sieci wirtualnej &gt; . Dane &lt; *identyfikatora certyfikatu* certyfikatu &gt; są nieprawidłowe.**
+**Nie można zapisać &lt; *nazwy bramy* bramy sieci wirtualnej &gt; . Dane &lt; *identyfikatora certyfikatu* certyfikatu &gt; są nieprawidłowe.**
 
 ### <a name="cause"></a>Przyczyna 
 
@@ -215,7 +215,7 @@ e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
 
 Podczas próby zapisania zmian dla bramy sieci VPN w Azure Portal zostanie wyświetlony następujący komunikat o błędzie: 
 
-**Nie można zapisać &lt; *nazwy bramy*bramy sieci wirtualnej &gt; . &lt; *Nazwa certyfikatu nazwy zasobu, którą próbujesz przekazać,* &gt; jest nieprawidłowa**.
+**Nie można zapisać &lt; *nazwy bramy* bramy sieci wirtualnej &gt; . &lt; *Nazwa certyfikatu nazwy zasobu, którą próbujesz przekazać,* &gt; jest nieprawidłowa**.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -274,7 +274,7 @@ Należy usunąć połączenie sieci VPN punkt-lokacja, a następnie ponownie zai
 
 ### <a name="solution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, usuń stare pliki konfiguracji klienta sieci VPN z **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> **, a następnie ponownie uruchom Instalatora klienta sieci VPN.
+Aby rozwiązać ten problem, usuń stare pliki konfiguracji klienta sieci VPN z **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>**, a następnie ponownie uruchom Instalatora klienta sieci VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Klient sieci VPN typu punkt-lokacja nie może rozpoznać nazwy FQDN zasobów w domenie lokalnej
 
@@ -298,7 +298,7 @@ Ten problem może wystąpić, jeśli klient sieci VPN nie uzyska tras z usługi 
 
 ### <a name="solution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, [Zresetuj usługę Azure VPN Gateway](vpn-gateway-resetgw-classic.md). Aby upewnić się, że nowe trasy są używane, klienci sieci VPN typu punkt-lokacja muszą zostać pobrani ponownie po pomyślnym skonfigurowaniu komunikacji równorzędnej sieci wirtualnej.
+Aby rozwiązać ten problem, [Zresetuj usługę Azure VPN Gateway](./reset-gateway.md). Aby upewnić się, że nowe trasy są używane, klienci sieci VPN typu punkt-lokacja muszą zostać pobrani ponownie po pomyślnym skonfigurowaniu komunikacji równorzędnej sieci wirtualnej.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Błąd: "funkcja odwoływania nie mogła sprawdzić odwołania, ponieważ serwer odwołań był w trybie offline. (Błąd 0x80092013) "
 
@@ -335,7 +335,7 @@ Sterownik karty sieciowej jest nieaktualny.
 
 Aktualizowanie sterownika karty sieciowej:
 
-1. Kliknij przycisk **Start**, wpisz **Menedżer urządzeń**i wybierz go z listy wyników. Jeśli zostanie wyświetlony monit o hasło administratora lub potwierdzenie, wpisz hasło lub potwierdź.
+1. Kliknij przycisk **Start**, wpisz **Menedżer urządzeń** i wybierz go z listy wyników. Jeśli zostanie wyświetlony monit o hasło administratora lub potwierdzenie, wpisz hasło lub potwierdź.
 2. W kategorii **karty sieciowe Znajdź kartę sieciową** , którą chcesz zaktualizować.  
 3. Kliknij dwukrotnie nazwę urządzenia, wybierz pozycję **Aktualizuj sterownik**, a następnie pozycję **Wyszukaj automatycznie dla zaktualizowanego oprogramowania sterownika**.
 4.  Jeśli system Windows nie znajduje nowego sterownika, możesz spróbować znaleźć go w witrynie internetowej producenta urządzenia i wykonać podane w niej instrukcje.
@@ -372,7 +372,7 @@ Ten problem może być spowodowany przez poprzednie instalacje klienta sieci VPN
 
 ### <a name="solution"></a>Rozwiązanie
 
-Usuń stare pliki konfiguracji klienta VPN z usługi **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** i ponownie uruchom Instalatora klienta sieci VPN. 
+Usuń stare pliki konfiguracji klienta VPN z usługi **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>** i ponownie uruchom Instalatora klienta sieci VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Klient sieci VPN jest w stanie hibernacji lub uśpienia po pewnym czasie
 

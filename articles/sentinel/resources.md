@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 50b88b4af6ea8479097b88b51fe7acfbea355ab8
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392320"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660648"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Przydatne zasoby do pracy z platformą Azure — wskaźnikiem
 
@@ -78,7 +78,7 @@ Te dane można wyświetlić, przesyłając je strumieniowo z dziennika aktywnoś
 
 ## <a name="vendor-documentation"></a>Dokumentacja dostawcy
 
-| **Dostawca**  | **Korzystanie z zdarzeń na platformie Azure — wskaźnik** | **Powiązań**|
+| **Dostawca**  | **Korzystanie z zdarzeń na platformie Azure — wskaźnik** | **Łącze**|
 |----|----|----|
 | GitHub| Służy do uzyskiwania dostępu do strony społeczności| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Konfigurowanie CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
@@ -92,4 +92,4 @@ Wyświetl wpisy w blogu dotyczące platformy Azure wskaźnikowego z [TechCommuni
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie przedstawiono listę zasobów, które są przydatne podczas pracy z platformą Azure — wskaźnikiem. Dodatkowe informacje na temat zabezpieczeń i zgodności platformy Azure można znaleźć na [blogu Microsoft Azure zabezpieczenia i zgodność](https://docs.microsoft.com/archive/blogs/azuresecurity/).
+W tym dokumencie przedstawiono listę zasobów, które są przydatne podczas pracy z platformą Azure — wskaźnikiem. Dodatkowe informacje na temat zabezpieczeń i zgodności platformy Azure można znaleźć na [blogu Microsoft Azure zabezpieczenia i zgodność](/archive/blogs/azuresecurity/).

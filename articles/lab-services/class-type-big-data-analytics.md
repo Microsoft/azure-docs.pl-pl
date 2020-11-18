@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 6ae4e658985a3974b311171e83e6243dfc4a1ae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5eb9cd00350c41645d4427e30a6f25a6c163358c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444033"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659900"
 ---
 # <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Konfigurowanie laboratorium na potrzeby analizy danych Big Data przy użyciu platformy Docker HortonWorks Data Platform
 
@@ -28,11 +28,11 @@ Aby rozpocząć pracę z tym laboratorium, musisz zacząć korzystać z subskryp
 
 ### <a name="lab-account-settings"></a>Ustawienia konta laboratorium
 
-Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji na temat włączania obrazów z witryny Marketplace, zobacz [Określanie obrazów z portalu Marketplace dostępnych dla twórców laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji na temat włączania obrazów z witryny Marketplace, zobacz [Określanie obrazów z portalu Marketplace dostępnych dla twórców laboratorium](./specify-marketplace-images.md).
 
 | Ustawienie konta laboratorium | Instrukcje |
 | ------------------- | ------------ |
-|Obraz witryny Marketplace| Włącz obraz systemu Windows 10 Pro do użycia w ramach konta laboratorium.|
+|Obraz z witryny Marketplace| Włącz obraz systemu Windows 10 Pro do użycia w ramach konta laboratorium.|
 
 ### <a name="lab-settings"></a>Ustawienia laboratorium
 
@@ -113,7 +113,7 @@ W przypadku klasy 25 studentów z upływem 20 godzin planowanego czasu zajęć i
 
 Więcej szczegółowych informacji na temat cen można znaleźć w temacie [Azure Lab Services Cennik](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W tym artykule opisano kroki niezbędne do utworzenia laboratorium dla klasy analizy danych Big Data, która korzysta z platformy danych Hortonworks wdrożonej z platformą Docker.  Konfiguracja tego typu klasy może być używana dla podobnych klas analizy danych.  Ta konfiguracja może być również stosowana do innych typów klas, które używają platformy Docker do wdrożenia.
 

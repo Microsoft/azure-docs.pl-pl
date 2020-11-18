@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347513"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660580"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Przenieś własne Machine Learning (ML) na platformę Azure — wskaźnik
 
@@ -32,7 +32,7 @@ Modele wykrywania ML można dostosowywać do poszczególnych środowisk i zmieni
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>Co to jest platforma przenoszenia własnych Machine Learning (BYOD-ML)?
 
-W przypadku organizacji, które mają zasoby usługi ML i chcesz utworzyć dostosowane modele ML do ich unikatowych potrzeb firmy, oferujemy **platformę BYOD-ml**. Platforma wykorzystuje [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks) / środowiska[Apache Spark](http://spark.apache.org/) i notesów Jupyter do tworzenia środowiska ml. Dostępne są następujące składniki:
+W przypadku organizacji, które mają zasoby usługi ML i chcesz utworzyć dostosowane modele ML do ich unikatowych potrzeb firmy, oferujemy **platformę BYOD-ml**. Platforma wykorzystuje [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) / środowiska[Apache Spark](http://spark.apache.org/) i notesów Jupyter do tworzenia środowiska ml. Dostępne są następujące składniki:
 
 - Pakiet BYOD-ML, który obejmuje biblioteki ułatwiające dostęp do danych i wypychanie wyników z powrotem do Log Analytics (LA), dzięki czemu można zintegrować wyniki z wykrywaniem, badaniem i łowiectwem. 
 
@@ -95,7 +95,7 @@ Teraz, gdy znasz już najważniejsze składniki platformy BYOD-ML, Oto przykład
 
 ### <a name="setup-the-databricksspark-environment"></a>Konfigurowanie środowiska datakostki/platformy Spark
 
-Jeśli jeszcze tego nie zrobiono, należy skonfigurować własne środowisko danych. Aby uzyskać instrukcje, zapoznaj się z dokumentem [szybkiego startu](https://docs.microsoft.com/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) .
+Jeśli jeszcze tego nie zrobiono, należy skonfigurować własne środowisko danych. Aby uzyskać instrukcje, zapoznaj się z dokumentem [szybkiego startu](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) .
 
 ### <a name="auto-export-instruction"></a>Instrukcja Autoexport
 
@@ -103,7 +103,7 @@ Aby utworzyć niestandardowe modele ML na podstawie własnych danych w wskaźnik
 
 Na potrzeby tego przykładu należy mieć dane szkoleniowe dotyczące dziennika dostępu do udziału plików w usłudze Azure Blob Storage. Format danych jest udokumentowany w notesie i w bibliotekach.
 
-Możesz automatycznie wyeksportować dane z Log Analytics przy użyciu [interfejsu wiersza polecenia platformy Azure (CLI)](https://docs.microsoft.com/cli/azure/monitor/log-analytics). 
+Możesz automatycznie wyeksportować dane z Log Analytics przy użyciu [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/monitor/log-analytics). 
 
 Aby uruchamiać polecenia, musisz mieć przypisaną rolę **współautor** w obszarze roboczym log Analytics, Twoim koncie magazynu i zasobem EventHub. 
 
@@ -159,13 +159,13 @@ Po zaplanowaniu planowanej oceny możesz użyć modułu w notesie oceniania, aby
 
 Aby zobaczyć wyniki oceny wraz ze szczegółowymi informacjami dotyczącymi dziennika, Wróć do portalu Azure wskaźnikowego. W **dziennikach** > dziennikach niestandardowych wyniki zostaną wyświetlone w tabeli **AnomalousResourceAccessResult_CL** (lub własnej nazwie tabeli niestandardowej). Możesz użyć tych wyników, aby wzmocnić badanie i doświadczenia z łowiectwa.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="Platforma uczenia maszynowego":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="nietypowe dzienniki dostępu do zasobów":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Utwórz niestandardową regułę analizy z wynikami ML
 
 Po potwierdzeniu, że wyniki z tablicy są w niestandardowym spisie i są zadowalające, można utworzyć wykrywanie na podstawie wyników. Przejdź do pozycji **Analiza** z portalu Azure wskaźnikowego i [Utwórz nową regułę wykrywania](tutorial-detect-threats-custom.md). Poniżej przedstawiono przykład wyświetlania zapytania używanego do tworzenia wykrywania.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Platforma uczenia maszynowego":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Utwórz niestandardową regułę analizy dla wykryć B Y O M L":::
 
 ### <a name="view-and-respond-to-incidents"></a>Wyświetlanie zdarzeń i reagowanie na nie
 Po skonfigurowaniu reguły analizy na podstawie wyników z tablicy, jeśli wyniki przekraczają wartość progową ustawioną w zapytaniu, zdarzenie zostanie wygenerowane i naliczane na stronie **incydenty** na platformie Azure. 

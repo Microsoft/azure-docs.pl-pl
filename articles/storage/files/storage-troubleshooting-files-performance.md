@@ -4,15 +4,15 @@ description: Rozwiązywanie znanych problemów z wydajnością przy użyciu udzi
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630145"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660291"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -34,9 +34,9 @@ Aby potwierdzić, że Twój udział jest ograniczany, możesz uzyskać dostęp d
 
 1. Wybierz **transakcje** jako metrykę.
 
-1. Dodaj filtr dla **typu odpowiedzi** , a następnie sprawdź, czy jakieś żądania mają jeden z następujących kodów odpowiedzi:
-   * **SuccessWithThrottling** : dla bloku komunikatów serwera (SMB)
-   * **ClientThrottlingError** : dla REST
+1. Dodaj filtr dla **typu odpowiedzi**, a następnie sprawdź, czy jakieś żądania mają jeden z następujących kodów odpowiedzi:
+   * **SuccessWithThrottling**: dla bloku komunikatów serwera (SMB)
+   * **ClientThrottlingError**: dla REST
 
    ![Zrzut ekranu przedstawiający opcje metryk dla udziałów plików w warstwie Premium, z uwzględnieniem filtru właściwości "typ odpowiedzi".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -83,10 +83,11 @@ Maszyna wirtualna klienta (VM) może znajdować się w innym regionie niż udzia
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klient nie może osiągnąć maksymalnej przepływności obsługiwanej przez sieć
 
 ### <a name="cause"></a>Przyczyna
-Jedną z potencjalnych przyczyn jest brak obsługi protokołu SMB w wielu kanałach. Obecnie Azure Files obsługuje tylko jeden kanał, więc istnieje tylko jedno połączenie z maszyny wirtualnej klienta do serwera. To pojedyncze połączenie jest oznaczane pojedynczym rdzeniem na maszynie wirtualnej klienta, dzięki czemu maksymalna przepływność osiągalna z maszyny wirtualnej jest powiązana z jednym rdzeniem.
+Jedną z potencjalnych przyczyn jest brak obsługi protokołu SMB w przypadku standardowych udziałów plików. Obecnie Azure Files obsługuje tylko jeden kanał, więc istnieje tylko jedno połączenie z maszyny wirtualnej klienta do serwera. To pojedyncze połączenie jest oznaczane pojedynczym rdzeniem na maszynie wirtualnej klienta, dzięki czemu maksymalna przepływność osiągalna z maszyny wirtualnej jest powiązana z jednym rdzeniem.
 
 ### <a name="workaround"></a>Obejście
 
+- W przypadku udziałów plików w warstwie Premium [Włącz Wielokanałowość SMB na koncie FileStorage](storage-files-enable-smb-multichannel.md).
 - Uzyskanie maszyny wirtualnej z większym rdzeniem może pomóc w zwiększeniu przepływności.
 - Uruchomienie aplikacji klienckiej z wielu maszyn wirtualnych spowoduje zwiększenie przepływności.
 - Jeśli to możliwe, Użyj interfejsów API REST.
@@ -170,18 +171,65 @@ Większe niż oczekiwane opóźnienie dostępu do udziałów plików platformy A
 
 - Zainstaluj dostępną [poprawkę](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
 
+## <a name="smb-multichannel-option-not-visible-under-file-share-settings"></a>Opcja wielokanałowe protokołu SMB nie jest widoczna w obszarze Ustawienia udziału plików. 
+
+### <a name="cause"></a>Przyczyna
+
+Subskrypcja nie jest zarejestrowana dla tej funkcji lub region i typ konta nie są obsługiwane.
+
+### <a name="solution"></a>Rozwiązanie
+
+Upewnij się, że subskrypcja została zarejestrowana na potrzeby funkcji wielokanałowe protokołu SMB. Zobacz [wprowadzenie](storage-files-enable-smb-multichannel.md#getting-started) — upewnij się, że rodzaj konta to FileStorage (konto plików w warstwie Premium) na stronie Przegląd konta. 
+
+## <a name="smb-multichannel-is-not-being-triggered"></a>Nie jest wyzwalany wielokanałowe protokół SMB.
+
+### <a name="cause"></a>Przyczyna
+
+Ostatnie zmiany ustawień konfiguracji wielokanałowego protokołu SMB bez ponownej instalacji.
+
+### <a name="solution"></a>Rozwiązanie
+ 
+-   Po wprowadzeniu zmian w ustawieniach konfiguracji wielokanałowej klienta SMB systemu Windows lub konta SMB należy odinstalować udział, poczekać na 60 sekund i ponownie zainstalować udział w celu wyzwolenia wielokanałowości.
+-   W przypadku systemu operacyjnego Windows klienta Wygeneruj obciążenie we/wy o wysokiej głębokości kolejki powiedz głębokość kolejki = 8, na przykład kopiując plik do wyzwalania wielokanałowe protokołu SMB.  W przypadku systemu operacyjnego serwera jest wyzwalana funkcja wielokanałowe protokołu SMB z głębokość kolejki = 1, co oznacza, że tylko po rozpoczęciu wszystkich operacji we/wy do udziału.
+
+## <a name="high-latency-on-web-sites-hosted-on-file-shares"></a>Duże opóźnienie w witrynach sieci Web hostowanych w udziałach plików 
+
+### <a name="cause"></a>Przyczyna  
+
+Powiadomienia o zmianach plików o dużej liczbie w udziałach plików mogą powodować znaczne duże opóźnienia. Zwykle jest to wykonywane w przypadku witryn sieci Web hostowanych w udziałach plików z głębokiej zagnieżdżonej struktury katalogów. Typowym scenariuszem jest hostowana aplikacja sieci Web IIS, w której jest skonfigurowane powiadomienie o zmianie pliku dla każdego katalogu w konfiguracji domyślnej. Każda zmiana (ReadDirectoryChangesW) w udziale, który jest zarejestrowany przez klienta SMB do wypychania powiadomienia o zmianach z usługi plików do klienta, który pobiera zasoby systemowe, i występuje problem z liczbą zmian. Może to spowodować ograniczenie przepustowości i w związku z tym spowodować większe opóźnienia po stronie klienta. 
+
+Aby potwierdzić, możesz użyć metryk platformy Azure w portalu — 
+
+1. W Azure Portal przejdź do konta magazynu. 
+1. W menu po lewej stronie w obszarze monitorowanie wybierz pozycję metryki. 
+1. Wybierz pozycję plik jako przestrzeń nazw metryki dla zakresu konta magazynu. 
+1. Wybierz transakcje jako metrykę. 
+1. Dodaj filtr dla elementu responsetype i sprawdź, czy jakieś żądania mają kod odpowiedzi SuccessWithThrottling (dla protokołu SMB) lub ClientThrottlingError (dla REST).
+
+### <a name="solution"></a>Rozwiązanie 
+
+- Jeśli powiadomienie o zmianie pliku nie jest używane, wyłącz powiadomienie o zmianie pliku (preferowany).
+    - [Wyłącz powiadomienie o zmianie pliku](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) przez aktualizację FCNMode. 
+    - Zaktualizuj interwał sondowania procesu roboczego usług IIS (W3WP) do 0 przez ustawienie `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` w rejestrze i ponownie uruchom proces W3wp. Aby dowiedzieć się więcej na temat tego ustawienia, zobacz [Common Registry Keys, które są używane przez wiele części usług IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
+- Zwiększ częstotliwość interwału sondowania powiadomień o zmianach pliku, aby zmniejszyć ilość woluminu.
+    - Zaktualizuj interwał sondowania procesu roboczego W3WP na wyższą wartość (np. 10mins lub 30mins) na podstawie wymagań. Ustaw `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [w rejestrze](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) i ponownie uruchom proces W3wp.
+- Jeśli zmapowany katalog fizyczny witryny sieci Web ma zagnieżdżoną strukturę katalogów, możesz spróbować ograniczyć zakres powiadomień o zmianach pliku, aby zmniejszyć ilość powiadomień.
+    - Domyślnie usługi IIS używają konfiguracji z Web.config plików w katalogu fizycznym, do którego zamapowany jest katalog wirtualny, a także w dowolnych katalogach podrzędnych w katalogu fizycznym. Jeśli nie chcesz używać plików Web.config w katalogach podrzędnych, określ wartość false dla atrybutu wartość allowsubdirconfig w katalogu wirtualnym. Więcej szczegółów można znaleźć [tutaj](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+
+Ustaw ustawienie "wartość allowsubdirconfig" katalogu wirtualnego usług IIS w Web.Config na wartość false, aby wykluczyć mapowane katalogi fizyczne obiektów podrzędnych z zakresu.  
+
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Jak utworzyć alert, jeśli udział plików jest ograniczany
 
 1. W Azure Portal przejdź do konta magazynu.
-1. W sekcji **monitorowanie** wybierz pozycję **alerty** , a następnie wybierz pozycję **Nowa reguła alertu**.
-1. Wybierz pozycję **Edytuj zasób** , wybierz **Typ zasobu pliku** dla konta magazynu, a następnie wybierz pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to *contoso* , wybierz zasób contoso/File.
+1. W sekcji **monitorowanie** wybierz pozycję **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
+1. Wybierz pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie wybierz pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to *contoso*, wybierz zasób contoso/File.
 1. Wybierz pozycję **Wybierz warunek** , aby dodać warunek.
 1. Na liście sygnałów, które są obsługiwane dla konta magazynu, wybierz metrykę **transakcji** .
 1. W okienku **Konfigurowanie logiki sygnału** na liście rozwijanej **Nazwa wymiaru** wybierz pozycję **Typ odpowiedzi**.
 1. Z listy rozwijanej **wartości wymiaru** wybierz pozycję **SuccessWithThrottling** (dla protokołu SMB) lub **ClientThrottlingError** (dla opcji REST).
 
    > [!NOTE]
-   > Jeśli nie zostanie wyświetlona wartość **SuccessWithThrottling** ani **ClientThrottlingError** wartości wymiaru, oznacza to, że zasób nie został ograniczony. Aby dodać wartość wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową** , wprowadź **SuccessWithThrottling** lub **ClientThrottlingError** , wybierz pozycję **OK** , a następnie powtórz krok 7.
+   > Jeśli nie zostanie wyświetlona wartość **SuccessWithThrottling** ani **ClientThrottlingError** wartości wymiaru, oznacza to, że zasób nie został ograniczony. Aby dodać wartość wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową**, wprowadź **SuccessWithThrottling** lub **ClientThrottlingError**, wybierz pozycję **OK**, a następnie powtórz krok 7.
 
 1. Z listy rozwijanej **Nazwa wymiaru** wybierz pozycję **udział plików**.
 1. Z listy rozwijanej **wartości wymiaru** wybierz udział plików lub udziały, w których chcesz utworzyć alert.
@@ -189,12 +237,12 @@ Większe niż oczekiwane opóźnienie dostępu do udziałów plików platformy A
    > [!NOTE]
    > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie ma listy udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików są wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie wskazuje, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecamy użycie jednego udziału plików na konto magazynu.
 
-1. Zdefiniuj parametry alertu przez wprowadzenie **wartości progowej** , **operatora** , **stopnia szczegółowości agregacji** i **częstotliwości oceny** , a następnie wybierz pozycję **gotowe**.
+1. Zdefiniuj parametry alertu przez wprowadzenie **wartości progowej**, **operatora**, **stopnia szczegółowości agregacji** i **częstotliwości oceny**, a następnie wybierz pozycję **gotowe**.
 
     > [!TIP]
     > Jeśli używasz progu statycznego, wykres metryk może pomóc w określeniu rozsądnej wartości progowej, jeśli udział plików jest obecnie ograniczany. Jeśli jest używany próg dynamiczny, wykres metryki wyświetla obliczone progi na podstawie ostatnich danych.
 
-1. Wybierz pozycję **Wybierz grupę akcji** , a następnie Dodaj grupę akcji (na przykład wiadomości E-mail lub SMS) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+1. Wybierz pozycję **Wybierz grupę akcji**, a następnie Dodaj grupę akcji (na przykład wiadomości E-mail lub SMS) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 1. Wprowadź szczegóły alertu, takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 1. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 
@@ -203,8 +251,8 @@ Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Tworzenie alertów, jeśli udział plików w warstwie Premium jest trendem w kierunku ograniczenia przepustowości
 
 1. W Azure Portal przejdź do konta magazynu.
-1. W sekcji **monitorowanie** wybierz pozycję **alerty** , a następnie wybierz pozycję **Nowa reguła alertu**.
-1. Wybierz pozycję **Edytuj zasób** , wybierz **Typ zasobu pliku** dla konta magazynu, a następnie wybierz pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to *contoso* , wybierz zasób contoso/File.
+1. W sekcji **monitorowanie** wybierz pozycję **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
+1. Wybierz pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie wybierz pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to *contoso*, wybierz zasób contoso/File.
 1. Wybierz pozycję **Wybierz warunek** , aby dodać warunek.
 1. Na liście sygnałów, które są obsługiwane dla konta magazynu, wybierz metrykę **ruchu** wychodzącego.
 
@@ -213,18 +261,18 @@ Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [
 
 1. Przewiń w dół. Z listy rozwijanej **Nazwa wymiaru** wybierz pozycję **udział plików**.
 1. Z listy rozwijanej **wartości wymiaru** wybierz udział plików lub udziały, w których chcesz utworzyć alert.
-1. Zdefiniuj parametry alertu, wybierając wartości w **operatorze** , **wartość progowa** , **stopień szczegółowości agregacji** **, a następnie** wybierz pozycję **gotowe**.
+1. Zdefiniuj parametry alertu, wybierając wartości w **operatorze**, **wartość progowa**, **stopień szczegółowości agregacji** **, a następnie** wybierz pozycję **gotowe**.
 
    Metryki ruch wychodzący, ruch przychodzący i transakcje są wyrażane na minutę, chociaż są obsługiwane ruch wychodzący, ruch przychodzący i operacje we/wy na sekundę. W związku z tym na przykład, jeśli przychodzący ruch wychodzący jest 90 &nbsp; mebibytes na sekundę (MIB/s) i chcesz, aby próg miał wartość 80 &nbsp; procent zainicjowanych danych wychodzących, wybierz następujące parametry alertu: 
-   - Dla **wartości progowej** : *75497472* 
-   - For — **operator** : *większe niż lub równe*
-   - Dla **typu agregacji** : *średnia*
+   - Dla **wartości progowej**: *75497472* 
+   - For — **operator**: *większe niż lub równe*
+   - Dla **typu agregacji**: *średnia*
    
    W zależności od tego, jak zakłócenia ma być alert, można również wybrać wartości dla **szczegółowości agregacji** oraz **częstotliwość obliczania**. Na przykład jeśli chcesz, aby Twój alert zaobserwuj średnią ruch przychodzący w okresie wynoszącym 1 godzinę, i chcesz, aby reguła alertów była uruchamiana co godzinę, wybierz następujące pozycje:
-   - W celu uzyskania **stopnia szczegółowości agregacji** : *1 godzina*
-   - Aby uzyskać **częstotliwość oceny** : *1 godzina*
+   - W celu uzyskania **stopnia szczegółowości agregacji**: *1 godzina*
+   - Aby uzyskać **częstotliwość oceny**: *1 godzina*
 
-1. Wybierz pozycję **Wybierz grupę akcji** , a następnie Dodaj grupę akcji (na przykład wiadomości E-mail lub SMS) do alertu przez wybranie istniejącej grupy akcji lub utworzenie nowej.
+1. Wybierz pozycję **Wybierz grupę akcji**, a następnie Dodaj grupę akcji (na przykład wiadomości E-mail lub SMS) do alertu przez wybranie istniejącej grupy akcji lub utworzenie nowej.
 1. Wprowadź szczegóły alertu, takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 1. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 
@@ -232,13 +280,13 @@ Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [
     > - Aby otrzymywać powiadomienia o tym, że udział plików w warstwie Premium jest bliski ograniczenia *ze względu na zainicjowanie obsługi* ruchu przychodzącego, postępuj zgodnie z powyższymi instrukcjami, ale z następującymi zmianami:
     >    - W kroku 5 **Wybierz metrykę** transferu danych przychodzących zamiast **ruchu** wychodzącego.
     >
-    > - Aby otrzymywać powiadomienia o tym, że udział plików w warstwie Premium jest bliski ograniczania *z powodu zainicjowanych operacji wejścia/wyjścia* , postępuj zgodnie z powyższymi instrukcjami, ale z następującymi zmianami:
+    > - Aby otrzymywać powiadomienia o tym, że udział plików w warstwie Premium jest bliski ograniczania *z powodu zainicjowanych operacji wejścia/wyjścia*, postępuj zgodnie z powyższymi instrukcjami, ale z następującymi zmianami:
     >    - W kroku 5 Wybierz metrykę **transakcji** zamiast **ruchu** wychodzącego.
-    >    - W kroku 10 jedyną opcją dla opcji **typ agregacji** jest *Suma*. W związku z tym wartość progowa zależy od wybranej szczegółowości agregacji. Na przykład jeśli wartość progowa ma wynosić 80 &nbsp; % liczby operacji we/wy na sekundę, a wybrano *1 godzinę* dla **stopnia szczegółowości agregacji** , **wartość progowa** będzie liczba operacji we/wy na sekundę (w bajtach) &times; &nbsp; 0,8 &times; &nbsp; 3600. 
+    >    - W kroku 10 jedyną opcją dla opcji **typ agregacji** jest *Suma*. W związku z tym wartość progowa zależy od wybranej szczegółowości agregacji. Na przykład jeśli wartość progowa ma wynosić 80 &nbsp; % liczby operacji we/wy na sekundę, a wybrano *1 godzinę* dla **stopnia szczegółowości agregacji**, **wartość progowa** będzie liczba operacji we/wy na sekundę (w bajtach) &times; &nbsp; 0,8 &times; &nbsp; 3600. 
 
 Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)  
 - [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)  
 - [Często zadawane pytania dotyczące usługi Azure Files](storage-files-faq.md)

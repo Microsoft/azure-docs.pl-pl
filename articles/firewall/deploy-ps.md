@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 11/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 62640aa02c76c13b2c49b2e33aea742f6b8a09e4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628353"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660240"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell
 
@@ -25,7 +25,7 @@ Jednym ze sposobów kontrolowania dostępu do sieciowego ruchu wychodzącego z p
 
 Ruch sieciowy podlega skonfigurowanym regułom zapory podczas kierowania ruchu sieciowego do zapory jako bramy domyślnej podsieci.
 
-W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrożenia. W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , gdzie Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
+W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrożenia. W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , gdzie Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
 
 * **AzureFirewallSubnet** — w tej podsieci znajduje się zapora.
 * **Workload-SN** — w tej podsieci znajduje się serwer obciążeń. Ruch sieciowy tej podsieci przechodzi przez zaporę.
@@ -49,7 +49,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ta procedura wymaga, aby program PowerShell był uruchamiany lokalnie. Musisz mieć zainstalowany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Ta procedura wymaga, aby program PowerShell był uruchamiany lokalnie. Musisz mieć zainstalowany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="set-up-the-network"></a>Konfigurowanie sieci
 
@@ -217,7 +217,7 @@ Teraz Przetestuj zaporę, aby upewnić się, że działa zgodnie z oczekiwaniami
 
    :::image type="content" source="media/deploy-ps/bastion.png" alt-text="Połącz przy użyciu bastionu.":::
 
-3. W obszarze **SRV (Pracuj** ) Otwórz okno programu PowerShell i uruchom następujące polecenia:
+3. W obszarze **SRV (Pracuj**) Otwórz okno programu PowerShell i uruchom następujące polecenia:
 
    ```
    nslookup www.google.com
@@ -253,4 +253,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Samouczek: monitorowanie dzienników usługi Azure Firewall](./tutorial-diagnostics.md)
+* [Samouczek: monitorowanie dzienników usługi Azure Firewall](./firewall-diagnostics.md)

@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb059fe5dc4e64df104e026983e51f799236f916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea4a7764cf1ede1cfaf53b1097034c5894660376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842805"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660682"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric Mesh
 Interfejs wiersza polecenia usługi Service Fabric Mesh jest wymagany do wdrażania zasobów i zarządzania nimi lokalnie oraz w usłudze Azure Service Fabric Mesh. Poniżej przedstawiono sposób konfigurowania tego programu.
@@ -25,22 +25,23 @@ Istnieją trzy typy interfejsów wiersza polecenia, które mogą być używane. 
 
 Na potrzeby wersji zapoznawczej interfejs wiersza polecenia usługi Azure Service Fabric mesh jest napisany jako rozszerzenie interfejsu wiersza polecenia platformy Azure. Zainstalować go można w usłudze Azure Cloud Shell lub w lokalnej instalacji wiersza polecenia platformy Azure. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Ten artykuł wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="install-the-azure-service-fabric-mesh-cli"></a>Instalowanie interfejsu wiersza polecenia usługi Azure Service Fabric Mesh
-1. Musisz zainstalować interfejs wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Aby zainstalować najnowszą wersję interfejsu wiersza polecenia lub uaktualnić do niej, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
-2. Zainstaluj moduł rozszerzenia interfejsu wiersza polecenia usługi Azure Service Fabric Mesh za pomocą poniższego polecenia. 
+Jeśli jeszcze tego nie zrobiono, zainstaluj moduł rozszerzenia interfejsu wiersza polecenia usługi Azure Service Fabric siatkę przy użyciu następującego polecenia: 
+ 
+```azurecli-interactive
+az extension add --name mesh
+```
 
-    ```azurecli-interactive
-    az extension add --name mesh
-    ```
+Jeśli jest już zainstalowana, zaktualizuj istniejący moduł interfejsu wiersza polecenia usługi Azure Service Fabric w sieci Web przy użyciu następującego polecenia:
 
-3. Zaktualizuj istniejący moduł interfejsu wiersza polecenia usługi Azure Service Fabric Mesh za pomocą poniższego polecenia.
-
-    ```azurecli-interactive
-    az extension update --name mesh
-    ```
+```azurecli-interactive
+az extension update --name mesh
+```
 
 ## <a name="install-the-service-fabric-cli-sfctl"></a>Instalowanie interfejsu wiersza polecenia usługi Service Fabric (sfctl) 
 
@@ -52,7 +53,7 @@ Aby korzystać z interfejsu wiersza polecenia programu Maven, na maszynie muszą
 
 * [Java](https://www.azul.com/downloads/zulu/)
 * [Maven](https://maven.apache.org/download.cgi)
-* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Narzędzia](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Interfejs wiersza polecenia usługi Azure Mesh (az mesh) — pod kątem usługi Azure Service Fabric Mesh 
 * Interfejs SFCTL (sfctl) — pod kątem klastrów lokalnych 
 

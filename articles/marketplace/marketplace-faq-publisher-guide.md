@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491481"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660223"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -87,7 +87,7 @@ Komercyjny Portal rynku współpracuje z modelem agencji. Klient podpisuje umow�
 
 Jako wydawca ustawiasz warunki użytkowania rozwiązania programowego, które klienci muszą zaakceptować w ramach przepływu zakupu. Aby uprościć i przyspieszyć pracę, zapewniamy standardowy kontrakt, który można wybrać, aby uwzględnić go w warunkach i postanowieniach. Dzięki temu klienci mogą zapoznać się z umową standardowa, uzyskać zgodę od zespołów prawnych i kupowania, a następnie skupić się na zmianach dla każdej oferty.
 
-Można utworzyć zmiany, które mają zastosowanie do wszystkich klientów, lub wprowadzić zmiany specyficzne dla niektórych klientów. Możesz również w pełni dostosować warunki i postanowienia, które mogą być wprowadzane do pola tekstowego lub hostowane w witrynie sieci Web, która będzie wyświetlana jako adres internetowy.
+Można utworzyć zmiany, które mają zastosowanie do wszystkich klientów, lub wprowadzić zmiany specyficzne dla niektórych klientów. Możesz również w pełni dostosować warunki i postanowienia, które można wprowadzić w polu tekstowym w centrum partnerskim.
 
 Aby dowiedzieć się więcej, zobacz temat [Standardowy kontrakt dla komercyjnego portalu Microsoft Marketplace](standard-contract.md).
 
@@ -99,10 +99,10 @@ Tak, Portal Azure Government Marketplace jest dostępny w Azure Government regio
 
 Istnieją cztery odpowiednie role zarządzające dostępem do Centrum partnerskiego.
 
-- *Menedżer* : zapewnia uprawnienia do zarządzania użytkownikami Centrum partnerskiego w katalogu oraz tworzenie i aktualizowanie ofert.
-- *Deweloper* : umożliwia użytkownikowi tworzenie i aktualizowanie ofert.
-- *Współautor finansowy* : zapewnia uprawnienia do wyświetlania raportów wypłat.
-- *Właściciel* : można skonfigurować konto wypłaty i profil podatkowy. Użytkownik, który zaakceptował umowę wydawcy, jest domyślnie właścicielem.
+- *Menedżer*: zapewnia uprawnienia do zarządzania użytkownikami Centrum partnerskiego w katalogu oraz tworzenie i aktualizowanie ofert.
+- *Deweloper*: umożliwia użytkownikowi tworzenie i aktualizowanie ofert.
+- *Współautor finansowy*: zapewnia uprawnienia do wyświetlania raportów wypłat.
+- *Właściciel*: można skonfigurować konto wypłaty i profil podatkowy. Użytkownik, który zaakceptował umowę wydawcy, jest domyślnie właścicielem.
 
 Uprawnienia *administratora globalnego* usługi Azure Active Directory (Azure AD) są niezbędne do tworzenia nowych kont użytkowników lub zapraszania kont Gości w katalogu źródłowym. Centrum partnerskie stosuje usługę Azure AD do modelu tożsamości, a wystąpienie usługi Azure AD organizacji jest często zarządzane i kontrolowane przez zespoły IT lub Security.
 

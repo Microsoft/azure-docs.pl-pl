@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2726c8d416bee209f864f7e299403f589a767840
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91000959"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659594"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie Key Vault zarządzanego modułu HSM przy użyciu szablonu Azure Resource Manager
 
@@ -79,7 +79,6 @@ Może być również potrzebny identyfikator dzierżawy. Aby go znaleźć, użyj
     - **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
     - **Lokalizacja**: Wybierz lokalizację. Na przykład **Południowo-środkowe stany USA**.
     - **managedHSMName**: Wprowadź nazwę zarządzanego modułu HSM.
-    - **Jednostka SKU**: Podaj nazwę i rodzinę zarządzanego modułu HSM, który chcesz utworzyć.  W tym przewodniku szybki start wprowadź "Standard_B1" dla nazwy i "B" dla rodziny.
     - **Identyfikator dzierżawy**: Funkcja szablonu automatycznie pobiera swój identyfikator dzierżawy; nie zmieniaj wartości domyślnej.  Jeśli nie ma wartości, wprowadź identyfikator dzierżawy, który został pobrany w [wymaganiach wstępnych](#prerequisites).
     * **initialAdminObjectIds**: Wprowadź identyfikator obiektu, który został pobrany w [wymaganiach wstępnych](#prerequisites).
 

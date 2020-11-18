@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce6c754c308d2979db9b1b8eb36e7858e8a91c3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371260"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659798"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Ten sam wzorzec może służyć do zarządzania większą kolekcją klastrów, k
 
 Ten przewodnik wprowadzający przeprowadzi Cię przez proces stosowania zestawu konfiguracji z zakresem administratora klastra.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący Kubernetes połączony klaster usługi Azure Arc. Jeśli potrzebny jest podłączony klaster, zobacz temat [łączenie się z klastrem szybki start](./connect-cluster.md).
 
@@ -99,7 +99,7 @@ Oto obsługiwane scenariusze dla wartości parametru--Repository-URL.
 | Scenariusz | Format | Opis |
 | ------------- | ------------- | ------------- |
 | Publiczne repozytorium git | http [s]://Server/repo.git lub git://server/repo.git   | Publiczne repozytorium git  |
-| Prywatne repozytorium git — klucze utworzone za pośrednictwem protokołu SSH – strumień | SSH://[user@] serwer/repozytorium. git lub [user@] serwer: repozytorium. git | Klucz publiczny wygenerowany przez strumień musi zostać dodany do konta użytkownika lub repozytorium w ramach dostawcy usługi git. Więcej informacji można znaleźć [tutaj](#apply-configuration-from-a-private-git-repository) |
+| Prywatne repozytorium git — klucze utworzone za pośrednictwem protokołu SSH – strumień | SSH://[user@] serwer/repozytorium. git lub [user@] serwer: repozytorium. git | Klucz publiczny wygenerowany przez strumień musi zostać dodany do konta użytkownika w dostawcy usługi git. Jeśli klucz wdrożenia zostanie dodany do repozytorium zamiast z konta użytkownika, Użyj zamiast `git@` `user@` . Więcej informacji można znaleźć [tutaj](#apply-configuration-from-a-private-git-repository) |
 
 Te scenariusze są obsługiwane przez strumień, ale jeszcze nie przez sourceControlConfiguration.
 
@@ -222,16 +222,26 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 3. Wybierz konfigurację, która używa prywatnego repozytorium git.
 4. W otwartym oknie kontekstu w dolnej części okna Skopiuj **klucz publiczny repozytorium**.
 
-**Dodaj klucz publiczny jako klucz wdrożenia do repozytorium git**
+Jeśli używasz usługi GitHub, użyj jednej z następujących dwóch opcji:
+
+**Opcja 1: Dodawanie klucza publicznego do konta użytkownika**
+
+1. Otwórz witrynę GitHub, kliknij ikonę profilu w prawym górnym rogu strony.
+2. Kliknij pozycję **Ustawienia**
+3. Kliknij **klucze SSH i GPG**
+4. Kliknij **nowy klucz SSH**
+5. Podaj tytuł
+6. Wklej klucz publiczny (bez cudzysłowów)
+7. Kliknij pozycję **Dodaj klucz SSH**
+
+**Opcja 2: Dodaj klucz publiczny jako klucz wdrożenia do repozytorium git**
 
 1. Otwórz witrynę GitHub, przejdź do repozytorium, kliknij pozycję **Ustawienia**, a następnie pozycję **Wdróż klucze** .
-2. Kliknij pozycję  **Dodaj klucz wdrożenia**
+2. Kliknij pozycję **Dodaj klucz wdrożenia**
 3. Podaj tytuł
 4. Sprawdź **Zezwalanie na dostęp do zapisu**
 5. Wklej klucz publiczny (bez cudzysłowów)
 6. Kliknij pozycję **Dodaj klucz**
-
-Zobacz dokumentację usługi GitHub, aby uzyskać więcej informacji na temat zarządzania tymi kluczami.
 
 **Jeśli używasz repozytorium usługi Azure DevOps, Dodaj klucz do kluczy SSH**
 

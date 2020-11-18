@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461162"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661005"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Samouczek: Tworzenie bramy sieci VPN i zarządzanie nią przy użyciu programu PowerShell
 
@@ -133,7 +133,7 @@ Po zakończeniu tworzenia bramy możesz utworzyć połączenie między swoją si
 
 ## <a name="view-the-gateway-public-ip-address"></a>Wyświetlanie publicznego adresu IP bramy
 
-Jeśli znasz nazwę publicznego adresu IP, za pomocą polecenia [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) możesz wyświetlić publiczny adres IP przypisany do bramy.
+Jeśli znasz nazwę publicznego adresu IP, za pomocą polecenia [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) możesz wyświetlić publiczny adres IP przypisany do bramy.
 
 Jeśli upłynął limit czasu sesji, skopiuj wspólne parametry sieci z początkowej części tego samouczka do nowej sesji i kontynuuj pracę.
 
@@ -162,11 +162,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-Aby uzyskać więcej informacji, zobacz temat [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md).
+Aby uzyskać więcej informacji, zobacz temat [Resetowanie bramy VPN Gateway](./reset-gateway.md).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli przejdziesz do [następnego samouczka](vpn-gateway-tutorial-vpnconnection-powershell.md), chcesz zachować te zasoby, ponieważ są one wymagane.
+Jeśli przejdziesz do [następnego samouczka](./vpn-gateway-create-site-to-site-rm-powershell.md), chcesz zachować te zasoby, ponieważ są one wymagane.
 
 Jeśli jednak brama jest częścią wdrożenia prototypowego lub służącego do weryfikacji koncepcji, możesz usunąć grupę zasobów, bramę sieci VPN i wszystkie powiązane zasoby za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

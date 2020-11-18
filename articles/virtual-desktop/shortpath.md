@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 548393353d38082c175cde20eef1e93017cdd31a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639280"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660954"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP shortpath (wersja zapoznawcza)
 
@@ -110,12 +110,12 @@ Aby zezwolić na przychodzący ruch sieciowy dla shortpath RDP, Użyj węzła Za
 
 1. Otwórz Konsola zarządzania zasadami grupy do [zapory Windows Defender z zabezpieczeniami zaawansowanymi](/windows/security/threat-protection/windows-firewall/open-the-group-policy-management-console-to-windows-firewall-with-advanced-security).
 2. W okienku nawigacji wybierz pozycję **reguły ruchu przychodzącego**.
-3. Wybierz pozycję **Akcja** , a następnie wybierz pozycję **Nowa reguła**.
-4. Na stronie **Typ reguły** kreatora Nowa reguła ruchu przychodzącego wybierz opcję **niestandardowy** , a następnie wybierz przycisk **dalej**.
+3. Wybierz pozycję **Akcja**, a następnie wybierz pozycję **Nowa reguła**.
+4. Na stronie **Typ reguły** kreatora Nowa reguła ruchu przychodzącego wybierz opcję **niestandardowy**, a następnie wybierz przycisk **dalej**.
 5. Na stronie **program** wybierz **tę ścieżkę programu** i wpisz "% główny_katalog_systemowy% \system32\svchost.exe" a następnie wybierz **dalej**.
 6. Na stronie **Protokół i porty** wybierz typ protokołu UDP. W polu **port lokalny** wybierz pozycję "określone porty" i wpisz wartość 3390.
 7. Na stronie **zakres** możesz określić, że reguła ma zastosowanie tylko do ruchu sieciowego do lub z adresów IP wprowadzonych na tej stronie. Skonfiguruj odpowiednie dla swojego projektu, a następnie wybierz przycisk **dalej**.
-8. Na stronie **Akcja** wybierz opcję **Zezwalaj na połączenie** , a następnie wybierz przycisk **dalej**.
+8. Na stronie **Akcja** wybierz opcję **Zezwalaj na połączenie**, a następnie wybierz przycisk **dalej**.
 9. Na stronie **profil** wybierz typy lokalizacji sieciowej, do których zostanie zastosowana ta reguła, a następnie wybierz przycisk **dalej**.
 10. Na stronie **Nazwa** wpisz nazwę i opis reguły, a następnie wybierz pozycję **Zakończ**.
 
@@ -151,6 +151,7 @@ Postępuj zgodnie z [dokumentacją sieciowej grupy zabezpieczeń](../virtual-mac
 
 * **Źródło**  -  **Dowolny** lub zakres adresów IP, w których znajdują się klienci
 * **Zakresy portów źródłowych** -* *\** _ _ dowolna **Lokalizacja docelowa**  -  **Any**
+* **Docelowe zakresy portów**  -  **3390**
 * **Protokół**  -  **Protokół UDP**
 * **Akcja**  -  **Zezwalaj**
 * Opcjonalnie można zmienić **priorytet**. Priorytet ma wpływ na kolejność stosowania reguł: mniejsza wartość liczbowa, przed zastosowaniem reguły.
@@ -245,6 +246,11 @@ Aby wyłączyć shortpath RDP dla określonego hosta sesji, można użyć nastę
 1. Na hoście sesji Uruchom **gpedit. msc**.
 2. Przejdź do **Konfiguracja komputera > Szablony administracyjne > składniki systemu Windows > Usługi pulpitu zdalnego > Podłączanie pulpitu zdalnego Host > połączeń**.
 3. Ustaw ustawienie **"Wybierz protokoły transportu RDP"** tylko na **TCP**
+
+## <a name="feedback"></a>Opinia
+
+Chcemy poznać Twoją opinię dotyczącą Twoich doświadczeń dzięki tej publicznej wersji zapoznawczej.
+* Aby uzyskać odpowiedzi na pytania, żądania, komentarze i inne opinie, [Skorzystaj z tej formy opinii](https://aka.ms/RDPShortpathFeedback).
 
 ## <a name="next-steps"></a>Następne kroki
 

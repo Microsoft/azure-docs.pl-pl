@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093297"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660767"
 ---
 # <a name="list-blobs-with-net"></a>Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET
 
@@ -51,11 +51,7 @@ Przeciążenia dla tych metod udostępniają dodatkowe opcje zarządzania sposob
 
 ### <a name="manage-how-many-results-are-returned"></a>Zarządzanie liczbą zwracanych wyników
 
-Domyślnie operacja tworzenia listy zwraca do 5000 wyników w danym momencie, ale można określić liczbę wyników, które mają zostać zwrócone przez każdą operację tworzenia listy. Przykłady przedstawione w tym artykule pokazują, jak to zrobić.
-
-Jeśli operacja tworzenia listy zwróci więcej niż 5000 obiektów blob lub liczba dostępnych obiektów BLOB przekracza liczbę określoną przez użytkownika, usługa Azure Storage zwraca *token kontynuacji* z listą obiektów BLOB. Token kontynuacji jest wartością nieprzezroczystą, która służy do pobierania następnego zestawu wyników z usługi Azure Storage.
-
-W kodzie Sprawdź wartość tokenu kontynuacji, aby określić, czy ma ona wartość null. Gdy token kontynuacji ma wartość null, zestaw wyników jest zakończony. Jeśli token kontynuacji nie ma wartości null, ponownie wywołaj operację tworzenia listy, przekazując token kontynuacji, aby pobrać następny zestaw wyników, dopóki token kontynuacji nie będzie miał wartości null.
+Domyślnie operacja tworzenia listy zwraca do 5000 wyników w danym momencie, ale można określić liczbę wyników, które mają zostać zwrócone przez każdą operację tworzenia listy. Przykłady przedstawione w tym artykule pokazują, jak zwrócić wyniki na stronach.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtruj wyniki przy użyciu prefiksu
 
@@ -63,7 +59,7 @@ Aby odfiltrować listę obiektów blob, Określ ciąg dla `prefix` parametru. Ci
 
 ### <a name="return-metadata"></a>Metadane zwrotne
 
-Można zwrócić metadane obiektu BLOB z wynikami. 
+Można zwrócić metadane obiektu BLOB z wynikami.
 
 - Jeśli używasz zestawu SDK platformy .NET V12, określ wartość **metadanych** dla wyliczenia [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
@@ -90,6 +86,10 @@ Jeśli włączono funkcję hierarchicznej przestrzeni nazw na Twoim koncie, kata
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
+Jeśli operacja tworzenia listy zwróci więcej niż 5000 obiektów blob lub liczba dostępnych obiektów BLOB przekracza liczbę określoną przez użytkownika, usługa Azure Storage zwraca *token kontynuacji* z listą obiektów BLOB. Token kontynuacji jest wartością nieprzezroczystą, która służy do pobierania następnego zestawu wyników z usługi Azure Storage.
+
+W kodzie Sprawdź wartość tokenu kontynuacji, aby określić, czy ma ona wartość null. Gdy token kontynuacji ma wartość null, zestaw wyników jest zakończony. Jeśli token kontynuacji nie ma wartości null, ponownie wywołaj operację tworzenia listy, przekazując token kontynuacji, aby pobrać następny zestaw wyników, dopóki token kontynuacji nie będzie miał wartości null.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)

@@ -3,12 +3,12 @@ title: Często zadawane pytania — tworzenie kopii zapasowych baz danych platfo
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych SAP HANA baz danych przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d6012ec064b5ec582896ac3484161a6e25f2bf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86513510"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659968"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -61,7 +61,7 @@ Obecnie nie mamy możliwości skonfigurowania rozwiązania wyłącznie dla wirtu
 
 1. Zaczekaj na ukończenie aktualnie uruchomionej kopii zapasowej w wymaganej bazie danych (Sprawdź, czy w programie Studio została ukończona).
 1. Wyłącz kopie zapasowe dzienników i ustaw kopię zapasową wykazu w **systemie plików** dla żądanej bazy danych, wykonując następujące czynności:
-1. Kliknij dwukrotnie pozycję **SYSTEMDB**  ->  **Konfiguracja**SYSTEMDB  ->  **Wybierz pozycję Filtr bazy danych**  ->  **(Dziennik)**
+1. Kliknij dwukrotnie pozycję **SYSTEMDB**  ->  **Konfiguracja** SYSTEMDB  ->  **Wybierz pozycję Filtr bazy danych**  ->  **(Dziennik)**
     1. Ustaw enable_auto_log_backup na **nie**
     1. Ustaw catalog_backup_using_backint na **wartość false**
 1. Wykonaj kopię zapasową na żądanie (pełna/różnicowa/przyrostowo) w odpowiedniej bazie danych i poczekaj na zakończenie tworzenia kopii zapasowej i wykazu.
@@ -124,6 +124,43 @@ Zapoznaj się z SAP HANA Uwaga [1642148](https://launchpad.support.sap.com/#/not
 ### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-an-rhel-hana-system-or-vice-versa"></a>Czy można użyć kopii zapasowej bazy danych działającej w usłudze SLES, aby przywrócić systemowi RHEL HANA lub odwrotnie?
 
 Tak, można użyć kopii zapasowych przesyłania strumieniowego wyzwalanych w bazie danych HANA działającej w systemie SLES, aby przywrócić ją do systemu RHEL HANA i na odwrót. Oznacza to, że przywracanie między systemami operacyjnymi jest możliwe przy użyciu kopii zapasowych przesyłania strumieniowego. Należy jednak upewnić się, że system HANA, do którego ma zostać przywrócona, i system HANA używany do przywracania, są zgodne do przywracania w zależności od SAP. Zapoznaj się z SAP HANA Uwaga [1642148](https://launchpad.support.sap.com/#/notes/1642148) , aby zobaczyć, które typy przywracania są zgodne.
+
+## <a name="policy"></a>Zasady
+
+### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Różne opcje dostępne podczas tworzenia nowych zasad dla SAP HANA kopii zapasowej
+
+Przed utworzeniem zasad należy jasno mieć wymagania dotyczące punktu odzyskiwania i RTO oraz jego odpowiednich kosztów.
+
+RPO (cel punktu odzyskiwania) wskazuje, ile utraci dane dla użytkownika/klienta. Jest to określane przez częstotliwość tworzenia kopii zapasowych dziennika. Częstsze kopie zapasowe dzienników wskazują niższy cel punktu odzyskiwania, a minimalna wartość obsługiwana przez usługę Azure Backup wynosi 15 minut, co oznacza, że częstotliwość tworzenia kopii zapasowych dziennika może wynosić 15 minut lub więcej.
+
+RTO (cel czasu odzyskiwania) wskazuje, jak szybko dane powinny zostać przywrócone do ostatniego dostępnego punktu w czasie po przypadku utraty danych. Jest to zależne od strategii odzyskiwania wykorzystywanej przez platformę HANA, która zwykle zależy od liczby plików wymaganych do przywrócenia. Ma to również wpływ na koszty, a Poniższa tabela powinna pomóc w zrozumieniu wszystkich scenariuszy i ich skutków.
+
+|Zasady tworzenia kopii zapasowych  |Cel czasu odzyskiwania  |Cost (Koszt)  |
+|---------|---------|---------|
+|Dzienny pełny dziennik i dzienniki     |   Najszybciej, ponieważ potrzebujemy tylko jednej pełnej kopii i wymaganych dzienników do przywracania do punktu w czasie      |    Opcja Costliest, ponieważ pełna kopia jest wykonywana codziennie, więc więcej i więcej danych jest gromadzonych w zapleczu do czasu przechowywania   |
+|Cotygodniowe pełne + dzienne różnice i dzienniki     |   Opcja wolniejsza niż powyżej, ale szybsza niż poniżej, ponieważ potrzebujemy jednej pełnej kopii i jednego dziennika różnicowego + w przypadku przywracania do punktu w czasie      |    Mniej kosztowna opcja, ponieważ dzienna różnica jest zwykle mniejsza niż pełna, a pełna kopia jest wykonywana tylko raz w tygodniu.      |
+|Cotygodniowe pełne + dzienne przyrostowe dzienniki     |  Najwolniejsze, ponieważ potrzebujemy jednej kopii przyrostowej + "n" i dzienników na potrzeby odzyskiwania do punktu w czasie       |     Najtańsza opcja, ponieważ dzienne przyrosty będzie mniejsze niż różnicowa, a pełna kopia jest wykonywana tylko raz w tygodniu    |
+
+> [!NOTE]
+> Powyższe opcje są najczęściej używane, ale nie tylko. Na przykład jeden może zawierać cotygodniowe pełne kopie zapasowe i różnice dwa razy w tygodniu + tydzień +.
+
+W związku z tym, jeden może wybrać wariant zasad na podstawie celów punktu odzyskiwania i RTO oraz kosztów.
+
+### <a name="impact-of-modifying-a-policy"></a>Wpływ modyfikowania zasad
+
+Należy pamiętać o kilku zasadach, jednocześnie określając wpływ przełączania zasad elementu kopii zapasowej z zasad 1 (P1) do zasad 2 (P2) lub zasad edycji 1 (P1).
+
+- Wszystkie zmiany są również stosowane z mocą wsteczną. Najnowsze zasady tworzenia kopii zapasowych są stosowane również w pozostałej części punktów odzyskiwania. Załóżmy na przykład, że dzienne pełne przechowywanie to 30 dni, a 10 punktów odzyskiwania zostały wykonane zgodnie z aktualnie aktywnymi zasadami. Jeśli dzienne pełne przechowywanie zostanie zmienione na 10 dni, wówczas czas wygaśnięcia tego punktu zostanie również ponownie obliczony jako czas rozpoczęcia + 10 dni i usunięty, jeśli wygasł.
+- Zakres zmian obejmuje również dzień tworzenia kopii zapasowych, typ kopii zapasowej wraz z przechowywaniem. Na przykład: Jeśli zasady zostaną zmienione z codziennego zapełnienia na tydzień w niedziele, wszystkie wcześniejsze pełne, które nie znajdują się w niedziele, zostaną oznaczone do usunięcia.
+- Element nadrzędny nie zostanie usunięty, dopóki element podrzędny nie zostanie aktywny/nie wygasł. Każdy typ kopii zapasowej ma czas wygaśnięcia zgodnie z aktualnie aktywnymi zasadami. Ale pełny typ kopii zapasowej jest traktowany jako element nadrzędny dla kolejnych "różnic", "przyrostów" i "dzienników". "Różniczka" i "log" nie są nadrzędne dla innych osób. Wartość "Increment" może być elementem nadrzędnym dla kolejnych "przyrostowych". Nawet wtedy, gdy element "Parent" jest oznaczony do usunięcia, nie są usuwane w rzeczywistości, jeśli podrzędne "różnice" lub "dzienniki" nie wygasły. Na przykład jeśli zasady są zmieniane z codziennego zapełnienia na tydzień w niedziele, wszystkie wcześniejsze pełne, które nie znajdują się w niedziele, zostaną oznaczone do usunięcia. Ale nie są usuwane w rzeczywistości, dopóki dzienniki, które zostały wykonane codziennie, nie wygasły. Innymi słowy, są one zachowywane zgodnie z najnowszym czasem trwania dziennika. Po wygaśnięciu dzienników zarówno dzienniki, jak i pełne zostaną usunięte.
+
+Za pomocą tych zasad, jeden może odczytać poniższą tabelę, aby poznać konsekwencje zmiany zasad.
+
+|Stare zasady/nowe zasady  |Dzienne pełne i dzienniki  | Zapełnienia tygodniowo + dzienne różnice i dzienniki  |Tygodniowe zapełnienia + dzienne przyrosty + dzienniki  |
+|---------|---------|---------|---------|
+|Dzienne pełne i dzienniki     |   -      |    Poprzednie pełne, które nie znajdują się w tym samym dniu tygodnia, są oznaczone do usunięcia, ale pozostają do momentu okresu przechowywania dziennika     |    Poprzednie pełne, które nie znajdują się w tym samym dniu tygodnia, są oznaczone do usunięcia, ale pozostają do momentu okresu przechowywania dziennika     |
+|Zapełnienia tygodniowo + dzienne różnice i dzienniki     |   Poprzednie cotygodniowe pełne przechowywanie jest ponownie obliczane zgodnie z najnowszymi zasadami. Poprzednie różnice są natychmiast usuwane      |    -     |    Poprzednie różnice są natychmiast usuwane     |
+|Tygodniowe zapełnienia + dzienne przyrosty + dzienniki     |     Poprzednie cotygodniowe pełne przechowywanie jest ponownie obliczane zgodnie z najnowszymi zasadami. Poprzednie przyrosty są natychmiast usuwane    |     Poprzednie przyrosty są natychmiast usuwane    |    -     |
 
 ## <a name="next-steps"></a>Następne kroki
 

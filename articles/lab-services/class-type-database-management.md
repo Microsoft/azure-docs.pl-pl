@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 49f1528f1bb8b422374050512a9ae642ad129fac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444016"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659832"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Konfigurowanie laboratorium do uczenia zarządzania bazami danych dla relacyjnych baz danych
 
@@ -24,11 +24,11 @@ Aby rozpocząć pracę z tym laboratorium, musisz zacząć korzystać z subskryp
 
 ### <a name="lab-account-settings"></a>Ustawienia konta laboratorium
 
-Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji na temat włączania obrazów z witryny Marketplace, zobacz [Określanie obrazów z portalu Marketplace dostępnych dla twórców laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Włącz ustawienia opisane w poniższej tabeli dla konta laboratorium. Aby uzyskać więcej informacji na temat włączania obrazów z witryny Marketplace, zobacz [Określanie obrazów z portalu Marketplace dostępnych dla twórców laboratorium](./specify-marketplace-images.md).
 
 | Ustawienie konta laboratorium | Instrukcje |
 | ------------------- | ------------ |
-|Obraz witryny Marketplace| Włącz obraz "SQL Server 2019 standard w systemie Windows Server 2019" do użycia w ramach Twojego konta laboratorium.|
+|Obraz z witryny Marketplace| Włącz obraz "SQL Server 2019 standard w systemie Windows Server 2019" do użycia w ramach Twojego konta laboratorium.|
 
 ### <a name="lab-settings"></a>Ustawienia laboratorium
 
@@ -41,7 +41,7 @@ W poniższej tabeli przedstawiono ustawienia, które należy wykonać podczas ko
 
 ## <a name="template-machine-configuration"></a>Konfiguracja komputera szablonu
 
-Aby zainstalować MySQL w systemie Windows Server 2019, można wykonać kroki opisane w temacie [Instalowanie i uruchamianie serwera społeczności MySQL na maszynie wirtualnej](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Aby zainstalować MySQL w systemie Windows Server 2019, można wykonać kroki opisane w temacie [Instalowanie i uruchamianie serwera społeczności MySQL na maszynie wirtualnej](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
 SQL Server 2019 jest wstępnie zainstalowany w obrazie maszyny wirtualnej, który został wybrany podczas tworzenia nowego laboratorium.
 
@@ -55,7 +55,7 @@ Oto przykład możliwego oszacowania kosztów dla tej klasy:
 
 Więcej szczegółowych informacji na temat cen można znaleźć w temacie [Azure Lab Services Cennik](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W tym artykule opisano kroki niezbędne do utworzenia laboratorium dla podstawowych pojęć związanych z zarządzaniem bazami danych przy użyciu programu MySQL i SQL Server. Możesz użyć podobnej konfiguracji dla innych klas baz danych.
 

@@ -8,26 +8,18 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: matjazl
-ms.openlocfilehash: 7528f9d4e3b3043af1e4790c063eb6ddc6d9a828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d1c4cfcb15d97a2c54a04344f0bd098f65c1392
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87849050"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660376"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Uzyskaj token dostępu dla interfejsu API platformy Azure dla usługi FHIR przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym artykule dowiesz się, jak uzyskać token dostępu dla interfejsu API platformy Azure dla usługi FHIR przy użyciu interfejsu wiersza polecenia platformy Azure. Po [udostępnieniu interfejsu API platformy Azure dla FHIR](fhir-paas-portal-quickstart.md)należy skonfigurować zbiór użytkowników lub jednostki usługi, które mają dostęp do usługi. Jeśli identyfikator obiektu użytkownika znajduje się na liście dozwolonych identyfikatorów obiektów, można uzyskać dostęp do usługi przy użyciu tokenu uzyskanego przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-with-azure-cli"></a>Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure
-
-Zanim będzie można uzyskać token, należy zalogować się przy użyciu użytkownika, dla którego ma zostać uzyskany token:
-
-```azurecli-interactive
-az login
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="obtain-a-token"></a>Uzyskaj token
 

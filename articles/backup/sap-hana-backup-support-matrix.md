@@ -4,12 +4,12 @@ description: W tym artykule omówiono obsługiwane scenariusze i ograniczenia do
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 641bba6b947731e0f55bc79828101f84d5b780fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 181d006d0d1f0e5c2f099507be493ced2ce9280b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515784"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659747"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Macierz obsługi dla kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -30,7 +30,7 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 | **Wystąpienia HANA**         | Pojedyncze wystąpienie SAP HANA na pojedynczej maszynie wirtualnej platformy Azure — skalowanie w górę | Wiele wystąpień SAP HANA na jednej maszynie wirtualnej                  |
 | **Typy baz danych HANA**    | Kontener pojedyncza baza danych (SDC) na 1. x, kontener wielobaza danych (MDC) w 2. x | MDC w HANA 1. x                                              |
 | **Rozmiar bazy danych HANA**     | Bazy danych HANA o rozmiarze <= 2 TB (nie jest to rozmiar pamięci systemu HANA)               |                                                              |
-| **Typy kopii zapasowych**           | Pełne, różnicowe i dzienniki kopii zapasowych                          | Przyrostowe, migawki                                       |
+| **Typy kopii zapasowych**           | Pełne, różnicowe, przyrostowe (wersja zapoznawcza) i dzienniki kopii zapasowych                          |  Migawki                                       |
 | **Typy przywracania**          | Zapoznaj się z SAP HANA Uwaga [1642148](https://launchpad.support.sap.com/#/notes/1642148) , aby dowiedzieć się więcej o obsługiwanych typach przywracania |                                                              |
 | **Limity kopii zapasowych**          | Do 2 TB rozmiaru pełnej kopii zapasowej na wystąpienie SAP HANA (limit elastyczny)         |                                                              |
 | **Konfiguracje specjalne** |                                                              | SAP HANA + warstwa dynamiczna <br>  Klonowanie za poorednictwem LaMa        |

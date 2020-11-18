@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595363"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660614"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Praca zdalna: zagadnienia dotyczące sieciowego urządzenia wirtualnego (urządzenie WUS) na potrzeby pracy zdalnej
 
@@ -30,7 +30,7 @@ Wszyscy urządzenie WUS dostawcy w witrynie Azure Marketplace powinni mieć zale
 
 - **Pojemność i liczba współbieżnych użytkowników** — ta liczba jest szczególnie ważna w przypadku użytkowników sieci VPN typu punkt-lokacja, ponieważ każdy połączony użytkownik utworzy jeden tunel szyfrowany (IPSec lub SSL).  
 - **Zagregowana przepływność** — co to jest przepustowość zagregowana, która będzie potrzebna do uwzględnienia liczby użytkowników, których potrzebujesz do zapewnienia dostępu zdalnego.
-- **Wymagany rozmiar maszyny wirtualnej** — zawsze należy używać rozmiarów maszyn wirtualnych zalecanych przez dostawcę urządzenie WUS.  W przypadku połączeń sieci VPN typu punkt-lokacja, jeśli będziesz mieć dużą liczbę współbieżnych połączenia użytkownika, należy używać większych rozmiarów maszyn wirtualnych, takich jak maszyny wirtualne [z serii Dv2 i DSv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Seria Dv2 i Dsv2") . Te maszyny wirtualne mają więcej procesorów wirtualnych vCPU i mogą obsługiwać więcej współbieżnych sesji sieci VPN.  Oprócz większej liczby rdzeni wirtualnych, większe rozmiary maszyn wirtualnych na platformie Azure mają bardziej zagregowaną pojemność przepustowości niż mniejsze rozmiary maszyn wirtualnych.
+- **Wymagany rozmiar maszyny wirtualnej** — zawsze należy używać rozmiarów maszyn wirtualnych zalecanych przez dostawcę urządzenie WUS.  W przypadku połączeń sieci VPN typu punkt-lokacja, jeśli będziesz mieć dużą liczbę współbieżnych połączenia użytkownika, należy używać większych rozmiarów maszyn wirtualnych, takich jak maszyny wirtualne [z serii Dv2 i DSv2](../virtual-machines/dv2-dsv2-series.md "Seria Dv2 i Dsv2") . Te maszyny wirtualne mają więcej procesorów wirtualnych vCPU i mogą obsługiwać więcej współbieżnych sesji sieci VPN.  Oprócz większej liczby rdzeni wirtualnych, większe rozmiary maszyn wirtualnych na platformie Azure mają bardziej zagregowaną pojemność przepustowości niż mniejsze rozmiary maszyn wirtualnych.
     > **Ważne:** Każdy dostawca używa zasobów inaczej.  Jeśli nie wyczyścisz rozmiarów wystąpień, których należy użyć, aby obsłużyć szacowane obciążenie użytkownikami, skontaktuj się bezpośrednio z dostawcą oprogramowania i poproś o rekomendację.
 - **Liczba wystąpień** — jeśli oczekujesz dużej liczby użytkowników i połączeń, istnieją ograniczenia skalowania rozmiaru wystąpienia urządzenie WUS.  Rozważ wdrożenie wielu wystąpień maszyn wirtualnych.
 - **IPsec sieci** VPN i sieci VPN SSL — ogólne implementacje protokołu IPsec sieci VPN wykonują lepsze niż IMPLEMENTACJE protokołu SSL sieci VPN.  

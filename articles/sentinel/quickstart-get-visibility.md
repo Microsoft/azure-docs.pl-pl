@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516957"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660818"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki start: wprowadzenie do usługi Azure Sentinel
 
@@ -30,7 +30,7 @@ Aby wizualizować i uzyskać analizę tego, co dzieje się w środowisku, najpie
 
 - W Azure Portal wybierz pozycję wskaźnik kontroli platformy Azure, a następnie wybierz obszar roboczy, który chcesz monitorować.
 
-  ![Omówienie usługi Azure Sentinel](./media/qs-get-visibility/overview.png)
+  ![Przegląd wskaźnikowego platformy Azure](./media/qs-get-visibility/overview.png)
 
 - Pasek narzędzi na górze informuje o liczbie zdarzeń w wybranym okresie i porównuje go z poprzednimi 24 godzinami. Pasek narzędzi informuje o tych zdarzeniach, które zostały wyzwolone (niewielka liczba reprezentuje zmianę w ciągu ostatnich 24 godzin), a następnie informuje o tych zdarzeniach, o liczbie otwartych, w toku i zamknięciu. Sprawdź, czy liczba zdarzeń nie ma znaczącego wzrostu ani porzucenia. Jeśli jest to możliwe, może to oznaczać, że połączenie zostało zatrzymane na potrzeby raportowania na platformie Azure. Jeśli wystąpi wzrost, wystąpił problem podejrzany. Sprawdź, czy masz nowe alerty.
 
@@ -54,7 +54,7 @@ Główna treść strony Przegląd zapewnia wgląd w informacje o stanie zabezpie
 
 Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł danych, co pozwala na głębokie szczegółowe zdarzeń generowanych w ramach tych usług. Wbudowane skoroszyty obejmują usługi Azure AD, zdarzenia aktywności platformy Azure i lokalne, które mogą być danymi z zdarzeń systemu Windows z serwerów, od alertów z pierwszej strony, w tym dzienników ruchu zapory, pakietu Office 365 i niezabezpieczonych protokołów opartych na zdarzeniach systemu Windows. Skoroszyty są oparte na Azure Monitor skoroszytach, aby zapewnić lepszą szerszym i elastyczność projektowania własnych skoroszytów. Aby uzyskać więcej informacji, zobacz [skoroszyty](../azure-monitor/platform/workbooks-overview.md).
 
-1. W obszarze **Ustawienia**wybierz pozycję **skoroszyty**. W obszarze **zainstalowane**można zobaczyć wszystkie zainstalowane skoroszyty. W obszarze **wszystko**można zobaczyć całą galerię wbudowanych skoroszytów, które są dostępne do zainstalowania. 
+1. W obszarze **Ustawienia** wybierz pozycję **skoroszyty**. W obszarze **zainstalowane** można zobaczyć wszystkie zainstalowane skoroszyty. W obszarze **wszystko** można zobaczyć całą galerię wbudowanych skoroszytów, które są dostępne do zainstalowania. 
 2. Wyszukaj konkretny skoroszyt, aby zobaczyć całą listę i opis poszczególnych ofert. 
 3. Przy założeniu, że używasz usługi Azure AD, aby rozpocząć korzystanie z platformy Azure, zalecamy zainstalowanie co najmniej następujących skoroszytów:
    - **Azure AD**: Użyj jednego lub obu następujących elementów:
@@ -66,7 +66,7 @@ Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł dan
       ![Palo Alto Dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Możesz dostosować skoroszyty, edytując ![ przycisk Edytuj głównej kwerendy zapytania ](./media/qs-get-visibility/edit-query-button.png) . Możesz kliknąć przycisk Log Analytics przycisk ![ ](./media/qs-get-visibility/go-to-la-button.png) , aby przejść do [log Analytics, aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu, a następnie wybrać wielokropek (...) i wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
+Możesz dostosować skoroszyty, edytując ![ przycisk Edytuj głównej kwerendy zapytania ](./media/qs-get-visibility/edit-query-button.png) . Możesz kliknąć przycisk Log Analytics przycisk ![ ](./media/qs-get-visibility/go-to-la-button.png) , aby przejść do [log Analytics, aby edytować zapytanie](../azure-monitor/log-query/log-analytics-tutorial.md)w tym miejscu, a następnie wybrać wielokropek (...) i wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
 
 Aby uzyskać więcej informacji na temat pracy z zapytaniami, zobacz [Samouczek: dane wizualne w log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji na temat pracy z zapytaniami, zobacz [Samouczek:
 
 Jeśli chcesz dodać nowy kafelek, możesz dodać go do istniejącego skoroszytu, który został utworzony lub wbudowany arkusz kontrolny platformy Azure. 
 1. W Log Analytics Utwórz kafelek przy użyciu instrukcji znalezionych w [samouczku: dane wizualne w log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Po utworzeniu kafelka w obszarze **Przypnij**wybierz skoroszyt, w którym ma się pojawić kafelek.
+2. Po utworzeniu kafelka w obszarze **Przypnij** wybierz skoroszyt, w którym ma się pojawić kafelek.
 
 ## <a name="create-new-workbooks"></a>Utwórz nowe skoroszyty
 Możesz utworzyć nowy skoroszyt od podstaw lub użyć wbudowanego skoroszytu jako podstawy dla nowego skoroszytu.
@@ -129,4 +129,3 @@ Aby uzyskać więcej informacji na temat uzyskiwania gotowych wykryć, zobacz [S
 W tym przewodniku szybki start pokazano, jak rozpocząć korzystanie z platformy Azure. Przejdź do samouczka dotyczącego [sposobu wykrywania zagrożeń](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
 > [Utwórz niestandardowe reguły wykrywania zagrożeń](tutorial-detect-threats-custom.md) , aby zautomatyzować odpowiedzi na zagrożenia.
-

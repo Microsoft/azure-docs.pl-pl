@@ -8,38 +8,33 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1ddc8c2b9531dd78c1c6746e28b8ff5864af563e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659458"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć pojedynczy serwer Azure Database for PostgreSQL w ciągu pięciu minut. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-> [!TIP]
-> Rozważ użycie prostszego polecenia [AZ Postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI, które jest obecnie dostępne w wersji zapoznawczej. Wypróbuj [Przewodnik Szybki Start](./quickstart-create-server-up-azure-cli.md).
+- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby sprawdzić zainstalowaną wersję, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+    > [!TIP]
+    >  Rozważ użycie prostszego polecenia [AZ Postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI, które jest obecnie dostępne w wersji zapoznawczej. Wypróbuj [Przewodnik Szybki Start](./quickstart-create-server-up-azure-cli.md).
 
-Musisz zalogować się do konta za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) . Zanotuj Właściwość **ID** , która odwołuje się do **identyfikatora subskrypcji** dla Twojego konta platformy Azure. 
+- Wybierz określony identyfikator subskrypcji na koncie przy użyciu polecenia  [AZ Account Set](/cli/azure/account) .
 
-```azurecli-interactive
-az login
-```
+    - Zanotuj wartość **identyfikatora** z polecenia **AZ login** Output, aby użyć jako wartości argumentu **subskrypcji** w poleceniu. 
 
-Wybierz określony identyfikator subskrypcji na koncie przy użyciu polecenia  [AZ Account Set](/cli/azure/account) . Zanotuj wartość **identyfikatora** z polecenia **AZ login** Output, aby użyć jako wartości argumentu **subskrypcji** w poleceniu. 
+        ```azurecli
+        az account set --subscription <subscription id>
+        ```
 
-```azurecli
-az account set --subscription <subscription id>
-```
-
-Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać wszystkie subskrypcje, użyj [AZ Account List](/cli/azure/account#az-account-list).
+    - Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać wszystkie subskrypcje, użyj [AZ Account List](/cli/azure/account#az-account-list).
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Tworzenie serwera usługi Azure Database for PostgreSQL
 
@@ -61,9 +56,9 @@ Poniżej znajdują się szczegółowe informacje dotyczące powyższych argument
 name | mydemoserver | Unikatowa nazwa identyfikująca serwer Azure Database for PostgreSQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [Azure Database for PostgreSQL regułami nazewnictwa](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Nazwa grupy zasobów platformy Azure.
 location | westus | Lokalizacja platformy Azure dla serwera.
-admin-user | myadmin | Nazwa użytkownika dla logowania administratora. Nie może to być **azure_superuser** , **admin** , **administrator** , **root** , **Guest** ani **Public**.
+admin-user | myadmin | Nazwa użytkownika dla logowania administratora. Nie może to być **azure_superuser**, **admin**, **administrator**, **root**, **Guest** ani **Public**.
 admin-password | *bezpieczne hasło* | Hasło administratora. Musi zawierać od 8 do 128 znaków z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
-sku-name|GP_Gen5_2| Nazwa warstwy cenowej i konfiguracji obliczeniowej. Postępuj zgodnie z Konwencją {warstwa cenowa} _{Generation COMPUTE}_ {rdzeni wirtualnych} w postaci skróconej. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
+sku-name|GP_Gen5_2| Nazwa warstwy cenowej i konfiguracji obliczeniowej. Postępuj zgodnie z Konwencją {warstwa cenowa}_{Generation COMPUTE}_{rdzeni wirtualnych} w postaci skróconej. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
 >- Domyślna wersja PostgreSQL na serwerze to 9,6. Aby wyświetlić wszystkie obsługiwane wersje, zobacz [obsługiwane wersje główne PostgreSQL](./concepts-supported-versions.md).
@@ -123,7 +118,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **administratorLogin** i **fullyQu
 ```
 
 ## <a name="connect-to-the-azure-database-for-postgresql-server-by-using-psql"></a>Nawiązywanie połączenia z serwerem Azure Database for PostgreSQL przy użyciu PSQL
-Klient [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) to popularny wybór służący do nawiązywania połączeń z serwerami PostgreSQL. Możesz nawiązać połączenie z serwerem za pomocą PSQL z [Azure Cloud Shell](../cloud-shell/overview.md). Możesz również użyć PSQL w środowisku lokalnym, jeśli jest dostępny. Pusta baza danych, **Postgres** , jest tworzona automatycznie przy użyciu nowego serwera PostgreSQL. Tej bazy danych można użyć do nawiązania połączenia z usługą PSQL, jak pokazano w poniższym kodzie. 
+Klient [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) to popularny wybór służący do nawiązywania połączeń z serwerami PostgreSQL. Możesz nawiązać połączenie z serwerem za pomocą PSQL z [Azure Cloud Shell](../cloud-shell/overview.md). Możesz również użyć PSQL w środowisku lokalnym, jeśli jest dostępny. Pusta baza danych, **Postgres**, jest tworzona automatycznie przy użyciu nowego serwera PostgreSQL. Tej bazy danych można użyć do nawiązania połączenia z usługą PSQL, jak pokazano w poniższym kodzie. 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres

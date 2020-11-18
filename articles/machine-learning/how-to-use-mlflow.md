@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf0817ad1e9fae901bfe2b4a174d95a4f673e4c0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33ee8944aec043bf2b103ac3958a923b9876b749
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319011"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660138"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Śledź przebiegi eksperymentu i wdrażaj modele ML przy użyciu MLflow i Azure Machine Learning (wersja zapoznawcza)
 
@@ -206,7 +206,6 @@ Metryki i artefakty z rejestrowania MLflow są przechowywane w Twoim obszarze ro
 
 ```python
 run.get_metrics()
-ws.get_details()
 ```
 
 ## <a name="manage-models"></a>Zarządzanie modelami 
