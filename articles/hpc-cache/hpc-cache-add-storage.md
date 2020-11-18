@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340312"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657180"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -103,9 +103,9 @@ Kroki umożliwiające dodanie ról platformy Azure:
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Wymaganie wstępne: dostęp do konta magazynu
+
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 Przed dodaniem celu magazynu obiektów BLOB należy sprawdzić, czy pamięć podręczna ma odpowiednie role umożliwiające uzyskanie dostępu do konta magazynu, a ustawienia zapory umożliwiają tworzenie miejsca docelowego magazynu.
 
@@ -217,7 +217,7 @@ Po zakończeniu kliknij przycisk **OK** , aby dodać miejsce docelowe magazynu.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 Użycie interfejsu wiersza polecenia platformy Azure [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) w celu utworzenia miejsca docelowego magazynu.
 
@@ -301,7 +301,7 @@ Aby dowiedzieć się więcej, przeczytaj artykuł [Edycja miejsc docelowych](hpc
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 Użyj opcji [AZ HPC-cache Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) , aby wyświetlić istniejące cele magazynu dla pamięci podręcznej. Podaj nazwę pamięci podręcznej i grupę zasobów (chyba że została ustawiona globalnie).
 

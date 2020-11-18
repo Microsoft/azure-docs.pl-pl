@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85956240"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656789"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Tworzenie kolekcji w portalu Moje aplikacje
 
 Użytkownicy mogą używać portalu My Apps do wyświetlania i uruchamiania aplikacji opartych na chmurze, do których mają dostęp. Domyślnie wszystkie aplikacje, do których użytkownik ma dostęp, są wyświetlane razem na jednej stronie. Aby lepiej zorganizować Tę stronę dla użytkowników, jeśli masz licencję na Azure AD — wersja Premium P1 lub P2, możesz skonfigurować kolekcje. Za pomocą kolekcji można grupować połączone aplikacje, które są powiązane (na przykład według roli zadania, zadania lub projektu) i wyświetlać je na osobnej karcie. Kolekcja zasadniczo stosuje filtr do aplikacji, do których użytkownik może uzyskać dostęp, więc użytkownik widzi tylko te aplikacje w kolekcji, które zostały do nich przypisane.
 
 > [!NOTE]
-> W tym artykule opisano sposób, w jaki administrator może włączyć i utworzyć kolekcje. Informacje dla użytkownika końcowego dotyczące korzystania z portalu Moje aplikacje i kolekcji znajdują się w temacie [Access and use Collections](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> W tym artykule opisano sposób, w jaki administrator może włączyć i utworzyć kolekcje. Informacje dla użytkownika końcowego dotyczące korzystania z portalu Moje aplikacje i kolekcji znajdują się w temacie [Access and use Collections](../user-help/my-applications-portal-workspaces.md).
 
 ## <a name="enable-the-latest-my-apps-features"></a>Włącz najnowsze funkcje my Apps
 
@@ -34,7 +34,7 @@ Użytkownicy mogą używać portalu My Apps do wyświetlania i uruchamiania apli
 
 2. Przejdź do pozycji **Azure Active Directory**  >  **Ustawienia użytkownika**.
 
-3. W obszarze **Podgląd funkcji użytkownika**wybierz pozycję **Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
+3. W obszarze **Podgląd funkcji użytkownika** wybierz pozycję **Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
 
 4. W obszarze **Użytkownicy mogą używać funkcji w wersji zapoznawczej dla moich aplikacji**, wybierz jedną z następujących opcji:
    * **Zaznaczone** — włącza funkcje dla określonej grupy. Użyj opcji **Wybierz grupę** , aby wybrać grupę, dla której chcesz włączyć funkcje.  
@@ -51,7 +51,7 @@ Aby utworzyć kolekcję, musisz mieć licencję na Azure AD — wersja Premium P
 
 2. Przejdź do pozycji **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
 
-3. W obszarze **Zarządzaj**wybierz pozycję **kolekcje**.
+3. W obszarze **Zarządzaj** wybierz pozycję **kolekcje**.
 
 4. Wybierz pozycję **Nowa kolekcja**. Na stronie **Nowa kolekcja** wprowadź **nazwę** kolekcji (nie zaleca się używania "kolekcji" w nazwie. Następnie wprowadź **Opis**.
 
@@ -83,7 +83,7 @@ Dzienniki inspekcji rejestrują operacje kolekcje moje aplikacje, w tym tworzeni
 * Dodawanie aplikacji samoobsługowej (użytkownik końcowy)
 * Usuwanie aplikacji samoobsługowej (użytkownik końcowy)
 
-Aby uzyskać dostęp do dzienników inspekcji w [Azure Portal](https://portal.azure.com) , wybierz pozycję **Azure Active Directory**  >  **Enterprise Applications**  >  **dzienniki inspekcji** aplikacji w przedsiębiorstwie w sekcji działanie. W obszarze **Usługa**wybierz pozycję **Moje aplikacje**.
+Aby uzyskać dostęp do dzienników inspekcji w [Azure Portal](https://portal.azure.com) , wybierz pozycję **Azure Active Directory**  >  **Enterprise Applications**  >  **dzienniki inspekcji** aplikacji w przedsiębiorstwie w sekcji działanie. W obszarze **Usługa** wybierz pozycję **Moje aplikacje**.
 
 ## <a name="get-support-for-my-account-pages"></a>Uzyskaj pomoc techniczną dotyczącą stron My Account
 

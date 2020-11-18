@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341384"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657095"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Tworzenie pamięci podręcznej platformy Azure HPC
 
@@ -29,9 +29,9 @@ Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/
 
 ![zrzut ekranu strony szczegółów projektu w Azure Portal](media/hpc-cache-create-basics.png)
 
-W obszarze **szczegóły projektu**wybierz subskrypcję i grupę zasobów, w której będzie hostowana pamięć podręczna.
+W obszarze **szczegóły projektu** wybierz subskrypcję i grupę zasobów, w której będzie hostowana pamięć podręczna.
 
-W obszarze **Szczegóły usługi**Ustaw nazwę pamięci podręcznej i inne atrybuty:
+W obszarze **Szczegóły usługi** Ustaw nazwę pamięci podręcznej i inne atrybuty:
 
 * Lokalizacja — wybierz jeden z [obsługiwanych regionów](hpc-cache-overview.md#region-availability).
 * Sieć wirtualna — możesz wybrać istniejącą lub utworzyć nową sieć wirtualną.
@@ -102,10 +102,10 @@ Po zakończeniu tworzenia zostanie wyświetlone powiadomienie z linkiem do noweg
 
 ## <a name="create-the-cache-with-azure-cli"></a>Tworzenie pamięci podręcznej przy użyciu interfejsu wiersza polecenia platformy Azure
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 > [!NOTE]
-> Interfejs wiersza polecenia platformy Azure aktualnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj witryny Azure Portal.
+> Interfejs wiersza polecenia platformy Azure aktualnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj Azure Portal.
 
 Użyj polecenia [AZ HPC-cache Create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) , aby utworzyć nową pamięć podręczną platformy Azure HPC.
 
@@ -208,7 +208,7 @@ Install-Module -Name Az.HPCCache
 ## <a name="create-the-cache-with-azure-powershell"></a>Tworzenie pamięci podręcznej za pomocą Azure PowerShell
 
 > [!NOTE]
-> Azure PowerShell obecnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj witryny Azure Portal.
+> Azure PowerShell obecnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj Azure Portal.
 
 Użyj polecenia cmdlet [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) , aby utworzyć nową pamięć podręczną platformy Azure HPC.
 

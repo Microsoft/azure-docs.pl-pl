@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372484"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656738"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planowanie wdrożenia Azure Active Directory moje aplikacje
 
@@ -54,10 +54,10 @@ Moje aplikacje w usłudze Azure AD są korzystne dla firm w następujący sposó
 
 Moje aplikacje są bezpłatne i nie wymagają licencji do użycia na poziomie podstawowym. Jednak liczba obiektów w katalogu oraz dodatkowe funkcje, które mają zostać wdrożone, mogą wymagać dodatkowych licencji. Niektóre typowe scenariusze dotyczące usługi Azure AD, które mają wymagania dotyczące licencjonowania, obejmują następujące funkcje zabezpieczeń:
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Członkostwo oparte na grupach](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Samoobsługowe resetowanie haseł](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Ochrona tożsamości w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Członkostwo oparte na grupach](../fundamentals/active-directory-manage-groups.md)
+* [Samoobsługowe resetowanie haseł](../authentication/tutorial-enable-sspr.md)
+* [Ochrona tożsamości w usłudze Azure Active Directory](../identity-protection/overview-identity-protection.md)
 
 Zobacz [Pełny przewodnik dotyczący licencjonowania usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -65,8 +65,8 @@ Zobacz [Pełny przewodnik dotyczący licencjonowania usługi Azure AD](https://a
 
 Przed rozpoczęciem tego projektu należy spełnić następujące wymagania wstępne:
 
-* [Integrowanie logowania jednokrotnego aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Zarządzanie infrastrukturą użytkowników i grup usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Integrowanie logowania jednokrotnego aplikacji](./plan-sso-deployment.md)
+* [Zarządzanie infrastrukturą użytkowników i grup usługi Azure AD](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planowanie wdrożenia usługi Azure AD my Apps
 
@@ -74,8 +74,8 @@ W poniższej tabeli przedstawiono najważniejsze przypadki użycia dla wdrożeni
 
 | Obszar| Opis |
 | - | - |
-| Dostęp| Portal moje aplikacje jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
-|Dostęp | Portal moje aplikacje jest dostępny z urządzeń firmowych spoza sieci firmowej. |
+| Access| Portal moje aplikacje jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
+|Access | Portal moje aplikacje jest dostępny z urządzeń firmowych spoza sieci firmowej. |
 | Inspekcja| Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni. |
 | Nadzór| Cykl życia przypisań użytkowników do aplikacji i grup połączonych z usługą Azure AD jest zdefiniowany i monitorowany. |
 | Zabezpieczenia| Dostęp do zasobów jest kontrolowany za pośrednictwem przypisań użytkowników i grup. Tylko autoryzowani użytkownicy mogą zarządzać dostępem do zasobów. |
@@ -166,23 +166,23 @@ Aby uzyskać najlepsze środowisko pracy ze stroną moje aplikacje, Zacznij od i
 
 Użyj federacyjnego logowania jednokrotnego za pomocą usługi Azure AD (OpenID Connect Connect/SAML), gdy aplikacja ją obsługuje, zamiast logowania jednokrotnego i usług ADFS opartych na hasłach.
 
-Aby uzyskać więcej informacji na temat sposobu wdrażania i konfigurowania aplikacji SaaS, zobacz [plan wdrożenia usługi SaaS SSO](https://aka.ms/deploymentplans/sso).
+Aby uzyskać więcej informacji na temat sposobu wdrażania i konfigurowania aplikacji SaaS, zobacz [plan wdrożenia usługi SaaS SSO](./plan-sso-deployment.md).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planowanie wdrożenia rozszerzenia przeglądarki Moje aplikacje
 
-Gdy użytkownicy logują się do aplikacji logowania jednokrotnego opartego na hasłach, muszą zainstalować i używać rozszerzenia moje aplikacje bezpieczne logowanie. Rozszerzenie wykonuje skrypt, który przesyła hasło do formularza logowania aplikacji. Użytkownicy są monitowani o zainstalowanie rozszerzenia podczas pierwszego uruchomienia aplikacji logowania jednokrotnego opartego na hasłach. Więcej informacji o rozszerzeniu można znaleźć w tej dokumentacji dotyczącej [instalowania rozszerzenia przeglądarki Moje aplikacje](access-panel-extension-problem-installing.md).
+Gdy użytkownicy logują się do aplikacji logowania jednokrotnego opartego na hasłach, muszą zainstalować i używać rozszerzenia moje aplikacje bezpieczne logowanie. Rozszerzenie wykonuje skrypt, który przesyła hasło do formularza logowania aplikacji. Użytkownicy są monitowani o zainstalowanie rozszerzenia podczas pierwszego uruchomienia aplikacji logowania jednokrotnego opartego na hasłach. Więcej informacji o rozszerzeniu można znaleźć w tej dokumentacji dotyczącej [instalowania rozszerzenia przeglądarki Moje aplikacje]().
 
-W przypadku konieczności integrowania aplikacji logowania jednokrotnego opartego na hasłach należy zdefiniować mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne opcje:
+W przypadku konieczności integrowania aplikacji logowania jednokrotnego opartego na hasłach należy zdefiniować mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](../user-help/my-apps-portal-end-user-access.md). Dostępne są następujące opcje:
 
-* [zasady grupy programu Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Configuration Manager programu Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Pobieranie i Konfigurowanie sterowane przez użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [zasady grupy programu Internet Explorer]()
+* [Configuration Manager programu Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Pobieranie i Konfigurowanie sterowane przez użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](../user-help/my-apps-portal-end-user-access.md)
 
 Użytkownicy, którzy nie korzystają z aplikacji logowania jednokrotnego opartego na hasłach, również korzystają z rozszerzenia. Te korzyści obejmują możliwość uruchamiania dowolnej aplikacji z paska wyszukiwania, znajdowania dostępu do ostatnio używanych aplikacji i posiadania linku do strony Moje aplikacje.
 
 #### <a name="plan-for-mobile-access"></a>Planowanie dostępu mobilnego
 
-Przeglądarka chroniona przy użyciu zasad usługi Intune (Microsoft Edge lub Intune Managed Browser) jest niezbędna dla użytkowników mobilnych, którzy uruchamiają aplikacje logowania jednokrotnego oparte na hasłach. Przeglądarka chroniona zasadami umożliwia transfer hasła zapisanego dla aplikacji. Program Microsoft Edge lub zarządzana przeglądarka udostępnia zestaw funkcji ochrony danych w sieci Web. Na urządzeniach z systemem iOS i Android można również używać programu Microsoft Edge dla przedsiębiorstw. Program Microsoft Edge obsługuje te same scenariusze zarządzania co Intune Managed Browser i ulepsza środowisko użytkownika. Dowiedz się więcej: [Zarządzanie dostępem do sieci Web za pomocą przeglądarki Microsoft Intuneej chronionej przez zasady](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+Przeglądarka chroniona przy użyciu zasad usługi Intune (Microsoft Edge lub Intune Managed Browser) jest niezbędna dla użytkowników mobilnych, którzy uruchamiają aplikacje logowania jednokrotnego oparte na hasłach. Przeglądarka chroniona zasadami umożliwia transfer hasła zapisanego dla aplikacji. Program Microsoft Edge lub zarządzana przeglądarka udostępnia zestaw funkcji ochrony danych w sieci Web. Na urządzeniach z systemem iOS i Android można również używać programu Microsoft Edge dla przedsiębiorstw. Program Microsoft Edge obsługuje te same scenariusze zarządzania co Intune Managed Browser i ulepsza środowisko użytkownika. Dowiedz się więcej: [Zarządzanie dostępem do sieci Web za pomocą przeglądarki Microsoft Intuneej chronionej przez zasady](/intune/app-configuration-managed-browser).
 
 ## <a name="plan-your-my-apps-deployment"></a>Planowanie wdrożenia aplikacji Moje aplikacje
 
@@ -248,7 +248,7 @@ W przypadku kopii zapasowych inspekcji, raportowania i odzyskiwania po awarii na
 
 Po skonfigurowaniu aplikacji do logowania jednokrotnego do grup są przypisywane uprawnienia dostępu. Użytkownicy z przypisanych grup będą mieli dostęp i będą widzieć aplikację w aplikacjach moje aplikacje i uruchamiania aplikacji Microsoft 365.
 
-Zobacz [przypisywanie użytkowników i grup do aplikacji w Active Directory](methods-for-assigning-users-and-groups.md).
+Zobacz [przypisywanie użytkowników i grup do aplikacji w Active Directory](./assign-user-or-group-access-portal.md).
 
 Jeśli podczas testowania lub wdrażania chcesz dodać grupy, ale jeszcze nie zezwalasz aplikacji na wyświetlanie w aplikacjach, zobacz sekcję [ukrywanie aplikacji ze środowiska użytkownika w Azure Active Directory](hide-application-from-user-portal.md).
 
@@ -294,7 +294,7 @@ Poniższe testy powinny być przeprowadzane zarówno w przypadku urządzeń nale
 
 ### <a name="rollback-steps"></a>Etapy wycofywania
 
-Ważne jest, aby zaplanować czynności, które należy wykonać, jeśli wdrożenie nie zostanie zamierzone. Jeśli konfiguracja logowania jednokrotnego nie powiedzie się podczas wdrażania, należy zrozumieć, jak [rozwiązywać problemy z logowaniem JEDNOkrotnym](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) i ograniczyć wpływ na użytkowników. W skrajnych przypadkach może być konieczne [wycofanie rejestracji jednokrotnej](../manage-apps/plan-sso-deployment.md#rollback-process).
+Ważne jest, aby zaplanować czynności, które należy wykonać, jeśli wdrożenie nie zostanie zamierzone. Jeśli konfiguracja logowania jednokrotnego nie powiedzie się podczas wdrażania, należy zrozumieć, jak [rozwiązywać problemy z logowaniem JEDNOkrotnym](../hybrid/tshoot-connect-sso.md) i ograniczyć wpływ na użytkowników. W skrajnych przypadkach może być konieczne [wycofanie rejestracji jednokrotnej](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## <a name="manage-your-implementation"></a>Zarządzanie implementacją
@@ -312,4 +312,4 @@ Użyj najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure 
 Za pomocą [Privileged Identity Management](../privileged-identity-management/pim-configure.md) można zarządzać rolami w celu zapewnienia dodatkowej inspekcji, kontroli i przeglądu dostępu użytkownikom z uprawnieniami do katalogów.
 
 ## <a name="next-steps"></a>Następne kroki
-[Planowanie wdrożenia usługi Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Planowanie wdrożenia usługi Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

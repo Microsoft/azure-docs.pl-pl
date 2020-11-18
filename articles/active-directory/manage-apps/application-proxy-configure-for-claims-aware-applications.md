@@ -15,15 +15,15 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386983"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656279"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Praca z aplikacjami obsługującymi oświadczenia w serwerze proxy aplikacji
-[Aplikacje obsługujące oświadczenia](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) wykonują przekierowanie do usługi tokenu zabezpieczającego (STS). Usługa STS żąda poświadczeń od użytkownika w programie Exchange dla tokenu, a następnie przekierowuje użytkownika do aplikacji. Istnieje kilka sposobów włączania serwera proxy aplikacji do pracy z tymi przekierowaniami. Ten artykuł służy do konfigurowania wdrożenia aplikacji obsługujących oświadczenia. 
+[Aplikacje obsługujące oświadczenia](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) wykonują przekierowanie do usługi tokenu zabezpieczającego (STS). Usługa STS żąda poświadczeń od użytkownika w programie Exchange dla tokenu, a następnie przekierowuje użytkownika do aplikacji. Istnieje kilka sposobów włączania serwera proxy aplikacji do pracy z tymi przekierowaniami. Ten artykuł służy do konfigurowania wdrożenia aplikacji obsługujących oświadczenia. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Upewnij się, że usługa STS, którą przekierowuje aplikacja obsługująca oświadczenia, jest dostępna poza siecią lokalną. Usługę STS można udostępnić, ujawniając ją za pomocą serwera proxy lub zezwalając na połączenia zewnętrzne. 
@@ -32,7 +32,7 @@ Upewnij się, że usługa STS, którą przekierowuje aplikacja obsługująca oś
 
 1. Opublikuj swoją aplikację zgodnie z instrukcjami opisanymi w artykule [publikowanie aplikacji przy użyciu serwera proxy aplikacji](application-proxy-add-on-premises-application.md).
 2. Przejdź do strony aplikacji w portalu i wybierz pozycję **Logowanie jednokrotne**.
-3. W przypadku wybrania **Azure Active Directory** jako **metody wstępnego uwierzytelniania**wybierz pozycję Logowanie jednokrotne **usługi Azure AD wyłączone** jako **Metoda uwierzytelniania wewnętrznego**. W przypadku wybrania opcji **przekazywania** jako **metody wstępnego uwierzytelniania**nie trzeba zmieniać żadnych elementów.
+3. W przypadku wybrania **Azure Active Directory** jako **metody wstępnego uwierzytelniania** wybierz pozycję Logowanie jednokrotne **usługi Azure AD wyłączone** jako **Metoda uwierzytelniania wewnętrznego**. W przypadku wybrania opcji **przekazywania** jako **metody wstępnego uwierzytelniania** nie trzeba zmieniać żadnych elementów.
 
 ## <a name="configure-adfs"></a>Konfigurowanie usług AD FS
 
@@ -49,12 +49,10 @@ Jeśli wszystkie wewnętrzne adresy URL aplikacji są w pełni kwalifikowanymi n
 
    ![Relacje zaufania jednostki uzależnionej kliknij prawym przyciskiem myszy nazwę aplikacji — zrzut ekranu](./media/application-proxy-configure-for-claims-aware-applications/appproxyrelyingpartytrust.png)  
 
-3. Na karcie **punkty końcowe** w obszarze **Typ punktu końcowego**wybierz pozycję **WS-Federation**.
-4. W obszarze **zaufany adres URL**wprowadź adres URL wprowadzony w serwerze proxy aplikacji pod **zewnętrznym adresem URL** , a następnie kliknij przycisk **OK**.  
+3. Na karcie **punkty końcowe** w obszarze **Typ punktu końcowego** wybierz pozycję **WS-Federation**.
+4. W obszarze **zaufany adres URL** wprowadź adres URL wprowadzony w serwerze proxy aplikacji pod **zewnętrznym adresem URL** , a następnie kliknij przycisk **OK**.  
 
    ![Dodaj punkt końcowy — ustaw wartość zaufanego adresu URL — zrzut ekranu](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Następne kroki
 * [Włącz natywne aplikacje klienckie do współpracy z aplikacjami proxy](application-proxy-configure-native-client-application.md)
-
-

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792756"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656332"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -179,7 +179,7 @@ W celu wstępnego rozwiązywania problemów wykonaj następujące czynności:
    ![Usługa łącznika usługi Azure serwer proxy aplikacji usługi Azure AD w usługach Services. msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Uruchom analizatora komunikatów jako administrator.
-1. Wybierz pozycję **Rozpocznij śledzenie lokalne** .
+1. Wybierz pozycję **Rozpocznij śledzenie lokalne**.
 1. Uruchom usługę łącznika usługi Azure serwer proxy aplikacji usługi Azure AD.
 1. Zatrzymaj przechwytywanie sieci.
 
@@ -189,7 +189,7 @@ W celu wstępnego rozwiązywania problemów wykonaj następujące czynności:
 
 W przypadku skonfigurowania łącznika serwera proxy aplikacji w celu obejścia serwerów proxy i nawiązania bezpośredniego połączenia z usługą serwera proxy aplikacji należy wyszukać funkcję przechwytywania sieci pod kątem nieudanych prób nawiązania połączenia TCP.
 
-Użyj filtru analizatora komunikatów, aby zidentyfikować te próby. Wprowadź `property.TCPSynRetransmit` wartość w polu Filtr i wybierz pozycję **Zastosuj** .
+Użyj filtru analizatora komunikatów, aby zidentyfikować te próby. Wprowadź `property.TCPSynRetransmit` wartość w polu Filtr i wybierz pozycję **Zastosuj**.
 
 Pakiet SYN to pierwszy pakiet wysyłany w celu nawiązania połączenia TCP. Jeśli ten pakiet nie zwraca odpowiedzi, zostanie podjęta ponowna próba wykonania operacji SYN. Możesz użyć poprzedniego filtru, aby zobaczyć wszystkie reprzesłane SYNs. Następnie można sprawdzić, czy te SYNs odpowiadają jakimkolwiek ruchowi związanym z łącznikiem.
 
@@ -208,4 +208,4 @@ Jeśli zobaczysz inne kody odpowiedzi, na przykład 407 lub 502, oznacza to, że
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](application-proxy-connectors.md)
-* Jeśli masz problemy z łącznością łącznika, poprosimy o podanie pytania na [stronie pytania firmy&Microsoft dotyczącym Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) lub utworzenia biletu z zespołem pomocy technicznej.
+* Jeśli masz problemy z łącznością łącznika, poprosimy o podanie pytania na [stronie pytania firmy&Microsoft dotyczącym Azure Active Directory](/answers/topics/azure-active-directory.html) lub utworzenia biletu z zespołem pomocy technicznej.

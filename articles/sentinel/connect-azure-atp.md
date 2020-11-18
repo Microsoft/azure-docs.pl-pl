@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579525"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656075"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Łączenie danych z usługi Microsoft Defender dla tożsamości (dawniej ochrona przed zagrożeniami na platformie Azure)
 
@@ -27,7 +27,7 @@ ms.locfileid: "94579525"
 > Łącznik usługi Microsoft Defender dla danych tożsamości na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
 > Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Za pomocą jednego kliknięcia można przesyłać strumieniowo dzienniki z usługi [Microsoft Defender na potrzeby tożsamości](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) .
+Za pomocą jednego kliknięcia można przesyłać strumieniowo dzienniki z usługi [Microsoft Defender na potrzeby tożsamości](/azure-advanced-threat-protection/what-is-atp) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,7 +36,7 @@ Za pomocą jednego kliknięcia można przesyłać strumieniowo dzienniki z usłu
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Łączenie z usługą Microsoft Defender dla tożsamości
 
-Upewnij się, że [w sieci jest włączona](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1)wersja zapoznawcza usługi Microsoft Defender for Identity.
+Upewnij się, że [w sieci jest włączona](/azure-advanced-threat-protection/install-atp-step1)wersja zapoznawcza usługi Microsoft Defender for Identity.
 Jeśli usługa Microsoft Defender dla tożsamości została wdrożona i pozyskuje dane, podejrzane alerty mogą być łatwo przesyłane strumieniowo do usługi Azure wskaźnikowej. Rozpoczęcie przesyłania strumieniowego na platformę Azure jest możliwe dopiero po 24 godzinach.
 
 
@@ -57,4 +57,3 @@ Jeśli usługa Microsoft Defender dla tożsamości została wdrożona i pozyskuj
 W tym dokumencie przedstawiono sposób nawiązywania połączenia z usługą Microsoft Defender pod kątem tożsamości na platformie Azure wskaźnikowej. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
-

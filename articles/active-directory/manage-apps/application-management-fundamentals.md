@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642439"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656411"
 ---
 # <a name="application-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania aplikacjami
 
@@ -30,7 +30,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Zalecenia dotyczące aplikacji w chmurze i logowania jednokrotnego
 | Zalecenie | Komentarze |
 | --- | --- |
-| Sprawdź galerię aplikacji usługi Azure AD dla aplikacji  | Usługa Azure AD zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji, które są włączone przy użyciu logowania jednokrotnego w przedsiębiorstwie. Aby uzyskać wskazówki dotyczące instalacji specyficzne dla aplikacji, zobacz [listę samouczków aplikacji SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Sprawdź galerię aplikacji usługi Azure AD dla aplikacji  | Usługa Azure AD zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji, które są włączone przy użyciu logowania jednokrotnego w przedsiębiorstwie. Aby uzyskać wskazówki dotyczące instalacji specyficzne dla aplikacji, zobacz [listę samouczków aplikacji SaaS](../saas-apps/tutorial-list.md).  | 
 | Używanie federacyjnego logowania jednokrotnego opartego na protokole SAML  | Gdy aplikacja je obsługuje, użyj federacyjnego, opartego na języku SAML logowania jednokrotnego w usłudze Azure AD zamiast logowania jednokrotnego i usług ADFS opartych na hasłach.  | 
 | Użycie algorytmu SHA-256 do podpisywania certyfikatu  | Usługa Azure AD domyślnie używa algorytmu SHA-256 do podpisywania odpowiedzi SAML. Użyj algorytmu SHA-256, chyba że aplikacja wymaga algorytmu SHA-1 (zobacz [Opcje podpisywania certyfikatu](certificate-signing-options.md) i [problem z logowaniem do aplikacji](application-sign-in-problem-application-error.md)).  | 
 | Wymagaj przypisania użytkownika  | Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji firmowych bez ich przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w aplikacjach użytkownika, wymagaj przypisania użytkownika. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).  | 
@@ -41,7 +41,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania 
 ## <a name="provisioning-recommendations"></a>Zalecenia dotyczące aprowizacji
 | Zalecenie | Komentarze |
 | --- | --- |
-| Korzystanie z samouczków w celu skonfigurowania aprowizacji przy użyciu aplikacji w chmurze | Zapoznaj się z [listą samouczków aplikacji SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) , aby uzyskać wskazówki krok po kroku dotyczące konfigurowania aprowizacji dla aplikacji galerii, którą chcesz dodać. |
+| Korzystanie z samouczków w celu skonfigurowania aprowizacji przy użyciu aplikacji w chmurze | Zapoznaj się z [listą samouczków aplikacji SaaS](../saas-apps/tutorial-list.md) , aby uzyskać wskazówki krok po kroku dotyczące konfigurowania aprowizacji dla aplikacji galerii, którą chcesz dodać. |
 | Użyj dzienników aprowizacji (wersja zapoznawcza) do monitorowania stanu | [Dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) zawierają szczegółowe informacje o wszystkich akcjach wykonywanych przez usługę aprowizacji, w tym o stanie poszczególnych użytkowników. |
 | Przypisywanie grupy dystrybucji do wiadomości e-mail z powiadomieniem o aprowizacji | Aby zwiększyć widoczność alertów krytycznych wysyłanych przez usługę aprowizacji, należy przypisać grupę dystrybucyjną do ustawienia powiadomienia E-mail. |
 

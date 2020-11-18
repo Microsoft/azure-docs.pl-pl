@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587773"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656381"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurowanie domen niestandardowych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -26,7 +26,7 @@ Po opublikowaniu aplikacji za poorednictwem serwer proxy aplikacji usługi Azure
 
 Dobrym pomysłem jest skonfigurowanie niestandardowych domen dla aplikacji, jeśli jest to możliwe. Niektóre powody używania domen niestandardowych obejmują:
 
-- Linki między aplikacjami działają nawet poza siecią firmową. Bez domeny niestandardowej, jeśli aplikacja ma trwale kodowane linki wewnętrzne do celów poza serwerem proxy aplikacji, a linki nie są na zewnątrz rozpoznawalne, zostaną przerwane. Jeśli wewnętrzne i zewnętrzne adresy URL są takie same, można uniknąć tego problemu. Jeśli nie możesz używać domen niestandardowych, zobacz [przekierowanie stałe linki dla aplikacji opublikowanych w usłudze Azure serwer proxy aplikacji usługi Azure AD](../application-proxy-link-translation.md) , aby poznać inne sposoby rozwiązywania tego problemu. 
+- Linki między aplikacjami działają nawet poza siecią firmową. Bez domeny niestandardowej, jeśli aplikacja ma trwale kodowane linki wewnętrzne do celów poza serwerem proxy aplikacji, a linki nie są na zewnątrz rozpoznawalne, zostaną przerwane. Jeśli wewnętrzne i zewnętrzne adresy URL są takie same, można uniknąć tego problemu. Jeśli nie możesz używać domen niestandardowych, zobacz [przekierowanie stałe linki dla aplikacji opublikowanych w usłudze Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-configure-hard-coded-link-translation.md) , aby poznać inne sposoby rozwiązywania tego problemu. 
   
 - Użytkownicy będą mieli łatwiejszy komfort, ponieważ mogą uzyskać dostęp do aplikacji przy użyciu tego samego adresu URL z sieci lub spoza niej. Nie muszą uczyć się różnych wewnętrznych i zewnętrznych adresów URL lub śledzić ich bieżącą lokalizację. 
 
@@ -64,7 +64,7 @@ Aby utworzyć i zweryfikować domenę niestandardową:
 1. Wprowadź niestandardową nazwę domeny i wybierz pozycję **Dodaj domenę**. 
 1. Na stronie domena skopiuj informacje o rekordzie TXT dla Twojej domeny. 
 1. Przejdź do rejestratora domen i Utwórz nowy rekord TXT dla domeny na podstawie skopiowanych informacji DNS.
-1. Po zarejestrowaniu domeny na stronie domeny w Azure Active Directory wybierz pozycję **Weryfikuj**. Po **zweryfikowaniu**stanu domeny można użyć domeny we wszystkich konfiguracjach usługi Azure AD, w tym na serwerze proxy aplikacji. 
+1. Po zarejestrowaniu domeny na stronie domeny w Azure Active Directory wybierz pozycję **Weryfikuj**. Po **zweryfikowaniu** stanu domeny można użyć domeny we wszystkich konfiguracjach usługi Azure AD, w tym na serwerze proxy aplikacji. 
 
 Aby uzyskać bardziej szczegółowe instrukcje, zobacz [Dodawanie niestandardowej nazwy domeny przy użyciu portalu Azure Active Directory](../fundamentals/add-custom-domain.md).
 
@@ -74,7 +74,7 @@ Aby opublikować aplikację za pomocą serwera proxy aplikacji z domeną niestan
 
 1. W przypadku nowej aplikacji w obszarze Azure Active Directory wybierz pozycję **aplikacje dla przedsiębiorstw** na lewym pasku nawigacyjnym. Wybierz pozycję **Nowa aplikacja**. W sekcji **aplikacje lokalne** wybierz pozycję **Dodaj aplikację lokalną**. 
    
-   W przypadku aplikacji już znajdującej się w **aplikacjach dla przedsiębiorstw**wybierz ją z listy, a następnie wybierz pozycję **serwer proxy aplikacji** w lewym okienku nawigacji. 
+   W przypadku aplikacji już znajdującej się w **aplikacjach dla przedsiębiorstw** wybierz ją z listy, a następnie wybierz pozycję **serwer proxy aplikacji** w lewym okienku nawigacji. 
 
 2. Na stronie Ustawienia serwera proxy aplikacji wprowadź **nazwę** , jeśli dodajesz własną aplikację lokalną.
 
@@ -109,7 +109,7 @@ Aby opublikować aplikację za pomocą serwera proxy aplikacji z domeną niestan
 
 Aplikacja jest teraz skonfigurowana do korzystania z domeny niestandardowej. Należy pamiętać o przypisaniu użytkowników do aplikacji przed jej przetestowaniem lub wydaniem. 
 
-Aby zmienić domenę dla aplikacji, wybierz inną domenę z listy rozwijanej w **zewnętrznym adresie URL** na stronie **serwera proxy aplikacji** aplikacji. W razie potrzeby Przekaż certyfikat dla zaktualizowanej domeny, a następnie zaktualizuj rekord DNS. Jeśli na liście rozwijanej w **zewnętrznym adresie URL**nie widzisz domeny niestandardowej, być może nie została zweryfikowana.
+Aby zmienić domenę dla aplikacji, wybierz inną domenę z listy rozwijanej w **zewnętrznym adresie URL** na stronie **serwera proxy aplikacji** aplikacji. W razie potrzeby Przekaż certyfikat dla zaktualizowanej domeny, a następnie zaktualizuj rekord DNS. Jeśli na liście rozwijanej w **zewnętrznym adresie URL** nie widzisz domeny niestandardowej, być może nie została zweryfikowana.
 
 Aby uzyskać bardziej szczegółowe instrukcje dotyczące serwera proxy aplikacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md).
 
@@ -123,7 +123,7 @@ Aby upewnić się, że wszystkie wymagane certyfikaty pośrednie są uwzględnia
 
 Większość typowych metod podpisywania certyfikatu jest obsługiwana, takich jak Alternatywna nazwa podmiotu (SAN). 
 
-Można używać certyfikatów symboli wieloznacznych, o ile symbol wieloznaczny pasuje do zewnętrznego adresu URL. W przypadku [aplikacji wieloznacznych](application-proxy-wildcard.md)należy używać certyfikatów wieloznacznych. Aby użyć certyfikatu w celu uzyskania dostępu do domen poddomen, należy dodać symbole wieloznacznej domeny jako alternatywne nazwy podmiotu w tym samym certyfikacie. Na przykład certyfikat dla * \* . Adventure-Works.com* nie będzie działał dla elementu * \* . Apps.Adventure-Works.com* , chyba że dodasz * \* Apps.Adventure-Works.com* jako alternatywną nazwę podmiotu. 
+Można używać certyfikatów symboli wieloznacznych, o ile symbol wieloznaczny pasuje do zewnętrznego adresu URL. W przypadku [aplikacji wieloznacznych](application-proxy-wildcard.md)należy używać certyfikatów wieloznacznych. Aby użyć certyfikatu w celu uzyskania dostępu do domen poddomen, należy dodać symbole wieloznacznej domeny jako alternatywne nazwy podmiotu w tym samym certyfikacie. Na przykład certyfikat dla *\* . Adventure-Works.com* nie będzie działał dla elementu *\* . Apps.Adventure-Works.com* , chyba że dodasz *\* Apps.Adventure-Works.com* jako alternatywną nazwę podmiotu. 
 
 W przypadku zainstalowania łańcucha certyfikatów na urządzeniach klienckich można użyć certyfikatów wystawionych przez własną infrastrukturę kluczy publicznych (PKI). Usługa Intune może wdrażać te certyfikaty na zarządzanych urządzeniach. W przypadku urządzeń niezarządzanych należy ręcznie zainstalować te certyfikaty. 
 
@@ -135,7 +135,7 @@ Wszystkie zarządzanie certyfikatami odbywa się za pomocą poszczególnych stro
 
 Po przekazaniu certyfikatu dla aplikacji zostanie ona również automatycznie zastosowana do **nowych** aplikacji skonfigurowanych do korzystania z tego samego certyfikatu. Konieczne będzie ponowne przekazanie certyfikatu dla istniejących aplikacji w dzierżawie.
 
-Po wygaśnięciu certyfikatu zostanie wyświetlone ostrzeżenie z informacją o przekazaniu innego certyfikatu. Jeśli certyfikat zostanie odwołany, użytkownicy mogą zobaczyć ostrzeżenie o zabezpieczeniach podczas uzyskiwania dostępu do aplikacji. Aby zaktualizować certyfikat dla aplikacji, przejdź do strony **serwera proxy aplikacji** , wybierz pozycję **certyfikat**i przekaż nowy certyfikat. Jeśli stary certyfikat nie jest używany przez inne aplikacje, zostanie automatycznie usunięty. 
+Po wygaśnięciu certyfikatu zostanie wyświetlone ostrzeżenie z informacją o przekazaniu innego certyfikatu. Jeśli certyfikat zostanie odwołany, użytkownicy mogą zobaczyć ostrzeżenie o zabezpieczeniach podczas uzyskiwania dostępu do aplikacji. Aby zaktualizować certyfikat dla aplikacji, przejdź do strony **serwera proxy aplikacji** , wybierz pozycję **certyfikat** i przekaż nowy certyfikat. Jeśli stary certyfikat nie jest używany przez inne aplikacje, zostanie automatycznie usunięty. 
 
 ## <a name="next-steps"></a>Następne kroki
 

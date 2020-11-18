@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 9ff70e7c05ca8de49f560fba3d59f0609785b8c4
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 9ac4aa9e93ac296913d7a62e83b182d673015bae
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636779"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655973"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Łączenie maszyn wirtualnych Azure Stack Hub z platformą Azure — wskaźnikiem
 
@@ -34,8 +34,8 @@ Po nawiązaniu połączenia z maszynami Azure Stack Hub wybierz z galerii pulpit
 
 Dodaj rozszerzenie maszyny wirtualnej **Azure monitor, aktualizacji i zarządzania konfiguracją** do maszyn wirtualnych działających w centrum Azure Stack. 
 
-1. Na nowej karcie przeglądarki Zaloguj się do [portalu Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
-2. Przejdź do strony **maszyny wirtualne** , wybierz maszynę wirtualną, która ma być chroniona za pomocą platformy Azure. Aby uzyskać informacje na temat sposobu tworzenia maszyny wirtualnej w centrum Azure Stack, zobacz [Tworzenie maszyny wirtualnej z systemem Windows Server za pomocą centrum Azure Stack Hub](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) lub [Tworzenie maszyny wirtualnej serwera z systemem Linux przy użyciu portalu Centrum Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+1. Na nowej karcie przeglądarki Zaloguj się do [portalu Azure Stack Hub](/azure-stack/user/azure-stack-use-portal#access-the-portal).
+2. Przejdź do strony **maszyny wirtualne** , wybierz maszynę wirtualną, która ma być chroniona za pomocą platformy Azure. Aby uzyskać informacje na temat sposobu tworzenia maszyny wirtualnej w centrum Azure Stack, zobacz [Tworzenie maszyny wirtualnej z systemem Windows Server za pomocą centrum Azure Stack Hub](/azure-stack/user/azure-stack-quick-windows-portal) lub [Tworzenie maszyny wirtualnej serwera z systemem Linux przy użyciu portalu Centrum Azure Stack](/azure-stack/user/azure-stack-quick-linux-portal).
 3. Wybierz pozycję **Rozszerzenia**. Zostanie wyświetlona lista rozszerzeń maszyn wirtualnych zainstalowanych na tej maszynie wirtualnej.
 4. Kliknij kartę **Dodaj** . Zostanie otwarty blok menu **nowy zasób** i zostanie wyświetlona lista dostępnych rozszerzeń maszyn wirtualnych. 
 5. Wybierz rozszerzenie **Azure monitor, aktualizacji i zarządzania konfiguracją** , a następnie kliknij przycisk **Utwórz**. Zostanie otwarte okno Konfiguracja **rozszerzenia instalacji** .
@@ -62,7 +62,7 @@ Aby usunąć rozszerzenie:
 
 1. Otwórz **Portal Azure Stack Hub**.
 2. Przejdź do strony **maszyny wirtualne** wybierz maszynę wirtualną, z której chcesz usunąć rozszerzenie.
-3. Wybierz pozycję **rozszerzenia** , wybierz rozszerzenie **Microsoft. EnterpriseCloud. Monitoring**.
+3. Wybierz pozycję **rozszerzenia**, wybierz rozszerzenie **Microsoft. EnterpriseCloud. Monitoring**.
 4. Kliknij przycisk **Odinstaluj** i potwierdź wybór.
 
 ## <a name="next-steps"></a>Następne kroki

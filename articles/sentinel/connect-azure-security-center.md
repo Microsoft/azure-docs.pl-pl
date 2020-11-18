@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659649"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655956"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Połącz dane alertów usługi Azure Defender z Azure Security Center
 
-Skorzystaj z łącznika alertu usługi Azure Defender, aby uzyskać alerty usługi Azure Defender z [Azure Security Center](../security-center/security-center-intro.md) i przesyłać je strumieniowo do usługi Azure wskaźnikowej. 
+Skorzystaj z łącznika alertu usługi Azure Defender, aby uzyskać alerty usługi Azure Defender z [Azure Security Center](../security-center/security-center-introduction.md) i przesyłać je strumieniowo do usługi Azure wskaźnikowej. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,9 +32,9 @@ Skorzystaj z łącznika alertu usługi Azure Defender, aby uzyskać alerty usłu
 
 1. Z galerii łączników danych wybierz pozycję **alerty usługi Azure Defender z poziomu ASC** (nadal może być wywoływana Azure Security Center), a następnie kliknij przycisk **Otwórz stronę łącznika** .
 
-1. W obszarze **Konfiguracja**kliknij pozycję **Połącz** obok każdej subskrypcji, której alerty chcesz przesłać do usługi Azure wskaźnikowej. Przycisk Połącz będzie dostępny tylko wtedy, gdy masz wymagane uprawnienia.
+1. W obszarze **Konfiguracja** kliknij pozycję **Połącz** obok każdej subskrypcji, której alerty chcesz przesłać do usługi Azure wskaźnikowej. Przycisk Połącz będzie dostępny tylko wtedy, gdy masz wymagane uprawnienia.
 
-1. Możesz wybrać, czy alerty z usługi Azure Defender mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń**wybierz pozycję **włączone** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów. Następnie można edytować tę regułę w obszarze **Analiza**na karcie  **aktywne reguły** .
+1. Możesz wybrać, czy alerty z usługi Azure Defender mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **włączone** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów. Następnie można edytować tę regułę w obszarze **Analiza** na karcie  **aktywne reguły** .
 
 1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów usługi Azure Defender, Wyszukaj pozycję **SecurityAlert**.
 

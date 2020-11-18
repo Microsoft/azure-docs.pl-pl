@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776565"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657894"
 ---
-# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Konfigurowanie połączenia sieci VPN typu lokacja-lokacja za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute (wersja zapoznawcza)
+# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Konfigurowanie połączenia sieci VPN typu lokacja-lokacja za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute
 
 Sieć VPN typu lokacja-lokacja można skonfigurować dla bramy sieci wirtualnej za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute przy użyciu adresu IP RFC 1918. Ta konfiguracja zapewnia następujące korzyści:
 
@@ -54,7 +54,7 @@ W przypadku ruchu z sieci lokalnych na platformę Azure, prefiksy platformy Azur
 
 • Jedna trasa sieciowa bezpośrednio za pośrednictwem usługi ExpressRoute bez ochrony IPsec.
 
-Aby zastosować szyfrowanie do komunikacji, należy się upewnić, że dla sieci połączonej z siecią VPN na **rysunku 1**trasy platformy Azure za pośrednictwem lokalnej bramy sieci VPN są preferowane dla ścieżki Direct ExpressRoute.
+Aby zastosować szyfrowanie do komunikacji, należy się upewnić, że dla sieci połączonej z siecią VPN na **rysunku 1** trasy platformy Azure za pośrednictwem lokalnej bramy sieci VPN są preferowane dla ścieżki Direct ExpressRoute.
 
 ### <a name="traffic-from-azure-to-on-premises-networks"></a>Ruch z platformy Azure do sieci lokalnych
 
@@ -76,14 +76,14 @@ W obu tych przykładach usługa Azure wyśle ruch do 10.0.1.0/24 przez połącze
 
    Jednostki SKU nadmiarowe strefy mają "AZ" na końcu jednostki SKU. Na przykład **VpnGw1AZ**. Bramy strefowo nadmiarowych są dostępne tylko w regionach, w których dostępna jest usługa strefy dostępności. Aby uzyskać informacje o regionach, w których obsługiwane są strefy dostępności, zobacz [regiony obsługujące strefy dostępności](../availability-zones/az-region.md).
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Rysunek 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Prywatne adresy IP bramy":::
 1. Włącz prywatne adresy IP na bramie. Wybierz pozycję **Konfiguracja**, a następnie ustaw opcję **prywatne adresy IP bramy** na **włączone**. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 1. Na stronie **Przegląd** wybierz pozycję **Zobacz więcej** , aby wyświetlić prywatny adres IP. Zapisz te informacje do użycia w dalszej części kroków konfiguracyjnych.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Rysunek 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Strona przeglądu" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
 1. Aby włączyć **Korzystanie z prywatnego adresu IP platformy Azure** w połączeniu, wybierz pozycję  **Konfiguracja**. Ustaw opcję **Użyj prywatnego adresu IP platformy Azure** , aby **włączyć**, a następnie wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Rysunek 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Prywatne adresy IP bramy — włączone":::
 1. Z poziomu zapory Wyślij polecenie ping do prywatnego adresu IP, który zapisano w kroku 3. Prywatny adres IP powinien być dostępny za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute.
 1. Użyj tego prywatnego adresu IP jako zdalnego adresu IP w zaporze lokalnej, aby nawiązać tunel między lokacjami za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute.
 

@@ -12,12 +12,12 @@ ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426498"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657418"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Ograniczone delegowanie protokołu Kerberos na potrzeby logowania jednokrotnego do aplikacji za pomocą serwera proxy aplikacji
 
@@ -42,9 +42,9 @@ Ten diagram wyjaśnia przepływ, gdy użytkownik próbuje uzyskać dostęp do ap
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem pracy z logowaniem jednokrotnym dla aplikacji IWA upewnij się, że środowisko jest gotowe z następującymi ustawieniami i konfiguracjami:
 
-* Aplikacje, takie jak aplikacje sieci Web programu SharePoint, są ustawione tak, aby używały zintegrowanego uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [Włączanie obsługi uwierzytelniania Kerberos](https://technet.microsoft.com/library/dd759186.aspx)lub dla programu SharePoint, zobacz [Planowanie uwierzytelniania Kerberos w programie SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+* Aplikacje, takie jak aplikacje sieci Web programu SharePoint, są ustawione tak, aby używały zintegrowanego uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [Włączanie obsługi uwierzytelniania Kerberos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11))lub dla programu SharePoint, zobacz [Planowanie uwierzytelniania Kerberos w programie SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * Wszystkie aplikacje mają [nazwy główne usługi](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
-* Serwer z uruchomionym łącznikiem i serwerem, na którym działa aplikacja, są przyłączone do domeny i częścią tej samej domeny lub domen ufających. Aby uzyskać więcej informacji na temat przyłączania do domeny, zobacz [dołączanie komputera do domeny](https://technet.microsoft.com/library/dd807102.aspx).
+* Serwer z uruchomionym łącznikiem i serwerem, na którym działa aplikacja, są przyłączone do domeny i częścią tej samej domeny lub domen ufających. Aby uzyskać więcej informacji na temat przyłączania do domeny, zobacz [dołączanie komputera do domeny](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * Serwer z uruchomionym łącznikiem ma dostęp do odczytu atrybutu TokenGroupsGlobalAndUniversal dla użytkowników. To ustawienie domyślne mogło mieć wpływ na bezpieczeństwo środowiska.
 
 ### <a name="configure-active-directory"></a>Konfigurowanie usługi Active Directory
@@ -61,7 +61,7 @@ Konfiguracja Active Directory różni się w zależności od tego, czy łącznik
    ![Łącznik — zrzut ekranu okno Właściwości SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Łącznik i serwer aplikacji w różnych domenach
-1. Aby uzyskać listę wymagań wstępnych dotyczących pracy z usługą KCD w różnych domenach, zobacz [ograniczone delegowanie protokołu Kerberos między domenami](https://technet.microsoft.com/library/hh831477.aspx).
+1. Aby uzyskać listę wymagań wstępnych dotyczących pracy z usługą KCD w różnych domenach, zobacz [ograniczone delegowanie protokołu Kerberos między domenami](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 2. Użyj `principalsallowedtodelegateto` Właściwości konta usługi (komputera lub dedykowanego konta użytkownika domeny) aplikacji sieci Web, aby włączyć delegowanie uwierzytelniania Kerberos z serwera proxy aplikacji (łącznik). Serwer aplikacji jest uruchomiony w kontekście programu `webserviceaccount` , a serwer delegowania jest `connectorcomputeraccount` . Uruchom poniższe polecenia na kontrolerze domeny (z systemem Windows Server 2012 R2 lub nowszym) w domenie `webserviceaccount` . Użyj prostych nazw (nie nazw UPN) dla obu kont.
 
    Jeśli `webserviceaccount` jest to konto komputera, użyj następujących poleceń:
@@ -153,4 +153,3 @@ Jednak w niektórych przypadkach żądanie zostało pomyślnie wysłane do aplik
 
 * [Jak skonfigurować aplikację serwera proxy aplikacji do korzystania z ograniczonego delegowania protokołu Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Rozwiązywanie problemów z serwerem proxy aplikacji](application-proxy-troubleshoot.md)
-

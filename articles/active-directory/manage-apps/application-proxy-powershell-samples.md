@@ -12,19 +12,19 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57efd88b9d194442920496107d4c37ba2baf94d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efe71fd77e9e4edb7fc7df4c633ae8f81177097b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85554997"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657824"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Przykłady programu Azure AD PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD
 
-Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD. Te przykłady wymagają [modułu AzureAD v2 PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) lub w [wersji zapoznawczej modułu AzureAD v2 PowerShell dla programu Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), chyba że zaznaczono inaczej.
+Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD. Te przykłady wymagają [modułu AzureAD v2 PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) lub w [wersji zapoznawczej modułu AzureAD v2 PowerShell dla programu Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), chyba że zaznaczono inaczej.
 
 
-Aby uzyskać więcej informacji o poleceniach cmdlet używanych w tych przykładach, zobacz [Zarządzanie aplikacjami serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) i [Zarządzanie łącznikami serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
+Aby uzyskać więcej informacji o poleceniach cmdlet używanych w tych przykładach, zobacz [Zarządzanie aplikacjami serwera proxy aplikacji](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) i [Zarządzanie łącznikami serwera proxy aplikacji](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
 | Łącze | Opis |
 |---|---|
@@ -32,7 +32,7 @@ Aby uzyskać więcej informacji o poleceniach cmdlet używanych w tych przykład
 | [Wyświetl podstawowe informacje dotyczące wszystkich aplikacji serwera proxy aplikacji](scripts/powershell-get-all-app-proxy-apps-basic.md) | Wyświetla listę podstawowych informacji (AppId, DisplayName, ObjId) dotyczących wszystkich aplikacji serwera proxy aplikacji w katalogu. |
 | [Wyświetl rozszerzone informacje dla wszystkich aplikacji serwera proxy aplikacji](scripts/powershell-get-all-app-proxy-apps-extended.md) | Wyświetla informacje rozszerzone (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) dotyczące wszystkich aplikacji serwera proxy aplikacji w katalogu.  |
 | [Wyświetl listę wszystkich aplikacji serwera proxy aplikacji według grupy łączników](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Wyświetla listę informacji o wszystkich aplikacjach serwera proxy aplikacji w katalogu i grup łączników, do których są przypisane aplikacje. |
-| [Pobierz wszystkie aplikacje serwera proxy aplikacji z zasadami istnienia tokenu](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Wyświetla listę wszystkich aplikacji serwera proxy aplikacji w katalogu za pomocą zasad okresu istnienia tokenu i ich szczegółów. Ten przykład wymaga programu [PowerShell w wersji zapoznawczej modułu AzureAD v2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Pobierz wszystkie aplikacje serwera proxy aplikacji z zasadami istnienia tokenu](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Wyświetla listę wszystkich aplikacji serwera proxy aplikacji w katalogu za pomocą zasad okresu istnienia tokenu i ich szczegółów. Ten przykład wymaga programu [PowerShell w wersji zapoznawczej modułu AzureAD v2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
 |**Grupy łączników**||
 | [Pobierz wszystkie grupy łączników i łączniki w katalogu](scripts/powershell-get-all-connectors.md) | Wyświetla listę wszystkich grup łączników i łączników w katalogu. |
 | [Przenoszenie wszystkich aplikacji przypisanych do grupy łączników do innej grupy łączników](scripts/powershell-move-all-apps-to-connector-group.md) | Przenosi wszystkie aplikacje aktualnie przypisane do grupy łączników do innej grupy łączników. |

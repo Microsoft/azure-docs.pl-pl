@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078941"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656755"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integracja z usługą Azure serwer proxy aplikacji usługi Azure AD na serwerze usługi rejestracji urządzeń sieciowych (NDES)
 
@@ -26,7 +26,7 @@ Serwer proxy aplikacji Azure Active Directory (AD) umożliwia publikowanie aplik
 
 Jeśli dopiero zaczynasz korzystać z usługi Azure serwer proxy aplikacji usługi Azure AD i chcesz dowiedzieć się więcej, zobacz [zdalny dostęp do aplikacji lokalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy.md).
 
-Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie Azure. Zapewnia ogromną przepustowość sieci i infrastrukturę serwerów w celu zapewnienia lepszej ochrony przed atakami typu "odmowa usługi" (DDOS) i doskonałymi dostępnością. Ponadto nie ma potrzeby otwierania zewnętrznych portów zapory w sieci lokalnej i nie jest wymagany żaden serwer DMZ. Cały ruch pochodzi z ruchu przychodzącego. Aby uzyskać pełną listę portów wychodzących, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za pomocą serwera proxy aplikacji w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie Azure. Zapewnia ogromną przepustowość sieci i infrastrukturę serwerów w celu zapewnienia lepszej ochrony przed atakami typu "odmowa usługi" (DDOS) i doskonałymi dostępnością. Ponadto nie ma potrzeby otwierania zewnętrznych portów zapory w sieci lokalnej i nie jest wymagany żaden serwer DMZ. Cały ruch pochodzi z ruchu przychodzącego. Aby uzyskać pełną listę portów wychodzących, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za pomocą serwera proxy aplikacji w Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > Azure serwer proxy aplikacji usługi Azure AD to funkcja, która jest dostępna tylko w przypadku korzystania z wersji Premium lub Basic systemu Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 > Jeśli masz Licencje pakietu Enterprise Mobility Suite (EMS), możesz korzystać z tego rozwiązania.
@@ -37,7 +37,7 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) jako administrator aplikacji w katalogu, w którym jest używany serwer proxy aplikacji. Na przykład jeśli domena dzierżawy to contoso.com, administratorem powinien być admin@contoso.com lub dowolny alias administratora w tej domenie.
 1. Wybierz swoją nazwę użytkownika w prawym górnym rogu. Upewnij się, że logujesz się do katalogu, który używa serwera proxy aplikacji. Jeśli musisz zmienić katalogi, wybierz pozycję **Przełącz katalog** i wybierz katalog, w którym jest używany serwer proxy aplikacji.
 1. W lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
-1. W obszarze **Zarządzanie**wybierz pozycję **serwer proxy aplikacji**.
+1. W obszarze **Zarządzanie** wybierz pozycję **serwer proxy aplikacji**.
 1. Wybierz pozycję **Pobierz usługę łącznika**.
 
     ![Pobierz usługę łącznika, aby zobaczyć warunki korzystania z usługi](./media/active-directory-app-proxy-protect-ndes/application-proxy-download-connector-service.png)
@@ -72,7 +72,7 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie 
 
 1. Wybierz pozycję **+ Nowa aplikacja**, a następnie wybierz pozycję **aplikacja lokalna**. 
 
-1. Na stronie **Dodawanie własnej aplikacji lokalnej**skonfiguruj następujące pola:
+1. Na stronie **Dodawanie własnej aplikacji lokalnej** skonfiguruj następujące pola:
 
    * **Nazwa**: Wprowadź nazwę aplikacji.
    * **Wewnętrzny adres URL**: wprowadź wewnętrzny adres URL/Nazwa FQDN serwera usługi NDES, na którym został zainstalowany łącznik.
@@ -96,4 +96,4 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dzięki usłudze Azure serwer proxy aplikacji usługi Azure AD zintegrowanej z usługą NDES można publikować aplikacje dla użytkowników. Aby uzyskać więcej informacji, zobacz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Dzięki usłudze Azure serwer proxy aplikacji usługi Azure AD zintegrowanej z usługą NDES można publikować aplikacje dla użytkowników. Aby uzyskać więcej informacji, zobacz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-add-on-premises-application.md).

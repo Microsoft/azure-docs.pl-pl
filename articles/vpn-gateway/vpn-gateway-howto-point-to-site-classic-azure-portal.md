@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: a66b76350da6f3b3804dac73a7aeb9f54d2e34eb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938376"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657078"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurowanie połączenia typu punkt-lokacja przy użyciu uwierzytelniania certyfikatu (wersja klasyczna)
 
@@ -22,7 +22,7 @@ ms.locfileid: "91938376"
 W tym artykule pokazano, jak utworzyć sieć wirtualną z połączeniem typu punkt-lokacja. Tę sieć wirtualną można utworzyć za pomocą klasycznego modelu wdrażania przy użyciu Azure Portal. Ta konfiguracja korzysta z certyfikatów z podpisem własnym lub wystawionych przez urząd certyfikacji do uwierzytelniania klienta nawiązującego połączenie. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia lub modelu wdrażania, korzystając z opcji opisanych w następujących artykułach:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Program PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -114,7 +114,7 @@ Jeśli używasz certyfikatów z podpisem własnym, musisz je utworzyć przy uży
 Po utworzeniu bramy przekaż plik cer (który zawiera informacje o kluczu publicznym) dla zaufanego certyfikatu głównego na serwer platformy Azure. Nie przekazuj klucza prywatnego dla certyfikatu głównego. Po przekazaniu certyfikatu platforma Azure będzie używać go do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta wygenerowany na podstawie zaufanego certyfikatu głównego. W razie potrzeby dodatkowe pliki zaufanego certyfikatu głównego możesz przekazać później — maksymalnie może ich być 20.
 
 1. Przejdź do utworzonej sieci wirtualnej.
-1. W obszarze **Ustawienia**wybierz pozycję **połączenia punkt-lokacja**.
+1. W obszarze **Ustawienia** wybierz pozycję **połączenia punkt-lokacja**.
 1. Wybierz pozycję **Zarządzaj certyfikatem**.
 1. Wybierz pozycję **Przekaż**.
 1. W okienku **Przekaż certyfikat** wybierz ikonę folderu i przejdź do certyfikatu, który chcesz przekazać.
@@ -202,7 +202,7 @@ Częstą praktyką jest użycie certyfikatu głównego do zarządzania dostępem
 
 Certyfikat klienta można odwołać przez dodanie odcisku palca do listy odwołania.
 
-1. Pobierz odcisk palca certyfikatu klienta. Aby uzyskać więcej informacji, zobacz [How to: Pobieranie odcisku palca certyfikatu](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Pobierz odcisk palca certyfikatu klienta. Aby uzyskać więcej informacji, zobacz [How to: Pobieranie odcisku palca certyfikatu](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Skopiuj informacje do edytora tekstu i usuń wszelkie spacje, tak aby powstał ciąg bez odstępów.
 1. Przejdź do **połączenia sieci VPN typu punkt-lokacja**, a następnie wybierz pozycję **Zarządzaj certyfikatem**.
 1. Wybierz pozycję **Lista odwołania**, aby otworzyć stronę **Lista odwołania**.
@@ -211,14 +211,14 @@ Certyfikat klienta można odwołać przez dodanie odcisku palca do listy odwoła
 
 Po zakończeniu aktualizowania nie będzie można już używać certyfikatu do nawiązywania połączeń. Klienci, którzy spróbują połączyć się za pomocą tego certyfikatu, zobaczą komunikat informujący o tym, że certyfikat nie jest już ważny.
 
-## <a name="faq"></a><a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Po zakończeniu procesu nawiązywania połączenia można dodać maszyny wirtualne do sieci wirtualnych. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/) (Maszyny wirtualne).
+* Po zakończeniu procesu nawiązywania połączenia można dodać maszyny wirtualne do sieci wirtualnych. Aby uzyskać więcej informacji, zobacz [Virtual Machines](../index.yml) (Maszyny wirtualne).
 
-* Aby dowiedzieć się więcej o sieci i maszynach wirtualnych z systemem Linux, zobacz [Azure and Linux VM network overview](../virtual-machines/linux/network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).
+* Aby dowiedzieć się więcej o sieci i maszynach wirtualnych z systemem Linux, zobacz [Azure and Linux VM network overview](../virtual-machines/network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).
 
 * Aby uzyskać informacje dotyczące rozwiązywania problemów z połączeniem typu punkt-lokacja, zobacz [Troubleshoot Azure point-to-site connections (Rozwiązywanie problemów z połączeniami typu punkt-lokacja na platformie Azure)](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

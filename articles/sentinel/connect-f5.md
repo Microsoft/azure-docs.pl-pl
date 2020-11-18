@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 63e20467750e9a4b0c85de33180d4fa51831e59b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a0f0e01827c48518f2eb1fba062e9e6536d9df
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85555413"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655701"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Połącz F5 ASM z platformą Azure wskaźnikiem
 
@@ -32,7 +32,7 @@ W tym artykule wyjaśniono, jak za pomocą łącznika danych programu F5 ASM mo�
    - Ustaw **Typ magazynu zdalnego** na **CEF**.
    - Ustaw **Protokół** na **TCP**.
    - Ustaw **adres IP** na adres IP serwera dziennika systemowego.
-   - Ustaw **numer portu** na **514**lub port, który ma być używany przez agenta.
+   - Ustaw **numer portu** na **514** lub port, który ma być używany przez agenta.
    - **Maksymalny rozmiar ciągu zapytania** można ustawić na rozmiar ustawiony w agencie.
 
 1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń CEF, wyszukaj ciąg `CommonSecurityLog` .
@@ -43,6 +43,5 @@ W tym artykule wyjaśniono, jak za pomocą łącznika danych programu F5 ASM mo�
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia F5 ASM z platformą Azure wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
-- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](./tutorial-detect-threats-built-in.md).
 - [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
-

@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88264079"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655905"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Łączenie danych z zapory aplikacji sieci Web platformy Azure (WAF)
 
-Aplikacje sieci Web są coraz bardziej przeznaczone dla złośliwych ataków wykorzystujących często znane luki w zabezpieczeniach. Zapora aplikacji sieci Web (WAF) platformy Azure zapewnia centralną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach, takimi jak iniekcja kodu i obsługa skryptów między lokacjami. Usługę Azure WAF można wdrożyć w ramach usługi [azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) , usługi Azure [Front-drzwiczk](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) i za pomocą zasad WAF usługi [Azure Content Delivery Network (](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) ta ostatnia jest obecnie dostępna w publicznej wersji zapoznawczej).
+Aplikacje sieci Web są coraz bardziej przeznaczone dla złośliwych ataków wykorzystujących często znane luki w zabezpieczeniach. Zapora aplikacji sieci Web (WAF) platformy Azure zapewnia centralną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach, takimi jak iniekcja kodu i obsługa skryptów między lokacjami. Usługę Azure WAF można wdrożyć w ramach usługi [azure Application Gateway](../web-application-firewall/ag/ag-overview.md) , usługi Azure [Front-drzwiczk](../web-application-firewall/afds/afds-overview.md) i za pomocą zasad WAF usługi [Azure Content Delivery Network (](../web-application-firewall/cdn/cdn-overview.md) ta ostatnia jest obecnie dostępna w publicznej wersji zapoznawczej).
 Dzienniki usługi Azure WAF można połączyć z platformą Azure wskaźnikiem wydajności, umożliwiając wyświetlanie danych dziennika w skoroszytach, korzystanie z nich do tworzenia niestandardowych alertów i uwzględnianie ich w celu usprawnienia badania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -33,7 +33,7 @@ Dzienniki usługi Azure WAF można połączyć z platformą Azure wskaźnikiem w
 
 1. Wybierz pozycję **Zapora aplikacji sieci Web platformy Azure (WAF)** z galerii łączniki danych, a następnie wybierz pozycję **Otwórz stronę łącznika** w okienku podglądu.
 
-1. Wybierz łącze dla typu zasobu WAF, którego dzienników chcesz połączyć — **otwórz Application Gateway >zasobów **, **Otwórz >zasobów front-drzwi **lub **Otwórz Content Delivery Network (CDN) WAF zasad >** — a raz na ekranie Lista zasobów wybierz zasób WAF z listy.
+1. Wybierz łącze dla typu zasobu WAF, którego dzienników chcesz połączyć — **otwórz Application Gateway >zasobów**, **Otwórz >zasobów front-drzwi** lub **Otwórz Content Delivery Network (CDN) WAF zasad >** — a raz na ekranie Lista zasobów wybierz zasób WAF z listy.
 
     1. Z menu nawigacji zasobu WAF wybierz pozycję **Ustawienia diagnostyczne**.
 

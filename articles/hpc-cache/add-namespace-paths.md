@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614632"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657112"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Konfigurowanie zagregowanej przestrzeni nazw
 
@@ -57,7 +57,7 @@ Na Azure Portal Załaduj stronę ustawienia **przestrzeni nazw** . Na tej stroni
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 W przypadku korzystania z interfejsu wiersza polecenia platformy Azure należy dodać ścieżkę przestrzeni nazw podczas tworzenia miejsca docelowego magazynu. Aby uzyskać szczegółowe informacje, przeczytaj artykuł [Dodawanie nowego miejsca docelowego usługi Azure Blob Storage](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) .
 
@@ -119,7 +119,7 @@ Wypełnij te wartości dla każdej ścieżki przestrzeni nazw:
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
 
 W przypadku korzystania z interfejsu wiersza polecenia platformy Azure podczas tworzenia miejsca docelowego magazynu należy dodać co najmniej jedną ścieżkę przestrzeni nazw. Aby uzyskać szczegółowe informacje, przeczytaj temat [Dodawanie nowego miejsca docelowego magazynu NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) .
 

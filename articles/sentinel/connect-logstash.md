@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89664726"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655684"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Korzystanie z logstash do łączenia źródeł danych z platformą Azure — wskaźnikiem
 
@@ -48,8 +48,8 @@ Silnik logstash składa się z trzech składników:
 
 Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sformatowane w formacie JSON do obszaru roboczego Log Analytics przy użyciu Log Analytics interfejsu API REST modułu zbierającego dane HTTP. Dane są pozyskiwane w dziennikach niestandardowych.
 
-- Dowiedz się więcej o [interfejsie API REST log Analytics](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Dowiedz się więcej o [dziennikach niestandardowych](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
+- Dowiedz się więcej o [interfejsie API REST log Analytics](/rest/api/loganalytics/create-request).
+- Dowiedz się więcej o [dziennikach niestandardowych](../azure-monitor/platform/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Wdróż wtyczkę wyjściową usługi Azure wskaźnikowej w logstash
 
@@ -57,7 +57,7 @@ Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sform
 
 Wtyczka danych wyjściowych na platformie Azure jest dostępna w kolekcji logstash.
 
-- Postępuj zgodnie z instrukcjami zawartymi w dokumencie logstash [Work with](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) plugins, aby zainstalować wtyczkę ***Microsoft-logstash-Output-Azure-loganalytics*** .
+- Postępuj zgodnie z instrukcjami zawartymi w dokumencie logstash [Work with](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) plugins, aby zainstalować wtyczkę **_Microsoft-logstash-Output-Azure-loganalytics_* _.
    
 - Jeśli system logstash nie ma dostępu do Internetu, postępuj zgodnie z instrukcjami zawartymi w dokumencie [Zarządzanie wtyczkami w trybie offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) logstash, aby przygotować pakiet wtyczek w trybie offline i korzystać z niego. (Będzie to wymagało skompilowania innego systemu logstash z dostępem do Internetu).
 
@@ -67,7 +67,7 @@ Skorzystaj z informacji w strukturze logstash dokumentu [pliku konfiguracji](htt
 
 | Nazwa pola | Typ danych | Opis |
 |----------------|---------------|-----------------|
-| `workspace_id` | ciąg | Wprowadź identyfikator GUID identyfikatora obszaru roboczego. * |
+| `workspace_id` | ciąg | Wprowadź identyfikator GUID identyfikatora obszaru roboczego. _ |
 | `workspace_key` | ciąg | Wprowadź identyfikator GUID klucza podstawowego obszaru roboczego. * |
 | `custom_log_table_name` | ciąg | Ustaw nazwę tabeli, w której zostaną pozyskane dzienniki. Można skonfigurować tylko jedną nazwę tabeli na wtyczkę wyjściową. Tabela dzienników zostanie wyświetlona w obszarze Azure, w obszarze **dzienniki** **, w tabeli** w kategorii **dzienniki niestandardowe** z `_CL` sufiksem. |
 | `endpoint` | ciąg | Pole opcjonalne. Domyślnie jest to Log Analytics punkt końcowy. To pole służy do ustawiania alternatywnego punktu końcowego. |
@@ -162,7 +162,7 @@ Poniżej przedstawiono kilka przykładowych konfiguracji, które korzystają z k
 
 1. Aby wyświetlić rekordy w tabeli, należy zbadać tabelę przy użyciu nazwy tabeli jako schematu.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Zrzut ekranu przedstawiający dzienniki niestandardowe dziennika tymczasowego.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Zrzut ekranu przedstawiający zapytanie o dzienniki niestandardowe dziennika tymczasowego.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Monitoruj dzienniki inspekcji wtyczki wyjściowej
 

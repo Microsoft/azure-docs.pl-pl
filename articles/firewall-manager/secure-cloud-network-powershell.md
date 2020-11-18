@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
-ms.openlocfilehash: d9d9da9cd01b4bb9b3cabcf069990cd3cbd38d38
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e2bcdf947db60fb50b44abba9d6a224768840b28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92429317"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656143"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Azure PowerShell
 
@@ -31,7 +31,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 - Program PowerShell 7
 
-   Ten samouczek wymaga uruchomienia Azure PowerShell lokalnie w programie PowerShell 7. Aby zainstalować program PowerShell 7, zobacz [Migrowanie z programu Windows PowerShell 5,1 do programu PowerShell 7](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7).
+   Ten samouczek wymaga uruchomienia Azure PowerShell lokalnie w programie PowerShell 7. Aby zainstalować program PowerShell 7, zobacz [Migrowanie z programu Windows PowerShell 5,1 do programu PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7).
 - AZ. Network Version 3.2.0
 
     Jeśli masz polecenie AZ. Network w wersji 3.4.0 lub nowszej, musisz obniżyć wersję, aby użyć niektórych poleceń z tego samouczka. Możesz sprawdzić wersję modułu AZ. Network przy użyciu polecenia `Get-InstalledModule -Name Az.Network` . Aby odinstalować moduł AZ. Network, uruchom polecenie `Uninstall-Module -name az.network` . Aby zainstalować moduł AZ. Network 3.2.0, uruchom polecenie `Install-Module az.network -RequiredVersion 3.2.0 -force` .

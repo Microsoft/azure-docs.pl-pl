@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108205"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657333"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem z instalacją łącznika agenta serwera proxy aplikacji
 
@@ -39,7 +39,7 @@ Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwycza
 
 **Cel:** Sprawdź, czy komputer łącznika może nawiązać połączenie z punktem końcowym rejestracji serwera proxy aplikacji, a także stroną logowania firmy Microsoft.
 
-1.  Na serwerze łącznika Uruchom test portu przy użyciu programu [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) lub innego narzędzia do testowania portów, aby sprawdzić, czy porty 443 i 80 są otwarte.
+1.  Na serwerze łącznika Uruchom test portu przy użyciu programu [Telnet](/windows-server/administration/windows-commands/telnet) lub innego narzędzia do testowania portów, aby sprawdzić, czy porty 443 i 80 są otwarte.
 
 2.  Jeśli którykolwiek z tych portów nie powiedzie się, sprawdź, czy zapora lub serwer proxy zaplecza ma dostęp do wymaganych domen i portów, zobacz [Przygotowywanie środowiska lokalnego](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
@@ -77,8 +77,8 @@ Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów mo�
 Możliwe wartości **IsInUserStore** to **true** i **false**. Wartość **true** oznacza, że automatycznie odnowiony certyfikat jest przechowywany w kontenerze osobistym w magazynie certyfikatów użytkownika usługi sieciowej. Wartość **false** oznacza, że certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez polecenie Register-AppProxyConnector i jest przechowywany w kontenerze osobistym w magazynie certyfikatów komputera lokalnego.
 
 Jeśli wartość jest **równa true**, wykonaj następujące kroki, aby zweryfikować certyfikat:
-1. Pobierz [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Wyodrębnij [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) z pakietu i uruchom **PsExec-i-u "NT authority\network Service" cmd.exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
+1. Pobierz [PsTools.zip](/sysinternals/downloads/pstools)
+2. Wyodrębnij [PsExec](/sysinternals/downloads/psexec) z pakietu i uruchom **PsExec-i-u "NT authority\network Service" cmd.exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
 3. Uruchom **certmgr. msc** w nowo wyświetlonym wierszu polecenia
 4. W konsoli zarządzania rozwiń kontener osobisty i kliknij pozycję Certyfikaty.
 5. Lokalizowanie certyfikatu wystawionego przez **connectorregistrationca.msappproxy.NET**
@@ -101,7 +101,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Aby dowiedzieć się więcej na temat polecenia Register-AppProxyConnector, zobacz [Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell) .
+Aby dowiedzieć się więcej na temat polecenia Register-AppProxyConnector, zobacz [Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-register-connector-powershell.md) .
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Sprawdź, czy administrator służy do instalowania łącznika
 

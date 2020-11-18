@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fd81e5f87aaf4a28676b79863df60b71707849e9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91305755"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656517"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Dodawanie aplikacji do dzierżawy usługi Azure Active Directory (Azure AD)
 
@@ -46,7 +46,7 @@ Aby dodać aplikację do dzierżawy usługi Azure AD:
 2. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw**. Zostanie otwarte okienko **wszystkie aplikacje** z losową próbką aplikacji w dzierżawie usługi Azure AD.
 3. W okienku **aplikacje dla przedsiębiorstw** wybierz pozycję **Nowa aplikacja**. 
     ![Wybierz pozycję Nowa aplikacja, aby dodać aplikację galerii do swojej dzierżawy](media/add-application-portal/new-application.png)
-4. Przejdź do nowego środowiska w wersji zapoznawczej galerii: na transparencie w górnej części **strony Dodawanie aplikacji**wybierz link, który znajduje się w **tym miejscu, aby wypróbować nową i udoskonaloną galerię aplikacji**.
+4. Przejdź do nowego środowiska w wersji zapoznawczej galerii: na transparencie w górnej części **strony Dodawanie aplikacji** wybierz link, który znajduje się w **tym miejscu, aby wypróbować nową i udoskonaloną galerię aplikacji**.
 5. Zostanie otwarte okienko **Przeglądaj Galerię usługi Azure AD (wersja zapoznawcza)** , w którym są wyświetlane kafelki dla platform chmurowych, aplikacji lokalnych i polecanych aplikacji. Aplikacje wymienione w sekcji **Polecane aplikacje** mają ikony wskazujące, czy obsługują one funkcję federacyjnego logowania jednokrotnego (SSO) i aprowizacji. 
     ![Wyszukaj aplikację według nazwy lub kategorii](media/add-application-portal/browse-gallery.png)
 6. Możesz przeglądać galerię aplikacji, którą chcesz dodać, lub wyszukać aplikację, wprowadzając jej nazwę w polu wyszukiwania. Następnie wybierz aplikację z wyników. 
@@ -55,10 +55,10 @@ Aby dodać aplikację do dzierżawy usługi Azure AD:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Zrzut ekranu przedstawia Selektor typów logowania jednokrotnego." lightbox="media/add-application-portal/sso-types.png":::
 
     - Jeśli deweloper aplikacji użył **standardu OIDC** na potrzeby rejestracji jednokrotnej, wybierz pozycję **Utwórz konto**. Zostanie wyświetlona strona konfiguracji. Następnie przejdź do przewodnika Szybki Start dotyczącego konfigurowania logowania jednokrotnego opartego na usłudze OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Zrzut ekranu przedstawia Selektor typów logowania jednokrotnego.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Zrzut ekranu przedstawia Dodawanie aplikacji SSO opartej na OIDC.":::
 
     - Jeśli deweloper aplikacji użył protokołu **SAML Standard** dla logowania jednokrotnego, wybierz pozycję **Utwórz**. Zostanie wyświetlona strona wprowadzenia z opcjami konfigurowania aplikacji w organizacji. W formularzu można edytować nazwę aplikacji w celu dopasowania jej do potrzeb organizacji. Następnie przejdź do przewodnika Szybki Start dotyczącego konfigurowania logowania jednokrotnego opartego na protokole SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Zrzut ekranu przedstawia Selektor typów logowania jednokrotnego.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Zrzut ekranu przedstawia Dodawanie aplikacji SSO opartej na protokole SAML.":::
 
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Jeśli szukana aplikacja nie znajduje się w galerii, możesz wybrać link **Utw
 Ukończono dodawanie aplikacji. W następnym przewodniku szybki start pokazano, jak zmienić logo i edytować inne właściwości aplikacji.
 
 > [!TIP]
-> Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

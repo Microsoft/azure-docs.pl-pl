@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939811"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657027"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizacja na platformie Azure — wskaźnik
 
@@ -97,7 +97,7 @@ Dostępne analizatory czasu zapytania są dostępne w [oficjalnym repozytorium G
 
     1. **Kategoria**: możesz wybrać istniejącą kategorię lub utworzyć nową kategorię (na przykład *NormalizedNetworkSessionsParsers*).
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Zainstaluj nowy parser":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Zapisz parser":::
 
 Aby prawidłowo używać analizatorów, należy również zainstalować pusty Analizator schematu sieciowego (w którym jest tworzony pusty Widok tabelaryczny wszystkich pól schematu sesji sieci) i meta-parser sieciowy (który razem wszystkie włączone analizatory mają utworzyć pojedynczy widok danych z różnych źródeł w schemacie sieciowym). Instalowanie tych dwóch analizatorów odbywa się w podobny sposób do powyższych kroków.
 
@@ -107,13 +107,15 @@ Po zapisaniu funkcji zapytania może być konieczne zamknięcie Eksploratora zap
 
 Po włączeniu można użyć meta-parser do zapytania ujednoliconego widoku na wszystkich aktualnie włączonych analizatorów. W tym celu przejdź na stronę dzienników wskaźnikowych i wykonaj zapytanie dotyczące meta-parsera:
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Zainstaluj nowy parser":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Zbadaj parser":::
  
 Możesz również uzyskać dostęp do meta-parsera lub poszczególnych analizatorów przy użyciu Eksploratora zapytań na stronie dzienników wskaźnikowych, klikając pozycję "Eksplorator zapytań":
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Zainstaluj nowy parser" (lub nazwę kategorii wybraną podczas tworzenia analizatorów):
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Eksplorator zapytań":::
 
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Zainstaluj nowy parser":::
+W okienku po prawej stronie rozwiń sekcję "zapisane zapytania" i Znajdź folder "NormalizedNetworkParsers" (lub nazwę kategorii wybraną podczas tworzenia analizatorów):
+
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Znajdź parser":::
 
 Można klikać poszczególne parsery i zobaczyć podstawową funkcję, która używa, i uruchamiać ją (lub uzyskiwać dostęp bezpośrednio przez jej alias, zgodnie z powyższym opisem). Należy zauważyć, że niektóre analizatory mogą przechowywać oryginalne pola obok znormalizowanych pól dla wygody. Można to łatwo edytować w zapytaniu analizatora składni.
 
@@ -122,13 +124,15 @@ Można klikać poszczególne parsery i zobaczyć podstawową funkcję, która u�
 Można powtórzyć powyższe kroki (Znajdowanie analizatora w Eksploratorze zapytań), kliknąć odpowiedni parser i zapoznać się z jego implementacją funkcji.
 Na przykład możesz zdecydować się na edytowanie meta-parsera w celu dodania/usunięcia poszczególnych analizatorów.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Zainstaluj nowy parser" ponownie i Użyj tej samej nazwy, aliasu i kategorii. Zostanie otwarte okno dialogowe przesłonięcia — naciśnij przycisk "OK":
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Dostosowywanie parsera":::
+ 
+Po zmianie funkcji kliknij pozycję "Zapisz" ponownie i Użyj tej samej nazwy, aliasu i kategorii. Zostanie otwarte okno dialogowe przesłonięcia — naciśnij przycisk "OK":
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Zainstaluj nowy parser":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Czy na pewno":::
 
 #### <a name="additional-information"></a>Dodatkowe informacje
 
-Dowiedz się więcej o [zapisanych zapytaniach](../azure-monitor/log-query/saved-queries.md) (implementacja analizatorów czasu zapytania) w log Analytics.
+Dowiedz się więcej o [zapisanych zapytaniach](../azure-monitor/log-query/example-queries.md) (implementacja analizatorów czasu zapytania) w log Analytics.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dffaac329f1581d9082fd8ab2c314f52b1730ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656024"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Łączenie danych z zapory platformy Azure
 
@@ -26,7 +26,7 @@ Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze,
 
 Dzienniki zapory platformy Azure można połączyć z platformą Azure wskaźnikiem wydajności, co pozwala na wyświetlanie danych dziennika w skoroszytach, korzystanie z nich do tworzenia niestandardowych alertów i uwzględnianie ich w celu usprawnienia badania.
 
-Dowiedz się więcej o [monitorowaniu dzienników zapory platformy Azure](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics).
+Dowiedz się więcej o [monitorowaniu dzienników zapory platformy Azure](../firewall/firewall-diagnostics.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

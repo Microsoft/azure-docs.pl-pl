@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85555431"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655667"
 ---
 # <a name="connect-your-domain-name-server"></a>Łączenie serwera nazw domen
 
@@ -46,11 +46,11 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez to rozwiąz
 | [Agenci dla systemu Windows](../azure-monitor/platform/agent-windows.md) | Tak | Rozwiązanie zbiera informacje DNS z agentów systemu Windows. |
 | [Agenci dla systemu Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Nie | Rozwiązanie nie zbiera informacji DNS z bezpośrednich agentów systemu Linux. |
 | [Grupa zarządzania programu System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Tak | Rozwiązanie zbiera informacje DNS z agentów w połączonej grupie zarządzania Operations Manager. Bezpośrednie połączenie z agenta Operations Manager do Azure Monitor nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
-| [Konto usługi Azure Storage](../azure-monitor/platform/collect-azure-metrics-logs.md) | Nie | Usługa Azure Storage nie jest używana przez rozwiązanie. |
+| [Konto usługi Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | Nie | Usługa Azure Storage nie jest używana przez rozwiązanie. |
 
 ### <a name="data-collection-details"></a>Szczegóły zbierania danych
 
-Rozwiązanie zbiera dane dotyczące spisu DNS i zdarzeń DNS z serwerów DNS, na których zainstalowano agenta Log Analytics. Dane dotyczące spisu, takie jak liczba serwerów DNS, stref i rekordów zasobów, są zbierane przez uruchomienie poleceń cmdlet programu PowerShell dla usługi DNS. Dane są aktualizowane co dwa dni. Dane związane ze zdarzeniami są zbierane niemal w czasie rzeczywistym z [dzienników analitycznych i inspekcji](https://technet.microsoft.com/library/dn800669.aspx#enhanc) dostarczonych przez ulepszone rejestrowanie i diagnostykę DNS w systemie Windows Server 2012 R2.
+Rozwiązanie zbiera dane dotyczące spisu DNS i zdarzeń DNS z serwerów DNS, na których zainstalowano agenta Log Analytics. Dane dotyczące spisu, takie jak liczba serwerów DNS, stref i rekordów zasobów, są zbierane przez uruchomienie poleceń cmdlet programu PowerShell dla usługi DNS. Dane są aktualizowane co dwa dni. Dane związane ze zdarzeniami są zbierane niemal w czasie rzeczywistym z [dzienników analitycznych i inspekcji](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) dostarczonych przez ulepszone rejestrowanie i diagnostykę DNS w systemie Windows Server 2012 R2.
 
 
 ## <a name="connect-your-dns-appliance"></a>Połącz urządzenie DNS
@@ -65,7 +65,7 @@ Rozwiązanie zbiera dane dotyczące spisu DNS i zdarzeń DNS z serwerów DNS, na
 2. Jeśli maszyna DNS nie jest maszyną wirtualną platformy Azure:
     1. Kliknij przycisk **Zainstaluj agenta na maszynach spoza platformy Azure**.
     1. W oknie **agenta bezpośredniego** wybierz pozycję **Pobierz agenta systemu Windows (64 bit)** lub **pobierz agenta systemu Windows (32 bit)**.
-    1. Zainstaluj agenta na maszynie DNS. Skopiuj **Identyfikator obszaru roboczego**, **klucz podstawowy**i **klucz pomocniczy** , a następnie użyj ich po wyświetleniu monitu podczas instalacji.
+    1. Zainstaluj agenta na maszynie DNS. Skopiuj **Identyfikator obszaru roboczego**, **klucz podstawowy** i **klucz pomocniczy** , a następnie użyj ich po wyświetleniu monitu podczas instalacji.
 
 3. Aby użyć odpowiedniego schematu w Log Analytics dla dzienników DNS, wyszukaj ciąg **DnsEvents**.
 
@@ -76,10 +76,10 @@ W Log Analytics Wyszukaj schemat **DnsEvents** i upewnij się, że istnieją zda
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Jeśli zapytania wyszukiwania nie są wyświetlane na platformie Azure, wykonaj następujące kroki, aby zapytania były wyświetlane prawidłowo:
-1. Włącz [dzienniki DNS Analytics na serwerach](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+1. Włącz [dzienniki DNS Analytics na serwerach](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
 2. Upewnij się, że DNSEvents pojawia się na liście kolekcji Log Analytics.
 3. Włącz [Azure DNS analizy](../azure-monitor/insights/dns-analytics.md).
-4. W Azure DNS Analytics w obszarze **Konfiguracja**zmień dowolne ustawienia, Zapisz je, a następnie zmień je ponownie, jeśli zachodzi taka potrzeba, a następnie Zapisz je ponownie.
+4. W Azure DNS Analytics w obszarze **Konfiguracja** zmień dowolne ustawienia, Zapisz je, a następnie zmień je ponownie, jeśli zachodzi taka potrzeba, a następnie Zapisz je ponownie.
 5. Sprawdź Azure DNS analizy, aby upewnić się, że zapytania są teraz wyświetlane.
 
 ## <a name="next-steps"></a>Następne kroki

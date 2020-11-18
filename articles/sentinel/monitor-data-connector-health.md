@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428768"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656994"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Monitoruj kondycję łączników danych za pomocą tego skoroszytu wskaźnikowego platformy Azure
 
@@ -42,12 +42,12 @@ W tym skoroszycie znajdują się trzy sekcje z kartami:
 
 1. Karta **Przegląd** przedstawia ogólny stan pozyskiwania danych w wybranym obszarze roboczym: miary wolumenu, szybkość EPS i czas ostatniego odebranego dziennika.
 
-1. Karta **anomalie zbierania danych** pomoże w wykrywaniu anomalii w procesie zbierania danych, według tabeli i źródła danych. Każda karta przedstawia anomalie dla określonej tabeli (karta **Ogólne** zawiera kolekcję tabel). Anomalie są obliczane przy użyciu funkcji **series_decompose_anomalies ()** , która zwraca **wynik anomalii**. [Dowiedz się więcej o tej funkcji](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Ustaw następujące parametry dla funkcji, która ma zostać obliczona:
+1. Karta **anomalie zbierania danych** pomoże w wykrywaniu anomalii w procesie zbierania danych, według tabeli i źródła danych. Każda karta przedstawia anomalie dla określonej tabeli (karta **Ogólne** zawiera kolekcję tabel). Anomalie są obliczane przy użyciu funkcji **series_decompose_anomalies ()** , która zwraca **wynik anomalii**. [Dowiedz się więcej na temat tej funkcji](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Ustaw następujące parametry dla funkcji, która ma zostać obliczona:
 
-    - **AnomaliesTimeRange** : ten selektor czasu ma zastosowanie tylko do widoku anomalie zbierania danych.
-    - **SampleInterval** : przedział czasu, w którym dane są próbkowane w danym przedziale czasu. Wynik anomalii jest obliczany tylko dla danych ostatniego przedziału.
-    - **PositiveAlertThreshold** : Ta wartość definiuje próg pozytywnego wyniku anomalii. Akceptuje wartości dziesiętne.
-    - **NegativeAlertThreshold** : Ta wartość definiuje próg ujemnego wyniku anomalii. Akceptuje wartości dziesiętne.
+    - **AnomaliesTimeRange**: Ten selektor godziny dotyczy tylko widoku anomalii dotyczących zbierania danych.
+    - **SampleInterval**: Przedział czasu, w którym dane są próbkowane w danym przedziale czasu. Wynik anomalii jest obliczany tylko dla danych ostatniego przedziału.
+    - **PositiveAlertThreshold**: Ta wartość definiuje pozytywny próg wyniku anomalii. Akceptuje wartości dziesiętne.
+    - **NegativeAlertThreshold**: Ta wartość definiuje negatywny próg wyniku anomalii. Akceptuje wartości dziesiętne.
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="Strona anomalie w skoroszycie monitorowania kondycji łącznika danych" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 

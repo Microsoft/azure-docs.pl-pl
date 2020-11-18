@@ -1,34 +1,29 @@
 ---
-title: Jak skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplikacji
-description: Jak można szybko skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplikacji
+title: Informacje na temat logowania jednokrotnego za pomocą aplikacji lokalnej przy użyciu serwera proxy aplikacji
+description: Zapoznaj się z logowaniem jednokrotnym za pomocą aplikacji lokalnej przy użyciu serwera proxy aplikacji.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642133"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656296"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Jak skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplikacji
 
 Logowanie jednokrotne (SSO) umożliwia użytkownikom dostęp do aplikacji bez wielokrotnego uwierzytelniania. Umożliwia ona pojedyncze uwierzytelnianie w chmurze, w odniesieniu do Azure Active Directory i umożliwia usłudze lub łącznikowi personifikację użytkownika w celu wykonania wszelkich dodatkowych wyzwań związanych z uwierzytelnianiem aplikacji.
 
 ## <a name="how-to-configure-single-sign-on"></a>Jak skonfigurować Logowanie jednokrotne
-Aby skonfigurować Logowanie jednokrotne, najpierw upewnij się, że aplikacja została skonfigurowana pod kątem wstępnego uwierzytelniania za pomocą Azure Active Directory. Aby przeprowadzić tę konfigurację, przejdź do pozycji **Azure Active Directory**  - &gt; **aplikacje dla przedsiębiorstw**  - &gt; **wszystkie aplikacje**  - &gt; ** - &gt; serwer proxy aplikacji**aplikacji. Na tej stronie zostanie wyświetlone pole "wstępne uwierzytelnianie" i upewnij się, że jest ono ustawione na wartość "Azure Active Directory. 
+Aby skonfigurować Logowanie jednokrotne, najpierw upewnij się, że aplikacja została skonfigurowana pod kątem wstępnego uwierzytelniania za pomocą Azure Active Directory. Aby przeprowadzić tę konfigurację, przejdź do pozycji **Azure Active Directory**  - &gt; **aplikacje dla przedsiębiorstw**  - &gt; **wszystkie aplikacje**  - &gt; **- &gt; serwer proxy aplikacji** aplikacji. Na tej stronie zostanie wyświetlone pole "wstępne uwierzytelnianie" i upewnij się, że jest ono ustawione na wartość "Azure Active Directory. 
 
 Aby uzyskać więcej informacji na temat metod wstępnego uwierzytelniania, zobacz krok 4 [dokumentu publikowanie aplikacji](application-proxy-add-on-premises-application.md).
 
@@ -41,7 +36,7 @@ Skonfiguruj konkretny typ logowania jednokrotnego. Metody logowania są klasyfik
 
 -   **Zintegrowane uwierzytelnianie systemu Windows**: w przypadku aplikacji korzystających ze zintegrowanego uwierzytelniania systemu Windows (IWA) Logowanie jednokrotne jest włączane przy użyciu ograniczonego delegowania protokołu Kerberos (KCD). Ta metoda zapewnia uprawnienia łączników serwera proxy aplikacji w Active Directory, aby personifikować użytkowników i wysyłać i odbierać tokeny w ich imieniu. Szczegółowe informacje na temat konfigurowania KCD można znaleźć w [jednym Sign-On z dokumentacją KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Logowanie oparte na nagłówkach**: logowanie oparte na nagłówkach jest włączane za pośrednictwem partnerstwa i wymaga dodatkowej konfiguracji. Aby uzyskać szczegółowe informacje na temat partnerstwa i instrukcje krok po kroku dotyczące konfigurowania logowania jednokrotnego do aplikacji korzystającej z nagłówków do uwierzytelniania, zobacz [dokumentację usługi PingAccess for Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Logowanie oparte na nagłówkach**: logowanie oparte na nagłówkach służy do udostępniania funkcji logowania jednokrotnego przy użyciu nagłówków HTTP. Aby dowiedzieć się więcej, zobacz Logowanie jednokrotne [oparte na nagłówkach](application-proxy-configure-single-sign-on-with-headers.md).
 
 -   **Logowanie jednokrotne SAML**: z logowaniem jednokrotnym SAML usługa Azure AD jest uwierzytelniana w aplikacji przy użyciu konta usługi Azure AD użytkownika. Usługa Azure AD komunikuje informacje logowania do aplikacji za pomocą protokołu połączenia. Korzystając z logowania jednokrotnego opartego na protokole SAML, można mapować użytkowników na określone role aplikacji na podstawie reguł zdefiniowanych w oświadczeniach SAML. Aby uzyskać informacje na temat konfigurowania logowania jednokrotnego w protokole SAML, zobacz [SAML dla logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -54,5 +49,5 @@ Ta opcja umożliwia administratorowi utworzenie linku do aplikacji, która jest 
 ## <a name="next-steps"></a>Następne kroki
 - [Przechowywanie haseł dla logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Ograniczone delegowanie protokołu Kerberos na potrzeby logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Uwierzytelnianie oparte na nagłówkach logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Uwierzytelnianie oparte na nagłówkach logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-with-headers.md) 
 - Protokół [SAML do logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-on-premises-apps.md).
