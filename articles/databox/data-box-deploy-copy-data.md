@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334673"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616743"
 ---
 ::: zone target="docs"
 
@@ -70,15 +70,15 @@ W poniższej tabeli przedstawiono ścieżkę UNC do udziałów na urządzeniu Da
 
 Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące kroki, aby nawiązać połączenie z urządzeniem Data Box.
 
-1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **SMB** , aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
+1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **SMB**, aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
 
     ![Uzyskiwanie poświadczeń udziałów SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. W oknie dialogowym Uzyskiwanie dostępu do udziału i kopiowanie danych skopiuj wartości pól **Nazwa użytkownika** i **Hasło** odpowiedniego udziału. Jeśli hasło zawiera znaki specjalne, przed i po nim dodaj znaki podwójnego cudzysłowu. Następnie wybierz przycisk **OK**.
+2. W oknie dialogowym Uzyskiwanie dostępu do udziału i kopiowanie danych skopiuj wartości pól **Nazwa użytkownika** i **Hasło** odpowiedniego udziału. Następnie wybierz przycisk **OK**.
     
     ![Uzyskiwanie nazwy użytkownika i hasła udziału](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu ( *utsac1* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
+3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu (*utsac1* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -87,15 +87,15 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     - Stronicowe obiekty blob platformy Azure — `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Pliki platformy Azure — `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Po wyświetleniu monitu wprowadź hasło dla udziału. W poniższym przykładzie pokazano nawiązywanie połączenia z udziałem za pomocą poprzedniego polecenia.
+4. Po wyświetleniu monitu wprowadź hasło dla udziału. Jeśli hasło zawiera znaki specjalne, przed i po nim dodaj znaki podwójnego cudzysłowu. W poniższym przykładzie pokazano nawiązywanie połączenia z udziałem za pomocą poprzedniego polecenia.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
-4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Wybierz przycisk **OK** , aby otworzyć Eksploratora plików.
+4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Wybierz przycisk **OK**, aby otworzyć Eksploratora plików.
     
     ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 

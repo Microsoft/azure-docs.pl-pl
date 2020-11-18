@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132571"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844714"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Przyznawanie dostępu do tworzenia subskrypcji Enterprise platformy Azure (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ Jako klient platformy Azure posiadający umowę [Enterprise Agreement (EA)](http
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscription.md), użytkownicy muszą mieć [rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) RBAC platformy Azure na tym koncie. Można przyznać użytkownikowi lub grupie użytkowników rolę właściciela RBAC platformy Azure na koncie rejestracji, wykonując następujące czynności:
+Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscription-enterprise-agreement.md), użytkownicy muszą mieć [rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) RBAC platformy Azure na tym koncie. Można przyznać użytkownikowi lub grupie użytkowników rolę właściciela RBAC platformy Azure na koncie rejestracji, wykonując następujące czynności:
 
 1. Pobierz identyfikator obiektu konta rejestracji, do którego chcesz przyznać dostęp
 
@@ -174,7 +174,7 @@ Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscri
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Gdy użytkownik zostanie właścicielem RBAC platformy Azure na koncie rejestracji, będzie mógł [programowo tworzyć subskrypcje](programmatically-create-subscription.md) w ramach tego konta. Subskrypcja utworzona przez delegowanych użytkowników nadal ma oryginalnego właściciela konta lub administratora usługi, ale domyślnie jej właścicielem RBAC platformy Azure jest również delegowany użytkownik.
+    Gdy użytkownik zostanie właścicielem RBAC platformy Azure na koncie rejestracji, będzie mógł [programowo tworzyć subskrypcje](programmatically-create-subscription-enterprise-agreement.md) w ramach tego konta. Subskrypcja utworzona przez delegowanych użytkowników nadal ma oryginalnego właściciela konta lub administratora usługi, ale domyślnie jej właścicielem RBAC platformy Azure jest również delegowany użytkownik.
 
     ---
 
@@ -193,7 +193,7 @@ Aby wygodnie wywołać ten interfejs API z poziomu wiersza polecenia, wypróbuj 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Teraz, gdy użytkownik lub jednostka usługi ma uprawnienie do tworzenia subskrypcji, możesz użyć tej tożsamości do [programowego tworzenia subskrypcji Enterprise platformy Azure](programmatically-create-subscription.md).
+* Teraz, gdy użytkownik lub jednostka usługi ma uprawnienie do tworzenia subskrypcji, możesz użyć tej tożsamości do [programowego tworzenia subskrypcji Enterprise platformy Azure](programmatically-create-subscription-enterprise-agreement.md).
 * Aby uzyskać informacje dotyczące tworzenia subskrypcji przy użyciu platformy .NET, zobacz [kod przykładowy w usłudze GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Aby dowiedzieć się więcej na temat usługi Azure Resource Manager i jej interfejsów API, zobacz [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 * Aby dowiedzieć się więcej na temat zarządzania dużą liczbą subskrypcji za pomocą grup zarządzania, zobacz [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../../governance/management-groups/overview.md).
