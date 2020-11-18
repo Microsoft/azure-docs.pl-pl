@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gości
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694246"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -163,10 +163,10 @@ Pliki pomocnicze muszą być spakowane razem. Ukończony pakiet jest używany pr
 
 `New-GuestConfigurationPackage`Polecenie cmdlet tworzy pakiet. Parametry `New-GuestConfigurationPackage` polecenia cmdlet podczas tworzenia zawartości systemu Linux:
 
-- **Nazwa** : Nazwa pakietu konfiguracji gościa.
-- **Konfiguracja** : pełna ścieżka do skompilowanego dokumentu konfiguracyjnego.
-- **Ścieżka** : ścieżka folderu wyjściowego. Ten parametr jest opcjonalny. Jeśli nie zostanie określony, pakiet zostanie utworzony w bieżącym katalogu.
-- **ChefInspecProfilePath** : pełna ścieżka do profilu INSPEC. Ten parametr jest obsługiwany tylko podczas tworzenia zawartości do inspekcji systemu Linux.
+- **Nazwa**: Nazwa pakietu konfiguracji gościa.
+- **Konfiguracja**: pełna ścieżka do skompilowanego dokumentu konfiguracyjnego.
+- **Ścieżka**: ścieżka folderu wyjściowego. Ten parametr jest opcjonalny. Jeśli nie zostanie określony, pakiet zostanie utworzony w bieżącym katalogu.
+- **ChefInspecProfilePath**: pełna ścieżka do profilu INSPEC. Ten parametr jest obsługiwany tylko podczas tworzenia zawartości do inspekcji systemu Linux.
 
 Uruchom następujące polecenie, aby utworzyć pakiet przy użyciu konfiguracji podanych w poprzednim kroku:
 
@@ -183,9 +183,9 @@ Ponieważ agent rzeczywiście ocenia środowisko lokalne, w większości przypad
 
 Parametry `Test-GuestConfigurationPackage` polecenia cmdlet:
 
-- **Nazwa** : Nazwa zasad konfiguracji gościa.
-- **Parameter** : parametry zasad podane w formacie Hashtable.
-- **Ścieżka** : pełna ścieżka pakietu konfiguracji gościa.
+- **Nazwa**: Nazwa zasad konfiguracji gościa.
+- **Parameter**: parametry zasad podane w formacie Hashtable.
+- **Ścieżka**: pełna ścieżka pakietu konfiguracji gościa.
 
 Uruchom następujące polecenie, aby przetestować pakiet utworzony przez poprzedni krok:
 
@@ -210,13 +210,13 @@ Po utworzeniu i przekazaniu niestandardowego pakietu zasad konfiguracji gościa 
 
 Parametry `New-GuestConfigurationPolicy` polecenia cmdlet:
 
-- **ContentUri** : publiczny identyfikator URI http (s) dla pakietu zawartości konfiguracji gościa.
-- **DisplayName** : Nazwa wyświetlana zasad.
-- **Opis** : Opis zasad.
-- **Parameter** : parametry zasad podane w formacie Hashtable.
-- **Wersja** : wersja zasad.
-- **Ścieżka** : ścieżka docelowa, w której są tworzone definicje zasad.
-- **Platforma** : platforma docelowa (Windows/Linux) dla zasad konfiguracji gościa i pakietu zawartości.
+- **ContentUri**: publiczny identyfikator URI http (s) dla pakietu zawartości konfiguracji gościa.
+- **DisplayName**: Nazwa wyświetlana zasad.
+- **Opis**: Opis zasad.
+- **Parameter**: parametry zasad podane w formacie Hashtable.
+- **Wersja**: wersja zasad.
+- **Ścieżka**: ścieżka docelowa, w której są tworzone definicje zasad.
+- **Platforma**: platforma docelowa (Windows/Linux) dla zasad konfiguracji gościa i pakietu zawartości.
 - **Tag** dodaje jeden lub więcej filtrów tagów do definicji zasad
 - **Kategoria** ustawia pole metadanych kategorii w definicji zasad
 
@@ -330,9 +330,9 @@ Aby można było wydać aktualizację definicji zasad, istnieją trzy pola, któ
 > [!NOTE]
 > `version`Właściwość przypisania konfiguracji gościa ma wpływ tylko na pakiety hostowane przez firmę Microsoft. Najlepszym rozwiązaniem w przypadku przechowywania wersji zawartości niestandardowej jest uwzględnienie wersji w nazwie pliku.
 
-- **Wersja** : po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany.
-- **contentUri** : po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić identyfikator URI dla lokalizacji pakietu. Dołączenie wersji pakietu do nazwy pliku zapewni zmianę wartości tej właściwości w każdej wersji.
-- **contentHash** : Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage` . Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
+- **Wersja**: po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany.
+- **contentUri**: po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić identyfikator URI dla lokalizacji pakietu. Dołączenie wersji pakietu do nazwy pliku zapewni zmianę wartości tej właściwości w każdej wersji.
+- **contentHash**: Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage` . Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
 
 Najprostszym sposobem zwolnienia zaktualizowanego pakietu jest powtórzenie procesu opisanego w tym artykule i udostępnienie zaktualizowanego numeru wersji. Ten proces gwarantuje, że wszystkie właściwości zostały prawidłowo zaktualizowane.
 
@@ -375,8 +375,8 @@ Aby skorzystać z funkcji walidacji podpisu, uruchom `Protect-GuestConfiguration
 
 Parametry `Protect-GuestConfigurationPackage` polecenia cmdlet:
 
-- **Ścieżka** : pełna ścieżka pakietu konfiguracji gościa.
-- **PublicGpgKeyPath** : Public GPG Key Path. Ten parametr jest obsługiwany tylko w przypadku podpisywania zawartości dla systemu Linux.
+- **Ścieżka**: pełna ścieżka pakietu konfiguracji gościa.
+- **PublicGpgKeyPath**: Public GPG Key Path. Ten parametr jest obsługiwany tylko w przypadku podpisywania zawartości dla systemu Linux.
 
 Odpowiednie informacje na temat tworzenia kluczy GPG do użycia z maszynami z systemem Linux są dostępne w artykule w witrynie GitHub, [generując nowy klucz GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
@@ -384,12 +384,6 @@ Agent GuestConfiguration oczekuje, że klucz publiczny certyfikatu ma być obecn
 Zasady dostępu Key Vault muszą zezwalać dostawcy zasobów obliczeniowych na dostęp do certyfikatów podczas wdrożeń. Aby uzyskać szczegółowe instrukcje, zobacz [konfigurowanie Key Vault dla maszyn wirtualnych w programie Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Po opublikowaniu zawartości Dodaj tag o nazwie `GuestConfigPolicyCertificateValidation` i wartości `enabled` do wszystkich maszyn wirtualnych, na których powinno być wymagane podpisywanie kodu. Zapoznaj się z [przykładami znaczników](../samples/built-in-policies.md#tags) , w jaki sposób można dostarczyć Tagi na dużą skalę przy użyciu Azure Policy. Po zastosowaniu tego tagu definicja zasad wygenerowana przy użyciu `New-GuestConfigurationPolicy` polecenia cmdlet włącza wymaganie za pośrednictwem rozszerzenia konfiguracji gościa.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Rozwiązywanie problemów z przypisaniami zasad konfiguracji gościa (Podgląd)
-
-Narzędzie jest dostępne w wersji zapoznawczej, aby pomóc w rozwiązywaniu problemów z przypisaniami konfiguracji gościa Azure Policy. Narzędzie jest w wersji zapoznawczej i zostało opublikowane w Galeria programu PowerShell jako nazwa modułu [Narzędzia do rozwiązywania problemów z konfiguracją gościa](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Aby uzyskać więcej informacji na temat poleceń cmdlet w tym narzędziu, użyj polecenia Get-Help w programie PowerShell, aby wyświetlić wbudowane wskazówki. Ponieważ narzędzie pobiera częste aktualizacje, to najlepszy sposób uzyskiwania najnowszych informacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

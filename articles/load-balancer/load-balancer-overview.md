@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96c0242414c67d97fc324977b1259f63c27c3a26
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696816"
 ---
 # <a name="what-is-azure-load-balancer"></a>Co to jest usługa Azure Load Balancer?
 
@@ -44,29 +44,29 @@ Za pomocą usługa Load Balancer w warstwie Standardowa można skalować aplikac
 
 Kluczowe scenariusze, które można wykonać za pomocą usługa Load Balancer w warstwie Standardowa obejmują:
 
-- Równoważyć obciążenie ruchem **[wewnętrznym](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** i **[zewnętrznym](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** z maszynami wirtualnymi platformy Azure.
+- Równoważyć obciążenie ruchem **[wewnętrznym](./quickstart-load-balancer-standard-internal-portal.md)** i **[zewnętrznym](./tutorial-load-balancer-standard-manage-portal.md)** z maszynami wirtualnymi platformy Azure.
 
-- Zwiększ dostępność przez dystrybucję zasobów **[w ramach](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** i **[między](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** strefami.
+- Zwiększ dostępność przez dystrybucję zasobów **[w ramach](./tutorial-load-balancer-standard-public-zonal-portal.md)** i **[między](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** strefami.
 
-- Skonfiguruj **[łączność wychodzącą ](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** dla maszyn wirtualnych platformy Azure.
+- Skonfiguruj **[łączność wychodzącą](./load-balancer-outbound-connections.md)** dla maszyn wirtualnych platformy Azure.
 
-- Do monitorowania zasobów o zrównoważonym obciążeniu służy **[sondy kondycji](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** .
+- Do monitorowania zasobów o zrównoważonym obciążeniu służy **[sondy kondycji](./load-balancer-custom-probe-overview.md)** .
 
-- Zastosowanie **[przekazywania portów](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** w celu uzyskania dostępu do maszyn wirtualnych w sieci wirtualnej przez publiczny adres IP i port.
+- Zastosowanie **[przekazywania portów](./tutorial-load-balancer-port-forwarding-portal.md)** w celu uzyskania dostępu do maszyn wirtualnych w sieci wirtualnej przez publiczny adres IP i port.
 
-- Włącz obsługę **[równoważenia obciążenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** **[protokołu IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)**.
+- Włącz obsługę **[równoważenia obciążenia](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** **[protokołu IPv6](../virtual-network/ipv6-overview.md)**.
 
-- Usługa Load Balancer w warstwie Standardowa udostępnia metryki wielowymiarowe za [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview).  Te metryki można filtrować, grupować i rozdzielić w danym wymiarze.  Zapewniają one bieżące i historyczne informacje o wydajności i kondycji usługi.  Obsługiwane są również Resource Health. Aby uzyskać więcej informacji, przejrzyj **[diagnostykę usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md)** .
+- Usługa Load Balancer w warstwie Standardowa udostępnia metryki wielowymiarowe za [Azure monitor](../azure-monitor/overview.md).  Te metryki można filtrować, grupować i rozdzielić w danym wymiarze.  Zapewniają one bieżące i historyczne informacje o wydajności i kondycji usługi.  Obsługiwane są również Resource Health. Aby uzyskać więcej informacji, przejrzyj **[diagnostykę usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md)** .
 
-- Równoważyć obciążenie usług na **[wielu portach, wielu adresach IP lub obu](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview)**.
+- Równoważyć obciążenie usług na **[wielu portach, wielu adresach IP lub obu](./load-balancer-multivip-overview.md)**.
 
-- Przenoszenie **[wewnętrznych](https://docs.microsoft.com/azure/load-balancer/move-across-regions-internal-load-balancer-portal)** i **[zewnętrznych](https://docs.microsoft.com/azure/load-balancer/move-across-regions-external-load-balancer-portal)** zasobów modułu równoważenia obciążenia w regionach platformy Azure.
+- Przenoszenie **[wewnętrznych](./move-across-regions-internal-load-balancer-portal.md)** i **[zewnętrznych](./move-across-regions-external-load-balancer-portal.md)** zasobów modułu równoważenia obciążenia w regionach platformy Azure.
 
-- Równoważ obciążenie protokołów TCP i UDP na wszystkich portach jednocześnie przy użyciu **[portów ha](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)**.
+- Równoważ obciążenie protokołów TCP i UDP na wszystkich portach jednocześnie przy użyciu **[portów ha](./load-balancer-ha-ports-overview.md)**.
 
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Zabezpieczenie domyślne
 
-Usługa Load Balancer w warstwie Standardowa jest oparty na modelu zabezpieczeń sieci o zerowym zaufaniu. Usługa Load Balancer w warstwie Standardowa domyślnie zabezpieczone i jest częścią sieci wirtualnej. Sieć wirtualna jest siecią prywatną i izolowaną.  Oznacza to, że standardowe usługi równoważenia obciążenia i standardowe publiczne adresy IP są zamykane dla przepływów przychodzących, chyba że są otwierane przez sieciowe grupy zabezpieczeń. Sieciowych grup zabezpieczeń są używane do jawnego zezwalania na dozwolony ruch.  Jeśli nie masz sieciowej grupy zabezpieczeń w podsieci lub karcie sieciowej zasobu maszyny wirtualnej, ruch nie może nawiązać połączenia z tym zasobem. Aby dowiedzieć się więcej o sieciowych grup zabezpieczeń i sposobach ich stosowania w danym scenariuszu, zobacz [sieciowe grupy zabezpieczeń](../virtual-network/security-overview.md).
+Usługa Load Balancer w warstwie Standardowa jest oparty na modelu zabezpieczeń sieci o zerowym zaufaniu. Usługa Load Balancer w warstwie Standardowa domyślnie zabezpieczone i jest częścią sieci wirtualnej. Sieć wirtualna jest siecią prywatną i izolowaną.  Oznacza to, że standardowe usługi równoważenia obciążenia i standardowe publiczne adresy IP są zamykane dla przepływów przychodzących, chyba że są otwierane przez sieciowe grupy zabezpieczeń. Sieciowych grup zabezpieczeń są używane do jawnego zezwalania na dozwolony ruch.  Jeśli nie masz sieciowej grupy zabezpieczeń w podsieci lub karcie sieciowej zasobu maszyny wirtualnej, ruch nie może nawiązać połączenia z tym zasobem. Aby dowiedzieć się więcej o sieciowych grup zabezpieczeń i sposobach ich stosowania w danym scenariuszu, zobacz [sieciowe grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 Podstawowa Load Balancer jest domyślnie otwarta w Internecie. Ponadto Load Balancer nie przechowuje danych klienta.
 
 ## <a name="pricing-and-sla"></a>Cennik i Umowa SLA
@@ -84,4 +84,3 @@ Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami f
 Aby rozpocząć korzystanie z usługi równoważenia obciążenia, zobacz [Tworzenie publicznego standardowego modułu równoważenia obciążenia](quickstart-load-balancer-standard-public-portal.md) .
 
 Aby uzyskać więcej informacji o Azure Load Balancer ograniczeniach i składnikach, zobacz [składniki Azure Load Balancer](./components.md) i [koncepcje Azure Load Balancer](./concepts.md)
-

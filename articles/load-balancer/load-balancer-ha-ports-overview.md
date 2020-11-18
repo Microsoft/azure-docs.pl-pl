@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 01f6d5b5ef816127fe5f0c689132326f6157731d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684414"
+ms.locfileid: "94694963"
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
@@ -54,7 +54,7 @@ Na poniższym diagramie przedstawiono wdrożenie sieci wirtualnej typu Hub i gwi
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Równoważenie obciążenia w dużej liczbie portów
 
-W przypadku aplikacji wymagających równoważenia obciążenia dużej liczby portów można także użyć portów HA. Można uprościć te scenariusze przy użyciu [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md) wewnętrznej z portami ha. Pojedyncza reguła równoważenia obciążenia zastępuje wiele pojedynczych zasad równoważenia obciążenia, po jednej dla każdego portu.
+W przypadku aplikacji wymagających równoważenia obciążenia dużej liczby portów można także użyć portów HA. Można uprościć te scenariusze przy użyciu [Usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md) wewnętrznej z portami ha. Pojedyncza reguła równoważenia obciążenia zastępuje wiele pojedynczych zasad równoważenia obciążenia, po jednej dla każdego portu.
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 

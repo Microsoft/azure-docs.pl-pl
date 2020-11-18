@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 7bb836e92ce35869996725cb63f2d3808b570fa1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684087"
+ms.locfileid: "94695218"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -227,11 +227,16 @@ Określ ustawienia zasad w następujący sposób:
    ![Zasady różnicowych kopii zapasowych](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Przyrostowe kopie zapasowe nie są obecnie obsługiwane.
+   >Przyrostowe kopie zapasowe są teraz dostępne w publicznej wersji zapoznawczej. Można wybrać różnicową lub przyrostową kopię zapasową, ale nie oba jednocześnie.
    >
+7. W obszarze **zasady przyrostowej kopii zapasowej** wybierz pozycję **Włącz** , aby otworzyć kontrolki częstotliwość i przechowywanie.
+    * Co więcej, można wyzwolić jedną przyrostową kopię zapasową dziennie.
+    * Przyrostowe kopie zapasowe mogą być przechowywane przez maksymalnie 180 dni. Jeśli potrzebujesz dłuższego okresu przechowywania, musisz użyć pełnych kopii zapasowych.
 
-7. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
-8. Wybierz pozycję **kopia zapasowa dziennika** , aby dodać zasady kopii zapasowej dziennika transakcyjnego,
+    ![Zasady przyrostowych kopii zapasowych](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
+9. Wybierz pozycję **kopia zapasowa dziennika** , aby dodać zasady kopii zapasowej dziennika transakcyjnego,
    * **Kopia zapasowa dziennika** jest domyślnie ustawiona na wartość **enable**. Nie można go wyłączyć, ponieważ SAP HANA zarządza wszystkimi kopiami zapasowymi dzienników.
    * Ustawimy **2 godziny** jako Harmonogram kopii zapasowych i **15 dni** okresu przechowywania.
 
@@ -241,8 +246,8 @@ Określ ustawienia zasad w następujący sposób:
    > Kopie zapasowe dzienników zaczynają przepływać dopiero po ukończeniu jednej pełnej kopii zapasowej.
    >
 
-9. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
-10. Po zakończeniu definiowania zasad tworzenia kopii zapasowych wybierz pozycję **OK**.
+10. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
+11. Po zakończeniu definiowania zasad tworzenia kopii zapasowych wybierz pozycję **OK**.
 
 Pomyślnie skonfigurowano kopie zapasowe baz danych SAP HANA.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410581"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696221"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
 
@@ -38,7 +38,7 @@ Każdy katalog usługi Azure AD jest odrębny i oddzielony od innych katalogów 
 
 ### <a name="azure-tenancy"></a>Dzierżawa platformy Azure
 
-Dzierżawa platformy Azure (subskrypcja platformy Azure) odnosi się do relacji "klient/rozliczenia" i unikatowej [dzierżawy](../../active-directory/develop/quickstart-create-new-tenant.md) w [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Izolacja poziomu dzierżawy w Microsoft Azure jest realizowana przy użyciu Azure Active Directory i [formantów opartych na rolach](../../role-based-access-control/overview.md) . Każda subskrypcja platformy Azure jest skojarzona z jednym katalogiem Azure Active Directory (AD).
+Dzierżawa platformy Azure (subskrypcja platformy Azure) odnosi się do relacji "klient/rozliczenia" i unikatowej [dzierżawy](../../active-directory/develop/quickstart-create-new-tenant.md) w [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Izolacja poziomu dzierżawy w Microsoft Azure jest realizowana przy użyciu Azure Active Directory i [kontroli dostępu opartej na rolach platformy Azure](../../role-based-access-control/overview.md) . Każda subskrypcja platformy Azure jest skojarzona z jednym katalogiem Azure Active Directory (AD).
 
 Użytkownicy, grupy i aplikacje z tego katalogu mogą zarządzać zasobami w ramach subskrypcji platformy Azure. Te prawa dostępu można przypisywać przy użyciu Azure Portal, narzędzi wiersza polecenia platformy Azure i interfejsów API zarządzania platformy Azure. Dzierżawa usługi Azure AD jest logicznie izolowana przy użyciu granic zabezpieczeń, dzięki czemu klient nie może uzyskać dostępu do ani naruszać współdzierżawców, złośliwie lub przypadkowo. Usługa Azure AD działa na serwerach "bez systemu operacyjnego" izolowanych w podzielonym segmencie sieci, w których filtrowanie pakietów na poziomie hosta i Zapora systemu Windows blokują niechciane połączenia i ruch.
 
@@ -52,7 +52,7 @@ Użytkownicy, grupy i aplikacje z tego katalogu mogą zarządzać zasobami w ram
 
 - Dostęp fizyczny do serwerów wchodzących w skład usługi Azure AD i bezpośredni dostęp do systemów zaplecza usługi Azure AD jest ograniczony.
 
-- Użytkownicy usługi Azure AD nie mają dostępu do fizycznych zasobów ani lokalizacji, dlatego nie jest możliwe, że nie mogą oni obejść testów logicznych zasad RBAC określonych poniżej.
+- Użytkownicy usługi Azure AD nie mają dostępu do fizycznych zasobów ani lokalizacji, dlatego nie jest możliwe, że nie mogą oni obejść testów logicznych zasad RBAC platformy Azure określonych poniżej.
 
 W przypadku potrzeb diagnostycznych i konserwacyjnych wymagany jest model operacyjny, który korzysta z systemu podniesienia uprawnień just-in-Time. Azure AD Privileged Identity Management (PIM) wprowadza koncepcję uprawnionych administratorów. [uprawnieni Administratorzy](../../active-directory/privileged-identity-management/pim-configure.md) powinni być użytkownikami, którzy potrzebują uprzywilejowanego dostępu, a następnie, ale nie codziennie. Rola pozostaje nieaktywna, a gdy użytkownik potrzebuje dostępu, przechodzi proces aktywacji i staje się aktywnym administratorem na określony z góry czas.
 
@@ -80,7 +80,7 @@ Usługa Azure RBAC ma trzy podstawowe role, które mają zastosowanie do wszystk
 
 Pozostałe role platformy Azure na platformie Azure umożliwiają zarządzanie określonymi zasobami platformy Azure. Na przykład rola współautora maszyny wirtualnej pozwala użytkownikom na tworzenie maszyn wirtualnych i zarządzanie nimi. Nie daje im dostępu do Virtual Network platformy Azure lub podsieci, z którą nawiąże połączenie maszyna wirtualna.
 
-[Role wbudowane RBAC](../../role-based-access-control/built-in-roles.md) mają listę ról dostępnych na platformie Azure. Określa operacje i zakres, które każda wbudowana rola przyznaje użytkownikom. Jeśli chcesz zdefiniować własne role, aby jeszcze bardziej kontrolować, zobacz jak tworzyć [role niestandardowe na platformie Azure RBAC](../../role-based-access-control/custom-roles.md).
+[Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md) wyświetlają role dostępne na platformie Azure. Określa operacje i zakres, które każda wbudowana rola przyznaje użytkownikom. Jeśli chcesz zdefiniować własne role, aby jeszcze bardziej kontrolować, zobacz jak tworzyć [role niestandardowe na platformie Azure RBAC](../../role-based-access-control/custom-roles.md).
 
 Niektóre inne możliwości Azure Active Directory obejmują:
 

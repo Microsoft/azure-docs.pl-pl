@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744065"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696017"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurowanie aplikacji Node.js dla Azure App Service
 
@@ -85,6 +85,36 @@ To ustawienie określa wersję Node.js, która ma być używana zarówno w czasi
 
 ::: zone-end
 
+## <a name="get-port-number"></a>Pobierz numer portu
+
+Aplikacja Node.js musi nasłuchiwać odpowiedniego portu w celu odbierania żądań przychodzących.
+
+::: zone pivot="platform-windows"  
+
+W App Service w systemie Windows aplikacje Node.js są hostowane przy użyciu [programu iisnode](https://github.com/Azure/iisnode), a aplikacja Node.js powinna nasłuchiwać portu określonego w `process.env.PORT` zmiennej. Poniższy przykład pokazuje, jak to zrobić w prostej aplikacji Express:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service ustawia zmienną środowiskową `PORT` w kontenerze Node.js i przekazuje żądania przychodzące do kontenera przy użyciu tego numeru portu. Aby otrzymywać żądania, aplikacja powinna nasłuchiwać tego portu przy użyciu `process.env.PORT` . Poniższy przykład pokazuje, jak to zrobić w prostej aplikacji Express:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## <a name="customize-build-automation"></a>Dostosuj automatyzację kompilacji
@@ -93,8 +123,8 @@ Jeśli aplikacja zostanie wdrożona za pomocą usługi Git lub zip z włączonym
 
 1. Uruchom skrypt niestandardowy, jeśli został określony przez `PRE_BUILD_SCRIPT_PATH` .
 1. Uruchom `npm install` bez żadnych flag, które obejmują npm `preinstall` i `postinstall` skrypty, a także instaluje `devDependencies` .
-1. Uruchom `npm run build` , jeśli skrypt kompilacji jest określony w *package.jsna* .
-1. Uruchom `npm run build:azure` , jeśli kompilacja: skrypt platformy Azure został określony w *package.jsna* .
+1. Uruchom `npm run build` , jeśli skrypt kompilacji jest określony w *package.jsna*.
+1. Uruchom `npm run build:azure` , jeśli kompilacja: skrypt platformy Azure został określony w *package.jsna*.
 1. Uruchom skrypt niestandardowy, jeśli został określony przez `POST_BUILD_SCRIPT_PATH` .
 
 > [!NOTE]
@@ -123,7 +153,7 @@ Kontenery Node.js są dostarczane z [PM2](https://pm2.keymetrics.io/), menedżer
 
 ### <a name="run-custom-command"></a>Uruchom polecenie niestandardowe
 
-App Service można uruchomić aplikację przy użyciu polecenia niestandardowego, takiego jak plik wykonywalny, taki jak *Run.sh* . Na przykład aby uruchomić `npm run start:prod` polecenie, uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com):
+App Service można uruchomić aplikację przy użyciu polecenia niestandardowego, takiego jak plik wykonywalny, taki jak *Run.sh*. Na przykład aby uruchomić `npm run start:prod` polecenie, uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -131,7 +161,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Uruchom npm
 
-Aby rozpocząć korzystanie z aplikacji `npm start` , upewnij się, że `start` skrypt znajduje się w *package.js* pliku. Na przykład:
+Aby rozpocząć korzystanie z aplikacji `npm start` , upewnij się, że `start` skrypt znajduje się w *package.js* pliku. Przykład:
 
 ```json
 {
@@ -164,7 +194,7 @@ Kontener automatycznie uruchamia aplikację z PM2, gdy w projekcie zostanie znal
 Możesz również skonfigurować niestandardowy plik startowy z następującymi rozszerzeniami:
 
 - Plik *. js*
-- [Plik PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) z rozszerzeniem *. JSON* , *.config.js* , *. YAML* lub *. yml*
+- [Plik PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) z rozszerzeniem *. JSON*, *.config.js*, *. YAML* lub *. yml*
 
 Aby dodać niestandardowy plik startowy, uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com):
 
@@ -177,9 +207,9 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > Debugowanie zdalne jest obecnie w wersji zapoznawczej.
 
-Możesz debugować aplikację Node.js zdalnie w [Visual Studio Code](https://code.visualstudio.com/) , jeśli skonfigurujesz ją do [uruchamiania z PM2](#run-with-pm2), z wyjątkiem sytuacji, gdy zostanie ona uruchomiona przy użyciu * .config.js, *. yml lub *. YAML* .
+Możesz debugować aplikację Node.js zdalnie w [Visual Studio Code](https://code.visualstudio.com/) , jeśli skonfigurujesz ją do [uruchamiania z PM2](#run-with-pm2), z wyjątkiem sytuacji, gdy zostanie ona uruchomiona przy użyciu * .config.js, *. yml lub *. YAML*.
 
-W większości przypadków dla aplikacji nie jest wymagana dodatkowa konfiguracja. Jeśli aplikacja jest uruchamiana z *process.jsw* pliku (domyślnie lub niestandardowym), musi mieć `script` Właściwość w katalogu głównym JSON. Na przykład:
+W większości przypadków dla aplikacji nie jest wymagana dodatkowa konfiguracja. Jeśli aplikacja jest uruchamiana z *process.jsw* pliku (domyślnie lub niestandardowym), musi mieć `script` Właściwość w katalogu głównym JSON. Przykład:
 
 ```json
 {
@@ -191,9 +221,9 @@ W większości przypadków dla aplikacji nie jest wymagana dodatkowa konfiguracj
 
 Aby skonfigurować Visual Studio Code na potrzeby debugowania zdalnego, zainstaluj [rozszerzenie App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Postępuj zgodnie z instrukcjami na stronie rozszerzenia i zaloguj się do platformy Azure w Visual Studio Code.
 
-W Eksploratorze Azure Znajdź aplikację, którą chcesz debugować, kliknij ją prawym przyciskiem myszy i wybierz polecenie **Rozpocznij debugowanie zdalne** . Kliknij przycisk **tak** , aby włączyć go dla Twojej aplikacji. App Service uruchamia serwer proxy tunelu i dołącza debuger. Następnie można wykonać żądania do aplikacji i zobaczyć debuger wstrzymywany w punktach przerwania.
+W Eksploratorze Azure Znajdź aplikację, którą chcesz debugować, kliknij ją prawym przyciskiem myszy i wybierz polecenie **Rozpocznij debugowanie zdalne**. Kliknij przycisk **tak** , aby włączyć go dla Twojej aplikacji. App Service uruchamia serwer proxy tunelu i dołącza debuger. Następnie można wykonać żądania do aplikacji i zobaczyć debuger wstrzymywany w punktach przerwania.
 
-Po zakończeniu debugowania Zatrzymaj debuger, wybierając pozycję **Rozłącz** . Po wyświetleniu monitu kliknij przycisk **tak** , aby wyłączyć debugowanie zdalne. Aby wyłączyć go później, ponownie kliknij prawym przyciskiem myszy aplikację w Eksploratorze Azure, a następnie wybierz opcję **Wyłącz debugowanie zdalne** .
+Po zakończeniu debugowania Zatrzymaj debuger, wybierając pozycję **Rozłącz**. Po wyświetleniu monitu kliknij przycisk **tak** , aby wyłączyć debugowanie zdalne. Aby wyłączyć go później, ponownie kliknij prawym przyciskiem myszy aplikację w Eksploratorze Azure, a następnie wybierz opcję **Wyłącz debugowanie zdalne**.
 
 ::: zone-end
 
@@ -209,7 +239,7 @@ process.env.NODE_ENV
 
 Domyślnie program App Service Build Automation jest uruchamiany, `npm install --production` gdy rozpoznaje aplikację Node.js wdrożoną za pomocą narzędzia Git lub wdrożenia zip z włączonym automatyzacją kompilacji. Jeśli aplikacja wymaga dowolnego ze popularnych narzędzi do automatyzacji, takich jak grunt, Bower lub Gulp, należy podać [niestandardowy skrypt wdrożenia](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) , aby go uruchomić.
 
-Aby umożliwić repozytorium uruchamianie tych narzędzi, należy dodać je do zależności w *package.js.* Na przykład:
+Aby umożliwić repozytorium uruchamianie tych narzędzi, należy dodać je do zależności w *package.js.* Przykład:
 
 ```json
 "dependencies": {
@@ -227,7 +257,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-Katalog główny repozytorium ma teraz dwa dodatkowe pliki: *. Deployment* i *Deploy.sh* .
+Katalog główny repozytorium ma teraz dwa dodatkowe pliki: *. Deployment* i *Deploy.sh*.
 
 Otwórz *Deploy.sh* i Znajdź `Deployment` sekcję, która wygląda następująco:
 
@@ -317,7 +347,7 @@ if (req.secure) {
 Gdy działająca aplikacja Node.js działa inaczej w App Service lub zawiera błędy, spróbuj wykonać następujące czynności:
 
 - [Dostęp do strumienia dzienników](#access-diagnostic-logs).
-- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikacje Node.js w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Na przykład:
+- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikacje Node.js w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Przykład:
     - W zależności od *package.jsw systemie* można zainstalować różne pakiety dla trybu produkcyjnego ( `dependencies` vs. `devDependencies` ).
     - Niektóre platformy sieci Web mogą wdrażać pliki statyczne inaczej w trybie produkcyjnym.
     - Niektóre platformy sieci Web mogą używać niestandardowych skryptów uruchamiania podczas pracy w trybie produkcyjnym.

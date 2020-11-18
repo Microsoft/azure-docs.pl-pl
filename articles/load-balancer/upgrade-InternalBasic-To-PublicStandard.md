@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078748"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696255"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uaktualnianie wewnętrznego Load Balancer platformy Azure — wymagane jest połączenie wychodzące
-[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/skus#skus). Ponieważ standardowa Load Balancer wewnętrzna nie zapewnia połączenia wychodzącego, udostępniamy rozwiązanie do utworzenia standardowego Load Balancer publicznego.
+[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](./skus.md#skus). Ponieważ standardowa Load Balancer wewnętrzna nie zapewnia połączenia wychodzącego, udostępniamy rozwiązanie do utworzenia standardowego Load Balancer publicznego.
 
 Uaktualnienie obejmuje cztery etapy:
 
@@ -100,7 +100,7 @@ Poniżej przedstawiono kilka scenariuszy dodawania maszyn wirtualnych do pul zap
  
     1. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie, a następnie wybierz **nowo utworzoną usługa Load Balancer w warstwie Standardowa** z listy zasobów.
    
-    1. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**.
+    1. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**.
    
     1. Wybierz pulę zaplecza, która pasuje do puli zaplecza podstawowego Load Balancer, wybierz następującą wartość: 
       - **Maszyna wirtualna**: Lista rozwijana i wybieranie maszyn wirtualnych z dopasowanej puli zaplecza Load Balancer podstawowej.
@@ -109,16 +109,16 @@ Poniżej przedstawiono kilka scenariuszy dodawania maszyn wirtualnych do pul zap
     >W przypadku maszyn wirtualnych, które mają publiczne adresy IP, konieczne będzie utworzenie standardowych adresów w pierwszej kolejności, w której ten sam adres IP nie jest gwarantowany. Usuń skojarzenie maszyn wirtualnych z podstawowymi adresami IP i skojarz je z nowo utworzonymi standardowymi adresami. Następnie będzie można wykonać instrukcje dotyczące dodawania maszyn wirtualnych do puli zaplecza usługa Load Balancer w warstwie Standardowa. 
 
 * **Tworzenie nowych maszyn wirtualnych do dodania do pul zaplecza dla nowo utworzonej Load Balancer publicznej**.
-    * Więcej instrukcji dotyczących tworzenia maszyn wirtualnych i kojarzenia ich z usługa Load Balancer w warstwie Standardowa można znaleźć [tutaj](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * Więcej instrukcji dotyczących tworzenia maszyn wirtualnych i kojarzenia ich z usługa Load Balancer w warstwie Standardowa można znaleźć [tutaj](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Tworzenie reguły ruchu wychodzącego dla połączenia wychodzącego
 
-Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) , aby utworzyć regułę wychodzącą, aby móc
+Postępuj zgodnie z [instrukcjami](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) , aby utworzyć regułę wychodzącą, aby móc
 * Zdefiniuj wychodzące NAT od podstaw.
 * Skalowanie i dostrajanie zachowania istniejącego wychodzącego translatora adresów sieciowych.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Tworzenie reguł sieciowej grupy zabezpieczeń dla maszyn wirtualnych, które mogą zrezygnować z komunikacji z lub do Internetu
-Jeśli chcesz wypróbować ruch z Internetu przed dotarciem do maszyn wirtualnych, możesz utworzyć [regułę sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) w interfejsie sieciowym maszyn wirtualnych.
+Jeśli chcesz wypróbować ruch z Internetu przed dotarciem do maszyn wirtualnych, możesz utworzyć [regułę sieciowej grupy zabezpieczeń](../virtual-network/manage-network-security-group.md) w interfejsie sieciowym maszyn wirtualnych.
 
 ## <a name="common-questions"></a>Często zadawane pytania
 

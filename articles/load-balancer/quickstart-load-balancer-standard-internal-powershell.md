@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 12190a50579bf5b87685fc4b19ec7b2907e5ee9c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e1fa97fb8a3dcae3a78ba0bc85cf59db2c167dea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547048"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696782"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure PowerShell
 
@@ -44,7 +44,7 @@ Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania z
 
 Utwórz grupę zasobów przy użyciu elementu [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
-* O nazwie **CreateIntLBQS-RG** .
+* O nazwie **CreateIntLBQS-RG**.
 * W lokalizacji **wschodniego** .
 
 ```azurepowershell-interactive
@@ -59,7 +59,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku"></a>[**Standardowy SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
->Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)** .
+>Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
 
 ## <a name="configure-virtual-network"></a>Konfigurowanie sieci wirtualnej
 
@@ -69,13 +69,13 @@ Przed wdrożeniem maszyn wirtualnych i przetestowanie modułu równoważenia obc
 
 Utwórz sieć wirtualną przy użyciu [nowego AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
-* O nazwie **myVNet** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* Podsieć o nazwie **myBackendSubnet** .
-* Sieć wirtualna **10.0.0.0/16** .
-* Podsieć **10.0.0.0/24** .
-* Podsieć o nazwie **AzureBastionSubnet** .
-* **10.0.1.0 podsieci/24** .
+* O nazwie **myVNet**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* Podsieć o nazwie **myBackendSubnet**.
+* Sieć wirtualna **10.0.0.0/16**.
+* Podsieć **10.0.0.0/24**.
+* Podsieć o nazwie **AzureBastionSubnet**.
+* **10.0.1.0 podsieci/24**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -107,7 +107,7 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć publiczny adres IP dla hosta bastionu:
 
 * O nazwie **myPublicIPBastion**
-* W grupie zasobów **CreateIntLBQS-RG** .
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W lokalizacji **wschodniego** .
 * **Statyczna** metoda alokacji.
 * **Standardowa** jednostka SKU.
@@ -128,10 +128,10 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -Allocati
 
 Użyj [New-AzBastion](/powershell/module/az.network/new-azbastion) , aby utworzyć hosta bastionu:
 
-* O nazwie **myBastion** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* W sieci wirtualnej **myVNet** .
-* Skojarzone z publicznym adresem IP **myPublicIPBastion** .
+* O nazwie **myBastion**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* W sieci wirtualnej **myVNet**.
+* Skojarzone z publicznym adresem IP **myPublicIPBastion**.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -151,16 +151,16 @@ Utwórz sieciową grupę zabezpieczeń w celu zdefiniowania połączeń przychod
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Tworzenie reguły sieciowej grupy zabezpieczeń dla portu 80
 Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
-* O nazwie **myNSGRuleHTTP** .
-* Opis **zezwalania na użycie protokołu HTTP** .
-* Dostęp do programu **Zezwalaj** .
-* Protokół **(*)** .
-* Kierunek **ruchu przychodzącego** .
-* Priorytet **2000** .
-* Źródło **Internetu** .
-* Zakres portów źródłowych **(*)** .
-* Prefiks adresu docelowego **(*)** .
-* **Port docelowy 80** .
+* O nazwie **myNSGRuleHTTP**.
+* Opis **zezwalania na użycie protokołu HTTP**.
+* Dostęp do programu **Zezwalaj**.
+* Protokół **(*)**.
+* Kierunek **ruchu przychodzącego**.
+* Priorytet **2000**.
+* Źródło **Internetu**.
+* Zakres portów źródłowych **(*)**.
+* Prefiks adresu docelowego **(*)**.
+* **Port docelowy 80**.
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -183,8 +183,8 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 
 Utwórz sieciową grupę zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
-* O nazwie **myNSG** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myNSG**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W polu **Wschodnie** lokalizacje.
 * Z regułami zabezpieczeń utworzonymi w poprzednich krokach przechowywanych w zmiennej.
 
@@ -212,8 +212,8 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 
 Utwórz adres IP frontonu przy użyciu elementu [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
-* Nazwa **frontonu** .
-* Prywatny adres IP elementu **10.0.0.4** .
+* Nazwa **frontonu**.
+* Prywatny adres IP elementu **10.0.0.4**.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -230,7 +230,7 @@ New-AzLoadBalancerFrontendIpConfig -Name $fe -PrivateIpAddress $ip -SubnetId $vn
 
 Utwórz pulę adresów zaplecza za pomocą [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig): 
 
-* O nazwie **myBackEndPool** .
+* O nazwie **myBackEndPool**.
 * W kolejnych krokach maszyny wirtualne zostaną dołączone do tej puli zaplecza.
 
 ```azurepowershell-interactive
@@ -250,9 +250,9 @@ Maszyna wirtualna z niepowodzeniem sprawdzaniem sondy jest usuwana z modułu ró
 Utwórz sondę kondycji za pomocą elementu [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig):
 
 * Monitoruje kondycję maszyn wirtualnych.
-* O nazwie **myHealthProbe** .
-* Protokół **TCP** .
-* Monitorowanie **portu 80** .
+* O nazwie **myHealthProbe**.
+* Protokół **TCP**.
+* Monitorowanie **portu 80**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -278,10 +278,10 @@ Utwórz regułę modułu równoważenia obciążenia za pomocą elementu [Add-Az
 
 * O nazwie **myHTTPRule**
 * Nasłuchiwanie na **porcie 80** w elemencie **webfrontonu** puli frontonów.
-* Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool** przy użyciu **portu 80** . 
-* Korzystanie z sondy kondycji **myHealthProbe** .
-* Protokół **TCP** .
-* Limit czasu bezczynności wynoszący **15 minut** .
+* Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool** przy użyciu **portu 80**. 
+* Korzystanie z sondy kondycji **myHealthProbe**.
+* Protokół **TCP**.
+* Limit czasu bezczynności wynoszący **15 minut**.
 * Włącz Resetowanie protokołu TCP.
 
 ```azurepowershell-interactive
@@ -297,7 +297,7 @@ $rule =
 New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 >[!NOTE]
->Maszyny wirtualne w puli zaplecza nie będą miały wychodzącej łączności z Internetem przy użyciu tej konfiguracji. </br> Aby uzyskać więcej informacji na temat zapewniania łączności wychodzącej, zobacz: </br> **[Połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md)**</br> Opcje zapewniania łączności: </br> **[Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego](egress-only.md)** </br> **[Co to jest Virtual Network translator adresów sieciowych?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>Maszyny wirtualne w puli zaplecza nie będą miały wychodzącej łączności z Internetem przy użyciu tej konfiguracji. </br> Aby uzyskać więcej informacji na temat zapewniania łączności wychodzącej, zobacz: </br> **[Połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md)**</br> Opcje zapewniania łączności: </br> **[Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego](egress-only.md)** </br> **[Co to jest Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)**
 
 
 ### <a name="create-load-balancer-resource"></a>Utwórz zasób modułu równoważenia obciążenia
@@ -305,8 +305,8 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 Utwórz wewnętrzny moduł równoważenia obciążenia za pomocą usługi [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
 
 * O nazwie **myLoadBalancer**
-* W **wschodnim regionie** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* W **wschodnim regionie**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -327,13 +327,13 @@ Utwórz trzy interfejsy sieciowe za pomocą [New-AzNetworkInterface](/powershell
 
 #### <a name="vm-1"></a>Maszyna wirtualna 1
 
-* O nazwie **myNicVM1** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myNicVM1**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W polu **Wschodnie** lokalizacje.
-* W sieci wirtualnej **myVNet** .
-* W podsieci **myBackendSubnet** .
-* W sieciowej grupie zabezpieczeń **myNSG** .
-* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool** .
+* W sieci wirtualnej **myVNet**.
+* W podsieci **myBackendSubnet**.
+* W sieciowej grupie zabezpieczeń **myNSG**.
+* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool**.
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -363,13 +363,13 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 #### <a name="vm-2"></a>MW 2
 
-* O nazwie **myNicVM2** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myNicVM2**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W polu **Wschodnie** lokalizacje.
-* W sieci wirtualnej **myVNet** .
-* W podsieci **myBackendSubnet** .
-* W sieciowej grupie zabezpieczeń **myNSG** .
-* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool** .
+* W sieci wirtualnej **myVNet**.
+* W podsieci **myBackendSubnet**.
+* W sieciowej grupie zabezpieczeń **myNSG**.
+* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool**.
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -399,7 +399,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -416,11 +416,11 @@ Utwórz maszyny wirtualne za pomocą:
 
 #### <a name="vm1"></a>Maszyna wirtualna 1
 
-* O nazwie **myVM1** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* Dołączone do interfejsu sieciowego **myNicVM1** .
-* Dołączono do usługi równoważenia obciążenia **myLoadBalancer** .
-* W **Strefa 1** .
+* O nazwie **myVM1**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* Dołączone do interfejsu sieciowego **myNicVM1**.
+* Dołączono do usługi równoważenia obciążenia **myLoadBalancer**.
+* W **Strefa 1**.
 * W lokalizacji **wschodniego** .
 
 ```azurepowershell-interactive
@@ -447,11 +447,11 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 
 #### <a name="vm2"></a>Maszyna wirtualna 2
 
-* O nazwie **myVM2** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* Dołączone do interfejsu sieciowego **myNicVM2** .
-* Dołączono do usługi równoważenia obciążenia **myLoadBalancer** .
-* W **strefa 2** .
+* O nazwie **myVM2**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* Dołączone do interfejsu sieciowego **myNicVM2**.
+* Dołączono do usługi równoważenia obciążenia **myLoadBalancer**.
+* W **strefa 2**.
 * W lokalizacji **wschodniego** .
 
 ```azurepowershell-interactive
@@ -478,7 +478,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 # <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
->Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)** .
+>Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
 
 ## <a name="configure-virtual-network"></a>Konfigurowanie sieci wirtualnej
 
@@ -488,13 +488,13 @@ Przed wdrożeniem maszyn wirtualnych i przetestowanie modułu równoważenia obc
 
 Utwórz sieć wirtualną przy użyciu [nowego AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
-* O nazwie **myVNet** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* Podsieć o nazwie **myBackendSubnet** .
-* Sieć wirtualna **10.0.0.0/16** .
-* Podsieć **10.0.0.0/24** .
-* Podsieć o nazwie **AzureBastionSubnet** .
-* **10.0.1.0 podsieci/24** .
+* O nazwie **myVNet**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* Podsieć o nazwie **myBackendSubnet**.
+* Sieć wirtualna **10.0.0.0/16**.
+* Podsieć **10.0.0.0/24**.
+* Podsieć o nazwie **AzureBastionSubnet**.
+* **10.0.1.0 podsieci/24**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -526,7 +526,7 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć publiczny adres IP dla hosta bastionu:
 
 * O nazwie **myPublicIPBastion**
-* W grupie zasobów **CreateIntLBQS-RG** .
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W lokalizacji **wschodniego** .
 * **Statyczna** metoda alokacji.
 * **Standardowa** jednostka SKU.
@@ -547,10 +547,10 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -Allocati
 
 Użyj [New-AzBastion](/powershell/module/az.network/new-azbastion) , aby utworzyć hosta bastionu:
 
-* O nazwie **myBastion** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* W sieci wirtualnej **myVNet** .
-* Skojarzone z publicznym adresem IP **myPublicIPBastion** .
+* O nazwie **myBastion**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* W sieci wirtualnej **myVNet**.
+* Skojarzone z publicznym adresem IP **myPublicIPBastion**.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -571,16 +571,16 @@ Utwórz sieciową grupę zabezpieczeń w celu zdefiniowania połączeń przychod
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Tworzenie reguły sieciowej grupy zabezpieczeń dla portu 80
 Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
-* O nazwie **myNSGRuleHTTP** .
-* Opis **zezwalania na użycie protokołu HTTP** .
-* Dostęp do programu **Zezwalaj** .
-* Protokół **(*)** .
-* Kierunek **ruchu przychodzącego** .
-* Priorytet **2000** .
-* Źródło **Internetu** .
-* Zakres portów źródłowych **(*)** .
-* Prefiks adresu docelowego **(*)** .
-* **Port docelowy 80** .
+* O nazwie **myNSGRuleHTTP**.
+* Opis **zezwalania na użycie protokołu HTTP**.
+* Dostęp do programu **Zezwalaj**.
+* Protokół **(*)**.
+* Kierunek **ruchu przychodzącego**.
+* Priorytet **2000**.
+* Źródło **Internetu**.
+* Zakres portów źródłowych **(*)**.
+* Prefiks adresu docelowego **(*)**.
+* **Port docelowy 80**.
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -603,8 +603,8 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 
 Utwórz sieciową grupę zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
-* O nazwie **myNSG** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myNSG**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W polu **Wschodnie** lokalizacje.
 * Z regułami zabezpieczeń utworzonymi w poprzednich krokach przechowywanych w zmiennej.
 
@@ -632,8 +632,8 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 
 Utwórz adres IP frontonu przy użyciu elementu [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
-* Nazwa **frontonu** .
-* Prywatny adres IP elementu **10.0.0.4** .
+* Nazwa **frontonu**.
+* Prywatny adres IP elementu **10.0.0.4**.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -650,7 +650,7 @@ New-AzLoadBalancerFrontendIpConfig -Name $fe -PrivateIpAddress $ip -SubnetId $vn
 
 Utwórz pulę adresów zaplecza za pomocą [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig): 
 
-* O nazwie **myBackEndPool** .
+* O nazwie **myBackEndPool**.
 * W kolejnych krokach maszyny wirtualne zostaną dołączone do tej puli zaplecza.
 
 ```azurepowershell-interactive
@@ -670,9 +670,9 @@ Maszyna wirtualna z niepowodzeniem sprawdzaniem sondy jest usuwana z modułu ró
 Utwórz sondę kondycji za pomocą elementu [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig):
 
 * Monitoruje kondycję maszyn wirtualnych.
-* O nazwie **myHealthProbe** .
-* Protokół **TCP** .
-* Monitorowanie **portu 80** .
+* O nazwie **myHealthProbe**.
+* Protokół **TCP**.
+* Monitorowanie **portu 80**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -698,10 +698,10 @@ Utwórz regułę modułu równoważenia obciążenia za pomocą elementu [Add-Az
 
 * O nazwie **myHTTPRule**
 * Nasłuchiwanie na **porcie 80** w elemencie **webfrontonu** puli frontonów.
-* Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool** przy użyciu **portu 80** . 
-* Korzystanie z sondy kondycji **myHealthProbe** .
-* Protokół **TCP** .
-* Limit czasu bezczynności wynoszący **15 minut** .
+* Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool** przy użyciu **portu 80**. 
+* Korzystanie z sondy kondycji **myHealthProbe**.
+* Protokół **TCP**.
+* Limit czasu bezczynności wynoszący **15 minut**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -721,8 +721,8 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 Utwórz publiczny moduł równoważenia obciążenia za pomocą usługi [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
 
 * O nazwie **myLoadBalancer**
-* W **wschodnim regionie** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* W **wschodnim regionie**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -743,13 +743,13 @@ Utwórz trzy interfejsy sieciowe za pomocą [New-AzNetworkInterface](/powershell
 
 #### <a name="vm-1"></a>Maszyna wirtualna 1
 
-* O nazwie **myNicVM1** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myNicVM1**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W polu **Wschodnie** lokalizacje.
-* W sieci wirtualnej **myVNet** .
-* W podsieci **myBackendSubnet** .
-* W sieciowej grupie zabezpieczeń **myNSG** .
-* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool** .
+* W sieci wirtualnej **myVNet**.
+* W podsieci **myBackendSubnet**.
+* W sieciowej grupie zabezpieczeń **myNSG**.
+* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool**.
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -779,13 +779,13 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 #### <a name="vm-2"></a>MW 2
 
-* O nazwie **myNicVM2** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myNicVM2**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W polu **Wschodnie** lokalizacje.
-* W sieci wirtualnej **myVNet** .
-* W podsieci **myBackendSubnet** .
-* W sieciowej grupie zabezpieczeń **myNSG** .
-* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool** .
+* W sieci wirtualnej **myVNet**.
+* W podsieci **myBackendSubnet**.
+* W sieciowej grupie zabezpieczeń **myNSG**.
+* Dołączono do modułu równoważenia obciążenia **myLoadBalancer** w **myBackEndPool**.
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -817,8 +817,8 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 Użyj opcji [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) , aby utworzyć zestaw dostępności dla maszyn wirtualnych:
 
-* O nazwie **myAvSet** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myAvSet**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W lokalizacji **wschodniego** .
 
 ```azurepowershell-interactive
@@ -832,7 +832,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -849,10 +849,10 @@ Utwórz maszyny wirtualne za pomocą:
 
 #### <a name="vm1"></a>Maszyna wirtualna 1
 
-* O nazwie **myVM1** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* Dołączone do interfejsu sieciowego **myNicVM1** .
-* Dołączono do usługi równoważenia obciążenia **myLoadBalancer** .
+* O nazwie **myVM1**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* Dołączone do interfejsu sieciowego **myNicVM1**.
+* Dołączono do usługi równoważenia obciążenia **myLoadBalancer**.
 * W lokalizacji **wschodniego** .
 * W zestawie dostępności **myAvSet** .
 
@@ -880,10 +880,10 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 #### <a name="vm2"></a>Maszyna wirtualna 2
 
-* O nazwie **myVM2** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* Dołączone do interfejsu sieciowego **myNicVM2** .
-* Dołączono do usługi równoważenia obciążenia **myLoadBalancer** .
+* O nazwie **myVM2**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* Dołączone do interfejsu sieciowego **myNicVM2**.
+* Dołączono do usługi równoważenia obciążenia **myLoadBalancer**.
 * W lokalizacji **wschodniego** .
 * W zestawie dostępności **myAvSet** .
 
@@ -914,7 +914,7 @@ Utworzenie i skonfigurowanie trzech maszyn wirtualnych może potrwać kilka minu
 
 ## <a name="install-iis"></a>Instalowanie usług IIS
 
-Zainstaluj rozszerzenie niestandardowego skryptu przy użyciu polecenia [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest). 
+Zainstaluj rozszerzenie niestandardowego skryptu przy użyciu polecenia [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension?view=latest). 
 
 Rozszerzenie powoduje uruchomienie programu PowerShell Add-WindowsFeature Web-Server w celu zainstalowania serwera WebSerwer IIS, a następnie zaktualizowanie strony Default.htm w celu wyświetlenia nazwy hosta maszyny wirtualnej:
 
@@ -956,12 +956,12 @@ Utwórz interfejs sieciowy przy użyciu elementu [New-AzNetworkInterface](/power
 
 #### <a name="mytestvm"></a>myTestVM
 
-* O nazwie **myNicTestVM** .
-* W grupie zasobów **CreateIntLBQS-RG** .
+* O nazwie **myNicTestVM**.
+* W grupie zasobów **CreateIntLBQS-RG**.
 * W polu **Wschodnie** lokalizacje.
-* W sieci wirtualnej **myVNet** .
-* W podsieci **myBackendSubnet** .
-* W sieciowej grupie zabezpieczeń **myNSG** .
+* W sieci wirtualnej **myVNet**.
+* W podsieci **myBackendSubnet**.
+* W sieciowej grupie zabezpieczeń **myNSG**.
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -986,7 +986,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -Networ
 
 ### <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1003,9 +1003,9 @@ Utwórz maszynę wirtualną przy użyciu:
 
 #### <a name="mytestvm"></a>myTestVM
 
-* O nazwie **myTestVM** .
-* W grupie zasobów **CreateIntLBQS-RG** .
-* Dołączone do interfejsu sieciowego **myNicTestVM** .
+* O nazwie **myTestVM**.
+* W grupie zasobów **CreateIntLBQS-RG**.
+* Dołączone do interfejsu sieciowego **myNicTestVM**.
 * W lokalizacji **wschodniego** .
 
 ```azurepowershell-interactive
@@ -1033,17 +1033,17 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Znajdź prywatny adres IP dla modułu równoważenia obciążenia na ekranie **Przegląd** . Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby** , a następnie wybierz pozycję **myLoadBalancer** .
+1. Znajdź prywatny adres IP dla modułu równoważenia obciążenia na ekranie **Przegląd** . Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer**.
 
-2. Zanotuj lub skopiuj adres obok **prywatnego adresu IP** w **omówieniu** **myLoadBalancer** .
+2. Zanotuj lub skopiuj adres obok **prywatnego adresu IP** w **omówieniu** **myLoadBalancer**.
 
-3. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby** , a następnie na liście zasobów wybierz pozycję **myTestVM** , która znajduje się w grupie zasobów **CreateIntLBQS-RG** .
+3. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myTestVM** , która znajduje się w grupie zasobów **CreateIntLBQS-RG** .
 
-4. Na stronie **Przegląd** wybierz opcję **Połącz** , a następnie **bastionu** .
+4. Na stronie **Przegląd** wybierz opcję **Połącz**, a następnie **bastionu**.
 
 6. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
-7. Otwórz program **Internet Explorer** w systemie **myTestVM** .
+7. Otwórz program **Internet Explorer** w systemie **myTestVM**.
 
 8. Wprowadź adres IP z poprzedniego kroku na pasku adresu przeglądarki. W przeglądarce jest wyświetlana domyślna strona internetowego serwera usług IIS.
 
@@ -1074,5 +1074,3 @@ W tym przewodniku Szybki Start
 Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do..
 > [!div class="nextstepaction"]
 > [Co to jest usługa Azure Load Balancer?](load-balancer-overview.md)
-
-

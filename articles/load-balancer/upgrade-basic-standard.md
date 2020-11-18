@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809338"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696187"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uaktualnij Load Balancer publicznej platformy Azure
-[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](./skus.md#skus).
 
 Uaktualnienie obejmuje trzy etapy:
 
@@ -34,7 +34,7 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Skrypt obsługuje tylko publiczne uaktualnienie Load Balancer. Aby uzyskać instrukcje dotyczące wewnętrznego uaktualnienia Load Balancer, zapoznaj się z [tą stroną](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) .
+* Skrypt obsługuje tylko publiczne uaktualnienie Load Balancer. Aby uzyskać instrukcje dotyczące wewnętrznego uaktualnienia Load Balancer, zapoznaj się z [tą stroną](./upgrade-basicinternal-standard.md) .
 * Usługa Load Balancer w warstwie Standardowa ma nowy adres publiczny. Nie można przenieść adresów IP skojarzonych z istniejącymi podstawowymi Load Balancer bezproblemowo do usługa Load Balancer w warstwie Standardowa, ponieważ mają różne jednostki SKU.
 * Jeśli w innym regionie zostanie utworzony standardowy moduł równoważenia obciążenia, nie będzie możliwe skojarzenie maszyn wirtualnych istniejących w starym regionie z nowo utworzonymi usługa Load Balancer w warstwie Standardowa. Aby obejść to ograniczenie, należy utworzyć nową maszynę wirtualną w nowym regionie.
 * Jeśli Load Balancer nie ma żadnej konfiguracji adresu IP frontonu lub puli zaplecza, można napotkać błąd podczas uruchamiania skryptu. Upewnij się, że nie są puste.
@@ -99,7 +99,7 @@ Poniżej przedstawiono kilka scenariuszy dodawania maszyn wirtualnych do pul zap
  
     1. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie, a następnie wybierz **nowo utworzoną usługa Load Balancer w warstwie Standardowa** z listy zasobów.
    
-    1. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**.
+    1. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**.
    
     1. Wybierz pulę zaplecza, która pasuje do puli zaplecza podstawowego Load Balancer, wybierz następującą wartość: 
       - **Maszyna wirtualna**: Lista rozwijana i wybieranie maszyn wirtualnych z dopasowanej puli zaplecza Load Balancer podstawowej.
@@ -108,11 +108,11 @@ Poniżej przedstawiono kilka scenariuszy dodawania maszyn wirtualnych do pul zap
     >W przypadku maszyn wirtualnych, które mają publiczne adresy IP, konieczne będzie utworzenie standardowych adresów w pierwszej kolejności, w której ten sam adres IP nie jest gwarantowany. Usuń skojarzenie maszyn wirtualnych z podstawowymi adresami IP i skojarz je z nowo utworzonymi standardowymi adresami. Następnie będzie można wykonać instrukcje dotyczące dodawania maszyn wirtualnych do puli zaplecza usługa Load Balancer w warstwie Standardowa. 
 
 * **Tworzenie nowych maszyn wirtualnych do dodania do pul zaplecza dla nowo utworzonej Load Balancer publicznej**.
-    * Więcej instrukcji dotyczących tworzenia maszyn wirtualnych i kojarzenia ich z usługa Load Balancer w warstwie Standardowa można znaleźć [tutaj](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * Więcej instrukcji dotyczących tworzenia maszyn wirtualnych i kojarzenia ich z usługa Load Balancer w warstwie Standardowa można znaleźć [tutaj](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Tworzenie reguły ruchu wychodzącego dla połączenia wychodzącego
 
-Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) , aby utworzyć regułę wychodzącą, aby móc
+Postępuj zgodnie z [instrukcjami](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) , aby utworzyć regułę wychodzącą, aby móc
 * Zdefiniuj wychodzące NAT od podstaw.
 * Skalowanie i dostrajanie zachowania istniejącego wychodzącego translatora adresów sieciowych.
 

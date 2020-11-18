@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 8bdc9d588e89f498b973db7d1de299b0b26a3d02
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 974418a1b3c1e7fe93b2f6839c16169e5bd5abc5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655735"
+ms.locfileid: "94697003"
 ---
 # <a name="step-3-validate-connectivity"></a>Krok 3. Weryfikowanie łączności
 
@@ -44,7 +44,7 @@ Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie 
 1. Uruchom następujący skrypt w usłudze przesyłania dalej dzienników (stosując identyfikator obszaru roboczego zamiast symbolu zastępczego), aby sprawdzić łączność między rozwiązaniem zabezpieczeń, usługą przesyłania dalej dzienników i wskaźnikiem kontroli platformy Azure. Ten skrypt sprawdza, czy demon nasłuchuje na prawidłowych portach, że przekazywanie jest prawidłowo skonfigurowane i że nic nie blokuje komunikacji między demonem a agentem Log Analytics. Wysyła również komunikat "TestCommonEventFormat", który umożliwia sprawdzenie kompleksowej łączności. <br>
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
    - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **mapowaniem pola *komputer***. Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#mapping-command) .
@@ -245,6 +245,7 @@ Skrypt walidacji wykonuje następujące sprawdzenia:
 ---
 
 ## <a name="next-steps"></a>Następne kroki
+
 W tym dokumencie przedstawiono sposób łączenia urządzeń CEF z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](./tutorial-detect-threats-built-in.md).

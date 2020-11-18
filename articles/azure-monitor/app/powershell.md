@@ -3,12 +3,12 @@ title: Automatyzacja Application Insights platformy Azure przy użyciu programu 
 description: Automatyzacja tworzenia zasobów, alertów i testów dostępności w programie PowerShell oraz zarządzania nimi przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dabb29abe4530307ef5204659297f4675376605
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760907"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694607"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Zarządzanie zasobami Application Insights przy użyciu programu PowerShell
 
@@ -431,7 +431,6 @@ Aby zautomatyzować tworzenie dowolnego innego zasobu dowolnego rodzaju, Utwórz
    
     Każdy test sieci Web ma skojarzoną regułę alertu, dlatego należy skopiować oba te testy.
    
-    Możesz również uwzględnić alerty dotyczące metryk. [Nazwy metryk](powershell-alerts.md#metric-names).
 5. Wstaw ten wiersz do każdego zasobu:
    
     `"apiVersion": "2015-05-01",`
@@ -470,7 +469,6 @@ Platforma Azure powinna skonfigurować zasoby w ścisłej kolejności. Aby upewn
 Inne artykuły dotyczące usługi Automation:
 
 * Utwórz szybką metodę [Application Insights zasobów](./create-new-resource.md#creating-a-resource-automatically) bez użycia szablonu.
-* [Konfigurowanie alertów](powershell-alerts.md)
 * [Utwórz testy sieci Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Wysyłanie Diagnostyki Azure do usługi Application Insights](powershell-azure-diagnostics.md)
 * [Utwórz adnotacje wydania](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

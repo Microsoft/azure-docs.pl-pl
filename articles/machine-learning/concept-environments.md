@@ -1,23 +1,22 @@
 ---
 title: Informacje o środowiskach Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Ten artykuł zawiera informacje o zaletach środowisk uczenia maszynowego, które umożliwiają powtarzalnych, poddawanych inspekcji i przenośnych definicji zależności Machine Learning w różnych obiektach docelowych obliczeń.
+description: Dowiedz się więcej o środowiskach uczenia maszynowego, które umożliwiają przeprowadzenie powtarzalnych, podlegających inspekcji, & definicji zależności przenośnej uczenia maszynowego dla różnych obiektów docelowych
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322190"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695388"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Co to są środowiska Azure Machine Learning?
-
 
 Środowiska Azure Machine Learning są hermetyzacją środowiska, w którym odbywa się szkolenie uczenia maszynowego. Określają one pakiety języka Python, zmienne środowiskowe i ustawienia oprogramowania wokół skryptów szkoleń i oceniania. Określają one również czasy wykonywania (Python, Spark lub Docker). Środowiska są zarządzane i obsługiwane przez program w obszarze roboczym Machine Learning, które umożliwiają powtarzalny, z inspekcją i przenośne przepływy pracy uczenia maszynowego w różnych celach obliczeniowych.
 
@@ -35,7 +34,7 @@ Na poniższym diagramie przedstawiono, jak można użyć pojedynczego `Environme
 
 ## <a name="types-of-environments"></a>Typy środowisk
 
-Środowiska mogą być szeroko podzielone na trzy kategorie: *nadzorowane* , *zarządzane przez użytkownika* i *zarządzane przez system*.
+Środowiska mogą być szeroko podzielone na trzy kategorie: *nadzorowane*, *zarządzane przez użytkownika* i *zarządzane przez system*.
 
 Środowiska nadzorowane są udostępniane przez Azure Machine Learning i są domyślnie dostępne w obszarze roboczym. Przeznaczone do użycia jako ", zawierają kolekcje pakietów i ustawień języka Python, które ułatwiają rozpoczęcie pracy z różnymi platformami uczenia maszynowego. Te wstępnie utworzone środowiska umożliwiają również szybszy czas wdrażania. Aby zapoznać się z pełną listą, zobacz artykuł dotyczący [środowisk nadzorowanych](resource-curated-environments.md).
 

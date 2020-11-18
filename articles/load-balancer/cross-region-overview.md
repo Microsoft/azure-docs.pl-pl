@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398015"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695065"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -74,7 +74,7 @@ Moduł równoważenia obciążenia między regionami platformy Azure używa algo
 
 Skonfigurowany tryb dystrybucji obciążenia dla regionalnych modułów równoważenia obciążenia jest używany do wykonywania ostatecznej decyzji routingu, gdy w sąsiedztwie geograficznym są używane wiele regionalnych modułów równoważenia obciążenia.
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie trybu dystrybucji dla Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie trybu dystrybucji dla Azure Load Balancer](./load-balancer-distribution-mode.md).
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Możliwość skalowania w górę/w dół za pojedynczym punktem końcowym
@@ -84,7 +84,7 @@ Po udostępnieniu globalnego punktu końcowego międzyregionowego modułu równo
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>Statyczny adres IP
-Moduł równoważenia obciążenia między regionami zawiera statyczny publiczny adres IP, który zapewnia, że adres IP pozostaje taki sam. Aby dowiedzieć się więcej o statycznym adresie IP, Przeczytaj więcej [tutaj](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
+Moduł równoważenia obciążenia między regionami zawiera statyczny publiczny adres IP, który zapewnia, że adres IP pozostaje taki sam. Aby dowiedzieć się więcej o statycznym adresie IP, Przeczytaj więcej [tutaj](../virtual-network/public-ip-addresses.md#allocation-method)
 
 ### <a name="client-ip-preservation"></a>Zachowywanie adresu IP klienta
 Moduł równoważenia obciążenia między regionami to moduł równoważenia obciążenia sieci z przekazaniem do warstwy 4. To przekazanie zachowuje oryginalny adres IP pakietu.  Oryginalny adres IP jest dostępny dla kodu uruchomionego na maszynie wirtualnej. To zachowanie umożliwia zastosowanie logiki specyficznej dla adresu IP.

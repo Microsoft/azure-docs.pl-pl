@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla HIPAA HITRUST 9,2
 description: Szczegółowe informacje na temat wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 499ecccd6d9a98b69e9e36f72fbf87d65d242f6d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c177abaea8dd6d38814e39aef7cdfd63981a6856
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310648"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694263"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2
 
@@ -86,7 +86,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-facilitates-information-sharing-by-enabling-authorized-users-to-determine-a-business-partners-access-when-discretion-is-allowed-as-defined-by-the-organization-and-by-employing-manual-processes-or-automated-mechanisms-to-assist-users-in-making-information-sharingcollaboration-decisions"></a>Organizacja ułatwia udostępnianie informacji przez umożliwienie autoryzowanym użytkownikom określenia dostępu partnera biznesowego, gdy wartość uznania jest dozwolona zgodnie z definicją w organizacji i przez zastosowanie ręcznych procesów lub zautomatyzowanych mechanizmów, aby pomóc użytkownikom w podejmowaniu decyzji dotyczących udostępniania i współpracy.
 
-**ID**: 1149.01 c2system. 9-01. c **własność**: nie dotyczy
+**ID**: 1149.01 c2system. 9-01. c **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -94,7 +94,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-access-control-system-for-the-system-components-storing-processing-or-transmitting-covered-information-is-set-with-a-default-quotdeny-allquot-setting"></a>System kontroli dostępu dla składników systemowych przechowujących, przetwarzających lub przesyłających informacje objęte usługą jest ustawiany przy użyciu domyślnego &quot; Ustawienia Odmów — wszystkie &quot; .
 
-**ID**: 1150.01 c2system. 10-01. c, **własność**: nie dotyczy
+**ID**: 1150.01 c2system. 10-01. c **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -144,7 +144,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="remote-access-by-vendors-and-business-partners-eg-for-remote-maintenance-is-disableddeactivated-when-not-in-use"></a>Dostęp zdalny według dostawców i partnerów handlowych (np. do konserwacji zdalnej) jest wyłączony/dezaktywowany, gdy nie jest używany.
 
-**ID**: 1117.01 j1organizational. 23-01. j **własność**: nie dotyczy
+**ID**: 1117.01 j1organizational. 23-01. j **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -160,7 +160,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="network-equipment-is-checked-for-unanticipated-dial-up-capabilities"></a>Urządzenie sieciowe jest sprawdzane pod kątem nieoczekiwanych możliwości połączeń telefonicznych.
 
-**ID**: 1119.01 j2organizational. 3-01. j **własność**: nie dotyczy
+**ID**: 1119.01 j2organizational. 3-01. j **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -176,7 +176,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="if-encryption-is-not-used-for-dial-up-connections-the-cio-or-hisher-designated-representative-provides-specific-written-authorization"></a>Jeśli szyfrowanie nie jest używane na potrzeby połączeń telefonicznych, CIO lub jego wystawiony przedstawiciel zapewnia konkretną autoryzację.
 
-**ID**: 1173.01 j1organizational. 6-01. j **własność**: nie dotyczy
+**ID**: 1173.01 j1organizational. 6-01. j **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -184,7 +184,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-protects-wireless-access-to-systems-containing-sensitive-information-by-authenticating-both-users-and-devices"></a>Organizacja chroni dostęp bezprzewodowy do systemów zawierających poufne informacje przez uwierzytelnianie zarówno użytkowników, jak i urządzeń.
 
-**ID**: 1174.01 j1organizational. 7-01. j **własność**: nie dotyczy
+**ID**: 1174.01 j1organizational. 7-01. j **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -200,7 +200,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-requires-a-callback-capability-with-re-authentication-to-verify-dial-up-connections-from-authorized-locations"></a>Organizacja wymaga możliwości wywołania zwrotnego z ponownym uwierzytelnianiem w celu sprawdzenia połączeń telefonicznych z autoryzowanych lokalizacji.
 
-**ID**: 1176.01 j2organizational. 5-01. j **własność**: nie dotyczy
+**ID**: 1176.01 j2organizational. 5-01. j **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -322,7 +322,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="networks-are-segregated-from-production-level-networks-when-migrating-physical-servers-applications-or-data-to-virtualized-servers"></a>Sieci są segregowane z sieci na poziomie produkcyjnym podczas migrowania serwerów fizycznych, aplikacji lub danych do serwerów zwirtualizowanych.
 
-**ID**: 0894.01 m2organizational. 7-01. m **własność**: nie dotyczy
+**ID**: 0894.01 m2organizational. 7-01. m **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -459,7 +459,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="non-organizational-users-all-information-system-users-other-than-organizational-users-such-as-patients-customers-contractors-or-foreign-nationals-or-processes-acting-on-behalf-of-non-organizational-users-determined-to-need-access-to-information-residing-on-the-organizations-information-systems-are-uniquely-identified-and-authenticated"></a>Użytkownicy niebędący organizacjami (wszyscy użytkownicy systemu informacji, którzy nie są użytkownikami w organizacji, np. pacjentów, klienci, wykonawcy lub zagraniczni cudzoziemcy) lub procesy działające w imieniu użytkowników nienależących do organizacji, którzy mają do nich dostęp do informacji znajdujących się w systemach informatycznych firmy, są jednoznacznie identyfikowane i uwierzytelniane.
 
-**ID**: 11110.01 q1organizational. 6-01. q **własność**: nie dotyczy
+**ID**: 11110.01 q1organizational. 6-01. q **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -483,7 +483,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-requires-that-electronic-signatures-unique-to-one-individual-cannot-be-reused-by-or-reassigned-to-anyone-else"></a>Organizacja wymaga, aby podpisy elektroniczne, unikatowe dla jednej osoby, nie mogą być ponownie używane przez, ani ponownie przypisane do, inne.
 
-**ID**: 11208.01 q1organizational. 8-01. q **własność**: nie dotyczy
+**ID**: 11208.01 q1organizational. 8-01. q **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -491,7 +491,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="electronic-signatures-and-handwritten-signatures-executed-to-electronic-records-shall-be-linked-to-their-respective-electronic-records"></a>Podpisy elektroniczne i podpisy ręczne wykonywane w rekordach elektronicznych są łączone z odpowiednimi rekordami elektronicznymi.
 
-**ID**: 11210.01 q2organizational. 10-01. q **własność**: nie dotyczy
+**ID**: 11210.01 q2organizational. 10-01. q **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -499,7 +499,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="signed-electronic-records-shall-contain-information-associated-with-the-signing-in-human-readable-format"></a>Podpisane rekordy elektroniczne zawierają informacje powiązane z logowaniem w formacie czytelnym dla człowieka.
 
-**ID**: 11211.01 q2organizational. 11-01. q **własność**: nie dotyczy
+**ID**: 11211.01 q2organizational. 11-01. q **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -541,7 +541,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="remote-access-connections-between-the-organization-and-external-parties-are-encrypted"></a>Połączenia dostępu zdalnego między organizacją a zewnętrznymi stronami są szyfrowane.
 
-**ID**: 1402.05 i1organizational. 45-05. i **własność**: nie dotyczy
+**ID**: 1402.05 i1organizational. 45-05. i **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -591,7 +591,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="a-secure-audit-record-is-created-for-all-activities-on-the-system-create-read-update-delete-involving-covered-information"></a>Dla wszystkich działań w systemie tworzony jest bezpieczny rekord inspekcji (tworzenie, odczytywanie, aktualizowanie, usuwanie) obejmujących informacje objęte usługą.
 
-**ID**: 1202.09 aa1system. 1-09. AA **własność**: nie dotyczy
+**ID**: 1202.09 aa1system. 1-09. AA **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -658,7 +658,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="all-disclosures-of-covered-information-within-or-outside-of-the-organization-are-logged-including-type-of-disclosure-datetime-of-the-event-recipient-and-sender"></a>Wszystkie ujawniane informacje zawarte w organizacji lub poza nią są rejestrowane, w tym typ ujawniania, Data/godzina zdarzenia, odbiorcy i nadawcy.
 
-**ID**: 1210.09 aa3system. 3-09. AA **własność**: nie dotyczy
+**ID**: 1210.09 aa3system. 3-09. AA **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -667,7 +667,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-verifies-every-ninety-90-days-for-each-extract-of-covered-information-recorded-that-the-data-is-erased-or-its-use-is-still-required"></a>Organizacja weryfikuje co 90 (90) dni dla każdego wyodrębnienia zarejestrowanej informacji, że dane zostały wymazane lub ich użycie jest nadal wymagane.
 
-**ID**: 1211.09 aa3system. 4-09. AA **własność**: nie dotyczy
+**ID**: 1211.09 aa3system. 4-09. AA **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -891,7 +891,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="when-the-backup-service-is-delivered-by-the-third-party-the-service-level-agreement-includes-the-detailed-protections-to-control-confidentiality-integrity-and-availability-of-the-backup-information"></a>Gdy usługa tworzenia kopii zapasowych jest dostarczana przez inną firmę, umowa dotycząca poziomu usług obejmuje szczegółową ochronę, która kontroluje poufność, integralność i dostępność informacji o kopii zapasowej.
 
-**ID**: 1620.09 l1organizational. 8-09. l **własność**: nie dotyczy
+**ID**: 1620.09 l1organizational. 8-09. l **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -915,7 +915,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="covered-information-is-backed-up-in-an-encrypted-format-to-ensure-confidentiality"></a>Informacje objęte usługą są archiwizowane w zaszyfrowanym formacie w celu zapewnienia poufności.
 
-**ID**: 1623.09 l2organizational. 4-09. l **własność**: nie dotyczy
+**ID**: 1623.09 l2organizational. 4-09. l **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -939,7 +939,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-ensures-a-current-retrievable-copy-of-covered-information-is-available-before-movement-of-servers"></a>Organizacja gwarantuje, że przed przemieszczeniem serwerów dostępne są bieżące, możliwe do pobierania informacje o podanych informacjach.
 
-**ID**: 1626.09 l3organizational. 5-09. l **własność**: nie dotyczy
+**ID**: 1626.09 l3organizational. 5-09. l **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -955,7 +955,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="workforce-members-roles-and-responsibilities-in-the-data-backup-process-are-identified-and-communicated-to-the-workforce-in-particular-bring-your-own-device-byod-users-are-required-to-perform-backups-of-organizational-andor-client-data-on-their-devices"></a>Role i obowiązki członków pracowników w procesie tworzenia kopii zapasowych danych są identyfikowane i przekazywane do pracowników; w szczególności należy przystąpić do wykonywania kopii zapasowych danych organizacji i/lub klientów na swoich urządzeniach (BYOD).
 
-**ID**: 1699.09 l1organizational. 10-09. l **własność**: nie dotyczy
+**ID**: 1699.09 l1organizational. 10-09. l **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1009,7 +1009,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-builds-a-firewall-configuration-that-restricts-connections-between-un-trusted-networks-and-any-system-components-in-the-covered-information-environment-and-any-changes-to-the-firewall-configuration-are-updated-in-the-network-diagram"></a>Organizacja tworzy konfigurację zapory, która ogranicza połączenia między niezaufanymi sieciami i wszelkimi składnikami systemowymi w środowisku informacji objętych usługą. wszystkie zmiany w konfiguracji zapory są aktualizowane na diagramie sieciowym.
 
-**ID**: 0863.09 m2organizational. 910-09. m **własność**: nie dotyczy
+**ID**: 0863.09 m2organizational. 910-09. m **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1017,7 +1017,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="usage-restrictions-and-implementation-guidance-are-formally-defined-for-voip-including-the-authorization-and-monitoring-of-the-service"></a>Ograniczenia dotyczące użycia i wskazówki dotyczące implementacji są definiowane jako informacje o technologii VoIP, w tym o autoryzacji i monitorowaniu usługi.
 
-**ID**: 0864.09 m2organizational. 12-09. m **własność**: nie dotyczy
+**ID**: 0864.09 m2organizational. 12-09. m **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1025,7 +1025,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-i-authorizes-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-through-the-use-of-interconnection-security-agreements-or-other-formal-agreement-ii-documents-each-connection-the-interface-characteristics-security-requirements-and-the-nature-of-the-information-communicated-iii-employs-a-deny-all-permit-by-exception-policy-for-allowing-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-and-iv-applies-a-default-deny-rule-that-drops-all-traffic-via-host-based-firewalls-or-port-filtering-tools-on-its-endpoints-workstations-servers-etc-except-those-services-and-ports-that-are-explicitly-allowed"></a>Organizacja (i) autoryzuje połączenia od systemu informacji do innych systemów informacyjnych poza organizacją przy użyciu umów dotyczących zabezpieczeń połączeń lub innych umów formalnych; (II) dokumentuje każde połączenie, charakterystykę interfejsu, wymagania dotyczące zabezpieczeń oraz charakter przekazywanych informacji; (III) stosuje zasadę Odmów wszystkim, zezwól przez zasady wyjątku, aby zezwalać na połączenia z systemu informacji do innych systemów informacyjnych poza organizacją; i (IV) stosuje domyślną regułę odmowy, która odrzuca cały ruch za pośrednictwem zapór opartych na hoście lub narzędzi filtrowania portów w punktach końcowych (stacjach roboczych, serwerach itp.), z wyjątkiem tych usług i portów, które są jawnie dozwolone.
 
-**ID**: 0865.09 m2organizational. 13-09. m **własność**: nie dotyczy
+**ID**: 0865.09 m2organizational. 13-09. m **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1041,7 +1041,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="wireless-access-points-are-placed-in-secure-areas-and-shut-down-when-not-in-use-eg-nights-weekends"></a>Punkty dostępu bezprzewodowego są umieszczane w bezpiecznych obszarach i zamykane, gdy nie są używane (np. nocy, weekendy).
 
-**ID**: 0867.09 m3organizational. 17-09. m **własność**: nie dotyczy
+**ID**: 0867.09 m3organizational. 17-09. m **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1049,7 +1049,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-builds-a-firewall-configuration-to-restrict-inbound-and-outbound-traffic-to-that-which-is-necessary-for-the-covered-data-environment"></a>Organizacja tworzy konfigurację zapory w celu ograniczenia ruchu przychodzącego i wychodzącego do programu, który jest niezbędny dla środowiska danych objętych usługą.
 
-**ID**: 0868.09 m3organizational. 18-09. m **własność**: nie dotyczy
+**ID**: 0868.09 m3organizational. 18-09. m **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1108,7 +1108,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-reviews-and-updates-the-interconnection-security-agreements-on-an-ongoing-basis-verifying-enforcement-of-security-requirements"></a>Organizacja przegląda i aktualizuje umowy dotyczące zabezpieczeń połączeń, które regularnie sprawdzają, czy zostały spełnione wymagania dotyczące zabezpieczeń.
 
-**Identyfikator**: 0885.09 n2organizational. 3-09. n **własność**: nie dotyczy
+**ID**: 0885.09 n2organizational. 3-09. n **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1132,7 +1132,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-contract-with-the-externaloutsourced-service-provider-includes-the-specification-that-the-service-provider-is-responsible-for-the-protection-of-covered-information-shared"></a>Umowa z dostawcą usług zewnętrznych/zewnętrznymi zawiera specyfikację, którą dostawca usług odpowiada za ochronę udostępnionej informacji.
 
-**Identyfikator**: 0888.09 n2organizational. 6-09. n **własność**: nie dotyczy
+**ID**: 0888.09 n2organizational. 6-09. n **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1142,7 +1142,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-based-on-the-data-classification-level-registers-media-including-laptops-prior-to-use-places-reasonable-restrictions-on-how-such-media-be-used-and-provides-an-appropriate-level-of-physical-and-logical-protection-including-encryption-for-media-containing-covered-information-until-properly-destroyed-or-sanitized"></a>W organizacji, na podstawie poziomu klasyfikacji danych, rejestruje nośniki (w tym laptopy) przed użyciem, umieszcza uzasadnione ograniczenia dotyczące tego nośnika, a także zapewnia odpowiedni poziom ochrony fizycznej i logicznej (w tym szyfrowania) na nośniku zawierającym informacje objęte usługą, dopóki nie zostaną odpowiednio zniszczone lub oczyszczone.
 
-**ID**: 0301.09 o1organizational. 123-09. o **własności**: nie dotyczy
+**ID**: 0301.09 o1organizational. 123-09. o **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1150,7 +1150,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-protects-and-controls-media-containing-sensitive-information-during-transport-outside-of-controlled-areas"></a>Organizacja chroni i kontroluje multimedia zawierające informacje poufne podczas transportu poza obszary kontrolowane.
 
-**ID**: 0302.09 o2organizational. 1-09. o **własności**: nie dotyczy
+**ID**: 0302.09 o2organizational. 1-09. o **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1158,7 +1158,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="digital-and-non-digital-media-requiring-restricted-use-and-the-specific-safeguards-used-to-restrict-their-use-are-identified"></a>Nośniki cyfrowe i niecyfrowe wymagające ograniczonego użycia i określonych zabezpieczeń, aby ograniczyć ich użycie.
 
-**Identyfikator**: 0303.09 o2organizational. 2-09. o **własności**: nie dotyczy
+**ID**: 0303.09 o2organizational. 2-09. o **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1166,7 +1166,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-restricts-the-use-of-writable-removable-media-and-personally-owned-removable-media-in-organizational-systems"></a>Organizacja ogranicza korzystanie z zapisywalnych nośników wymiennych i prywatnych nośników wymiennych w systemach organizacji.
 
-**ID**: 0304.09 o3organizational. 1-09. o **własności**: nie dotyczy
+**ID**: 0304.09 o3organizational. 1-09. o **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1234,7 +1234,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-limits-the-use-of-organization-controlled-portable-storage-media-by-authorized-individuals-on-external-information-systems"></a>Organizacja ogranicza użycie przenośnych nośników magazynu chronionych przez organizację przez autoryzowanych użytkowników w zewnętrznych systemach informacyjnych.
 
-**Identyfikator**: 0915.09 s2organizational. 2-09 **. s:** nie dotyczy
+**ID**: 0915.09 s2organizational. 2-09. s **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1242,7 +1242,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-information-system-prohibits-remote-activation-of-collaborative-computing-devices-and-provides-an-explicit-indication-of-use-to-users-physically-present-at-the-devices"></a>System informacji zabrania zdalnej aktywacji współpracujących urządzeń komputerowych i zapewnia jawne wskazanie użycia użytkownikom fizycznie na urządzeniach.
 
-**Identyfikator**: 0916.09 s2organizational. 4-09 **. s:** nie dotyczy
+**ID**: 0916.09 s2organizational. 4-09. s — **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1268,7 +1268,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="data-involved-in-electronic-commerce-and-online-transactions-is-checked-to-determine-if-it-contains-covered-information"></a>Dane związane z handlem elektronicznym i transakcjami online są sprawdzane w celu ustalenia, czy zawierają informacje objęte usługą.
 
-**ID**: 0943.09 y1organizational. 1-09. y **własność**: nie dotyczy
+**ID**: 0943.09 y1organizational. 1-09. y **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1276,7 +1276,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="protocols-used-to-communicate-between-all-involved-parties-are-secured-using-cryptographic-techniques-eg-ssl"></a>Protokoły używane do komunikacji między wszystkimi zainteresowanymi stronami są zabezpieczone przy użyciu technik kryptograficznych (np. SSL).
 
-**ID**: 0945.09 y1organizational. 3-09. y **własność**: nie dotyczy
+**ID**: 0945.09 y1organizational. 3-09. y **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1284,7 +1284,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-requires-the-use-of-encryption-between-and-the-use-of-electronic-signatures-by-each-of-the-parties-involved-in-the-transaction"></a>Organizacja wymaga użycia szyfrowania między, a korzystanie z podpisów elektronicznych przez, każda ze stron uwzględnionych w transakcji.
 
-**ID**: 0946.09 y2organizational. 14-09. y **własność**: nie dotyczy
+**ID**: 0946.09 y2organizational. 14-09. y **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1292,7 +1292,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-organization-ensures-the-storage-of-the-transaction-details-are-located-outside-of-any-publicly-accessible-environments-eg-on-a-storage-platform-existing-on-the-organizations-intranet-and-not-retained-and-exposed-on-a-storage-medium-directly-accessible-from-the-internet"></a>Organizacja gwarantuje przechowywanie szczegółowych informacji o transakcji poza wszelkimi publicznie dostępnymi środowiskami (np. na platformie magazynów istniejących w intranecie organizacji) i nie są przechowywane i udostępniane na nośniku magazynującym bezpośrednio dostępnym z Internetu.
 
-**ID**: 0947.09 y2organizational. 2-09. y **własność**: nie dotyczy
+**ID**: 0947.09 y2organizational. 2-09. y **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1300,7 +1300,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="where-a-trusted-authority-is-used-eg-for-the-purposes-of-issuing-and-maintaining-digital-signatures-andor-digital-certificates-security-is-integrated-and-embedded-throughout-the-entire-end-to-end-certificatesignature-management-process"></a>W przypadku korzystania z zaufanego urzędu (np. w celu wystawiania i utrzymywania podpisów cyfrowych i/lub certyfikatów cyfrowych) zabezpieczenia są zintegrowane i wbudowane w całym całym procesie zarządzania certyfikatami/sygnaturami.
 
-**ID**: 0948.09 y2organizational. 3-09. y **własność**: nie dotyczy
+**ID**: 0948.09 y2organizational. 3-09. y **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1308,7 +1308,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="the-protocols-used-for-communications-are-enhanced-to-address-any-new-vulnerability-and-the-updated-versions-of-the-protocols-are-adopted-as-soon-as-possible"></a>Protokoły używane do komunikacji zostały udoskonalone w celu rozwiązania wszelkich nowych luk w zabezpieczeniach, a zaktualizowane wersje protokołów są wdrażane tak szybko, jak to możliwe.
 
-**ID**: 0949.09 y2organizational. 5-09. y **własność**: nie dotyczy
+**ID**: 0949.09 y2organizational. 5-09. y **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1392,7 +1392,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 ### <a name="where-development-is-outsourced-change-control-procedures-to-address-security-are-included-in-the-contracts-and-specifically-require-the-developer-to-track-security-flaws-and-flaw-resolution-within-the-system-component-or-service-and-report-findings-to-organization-defined-personnel-or-roles"></a>W przypadku, gdy programowanie jest źródłem, procedury kontroli zmian dotyczące zabezpieczeń są zawarte w umowach i wymagają, aby deweloper śledził wady zabezpieczeń i rozwiązywać wady w ramach systemu, składnika lub usługi, a także zgłaszać wyniki do personelu lub ról zdefiniowanych przez organizację.
 
-**ID**: 0640.10 k2organizational. 1012-10. y **własność**: nie dotyczy
+**ID**: 0640.10 k2organizational. 1012-10. k **własność**: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1442,7 +1442,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 |[Luki w zabezpieczeniach w konfiguracjach zabezpieczeń kontenerów należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Inspekcja luk w zabezpieczeniach na maszynach z zainstalowanym systemem Docker i wyświetlanie ich jako rekomendacji w Azure Security Center. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Serwery, które nie spełniają skonfigurowanej linii bazowej, będą monitorowane przez Azure Security Center jako zalecenia |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Przeprowadź inspekcję luk w zabezpieczeniach systemu operacyjnego w zestawach skalowania maszyn wirtualnych, aby chronić je przed atakami. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[Luki w zabezpieczeniach baz danych SQL należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitoruj wyniki skanowania oceny luk w zabezpieczeniach i zalecenia dotyczące sposobu korygowania luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Luki w zabezpieczeniach baz danych SQL należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitoruj wyniki skanowania oceny luk w zabezpieczeniach i zalecenia dotyczące sposobu korygowania luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Wykrywa luki w zabezpieczeniach wykryte przez rozwiązanie do oceny luk w zabezpieczeniach i maszyny wirtualne bez rozwiązania do oceny luk w zabezpieczeniach Azure Security Center jak zalecenia. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 |[Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniu zarządzanym SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Przeprowadź inspekcję każdego wystąpienia zarządzanego SQL, które nie ma włączonych skanów oceny luk w zabezpieczeniach. Ocena luk w zabezpieczeniach może wykrywać, śledzić i pomagać w korygowaniu potencjalnych luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Inspekcja serwerów SQL platformy Azure, które nie mają włączonej cyklicznej oceny ocen luk w zabezpieczeniach. Ocena luk w zabezpieczeniach może wykrywać, śledzić i pomagać w korygowaniu potencjalnych luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
@@ -1502,7 +1502,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Luki w zabezpieczeniach baz danych SQL należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitoruj wyniki skanowania oceny luk w zabezpieczeniach i zalecenia dotyczące sposobu korygowania luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Luki w zabezpieczeniach baz danych SQL należy skorygować](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitoruj wyniki skanowania oceny luk w zabezpieczeniach i zalecenia dotyczące sposobu korygowania luk w zabezpieczeniach bazy danych. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
 ### <a name="vulnerability-scanning-tools-include-the-capability-to-readily-update-the-information-system-vulnerabilities-scanned"></a>Narzędzia do skanowania luk w zabezpieczeniach obejmują możliwość łatwego aktualizowania skanowanych luk w zabezpieczeniach systemu informacji.
 
@@ -1544,7 +1544,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Key Vault obiektów powinno być możliwe do odzyskania](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Ta zasada przeprowadza inspekcję w przypadku braku możliwości odzyskania obiektów magazynu kluczy. Funkcja usuwania nietrwałego pomaga efektywnie przechowywać zasoby dla danego okresu przechowywania (90 dni) nawet po operacji usuwania, jednocześnie zapewniając, że obiekt jest usuwany. Gdy jest włączona ochrona przed czyszczeniem, nie można wyczyścić magazynu lub obiektu w stanie usuniętym, dopóki nie zostanie przekroczony okres przechowywania 90 dni. Te magazyny i obiekty nadal mogą być odzyskiwane, dzięki czemu klienci będą przestrzegani zasad przechowywania. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Magazyn kluczy powinien mieć włączoną ochronę przed czyszczeniem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Złośliwe usunięcie magazynu kluczy może prowadzić do utraty danych trwałych. Złośliwy Tester w organizacji może być w stanie uzyskać dostęp do usuwania i przeczyszczania magazynów kluczy. Ochrona przed przeczyszczeniem chroni przed atakami z niejawnym testerem, wymuszając obowiązkowy okres przechowywania dla nieusuniętych magazynów kluczy. Nikt nie jest w Twojej organizacji, a firma Microsoft będzie mogła przeczyścić Twoje magazyny kluczy w okresie przechowywania nietrwałego. |Inspekcja, Odmów, wyłączone |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="business-impact-analysis-are-used-to-evaluate-the-consequences-of-disasters-security-failures-loss-of-service-and-service-availability"></a>Analiza wpływu na działalność biznesową służy do analizowania konsekwencji awarii, błędów zabezpieczeń, utraty usługi i dostępności usług.
 

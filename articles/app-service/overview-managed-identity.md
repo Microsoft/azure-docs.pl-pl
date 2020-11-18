@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145841"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696986"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -27,23 +27,23 @@ W tym temacie pokazano, jak utworzyć zarządzaną tożsamość dla App Service 
 
 Utworzenie aplikacji z tożsamością przypisaną przez system wymaga, aby w aplikacji była ustawiona dodatkowa właściwość.
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzyć aplikację w zwykły sposób, a następnie włączyć tę funkcję.
 
 1. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 
-2. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy** . W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
+2. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy**. W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
 
-3. Wybierz pozycję **tożsamość** .
+3. Wybierz pozycję **tożsamość**.
 
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone** . Kliknij pozycję **Zapisz** .
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij pozycję **Zapisz**.
 
     ![Zrzut ekranu pokazujący lokalizację, w której ma zostać przełączony stan, a następnie wybierz pozycję Zapisz.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Aby znaleźć tożsamość zarządzaną aplikacji sieci Web lub aplikacji w gnieździe w Azure Portal, w obszarze **aplikacje dla przedsiębiorstw** , zapoznaj się z sekcją **Ustawienia użytkownika** . Zwykle nazwa gniazda jest podobna do `<app name>/slots/<slot name>` .
+> Aby znaleźć tożsamość zarządzaną aplikacji sieci Web lub aplikacji w gnieździe w Azure Portal, w obszarze **aplikacje dla przedsiębiorstw**, zapoznaj się z sekcją **Ustawienia użytkownika** . Zwykle nazwa gniazda jest podobna do `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -190,7 +190,7 @@ Jeśli musisz odwołać się do tych właściwości w późniejszym etapie szabl
 
 Utworzenie aplikacji z tożsamością przypisaną przez użytkownika wymaga utworzenia tożsamości, a następnie dodania jej identyfikatora zasobu do konfiguracji aplikacji.
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Najpierw należy utworzyć zasób tożsamości przypisany przez użytkownika.
 
@@ -198,13 +198,13 @@ Najpierw należy utworzyć zasób tożsamości przypisany przez użytkownika.
 
 2. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 
-3. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy** . W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
+3. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy**. W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
 
-4. Wybierz pozycję **tożsamość** .
+4. Wybierz pozycję **tożsamość**.
 
-5. Na karcie **przypisane przez użytkownika** kliknij przycisk **Dodaj** .
+5. Na karcie **przypisane przez użytkownika** kliknij przycisk **Dodaj**.
 
-6. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Kliknij pozycję **Dodaj** .
+6. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Kliknij pozycję **Dodaj**.
 
     ![Tożsamość zarządzana w App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -328,7 +328,7 @@ Aplikacja z zarządzaną tożsamością ma zdefiniowane dwie zmienne środowisko
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | zasób          | Zapytanie  | Identyfikator URI zasobu usługi Azure AD dla zasobu, dla którego ma zostać uzyskany token. Może to być jedna z [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) lub dowolny inny identyfikator URI zasobu.    |
 > | api-version       | Zapytanie  | Wersja interfejsu API tokenu, który ma być używany. Użyj "2019-08-01" lub nowszej (chyba że korzystasz z używania systemu Linux, które obecnie tylko oferują wartość "2017-09-01" — Zobacz uwagi powyżej).                                                                                                                                                                                                                                                                 |
-> | ZNAK X-IDENTITY-HEADER | Header | Wartość zmiennej środowiskowej IDENTITY_HEADER. Ten nagłówek jest używany, aby pomóc w ograniczeniu ataków SSRF (po stronie serwera).                                                                                                                                                                                                    |
+> | ZNAK X-IDENTITY-HEADER | Nagłówek | Wartość zmiennej środowiskowej IDENTITY_HEADER. Ten nagłówek jest używany, aby pomóc w ograniczeniu ataków SSRF (po stronie serwera).                                                                                                                                                                                                    |
 > | client_id         | Zapytanie  | Obowiązkowe Identyfikator klienta tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `mi_res_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                             |
 > | principal_id      | Zapytanie  | Obowiązkowe Identyfikator podmiotu zabezpieczeń przypisany do tożsamości przypisanej do użytkownika. `object_id` jest aliasem, który może być używany w zamian. Nie można użyć dla żądania, które zawiera client_id, mi_res_id lub object_id. Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu. |
 > | mi_res_id         | Zapytanie  | Obowiązkowe Identyfikator zasobu platformy Azure dla tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `client_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                      |
@@ -345,7 +345,7 @@ Pomyślne odpowiedź 200 OK zawiera treść JSON o następujących właściwośc
 > | expires_on    | Wartość TimeSpan w przypadku wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0: 0Z UTC" (odpowiada na `exp` żądania tokenu).                                                                                |
 > | not_before    | Przedział czasu, gdy token dostępu zaczyna obowiązywać i można go zaakceptować. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0: 0Z UTC" (odpowiada na `nbf` żądania tokenu).                                                      |
 > | zasób      | Zasób, dla którego zażądano tokenu dostępu, który jest zgodny z `resource` parametrem ciągu zapytania żądania.                                                                                                                               |
-> | token_type    | Wskazuje wartość typu tokenu. Jedynym typem obsługiwanym przez usługę Azure AD jest FBearer. Aby uzyskać więcej informacji o tokenach okaziciela, zobacz [Framework uwierzytelniania OAuth 2,0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+> | token_type    | Wskazuje wartość typu tokenu. Jedynym typem obsługiwanym przez usługę Azure AD jest znak. Aby uzyskać więcej informacji o tokenach okaziciela, zobacz [Framework uwierzytelniania OAuth 2,0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Ta odpowiedź jest taka sama jak [odpowiedź na żądanie tokenu dostępu usługi Azure AD do usługi](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
@@ -427,7 +427,7 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"

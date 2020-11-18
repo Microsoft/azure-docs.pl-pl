@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409879"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696102"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -156,9 +156,9 @@ Firmy zorientowane na zabezpieczenia powinny skupić się na umożliwieniu praco
 
 ![Bezpieczny dostęp do zasobów](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Przy użyciu kontroli dostępu opartej na rolach można przeprowadzić segregowanie zadań w ramach zespołu i nadać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań. Zamiast udzielać każdemu nieograniczonyemu dostępowi do subskrypcji lub zasobów platformy Azure, możesz zezwolić tylko na niektóre akcje. Na przykład użyj RBAC, aby umożliwić jednemu pracownikowi zarządzanie maszynami wirtualnymi w ramach subskrypcji, podczas gdy inna usługa może zarządzać bazami danych SQL w ramach tej samej subskrypcji.
+Przy użyciu kontroli RBAC na platformie Azure można przeprowadzać segregowanie zadań w ramach zespołu i nadawać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań. Zamiast udzielać każdemu nieograniczonyemu dostępowi do subskrypcji lub zasobów platformy Azure, możesz zezwolić tylko na niektóre akcje. Na przykład użyj usługi Azure RBAC, aby umożliwić jednemu pracownikowi zarządzanie maszynami wirtualnymi w ramach subskrypcji, podczas gdy inna usługa może zarządzać bazami danych SQL w ramach tej samej subskrypcji.
 
-![Bezpieczny dostęp do zasobów na platformie Azure (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Bezpieczny dostęp do zasobów przy użyciu usługi Azure RBAC](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>Bezpieczeństwo i szyfrowanie danych
 
@@ -422,7 +422,7 @@ Usługa Resource Manager zapewnia kilka korzyści:
 
 - Można zdefiniować zależności między zasobami, aby zostały wdrożone w odpowiedniej kolejności.
 
-- Możliwość stosowania kontroli dostępu do wszystkich usług w grupie zasobów dzięki natywnej integracji funkcji kontroli dostępu na podstawie ról z platformą zarządzania.
+- Kontrolę dostępu można stosować do wszystkich usług w grupie zasobów, ponieważ kontrola dostępu oparta na rolach na platformie Azure (RBAC) jest natywnie zintegrowana z platformą zarządzania.
 
 - Możliwość dodawania tagów do zasobów w celu logicznego uporządkowania wszystkich zasobów w ramach subskrypcji.
 

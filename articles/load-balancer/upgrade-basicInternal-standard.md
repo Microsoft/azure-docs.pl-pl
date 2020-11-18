@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500253"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696170"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uaktualnij usługę Azure Internal Load Balancer — nie jest wymagane połączenie wychodzące
-[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](./skus.md#skus).
 
 W tym artykule wprowadzono skrypt programu PowerShell, który tworzy usługa Load Balancer w warstwie Standardowa z taką samą konfiguracją jak podstawowa Load Balancer, a także migruje ruch z podstawowych Load Balancer do usługa Load Balancer w warstwie Standardowa.
 
@@ -23,14 +23,14 @@ W tym artykule wprowadzono skrypt programu PowerShell, który tworzy usługa Loa
 
 Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności:
 
-* Tworzy standardowy wewnętrzny Load Balancer jednostki SKU w określonej lokalizacji. Należy pamiętać, że żadne [połączenie wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) nie zostanie dostarczone przez standardową Load Balancer wewnętrzny.
+* Tworzy standardowy wewnętrzny Load Balancer jednostki SKU w określonej lokalizacji. Należy pamiętać, że żadne [połączenie wychodzące](./load-balancer-outbound-connections.md) nie zostanie dostarczone przez standardową Load Balancer wewnętrzny.
 * Bezproblemowo kopiuje konfiguracje podstawowej jednostki SKU Load Balancer do nowo utworzonego usługa Load Balancer w warstwie Standardowa.
 * Bezproblemowo przenoś prywatne adresy IP z podstawowego Load Balancer do nowo utworzonego usługa Load Balancer w warstwie Standardowa.
 * Bezproblemowo Przenieś maszyny wirtualne z puli zaplecza podstawowego Load Balancer do puli zaplecza usługa Load Balancer w warstwie Standardowa
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Skrypt obsługuje tylko wewnętrzne uaktualnienie Load Balancer, w którym nie jest wymagane połączenie wychodzące. Jeśli wymagane jest [połączenie wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) dla niektórych maszyn wirtualnych, Skorzystaj z tej [strony](upgrade-InternalBasic-To-PublicStandard.md) , aby uzyskać instrukcje. 
+* Skrypt obsługuje tylko wewnętrzne uaktualnienie Load Balancer, w którym nie jest wymagane połączenie wychodzące. Jeśli wymagane jest [połączenie wychodzące](./load-balancer-outbound-connections.md) dla niektórych maszyn wirtualnych, Skorzystaj z tej [strony](upgrade-InternalBasic-To-PublicStandard.md) , aby uzyskać instrukcje. 
 * Podstawowa Load Balancer musi znajdować się w tej samej grupie zasobów co maszyny wirtualne zaplecza i karty sieciowe.
 * Jeśli w innym regionie zostanie utworzony standardowy moduł równoważenia obciążenia, nie będzie możliwe skojarzenie maszyn wirtualnych istniejących w starym regionie z nowo utworzonymi usługa Load Balancer w warstwie Standardowa. Aby obejść to ograniczenie, należy utworzyć nową maszynę wirtualną w nowym regionie.
 * Jeśli Load Balancer nie ma żadnej konfiguracji adresu IP frontonu lub puli zaplecza, można napotkać błąd podczas uruchamiania skryptu. Upewnij się, że nie są puste.
@@ -39,9 +39,9 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz podstawową Load Balancer z listy zasoby.
 
-2. W obszarze **Ustawienia**wybierz pozycję **Konfiguracja adresu IP frontonu**, a następnie wybierz pierwszą konfigurację adresu IP frontonu. 
+2. W obszarze **Ustawienia** wybierz pozycję **Konfiguracja adresu IP frontonu**, a następnie wybierz pierwszą konfigurację adresu IP frontonu. 
 
-3. W obszarze **przypisywanie**wybierz pozycję **statyczny** .
+3. W obszarze **przypisywanie** wybierz pozycję **statyczny** .
 
 4. Powtórz krok 3 dla wszystkich konfiguracji adresu IP frontonu podstawowego Load Balancer.
 

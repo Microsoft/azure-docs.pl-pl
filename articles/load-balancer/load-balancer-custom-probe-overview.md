@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241824"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695524"
 ---
 # <a name="load-balancer-health-probes"></a>Sondy kondycji usługi Load Balancer
 
@@ -121,7 +121,7 @@ Poniżej pokazano, jak można wyrazić ten rodzaj konfiguracji sondy w szablonie
 ### <a name="http--https-probe"></a><a name="httpprobe"></a><a name="httpsprobe"></a>Sonda protokołu HTTP/HTTPS
 
 >[!NOTE]
->Sonda HTTPS jest dostępna tylko dla [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
+>Sonda HTTPS jest dostępna tylko dla [Usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md).
 
 Sondy protokołu HTTP i HTTPS kompilują sondę TCP i wystawią HTTP GET z określoną ścieżką. Obie te sondy obsługują ścieżki względne dla HTTP GET. Sondy HTTPS są takie same jak sondy HTTP z dodaniem Transport Layer Security (TLS, wcześniej znanego jako SSL) otoki. Sonda kondycji jest oznaczona, gdy wystąpienie reaguje na stan HTTP 200 w określonym limicie czasu.  Sonda kondycji próbuje domyślnie sprawdzić skonfigurowany port sondy kondycji co 15 sekund. Minimalny interwał sondy to 5 sekund. Łączny czas trwania wszystkich interwałów nie może przekroczyć 120 sekund.
 
@@ -169,7 +169,7 @@ Role usługi w chmurze (role procesów roboczych i role sieci Web) domyślnie u�
 
 Sonda agenta Gościa to sprawdzenie agenta gościa w ramach maszyny wirtualnej. Następnie nasłuchuje i reaguje na odpowiedź HTTP 200 OK tylko wtedy, gdy wystąpienie jest w stanie gotowe. (Inne stany są zajęte, odtwarzane lub zatrzymywane).
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie pliku definicji usługi (csdef) dla sond kondycji](https://msdn.microsoft.com/library/azure/ee758710.aspx) lub Rozpoczynanie [pracy przez utworzenie publicznego modułu równoważenia obciążenia dla usług Cloud Services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie pliku definicji usługi (csdef) dla sond kondycji](/previous-versions/azure/reference/ee758710(v=azure.100)) lub Rozpoczynanie [pracy przez utworzenie publicznego modułu równoważenia obciążenia dla usług Cloud Services](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 Jeśli Agent gościa nie odpowie przy użyciu protokołu HTTP 200 OK, moduł równoważenia obciążenia oznaczy wystąpienie jako nieodpowiadające. Następnie przestaje wysyłać przepływy do tego wystąpienia. Moduł równoważenia obciążenia kontynuuje sprawdzanie wystąpienia. 
 
@@ -215,7 +215,7 @@ Jeśli wszystkie sondy dla wszystkich wystąpień w puli zaplecza zakończą si�
 
 Load Balancer używa rozproszonej usługi Bing dla swojego wewnętrznego modelu kondycji. Usługa Bing znajduje się na każdym hoście, na którym maszyny wirtualne i może być zaprogramowana na żądanie w celu wygenerowania sond kondycji zgodnie z konfiguracją klienta. Ruch sondy kondycji jest bezpośrednio między usługą sondowania, która generuje sondę kondycji i maszynę wirtualną klienta. Wszystkie sondy kondycji Load Balancer pochodzą z adresu IP 168.63.129.16 jako ich źródła.  Możesz użyć przestrzeni adresów IP wewnątrz sieci wirtualnej, która nie jest RFC1918.  Użycie zastrzeżonej globalnie adresu IP firmy Microsoft zmniejsza szansę, że adres IP jest w konflikcie z przestrzenią adresów IP używaną wewnątrz sieci wirtualnej.  Ten adres IP jest taki sam we wszystkich regionach i nie jest narażony na bezpieczeństwo, ponieważ tylko wewnętrzny składnik platformy platformy Azure może posłużyć do podzielenia pakietu z tego adresu IP. 
 
-Tag usługi AzureLoadBalancer identyfikuje ten źródłowy adres IP w [sieciowych grupach zabezpieczeń](../virtual-network/security-overview.md) i domyślnie zezwala na ruch sondy kondycji.
+Tag usługi AzureLoadBalancer identyfikuje ten źródłowy adres IP w [sieciowych grupach zabezpieczeń](../virtual-network/network-security-groups-overview.md) i domyślnie zezwala na ruch sondy kondycji.
 
 Oprócz Load Balancer sond kondycji [następujące operacje używają tego adresu IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
@@ -233,15 +233,15 @@ Czasami może być przydatne, aby aplikacja mogła wygenerować odpowiedź sondy
 
 W przypadku równoważenia obciążenia UDP należy wygenerować niestandardowy sygnał sondy kondycji z punktu końcowego zaplecza i użyć sondy kondycji protokołu TCP, HTTP lub HTTPS dla odpowiedniego odbiornika, aby odzwierciedlić kondycję aplikacji UDP.
 
-W przypadku używania [portów ha zasad równoważenia obciążenia](load-balancer-ha-ports-overview.md) z [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)wszystkie porty są zrównoważone obciążenie, a pojedyncza odpowiedź sondy kondycji musi odzwierciedlać stan całego wystąpienia.
+W przypadku używania [portów ha zasad równoważenia obciążenia](load-balancer-ha-ports-overview.md) z [Usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md)wszystkie porty są zrównoważone obciążenie, a pojedyncza odpowiedź sondy kondycji musi odzwierciedlać stan całego wystąpienia.
 
 Nie należy tłumaczyć ani proxy sondy kondycji za pomocą wystąpienia, które odbiera sondę kondycji z innym wystąpieniem w sieci wirtualnej, ponieważ ta konfiguracja może prowadzić do błędów kaskadowych w Twoim scenariuszu.  Rozważmy następujący scenariusz: zestaw urządzeń innych firm jest wdrażany w puli zaplecza zasobu Load Balancer w celu zapewnienia skalowalności i nadmiarowości dla urządzeń, a sonda kondycji jest skonfigurowana do sondowania portu, który jest używany przez serwery proxy urządzenia innej firmy lub który tłumaczy na inne maszyny wirtualne znajdujące się za urządzeniem.  W przypadku sondowania tego samego portu, który jest używany do tłumaczenia lub żądania proxy na inne maszyny wirtualne za urządzeniem, Każda odpowiedź sondy z pojedynczej maszyny wirtualnej za urządzeniem spowoduje oznaczenie samego urządzenia jako nieaktywnego. Ta konfiguracja może prowadzić do niepowodzenia kaskadowego całego scenariusza aplikacji w wyniku pojedynczego punktu końcowego zaplecza za urządzeniem.  Wyzwalacz może być sporadycznym błędem sondy, co spowoduje, że Load Balancer oznaczyć pierwotne miejsce docelowe (wystąpienie urządzenia) i z kolei może wyłączyć cały scenariusz aplikacji. Należy sondować kondycję samego urządzenia. Wybór sondy do określenia sygnału kondycji jest ważnym zagadnieniem dotyczącym scenariuszy sieciowych urządzeń wirtualnych (urządzenie WUS) i należy skontaktować się z dostawcą aplikacji w celu uzyskania odpowiedniego sygnału kondycji dla takich scenariuszy.
 
 Jeśli nie zezwolisz na [źródłowy adres IP](#probesource) sondy w zasadach zapory, sonda kondycji zakończy się niepowodzeniem, ponieważ nie można nawiązać połączenia z wystąpieniem.  Z kolei Load Balancer oznaczy wystąpienie z powodu błędu sondy kondycji.  Ta niepowodzna konfiguracja może spowodować niepowodzenie scenariusza aplikacji ze zrównoważonym obciążeniem.
 
-Aby można było oznaczyć wystąpienie Load Balancer sondy kondycji, **należy** zezwolić na ten adres IP w dowolnych [grupach zabezpieczeń sieci](../virtual-network/security-overview.md) platformy Azure i lokalnych zasadach zapory.  Domyślnie każda sieciowa Grupa zabezpieczeń zawiera [tag usługi](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer, aby zezwolić na ruch sondy kondycji.
+Aby można było oznaczyć wystąpienie Load Balancer sondy kondycji, **należy** zezwolić na ten adres IP w dowolnych [grupach zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md) platformy Azure i lokalnych zasadach zapory.  Domyślnie każda sieciowa Grupa zabezpieczeń zawiera [tag usługi](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer, aby zezwolić na ruch sondy kondycji.
 
-Jeśli chcesz przetestować błąd sondy kondycji lub oznaczyć pojedyncze wystąpienie, możesz użyć [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md) , aby jawnie zablokować sondę kondycji (port docelowy lub [źródłowy adres IP](#probesource)) i symulować awarię sondy.
+Jeśli chcesz przetestować błąd sondy kondycji lub oznaczyć pojedyncze wystąpienie, możesz użyć [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md) , aby jawnie zablokować sondę kondycji (port docelowy lub [źródłowy adres IP](#probesource)) i symulować awarię sondy.
 
 Nie należy konfigurować sieci wirtualnej z zakresem adresów IP należącym do firmy Microsoft, który zawiera 168.63.129.16.  Takie konfiguracje kolidują z adresem IP sondy kondycji i mogą spowodować niepowodzenie scenariusza.
 
@@ -251,7 +251,7 @@ Nie włączaj [sygnatur czasowych protokołu TCP](https://tools.ietf.org/html/rf
 
 ## <a name="monitoring"></a>Monitorowanie
 
-Publiczna i wewnętrzna [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md) uwidaczniają na punkt końcowy, a stan sondy kondycji punktu końcowego zaplecza jako metryki wielowymiarowe za Azure monitor. Te metryki mogą być używane przez inne usługi platformy Azure lub Aplikacje partnerskie. 
+Publiczna i wewnętrzna [Usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md) uwidaczniają na punkt końcowy, a stan sondy kondycji punktu końcowego zaplecza jako metryki wielowymiarowe za Azure monitor. Te metryki mogą być używane przez inne usługi platformy Azure lub Aplikacje partnerskie. 
 
 Podstawowa Publiczna Load Balancer udostępnia stan sondy kondycji podsumowany dla puli zaplecza za pośrednictwem dzienników Azure Monitor.  Dzienniki Azure Monitor nie są dostępne dla wewnętrznych podstawowych modułów równoważenia obciążenia.  Możesz użyć [dzienników Azure monitor](load-balancer-monitor-log.md) , aby sprawdzić stan kondycji sondowania publicznego modułu równoważenia obciążenia i liczbę sond. Rejestrowanie może być używane z usługą Power BI lub Operational Insights platformy Azure w celu zapewnienia statystyk dotyczących stanu kondycji modułu równoważenia obciążenia.
 
@@ -262,7 +262,7 @@ Podstawowa Publiczna Load Balancer udostępnia stan sondy kondycji podsumowany d
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)
+- Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md)
 - [Wprowadzenie do tworzenia publicznego modułu równoważenia obciążenia w Menedżer zasobów przy użyciu programu PowerShell](quickstart-load-balancer-standard-public-powershell.md)
-- [Interfejs API REST dla sond kondycji](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [Interfejs API REST dla sond kondycji](/rest/api/load-balancer/loadbalancerprobes/)
 - Zażądaj nowych możliwości sondowania kondycji za pomocą usługi [Uservoice Load Balancer](https://aka.ms/lbuservoice)

@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684848"
+ms.locfileid: "94696357"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Rozwiązywanie problemów z błędami połączeń wychodzących
 
 Ten artykuł ma na celu umożliwienie rozwiązywania typowych problemów z połączeniami wychodzącymi z Azure Load Balancer. Większość problemów z łącznością wychodzącą, którą zapewnia klient, wynika z wyczerpania portów i limitów czasu połączenia prowadzących do porzucenia pakietów. W tym artykule przedstawiono procedurę łagodzenia poszczególnych problemów.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Zarządzanie wyczerpaniem portów (z)
-[Porty](load-balancer-outbound-connections.md) tymczasowe [używane do](load-balancer-outbound-connections.md) nadania to zasób exhaustible, zgodnie z opisem w [autonomicznej maszynie wirtualnej bez publicznego adresu IP](load-balancer-outbound-connections.md) i [maszyny wirtualnej ze zrównoważonym obciążeniem bez publicznego adresu IP](load-balancer-outbound-connections.md). Możesz monitorować użycie portów tymczasowych i porównać z bieżącą alokacją, aby określić ryzyko dla lub potwierdzić wyczerpanie adresów w [tym](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) przewodniku.
+[Porty](load-balancer-outbound-connections.md) tymczasowe [używane do](load-balancer-outbound-connections.md) nadania to zasób exhaustible, zgodnie z opisem w [autonomicznej maszynie wirtualnej bez publicznego adresu IP](load-balancer-outbound-connections.md) i [maszyny wirtualnej ze zrównoważonym obciążeniem bez publicznego adresu IP](load-balancer-outbound-connections.md). Możesz monitorować użycie portów tymczasowych i porównać z bieżącą alokacją, aby określić ryzyko dla lub potwierdzić wyczerpanie adresów w [tym](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) przewodniku.
 
 Jeśli wiesz, że masz wiele wychodzących połączeń TCP lub UDP z tym samym docelowym adresem IP i portem, a następnie zauważysz, że połączenia wychodzące są zakończone niepowodzeniem lub są zalecane w przypadku wyczerpania [portów przydzielonego](load-balancer-outbound-connections.md#preallocatedports) [dostępu do danych](load-balancer-outbound-connections.md)wyjściowych, masz kilka ogólnych opcji zaradczych. Zapoznaj się z tymi opcjami i zdecyduj, co jest dostępne i najlepsze dla Twojego scenariusza. Istnieje możliwość, że co najmniej jedna może pomóc w zarządzaniu tym scenariuszem.
 

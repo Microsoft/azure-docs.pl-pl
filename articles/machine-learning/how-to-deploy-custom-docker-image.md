@@ -1,22 +1,22 @@
 ---
 title: Wdrażanie modeli przy użyciu niestandardowego obrazu platformy Docker
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać niestandardowego obrazu podstawowego platformy Docker podczas wdrażania modeli Azure Machine Learning. Gdy Azure Machine Learning udostępnia domyślny obraz podstawowy, można również użyć własnego obrazu podstawowego.
+description: Dowiedz się, jak wdrażać modele Azure Machine Learning przy użyciu niestandardowego obrazu platformy Docker. Gdy Azure Machine Learning udostępnia domyślny obraz podstawowy, można również użyć własnego obrazu podstawowego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 63089e853be825f9399081f2d39845e22b18ed2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325173"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695354"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker
 
@@ -205,7 +205,7 @@ Aby użyć obrazu niestandardowego, potrzebne są następujące informacje:
     > [!IMPORTANT]
     > W przypadku obrazów niestandardowych, które zostały utworzone, pamiętaj o uwzględnieniu wszelkich tagów, które były używane w obrazie. Na przykład, jeśli obraz został utworzony przy użyciu określonego tagu, takiego jak `:v1` . Jeśli nie korzystasz z określonego tagu podczas tworzenia obrazu, znacznik `:latest` został zastosowany.
 
-* Jeśli obraz znajduje się w __repozytorium prywatnym__ , potrzebne są następujące informacje:
+* Jeśli obraz znajduje się w __repozytorium prywatnym__, potrzebne są następujące informacje:
 
     * __Adres__ rejestru. Na przykład `myregistry.azureecr.io`.
     * __Nazwa__ główna usługi i __hasło__ , które mają dostęp do odczytu do rejestru.
@@ -234,7 +234,7 @@ Aby uzyskać więcej informacji, zobacz repozytorium [kontenerów Azure Machine 
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Korzystanie z obrazu z zestawem SDK Azure Machine Learning
 
-Aby użyć obrazu przechowywanego w **Azure Container Registry dla obszaru roboczego** lub **dostępnego publicznie rejestru kontenerów** , ustaw następujące atrybuty [środowiska](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) :
+Aby użyć obrazu przechowywanego w **Azure Container Registry dla obszaru roboczego** lub **dostępnego publicznie rejestru kontenerów**, ustaw następujące atrybuty [środowiska](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) :
 
 + `docker.enabled=True`
 + `docker.base_image`: Ustaw rejestr i ścieżkę do obrazu.

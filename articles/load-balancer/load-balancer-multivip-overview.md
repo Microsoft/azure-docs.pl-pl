@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448103"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696884"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Wiele frontonów dla Azure Load Balancer
 
 Azure Load Balancer umożliwia Równoważenie obciążenia usług na wielu portach, wielu adresach IP lub obu. W celu zrównoważenia przepływów między zestawem maszyn wirtualnych można użyć definicji publicznych i wewnętrznych modułów równoważenia obciążenia.
 
-W tym artykule opisano podstawowe informacje dotyczące tej możliwości, ważnych koncepcji i ograniczeń. Jeśli zamierzasz tylko uwidocznić usługi na jednym adresie IP, możesz znaleźć uproszczone instrukcje dotyczące konfiguracji [publicznych](load-balancer-get-started-internet-portal.md) lub [wewnętrznych](load-balancer-get-started-ilb-arm-portal.md) modułów równoważenia obciążenia. Dodawanie wielu frontonów jest przyrostem do jednej konfiguracji frontonu. Korzystając z koncepcji w tym artykule, można w dowolnym momencie rozszerzyć uproszczoną konfigurację.
+W tym artykule opisano podstawowe informacje dotyczące tej możliwości, ważnych koncepcji i ograniczeń. Jeśli zamierzasz tylko uwidocznić usługi na jednym adresie IP, możesz znaleźć uproszczone instrukcje dotyczące konfiguracji [publicznych](./quickstart-load-balancer-standard-public-portal.md) lub [wewnętrznych](./quickstart-load-balancer-standard-internal-portal.md) modułów równoważenia obciążenia. Dodawanie wielu frontonów jest przyrostem do jednej konfiguracji frontonu. Korzystając z koncepcji w tym artykule, można w dowolnym momencie rozszerzyć uproszczoną konfigurację.
 
 Podczas definiowania Azure Load Balancer konfiguracja frontonu i puli zaplecza są połączone z regułami. Sonda kondycji, do której odwołuje się reguła, służy do określania, w jaki sposób Nowe przepływy są wysyłane do węzła w puli zaplecza. Fronton (alias VIP) jest definiowany przez 3-krotkę składającą się z adresu IP (publicznego lub wewnętrznego), protokołu transportowego (UDP lub TCP) i numeru portu z reguły równoważenia obciążenia. Pula zaplecza jest kolekcją konfiguracji protokołu IP maszyn wirtualnych (część zasobu karty sieciowej), która odwołuje się do puli zaplecza Load Balancer.
 

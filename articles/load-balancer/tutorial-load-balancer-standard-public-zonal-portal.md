@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044959"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696442"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w strefie dostępności przy użyciu usługi Load Balancer w strefie Standardowa w witrynie Azure Portal
 
@@ -37,7 +37,7 @@ W tym samouczku utworzysz [wystąpienie usługi Load Balancer w warstwie Standar
 
 Aby uzyskać więcej informacji o korzystaniu ze stref dostępności usługa Load Balancer w warstwie Standardowa, zobacz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md).
 
-Jeśli wolisz, możesz również wykonać czynności przedstawione w tym samouczku przy użyciu [interfejsu wiersza polecenia platformy Azure](load-balancer-standard-public-zonal-cli.md).
+Jeśli wolisz, możesz również wykonać czynności przedstawione w tym samouczku przy użyciu [interfejsu wiersza polecenia platformy Azure](./quickstart-load-balancer-standard-public-cli.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -59,10 +59,10 @@ Usługa Load Balancer w warstwie Standardowa obsługuje tylko standardowy public
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz pozycję **Utwórz nową** i wpisz *MyResourceGroupZLB* w polu tekstowym.|
     | Nazwa                   | *myLoadBalancer*                                   |
-    | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
     | SKU           | Wybierz pozycję **Standardowy**.                          |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. |
     | Nazwa publicznego adresu IP              | Wpisz *myPublicIP* w polu tekstowym.   |
     |Strefa dostępności| Wybierz pozycję **1**.    |
 3. Na karcie **Przeglądanie + tworzenie** kliknij pozycję **Utwórz**.   
@@ -100,29 +100,29 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na połączenia przychodzące przy użyciu protokołów HTTP i Microsoft Remote Desktop Protocol (RDP) w witrynie Azure Portal.
 
 1. W menu po lewej stronie w witrynie Azure Portal wybierz pozycję **Wszystkie zasoby**. Następnie wyszukaj i wybierz sieciową grupę zabezpieczeń **myNetworkSecurityGroup**. Znajduje się ona w grupie zasobów **myResourceGroupZLB**.
-2. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń dla ruchu przychodzącego**. Następnie wybierz pozycję **Dodaj**.
+2. W obszarze **Ustawienia** wybierz pozycję **reguły zabezpieczeń dla ruchu przychodzącego**. Następnie wybierz pozycję **Dodaj**.
 3. Wprowadź następujące wartości dla reguły zabezpieczeń dla ruchu przychodzącego o nazwie **myHTTPRule**, aby umożliwić obsługę przychodzących połączeń protokołu HTTP używających portu 80:
-    - **Tag usługi**dla **źródła**.
+    - **Tag usługi** dla **źródła**.
     - **Internet** w polu **Tag usługi źródłowej**.
-    - **80**dla **docelowych zakresów portów**.
+    - **80** dla **docelowych zakresów portów**.
     - **TCP** w polu **Protokół**.
     - **Zezwalaj**, dla **akcji**.
-    - **100**dla **priorytetu**.
+    - **100** dla **priorytetu**.
     - **myHTTPRule**, dla **nazwy**.
-    - **Zezwalaj na użycie protokołu HTTP**w **opisie**.
+    - **Zezwalaj na użycie protokołu HTTP** w **opisie**.
 4. Wybierz przycisk **OK**.
  
    ![Tworzenie reguł sieciowej grupy zabezpieczeń](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Powtórz kroki od 2 do 4, aby utworzyć kolejną regułę o nazwie **myRDPRule**. Ta reguła umożliwia obsługę przychodzących połączeń protokołu RDP używających portu 3389. Ustaw następujące wartości:
-    - **Tag usługi**dla **źródła**.
+    - **Tag usługi** dla **źródła**.
     - **Internet** w polu **Tag usługi źródłowej**.
-    - **3389**dla **docelowych zakresów portów**.
+    - **3389** dla **docelowych zakresów portów**.
     - **TCP**, dla **protokołu**.
     - **Zezwalaj**, dla **akcji**.
-    - **200**dla **priorytetu**.
+    - **200** dla **priorytetu**.
     - **myRDPRule**, dla **nazwy**.
-    - **Zezwalaj na używanie protokołu RDP**na potrzeby **opisu**.
+    - **Zezwalaj na używanie protokołu RDP** na potrzeby **opisu**.
 
       ![Tworzenie reguły protokołu RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
@@ -137,7 +137,7 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
 4. Wprowadź następujące wartości ustawień maszyny wirtualnej:
     - **Strefa 1** — jako strefę dostępności, w której umieszczono maszynę wirtualną.
     -  **myVNet**. Upewnij się, że jest wybrana ta sieć wirtualna.
-    - **myVM1PIP** — jako standardowy publiczny adres IP tworzony przez użytkownika. Wybierz pozycję**Utwórz nowy**. Następnie jako typ nazwy wybierz **myVM1PIP**. W polu **Strefa** wybierz **1**. Jednostka SKU adresu IP ma domyślnie wartość Standardowa.
+    - **myVM1PIP** — jako standardowy publiczny adres IP tworzony przez użytkownika. Wybierz pozycję **Utwórz nowy**. Następnie jako typ nazwy wybierz **myVM1PIP**. W polu **Strefa** wybierz **1**. Jednostka SKU adresu IP ma domyślnie wartość Standardowa.
     - **myBackendSubnet**. Upewnij się, że jest wybrana ta podsieć.
     - **myNetworkSecurityGroup** — jako nazwę sieciowej grupy zabezpieczeń (zapory), która już istnieje.
 5. Kliknij pozycję **Wyłączone**, aby wyłączyć diagnostykę rozruchu.
@@ -175,11 +175,11 @@ W tej sekcji skonfigurujesz ustawienia modułu równoważenia obciążenia dla p
 Na potrzeby rozdzielania ruchu między maszyny wirtualne używana jest pula adresów zaplecza, zawierająca adresy IP wirtualnych kart sieciowych połączonych z modułem równoważenia obciążenia. Utwórz pulę adresów zaplecza **myBackendPool** obejmującą maszyny wirtualne **VM1** i **VM2**.
 
 1. W menu po lewej stronie wybierz pozycję **Wszystkie zasoby**. Następnie wybierz pozycję **myLoadBalancer** na liście zasobów.
-2. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**. Następnie wybierz pozycję **Dodaj**.
+2. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**. Następnie wybierz pozycję **Dodaj**.
 3. Na stronie **Dodawanie puli zaplecza** wykonaj następujące czynności:
-    - W polu nazwy wprowadź**myBackEndPool** jako nazwę puli zaplecza.
+    - W polu nazwy wprowadź **myBackEndPool** jako nazwę puli zaplecza.
     - W menu rozwijanym w obszarze **Sieć wirtualna** wybierz pozycję **myVNet**. 
-    - W przypadku **maszyn wirtualnych** i **adresów IP**Dodaj **myVM1** i **myVM2** oraz odpowiednie publiczne adresy IP.
+    - W przypadku **maszyn wirtualnych** i **adresów IP** Dodaj **myVM1** i **myVM2** oraz odpowiednie publiczne adresy IP.
 4. Wybierz pozycję **Dodaj**.
 5. Upewnij się, że w ustawieniach puli zaplecza modułu równoważenia obciążenia są wyświetlane obie maszyny wirtualne — **myVM1** i **myVM2**.
  
@@ -193,8 +193,8 @@ Sonda kondycji umożliwia modułowi równoważenia obciążenia monitorowanie st
 2. W obszarze **Ustawienia** wybierz pozycję **Sondy kondycji**. Następnie wybierz pozycję **Dodaj**.
 3. Utwórz sondę kondycji, używając następujących wartości:
     - **myHealthProbe**, jako nazwę sondy kondycji.
-    - Protokołu **http**dla typu protokołu.
-    - **80**dla numeru portu.
+    - Protokołu **http** dla typu protokołu.
+    - **80** dla numeru portu.
     - **15** — w polu **Interwał** jako liczby sekund między próbami sondy.
     - **2** — w polu **Próg złej kondycji** jako liczby kolejnych niepowodzeń sondy, które muszą wystąpić, aby maszyna wirtualna została uznana za będącą w złej kondycji.
 4. Wybierz przycisk **OK**.
@@ -209,9 +209,9 @@ Reguła modułu równoważenia obciążenia definiuje sposób dystrybucji ruchu 
 2. W obszarze **Ustawienia** wybierz pozycję **Reguły równoważenia obciążenia**. Następnie wybierz pozycję **Dodaj**.
 3. Skonfiguruj regułę równoważenia obciążenia, używając następujących wartości:
     - **myHTTPRule** — jako nazwy reguły równoważenia obciążenia.
-    - **TCP**dla typu protokołu.
-    - **80**dla numeru portu.
-    - **80**dla portu zaplecza.
+    - **TCP** dla typu protokołu.
+    - **80** dla numeru portu.
+    - **80** dla portu zaplecza.
     - **myBackendPool**, jako nazwę puli zaplecza.
     - **myHealthProbe**, jako nazwę sondy kondycji.
 4. Wybierz przycisk **OK**.

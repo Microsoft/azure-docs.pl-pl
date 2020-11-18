@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855245"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696323"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Rozwiązywanie problemów dotyczących kondycji zasobów, frontonu i dostępności zaplecza 
 
@@ -52,7 +52,7 @@ Załóżmy, że sprawdzimy nasz stan sondy kondycji i dowiesz się, że wszystki
   * Jeśli znajdziesz ten problem sieciowej grupy zabezpieczeń, Przenieś istniejącą regułę Zezwalaj lub Utwórz nową regułę o wysokim priorytecie, aby zezwolić na ruch AzureLoadBalancer
 * Sprawdź system operacyjny. Upewnij się, że maszyny wirtualne nasłuchują na porcie sondowania i przejrzyj reguły zapory systemu operacyjnego, aby upewnić się, że nie blokują one ruchu sondowania pochodzącego z adresów IP 168.63.129.16
   * Porty nasłuchiwania można sprawdzić, uruchamiając polecenie netstat — wiersz polecenia systemu Windows lub netstat-l w terminalu z systemem Linux
-* Nie umieszczaj maszyny wirtualnej urządzenie WUS na zaporze w puli zaplecza modułu równoważenia obciążenia, użyj [tras zdefiniowanych przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) do kierowania ruchu do wystąpień zaplecza za pomocą zapory
+* Nie umieszczaj maszyny wirtualnej urządzenie WUS na zaporze w puli zaplecza modułu równoważenia obciążenia, użyj [tras zdefiniowanych przez użytkownika](../virtual-network/virtual-networks-udr-overview.md#user-defined) do kierowania ruchu do wystąpień zaplecza za pomocą zapory
 * Upewnij się, że używasz odpowiedniego protokołu, jeśli korzystasz z protokołu HTTP do sondowania portu nasłuchiwania aplikacji innych niż HTTP, sonda zakończy się niepowodzeniem
 
 Jeśli użytkownik wykorzystał z tej listy kontrolnej i nadal będzie znajdował błędy sondowania kondycji, mogą występować rzadkie problemy z platformą wpływające na usługę sondowania dla wystąpień. W takim przypadku platforma Azure ma swoją kopię zapasową i zautomatyzowany alert jest wysyłany do naszego zespołu, aby szybko rozwiązać wszystkie problemy z platformą.
@@ -61,5 +61,3 @@ Jeśli użytkownik wykorzystał z tej listy kontrolnej i nadal będzie znajdowa�
 
 * [Dowiedz się więcej na temat sondy kondycji Azure Load Balancer](load-balancer-custom-probe-overview.md)
 * [Dowiedz się więcej o metrykach Azure Load Balancer](load-balancer-standard-diagnostics.md)
-
-

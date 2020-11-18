@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616182"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695269"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -154,6 +154,7 @@ W [specyfikacji protokołu standard scim 2,0](http://www.simplecloud.info/#Speci
 * Obsługuje kwerendy użytkowników lub grup, zgodnie z sekcją [3.4.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Domyślnie użytkownicy są pobierani przez ich i sprawdzani według `id` ich `username` , a `externalId` grupy są pytani przez `displayName` .  
 * Obsługuje zapytania użytkownika według identyfikatora i Menedżera, zgodnie z sekcją 3.4.2 protokołu Standard scim.  
 * Obsługuje wykonywanie zapytań względem grup według identyfikatorów i elementów członkowskich, zgodnie z sekcją 3.4.2 protokołu Standard scim.  
+* Obsługa filtru [excludedAttributes = Members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) podczas wykonywania zapytania dotyczącego zasobu grupy, zgodnie z sekcją 3.4.2.5 protokołu Standard scim.
 * Akceptuje pojedynczy token okaziciela na potrzeby uwierzytelniania i autoryzacji usługi Azure AD w aplikacji.
 * Obsługuje usuwanie nietrwałe `active=false` i przywracanie użytkownika `active=true` (obiekt użytkownika powinien być zwracany w żądaniu niezależnie od tego, czy użytkownik jest aktywny). Jedynym czasem, gdy użytkownik nie powinien być zwracany, jest to, że jest on trwale usuwany z aplikacji. 
 
@@ -762,7 +763,7 @@ Teraz, Po zaprojektowaniu schematu i zrozumieniu implementacji usługi Azure AD 
 
 Rozwiązanie składa się z dwóch projektów, _Microsoft. Standard scim_ i _Microsoft. Standard scim. WebHostSample_.
 
-Projekt _Microsoft. Standard scim_ to biblioteka, która definiuje składniki usługi sieci Web, która jest zgodna ze specyfikacją Standard scim. Deklaruje Interfejs _Microsoft. Standard scim. IProvider_ , żądania są tłumaczone na wywołania metod dostawcy, które będą działać w ramach magazynu tożsamości.
+Projekt _Microsoft. Standard scim_ to biblioteka, która definiuje składniki usługi sieci Web, która jest zgodna ze specyfikacją Standard scim. Deklaruje Interfejs _Microsoft. Standard scim. IProvider_, żądania są tłumaczone na wywołania metod dostawcy, które będą działać w ramach magazynu tożsamości.
 
 ![Podział: żądanie przetłumaczone na wywołania metod dostawcy](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
@@ -809,7 +810,7 @@ Aby uzyskać więcej informacji na temat protokołu HTTPS w ASP.NET Core Użyj n
 
 Żądania od Azure Active Directory zawierają token elementu nośnego OAuth 2,0. Każda usługa otrzymująca żądanie powinna uwierzytelniać wystawcę jako Azure Active Directory dla oczekiwanego Azure Active Directory dzierżawy.
 
-W tokenie wystawca jest identyfikowany przez zgłoszenie ISS, np `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` .. W tym przykładzie adres podstawowy wartości żądania, `https://sts.windows.net` określa Azure Active Directory jako wystawca, natomiast segment adresu względnego, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , jest unikatowym identyfikatorem dzierżawy Azure Active Directory, dla którego został wystawiony token.
+W tokenie wystawca jest identyfikowany przez zgłoszenie ISS, np `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` .. W tym przykładzie adres podstawowy wartości żądania, `https://sts.windows.net` określa Azure Active Directory jako wystawca, natomiast segment adresu względnego, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, jest unikatowym identyfikatorem dzierżawy Azure Active Directory, dla którego został wystawiony token.
 
 Odbiorcy tokenu będą IDENTYFIKATORem szablonu aplikacji dla aplikacji w galerii, a każda z aplikacji zarejestrowanych w jednej dzierżawie może otrzymać to samo `iss` żądanie z żądaniami Standard scim. Identyfikator szablonu aplikacji dla wszystkich aplikacji niestandardowych to _8adf8e6e-67b2-4cf2-A259-e3dc5476c621_. Tokenu wygenerowanego przez usługę Azure AD Provisioning należy używać tylko do celów testowych. Nie powinna być używana w środowiskach produkcyjnych.
 
@@ -1149,7 +1150,7 @@ Aplikacje obsługujące profil Standard scim opisany w tym artykule mogą być p
 8. Jeśli punkt końcowy Standard scim wymaga tokenu okaziciela OAuth od wystawcy innego niż usługa Azure AD, a następnie skopiuj wymagany token okaziciela OAuth do pola opcjonalnego **tokenu tajnego** . Jeśli to pole pozostanie puste, usługa Azure AD zawiera token okaziciela OAuth wystawiony przez usługę Azure AD za pomocą każdego żądania. Aplikacje korzystające z usługi Azure AD jako dostawca tożsamości mogą sprawdzić poprawność tego tokenu wystawionego przez usługę Azure AD. 
    > [!NOTE]
    > *_Nie_* jest zalecane, aby pozostawić to pole puste i polegać na tokenie wygenerowanym przez usługę Azure AD. Ta opcja jest dostępna głównie do celów testowych.
-9. Wybierz _ *Testuj połączenie* *, aby Azure Active Directory próbę nawiązania połączenia z punktem końcowym Standard scim. Jeśli próba nie powiedzie się, zostanie wyświetlony komunikat o błędzie.  
+9. Wybierz _ *Testuj połączenie**, aby Azure Active Directory próbę nawiązania połączenia z punktem końcowym Standard scim. Jeśli próba nie powiedzie się, zostanie wyświetlony komunikat o błędzie.  
 
     > [!NOTE]
     > **Test connection** wysyła zapytanie do punktu końcowego Standard scim dla użytkownika, który nie istnieje, przy użyciu losowego identyfikatora GUID jako pasującej właściwości wybranej w konfiguracji usługi Azure AD. Oczekiwana prawidłowa odpowiedź to HTTP 200 OK z pustym komunikatem Standard scim ListResponse.

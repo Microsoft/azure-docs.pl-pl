@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla usług CIS Microsoft Azure testy porównawcze
 description: Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1f9379427be69ecf8a07000744f0410c9b34f13c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320591"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696935"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi
 
@@ -339,7 +339,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>Upewnij się, że czas przechowywania dziennika aktywności jest ustawiony na 365 dni lub więcej
 
-**Identyfikator**: **prawa własności**WNP platformy Azure: klient
+**Identyfikator**: **prawa własności** WNP platformy Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -363,7 +363,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Upewnij się, że konto magazynu zawierające kontener z dziennikami aktywności jest zaszyfrowane za pomocą BYOK (Użyj własnego klucza)
 
-**Identyfikator**: 5.1.6 **własność**usługi CIS Azure: klient
+**Identyfikator**: 5.1.6 **własność** usługi CIS Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -371,7 +371,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Upewnij się, że rejestrowanie dla magazynu kluczy platformy Azure jest włączone
 
-**Identyfikator**: 5.1.7 **własność**usługi CIS Azure: klient
+**Identyfikator**: 5.1.7 **własność** usługi CIS Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Dla określonych operacji zasad powinien istnieć alert dziennika aktywności](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Ta zasada przeprowadza inspekcję określonych operacji zasad bez skonfigurowanych alertów dziennika aktywności. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
+|[Dla określonych operacji zasad powinien istnieć alert dziennika aktywności](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Ta zasada przeprowadza inspekcję określonych operacji zasad bez skonfigurowanych alertów dziennika aktywności. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Upewnij się, że alert dziennika aktywności istnieje dla tworzenia lub aktualizowania sieciowej grupy zabezpieczeń
 
@@ -395,7 +395,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>Upewnij się, że alert dziennika aktywności istnieje dla operacji usuwania sieciowej grupy zabezpieczeń
 
-**Identyfikator**: **własność**usługi CIS Azure 5.2.3: klient
+**Identyfikator**: **własność** usługi CIS Azure 5.2.3: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>Upewnij się, że alert dziennika aktywności istnieje dla reguły tworzenia lub aktualizowania sieciowej grupy zabezpieczeń
 
-**Identyfikator**: **własność**usługi CIS Azure 5.2.4: klient
+**Identyfikator**: **własność** usługi CIS Azure 5.2.4: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -411,7 +411,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>Upewnij się, że alert dziennika aktywności istnieje dla reguły usuwania sieciowej grupy zabezpieczeń
 
-**Identyfikator**: 5.2.5 **własność**usługi CIS Azure: klient
+**Identyfikator**: 5.2.5 **własność** usługi CIS Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>Upewnij się, że alert dziennika aktywności istnieje dla rozwiązania do tworzenia lub aktualizacji zabezpieczeń
 
-**Identyfikator**: 5.2.6 **własność**usługi CIS Azure: klient
+**Identyfikator**: 5.2.6 **własność** usługi CIS Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>Upewnij się, że dla rozwiązania do usuwania zabezpieczeń istnieje alert dziennika aktywności
 
-**Identyfikator**: 5.2.7 **własność**usługi CIS Azure: klient
+**Identyfikator**: 5.2.7 **własność** usługi CIS Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -435,7 +435,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>Upewnij się, że alert dziennika aktywności istnieje dla reguły zapory tworzenia lub aktualizowania lub usuwania SQL Server
 
-**Identyfikator**: 5.2.8 **własność**usługi CIS Azure: klient
+**Identyfikator**: 5.2.8 **własność** usługi CIS Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -443,7 +443,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>Upewnij się, że alert dziennika aktywności istnieje dla zasad zabezpieczeń aktualizacji
 
-**Identyfikator**: 5.2.9 **własność**usługi CIS Azure: klient
+**Identyfikator**: 5.2.9 **własność** usługi CIS Azure: klient
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -475,7 +475,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 |---|---|---|---|
 |[Network Watcher powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher to usługa regionalna, która umożliwia monitorowanie i diagnozowanie warunków na poziomie scenariusza sieci w, do i z platformy Azure. Monitorowanie poziomu scenariusza umożliwia diagnozowanie problemów w widoku na poziomie sieci. Narzędzia do diagnostyki i wizualizacji sieci dostępne w Network Watcher pomagają zrozumieć, zdiagnozować i uzyskiwać wgląd w sieć na platformie Azure. |auditIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
-## <a name="virtual-machines"></a>Maszyny wirtualne
+## <a name="virtual-machines"></a>Virtual Machines
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Upewnij się, że "dysk systemu operacyjnego" jest szyfrowany
 
@@ -533,7 +533,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Key Vault obiektów powinno być możliwe do odzyskania](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Ta zasada przeprowadza inspekcję w przypadku braku możliwości odzyskania obiektów magazynu kluczy. Funkcja usuwania nietrwałego pomaga efektywnie przechowywać zasoby dla danego okresu przechowywania (90 dni) nawet po operacji usuwania, jednocześnie zapewniając, że obiekt jest usuwany. Gdy jest włączona ochrona przed czyszczeniem, nie można wyczyścić magazynu lub obiektu w stanie usuniętym, dopóki nie zostanie przekroczony okres przechowywania 90 dni. Te magazyny i obiekty nadal mogą być odzyskiwane, dzięki czemu klienci będą przestrzegani zasad przechowywania. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Magazyn kluczy powinien mieć włączoną ochronę przed czyszczeniem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Złośliwe usunięcie magazynu kluczy może prowadzić do utraty danych trwałych. Złośliwy Tester w organizacji może być w stanie uzyskać dostęp do usuwania i przeczyszczania magazynów kluczy. Ochrona przed przeczyszczeniem chroni przed atakami z niejawnym testerem, wymuszając obowiązkowy okres przechowywania dla nieusuniętych magazynów kluczy. Nikt nie jest w Twojej organizacji, a firma Microsoft będzie mogła przeczyścić Twoje magazyny kluczy w okresie przechowywania nietrwałego. |Inspekcja, Odmów, wyłączone |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Włączanie kontroli dostępu opartej na rolach (RBAC) w ramach usług Azure Kubernetes Services
 

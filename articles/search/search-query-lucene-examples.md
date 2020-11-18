@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 3d2172f76faecfc8347d7e0ca13fb506817f25de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4dd8b82e40b46da52a1b1f396569fda1dfea2b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740704"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694630"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Użyj "pełnej" składni wyszukiwania Lucene (zapytania zaawansowane w usłudze Azure Wyszukiwanie poznawcze)
 
@@ -30,13 +30,13 @@ Parser Lucene obsługuje złożone konstrukcje zapytań, takie jak zapytania o z
 
 Poniższe przykłady wykorzystują indeks wyszukiwania zadań NYC składający się z zadań dostępnych na podstawie zestawu danych dostarczonego przez [miasto z inicjatywy New York OpenData](https://opendata.cityofnewyork.us/) Initiative. Te dane nie powinny być uważane za bieżące ani ukończone. Indeks znajduje się w usłudze piaskownicy dostarczonej przez firmę Microsoft, co oznacza, że nie potrzebujesz subskrypcji platformy Azure ani usługi Azure Wyszukiwanie poznawcze do wypróbowania tych zapytań.
 
-To, czego potrzebujesz, jest to Poster lub równoważne narzędzie do wystawiania żądań HTTP na potrzeby pobierania. Aby uzyskać więcej informacji, zobacz [Eksplorowanie z klientami REST](search-get-started-postman.md).
+To, czego potrzebujesz, jest to Poster lub równoważne narzędzie do wystawiania żądań HTTP na potrzeby pobierania. Aby uzyskać więcej informacji, zobacz [Eksplorowanie z klientami REST](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Ustawianie nagłówka żądania
 
 1. W nagłówku żądania ustaw wartość w **polu Typ zawartości** na `application/json` .
 
-2. Dodaj **klucz API-Key**i ustaw go na ten ciąg: `252044BE3886FE4A8E3BAA4F595114BB` . Jest to klucz zapytania dla usługi wyszukiwania piaskownicy hostującym indeks zadań NYC.
+2. Dodaj **klucz API-Key** i ustaw go na ten ciąg: `252044BE3886FE4A8E3BAA4F595114BB` . Jest to klucz zapytania dla usługi wyszukiwania piaskownicy hostującym indeks zadań NYC.
 
 Po określeniu nagłówka żądania można użyć go ponownie dla wszystkich zapytań w tym artykule, zamieniając tylko ciąg **Search =** String. 
 
@@ -46,7 +46,7 @@ Po określeniu nagłówka żądania można użyć go ponownie dla wszystkich zap
 
 Żądanie jest poleceniem GET z adresem URL zawierającym punkt końcowy Wyszukiwanie poznawcze platformy Azure i ciąg wyszukiwania.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Pobieranie nagłówka żądania Poster" border="false":::
 
 Kompozycja adresów URL ma następujące elementy:
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Wyrażenie wyszukiwania przykładowego odpowiedzi Poster" border="false":::
 
 Można zdefiniować pole operacji wyszukiwania za pomocą składni **NazwaPola: searchExpression** , gdzie wyrażenie wyszukiwania może być pojedynczym słowem lub frazą lub bardziej skomplikowanym wyrażeniem w nawiasach, opcjonalnie z operatorami logicznymi. Oto kilka przykładów:
 
@@ -199,7 +199,7 @@ W tym zapytaniu w przypadku zadań z terminem "wyższy analityk", w którym jest
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Zapytanie o bliskość" border="false":::
 
 Spróbuj ponownie usunąć słowa między terminem "wyższego analityka". Zwróć uwagę, że 8 dokumentów jest zwracanych dla tego zapytania, a nie do 10 dla poprzedniego zapytania.
 
@@ -217,7 +217,7 @@ W tym zapytaniu "Before" Wyszukaj zadania z takim *analitykiem komputerowym* i z
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Trwa zwiększanie warunków" border="false":::
 
 W zapytaniu "After" Powtórz wyszukiwanie, a tym samym czasie zwiększy wyniki za pomocą warunkowego *analityka* na *komputerze* , jeśli oba słowa nie istnieją. 
 
@@ -226,7 +226,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 Bardziej czytelna wersja powyższego zapytania to `search=business_title:computer analyst^2` . W przypadku zapytania prawidłowo `^2` zakodowane jest jako `%5E2` , co jest trudniejsze do wyświetlenia.
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Zwiększenie warunków" border="false":::
 
 Zwiększenie okresu różni się od profilów oceniania w tym profilu oceniania, a nie na określonych warunkach. Poniższy przykład pomaga zilustrować różnice.
 
@@ -253,7 +253,7 @@ W tym zapytaniu Wyszukaj zadania z terminem starszym lub niezawodnym: `search=bu
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Zapytanie wyrażenia regularnego" border="false":::
 
 > [!Note]
 > Zapytania wyrażenia regularnego nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedyne przekształcenie wykonane na niekompletnych terminach zapytania to lowercasing.
@@ -275,7 +275,7 @@ W tym zapytaniu Wyszukaj zadania, które zawierają prefiks "program", który za
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Zapytanie symboli wieloznacznych" border="false":::
 
 > [!Note]
 > Zapytania z symbolami wieloznacznymi nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedyne przekształcenie wykonane na niekompletnych terminach zapytania to lowercasing.

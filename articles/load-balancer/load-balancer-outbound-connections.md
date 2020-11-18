@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: b3924a563d8266cfa38f24106dbb84102031a182
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694784"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Używanie do połączeń wychodzących
 
@@ -22,13 +22,13 @@ Adresy IP frontonu publicznego modułu równoważenia obciążenia platformy Azu
 Przydziały adresów IP włączają **podszywającanie** się w ramach wystąpienia zaplecza. Takie zamaskowane uniemożliwia ze źródeł zewnętrznych adresowanie do wystąpień zaplecza. Udostępnianie adresu IP między wystąpieniami zaplecza zmniejsza koszt statycznych publicznych adresów IP i obsługuje scenariusze, takie jak uproszczenie listy dozwolonych adresów IP z ruchem ze znanych publicznych adresów IP. 
 
 >[!Note]
-> W przypadku aplikacji, które wymagają dużej liczby połączeń wychodzących lub klientów korporacyjnych, którzy wymagają jednego zestawu adresów IP do użycia z danej sieci wirtualnej, zalecanym rozwiązaniem jest [Virtual Network translator adresów sieciowych](https://docs.microsoft.com/azure/virtual-network/nat-overview) . Jest to dynamiczna alokacja umożliwiająca prostą konfigurację i > najbardziej wydajnym sposobem korzystania z portów ze wszystkich adresów IP. Umożliwia również wszystkim zasobom w sieci wirtualnej udostępnianie zestawu adresów IP bez potrzeby udostępniania > modułu równoważenia obciążenia.
+> W przypadku aplikacji, które wymagają dużej liczby połączeń wychodzących lub klientów korporacyjnych, którzy wymagają jednego zestawu adresów IP do użycia z danej sieci wirtualnej, zalecanym rozwiązaniem jest [Virtual Network translator adresów sieciowych](../virtual-network/nat-overview.md) . Jest to dynamiczna alokacja umożliwiająca prostą konfigurację i > najbardziej wydajnym sposobem korzystania z portów ze wszystkich adresów IP. Umożliwia również wszystkim zasobom w sieci wirtualnej udostępnianie zestawu adresów IP bez potrzeby udostępniania > modułu równoważenia obciążenia.
 
 >[!Important]
 > Nawet bez skonfigurowanego wychodzącego programu Resource kont usługi Azure Storage w tym samym regionie nadal będą dostępne, a zasoby zaplecza nadal będą mieć dostęp do usług firmy Microsoft, takich jak aktualizacje systemu Windows.
 
 >[!NOTE] 
->W tym artykule omówiono tylko wdrożenia Azure Resource Manager. Przejrzyj [połączenia wychodzące (klasyczne)](load-balancer-outbound-connections-classic.md) dla wszystkich klasycznych scenariuszy wdrażania na platformie Azure.
+>W tym artykule omówiono tylko wdrożenia Azure Resource Manager. Przejrzyj [połączenia wychodzące (klasyczne)](/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic) dla wszystkich klasycznych scenariuszy wdrażania na platformie Azure.
 
 ## <a name="sharing-frontend-ip-address-across-backend-resources"></a><a name ="snat"></a> Udostępnianie adresu IP frontonu w ramach zasobów zaplecza
 
@@ -48,7 +48,7 @@ Według definicji każdy adres IP ma 65 535 portów. Każdy port może być uży
 >[!NOTE]
 > Każdy port używany do równoważenia obciążenia lub przychodzącej reguły NAT będzie korzystał z szeregu ośmiu portów z tych 64 000 portów, co zmniejsza liczbę portów kwalifikujących się do przydzielenia. Jeśli zasada równoważenia obciążenia > lub translatora adresów sieciowych znajduje się w tym samym zakresie ośmiu, co inny, nie będzie korzystać z dodatkowych portów. 
 
-Za pomocą [reguł ruchu wychodzącego](https://docs.microsoft.com/azure/load-balancer/outbound-rules) i reguł równoważenia obciążenia te porty adresów IP mogą być dystrybuowane do wystąpień zaplecza, aby umożliwić im Udostępnianie publicznych adresów IP modułu równoważenia obciążenia dla połączeń wychodzących.
+Za pomocą [reguł ruchu wychodzącego](./outbound-rules.md) i reguł równoważenia obciążenia te porty adresów IP mogą być dystrybuowane do wystąpień zaplecza, aby umożliwić im Udostępnianie publicznych adresów IP modułu równoważenia obciążenia dla połączeń wychodzących.
 
 Gdy zostanie skonfigurowany [Scenariusz 2](#scenario2) poniżej, Host dla każdego wystąpienia zaplecza przeprowadzi skojarzenie dla pakietów, które są częścią połączenia wychodzącego. Podczas wykonywania w przypadku połączenia wychodzącego z wystąpienia zaplecza, Host ponownie zapisuje źródłowy adres IP na jednym z adresów IP frontonu. W celu obsługi unikatowych przepływów Host ponownie zapisuje port źródłowy każdego pakietu wychodzącego do jednego z portów przyznanych dla wystąpienia zaplecza.
 
@@ -101,7 +101,7 @@ Gdy zostanie skonfigurowany [Scenariusz 2](#scenario2) poniżej, Host dla każde
  Porty tymczasowe publicznego adresu IP frontonu modułu równoważenia obciążenia są używane do rozróżniania poszczególnych przepływów pochodzących z maszyny wirtualnej. W przypadku tworzenia przepływów ruchu wychodzącego w ramach strumienia danych dynamicznie [przydzielono wstępnie przydzieloną porty](#preallocatedports) tymczasowe. 
 
 
- W tym kontekście porty, które są używane do przystawcy adresów sieciowych, są nazywane portami. Zdecydowanie zaleca się jawne skonfigurowanie [reguły ruchu wychodzącego](https://docs.microsoft.com/azure/load-balancer/outbound-rules) . W przypadku użycia domyślnego odnoszący się do niego za pośrednictwem reguły równoważenia obciążenia porty podrzędnego protokołu adresów sieciowych są wstępnie przydzielane zgodnie z opisem w [tabeli alokacji domyślnych portów](#snatporttable).
+ W tym kontekście porty, które są używane do przystawcy adresów sieciowych, są nazywane portami. Zdecydowanie zaleca się jawne skonfigurowanie [reguły ruchu wychodzącego](./outbound-rules.md) . W przypadku użycia domyślnego odnoszący się do niego za pośrednictwem reguły równoważenia obciążenia porty podrzędnego protokołu adresów sieciowych są wstępnie przydzielane zgodnie z opisem w [tabeli alokacji domyślnych portów](#snatporttable).
 
 
  ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Scenariusz 3: maszyna wirtualna bez publicznego adresu IP i za podstawową Load Balancer
@@ -142,7 +142,7 @@ Bez innych portów docelowych dla ruchu zwrotnego (port wiązania używanego do 
 
 Połączenia wychodzące mogą być przełączane. Wystąpienie zaplecza może być przydzieloną za mało portów. Bez włączenia **ponownego użycia połączenia** jest zwiększane ryzyko **wyczerpania portów** .
 
-Jeśli nastąpi wyczerpanie portów, nowe połączenia wychodzące z docelowym adresem IP będą kończyć się niepowodzeniem. Połączenia będą kończyły się powodzeniem, gdy port będzie dostępny. Ta wyczerpanie występuje, gdy porty 64 000 z adresu IP są rozkładane w postaci cienkiej w wielu wystąpieniach zaplecza. Aby uzyskać wskazówki dotyczące [rozwiązywania problemów](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)z wyczerpaniem portów z poziomu adresów sieciowych  
+Jeśli nastąpi wyczerpanie portów, nowe połączenia wychodzące z docelowym adresem IP będą kończyć się niepowodzeniem. Połączenia będą kończyły się powodzeniem, gdy port będzie dostępny. Ta wyczerpanie występuje, gdy porty 64 000 z adresu IP są rozkładane w postaci cienkiej w wielu wystąpieniach zaplecza. Aby uzyskać wskazówki dotyczące [rozwiązywania problemów](./troubleshoot-outbound-connection.md)z wyczerpaniem portów z poziomu adresów sieciowych  
 
 W przypadku połączeń TCP moduł równoważenia obciążenia będzie używać jednego portu dla każdego docelowego adresu IP i portu. Ta Multiuse umożliwia wiele połączeń z tym samym docelowym adresem IP z tym samym portem. Ta Multiuse jest ograniczona, jeśli połączenie nie ma różnych portów docelowych.
 
@@ -194,6 +194,5 @@ Aby uzyskać więcej informacji na temat usługi Azure Virtual Network translato
 
 ## <a name="next-steps"></a>Następne kroki
 
-*   [Rozwiązywanie problemów z błędami połączenia wychodzącego z powodu wyczerpania elementu wiązania](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
-*   [Przejrzyj metryki dotyczące translatora adresów sieciowych](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) i zapoznaj się z poprawnym sposobem filtrowania, dzielenia i wyświetlania.
-
+*   [Rozwiązywanie problemów z błędami połączenia wychodzącego z powodu wyczerpania elementu wiązania](./troubleshoot-outbound-connection.md)
+*   [Przejrzyj metryki dotyczące translatora adresów sieciowych](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) i zapoznaj się z poprawnym sposobem filtrowania, dzielenia i wyświetlania.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038260"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694997"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego
 
@@ -65,16 +65,16 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
 
 2. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
 
-2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+2. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
     | **Ustawienie**          | **Wartość**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Grupa zasobów   | Wybierz pozycję**Utwórz nowy**. </br> Wprowadź **myResourceGroupLB**. </br> Wybierz przycisk **OK**. |
+    | Grupa zasobów   | Wybierz pozycję **Utwórz nowy**. </br> Wprowadź **myResourceGroupLB**. </br> Wybierz przycisk **OK**. |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region           | Wybierz **Wschodnie stany USA 2** |
+    | Region (Region)           | Wybierz **Wschodnie stany USA 2** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -84,9 +84,9 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
     |--------------------|----------------------------|
     | Przestrzeń adresowa IPv4 | Wprowadź **10.1.0.0/16** |
 
-5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
+5. W obszarze **Nazwa podsieci** wybierz pozycję **domyślny** wyraz.
 
-6. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
+6. W obszarze **Edytuj podsieć** wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
@@ -97,24 +97,24 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
 
 8. Wybierz kartę **zabezpieczenia** .
 
-9. W obszarze **BastionHost**wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
+9. W obszarze **BastionHost** wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
 1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej**. 
    
-2. W obszarze **Utwórz maszynę wirtualną**wpisz lub wybierz wartości z karty **podstawowe** :
+2. W obszarze **Utwórz maszynę wirtualną** wpisz lub wybierz wartości z karty **podstawowe** :
 
     | Ustawienie | Wartość                                          |
     |-----------------------|----------------------------------|
@@ -123,9 +123,9 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
     | Grupa zasobów | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
-    | Region | Wybierz **Wschodnie stany USA 2** |
+    | Region (Region) | Wybierz **Wschodnie stany USA 2** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -158,7 +158,7 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
     | **Monitorowanie** |  |
     | Diagnostyka rozruchu | Wybierz pozycję **wyłączone** |
    
-7. Wybierz pozycję **Przeglądanie + tworzenie**. 
+7. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 8. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -182,8 +182,8 @@ Dodaj utworzoną maszynę wirtualną do puli zaplecza każdego z nich.  Następn
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz **myResourceGroupLB** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myInternalLoadBalancer**                                   |
-    | Region         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
-    | Type          | wybierz pozycję **Wewnętrzny**.                                        |
+    | Region (Region)         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
+    | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
     | SKU           | Wybierz pozycję **standardowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
@@ -204,10 +204,10 @@ Dodaj utworzoną maszynę wirtualną do puli zaplecza każdego z nich.  Następn
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz pozycję **Utwórz nowy** i wprowadź **myResourceGroupLB** w polu tekstowym.|
     | Nazwa                   | Wprowadź **myPublicLoadBalancer**                                   |
-    | Region         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
-    | Type          | Wybierz pozycję **Publiczna**.                                        |
+    | Region (Region)         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
+    | Typ          | Wybierz pozycję **Publiczna**.                                        |
     | SKU           | Wybierz pozycję **standardowa** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. |
     | Nazwa publicznego adresu IP | Wprowadź **myFrontendIP** w polu tekstowym.|
     | Strefa dostępności | Wybierz **strefę nadmiarową** |
     | Dodaj publiczny adres IPv6 | Wybierz pozycję **Nie**. |
@@ -222,13 +222,13 @@ Utwórz pulę adresów zaplecza **myInternalBackendPool**:
 
 1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myInternalLoadBalancer** z listy zasoby.
 
-2. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
+2. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
 
-3. Na stronie **Dodawanie puli zaplecza** wpisz nazwę **myInternalBackendPool**jako nazwę puli zaplecza.
+3. Na stronie **Dodawanie puli zaplecza** wpisz nazwę **myInternalBackendPool** jako nazwę puli zaplecza.
  
-4. W obszarze **Sieć wirtualna**wybierz pozycję **myVNet**.
+4. W obszarze **Sieć wirtualna** wybierz pozycję **myVNet**.
 
-5. W obszarze **maszyny wirtualne**wybierz pozycję **Dodaj** i wybierz pozycję **myVM**.
+5. W obszarze **maszyny wirtualne** wybierz pozycję **Dodaj** i wybierz pozycję **myVM**.
  
 6. Wybierz pozycję **Dodaj**.
 
@@ -238,13 +238,13 @@ Utwórz pulę adresów zaplecza **myPublicBackendPool**:
 
 1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myPublicLoadBalancer** z listy zasoby.
 
-2. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
+2. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
 
-3. Na stronie **Dodawanie puli zaplecza** wpisz nazwę **myPublicBackendPool**jako nazwę puli zaplecza.
+3. Na stronie **Dodawanie puli zaplecza** wpisz nazwę **myPublicBackendPool** jako nazwę puli zaplecza.
 
-4. W obszarze **Sieć wirtualna**wybierz pozycję **myVNet**.
+4. W obszarze **Sieć wirtualna** wybierz pozycję **myVNet**.
  
-5. W obszarze **maszyny wirtualne**wybierz pozycję **Dodaj** i wybierz pozycję **myVM**.
+5. W obszarze **maszyny wirtualne** wybierz pozycję **Dodaj** i wybierz pozycję **myVM**.
  
 6. Wybierz pozycję **Dodaj**.
 
@@ -268,7 +268,7 @@ Utwórz pulę adresów zaplecza **myPublicBackendPool**:
 
 1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myPublicLoadBalancer** z listy zasoby.
 
-2. W obszarze **Ustawienia**wybierz pozycję **reguły ruchu wychodzącego**, a następnie wybierz pozycję **Dodaj**.
+2. W obszarze **Ustawienia** wybierz pozycję **reguły ruchu wychodzącego**, a następnie wybierz pozycję **Dodaj**.
 
 3. Użyj tych wartości, aby skonfigurować reguły ruchu wychodzącego:
 
@@ -316,4 +316,4 @@ Ta konfiguracja umożliwia Równoważenie obciążenia przychodzącego ruchu wew
 - Dowiedz się więcej na temat [Azure Load Balancer](load-balancer-overview.md).
 - Dowiedz się więcej o [połączeniach wychodzących na platformie Azure](load-balancer-outbound-connections.md).
 - [Często zadawane pytania](load-balancer-faqs.md)dotyczące usługi równoważenia obciążenia.
-- Dowiedz się więcej o [usłudze Azure bastionu](https://docs.microsoft.com/azure/bastion/bastion-overview)
+- Dowiedz się więcej o [usłudze Azure bastionu](../bastion/bastion-overview.md)

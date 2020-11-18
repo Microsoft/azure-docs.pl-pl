@@ -1,22 +1,22 @@
 ---
 title: Konfigurowanie środowiska deweloperskiego języka Python
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak skonfigurować środowisko programistyczne języka Python dla Azure Machine Learning. Używaj środowisk Conda, twórz pliki konfiguracji i Konfiguruj własny, oparty na chmurze serwer notesu, notesy Jupyter, Azure Databricks, środowisk IDE, edytory kodu i Data Science Virtual Machine.
+description: Skonfiguruj Azure Machine Learning środowiska deweloperskie w języku Python w notesach Jupyter, Visual Studio Code, Azure Databricks i analizie Virtual Machines danych.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422913"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695371"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne języka Python dla Azure Machine Learning
 
@@ -61,7 +61,7 @@ Utwórz plik konfiguracji obszaru roboczego w jednej z następujących metod:
 
 * Azure Portal
 
-    **Pobierz plik** : w [Azure Portal](https://ms.portal.azure.com)wybierz pozycję  **Pobierz config.js** z sekcji **Przegląd** w obszarze roboczym.
+    **Pobierz plik**: w [Azure Portal](https://ms.portal.azure.com)wybierz pozycję  **Pobierz config.js** z sekcji **Przegląd** w obszarze roboczym.
 
     ![Azure Portal](./media/how-to-configure-environment/configure.png)
 

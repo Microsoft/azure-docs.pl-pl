@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001adaff1fed901638276e548ac1d5fdb41bdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc12b4cb7e97a0808405baebc64ca83cdb742bf1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798311"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696952"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Zarządzanie dostępem użytkowników za pomocą przeglądów dostępu w usłudze Azure AD
 
@@ -44,7 +44,7 @@ W przeglądzie dostępu może uczestniczyć jeden lub większa liczba recenzent�
 
 2. Zdecyduj, czy poszczególni użytkownicy mają dokonać przeglądu własnego dostępu, czy wybrana grupa użytkowników ma przeprowadzić przegląd dostępu wszystkich użytkowników.
 
-3. Jako Administrator globalny lub administrator użytkownika przejdź na [stronę ładu tożsamości](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. W jednej z następujących ról: Administrator globalny, administrator użytkownika lub (wersja zapoznawcza) właściciel grupy zabezpieczeń usługi M365 lub AAD grupy, która ma zostać poddana przeglądowi, przejdź do [strony zarządzania tożsamościami](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 4. Utwórz przegląd dostępu. Aby uzyskać więcej informacji, zobacz [Tworzenie przeglądu dostępu do grup lub aplikacji](create-access-review.md).
 

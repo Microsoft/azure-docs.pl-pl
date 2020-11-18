@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735918"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696867"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6 za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -48,17 +48,17 @@ Poniższe kroki pokazują, jak utworzyć publiczny moduł równoważenia obcią�
 
 Aby wdrożyć moduł równoważenia obciążenia, należy utworzyć i skonfigurować następujące obiekty:
 
-* **Konfiguracja adresu IP frontonu** : zawiera publiczne adresy IP dla przychodzącego ruchu sieciowego.
-* **Pula adresów zaplecza** : zawiera interfejsy sieciowe (nic), dla których maszyny wirtualne mają odbierać ruch sieciowy z modułu równoważenia obciążenia.
-* **Reguły równoważenia obciążenia** : zawiera reguły, które mapują port publiczny modułu równoważenia obciążenia na port w puli adresów zaplecza.
-* **Reguły NAT dla ruchu przychodzącego** : zawierają reguły translacji adresów sieciowych (NAT), które mapują port publiczny modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
-* **Sondy** : zawiera sondy kondycji, które są używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
+* **Konfiguracja adresu IP frontonu**: zawiera publiczne adresy IP dla przychodzącego ruchu sieciowego.
+* **Pula adresów zaplecza**: zawiera interfejsy sieciowe (nic), dla których maszyny wirtualne mają odbierać ruch sieciowy z modułu równoważenia obciążenia.
+* **Reguły równoważenia obciążenia**: zawiera reguły, które mapują port publiczny modułu równoważenia obciążenia na port w puli adresów zaplecza.
+* **Reguły NAT dla ruchu przychodzącego**: zawierają reguły translacji adresów sieciowych (NAT), które mapują port publiczny modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
+* **Sondy**: zawiera sondy kondycji, które są używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
 
 ## <a name="set-up-azure-cli"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure
 
 W tym przykładzie uruchomiono narzędzia interfejsu wiersza polecenia platformy Azure w oknie poleceń programu PowerShell. Aby zwiększyć czytelność i ponowne użycie, należy użyć funkcji obsługi skryptów programu PowerShell, a nie poleceń cmdlet Azure PowerShell.
 
-1. [Zainstaluj i skonfiguruj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , wykonując czynności opisane w połączonym artykule i zaloguj się na koncie platformy Azure.
+1. [Zainstaluj i skonfiguruj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) , wykonując czynności opisane w połączonym artykule i zaloguj się na koncie platformy Azure.
 
 2. Skonfiguruj zmienne programu PowerShell do użycia z poleceniami interfejsu CLI platformy Azure:
 
@@ -122,7 +122,7 @@ W tym przykładzie uruchomiono narzędzia interfejsu wiersza polecenia platformy
     > [!IMPORTANT]
     > Moduł równoważenia obciążenia używa etykiety domeny publicznego adresu IP jako jego w pełni kwalifikowanej nazwy domeny (FQDN). Ta zmiana z wdrożenia klasycznego, która używa nazwy usługi w chmurze jako nazwy FQDN modułu równoważenia obciążenia.
     >
-    > W tym przykładzie nazwa FQDN to *contoso09152016.southcentralus.cloudapp.Azure.com* .
+    > W tym przykładzie nazwa FQDN to *contoso09152016.southcentralus.cloudapp.Azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Tworzenie pul frontonu i zaplecza
 
@@ -284,7 +284,7 @@ Aby tworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równow
     ```
 
     > [!WARNING]
-    > W tym przykładzie używana jest nazwa użytkownika i hasło do maszyn wirtualnych w postaci zwykłego tekstu. Należy zachować ostrożność w przypadku używania tych poświadczeń w postaci zwykłego tekstu. Aby uzyskać bardziej bezpieczną metodę obsługi poświadczeń w programie PowerShell, zapoznaj się z [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) poleceniem cmdlet.
+    > W tym przykładzie używana jest nazwa użytkownika i hasło do maszyn wirtualnych w postaci zwykłego tekstu. Należy zachować ostrożność w przypadku używania tych poświadczeń w postaci zwykłego tekstu. Aby uzyskać bardziej bezpieczną metodę obsługi poświadczeń w programie PowerShell, zapoznaj się z [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) poleceniem cmdlet.
 
 2. Utwórz zestaw dostępności:
 
@@ -299,5 +299,3 @@ Aby tworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równow
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

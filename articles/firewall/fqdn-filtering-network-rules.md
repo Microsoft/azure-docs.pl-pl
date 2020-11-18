@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/06/2020
 ms.author: victorh
-ms.openlocfilehash: 2f2cf9639acfa1330c8347ff654649004d7c382e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7196c7715ad5d2c02759040b780b96218e1655e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380912"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695949"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>Użyj filtrowania nazw FQDN w regułach sieci
 
@@ -25,7 +25,7 @@ W pełni kwalifikowana nazwa domeny (FQDN) reprezentuje nazwę domeny hosta lub 
 
 Po zdefiniowaniu serwera DNS potrzebnego w organizacji (Azure DNS lub własnego niestandardowego DNS) Zapora platformy Azure tłumaczy nazwę FQDN na adresy IP na podstawie wybranego serwera DNS. To tłumaczenie występuje zarówno w przypadku przetwarzania reguł aplikacji, jak i sieci.
 
-Gdy nowe rozwiązanie DNS ma miejsce, nowe adresy IP zostaną dodane do reguł zapory. Stare adresy IP, które nie są już zwracane przez serwer DNS, wygaśnie w ciągu 15 minut. Reguły zapory platformy Azure są aktualizowane co 15 sekund od rozpoznawania DNS nazw FQDN w regułach sieci.
+Gdy nowe rozwiązanie DNS ma miejsce, nowe adresy IP są dodawane do reguł zapory. Stare adresy IP, które nie są już zwracane przez serwer DNS, wygaśnie w ciągu 15 minut. Reguły zapory platformy Azure są aktualizowane co 15 sekund od rozpoznawania DNS nazw FQDN w regułach sieci.
 
 ### <a name="differences-in-application-rules-vs-network-rules"></a>Różnice w regułach aplikacji a regułach sieci
 

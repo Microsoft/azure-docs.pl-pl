@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb9bc252c733f3445cbf8b27281c2f455d5f2f36
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783199"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696969"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Zarządzanie dostępem gości za pomocą przeglądów dostępu w usłudze Azure AD
 
@@ -41,7 +41,12 @@ Aby uzyskać więcej informacji, [wymagania dotyczące licencji](access-reviews-
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Tworzenie i przeprowadzanie przeglądu dostępu dla Gości
 
-Najpierw jako Administrator globalny lub administrator użytkowników przejdź do [strony ładu zarządzania tożsamościami](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) , aby upewnić się, że przeglądy dostępu są gotowe dla Twojej organizacji.
+Najpierw należy przypisać jedną z następujących ról:
+- Administrator globalny
+- Administrator użytkowników
+- Przeglądania M365 lub właściciel grupy zabezpieczeń usługi AAD grupy do zweryfikowania
+
+Następnie przejdź do [strony ładu zarządzania tożsamościami](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) , aby upewnić się, że przeglądy dostępu są gotowe dla Twojej organizacji.
 
 Usługa Azure AD umożliwia przeglądanie wielu scenariuszy użytkowników-Gości.
 

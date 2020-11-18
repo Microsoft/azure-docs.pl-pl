@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686246"
+ms.locfileid: "94694885"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Korzystanie z usługi Insights do monitorowania i konfigurowania Azure Load Balancer
 
@@ -26,7 +26,7 @@ Za poorednictwem Azure Monitor dla sieci są udostępniane wizualizacje zależno
 >Należy pamiętać, że ta funkcja jest dostępna w wersji zapoznawczej, a wstępnie skonfigurowany pulpit nawigacyjny może ulec zmianie, aby ulepszyć środowisko pracy.
 
 >[!IMPORTANT]
->Usługa Load Balancer w warstwie Standardowa jest wymagane, aby wyświetlić metryki z przestrzeni nazw Load Balancer na wstępnie skonfigurowanym pulpicie nawigacyjnym metryk. Nadal będzie można zobaczyć metryki z maszyn wirtualnych, zestawu skalowania maszyn wirtualnych i przestrzeni nazw monitora połączeń, ale zalecamy [uaktualnienie do warstwy Standardowa](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) dla wszystkich obciążeń produkcyjnych, aby korzystać z niezawodnego zestawu metryk Load Balancer.
+>Usługa Load Balancer w warstwie Standardowa jest wymagane, aby wyświetlić metryki z przestrzeni nazw Load Balancer na wstępnie skonfigurowanym pulpicie nawigacyjnym metryk. Nadal będzie można zobaczyć metryki z maszyn wirtualnych, zestawu skalowania maszyn wirtualnych i przestrzeni nazw monitora połączeń, ale zalecamy [uaktualnienie do warstwy Standardowa](./upgrade-basic-standard.md) dla wszystkich obciążeń produkcyjnych, aby korzystać z niezawodnego zestawu metryk Load Balancer.
 
 ## <a name="functional-dependency-view"></a>Widok zależności funkcjonalnej
 
@@ -40,7 +40,7 @@ W przypadku standardowych modułów równoważenia obciążenia zasoby puli zapl
 
 ## <a name="metrics-dashboard"></a>Pulpit nawigacyjny aplikacji Metryki
 
-W bloku wglądu w dane Load Balancer możesz wybrać bardziej szczegółowe metryki, aby wyświetlić wstępnie skonfigurowany [skoroszyt Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) zawierający wizualizacje metryk odpowiednie dla określonych aspektów Load Balancer. Ten pulpit nawigacyjny wyświetli stan Load Balancer i linki do odpowiedniej dokumentacji w górnej części strony.
+W bloku wglądu w dane Load Balancer możesz wybrać bardziej szczegółowe metryki, aby wyświetlić wstępnie skonfigurowany [skoroszyt Azure monitor](../azure-monitor/platform/workbooks-overview.md) zawierający wizualizacje metryk odpowiednie dla określonych aspektów Load Balancer. Ten pulpit nawigacyjny wyświetli stan Load Balancer i linki do odpowiedniej dokumentacji w górnej części strony.
 
 W pierwszej kolejności zostanie wyświetlona karta przegląd. Możesz przechodzić przez dostępne karty, z których każdy zawiera wizualizacje istotne dla określonego aspektu Load Balancer. Jawne wskazówki dla każdej z nich są dostępne na pulpicie nawigacyjnym u dołu każdej karty.
 
@@ -68,16 +68,16 @@ Karta przepływność danych umożliwia sprawdzenie przepływności ruchu przych
 ### <a name="flow-distribution"></a>Dystrybucja przepływu
 Karta dystrybucja przepływu ułatwia wizualizowanie i zarządzanie liczbą przepływów, które są wysyłane i wytwarzające wystąpienia zaplecza. Pokazuje współczynnik tworzenia przepływu oraz liczbę przepływów dla ruchu przychodzącego i wychodzącego, a także ruch sieciowy dla każdej maszyny wirtualnej i wystąpienia zestawu skalowania maszyn wirtualnych. 
 
-Te widoki mogą dać opinię na temat tego, czy Load Balancer konfiguracja lub wzorce ruchu prowadzą do niezrównoważonego ruchu. Na przykład jeśli skonfigurowano koligację sesji i jeden klient ma nieproporcjonalną liczbę żądań. Poinformuje również o tym, czy zbliża się [Limit przepływu na maszynę wirtualną](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) dla rozmiaru maszyny.
+Te widoki mogą dać opinię na temat tego, czy Load Balancer konfiguracja lub wzorce ruchu prowadzą do niezrównoważonego ruchu. Na przykład jeśli skonfigurowano koligację sesji i jeden klient ma nieproporcjonalną liczbę żądań. Poinformuje również o tym, czy zbliża się [Limit przepływu na maszynę wirtualną](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) dla rozmiaru maszyny.
 
 ### <a name="connection-monitors"></a>Monitory połączeń
-Na karcie monitory połączeń zostanie wyświetlone opóźnienie rundy na mapie globalnej dla wszystkich skonfigurowanych [monitorów połączeń](https://docs.microsoft.com/azure/network-watcher/connection-monitor)  . Te wizualizacje zawierają przydatne informacje dotyczące usług o rygorystycznych wymaganiach w zakresie opóźnień. Aby spełnić wymagania, może być konieczne dodanie dodatkowych wdrożeń regionalnych lub przejście do modelu [międzyregionalnego równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)
+Na karcie monitory połączeń zostanie wyświetlone opóźnienie rundy na mapie globalnej dla wszystkich skonfigurowanych [monitorów połączeń](../network-watcher/connection-monitor.md)  . Te wizualizacje zawierają przydatne informacje dotyczące usług o rygorystycznych wymaganiach w zakresie opóźnień. Aby spełnić wymagania, może być konieczne dodanie dodatkowych wdrożeń regionalnych lub przejście do modelu [międzyregionalnego równoważenia obciążenia](./cross-region-overview.md)
 
 ### <a name="metric-definitions"></a>Definicje metryk
-Karta definicje metryk zawiera wszystkie informacje przedstawione w [artykule metryki wielowymiarowej](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
+Karta definicje metryk zawiera wszystkie informacje przedstawione w [artykule metryki wielowymiarowej](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
 ## <a name="next-steps"></a>Następne kroki
 * Zapoznaj się z pulpitem nawigacyjnym i podaj opinię, korzystając z poniższego linku, jeśli wszystko, co można ulepszyć
-* [Zapoznaj się z dokumentacją metryk, aby dowiedzieć się, jak jest obliczana każda Metryka](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
-* [Utwórz monitory połączeń dla Load Balancer](https://docs.microsoft.com/azure/network-watcher/connection-monitor)
-* [Utwórz własne skoroszyty](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview), a następnie kliknij przycisk Edytuj w szczegółowym pulpicie nawigacyjnym metryk
+* [Zapoznaj się z dokumentacją metryk, aby dowiedzieć się, jak jest obliczana każda Metryka](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
+* [Utwórz monitory połączeń dla Load Balancer](../network-watcher/connection-monitor.md)
+* [Utwórz własne skoroszyty](../azure-monitor/platform/workbooks-overview.md), a następnie kliknij przycisk Edytuj w szczegółowym pulpicie nawigacyjnym metryk

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 1f81285e869bd2c65cce29766de0b2bd39a627f6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557971"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696119"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Zabezpieczenia funkcji hypervisor w flotie platformy Azure
 
@@ -26,7 +26,7 @@ Funkcja hypervisor platformy Azure jest zbudowana z myślą o następujących ce
 | Izolacja | Zasada zabezpieczeń nie zezwala na przesyłanie informacji między maszynami wirtualnymi. To ograniczenie wymaga możliwości w Virtual Machine Manager (VMM) i sprzętu do izolacji pamięci, urządzeń, sieci i zasobów zarządzanych, takich jak utrwalone dane. |
 | Integralność programu VMM | Aby uzyskać ogólną integralność systemu, integralność poszczególnych składników funkcji hypervisor jest ustanawiana i utrzymywana. |
 | Integralność platformy | Integralność funkcji hypervisor zależy od integralności sprzętu i oprogramowania, z którego korzysta. Mimo że funkcja hypervisor nie ma bezpośredniej kontroli nad integralnością platformy, platforma Azure opiera się na mechanizmach sprzętowych i oprogramowania układowego, takich jak mikroukład [Cerberus](project-cerberus.md) , aby chronić i wykrywać integralną platformę. Program VMM i Goście nie mogą działać, jeśli zostanie naruszona integralność platformy. |
-| Ograniczony dostęp | Funkcje zarządzania są wykonywane tylko przez autoryzowanych administratorów połączonych za pośrednictwem bezpiecznych połączeń. Zasada najniższych uprawnień jest wymuszana przez mechanizmy kontroli dostępu opartej na rolach (RBAC). |
+| Ograniczony dostęp | Funkcje zarządzania są wykonywane tylko przez autoryzowanych administratorów połączonych za pośrednictwem bezpiecznych połączeń. Zasada najniższych uprawnień jest wymuszana przez mechanizmy kontroli dostępu opartej na rolach (RBAC) na platformie Azure. |
 | Inspekcja | Platforma Azure umożliwia inspekcję i ochronę danych o tym, co się dzieje w systemie, aby można było je później sprawdzić. |
 
 Podejście firmy Microsoft do ograniczania funkcjonalności funkcji hypervisor platformy Azure i podsystemu wirtualizacji można podzielić na następujące trzy kategorie.
@@ -71,5 +71,5 @@ Aby dowiedzieć się więcej na temat tego, co robimy, aby zwiększyć integraln
 - [Zabezpieczenia oprogramowania układowego](firmware.md)
 - [Bezpieczny rozruch](secure-boot.md)
 - [Mierzony zaświadczanie rozruchu i hosta](measured-boot-host-attestation.md)
-- [Cerberus projektu](project-cerberus.md)
+- [Projekt Cerberus](project-cerberus.md)
 - [Szyfrowanie w spoczynku](encryption-atrest.md)

@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: afc3b8c4d10bc55d8d7c8faa5e8d9eedd9e2a082
-  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+  ms.openlocfilehash: 87f9328745484d3f9643e3fd297fd2bf07b00a43
+  ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91929748"
+  ms.lasthandoff: 11/17/2020
+  ms.locfileid: "94695575"
 landingContent:
 - title: Informacje o usłudze Load Balancer
   linkLists:
@@ -61,7 +61,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usłudze Load Balancer (interfejs wiersza polecenia platformy Azure)
-      url: configure-load-balancer-outbound-cli.md
+      url: ./quickstart-load-balancer-standard-public-cli.md#create-outbound-rule-configuration
     - text: Tworzenie modułu równoważenia obciążenia połączonego z Internetem z protokołem IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Konfigurowanie trybu dystrybucji
@@ -79,9 +79,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Tworzenie usługi Load Balancer za pomocą frontonu strefowo nadmiarowego
-      url: load-balancer-get-started-internet-az-portal.md
+      url: ./quickstart-load-balancer-standard-public-portal.md
     - text: Tworzenie usługi Load Balancer za pomocą frontonu strefowego
-      url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+      url: ./quickstart-load-balancer-standard-public-portal.md
     - text: Równoważenie obciążenia dla wielu konfiguracji adresów IP
       url: load-balancer-multiple-ip.md
 - title: Rozwiązywanie problemów
@@ -105,10 +105,10 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
+      url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: Interfejs wiersza polecenia platformy Azure
-      url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+      url: /cli/azure/network/lb?view=azure-cli-latest
     - text: Szablony usługi ARM
-      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+      url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
     - text: Często zadawane pytania dotyczące modułu równoważenia obciążenia
       url: load-balancer-faqs.md
