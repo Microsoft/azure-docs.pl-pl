@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628999"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684848"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Rozwiązywanie problemów z błędami połączeń wychodzących
 
@@ -63,7 +63,7 @@ Na przykład dwie maszyny wirtualne w puli zaplecza będą mieć 1024 portów pr
 W przypadku skalowania w poziomie do następnej większej warstwy rozmiaru puli zaplecza dla niektórych połączeń wychodzących istnieje możliwość przekroczenia limitu czasu w przypadku konieczności ponownej alokowania przyznanych portów.  Jeśli używasz tylko niektórych portów podzestawów adresów sieciowych, skalowanie w poziomie w następnym większym rozmiarze puli zaplecza jest nieaktualne.  Połowa istniejących portów zostanie przydzielona przy każdym przejściu do następnej warstwy puli zaplecza.  Jeśli nie chcesz, aby to zrobić, musisz pomieścić wdrożenie w rozmiarze warstwy.  Lub upewnij się, że aplikacja może wykryć i ponowić próbę w razie potrzeby.  Utrzymywanie aktywności protokołu TCP może pomóc w wykrywaniu, kiedy porty protokołu reportowego już nie działają z powodu ich ponownie przydzielenia.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Aby zresetować limit czasu bezczynności dla ruchu wychodzącego, użyj utrzymywania aktywności
-Połączenia wychodzące mają 4-minutowy limit czasu bezczynności. Ten limit czasu jest dostosowywany za pośrednictwem [reguł ruchu wychodzącego](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). W razie potrzeby można również użyć transportu (na przykład aktywności protokołu TCP) lub warstwy aplikacji, aby odświeżyć przepływ bezczynności i zresetować ten limit czasu bezczynności.  
+Połączenia wychodzące mają 4-minutowy limit czasu bezczynności. Ten limit czasu jest dostosowywany za pośrednictwem [reguł ruchu wychodzącego](outbound-rules.md). W razie potrzeby można również użyć transportu (na przykład aktywności protokołu TCP) lub warstwy aplikacji, aby odświeżyć przepływ bezczynności i zresetować ten limit czasu bezczynności.  
 
 W przypadku korzystania z funkcji utrzymywania aktywności protokołu TCP wystarczy włączyć je po jednej stronie połączenia. Na przykład wystarczy włączyć je po stronie serwera tylko w celu zresetowania czasomierza bezczynności przepływu i nie jest konieczne dla obu stron w celu zainicjowania obsługi protokołu TCP.  Podobne pojęcia istnieją dla warstwy aplikacji, w tym konfiguracje klienta bazy danych.  Sprawdź po stronie serwera, jakie opcje istnieją dla nieaktywności związanych z aplikacjami.
 

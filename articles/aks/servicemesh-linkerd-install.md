@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5b2ec220bbf14a79247ed2c78a0e84f4717fae3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77593739"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684240"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalowanie konsolidatora w usłudze Azure Kubernetes Service (AKS)
 
@@ -33,9 +33,9 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Dostęp do pulpitu nawigacyjnego
 > * Odinstalowano z AKS
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono klaster AKS (Kubernetes `1.13` lub nowszy z włączoną funkcją RBAC) i nawiązano `kubectl` połączenie z klastrem. Jeśli potrzebujesz pomocy z dowolnym z tych elementów, zobacz [Przewodnik Szybki Start AKS][aks-quickstart].
+W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono klaster AKS (Kubernetes `1.13` lub nowszy z włączoną obsługą RBAC Kubernetes) i nawiązano `kubectl` połączenie z klastrem. Jeśli potrzebujesz pomocy z dowolnym z tych elementów, zobacz [Przewodnik Szybki Start AKS][aks-quickstart].
 
 Aby można było uruchomić wszystkie Konsolidatory, muszą być zaplanowane do uruchomienia w węzłach systemu Linux — ta konfiguracja jest domyślnie opisana poniżej i nie wymaga dodatkowej konfiguracji.
 

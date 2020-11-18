@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a63a756448f9c7202c79c3b4625fc99d4a90dc52
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010263"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682693"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Te najlepsze rozwiązania koncentrują się na sposobie zarządzania dostępem i
 > [!div class="checklist"]
 >
 > * Uwierzytelnianie użytkowników klastrów AKS za pomocą Azure Active Directory
-> * Kontrola dostępu do zasobów za pomocą Kubernetes kontroli dostępu opartej na rolach (RBAC)
+> * Kontrola dostępu do zasobów za pomocą Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC)
 > * Użyj funkcji RBAC platformy Azure, aby szczegółowo kontrolować dostęp do zasobu AKS i interfejsu API Kubernetes w skali, a także do kubeconfig.
 > * Używanie tożsamości zarządzanej do uwierzytelniania samego samego siebie z innymi usługami
 
@@ -33,7 +33,7 @@ Te najlepsze rozwiązania koncentrują się na sposobie zarządzania dostępem i
 
 Deweloperzy i właściciele aplikacji klastra Kubernetes potrzebują dostępu do różnych zasobów. Kubernetes nie oferuje rozwiązania do zarządzania tożsamościami, które pozwala kontrolować, którzy użytkownicy mogą korzystać z zasobów. Zamiast tego zwykle integrujesz klaster z istniejącym rozwiązaniem tożsamości. Azure Active Directory (AD) zapewnia rozwiązanie do zarządzania tożsamościami gotowe do używania w przedsiębiorstwie i można je zintegrować z klastrami AKS.
 
-W przypadku klastrów zintegrowanych z usługą Azure AD w programie AKS tworzysz *role* lub *ClusterRoles* , które definiują uprawnienia dostępu do zasobów. Następnie można *powiązać* role z użytkownikami lub grupami z usługi Azure AD. Te Kubernetes kontroli dostępu opartej na rolach (RBAC) zostały omówione w następnej sekcji. Integrację usługi Azure AD i sposób kontrolowania dostępu do zasobów można zobaczyć na poniższym diagramie:
+W przypadku klastrów zintegrowanych z usługą Azure AD w programie AKS tworzysz *role* lub *ClusterRoles* , które definiują uprawnienia dostępu do zasobów. Następnie można *powiązać* role z użytkownikami lub grupami z usługi Azure AD. Te Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) zostały omówione w następnej sekcji. Integrację usługi Azure AD i sposób kontrolowania dostępu do zasobów można zobaczyć na poniższym diagramie:
 
 ![Uwierzytelnianie na poziomie klastra dla integracji Azure Active Directory z usługą AKS](media/operator-best-practices-identity/cluster-level-authentication-flow.png)
 
@@ -41,16 +41,16 @@ W przypadku klastrów zintegrowanych z usługą Azure AD w programie AKS tworzys
 1. Punkt końcowy wystawiania tokenów usługi Azure AD wystawia token dostępu.
 1. Deweloper wykonuje akcję przy użyciu tokenu usługi Azure AD, np. `kubectl create pod`
 1. Kubernetes sprawdza token w Azure Active Directory i pobiera członkostwa w grupach deweloperów.
-1. Są stosowane Kubernetes kontroli dostępu opartej na rolach (RBAC) i zasad klastra.
+1. Są stosowane Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) i zasad klastra.
 1. Żądanie dewelopera zakończyło się powodzeniem lub nie jest oparte na poprzedniej weryfikacji członkostwa w grupach usługi Azure AD oraz Kubernetes RBAC i zasadach.
 
 Aby utworzyć klaster AKS, który używa usługi Azure AD, zobacz [integrowanie Azure Active Directory z usługą AKS][aks-aad].
 
-## <a name="use-kubernetes-role-based-access-control-rbac"></a>Użyj kontroli dostępu opartej na rolach (RBAC) Kubernetes
+## <a name="use-kubernetes-role-based-access-control-kubernetes-rbac"></a>Korzystanie z kontroli dostępu opartej na rolach Kubernetes (Kubernetes RBAC)
 
 **Wskazówki dotyczące najlepszych** rozwiązań — Użyj Kubernetes RBAC, aby zdefiniować uprawnienia, które użytkownicy lub grupy mają do zasobów w klastrze. Utwórz role i powiązania, które przypisują najmniej wymagane uprawnienia. Integruj z usługą Azure AD, aby wszelkie zmiany stanu użytkownika lub członkostwa w grupie były automatycznie aktualizowane, a dostęp do zasobów klastra jest aktualny.
 
-W programie Kubernetes można zapewnić szczegółową kontrolę dostępu do zasobów w klastrze. Uprawnienia są definiowane na poziomie klastra lub do określonych przestrzeni nazw. Można zdefiniować zasoby, które mogą być zarządzane, oraz z uprawnieniami. Te role są następnie stosowane do użytkowników lub grup z powiązaniem. Aby uzyskać więcej informacji na temat *ról*, *ClusterRoles*i *powiązań*, zobacz [Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)][aks-concepts-identity].
+W programie Kubernetes można zapewnić szczegółową kontrolę dostępu do zasobów w klastrze. Uprawnienia są definiowane na poziomie klastra lub do określonych przestrzeni nazw. Można zdefiniować zasoby, które mogą być zarządzane, oraz z uprawnieniami. Te role są następnie stosowane do użytkowników lub grup z powiązaniem. Aby uzyskać więcej informacji na temat *ról*, *ClusterRoles* i *powiązań*, zobacz [Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 Przykładowo można utworzyć rolę, która przyznaje pełen dostęp do zasobów w przestrzeni nazw o nazwie *finanse-aplikacja*, jak pokazano w poniższym przykładzie YAML manifestu:
 
@@ -86,7 +86,7 @@ roleRef:
 
 Gdy *developer1 \@ contoso.com* jest uwierzytelniany w klastrze AKS, mają pełne uprawnienia do zasobów w przestrzeni nazw *"Finanse aplikacji"* . Dzięki temu można logicznie oddzielić i kontrolować dostęp do zasobów. Kubernetes RBAC należy używać w połączeniu z usługą Azure AD — integrację, zgodnie z opisem w poprzedniej sekcji.
 
-Aby dowiedzieć się, jak za pomocą grup usługi Azure AD kontrolować dostęp do zasobów Kubernetes za pomocą RBAC, zobacz [Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości Azure Active Directory w AKS][azure-ad-rbac].
+Aby dowiedzieć się, jak za pomocą grup usługi Azure AD kontrolować dostęp do zasobów Kubernetes za pomocą Kubernetes RBAC, zobacz [Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości Azure Active Directory w AKS][azure-ad-rbac].
 
 ## <a name="use-azure-rbac"></a>Korzystanie z usługi Azure RBAC 
 **Wskazówki dotyczące najlepszych** rozwiązań — Użyj usługi Azure RBAC, aby zdefiniować minimalne wymagane uprawnienia, które użytkownicy lub grupy muszą AKS zasoby w jednej lub kilku subskrypcjach.
@@ -95,7 +95,7 @@ Istnieją dwa poziomy dostępu, które są konieczne, aby w pełni obsługiwać 
 1. Uzyskaj dostęp do zasobu AKS w ramach subskrypcji platformy Azure. Ten poziom dostępu pozwala kontrolować skalowanie lub Uaktualnianie klastra przy użyciu interfejsów API AKS oraz ściąganie kubeconfig.
 Aby dowiedzieć się, jak kontrolować dostęp do zasobu AKS i kubeconfig, zobacz [ograniczanie dostępu do pliku konfiguracji klastra](control-kubeconfig-access.md).
 
-2. Dostęp do interfejsu API Kubernetes. Ten poziom dostępu jest kontrolowany przez [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-rbac) (tradycyjnie) lub przez integrację usługi Azure RBAC z usługą AKS dla autoryzacji Kubernetes.
+2. Dostęp do interfejsu API Kubernetes. Ten poziom dostępu jest kontrolowany przez [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-kubernetes-rbac) (tradycyjnie) lub przez integrację usługi Azure RBAC z usługą AKS dla autoryzacji Kubernetes.
 Aby dowiedzieć się, jak szczegółowo udzielić uprawnień do interfejsu API Kubernetes przy użyciu funkcji RBAC platformy Azure, zobacz [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](manage-azure-rbac.md).
 
 ## <a name="use-pod-identities"></a>Użyj tożsamości pod

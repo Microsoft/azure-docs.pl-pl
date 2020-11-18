@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 3854e7f3c19f1724a2df1508c9fa519809e07ba9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2c5c017ac0faf443a38fc43dfd27c7e776cb52a0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658676"
+ms.locfileid: "94683442"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Obsługa dużego natężenia ruchu usługi Application Gateway
 
@@ -30,6 +30,8 @@ Zapoznaj się z [dokumentacją metryk](./application-gateway-metrics.md) , aby z
 ### <a name="set-your-instance-count-based-on-your-peak-cpu-usage"></a>Ustawianie liczby wystąpień na podstawie szczytowego użycia procesora CPU
 Jeśli używasz bramy SKU w wersji 1, będziesz mieć możliwość ustawienia Application Gateway do 32 wystąpień do skalowania. Sprawdź użycie procesora przez Application Gateway w ciągu ostatnich miesięcy w przypadku dowolnych przekroczeń powyżej 80%, dostępne jako metryki do monitorowania. Zalecane jest, aby ustawić liczbę wystąpień zgodnie z szczytowym użyciem i z 10% do 20% dodatkowego buforu w celu uwzględnienia dowolnych danych.
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization-inline.png" alt-text="Metryki użycia procesora CPU w wersji 1" lightbox="./media/application-gateway-covid-guidelines/v1-cpu-utilization-exp.png":::
+
 ### <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Korzystanie z jednostki SKU w wersji 2 w wersji 1 na potrzeby możliwości skalowania automatycznego i korzyści z wydajności
 Jednostka SKU v2 oferuje Skalowanie automatyczne, aby zapewnić, że Application Gateway można skalować w górę w miarę wzrostu ruchu. Oferuje również inne korzyści wynikające z wydajności, takie jak pięciokrotną lepsza wydajność odciążania TLS, szybszy czas wdrażania i aktualizacji, nadmiarowość stref i wiele więcej w porównaniu do wersji 1. Więcej informacji można znaleźć w dokumentacji dotyczącej [wersji 2](./application-gateway-autoscaling-zone-redundant.md) i zapoznać się z [dokumentacją dotyczącą migracji](./migrate-v1-v2.md) z wersji 1 do wersji 2, aby dowiedzieć się, jak migrować istniejące bramy SKU V1 do wersji 2 jednostki SKU. 
 
@@ -41,6 +43,8 @@ W przypadku jednostki SKU Application Gateway v2 ustawienie maksymalnej liczby w
 
 Upewnij się, że w podsieci Sprawdź rozmiar podsieci i dostępną liczbę adresów IP i ustaw maksymalną liczbę wystąpień na podstawie tej wartości. Jeśli podsieć nie ma wystarczającej ilości miejsca do zaspokojenia, należy ponownie utworzyć bramę w tej samej lub innej podsieci, która ma wystarczającą pojemność. 
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="Konfiguracja automatycznego skalowania w wersji 2" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
+
 ### <a name="set-your-minimum-instance-count-based-on-your-average-compute-unit-usage"></a>Ustawianie minimalnej liczby wystąpień na podstawie średniego użycia jednostek obliczeniowych
 
 W przypadku jednostki SKU Application Gateway v2 Skalowanie automatyczne trwa od sześciu do siedmiu minut w celu skalowania w poziomie i aprowizacji dodatkowego zestawu wystąpień gotowego do obsługi ruchu. Do momentu, gdy w ruchu występują krótkie skoki, istniejące wystąpienia bramy mogą być pod obciążeniem, co może spowodować nieoczekiwane opóźnienie lub utratę ruchu. 
@@ -48,6 +52,8 @@ W przypadku jednostki SKU Application Gateway v2 Skalowanie automatyczne trwa od
 Zalecane jest, aby ustawić minimalną liczbę wystąpień na optymalny poziom. Na przykład jeśli wymagane są 50 wystąpień do obsługi ruchu w szczytowym obciążeniu, ustawienie minimum od 25 do 30 jest dobrym pomysłem, a nie na <10, tak że nawet w przypadku krótkich obciążeń ruchem Application Gateway będzie można je obsłużyć i zapewnić wystarczającą ilość czasu na reagowanie i skuteczne skalowanie.
 
 Sprawdź metrykę jednostki obliczeniowej przez ostatni miesiąc. Metryka jednostki obliczeniowej to reprezentacja użycia procesora CPU przez bramę i oparta na szczytowym użyciu podzielonym przez 10, można ustawić minimalną wymaganą liczbę wystąpień. Należy zauważyć, że 1 wystąpienie bramy aplikacji może obsłużyć co najmniej 10 jednostek obliczeniowych
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics-inline.png" alt-text="Metryki jednostek obliczeniowych w wersji 2" lightbox="./media/application-gateway-covid-guidelines/compute-unit-metrics-exp.png":::
 
 ## <a name="manual-scaling-for-application-gateway-v2-sku-standard_v2waf_v2"></a>Skalowanie ręczne dla jednostki SKU Application Gateway v2 (Standard_v2/WAF_v2)
 
@@ -79,6 +85,17 @@ Utwórz alert, gdy Application Gateway stanie odpowiedzi to 4xx lub 5xx. Z powod
 
 Utwórz alert w przypadku niepowodzenia wartość progowa przekroczenia przez żądania. Aby określić próg statyczny lub użyć progu dynamicznego dla alertu, należy obserwować bramę w środowisku produkcyjnym.
 
+### <a name="example-setting-up-an-alert-for-more-than-100-failed-requests-in-the-last-5-minutes"></a>Przykład: Konfigurowanie alertu dla ponad 100 żądań zakończonych niepowodzeniem w ciągu ostatnich 5 minut
+
+W tym przykładzie pokazano, jak za pomocą Azure Portal skonfigurować alert, jeśli liczba żądań zakończonych niepowodzeniem w ciągu ostatnich 5 minut jest większa niż 100.
+1. Przejdź do **Application Gateway**.
+2. Na panelu po lewej stronie wybierz pozycję **metryki** na karcie **monitorowanie** . 
+3. Dodaj metrykę dla **żądań zakończonych niepowodzeniem**.
+4. Kliknij pozycję **Nowa reguła alertu** i zdefiniuj swój warunek i akcje
+5. Kliknij pozycję **Utwórz regułę alertu** , aby utworzyć i włączyć alert
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts-inline.png" alt-text="2. tworzenie alertów" lightbox="./media/application-gateway-covid-guidelines/create-alerts-exp.png":::
+
 ## <a name="alerts-for-application-gateway-v2-sku-standard_v2waf_v2"></a>Alerty dla jednostki SKU Application Gateway v2 (Standard_v2/WAF_v2)
 
 ### <a name="alert-if-compute-unit-utilization-crosses-75-of-average-usage"></a>Zgłoś alert, jeśli wykorzystanie jednostek obliczeniowych przekroczy 75% średniego użycia 
@@ -91,9 +108,9 @@ W tym przykładzie pokazano, jak za pomocą Azure Portal skonfigurować alert w 
 1. Przejdź do **Application Gateway**.
 2. Na panelu po lewej stronie wybierz pozycję **metryki** na karcie **monitorowanie** . 
 3. Dodaj metrykę dla **średniej bieżącej jednostki obliczeniowej**. 
-![Konfigurowanie metryki WAF](./media/application-gateway-covid-guidelines/waf-setup-metrics.png)
 4. Jeśli określono minimalną liczbę wystąpień jako średniego użycia CU, przejdź dalej i Ustaw Alert, gdy zostanie użytych 75% minimalnej liczby wystąpień. Na przykład jeśli średnie użycie wynosi 10 jednostek, Ustaw Alert na 7,5. Spowoduje to wygenerowanie alertów, jeśli użycie zwiększy się i przekroczy czas odpowiedzi. Możesz podnieść wartość minimalną, jeśli uważasz, że ten ruch będzie w stanie wzrosnąć. 
-![Konfigurowanie alertu WAF](./media/application-gateway-covid-guidelines/waf-setup-monitoring-alert.png)
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert-inline.png" alt-text="Alerty jednostek obliczeniowych w wersji 2" lightbox="./media/application-gateway-covid-guidelines/compute-unit-alert-exp.png":::
 
 > [!NOTE]
 > Można ustawić alert, który ma być wykonywany przy niższej lub wyższej wartości procentowej użycia, w zależności od tego, jak poufne jest prawdopodobieństwo potencjalnego obciążenia.
@@ -122,8 +139,8 @@ Ta Metryka wskazuje przedział czasu między rozpoczęciem ustanawiania połącz
 
 Jest to interwał od momentu odebrania przez Application Gateway pierwszego bajtu żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Należy utworzyć alert, jeśli opóźnienie odpowiedzi wewnętrznej bazy danych jest większe niż zwykle określony próg. Na przykład można ustawić, aby otrzymywać alerty, gdy łączny czas opóźnienia rośnie o ponad 30% od wartości zwykłej.
 
-## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Konfigurowanie WAF z użyciem geofiltrów i ochrony bot w celu zatrzymywania ataków
-Jeśli potrzebujesz dodatkowej warstwy zabezpieczeń przed aplikacją, użyj Application Gateway jednostki SKU WAF_v2 do obsługi funkcji WAF. Jednostkę SKU v2 można skonfigurować tak, aby zezwalała na dostęp tylko do aplikacji z danego kraju/regionu lub krajów/regionów. Można skonfigurować regułę niestandardową WAF, aby jawnie zezwalać lub blokować ruch na podstawie geolokalizacji. Aby uzyskać więcej informacji, zobacz Opis [geofiltrowaniu reguł niestandardowych](../web-application-firewall/ag/geomatch-custom-rules.md) i [sposób konfigurowania reguł niestandardowych w Application Gateway WAF_v2 jednostki SKU przy użyciu programu PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
+## <a name="set-up-waf-with-geo-filtering-and-bot-protection-to-stop-attacks"></a>Konfigurowanie WAF z filtrowaniem geograficznym i ochroną bot w celu zatrzymywania ataków
+Jeśli potrzebujesz dodatkowej warstwy zabezpieczeń przed aplikacją, użyj Application Gateway jednostki SKU WAF_v2 do obsługi funkcji WAF. Jednostkę SKU v2 można skonfigurować tak, aby zezwalała na dostęp tylko do aplikacji z danego kraju/regionu lub krajów/regionów. Można skonfigurować regułę niestandardową WAF, aby jawnie zezwalać lub blokować ruch na podstawie lokalizacji geograficznej. Więcej informacji znajduje się w sekcji [filtrowanie geograficzne reguł niestandardowych](../web-application-firewall/ag/geomatch-custom-rules.md) i [Konfigurowanie reguł niestandardowych w Application Gateway WAF_v2 jednostki SKU przy użyciu programu PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 Włącz ochronę bot, aby blokować znane złe botów. Powinno to zmniejszyć ilość ruchu przychodzącego do aplikacji. Aby uzyskać więcej informacji, zobacz [bot Protection with Set up](../web-application-firewall/ag/configure-waf-custom-rules.md).
 

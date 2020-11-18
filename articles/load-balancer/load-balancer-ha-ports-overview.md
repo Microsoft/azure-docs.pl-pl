@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f6d5b5ef816127fe5f0c689132326f6157731d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664877"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684414"
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
@@ -66,7 +66,7 @@ Funkcja portów HA jest dostępna we wszystkich globalnych regionach platformy A
 
 Ta konfiguracja jest podstawową konfiguracją portów HA. Regułę równoważenia obciążenia portów HA można skonfigurować na pojedynczym adresie IP frontonu, wykonując następujące czynności:
 1. Podczas konfigurowania usługa Load Balancer w warstwie Standardowa zaznacz pole wyboru **porty ha** w konfiguracji reguły Load Balancer.
-2. W przypadku **zmiennoprzecinkowego adresu IP**wybierz pozycję **wyłączone**.
+2. W przypadku **zmiennoprzecinkowego adresu IP** wybierz pozycję **wyłączone**.
 
 Ta konfiguracja nie zezwala na żadną inną konfigurację reguły równoważenia obciążenia w zasobie bieżącego modułu równoważenia obciążenia. Nie umożliwia także żadnej innej konfiguracji zasobów wewnętrznego modułu równoważenia obciążenia dla danego zestawu wystąpień zaplecza.
 
@@ -99,5 +99,4 @@ Istnieje możliwość skonfigurowania *jednego* publicznego zasobu Usługa Load 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się, jak skonfigurować porty ha dla ILB za pomocą portalu](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [programu PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [interfejsu wiersza polecenia](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)lub [szablonów](quickstart-load-balancer-standard-internal-template.md).
-- [Dowiedz się więcej o usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)
+- [Dowiedz się więcej o usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md)

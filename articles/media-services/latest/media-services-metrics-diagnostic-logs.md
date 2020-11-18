@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309064"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685192"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorowanie metryk Media Services i dzienników diagnostycznych za pomocą Azure Monitor
 
@@ -67,8 +67,8 @@ Następujące metryki [punktów końcowych przesyłania strumieniowego](/rest/ap
 |Żądania|Żądania|Zapewnia łączną liczbę żądań HTTP obsłużonych przez punkt końcowy przesyłania strumieniowego.|
 |Ruch wychodzący|Ruch wychodzący|Całkowita liczba bajtów wychodzących na minutę na punkt końcowy przesyłania strumieniowego.|
 |SuccessE2ELatency|Pomyślne zakończenie oczekiwania|Czas trwania od momentu, gdy punkt końcowy przesyłania strumieniowego otrzymał żądanie do momentu wysłania ostatniego bajtu odpowiedzi.|
-|Użycie procesora| Użycie procesora dla punktów końcowych przesyłania strumieniowego w warstwie Premium. Te dane nie są dostępne dla standardowych punktów końcowych przesyłania strumieniowego. |
-|Przepustowość ruchu wychodzącego | Przepustowość w bitach na sekundę.|
+|Użycie procesora| | Użycie procesora dla punktów końcowych przesyłania strumieniowego w warstwie Premium. Te dane nie są dostępne dla standardowych punktów końcowych przesyłania strumieniowego. |
+|Przepustowość ruchu wychodzącego | | Przepustowość w bitach na sekundę.|
 
 ### <a name="metrics-are-useful"></a>Metryki są przydatne
 

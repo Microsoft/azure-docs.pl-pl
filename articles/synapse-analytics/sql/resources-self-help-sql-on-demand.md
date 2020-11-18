@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9753fc491cb5950d679ae3633a18cdd5c1170291
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317298"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682625"
 ---
 # <a name="self-help-for-serverless-sql-pool-preview"></a>Samoobsługowa pomoc dla puli SQL bezserwerowej (wersja zapoznawcza)
 

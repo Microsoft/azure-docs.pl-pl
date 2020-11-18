@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973704"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684512"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
 
@@ -171,7 +171,7 @@ Nie, jest obsługiwana tylko w przypadku dysków Ultra i Managed disks w warstwi
 
 **Jakie regiony obsługują dyski udostępnione?**
 
-Informacje regionalne znajdują się w naszym [artykule koncepcyjnym](./linux/disks-shared.md).
+Informacje regionalne znajdują się w naszym [artykule koncepcyjnym](disks-shared.md).
 
 **Czy dyski udostępnione mogą być używane jako dysk systemu operacyjnego?**
 
@@ -179,7 +179,7 @@ Nie, dyski udostępnione są obsługiwane tylko w przypadku dysków z danymi.
 
 **Jakie rozmiary dysków obsługują dyski udostępnione?**
 
-Aby uzyskać obsługiwane rozmiary, zobacz [artykuł dotyczący koncepcyjnych](./linux/disks-shared.md)zagadnień.
+Aby uzyskać obsługiwane rozmiary, zobacz [artykuł dotyczący koncepcyjnych](disks-shared.md)zagadnień.
 
 **Jeśli mam istniejący dysk, czy mogę włączyć na nim dyski udostępnione?**
 

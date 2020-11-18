@@ -8,22 +8,18 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747775"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683595"
 ---
 # <a name="enable-shared-disk"></a>Włączanie dysku udostępnionego
 
 W tym artykule opisano sposób włączania funkcji dysków udostępnionych dla usługi Azure Managed Disks. Azure Shared disks to nowa funkcja dysków zarządzanych przez platformę Azure, która umożliwia równoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Dołączenie dysku zarządzanego do wielu maszyn wirtualnych pozwala wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure. 
 
-Jeśli szukasz informacji koncepcyjnych dotyczących dysków zarządzanych z włączonymi dyskami udostępnionymi, zapoznaj się z tematem:
-
-* System Linux: [udostępnione dyski platformy Azure](linux/disks-shared.md)
-
-* Dla systemu Windows: [dyski udostępnione platformy Azure](windows/disks-shared.md)
+Jeśli szukasz informacji koncepcyjnych dotyczących dysków zarządzanych z włączonymi dyskami udostępnionymi, zobacz [Azure Shared disks](disks-shared.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -52,7 +48,7 @@ Aby wdrożyć dysk zarządzany z włączoną funkcją udostępnionego dysku, uż
 az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku Premium_LRS --max-shares 2
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType Premium_LRS -CreateOption Empty -MaxSharesCount 2
@@ -106,7 +102,7 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 az disk show -g rg1 -n clidisk
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ##### <a name="regional-disk-example"></a>Przykład dysku regionalnego
 

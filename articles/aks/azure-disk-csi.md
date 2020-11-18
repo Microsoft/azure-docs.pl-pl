@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900894"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683135"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera platformy Azure (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 Sterownik Azure Disk Container Storage Interface (CSI) jest sterownikiem zgodnym ze [specyfikacją CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)używanym przez usługę Azure Kubernetes Service (AKS) do zarządzania cyklem życia dysków platformy Azure.
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Dysk udostępniony
 
-[Azure Shared disks](../virtual-machines/windows/disks-shared.md) to funkcja Azure Managed disks, która umożliwia równoczesne dołączanie dysku platformy Azure do węzłów agentów. Dołączanie dysku zarządzanego do wielu węzłów agenta pozwala na przykład wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
+[Azure Shared disks](../virtual-machines/disks-shared.md) to funkcja Azure Managed disks, która umożliwia równoczesne dołączanie dysku platformy Azure do węzłów agentów. Dołączanie dysku zarządzanego do wielu węzłów agenta pozwala na przykład wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
 
 > [!IMPORTANT] 
 > Obecnie tylko pierwotne urządzenie blokowe ( `volumeMode: Block` ) jest obsługiwane przez sterownik CSI dysku platformy Azure. Aplikacje powinny zarządzać koordynacji i kontroli zapisu, odczytów, blokad, pamięci podręcznych, instalacji i ogrodzenia na dysku udostępnionym, który jest udostępniany jako pierwotne urządzenie blokowe.

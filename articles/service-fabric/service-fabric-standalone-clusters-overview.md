@@ -3,12 +3,12 @@ title: Omówienie autonomicznych klastrów Service Fabric
 description: Klastry Service Fabric są uruchamiane w systemach Windows Server i Linux, co oznacza, że będzie można wdrażać i hostować aplikacje Service Fabric wszędzie tam, gdzie będzie można uruchamiać system Windows Server lub Linux.
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841071"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684002"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Omówienie Service Fabric klastrów autonomicznych
 
@@ -43,10 +43,10 @@ Oprócz certyfikatów klienta Azure Active Directory można również skonfiguro
 
 Aby uzyskać więcej informacji, zapoznaj się z artykułem [Zabezpieczenia klienta-węzła](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
+### <a name="service-fabric-role-based-access-control"></a>Service Fabric kontroli dostępu opartej na rolach
 Service Fabric obsługuje również kontrolę dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.  
 
-Aby uzyskać więcej informacji, Przeczytaj [Access Control oparte na rolach (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Aby uzyskać więcej informacji, Przeczytaj [Service Fabric kontroli dostępu opartej na rolach](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ## <a name="scaling"></a>Skalowanie
 

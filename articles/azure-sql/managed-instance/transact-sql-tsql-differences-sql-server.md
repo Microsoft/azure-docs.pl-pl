@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649317"
+ms.locfileid: "94684923"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -190,7 +190,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 - [Tworzenie kopii zapasowej klucza głównego usługi](/sql/t-sql/statements/backup-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 - [Przywracanie klucza głównego usługi](/sql/t-sql/statements/restore-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="buffer-pool-extension"></a>Rozszerzenie puli buforów
 
@@ -521,7 +521,7 @@ Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie t
 - Maksymalny rozmiar pliku `tempdb` nie może być większy niż 24 GB na rdzeń w warstwie ogólnego przeznaczenia. Maksymalny `tempdb` rozmiar w warstwie krytyczne dla działania firmy jest ograniczony przez rozmiar magazynu wystąpienia zarządzanego SQL. `Tempdb` rozmiar pliku dziennika jest ograniczony do 120 GB na warstwie Ogólnego przeznaczenia. Niektóre zapytania mogą zwrócić błąd, jeśli potrzebują ponad 24 GB na rdzeń w `tempdb` lub, jeśli generują więcej niż 120 GB danych dziennika.
 - `Tempdb` zawsze jest podzielony na 12 plików danych: 1 podstawowa, nazywana również Master, plik danych i 11 niepodstawowymi plikami danych. Nie można zmienić struktury pliku i nie można dodać do niej nowych plików `tempdb` . 
 - [ `tempdb` Metadane zoptymalizowane pod kątem pamięci](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), nowe funkcje bazy danych SQL Server 2019 w pamięci, nie są obsługiwane.
-- Po ponownym uruchomieniu lub przełączeniu w tryb failover obiekty utworzone w bazie danych modeli nie mogą zostać utworzone `tempdb` ponownie, ponieważ nie `tempdb` pobierają jej początkowej listy obiektów z zreplikowanej bazy danych modeli. 
+- Po ponownym uruchomieniu lub przełączeniu w tryb failover obiekty utworzone w bazie danych modeli nie mogą zostać utworzone `tempdb` ponownie, ponieważ nie `tempdb` pobiera jej początkowej listy obiektów z bazy danych modelu. Obiekty należy tworzyć `tempdb` ręcznie po każdym ponownym uruchomieniu komputera lub w trybie failover.
 
 ### <a name="msdb"></a>MSDB
 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure przy u
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649443"
+ms.locfileid: "94682853"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -144,7 +144,7 @@ Określ ustawienia zasad w następujący sposób:
 1. W polu **Nazwa zasad** wprowadź nazwę nowych zasad.
 
    ![Wprowadź nazwę zasad](./media/backup-azure-sap-hana-database/policy-name.png)
-2. W obszarze **Zasady pełnej kopii zapasowej** wybierz opcję **Częstotliwość tworzenia kopii zapasowej** (**Codziennie** lub **Co tydzień**).
+1. W obszarze **Zasady pełnej kopii zapasowej** wybierz opcję **Częstotliwość tworzenia kopii zapasowej** (**Codziennie** lub **Co tydzień**).
    * **Codziennie**: Wybierz godzinę i strefę czasową, w której rozpoczyna się zadanie tworzenia kopii zapasowej.
        * Należy uruchomić pełną kopię zapasową. Nie można wyłączyć tej opcji.
        * Wybierz pozycję **Pełna kopia zapasowa**, aby wyświetlić zasady.
@@ -153,16 +153,16 @@ Określ ustawienia zasad w następujący sposób:
 
    ![Wybierz częstotliwość tworzenia kopii zapasowych](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. W obszarze **Zakres przechowywania** Skonfiguruj ustawienia przechowywania dla pełnej kopii zapasowej.
+1. W obszarze **Zakres przechowywania** Skonfiguruj ustawienia przechowywania dla pełnej kopii zapasowej.
     * Domyślnie wszystkie opcje są zaznaczone. Wyczyść limity zakresu przechowywania, których nie chcesz używać, i ustaw te, które chcesz wykonać.
     * Minimalny okres przechowywania dla dowolnego typu kopii zapasowej (pełny/różnicowa/log) wynosi siedem dni.
     * Punkty odzyskiwania są oznaczone do przechowywania na podstawie ich zakresu przechowywania. Jeśli na przykład wybierzesz codzienne tworzenie pełnej kopii zapasowej, każdego dnia będzie wyzwalana tylko jedna pełna kopia zapasowa.
     * Kopia zapasowa dla określonego dnia jest otagowana i zachowywana na podstawie tygodniowego zakresu przechowywania i ustawienia.
     * Miesięczne i roczne zakresy przechowywania zachowują się w podobny sposób.
 
-4. W menu **zasad pełnej kopii zapasowej** wybierz pozycję **OK**, aby zaakceptować ustawienia.
-5. Wybierz pozycję **różnicowa kopia zapasowa** , aby dodać zasady różnicowe.
-6. W obszarze **Zasady różnicowej kopii zapasowej** wybierz pozycję **Włącz**, aby otworzyć kontrolki częstotliwości i przechowywania.
+1. W menu **zasad pełnej kopii zapasowej** wybierz pozycję **OK**, aby zaakceptować ustawienia.
+1. Wybierz pozycję **różnicowa kopia zapasowa** , aby dodać zasady różnicowe.
+1. W obszarze **Zasady różnicowej kopii zapasowej** wybierz pozycję **Włącz**, aby otworzyć kontrolki częstotliwości i przechowywania.
     * Można wyzwalać maksymalnie jedną różnicową kopię zapasową dziennie.
     * Różnicowe kopie zapasowe mogą być przechowywane przez maksymalnie 180 dni. Jeśli potrzebujesz dłuższego okresu przechowywania, musisz użyć pełnych kopii zapasowych.
 
@@ -170,22 +170,22 @@ Określ ustawienia zasad w następujący sposób:
 
     > [!NOTE]
     > Przyrostowe kopie zapasowe są teraz obsługiwane w publicznej wersji zapoznawczej. Można wybrać różnicową lub przyrostową kopię zapasową, ale nie oba jednocześnie.
-7. W obszarze **zasady przyrostowej kopii zapasowej** wybierz pozycję **Włącz** , aby otworzyć kontrolki częstotliwość i przechowywanie.
+1. W obszarze **zasady przyrostowej kopii zapasowej** wybierz pozycję **Włącz** , aby otworzyć kontrolki częstotliwość i przechowywanie.
     * Co więcej, można wyzwolić jedną przyrostową kopię zapasową dziennie.
     * Przyrostowe kopie zapasowe mogą być przechowywane przez maksymalnie 180 dni. Jeśli potrzebujesz dłuższego okresu przechowywania, musisz użyć pełnych kopii zapasowych.
 
     ![Zasady przyrostowych kopii zapasowych](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
-7. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
-8. Wybierz pozycję **kopia zapasowa dziennika** , aby dodać zasady kopii zapasowej dziennika transakcyjnego,
+1. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
+1. Wybierz pozycję **kopia zapasowa dziennika** , aby dodać zasady kopii zapasowej dziennika transakcyjnego,
     * W obszarze **kopia zapasowa dziennika** wybierz pozycję **Włącz**.  Nie można go wyłączyć, ponieważ SAP HANA zarządza wszystkimi kopiami zapasowymi dzienników.
     * Ustaw kontrolkę częstotliwość i przechowywanie.
 
     > [!NOTE]
     > Kopie zapasowe dzienników zaczynają przepływać dopiero po pomyślnym wykonaniu pełnej kopii zapasowej.
 
-9. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
-10. Po zakończeniu definiowania zasad tworzenia kopii zapasowych wybierz pozycję **OK**.
+1. Wybierz pozycję **OK**, aby zapisać zasady i wróć do głównego menu **zasad kopii zapasowych**.
+1. Po zakończeniu definiowania zasad tworzenia kopii zapasowych wybierz pozycję **OK**.
 
 > [!NOTE]
 > Każda kopia zapasowa dziennika jest łańcuchem do poprzedniej pełnej kopii zapasowej w celu utworzenia łańcucha odzyskiwania. Ta pełna kopia zapasowa zostanie zachowana do momentu wygaśnięcia ostatniej kopii zapasowej dziennika. Może to oznaczać, że pełna kopia zapasowa jest przechowywana przez dodatkowy okres, aby upewnić się, że wszystkie dzienniki mogą zostać odzyskane. Załóżmy, że użytkownik dysponuje tygodniową pełną kopią zapasową, różnicą dzienną i 2-godzinnymi dziennikami. Wszystkie z nich są przechowywane przez 30 dni. Jednak tydzień pełny może być naprawdę oczyszczony/usunięty tylko po udostępnieniu kolejnej pełnej kopii zapasowej, czyli po upływie 30 dni. Na przykład cotygodniowe pełne kopie zapasowe odbywają się na LIS 16 listopada. Zgodnie z zasadami przechowywania należy je zachować do 16 grudnia. Ostatnia kopia zapasowa dziennika dla tego stanu jest wykonywana przed następnym zaplanowanym zaplanowaną godziną. Do momentu udostępnienia tego dziennika do grudnia 22 nie można usunąć. W związku z tym do gru.

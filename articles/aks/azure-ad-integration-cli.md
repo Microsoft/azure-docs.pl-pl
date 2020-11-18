@@ -6,18 +6,18 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: ab25ec5406c75316aaa1ee8efd0192dc0207ad79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4aa63493bb14db69821ac04db1d2c5a846de7dbe
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612422"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682472"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integrowanie Azure Active Directory z usługą Azure Kubernetes przy użyciu interfejsu wiersza polecenia platformy Azure (starsza wersja)
 
-Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników. W tej konfiguracji można zalogować się do klastra AKS przy użyciu tokenu uwierzytelniania usługi Azure AD. Operatory klastra mogą również skonfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów.
+Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników. W tej konfiguracji można zalogować się do klastra AKS przy użyciu tokenu uwierzytelniania usługi Azure AD. Operatory klastra mogą również konfigurować Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów.
 
-W tym artykule pokazano, jak utworzyć wymagane składniki usługi Azure AD, a następnie wdrożyć klaster z obsługą usługi Azure AD i utworzyć podstawową rolę RBAC w klastrze AKS.
+W tym artykule pokazano, jak utworzyć wymagane składniki usługi Azure AD, a następnie wdrożyć klaster z obsługą usługi Azure AD i utworzyć podstawową rolę Kubernetes w klastrze AKS.
 
 Aby zapoznać się z kompletnym przykładowym skryptem używanym w tym artykule, zobacz [przykłady interfejsu wiersza polecenia platformy Azure — integracja AKS z usługą Azure AD][complete-script].
 
@@ -26,7 +26,7 @@ Aby zapoznać się z kompletnym przykładowym skryptem używanym w tym artykule,
 
 ## <a name="the-following-limitations-apply"></a>Obowiązują następujące ograniczenia:
 
-- Usługę Azure AD można włączyć tylko w przypadku klastra z włączoną funkcją RBAC.
+- Usługę Azure AD można włączyć tylko w klastrze z obsługą kontroli RBAC Kubernetes.
 - Starsza integracja z usługą Azure AD może być włączana tylko podczas tworzenia klastra.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
@@ -164,9 +164,9 @@ Na koniec Uzyskaj poświadczenia administratora klastra przy użyciu polecenia [
 az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 ```
 
-## <a name="create-rbac-binding"></a>Tworzenie powiązania RBAC
+## <a name="create-kubernetes-rbac-binding"></a>Tworzenie powiązania RBAC Kubernetes
 
-Aby można było używać konta Azure Active Directory z klastrem AKS, należy utworzyć powiązanie roli lub powiązania roli klastra. *Role* definiują uprawnienia do udzielenia, a *powiązania* stosują je do wybranych użytkowników. Te przypisania można zastosować do danej przestrzeni nazw lub całego klastra. Aby uzyskać więcej informacji, zobacz [Korzystanie z autoryzacji RBAC][rbac-authorization].
+Aby można było używać konta Azure Active Directory z klastrem AKS, należy utworzyć powiązanie roli lub powiązania roli klastra. *Role* definiują uprawnienia do udzielenia, a *powiązania* stosują je do wybranych użytkowników. Te przypisania można zastosować do danej przestrzeni nazw lub całego klastra. Aby uzyskać więcej informacji, zobacz [using KUBERNETES RBAC Authorization][rbac-authorization].
 
 Pobierz główną nazwę użytkownika (UPN) dla użytkownika, który jest aktualnie zalogowany za pomocą polecenia [AZ AD zalogowałd-User show][az-ad-signed-in-user-show] . W następnym kroku dla tego konta użytkownika włączono integrację z usługą Azure AD.
 
@@ -175,7 +175,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 ```
 
 > [!IMPORTANT]
-> Jeśli użytkownik, któremu przyznano powiązanie RBAC, jest w tej samej dzierżawie usługi Azure AD, przypisz uprawnienia na podstawie elementu *userPrincipalName*. Jeśli użytkownik znajduje się w innej dzierżawie usługi Azure AD, zapytaj i Użyj zamiast niego właściwości *objectid* .
+> Jeśli użytkownik, któremu przyznano Kubernetes RBAC, jest w tej samej dzierżawie usługi Azure AD, przypisz uprawnienia na podstawie elementu *userPrincipalName*. Jeśli użytkownik znajduje się w innej dzierżawie usługi Azure AD, zapytaj i Użyj zamiast niego właściwości *objectid* .
 
 Utwórz manifest YAML o nazwie `basic-azure-ad-binding.yaml` i wklej poniższą zawartość. W ostatnim wierszu Zastąp *userPrincipalName_or_objectId*  nazwą UPN lub identyfikatorem obiektu wyjściowym z poprzedniego polecenia:
 
@@ -251,7 +251,7 @@ error: You must be logged in to the server (Unauthorized)
 
 Aby zapoznać się z kompletnym skryptem zawierającym polecenia przedstawione w tym artykule, zobacz [skrypt integracji usługi Azure AD w repozytorium przykładów AKS][complete-script].
 
-Aby używać użytkowników i grup usługi Azure AD do kontrolowania dostępu do zasobów klastra, zobacz [Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości usługi Azure AD w AKS][azure-ad-rbac].
+Aby używać użytkowników i grup usługi Azure AD do kontrolowania dostępu do zasobów klastra, zobacz [Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach Kubernetes i tożsamości usługi Azure AD w AKS][azure-ad-rbac].
 
 Aby uzyskać więcej informacji na temat zabezpieczania klastrów Kubernetes, zobacz [Opcje dostępu i tożsamości dla AKS)][rbac-authorization].
 
@@ -281,7 +281,7 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-aad.md

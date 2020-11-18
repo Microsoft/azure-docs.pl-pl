@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4538654b255aad99ff00477134c9eeb5845e50d6
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167342"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682761"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP HA przy użyciu klastra trybu failover systemu Windows i dysku udostępnionego dla oprogramowania SAP ASCS/SCS
 
@@ -165,7 +165,7 @@ ms.locfileid: "92167342"
 W tym artykule opisano kroki, które należy wykonać, aby przygotować infrastrukturę platformy Azure do instalowania i konfigurowania wystąpienia usługi SAP ASCS/SCS o wysokiej dostępności w klastrze trybu failover systemu Windows przy użyciu *udostępnionego dysku klastra* jako opcji klastrowania wystąpienia SAP ASCS.
 W dokumentacji przedstawiono dwa alternatywy dla *udostępnionego dysku klastra* :
 
-- [Dyski udostępnione platformy Azure](../../windows/disks-shared.md)
+- [Dyski udostępnione platformy Azure](../../disks-shared.md)
 - Tworzenie dublowanego magazynu przy użyciu [oprogramowanie SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) 
 
 Poprzednia konfiguracja jest zależna od [grup rozmieszczenia usługi Azure zbliżeniowe (PPG)](./sap-proximity-placement-scenarios.md) w celu uzyskania optymalnego opóźnienia sieci dla obciążeń SAP. Dokumentacja nie obejmuje warstwy bazy danych.  
@@ -192,9 +192,9 @@ Nazwy hostów i adresy IP dla prezentowanego scenariusza są następujące:
 | --- | --- | --- |---| ---|
 | pierwszy węzeł klastra ASCS/SCS klaster |PR1-ASCS-10 |10.0.0.4 |PR1-ASCS-avset |PR1PPG |
 | klaster ASCS/SCS drugiego węzła klastra |PR1-ASCS-11 |10.0.0.5 |PR1-ASCS-avset |PR1PPG |
-| Nazwa sieci klastra | pr1clust |10.0.0.42 (**tylko** w przypadku klastra win 2016) | nie dotyczy | nie dotyczy |
-| Nazwa sieci klastra ASCS | pr1-ascscl |10.0.0.43 | nie dotyczy | nie dotyczy |
-| Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.44 | nie dotyczy | nie dotyczy |
+| Nazwa sieci klastra | pr1clust |10.0.0.42 (**tylko** w przypadku klastra win 2016) | n/d | n/d |
+| Nazwa sieci klastra ASCS | pr1-ascscl |10.0.0.43 | n/d | n/d |
+| Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.44 | n/d | n/d |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure
@@ -213,17 +213,17 @@ Na poniższej liście przedstawiono konfigurację modułu równoważenia obcią�
 - Konfiguracja zaplecza  
     Dodaj wszystkie maszyny wirtualne, które powinny być częścią klastra programu (A) SCS/wykres WYWOŁUJĄCYCH. W tym przykładzie maszyny wirtualne **PR1-ASCS-10** i **PR1-ASCS-11**.
 - Port sondy
-    - Port 620**Nr** pozostaw opcję domyślną dla protokołu (TCP), interwał (5), próg złej kondycji (2)
+    - Port 620 **Nr** pozostaw opcję domyślną dla protokołu (TCP), interwał (5), próg złej kondycji (2)
 - Reguły równoważenia obciążenia
     - W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję Porty HA
     - W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-        - 32**Nr** TCP
-        - 36**Nr** TCP
-        - 39**Nr** TCP
-        - 81**Nr** TCP
-        - 5**Nr**13 TCP
-        - 5**Nr**14 TCP
-        - 5**Nr**16 TCP
+        - 32 **Nr** TCP
+        - 36 **Nr** TCP
+        - 39 **Nr** TCP
+        - 81 **Nr** TCP
+        - 5 **Nr** 13 TCP
+        - 5 **Nr** 14 TCP
+        - 5 **Nr** 16 TCP
 
     - Upewnij się, że limit czasu bezczynności (w minutach) jest ustawiony na wartość maksymalna 30 i że jest włączony swobodny adres IP (bezpośredni zwrot serwera).
 
@@ -237,17 +237,17 @@ W przypadku, gdy w kolejce jest również klastrowane serwer replikacji 2 (ERS2)
   Maszyny wirtualne zostały już dodane do puli zaplecza ILB.  
 
 - drugi port sondy
-    - Port 621**Nr**  
+    - Port 621 **Nr**  
     Pozostaw opcję domyślną dla protokołu (TCP), interwał (5), próg złej kondycji (2)
 
 - drugie reguły równoważenia obciążenia
     - W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję Porty HA
     - W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-        - 32**Nr** TCP
-        - 33**Nr** TCP
-        - 5**Nr**13 TCP
-        - 5**Nr**14 TCP
-        - 5**Nr**16 TCP
+        - 32 **Nr** TCP
+        - 33 **Nr** TCP
+        - 5 **Nr** 13 TCP
+        - 5 **Nr** 14 TCP
+        - 5 **Nr** 16 TCP
 
     - Upewnij się, że limit czasu bezczynności (w minutach) jest ustawiony na wartość maksymalna 30 i że jest włączony swobodny adres IP (bezpośredni zwrot serwera).
 

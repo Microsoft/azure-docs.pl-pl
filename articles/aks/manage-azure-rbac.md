@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie RBAC w Kubernetes z platformy Azure
+title: Zarządzanie RBAC platformy Azure w programie Kubernetes z platformy Azure
 titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak za pomocą usługi Azure Kubernetes Service (AKS) używać uwierzytelniania RBAC platformy Azure dla Kubernetes.
 services: container-service
@@ -7,23 +7,23 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346047"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684223"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
 Obecnie można już korzystać ze [zintegrowanego uwierzytelniania między Azure Active Directory (Azure AD) i AKS](managed-aad.md). Po włączeniu ta Integracja umożliwia klientom korzystanie z użytkowników usługi Azure AD, grup lub jednostek usługi jako tematów w Kubernetes RBAC, zobacz [tutaj](azure-ad-rbac.md).
-Ta funkcja zwalnia z konieczności oddzielnego zarządzania tożsamościami i poświadczeniami użytkowników w celu Kubernetes. Jednak nadal trzeba skonfigurować i osobno zarządzać usługą Azure RBAC oraz Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania, autoryzacji i RBAC w witrynie AKS, zobacz [tutaj](concepts-identity.md).
+Ta funkcja zwalnia z konieczności oddzielnego zarządzania tożsamościami i poświadczeniami użytkowników w celu Kubernetes. Jednak nadal trzeba skonfigurować i osobno zarządzać usługą Azure RBAC oraz Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji za pomocą RBAC w systemie AKS, zobacz [tutaj](concepts-identity.md).
 
 W tym dokumencie opisano nowe podejście, które pozwala na ujednolicone zarządzanie i kontrolę dostępu między zasobami platformy Azure, AKS i zasobami Kubernetes.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Możliwość zarządzania RBAC dla zasobów Kubernetes z platformy Azure umożliwia zarządzanie RBAC dla zasobów klastra przy użyciu platformy Azure lub natywnych mechanizmów Kubernetes. Po włączeniu nazwy główne usługi Azure AD będą weryfikowane wyłącznie przez funkcję RBAC platformy Azure, podczas gdy regularni Użytkownicy i konta usług Kubernetes są weryfikowane wyłącznie przez Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania, autoryzacji i RBAC w witrynie AKS, zobacz [tutaj](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+Możliwość zarządzania RBAC dla zasobów Kubernetes z platformy Azure umożliwia zarządzanie RBAC dla zasobów klastra przy użyciu platformy Azure lub natywnych mechanizmów Kubernetes. Po włączeniu nazwy główne usługi Azure AD będą weryfikowane wyłącznie przez funkcję RBAC platformy Azure, podczas gdy regularni Użytkownicy i konta usług Kubernetes są weryfikowane wyłącznie przez Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji za pomocą RBAC w systemie AKS, zobacz [tutaj](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -272,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Więcej informacji na temat uwierzytelniania AKS, autoryzacji i RBAC można znaleźć [tutaj](concepts-identity.md).
+- Przeczytaj więcej na temat uwierzytelniania AKS, autoryzacji, Kubernetes RBAC i usługi Azure RBAC [tutaj](concepts-identity.md).
 - Więcej informacji na temat usługi Azure RBAC można znaleźć [tutaj](../role-based-access-control/overview.md).
 - Przeczytaj więcej na temat wszystkich akcji, których można użyć, aby szczegółowo zdefiniować niestandardowe role platformy Azure na [potrzeby autoryzacji Kubernetes](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 

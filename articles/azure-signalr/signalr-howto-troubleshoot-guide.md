@@ -1,19 +1,19 @@
 ---
 title: Przewodnik rozwiązywania problemów z usługą Azure SignalR Service
-description: Informacje
+description: Dowiedz się, jak rozwiązywać typowe problemy
 author: YanJin
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 5b8360134ace3852fb3c7fbe458ca2572f45b624
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663788"
+ms.locfileid: "94684121"
 ---
-# <a name="troubleshooting-guide"></a>Przewodnik rozwiązywania problemów
+# <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Przewodnik rozwiązywania problemów z typowymi problemami dotyczącymi usługi Azure Signal
 
 Te wskazówki mają na celu zapewnienie przydatnego przewodnika rozwiązywania problemów w oparciu o typowe problemy, które klienci spełnią i rozwiązane w ciągu ostatnich lat.
 
@@ -257,7 +257,7 @@ Połączenia klienckie rosną przez długi czas w metrykach usługi Azure Signal
 
 Sprawdź, czy połączenie zostało zamknięte. Ręcznie Wywołaj `HubConnection.DisposeAsync()` , aby zatrzymać połączenie po jego użyciu.
 
-Na przykład:
+Przykład:
 
 ```C#
 var connection = new HubConnectionBuilder()
@@ -347,3 +347,9 @@ Wykonaj ASP.NET Core jeden na przykład (ASP.NET jeden jest podobny):
 
     * [Klient JavaScript ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
+## <a name="next-steps"></a>Następne kroki
+
+W tym przewodniku wyjaśniono, jak obsłużyć typowe problemy. Możesz również zapoznać się z bardziej ogólnymi metodami rozwiązywania problemów. 
+
+> [!div class="nextstepaction"]
+> [Jak rozwiązywać problemy z dostarczaniem łączności i komunikatów](./signalr-howto-troubleshoot-method.md)

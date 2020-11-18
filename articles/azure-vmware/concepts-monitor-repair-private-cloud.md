@@ -2,13 +2,13 @@
 title: Pojęcia — monitorowanie i naprawa prywatnych chmur rozwiązań platformy Azure VMware
 description: Dowiedz się, jak rozwiązanie VMware firmy Azure monitoruje i naprawia serwery VMware ESXi w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: bee08304cd14f2aeec6995203638b5a37d9a861c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 11a3c53bff7ce7b67b677977eddb9829f336672d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346235"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684699"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorowanie i naprawa chmur prywatnych rozwiązania Azure VMware
 
@@ -42,4 +42,10 @@ Proces korygowania hosta jest uruchamiany przez dodanie nowego węzła w dobrej 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat [uaktualnień chmur prywatnych w usłudze Azure VMware](concepts-upgrades.md).  
+Oto kilka tematów, dla których warto dowiedzieć się więcej na temat:
+
+- [Uaktualnienia chmury prywatnej rozwiązań VMware platformy Azure](concepts-upgrades.md)
+- [Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center](azure-security-integration.md)
+- [Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server](backup-azure-vmware-solution-virtual-machines.md)
+- [Ukończ odzyskiwanie po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware](disaster-recovery-for-virtual-machines.md)

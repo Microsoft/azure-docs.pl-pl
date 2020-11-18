@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e68e65a5c2ed73a8fb6d8e5d01c645e05ca5157
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b368048e5ea34ebfc073b1ae239cbb40724ae393
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320719"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684376"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
 
@@ -36,7 +36,7 @@ Dowiedz się więcej o [obsłudze zdarzeń w usłudze Azure Communications Servi
 
 Możesz połączyć centrum powiadomień platformy Azure z zasobem usług komunikacyjnych, aby automatycznie wysyłać powiadomienia wypychane do urządzenia przenośnego użytkownika po odebraniu połączenia przychodzącego. Te powiadomienia wypychane powinny być używane do wznawiania działania aplikacji z poziomu tła i wyświetlania interfejsu użytkownika, który umożliwia użytkownikowi zaakceptowanie lub odrzucanie wywołania. 
 
-:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram przedstawiający sposób integracji usług komunikacyjnych z Event Grid.":::
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram przedstawiający sposób integracji usług komunikacyjnych z centrum powiadomień platformy Azure.":::
 
 Usługi komunikacyjne korzystają z centrum powiadomień platformy Azure jako usługi przekazującej w celu komunikowania się z różnymi usługami powiadomień wypychanych specyficznymi dla platformy przy użyciu interfejsu API [bezpośredniego wysyłania](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) . Dzięki temu możesz ponownie wykorzystać istniejące zasoby i konfiguracje usługi Azure Notification Hub, aby zapewnić małym opóźnieniu, niezawodne powiadomienia o wywołaniach do aplikacji.
 
@@ -53,7 +53,8 @@ Aby dostarczać powiadomienia wypychane do urządzeń klienckich przy użyciu No
 Po skonfigurowaniu centrum powiadomień można je skojarzyć z zasobem usług komunikacyjnych, dostarczając parametry połączenia dla centrum przy użyciu klienta Azure Resource Manager lub za pośrednictwem Azure Portal. Parametry połączenia powinny zawierać uprawnienia "Send". Zalecamy utworzenie innych zasad dostępu z uprawnieniami tylko do wysyłania przeznaczonymi dla centrum. Dowiedz się więcej na temat [Notification Hubs zasad zabezpieczeń i dostępu](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
 
 > [!IMPORTANT]
-> Aby włączyć powiadomienia VOIP Apple Push Notification Service, należy ustawić nazwę centrum powiadomień jako identyfikator pakietu aplikacji z `.voip` sufiksem. Zobacz [Korzystanie z VoIP APN za pomocą Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
+> Ma to zastosowanie tylko do trybu uwierzytelniania tokenu. Tryb uwierzytelniania certyfikatu nie jest obecnie obsługiwany.  
+Aby włączyć powiadomienia VOIP usługi APNS, należy ustawić wartość identyfikatora pakietu podczas konfigurowania centrum powiadomień jako identyfikatora pakietu aplikacji z `.voip` sufiksem. Aby uzyskać więcej informacji, zobacz Korzystanie z protokołu [VoIP usługi APNs za pomocą Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns) .
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Konfigurowanie centrum powiadomień przy użyciu klienta Azure Resource Manager
 
@@ -73,7 +74,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 W portalu przejdź do zasobu usługi Azure Communications Services. W obszarze zasób usług komunikacyjnych wybierz pozycję powiadomienia wypychane w menu po lewej stronie usługi komunikacyjne i Połącz się z centrum powiadomień, które zostało wcześniej zainicjowane. Należy podać parametry połączenia i identyfikator zasobu tutaj:
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Diagram przedstawiający sposób integracji usług komunikacyjnych z Event Grid.":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Zrzut ekranu przedstawiający ustawienia powiadomień wypychanych w witrynie Azure Portal.":::
 
 > [!NOTE]
 > Jeśli parametry połączenia centrum powiadomień platformy Azure zostały zaktualizowane, należy również zaktualizować zasób usług komunikacyjnych.

@@ -3,13 +3,13 @@ title: Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Service (AKS), aby uzyskać najnowsze funkcje i aktualizacje zabezpieczeń.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461451"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683237"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ W ramach cyklu życia klastra AKS często konieczne jest uaktualnienie do najnow
 
 W przypadku klastrów AKS, które korzystają z wielu pul węzłów lub węzłów systemu Windows Server, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
@@ -51,7 +51,7 @@ Jeśli uaktualnienie nie jest dostępne, uzyskasz następujące korzyści:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>Dostosowywanie przepięcia węzła (wersja zapoznawcza)
+## <a name="customize-node-surge-upgrade"></a>Dostosowywanie przepięcia węzła
 
 > [!Important]
 > Przepięcia węzłów wymagają przydziału subskrypcji dla wymaganej maksymalnej liczby przeskoków dla każdej operacji uaktualniania. Na przykład klaster, który ma 5 pul węzłów, każdy z liczbą 4 węzłów, ma łącznie 20 węzłów. Jeśli każda pula węzłów ma maksymalną wartość przepięcia wynoszącą 50%, do ukończenia uaktualnienia jest wymagane dodatkowe zasoby obliczeniowe i IP z 10 węzłów (2 węzły * 5 pul).
@@ -66,21 +66,7 @@ AKS akceptuje zarówno wartości całkowite, jak i wartość procentową maksyma
 
 Podczas uaktualniania maksymalna wartość przepięcia może wynosić co najmniej 1, a maksymalna wartość równa liczbie węzłów w puli węzłów. Można ustawić większe wartości, ale Maksymalna liczba węzłów używanych do maksymalnego przepięcia nie będzie większa niż liczba węzłów w puli w czasie uaktualniania.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Skonfiguruj funkcję w wersji zapoznawczej dostosowywania przepięcia węzła
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-Rejestracja może potrwać kilka minut. Użyj poniższego polecenia, aby sprawdzić, czy funkcja jest zarejestrowana:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-W trakcie korzystania z wersji zapoznawczej potrzebne jest rozszerzenie interfejsu wiersza polecenia *AKS-Preview* , aby używać maksymalnego przepięcia. Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
+Do momentu uruchomienia interfejsu wiersza polecenia w wersji 2.16.0 +, aby użyć maksymalnego wzwyższego poziomu, należy mieć rozszerzenie CLI *AKS-Preview* . Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Uaktualnianie klastra AKS
 
-Mając listę dostępnych wersji klastra AKS, użyj polecenia [AZ AKS upgrade][az-aks-upgrade] , aby przeprowadzić uaktualnienie. W trakcie procesu uaktualniania AKS dodaje nowy węzeł buforu (lub tyle węzłów skonfigurowanych w [maksymalnym przeskoku](#customize-node-surge-upgrade-preview)) do klastra, na którym działa określona wersja Kubernetes. Następnie [Cordon i opróżnienie][kubernetes-drain] jednego ze starych węzłów w celu zminimalizowania przerw w działaniu aplikacji (Jeśli używasz maksymalnego przepięcia, będzie [Cordon i opróżniać][kubernetes-drain] tyle węzłów w tym samym czasie co liczba określonych węzłów buforu). Gdy stary węzeł jest całkowicie opróżniany, zostanie odłączony do nowej wersji i będzie węzłem buforu dla następującego węzła do uaktualnienia. Ten proces jest powtarzany do momentu uaktualnienia wszystkich węzłów w klastrze. Po zakończeniu procesu ostatni opróżniany węzeł zostanie usunięty i będzie utrzymywać istniejącą liczbę węzłów agenta.
+Mając listę dostępnych wersji klastra AKS, użyj polecenia [AZ AKS upgrade][az-aks-upgrade] , aby przeprowadzić uaktualnienie. W trakcie procesu uaktualniania AKS dodaje nowy węzeł buforu (lub tyle węzłów skonfigurowanych w [maksymalnym przeskoku](#customize-node-surge-upgrade)) do klastra, na którym działa określona wersja Kubernetes. Następnie [Cordon i opróżnienie][kubernetes-drain] jednego ze starych węzłów w celu zminimalizowania przerw w działaniu aplikacji (Jeśli używasz maksymalnego przepięcia, będzie [Cordon i opróżniać][kubernetes-drain] tyle węzłów w tym samym czasie co liczba określonych węzłów buforu). Gdy stary węzeł jest całkowicie opróżniany, zostanie odłączony do nowej wersji i będzie węzłem buforu dla następującego węzła do uaktualnienia. Ten proces jest powtarzany do momentu uaktualnienia wszystkich węzłów w klastrze. Po zakończeniu procesu ostatni opróżniany węzeł zostanie usunięty i będzie utrzymywać istniejącą liczbę węzłów agenta.
 
 ```azurecli-interactive
 az aks upgrade \

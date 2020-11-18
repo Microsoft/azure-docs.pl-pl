@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286765"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684172"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -46,7 +46,7 @@ Następujące trzy przypadki (3) powodują niewystarczający rozmiar podsieci:
    1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of buffer nodes needed to upgrade` .
    1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   Domyślnie klastry AKS ustawiają maksymalną wartość (w buforze uaktualnienia) jedną (1), ale to zachowanie uaktualnienia można dostosować, ustawiając [maksymalną wartość przepięcia puli węzłów](upgrade-cluster.md#customize-node-surge-upgrade-preview) , która spowoduje zwiększenie liczby dostępnych adresów IP potrzebnych do przeprowadzenia uaktualnienia.
+   Domyślnie klastry AKS ustawiają maksymalną wartość (w buforze uaktualnienia) jedną (1), ale to zachowanie uaktualnienia można dostosować, ustawiając [maksymalną wartość przepięcia puli węzłów](upgrade-cluster.md#customize-node-surge-upgrade) , która spowoduje zwiększenie liczby dostępnych adresów IP potrzebnych do przeprowadzenia uaktualnienia.
 
 1. AKS Utwórz lub AKS Nodepool Dodaj
    1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of nodes requested for the node pool` .
@@ -86,13 +86,13 @@ AKS ma płaszczyzny kontroli HA skalowanie w pionie zgodnie z liczbą rdzeni, ab
 
 Te limity czasu mogą być związane z ruchem wewnętrznym między blokowanymi węzłami. Sprawdź, czy ten ruch nie jest blokowany, na przykład przez [sieciowe grupy zabezpieczeń](concepts-security.md#azure-network-security-groups) w podsieci dla węzłów klastra.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć Role-Based Access Control (RBAC) w istniejącym klastrze. Jak to zrobić?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć kontrolę dostępu opartą na rolach (Kubernetes RBAC) Kubernetes w istniejącym klastrze. Jak to zrobić?
 
-Włączenie kontroli dostępu opartej na rolach (RBAC) w istniejących klastrach nie jest obecnie obsługiwane, należy ją ustawić podczas tworzenia nowych klastrów. RBAC jest domyślnie włączone w przypadku korzystania z interfejsu wiersza polecenia, portalu lub wersji API nowszej niż `2020-03-01` .
+Włączenie kontroli dostępu opartej na rolach (Kubernetes RBAC) w istniejących klastrach nie jest obecnie obsługiwane, należy ją ustawić podczas tworzenia nowych klastrów. Kubernetes RBAC jest domyślnie włączone w przypadku korzystania z interfejsu wiersza polecenia, portalu lub interfejsu API w wersji nowszej niż `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Został utworzony klaster z włączoną funkcją RBAC i teraz widzimy wiele ostrzeżeń na pulpicie nawigacyjnym Kubernetes. Pulpit nawigacyjny służący do pracy bez żadnych ostrzeżeń. Co mam zrobić?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Utworzono klaster z włączonym Kubernetes RBAC i teraz widzimy wiele ostrzeżeń na pulpicie nawigacyjnym Kubernetes. Pulpit nawigacyjny służący do pracy bez żadnych ostrzeżeń. Co mam zrobić?
 
-Przyczyna ostrzeżeń to klaster z włączoną funkcją RBAC, a dostęp do pulpitu nawigacyjnego jest teraz ograniczony domyślnie. Ogólnie rzecz biorąc, to podejście jest dobrym rozwiązaniem, ponieważ domyślne narażenie pulpitu nawigacyjnego na wszystkich użytkowników klastra może prowadzić do zagrożeń bezpieczeństwa. Jeśli nadal chcesz włączyć pulpit nawigacyjny, postępuj zgodnie z instrukcjami w [tym wpisie w blogu](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+Przyczyną ostrzeżeń jest to, że w klastrze włączono funkcję RBAC Kubernetes i dostęp do pulpitu nawigacyjnego jest teraz ograniczony domyślnie. Ogólnie rzecz biorąc, to podejście jest dobrym rozwiązaniem, ponieważ domyślne narażenie pulpitu nawigacyjnego na wszystkich użytkowników klastra może prowadzić do zagrożeń bezpieczeństwa. Jeśli nadal chcesz włączyć pulpit nawigacyjny, postępuj zgodnie z instrukcjami w [tym wpisie w blogu](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Nie mogę pobrać dzienników przy użyciu dzienników polecenia kubectl lub nie mogę nawiązać połączenia z serwerem interfejsu API. Otrzymuję komunikat "błąd z serwera: błąd podczas wybierania numeru zaplecza: wybierz TCP...". Co mam zrobić?
 
@@ -154,10 +154,10 @@ Postępuj zgodnie z instrukcjami *przed rozpoczęciem* w odpowiednim dokumencie,
 Ograniczenia nazewnictwa są implementowane przez platformę Azure i AKS. Jeśli nazwa zasobu lub parametr przerywa jedno z tych ograniczeń, zwracany jest błąd, który prosi o podanie innych danych wejściowych. Stosuje się następujące typowe wskazówki dotyczące nazewnictwa:
 
 * Nazwy klastrów muszą składać się z 1-63 znaków. Jedyne dozwolone znaki to litery, cyfry, łączniki i podkreślenia. Pierwszy i ostatni znak musi być literą lub cyfrą.
-* Nazwa grupy zasobów Node/ *MC_* AKS łączy nazwę grupy zasobów i nazwę zasobu. Składnia autogenerata `MC_resourceGroupName_resourceName_AzureRegion` nie może zawierać więcej niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS. Możesz również [dostosować nazwę grupy zasobów węzła](cluster-configuration.md#custom-resource-group-name)
+* Nazwa grupy zasobów Node/*MC_* AKS łączy nazwę grupy zasobów i nazwę zasobu. Składnia autogenerata `MC_resourceGroupName_resourceName_AzureRegion` nie może zawierać więcej niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS. Możesz również [dostosować nazwę grupy zasobów węzła](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* musi zaczynać i kończyć się wartościami alfanumerycznymi i muszą zawierać od 1-54 znaków. Prawidłowe znaki to wartości alfanumeryczne i łączniki (-). *DnsPrefix* nie może zawierać znaków specjalnych, takich jak kropka (.).
 * Nazwy puli węzłów AKS muszą składać się z małych liter i zawierać 1-11 znaków dla pul węzłów systemu Linux i 1-6 znaków dla pul węzłów Windows. Nazwa musi zaczynać się od litery i Jedyne dozwolone znaki to litery i cyfry.
-* *Nazwa użytkownika administratora* , która ustawia nazwę użytkownika administratora dla węzłów systemu Linux, musi rozpoczynać się od litery, może zawierać tylko litery, cyfry, łączniki i podkreślenia, a maksymalna długość wynosząca 64 znaków.
+* *Nazwa użytkownika administratora*, która ustawia nazwę użytkownika administratora dla węzłów systemu Linux, musi rozpoczynać się od litery, może zawierać tylko litery, cyfry, łączniki i podkreślenia, a maksymalna długość wynosząca 64 znaków.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Otrzymuję błędy podczas próby utworzenia, zaktualizowania, skalowania, usunięcia lub uaktualnienia klastra, ta operacja nie jest dozwolona, ponieważ inna operacja jest w toku.
 
@@ -167,7 +167,7 @@ Operacje klastra są ograniczone, gdy Poprzednia operacja jest nadal w toku. Aby
 
 Na podstawie danych wyjściowych stanu klastra:
 
-* Jeśli klaster jest w stanie aprowizacji *innym niż* *powodzenie lub nieudany* , poczekaj na zakończenie operacji ( *uaktualnianie/aktualizowanie/tworzenie/skalowanie/usuwanie/Migrowanie* ). Po zakończeniu poprzedniej operacji ponów próbę wykonania ostatniej operacji klastra.
+* Jeśli klaster jest w stanie aprowizacji *innym niż* *powodzenie lub nieudany*, poczekaj na zakończenie operacji (*uaktualnianie/aktualizowanie/tworzenie/skalowanie/usuwanie/Migrowanie*). Po zakończeniu poprzedniej operacji ponów próbę wykonania ostatniej operacji klastra.
 
 * Jeśli uaktualnienie nie powiodło się, wykonaj kroki opisane w temacie jak pojawiają się [błędy, w których klaster jest w stanie niepowodzenia, a uaktualnienie lub skalowanie nie będzie działało do momentu jego naprawienia](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -256,7 +256,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.10 | 1.10.2 lub nowszy |
 | 1,11 | 1.11.0 lub nowszy |
-| 1,12 i nowsze | Brak |
+| 1,12 i nowsze | Nie dotyczy |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatorów UID i GID w mountOptions dla dysku platformy Azure
@@ -313,7 +313,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.9 lub nowszy |
 | 1.13 | 1.13.6 lub nowszy |
 | 1,14 | 1.14.2 lub nowszy |
-| 1,15 i nowsze | Brak |
+| 1,15 i nowsze | Nie dotyczy |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a Twój węzeł ma przestarzałą listę dysków, możesz rozwiązać problem, odłączając wszystkie nieistniejące dyski z maszyny wirtualnej jako operację zbiorczą. **Pojedyncze odłączenie nieistniejących dysków może zakończyć się niepowodzeniem.**
 
@@ -332,7 +332,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.10 lub nowszy |
 | 1.13 | 1.13.8 lub nowszy |
 | 1,14 | 1.14.4 lub nowszy |
-| 1,15 i nowsze | Brak |
+| 1,15 i nowsze | Nie dotyczy |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a stan węzła jest w stanie niepowodzenia, możesz rozwiązać problem, ręcznie aktualizując status maszyny wirtualnej przy użyciu jednego z poniższych elementów:
 
@@ -365,7 +365,7 @@ Zalecane ustawienia:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 i nowsze | 0777 |
 
-Opcje instalacji można określić w obiekcie klasy magazynu. W poniższym przykładzie są ustawiane *0777* :
+Opcje instalacji można określić w obiekcie klasy magazynu. W poniższym przykładzie są ustawiane *0777*:
 
 ```yaml
 kind: StorageClass
@@ -388,7 +388,7 @@ parameters:
 Niektóre dodatkowe użyteczne ustawienia *mountOptions* :
 
 * *mfsymlinks* Azure Files instalacji (CIFS) obsługuje linki symboliczne
-* *nobrl* uniemożliwi wysyłanie żądań blokady zakresu bajtów do serwera. To ustawienie jest niezbędne w przypadku niektórych aplikacji, które są przerywane przez obowiązkowe zablokowanie zakresu bajtów w stylu CIFS. Większość serwerów CIFS nie obsługuje jeszcze żądań zablokowania zakresu bajtów doradczych. Jeśli nie korzystasz z *nobrl* , aplikacje, które są przerywane przez obowiązkowe blokowanie zakresu bajtów w stylu CIFS mogą powodować komunikaty o błędach podobne do:
+* *nobrl* uniemożliwi wysyłanie żądań blokady zakresu bajtów do serwera. To ustawienie jest niezbędne w przypadku niektórych aplikacji, które są przerywane przez obowiązkowe zablokowanie zakresu bajtów w stylu CIFS. Większość serwerów CIFS nie obsługuje jeszcze żądań zablokowania zakresu bajtów doradczych. Jeśli nie korzystasz z *nobrl*, aplikacje, które są przerywane przez obowiązkowe blokowanie zakresu bajtów w stylu CIFS mogą powodować komunikaty o błędach podobne do:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -441,7 +441,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Brak |
+| 1,14 i nowsze | Nie dotyczy |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Instalacja Azure Files nie powiodła się z powodu zmiany klucza konta magazynu
 

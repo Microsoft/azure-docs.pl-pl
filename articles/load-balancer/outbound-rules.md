@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 947ecaa2efbfb013f1f3e8203d1c4296b9ca329f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422165"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683118"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reguły wychodzące Azure Load Balancer
 
@@ -106,7 +106,7 @@ Jeśli sieciowej grupy zabezpieczeń blokuje żądania sondy kondycji z domyśln
 
 
 * Skonfiguruj połączenia wychodzące do określonego zestawu publicznych adresów IP lub prefiksu.
-* Modyfikowanie [alokacji](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) portów dla tego obiektu.
+* Modyfikowanie [alokacji](load-balancer-outbound-connections.md) portów dla tego obiektu.
 * Włącz tylko ruch wychodzący.
 * Wychodzące NAT tylko dla maszyn wirtualnych (bez ruchu przychodzącego).
 * Wychodzące NAT dla wewnętrznego modułu równoważenia obciążenia.
@@ -135,7 +135,7 @@ Aby użyć innego publicznego adresu IP lub prefiksu niż używany przez reguł�
 5. Skonfiguruj regułę ruchu wychodzącego w publicznym module równoważenia obciążenia, aby włączyć wychodzące NAT dla maszyn wirtualnych przy użyciu frontonu. Nie zaleca się używania reguły równoważenia obciążenia dla ruchu wychodzącego, wyłączając wychodzący plik zasad sieciowych dla reguły równoważenia obciążenia.
 
 
-### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Scenariusz 2: modyfikowanie alokacji portów podrzędnego kodu [źródłowego](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources)
+### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>Scenariusz 2: modyfikowanie alokacji portów podrzędnego kodu [źródłowego](load-balancer-outbound-connections.md)
 
 
 #### <a name="details"></a>Szczegóły
@@ -144,19 +144,19 @@ Aby użyć innego publicznego adresu IP lub prefiksu niż używany przez reguł�
 Korzystając z reguł ruchu wychodzącego, można dostroić [automatyczną alokację portu z użyciem puli zaplecza](load-balancer-outbound-connections.md#preallocatedports). 
 
 
-Jeśli masz problemy z wyczerpaniem, Zwiększ liczbę portów przyciągania [adresów sieciowych](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) z uwzględnieniem wartości domyślnej 1024. 
+Jeśli masz problemy z wyczerpaniem, Zwiększ liczbę portów przyciągania [adresów sieciowych](load-balancer-outbound-connections.md)z uwzględnieniem wartości domyślnej 1024. 
 
 
-Każdy publiczny adres IP współtworzy do 64 000 portów tymczasowych. Liczba maszyn wirtualnych w puli zaplecza określa liczbę portów dystrybuowanych do każdej maszyny wirtualnej. Jedna maszyna wirtualna w puli zaplecza ma dostęp do maksymalnie 64 000 portów. Dla dwóch maszyn wirtualnych można uzyskać [maksymalnie 32 000 portów](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) z użyciem reguły ruchu wychodzącego (2x 32 000 = 64 000). 
+Każdy publiczny adres IP współtworzy do 64 000 portów tymczasowych. Liczba maszyn wirtualnych w puli zaplecza określa liczbę portów dystrybuowanych do każdej maszyny wirtualnej. Jedna maszyna wirtualna w puli zaplecza ma dostęp do maksymalnie 64 000 portów. Dla dwóch maszyn wirtualnych można uzyskać [maksymalnie 32 000 portów](load-balancer-outbound-connections.md)z użyciem reguły ruchu wychodzącego (2x 32 000 = 64 000). 
 
 
-Korzystając z reguł ruchu wychodzącego, można dostrajać porty przydzielone domyślnie. Przydajesz więcej lub mniej niż jest to domyślna alokacja portu przydziałów [adresów sieciowych](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) . Każdy publiczny adres IP z frontonu reguły wychodzącej współużytkuje do 64 000 portów tymczasowych na potrzeby używania [jako portów](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) protokołu reportowego. 
+Korzystając z reguł ruchu wychodzącego, można dostrajać porty przydzielone domyślnie. Przydajesz więcej lub mniej niż jest to domyślna alokacja portu przydziałów [adresów sieciowych](load-balancer-outbound-connections.md). Każdy publiczny adres IP z frontonu reguły wychodzącej współużytkuje do 64 000 portów tymczasowych na potrzeby używania [jako portów](load-balancer-outbound-connections.md)protokołu reportowego. 
 
 
-Moduł równoważenia obciążenia oferuje porty podzbiorów [adresów](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) w wielokrotnościach 8. Jeśli podano wartość, która nie jest podzielna przez 8, operacja konfiguracji zostanie odrzucona. Każda reguła równoważenia obciążenia i Reguła ruchu przychodzącego NAT będą korzystały z zakresu 8 portów. Jeśli reguła równoważenia obciążenia lub ruchu przychodzącego NAT ma taki sam zakres 8 jak inny, nie będą używane żadne dodatkowe porty.
+Moduł równoważenia obciążenia oferuje porty podzbiorów [adresów](load-balancer-outbound-connections.md)w wielokrotnościach 8. Jeśli podano wartość, która nie jest podzielna przez 8, operacja konfiguracji zostanie odrzucona. Każda reguła równoważenia obciążenia i Reguła ruchu przychodzącego NAT będą korzystały z zakresu 8 portów. Jeśli reguła równoważenia obciążenia lub ruchu przychodzącego NAT ma taki sam zakres 8 jak inny, nie będą używane żadne dodatkowe porty.
 
 
-Jeśli podjęto próbę przyznania [więcej portów](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) protokołu reportowego, niż jest dostępne w oparciu o liczbę publicznych adresów IP, operacja konfiguracji zostanie odrzucona. Na przykład w przypadku nadania 10 000 portów na maszynę wirtualną i siedmiu maszyn wirtualnych w puli zaplecza mają jeden publiczny adres IP, konfiguracja zostanie odrzucona. Siedem pomnożone przez 10 000 przekracza limit portów 64 000. Dodaj więcej publicznych adresów IP do frontonu reguły ruchu wychodzącego, aby włączyć scenariusz. 
+Jeśli podjęto próbę przyznania [więcej portów](load-balancer-outbound-connections.md)protokołu reportowego, niż jest dostępne w oparciu o liczbę publicznych adresów IP, operacja konfiguracji zostanie odrzucona. Na przykład w przypadku nadania 10 000 portów na maszynę wirtualną i siedmiu maszyn wirtualnych w puli zaplecza mają jeden publiczny adres IP, konfiguracja zostanie odrzucona. Siedem pomnożone przez 10 000 przekracza limit portów 64 000. Dodaj więcej publicznych adresów IP do frontonu reguły ruchu wychodzącego, aby włączyć scenariusz. 
 
 
 Przywróć [domyślną alokację portu](load-balancer-outbound-connections.md#preallocatedports) , określając wartość 0 dla liczby portów. Pierwsze wystąpienie maszyny wirtualnej 50 spowoduje uzyskanie portów 1024 51-100, a w przypadku wystąpienia maszyn wirtualnych zostanie 512 wyświetlonych co najwyżej Maksymalna liczba wystąpień. Aby uzyskać więcej informacji na temat domyślnego przydzielania portów adresów sieciowych, zobacz [tabela alokacji portów przydziałów](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
@@ -195,7 +195,7 @@ W tym scenariuszu: Azure Load Balancer reguły ruchu wychodzącego i Virtual Net
 
 
 
-Użyj prefiksu lub publicznego adresu IP do [skalowania](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) portów. Dodaj źródło połączeń wychodzących do listy dozwolonych lub zablokowanych.
+Użyj prefiksu lub publicznego adresu IP do [skalowania](load-balancer-outbound-connections.md)portów. Dodaj źródło połączeń wychodzących do listy dozwolonych lub zablokowanych.
 
 
 
@@ -225,7 +225,7 @@ Aby uzyskać więcej informacji, zobacz [Konfiguracja modułu równoważenia obc
 W przypadku korzystania z publicznej standardowej usługi równoważenia obciążenia usługa automatycznego wychodzącego NAT jest zgodna z protokołem transportu reguły równoważenia obciążenia. 
 
 
-1. Wyłącz [przychodzący](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) magazyn danych w regule równoważenia obciążenia. 
+1. Wyłącz [przychodzący](load-balancer-outbound-connections.md)magazyn danych w regule równoważenia obciążenia. 
 2. Skonfiguruj regułę ruchu wychodzącego w tym samym module równoważenia obciążenia.
 3. Ponownie Użyj puli zaplecza już używanej przez maszyny wirtualne. 
 4. Określ "Protokół": "All" jako część reguły ruchu wychodzącego. 

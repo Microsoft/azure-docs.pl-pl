@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660359"
+ms.locfileid: "94684206"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
 
@@ -225,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-W tym przykładzie nadajesz 4000 przydzieloną liczbę portów wychodzących dla każdego węzła w klastrze, a w przypadku 7 adresów IP masz *4000 portów na węzeł * 100 węzły = 400 000 Total ports < = 448k Total Ports = 7 adresów IP * 64 000 portów na adres IP*. Pozwoli to na bezpieczne skalowanie do 100 węzłów i posiadanie domyślnej operacji uaktualniania. Alokacja wystarczającej liczby portów jest niezwykle ważna dla dodatkowych węzłów wymaganych do uaktualnienia i innych operacji. AKS domyślnie jeden węzeł buforu do uaktualnienia, w tym przykładzie wymaga 4000 wolnych portów w danym momencie. W przypadku używania [wartości maxSurge](upgrade-cluster.md#customize-node-surge-upgrade-preview)pomnóż porty wychodzące na węzeł za pomocą wartości maxSurge.
+W tym przykładzie nadajesz 4000 przydzieloną liczbę portów wychodzących dla każdego węzła w klastrze, a w przypadku 7 adresów IP masz *4000 portów na węzeł * 100 węzły = 400 000 Total ports < = 448k Total Ports = 7 adresów IP * 64 000 portów na adres IP*. Pozwoli to na bezpieczne skalowanie do 100 węzłów i posiadanie domyślnej operacji uaktualniania. Alokacja wystarczającej liczby portów jest niezwykle ważna dla dodatkowych węzłów wymaganych do uaktualnienia i innych operacji. AKS domyślnie jeden węzeł buforu do uaktualnienia, w tym przykładzie wymaga 4000 wolnych portów w danym momencie. W przypadku używania [wartości maxSurge](upgrade-cluster.md#customize-node-surge-upgrade)pomnóż porty wychodzące na węzeł za pomocą wartości maxSurge.
 
 Aby bezpiecznie przechodzić powyżej 100 węzłów, trzeba dodać więcej adresów IP.
 
@@ -233,7 +233,7 @@ Aby bezpiecznie przechodzić powyżej 100 węzłów, trzeba dodać więcej adres
 > [!IMPORTANT]
 > Aby uniknąć problemów z łącznością lub skalowaniem, należy [obliczyć wymagany limit przydziału i sprawdzić wymagania][requirements] przed rozpoczęciem dostosowywania *allocatedOutboundPorts* .
 
-Można również użyć **`load-balancer-outbound-ports`** parametrów podczas tworzenia klastra, ale należy również określić albo, **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** lub **`load-balancer-outbound-ip-prefixes`** .  Na przykład:
+Można również użyć **`load-balancer-outbound-ports`** parametrów podczas tworzenia klastra, ale należy również określić albo, **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** lub **`load-balancer-outbound-ip-prefixes`** .  Przykład:
 
 ```azurecli-interactive
 az aks create \

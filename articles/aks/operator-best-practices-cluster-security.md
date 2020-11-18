@@ -5,12 +5,12 @@ description: Poznaj najlepsze rozwiązania operatora klastra dotyczące zarządz
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 9cb51cb0f5b902553bda0b881c8392d74905c4bc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9ef019e682511e13af46194d26aec48c1555f70e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073635"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683305"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń klastrów i uaktualnień w usłudze Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ Podczas zarządzania klastrami w usłudze Azure Kubernetes Service (AKS), bezpie
 W tym artykule omówiono sposób zabezpieczania klastra AKS. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Używanie Azure Active Directory i kontroli dostępu opartej na rolach (RBAC) do bezpiecznego dostępu do serwera interfejsu API
+> * Używanie Azure Active Directory i Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) do bezpiecznego dostępu do serwera interfejsu API
 > * Bezpieczny dostęp do kontenera do zasobów węzła
 > * Uaktualnianie klastra AKS do najnowszej wersji Kubernetes
 > * Utrzymywanie Aktualności węzłów i automatyczne stosowanie poprawek zabezpieczeń
@@ -30,7 +30,7 @@ Możesz również użyć [integracji usług Azure Kubernetes Services z usługą
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Zabezpieczanie dostępu do serwera interfejsu API i węzłów klastra
 
-**Wskazówki dotyczące najlepszych** rozwiązań — Zabezpieczanie dostępu do Kubernetes API-Server jest jednym z najważniejszych możliwości zabezpieczania klastra. Integracja kontroli dostępu opartej na rolach (RBAC) Kubernetes z Azure Active Directory w celu kontrolowania dostępu do serwera interfejsu API. Te kontrolki pozwalają zabezpieczyć AKS w taki sam sposób, jak bezpieczny dostęp do subskrypcji platformy Azure.
+**Wskazówki dotyczące najlepszych** rozwiązań — Zabezpieczanie dostępu do Kubernetes API-Server jest jednym z najważniejszych możliwości zabezpieczania klastra. Integracja kontroli dostępu opartej na rolach Kubernetes (Kubernetes RBAC) z Azure Active Directory w celu kontrolowania dostępu do serwera interfejsu API. Te kontrolki pozwalają zabezpieczyć AKS w taki sam sposób, jak bezpieczny dostęp do subskrypcji platformy Azure.
 
 Serwer interfejsu API Kubernetes zapewnia pojedynczy punkt połączenia dla żądań wykonywania akcji w ramach klastra. Aby zabezpieczyć i kontrolować dostęp do serwera interfejsu API, należy ograniczyć dostęp i zapewnić wymagane uprawnienia dostępu najmniej uprzywilejowanego. Takie podejście nie jest unikatowe dla Kubernetes, ale jest szczególnie ważne, gdy klaster AKS jest logicznie odizolowany do użycia z wieloma dzierżawcami.
 
@@ -38,11 +38,11 @@ Azure Active Directory (AD) zapewnia rozwiązanie do zarządzania tożsamościam
 
 ![Integracja Azure Active Directory klastrów AKS](media/operator-best-practices-cluster-security/aad-integration.png)
 
-Użyj Kubernetes RBAC i Azure AD — integracja, aby zabezpieczyć serwer interfejsu API i zapewnić najmniejszą liczbę uprawnień wymaganą do zakresu zasobów, na przykład pojedynczej przestrzeni nazw. Różnym użytkownikom lub grupom w usłudze Azure AD można przydzielić różne role RBAC. Te szczegółowe uprawnienia pozwalają ograniczyć dostęp do serwera interfejsu API i zapewnić czysty dziennik inspekcji wykonanych akcji.
+Użyj Kubernetes RBAC i Azure AD — integracja, aby zabezpieczyć serwer interfejsu API i zapewnić najmniejszą liczbę uprawnień wymaganą do zakresu zasobów, na przykład pojedynczej przestrzeni nazw. Różnym użytkownikom lub grupom w usłudze Azure AD można przydzielić różne role Kubernetes. Te szczegółowe uprawnienia pozwalają ograniczyć dostęp do serwera interfejsu API i zapewnić czysty dziennik inspekcji wykonanych akcji.
 
-Zalecanym najlepszym rozwiązaniem jest użycie grup w celu zapewnienia dostępu do plików i folderów, a nie poszczególnych tożsamości, przy użyciu członkostwa w *grupach* usługi Azure AD w celu powiązania użytkowników z rolami RBAC, a nie pojedynczymi *użytkownikami*. Zmiany członkostwa w grupach użytkowników będą odpowiednio zmieniać ich uprawnienia dostępu do klastra AKS. Jeśli użytkownik powiąże się bezpośrednio z rolą, jego funkcja zadania może się zmienić. Członkostwa w grupach usługi Azure AD byłyby aktualizowane, ale uprawnienia w klastrze AKS nie odzwierciedlają tego. W tym scenariuszu użytkownik końcowy otrzymuje więcej uprawnień niż jest to wymagane przez użytkownika.
+Zalecanym najlepszym rozwiązaniem jest użycie grup w celu zapewnienia dostępu do plików i folderów, a w przypadku pojedynczych tożsamości, używania członkostwa w *grupach* usługi Azure AD w celu powiązania użytkowników z rolami Kubernetes, a nie poszczególnymi *użytkownikami*. Zmiany członkostwa w grupach użytkowników będą odpowiednio zmieniać ich uprawnienia dostępu do klastra AKS. Jeśli użytkownik powiąże się bezpośrednio z rolą, jego funkcja zadania może się zmienić. Członkostwa w grupach usługi Azure AD byłyby aktualizowane, ale uprawnienia w klastrze AKS nie odzwierciedlają tego. W tym scenariuszu użytkownik końcowy otrzymuje więcej uprawnień niż jest to wymagane przez użytkownika.
 
-Aby uzyskać więcej informacji na temat integracji z usługą Azure AD i kontroli RBAC, zobacz [najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w programie AKS][aks-best-practices-identity].
+Aby uzyskać więcej informacji na temat integracji z usługą Azure AD, Kubernetes RBAC i usługi Azure RBAC, zobacz [najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w AKS][aks-best-practices-identity].
 
 ## <a name="secure-container-access-to-resources"></a>Bezpieczny dostęp do kontenera do zasobów
 
@@ -53,7 +53,7 @@ W taki sam sposób, w jaki należy udzielić użytkownikom lub grupom minimalnej
 Aby uzyskać bardziej szczegółową kontrolę nad akcjami kontenera, możesz również użyć wbudowanych funkcji zabezpieczeń systemu Linux, takich jak *AppArmor* i *seccomp*. Te funkcje są zdefiniowane na poziomie węzła, a następnie implementowane za pomocą manifestu pod. Wbudowane funkcje zabezpieczeń systemu Linux są dostępne tylko w węzłach i w systemach Linux.
 
 > [!NOTE]
-> Środowiska Kubernetes, w AKS lub w innym miejscu, nie są całkowicie bezpieczne do korzystania z wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *AppArmor*, *Seccomp*, na *zasadach zabezpieczeń*lub bardziej precyzyjna kontrola dostępu oparta na rolach (RBAC) dla węzłów sprawia, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych.
+> Środowiska Kubernetes, w AKS lub w innym miejscu, nie są całkowicie bezpieczne do korzystania z wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *AppArmor*, *Seccomp*, na *zasadach zabezpieczeń* lub bardziej precyzyjna kontrola dostępu oparta na rolach Kubernetes (Kubernetes RBAC) dla węzłów sprawia, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych.
 
 ### <a name="app-armor"></a>Ochrona aplikacji
 
@@ -117,7 +117,7 @@ Aby uzyskać więcej informacji na temat AppArmor, zobacz [Profile AppArmor w Ku
 
 ### <a name="secure-computing"></a>Zabezpieczanie obliczeń
 
-Podczas gdy AppArmor działa dla dowolnej aplikacji systemu Linux, [seccomp (*s*uruj *COMP*uting)][seccomp] działa na poziomie procesu. Seccomp jest również modułem zabezpieczeń jądra systemu Linux i jest natywnie obsługiwany przez środowisko uruchomieniowe Docker używane przez węzły AKS. W przypadku seccomp proces wywołuje, że kontenery mogą być wykonywane, są ograniczone. Tworzysz filtry definiujące akcje, które mają być dozwolone lub odrzucane, a następnie użyj adnotacji w manifeście pod YAML, aby skojarzyć z filtrem seccomp. Jest to zgodne z najlepszymi rozwiązaniami dotyczącymi tylko dostępu do kontenera, które są konieczne do uruchomienia, i nie tylko.
+Podczas gdy AppArmor działa dla dowolnej aplikacji systemu Linux, [seccomp (*s* uruj *COMP* uting)][seccomp] działa na poziomie procesu. Seccomp jest również modułem zabezpieczeń jądra systemu Linux i jest natywnie obsługiwany przez środowisko uruchomieniowe Docker używane przez węzły AKS. W przypadku seccomp proces wywołuje, że kontenery mogą być wykonywane, są ograniczone. Tworzysz filtry definiujące akcje, które mają być dozwolone lub odrzucane, a następnie użyj adnotacji w manifeście pod YAML, aby skojarzyć z filtrem seccomp. Jest to zgodne z najlepszymi rozwiązaniami dotyczącymi tylko dostępu do kontenera, które są konieczne do uruchomienia, i nie tylko.
 
 Aby wyświetlić seccomp w akcji, Utwórz filtr uniemożliwiający zmianę uprawnień do pliku. Użyj protokołu [SSH][aks-ssh] do węzła AKS, a następnie utwórz filtr seccomp o nazwie */var/lib/kubelet/seccomp/Prevent-chmod* i wklej następującą zawartość:
 

@@ -4,12 +4,12 @@ description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usł
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 642356f08a946cae5d2b2d395aaddd8e4dad27ed
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946199"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682795"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 
@@ -19,7 +19,7 @@ Ten artykuł zawiera omówienie scenariuszy zabezpieczeń klastrów platformy Az
 
 * Zabezpieczenia między węzłami
 * Zabezpieczenia między klientem a węzłem
-* Kontrola dostępu oparta na rolach (RBAC)
+* Service Fabric kontroli dostępu opartej na rolach
 
 ## <a name="node-to-node-security"></a>Zabezpieczenia między węzłami
 
@@ -60,7 +60,7 @@ Klastry działające na platformie Azure i w klastrach autonomicznych działają
 
 Skonfiguruj zabezpieczenia certyfikatu klient-węzeł podczas tworzenia klastra, w Azure Portal, przy użyciu szablonu Menedżer zasobów lub przy użyciu autonomicznego szablonu JSON. Aby utworzyć certyfikat, Określ certyfikat klienta administratora lub certyfikat klienta użytkownika. Najlepszym rozwiązaniem jest określenie, że certyfikaty klienta i klienta administratora będą się różnić od podstawowych i pomocniczych certyfikatów określonych dla [zabezpieczeń między węzłami](#node-to-node-security). Certyfikaty klastra mają takie same prawa jak certyfikaty administratora klienta. Jednak powinny być używane tylko przez klaster, a nie przez użytkowników administracyjnych jako najlepsze rozwiązanie w zakresie zabezpieczeń.
 
-Klienci, którzy łączą się z klastrem przy użyciu certyfikatu administratora, mają pełny dostęp do możliwości zarządzania. Klienci łączący się z klastrem przy użyciu certyfikatu klienta użytkownika tylko do odczytu mają dostęp tylko do odczytu do funkcji zarządzania. Te certyfikaty są używane na potrzeby kontroli RBAC opisanej w dalszej części tego artykułu.
+Klienci, którzy łączą się z klastrem przy użyciu certyfikatu administratora, mają pełny dostęp do możliwości zarządzania. Klienci łączący się z klastrem przy użyciu certyfikatu klienta użytkownika tylko do odczytu mają dostęp tylko do odczytu do funkcji zarządzania. Te certyfikaty są używane dla Service Fabric RBAC, które opisano w dalszej części tego artykułu.
 
 Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla platformy Azure, zobacz [Konfigurowanie klastra przy użyciu szablonu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
@@ -85,13 +85,13 @@ W przypadku klastrów Service Fabric wdrożonych w sieci publicznej hostowanej n
 
 W przypadku autonomicznych klastrów systemu Windows Server, jeśli masz systemy Windows Server 2012 R2 i Windows Active Directory, zalecamy użycie zabezpieczeń systemu Windows z kontami usług zarządzanymi przez grupę. W przeciwnym razie Użyj zabezpieczeń systemu Windows z kontami systemu Windows.
 
-## <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
+## <a name="service-fabric-role-based-access-control"></a>Service Fabric kontroli dostępu opartej na rolach
 
 Za pomocą kontroli dostępu można ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.
 
 Użytkownicy, którym przypisano rolę administratora, mają pełny dostęp do możliwości zarządzania, w tym możliwości odczytu i zapisu. Użytkownicy, którym przypisano rolę użytkownika, domyślnie mają dostęp tylko do odczytu do funkcji zarządzania (na przykład możliwości zapytania). Mogą również rozpoznać aplikacje i usługi.
 
-Podczas tworzenia klastra Ustaw role administratora i klienta użytkownika. Przypisywanie ról przez dostarczanie osobnych tożsamości (na przykład przy użyciu certyfikatów lub usługi Azure AD) dla każdego typu roli. Aby uzyskać więcej informacji na temat domyślnych ustawień kontroli dostępu i sposobu zmiany ustawień domyślnych, zobacz [Access Control oparte na rolach dla klientów Service Fabric](service-fabric-cluster-security-roles.md).
+Podczas tworzenia klastra Ustaw role administratora i klienta użytkownika. Przypisywanie ról przez dostarczanie osobnych tożsamości (na przykład przy użyciu certyfikatów lub usługi Azure AD) dla każdego typu roli. Aby uzyskać więcej informacji o domyślnych ustawieniach kontroli dostępu i sposobach zmieniania ustawień domyślnych, zobacz [Service Fabric kontroli dostępu opartej na rolach dla klientów Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certyfikaty X. 509 i Service Fabric
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3dc49e3e2d8492882507918a59edb0b9da41fcf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f9bfcaa1299f4aacbc11110308ba14093b09f7d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167257"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684308"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra na platformie Azure
 
@@ -122,7 +122,7 @@ _Architektura architektury SAP ASCS/SCS z udostępnionym dyskiem_
 
 Dostępne są dwie opcje dysku udostępnionego w klastrze trybu failover systemu Windows na platformie Azure:
 
-- [Udostępnione dyski platformy Azure](../../windows/disks-shared.md) — funkcja umożliwiająca dołączenie dysku zarządzanego platformy Azure do wielu maszyn wirtualnych jednocześnie. 
+- [Udostępnione dyski platformy Azure](../../disks-shared.md) — funkcja umożliwiająca dołączenie dysku zarządzanego platformy Azure do wielu maszyn wirtualnych jednocześnie. 
 - Tworzenie dublowanego magazynu, który symuluje udostępniony magazyn klastra, przy użyciu oprogramowania [oprogramowanie SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster) 
 
 Podczas wybierania technologii dla dysku udostępnionego należy pamiętać o następujących kwestiach:
@@ -131,7 +131,7 @@ Podczas wybierania technologii dla dysku udostępnionego należy pamiętać o na
 - Umożliwia dołączenie dysku zarządzanego platformy Azure do wielu maszyn wirtualnych jednocześnie bez konieczności utrzymania i działania dodatkowego oprogramowania 
 - Będziesz działać z pojedynczym dyskiem udostępnionym platformy Azure w jednym klastrze magazynu. Ma to wpływ na niezawodność rozwiązania SAP.
 - Obecnie jedynym obsługiwanym wdrożeniem jest usługa Azure Shared Premium Disk w zestawie dostępności. Dysk udostępniony platformy Azure nie jest obsługiwany w ramach wdrażania strefowo.     
-- Upewnij się, że dysk w warstwie Premium systemu Azure ma minimalny rozmiar dysku określony w [SSD w warstwie Premium zakresy](../../windows/disks-shared.md#disk-sizes) , aby umożliwić dołączenie do wymaganej liczby maszyn wirtualnych jednocześnie (zazwyczaj 2 w przypadku klastra trybu failover systemu Windows w systemie SAP ASCS). 
+- Upewnij się, że dysk w warstwie Premium systemu Azure ma minimalny rozmiar dysku określony w [SSD w warstwie Premium zakresy](../../disks-shared.md#disk-sizes) , aby umożliwić dołączenie do wymaganej liczby maszyn wirtualnych jednocześnie (zazwyczaj 2 w przypadku klastra trybu failover systemu Windows w systemie SAP ASCS). 
 - Usługa Azure Shared Disk nie jest obsługiwana w przypadku obciążeń SAP, ponieważ nie obsługuje wdrożenia w zestawie dostępności ani w ramach wdrażania strefowego.  
  
 **OPROGRAMOWANIE SIOS**
@@ -142,19 +142,19 @@ Podczas wybierania technologii dla dysku udostępnionego należy pamiętać o na
 
 ### <a name="shared-disk-using-azure-shared-disk"></a>Udostępniony dysk korzystający z dysku udostępnionego platformy Azure
 
-Firma Microsoft oferuje [dyski udostępnione platformy Azure](../../windows/disks-shared.md), które mogą służyć do implementowania wysokiej dostępności SAP ASCS/SCS z użyciem opcji dysku udostępnionego.
+Firma Microsoft oferuje [dyski udostępnione platformy Azure](../../disks-shared.md), które mogą służyć do implementowania wysokiej dostępności SAP ASCS/SCS z użyciem opcji dysku udostępnionego.
 
 #### <a name="prerequisites-and-limitations"></a>Wymagania wstępne i ograniczenia
 
 Obecnie można używać dysków SSD w warstwie Premium platformy Azure jako dysku udostępnionego platformy Azure dla wystąpienia SAP ASCS/SCS. Obecnie są stosowane następujące ograniczenia:
 
 -  [Usługa Azure Ultra Disk](../../disks-types.md#ultra-disk) nie jest obsługiwana jako dysk udostępniony platformy Azure dla obciążeń SAP. Obecnie nie jest możliwe umieszczenie maszyn wirtualnych platformy Azure przy użyciu usługi Azure Ultra Disk w zestawie dostępności
--  [Dysk udostępniony platformy Azure](../../windows/disks-shared.md) z dyskami SSD w warstwie Premium jest obsługiwany tylko w przypadku maszyn wirtualnych w zestawie dostępności. Nie jest on obsługiwany w Strefy dostępności wdrożenia. 
+-  [Dysk udostępniony platformy Azure](../../disks-shared.md) z dyskami SSD w warstwie Premium jest obsługiwany tylko w przypadku maszyn wirtualnych w zestawie dostępności. Nie jest on obsługiwany w Strefy dostępności wdrożenia. 
 -  Wartość dysku udostępnionego na platformie Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) określa, ile węzłów klastra może używać dysku udostępnionego. Zwykle w przypadku wystąpienia SAP ASCS/SCS można skonfigurować dwa węzły w klastrze trybu failover systemu Windows, w związku z czym wartość dla parametru `maxShares` musi być równa 2.
 -  Wszystkie maszyny wirtualne klastra SAP ASCS/SCS muszą zostać wdrożone w tej samej [grupie umieszczania usługi Azure zbliżeniowe](../../windows/proximity-placement-groups.md).   
    Mimo że można wdrożyć maszyny wirtualne klastra systemu Windows w zestawie dostępności z dyskiem udostępnionym platformy Azure bez PPG, usługa PPG zapewni zamknięcie fizycznej bliskości udostępnionych dysków platformy Azure i maszyn wirtualnych klastra, co pozwala na wolniejsze opóźnienia między maszynami wirtualnymi i warstwą magazynu.    
 
-Aby uzyskać więcej szczegółowych informacji na temat ograniczeń dotyczących dysku udostępnionego platformy Azure, zobacz sekcję [ograniczenia](../../linux/disks-shared.md#limitations) dotyczące usługi Azure Shared Disk.
+Aby uzyskać więcej szczegółowych informacji na temat ograniczeń dotyczących dysku udostępnionego platformy Azure, zobacz sekcję [ograniczenia](../../disks-shared.md#limitations) dotyczące usługi Azure Shared Disk.
 
 > [!IMPORTANT]
 > Podczas wdrażania klastra trybu failover systemu Windows z systemem SAP ASCS/SCS przy użyciu udostępnionego dysku platformy Azure należy pamiętać, że wdrożenie będzie działać z jednym udostępnionym dyskiem w jednym klastrze magazynu. Wpłynie to na wystąpienie oprogramowania SAP ASCS/SCS w przypadku problemów z klastrem magazynu, w którym wdrożono dysk udostępniony platformy Azure.    
@@ -166,7 +166,7 @@ Aby uzyskać więcej szczegółowych informacji na temat ograniczeń dotyczącyc
 
 Obsługiwane są zarówno systemy Windows Server 2016, jak i 2019 (Użyj najnowszych obrazów centrum danych).
 
-Zdecydowanie zalecamy korzystanie z **systemu Windows Server 2019 Datacenter**w taki sposób, jak:
+Zdecydowanie zalecamy korzystanie z **systemu Windows Server 2019 Datacenter** w taki sposób, jak:
 - Usługa klastra pracy awaryjnej systemu Windows 2019 jest uwzględniana przez platformę Azure
 - Dodano integrację i świadomość konserwacji hosta platformy Azure oraz udoskonalone środowisko monitorowania dla zdarzeń planu platformy Azure.
 - Możliwe jest użycie rozproszonej nazwy sieciowej (jest to opcja domyślna). W związku z tym nie ma potrzeby posiadania dedykowanego adresu IP dla nazwy sieci klastra. Ponadto nie ma potrzeby konfigurowania tego adresu IP w wewnętrznej Load Balancer platformy Azure. 

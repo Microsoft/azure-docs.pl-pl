@@ -3,15 +3,15 @@ title: Równoważenie obciążenia partycji w wielu wystąpieniach — Event Hub
 description: Opisuje sposób równoważenia obciążenia partycji w wielu wystąpieniach aplikacji przy użyciu procesora zdarzeń i zestawu Azure Event Hubs SDK.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 8bf3f05b823a784f4f3fc2074719ed346f769f5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03aeebb376c74e62a1bd935ac1fec4f178b63f4f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933797"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685141"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Równoważenie obciążenia partycji w wielu wystąpieniach aplikacji
-Aby skalować aplikację do przetwarzania zdarzeń, można uruchomić wiele wystąpień aplikacji i zrównoważyć obciążenie między sobą. W starszych wersjach [klasy eventprocessorhost](event-hubs-event-processor-host.md) można zrównoważyć obciążenie między wieloma wystąpieniami zdarzeń programu i punktów kontrolnych podczas otrzymywania. W nowszych wersjach (5,0), **EventProcessorClient** (.NET i Java) lub **EventHubConsumerClient** (Python i JavaScript) umożliwiają wykonywanie tych samych czynności. Model programistyczny jest prostszy przy użyciu zdarzeń. Zasubskrybuj zdarzenia, które Cię interesują, rejestrując procedurę obsługi zdarzeń.
+Aby skalować aplikację do przetwarzania zdarzeń, można uruchomić wiele wystąpień aplikacji i zrównoważyć obciążenie między sobą. W starszych wersjach [klasy eventprocessorhost](event-hubs-event-processor-host.md) można zrównoważyć obciążenie między wieloma wystąpieniami zdarzeń programu i punktów kontrolnych podczas otrzymywania. W nowszych wersjach (5,0), **EventProcessorClient** (.NET i Java) lub **EventHubConsumerClient** (Python i JavaScript) umożliwiają wykonywanie tych samych czynności. Model programistyczny jest prostszy przy użyciu zdarzeń. Zasubskrybuj zdarzenia, które Cię interesują, rejestrując procedurę obsługi zdarzeń. Jeśli używasz starej wersji biblioteki klienckiej, zapoznaj się z następującymi przewodnikami migracji: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md)i [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
 
 W tym artykule opisano przykładowy scenariusz używany przez wiele wystąpień do odczytu zdarzeń z centrum zdarzeń, a następnie udostępniamy szczegółowe informacje o funkcjach klienta procesora zdarzeń, co umożliwia odbieranie zdarzeń z wielu partycji jednocześnie i równoważenie obciążenia z innymi konsumentami korzystającymi z tego samego centrum zdarzeń i grupy odbiorców.
 
@@ -37,13 +37,13 @@ Podczas projektowania użytkownika w środowisku rozproszonym scenariusz musi ob
 
 Nie musisz tworzyć własnego rozwiązania, aby spełnić te wymagania. Te funkcje są oferowane przez zestawy SDK platformy Azure Event Hubs. W zestawach SDK platformy .NET lub Java można używać klienta procesora zdarzeń (EventProcessorClient), a także w języku Python i JavaScript SDK, używając EventHubConsumerClient. W starej wersji zestawu SDK była to host procesora zdarzeń (klasy eventprocessorhost), który obsługuje te funkcje.
 
-W przypadku większości scenariuszy produkcyjnych zaleca się używanie klienta procesora zdarzeń do odczytu i przetwarzania zdarzeń. Klient procesora ma zapewnić niezawodne środowisko do przetwarzania zdarzeń we wszystkich partycjach centrum zdarzeń w sposób bezpieczny i odporny na uszkodzenia, a jednocześnie zapewniając możliwość tworzenia punktów kontrolnych postępu. Klienci procesora zdarzeń mogą również pracować wspólnie w kontekście grupy odbiorców dla danego centrum zdarzeń. Klienci będą automatycznie zarządzać dystrybucją i zrównoważeniem pracy, ponieważ wystąpienia stają się dostępne lub niedostępne dla grupy.
+W przypadku większości scenariuszy produkcyjnych zaleca się używanie klienta procesora zdarzeń do odczytu i przetwarzania zdarzeń. Klient procesora ma zapewnić niezawodne środowisko do przetwarzania zdarzeń we wszystkich partycjach centrum zdarzeń w sposób bezpieczny i odporny na uszkodzenia, a jednocześnie zapewniając możliwość tworzenia punktów kontrolnych postępu. Klienci procesora zdarzeń mogą współpracować wspólnie w kontekście grupy odbiorców dla danego centrum zdarzeń. Klienci będą automatycznie zarządzać dystrybucją i zrównoważeniem pracy, ponieważ wystąpienia stają się dostępne lub niedostępne dla grupy.
 
 ## <a name="partition-ownership-tracking"></a>Śledzenie własności partycji
 
 Wystąpienie procesora zdarzeń zwykle jest właścicielem i przetwarza zdarzenia z co najmniej jednej partycji. Własność partycji jest równomiernie dystrybuowana wśród wszystkich aktywnych wystąpień procesora zdarzeń skojarzonych z połączeniem centrum zdarzeń i grupy konsumentów. 
 
-Każdy procesor zdarzeń otrzymuje unikatowy identyfikator i oświadczenia własność partycji przez dodanie lub zaktualizowanie wpisu w magazynie punktów kontrolnych. Wszystkie wystąpienia procesora zdarzeń komunikują się z tym magazynem okresowo, aby zaktualizować własny stan przetwarzania oraz poznać inne aktywne wystąpienia. Te dane są następnie używane do zrównoważenia obciążenia między aktywnymi procesorami. Nowe wystąpienia mogą przyłączyć się do puli przetwarzania w celu skalowania w górę. Gdy wystąpienia przechodzą w dół, z powodu błędów lub skalowania w dół, własność partycji jest bezpiecznie przekazywana do innych aktywnych procesorów.
+Każdy procesor zdarzeń otrzymuje unikatowy identyfikator i oświadczenia własność partycji przez dodanie lub zaktualizowanie wpisu w magazynie punktów kontrolnych. Wszystkie wystąpienia procesora zdarzeń komunikują się z tym magazynem okresowo, aby zaktualizować własny stan przetwarzania oraz poznać inne aktywne wystąpienia. Te dane są następnie używane do zrównoważenia obciążenia między aktywnymi procesorami. Nowe wystąpienia mogą przyłączyć się do puli przetwarzania w celu skalowania w górę. Gdy wystąpienia przechodzą z powodu awarii lub skalowania w dół, własność partycji jest bezpiecznie przekazywana do innych aktywnych procesorów.
 
 Rekordy własności partycji w magazynie punktów kontrolnych śledzą Event Hubs przestrzeni nazw, nazwy centrum zdarzeń, grupy odbiorców, identyfikatora procesora zdarzeń (nazywanego również właścicielem), identyfikatora partycji i czas ostatniej modyfikacji.
 
@@ -58,7 +58,7 @@ Rekordy własności partycji w magazynie punktów kontrolnych śledzą Event Hub
 |                                    |                | :                  |                                      |              |                     |
 | mynamespace.servicebus.windows.net | myeventhub     | odbiorca    | 844bd8fb-1f3a-4580-984d-6324f9e208af | 15           | 2020-01-15T01:22:00 |
 
-Każde wystąpienie procesora zdarzeń uzyskuje własność partycji i zaczyna przetwarzanie partycji od ostatniego znanego [punktu kontrolnego](# Checkpointing). Jeśli procesor ulegnie awarii (zamykanie maszyny wirtualnej), inne wystąpienia wykrywają ten sposób, sprawdzając czas ostatniej modyfikacji. Inne wystąpienia próbują uzyskać własność partycji, które wcześniej należały do nieaktywnego wystąpienia, i magazyn punktów kontrolnych gwarantuje, że tylko jedno z wystąpień powiodło się w przypadku zajmowania własności partycji. Tak więc w danym momencie istnieje co najwyżej jeden procesor, który pobiera zdarzenia z partycji.
+Każde wystąpienie procesora zdarzeń uzyskuje własność partycji i zaczyna przetwarzanie partycji od ostatniego znanego [punktu kontrolnego](# Checkpointing). Jeśli procesor ulegnie awarii (zamykanie maszyny wirtualnej), inne wystąpienia wykrywają je, sprawdzając czas ostatniej modyfikacji. Inne wystąpienia próbują uzyskać własność partycji, które wcześniej należały do nieaktywnego wystąpienia, i magazyn punktów kontrolnych gwarantuje, że tylko jedno z wystąpień powiodło się w przypadku zajmowania własności partycji. Tak więc w dowolnym momencie istnieje co najwyżej jeden procesor, który odbiera zdarzenia z partycji.
 
 ## <a name="receive-messages"></a>Odbieranie komunikatów
 
@@ -70,7 +70,7 @@ Zalecamy, aby można było stosunkowo szybko pracować. Oznacza to, że możliwi
 
 *Punkt kontrolny* jest procesem, przez który procesor zdarzeń oznacza lub zatwierdza pozycję ostatniego pomyślnie przetworzonego zdarzenia w ramach partycji. Oznaczanie punktu kontrolnego jest zwykle wykonywane w ramach funkcji, która przetwarza zdarzenia i występuje w odniesieniu do partycji w obrębie grupy odbiorców. 
 
-Jeśli procesor zdarzeń rozłącza połączenie z partycji, inne wystąpienie może wznowić przetwarzanie partycji w punkcie kontrolnym, który został wcześniej przekazany przez ostatni procesor tej partycji w tej grupie odbiorców. Po nawiązaniu połączenia z procesorem przekazuje przesunięcie do centrum zdarzeń, aby określić lokalizację, w której ma zostać rozpoczęte odczytywanie. W ten sposób można użyć punktów kontrolnych do obu oznaczania zdarzeń jako "ukończone" przez aplikacje podrzędne i zapewnienia odporności, gdy procesor zdarzeń ulegnie awarii. Istnieje możliwość powrotu do starszych danych przez określenie niższego przesunięcia od tego procesu tworzenia punktów kontrolnych. 
+Jeśli procesor zdarzeń rozłącza połączenie z partycji, inne wystąpienie może wznowić przetwarzanie partycji w punkcie kontrolnym, który został wcześniej przekazany przez ostatni procesor tej partycji w tej grupie odbiorców. Po nawiązaniu połączenia z procesorem przekazuje przesunięcie do centrum zdarzeń, aby określić lokalizację, w której ma zostać rozpoczęte odczytywanie. W ten sposób można użyć punktów kontrolnych do obu oznaczania zdarzeń jako "ukończone" przez aplikacje podrzędne i zapewnienia odporności, gdy procesor zdarzeń ulegnie awarii. Istnieje możliwość powrotu do starszych danych przez określenie niższego przesunięcia z tego procesu tworzenia punktów kontrolnych. 
 
 Gdy punkt kontrolny jest wykonywany do oznaczania zdarzenia jako przetworzone, wpis w magazynie punktów kontrolnych jest dodawany lub aktualizowany z przesunięciem i numerem sekwencyjnym zdarzenia. Użytkownicy powinni określić częstotliwość aktualizowania punktu kontrolnego. Aktualizacja po każdym pomyślnie przetworzonym zdarzeniu może mieć wpływ na wydajność i koszty, ponieważ wyzwala operację zapisu w źródłowym magazynie punktów kontrolnych. Ponadto punkt kontrolny każdego pojedynczego zdarzenia ma wskaźnik wzorca komunikatów umieszczonych w kolejce, dla którego Kolejka Service Bus może być lepszym rozwiązaniem niż centrum zdarzeń. Event Hubs poniżej zawarto "co najmniej raz" dostarczanie na dużą skalę. Dzięki wykorzystaniu systemów podrzędnych idempotentne można łatwo odzyskać z błędów lub ponownych uruchomień, co spowoduje, że te same zdarzenia są odbierane wiele razy.
 
@@ -83,7 +83,7 @@ Gdy punkt kontrolny jest wykonywany do oznaczania zdarzenia jako przetworzone, w
 
 ## <a name="thread-safety-and-processor-instances"></a>Bezpieczeństwo wątków i wystąpienia procesora
 
-Domyślnie funkcja, która przetwarza zdarzenia jest wywoływana sekwencyjnie dla danej partycji. Kolejne zdarzenia i wywołania tej funkcji z tej samej kolejki partycji w tle, gdy pompa zdarzeń będzie działać w tle w innych wątkach. Należy pamiętać, że zdarzenia z różnych partycji mogą być przetwarzane współbieżnie, a każdy współużytkowany stan, do którego uzyskuje się dostęp między partycjami, musi być synchronizowany.
+Domyślnie funkcja, która przetwarza zdarzenia jest wywoływana sekwencyjnie dla danej partycji. Kolejne zdarzenia i wywołania tej funkcji z tej samej kolejki partycji w tle, gdy pompa zdarzeń będzie działać w tle w innych wątkach. Zdarzenia z różnych partycji można przetwarzać współbieżnie, a wszystkie Stany udostępnione, do których dostęp odbywa się między partycjami, muszą być synchronizowane.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące przewodniki szybki start:

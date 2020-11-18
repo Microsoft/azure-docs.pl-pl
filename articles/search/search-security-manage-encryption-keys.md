@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575870"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682914"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -46,7 +46,7 @@ Jeśli używasz innego regionu lub usługi utworzonej przed 1 sierpnia, CMK szyf
 W tym scenariuszu są używane następujące narzędzia i usługi.
 
 + [Platforma Azure wyszukiwanie poznawcze](search-create-service-portal.md) w ramach [warstwy rozliczeniowej](search-sku-tier.md#tiers) (podstawowa lub wyższa, w dowolnym regionie).
-+ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) w tej samej subskrypcji co usługa Azure wyszukiwanie poznawcze. Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **przeczyszczania** .
++ [Azure Key Vault](../key-vault/general/overview.md)można utworzyć magazyn kluczy przy użyciu [Azure Portal](../key-vault//general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../key-vault//general/quick-create-cli.md)lub [Azure PowerShell](../key-vault//general/quick-create-powershell.md). w tej samej subskrypcji co usługa Azure Wyszukiwanie poznawcze. Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **przeczyszczania** .
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Jeśli go nie masz, [Skonfiguruj nową dzierżawę](../active-directory/develop/quickstart-create-new-tenant.md).
 
 Należy mieć aplikację wyszukiwania, która może utworzyć zaszyfrowany obiekt. W tym kodzie będziesz odwoływać się do klucza magazynu kluczy i Active Directory informacji o rejestracji. Ten kod może być działającą aplikacją lub kodem prototypu, takim jak [przykładowy kod C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
@@ -116,7 +116,7 @@ Pomiń ten krok, jeśli masz już klucz w Azure Key Vault.
 
 1. Wybierz pozycję **Utwórz** , aby rozpocząć wdrażanie.
 
-1. Zanotuj identyfikator klucza — składający się z **identyfikatora URI wartości klucza** , **nazwy klucza** i **wersji klucza**. Musisz mieć identyfikator, aby zdefiniować zaszyfrowany indeks w usłudze Azure Wyszukiwanie poznawcze.
+1. Zanotuj identyfikator klucza — składający się z **identyfikatora URI wartości klucza**, **nazwy klucza** i **wersji klucza**. Musisz mieć identyfikator, aby zdefiniować zaszyfrowany indeks w usłudze Azure Wyszukiwanie poznawcze.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Utwórz nowy klucz magazynu kluczy":::
 
@@ -124,7 +124,7 @@ Pomiń ten krok, jeśli masz już klucz w Azure Key Vault.
 
 1. W [Azure Portal](https://portal.azure.com)znajdź zasób Azure Active Directory dla subskrypcji.
 
-1. Po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji** , a następnie wybierz pozycję **Nowa rejestracja**.
+1. Po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 
 1. Nadaj nazwę rejestracji, która jest podobna do nazwy aplikacji wyszukiwania. Wybierz pozycję **Zarejestruj**.
 
@@ -158,7 +158,7 @@ Uprawnienia dostępu można odwołać w dowolnym momencie. Po odwołaniu każdy 
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Wybierz podmiot zabezpieczeń zasad dostępu magazynu kluczy":::
 
-1. W obszarze **uprawnienia klucza** wybierz pozycję *Pobierz* , *Odpakuj klucz* i *Zawijaj klucz*.
+1. W obszarze **uprawnienia klucza** wybierz pozycję *Pobierz*, *Odpakuj klucz* i *Zawijaj klucz*.
 
 1. W obszarze **uprawnienia klucza tajnego** wybierz pozycję *Pobierz*.
 

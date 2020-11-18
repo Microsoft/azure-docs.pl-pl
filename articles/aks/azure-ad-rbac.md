@@ -1,20 +1,20 @@
 ---
-title: Korzystanie z usługi Azure AD i RBAC dla klastrów
+title: Korzystanie z usługi Azure AD i Kubernetes RBAC dla klastrów
 titleSuffix: Azure Kubernetes Service
-description: Dowiedz się, jak używać członkostwa w grupach Azure Active Directory, aby ograniczyć dostęp do zasobów klastra przy użyciu kontroli dostępu opartej na rolach (RBAC) w usłudze Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak korzystać z członkostwa w grupie Azure Active Directory, aby ograniczyć dostęp do zasobów klastra przy użyciu kontroli dostępu opartej na rolach (Kubernetes RBAC) w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f49e9f6b4f5aaf58ff055043b52cfe99e3e39f19
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006846"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684291"
 ---
-# <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości Azure Active Directory w usłudze Azure Kubernetes Service
+# <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach Kubernetes i tożsamości Azure Active Directory w usłudze Azure Kubernetes Service
 
-Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników. W tej konfiguracji użytkownik loguje się do klastra AKS przy użyciu tokenu uwierzytelniania usługi Azure AD. Istnieje również możliwość skonfigurowania kontroli dostępu opartej na rolach (RBAC) Kubernetes, aby ograniczyć dostęp do zasobów klastra na podstawie tożsamości użytkownika lub członkostwa w grupie.
+Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników. W tej konfiguracji użytkownik loguje się do klastra AKS przy użyciu tokenu uwierzytelniania usługi Azure AD. Można również skonfigurować kontrolę dostępu opartą na rolach Kubernetes (Kubernetes RBAC), aby ograniczyć dostęp do zasobów klastra na podstawie tożsamości użytkownika lub członkostwa w grupie.
 
 W tym artykule pokazano, jak za pomocą członkostwa w grupach usługi Azure AD kontrolować dostęp do przestrzeni nazw i zasobów klastra przy użyciu Kubernetes RBAC w klastrze AKS. Przykładowe grupy i użytkownicy są tworzone w usłudze Azure AD, a następnie role i RoleBindings są tworzone w klastrze AKS w celu przyznania odpowiednich uprawnień do tworzenia i wyświetlania zasobów.
 
@@ -79,7 +79,7 @@ az role assignment create \
 
 ## <a name="create-demo-users-in-azure-ad"></a>Tworzenie użytkowników demonstracyjnych w usłudze Azure AD
 
-W przypadku dwóch przykładowych grup utworzonych w usłudze Azure AD dla naszych deweloperów aplikacji i SREs, teraz można utworzyć dwóch przykładowych użytkowników. Aby przetestować integrację RBAC na końcu artykułu, zaloguj się do klastra AKS przy użyciu tych kont.
+W przypadku dwóch przykładowych grup utworzonych w usłudze Azure AD dla naszych deweloperów aplikacji i SREs, teraz można utworzyć dwóch przykładowych użytkowników. Aby przetestować integrację Kubernetes RBAC na końcu artykułu, należy zalogować się do klastra AKS przy użyciu tych kont.
 
 Utwórz pierwsze konto użytkownika w usłudze Azure AD za pomocą polecenia [AZ AD User Create][az-ad-user-create] .
 
@@ -129,7 +129,7 @@ Utwórz przestrzeń nazw w klastrze AKS przy użyciu polecenia [Create Namespace
 kubectl create namespace dev
 ```
 
-W programie Kubernetes *role* definiują uprawnienia do udzielenia, a *RoleBindings* stosują je do żądanych użytkowników lub grup. Te przypisania można zastosować do danej przestrzeni nazw lub całego klastra. Aby uzyskać więcej informacji, zobacz [Korzystanie z autoryzacji RBAC][rbac-authorization].
+W programie Kubernetes *role* definiują uprawnienia do udzielenia, a *RoleBindings* stosują je do żądanych użytkowników lub grup. Te przypisania można zastosować do danej przestrzeni nazw lub całego klastra. Aby uzyskać więcej informacji, zobacz [using KUBERNETES RBAC Authorization][rbac-authorization].
 
 Najpierw Utwórz rolę dla przestrzeni nazw *dev* . Ta rola przyznaje pełne uprawnienia do przestrzeni nazw. W środowisku produkcyjnym można określić bardziej szczegółowe uprawnienia dla różnych użytkowników lub grup.
 
@@ -285,7 +285,7 @@ Teraz Użyj [polecenia kubectl GetBinding][kubectl-get] , aby wyświetlić w prz
 kubectl get pods --namespace dev
 ```
 
-Jak pokazano w poniższym przykładzie danych wyjściowych, pomyślnie *działa*Nginx pod:
+Jak pokazano w poniższym przykładzie danych wyjściowych, pomyślnie *działa* Nginx pod:
 
 ```console
 $ kubectl get pods --namespace dev
@@ -410,5 +410,5 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

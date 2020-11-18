@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania widoku w czasie rzecz
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6fdd2d0a97357a2126ff37c0840b1f7da2859da5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648110"
+ms.locfileid: "94682676"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -136,7 +136,7 @@ Każde konto usługi Azure AD musi mieć uprawnienia do odpowiednich interfejsó
 >[!IMPORTANT]
 >Jeśli użytkownik, któremu przyznano powiązanie RBAC, jest w tej samej dzierżawie usługi Azure AD, przypisz uprawnienia na podstawie elementu userPrincipalName. Jeśli użytkownik znajduje się w innej dzierżawie usługi Azure AD, zapytaj o i Użyj właściwości objectId.
 
-Aby uzyskać dodatkową pomoc dotyczącą konfigurowania klastra AKS **ClusterRoleBinding**, zobacz [Tworzenie powiązania RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
+Aby uzyskać dodatkową pomoc dotyczącą konfigurowania klastra AKS **ClusterRoleBinding**, zobacz [Create Kubernetes RBAC Binding](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318446"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682778"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Skonfiguruj klucze zarządzane przez klienta, aby szyfrować dane przechowywane w środowiskach usługi Integration Environment (ISEs) w Azure Logic Apps
 
@@ -21,7 +21,7 @@ Podczas tworzenia [środowiska usługi integracji (ISE)](../logic-apps/connect-v
 
 W tym temacie przedstawiono sposób konfigurowania i określania własnego klucza szyfrowania, który ma być używany podczas tworzenia ISE przy użyciu interfejsu API REST Logic Apps. Aby zapoznać się z ogólnymi krokami tworzenia ISE za pośrednictwem interfejsu API REST Logic Apps, zobacz [Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API rest Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 * W tej chwili obsługa klucza zarządzanego przez klienta dla ISE jest dostępna tylko w następujących regionach świadczenia usługi Azure: zachodnie stany USA 2, Wschodnie stany USA i Południowo-środkowe stany USA
 
@@ -39,7 +39,7 @@ W tym temacie przedstawiono sposób konfigurowania i określania własnego klucz
 
 * Magazyn kluczy platformy Azure z włączonymi nietrwałymi właściwościami **usuwania** i **nieprzeczyszczania**
 
-  Aby uzyskać więcej informacji na temat włączania tych właściwości, zobacz [Azure Key Vault narzędzia nietrwałego usuwania](../key-vault/general/soft-delete-overview.md) i [konfigurowania kluczy zarządzanych przez klienta przy użyciu Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Jeśli dopiero zaczynasz Azure Key Vault, Dowiedz się, [jak utworzyć magazyn kluczy](../key-vault/secrets/quick-create-portal.md#create-a-vault) za pomocą Azure Portal lub przy użyciu polecenia Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Aby uzyskać więcej informacji na temat włączania tych właściwości, zobacz [Azure Key Vault narzędzia nietrwałego usuwania](../key-vault/general/soft-delete-overview.md) i [konfigurowania kluczy zarządzanych przez klienta przy użyciu Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Jeśli jesteś nowym do [Azure Key Vault](../key-vault/general/overview.md), Dowiedz się, jak utworzyć magazyn kluczy przy użyciu [Azure Portal](../key-vault/general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../key-vault/general/quick-create-cli.md)lub [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 * W magazynie kluczy, który jest tworzony przy użyciu tych wartości właściwości:
 
@@ -219,7 +219,7 @@ W przypadku tego zadania można użyć polecenia Azure PowerShell [Set-AzKeyVaul
 
       ![Wybierz pozycję "Zarządzanie kluczami" > "uprawnienia klucza"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. W obszarze **wybór podmiotu zabezpieczeń**wybierz pozycję **nie wybrano**. Po otwarciu okienka **podmiotu zabezpieczeń** w polu wyszukiwania Znajdź i wybierz swój ISE. Gdy skończysz, wybierz **pozycję Wybierz**  >  **Dodaj**.
+   1. W obszarze **wybór podmiotu zabezpieczeń** wybierz pozycję **nie wybrano**. Po otwarciu okienka **podmiotu zabezpieczeń** w polu wyszukiwania Znajdź i wybierz swój ISE. Gdy skończysz, wybierz **pozycję Wybierz**  >  **Dodaj**.
 
       ![Wybierz ISE do użycia jako podmiot zabezpieczeń](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

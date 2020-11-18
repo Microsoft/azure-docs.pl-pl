@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux rozszerzona obsługa cyklu życia
+title: Red Hat Enterprise Linux Extended Lifecycle Support
 description: Dowiedz się więcej na temat dodawania obsługi rozszerzonego cyklu życia systemu Red Hat Enterprise
 author: mathapli
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: e7c9f9b158d01204536712f8024ed098cd7a5037
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372879"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684359"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) rozszerzona obsługa cyklu życia
 Ten artykuł zawiera informacje o rozszerzonej obsłudze cyklu życia obrazów systemu Red Hat Enterprise:
@@ -40,7 +40,7 @@ Począwszy od 30 listopada 2020, Red Hat Enterprise Linux 6 zostanie osiągnięt
 
 #### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>Co to jest proces dodawania repozytoriów z rozszerzonym cyklem życia (ELS) w celu kontynuowania otrzymywania konserwacji oprogramowania (poprawek usterek i zabezpieczeń) oraz pomocy technicznej dla Red Hat Enterprise Linux 6?
 
-Kompleksowy proces rejestracji w usłudze ELS będzie dostępny wkrótce (najpóźniej do 15 listopada, 2020).
+Kompleksowy proces rejestracji w usłudze ELS będzie dostępny wkrótce (najpóźniej do 30 listopada, 2020).
 
 ## <a name="next-steps"></a>Następne kroki
 

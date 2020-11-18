@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963639"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682642"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalowanie oprogramowania SAP NetWeaver HA na klastrze trybu failover systemu Windows i dysku udostępnionego dla wystąpienia SAP ASCS/SCS na platformie Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "91963639"
 
 W tym artykule opisano sposób instalowania i konfigurowania systemu SAP o wysokiej dostępności na platformie Azure przy użyciu klastra trybu failover systemu Windows Server i udostępnionego dysku klastra do klastrowania wystąpienia SAP ASCS/SCS. Zgodnie z opisem w [przewodniku architektury: klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra][sap-high-availability-guide-wsfc-shared-disk], istnieją dwa alternatywy dla *udostępnionego dysku klastra*:
 
-- [Dyski udostępnione platformy Azure](../../windows/disks-shared.md)
+- [Dyski udostępnione platformy Azure](../../disks-shared.md)
 - Tworzenie dublowanego magazynu przy użyciu [oprogramowanie SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -250,7 +250,7 @@ Korzystając z funkcji sondowania wewnętrznego modułu równoważenia obciąże
 Nie będzie to jednak działało w niektórych konfiguracjach klastra, ponieważ aktywne jest tylko jedno wystąpienie. Drugie wystąpienie jest pasywne i nie może akceptować żadnego obciążenia. Funkcja sondowania pomaga, gdy moduł równoważenia obciążenia wewnętrznego platformy Azure wykryje, które wystąpienie jest aktywne i ma tylko aktywne wystąpienie.  
 
 > [!IMPORTANT]
-> W tej przykładowej konfiguracji **ProbePort** jest ustawiony na 620**Nr**. W przypadku wystąpienia SAP ASCS o numerze **00** to 620**00**. Należy dostosować konfigurację tak, aby odpowiadała numerom wystąpień SAP i identyfikatorowi SID SAP.
+> W tej przykładowej konfiguracji **ProbePort** jest ustawiony na 620 **Nr**. W przypadku wystąpienia SAP ASCS o numerze **00** to 620 **00**. Należy dostosować konfigurację tak, aby odpowiadała numerom wystąpień SAP i identyfikatorowi SID SAP.
 
 Aby dodać port sondy, Uruchom ten moduł programu PowerShell na jednej z maszyn wirtualnych klastra:
 

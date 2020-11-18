@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816239"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683509"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift — często zadawane pytania
 
@@ -127,7 +127,7 @@ W przypadku klastrów 4. x należy uwidocznić bezpieczny rejestr i skonfigurowa
 
 W przypadku klastrów 3,11 jest dostępny rejestr platformy Docker. Rejestr platformy Docker jest dostępny z programu `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Możesz również użyć Azure Container Registry.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Czy mogę wdrożyć klaster w istniejącej sieci wirtualnej?
 
@@ -186,13 +186,13 @@ Aby uzyskać więcej informacji, zapoznaj się z dokumentacją OpenShift dotycz�
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Które prawa systemu UNIX (w IaaS) są dostępne dla węzłów wzorców/infrastruktury/aplikacji?
 
-W przypadku klastrów 4. x dostęp do węzła jest dostępny za pomocą roli klastra-administratora. Aby uzyskać więcej informacji, zobacz [Omówienie RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+W przypadku klastrów 4. x dostęp do węzła jest dostępny za pomocą roli klastra-administratora. Aby uzyskać więcej informacji, zobacz [KUBERNETES RBAC — Omówienie](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 W przypadku klastrów 3,11 dostęp do węzła jest zabroniony.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Jakie są prawa OCP? Klaster-administrator? Projekt — administrator?
 
-W przypadku klastrów 4. x rola Administrator klastra jest dostępna. Aby uzyskać więcej informacji, zobacz [Omówienie RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+W przypadku klastrów 4. x rola Administrator klastra jest dostępna. Aby uzyskać więcej informacji, zobacz [KUBERNETES RBAC — Omówienie](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Aby uzyskać więcej informacji na temat klastrów 3,11, zobacz [Omówienie administrowania klastrami](https://docs.openshift.com/aro/admin_guide/index.html) .
 
@@ -202,7 +202,7 @@ W przypadku klastrów 4. x należy skonfigurować własnego dostawcę tożsamoś
 
 W przypadku klastrów 3,11 można korzystać z integracji usługi Azure AD. 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="is-data-on-my-cluster-encrypted"></a>Czy dane w moim klastrze są szyfrowane?
 

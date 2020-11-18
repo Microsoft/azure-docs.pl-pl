@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451367"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684435"
 ---
 Azure Shared disks to nowa funkcja dysków zarządzanych przez platformę Azure, która umożliwia jednoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Dołączenie dysku zarządzanego do wielu maszyn wirtualnych pozwala wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
 
@@ -54,9 +54,9 @@ Niektóre popularne aplikacje działające w środowisku WSFC obejmują:
 ### <a name="linux"></a>Linux
 
 Dyski udostępnione platformy Azure są obsługiwane w systemie:
-- [SUSE SLE for SAP i SUSE SLE HA 15 SP1 i nowszych](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [SUSE SLE for SAP i SUSE SLE HA 15 SP1 i nowszych](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18,04 i nowsze](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL Developer Preview na dowolnej wersji RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [RHEL Developer Preview na dowolnej wersji RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Klastry systemu Linux mogą korzystać z menedżerów klastra, takich jak [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker kompiluje w [Corosync](http://corosync.github.io/corosync/), co umożliwia komunikację klastra w przypadku aplikacji wdrożonych w środowiskach o wysokiej dostępności. Niektóre typowe klastrowane systemy plików to [OCFS2](https://oss.oracle.com/projects/ocfs2/) i [GFS2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Do rozstrzygania dostępu do dysku można użyć modeli klastrów opartych na rezerwacjach trwałych SCSI (SCSI PR) i/lub STONITH Block Device (SBD). Przy użyciu żądania ściągnięcia SCSI można manipulować rezerwacjami i rejestracjami przy użyciu narzędzi, takich jak [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) i [sg_persist](https://linux.die.net/man/8/sg_persist).
@@ -131,19 +131,19 @@ W poniższych przykładach przedstawiono kilka scenariuszy, które pokazują, ja
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC korzystającej z udostępnionych woluminów klastra. W przypadku tej konfiguracji obie maszyny wirtualne mają jednoczesny dostęp do zapisu do dysku, co powoduje, że `ReadWrite` ograniczanie przepustowości między dwiema maszynami wirtualnymi i `ReadOnly` ograniczenie nie są używane.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Obraz tabeli, która przedstawia dostęp typu &quot;ReadOnly&quot; lub &quot;Odczyt/zapis&quot; dla posiadacza rezerwacji, zarejestrowanych i innych.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Przykładowy plik CSV dwa węzły":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Klaster z dwoma węzłami bez woluminów udziałów klastra
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC, która nie korzysta z udostępnionych woluminów klastra. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to `ReadWrite` ograniczenie używane wyłącznie dla podstawowej maszyny wirtualnej i `ReadOnly` ograniczenie używane przez pomocniczą.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Obraz tabeli, która przedstawia dostęp typu &quot;ReadOnly&quot; lub &quot;Odczyt/zapis&quot; dla posiadacza rezerwacji, zarejestrowanych i innych.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Dwa węzły w formacie CSV — przykład braku dysku CSV":::
 
 ##### <a name="four-node-linux-cluster"></a>Klaster z systemem Linux z czterema węzłami
 
 Poniżej znajduje się przykładowy klaster z systemem Linux z 4 węzłami z pojedynczym modułem zapisywania i trzema czytnikami skalowalnymi w poziomie. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to `ReadWrite` ograniczenie używane wyłącznie dla podstawowej maszyny wirtualnej i `ReadOnly` ograniczanie przepustowości przez pomocnicze maszyny wirtualne.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Obraz tabeli, która przedstawia dostęp typu &quot;ReadOnly&quot; lub &quot;Odczyt/zapis&quot; dla posiadacza rezerwacji, zarejestrowanych i innych.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Przykład o czterech węzłach Ultra":::
 
 #### <a name="ultra-pricing"></a>Niezwykle Cennik
 

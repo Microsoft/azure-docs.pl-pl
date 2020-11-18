@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5ad53c0040009e9ed1f28072540b46ce7b0b9a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86244138"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683923"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalowanie i używanie Consul w usłudze Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono klaster AKS (Kubernetes `1.13` lub nowszy z włączoną funkcją RBAC) i nawiązano `kubectl` połączenie z klastrem. Jeśli potrzebujesz pomocy z dowolnym z tych elementów, zobacz [Przewodnik Szybki Start AKS][aks-quickstart]. Upewnij się, że klaster zawiera co najmniej 3 węzły w puli węzłów systemu Linux.
+W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono klaster AKS (Kubernetes `1.13` lub nowszy z włączoną obsługą RBAC Kubernetes) i nawiązano `kubectl` połączenie z klastrem. Jeśli potrzebujesz pomocy z dowolnym z tych elementów, zobacz [Przewodnik Szybki Start AKS][aks-quickstart]. Upewnij się, że klaster zawiera co najmniej 3 węzły w puli węzłów systemu Linux.
 
 Musisz [Helm][helm] , aby wykonać te instrukcje i zainstalować Consul. Zalecane jest, aby Najnowsza stabilna wersja była zainstalowana i skonfigurowana w klastrze. Jeśli potrzebujesz pomocy dotyczącej instalowania Helm, zobacz [wskazówki dotyczące instalacji programu AKS Helm][helm-install]. Wszystkie Consulowe zasobniki muszą być również zaplanowane do uruchomienia w węzłach systemu Linux.
 

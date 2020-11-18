@@ -1,39 +1,36 @@
 ---
-title: Łączenie z usługą Office 365 Outlook
+title: Integracja z pakietem Office 365 Outlook
 description: Automatyzowanie zadań i przepływów pracy, które zarządzają pocztą e-mail, kontaktami i kalendarzami w programie Office 365 Outlook przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400778"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682999"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kontaktami i kalendarzami w programie Outlook usługi Office 365 przy użyciu usługi Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika pakietu Office 365 Outlook](/connectors/office365connector/)można tworzyć automatyczne zadania i przepływy pracy służące do zarządzania kontem służbowym przez tworzenie aplikacji logiki. Na przykład można zautomatyzować następujące zadania:
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika pakietu Office 365 Outlook](/connectors/office365connector/)można tworzyć automatyczne zadania i przepływy pracy służące do zarządzania kontem służbowym przez tworzenie aplikacji logiki. Na przykład możesz zautomatyzować poniższe zadania:
 
-* Pobieranie, wysyłanie i odpowiadanie na wiadomości e-mail. 
+* Pobieranie, wysyłanie i odpowiadanie na wiadomości e-mail.
 * Planowanie spotkań w kalendarzu.
-* Dodawanie i edytowanie kontaktów. 
+* Dodawanie i edytowanie kontaktów.
 
-Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykład po nadejściu nowej wiadomości e-mail, po zaktualizowaniu elementu kalendarza lub gdy zdarzenie występuje w usłudze różnicowej, na przykład w usłudze Salesforce. Możesz użyć akcji, które reagują na zdarzenie wyzwalacza, na przykład Wyślij wiadomość e-mail lub Utwórz nowe wydarzenie w kalendarzu. 
-
-> [!NOTE]
-> Aby zautomatyzować zadania dla @outlook.com konta usługi lub @hotmail.com , użyj [łącznika Outlook.com](../connectors/connectors-create-api-outlook.md).
+Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykład po nadejściu nowej wiadomości e-mail, po zaktualizowaniu elementu kalendarza lub gdy zdarzenie występuje w usłudze różnicowej, na przykład w usłudze Salesforce. Możesz użyć akcji, które reagują na zdarzenie wyzwalacza, na przykład Wyślij wiadomość e-mail lub Utwórz nowe wydarzenie w kalendarzu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* Konto programu Outlook umożliwiające zalogowanie się przy użyciu [konta służbowego](https://www.office.com/). Jeśli masz @outlook.com @hotmail.com konto lub, zamiast tego użyj [łącznika Outlook.com](../connectors/connectors-create-api-outlook.md) . Aby nawiązać połączenie z programem Outlook przy użyciu innego konta użytkownika, takiego jak konto usługi, zobacz [nawiązywanie połączenia przy użyciu innych kont](#connect-using-other-accounts).
 
-* [Konto służbowe](https://www.office.com/)
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Aplikacja logiki, w której chcesz uzyskać dostęp do konta służbowego. Aby uruchomić przepływ pracy przy użyciu wyzwalacza programu Outlook pakietu Office 365, musisz mieć [pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby dodać akcję programu Outlook pakietu Office 365 do przepływu pracy, aplikacja logiki musi już mieć wyzwalacz.
+* Aplikacja logiki, do której chcesz uzyskać dostęp do konta programu Outlook. Aby uruchomić przepływ pracy przy użyciu wyzwalacza programu Outlook pakietu Office 365, musisz mieć [pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby dodać akcję programu Outlook pakietu Office 365 do przepływu pracy, aplikacja logiki musi już mieć wyzwalacz.
 
 ## <a name="add-a-trigger"></a>Dodawanie wyzwalacza
 
@@ -45,7 +42,7 @@ Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykła
    
    ![Wybierz wyzwalacz, aby uruchomić aplikację logiki](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj swoje poświadczenia służbowe, aby aplikacja logiki mogła połączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach wyzwalacza.
+1. Jeśli nie masz aktywnego połączenia z kontem programu Outlook, zostanie wyświetlony monit o zalogowanie się i utworzenie tego połączenia. Aby nawiązać połączenie z programem Outlook przy użyciu innego konta użytkownika, takiego jak konto usługi, zobacz [nawiązywanie połączenia przy użyciu innych kont](#connect-using-other-accounts). W przeciwnym razie podaj informacje o właściwościach wyzwalacza.
 
    > [!NOTE]
    > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -56,7 +53,7 @@ Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykła
 
 1. W wyzwalaczu Ustaw wartości **częstotliwości** i **interwałów** . Aby dodać inne dostępne właściwości wyzwalacza, takie jak **strefa czasowa**, wybierz te właściwości z listy **Dodaj nowy parametr** .
 
-   Na przykład, jeśli chcesz, aby wyzwalacz sprawdzał kalendarz co 15 minut, ustaw **częstotliwość** na **minutę**i ustaw **Interwał** na `15` . 
+   Na przykład, jeśli chcesz, aby wyzwalacz sprawdzał kalendarz co 15 minut, ustaw **częstotliwość** na **minutę** i ustaw **Interwał** na `15` . 
 
    ![Ustawianie częstotliwości i interwału dla wyzwalacza](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -78,7 +75,7 @@ Teraz Dodaj akcję, która jest uruchamiana po uruchomieniu wyzwalacza. Na przyk
 
    ![Wybierz akcję do uruchomienia w aplikacji logiki](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj swoje poświadczenia służbowe, aby aplikacja logiki mogła połączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach akcji.
+1. Jeśli nie masz aktywnego połączenia z kontem programu Outlook, zostanie wyświetlony monit o zalogowanie się i utworzenie tego połączenia. Aby nawiązać połączenie z programem Outlook przy użyciu innego konta użytkownika, takiego jak konto usługi, zobacz [nawiązywanie połączenia przy użyciu innych kont](#connect-using-other-accounts). W przeciwnym razie podaj informacje o właściwościach akcji.
 
    > [!NOTE]
    > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -90,6 +87,28 @@ Teraz Dodaj akcję, która jest uruchamiana po uruchomieniu wyzwalacza. Na przyk
    Aby dodać inne dostępne właściwości akcji, wybierz te właściwości z listy **Dodaj nowy parametr** .
 
 1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+
+<a name="connect-using-other-accounts"></a>
+
+## <a name="connect-using-other-accounts"></a>Nawiązywanie połączenia przy użyciu innych kont
+
+Jeśli spróbujesz nawiązać połączenie z programem Outlook przy użyciu innego konta niż to, które jest obecnie zalogowane na platformie Azure, możesz uzyskać błędy logowania jednokrotnego [(SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) . Ten problem występuje, gdy zalogujesz się do Azure Portal przy użyciu jednego konta, ale Użyj innego konta, aby utworzyć połączenie. Projektant aplikacji logiki oczekuje na użycie konta, które jest zalogowane na platformie Azure. Aby rozwiązać ten problem, możesz korzystać z następujących opcji:
+
+* Skonfiguruj inne konto jako **współautor** grupy zasobów aplikacji logiki.
+
+  1. W menu Grupa zasobów aplikacji logiki wybierz pozycję **Kontrola dostępu (IAM)**. Skonfiguruj inne konto z rolą **współautor** . Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md).
+
+  1. Jeśli logujesz się do Azure Portal przy użyciu konta służbowego, Wyloguj się i zaloguj się ponownie przy użyciu innego konta. Możesz teraz utworzyć połączenie z programem Outlook przy użyciu innego konta.
+
+* Skonfiguruj inne konto, aby konto służbowe miało uprawnienia "Wyślij jako".
+
+   Jeśli masz uprawnienia administratora, w skrzynce pocztowej konta usługi Skonfiguruj Twoje konto służbowe za pomocą opcji **Wyślij jako** lub **Wyślij w imieniu** uprawnień. Aby uzyskać więcej informacji, zobacz [nadawanie uprawnień skrzynek pocztowych innemu użytkownikowi](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Następnie możesz utworzyć połączenie przy użyciu konta służbowego. Teraz w wyzwalaczach lub akcjach, w których można określić nadawcę, możesz użyć adresu e-mail konta usługi.
+
+   Na przykład akcja **Wyślij wiadomość e-mail** ma opcjonalny parametr **od (Wyślij jako)**, który można dodać do akcji i użyć adresu e-mail konta usługi jako nadawcy. Aby dodać ten parametr, wykonaj następujące kroki:
+
+   1. W akcji **Wyślij wiadomość e-mail** Otwórz listę **Dodaj parametr** , a następnie wybierz parametr **od (Send AS)** .
+
+   1. Po pojawieniu się parametru w akcji wprowadź adres e-mail konta usługi.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

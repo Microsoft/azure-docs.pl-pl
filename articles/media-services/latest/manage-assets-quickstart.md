@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261417"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683033"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
 
@@ -27,7 +27,7 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
 * Aby rozpocząć zarządzanie, szyfrowanie, kodowanie, analizowanie i przesyłanie strumieniowe zawartości multimedialnej na platformie Azure, musisz utworzyć konto Media Services i przesłać plik multimediów cyfrowych o wysokiej jakości do **elementu zawartości**. 
     
     > [!NOTE]
-    > Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy użyciu interfejsu API Media Services v3 lub zawartość została wygenerowana na podstawie danych wyjściowych na żywo, nie będą wyświetlane przyciski **Koduj**, **Analizuj**ani **Szyfruj** w Azure Portal. Użyj interfejsów API Media Services v3, aby wykonać te zadania.
+    > Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy użyciu interfejsu API Media Services v3 lub zawartość została wygenerowana na podstawie danych wyjściowych na żywo, nie będą wyświetlane przyciski **Koduj**, **Analizuj** ani **Szyfruj** w Azure Portal. Użyj interfejsów API Media Services v3, aby wykonać te zadania.
 
     Zapoznaj się z następującymi tematami: 
 
@@ -40,7 +40,7 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
         Obecnie w przypadku korzystania z Azure Portal można wykonać następujące czynności: generowanie plików napisów TTML i WebVTT. Pliki w tych formatach mogą służyć do udostępniania plików audio i wideo osobom niepełnosprawnym. Możesz również wyodrębnić słowa kluczowe z zawartości.
 
         Aby uzyskać bogate środowisko umożliwiające wyodrębnienie szczegółowych informacji z plików wideo i audio, Użyj ustawień wstępnych Media Services v3 (zgodnie z opisem w [samouczku: analizowanie wideo przy użyciu Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Jeśli potrzebujesz bardziej szczegółowych informacji, użyj [Video Indexer](../video-indexer/index.yml) bezpośrednio.    
-* Po przetworzeniu zawartości możesz dostarczyć zawartość multimedialną do graczy klienckich. Aby umożliwić odtwarzanie filmów wideo w danych wyjściowych, należy utworzyć **lokalizator przesyłania strumieniowego**. Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić **zasady przesyłania strumieniowego**. **Zasady przesyłania strumieniowego** umożliwiają definiowanie protokołów przesyłania strumieniowego i opcji szyfrowania (jeśli istnieją) dla **lokalizatorów przesyłania strumieniowego**.
+* Po przetworzeniu zawartości możesz dostarczyć zawartość multimedialną do graczy klienckich. Aby umożliwić odtwarzanie filmów wideo w danych wyjściowych, należy utworzyć **lokalizator przesyłania strumieniowego**. Podczas tworzenia **lokalizatora przesyłania strumieniowego** należy określić **zasady przesyłania strumieniowego**. **Zasady przesyłania strumieniowego** umożliwiają definiowanie protokołów przesyłania strumieniowego i opcji szyfrowania (jeśli istnieją) dla **lokalizatorów przesyłania strumieniowego**.
     
     Ponownego
 
@@ -54,7 +54,7 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Tworzenie konta usługi Media Services](create-account-howto.md#use-the-azure-portal)
+[Tworzenie konta usługi Media Services](create-account-howto.md)
 
 ## <a name="upload"></a>Przekazywanie
 
