@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/02/2020
-ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 49b7b855a7608b6426d0bda50330dbe1a3b5ced7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924269"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741573"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Tworzenie sklepu z bazami danych przy użyciu REST i programu Poster
 
@@ -61,9 +61,9 @@ Zainstaluj i skonfiguruj program ogłaszający.
 ### <a name="download-and-install-postman"></a>Pobierz i zainstaluj program Poster
 
 1. Pobierz [kod źródłowy kolekcji Poster](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json).
-1. Wybierz **File**pozycję  >  **Importuj** plik, aby zaimportować kod źródłowy do programu Poster.
+1. Wybierz **File** pozycję  >  **Importuj** plik, aby zaimportować kod źródłowy do programu Poster.
 1. Wybierz kartę **kolekcje** , a następnie wybierz przycisk **...** (wielokropek).
-1. Kliknij pozycję **Edytuj**. 
+1. Wybierz pozycję **Edit** (Edytuj). 
    
    ![Aplikacja do publikowania po wyświetleniu nawigacji](media/knowledge-store-create-rest/postman-edit-menu.png "Przejdź do menu Edycja w programie Poster")
 1. W oknie dialogowym **Edycja** wybierz kartę **zmienne** . 

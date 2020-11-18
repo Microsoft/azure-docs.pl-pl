@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d9344d8b97d9a6ba361a337e0c6165438c04897
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281761"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745092"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Użyj kafelka promocji na pulpitach nawigacyjnych platformy Azure, aby pokazać zawartość niestandardową
 
@@ -31,7 +31,7 @@ Możesz dodać kafelek promocji do pulpitów nawigacyjnych platformy Azure, aby 
 
    ![Zrzut ekranu przedstawiający widok edycji pulpitu nawigacyjnego](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. W **galerii kafelków**Znajdź kafelek o nazwie **promocji** i wybierz pozycję **Dodaj**. Kafelek zostanie dodany do pulpitu nawigacyjnego i zostanie otwarte okienko **Edycja promocji** .
+1. W **galerii kafelków** Znajdź kafelek o nazwie **promocji** i wybierz pozycję **Dodaj**. Kafelek zostanie dodany do pulpitu nawigacyjnego i zostanie otwarte okienko **Edycja promocji** .
 
 1. Wprowadź wartości dla **tytułu** i **podtytuł**, które są wyświetlane na kafelku po przejściu do innego pola.
 
@@ -48,7 +48,7 @@ Możesz dodać kafelek promocji do pulpitów nawigacyjnych platformy Azure, aby 
       ![Zrzut ekranu przedstawiający wprowadzanie adresu URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Aby zwiększyć bezpieczeństwo, można utworzyć plik o promocji i zapisać go w [obiekcie blob konta usługi Azure Storage, na którym włączono szyfrowanie](../storage/common/storage-service-encryption.md), a następnie wskazać plik przy użyciu opcji adresu URL. Zawartość promocji jest zaszyfrowana przy użyciu opcji szyfrowania konta magazynu. Tylko użytkownicy z uprawnieniami do pliku mogą zobaczyć zawartość z promocji na pulpicie nawigacyjnym. Ustaw dla konta magazynu regułę udostępniania zasobów między źródłami (CORS), tak aby Azure Portal ( _https://portal.azure.com/_ ) mógł uzyskać dostęp do pliku z promocje w obiekcie blob.
+      > Aby zwiększyć bezpieczeństwo, można utworzyć plik o promocji i zapisać go w [obiekcie blob konta usługi Azure Storage, na którym włączono szyfrowanie](../storage/common/storage-service-encryption.md), a następnie wskazać plik przy użyciu opcji adresu URL. Zawartość promocji jest zaszyfrowana przy użyciu opcji szyfrowania konta magazynu. Tylko użytkownicy z uprawnieniami do pliku mogą zobaczyć zawartość z promocji na pulpicie nawigacyjnym. Może być konieczne ustawienie reguły [CORS (Cross-Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) na koncie magazynu, aby Azure Portal ( _https://portal.azure.com/_ ) mógł uzyskać dostęp do pliku o promocji w obiekcie blob.
 
 1. Wybierz pozycję **gotowe** , aby zamknąć okienko **Edycja promocji** . Zawartość jest wyświetlana na kafelku promocji, którego rozmiar można zmienić, przeciągając uchwyt w prawym dolnym rogu.
 

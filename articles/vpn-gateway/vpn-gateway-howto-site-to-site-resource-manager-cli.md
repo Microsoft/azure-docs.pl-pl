@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2c5afbaa9ee9d531c6995fdeeab7bf38bf1e2d55
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3a29c4522812b728f553bf52543ac3307f0ffbda
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660971"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739941"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Tworzenie sieci wirtualnej z wykorzystaniem połączenia sieci VPN typu lokacja-lokacja przy użyciu interfejsu wiersza polecenia
 
@@ -24,9 +24,6 @@ Ten artykuł pokazuje, jak używać interfejsu wiersza polecenia platformy Azure
 > * [Program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Interfejs wiersza polecenia](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> 
->
-
 
 ![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
 
@@ -39,9 +36,8 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 * Upewnij się, że masz zgodne urządzenie sieci VPN i dostępna jest osoba, która umie je skonfigurować. Aby uzyskać więcej informacji o zgodnych urządzeniach sieci VPN i konfiguracji urządzeń, zobacz artykuł [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md).
 * Sprawdź, czy masz dostępny zewnętrznie publiczny adres IPv4 urządzenia sieci VPN.
 * Jeśli nie znasz zakresów adresów IP w konfiguracji swojej sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane. Tworząc tę konfigurację, musisz określić prefiksy zakresu adresów IP, które platforma Azure będzie kierować do Twojej lokalizacji lokalnej. Żadna z podsieci sieci lokalnej nie może się nakładać na podsieci sieci wirtualnej, z którymi chcesz nawiązać połączenie.
-* Azure Cloud Shell można użyć do uruchomienia poleceń interfejsu wiersza polecenia (instrukcje poniżej). Jeśli jednak wolisz uruchamiać polecenia lokalnie, upewnij się, że zainstalowano najnowszą wersję poleceń interfejsu wiersza polecenia (2,0 lub nowsze). Aby uzyskać informacje o instalowaniu poleceń interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli). 
- 
-  [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+* Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ### <a name="example-values"></a><a name="example"></a>Przykładowe wartości
 

@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/30/2020
-ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.date: 11/17/2020
+ms.openlocfilehash: 3225013f09abd326c619b67caf77918889a64859
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379977"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741811"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Szybki Start: Tworzenie sklepu z bazami danych Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -70,11 +70,11 @@ Teraz można przystąpić do przenoszenia kreatora **importu danych** .
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 
-1. W obszarze **Nawiązywanie połączenia z danymi** wybierz opcję **Magazyn obiektów blob Azure** , a następnie wybierz konto i utworzony kontener. 
+1. W obszarze **Nawiązywanie połączenia z danymi** wybierz opcję **Magazyn obiektów blob Azure**, a następnie wybierz konto i utworzony kontener. 
 
 1. Wpisz **nazwę** `hotel-reviews-ds` .
 
-1. W obszarze **tryb analizy** wybierz pozycję **Tekst rozdzielany** , a następnie zaznacz pole wyboru **pierwszy wiersz zawiera nagłówek** . Upewnij się, że **znak ogranicznika** jest przecinkiem (,).
+1. W obszarze **tryb analizy** wybierz pozycję **Tekst rozdzielany**, a następnie zaznacz pole wyboru **pierwszy wiersz zawiera nagłówek** . Upewnij się, że **znak ogranicznika** jest przecinkiem (,).
 
 1. W polu **Parametry połączenia** wklej parametry połączenia skopiowane ze strony **klucze dostępu** w usłudze Azure Storage.
 
@@ -98,7 +98,7 @@ W tym kroku kreatora utworzysz zestawu umiejętności z wzbogacaniem umiejętno�
 
 1. W **polu Źródło danych** wybierz pozycję **reviews_text**.
 
-1. Aby uzyskać **poziom szczegółowości wzbogacenia** , wybierz pozycję **strony (fragmenty: 5000 znaków).**
+1. Aby uzyskać **poziom szczegółowości wzbogacenia**, wybierz pozycję **strony (fragmenty: 5000 znaków).**
 
 1. Wybierz następujące umiejętności poznawcze:
     + **Wyodrębnij kluczowe frazy**
@@ -109,7 +109,7 @@ W tym kroku kreatora utworzysz zestawu umiejętności z wzbogacaniem umiejętno�
 
 1. Rozwiń pozycję **Zapisz wzbogacanie do sklepu merytorycznego**.
 
-1. Wybierz następujące **projekcje tabeli platformy Azure** :
+1. Wybierz następujące **projekcje tabeli platformy Azure**:
     + **Dokumenty**
     + **Strony**
     + **Kluczowe frazy**

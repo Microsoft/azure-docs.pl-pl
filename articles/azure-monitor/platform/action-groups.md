@@ -1,28 +1,28 @@
 ---
-title: Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
+title: Tworzenie grup akcji i zarządzanie nimi w Azure Portal
 description: Dowiedz się, jak tworzyć grupy akcji i zarządzać nimi w Azure Portal.
 author: dkamstra
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746367"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
 
 W tym artykule przedstawiono sposób tworzenia grup akcji i zarządzania nimi w Azure Portal.
 
 Każda akcja składa się z następujących właściwości:
 
-* **Typ** : powiadomienie lub akcja wykonane. Przykładami mogą być wysyłanie połączeń głosowych, wiadomości SMS i poczty e-mail; lub wyzwalając różne typy zautomatyzowanych akcji. Zobacz typy w dalszej części tego artykułu.
-* **Nazwa** : unikatowy identyfikator w ramach grupy akcji.
-* **Szczegóły** : odpowiednie szczegóły, które różnią się w zależności od *typu*.
+* **Typ**: powiadomienie lub akcja wykonane. Przykładami mogą być wysyłanie połączeń głosowych, wiadomości SMS i poczty e-mail; lub wyzwalając różne typy zautomatyzowanych akcji. Zobacz typy w dalszej części tego artykułu.
+* **Nazwa**: unikatowy identyfikator w ramach grupy akcji.
+* **Szczegóły**: odpowiednie szczegóły, które różnią się w zależności od *typu*.
 
 Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu szablonów Azure Resource Manager, zobacz [Group action Menedżer zasobów templates](./action-groups-create-resource-manager-template.md).
 
@@ -30,7 +30,7 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu 
 
 1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **monitor**. Okienko **monitorowanie** konsoliduje wszystkie ustawienia monitorowania i dane w jednym widoku.
 
-1. Wybierz pozycję **alerty** , a następnie wybierz pozycję **Zarządzaj akcjami**.
+1. Wybierz pozycję **alerty**, a następnie wybierz pozycję **Zarządzaj akcjami**.
 
     ![Przycisk zarządzania akcjami](./media/action-groups/manage-action-groups.png)
     
@@ -40,11 +40,11 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu 
 
 ### <a name="configure-basic-action-group-settings"></a>Skonfiguruj podstawowe ustawienia grupy akcji
 
-W obszarze **szczegóły projektu** :
+W obszarze **szczegóły projektu**:
 
 Wybierz **subskrypcję** i **grupę zasobów** , w której jest zapisywana grupa akcji.
 
-W obszarze **szczegóły wystąpienia** :
+W obszarze **szczegóły wystąpienia**:
 
 1. Wprowadź **nazwę grupy akcji**.
 
@@ -59,15 +59,15 @@ W obszarze **szczegóły wystąpienia** :
 
 1. Zdefiniuj listę powiadomień do wysłania w przypadku wyzwolenia alertu. Dla każdego powiadomienia podaj następujące elementy:
 
-    a. **Typ powiadomienia** : Wybierz typ powiadomienia, które chcesz wysłać. Dostępne opcje:
+    a. **Typ powiadomienia**: Wybierz typ powiadomienia, które chcesz wysłać. Dostępne opcje:
       * Azure Resource Manager rolę e-mail — Wyślij wiadomość e-mail do użytkowników przypisanych do określonych ról ARM na poziomie subskrypcji.
       * Poczta e-mail/wiadomość SMS/wypychanie/głos — wysyłaj te typy powiadomień do określonych adresatów.
     
-    b. **Nazwa** : Wprowadź unikatową nazwę powiadomienia.
+    b. **Nazwa**: Wprowadź unikatową nazwę powiadomienia.
 
-    c. **Szczegóły** : na podstawie wybranego typu powiadomienia wprowadź adres e-mail, numer telefonu itp.
+    c. **Szczegóły**: na podstawie wybranego typu powiadomienia wprowadź adres e-mail, numer telefonu itp.
     
-    d. **Wspólny schemat alertów** : można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
 
     ![Karta powiadomienia](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,13 +77,13 @@ W obszarze **szczegóły wystąpienia** :
 
 1. Zdefiniuj listę akcji do wyzwolenia po wyzwoleniu alertu. Dla każdej akcji podaj następujące elementy:
 
-    a. **Typ akcji** : Wybierz element Runbook usługi Automation, funkcja platformy Azure, narzędzia ITSM, aplikację logiki, bezpieczny element webhook, element webhook.
+    a. **Typ akcji**: Wybierz element Runbook usługi Automation, funkcja platformy Azure, narzędzia ITSM, aplikację logiki, bezpieczny element webhook, element webhook.
     
-    b. **Nazwa** : Wprowadź unikatową nazwę dla akcji.
+    b. **Nazwa**: Wprowadź unikatową nazwę dla akcji.
 
-    c. **Szczegóły** : na podstawie typu akcji wprowadź identyfikator URI elementu webhook, aplikację platformy Azure, połączenie narzędzia ITSM lub element Runbook usługi Automation. Dla akcji narzędzia ITSM należy dodatkowo określić **element roboczy** i inne pola wymagane przez narzędzie narzędzia ITSM.
+    c. **Szczegóły**: na podstawie typu akcji wprowadź identyfikator URI elementu webhook, aplikację platformy Azure, połączenie narzędzia ITSM lub element Runbook usługi Automation. Dla akcji narzędzia ITSM należy dodatkowo określić **element roboczy** i inne pola wymagane przez narzędzie narzędzia ITSM.
     
-    d. **Wspólny schemat alertów** : można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
     
     ![Karta akcje](./media/action-groups/action-group-3-actions.png)
 
@@ -93,7 +93,7 @@ W obszarze **szczegóły wystąpienia** :
 
     ![Karta Tagi](./media/action-groups/action-group-4-tags.png)
     
-1. Kliknij przycisk **Przejrzyj i utwórz** , aby przejrzeć ustawienia. Spowoduje to szybkie sprawdzenie poprawności danych wejściowych, aby upewnić się, że są zaznaczone wszystkie wymagane pola. Jeśli występują problemy, zostaną zgłoszone w tym miejscu. Po przejrzeniu ustawień kliknij przycisk **Utwórz** , aby zainicjować obsługę administracyjną grupy akcji.
+1. Kliknij przycisk **Przejrzyj i utwórz**, aby przejrzeć ustawienia. Spowoduje to szybkie sprawdzenie poprawności danych wejściowych, aby upewnić się, że są zaznaczone wszystkie wymagane pola. Jeśli występują problemy, zostaną zgłoszone w tym miejscu. Po przejrzeniu ustawień kliknij przycisk **Utwórz** , aby zainicjować obsługę administracyjną grupy akcji.
     
     ![Karta Recenzja + tworzenie](./media/action-groups/action-group-5-review.png)
 
@@ -266,22 +266,108 @@ Elementy webhook są przetwarzane przy użyciu następujących reguł
 - Druga i trzecia próba odczeka 30 sekund na odpowiedź.
 - Gdy 3 próby wywołania elementu webhook zakończą się niepowodzeniem, żadna grupa akcji nie zadzwoni punktu końcowego przez 15 minut.
 
-Zakresy źródłowych adresów IP
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
+Zakresy źródłowych adresów IP:
+
+ - 13.66.60.119/32
+ - 13.66.143.220/30
+ - 13.66.202.14/32
+ - 13.66.248.225/32
+ - 13.66.249.211/32
+ - 13.67.10.124/30
+ - 13.69.109.132/30
+ - 13.71.199.112/30
+ - 13.77.53.216/30
+ - 13.77.172.102/32
+ - 13.77.183.209/32
+ - 13.78.109.156/30
+ - 13.84.49.247/32
+ - 13.84.51.172/32
+ - 13.84.52.58/32
+ - 13.86.221.220/30
+ - 13.106.38.142/32
+ - 13.106.38.148/32
+ - 13.106.54.3/32
+ - 13.106.54.19/32
+ - 13.106.57.181/32
+ - 13.106.57.196/31
+ - 20.38.149.132/30
+ - 20.42.64.36/30
+ - 20.43.121.124/30
+ - 20.44.17.220/30
+ - 20.45.123.236/30
+ - 20.72.27.152/30
+ - 20.150.172.228/30
+ - 20.192.238.124/30
+ - 20.193.202.4/30
+ - 40.68.195.137/32
+ - 40.68.201.58/32
+ - 40.68.201.65/32
+ - 40.68.201.206/32
+ - 40.68.201.211/32
+ - 40.68.204.18/32
+ - 40.115.37.106/32
+ - 40.121.219.215/32
+ - 40.121.221.62/32
+ - 40.121.222.201/32
+ - 40.121.223.186/32
+ - 51.104.9.100/30
+ - 52.183.20.244/32
+ - 52.183.31.0/32
+ - 52.183.94.59/32
+ - 52.184.145.166/32
+ - 191.233.50.4/30
+ - 191.233.207.64/26
+ - 2603:1000:4:402::178/125
+ - 2603:1000:104:402::178/125
+ - 2603:1010:6:402::178/125
+ - 2603:1010:101:402::178/125
+ - 2603:1010:304:402::178/125
+ - 2603:1010:404:402::178/125
+ - 2603:1020:5:402::178/125
+ - 2603:1020:206:402::178/125
+ - 2603:1020:305:402::178/125
+ - 2603:1020:405:402::178/125
+ - 2603:1020:605:402::178/125
+ - 2603:1020:705:402::178/125
+ - 2603:1020:805:402::178/125
+ - 2603:1020:905:402::178/125
+ - 2603:1020: A04:402:: 178/125
+ - 2603:1020: B04:402:: 178/125
+ - 2603:1020: C04:402:: 178/125
+ - 2603:1020: D04:402:: 178/125
+ - 2603:1020: E04:402:: 178/125
+ - 2603:1020: F04:402:: 178/125
+ - 2603:1020:1004:800:: F8/125
+ - 2603:1020:1104:400::178/125
+ - 2603:1030: f:400:: 978/125
+ - 2603:1030:10:402::178/125
+ - 2603:1030:104:402::178/125
+ - 2603:1030:107:400:: F0/125
+ - 2603:1030:210:402::178/125
+ - 2603:1030:40B: 400:: 978/125
+ - 2603:1030:40C: 402:: 178/125
+ - 2603:1030:504:802:: F8/125
+ - 2603:1030:608:402::178/125
+ - 2603:1030:807:402::178/125
+ - 2603:1030: A07:402:: 8f8/125
+ - 2603:1030: B04:402:: 178/125
+ - 2603:1030: C06:400:: 978/125
+ - 2603:1030: F05:402:: 178/125
+ - 2603:1030:1005:402::178/125
+ - 2603:1040:5:402::178/125
+ - 2603:1040:207:402::178/125
+ - 2603:1040:407:402::178/125
+ - 2603:1040:606:402::178/125
+ - 2603:1040:806:402::178/125
+ - 2603:1040:904:402::178/125
+ - 2603:1040: A06:402:: 178/125
+ - 2603:1040: B04:402:: 178/125
+ - 2603:1040: C06:402:: 178/125
+ - 2603:1040: D04:800:: F8/125
+ - 2603:1040: F05:402:: 178/125
+ - 2603:1040:1104:400::178/125
+ - 2603:1050:6:402::178/125
+ - 2603:1050:403:400:: 1F8/125
 
 Aby otrzymywać aktualizacje dotyczące zmian wprowadzonych w tych adresach IP, zalecamy skonfigurowanie alertu Service Health, który monitoruje powiadomienia informacyjne o usłudze grup akcji.
 

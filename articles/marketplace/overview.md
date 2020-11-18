@@ -1,5 +1,5 @@
 ---
-title: Co to jest komercyjne oprogramowanie Microsoft Marketplace?
+title: Co to jest komercyjna platforma handlowa firmy Microsoft?
 description: Przegląd korzyści i opcji dla partnerów firmy Microsoft, którzy tworzą listę rozwiązań na rynku komercyjnego firmy Microsoft.
 author: mingshen-ms
 ms.author: mingshen
@@ -7,14 +7,14 @@ ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: 0b0f290a5f560fa8f6db109422c8790ecef9698e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a559c8613af97251ea6e85ef2a16121a89ffb6ad
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107049"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739772"
 ---
-# <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjne oprogramowanie Microsoft Marketplace?
+# <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjna platforma handlowa firmy Microsoft?
 
 Komercyjny Portal firmy Microsoft to katalog rozwiązań od partnerów niezależnych dostawców oprogramowania (ISV). Jako członek niezależnego dostawcy oprogramowania Microsoft Partner Network można tworzyć i publikować komercyjne oferty rynkowe oraz zarządzać nimi w centrum partnerskim. Twoje rozwiązania są wymienione w naszych sklepach online wraz z własnymi rozwiązaniami firmy Microsoft, łącząc Cię z firmami, organizacjami i agencjami rządowymi na całym świecie.
 
@@ -24,7 +24,7 @@ Komercyjne witryny Marketplace są dostępne w ponad 100 krajach i regionach, a 
 
 Komercyjne witryny Marketplace firmy Microsoft mają dwa sklepy online: [Microsoft AppSource](https://appsource.microsoft.com/) i [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource zawiera rozwiązania biznesowe, a witryna Azure Marketplace zawiera rozwiązania IT. Komercyjne oprogramowanie i usługi w portalu Marketplace można również znaleźć w produktach firmy Microsoft, takich jak Microsoft 365, Dynamics 365, Microsoft moc platform i Azure. Nasze sklepy online i środowiska w ramach produktu w każdym miesiącu rysują miliony potencjalnych klientów. Każdy sklep online oferuje różne scenariusze, aby upewnić się, że Twoje rozwiązanie lub usługa są dostępne dla odpowiednich klientów.
 
-Po utworzeniu komercyjnej oferty portalu Marketplace w centrum partnerskim może ona być wyświetlana na liście lub w obu sklepach online na podstawie typu oferty, kategorii i innych wybranych opcji. W rzadkich przypadkach oferta jest istotna dla użytkowników w obu sklepach online, może się pojawić w obu. Aby dowiedzieć się więcej, zobacz [Wybieranie sklepu online](determine-your-listing-type.md#selecting-an-online-store) i [Podręcznik kupujący do Microsoft AppSource i witryny Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+Po utworzeniu komercyjnej oferty portalu Marketplace w centrum partnerskim może ona być wyświetlana na liście lub w obu sklepach online na podstawie typu oferty, kategorii i innych wybranych opcji. W rzadkich przypadkach oferta jest istotna dla użytkowników w obu sklepach online, może się pojawić w obu. Aby dowiedzieć się więcej, zobacz [Opcje dotyczące wyświetlania i cennika według sklepu online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) oraz [podręcznika kupującego do Microsoft AppSource i witryny Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
 ### <a name="microsoft-appsource"></a>Microsoft AppSource
 
@@ -38,11 +38,11 @@ Oto przykład strony z listą ofert w programie AppSource:
 
 Klienci mogą również uzyskiwać dostęp do ofert AppSource za pomocą Microsoft 365, Dynamics 365, platformy i platformy Azure. Poniższy przykład pokazuje, jak uzyskać dostęp do dodatków AppSource z menu **plik** Power BI.
 
-:::image type="content" source="media/overview/power-bi.png" alt-text="Przedstawia stronę aukcji oferty w Microsoft AppSource."::: 
+:::image type="content" source="media/overview/power-bi.png" alt-text="Pokazuje, w jaki sposób uzyskać dostęp do wizualizacji Power BI w AppSource z menu plik Power BI."::: 
 
 Ta opcja umożliwia otwarcie okna, w którym klient może wyszukiwać Power BI Dodatki według nazwy lub kategorii. 
 
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Przedstawia stronę aukcji oferty w Microsoft AppSource."::: 
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Wyświetla listę dodatków AppSource z poziomu Power BI."::: 
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -50,17 +50,17 @@ Ta opcja umożliwia otwarcie okna, w którym klient może wyszukiwać Power BI D
 
 Oto przykład strony z listą ofert w witrynie Azure Marketplace:
 
-:::image type="content" source="media/overview/example-marketplace.png" alt-text="Przedstawia stronę aukcji oferty w Microsoft AppSource."::: 
+:::image type="content" source="media/overview/example-marketplace.png" alt-text="Przedstawia stronę aukcji oferty w witrynie Azure Marketplace."::: 
 
 #### <a name="azure-marketplace-in-the-azure-portal"></a>Portal Azure Marketplace w Azure Portal
 
 Klienci platformy Azure mogą odnajdywać i wdrażać rozwiązania w portalu Azure Marketplace za pomocą opcji **Utwórz zasób** w [Azure Portal](https://portal.azure.com/).
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Przedstawia stronę aukcji oferty w Microsoft AppSource."::: 
+:::image type="content" source="media/overview/create-resource.png" alt-text="Pokazuje opcję Utwórz zasób w Azure Portal"::: 
 
 Ta opcja spowoduje otwarcie portalu Azure Marketplace w ramach Azure Portal, w którym można wyszukiwać rozwiązania według nazwy lub według kategorii.
 
-:::image type="content" source="media/overview/search-portal.png" alt-text="Przedstawia stronę aukcji oferty w Microsoft AppSource."::: 
+:::image type="content" source="media/overview/search-portal.png" alt-text="Wyświetla opcje wyszukiwania w portalu Azure Marketplace w ramach Azure Portal"::: 
 
 ## <a name="benefits-of-selling-with-microsoft"></a>Korzyści ze sprzedaży w firmie Microsoft
 

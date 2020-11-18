@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530696"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743665"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Samouczek: wykonywanie zapytania dotyczącego indeksu Wyszukiwanie poznawcze z poziomu aplikacji zaawansowanych
 
 Skorzystaj z szybkiego środowiska tworzenia aplikacji dla aplikacji zaawansowanych, aby utworzyć niestandardową aplikację do przeszukiwanej zawartości w usłudze Azure Wyszukiwanie poznawcze.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Nawiązywanie połączenia z usługą Azure Wyszukiwanie poznawcze
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 * [Konto aplikacji zaawansowanych](https://make.powerapps.com)
 
-* [Hotele — przykładowy indeks](search-get-started-portal.md)
+* [Hotele — przykładowy indeks](search-get-started-portal.md) hostowany w usłudze wyszukiwania
 
 * [Klucz interfejsu API zapytania](search-security-api-keys.md#find-existing-keys)
 
@@ -43,13 +43,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 1. [Zaloguj](https://make.powerapps.com) się do aplikacji zaawansowanych.
 
-1. Po lewej stronie rozwiń węzeł **Data**  >  **Łączniki niestandardowe**danych.
+1. Po lewej stronie rozwiń węzeł **Data**  >  **Łączniki niestandardowe** danych.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu łączników niestandardowych" border="true":::
 
 1. Wybierz pozycję  **+ Nowy łącznik niestandardowy**, a następnie wybierz pozycję **Utwórz z pustego**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Utwórz z pustego menu" border="true":::
 
 1. Podaj nazwę łącznika niestandardowego (na przykład *AzureSearchQuery*), a następnie kliknij przycisk **Kontynuuj**.
 
@@ -60,15 +60,15 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
    * Na hoście musisz wprowadzić adres URL usługi wyszukiwania (na przykład `<yourservicename>.search.windows.net` ).
    * W przypadku podstawowego adresu URL wystarczy wprowadzić "/"
 
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Dialog informacji ogólnych" border="true":::
 
-1. Na stronie Zabezpieczenia ustaw *klucz interfejsu API* jako **Typ uwierzytelniania**, ustaw zarówno etykietę parametru, jak i nazwę parametru na *klucz API-Key*. W obszarze **Lokalizacja parametru**wybierz pozycję *nagłówek* , jak pokazano poniżej.
+1. Na stronie Zabezpieczenia ustaw *klucz interfejsu API* jako **Typ uwierzytelniania**, ustaw zarówno etykietę parametru, jak i nazwę parametru na *klucz API-Key*. W obszarze **Lokalizacja parametru** wybierz pozycję *nagłówek* , jak pokazano poniżej.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Opcja typu uwierzytelniania" border="true":::
 
 1. Na stronie definicje wybierz pozycję **+ Nowa akcja** , aby utworzyć akcję, która będzie wysyłać zapytania do indeksu. Wprowadź wartość "Query" dla podsumowania i nazwę identyfikatora operacji. Wprowadź opis *"zapytania w indeksie wyszukiwania"*.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Nowe opcje akcji" border="true":::
 
 1. Przewiń w dół. W obszarze żądania wybierz pozycję **+ Importuj z przykładowego** przycisku, aby skonfigurować żądanie zapytania do usługi wyszukiwania:
 
@@ -76,27 +76,27 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
    * W polu adres URL wprowadź przykładowe zapytanie dla indeksu wyszukiwania ( `search=*` zwraca wszystkie dokumenty, `$select=` umożliwia wybranie pól). Wymagana jest wersja interfejsu API. W pełni określony adres URL może wyglądać następująco: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
-   * Dla nagłówka wpisz `Content-Type` . 
+   * Dla nagłówka wpisz `Content-Type` . Wartość zostanie ustawiona na `application/json` w późniejszym kroku.
 
-     **Aplikacje zaawansowane** będą używać składni do wyodrębniania parametrów z zapytania. Zwróć uwagę, że pole wyszukiwania zostało jawnie zdefiniowane. 
+     **Aplikacje zaawansowane** wykorzystują składnię w adresie URL do wyodrębniania parametrów z zapytania: parametry Search, Select i API-Version można skonfigurować w miarę postępu przez kreatora.
 
-       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Menu łączników niestandardowych" border="true":::
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importowanie z próbki" border="true":::
 
 1. Kliknij przycisk **Importuj** , aby wypełnić żądanie. Ukończ Ustawianie metadanych parametrów, klikając symbol **...** obok każdego z parametrów. Po każdej aktualizacji parametru kliknij przycisk **Wstecz** , aby powrócić do strony żądania.
 
-   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Menu łączników niestandardowych" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importuj z przykładowego dialogu" border="true":::
 
 1. Dla *wyszukiwania*: Ustaw `*` **wartość domyślną**, Ustaw jako *Fałsz* i ustaw **widoczność** na *none*. **required** 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Metadane parametrów wyszukiwania" border="true":::
 
-1. Dla *opcji Select*: `HotelName,Description,Address/City` Ustaw jako **wartość domyślną**, ustaw parametr **Required** na *wartość false*i ustaw **widoczność** na *none*.  
+1. Dla *opcji Select*: `HotelName,Description,Address/City` Ustaw jako **wartość domyślną**, ustaw parametr **Required** na *wartość false* i ustaw **widoczność** na *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Wybieranie metadanych parametrów" border="true":::
 
-1. W przypadku *interfejsu API-Version*: Ustaw `2020-06-30` **wartość domyślną**, ustaw **wymaganą** *wartość true*i ustaw **widoczność** jako *wewnętrzną*.  
+1. W przypadku *interfejsu API-Version*: Ustaw `2020-06-30` **wartość domyślną**, ustaw **wymaganą** *wartość true* i ustaw **widoczność** jako *wewnętrzną*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadane parametru wersji" border="true":::
 
 1. Dla *typu zawartości*: Ustaw wartość `application/json` .
 
@@ -111,11 +111,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
-1. Wróć do **3. Zażądaj** kroku i przewiń w dół do sekcji odpowiedź. Kliknij pozycję **"Dodaj odpowiedź domyślną"**. Jest to ważne, ponieważ ułatwia aplikacjom poznanie schematu odpowiedzi. 
+1. Przełącz się z powrotem do kreatora i wróć do **3. Krok żądania** . Przewiń w dół do sekcji odpowiedź. Kliknij pozycję **"Dodaj odpowiedź domyślną"**. Jest to ważne, ponieważ ułatwia aplikacjom poznanie schematu odpowiedzi. 
 
 1. Wklej przykładową odpowiedź. Prostą metodą przechwytywania przykładowej odpowiedzi jest użycie Eksploratora wyszukiwania w Azure Portal. W Eksploratorze wyszukiwania należy wprowadzić to samo zapytanie jak dla żądania, ale dodać **$Top = 2** , aby ograniczyć wyniki do zaledwie dwóch dokumentów:: `search=*&$select=HotelName,Description,Address/City&$top=2` . 
 
-   Aplikacje zaawansowane wymagają tylko kilku wyników, aby wykryć schemat.
+   Aplikacje zaawansowane wymagają tylko kilku wyników, aby wykryć schemat. Możesz teraz skopiować następującą odpowiedź do kreatora, zakładając, że używasz opcji hoteli-Sample-index.
 
     ```JSON
     {
@@ -144,7 +144,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
     > [!TIP] 
     > Istnieje limit znaków w odpowiedzi JSON, którą można wprowadzić, aby można było uprościć kod JSON przed jego wklejeniem. Schemat i format odpowiedzi są ważniejsze niż same wartości. Na przykład pole Opis można uprościć tylko do pierwszego zdania.
 
-1. Kliknij przycisk **Utwórz łącznik** w prawym górnym rogu.
+1. Kliknij przycisk **Importuj** , aby dodać odpowiedź domyślną.
+
+1. Kliknij przycisk **Utwórz łącznik** w prawym górnym rogu, aby zapisać definicję.
+
+1. Kliknij przycisk **Zamknij** , aby zamknąć łącznik.
 
 ## <a name="2---test-the-connection"></a>2 — testowanie połączenia
 
@@ -154,11 +158,11 @@ Dla tego zadania potrzebny będzie [klucz interfejsu API zapytania](search-secur
 
 1. Po lewej stronie kliknij pozycję **Łączniki niestandardowe**.
 
-1. Wyszukaj łącznik według nazwy (w tym samouczku jest to "AzureSearchQuery").
+1. Znajdź swój łącznik na liście (w tym samouczku jest to "AzureSearchQuery").
 
 1. Wybierz łącznik, rozwiń listę akcje, a następnie wybierz pozycję **Wyświetl właściwości**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Wyświetl właściwości" border="true":::
 
 1. Wybierz pozycję **Edytuj** w prawym górnym rogu.
 
@@ -170,15 +174,15 @@ Dla tego zadania potrzebny będzie [klucz interfejsu API zapytania](search-secur
 
 1. W obszarze operacje kliknij przycisk **Testuj operację** . Jeśli zakończyło się pomyślnie, powinien zostać wyświetlony stan 200 i w treści odpowiedzi powinna zostać wyświetlona notacja JSON opisująca wyniki wyszukiwania.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Odpowiedź JSON" border="true":::
 
 ## <a name="3---visualize-results"></a>3 — Wizualizacja wyników
 
 W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wyszukiwania i obszaru wyświetlania dla wyników. Aplikacja energetyczna będzie łączyć się z ostatnio utworzonym łącznikiem niestandardowym w celu pobrania danych z Azure Search.
 
-1. Po lewej stronie rozwiń pozycję **aplikacje**  >  **i Nowa**  >  **Kanwa**aplikacji.
+1. Po lewej stronie rozwiń pozycję **aplikacje**  >  **i Nowa**  >  **Kanwa** aplikacji.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Tworzenie aplikacji kanwy" border="true":::
 
 1. Wybierz typ aplikacji. Na potrzeby tego samouczka Utwórz **pustą aplikację** z **układem telefonu**. Zostanie wyświetlona **aplikacja PowerShell Apps** .
 
@@ -186,13 +190,13 @@ W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wy
 
    Wprowadź klucz interfejsu API zapytania.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Łącznik połączenia" border="true":::
 
     Teraz *AzureSearchQuery* to źródło danych, które jest dostępne do użycia w aplikacji.
 
-1. Na **karcie Wstawianie**Dodaj kilka kontrolek do kanwy.
+1. Na **karcie Wstawianie** Dodaj kilka kontrolek do kanwy.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Wstaw kontrolki" border="true":::
 
 1. Wstaw następujące elementy:
 
@@ -203,7 +207,7 @@ W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wy
 
     Kanwa powinna wyglądać następująco:
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Układ formantów" border="true":::
 
 1. Aby **przycisk wyszukiwania** wystawił zapytanie, wklej następującą akcję do **opcji OnSelect**:
 
@@ -214,7 +218,7 @@ W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wy
 
    Poniższy zrzut ekranu przedstawia pasek formuły akcji **OnSelect** .
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Menu łączników niestandardowych" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Przycisk OnSelect" border="true":::
 
    Ta akcja spowoduje aktualizację nowej kolekcji o nazwie *azResult* z wynikiem zapytania wyszukiwania, przy użyciu tekstu w polu tekstowym *txtQuery* jako terminu zapytania.
 
@@ -232,21 +236,21 @@ W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wy
 
    * Ustaw wartość **DataSource** na *azResult*.
    * Wybierz **Układ** , który działa w oparciu o typ danych w indeksie. W takim przypadku użyto *tytułu, podtytuł i układu treści* .
-   * **Edytuj pola**i wybierz pola, które chcesz wizualizować.
+   * **Edytuj pola** i wybierz pola, które chcesz wizualizować.
 
     Ze względu na to, że podczas definiowania łącznika podano przykładowy wynik, aplikacja rozpoznaje pola dostępne w indeksie.
     
-    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Menu łączników niestandardowych" border="true":::   
+    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Pola galerii" border="true":::   
  
 1. Naciśnij klawisz **F5** , aby wyświetlić podgląd aplikacji.  
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Menu łączników niestandardowych" border="true":::    
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Końcowa aplikacja" border="true":::    
 
 <!--     Remember that the fields can be set to calculated values.
 
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Menu łączników niestandardowych" border="true":::         -->
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

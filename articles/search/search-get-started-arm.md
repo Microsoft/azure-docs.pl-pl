@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/15/2020
-ms.openlocfilehash: abaf9abe9c52afba095fa52eee32a598ab6b3fcd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 11/17/2020
+ms.openlocfilehash: 12aa7f123ec5e417d710636f2afb4c60231cefc1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058458"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746554"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Szybki Start: wdrażanie Wyszukiwanie poznawcze przy użyciu szablonu ARM
 

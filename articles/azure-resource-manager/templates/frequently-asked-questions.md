@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333124"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744539"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Często zadawane pytania dotyczące szablonów ARM
 
@@ -68,7 +68,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy mogę utworzyć subskrypcję w szablonie ARM?**
 
-  Jeszcze nie, ale pracujemy nad tym.
+  Tak. Aby uzyskać więcej informacji, zobacz programowe [Tworzenie subskrypcji platformy Azure przy użyciu najnowszych interfejsów API](../../cost-management-billing/manage/programmatically-create-subscription.md).
 
 * **Jak przetestować szablon przed jego wdrożeniem?**
 
@@ -104,9 +104,9 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ## <a name="template-specs"></a>Specyfikacje szablonu
 
-* **Jak mogę uzyskać dostęp do wersji zapoznawczej specyfikacji szablonu?**
+* **Jak rozpocząć pracę z wersjami zapoznawczymi specyfikacji szablonów?**
 
-  [Dołącz listę odczekań](https://aka.ms/templateSpecsWaitlist) dla specyfikacji szablonu.
+  Zainstaluj najnowszą wersję programu PowerShell lub interfejsu wiersza polecenia platformy Azure. W przypadku Azure PowerShell Użyj [wersji 5.0.0 lub nowszej](/powershell/azure/install-az-ps). W przypadku interfejsu wiersza polecenia platformy Azure Użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
 
 * **Jak są powiązane specyfikacje szablonu i plany platformy Azure?**
 
@@ -128,7 +128,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy nadal mogę używać niestandardowych rozszerzeń skryptów i konfiguracji żądanego stanu (DSC)?**
 
-  Te opcje są nadal dostępne i nie zostały zmienione. Skrypty wdrażania są przeznaczone do wykonywania akcji, które nie są powiązane z gościem maszyny wirtualnej. Jeśli konieczne jest uruchomienie skryptu w systemie operacyjnym hosta na maszynie wirtualnej, lepszym wyborem może być rozszerzenie niestandardowego skryptu i/lub DSC. Jednak skrypty wdrażania mają zalety, takie jak ustawienie czasu trwania.
+  Te opcje są nadal dostępne i nie zostały zmienione. Skrypty wdrażania są przeznaczone do wykonywania akcji, które nie są związane z gościem maszyny wirtualnej. Jeśli konieczne jest uruchomienie skryptu w systemie operacyjnym hosta na maszynie wirtualnej, lepszym wyborem może być rozszerzenie niestandardowego skryptu i/lub DSC. Jednak skrypty wdrażania mają zalety, takie jak ustawienie czasu trwania.
 
 * **Czy skrypty wdrażania są obsługiwane w Azure Government?**
 

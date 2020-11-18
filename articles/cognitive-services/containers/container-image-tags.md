@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0efb278c217ede94f67b47250633622501a24414
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ba51776942ad28fc8d4b0db7dd2d0e162e5322b5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412548"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743341"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Informacje o wersji i znacznikach obrazu kontenera Cognitive Services platformy Azure
 
@@ -574,6 +574,39 @@ Obraz kontenera [neuronowych zamiany tekstu na mowę][sp-ntts] można znaleźć 
 
 Ten obraz kontenera ma dostępne następujące Tagi. Możesz również znaleźć pełną listę [tagów w MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list).
 
+
+# <a name="latest-version"></a>[Najnowsza wersja](#tab/current)
+
+Informacje o wersji dla `v1.3.0` :
+* Kontener zamiany tekstu na mowę neuronowych jest teraz ogólnie dostępny. 
+
+| Tagi obrazu                                  | Uwagi                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Obraz kontenera z `en-US` ustawieniami regionalnymi i `en-US-AriaNeural` głosem.      |
+| `1.3.0-amd64-<locale-and-voice>`    | Zamień `<locale>` na jedną z dostępnych ustawień regionalnych wymienionych poniżej. Na przykład: `1.3.0-amd64-en-us-arianeural`. |
+
+
+| 1.3.0 i głosy w programie v           | Uwagi                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-katjaneural`                 | Obraz kontenera z `de-DE` ustawieniami regionalnymi i `de-DE-KatjaNeural` głosem.     |
+| `en-au-natashaneural`               | Obraz kontenera z `en-AU` ustawieniami regionalnymi i `en-AU-NatashaNeural` głosem.   |
+| `en-ca-claraneural`                 | Obraz kontenera z `en-CA` ustawieniami regionalnymi i `en-CA-ClaraNeural` głosem.     |
+| `en-gb-libbyneural`                 | Obraz kontenera z `en-GB` ustawieniami regionalnymi i `en-GB-LibbyNeural` głosem.     |
+| `en-gb-mianeural`                   | Obraz kontenera z `en-GB` ustawieniami regionalnymi i `en-GB-MiaNeural` głosem.       |
+| `en-us-arianeural`                  | Obraz kontenera z `en-US` ustawieniami regionalnymi i `en-US-AriaNeural` głosem.      |
+| `en-us-guyneural`                   | Obraz kontenera z `en-US` ustawieniami regionalnymi i `en-US-GuyNeural` głosem.       |
+| `es-es-elviraneural`                | Obraz kontenera z `es-ES` ustawieniami regionalnymi i `es-ES-ElviraNeural` głosem.    |
+| `es-mx-dalianeural`                 | Obraz kontenera z `es-MX` ustawieniami regionalnymi i `es-MX-DaliaNeural` głosem.     |
+| `fr-ca-sylvieneural`                | Obraz kontenera z `fr-CA` ustawieniami regionalnymi i `fr-CA-SylvieNeural` głosem.    |
+| `fr-fr-deniseneural`                | Obraz kontenera z `fr-FR` ustawieniami regionalnymi i `fr-FR-DeniseNeural` głosem.    |
+| `it-it-elsaneural`                  | Obraz kontenera z `it-IT` ustawieniami regionalnymi i `it-IT-ElsaNeural` głosem.      |
+| `ja-jp-nanamineural`                | Obraz kontenera z `ja-JP` ustawieniami regionalnymi i `ja-JP-NanamiNeural` głosem.    |
+| `ko-kr-sunhineural`                 | Obraz kontenera z `ko-KR` ustawieniami regionalnymi i `ko-KR-SunHiNeural` głosem.     |
+| `pt-br-franciscaneural`             | Obraz kontenera z `pt-BR` ustawieniami regionalnymi i `pt-BR-FranciscaNeural` głosem. |
+| `zh-cn-xiaoxiaoneural`              | Obraz kontenera z `zh-CN` ustawieniami regionalnymi i `zh-CN-XiaoxiaoNeural` głosem.  |
+
+# <a name="previous-version"></a>[Poprzednia wersja](#tab/previous)
+
 | Tagi obrazu                                  | Uwagi                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Obraz kontenera z `en-US` ustawieniami regionalnymi i `en-US-AriaNeural` głosem.      |
@@ -599,6 +632,8 @@ Ten obraz kontenera ma dostępne następujące Tagi. Możesz również znaleźć
 | `ko-kr-sunhineural-preview`                 | Obraz kontenera z `ko-KR` ustawieniami regionalnymi i `ko-KR-SunHiNeural` głosem.     |
 | `pt-br-franciscaneural-preview`             | Obraz kontenera z `pt-BR` ustawieniami regionalnymi i `pt-BR-FranciscaNeural` głosem. |
 | `zh-cn-xiaoxiaoneural-preview`              | Obraz kontenera z `zh-CN` ustawieniami regionalnymi i `zh-CN-XiaoxiaoNeural` głosem.  |
+
+---
 
 ## <a name="speech-language-detection"></a>Wykrywanie języka mowy
 

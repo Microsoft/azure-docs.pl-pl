@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Container Registry
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Container Registry. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: acc347bf0a2237d827a4320edd00a6c62f58d0c2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9412d2f960c17966e44d0b36318d38605c97e605
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319943"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746879"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Azure Policy wbudowane definicje Azure Container Registry
 

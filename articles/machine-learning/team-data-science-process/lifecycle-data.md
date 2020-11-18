@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fffb52e333bea1b2be11b127a9eab6656dc1d1f5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311872"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740332"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Pozyskiwanie danych i zrozumienie etapu procesu nauki o danych zespołowych
 
@@ -48,9 +48,7 @@ W tym etapie istnieją trzy główne zadania:
 Skonfiguruj proces przenoszenia danych z lokalizacji źródłowych do lokalizacji docelowych, w których są uruchamiane operacje analityczne, takie jak szkolenia i przewidywania. Aby uzyskać szczegółowe informacje techniczne i opcje przenoszenia danych przy użyciu różnych usług danych platformy Azure, zobacz artykuł [ładowanie danych do środowiska magazynu na potrzeby analizy](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Eksplorowanie danych
-Przed przeprowadzeniem szkolenia modeli należy opracować solidną wiedzę na temat danych. Rzeczywiste zestawy danych to często zakłócenia, brakujące wartości lub hosty innych rozbieżności. Możesz użyć podsumowania i wizualizacji danych, aby przeprowadzić inspekcję jakości danych i podać informacje potrzebne do przetworzenia danych, zanim będą gotowe do modelowania. Ten proces jest często iteracyjny.
-
-PRZETWARZANIA TDSP zapewnia zautomatyzowane narzędzie, nazywane [pomysłem](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), które ułatwia wizualizowanie danych i przygotowywanie raportów podsumowujących dane. Zalecamy najpierw zacząć od POMYSŁu, aby eksplorować dane, aby pomóc w interaktywnej analizie danych. Następnie można napisać niestandardowy kod do eksploracji i wizualizacji danych. Aby uzyskać wskazówki dotyczące czyszczenia danych, zobacz [zadania przygotowujące dane do ulepszonej uczenia maszynowego](prepare-data.md).  
+Przed przeprowadzeniem szkolenia modeli należy opracować solidną wiedzę na temat danych. Rzeczywiste zestawy danych to często zakłócenia, brakujące wartości lub hosty innych rozbieżności. Możesz użyć podsumowania i wizualizacji danych, aby przeprowadzić inspekcję jakości danych i podać informacje potrzebne do przetworzenia danych, zanim będą gotowe do modelowania. Ten proces jest często iteracyjny. Aby uzyskać wskazówki dotyczące czyszczenia danych, zobacz [zadania przygotowujące dane do ulepszonej uczenia maszynowego](prepare-data.md).  
 
 Po spełnieniu jakości oczyszczonych danych, następnym krokiem jest lepsze zrozumienie wzorców, które są związane z danymi. Ta analiza danych pomaga w wyborze i opracowaniu odpowiedniego modelu predykcyjnego dla celu. Poszukaj dowodów na to, jak dobrze połączono dane z elementem docelowym. Następnie określ, czy masz wystarczające dane, aby przejść do następnej procedury modelowania. Ten proces jest często iteracyjny. Może być konieczne znalezienie nowych źródeł danych z dokładniejszymi lub bardziej odpowiednimi danymi, aby rozszerzyć zestaw danych początkowo zidentyfikowany na poprzednim etapie. 
 
@@ -66,9 +64,9 @@ Na tym etapie opracowujesz architekturę rozwiązania potoku danych. Potok jest 
 ## <a name="artifacts"></a>Artifacts
 Poniżej znajdują się elementy dostarczane na tym etapie:
 
-   * [Raport dotyczący jakości danych](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): ten raport zawiera podsumowania danych, relacje między poszczególnymi atrybutami i elementem docelowym, klasyfikację zmiennych i inne. Narzędzie [pomysł](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) udostępniane jako część przetwarzania TDSP może szybko wygenerować ten raport na dowolnym zestawie danych tabelarycznych, na przykład w pliku CSV lub w tabeli relacyjnej. 
-   * **Architektura rozwiązania** : Architektura rozwiązania może być diagramem lub opisem potoku danych, który służy do uruchamiania oceniania lub prognoz dotyczących nowych danych po skompilowaniu modelu. Zawiera również potok do ponownego uczenia modelu na podstawie nowych danych. Zapisz dokument w katalogu [projektu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) , gdy używasz szablonu struktury katalogów przetwarzania TDSP.
-   * **Decyzja dotycząca punktów kontrolnych** : przed rozpoczęciem tworzenia inżynierów i konstruowania modelu można przeprowadzić ocenę projektu, aby określić, czy oczekiwana wartość jest wystarczająca, aby kontynuować jej działanie. Być może na przykład będzie można kontynuować, musi zbierać więcej danych lub porzucić projekt, ponieważ nie istnieją dane, aby odpowiedzieć na pytanie.
+   * [Raport dotyczący jakości danych](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): ten raport zawiera podsumowania danych, relacje między poszczególnymi atrybutami i elementem docelowym, klasyfikację zmiennych i inne. 
+   * **Architektura rozwiązania**: Architektura rozwiązania może być diagramem lub opisem potoku danych, który służy do uruchamiania oceniania lub prognoz dotyczących nowych danych po skompilowaniu modelu. Zawiera również potok do ponownego uczenia modelu na podstawie nowych danych. Zapisz dokument w katalogu [projektu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) , gdy używasz szablonu struktury katalogów przetwarzania TDSP.
+   * **Decyzja dotycząca punktów kontrolnych**: przed rozpoczęciem tworzenia inżynierów i konstruowania modelu można przeprowadzić ocenę projektu, aby określić, czy oczekiwana wartość jest wystarczająca, aby kontynuować jej działanie. Być może na przykład będzie można kontynuować, musi zbierać więcej danych lub porzucić projekt, ponieważ nie istnieją dane, aby odpowiedzieć na pytanie.
 
 ## <a name="next-steps"></a>Następne kroki
 

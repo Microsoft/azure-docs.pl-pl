@@ -1,103 +1,156 @@
 ---
-title: Określanie opcji publikowania — Microsoft Commercial Marketplace
-description: W tym artykule opisano kryteria kwalifikujące i wymagania dotyczące publikowania ofert do Microsoft AppSource i witryny Azure Marketplace.
+title: Wprowadzenie do opcji tworzenia listy — Microsoft Commercial Marketplace
+description: W tym artykule opisano opcje dotyczące ofert opublikowanych w witrynie Microsoft AppSource i portalu Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/04/2020
-ms.openlocfilehash: 17b53d656d0344e4178b3034a972e26d6aa0bc15
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/16/2020
+ms.openlocfilehash: 38f65253791f28d9ae9806bea1264e594b769b19
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94492110"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741913"
 ---
-# <a name="determine-your-publishing-option"></a>Określanie opcji publikowania
+# <a name="introduction-to-listing-options"></a>Wprowadzenie do opcji wyświetlania
 
-Opcja publikowania wybrana dla oferty odnosi się bezpośrednio zarówno do wymagań dotyczących uprawnień, jak i komercyjnych korzyści GTM na rynku. Co ważniejsze, wybór opcji publikowania i typu oferty definiuje sposób, w jaki użytkownicy będą korzystać z komercyjnej oferty portalu Marketplace.
+Możesz skorzystać z dostępnych _opcji wyświetlania_ w komercyjnej witrynie Marketplace, aby zaangażować potencjalnych klientów na różne sposoby. Po opublikowaniu oferty opcje aukcji wybrane dla oferty będą wyświetlane jako przycisk w lewym górnym rogu strony aukcji oferty w sklepie online (s). Na przykład poniższy zrzut ekranu przedstawia stronę z listą ofert w Microsoft AppSource sklepu online za pomocą przycisków **kontakt ja** i **Test Drive** .
 
-Aby skonfigurować swoją ofertę, musisz zrozumieć następujące kluczowe koncepcje dotyczące portalu Marketplace: Opcje publikowania, typy ofert i konfiguracji oraz informacje o opcjach, które będą decydować, w jaki sposób i gdzie oferta zostanie przedstawiona w komercyjnych sklepach online w portalu Marketplace.
+:::image type="content" source="./media/listing-options.png" alt-text="Przedstawia stronę aukcji oferty. Przyciski skontaktuj się ze mną i Testuj dysk są wyświetlane.":::
 
-Z tego artykułu dowiesz się:
+## <a name="available-listing-options-by-offer-type"></a>Dostępne opcje wyświetlania na liście według typu oferty
 
-- Jak ustalić odpowiedni sklep online dla Twojego rozwiązania.
-- Opcje publikowania i opcje wyświetlania są dostępne w każdym sklepie online.
-- Jakie typy ofert są dostępne dla każdej opcji publikacji.
+Podczas tworzenia typu oferty należy wybrać jedną lub więcej opcji dotyczących wyświetlania. Te opcje określają, które przyciski są widoczne dla klientów na stronie z listą ofert w sklepach online. Opcje dotyczące aukcji obejmują _bezpłatny okres próbny, wersję_ _testową_, _kontakt ze mną_ i _uzyskają teraz_.
 
-## <a name="commercial-marketplace-publishing-options"></a>Komercyjne opcje publikacji Marketplace
+Ta tabela zawiera listę opcji dostępnych dla każdego typu oferty.
 
-W poniższej tabeli przedstawiono opcje publikowania dla typów ofert w Microsoft AppSource i witrynie Azure Marketplace.
+| Typ oferty | Bezpłatna wersja próbna | Wersja testowa | Skontaktuj się z nami | Pobierz teraz (obsługa Transact) |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Aplikacja platformy Azure (aplikacja zarządzana) |   | &#10004; |   | &#10004; |
+| Aplikacja platformy Azure (szablon rozwiązania) |  |  |  |  |
+| Usługa doradcza |  |  | &#10004; |  |
+| Kontener platformy Azure |  |  |  |  |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; |  |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; |  |
+| Dynamics 365 dla operacji | &#10004; | &#10004; | &#10004; |  |
+| Moduł IoT Edge |  |  |  |  |
+| Usługa zarządzana |  |  |  |  |
+| Aplikacja usługi Power BI |  |  |  |  |
+| Maszyna wirtualna platformy Azure | &#10004; | &#10004; |  | &#10004; |
+| Oprogramowanie jako usługa | &#10004; | &#10004; | &#10004; | &#10004; |
+||||||
 
-|   | **Lista (kontakt)**  | **Lista (wersja próbna)**  | **Bezpłatna** | **BYOL** | **Transakcja**|
-| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
-| **Maszyna wirtualna** |  |  |  | Azure Marketplace |  Azure Marketplace |
-| **Aplikacje platformy Azure (wiele maszyn wirtualnych)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
-| **Obraz kontenera** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **Moduł IoT Edge** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **Zarządzane usługi** |  |  |  | Azure Marketplace |   |
-| **Usługi konsultingowe** | Oba Sklepy online |  |  |  |   |
-| **Aplikacja SaaS** | Oba Sklepy online | Oba Sklepy online | Oba Sklepy online |  | Oba Sklepy online * |
-| **Aplikacja Microsoft 365** | AppSource | AppSource |  |  | AppSource * *  |
-| **Dodatek Dynamics 365** |  AppSource | AppSource |  |  |   |
-| **PowerApps** | AppSource |AppSource  |  |  |   |
+### <a name="free-trial"></a>Bezpłatna wersja próbna
 
-Oferty w usłudze SaaS App Transact w Microsoft AppSource są obecnie tylko kartą kredytową. &#42;
+Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania. Dzięki temu potencjalni klienci mogą bezpłatnie korzystać z oprogramowania jako usługi (SaaS), IaaS lub firmy Microsoft w aplikacji bez ponoszenia kosztów z 30 dni do sześciu miesięcy, w zależności od typu oferty.
 
-&#42;&#42; Microsoft 365 oferty są bezpłatne do zainstalowania i mogą być sprzedawane deweloperom zewnętrznym za pośrednictwem oferty SaaS jako usługi licencjonowania. Aby uzyskać więcej informacji, zobacz [Zarabiaj dodatku Microsoft 365 za pomocą komercyjnego portalu Microsoft Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Aby wypróbować ofertę, klienci używają przycisku _bezpłatnej wersji próbnej_ na stronie aukcji oferty. W przypadku udostępnienia bezpłatnej wersji próbnej wielu planów w ramach tej samej oferty klienci mogą przełączać się do bezpłatnej wersji próbnej w ramach innego planu, ale okres próbny nie zostanie uruchomiony ponownie.
 
-## <a name="choose-a-listing-option"></a>Wybierz opcję wyświetlania listy
+W przypadku ofert związanych z maszynami wirtualnymi klienci są obciążani kosztami infrastruktury platformy Azure za korzystanie z oferty w okresie próbnym. Po zakończeniu okresu próbnego klienci są obciążani automatycznie opłatą za ostatni plan, który podjął próbę w oparciu o stawki standardowe, chyba że zostaną anulowane przed końcem okresu próbnego.
 
-Dostępne opcje aukcji oferują zróżnicowane zaangażowanie klientów, zapewniając dostęp do udostępniania potencjalnych klientów i [komercyjnych korzyści z witryny Marketplace](./gtm-your-marketplace-benefits.md). Zwróć uwagę na listę opcji, które odpowiadają opcji publikowania:
+### <a name="test-drive"></a>Wersja testowa
 
-| **Opcja publikowania**    | **Opis**  |
-| :------------------- | :-------------------|
-| **Lista** | Prosta lista aplikacji lub usług umożliwiających komercyjnemu użytkownikowi portalu Marketplace zażądanie połączenia z klientem za pośrednictwem opcji wyświetlania listy **kontaktów** . |
-| **Wersja próbna** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania, dzięki czemu potencjalni użytkownicy mogą bezpłatnie korzystać z usługi SaaS, IaaS lub firmy Microsoft bez opłat przez ograniczony czas przed zakupem. Opcja tworzenia listy dla opcji publikowania wersji próbnej to **bezpłatna wersja próbna** lub **testowa**. |
-| **BYOL** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansowo. Typy ofert BYOL doskonale sprawdzają się w przypadku migracji do chmury. Opcja wystaw to **teraz**.
-| **Transakcja** | Oferty Transact są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Opcja wystaw to **teraz**.|
+Aby uzyskać dostęp do wstępnie skonfigurowanego środowiska przez określoną liczbę godzin, klienci używają na stronie aukcji oferty przycisku _Testuj dysk_ . Aby dowiedzieć się więcej na temat dysków testowych, zobacz [co to jest dysk testowy?](what-is-test-drive.md)
 
-> [!Note]
-> W przypadku korzystania z opcji publikacji Transact należy poznać zagadnienia dotyczące cen, rozliczeń, fakturowania i wypłaty przed wybraniem typu oferty i utworzeniem oferty. Aby dowiedzieć się więcej, zapoznaj się z artykułem [komercyjne funkcje Transact Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> [!TIP]
+> Stacja testowa jest różna od bezpłatnej wersji próbnej. Możesz zaoferować wersję testową, bezpłatny okres próbny lub oba te elementy. Oba te osoby zapewniają klientom swoje rozwiązanie w ustalonym czasie. Jednak test zawiera również praktyczny przewodnik po najważniejszych funkcjach produktu i korzyści, jakie można przedstawić w rzeczywistym scenariuszu implementacji.
 
-## <a name="selecting-an-online-store"></a>Wybieranie sklepu online
+### <a name="contact-me"></a>Skontaktuj się z nami
 
-Każdy sklep online obsługuje różne wymagania klienta dotyczące rozwiązań firmowych i IT. Typ oferty, funkcje Transact i Kategoria określają, gdzie Twoja oferta zostanie opublikowana. Kategorie i podkategorie są mapowane na każdy sklep online w oparciu o typ publikowanego rozwiązania:
+Prosta lista aplikacji lub usługi. Klienci używają na stronie aukcji oferty przycisku _kontakt ze mną_ w celu zażądania połączenia z ofertą.
 
-**Microsoft AppSource** oferuje rozwiązania biznesowe, takie jak rozwiązania branżowe i usługi doradcze, dla systemu Dynamics 365, Microsoft 365 i platformy.
+### <a name="get-it-now"></a>Pobierz teraz
 
-**Portal Azure Marketplace** oferuje rozwiązania IT przeznaczone dla systemu Azure, a także usługi doradcze, które przyspieszają korzystanie z platformy Azure przez klientów.
+Ta opcja tworzenia oferty obejmuje oferty transakcyjne (subskrypcje i cenniki oparte na użytkownikach), tworzenie własnych ofert licencji i pobieranie ich teraz (bezpłatnie). Oferty transakcyjne są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Aby uzyskać ofertę, klienci używają _przycisku Pobierz teraz_ .
 
-Wybierz kategorię i podkategorię, która najlepiej odpowiada typowi rozwiązania. Na przykład Zapora aplikacji sieci Web to rozwiązanie IT, które powinno zostać opublikowane w portalu Azure Marketplace w kategorii zabezpieczenia. Aplikacja do zarządzania kontraktami to rozwiązanie biznesowe, które powinno zostać opublikowane w AppSource w kategorii sprzedaż. Wybranie nieprawidłowej kategorii lub podkategorii może spowodować opublikowanie oferty w nieprawidłowym sklepie online.
+Opcja Pobierz teraz listę może obejmować następujące opcje cenowe w zależności od typu oferty:
 
-### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publikowanie w sklepach online (tylko oferty SaaS)
+- Pobierz teraz (bezpłatnie)
+- Bring Your Own License (BYOL)
+- Subskrypcja
+- Cennik oparty na użyciu
 
-Oferty SaaS można publikować w witrynie Azure Marketplace lub AppSource. Jeśli Twoja oferta *SaaS to rozwiązanie* IT (Azure Marketplace) i rozwiązanie biznesowe (AppSource), wybierz kategorię i/lub podkategorię mającą zastosowanie do każdego sklepu online. Oferty opublikowane w ramach obu magazynów online powinny mieć wartość propozycja jako rozwiązanie IT *i* rozwiązanie biznesowe.
+W tej tabeli przedstawiono typy ofert obsługujące dodatkowe opcje cenowe, które są dołączone do opcji Pobierz teraz listę.
 
-> [!IMPORTANT]
-> Oferty SaaS z [naliczanymi opłatami](partner-center-portal/saas-metered-billing.md) są dostępne w witrynie Azure Marketplace i Azure Portal. Oferty SaaS z tylko planami prywatnymi są dostępne za pomocą Azure Portal.
+| Typ oferty | Pobierz teraz (bezpłatnie) | BYOL | Subskrypcja | Cennik oparty na użyciu |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| Aplikacja platformy Azure (aplikacja zarządzana) |   |   | &#10004; | &#10004; |
+| Aplikacja platformy Azure (szablon rozwiązania) | &#10004; |   |   |   |
+| Usługa doradcza |   |   |   |   |
+| Kontener platformy Azure | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Dynamics 365 Business Central | &#10004; |   |   |   |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; |   |   |   |
+| Dynamics 365 dla operacji | &#10004; |   |   |   |
+| Moduł IoT Edge | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
+| Usługa zarządzana |   | &#10004; |   |   |
+| Aplikacja usługi Power BI | &#10004; |   |   |   |
+| Maszyna wirtualna platformy Azure |   | &#10004; |   | &#10004;<sup>2</sup> |
+| Oprogramowanie jako usługa | &#10004; |   | &#10004; | &#10004; |
+||||||
 
-| Naliczanie opłat | Plan publiczny | Plan prywatny | Dostępne w: |
-|---|---|---|---|
-| Tak             | Tak         | Nie           | Portal Azure Marketplace i Azure Portal |
-| Tak             | Tak         | Tak          | Azure Marketplace i Azure Portal * |
-| Tak             | Nie          | Tak          | Tylko Azure Portal |
-| Nie              | Nie          | Tak          | Tylko Azure Portal |
+**Legenda**
 
-&#42; plan prywatny oferty będzie dostępny tylko za pośrednictwem Azure Portal
+<sup>1</sup> kolumna **model cen** na karcie **Przegląd planu** zawiera wartość _Free_ lub _BYOL_ , ale nie jest zaznaczona.
 
-Na przykład oferta z naliczaniem opłatowym i tylko planem prywatnym (bez planu publicznego) zostanie zakupiona przez klientów w Azure Portal. Dowiedz się więcej o [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](private-offers.md).
+<sup>2</sup> cena za godzinę i rozliczenia miesięcznie.
 
-### <a name="categories"></a>Kategorie
+#### <a name="get-it-now-free"></a>Pobierz teraz (bezpłatnie)
 
-Kategorie i podkategorie są mapowane na każdy sklep online na podstawie typu rozwiązania. Wybierz kategorie i podkategorie, które najlepiej dopasowują się do rozwiązania. Dostępne są następujące opcje:
+Użyj tej opcji, aby bezpłatnie zaoferować swoją aplikację. Klienci używają przycisku _Pobierz teraz_ , aby skorzystać z bezpłatnej oferty.
 
-- Co najmniej jeden i maksymalnie dwie kategorie. Można wybrać kategorię podstawową i pomocniczą.
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybierzesz żadnej podkategorii, oferta nadal będzie wykrywalna w ramach wybranej kategorii.
+#### <a name="byol"></a>BYOL
 
-[!INCLUDE [categories and subcategories](./includes/categories.md)]
+Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansową oddzielną od portalu Marketplace. Opcja wystawiania własnej licencji (BYOL) jest idealna dla migracji w chmurze. Klienci używają przycisku _Pobierz teraz_ , aby kupić ofertę przy użyciu licencji, która została wstępnie zakupiona.
+
+#### <a name="subscription"></a>Subskrypcja
+
+Możesz naliczać stałą opłatę za następujące typy ofert:
+
+- Usługa Azure Application (zarządzana aplikacja) oferuje subskrypcje miesięczne.
+- SaaS oferuje subskrypcje miesięczne i roczne.
+
+#### <a name="usage-based-pricing"></a>Cennik oparty na użyciu
+
+Następujące typy ofert obsługują Cennik oparty na użyciu:
+
+- Usługa Azure Application (zarządzana aplikacja) oferuje pomoc techniczną dotyczącą naliczanych opłat. Aby uzyskać więcej informacji, zobacz [rozliczenia taryfowe dotyczące aplikacji zarządzanych](./partner-center-portal/azure-app-metered-billing.md).
+- Oferty SaaS umożliwiają rozliczanie opłat naliczanych i na użytkownika (za stanowisko). Aby uzyskać więcej informacji na temat rozliczeń naliczanych, zobacz [naliczanie opłat za SaaS przy użyciu komercyjnej usługi pomiarowej Marketplace](./partner-center-portal/saas-metered-billing.md).
+- Usługa Azure Virtual Machine oferuje pomoc techniczną na rdzeń, rozmiar na rdzeń i ceny za rozmiar podstawowy. Te opcje cen są wyceniane za godzinę i rozliczane miesięcznie.
+
+Podczas tworzenia oferty transakcyjnej warto zrozumieć kwestie dotyczące cen, rozliczeń, fakturowania i wypłaty przed wybraniem typu oferty i utworzeniem oferty. Aby dowiedzieć się więcej, zobacz [komercyjne sklepy online Marketplace](overview.md#commercial-marketplace-online-stores).
+
+## <a name="listing-and-pricing-options-by-online-store"></a>Opcje tworzenia listy i cen według sklepu online
+
+Na podstawie różnych kryteriów określamy, czy oferta jest wymieniona w witrynie Azure Marketplace, Microsoft AppSource czy w obu sklepach online. Aby uzyskać więcej informacji o różnicach między dwoma sklepami online, zobacz [komercyjne sklepy online Marketplace](overview.md#commercial-marketplace-online-stores).
+
+W poniższej tabeli przedstawiono opcje dostępne dla różnych typów ofert i dodatków oraz magazyny online, w których oferta może zostać wyświetlona.
+
+| Typy i dodatki oferty | Skontaktuj się z nami | Bezpłatna wersja próbna | Pobierz teraz (bezpłatnie) | BYOL | Pobierz teraz (Transact) |
+| ------------ | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Maszyna wirtualna platformy Azure |   |   |   | Azure Marketplace | Azure Marketplace |
+| Azure Application |   |   | Azure Marketplace | Azure Marketplace | Azure Marketplace |
+| Kontener platformy Azure  |   |   | Azure Marketplace | Azure Marketplace |   |
+| Moduł IoT Edge |   |   | Azure Marketplace | Azure Marketplace |   |
+| Usługa zarządzana |   |   |   | Azure Marketplace |   |
+| Usługa doradcza | Oba Sklepy online |   |   |   |   |
+| SaaS  | Oba Sklepy online | Oba Sklepy online | Oba Sklepy online |   | Oba Sklepy online &#42; |
+| Aplikacja Microsoft 365 | AppSource | AppSource |   |   | AppSource &#42;&#42; |
+| Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
+| Dynamics 365 dla zaangażowania klientów & PowerApps | AppSource | AppSource |   |   |   |
+| Dynamics 365 dla operacji | AppSource | AppSource |   |   |   |
+| Aplikacja usługi Power BI |   |   | AppSource |   |   |
+|||||||
+
+Oferty &#42; SaaS w AppSource są obecnie tylko kartą kredytową.
+
+Dodatki Microsoft 365 &#42;&#42; są bezpłatne do zainstalowania i mogą być sprzedawane deweloperom zewnętrznym przy użyciu oferty SaaS. Aby uzyskać więcej informacji, zobacz [Zarabiaj The Office 365 dodatek za pomocą komercyjnej witryny Microsoft Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md).
+
+## <a name="marketplace-rewards"></a>Nagrody dotyczące portalu Marketplace
+
+Korzyści z witryny Marketplace różnią się w zależności od wybranej opcji tworzenia oferty. Aby dowiedzieć się więcej, zobacz [komercyjne korzyści z witryny Marketplace](gtm-your-marketplace-benefits.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Po wybraniu opcji publikowania zapoznaj się z tematem [Publikowanie podręcznika według typu oferty](./publisher-guide-by-offer-type.md).
+- Aby wybrać typ oferty do utworzenia, zobacz temat [Publikowanie przewodnika według typu oferty](./publisher-guide-by-offer-type.md).

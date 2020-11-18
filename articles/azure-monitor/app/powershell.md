@@ -3,12 +3,12 @@ title: Automatyzacja Application Insights platformy Azure przy użyciu programu 
 description: Automatyzacja tworzenia zasobów, alertów i testów dostępności w programie PowerShell oraz zarządzania nimi przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 4dabb29abe4530307ef5204659297f4675376605
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 58ed537a8fa6622756e7bcddceb6e9321cfbd82e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694607"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741082"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Zarządzanie zasobami Application Insights przy użyciu programu PowerShell
 
@@ -469,7 +469,7 @@ Platforma Azure powinna skonfigurować zasoby w ścisłej kolejności. Aby upewn
 Inne artykuły dotyczące usługi Automation:
 
 * Utwórz szybką metodę [Application Insights zasobów](./create-new-resource.md#creating-a-resource-automatically) bez użycia szablonu.
-* [Utwórz testy sieci Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Utwórz testy sieci Web](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-alerts-metric#availability-test-with-metric-alert)
 * [Wysyłanie Diagnostyki Azure do usługi Application Insights](powershell-azure-diagnostics.md)
 * [Utwórz adnotacje wydania](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

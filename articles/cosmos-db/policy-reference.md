@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Cosmos DB
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Cosmos DB. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: reference
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 97458f17bcb74e54e0b0453c2a279703bb392f9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 877a46d8a42b1ca1a1e41178347889d8ef513007
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080638"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744516"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Azure Policy wbudowane definicje Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

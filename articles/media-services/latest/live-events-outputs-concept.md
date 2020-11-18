@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a74dcb3cae74605e747a63f8fbb102404d8cc80e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337427"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741828"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
 
@@ -38,15 +38,15 @@ Azure Media Services pozwala na dostarczanie na żywo wydarzeń klientom w chmur
 
 [Wydarzenie na żywo](/rest/api/media/liveevents) można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). Typy są ustawiane podczas tworzenia przy użyciu [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** : lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów. Pozyskiwany strumień przeszedł przez wydarzenie na żywo bez dalszej obróbki. Nazywana również trybem przekazywania.
-* **LiveEventEncodingType. Standard** : lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawienie wstępne **Default720p** będzie kodować zestaw par rozdzielczości/szybkości transmisji bitów.
-* **LiveEventEncodingType. Premium1080p** : lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Ustawienie wstępne Default1080p określa wyjściowy zestaw par rozdzielczości/szybkości transmisji bitów.
+* **LiveEventEncodingType. None**: lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów. Pozyskiwany strumień przeszedł przez wydarzenie na żywo bez dalszej obróbki. Nazywana również trybem przekazywania.
+* **LiveEventEncodingType. Standard**: lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawienie wstępne **Default720p** będzie kodować zestaw par rozdzielczości/szybkości transmisji bitów.
+* **LiveEventEncodingType. Premium1080p**: lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Ustawienie wstępne Default1080p określa wyjściowy zestaw par rozdzielczości/szybkości transmisji bitów.
 
 ### <a name="pass-through"></a>Przekazywanie
 
 ![zdarzenie przekazywania na żywo z przykładowym diagramem Media Services](./media/live-streaming/pass-through.svg)
 
-Korzystając ze zdarzenia Pass-through **Live** , można polegać na lokalnym koderie na żywo w celu wygenerowania strumienia wideo o wielu szybkościach transmisji bitów i wysłania go jako źródła strumieniowego do zdarzenia na żywo (przy użyciu protokołu RTMP lub fragmentacji MP4). Zdarzenie na żywo odbywa się następnie przez przychodzące strumienie wideo bez dalszej obróbki. Takie zdarzenie przekazywania na żywo jest zoptymalizowane pod kątem długotrwałych wydarzeń na żywo lub 24x365 liniowe przesyłanie strumieniowe na żywo. Podczas tworzenia tego typu zdarzenia na żywo należy określić brak (LiveEventEncodingType. None).
+Korzystając ze zdarzenia Pass-through **Live**, można polegać na lokalnym koderie na żywo w celu wygenerowania strumienia wideo o wielu szybkościach transmisji bitów i wysłania go jako źródła strumieniowego do zdarzenia na żywo (przy użyciu protokołu RTMP lub fragmentacji MP4). Zdarzenie na żywo odbywa się następnie przez przychodzące strumienie wideo bez dalszej obróbki. Takie zdarzenie przekazywania na żywo jest zoptymalizowane pod kątem długotrwałych wydarzeń na żywo lub 24x365 liniowe przesyłanie strumieniowe na żywo. Podczas tworzenia tego typu zdarzenia na żywo należy określić brak (LiveEventEncodingType. None).
 
 Możesz wysyłać kanał informacyjny o rozdzielczości maksymalnie 4K oraz z szybkością 60 klatek na sekundę, za pomocą koderów-dekoderów wideo H.264/AVC lub H.265/HEVC i kodera-dekodera audio AAC (AAC-LC, HE-AACv1 lub HE-AACv2). Aby uzyskać więcej informacji, zobacz [Porównanie typów zdarzeń na żywo](live-event-types-comparison.md).
 
@@ -136,7 +136,7 @@ Możesz użyć znaczących lub nieznaczących adresów URL.
     Tryb znaczącym jest preferowany przez duże nadawcy multimediów, którzy korzystają z koderów emisji sprzętowej i nie chcą ponownie konfigurować swoich koderów po rozpoczęciu wydarzenia na żywo. Ci nadawcy chcą uzyskać adres URL pozyskiwania predykcyjnego, który nie zmienia się w czasie.
 
     > [!NOTE]
-    > W Azure Portal adres URL znaczącym ma nazwę " *statyczny prefiks nazwy hosta* ".
+    > W Azure Portal adres URL znaczącym ma nazwę "*statyczny prefiks nazwy hosta*".
 
     Aby określić ten tryb w interfejsie API, ustaw opcję na `useStaticHostName` `true` godzina utworzenia (domyślnie `false` ). Gdy `useStaticHostname` ma wartość true, `hostnamePrefix` Określa pierwszą część nazwy hosta przypisanej do podglądu zdarzenia na żywo i punkty końcowe pozyskiwania. Końcowa nazwa hosta będzie kombinacją tego prefiksu, nazwy konta usługi Media i krótkiego kodu dla Azure Media Services centrum danych.
 
@@ -150,13 +150,13 @@ Możesz użyć znaczących lub nieznaczących adresów URL.
     |---|---|---|
     |REST|[Właściwości. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |Interfejs wiersza polecenia|[--znaczącym-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token dostępu](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.md?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Reguły nazewnictwa adresów URL pozyskiwania na żywo
 
 * *Losowy* ciąg poniżej to 128-bitowa liczba szesnastkowa (która składa się z 32 znaków 0–9 a–f).
-* *token dostępu* : prawidłowy ciąg identyfikatora GUID ustawiany podczas korzystania z trybu znaczącym. Na przykład `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *Nazwa strumienia* : wskazuje nazwę strumienia dla określonego połączenia. Wartość nazwy strumienia jest zwykle dodawana przez używany koder na żywo. Można skonfigurować koder na żywo, aby używał dowolnych nazw do opisywania połączenia, na przykład: "video1_audio1", "video2_audio1", "Stream".
+* *token dostępu*: prawidłowy ciąg identyfikatora GUID ustawiany podczas korzystania z trybu znaczącym. Na przykład `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *Nazwa strumienia*: wskazuje nazwę strumienia dla określonego połączenia. Wartość nazwy strumienia jest zwykle dodawana przez używany koder na żywo. Można skonfigurować koder na żywo, aby używał dowolnych nazw do opisywania połączenia, na przykład: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>Adres URL inny niż znaczącym
 

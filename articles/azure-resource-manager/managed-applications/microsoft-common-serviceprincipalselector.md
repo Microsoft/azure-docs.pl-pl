@@ -1,30 +1,42 @@
 ---
 title: ServicePrincipalSelector — element interfejsu użytkownika
-description: Opisuje element interfejsu użytkownika Microsoft. Common. ServicePrincipalSelector dla Azure Portal. Zawiera listę rozwijaną umożliwiającą wybranie identyfikatora aplikacji i pola tekstowego do wprowadzania hasła lub odcisku palca certyfikatu.
+description: Opisuje element interfejsu użytkownika Microsoft. Common. ServicePrincipalSelector dla Azure Portal. Udostępnia kontrolkę, aby wybrać aplikację i pole tekstowe do wprowadzania hasła lub odcisku palca certyfikatu.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576000"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745768"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Microsoft. Common. ServicePrincipalSelector — element interfejsu użytkownika
 
-Kontrolka, która umożliwia użytkownikom wybranie istniejącej jednostki usługi lub zarejestrowanie nowej. Po wybraniu pozycji **Utwórz nową**wykonaj kroki, aby zarejestrować nową aplikację. Po wybraniu istniejącej aplikacji kontrolka zawiera pole tekstowe służące do wprowadzania hasła lub odcisku palca certyfikatu.
+Kontrolka, która umożliwia użytkownikom wybranie istniejącej jednostki [usługi](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) lub zarejestrowanie nowej aplikacji. Po wybraniu opcji **Utwórz nową** wykonaj kroki w celu zarejestrowania nowej aplikacji. Po wybraniu istniejącej aplikacji kontrolka zawiera pole tekstowe służące do wprowadzania hasła lub odcisku palca certyfikatu.
 
-## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
+## <a name="ui-samples"></a>Przykłady interfejsu użytkownika
 
-Domyślny widok jest określany przez wartości `defaultValue` właściwości. Jeśli `principalId` Właściwość zawiera prawidłowy unikatowy identyfikator globalny (GUID), formant wyszukuje identyfikator obiektu aplikacji. Wartość domyślna jest stosowana, jeśli użytkownik nie wybierze zaznaczenia z listy rozwijanej.
+Możesz użyć domyślnej aplikacji, utworzyć nową aplikację lub użyć istniejącej aplikacji.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-initial.png" alt-text="Widok początkowy Microsoft. Common. ServicePrincipalSelector":::
+### <a name="use-default-application-or-create-new"></a>Użyj domyślnej aplikacji lub Utwórz nową
 
-Po wybraniu opcji **Utwórz nowy** lub istniejący identyfikator aplikacji z listy rozwijanej zostanie wyświetlony **Typ uwierzytelniania** , który umożliwia wprowadzanie hasła lub odcisku palca certyfikatu w polu tekstowym.
+Domyślny widok jest określany na podstawie wartości we `defaultValue` właściwości, a **Typ jednostki usługi** jest ustawiony na **Utwórz nowy**. Jeśli `principalId` Właściwość zawiera prawidłowy unikatowy identyfikator globalny (GUID), formant wyszukuje dla aplikacji `objectId` . Wartość domyślna jest stosowana, jeśli użytkownik nie wybierze zaznaczenia z formantu.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-selection.png" alt-text="Widok początkowy Microsoft. Common. ServicePrincipalSelector":::
+Jeśli chcesz zarejestrować nową aplikację, wybierz pozycję **Zmień wybór** i zostanie wyświetlone okno dialogowe **zarejestruj aplikację** . Wprowadź **nazwę**, **Typ obsługiwanego konta** i wybierz przycisk **zarejestruj** .
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Widok początkowy Microsoft. Common. ServicePrincipalSelector.":::
+
+Po zarejestrowaniu nowej aplikacji należy użyć **typu uwierzytelniania** w celu wprowadzenia hasła lub odcisku palca certyfikatu.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Uwierzytelnianie Microsoft. Common. ServicePrincipalSelector.":::
+
+### <a name="use-existing-application"></a>Użyj istniejącej aplikacji
+
+Aby użyć istniejącej aplikacji, wybierz **pozycję Wybierz istniejące** , a następnie wybierz pozycję **Utwórz zaznaczenie**. Użyj okna dialogowego **Wybierz aplikację** , aby wyszukać nazwę aplikacji. Z wyników wybierz aplikację, a następnie przycisk **Wybierz** . Po wybraniu aplikacji formant Wyświetla **Typ uwierzytelniania** , aby wprowadzić hasło lub odcisk palca certyfikatu.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft. Common. ServicePrincipalSelector wybierz istniejącą aplikację.":::
 
 ## <a name="schema"></a>Schemat
 
@@ -33,14 +45,12 @@ Po wybraniu opcji **Utwórz nowy** lub istniejący identyfikator aplikacji z lis
   "name": "ServicePrincipal",
   "type": "Microsoft.Common.ServicePrincipalSelector",
   "label": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type",
     "sectionHeader": "Service Principal"
   },
   "toolTip": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type"
@@ -63,13 +73,13 @@ Po wybraniu opcji **Utwórz nowy** lub istniejący identyfikator aplikacji z lis
 
 ## <a name="remarks"></a>Uwagi
 
-- Wymagane właściwości to:
+- Wymagane właściwości są następujące:
   - `name`
   - `type`
   - `label`
   - `defaultValue`: Określa wartość domyślną `principalId` i `name` .
 
-- Opcjonalne właściwości to:
+- Właściwości opcjonalne są następujące:
   - `toolTip`: Dołącza etykietkę narzędzia `infoBalloon` do każdej etykiety.
   - `visible`: Ukryj lub Wyświetl formant.
   - `options`: Określa, czy opcja odcisku palca certyfikatu powinna być dostępna.
@@ -95,14 +105,12 @@ Poniżej znajduje się przykład `Microsoft.Common.ServicePrincipalSelector` for
             "name": "ServicePrincipal",
             "type": "Microsoft.Common.ServicePrincipalSelector",
             "label": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type",
               "sectionHeader": "Service Principal"
             },
             "toolTip": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type"
@@ -138,9 +146,9 @@ Poniżej znajduje się przykład `Microsoft.Common.ServicePrincipalSelector` for
 
 ## <a name="example-output"></a>Przykładowe dane wyjściowe
 
-`appId`To identyfikator rejestracji aplikacji, która została wybrana lub utworzona. `objectId`Jest tablicą obiektów objectid dla jednostek usługi skonfigurowanych dla wybranej rejestracji aplikacji.
+`appId`To identyfikator rejestracji aplikacji, która została wybrana lub utworzona. `objectId`Jest tablicą identyfikatorów obiektów dla jednostek usługi skonfigurowanych dla wybranej rejestracji aplikacji.
 
-Gdy nie wybrano żadnych opcji z listy rozwijanej, `newOrExisting` wartość właściwości jest **Nowa**:
+Gdy nie wybrano żadnego z formantów, `newOrExisting` wartość właściwości jest **Nowa**:
 
 ```json
 {
@@ -165,7 +173,7 @@ Gdy nie wybrano żadnych opcji z listy rozwijanej, `newOrExisting` wartość wł
 }
 ```
 
-Podczas **tworzenia nowego** lub istniejącego identyfikatora aplikacji z listy rozwijanej `newOrExisting` wartość właściwości jest **istniejąca**:
+Po wybraniu **nowej** lub istniejącej aplikacji z kontrolki `newOrExisting` wartość właściwości jest **istniejąca**:
 
 ```json
 {

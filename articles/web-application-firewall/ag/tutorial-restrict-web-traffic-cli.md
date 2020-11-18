@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: faa46b3ad96e9555a08a662f205a0a130c28bac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a33114dce47ca3df87b1c6c774289c8a8efcf835
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225173"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739868"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Włączanie zapory aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,11 +30,11 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

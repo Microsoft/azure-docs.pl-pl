@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 08/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 476a2cf0d5886ffa677461a5a8156cdfa4a168a3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 9dd9de9dcb01e9be200e07e5925d8b856432b620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701783"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742382"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w programie PowerShell przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Ten przewodnik Szybki Start wymaga następujących usług i narzędzi.
 
 + [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
-## <a name="get-a-key-and-url"></a>Pobierz klucz i adres URL
+## <a name="copy-a-key-and-url"></a>Kopiuj klucz i adres URL
 
 Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla każdego żądania. Usługa wyszukiwania jest tworzona razem z usługą, więc jeśli do subskrypcji dodano Wyszukiwanie poznawcze platformy Azure, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
 

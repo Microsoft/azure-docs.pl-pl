@@ -1,6 +1,6 @@
 ---
-title: Przewodnik Szybki Start dotyczący przekształcania danych przy użyciu przepływu danych mapowania
-description: Ten samouczek zawiera instrukcje krok po kroku dotyczące korzystania z usługi Azure Synapse Analytics do przekształcania danych przy użyciu przepływu danych mapowania
+title: 'Szybki Start: Przekształcanie danych przy użyciu przepływu danych mapowania'
+description: Ten samouczek zawiera instrukcje krok po kroku dotyczące korzystania z usługi Azure Synapse Analytics do przekształcania danych przy użyciu przepływu danych mapowania.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 0bf1611dee2b3f7f9a3059e3118ddbf08c00f886
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343005"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743851"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Szybki Start: Przekształcanie danych przy użyciu mapowania przepływów danych
 
-W tym przewodniku szybki start użyjesz usługi Azure Synapse Analytics do utworzenia potoku, który przeniesie dane Azure Data Lake Storage ze źródła Gen2 (ADLS) do ADLS Gen2 ujścia przy użyciu przepływu danych mapowania. Wzorzec konfiguracji w tym przewodniku Szybki Start może być rozwinięty podczas przekształcania danych przy użyciu przepływu danych mapowania
+W tym przewodniku szybki start użyjesz usługi Azure Synapse Analytics do utworzenia potoku, który przekształca dane ze źródła Azure Data Lake Storage Gen2 (ADLS Gen2) do ujścia ADLS Gen2 przy użyciu przepływu danych mapowania. Wzorzec konfiguracji w tym przewodniku Szybki Start może być rozwinięty podczas przekształcania danych przy użyciu przepływu danych mapowania
 
 W tym przewodniku szybki start wykonaj następujące czynności:
 
@@ -29,9 +29,9 @@ W tym przewodniku szybki start wykonaj następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** : jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* **Obszar roboczy usługi Azure Synapse** : Tworzenie obszaru roboczego Synapse przy użyciu Azure Portal zgodnie z instrukcjami w [przewodniku szybki start: Tworzenie obszaru roboczego Synapse](quickstart-create-workspace.md).
-* **Konto usługi Azure Storage** : Magazyn ADLS jest używany jako magazyn danych *źródłowych* i *ujścia* . Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md).
+* **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* **Obszar roboczy usługi Azure Synapse**: Tworzenie obszaru roboczego Synapse przy użyciu Azure Portal zgodnie z instrukcjami w [przewodniku szybki start: Tworzenie obszaru roboczego Synapse](quickstart-create-workspace.md).
+* **Konto usługi Azure Storage**: Magazyn ADLS jest używany jako magazyn danych *źródłowych* i *ujścia* . Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md).
 
     Plik, który jest przekształcany w tym samouczku, jest MoviesDB.csv, który można znaleźć [tutaj](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Aby pobrać plik z usługi GitHub, skopiuj zawartość do wybranego edytora tekstu, aby zapisać ją lokalnie jako plik CSV. Aby przekazać plik do konta magazynu, zobacz [przekazywanie obiektów BLOB za pomocą Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Przykłady odwołują się do kontenera o nazwie "przykładowe dane".
 
@@ -39,7 +39,7 @@ W tym przewodniku szybki start wykonaj następujące czynności:
 
 Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby otwierania programu Synapse Studio:
 
-* Otwórz obszar roboczy Synapse w [Azure Portal](https://ms.portal.azure.com/#home). W górnej części sekcji Przegląd wybierz pozycję Uruchom program **Synapse Studio**.
+* Otwórz obszar roboczy Synapse w [Azure Portal](https://ms.portal.azure.com/#home). Wybierz pozycję **Otwórz** na karcie Otwórz kartę Synapse Studio w sekcji wprowadzenie.
 * Otwórz [usługę Azure Synapse Analytics](https://web.azuresynapse.net/) i zaloguj się do swojego obszaru roboczego.
 
 W tym przewodniku szybki start użyjemy obszaru roboczego o nazwie "adftest2020". Spowoduje to automatyczne przejście na stronę główną programu Synapse Studio.

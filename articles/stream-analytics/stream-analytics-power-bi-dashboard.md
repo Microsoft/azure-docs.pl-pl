@@ -6,17 +6,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 8/6/2020
-ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/16/2020
+ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123476"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745364"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym dla danych przesyłanych strumieniowo
 
-Azure Stream Analytics umożliwia korzystanie z jednego z wiodących narzędzi analizy biznesowej, [Microsoft Power BI](https://powerbi.com/). W tym artykule dowiesz się, jak tworzyć narzędzia do analizy biznesowej za pomocą Power BI jako danych wyjściowych dla Azure Stream Analytics zadań. Dowiesz się również, jak utworzyć pulpit nawigacyjny w czasie rzeczywistym i korzystać z niego.
+Azure Stream Analytics umożliwia korzystanie z jednego z wiodących narzędzi analizy biznesowej, [Microsoft Power BI](https://powerbi.com/). W tym artykule dowiesz się, jak tworzyć narzędzia do analizy biznesowej za pomocą Power BI jako danych wyjściowych dla Azure Stream Analytics zadań. Dowiesz się również, jak utworzyć i używać pulpitu nawigacyjnego w czasie rzeczywistym, który jest stale aktualizowany przez zadanie Stream Analytics.
 
 Ten artykuł jest nadal wykonywany w samouczku [wykrywania oszustw w czasie rzeczywistym](stream-analytics-real-time-fraud-detection.md) Stream Analytics. Kompiluje on przepływ pracy utworzony w tym samouczku i dodaje Power BI dane wyjściowe, dzięki czemu można wizualizować fałszywe połączenia telefoniczne wygenerowane przez zadanie usługi Stream Analytics. 
 
@@ -37,9 +37,9 @@ W samouczku wykrywanie oszustw w czasie rzeczywistym dane wyjściowe są wysyła
 
 1. W Azure Portal Otwórz utworzone wcześniej zadanie usługi Stream Analytics. Jeśli użyto sugerowanej nazwy, zadanie ma nazwę `sa_frauddetection_job_demo` .
 
-2. Z menu po lewej stronie wybierz pozycję dane **wyjściowe** w obszarze **topologia zadania** . Następnie wybierz pozycję **+ Dodaj** i wybierz pozycję **Power BI** z menu rozwijanego.
+2. Z menu po lewej stronie wybierz pozycję dane **wyjściowe** w obszarze **topologia zadania**. Następnie wybierz pozycję **+ Dodaj** i wybierz pozycję **Power BI** z menu rozwijanego.
 
-3. Wybierz pozycję **+ Dodaj**  >  **Power BI** . Następnie wypełnij formularz poniższymi informacjami i wybierz pozycję **Autoryzuj** , aby użyć własnej tożsamości użytkownika do nawiązania połączenia z usługą Power BI (token jest ważny przez 90 dni). 
+3. Wybierz pozycję **+ Dodaj**  >  **Power BI**. Następnie wypełnij formularz poniższymi informacjami i wybierz pozycję **Autoryzuj** , aby użyć własnej tożsamości użytkownika do nawiązania połączenia z usługą Power BI (token jest ważny przez 90 dni). 
 
 >[!NOTE]
 >W przypadku zadań produkcyjnych zaleca się nawiązanie połączenia z [użyciem tożsamości zarządzanej w celu uwierzytelnienia zadania Azure Stream Analytics w Power BI](./powerbi-output-managed-identity.md).
@@ -59,12 +59,12 @@ W samouczku wykrywanie oszustw w czasie rzeczywistym dane wyjściowe są wysyła
 
 4. Po wybraniu pozycji **Autoryzuj** zostanie otwarte okno podręczne i zostanie wyświetlona prośba o podanie poświadczeń w celu uwierzytelnienia na koncie usługi Power BI. Kiedy autoryzacja zakończy się pomyślnie, **zapisz** ustawienia.
 
-8. Kliknij pozycję **Utwórz** .
+8. Kliknij pozycję **Utwórz**.
 
 Zestaw danych jest tworzony z następującymi ustawieniami:
 
 * **defaultRetentionPolicy: BasicFIFO** — dane są w języku FIFO z maksymalnie 200 000 wierszami.
-* **DefaultMode: pushStreaming** — zestaw danych obsługuje zarówno kafelki przesyłania strumieniowego, jak i tradycyjne wizualizacje oparte na raportach (znane również jako wypychane).
+* **DefaultMode: hybrydowy** — zestaw danych obsługuje oba kafelki przesyłania strumieniowego (nazywane również wypychaniem) oraz tradycyjne wizualizacje oparte na raportach. W przypadku zawartości wypychanej dane są stale aktualizowane z zadania usługi Stream Analytics w tym przypadku, bez konieczności planowania odświeżania po stronie Power BI.
 
 Obecnie nie można tworzyć zestawów danych z innymi flagami.
 
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji na temat Power BI zestawów danych, zobacz temat
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Kliknij pozycję **Zapisz** .
+4. Kliknij pozycję **Zapisz**.
 
 
 ## <a name="test-the-query"></a>Testowanie zapytania
@@ -117,9 +117,9 @@ Ta sekcja jest opcjonalna, ale zalecana.
 
        `telcodatagen.exe 1000 .2 2`
 
-2. Na stronie **kwerendy** Stream Analytics zadania kliknij kropki obok `CallStream` danych wejściowych, a następnie wybierz pozycję **dane przykładowe z danych wejściowych** .
+2. Na stronie **kwerendy** Stream Analytics zadania kliknij kropki obok `CallStream` danych wejściowych, a następnie wybierz pozycję **dane przykładowe z danych wejściowych**.
 
-3. Określ, że chcesz, aby trzy minuty "dane", a następnie kliknij przycisk **OK** . Poczekaj, aż otrzymasz powiadomienie, że próbka danych została przygotowana.
+3. Określ, że chcesz, aby trzy minuty "dane", a następnie kliknij przycisk **OK**. Poczekaj, aż otrzymasz powiadomienie, że próbka danych została przygotowana.
 
 4. Kliknij przycisk **Testuj** i przejrzyj wyniki.
 
@@ -127,7 +127,7 @@ Ta sekcja jest opcjonalna, ale zalecana.
 
 1. Upewnij się, że aplikacja TelcoStreaming jest uruchomiona.
 
-2. Przejdź do strony **Przegląd** zadania Stream Analytics i wybierz pozycję **Uruchom** .
+2. Przejdź do strony **Przegląd** zadania Stream Analytics i wybierz pozycję **Uruchom**.
 
     ![Uruchamianie zadania Stream Analytics](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -140,7 +140,7 @@ Zadanie usługi Stream Analytics rozpocznie wyszukiwanie fałszywych wywołań w
 
     ![Lokalizacja zestawu danych przesyłania strumieniowego w Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. W obszarze roboczym kliknij pozycję **+ &nbsp; Utwórz** .
+2. W obszarze roboczym kliknij pozycję **+ &nbsp; Utwórz**.
 
     ![Przycisk Utwórz w obszarze roboczym Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
@@ -148,25 +148,25 @@ Zadanie usługi Stream Analytics rozpocznie wyszukiwanie fałszywych wywołań w
 
     ![Utwórz pulpit nawigacyjny i nadaj mu nazwę w obszarze roboczym Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
-4. W górnej części okna kliknij pozycję **Dodaj kafelek** , wybierz pozycję **niestandardowe dane przesyłane strumieniowo** , a następnie kliknij przycisk **dalej** .
+4. W górnej części okna kliknij pozycję **Dodaj kafelek**, wybierz pozycję **niestandardowe dane przesyłane strumieniowo**, a następnie kliknij przycisk **dalej**.
 
     ![Kafelek niestandardowego zestawu danych przesyłania strumieniowego w Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-5. W obszarze **DATSETS** wybierz swój zestaw danych, a następnie kliknij przycisk **dalej** .
+5. W obszarze **DATSETS** wybierz swój zestaw danych, a następnie kliknij przycisk **dalej**.
 
     ![Zestaw danych przesyłania strumieniowego w Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-6. W obszarze **typ wizualizacji** wybierz pozycję **karta** , a następnie na liście **pola** wybierz pozycję **fraudulentcalls** .
+6. W obszarze **typ wizualizacji** wybierz pozycję **karta**, a następnie na liście **pola** wybierz pozycję **fraudulentcalls**.
 
     ![Szczegóły wizualizacji dla nowego kafelka](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. Kliknij przycisk **Dalej** .
+7. Kliknij przycisk **Dalej**.
 
 8. Wypełnij szczegóły kafelka, takie jak tytuł i podtytuł.
 
     ![Tytuł i podtytuł dla nowego kafelka](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Kliknij przycisk **Zastosuj** .
+9. Kliknij pozycję **Zastosuj**.
 
     Teraz masz licznik oszustw!
 
@@ -174,14 +174,14 @@ Zadanie usługi Stream Analytics rozpocznie wyszukiwanie fałszywych wywołań w
 
 8. Wykonaj ponownie kroki w celu dodania kafelka (począwszy od kroku 4). Tym razem wykonaj następujące czynności:
 
-    * Po wybraniu **typu wizualizacji** wybierz pozycję **Wykres liniowy** . 
-    * Dodaj oś i wybierz pozycję **windowend** . 
-    * Dodaj wartość i wybierz pozycję **fraudulentcalls** .
+    * Po wybraniu **typu wizualizacji** wybierz pozycję **Wykres liniowy**. 
+    * Dodaj oś i wybierz pozycję **windowend**. 
+    * Dodaj wartość i wybierz pozycję **fraudulentcalls**.
     * W ustawieniu **Okno czasowe do wyświetlenia** wybierz ostatnie 10 minut.
 
       ![Utwórz kafelek dla wykresu liniowego w Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
-9. Kliknij przycisk **dalej** , Dodaj tytuł i podtytuł, a następnie kliknij przycisk **Zastosuj** .
+9. Kliknij przycisk **dalej**, Dodaj tytuł i podtytuł, a następnie kliknij przycisk **Zastosuj**.
 
      Pulpit nawigacyjny Power BI udostępnia teraz dwa widoki danych dotyczących fałszywych wywołań, które zostały wykryte w danych przesyłanych strumieniowo.
 
@@ -223,7 +223,7 @@ Uwzględniając tę konfigurację, można zmienić oryginalne zapytanie na nast�
 ### <a name="renew-authorization"></a>Odnów autoryzację
 Jeśli hasło zostało zmienione od czasu utworzenia lub ostatniego uwierzytelnienia zadania, należy ponownie uwierzytelnić konto Power BI. Jeśli usługa Azure Multi-Factor Authentication jest skonfigurowana w dzierżawie Azure Active Directory (Azure AD), należy również odnowić Power BI autoryzację co dwa tygodnie. Jeśli nie odnowisz, zobaczysz objawy, takie jak brak danych wyjściowych zadania lub `Authenticate user error` w dziennikach operacji.
 
-Podobnie, jeśli zadanie rozpoczyna się po wygaśnięciu tokenu, wystąpi błąd i zadanie kończy się niepowodzeniem. Aby rozwiązać ten problem, Zatrzymaj uruchomione zadanie i przejdź do danych wyjściowych Power BI. Aby uniknąć utraty danych, wybierz łącze **Odnów autoryzację** , a następnie uruchom ponownie zadanie od **czasu ostatniego zatrzymania** .
+Podobnie, jeśli zadanie rozpoczyna się po wygaśnięciu tokenu, wystąpi błąd i zadanie kończy się niepowodzeniem. Aby rozwiązać ten problem, Zatrzymaj uruchomione zadanie i przejdź do danych wyjściowych Power BI. Aby uniknąć utraty danych, wybierz łącze **Odnów autoryzację** , a następnie uruchom ponownie zadanie od **czasu ostatniego zatrzymania**.
 
 Po odświeżeniu autoryzacji za pomocą Power BI zielony alert pojawi się w obszarze autoryzacji w celu odzwierciedlenia, że problem został rozwiązany.
 

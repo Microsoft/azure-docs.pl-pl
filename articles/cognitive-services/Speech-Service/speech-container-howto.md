@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: f91d96732c872c6f93ee2de4c5c3eba5fe5ffbc4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ad3f73276a2a965032fd2acf368bce4a0c146632
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412242"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744182"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy 
 
@@ -31,11 +31,11 @@ Kontenery usługi Mowa umożliwiają klientom tworzenie architektury aplikacji m
 > * Standardowe Zamiana mowy na tekst
 > * Custom Speech do tekstu
 > * Standardowe Zamiana tekstu na mowę
-> 
+> * Neuronowych Zamiana tekstu na mowę
+>
 > Następujące kontenery mowy są w wersji zapoznawczej.
 > * Niestandardowa Zamiana tekstu na mowę
 > * wykrywanie języka mowy 
-> * Neuronowych Zamiana tekstu na mowę
 >
 > Aby korzystać z kontenerów mowy, musisz przesłać żądanie online i zatwierdzić je. Aby uzyskać więcej informacji, zobacz sekcję **Żądaj zatwierdzenia do uruchamiania kontenera** poniżej.
 
@@ -46,7 +46,7 @@ Kontenery usługi Mowa umożliwiają klientom tworzenie architektury aplikacji m
 | Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.8.0 |
 | Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.8.0 |
 | wykrywanie języka mowy | Wykrywa język mówiony w plikach audio. | 1,0 |
-| Neuronowych Zamiana tekstu na mowę | Konwertuje tekst na naturalną dźwiękową mowę przy użyciu technologii sieci głębokiej neuronowych, co pozwala na bardziej naturalną syntezę mowy. | 1.2.0 |
+| Neuronowych Zamiana tekstu na mowę | Konwertuje tekst na naturalną dźwiękową mowę przy użyciu technologii sieci głębokiej neuronowych, co pozwala na bardziej naturalną syntezę mowy. | 1.3.0 |
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -58,7 +58,7 @@ Poniższe wymagania wstępne przed użyciem kontenerów mowy:
 |--|--|
 | Aparat platformy Docker | Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> **W systemie Windows** program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br> |
 | Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń. |
-| Zasób mowy | Aby można było korzystać z tych kontenerów, musisz mieć:<br><br>Zasób usługi Azure _Speech_ do pobrania skojarzonego klucza interfejsu API i identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach przeglądów **mowy** i kluczy Azure Portal. Są one wymagane do uruchomienia kontenera.<br><br>**{API_KEY}** : jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}** : punkt końcowy określony na stronie **Przegląd** |
+| Zasób mowy | Aby można było korzystać z tych kontenerów, musisz mieć:<br><br>Zasób usługi Azure _Speech_ do pobrania skojarzonego klucza interfejsu API i identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach przeglądów **mowy** i kluczy Azure Portal. Są one wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie **Przegląd** |
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -244,13 +244,13 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 Wszystkie Tagi, z wyjątkiem programu, `latest` są w następującym formacie i są rozróżniane wielkości liter:
 
 ```
-<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>
 ```
 
 Następujący tag jest przykładem formatu:
 
 ```
-1.2.0-amd64-en-us-arianeural-preview
+1.3.0-amd64-en-us-arianeural
 ```
 
 W przypadku wszystkich obsługiwanych ustawień regionalnych i odpowiadających im głosów kontenera **zamiany tekstu na mowę neuronowych** można znaleźć [Tagi obrazu neuronowych text-to-Speech](../containers/container-image-tags.md#neural-text-to-speech).
@@ -322,7 +322,7 @@ Począwszy od 2.6.0 kontenera zamiany mowy na tekst, należy użyć punktu końc
 > [!NOTE]
 > `v3.0`Interfejs API analiza tekstu nie jest zgodny z analiza tekstu `v3.0-preview.1` . Aby uzyskać najnowszą obsługę funkcji tonacji, użyj `v2.6.0` obrazu kontenera zamiany mowy na tekst i analiza tekstu `v3.0` .
 
-Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Na przykład: 
+Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Przykład: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -351,7 +351,7 @@ Począwszy od 2.6.0 w języku v kontenera zamiany mowy na tekst można uzyskać 
 
 * "Jest to zdanie **z wyższą** wielką literą."
 
-Aby skonfigurować listę fraz, należy dodać własne frazy podczas wywołania. Na przykład:
+Aby skonfigurować listę fraz, należy dodać własne frazy podczas wywołania. Przykład:
 
 ```python
     phrase="the tall man"
@@ -420,7 +420,7 @@ To polecenie:
 
 
 #### <a name="base-model-download-on-the-custom-speech-to-text-container"></a>Pobieranie modelu podstawowego z niestandardowego kontenera zamiany mowy na tekst  
-Począwszy od 2.6.0a niestandardowego kontenera-zamiany mowy na tekst można uzyskać dostępne informacje o modelu podstawowym przy użyciu opcji `BaseModelLocale=<locale>` . Ta opcja spowoduje udostępnienie listy dostępnych modeli bazowych dla tych ustawień regionalnych w ramach konta rozliczeniowego. Na przykład:
+Począwszy od 2.6.0a niestandardowego kontenera-zamiany mowy na tekst można uzyskać dostępne informacje o modelu podstawowym przy użyciu opcji `BaseModelLocale=<locale>` . Ta opcja spowoduje udostępnienie listy dostępnych modeli bazowych dla tych ustawień regionalnych w ramach konta rozliczeniowego. Przykład:
 
 ```bash
 docker run --rm -it \
@@ -436,7 +436,7 @@ To polecenie:
 * Uruchamia kontener *Custom Speech do tekstu* z obrazu kontenera.
 * Sprawdź i zwróć dostępne modele bazowe dla docelowych ustawień regionalnych.
 
-Dane wyjściowe umożliwiają utworzenie listy modeli podstawowych z informacjami o ustawieniach regionalnych, identyfikatorze modelu i dacie utworzenia. Możesz użyć identyfikatora modelu, aby pobrać preferowany model podstawowy i korzystać z niego. Na przykład:
+Dane wyjściowe umożliwiają utworzenie listy modeli podstawowych z informacjami o ustawieniach regionalnych, identyfikatorze modelu i dacie utworzenia. Możesz użyć identyfikatora modelu, aby pobrać preferowany model podstawowy i korzystać z niego. Przykład:
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us
