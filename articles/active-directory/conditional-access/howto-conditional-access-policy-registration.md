@@ -11,30 +11,30 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049098"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837542"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Dostęp warunkowy: Zabezpieczanie rejestracji informacji zabezpieczających
 
-Zabezpieczanie, kiedy i jak użytkownicy rejestrują się w usłudze Azure Multi-Factor Authentication i samoobsługowego resetowania hasła jest teraz możliwe z działaniami użytkowników w zasadach dostępu warunkowego. Ta funkcja w wersji zapoznawczej jest dostępna dla organizacji, które włączyły [Podgląd rejestracji połączonej](../authentication/concept-registration-mfa-sspr-combined.md). Ta funkcjonalność może być włączona w organizacjach, w których chcą korzystać z takich warunków, jak w przypadku zaufanej lokalizacji sieciowej, aby ograniczyć dostęp do usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Aby uzyskać więcej informacji o warunkach użytecznych, zobacz artykuł [dostęp warunkowy: warunki](concept-conditional-access-conditions.md).
+Zabezpieczanie, kiedy i jak użytkownicy rejestrują się w usłudze Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła jest teraz możliwe przy użyciu akcji użytkownika w zasadach dostępu warunkowego. Ta funkcja w wersji zapoznawczej jest dostępna dla organizacji, które włączyły [Podgląd rejestracji połączonej](../authentication/concept-registration-mfa-sspr-combined.md). Ta funkcjonalność może być włączona w organizacjach, w których chcą korzystać z takich warunków, jak Zaufane lokalizacje sieciowe, aby ograniczyć dostęp do usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Aby uzyskać więcej informacji o warunkach użytecznych, zobacz artykuł [dostęp warunkowy: warunki](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Utwórz zasady, aby wymagać rejestracji z zaufanej lokalizacji
 
 Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, którzy próbują zarejestrować się przy użyciu połączonego środowiska rejestracji i blokują dostęp, chyba że nawiązują połączenie z lokalizacji oznaczonej jako zaufane sieci.
 
-1. W **Azure Portal**przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
+1. W **Azure Portal** przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
 1. Wybierz pozycję **nowe zasady**.
 1. W polu Nazwa wprowadź nazwę dla tych zasad. Na przykład **połączona informacja dotycząca zabezpieczeń Rejestracja w zaufanych sieciach**.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**, a następnie wybierz użytkowników i grupy, do których te zasady mają być stosowane.
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**, a następnie wybierz użytkowników i grupy, do których te zasady mają być stosowane.
 
    > [!WARNING]
    > Użytkownicy muszą być włączeni do [rejestracji połączonej](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. W obszarze **aplikacje lub akcje w chmurze**wybierz pozycję **akcje użytkownika**, a następnie sprawdź pozycję **zarejestruj informacje zabezpieczające**.
+1. W obszarze **aplikacje lub akcje w chmurze** wybierz pozycję **akcje użytkownika**, a następnie sprawdź pozycję **zarejestruj informacje zabezpieczające**.
 1. W obszarze **warunków**  >  **lokalizacji**.
    1. Skonfiguruj **tak**.
    1. Uwzględnij **dowolną lokalizację**.
@@ -46,7 +46,7 @@ Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, któ
    1. Wybierz pozycję **Blokuj dostęp**.
    1. Następnie kliknij pozycję **Wybierz**.
 1. Ustaw przełącznik **Włącz zasady** na wartość **Włączone**.
-1. Następnie wybierz przycisk **Zapisz**.
+1. Następnie wybierz pozycję **Zapisz**.
 
 W kroku 6 tych zasad organizacje mają odpowiednie opcje. Powyższe zasady wymagają rejestracji z zaufanej lokalizacji sieciowej. Organizacje mogą zdecydować się na korzystanie z jakichkolwiek dostępnych warunków zamiast **lokalizacji**. Należy pamiętać, że te zasady są zasadami blokowania, aby wszystkie dołączone elementy były blokowane i wszystkie elementy, które nie pasują do dołączenia, są dozwolone. 
 

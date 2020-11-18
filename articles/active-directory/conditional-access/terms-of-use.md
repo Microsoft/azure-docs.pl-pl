@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366500"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837604"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -41,7 +41,7 @@ Warunki użytkowania usługi Azure AD mają następujące możliwości:
 - Przed uzyskaniem dostępu należy wymagać od pracowników lub Gości zaakceptowania warunków użytkowania.
 - Przed uzyskaniem dostępu należy wymagać od pracowników lub Gości akceptowania warunków użytkowania na każdym urządzeniu.
 - Wymaganie od pracowników lub Gości akceptacji warunków użytkowania według harmonogramu cyklicznego.
-- Przed zarejestrowaniem informacji o zabezpieczeniach w usłudze Azure Multi-Factor Authentication (MFA) wymagane jest, aby pracownicy lub Goście zaakceptowali warunki użytkowania.
+- Przed zarejestrowaniem informacji o zabezpieczeniach w usłudze Azure AD Multi-Factor Authentication (MFA) wymagane jest, aby pracownicy lub Goście zaakceptowali warunki użytkowania.
 - Wymaganie od pracowników akceptacji warunków użytkowania przed zarejestrowaniem informacji o zabezpieczeniach w usłudze Azure AD Samoobsługowe resetowanie hasła (SSPR).
 - Zaprezentowanie ogólnych warunków użytkowania dla wszystkich użytkowników w organizacji.
 - Zaprezentowanie określonych warunków użytkowania na podstawie atrybutów użytkownika (np. warunki dla lekarzy różnią się od warunków dla pielęgniarek, a pracownicy krajowi mają inne warunki niż pracownicy międzynarodowi) za pomocą [grup dynamicznych](../enterprise-users/groups-dynamic-membership.md).
@@ -82,7 +82,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
 1. W polu **Nazwa** wprowadź nazwę warunków użytkowania, które będą używane w Azure Portal.
 1. W polu **Nazwa wyświetlana** wprowadź tytuł wyświetlany użytkownikom podczas logowania.
-1. W przypadku **warunki użytkowania dokumentu**przejdź do pliku PDF z końcowymi warunkami użytkowania i wybierz go.
+1. W przypadku **warunki użytkowania dokumentu** przejdź do pliku PDF z końcowymi warunkami użytkowania i wybierz go.
 1. Wybierz język dla dokumentu warunków użytkowania. Opcja wyboru języka umożliwia przekazanie wielu wersji językowych warunków użytkowania. Wersja warunków użytkowania widoczna dla użytkownika końcowego będzie zależała od preferencji jego przeglądarki.
 1. Aby wymagać od użytkowników końcowych wyświetlania warunków użytkowania przed ich zaakceptowaniem, ustaw opcję **Wymagaj, aby użytkownicy mogli rozwijać warunki użytkowania** **.**
 1. Aby wymagać od użytkowników końcowych akceptacji warunków użytkowania na każdym urządzeniu, z którego uzyskują dostęp, ustaw opcję **Wymagaj od użytkowników zgody na każde urządzenie** **na.** Jeśli ta opcja jest włączona, użytkownicy mogą być zobowiązani do instalowania dodatkowych aplikacji. Aby uzyskać więcej informacji, zobacz [warunki użytkowania poszczególnych urządzeń](#per-device-terms-of-use).
@@ -94,8 +94,8 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
    | Wygasanie od | Częstotliwość | Wynik |
    | --- | --- | --- |
-   | Dzisiejsza data  | Miesięcznie | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
-   | Data w przyszłości  | Miesięcznie | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
+   | Dzisiejsza data  | Miesięczne | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
+   | Data w przyszłości  | Miesięczne | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
 
    Na przykład jeśli ustawisz wygaśnięcie, rozpoczynając od **1 stycznia** , a częstotliwość na **co miesiąc**, poniżej przedstawiono sposób wygaśnięcia może wystąpić w przypadku dwóch użytkowników:
 
@@ -113,11 +113,11 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
    Możliwe jest użycie **daty wygaśnięcia** i **czasu trwania przed ponownym zatwierdzeniem (w dniach)** , ale zazwyczaj należy użyć jednej lub drugiej.
 
-1. W obszarze **dostęp warunkowy**Użyj listy **szablon zasady wymuszania dostępu warunkowego** , aby wybrać szablon, aby wymusić warunki użytkowania.
+1. W obszarze **dostęp warunkowy** Użyj listy **szablon zasady wymuszania dostępu warunkowego** , aby wybrać szablon, aby wymusić warunki użytkowania.
 
    ![Lista rozwijana dostęp warunkowy do wybierania szablonu zasad](./media/terms-of-use/conditional-access-templates.png)
 
-   | Szablon | Opis |
+   | Template | Opis |
    | --- | --- |
    | **Dostęp do aplikacji w chmurze dla wszystkich Gości** | Zasady dostępu warunkowego zostaną utworzone dla wszystkich Gości i wszystkich aplikacji w chmurze. Te zasady mają wpływ na Azure Portal. Po utworzeniu tej czynności może być wymagane wylogowanie się i zalogowanie się. |
    | **Dostęp do aplikacji w chmurze dla wszystkich użytkowników** | Zasady dostępu warunkowego zostaną utworzone dla wszystkich użytkowników i aplikacji w chmurze. Te zasady mają wpływ na Azure Portal. Po utworzeniu tego konta będzie wymagane wylogowanie się i zalogowanie się. |
@@ -225,7 +225,7 @@ Można edytować niektóre szczegóły warunków użytkowania, ale nie można mo
 
    ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-tou.png)
 
-1. Kliknij pozycję **Zapisz**, aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
    Gdy zapiszesz zmiany, użytkownicy nie będą musieli ponownie akceptować tych zmian.
 

@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie rozszerzenia serwera NPS usługi Azure MFA — Azure Active Directory
+title: Konfigurowanie rozszerzenia serwera NPS usługi Azure AD MFA — Azure Active Directory
 description: Po zainstalowaniu rozszerzenia serwera NPS wykonaj następujące kroki, aby uzyskać konfigurację zaawansowaną, taką jak dozwolone listy adresów IP i zamiana nazwy UPN.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9156f84e5189b38a2c15f257bd6a47ac3db130
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 55c6457ec73c9fe9b39d607f26ffe2a577cc200d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964404"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839050"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Zaawansowane opcje konfiguracji rozszerzenia serwera NPS dla uwierzytelniania wieloskładnikowego
 
-Rozszerzenie serwera zasad sieciowych (NPS) rozszerza funkcje Multi-Factor Authentication platformy Azure oparte na chmurze do infrastruktury lokalnej. W tym artykule przyjęto założenie, że już masz zainstalowane rozszerzenie, a teraz chcesz dowiedzieć się, jak dostosować rozszerzenie dla potrzeb. 
+Rozszerzenie serwera zasad sieciowych (NPS) rozszerza funkcje Multi-Factor Authentication usługi Azure AD oparte na chmurze do infrastruktury lokalnej. W tym artykule przyjęto założenie, że już masz zainstalowane rozszerzenie, a teraz chcesz dowiedzieć się, jak dostosować rozszerzenie dla potrzeb. 
 
 ## <a name="alternate-login-id"></a>Alternatywny identyfikator logowania
 
 Ponieważ rozszerzenie zasad sieciowych nawiązuje połączenie zarówno z katalogami lokalnymi, jak i w chmurze, może wystąpić problem polegający na tym, że lokalne nazwy głównych użytkowników (UPN) nie są zgodne z nazwami w chmurze. Aby rozwiązać ten problem, użyj alternatywnych identyfikatorów logowania. 
 
-W ramach rozszerzenia serwera NPS można wyznaczyć atrybut Active Directory, który będzie używany zamiast nazwy UPN dla Multi-Factor Authentication platformy Azure. Pozwala to chronić zasoby lokalne przy użyciu weryfikacji dwuetapowej bez modyfikowania lokalnych nazw UPN. 
+W ramach rozszerzenia serwera NPS można wyznaczyć atrybut Active Directory używany zamiast nazwy UPN dla Multi-Factor Authentication usługi Azure AD. Pozwala to chronić zasoby lokalne przy użyciu weryfikacji dwuetapowej bez modyfikowania lokalnych nazw UPN. 
 
 Aby skonfigurować Alternatywne identyfikatory logowania, przejdź do `HKLM\SOFTWARE\Microsoft\AzureMfa` i edytuj następujące wartości rejestru:
 
@@ -55,4 +55,4 @@ Gdy żądanie pochodzi z adresu IP, który istnieje w `IP_WHITELIST` , weryfikac
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md) (Rozstrzyganie komunikatów o błędach z rozszerzenia serwera NPS dotyczących usługi Azure Multi-Factor Authentication)
+[Rozwiązywanie komunikatów o błędach z rozszerzenia serwera NPS dla usługi Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

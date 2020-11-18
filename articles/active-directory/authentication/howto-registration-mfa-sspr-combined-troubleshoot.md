@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae5995340640e9cda16634cf76b9953d7d663c2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966665"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838182"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Rozwiązywanie problemów z rejestracją połączonych informacji o zabezpieczeniach
 
@@ -34,11 +34,11 @@ W poniższej tabeli wymieniono wszystkie zdarzenia inspekcji wygenerowane przez 
 | --- | --- | --- | --- |
 | Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające | Powodzenie | Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające. | To zdarzenie występuje, gdy użytkownik pomyślnie zakończył rejestrację.|
 | Użytkownik zarejestrował wszystkie wymagane informacje zabezpieczające | Niepowodzenie | Użytkownik anulował rejestrację informacji zabezpieczających. | To zdarzenie występuje, gdy użytkownik anuluje rejestrację w trybie przerwania.|
-| Informacje zabezpieczające zarejestrowane przez użytkownika | Powodzenie | *Metoda*zarejestrowana przez użytkownika. | To zdarzenie występuje, gdy użytkownik rejestruje indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.| 
+| Informacje zabezpieczające zarejestrowane przez użytkownika | Powodzenie | *Metoda* zarejestrowana przez użytkownika. | To zdarzenie występuje, gdy użytkownik rejestruje indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.| 
 | Informacje o zabezpieczeniach zrecenzowanych przez użytkownika | Powodzenie | Użytkownik pomyślnie sprawdził informacje zabezpieczające. | To zdarzenie występuje, gdy użytkownik wybierze pozycję **wygląda dobrze** na stronie Przegląd informacji zabezpieczających.|
 | Informacje o zabezpieczeniach zrecenzowanych przez użytkownika | Niepowodzenie | Użytkownik nie mógł przejrzeć informacji zabezpieczających. | To zdarzenie występuje, gdy użytkownik wybierze pozycję **wygląda dobrze** na stronie Przegląd informacji zabezpieczających, ale coś nie powiedzie się w zapleczu.|
-| Użytkownik usunął informacje zabezpieczające | Powodzenie | *Metoda*usunięta przez użytkownika. | To zdarzenie występuje, gdy użytkownik usunie indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.|
-| Użytkownik usunął informacje zabezpieczające | Niepowodzenie | Usunięcie *metody*przez użytkownika nie powiodło się. | To zdarzenie występuje, gdy użytkownik próbuje usunąć metodę, ale próba nie powiedzie się z jakiegoś powodu. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.|
+| Użytkownik usunął informacje zabezpieczające | Powodzenie | *Metoda* usunięta przez użytkownika. | To zdarzenie występuje, gdy użytkownik usunie indywidualną metodę. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.|
+| Użytkownik usunął informacje zabezpieczające | Niepowodzenie | Usunięcie *metody* przez użytkownika nie powiodło się. | To zdarzenie występuje, gdy użytkownik próbuje usunąć metodę, ale próba nie powiedzie się z jakiegoś powodu. *Metodą* może być aplikacja uwierzytelniania, numer telefonu, adres e-mail, pytania zabezpieczające, hasło aplikacji, alternatywny numer telefonu i tak dalej.|
 | Zmieniono domyślne informacje o zabezpieczeniach użytkownika | Powodzenie | Użytkownik zmienił domyślne informacje zabezpieczające dla *metody*. | To zdarzenie występuje, gdy użytkownik zmieni metodę domyślną. *Metodą* może być powiadomienie aplikacji uwierzytelniania, kod z mojej aplikacji lub tokenu uwierzytelniania, wywołać + x XXXXXXXXXX, tekst kodu do + x xxxxxxxxx i tak dalej.|
 | Zmieniono domyślne informacje o zabezpieczeniach użytkownika | Niepowodzenie | Użytkownik nie mógł zmienić domyślnych informacji zabezpieczających dla *metody*. | To zdarzenie występuje, gdy użytkownik próbuje zmienić metodę domyślną, ale próba nie powiedzie się z jakiegoś powodu. *Metodą* może być powiadomienie aplikacji uwierzytelniania, kod z mojej aplikacji lub tokenu uwierzytelniania, wywołać + x XXXXXXXXXX, tekst kodu do + x xxxxxxxxx i tak dalej.|
 
@@ -157,4 +157,4 @@ Użytkownicy nie będą już monitowani o rejestrację przy użyciu zaktualizowa
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej na temat połączonej rejestracji w celu samoobsługowego resetowania haseł i Multi-Factor Authentication platformy Azure](concept-registration-mfa-sspr-combined.md)
+* [Dowiedz się więcej na temat połączonej rejestracji do samoobsługowego resetowania haseł i usługi Azure AD Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

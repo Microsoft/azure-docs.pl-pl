@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cb1a0819902d2dfa27718ccfe39b175959a16c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03a5f355263b80ef2e5e1c829877dc96ca55787a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963843"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837893"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Samouczek: Konfigurowanie niestandardowych zakazanych haseł Azure Active Directory ochrony hasłem
 
@@ -124,4 +124,4 @@ W tym samouczku włączono i skonfigurowano niestandardowe listy ochrony haseł 
 > * Testuj zmiany hasła z zakazanym hasłem
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Multi-Factor Authentication bazującej na ryzyku](./tutorial-enable-azure-mfa.md)
+> [Włączanie opartego na ryzyku Multi-Factor Authentication usługi Azure AD](./tutorial-enable-azure-mfa.md)

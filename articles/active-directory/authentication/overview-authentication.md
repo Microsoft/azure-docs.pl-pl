@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01751caba2b14f899588deba083a8c59c41d13ba
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92ac495381f63e01d64c9a3d02777dca37ebb343
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964013"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837995"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Co to jest Azure Active Directory Authentication?
 
-Jedną z głównych funkcji platformy tożsamości jest weryfikowanie i *uwierzytelnianie*poświadczeń, gdy użytkownik loguje się do urządzenia, aplikacji lub usługi. W Azure Active Directory (Azure AD) uwierzytelnianie obejmuje więcej niż tylko weryfikację nazwy użytkownika i hasła. Aby zwiększyć bezpieczeństwo i ograniczyć potrzebę pomocy technicznej, uwierzytelnianie w usłudze Azure AD obejmuje następujące składniki:
+Jedną z głównych funkcji platformy tożsamości jest weryfikowanie i *uwierzytelnianie* poświadczeń, gdy użytkownik loguje się do urządzenia, aplikacji lub usługi. W Azure Active Directory (Azure AD) uwierzytelnianie obejmuje więcej niż tylko weryfikację nazwy użytkownika i hasła. Aby zwiększyć bezpieczeństwo i ograniczyć potrzebę pomocy technicznej, uwierzytelnianie w usłudze Azure AD obejmuje następujące składniki:
 
 * Samoobsługowe resetowanie haseł
-* Azure Multi-Factor Authentication
+* Multi-Factor Authentication usługi Azure AD
 * Integracja hybrydowa do zapisywania zmian haseł z powrotem w środowisku lokalnym
 * Integracja hybrydowa do wymuszania zasad ochrony hasłem dla środowiska lokalnego
 * Uwierzytelnianie bez hasła
@@ -32,7 +32,7 @@ Jedną z głównych funkcji platformy tożsamości jest weryfikowanie i *uwierzy
 
 Usługa Azure AD pomaga chronić tożsamość użytkownika i uprościć ich środowisko logowania. Funkcje, takie jak Samoobsługowe resetowanie hasła, pozwalają użytkownikom aktualizować lub zmieniać hasła przy użyciu przeglądarki sieci Web z dowolnego urządzenia. Ta funkcja jest szczególnie przydatna, gdy użytkownik zapomniał hasła lub konto jest zablokowane. Bez czekania na pomoc techniczną lub administratora, użytkownik może odblokować siebie i kontynuować pracę.
 
-Usługa Azure Multi-Factor Authentication umożliwia użytkownikom wybranie dodatkowej formy uwierzytelniania podczas logowania, na przykład połączenia telefonicznego lub powiadomienia aplikacji mobilnej. Pozwala to ograniczyć wymagania dotyczące pojedynczej, ustalonej postaci uwierzytelniania pomocniczego, takiego jak token sprzętowy. Jeśli użytkownik nie ma obecnie jednej postaci dodatkowego uwierzytelniania, może wybrać inną metodę i kontynuować pracę.
+Usługa Azure AD Multi-Factor Authentication umożliwia użytkownikom wybranie dodatkowej formy uwierzytelniania podczas logowania, na przykład połączenia telefonicznego lub powiadomienia aplikacji mobilnej. Pozwala to ograniczyć wymagania dotyczące pojedynczej, ustalonej postaci uwierzytelniania pomocniczego, takiego jak token sprzętowy. Jeśli użytkownik nie ma obecnie jednej postaci dodatkowego uwierzytelniania, może wybrać inną metodę i kontynuować pracę.
 
 ![Metody uwierzytelniania używane na ekranie logowania](media/concept-authentication-methods/overview-login.png)
 
@@ -50,7 +50,7 @@ Funkcja samoobsługowego resetowania hasła działa w następujących scenariusz
 
 Gdy użytkownik zaktualizuje lub zresetuje hasło przy użyciu funkcji samoobsługowego resetowania hasła, to hasło można także zapisać z powrotem do lokalnego środowiska Active Directoryowego. Funkcja zapisywania zwrotnego haseł gwarantuje, że użytkownik może natychmiast używać zaktualizowanych poświadczeń z lokalnymi urządzeniami i aplikacjami.
 
-## <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+## <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication usługi Azure AD
 
 Uwierzytelnianie wieloskładnikowe to proces, w którym podczas procesu logowania użytkownik otrzymuje monit mający na celu uzyskanie dodatkowej formy identyfikacji, na przykład wprowadzenie kodu w telefonie komórkowym lub zeskanowanie odcisku palca.
 
@@ -58,13 +58,13 @@ Jeśli używasz tylko hasła do uwierzytelniania użytkownika, opuszcza on nieza
 
 ![Obraz przedstawiający koncepcję różnych form uwierzytelniania wieloskładnikowego](./media/concept-mfa-howitworks/methods.png)
 
-Usługa Azure Multi-Factor Authentication działa, wymagając co najmniej dwóch następujących metod uwierzytelniania:
+Usługa Azure AD Multi-Factor Authentication działa, wymagając co najmniej dwóch następujących metod uwierzytelniania:
 
 * Coś, co wiesz, zazwyczaj hasło.
 * Coś, na przykład zaufanego urządzenia, które nie jest łatwo duplikowane, takie jak telefon lub klucz sprzętowy.
 * Coś, co jest bardzo metryczne, takie jak skanowanie odcisku palca lub z przodu.
 
-Użytkownicy mogą zarejestrować się w ramach samoobsługowego resetowania haseł i platformy Azure Multi-Factor Authentication w jednym kroku, aby uprościć środowisko pracy. Administratorzy mogą definiować, które formy uwierzytelniania pomocniczego mogą być używane. Usługa Azure Multi-Factor Authentication może być również wymagana, gdy użytkownicy wykonują Samoobsługowe resetowanie hasła w celu dodatkowego zabezpieczenia tego procesu.
+Użytkownicy mogą zarejestrować się w ramach samoobsługowego resetowania haseł i usługi Azure AD Multi-Factor Authentication w jednym kroku, aby uprościć środowisko pracy. Administratorzy mogą definiować, które formy uwierzytelniania pomocniczego mogą być używane. Usługi Azure AD Multi-Factor Authentication mogą być również wymagane, gdy użytkownicy wykonują funkcję samoobsługowego resetowania hasła w celu dodatkowego zabezpieczenia tego procesu.
 
 ## <a name="password-protection"></a>Ochrona hasłem
 
@@ -76,7 +76,7 @@ W przypadku zabezpieczeń hybrydowych można zintegrować ochronę hasłem usłu
 
 ## <a name="passwordless-authentication"></a>Uwierzytelnianie bez hasła
 
-Celem końcowym wielu środowisk jest usunięcie używania haseł w ramach zdarzeń związanych z logowaniem. Funkcje, takie jak ochrona hasłem platformy Azure lub usługa Azure Multi-Factor Authentication, ułatwiają lepsze zabezpieczenia, ale nazwa użytkownika i hasło pozostają słabo zgodne z uwierzytelnianiem, które mogą być narażone na ataki lub przez cały czas.
+Celem końcowym wielu środowisk jest usunięcie używania haseł w ramach zdarzeń związanych z logowaniem. Funkcje, takie jak ochrona hasłem platformy Azure lub usługa Azure AD Multi-Factor Authentication, ułatwiają lepsze zabezpieczenia, ale nazwa użytkownika i hasło pozostają słabo zgodne z uwierzytelnianiem, które mogą być narażone na ataki lub wymuszanie.
 
 ![Bezpieczeństwo i wygoda dzięki procesowi uwierzytelniania, który prowadzi do bezhaseł](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
@@ -86,11 +86,11 @@ Usługa Azure AD zapewnia sposoby natywnego uwierzytelniania przy użyciu metod 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, zobacz Samouczek dotyczący samoobsługowego [resetowania hasła (SSPR)][tutorial-sspr] i [platformy Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Aby rozpocząć, zobacz Samouczek dotyczący samoobsługowego [resetowania hasła (SSPR)][tutorial-sspr] i [usługi Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Aby dowiedzieć się więcej na temat koncepcji samoobsługowego resetowania haseł, zobacz Jak działa funkcja samoobsługowego [resetowania hasła w usłudze Azure AD][concept-sspr].
 
-Aby dowiedzieć się więcej o pojęciach dotyczących uwierzytelniania wieloskładnikowego, zobacz [jak działa usługa Azure Multi-Factor Authentication][concept-mfa].
+Aby dowiedzieć się więcej o pojęciach dotyczących uwierzytelniania wieloskładnikowego, zobacz [jak działa usługa Azure AD Multi-Factor Authentication][concept-mfa].
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

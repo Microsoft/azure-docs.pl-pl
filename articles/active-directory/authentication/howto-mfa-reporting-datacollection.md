@@ -1,6 +1,6 @@
 ---
-title: Zbieranie danych użytkownika usługi Azure MFA — Azure Active Directory
-description: Jakie informacje są używane w celu ułatwienia uwierzytelniania użytkowników za pomocą usługi Azure Multi-Factor Authentication?
+title: Zbieranie danych użytkownika usługi Azure AD MFA — Azure Active Directory
+description: Jakie informacje są używane w celu ułatwienia uwierzytelniania użytkowników za pomocą usługi Azure AD Multi-Factor Authentication?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ec8eddf55c6b3e90b56501a2e3b657bef6fc8c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed0d4b754911dda49776379fb318390eae411000
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964200"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839016"
 ---
-# <a name="azure-multi-factor-authentication-user-data-collection"></a>Zbieranie danych użytkownika Multi-Factor Authentication platformy Azure
+# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Zbieranie danych użytkownika w usłudze Azure AD Multi-Factor Authentication
 
-W tym dokumencie wyjaśniono, jak znaleźć informacje o użytkowniku zebrane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i usługę Azure MFA (w chmurze) w przypadku zdarzenia, które chcesz usunąć.
+W tym dokumencie wyjaśniono, jak znaleźć informacje o użytkowniku zebrane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i usługę Azure AD MFA (w chmurze) w przypadku zdarzenia, które chcesz usunąć.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="information-collected"></a>Zebrane informacje
 
-W przypadku serwera MFA, rozszerzenia serwera NPS i karty AD FS usługi Azure MFA dla systemu Windows Server 2016 są zbierane i przechowywane następujące informacje przez 90 dni.
+Serwer MFA, rozszerzenie serwera NPS oraz karta AD FS Azure AD MFA w systemie Windows Server 2016 zbierają i przechowują następujące informacje przez 90 dni.
 
 Próby uwierzytelniania (używane na potrzeby raportowania i rozwiązywania problemów):
 
@@ -60,7 +60,7 @@ Próby uwierzytelniania (używane na potrzeby raportowania i rozwiązywania prob
 - Uwierzytelnione
 - Wynik
 - Inicjowanie adresu IP
-- Urządzenia
+- Devices
 - Token urządzenia
 - Typ urządzenia
 - Wersja aplikacji mobilnej
@@ -89,7 +89,7 @@ Bloki (używane do określania stanu zablokowanego i raportowania):
 - Kod kraju
 - Numer telefonu
 - Format numeru telefonu
-- Wewnętrzny
+- Rozszerzenie
 - Wyczyść rozszerzenie
 - Zablokowane
 - Przyczyna blokady
@@ -109,7 +109,7 @@ Pomijanie (używane na potrzeby raportowania):
 - Kod kraju
 - Numer telefonu
 - Format numeru telefonu
-- Wewnętrzny
+- Rozszerzenie
 - Wyczyść rozszerzenie
 - Przyczyna obejścia
 - Znacznik czasu ukończenia
@@ -163,26 +163,26 @@ Użyj [portalu prywatności firmy Microsoft](https://portal.azure.com/#blade/Mic
 
 - Całkowite usunięcie danych może potrwać do 30 dni.
 
-## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Zbieranie danych z karty AD FS Azure MFA w systemie Windows Server 2016
+## <a name="gather-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Zbieranie danych z karty AD FS usługi Azure AD MFA w systemie Windows Server 2016
 
 Użyj [portalu Microsoft privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) , aby utworzyć żądanie eksportu. 
 
 - Informacje usługi MFA są uwzględniane podczas eksportowania, co może potrwać kilka godzin lub dni.
 - Wystąpienia nazwy użytkownika w dziennikach zdarzeń śledzenia/debugowania AD FS (jeśli są włączone) są uznawane za operacyjne i duplikowane do informacji dostępnych w ramach eksportu.
 
-## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Usuwanie danych z karty AD FS Azure MFA w systemie Windows Server 2016
+## <a name="delete-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Usuwanie danych z karty AD FS usługi Azure AD MFA w systemie Windows Server 2016
 
 Użyj [portalu prywatności firmy Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) , aby zażądać zamknięcia konta do usunięcia wszystkich informacji o usłudze w chmurze usługi MFA zebranych dla tego użytkownika.
 
 - Całkowite usunięcie danych może potrwać do 30 dni.
 
-## <a name="gather-data-for-azure-mfa"></a>Zbieranie danych dla usługi Azure MFA
+## <a name="gather-data-for-azure-ad-mfa"></a>Zbieranie danych usługi Azure AD MFA
 
 Użyj [portalu Microsoft privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) , aby utworzyć żądanie eksportu.
 
 - Informacje usługi MFA są uwzględniane podczas eksportowania, co może potrwać kilka godzin lub dni.
 
-## <a name="delete-data-for-azure-mfa"></a>Usuwanie danych usługi Azure MFA
+## <a name="delete-data-for-azure-ad-mfa"></a>Usuwanie danych usługi Azure AD MFA
 
 Użyj [portalu prywatności firmy Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) , aby zażądać zamknięcia konta do usunięcia wszystkich informacji o usłudze w chmurze usługi MFA zebranych dla tego użytkownika.
 

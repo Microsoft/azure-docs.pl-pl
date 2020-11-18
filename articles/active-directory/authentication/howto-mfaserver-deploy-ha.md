@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a685706b09610dc298854093bb242f0bdcf8cf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 267a543e771f33f0cfe1fac7abe225e3db2a8e3f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964098"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838744"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurowanie usługi Azure Serwer Multi-Factor Authentication w celu zapewnienia wysokiej dostępności
 
 Aby uzyskać wysoką dostępność przy użyciu wdrożenia usługi Azure Server MFA, należy wdrożyć wiele serwerów MFA. Ta sekcja zawiera informacje na temat układu o zrównoważonym obciążeniu w celu osiągnięcia celów wysokiej dostępności w ramach wdrożenia serwera Azure MFS.
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać opartych na chmurze Multi-Factor Authentication platformy Azure.
+> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać Multi-Factor Authentication usługi Azure AD opartych na chmurze.
 >
-> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca 2019, mogą pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
 
@@ -45,7 +45,7 @@ Po pomyślnym uwierzytelnieniu w usłudze AD serwer usługi MFA komunikuje się 
 
 Jeśli serwer główny usługi MFA przejdzie w tryb offline, uwierzytelnienia nadal mogą być przetwarzane, ale nie można przetworzyć operacji wymagających zmian w bazie danych MFA. (Przykłady: dodanie użytkowników, samoobsługowe zmiany kodu PIN, zmiana informacji o użytkowniku lub dostęp do portalu użytkowników)
 
-## <a name="deployment"></a>wdrażania
+## <a name="deployment"></a>Wdrożenie
 
 Należy wziąć pod uwagę następujące ważne kwestie dotyczące równoważenia obciążenia serwera usługi Azure MFA i powiązanych składników.
 

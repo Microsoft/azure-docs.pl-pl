@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f0a91a4d3b479d1243907951481e5a10f7085bbc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145249"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837434"
 ---
 # <a name="what-is-conditional-access"></a>Co to jest dostęp warunkowy?
 
@@ -80,7 +80,7 @@ Wiele organizacji ma [typowy dostęp do zasad dostępu warunkowego,](concept-con
 - Wymaganie uwierzytelniania wieloskładnikowego dla użytkowników z rolami administracyjnymi
 - Wymaganie uwierzytelniania wieloskładnikowego dla zadań zarządzania platformy Azure
 - Blokowanie logowań użytkowników próbujących korzystać ze starszych protokołów uwierzytelniania
-- Wymaganie zaufanych lokalizacji na potrzeby rejestracji w usłudze Azure Multi-Factor Authentication
+- Wymaganie zaufanych lokalizacji do rejestracji Multi-Factor Authentication usługi Azure AD
 - Blokowanie lub udzielanie dostępu z określonych lokalizacji
 - Blokowanie ryzykownych zachowań logowania
 - Wymaganie urządzeń zarządzanych przez organizację dla określonych aplikacji

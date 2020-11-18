@@ -1,39 +1,39 @@
 ---
-title: Weryfikacja dwuetapowa usługi Azure MFA i usług ADFS — Azure Active Directory
-description: Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS.
+title: Weryfikacja dwuetapowa usługi Azure AD MFA i usług ADFS — Azure Active Directory
+description: Jest to strona Multi-Factor Authentication usługi Azure AD, która opisuje, jak rozpocząć pracę z usługą Azure AD MFA i AD FS.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fbbba49ddf2252e22cb32a0b8adc6fa2070e999
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247ebfa70de3e916894cccfc9374c4ddd4e761c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74847137"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837944"
 ---
-# <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Wprowadzenie do usługi Azure Multi-Factor Authentication i usług Active Directory Federation Services
+# <a name="getting-started-with-azure-ad-multi-factor-authentication-and-active-directory-federation-services"></a>Wprowadzenie do usługi Azure AD Multi-Factor Authentication i Active Directory Federation Services
 
 <center>
 
-![Rozpoczęcie korzystania z usługi Azure MFA i usług ADFS](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+![Uruchamianie usługi Azure AD MFA i usług ADFS](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
-W przypadku organizacji, które sfederowały lokalną usługę Active Directory z usługą Azure Active Directory za pomocą usług AD FS, dostępne są dwie opcje używania usługi Azure Multi-Factor Authentication.
+Jeśli Twoja organizacja ma federacyjne Active Directory lokalnego z Azure Active Directory przy użyciu AD FS, dostępne są dwie opcje korzystania z usługi Azure AD Multi-Factor Authentication.
 
-* Zabezpieczenie zasobów w chmurze za pomocą usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services
+* Zabezpieczanie zasobów w chmurze za pomocą usługi Azure AD Multi-Factor Authentication lub Active Directory Federation Services
 * Zabezpieczenie zasobów w chmurze i zasobów lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication
 
-Poniższa tabela zawiera podsumowanie obsługi weryfikacji w przypadku zabezpieczania zasobów za pomocą usługi Azure Multi-Factor Authentication i usług AD FS
+Poniższa tabela zawiera podsumowanie środowiska weryfikacji między zabezpieczaniem zasobów przy użyciu usługi Azure AD Multi-Factor Authentication i AD FS
 
 | Proces weryfikacji — aplikacje korzystające z przeglądarki | Proces weryfikacji — aplikacje niekorzystające z przeglądarki |
 |:--- |:--- |
-| Zabezpieczanie zasobów usługi Azure AD za pomocą usługi Azure Multi-Factor Authentication |<li>Pierwszy etap weryfikacji odbywa się lokalnie przy użyciu usług AD FS.</li> <li>Drugi etap polega na użyciu metody telefonicznej, która obejmuje uwierzytelnianie w chmurze.</li> |
+| Zabezpieczanie zasobów usługi Azure AD za pomocą usługi Azure AD Multi-Factor Authentication |<li>Pierwszy etap weryfikacji odbywa się lokalnie przy użyciu usług AD FS.</li> <li>Drugi etap polega na użyciu metody telefonicznej, która obejmuje uwierzytelnianie w chmurze.</li> |
 | Zabezpieczanie zasobów usługi Azure AD za pomocą usług Active Directory Federation Services |<li>Pierwszy etap weryfikacji odbywa się lokalnie przy użyciu usług AD FS.</li><li>Drugi etap odbywa się lokalnie i polega na uznaniu oświadczenia.</li> |
 
 Zastrzeżenia dotyczące haseł aplikacji używanych przez użytkowników federacyjnych:
@@ -43,8 +43,8 @@ Zastrzeżenia dotyczące haseł aplikacji używanych przez użytkowników federa
 * Nie będzie można lokalnie rejestrować uwierzytelniania haseł aplikacji.
 * Wyłączenie/usunięcie konta przy użyciu narzędzia do synchronizacji katalogów może potrwać do 3 godzin, powodując opóźnienie wyłączenia/usunięcia haseł aplikacji w tożsamości w chmurze.
 
-Aby uzyskać informacje dotyczące konfigurowania usługi Azure Multi-Factor Authentication lub serwera usługi Azure Multi-Factor Authentication z usługami AD FS, zobacz poniższe artykuły:
+Aby uzyskać informacje na temat konfigurowania usługi Azure AD Multi-Factor Authentication lub Serwer Multi-Factor Authentication platformy Azure z AD FS, zobacz następujące artykuły:
 
-* [Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS](howto-mfa-adfs.md)
+* [Zabezpieczanie zasobów w chmurze za pomocą usługi Azure AD Multi-Factor Authentication i AD FS](howto-mfa-adfs.md)
 * [Zabezpieczanie zasobów w chmurze i lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS systemu Windows Server 2012 R2](howto-mfaserver-adfs-2012.md)
 * [Zabezpieczanie zasobów w chmurze i zasobów lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS 2.0](howto-mfaserver-adfs-2.md)

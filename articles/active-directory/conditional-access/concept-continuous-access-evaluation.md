@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992815"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837621"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -126,7 +126,7 @@ W poniższym przykładzie administrator dostępu warunkowego skonfigurował zasa
 ## <a name="enable-or-disable-cae-preview"></a>Włącz lub Wyłącz CAE (wersja zapoznawcza)
 
 1. Zaloguj się do **Azure Portal** jako administrator dostępu warunkowego, administrator zabezpieczeń lub Administrator globalny
-1. Przejdź do **Azure Active Directory**wersji  >  **Security**  >  **ewaluacyjnej ciągłego dostępu**Azure Active Directory zabezpieczeń.
+1. Przejdź do **Azure Active Directory** wersji  >  **Security**  >  **ewaluacyjnej ciągłego dostępu** Azure Active Directory zabezpieczeń.
 1. Wybierz pozycję **Włącz podgląd**.
 
 Na tej stronie możesz opcjonalnie ograniczyć użytkowników i grupy, które będą podlegać wersji zapoznawczej.
@@ -140,11 +140,11 @@ Na tej stronie możesz opcjonalnie ograniczyć użytkowników i grupy, które b�
 W przypadku usługi CAE dostępne są tylko szczegółowe informacje o nazwanych lokalizacjach opartych na adresie IP. Nie mamy szczegółowych informacji na temat innych ustawień lokalizacji, takich jak [Zaufane adresy IP usługi MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) lub lokalizacje oparte na krajach. Jeśli użytkownik pochodzi z zaufanego adresu IP usługi MFA lub zaufanych lokalizacji, które zawierają zaufane IP lub lokalizacje krajów usługi MFA, CAE nie zostanie wymuszone po przeniesieniu użytkownika do innej lokalizacji. W takich przypadkach zostanie wystawiony token CAE o godzinie 1, bez kontroli przymusowego protokołu IP.
 
 > [!IMPORTANT]
-> Podczas konfigurowania lokalizacji na potrzeby oceny ciągłego dostępu należy używać tylko [warunku lokalizacji dostępu warunkowego na podstawie adresu IP](../conditional-access/location-condition.md#preview-features) i skonfigurować wszystkie adresy IP, w **tym Protokoły IPv4 i IPv6**, które mogą być widoczne dla dostawcy tożsamości i dostawcy zasobów. Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi platformy Azure Multi-Factor Authentication.
+> Podczas konfigurowania lokalizacji na potrzeby oceny ciągłego dostępu należy używać tylko [warunku lokalizacji dostępu warunkowego na podstawie adresu IP](../conditional-access/location-condition.md#preview-features) i skonfigurować wszystkie adresy IP, w **tym Protokoły IPv4 i IPv6**, które mogą być widoczne dla dostawcy tożsamości i dostawcy zasobów. Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi Azure AD Multi-Factor Authentication.
 
 ### <a name="ip-address-configuration"></a>Konfiguracja adresu IP
 
-Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Na przykład:
+Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Przykład:
 
 - Dostawca tożsamości widzi jeden adres IP od klienta.
 - Dostawca zasobów widzi inny adres IP od klienta po przejściu przez serwer proxy.

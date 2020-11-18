@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503814"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837468"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
@@ -90,7 +90,7 @@ Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licen
 > [!WARNING]
 > Jeśli używasz funkcji [okresowego istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) , który jest obecnie w publicznej wersji zapoznawczej, pamiętaj, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jeden z tą funkcją i inną z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft planuje wycofać konfigurowalną funkcję okresu istnienia tokenu dla odświeżania i okresu istnienia tokenu sesji w dniu 30 stycznia 2021 i zamienić ją na funkcję zarządzania sesjami uwierzytelniania dostępu warunkowego.  
 >
-> Przed włączeniem częstotliwości logowania upewnij się, że inne ustawienia ponownego uwierzytelniania są wyłączone w dzierżawie. Jeśli jest włączona funkcja "Pamiętaj MFA na zaufanych urządzeniach", pamiętaj, aby ją wyłączyć przed użyciem częstotliwości logowania, ponieważ te dwa ustawienia mogą prowadzić do nieoczekiwanego monitowania użytkowników. Aby dowiedzieć się więcej o ponownym uwierzytelnianiu i okresach istnienia sesji, zobacz artykuł, [Optymalizacja ponownych prób uwierzytelniania i opis okresu istnienia sesji dla Multi-Factor Authentication platformy Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+> Przed włączeniem częstotliwości logowania upewnij się, że inne ustawienia ponownego uwierzytelniania są wyłączone w dzierżawie. Jeśli jest włączona funkcja "Pamiętaj MFA na zaufanych urządzeniach", pamiętaj, aby ją wyłączyć przed użyciem częstotliwości logowania, ponieważ te dwa ustawienia mogą prowadzić do nieoczekiwanego monitowania użytkowników. Aby dowiedzieć się więcej o ponownym uwierzytelnianiu i okresach istnienia sesji, zobacz artykuł, [Optymalizacja ponownych prób uwierzytelniania i informacje o okresie istnienia sesji dla Multi-Factor Authentication usługi Azure AD](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Zasady 1: kontrola częstotliwości logowania
 

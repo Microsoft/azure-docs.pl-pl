@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbf1a6aebf54c7928fe0636262055f37d7f93bd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 59de3123dc991d0314cd9046d83712d17da53d9f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966546"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837825"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
@@ -48,7 +48,7 @@ Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
 ## <a name="enable-self-service-password-reset"></a>Włączanie samoobsługowego resetowania hasła
 
-Usługa Azure AD umożliwia włączenie opcji SSPR dla opcji *Brak*, *wybrane*lub *Wszyscy* użytkownicy. Ta szczegółowa funkcja umożliwia wybranie podzbioru użytkowników do testowania procesu rejestracji SSPR i przepływu pracy. Jeśli masz doświadczenie z procesem i można przekazać wymagania przez szerszego zestawu użytkowników, możesz wybrać grupę użytkowników do włączenia do SSPR. Możesz również włączyć SSPR dla wszystkich użytkowników w dzierżawie usługi Azure AD.
+Usługa Azure AD umożliwia włączenie opcji SSPR dla opcji *Brak*, *wybrane* lub *Wszyscy* użytkownicy. Ta szczegółowa funkcja umożliwia wybranie podzbioru użytkowników do testowania procesu rejestracji SSPR i przepływu pracy. Jeśli masz doświadczenie z procesem i można przekazać wymagania przez szerszego zestawu użytkowników, możesz wybrać grupę użytkowników do włączenia do SSPR. Możesz również włączyć SSPR dla wszystkich użytkowników w dzierżawie usługi Azure AD.
 
 > [!NOTE]
 >
@@ -58,7 +58,7 @@ W tym samouczku skonfigurujesz SSPR dla zestawu użytkowników w grupie testowej
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta z uprawnieniami *administratora globalnego* .
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Resetowanie hasła** w menu po lewej stronie.
-1. Na stronie **Właściwości** w obszarze opcja samoobsługowe *Resetowanie hasła*wybierz pozycję **Wybierz grupę** .
+1. Na stronie **Właściwości** w obszarze opcja samoobsługowe *Resetowanie hasła* wybierz pozycję **Wybierz grupę** .
 1. Wyszukaj i wybierz grupę usługi Azure AD, np. *SSPR-test-Group*, a następnie wybierz *pozycję Wybierz*.
 
     [![Wybierz grupę w Azure Portal, aby włączyć funkcję samoobsługowego resetowania ](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) hasła](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
@@ -136,7 +136,7 @@ Jeśli nie chcesz już używać funkcji SSPR skonfigurowanych w ramach tego samo
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Resetowanie hasła** w menu po lewej stronie.
-1. Na stronie **Właściwości** w obszarze opcja samoobsługowe *Resetowanie hasła*wybierz pozycję **Brak**.
+1. Na stronie **Właściwości** w obszarze opcja samoobsługowe *Resetowanie hasła* wybierz pozycję **Brak**.
 1. Aby zastosować zmianę SSPR, wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -149,4 +149,4 @@ W ramach tego samouczka włączono funkcję samoobsługowego resetowania hasła 
 > * Przetestuj proces SSPR jako użytkownik
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Włącz Multi-Factor Authentication usługi Azure AD](./tutorial-enable-azure-mfa.md)

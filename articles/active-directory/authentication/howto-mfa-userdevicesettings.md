@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie metodami uwierzytelniania dla usługi Azure Multi-Factor Authentication — Azure Active Directory
-description: Dowiedz się, jak skonfigurować Azure Active Directory ustawienia użytkownika dla platformy Azure Multi-Factor Authentication
+title: Zarządzanie metodami uwierzytelniania dla usługi Azure AD Multi-Factor Authentication — Azure Active Directory
+description: Dowiedz się, jak skonfigurować ustawienia użytkownika Azure Active Directory dla usługi Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1117b5194dae92a8025594ed71fc629670d875cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378049"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838931"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Zarządzanie metodami uwierzytelniania użytkowników w usłudze Azure Multi-Factor Authentication
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Zarządzanie metodami uwierzytelniania użytkowników w usłudze Azure AD Multi-Factor Authentication
 
 Użytkownicy w usłudze Azure AD mają dwa odrębne zestawy informacji kontaktowych:  
 
 - Informacje kontaktowe profilu publicznego, które są zarządzane w profilu użytkownika i widoczne dla członków organizacji. W przypadku użytkowników synchronizowanych z Active Directory lokalnych te informacje są zarządzane w lokalnych Active Directory Domain Servicesach systemu Windows Server.
 - Metody uwierzytelniania, które są zawsze przechowywane jako prywatne i używane tylko do uwierzytelniania, w tym uwierzytelnianie wieloskładnikowe (MFA). Administratorzy mogą zarządzać tymi metodami w bloku Metoda uwierzytelniania użytkownika, a użytkownicy mogą zarządzać swoimi metodami na stronie informacje zabezpieczające dla konta.
 
-Podczas zarządzania metodami Multi-Factor Authentication platformy Azure dla użytkowników Administratorzy uwierzytelniania mogą: 
+Podczas zarządzania metodami Multi-Factor Authentication usługi Azure AD dla użytkowników Administratorzy uwierzytelniania mogą: 
 
 1. Dodawanie metod uwierzytelniania dla określonego użytkownika, w tym numerów telefonów używanych na potrzeby uwierzytelniania wieloskładnikowego.
 1. Zresetuj hasło użytkownika.
@@ -111,11 +111,11 @@ Aby usunąć hasła aplikacji użytkownika, wykonaj następujące czynności:
 1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 1. Wybierz pozycję **Multi-Factor Authentication**. Może być konieczne przewinięcie w prawo, aby wyświetlić tę opcję menu. Wybierz Poniższy przykładowy zrzut ekranu, aby wyświetlić okno pełne Azure Portal i lokalizację menu: [ ![ Wybierz Multi-Factor Authentication z okna użytkowników w usłudze Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Zaznacz pole wyboru obok użytkownika lub użytkowników, którym chcesz zarządzać. Lista opcji szybkiego kroku pojawia się po prawej stronie.
-1. Wybierz pozycję **Zarządzaj ustawieniami użytkownika** , a następnie zaznacz pole wyboru **Usuń wszystkie istniejące hasła aplikacji wygenerowane przez wybranych użytkowników** , jak pokazano w następującym przykładzie: ![ Usuń wszystkie istniejące hasła aplikacji](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-1. Wybierz pozycję **Zapisz** , a następnie przycisk **Zamknij**.
+1. Wybierz pozycję **Zarządzaj ustawieniami użytkownika**, a następnie zaznacz pole wyboru **Usuń wszystkie istniejące hasła aplikacji wygenerowane przez wybranych użytkowników**, jak pokazano w następującym przykładzie: ![ Usuń wszystkie istniejące hasła aplikacji](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. Wybierz pozycję **Zapisz**, a następnie przycisk **Zamknij**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule pokazano, jak skonfigurować poszczególne ustawienia użytkownika. Aby skonfigurować ogólne ustawienia usługi Azure Multi-Factor Authentication, zobacz [Konfigurowanie ustawień Multi-Factor Authentication platformy Azure](howto-mfa-mfasettings.md).
+W tym artykule pokazano, jak skonfigurować poszczególne ustawienia użytkownika. Aby skonfigurować ogólne ustawienia usługi Azure AD Multi-Factor Authentication, zobacz [Configure Azure ad Multi-Factor Authentication Settings](howto-mfa-mfasettings.md).
 
-Jeśli użytkownicy potrzebują pomocy, zapoznaj się z [podręcznikiem użytkownika dotyczącym usługi Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+Jeśli użytkownicy potrzebują pomocy, zapoznaj się z [podręcznikiem użytkownika dotyczącym usługi Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

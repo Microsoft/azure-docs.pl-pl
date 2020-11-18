@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania dotyczące platformy Azure Multi-Factor Authentication — Azure Active Directory
-description: Często zadawane pytania i odpowiedzi dotyczące usługi Azure Multi-Factor Authentication.
+title: Często zadawane pytania dotyczące usługi Azure AD Multi-Factor Authentication — Azure Active Directory
+description: Często zadawane pytania i odpowiedzi dotyczące usługi Azure AD Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de86bc7d083fbf1890ed90c588b5bdb2e8479dfb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 909f4b71e07a20abf4af76fecaaf93bb08e4d6b4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963979"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837910"
 ---
-# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
+# <a name="frequently-asked-questions-about-azure-ad-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure AD Multi-Factor Authentication
 
-Często zadawane pytania odpowiedzą się na często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication i korzystania z usługi Multi-Factor Authentication. Jest on podzielony na pytania dotyczące usługi, ogólnie rzecz biorąc, modele rozliczeń, środowisko użytkownika i rozwiązywanie problemów.
+Często zadawane pytania dotyczą często zadawanych pytań dotyczących usługi Azure AD Multi-Factor Authentication i korzystania z usługi Multi-Factor Authentication. Jest on podzielony na pytania dotyczące usługi, ogólnie rzecz biorąc, modele rozliczeń, środowisko użytkownika i rozwiązywanie problemów.
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure AD Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
 >
 > Informacje udostępnione poniżej dotyczące Serwer Multi-Factor Authentication platformy Azure mają zastosowanie tylko do użytkowników, którzy mają już uruchomiony serwer usługi MFA.
 >
@@ -37,7 +37,7 @@ Często zadawane pytania odpowiedzą się na często zadawane pytania dotyczące
 
 ### <a name="how-does-azure-multi-factor-authentication-server-handle-user-data"></a>Jak usługa Azure Serwer Multi-Factor Authentication obsługuje dane użytkowników?
 
-W przypadku Serwer Multi-Factor Authentication dane użytkownika są przechowywane tylko na serwerach lokalnych. Żadne trwałe dane użytkowników nie są przechowywane w chmurze. Gdy użytkownik przeprowadza weryfikację dwuetapową, Serwer Multi-Factor Authentication wysyła dane do usługi Azure Multi-Factor Authentication w chmurze w celu uwierzytelnienia. Komunikacja między Serwer Multi-Factor Authentication i Multi-Factor Authentication usługą w chmurze używa SSL (SSL) lub Transport Layer Security (TLS) przez port 443 wychodzące.
+W przypadku Serwer Multi-Factor Authentication dane użytkownika są przechowywane tylko na serwerach lokalnych. Żadne trwałe dane użytkowników nie są przechowywane w chmurze. Gdy użytkownik przeprowadza weryfikację dwuetapową, Serwer Multi-Factor Authentication wysyła dane do usługi Azure AD Multi-Factor Authentication w chmurze w celu uwierzytelnienia. Komunikacja między Serwer Multi-Factor Authentication i Multi-Factor Authentication usługą w chmurze używa SSL (SSL) lub Transport Layer Security (TLS) przez port 443 wychodzące.
 
 Gdy żądania uwierzytelniania są wysyłane do usługi w chmurze, dane są zbierane do raportów dotyczących uwierzytelniania i użycia. Następujące pola danych są zawarte w dziennikach weryfikacji dwuetapowej:
 
@@ -56,7 +56,7 @@ Opcjonalne pola można skonfigurować w Serwer Multi-Factor Authentication.
 
 Wynik weryfikacji (sukces lub odmowa) i powód, jeśli został odrzucony, jest przechowywany w danych uwierzytelniania. Te dane są dostępne w raportach dotyczących uwierzytelniania i użycia.
 
-Aby uzyskać więcej informacji, zobacz [dane dotyczące miejsca zamieszkania i danych klienta dla platformy Azure Multi-Factor Authentication](concept-mfa-data-residency.md).
+Aby uzyskać więcej informacji, zobacz [dane dotyczące miejsca zamieszkania i klienta w usłudze Azure AD Multi-Factor Authentication](concept-mfa-data-residency.md).
 
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>Jakie krótkie kody programu SMS są używane do wysyłania wiadomości SMS do użytkowników?
 
@@ -78,19 +78,19 @@ Nie obsługujemy krótkich kodów dla krajów lub regionów poza Stany Zjednoczo
 
 ## <a name="billing"></a>Rozliczenia
 
-W przypadku większości pytań dotyczących rozliczeń można odpowiedzieć na [stronę z cennikiem Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) lub dokumentację dotyczącą [wersji Multi-Factor Authentication platformy Azure oraz planów użycia](concept-mfa-licensing.md).
+W przypadku większości pytań dotyczących rozliczeń można odpowiedzieć na [stronie z cennikiem Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) lub z dokumentacją dotyczącą [wersji usługi Azure AD Multi-Factor Authentication i planów użycia](concept-mfa-licensing.md).
 
 * [Czy Moja organizacja nalicza opłaty za wysyłanie połączeń telefonicznych i wiadomości SMS, które są używane do uwierzytelniania?](#is-my-organization-charged-for-sending-the-phone-calls-and-text-messages-that-are-used-for-authentication)
 * [Czy model rozliczeń dla poszczególnych użytkowników jest odpowiedzialny za wszystkich włączonych użytkowników, czy tylko te, które przeprowadzono weryfikację dwuetapową?](#does-the-per-user-billing-model-charge-me-for-all-enabled-users-or-just-the-ones-that-performed-two-step-verification)
 * [Jak działa rozliczanie Multi-Factor Authentication?](#how-does-multi-factor-authentication-billing-work)
-* [Czy istnieje bezpłatna wersja platformy Azure Multi-Factor Authentication?](#is-there-a-free-version-of-azure-multi-factor-authentication)
+* [Czy istnieje bezpłatna wersja usługi Azure AD Multi-Factor Authentication?](#is-there-a-free-version-of-azure-ad-multi-factor-authentication)
 * [Czy Moja organizacja może przełączać się między różnymi modelami rozliczeniowymi dla poszczególnych użytkowników i uwierzytelniania?](#can-my-organization-switch-between-per-user-and-per-authentication-consumption-billing-models-at-any-time)
 * [Czy Moja organizacja może przełączać się między rozliczeniami i subskrypcjami na podstawie użycia (modelem opartym na licencji) w dowolnym momencie?](#can-my-organization-switch-between-consumption-based-billing-and-subscriptions-a-license-based-model-at-any-time)
-* [Czy Moja organizacja musi używać tożsamości i synchronizować je do korzystania z usługi Azure Multi-Factor Authentication?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-multi-factor-authentication)
+* [Czy Moja organizacja musi używać tożsamości i synchronizować je do korzystania z usługi Azure AD Multi-Factor Authentication?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-ad-multi-factor-authentication)
 
 ### <a name="is-my-organization-charged-for-sending-the-phone-calls-and-text-messages-that-are-used-for-authentication"></a>Czy Moja organizacja nalicza opłaty za wysyłanie połączeń telefonicznych i wiadomości SMS, które są używane do uwierzytelniania?
 
-Nie, nie są naliczone opłaty za poszczególne połączenia telefoniczne lub wiadomości SMS wysyłane do użytkowników za pomocą usługi Azure Multi-Factor Authentication. Jeśli używasz dostawcy usługi MFA uwierzytelniania, opłaty są naliczane za każde uwierzytelnianie, ale nie dla używanej metody.
+Nie, nie są naliczone opłaty za poszczególne połączenia telefoniczne lub wiadomości SMS wysyłane do użytkowników za pomocą usługi Azure AD Multi-Factor Authentication. Jeśli używasz dostawcy usługi MFA uwierzytelniania, opłaty są naliczane za każde uwierzytelnianie, ale nie dla używanej metody.
 
 Użytkownicy mogą być obciążani opłatami za rozmowy telefoniczne lub wiadomości SMS, które odbierają, zgodnie z ich osobistą usługą telefoniczną.
 
@@ -102,11 +102,11 @@ Opłaty są naliczane na podstawie liczby użytkowników skonfigurowanych do kor
 
 Podczas tworzenia dostawcy usługi MFA dla użytkownika lub uwierzytelniania w ramach subskrypcji platformy Azure w organizacji jest naliczana miesięczna stawka na podstawie użycia. Ten model rozliczeń jest podobny do tego, jak na platformie Azure są naliczane opłaty za użycie maszyn wirtualnych i Web Apps.
 
-W przypadku zakupienia subskrypcji usługi Azure Multi-Factor Authentication organizacja płaci tylko roczną opłatę za licencję dla każdego użytkownika. W ten sposób rozliczane są opłaty za licencje usługi MFA oraz Microsoft 365, Azure AD — wersja Premium lub Enterprise Mobility + Security.
+W przypadku zakupu subskrypcji usługi Azure AD Multi-Factor Authentication organizacja płaci tylko roczną opłatę za licencję dla każdego użytkownika. W ten sposób rozliczane są opłaty za licencje usługi MFA oraz Microsoft 365, Azure AD — wersja Premium lub Enterprise Mobility + Security.
 
-Aby uzyskać więcej informacji, zobacz [jak uzyskać Multi-Factor Authentication platformy Azure](concept-mfa-licensing.md).
+Aby uzyskać więcej informacji, zobacz [jak uzyskać Multi-Factor Authentication usługi Azure AD](concept-mfa-licensing.md).
 
-### <a name="is-there-a-free-version-of-azure-multi-factor-authentication"></a>Czy istnieje bezpłatna wersja platformy Azure Multi-Factor Authentication?
+### <a name="is-there-a-free-version-of-azure-ad-multi-factor-authentication"></a>Czy istnieje bezpłatna wersja usługi Azure AD Multi-Factor Authentication?
 
 Domyślne ustawienia zabezpieczeń można włączyć w warstwie Azure AD — wersja Bezpłatna. W przypadku domyślnych ustawień zabezpieczeń wszyscy użytkownicy są włączeni do uwierzytelniania wieloskładnikowego przy użyciu aplikacji Microsoft Authenticator. Nie ma możliwości użycia wiadomości tekstowych ani weryfikacji telefonu z domyślnymi ustawieniami zabezpieczeń. tylko Microsoft Authenticator aplikacji.
 
@@ -128,7 +128,7 @@ Jeśli katalog zawiera dostawcę Multi-Factor Authentication platformy Azure *dl
 
 Jeśli katalog zawiera dostawcę usługi Azure Multi-Factor Authentication *na potrzeby uwierzytelniania* , opłaty są naliczane za każde uwierzytelnianie, o ile dostawca usług MFA jest połączony z subskrypcją. Licencje usługi MFA można przypisywać użytkownikom, ale nadal będą naliczane opłaty za każde żądanie weryfikacji dwuetapowej, niezależnie od tego, czy pochodzi ona od kogoś, kto ma przypisaną licencję usługi MFA.
 
-### <a name="does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-multi-factor-authentication"></a>Czy Moja organizacja musi używać tożsamości i synchronizować je do korzystania z usługi Azure Multi-Factor Authentication?
+### <a name="does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-ad-multi-factor-authentication"></a>Czy Moja organizacja musi używać tożsamości i synchronizować je do korzystania z usługi Azure AD Multi-Factor Authentication?
 
 Jeśli Twoja organizacja korzysta z modelu rozliczania opartego na użyciu, Azure Active Directory jest opcjonalne, ale nie jest wymagane. Jeśli dostawca MFA nie jest połączony z dzierżawą usługi Azure AD, możesz wdrożyć tylko usługę Azure Serwer Multi-Factor Authentication lokalnie.
 
@@ -159,11 +159,11 @@ Aby uzyskać więcej informacji, zobacz [Przewodnik rozwiązywania problemów u�
 
 ### <a name="what-should-i-do-if-one-of-my-users-cant-get-in-to-their-account"></a>Co należy zrobić, jeśli nikt z użytkowników nie może uzyskać do swojego konta?
 
-Możesz zresetować konto użytkownika, przechodząc przez proces rejestracji. Dowiedz się więcej o [zarządzaniu ustawieniami użytkowników i urządzeń za pomocą usługi Azure Multi-Factor Authentication w chmurze](howto-mfa-userdevicesettings.md).
+Możesz zresetować konto użytkownika, przechodząc przez proces rejestracji. Dowiedz się więcej o [zarządzaniu ustawieniami użytkowników i urządzeń za pomocą usługi Azure AD Multi-Factor Authentication w chmurze](howto-mfa-userdevicesettings.md).
 
 ### <a name="what-should-i-do-if-one-of-my-users-loses-a-phone-that-is-using-app-passwords"></a>Co należy zrobić, jeśli jeden z użytkowników utraci telefon korzystający z haseł aplikacji?
 
-Aby zapobiec nieautoryzowanemu dostępowi, Usuń wszystkie hasła aplikacji użytkownika. Gdy użytkownik ma urządzenie zastępcze, może ponownie utworzyć hasła. Dowiedz się więcej o [zarządzaniu ustawieniami użytkowników i urządzeń za pomocą usługi Azure Multi-Factor Authentication w chmurze](howto-mfa-userdevicesettings.md).
+Aby zapobiec nieautoryzowanemu dostępowi, Usuń wszystkie hasła aplikacji użytkownika. Gdy użytkownik ma urządzenie zastępcze, może ponownie utworzyć hasła. Dowiedz się więcej o [zarządzaniu ustawieniami użytkowników i urządzeń za pomocą usługi Azure AD Multi-Factor Authentication w chmurze](howto-mfa-userdevicesettings.md).
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>Co zrobić, jeśli użytkownik nie może się zalogować do aplikacji niekorzystających z przeglądarki?
 
@@ -199,7 +199,7 @@ W przypadku jednokierunkowego SMS z usługą Azure MFA Server w wersji 7.0 lub n
 
 Jeśli użytkownicy nie odpowiadają na wiadomość SMS w określonym limicie czasu, uwierzytelnienie zostanie odrzucone.
 
-W przypadku jednokierunkowej wiadomości SMS z usługą Azure MFA w chmurze (w tym karty AD FS lub rozszerzenia serwera zasad sieciowych) nie można skonfigurować ustawienia limitu czasu. Usługa Azure AD przechowuje kod weryfikacyjny przez 180 sekund.
+W przypadku jednokierunkowej wiadomości SMS z usługą Azure AD MFA w chmurze (w tym karty AD FS lub rozszerzenia serwera zasad sieciowych) nie można skonfigurować ustawienia limitu czasu. Usługa Azure AD przechowuje kod weryfikacyjny przez 180 sekund.
 
 ### <a name="can-i-use-hardware-tokens-with-azure-multi-factor-authentication-server"></a>Czy mogę używać tokenów sprzętowych z usługą Azure Serwer Multi-Factor Authentication?
 
@@ -234,7 +234,7 @@ Istnieje kilka powodów, dla których użytkownicy mogą uzyskać monit o zareje
 - Organizacja utworzyła i włączyła zasady rejestracji usługi MFA, które zostały zastosowane do użytkownika.
 - Użytkownik zarejestrował się wcześniej do uwierzytelniania wieloskładnikowego, ale wybiera metodę weryfikacji, która została wyłączona przez administratora. W związku z tym użytkownik musi ponownie wykonać rejestrację usługi MFA, aby wybrać nową domyślną metodę weryfikacji.
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>błędy
 
 * [Co powinni zrobić użytkownicy, jeśli podczas korzystania z powiadomień aplikacji mobilnej zobaczysz komunikat o błędzie "żądanie uwierzytelnienia nie dotyczy aktywowanego konta"?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
 * [Co powinni zrobić użytkownicy, Jeśli zobaczysz komunikat o błędzie 0x800434D4L podczas logowania do aplikacji nie korzystającej z przeglądarki?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042797"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837655"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -34,7 +34,7 @@ Block to zaawansowana kontrolka, która powinna być wielded z odpowiednią wied
 
 Administratorzy mogą zdecydować się na wymuszenie co najmniej jednej kontrolki podczas udzielania dostępu. Te kontrolki obejmują następujące opcje: 
 
-- [Wymagaj uwierzytelniania wieloskładnikowego (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Wymagaj uwierzytelniania wieloskładnikowego (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Wymagaj, aby urządzenie było oznaczone jako zgodne (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Wymaganie zatwierdzonej aplikacji klienckiej](app-based-conditional-access.md)
@@ -50,7 +50,7 @@ Domyślnie dostęp warunkowy wymaga wszystkich zaznaczonych kontrolek.
 
 ### <a name="require-multi-factor-authentication"></a>Wymagaj uwierzytelniania wieloskładnikowego
 
-Zaznaczenie tego pola wyboru spowoduje, że użytkownicy będą musieli wykonać Multi-Factor Authentication platformy Azure. Więcej informacji na temat wdrażania usługi Azure Multi-Factor Authentication można znaleźć w artykule [Planowanie wdrożenia usługi azure Multi-Factor Authentication opartego na chmurze](../authentication/howto-mfa-getstarted.md).
+Zaznaczenie tego pola wyboru spowoduje, że użytkownicy będą musieli wykonać Multi-Factor Authentication usługi Azure AD. Więcej informacji na temat wdrażania usługi Azure AD Multi-Factor Authentication można znaleźć w artykule [Planowanie wdrożenia usługi Azure ad Multi-Factor Authentication opartego na chmurze](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Wymagaj, aby urządzenie było oznaczone jako zgodne
 

@@ -11,19 +11,19 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363729"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838081"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
 > [!IMPORTANT]
 > Ten plan wdrożenia zawiera wskazówki i najlepsze rozwiązania dotyczące wdrażania funkcji samoobsługowego resetowania haseł w usłudze Azure AD (SSPR).
 >
-> **Jeśli jesteś użytkownikiem końcowym i chcesz wrócić do swojego konta, przejdź do [https://aka.ms/sspr](https://aka.ms/sspr) **strony.
+> **Jeśli jesteś użytkownikiem końcowym i chcesz wrócić do swojego konta, przejdź do [https://aka.ms/sspr](https://aka.ms/sspr)** strony.
 
 [Samoobsługowe resetowanie hasła (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) to funkcja Azure Active Directory (AD), która umożliwia użytkownikom resetowanie haseł bez kontaktowania się z pracownikami działu IT w celu uzyskania pomocy. Użytkownicy mogą szybko odblokować siebie i kontynuować pracę niezależnie od tego, gdzie się znajdują. Dzięki umożliwieniu pracownikom odblokowania, organizacja może skrócić czas nieproduktywny i wysokie koszty obsługi typowych problemów związanych z hasłami.
 
@@ -115,7 +115,7 @@ Przed wdrożeniem SSPR możesz określić liczbę i średni koszt każdego wywo�
 
 Firma Microsoft zaleca, aby organizacje umożliwiały łączenie się ze sobą przy użyciu usługi SSPR i uwierzytelniania wieloskładnikowego. Po włączeniu tego połączonego środowiska rejestracji użytkownicy będą musieli tylko wybrać informacje o rejestracji, aby włączyć obie funkcje.
 
-Połączone środowisko rejestracji nie wymaga, aby organizacje umożliwiały zarówno SSPR, jak i Multi-Factor Authentication platformy Azure. Połączona Rejestracja zapewnia organizacjom lepszy komfort pracy użytkowników. Aby uzyskać więcej informacji, zobacz artykuł [łączenie informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
+Połączone środowisko rejestracji nie wymaga, aby organizacje umożliwiały zarówno SSPR, jak i usługę Azure AD Multi-Factor Authentication. Połączona Rejestracja zapewnia organizacjom lepszy komfort pracy użytkowników. Aby uzyskać więcej informacji, zobacz artykuł [łączenie informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-deployment-project"></a>Planowanie projektu wdrożenia
 
@@ -149,7 +149,7 @@ Aby utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure A
 
 Następujące ustawienia są wymagane do włączenia SSPR oraz zalecanych wartości.
 
-| Warstwowy | Ustawienie | Wartość |
+| Obszar | Ustawienie | Wartość |
 | --- | --- | --- |
 | **Właściwości SSPR** | Włączono Samoobsługowe resetowanie hasła | **Wybrana** Grupa dla pilotażu/ **wszystko** dla środowiska produkcyjnego |
 | **Metody uwierzytelniania** | Metody uwierzytelniania wymagane do zarejestrowania | Zawsze 1 więcej niż wymagane do zresetowania |
@@ -321,7 +321,7 @@ Dzienniki inspekcji na potrzeby rejestracji i resetowania haseł są dostępne p
 
 ### <a name="authentication-methods--usage-and-insights"></a>Metody uwierzytelniania — użycie i szczegółowe informacje
 
-[Użycie i szczegółowe informacje](./howto-authentication-methods-usage-insights.md) pozwalają zrozumieć, jak metody uwierzytelniania dla funkcji, takich jak Azure MFA i SSPR, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, które umożliwiają zapoznanie się z metodami rejestrowania i korzystania z nich.
+[Użycie i szczegółowe informacje](./howto-authentication-methods-usage-insights.md) pozwalają zrozumieć, jak metody uwierzytelniania dla funkcji, takich jak usługa Azure AD MFA i SSPR, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, które umożliwiają zapoznanie się z metodami rejestrowania i korzystania z nich.
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 

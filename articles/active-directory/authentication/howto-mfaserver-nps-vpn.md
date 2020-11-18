@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d28ecfeb9312a6bf5a0b37e07919f9d781de50ea
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1ba0d359079a8999b3c4f2a41f4beadb835ccacc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968586"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838233"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Zaawansowane scenariusze z serwerem usługi Azure MFA i rozwiązaniami sieci VPN innych firm
 
 Usługa Azure Serwer Multi-Factor Authentication (serwer usługi Azure MFA) umożliwia bezproblemowe łączenie się z różnymi rozwiązaniami sieci VPN innych firm. Ten artykuł koncentruje się na &reg; urządzeniu sieci VPN Cisco ASA, urządzeniu sieci VPN protokołu SSL Citrix i sieci Juniper Networks bezpieczny dostęp/puls Secure Connect Secure SSL. Utworzyliśmy przewodniki konfiguracyjne, aby rozwiązać te trzy typowe urządzenia. Serwer usługi Azure MFA można również zintegrować z większością innych systemów, które używają usługi RADIUS, LDAP, IIS lub uwierzytelniania opartego na oświadczeniach do AD FS. Więcej szczegółów można znaleźć w [konfiguracjach serwera usługi Azure MFA](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać opartych na chmurze Multi-Factor Authentication platformy Azure.
+> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać Multi-Factor Authentication usługi Azure AD opartych na chmurze.
 >
-> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Jeśli używasz usługi MFA opartej na chmurze, zobacz [integrowanie infrastruktury sieci VPN z usługą Azure MFA](howto-mfa-nps-extension-vpn.md).
 >

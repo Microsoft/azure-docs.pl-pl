@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 74e4ca34a69b121ce5b92ad52125dc317e3aea43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145370"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837672"
 ---
 # <a name="building-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -101,7 +101,7 @@ Blokuj dostęp to po prostu, że będzie blokować dostęp w określonych przypi
 
 Formant Grant może wyzwalać wymuszanie jednej lub więcej kontrolek. 
 
-- Wymagaj uwierzytelniania wieloskładnikowego (Azure Multi-Factor Authentication)
+- Wymagaj uwierzytelniania wieloskładnikowego (Azure AD Multi-Factor Authentication)
 - Wymagaj, aby urządzenie było oznaczone jako zgodne (Intune)
 - Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD
 - Wymaganie zatwierdzonej aplikacji klienckiej
@@ -150,7 +150,7 @@ Artykuł [typowe zasady dostępu warunkowego](concept-conditional-access-policy-
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)
 
-[Planowanie wdrożenia usługi Azure Multi-Factor Authentication opartej na chmurze](../authentication/howto-mfa-getstarted.md)
+[Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication opartej na chmurze](../authentication/howto-mfa-getstarted.md)
 
 [Zarządzanie zgodnością urządzeń z usługą Intune](/intune/device-compliance-get-started)
 

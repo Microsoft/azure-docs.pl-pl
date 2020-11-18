@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb442a913ac8bde869144de1a75869a39b12398
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 53f7b0877c1b816bd41226f9207f7dc950eadfd1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966903"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838522"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Upgrade to the latest Azure Multi-Factor Authentication Server (Uaktualnianie do najnowszej wersji serwera Azure Multi-Factor Authentication)
 
@@ -25,9 +25,9 @@ Ten artykuł przeprowadzi Cię przez proces uaktualniania serwera usługi Azure 
 Jeśli uaktualniasz program z wersji v6. x lub starszej do wersji 7. x lub nowszej, wszystkie składniki zmieniają się z .NET 2,0 na .NET 4,5. Wszystkie składniki wymagają również Microsoft Visual C++ 2015 redystrybucyjnej aktualizacji 1 lub nowszej. Instalator serwera usługi MFA instaluje zarówno wersje x86, jak i x64 tych składników, jeśli nie są one jeszcze zainstalowane. Jeśli portal użytkowników i usługa sieci Web aplikacji mobilnej działają na oddzielnych serwerach, należy zainstalować te pakiety przed uaktualnieniem tych składników. Najnowszą aktualizację pakietu redystrybucyjnego Microsoft Visual C++ 2015 można znaleźć w [Centrum pobierania Microsoft](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać opartych na chmurze Multi-Factor Authentication platformy Azure.
+> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać Multi-Factor Authentication usługi Azure AD opartych na chmurze.
 >
-> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca 2019, mogą pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
 
@@ -102,7 +102,7 @@ Te instrukcje mają zastosowanie tylko w przypadku uruchamiania Serwer Multi-Fac
 
    Jeśli wystąpi błąd z informacją, wymagana jest "Microsoft Visual C++ 2015 redystrybucyjnej aktualizacji 1 lub nowszej", Pobierz i zainstaluj najnowszy pakiet aktualizacji z [Centrum pobierania Microsoft](https://www.microsoft.com/download/). Zainstaluj wersje x86 i x64.
 
-3. Przejdź do pozycji **AD FS**  >  **zasady uwierzytelniania**  >  **Edytuj globalne zasady uwierzytelniania**wieloskładnikowego. Usuń zaznaczenie opcji **element windowsazuremultifactorauthentication** lub **AzureMFAServerAuthentication** (w zależności od zainstalowanej bieżącej wersji).
+3. Przejdź do pozycji **AD FS**  >  **zasady uwierzytelniania**  >  **Edytuj globalne zasady uwierzytelniania** wieloskładnikowego. Usuń zaznaczenie opcji **element windowsazuremultifactorauthentication** lub **AzureMFAServerAuthentication** (w zależności od zainstalowanej bieżącej wersji).
 
    Po zakończeniu tego kroku weryfikacja dwuetapowa za poorednictwem serwera usługi MFA nie jest dostępna w tym AD FS klastrze, dopóki nie zostanie ukończony krok 8.
 
@@ -110,7 +110,7 @@ Te instrukcje mają zastosowanie tylko w przypadku uruchamiania Serwer Multi-Fac
 5. Zarejestruj nową kartę AD FS, uruchamiając skrypt Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell. Dotyczy to wszystkich serwerów w tym samym klastrze AD FS od momentu, gdy istnieje Centralna konfiguracja.
 6. Uruchom ponownie usługę AD FS na każdym serwerze, który został usunięty z farmy AD FS.
 7. Dodaj zaktualizowane serwery z powrotem do farmy AD FS i Usuń inne serwery z farmy.
-8. Przejdź do pozycji **AD FS**  >  **zasady uwierzytelniania**  >  **Edytuj globalne zasady uwierzytelniania**wieloskładnikowego. Sprawdź **AzureMfaServerAuthentication**.
+8. Przejdź do pozycji **AD FS**  >  **zasady uwierzytelniania**  >  **Edytuj globalne zasady uwierzytelniania** wieloskładnikowego. Sprawdź **AzureMfaServerAuthentication**.
 9. Powtórz krok 2, aby zaktualizować serwery teraz usunięte z farmy AD FS i ponownie uruchomić usługę AD FS na tych serwerach.
 10. Dodaj te serwery z powrotem do farmy AD FS.
 

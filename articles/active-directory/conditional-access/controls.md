@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7585c91e42b2d3591532756c1ead9ea60b7035e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266582"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837587"
 ---
 # <a name="custom-controls-preview"></a>Formanty niestandardowe (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Opcja tworzenia kontrolki niestandardowej znajduje się w sekcji **Zarządzanie*
 
 ![Interfejs formantów niestandardowych w dostępie warunkowym](./media/controls/custom-controls-conditional-access.png)
 
-Kliknięcie przycisku **Nowy formant niestandardowy**powoduje otwarcie bloku z polem tekstowym dla danych JSON formantu.  
+Kliknięcie przycisku **Nowy formant niestandardowy** powoduje otwarcie bloku z polem tekstowym dla danych JSON formantu.  
 
 ![Nowa kontrolka niestandardowa](./media/controls/new-custom-controls-conditional-access.png)
 
@@ -53,7 +53,7 @@ Aby edytować kontrolkę niestandardową, należy usunąć bieżącą kontrolkę
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure Multi-Factor Authentication, samoobsługowego resetowania hasła w usłudze Azure AD (SSPR), spełniając wymagania dotyczące uwierzytelniania wieloskładnikowego w celu podniesienia poziomu ról w programie Privileged Identity Manager (PIM) w ramach rejestracji urządzeń w usłudze Intune lub dołączania urządzeń do usługi Azure AD.
+Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure AD Multi-Factor Authentication, samoobsługowego resetowania hasła usługi Azure AD (SSPR), spełniając wymagania dotyczące uwierzytelniania wieloskładnikowego w celu podniesienia poziomu ról w programie Privileged Identity Manager (PIM) w ramach rejestracji urządzeń w usłudze Intune lub dołączania urządzeń do usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

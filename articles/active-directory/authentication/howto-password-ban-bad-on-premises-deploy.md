@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b0b34ce55a0896fb804a48779c9c1007c8c340f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077731"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838216"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -142,8 +142,8 @@ Usługa Aktualizator Connect Agent jest zainstalowana obok usługi serwera proxy
 
 Istnieją dwa wymagane Instalatory dla lokalnego wdrożenia ochrony hasła usługi Azure AD:
 
-* Agent DC ochrony hasłem usługi Azure AD ( *AzureADPasswordProtectionDCAgentSetup.msi* )
-* Serwer proxy ochrony hasłem usługi Azure AD ( *AzureADPasswordProtectionProxySetup.exe* )
+* Agent DC ochrony hasłem usługi Azure AD (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Serwer proxy ochrony hasłem usługi Azure AD (*AzureADPasswordProtectionProxySetup.exe*)
 
 Pobierz oba Instalatory z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -193,7 +193,7 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    Wynik powinien zawierać **stan** *uruchomiony* .
+    Wynik powinien zawierać **stan** *uruchomiony*.
 
 1. Usługa serwera proxy jest uruchomiona na komputerze, ale nie ma poświadczeń do komunikowania się z usługą Azure AD. Zarejestruj serwer proxy ochrony hasłem usługi Azure AD za pomocą usługi Azure AD przy użyciu `Register-AzureADPasswordProtectionProxy` polecenia cmdlet.
 
@@ -201,7 +201,7 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
 
     Po pomyślnym wykonaniu tego polecenia dla usługi serwera proxy ochrony hasłem w usłudze Azure AD zostaną pomyślnie wykonane dodatkowe wywołania, ale nie są one potrzebne.
 
-    `Register-AzureADPasswordProtectionProxy`Polecenie cmdlet obsługuje następujące trzy tryby uwierzytelniania. Pierwsze dwa tryby obsługują platformę Azure Multi-Factor Authentication, ale trzeci tryb nie jest.
+    `Register-AzureADPasswordProtectionProxy`Polecenie cmdlet obsługuje następujące trzy tryby uwierzytelniania. Pierwsze dwa tryby obsługują usługę Azure AD Multi-Factor Authentication ale trzeci tryb nie jest.
 
     > [!TIP]
     > Podczas pierwszego uruchomienia tego polecenia cmdlet dla określonej dzierżawy platformy Azure może wystąpić zauważalne opóźnienie. O ile nie zgłoszono błędu, nie martw się o to opóźnienie.
@@ -231,11 +231,11 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
         ```
 
         > [!NOTE]
-        > Ten tryb kończy się niepowodzeniem, jeśli usługa Azure Multi-Factor Authentication jest wymagana dla Twojego konta. W takim przypadku należy użyć jednego z dwóch poprzednich trybów uwierzytelniania lub zamiast tego użyć innego konta, które nie wymaga uwierzytelniania MFA.
+        > Ten tryb kończy się niepowodzeniem, jeśli usługa Azure AD Multi-Factor Authentication jest wymagana dla Twojego konta. W takim przypadku należy użyć jednego z dwóch poprzednich trybów uwierzytelniania lub zamiast tego użyć innego konta, które nie wymaga uwierzytelniania MFA.
         >
         > Możesz również sprawdzić, czy uwierzytelnianie wieloskładnikowe jest wymagane, jeśli usługa Azure Device Registration (która jest używana w ramach okładki przez usługę Azure AD Password Protection) została skonfigurowana w taki sposób, aby globalnie wymagała uwierzytelniania wieloskładnikowego. Aby obejść to wymaganie, można użyć innego konta, które obsługuje uwierzytelnianie wieloskładnikowe z jednym z poprzednich dwóch trybów uwierzytelniania lub można również tymczasowo osłabić wymaganie usługi MFA rejestracji urządzeń Azure.
         >
-        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia** . Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie* . Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
+        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia**. Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie*. Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
         >
         > Zalecamy, aby wymagania usługi MFA były pomijane wyłącznie w celach testowych.
 
@@ -252,7 +252,7 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
     
     Ten krok jest uruchamiany raz na las.
 
-    `Register-AzureADPasswordProtectionForest`Polecenie cmdlet obsługuje następujące trzy tryby uwierzytelniania. Pierwsze dwa tryby obsługują platformę Azure Multi-Factor Authentication, ale trzeci tryb nie jest.
+    `Register-AzureADPasswordProtectionForest`Polecenie cmdlet obsługuje następujące trzy tryby uwierzytelniania. Pierwsze dwa tryby obsługują usługę Azure AD Multi-Factor Authentication ale trzeci tryb nie jest.
 
     > [!TIP]
     > Podczas pierwszego uruchomienia tego polecenia cmdlet dla określonej dzierżawy platformy Azure może wystąpić zauważalne opóźnienie. O ile nie zgłoszono błędu, nie martw się o to opóźnienie.
@@ -282,11 +282,11 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
         ```
 
         > [!NOTE]
-        > Ten tryb kończy się niepowodzeniem, jeśli usługa Azure Multi-Factor Authentication jest wymagana dla Twojego konta. W takim przypadku należy użyć jednego z dwóch poprzednich trybów uwierzytelniania lub zamiast tego użyć innego konta, które nie wymaga uwierzytelniania MFA.
+        > Ten tryb kończy się niepowodzeniem, jeśli usługa Azure AD Multi-Factor Authentication jest wymagana dla Twojego konta. W takim przypadku należy użyć jednego z dwóch poprzednich trybów uwierzytelniania lub zamiast tego użyć innego konta, które nie wymaga uwierzytelniania MFA.
         >
         > Możesz również sprawdzić, czy uwierzytelnianie wieloskładnikowe jest wymagane, jeśli usługa Azure Device Registration (która jest używana w ramach okładki przez usługę Azure AD Password Protection) została skonfigurowana w taki sposób, aby globalnie wymagała uwierzytelniania wieloskładnikowego. Aby obejść to wymaganie, można użyć innego konta, które obsługuje uwierzytelnianie wieloskładnikowe z jednym z poprzednich dwóch trybów uwierzytelniania lub można również tymczasowo osłabić wymaganie usługi MFA rejestracji urządzeń Azure.
         >
-        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia** . Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie* . Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
+        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia**. Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie*. Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
         >
         > Zalecamy, aby wymagania usługi MFA były pomijane wyłącznie w celach testowych.
 

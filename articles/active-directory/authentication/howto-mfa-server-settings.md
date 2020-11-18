@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70777c80cdee99f13050d7cd342f22d59da13d73
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3da7c3afa6b414e3d7df3bb58766d1ab7657dbc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964114"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838965"
 ---
 # <a name="configure-mfa-server-settings"></a>Konfigurowanie ustawień serwera usługi MFA
 
 Ten artykuł ułatwia zarządzanie ustawieniami serwera usługi Azure MFA w Azure Portal.
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure AD Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
 
 Dostępne są następujące ustawienia serwera MFA:
 
-| Cecha | Opis |
+| Cechy | Opis |
 | ------- | ----------- |
 | Ustawienia serwera | Pobierz serwer usługi MFA i Wygeneruj poświadczenia aktywacji w celu zainicjowania środowiska |
 | [Jednorazowe obejście](#one-time-bypass) | Zezwalaj użytkownikowi na uwierzytelnianie bez uwierzytelniania wieloskładnikowego przez ograniczony czas. |
@@ -60,7 +60,7 @@ Buforowanie jest używane głównie w przypadku systemów lokalnych, takich jak 
 
 Aby skonfigurować buforowanie, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **reguły buforowania**usługi MFA.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **reguły buforowania** usługi MFA.
 1. Wybierz pozycję **Dodaj**.
 1. Z listy rozwijanej wybierz **Typ pamięci podręcznej** . Wprowadź maksymalną liczbę sekund w **pamięci podręcznej**.
 1. W razie potrzeby wybierz typ uwierzytelniania i Określ aplikację.

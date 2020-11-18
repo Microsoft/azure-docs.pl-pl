@@ -1,6 +1,6 @@
 ---
-title: Szczegóły zdarzenia logowania dla usługi Azure Multi-Factor Authentication — Azure Active Directory
-description: Dowiedz się, jak wyświetlać aktywność logowania dla zdarzeń usługi Azure Multi-Factor Authentication i komunikatów o stanie.
+title: Szczegóły zdarzenia logowania dla usługi Azure AD Multi-Factor Authentication — Azure Active Directory
+description: Dowiedz się, jak wyświetlać aktywność logowania dla zdarzeń i komunikatów o stanie Multi-Factor Authentication usługi Azure AD.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 676b8b6fbb56536ec3a49100f5de1419ac417bb6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6a103f1f518a838e0746d363ee613dd1625b0bd4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964149"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838982"
 ---
-# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Użyj raportu logowania, aby przejrzeć zdarzenia usługi Azure Multi-Factor Authentication
+# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Użyj raportu logowania, aby przejrzeć zdarzenia Multi-Factor Authentication usługi Azure AD
 
-Aby przejrzeć i zrozumieć zdarzenia usługi Azure Multi-Factor Authentication, można użyć raportu logowania Azure Active Directory (Azure AD). Ten raport przedstawia szczegóły uwierzytelniania dla zdarzeń, gdy użytkownik zostanie poproszony o uwierzytelnienie wieloskładnikowe, a w przypadku korzystania z zasad dostępu warunkowego. Aby uzyskać szczegółowe informacje na temat raportu logowania, zobacz [Omówienie raportów działań związanych z logowaniem w usłudze Azure AD](../reports-monitoring/concept-sign-ins.md).
+Aby przejrzeć i zrozumieć zdarzenia Multi-Factor Authentication usługi Azure AD, możesz użyć raportu logowania Azure Active Directory (Azure AD). Ten raport przedstawia szczegóły uwierzytelniania dla zdarzeń, gdy użytkownik zostanie poproszony o uwierzytelnienie wieloskładnikowe, a w przypadku korzystania z zasad dostępu warunkowego. Aby uzyskać szczegółowe informacje na temat raportu logowania, zobacz [Omówienie raportów działań związanych z logowaniem w usłudze Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 W tym artykule opisano sposób wyświetlania raportu logowania usługi Azure AD w Azure Portal, a następnie modułu programu PowerShell w MSOnline v1.
 
@@ -121,34 +121,34 @@ Poniższa tabela może pomóc w rozwiązywaniu problemów ze zdarzeniami przy u�
 
 | Wynik wywołania | Opis | Szeroki opis |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | Wprowadzono kod PIN | Użytkownik wprowadził kod PIN. Jeśli uwierzytelnianie zakończyło się pomyślnie, wprowadzono poprawny kod PIN. W przypadku odmowy uwierzytelnienia wprowadzono niepoprawny kod PIN lub użytkownik jest ustawiony w trybie standardowym. |
+| SUCCESS_WITH_PIN | Wprowadzono kod PIN | Użytkownik wprowadził kod PIN.  Jeśli uwierzytelnianie zakończyło się pomyślnie, wprowadzono poprawny kod PIN.  W przypadku odmowy uwierzytelnienia wprowadzono niepoprawny kod PIN lub użytkownik jest ustawiony w trybie standardowym. |
 | SUCCESS_NO_PIN | Wprowadzono tylko # | Jeśli użytkownik ma ustawioną opcję Tryb PRZYPINAnia i zostanie odrzucone uwierzytelnianie, oznacza to, że użytkownik nie wprowadził numeru PIN i tylko wprowadzono wartość #.  Jeśli użytkownik jest ustawiony w trybie standardowym, a uwierzytelnianie powiedzie się, oznacza to, że użytkownik wprowadził tylko #, który jest prawidłowym zadaniem w trybie standardowym. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Nie naciśnięto po wprowadzeniu | Użytkownik nie wysłał żadnych cyfr DTMF, ponieważ # nie wprowadzono. Inne wprowadzone cyfry nie są wysyłane, chyba że zostanie wprowadzony znak # wskazujący na ukończenie wpisu. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Brak danych wejściowych telefonu — Przekroczono limit czasu | Odebrano odpowiedź na wywołanie, ale nie ma odpowiedzi. Zazwyczaj oznacza to, że wywołanie zostało pobrane przez pocztę głosową. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Nie naciśnięto po wprowadzeniu | Użytkownik nie wysłał żadnych cyfr DTMF, ponieważ # nie wprowadzono.  Inne wprowadzone cyfry nie są wysyłane, chyba że zostanie wprowadzony znak # wskazujący na ukończenie wpisu. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Brak danych wejściowych telefonu — Przekroczono limit czasu | Odebrano odpowiedź na wywołanie, ale nie ma odpowiedzi.  Zazwyczaj oznacza to, że wywołanie zostało pobrane przez pocztę głosową. |
 | SUCCESS_PIN_EXPIRED | KOD PIN wygasł i nie został zmieniony | KOD PIN użytkownika wygasł i został wyświetlony monit o jego zmianę, ale zmiana numeru PIN nie została pomyślnie ukończona. |
 | SUCCESS_USED_CACHE | Użyta pamięć podręczna | Uwierzytelnianie zakończyło się pomyślnie bez wywołania Multi-Factor Authentication, ponieważ poprzednie pomyślne uwierzytelnienie dla tej samej nazwy użytkownika wystąpił w skonfigurowanym przedziale czasu pamięci podręcznej. |
-| SUCCESS_BYPASSED_AUTH | Pominięte uwierzytelnianie | Uwierzytelnianie zakończyło się pomyślnie przy użyciu obejścia One-Time zainicjowane dla użytkownika. Aby uzyskać więcej informacji na temat obejścia, zobacz Raport o pominiętych użytkownikach. |
+| SUCCESS_BYPASSED_AUTH | Pominięte uwierzytelnianie | Uwierzytelnianie zakończyło się pomyślnie przy użyciu obejścia One-Time zainicjowane dla użytkownika.  Aby uzyskać więcej informacji na temat obejścia, zobacz Raport o pominiętych użytkownikach. |
 | SUCCESS_USED_IP_BASED_CACHE | Użyta pamięć podręczna oparta na protokole IP | Uwierzytelnianie zakończyło się pomyślnie bez wywołania Multi-Factor Authentication od momentu wcześniejszego pomyślnego uwierzytelnienia dla tej samej nazwy użytkownika, typu uwierzytelniania, nazwy aplikacji i adresu IP w skonfigurowanym przedziale czasu pamięci podręcznej. |
 | SUCCESS_USED_APP_BASED_CACHE | Używana pamięć podręczna oparta na aplikacji | Uwierzytelnianie zakończyło się pomyślnie bez wywołania Multi-Factor Authentication, ponieważ poprzednie pomyślne uwierzytelnienie dla tej samej nazwy użytkownika, typu uwierzytelniania i nazwy aplikacji w skonfigurowanym przedziale czasu pamięci podręcznej. |
-| SUCCESS_INVALID_INPUT | Nieprawidłowe dane wejściowe telefonu | Odpowiedź wysłana z telefonu jest nieprawidłowa. Może to być z komputera faksowego lub modemu albo użytkownik przeszedł * jako część swojego numeru PIN. |
-| SUCCESS_USER_BLOCKED | Użytkownik jest zablokowany | Numer telefonu użytkownika jest zablokowany. Użytkownik może zainicjować zablokowany numer w trakcie wywołania uwierzytelniania lub przez administratora przy użyciu Azure Portal. <br> Uwaga: zablokowany numer jest również ubocznymem alertu oszustwa. |
+| SUCCESS_INVALID_INPUT | Nieprawidłowe dane wejściowe telefonu | Odpowiedź wysłana z telefonu jest nieprawidłowa.  Może to być z komputera faksowego lub modemu albo użytkownik przeszedł * jako część swojego numeru PIN. |
+| SUCCESS_USER_BLOCKED | Użytkownik jest zablokowany | Numer telefonu użytkownika jest zablokowany.  Użytkownik może zainicjować zablokowany numer w trakcie wywołania uwierzytelniania lub przez administratora przy użyciu Azure Portal. <br> Uwaga: zablokowany numer jest również ubocznymem alertu oszustwa. |
 | SUCCESS_SMS_AUTHENTICATED | Wiadomość SMS uwierzytelniona | W przypadku dwukierunkowego komunikatu testowego użytkownik prawidłowo odpowiedział przy użyciu hasła jednorazowego (OTP) lub OTP + kod PIN. |
-| SUCCESS_SMS_SENT | Wiadomość SMS wysłana | W przypadku wiadomości tekstowej wiadomość tekstowa zawierająca jednorazowy kod dostępu (OTP) została pomyślnie wysłana. Użytkownik wprowadzi do aplikacji wartość OTP lub OTP + numer PIN w celu ukończenia uwierzytelniania. |
+| SUCCESS_SMS_SENT | Wiadomość SMS wysłana | W przypadku wiadomości tekstowej wiadomość tekstowa zawierająca jednorazowy kod dostępu (OTP) została pomyślnie wysłana.  Użytkownik wprowadzi do aplikacji wartość OTP lub OTP + numer PIN w celu ukończenia uwierzytelniania. |
 | SUCCESS_PHONE_APP_AUTHENTICATED | Aplikacja mobilna uwierzytelniona | Użytkownik został pomyślnie uwierzytelniony za pośrednictwem aplikacji mobilnej. |
 | SUCCESS_OATH_CODE_PENDING | Oczekiwanie na kod OATH | Użytkownik otrzymał monit o ich kod OATH, ale nie odpowiedział. |
 | SUCCESS_OATH_CODE_VERIFIED | Zweryfikowano kod OATH | Po wyświetleniu monitu użytkownik wprowadził prawidłowy kod OATH. |
 | SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Zweryfikowano rezerwowy kod OATH | Użytkownik odmówił uwierzytelnienia przy użyciu metody podstawowej Multi-Factor Authentication, a następnie podał prawidłowy kod OATH dla powrotu. |
 | SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Udzielono odpowiedzi na rezerwowe pytania zabezpieczające | Użytkownik odmówił uwierzytelnienia przy użyciu metody podstawowej Multi-Factor Authentication, a następnie poprawnego udzielenia odpowiedzi na pytania zabezpieczające dla powrotu. |
-| FAILED_PHONE_BUSY | Uwierzytelnianie jest już w toku | Multi-Factor Authentication już przetwarzał uwierzytelnianie dla tego użytkownika. Jest to często spowodowane przez klientów usługi RADIUS, którzy wysyłają wiele żądań uwierzytelnienia podczas tego samego logowania. |
-| CONFIG_ISSUE | Telefon nieosiągalny | Podjęto próbę wywołania, ale nie można jej umieścić lub nie udzielono odpowiedzi. Obejmuje to sygnał zajętości, szybki czas zajętości (odłączony), trzy tony (liczba niedostępnych usług), przekroczenie limitu czasu podczas dzwonienia, itp. |
-| FAILED_INVALID_PHONENUMBER | Nieprawidłowy format numeru telefonu | Numer telefonu ma nieprawidłowy format. Numery telefonów muszą być liczbowe i muszą mieć 10 cyfr dla kodu kraju + 1 (Stany Zjednoczone & Kanada). |
+| FAILED_PHONE_BUSY | Uwierzytelnianie jest już w toku | Multi-Factor Authentication już przetwarzał uwierzytelnianie dla tego użytkownika.  Jest to często spowodowane przez klientów usługi RADIUS, którzy wysyłają wiele żądań uwierzytelnienia podczas tego samego logowania. |
+| CONFIG_ISSUE | Telefon nieosiągalny | Podjęto próbę wywołania, ale nie można jej umieścić lub nie udzielono odpowiedzi.  Obejmuje to sygnał zajętości, szybki czas zajętości (odłączony), trzy tony (liczba niedostępnych usług), przekroczenie limitu czasu podczas dzwonienia, itp. |
+| FAILED_INVALID_PHONENUMBER | Nieprawidłowy format numeru telefonu | Numer telefonu ma nieprawidłowy format.  Numery telefonów muszą być liczbowe i muszą mieć 10 cyfr dla kodu kraju + 1 (Stany Zjednoczone & Kanada). |
 | FAILED_USER_HUNGUP_ON_US | Użytkownik zawiesił telefon | Użytkownik odpowiedział na telefon, ale następnie zawiesił się bez naciskania żadnych przycisków. |
-| FAILED_INVALID_EXTENSION | Nieprawidłowe rozszerzenie | Rozszerzenie zawiera nieprawidłowe znaki. Dozwolone są tylko cyfry, przecinki, * i #. Można również użyć @ prefix. |
+| FAILED_INVALID_EXTENSION | Nieprawidłowe rozszerzenie | Rozszerzenie zawiera nieprawidłowe znaki.  Dozwolone są tylko cyfry, przecinki, * i #.  Można również użyć @ prefix. |
 | FAILED_FRAUD_CODE_ENTERED | Wprowadzono kod oszustwa | Użytkownik wybrany do zgłaszania oszustw w trakcie wywołania, co spowodowało odmowę uwierzytelnienia i zablokowany numer telefonu.| 
 | FAILED_SERVER_ERROR | Nie można nawiązać połączenia | Usługa Multi-Factor Authentication nie mogła nawiązać połączenia. |
-| FAILED_SMS_NOT_SENT | Nie można wysłać wiadomości tekstowej | Nie można wysłać wiadomości tekstowej. Brak uwierzytelniania. |
-| FAILED_SMS_OTP_INCORRECT | Nieprawidłowa wiadomość tekstowa OTP | Użytkownik wprowadził nieprawidłowy jednorazowy kod dostępu (OTP) z otrzymanej wiadomości tekstowej. Brak uwierzytelniania. |
-| FAILED_SMS_OTP_PIN_INCORRECT | Nieprawidłowa wiadomość tekstowa OTP + numer PIN | Użytkownik wprowadził nieprawidłowy kod dostępu jednorazowego (OTP) i/lub nieprawidłowy numer PIN użytkownika. Brak uwierzytelniania. |
+| FAILED_SMS_NOT_SENT | Nie można wysłać wiadomości tekstowej | Nie można wysłać wiadomości tekstowej.  Brak uwierzytelniania. |
+| FAILED_SMS_OTP_INCORRECT | Nieprawidłowa wiadomość tekstowa OTP | Użytkownik wprowadził nieprawidłowy jednorazowy kod dostępu (OTP) z otrzymanej wiadomości tekstowej.  Brak uwierzytelniania. |
+| FAILED_SMS_OTP_PIN_INCORRECT | Nieprawidłowa wiadomość tekstowa OTP + numer PIN | Użytkownik wprowadził nieprawidłowy kod dostępu jednorazowego (OTP) i/lub nieprawidłowy numer PIN użytkownika.  Brak uwierzytelniania. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | Przekroczono maksymalną liczbę prób OTP wiadomości SMS | Użytkownik przekroczył maksymalną liczbę prób jednorazowego kodu dostępu (OTP). |
 | FAILED_PHONE_APP_DENIED | Odmowa aplikacji mobilnej | Użytkownik odmówił uwierzytelnienia w aplikacji mobilnej, naciskając przycisk Odmów. |
 | FAILED_PHONE_APP_INVALID_PIN | Aplikacja mobilna — nieprawidłowy numer PIN | Użytkownik wprowadził nieprawidłowy numer PIN podczas uwierzytelniania w aplikacji mobilnej. |

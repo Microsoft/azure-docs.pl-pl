@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965917"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837267"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
 
@@ -85,7 +85,7 @@ PRT jest odnawiany w dwóch różnych metodach:
 * **Wtyczka usługi Azure AD CloudAP co 4 godziny**: wtyczka CLOUDAP odnawia PRT co 4 godziny podczas logowania do systemu Windows. Jeśli użytkownik nie ma połączenia z Internetem w tym czasie, wtyczka CloudAP odnowi PRT, gdy urządzenie jest połączone z Internetem.
 * **Wtyczka usługi Azure AD wam podczas żądań tokenów aplikacji**: Wtyczka Menedżera wam umożliwia logowanie jednokrotne na urządzeniach z systemem Windows 10 przez włączenie żądań tokenów dyskretnych dla aplikacji. Wtyczka Menedżera WAM może odnowić PRT podczas tych żądań tokenów na dwa różne sposoby:
    * Aplikacja żąda WAM dla tokenu dostępu dyskretnie, ale nie ma dostępnego tokenu odświeżania dla tej aplikacji. W takim przypadku WAM używa PRT do żądania tokenu dla aplikacji i pobiera nowy PRT w odpowiedzi.
-   * Aplikacja żąda WAM dla tokenu dostępu, ale PRT jest nieprawidłowa lub usługa Azure AD wymaga dodatkowej autoryzacji (na przykład Azure Multi-Factor Authentication). W tym scenariuszu jednostka WAM inicjuje Logowanie interakcyjne wymagające ponownego uwierzytelnienia użytkownika lub zapewnienia dodatkowej weryfikacji, a nowe PRT są wydawane po pomyślnym uwierzytelnieniu.
+   * Aplikacja żąda WAM dla tokenu dostępu, ale PRT jest nieprawidłowa lub usługa Azure AD wymaga dodatkowej autoryzacji (na przykład Multi-Factor Authentication usługi Azure AD). W tym scenariuszu jednostka WAM inicjuje Logowanie interakcyjne wymagające ponownego uwierzytelnienia użytkownika lub zapewnienia dodatkowej weryfikacji, a nowe PRT są wydawane po pomyślnym uwierzytelnieniu.
 
 W środowisku usług AD FS bezpośredni wiersz wglądu do kontrolera domeny nie jest wymagany do odnowienia PRT. Odnowienie PRT wymaga włączenia tylko/ADFS/Services/Trust/2005/usernamemixed i/ADFS/Services/Trust/13/usernamemixed punktów końcowych na serwerze proxy przy użyciu protokołu WS-Trust.
 
