@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e5456c53ca891a7c88797f9661a6a3b9b9935e08
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 208e99f61694f5a81a98dbc649e2a6035f57891b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660911"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842587"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrowanie uwierzytelniania usługi RADIUS bramy sieci VPN platformy Azure z serwerem NPS dla Multi-Factor Authentication 
 
@@ -49,9 +49,9 @@ Aby włączyć usługę MFA, użytkownicy muszą należeć do Azure Active Direc
 
 
  
-### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Krok 2. Konfigurowanie serwera NPS dla usługi Azure MFA
+### <a name="step-2-configure-the-nps-for-azure-ad-mfa"></a>Krok 2. Konfigurowanie serwera NPS dla usługi Azure AD MFA
 
-1. Na serwerze NPS [Zainstaluj rozszerzenie serwera NPS dla usługi Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
+1. Na serwerze NPS [Zainstaluj rozszerzenie serwera NPS dla usługi Azure AD MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Otwórz konsolę serwera zasad sieciowych, kliknij prawym przyciskiem myszy pozycję **klienci usługi RADIUS**, a następnie wybierz pozycję **Nowy**. Utwórz klienta usługi RADIUS, określając następujące ustawienia:
 
     - **Przyjazna nazwa**: wpisz dowolną nazwę.
@@ -81,5 +81,5 @@ Aby włączyć usługę MFA, użytkownicy muszą należeć do Azure Active Direc
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
-- [Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)
+- [Multi-Factor Authentication usługi Azure AD](../active-directory/authentication/concept-mfa-howitworks.md)
+- [Integrowanie istniejącej infrastruktury NPS z usługą Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

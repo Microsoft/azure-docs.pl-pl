@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8bfe6f07fead700ae71bba1c28ccb13aa700513c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677342"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842774"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizowanie Azure Data Lake Storage Gen2 na potrzeby wydajności
 
@@ -45,9 +45,9 @@ Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sie
 
 | Narzędzie               | Ustawienia     | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Pomocą distcp            | -m (mapowanie)   | [Łącze](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Łącze](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Łącze](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Pomocą distcp            | -m (mapowanie)   | [Powiązań](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Powiązań](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Powiązań](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
@@ -57,7 +57,7 @@ Gdy dane są przechowywane w Data Lake Storage Gen2, rozmiar pliku, liczba plik�
 
 Zwykle aparaty analityczne, takie jak HDInsight i Azure Data Lake Analytics, mają narzuty za pliki. Jeśli dane są przechowywane jako wiele małych plików, może to negatywnie wpłynąć na wydajność. Ogólnie rzecz biorąc, Organizuj dane w pliki o większym rozmiarze, aby uzyskać lepszą wydajność (od 256 do 100 GB rozmiaru). Niektóre aparaty i aplikacje mogą mieć problemy z wydajnym przetwarzaniem plików o rozmiarze większym niż 100 GB.
 
-Czasami potoki danych mają ograniczoną kontrolę nad danymi nieprzetworzonymi, które zawierają wiele małych plików. Zaleca się, aby proces "gotowania" generował większe pliki do użycia w aplikacjach podrzędnych.
+Czasami potoki danych mają ograniczoną kontrolę nad danymi nieprzetworzonymi, które zawierają wiele małych plików. Ogólnie rzecz biorąc, firma Microsoft zaleca, aby system miał pewien proces agregowania małych plików w celu ich użycia w aplikacjach podrzędnych.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organizowanie danych szeregów czasowych w folderach
 

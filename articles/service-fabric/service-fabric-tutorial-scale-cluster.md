@@ -3,19 +3,19 @@ title: skalowanie klastra usługi Service Fabric na platformie Azure
 description: W tym samouczku dowiesz się, jak skalować klaster Service Fabric na platformie Azure i w systemie oraz jak czyścić pozostałe zasoby.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 7f92ca28afd9d1894867aaa2c18df3a02ee0bd79
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716898"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842689"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Samouczek: skalowanie klastra usługi Service Fabric na platformie Azure
 
 Ten samouczek jest trzecią częścią serii i pokazuje, jak skalować istniejący klaster poza i w programie. Ukończenie tego samouczka pozwoli Ci uzyskać wiedzę na temat skalowania klastra i czyszczenia pozostałych zasobów.  Aby uzyskać więcej informacji na temat skalowania klastra działającego na platformie Azure, Przeczytaj [Service Fabric skalowanie klastrów](service-fabric-cluster-scaling.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Dodawanie i usuwanie węzłów (skalowanie w poziomie i skalowanie w górę)
@@ -68,7 +68,7 @@ Po pomyślnym utworzeniu bezpiecznego [klastra systemu Windows](service-fabric-t
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów zawierającej klaster (**sfclustertutorialgroup**, jeśli korzystasz z tego samouczka). 
 
-2. W lewym okienku wybierz pozycję **wdrożenia**lub wybierz link w obszarze **wdrożenia**. 
+2. W lewym okienku wybierz pozycję **wdrożenia** lub wybierz link w obszarze **wdrożenia**. 
 
 3. Z listy wybierz najnowsze pomyślne wdrożenie.
 
@@ -80,7 +80,7 @@ Skalowanie do wewnątrz i na zewnątrz lub skalowanie w poziomie powoduje zmian�
 
 ### <a name="update-the-template"></a>Aktualizowanie szablonu
 
-[Wyeksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz *parameters.js* pliku.  Jeśli klaster został wdrożony przy użyciu [przykładowego szablonu][template] w tym samouczku, istnieją trzy typy węzłów w klastrze i trzy parametry ustawiające liczbę węzłów dla każdego typu węzła: *nt0InstanceCount*, *nt1InstanceCount*i *nt2InstanceCount*.  Parametr *nt1InstanceCount* , na przykład, ustawia liczbę wystąpień dla drugiego typu węzła, a następnie ustawia liczba maszyn wirtualnych w skojarzonym zestawie skalowania maszyn wirtualnych.
+[Wyeksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz *parameters.js* pliku.  Jeśli klaster został wdrożony przy użyciu [przykładowego szablonu][template] w tym samouczku, istnieją trzy typy węzłów w klastrze i trzy parametry ustawiające liczbę węzłów dla każdego typu węzła: *nt0InstanceCount*, *nt1InstanceCount* i *nt2InstanceCount*.  Parametr *nt1InstanceCount* , na przykład, ustawia liczbę wystąpień dla drugiego typu węzła, a następnie ustawia liczba maszyn wirtualnych w skojarzonym zestawie skalowania maszyn wirtualnych.
 
 Aby więc zaktualizować wartość *nt1InstanceCount* , należy zmienić liczbę węzłów w drugim typie węzła.  Należy pamiętać, że nie można skalować typu węzła do więcej niż 100 węzłów.  Typy węzłów innych niż podstawowe działające stanowe obciążenia produkcyjne powinny mieć zawsze pięć lub więcej węzłów. Typy węzłów innych niż podstawowe, które działają bezstanowe obciążenia produkcyjne, powinny zawsze mieć co najmniej dwa węzły.
 

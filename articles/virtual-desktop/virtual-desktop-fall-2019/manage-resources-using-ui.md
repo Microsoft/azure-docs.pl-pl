@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462585"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842655"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu szablonu Azure Resource Manager
 
@@ -36,7 +36,7 @@ Do następujących przeglądarek są zgodne narzędzia do zarządzania:
 
 Przed wdrożeniem narzędzia do zarządzania musisz mieć Azure Active Directory użytkownika (Azure AD), aby utworzyć rejestrację aplikacji i wdrożyć interfejs użytkownika zarządzania. Ten użytkownik musi:
 
-- Wyłączono usługę Azure Multi-Factor Authentication (MFA)
+- Usługa Azure AD Multi-Factor Authentication (MFA) jest wyłączona
 - Masz uprawnienia do tworzenia zasobów w ramach subskrypcji platformy Azure
 - Masz uprawnienia do tworzenia aplikacji usługi Azure AD. Wykonaj następujące kroki, aby sprawdzić, czy użytkownik ma wymagane uprawnienia, postępując zgodnie z instrukcjami w obszarze [wymagane uprawnienia](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -60,7 +60,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć szablon usługi Azur
 3. Wprowadzając parametry, wykonaj następujące czynności:
     - Dla parametru **isServicePrincipal** wybierz **wartość false**.
     - W polu poświadczenia wprowadź poświadczenia usługi Azure AD z wyłączonym uwierzytelnianiem wieloskładnikowym. Te poświadczenia będą używane do tworzenia aplikacji usługi Azure AD i zasobów platformy Azure. Aby dowiedzieć się więcej, zobacz temat [czego potrzebujesz do wdrożenia narzędzia do zarządzania](#what-you-need-to-deploy-the-management-tool).
-    - Dla programu **ApplicationName**Użyj unikatowej nazwy aplikacji, która zostanie zarejestrowana w Azure Active Directory. Ta nazwa będzie również używana dla adresu URL aplikacji sieci Web. Można na przykład użyć nazwy takiej jak "Apr3UX".
+    - Dla programu **ApplicationName** Użyj unikatowej nazwy aplikacji, która zostanie zarejestrowana w Azure Active Directory. Ta nazwa będzie również używana dla adresu URL aplikacji sieci Web. Można na przykład użyć nazwy takiej jak "Apr3UX".
 4. Po podaniu parametrów Zaakceptuj warunki i postanowienia, a następnie wybierz pozycję **Kup**.
 
 ## <a name="provide-consent-for-the-management-tool"></a>Wyrażanie zgody na narzędzie do zarządzania
@@ -101,7 +101,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby uruchomić narzędzie:
 1. Wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład  `https://rdmimgmtweb-210520190304.azurewebsites.net` .
 2. Zaloguj się przy użyciu poświadczeń pulpitu wirtualnego systemu Windows.
 3. Po wyświetleniu monitu o wybranie grupy dzierżawców wybierz z listy rozwijanej pozycję **Domyślna grupa dzierżawców** .
-4. Po wybraniu **domyślnej grupy dzierżawców**menu powinno być wyświetlane po lewej stronie okna. W tym menu Znajdź nazwę grupy dzierżawców i wybierz ją.
+4. Po wybraniu **domyślnej grupy dzierżawców** menu powinno być wyświetlane po lewej stronie okna. W tym menu Znajdź nazwę grupy dzierżawców i wybierz ją.
 
   > [!NOTE]
   > Jeśli masz niestandardową grupę dzierżawców, wprowadź nazwę ręcznie zamiast wybierać ją z listy rozwijanej.

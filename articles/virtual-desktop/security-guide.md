@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002286"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842638"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -70,7 +70,7 @@ Pulpit wirtualny systemu Windows ma wiele wbudowanych formantów zabezpieczeń. 
 
 ### <a name="require-multi-factor-authentication"></a>Wymagaj uwierzytelniania wieloskładnikowego
 
-Wymaganie uwierzytelniania wieloskładnikowego dla wszystkich użytkowników i administratorów w programie Virtual Desktop systemu Windows zwiększa bezpieczeństwo całego wdrożenia. Aby dowiedzieć się więcej, zobacz [Włączanie usługi Azure Multi-Factor Authentication dla pulpitu wirtualnego systemu Windows](set-up-mfa.md).
+Wymaganie uwierzytelniania wieloskładnikowego dla wszystkich użytkowników i administratorów w programie Virtual Desktop systemu Windows zwiększa bezpieczeństwo całego wdrożenia. Aby dowiedzieć się więcej, zobacz [Włączanie usługi Azure AD Multi-Factor Authentication dla pulpitu wirtualnego systemu Windows](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Włącz dostęp warunkowy
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966325"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842621"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Przełączanie i tworzenie obrazów systemu Linux na platformie Azure
 
@@ -83,7 +83,7 @@ Obrazy zarządzane mogą służyć do tworzenia i testowania środowisk, w któr
 - Replikacja globalna obrazów.
 - Przechowywanie wersji i grupowanie obrazów w celu łatwiejszego zarządzania.
 - Wysoce dostępne obrazy z magazynem strefowo nadmiarowy (ZRS) w regionach, które obsługują Strefy dostępności. ZRS zapewnia lepszą odporność na awarie stref.
-- Udostępnianie między subskrypcjami, a nawet między dzierżawami Active Directory (AD) przy użyciu RBAC.
+- Udostępnianie między subskrypcjami, a nawet między dzierżawami Active Directory (AD) przy użyciu funkcji RBAC platformy Azure.
 - Skalowanie wdrożeń przy użyciu replik obrazów w każdym regionie.
 
 Na wysokim poziomie utworzysz SIG i składa się z:

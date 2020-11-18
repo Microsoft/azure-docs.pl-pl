@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: cfa6dcb0b1fc173bdf3612308227b8309491e9fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312731"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842706"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
@@ -39,7 +39,7 @@ Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie j
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego
 
-Użyj jednej z następujących metod, aby utworzyć obszar roboczy z prywatnym punktem końcowym. Każda z tych metod __Wymaga istniejącej sieci wirtualnej__ :
+Użyj jednej z następujących metod, aby utworzyć obszar roboczy z prywatnym punktem końcowym. Każda z tych metod __Wymaga istniejącej sieci wirtualnej__:
 
 > [!TIP]
 > Jeśli chcesz utworzyć obszar roboczy, prywatny punkt końcowy i sieć wirtualną w tym samym czasie, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
@@ -146,7 +146,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-W obszarze roboczym Azure Machine Learning w portalu wybierz pozycję __połączenia prywatnego punktu końcowego__ , a następnie wybierz punkt końcowy, który chcesz usunąć. Na koniec wybierz pozycję __Usuń__.
+W obszarze roboczym Azure Machine Learning w portalu wybierz pozycję __połączenia prywatnego punktu końcowego__, a następnie wybierz punkt końcowy, który chcesz usunąć. Na koniec wybierz pozycję __Usuń__.
 
 ---
 
