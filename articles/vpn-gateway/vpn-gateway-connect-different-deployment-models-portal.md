@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f307ff9e7d609628bc22374fc5874dcbf993e4c2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487109"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661192"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania przy użyciu portalu
 
@@ -28,7 +28,7 @@ Połączenie klasycznej sieci wirtualnej z siecią wirtualną Menedżer zasobów
 
 Jeśli nie masz jeszcze bramy sieci wirtualnej i nie chcesz jej utworzyć, możesz zamiast tego rozważyć łączenie się z usługą sieci wirtualnych przy użyciu wirtualnych sieci równorzędnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 
 
@@ -75,7 +75,7 @@ W przypadku tej konfiguracji można utworzyć połączenie bramy sieci VPN za po
 
 W poniższej tabeli przedstawiono przykład definiowania przykładowych sieci wirtualnych i lokacji lokalnych:
 
-| Virtual Network | Przestrzeń adresowa | Region | Nawiązuje połączenie z lokacją sieci lokalnej |
+| Virtual Network | Przestrzeń adresowa | Region (Region) | Nawiązuje połączenie z lokacją sieci lokalnej |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Zachodnie stany USA | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
@@ -86,7 +86,7 @@ W tej sekcji utworzysz klasyczną sieć wirtualną (lokację lokalną) i bramę 
 
 ### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> Tworzenie klasycznej sieci wirtualnej
 
-Jeśli nie masz klasycznej sieci wirtualnej i uruchamiasz te kroki jako ćwiczenie, możesz utworzyć sieć wirtualną za pomocą [tego artykułu](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) oraz [przykładowych](#values) wartości ustawień z powyższych.
+Jeśli nie masz klasycznej sieci wirtualnej i uruchamiasz te kroki jako ćwiczenie, możesz utworzyć sieć wirtualną za pomocą [tego artykułu](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) oraz [przykładowych](#values) wartości ustawień z powyższych.
 
 Jeśli masz już sieć wirtualną z bramą sieci VPN, sprawdź, czy brama jest dynamiczna. Jeśli jest ona statyczna, należy najpierw usunąć bramę sieci VPN przed kontynuowaniem [konfigurowania lokacji lokalnej](#local).
 
@@ -101,11 +101,11 @@ Jeśli masz już sieć wirtualną z bramą sieci VPN, sprawdź, czy brama jest d
 1. Przejdź do **wszystkich zasobów** i Znajdź na liście **ClassicVNet** .
 2. Kliknij pozycję **brama** w sekcji **Ustawienia** w menu, a następnie kliknij transparent, aby utworzyć bramę.
   ![Konfigurowanie bramy VPN Gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Konfigurowanie bramy VPN Gateway")
-3. Na stronie **nowe połączenie sieci VPN** w **polu Typ połączenia**wybierz pozycję **lokacja-lokacja**.
-4. W obszarze **lokacja lokalna**kliknij pozycję **Skonfiguruj wymagane ustawienia**. Spowoduje to otwarcie strony **lokacja lokalna** .
+3. Na stronie **nowe połączenie sieci VPN** w **polu Typ połączenia** wybierz pozycję **lokacja-lokacja**.
+4. W obszarze **lokacja lokalna** kliknij pozycję **Skonfiguruj wymagane ustawienia**. Spowoduje to otwarcie strony **lokacja lokalna** .
 5. Na stronie **lokacja lokalna** Utwórz nazwę, aby odwołać się do Menedżer zasobów sieci wirtualnej. Na przykład "RMVNetLocal".
 6. Jeśli Brama sieci VPN dla Menedżer zasobów wirtualnej ma już publiczny adres IP, użyj wartości pola **adres IP bramy sieci VPN** . Jeśli wykonujesz te kroki jako ćwiczenie lub nie masz jeszcze bramy sieci wirtualnej dla sieci wirtualnej Menedżer zasobów, możesz utworzyć symbol zastępczy adresu IP. Upewnij się, że symbol zastępczy adresu IP ma prawidłowy format. Później zastępczy adres IP jest zastępowany publicznym adresem IP bramy sieci wirtualnej Menedżer zasobów.
-7. W polu **przestrzeń adresowa klienta**Użyj [wartości](#connectoverview) przestrzeni adresów IP sieci wirtualnej dla Menedżer zasobów wirtualnej. To ustawienie służy do określania przestrzeni adresowych do skierowania do Menedżer zasobów sieci wirtualnej. W tym przykładzie używamy 192.168.0.0/16 zakresu adresów dla RMVNet.
+7. W polu **przestrzeń adresowa klienta** Użyj [wartości](#connectoverview) przestrzeni adresów IP sieci wirtualnej dla Menedżer zasobów wirtualnej. To ustawienie służy do określania przestrzeni adresowych do skierowania do Menedżer zasobów sieci wirtualnej. W tym przykładzie używamy 192.168.0.0/16 zakresu adresów dla RMVNet.
 8. Kliknij przycisk **OK** , aby zapisać wartości i powrócić do strony **nowe połączenie sieci VPN** .
 
 ### <a name="3-create-the-virtual-network-gateway"></a><a name="classicgw"></a>3. Utwórz bramę sieci wirtualnej
@@ -170,7 +170,7 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie
 
 **Przykładowe wartości:** Brama sieci lokalnej = ClassicVNetLocal
 
-| Virtual Network | Przestrzeń adresowa | Region | Nawiązuje połączenie z lokacją sieci lokalnej |Publiczny adres IP bramy|
+| Virtual Network | Przestrzeń adresowa | Region (Region) | Nawiązuje połączenie z lokacją sieci lokalnej |Publiczny adres IP bramy|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Zachodnie stany USA | RMVNetLocal (192.168.0.0/16) |Publiczny adres IP przypisany do bramy ClassicVNet|
 | RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |Publiczny adres IP przypisany do bramy RMVNet.|
@@ -203,9 +203,9 @@ W tej sekcji zastąpisz symbol zastępczy adresu IP, który był używany podcza
 
 W tych krokach skonfigurujesz połączenie z Menedżer zasobów sieci wirtualnej do klasycznej sieci wirtualnej przy użyciu Azure Portal.
 
-1. W obszarze **wszystkie zasoby**Znajdź bramę sieci lokalnej. W naszym przykładzie Brama sieci lokalnej to **ClassicVNetLocal**.
+1. W obszarze **wszystkie zasoby** Znajdź bramę sieci lokalnej. W naszym przykładzie Brama sieci lokalnej to **ClassicVNetLocal**.
 2. Kliknij pozycję **Konfiguracja** i sprawdź, czy wartość adresu IP jest bramą VPN dla klasycznej sieci wirtualnej. W razie konieczności zaktualizuj, a następnie kliknij przycisk **Zapisz**. Zamknij stronę.
-3. W obszarze **wszystkie zasoby**kliknij pozycję Brama sieci lokalnej.
+3. W obszarze **wszystkie zasoby** kliknij pozycję Brama sieci lokalnej.
 4. Kliknij pozycję **połączenia** , aby otworzyć stronę połączenia.
 5. Na stronie **połączenia** kliknij, **+** Aby dodać połączenie.
 6. Na stronie **Dodawanie połączenia** Nadaj nazwę połączenie. Na przykład "RMtoClassic".

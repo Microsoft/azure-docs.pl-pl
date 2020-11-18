@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7c6de17e4ed4f5666554908e9b13fb9e299b027a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311751"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682064"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
@@ -64,7 +64,7 @@ Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage 
 
 1. Przejdź do [ **interfejsu użytkownika sieci Web usługi Azure Synapse**](https://web.azuresynapse.net)
 2. Przejdź do **zarządzania**   >  **Security**  >  **kontrolą dostępu** zabezpieczeń
-3. Wybierz pozycję **Dodaj administratora** , a następnie wybierz pozycję `Synapse_WORKSPACENAME_Admins`
+3. Wybierz pozycję **Dodaj administratora**, a następnie wybierz pozycję `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Krok 4. Konfigurowanie dostępu administratora SQL dla obszaru roboczego
 
@@ -102,7 +102,7 @@ Kontrola dostępu do danych bazowych jest dzielona na trzy części:
 > [!TIP]
 > Poniższe kroki muszą zostać uruchomione dla **każdej** bazy danych SQL, aby umożliwić użytkownikom dostęp do wszystkich baz danych SQL, z wyjątkiem [uprawnień na poziomie serwera](#server-level-permission) , gdzie można przypisywać użytkownikowi rolę administratora systemu.
 
-### <a name="serverless-sql-pool"></a>Pula SQL bezserwerowa
+### <a name="serverless-sql-pool"></a>Bezserwerowa pula SQL
 
 W tej sekcji znajdziesz przykłady umożliwiające użytkownikowi uprawnienie do konkretnej bazy danych lub pełnych uprawnień serwera.
 
@@ -147,7 +147,7 @@ CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="dedicated-sql-pool"></a>Dedykowana Pula SQL
+### <a name="dedicated-sql-pool"></a>Dedykowana pula SQL
 
 Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL, wykonaj następujące kroki:
 

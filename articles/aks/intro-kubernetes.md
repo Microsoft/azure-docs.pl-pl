@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167189"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681554"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -26,11 +26,11 @@ Aby rozpocząć pracę, ukończ przewodnik Szybki start dotyczący usługi AKS [
 
 ## <a name="access-security-and-monitoring"></a>Dostęp, zabezpieczenia i monitorowanie
 
-W celu zwiększenia bezpieczeństwa i zarządzania program AKS umożliwia integrację z usługą Azure Active Directory i użycie kontroli dostępu opartej na rolach (RBAC) Kubernetes. Możesz także monitorować kondycję klastra i zasobów.
+W celu zwiększenia bezpieczeństwa i zarządzania program AKS umożliwia integrację z usługą Azure Active Directory i użycie kontroli dostępu opartej na rolach Kubernetes (Kubernetes RBAC). Możesz także monitorować kondycję klastra i zasobów.
 
 ### <a name="identity-and-security-management"></a>Zarządzanie tożsamościami i zabezpieczeniami
 
-Aby ograniczyć dostęp do zasobów klastra, usługa AKS obsługuje [kontrolę dostępu opartą na rolach (RBAC) platformy Kubernetes][kubernetes-rbac]. Kontrola dostępu oparta na rolach umożliwia kontrolowanie dostępu do zasobów i przestrzeni nazw platformy Kubernetes, a także uprawnień do tych zasobów. Możesz też skonfigurować integrację klastra usługi AKS z usługą Azure Active Directory. Dzięki integracji z usługą Azure AD dostęp do platformy Kubernetes można skonfigurować w oparciu o istniejącą tożsamość i członkostwo w grupie. Istniejącym użytkownikom i grupom usługi Azure AD można zapewnić dostęp do zasobów usługi AKS i zintegrowane środowisko logowania.
+Aby ograniczyć dostęp do zasobów klastra, AKS obsługuje [Kubernetes kontroli dostępu opartej na rolach (KUBERNETES RBAC)][kubernetes-rbac]. Kubernetes RBAC pozwala kontrolować dostęp do zasobów Kubernetes i przestrzeni nazw oraz uprawnienia do tych zasobów. Możesz też skonfigurować integrację klastra usługi AKS z usługą Azure Active Directory. Dzięki integracji z usługą Azure AD dostęp do platformy Kubernetes można skonfigurować w oparciu o istniejącą tożsamość i członkostwo w grupie. Istniejącym użytkownikom i grupom usługi Azure AD można zapewnić dostęp do zasobów usługi AKS i zintegrowane środowisko logowania.
 
 Aby uzyskać więcej informacji na temat tożsamości, zobacz [Opcje dostępu i tożsamości dla AKS][concepts-identity].
 
@@ -146,7 +146,7 @@ Dowiedz się więcej na temat wdrażania usługi AKS i zarządzania nią z przew
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

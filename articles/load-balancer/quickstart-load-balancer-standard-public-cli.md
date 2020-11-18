@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a0903a1da02b1f187e6f12e35fcb4bc05cd82939
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4da232569a0f490b7fd6c2e50b81be6508ac5933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516785"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682098"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki start: tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -467,7 +467,7 @@ Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network
 
 Użyj [AZ Network Public-IP prefix Create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) , aby utworzyć publiczny prefiks IP dla połączenia wychodzącego.
 
-Aby uzyskać więcej informacji na temat skalowania ruchu wychodzącego NAT i łączności wychodzącej, zobacz [skalowanie ruchu NAT z wieloma adresami IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+Aby uzyskać więcej informacji na temat skalowania ruchu wychodzącego NAT i łączności wychodzącej, zobacz [skalowanie ruchu NAT z wieloma adresami IP](load-balancer-outbound-connections.md).
 
 #### <a name="public-ip"></a>Publiczny adres IP
 

@@ -5,15 +5,15 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/28/2020
+ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 4cbe179d015c71094e6813666a6fd0cee3e5e3c2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92909078"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680794"
 ---
 Azure Data Factory to wielodostępna usługa, która ma następujące domyślne limity, aby upewnić się, że subskrypcje klientów są chronione przed innymi obciążeniami. Aby podnieść limity do wartości maksymalnej dla subskrypcji, skontaktuj się z pomocą techniczną.
 
@@ -40,6 +40,7 @@ Azure Data Factory to wielodostępna usługa, która ma następujące domyślne 
 | Maksymalny limit czasu dla uruchomień działania potoku | 7 dni | 7 dni |
 | Bajtów na obiekt dla obiektów potoku<sup>3</sup> | 200 KB | 200 KB |
 | Bajtów na obiekt dla zestawu danych i połączonych obiektów usługi<sup>3</sup> | 100 KB | 2 000 KB |
+| Bajty na ładunek dla każdego uruchomienia działania<sup>4</sup> | 896 KB | 896 KB |
 | Jednostki integracji danych<sup>1</sup> na uruchomienie działania kopiowania | 256 | 256 |
 | Wywołania interfejsu API zapisu | 1200/h | 1200/h<br/><br/> Ten limit jest nakładany przez Azure Resource Manager, a nie Azure Data Factory. |
 | Odczytaj wywołania interfejsu API | 12500/h | 12500/h<br/><br/> Ten limit jest nakładany przez Azure Resource Manager, a nie Azure Data Factory. |
@@ -60,6 +61,8 @@ Azure Data Factory to wielodostępna usługa, która ma następujące domyślne 
 | Grupa regionów 3 | Kanada środkowa, Azja Wschodnia, Francja środkowa, Korea środkowa, Południowe Zjednoczone Królestwo |
 
 <sup>3</sup> obiekty potoków, zestawów danych i połączone usługi reprezentują logiczne grupowanie obciążeń. Limity dla tych obiektów nie odnoszą się do ilości danych, które można przenosić i przetwarzać za pomocą Azure Data Factory. Data Factory jest zaprojektowany do skalowania do obsługi petabajtów danych.
+
+<sup>4</sup> ładunek dla każdego uruchomienia działania obejmuje konfigurację działania, skojarzone zestawy danych (s) i konfiguracje połączonych usług (jeśli istnieją) oraz małą część właściwości systemu generowanych dla każdego typu działania. Limit dla tego rozmiaru ładunku nie odnosi się do ilości danych, które można przenosić i przetwarzać za pomocą Azure Data Factory. Poznaj [objawy i zalecenia](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) , jeśli osiągnięto ten limit.
 
 ### <a name="version-1"></a>Wersja 1
 

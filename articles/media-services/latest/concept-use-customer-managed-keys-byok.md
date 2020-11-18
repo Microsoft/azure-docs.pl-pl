@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326037"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681826"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Przenoszenie własnych kluczy (kluczy zarządzanych przez klienta) za pomocą Media Services
 
@@ -37,9 +37,11 @@ Możesz określić nazwę klucza i wersję klucza lub tylko nazwę klucza. Jeśl
 > [!WARNING]
 > Media Services monitoruje dostęp do klucza klienta. Jeśli klucz klienta stanie się niedostępny (na przykład klucz został usunięty lub Key Vault został usunięty lub zostanie usunięty przydział dostępu), Media Services nastąpi przejście konta do stanu niedostępności klucza klienta (w efekcie wyłączenie konta). Konto można jednak usunąć w tym stanie. Jedyne obsługiwane operacje to account GET, LIST i DELETE; wszystkie inne żądania (kodowanie, przesyłanie strumieniowe itp.) będą kończyć się niepowodzeniem, dopóki nie zostanie przywrócony dostęp do klucza konta.
 
-## <a name="tutorial"></a>Samouczek
-Wypróbuj w samouczku [Korzystanie z kluczy zarządzanych przez klienta lub dostarcz własny klucz (BYOK) z Media Services](tutorial-byok.md) , aby dowiedzieć się więcej o konfigurowaniu i korzystaniu z kluczy zarządzanych przez klienta za pomocą programu Poster i interfejsu API REST platformy Azure.
+## <a name="tutorials"></a>Samouczki
+
+- [Użyj Azure Portal, aby użyć kluczy zarządzanych przez klienta lub BYOK z Media Services](tutorial-byok-portal.md)
+- [Użyj kluczy zarządzanych przez klienta lub BYOK za pomocą interfejsu API REST Media Services](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Samouczek: Używanie kluczy zarządzanych przez klienta lub dołączenie własnego klucza (BYOK) za pomocą Media Services](tutorial-byok.md)
+[Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services](content-protection-overview.md)

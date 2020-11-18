@@ -1,6 +1,6 @@
 ---
 title: Napraw przerwane konto usługi Azure automanage
-description: Dowiedz się, jak naprawić przerwane konto autozarządzania
+description: Jeśli ostatnio przeniesiono subskrypcję zawierającą konto Autozarządzanie do nowej dzierżawy, należy ją ponownie skonfigurować. W tym artykule dowiesz się, jak.
 author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -8,24 +8,24 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: ad54b37da8a4945162b507232f33083890ec1fff
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557866"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681843"
 ---
-# <a name="repair-a-broken-automanage-account"></a>Naprawianie uszkodzonego konta Autozarządzanie
-[Konto autozarządzaj](./automanage-virtual-machines.md#automanage-account) jest kontekstem zabezpieczeń lub tożsamością, w której występują operacje zautomatyzowane. Jeśli ostatnio przeniesiono subskrypcję zawierającą konto Autozarządzanie do nowej dzierżawy, konieczne będzie ponowne skonfigurowanie konta autozarządzania. Aby zmienić konfigurację konta Autozarządzanie, należy zresetować typ tożsamości i przypisać odpowiednie role dla konta.
+# <a name="repair-an-automanage-account"></a>Naprawa konta Autozarządzanie
+[Konto usługi Azure automanage](./automanage-virtual-machines.md#automanage-account) to kontekst zabezpieczeń lub tożsamość, w ramach której występują operacje zautomatyzowane. Jeśli ostatnio przeniesiono subskrypcję zawierającą konto Autozarządzanie do nowej dzierżawy, należy zmienić konfigurację konta. Aby zmienić jego konfigurację, należy zresetować typ tożsamości i przypisać odpowiednie role dla konta.
 
-## <a name="step-1-reset-automanage-account-identity-type"></a>Krok 1: Resetowanie typu tożsamości Autozarządzanie kontem
-Zresetuj typ tożsamości autozarządzaj kontem przy użyciu szablonu Azure Resource Manager (ARM) poniżej. Zapisz plik lokalnie lub w `armdeploy.json` podobny sposób. Zanotuj nazwę konta i lokalizację autozarządzania, ponieważ są to wymagane parametry w szablonie ARM.
+## <a name="step-1-reset-the-automanage-account-identity-type"></a>Krok 1: Resetowanie typu tożsamości Autozarządzanie konta
+Zresetuj typ tożsamości konta Autozarządzanie przy użyciu następującego szablonu Azure Resource Manager (ARM). Zapisz plik lokalnie jako armdeploy.jslub podobną nazwę. Zanotuj nazwę konta i lokalizację autozarządzania, ponieważ są one wymaganymi parametrami w szablonie ARM.
 
-1. Utwórz nowe wdrożenie ARM przy użyciu szablonu poniżej i Użyj `identityType = None`
-    * Możesz to zrobić za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu polecenia `az deployment sub create` . Więcej informacji na temat polecenia znajduje się w `az deployment sub` [tym miejscu](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * Można to również zrobić przy użyciu programu PowerShell, korzystając z `New-AzDeployment` modułu. Więcej informacji na temat `New AzDeployment` modułu [znajdziesz tutaj](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+1. Utwórz wdrożenie Menedżer zasobów przy użyciu poniższego szablonu. Użyj polecenia `identityType = None`.
+    * Wdrożenie można utworzyć w interfejsie wiersza polecenia platformy Azure przy użyciu polecenia `az deployment sub create` . Aby uzyskać więcej informacji, zobacz [AZ Deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
+    * Wdrożenie w programie PowerShell można utworzyć przy użyciu `New-AzDeployment` modułu. Aby uzyskać więcej informacji, zobacz polecenie [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
 
-1. Uruchom ponownie ten sam szablon ARM przy użyciu `identityType = SystemAssigned`
+1. Uruchom ponownie ten sam szablon ARM przy użyciu programu `identityType = SystemAssigned` .
 
 ```json
 {
@@ -59,24 +59,24 @@ Zresetuj typ tożsamości autozarządzaj kontem przy użyciu szablonu Azure Reso
 ```
 
 ## <a name="step-2-assign-appropriate-roles-for-the-automanage-account"></a>Krok 2. przypisanie odpowiednich ról dla konta autozarządzaj
-Konto autozarządzaj wymaga ról współautor i zasady współautora zasad zasobów w subskrypcji zawierającej maszyny wirtualne zarządzane przez Autozarządzanie. Role te można przypisywać przy użyciu Azure Portal, szablonów ARM lub interfejsu wiersza polecenia platformy Azure.
+Konto Autozarządzanie wymaga ról współautor i współautora zasad zasobów w subskrypcji zawierającej maszyny wirtualne zarządzane przez Autozarządzanie. Role te można przypisywać przy użyciu Azure Portal, szablonów ARM lub interfejsu wiersza polecenia platformy Azure.
 
-Jeśli używasz szablonu ARM lub interfejsu wiersza polecenia platformy Azure, będziesz potrzebować identyfikatora podmiotu zabezpieczeń (znanego również jako identyfikator obiektu) konta Autozarządzanie (nie jest to konieczne, jeśli używasz Azure Portal). Identyfikator podmiotu zabezpieczeń (identyfikator obiektu) można znaleźć, korzystając z następujących metod:
+Jeśli używasz szablonu ARM lub interfejsu wiersza polecenia platformy Azure, będziesz potrzebować identyfikatora podmiotu zabezpieczeń (znanego również jako identyfikator obiektu) konta autozarządzania. (Jeśli używasz Azure Portal, nie potrzebujesz tego identyfikatora.) Ten identyfikator można znaleźć, korzystając z następujących metod:
 
 - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ad/sp): Użyj polecenie `az ad sp list --display-name <name of your Automanage Account>` .
 
-- Azure Portal: Przejdź do **Azure Active Directory** i Wyszukaj konto Autozarządzanie według nazwy. W obszarze **aplikacje dla przedsiębiorstw** wybierz nazwę konta autozarządzaj wyświetlaną podczas wyświetlania.
+- Azure Portal: Przejdź do **Azure Active Directory** i Wyszukaj konto Autozarządzanie według nazwy. W obszarze **aplikacje dla przedsiębiorstw** wybierz nazwę konta autozarządzaj, gdy zostanie wyświetlona.
 
 ### <a name="azure-portal"></a>Azure Portal
 1. W obszarze **subskrypcje** przejdź do subskrypcji zawierającej zarządzane przez siebie maszyny wirtualne.
 1. Przejdź do **kontroli dostępu (IAM)**.
-1. Kliknij pozycję **Dodaj przypisania ról**.
-1. Wybierz rolę **współautor** i wpisz nazwę konta do autozarządzania.
-1. Naciśnij pozycję **Zapisz**.
-1. Powtórz kroki 3-5, tym razem z rolą **współautor zasad zasobów** .
+1. Wybierz pozycję **Dodaj przypisania ról**.
+1. Wybierz rolę **współautor** i wprowadź nazwę konta do autozarządzania.
+1. Wybierz pozycję **Zapisz**.
+1. Powtórz kroki od 3 do 5, tym razem z rolą **współautor zasad zasobów** .
 
 ### <a name="arm-template"></a>Szablon ARM
-Uruchom następujący szablon ARM. Wymagany jest Identyfikator podmiotu zabezpieczeń konta autozarządzania — kroki umożliwiające uzyskanie identyfikatora podmiotu zabezpieczeń są wyższe. Wprowadź ją po wyświetleniu monitu.
+Uruchom następujący szablon ARM. Wymagany jest Identyfikator podmiotu zabezpieczeń konta automanage. Kroki, które należy pobrać, znajdują się na początku tej sekcji. Wprowadź identyfikator po wyświetleniu monitu.
 
 ```json
 {
@@ -121,10 +121,10 @@ Uruchom następujący szablon ARM. Wymagany jest Identyfikator podmiotu zabezpie
 Uruchom następujące polecenia:
 
 ```azurecli
-az role assignment create --assignee-object-id <your Automanage Account's object id> --role "Contributor" --scope /subscriptions/<your subscription id>
+az role assignment create --assignee-object-id <your Automanage Account Object ID> --role "Contributor" --scope /subscriptions/<your subscription ID>
 
-az role assignment create --assignee-object-id <your Automanage Account's object id> --role "Resource Policy Contributor" --scope /subscriptions/<your subscription id>
+az role assignment create --assignee-object-id <your Automanage Account Object ID> --role "Resource Policy Contributor" --scope /subscriptions/<your subscription ID>
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Więcej informacji o usłudze Azure automanage [znajdziesz tutaj](./automanage-virtual-machines.md).
+[Dowiedz się więcej o usłudze Azure automanage](./automanage-virtual-machines.md)

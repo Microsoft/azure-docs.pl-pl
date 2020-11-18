@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: alzam
-ms.openlocfilehash: 09d39acc867124acfd5c3c38d5c26053218972e7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c2c1930b8f801db7f70baa5b713a641606be644
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109106"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661175"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Uwierzytelnianie Azure Active Directory: Konfigurowanie klienta VPN dla połączeń protokołu P2S OpenVPN
 
@@ -160,7 +160,7 @@ Tak, przy użyciu poprawki [KB4577063](https://support.microsoft.com/help/457706
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Jak mogę dodać sufiksy DNS do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes>** Tagi
 
 ```
 <azvpnprofile>
@@ -178,7 +178,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes> \<dnssu
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Jak mogę dodać do klienta sieci VPN niestandardowe serwery DNS?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** Tagi
 
 ```
 <azvpnprofile>
@@ -194,12 +194,12 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsser
 ```
 
 > [!NOTE]
-> Klient usługi OpenVPN Azure AD korzysta z wpisów tabeli zasad rozpoznawania nazw DNS (NRPT), co oznacza, że serwery DNS nie będą wyświetlane w danych wyjściowych `ipconfig /all` . Aby potwierdzić używane ustawienia usługi DNS, zapoznaj się z tematem [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) w programie PowerShell.
+> Klient usługi OpenVPN Azure AD korzysta z wpisów tabeli zasad rozpoznawania nazw DNS (NRPT), co oznacza, że serwery DNS nie będą wyświetlane w danych wyjściowych `ipconfig /all` . Aby potwierdzić używane ustawienia usługi DNS, zapoznaj się z tematem [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?preserve-view=true&view=win10-ps) w programie PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Jak mogę dodać trasy niestandardowe do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes>** Tagi
 
 ```
 <azvpnprofile>
@@ -217,7 +217,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<includeroutes> \<rou
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Jak mogę blokowe (wykluczanie) tras z klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes>** Tagi
 
 ```
 <azvpnprofile>

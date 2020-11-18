@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować kontroler transfer
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eb58bbe127349aaebed3b1eb00281cf2938c1933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124360"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681588"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Utwórz kontroler transferu danych przychodzących ze statycznym publicznym adresem IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Możesz również wykonać następujące czynności:
 - [Tworzenie kontrolera transferu danych przychodzących korzystającego z własnych certyfikatów TLS][aks-ingress-own-tls]
 - [Utwórz kontroler transferu danych przychodzących, który używa szyfrowania, aby automatycznie generować certyfikaty TLS z dynamicznym publicznym adresem IP][aks-ingress-tls]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Powyższe polecenia tworzą adres IP, który zostanie usunięty po usunięciu klastra AKS. Alternatywnie można utworzyć adres IP w innej grupie zasobów, którą można zarządzać niezależnie od klastra AKS. Jeśli tworzysz adres IP w innej grupie zasobów, upewnij się, że jednostka usługi używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów, takiej jak *współautor sieci* . Aby uzyskać więcej informacji, zobacz [Używanie statycznego publicznego adresu IP i etykiety DNS z modułem równoważenia obciążenia AKS][aks-static-ip].
+> Powyższe polecenia tworzą adres IP, który zostanie usunięty po usunięciu klastra AKS. Alternatywnie można utworzyć adres IP w innej grupie zasobów, którą można zarządzać niezależnie od klastra AKS. Jeśli tworzysz adres IP w innej grupie zasobów, upewnij się, że jednostka usługi używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów, takiej jak *współautor sieci*. Aby uzyskać więcej informacji, zobacz [Używanie statycznego publicznego adresu IP i etykiety DNS z modułem równoważenia obciążenia AKS][aks-static-ip].
 
 Teraz Wdróż wykres *Nginx-* transferal z Helm. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
 
@@ -62,10 +62,10 @@ Do wydania Helm należy przekazać dwa dodatkowe parametry, aby kontroler transf
 Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
 
 > [!TIP]
-> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic* . W razie potrzeby określ przestrzeń nazw dla własnego środowiska. Jeśli klaster AKS nie jest włączony RBAC, Dodaj `--set rbac.create=false` do poleceń Helm.
+> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic*. W razie potrzeby określ przestrzeń nazw dla własnego środowiska. Jeśli w klastrze AKS nie włączono kontroli RBAC, Dodaj `--set rbac.create=false` do poleceń Helm.
 
 > [!TIP]
-> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for* . W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
+> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
 
 Zaktualizuj następujący skrypt przy użyciu **adresu IP** kontrolera transferu danych przychodzących i **unikatowej nazwy** , która ma być używana dla prefiksu nazwy FQDN.
 
@@ -115,7 +115,7 @@ Kontroler ruchu przychodzącego NGINX obsługuje kończenie żądań protokołu 
 > [!NOTE]
 > W tym artykule jest stosowane `staging` środowisko do szyfrowania. W przypadku wdrożeń produkcyjnych należy używać `letsencrypt-prod` i `https://acme-v02.api.letsencrypt.org/directory` w definicjach zasobów oraz podczas instalowania wykresu Helm.
 
-Aby zainstalować kontroler Menedżera certyfikatów w klastrze z obsługą RBAC, użyj następującego `helm install` polecenia:
+Aby zainstalować kontroler Menedżera certyfikatów w klastrze z obsługą kontroli RBAC Kubernetes, użyj następującego `helm install` polecenia:
 
 ```console
 # Label the cert-manager namespace to disable resource validation
@@ -435,7 +435,7 @@ Usuń samą przestrzeń nazw. Użyj `kubectl delete` polecenia i określ nazwę 
 kubectl delete namespace ingress-basic
 ```
 
-Na koniec Usuń statyczny publiczny adres IP utworzony dla kontrolera transferu danych przychodzących. Podaj nazwę grupy zasobów klastra *MC_* uzyskaną w pierwszym kroku tego artykułu, na przykład *MC_myResourceGroup_myAKSCluster_eastus* :
+Na koniec Usuń statyczny publiczny adres IP utworzony dla kontrolera transferu danych przychodzących. Podaj nazwę grupy zasobów klastra *MC_* uzyskaną w pierwszym kroku tego artykułu, na przykład *MC_myResourceGroup_myAKSCluster_eastus*:
 
 ```azurecli-interactive
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP

@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7730146f30487eb5d20f0d3138e9e5ba799daa99
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255255"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681520"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Sprawdzanie najlepszych rozwiązań dotyczących platformy Kubernetes w klastrze
 
@@ -29,7 +29,7 @@ Narzędzie polecenia-Advisor może raportować żądania zasobów i limitów bra
 
 ## <a name="running-kube-advisor"></a>Uruchamianie polecenia-Advisor
 
-Aby uruchomić narzędzie w klastrze skonfigurowanym na potrzeby [kontroli dostępu opartej na rolach (RBAC)](./azure-ad-integration-cli.md), użyj następujących poleceń. Pierwsze polecenie tworzy konto usługi Kubernetes. Drugie polecenie uruchamia narzędzie w składniku pod przy użyciu tego konta usługi i konfiguruje go pod kątem usuwania po zakończeniu. 
+Aby uruchomić narzędzie w klastrze skonfigurowanym do [kontroli dostępu opartej na rolach Kubernetes (KUBERNETES RBAC)](./azure-ad-integration-cli.md), używając następujących poleceń. Pierwsze polecenie tworzy konto usługi Kubernetes. Drugie polecenie uruchamia narzędzie w składniku pod przy użyciu tego konta usługi i konfiguruje go pod kątem usuwania po zakończeniu. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -37,7 +37,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
-Jeśli nie korzystasz z funkcji RBAC, możesz uruchomić polecenie w następujący sposób:
+Jeśli nie korzystasz z Kubernetes RBAC, możesz uruchomić polecenie w następujący sposób:
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
@@ -59,13 +59,13 @@ Domyślnie żadne żądania ani limity nie są ustawione dla specyfikacji pod. M
 
 ## <a name="cleaning-up"></a>Czyszczenie
 
-Jeśli klaster ma włączoną funkcję RBAC, możesz wyczyścić `ClusterRoleBinding` działanie po uruchomieniu narzędzia przy użyciu następującego polecenia:
+Jeśli klaster ma włączoną funkcję RBAC Kubernetes, można oczyścić `ClusterRoleBinding` po uruchomieniu narzędzia przy użyciu następującego polecenia:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-Jeśli uruchamiasz narzędzie w klastrze, który nie obsługuje kontroli RBAC, nie jest wymagane żadne czyszczenie.
+Jeśli uruchamiasz narzędzie w klastrze, który nie Kubernetes kontroli RBAC, nie jest wymagane żadne czyszczenie.
 
 ## <a name="next-steps"></a>Następne kroki
 
