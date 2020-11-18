@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759967"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658421"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Usuń dane osobowe serwer proxy aplikacji usługi Azure Active Directory
 
@@ -35,7 +35,7 @@ Serwer proxy aplikacji może zapisywać dane osobowe w następujących typach dz
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Usuń dane osobowe z dzienników zdarzeń systemu Windows
 
-Aby uzyskać informacje na temat konfigurowania przechowywania danych dla dzienników zdarzeń systemu Windows, zobacz [Ustawienia dzienników zdarzeń](https://technet.microsoft.com/library/cc952132.aspx). Aby dowiedzieć się więcej o dziennikach zdarzeń systemu Windows, zobacz [Korzystanie z dziennika zdarzeń systemu Windows](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+Aby uzyskać informacje na temat konfigurowania przechowywania danych dla dzienników zdarzeń systemu Windows, zobacz [Ustawienia dzienników zdarzeń](https://technet.microsoft.com/library/cc952132.aspx). Aby dowiedzieć się więcej o dziennikach zdarzeń systemu Windows, zobacz [Korzystanie z dziennika zdarzeń systemu Windows](/windows/win32/wes/using-windows-event-log).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Skorzystaj z poniższych sekcji, aby usunąć dane osobowe z dzienników zdarze�
 
 Aby wyświetlić lub wyeksportować określone dane, Wyszukaj powiązane wpisy w każdym z dzienników zdarzeń łącznika. Dzienniki znajdują się w lokalizacji `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace` .
 
-Ponieważ dzienniki są plikami tekstowymi, można użyć polecenie [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) do wyszukiwania wpisów tekstowych związanych z użytkownikiem.  
+Ponieważ dzienniki są plikami tekstowymi, można użyć polecenie [findstr](/windows-server/administration/windows-commands/findstr) do wyszukiwania wpisów tekstowych związanych z użytkownikiem.  
 
 Aby znaleźć dane osobowe, Wyszukaj pliki dzienników dla identyfikatora użytkownika.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037838"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658353"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Rozwiązywanie problemów: połączenie sieci VPN typu lokacja-lokacja platformy Azure nie może nawiązać połączenia i przestanie działać
 
@@ -22,7 +22,7 @@ Po skonfigurowaniu połączenia sieci VPN typu lokacja-lokacja między siecią l
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-Aby rozwiązać ten problem, najpierw spróbuj [zresetować bramę sieci VPN platformy Azure](vpn-gateway-resetgw-classic.md) i zresetować tunel z lokalnego urządzenia sieci VPN. Jeśli problem będzie się powtarzał, wykonaj następujące kroki, aby zidentyfikować przyczynę problemu.
+Aby rozwiązać ten problem, najpierw spróbuj [zresetować bramę sieci VPN platformy Azure](./reset-gateway.md) i zresetować tunel z lokalnego urządzenia sieci VPN. Jeśli problem będzie się powtarzał, wykonaj następujące kroki, aby zidentyfikować przyczynę problemu.
 
 ### <a name="prerequisite-step"></a>Etap wymagań wstępnych
 
@@ -46,7 +46,7 @@ Porównaj klucz współużytkowany dla lokalnego urządzenia sieci VPN z usług�
 
 Aby wyświetlić klucz współużytkowany dla połączenia sieci VPN platformy Azure, użyj jednej z następujących metod:
 
-**Azure Portal**
+**Witryna Azure Portal**
 
 1. Przejdź do utworzonego połączenia bramy sieci VPN typu lokacja-lokacja.
 

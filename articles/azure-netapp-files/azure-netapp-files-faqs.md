@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591550"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659152"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -150,7 +150,7 @@ Tak, przed wdrożeniem woluminu SMB należy utworzyć połączenie Active Direct
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Ile połączeń Active Directory są obsługiwane?
 
-Azure NetApp Files nie obsługuje wielu połączeń Active Directory (AD) w jednym *regionie* , nawet jeśli połączenia usługi AD znajdują się na różnych kontach NetApp. Można jednak korzystać z wielu połączeń usługi AD w ramach jednej *subskrypcji* , o ile połączenia usługi AD znajdują się w różnych regionach. Jeśli potrzebujesz wielu połączeń usługi AD w jednym regionie, możesz to zrobić za pomocą osobnych subskrypcji. 
+Azure NetApp Files nie obsługuje wielu połączeń Active Directory (AD) w jednym *regionie*, nawet jeśli połączenia usługi AD znajdują się na różnych kontach NetApp. Można jednak korzystać z wielu połączeń usługi AD w ramach jednej *subskrypcji*, o ile połączenia usługi AD znajdują się w różnych regionach. Jeśli potrzebujesz wielu połączeń usługi AD w jednym regionie, możesz to zrobić za pomocą osobnych subskrypcji. 
 
 Skonfigurowano połączenie usługi AD na konto NetApp; połączenie z usługą AD jest widoczne tylko za pomocą konta NetApp, które zostało utworzone w programie.
 
@@ -167,6 +167,10 @@ Azure NetApp Files obsługuje wersje Active Directory Domain Services systemu Wi
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Dlaczego dostęp do dostępnego miejsca na kliencie SMB nie jest wyświetlany?
 
 Rozmiar woluminu zgłoszonego przez klienta SMB to maksymalny rozmiar, do którego można zwiększyć wolumin Azure NetApp Files. Rozmiar woluminu Azure NetApp Files, jak pokazano na kliencie SMB nie jest odzwierciedleniem przydziału lub rozmiaru woluminu. Azure NetApp Files rozmiaru woluminu lub przydziału można uzyskać za pomocą Azure Portal lub interfejsu API.
+
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Mam problemy z nawiązywaniem połączenia z udziałem SMB. Co mam zrobić?
+
+Najlepszym rozwiązaniem jest ustawienie maksymalnej tolerancji synchronizacji zegara komputera na pięć minut. Aby uzyskać więcej informacji, zobacz [maksymalna tolerancja synchronizacji zegara komputera](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

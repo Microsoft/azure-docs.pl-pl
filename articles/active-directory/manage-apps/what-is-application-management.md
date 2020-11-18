@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a157396318075522d5b3263c9cf0f749eafc2476
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90604125"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658812"
 ---
 # <a name="what-is-application-management"></a>Co to jest zarządzanie aplikacjami?
 
@@ -57,7 +57,7 @@ Usługa Azure AD upraszcza sposób zarządzania aplikacjami, zapewniając pojedy
 
 Istnieją cztery główne typy aplikacji, które można dodać do **aplikacji dla przedsiębiorstw** i zarządzać nimi za pomocą usługi Azure AD:
 
-- **Aplikacje z galerii usługi Azure AD** — usługa Azure AD ma galerię zawierającą tysiące aplikacji, które zostały wstępnie zintegrowane na potrzeby logowania jednokrotnego w usłudze Azure AD. Niektóre z aplikacji używanych w Twojej organizacji prawdopodobnie znajdują się w galerii. [Dowiedz się więcej o planowaniu integracji aplikacji](plan-an-application-integration.md)lub zapoznaj się ze szczegółowymi krokami integracji dla poszczególnych aplikacji w [samouczkach aplikacji SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+- **Aplikacje z galerii usługi Azure AD** — usługa Azure AD ma galerię zawierającą tysiące aplikacji, które zostały wstępnie zintegrowane na potrzeby logowania jednokrotnego w usłudze Azure AD. Niektóre z aplikacji używanych w Twojej organizacji prawdopodobnie znajdują się w galerii. [Dowiedz się więcej o planowaniu integracji aplikacji](plan-an-application-integration.md)lub zapoznaj się ze szczegółowymi krokami integracji dla poszczególnych aplikacji w [samouczkach aplikacji SaaS](/azure/active-directory/saas-apps/).
 
 - **Aplikacje lokalne z serwerem proxy aplikacji** — za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD można zintegrować lokalne aplikacje sieci Web z usługą Azure AD w celu obsługi logowania jednokrotnego. Następnie użytkownicy końcowi mogą uzyskiwać dostęp do lokalnych aplikacji sieci Web w taki sam sposób, w jaki uzyskują dostęp do Microsoft 365 i innych aplikacji SaaS, zobacz [zapewnianie dostępu zdalnego do aplikacji lokalnych za pomocą serwera proxy aplikacji usługi Azure AD](application-proxy.md).
 

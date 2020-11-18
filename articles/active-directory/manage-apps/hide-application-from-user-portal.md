@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601143"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659067"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ukryj aplikacje dla przedsiębiorstw od użytkowników końcowych w Azure Active Directory
 
@@ -36,18 +36,18 @@ Wykonaj następujące kroki, aby ukryć aplikację z poziomu panelu Moje aplikac
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny katalogu.
 2.  Wybierz pozycję **Azure Active Directory**.
 3.  Wybierz pozycję **aplikacje dla przedsiębiorstw**. Zostanie otwarty blok **aplikacje dla przedsiębiorstw — wszystkie aplikacje** .
-4.  W obszarze **Typ aplikacji**wybierz pozycję **aplikacje dla przedsiębiorstw**, jeśli nie została jeszcze wybrana.
+4.  W obszarze **Typ aplikacji** wybierz pozycję **aplikacje dla przedsiębiorstw**, jeśli nie została jeszcze wybrana.
 5.  Wyszukaj aplikację, którą chcesz ukryć, a następnie kliknij aplikację.  Zostanie otwarta przegląd aplikacji.
 6.  Kliknij pozycję **Właściwości**. 
 7.  W przypadku pytania **widoczny dla użytkowników** kliknij przycisk **nie**.
-8.  Kliknij przycisk **Zapisz**.
+8.  Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Te instrukcje dotyczą tylko aplikacji dla przedsiębiorstw.
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Ukrywanie aplikacji przy użyciu programu Azure AD PowerShell
 
-Aby ukryć aplikację z poziomu panelu Moje aplikacje, można ręcznie dodać tag HideApp do nazwy głównej usługi dla aplikacji. Uruchom następujące polecenia [programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) w programie AzureAD, aby ustawić **widoczność aplikacji dla użytkowników?** wartość **nie**. 
+Aby ukryć aplikację z poziomu panelu Moje aplikacje, można ręcznie dodać tag HideApp do nazwy głównej usługi dla aplikacji. Uruchom następujące polecenia [programu PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) w programie AzureAD, aby ustawić **widoczność aplikacji dla użytkowników?** wartość **nie**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -67,13 +67,12 @@ Wykonaj następujące kroki, aby ukryć wszystkie Microsoft 365 aplikacje z pozi
 2.  Wybierz pozycję **Azure Active Directory**.
 3.  Wybierz pozycję **Użytkownicy**.
 4.  Wybierz pozycję **Ustawienia użytkownika**.
-5.  W obszarze **aplikacje dla przedsiębiorstw**kliknij pozycję **Zarządzaj sposobem uruchamiania i wyświetlania aplikacji przez użytkowników końcowych.**
+5.  W obszarze **aplikacje dla przedsiębiorstw** kliknij pozycję **Zarządzaj sposobem uruchamiania i wyświetlania aplikacji przez użytkowników końcowych.**
 6.  Aby **użytkownicy mogli zobaczyć tylko aplikacje pakietu office 365 w portalu pakietu office 365**, kliknij przycisk **tak**.
-7.  Kliknij przycisk **Zapisz**.
+7.  Kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zobacz wszystkie moje grupy](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](assign-user-or-group-access-portal.md)
-* [Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw](remove-user-or-group-access-portal.md)
-* [Zmiana nazwy lub logo aplikacji dla przedsiębiorstw](change-name-or-logo-portal.md)
-
+* [Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw](./assign-user-or-group-access-portal.md)
+* [Zmiana nazwy lub logo aplikacji dla przedsiębiorstw](./add-application-portal-configure.md)

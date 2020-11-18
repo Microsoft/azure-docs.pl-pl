@@ -8,23 +8,23 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d665ee11a0688c2a112858ce0c02d359ed86e973
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: dd07c09c4ed5be311bf5a485b9bff938c976a2f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629873"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659237"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udziałami plików platformy Azure](storage-files-introduction.md) przy użyciu interfejsu wiersza polecenia platformy Azure. Udziały plików platformy Azure są podobne do innych udziałów plików, ale są przechowywane w chmurze i obsługiwane przez platformę Azure. Udziały plików platformy Azure obsługują protokół SMB (Server Message Block), Protokół NFS (Network File System) (wersja zapoznawcza) i umożliwia udostępnianie plików na wielu komputerach, aplikacjach i wystąpieniach. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli podejmiesz decyzję o zainstalowaniu i używaniu interfejsu wiersza polecenia platformy Azure lokalnie, to aby wykonać kroki opisane w tym artykule, musisz mieć wersję 2.0.4 lub nowszą. Uruchom polecenie **az --version** , aby określić wersję używanego interfejsu wiersza polecenia platformy Azure. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
+- Ten artykuł wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-Domyślnie polecenia interfejsu wiersza polecenia platformy Azure zwracają kod JSON (JavaScript Object Notation). Kod JSON to standardowy sposób wysyłania i odbierania komunikatów w ramach komunikacji z interfejsami API REST. W celu ułatwienia pracy z odpowiedziami JSON przykłady w tym artykule korzystają z parametru *query* w poleceniach interfejsu wiersza polecenia platformy Azure. Ten parametr używa [języka zapytań JMESPath](http://jmespath.org/) do analizowania danych JSON. Aby dowiedzieć się więcej na temat używania wyników poleceń interfejsu wiersza polecenia platformy Azure, zobacz [samouczek języka zapytań JMESPath](http://jmespath.org/tutorial.html).
+- Domyślnie polecenia interfejsu wiersza polecenia platformy Azure zwracają kod JSON (JavaScript Object Notation). Kod JSON to standardowy sposób wysyłania i odbierania komunikatów w ramach komunikacji z interfejsami API REST. W celu ułatwienia pracy z odpowiedziami JSON przykłady w tym artykule korzystają z parametru *query* w poleceniach interfejsu wiersza polecenia platformy Azure. Ten parametr używa [języka zapytań JMESPath](http://jmespath.org/) do analizowania danych JSON. Aby dowiedzieć się więcej na temat używania wyników poleceń interfejsu wiersza polecenia platformy Azure, zobacz [samouczek języka zapytań JMESPath](http://jmespath.org/tutorial.html).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Jeśli nie masz jeszcze grupy zasobów platformy Azure, możesz utworzyć nową grupę za pomocą polecenia [az group create](/cli/azure/group). 
@@ -73,7 +73,7 @@ export storageAccountKey=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
-Teraz możesz utworzyć swój pierwszy udział plików platformy Azure. Udziały plików tworzy się przy użyciu polecenia [az storage share create](/cli/azure/storage/share). W tym przykładzie jest tworzony udział plików platformy Azure o nazwie *myshare* : 
+Teraz możesz utworzyć swój pierwszy udział plików platformy Azure. Udziały plików tworzy się przy użyciu polecenia [az storage share create](/cli/azure/storage/share). W tym przykładzie jest tworzony udział plików platformy Azure o nazwie *myshare*: 
 
 ```azurecli-interactive
 shareName="myshare"

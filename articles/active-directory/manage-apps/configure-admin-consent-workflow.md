@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027248"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658778"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
 
@@ -35,21 +35,21 @@ Aby włączyć przepływ pracy zgody administratora i wybrać recenzentów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) jako administrator globalny.
 2. Kliknij pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie. Zostanie otwarte **rozszerzenie Azure Active Directory** .
-3. W polu wyszukiwania filtru wpisz " **Azure Active Directory** " i wybierz element **Azure Active Directory** .
-4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw** . 
-5. W obszarze **Zarządzaj** wybierz pozycję **Ustawienia użytkownika** .
-6. W obszarze **prośby o zgodę administratora (wersja zapoznawcza)** ustaw, aby **użytkownicy mogli żądać zgody administratora na aplikacje, których nie mogą wyrazić zgody** na **wartość tak** .
+3. W polu wyszukiwania filtru wpisz "**Azure Active Directory**" i wybierz element **Azure Active Directory** .
+4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw**. 
+5. W obszarze **Zarządzaj** wybierz pozycję **Ustawienia użytkownika**.
+6. W obszarze **prośby o zgodę administratora (wersja zapoznawcza)** ustaw, aby **użytkownicy mogli żądać zgody administratora na aplikacje, których nie mogą wyrazić zgody** na **wartość tak**.
 
    ![Konfigurowanie ustawień przepływu pracy zgody administratora](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
 6. Skonfiguruj następujące ustawienia:
 
-   * **Wybierz pozycję Użytkownicy, aby przejrzeć żądania zgody administratora** . Wybierz recenzentów tego przepływu pracy z zestawu użytkowników, którzy mają role Administrator globalny, administrator aplikacji w chmurze i administrator aplikacji.
-   * **Wybrani użytkownicy będą otrzymywać powiadomienia e-mail o żądaniach** . Włącza lub wyłącza powiadomienia e-mail dla recenzentów po wysłaniu żądania.  
-   * **Wybrani użytkownicy otrzymają przypomnienia o wygaśnięciu żądania** . Włącz lub Wyłącz powiadomienia e-mail z przypomnieniem dla recenzentów, gdy żądanie wkrótce wygaśnie.  
-   * **Żądanie zgody wygasa po (w dniach)** . Określ, jak długo żądania pozostają ważne.
+   * **Wybierz pozycję Użytkownicy, aby przejrzeć żądania zgody administratora**. Wybierz recenzentów tego przepływu pracy z zestawu użytkowników, którzy mają role Administrator globalny, administrator aplikacji w chmurze i administrator aplikacji.
+   * **Wybrani użytkownicy będą otrzymywać powiadomienia e-mail o żądaniach**. Włącza lub wyłącza powiadomienia e-mail dla recenzentów po wysłaniu żądania.  
+   * **Wybrani użytkownicy otrzymają przypomnienia o wygaśnięciu żądania**. Włącz lub Wyłącz powiadomienia e-mail z przypomnieniem dla recenzentów, gdy żądanie wkrótce wygaśnie.  
+   * **Żądanie zgody wygasa po (w dniach)**. Określ, jak długo żądania pozostają ważne.
 
-7. Wybierz pozycję **Zapisz** . Włączenie tej funkcji może potrwać do godziny.
+7. Wybierz pozycję **Zapisz**. Włączenie tej funkcji może potrwać do godziny.
 
 > [!NOTE]
 > Możesz dodawać lub usuwać recenzentów tego przepływu pracy, modyfikując listę **Wybierz recenzentów żądań zgody administratora** . Należy zauważyć, że bieżące ograniczenie tej funkcji polega na tym, że Recenzenci mogą zachować możliwość przeglądania żądań, które zostały wprowadzone, gdy zostały wyszukane jako recenzent.
@@ -60,7 +60,7 @@ Po włączeniu przepływu pracy zgody administratora użytkownicy mogą zażąda
 
 1. Użytkownik próbuje zalogować się do aplikacji.
 
-2. Zostanie wyświetlony komunikat **wymagane zatwierdzenie** . Użytkownik wpisuje uzasadnienie dostępu do aplikacji, a następnie wybiera **żądanie zatwierdzenia** .
+2. Zostanie wyświetlony komunikat **wymagane zatwierdzenie** . Użytkownik wpisuje uzasadnienie dostępu do aplikacji, a następnie wybiera **żądanie zatwierdzenia**.
 
    ![Zrzut ekranu przedstawia okno dialogowe wymagane zatwierdzenie, w którym można zażądać zatwierdzenia.](media/configure-admin-consent-workflow/end-user-justification.png)
 
@@ -76,9 +76,9 @@ Aby przejrzeć żądania zgody administratora i podjąć działania:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako jeden z zarejestrowanych recenzentów przepływu pracy zgody administratora.
 2. Wybierz pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie. Zostanie otwarte **rozszerzenie Azure Active Directory** .
-3. W polu wyszukiwania filtru wpisz " **Azure Active Directory** " i wybierz element **Azure Active Directory** .
-4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw** .
-5. W obszarze **działanie** wybierz pozycję **żądania zgody administratora (wersja zapoznawcza)** .
+3. W polu wyszukiwania filtru wpisz "**Azure Active Directory**" i wybierz element **Azure Active Directory** .
+4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw**.
+5. W obszarze **działanie** wybierz pozycję **żądania zgody administratora (wersja zapoznawcza)**.
 
    > [!NOTE]
    > Recenzenci będą widzieć tylko żądania administratora, które zostały utworzone po wyznaczeniu przez Ciebie jako recenzenta.
@@ -87,13 +87,13 @@ Aby przejrzeć żądania zgody administratora i podjąć działania:
 2. Przejrzyj szczegółowe informacje na temat żądania:  
 
    * Aby zobaczyć, kto żąda dostępu i dlaczego, wybierz kartę **żądane przez** .
-   * Aby sprawdzić, jakie uprawnienia są wymagane przez aplikację, wybierz pozycję **Przejrzyj uprawnienia i wyrażanie zgody** .
+   * Aby sprawdzić, jakie uprawnienia są wymagane przez aplikację, wybierz pozycję **Przejrzyj uprawnienia i wyrażanie zgody**.
 
 8. Oceń żądanie i podejmij odpowiednie działanie:
 
-   * **Zatwierdź żądanie** . Aby zatwierdzić żądanie, Udziel uprawnienia administratora aplikacji. Po zatwierdzeniu żądania wszyscy osoby żądające zostaną powiadomieni o udzieleniu im dostępu.  
-   * **Odmów żądania** . Aby odmówić żądania, należy podać uzasadnienie, które zostanie przekazane wszystkim zleceniodawcom. Po odmowie żądania wszystkie osoby żądające zostaną powiadomione o odmowie dostępu do aplikacji. Odrzucenie żądania nie uniemożliwi użytkownikom powtórnego żądania zgody administratora na aplikację w przyszłości.  
-   * **Zablokuj żądanie** . Aby zablokować żądanie, należy podać uzasadnienie, które zostanie przekazane wszystkim zleceniodawcom. Po zablokowaniu żądania wszystkie osoby żądające otrzymają powiadomienie o odmowie dostępu do aplikacji. Zablokowanie żądania powoduje utworzenie obiektu jednostki usługi dla aplikacji w dzierżawie w stanie wyłączenia. Użytkownicy nie będą mogli prosić o zgodę administratora aplikacji w przyszłości.
+   * **Zatwierdź żądanie**. Aby zatwierdzić żądanie, Udziel uprawnienia administratora aplikacji. Po zatwierdzeniu żądania wszyscy osoby żądające zostaną powiadomieni o udzieleniu im dostępu.  
+   * **Odmów żądania**. Aby odmówić żądania, należy podać uzasadnienie, które zostanie przekazane wszystkim zleceniodawcom. Po odmowie żądania wszystkie osoby żądające zostaną powiadomione o odmowie dostępu do aplikacji. Odrzucenie żądania nie uniemożliwi użytkownikom powtórnego żądania zgody administratora na aplikację w przyszłości.  
+   * **Zablokuj żądanie**. Aby zablokować żądanie, należy podać uzasadnienie, które zostanie przekazane wszystkim zleceniodawcom. Po zablokowaniu żądania wszystkie osoby żądające otrzymają powiadomienie o odmowie dostępu do aplikacji. Zablokowanie żądania powoduje utworzenie obiektu jednostki usługi dla aplikacji w dzierżawie w stanie wyłączenia. Użytkownicy nie będą mogli prosić o zgodę administratora aplikacji w przyszłości.
  
 ## <a name="email-notifications"></a>Powiadomienia e-mail
  
@@ -147,7 +147,7 @@ Nie. obecnie osoby żądające mogą pobierać aktualizacje za pośrednictwem po
 
 **Czy jako recenzent jest możliwe zatwierdzenie aplikacji, ale nie dla wszystkich?**
  
-Jeśli chodzi o przyznanie zgody administratora i zezwolenie wszystkim użytkownikom w dzierżawie na korzystanie z aplikacji, zalecamy odrzucenie żądania. Następnie ręcznie Udziel zgody administratora przez ograniczenie dostępu do aplikacji przez wymaganie przypisania użytkownika i przypisanie użytkowników lub grup do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
+Jeśli chodzi o przyznanie zgody administratora i zezwolenie wszystkim użytkownikom w dzierżawie na korzystanie z aplikacji, zalecamy odrzucenie żądania. Następnie ręcznie Udziel zgody administratora przez ograniczenie dostępu do aplikacji przez wymaganie przypisania użytkownika i przypisanie użytkowników lub grup do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](./assign-user-or-group-access-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -157,6 +157,6 @@ Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [
 
 [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
 
-[Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
+[Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

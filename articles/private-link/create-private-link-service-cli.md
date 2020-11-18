@@ -7,19 +7,20 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: a2b97bcc9fe902480364ade19efdae863556ac1e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629431"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658574"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Tworzenie prywatnej usługi linkowej przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym artykule opisano sposób tworzenia usługi linku prywatnego na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki Start wymaga użycia najnowszej wersji interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jaka wersja jest zainstalowana, uruchom polecenie `az --version`. Aby uzyskać informacje na temat instalacji i uaktualnienia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+- W tym artykule jest wymagana Najnowsza wersja interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+
 ## <a name="create-a-private-link-service"></a>Tworzenie usługi łącza prywatnego
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -29,7 +30,7 @@ Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów, która bę
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
-Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Ten przykład tworzy domyślną sieć wirtualną o nazwie *myVirtualNetwork* z jedną podsiecią o nazwie Moja *podsieć* :
+Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Ten przykład tworzy domyślną sieć wirtualną o nazwie *myVirtualNetwork* z jedną podsiecią o nazwie Moja *podsieć*:
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
@@ -62,7 +63,7 @@ Sonda kondycji sprawdza wszystkie wystąpienia maszyny wirtualnej, aby upewnić 
 
 ### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
-Reguła modułu równoważenia obciążenia definiuje konfigurację adresu IP frontonu na potrzeby ruchu przychodzącego oraz pulę adresów IP zaplecza do odbierania ruchu, wraz z wymaganym portem źródłowym i docelowym. Utwórz regułę modułu równoważenia obciążenia *myHTTPRule* za pomocą polecenia [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) w celu nasłuchiwania na porcie 80 w puli frontonu *myFrontEnd* i wysyłania ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza *myBackEndPool* , również przy użyciu portu 80. 
+Reguła modułu równoważenia obciążenia definiuje konfigurację adresu IP frontonu na potrzeby ruchu przychodzącego oraz pulę adresów IP zaplecza do odbierania ruchu, wraz z wymaganym portem źródłowym i docelowym. Utwórz regułę modułu równoważenia obciążenia *myHTTPRule* za pomocą polecenia [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) w celu nasłuchiwania na porcie 80 w puli frontonu *myFrontEnd* i wysyłania ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza *myBackEndPool*, również przy użyciu portu 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -111,7 +112,7 @@ Następnie przedstawimy sposób mapowania tej usługi do prywatnego punktu końc
 ## <a name="private-endpoints"></a>Prywatne punkty końcowe
 
 ### <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej 
-Utwórz sieć wirtualną za pomocą [AZ Network VNET Create](/cli/azure/network/vnet#az-network-vnet-create). Ten przykład umożliwia utworzenie sieci wirtualnej o nazwie  *myPEVNet*   w grupie zasobów o nazwie Moja *zasobów* : 
+Utwórz sieć wirtualną za pomocą [AZ Network VNET Create](/cli/azure/network/vnet#az-network-vnet-create). Ten przykład umożliwia utworzenie sieci wirtualnej o nazwie  *myPEVNet*   w grupie zasobów o nazwie Moja *zasobów*: 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +120,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Utwórz podsieć 
-Utwórz podsieć w sieci wirtualnej za pomocą [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Ten przykład tworzy podsieć o nazwie Moja  *podsieć*   w sieci wirtualnej o nazwie *myPEVnet* w grupie zasobów o nazwie Moja *zasobów* : 
+Utwórz podsieć w sieci wirtualnej za pomocą [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Ten przykład tworzy podsieć o nazwie Moja  *podsieć*   w sieci wirtualnej o nazwie *myPEVnet* w grupie zasobów o nazwie Moja *zasobów*: 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -152,7 +153,7 @@ az network private-endpoint create \
 --location westcentralus 
 ```
 Możesz uzyskać *połączenie Private-Connection-Resource-ID* z `az network private-link-service show` usługą link prywatny. Identyfikator będzie wyglądać następująco:   
-/subscriptions/subID/resourceGroups/ *ResourceGroupName* /Providers/Microsoft.Network/privateLinkServices/ **privatelinkservicename** 
+/subscriptions/subID/resourceGroups/*ResourceGroupName*/Providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>Pokaż połączenia usługi link prywatny 
  

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9736e1b71f5e129989aba9a045581bae8a1c5f93
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642422"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658285"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD
 
-Serwer proxy aplikacji usługi Azure Active Directory (Azure AD) to bezpieczne i ekonomiczne rozwiązanie dostępu zdalnego dla aplikacji lokalnych. Zawiera natychmiastową ścieżkę przejścia dla organizacji "Cloud First" w celu zarządzania dostępem do starszych aplikacji lokalnych, które nie mogą jeszcze korzystać z nowoczesnych protokołów. Aby uzyskać dodatkowe informacje wprowadzające, zobacz [co to jest serwer proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+Serwer proxy aplikacji usługi Azure Active Directory (Azure AD) to bezpieczne i ekonomiczne rozwiązanie dostępu zdalnego dla aplikacji lokalnych. Zawiera natychmiastową ścieżkę przejścia dla organizacji "Cloud First" w celu zarządzania dostępem do starszych aplikacji lokalnych, które nie mogą jeszcze korzystać z nowoczesnych protokołów. Aby uzyskać dodatkowe informacje wprowadzające, zobacz [co to jest serwer proxy aplikacji](./application-proxy.md).
 
 Serwer proxy aplikacji jest zalecany do zapewniania użytkownikom zdalnym dostępu do zasobów wewnętrznych. Serwer proxy aplikacji zastępuje potrzebę sieci VPN lub zwrotnego serwera proxy dla tych przypadków użycia dostępu zdalnego. Nie jest ona przeznaczona dla użytkowników, którzy znajdują się w sieci firmowej. Ci użytkownicy, którzy korzystają z serwera proxy aplikacji w celu dostępu do sieci intranet, mogą napotkać niepożądane problemy z wydajnością.
 
@@ -47,7 +47,7 @@ Przed rozpoczęciem wdrażania należy spełnić następujące wymagania wstępn
      * Przed zainstalowaniem łączników należy [włączyć obsługę protokołu TLS 1,2 dla](application-proxy-add-on-premises-application.md) komputerów łączników.
 
      * Jeśli to możliwe, wdróż łączniki w [tej samej sieci](application-proxy-network-topology.md) i segmencie co serwery aplikacji sieci Web zaplecza. Najlepszym rozwiązaniem jest wdrożenie łączników po zakończeniu odnajdywania aplikacji.
-     * Zalecamy, aby każda grupa łączników miała co najmniej dwa łączniki zapewniające wysoką dostępność i skalowanie. W przypadku, gdy trzy łączniki są optymalne na wypadek, może być konieczne obsługę komputera w dowolnym momencie. Przejrzyj [tabelę pojemności łącznika](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) , aby pomóc w wyborze typu maszyny, na której mają zostać zainstalowane łączniki. Im większa jest pojemność bufora i wykonanie łącznika.
+     * Zalecamy, aby każda grupa łączników miała co najmniej dwa łączniki zapewniające wysoką dostępność i skalowanie. W przypadku, gdy trzy łączniki są optymalne na wypadek, może być konieczne obsługę komputera w dowolnym momencie. Przejrzyj [tabelę pojemności łącznika](./application-proxy-connectors.md#capacity-planning) , aby pomóc w wyborze typu maszyny, na której mają zostać zainstalowane łączniki. Im większa jest pojemność bufora i wykonanie łącznika.
 
 * **Ustawienia dostępu do sieci**: Łączniki usługi Azure serwer proxy aplikacji usługi Azure AD [nawiązują połączenie z platformą Azure za pośrednictwem protokołu HTTPS (port TCP 443) i http (port TCP 80)](application-proxy-add-on-premises-application.md).
 
@@ -63,9 +63,9 @@ Następujące podstawowe wymagania muszą zostać spełnione, aby można było s
 
 *  **Azure**— dołączanie: przed wdrożeniem serwera proxy aplikacji tożsamości użytkowników muszą być synchronizowane z katalogu lokalnego lub tworzone bezpośrednio w dzierżawach usługi Azure AD. Synchronizacja tożsamości umożliwia usłudze Azure AD wstępne uwierzytelnienie użytkowników przed udzieleniem im dostępu do opublikowanych aplikacji serwera proxy aplikacji i posiadanie informacji o identyfikatorze użytkownika w celu przeprowadzenia rejestracji jednokrotnej (SSO).
 
-* **Wymagania dotyczące dostępu warunkowego**: nie zaleca się używania serwera proxy aplikacji do dostępu do intranetu, ponieważ powoduje to dodanie opóźnień, które mają wpływ na użytkowników. Zalecamy używanie serwera proxy aplikacji z zasadami wstępnego uwierzytelniania i dostępu warunkowego dla dostępu zdalnego z Internetu.  Podejście do zapewnienia dostępu warunkowego do użytku w intranecie polega na modernizacji aplikacji, aby mogły one być bezpośrednio uwierzytelniane za pomocą usługi AAD. Aby uzyskać więcej informacji, zapoznaj się z [zasobami dotyczącymi migrowania aplikacji do usługi AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) .
+* **Wymagania dotyczące dostępu warunkowego**: nie zaleca się używania serwera proxy aplikacji do dostępu do intranetu, ponieważ powoduje to dodanie opóźnień, które mają wpływ na użytkowników. Zalecamy używanie serwera proxy aplikacji z zasadami wstępnego uwierzytelniania i dostępu warunkowego dla dostępu zdalnego z Internetu.  Podejście do zapewnienia dostępu warunkowego do użytku w intranecie polega na modernizacji aplikacji, aby mogły one być bezpośrednio uwierzytelniane za pomocą usługi AAD. Aby uzyskać więcej informacji, zapoznaj się z [zasobami dotyczącymi migrowania aplikacji do usługi AAD](./migration-resources.md) .
 
-* **Limity usługi**: aby chronić przed zużyciem zasobów przez poszczególne dzierżawy, istnieją limity ograniczania ustawione na aplikację i dzierżawcę. Aby sprawdzić te limity, odnoszą się do [limitów i ograniczeń usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Te limity ograniczania są oparte na teście porównawczym znacznie powyżej typowego woluminu użycia i zapewniają szeroki bufor dla większości wdrożeń.
+* **Limity usługi**: aby chronić przed zużyciem zasobów przez poszczególne dzierżawy, istnieją limity ograniczania ustawione na aplikację i dzierżawcę. Aby sprawdzić te limity, odnoszą się do [limitów i ograniczeń usługi Azure AD](../enterprise-users/directory-service-limits-restrictions.md). Te limity ograniczania są oparte na teście porównawczym znacznie powyżej typowego woluminu użycia i zapewniają szeroki bufor dla większości wdrożeń.
 
 * **Certyfikat publiczny**: Jeśli używasz niestandardowych nazw domen, musisz uzyskać certyfikat TLS/SSL. W zależności od wymagań organizacyjnych uzyskanie certyfikatu może zająć trochę czasu, a firma Microsoft zaleca rozpoczęcie procesu tak szybko, jak to możliwe. Serwer proxy aplikacji platformy Azure obsługuje certyfikaty standardowego, [wieloznacznego](application-proxy-wildcard.md)lub opartego na sieci SAN. Aby uzyskać więcej informacji, zobacz [Konfigurowanie domen niestandardowych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-configure-custom-domain.md).
 
@@ -74,7 +74,7 @@ Aby uzyskać szczegółowe informacje na temat tego tematu, zobacz [KCD for Sing
 
 * **Rekordy DNS dla adresów URL**
 
-   * Przed użyciem domen niestandardowych w serwerze proxy aplikacji należy utworzyć rekord CNAME w publicznej usłudze DNS, umożliwiając klientom rozpoznawanie niestandardowego zdefiniowanego zewnętrznego adresu URL do wstępnie zdefiniowanego adresu serwera proxy aplikacji. Nie można utworzyć rekordu CNAME dla aplikacji, która używa domeny niestandardowej uniemożliwi użytkownikom zdalnym łączenie się z aplikacją. Kroki wymagane do dodania rekordów CNAME mogą się różnić od dostawcy DNS do dostawcy, aby dowiedzieć się, jak [zarządzać rekordami i zestawami rekordów DNS przy użyciu Azure Portal](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-portal).
+   * Przed użyciem domen niestandardowych w serwerze proxy aplikacji należy utworzyć rekord CNAME w publicznej usłudze DNS, umożliwiając klientom rozpoznawanie niestandardowego zdefiniowanego zewnętrznego adresu URL do wstępnie zdefiniowanego adresu serwera proxy aplikacji. Nie można utworzyć rekordu CNAME dla aplikacji, która używa domeny niestandardowej uniemożliwi użytkownikom zdalnym łączenie się z aplikacją. Kroki wymagane do dodania rekordów CNAME mogą się różnić od dostawcy DNS do dostawcy, aby dowiedzieć się, jak [zarządzać rekordami i zestawami rekordów DNS przy użyciu Azure Portal](../../dns/dns-operations-recordsets-portal.md).
 
    * Podobnie hosty łączników muszą mieć możliwość rozpoznania wewnętrznego adresu URL publikowanych aplikacji.
 
@@ -97,7 +97,7 @@ Kompiluj spis wszystkich aplikacji w zakresie, które są publikowane za pośred
 | Członkostwo w domenie| W pełni kwalifikowana nazwa domeny serwera sieci Web (FQDN) |
 | Lokalizacja aplikacji | Gdzie serwer sieci Web lub farma znajduje się w infrastrukturze |
 | Dostęp wewnętrzny | Dokładny adres URL używany podczas wewnętrznego uzyskiwania dostępu do aplikacji. <br> Jeśli w farmie jest używany typ równoważenia obciążenia? <br> Czy aplikacja rysuje zawartość ze źródeł innych niż sama.<br> Ustal, czy aplikacja działa za pośrednictwem obiektów WebSockets. |
-| Dostęp zewnętrzny | Rozwiązanie dostawcy, dla którego aplikacja została już udostępniona zewnętrznie. <br> Adres URL, który ma być używany na potrzeby dostępu zewnętrznego. Jeśli program SharePoint, upewnij się, że zostały skonfigurowane alternatywne mapowania dostępu na [te wskazówki](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). W przeciwnym razie należy zdefiniować zewnętrzne adresy URL. |
+| Dostęp zewnętrzny | Rozwiązanie dostawcy, dla którego aplikacja została już udostępniona zewnętrznie. <br> Adres URL, który ma być używany na potrzeby dostępu zewnętrznego. Jeśli program SharePoint, upewnij się, że zostały skonfigurowane alternatywne mapowania dostępu na [te wskazówki](/SharePoint/administration/configure-alternate-access-mappings). W przeciwnym razie należy zdefiniować zewnętrzne adresy URL. |
 | Certyfikat publiczny | Jeśli używasz domeny niestandardowej, Pozyskaj certyfikat z odpowiednią nazwą podmiotu. Jeśli certyfikat istnieje, należy zwrócić uwagę na numer seryjny i lokalizację, z której można uzyskać. |
 | Typ uwierzytelniania| Typ uwierzytelniania obsługiwany przez aplikację, na przykład podstawowe, uwierzytelnianie integracji systemu Windows, oparte na formularzach, oparte na nagłówkach i oświadczeniach. <br>Jeśli aplikacja jest skonfigurowana do uruchamiania w ramach określonego konta domeny, zanotuj w pełni kwalifikowaną nazwę domeny (FQDN) konta usługi.<br> Identyfikator i adres URL odpowiedzi w przypadku protokołu SAML. <br> Jeśli oparty na nagłówkach, rozwiązanie dostawcy i specyficzne wymagania dotyczące obsługi typu uwierzytelniania. |
 | Nazwa grupy łączników | Nazwa logiczna grupy łączników, która zostanie wyoznaczona w celu zapewnienia przewodu i logowania jednokrotnego do tej aplikacji zaplecza. |
@@ -152,7 +152,7 @@ Następujące elementy projektu powinny zwiększyć sukces implementacji pilota�
 
 * Ogranicz widoczność ikony aplikacji pilotażowej do grupy pilotażowej, ukrywając jej ikonę uruchamiania w portalu Azure webapps. Gdy wszystko jest gotowe do środowiska produkcyjnego, można przekierować aplikację do odpowiednich docelowych odbiorców w tej samej dzierżawie przedprodukcyjnej lub przez również opublikowanie aplikacji w dzierżawie produkcyjnej.
 
-**Ustawienia logowania**jednokrotnego: niektóre ustawienia rejestracji jednokrotnej mają określone zależności, które mogą wymagać czasu, aby uniknąć opóźnień kontroli zmian przez zapewnienie, że zależności są rozpatrywane przed czasem. Obejmuje to hosty łącznika przyłączania do domeny w celu przeprowadzenia logowania jednokrotnego przy użyciu ograniczonego delegowania protokołu Kerberos (KCD) i poświęcają inne czasochłonne działania. Można na przykład skonfigurować wystąpienie dostępu do usługi PING, jeśli potrzebne jest logowanie jednokrotne oparte na nagłówkach.
+**Ustawienia logowania** jednokrotnego: niektóre ustawienia rejestracji jednokrotnej mają określone zależności, które mogą wymagać czasu, aby uniknąć opóźnień kontroli zmian przez zapewnienie, że zależności są rozpatrywane przed czasem. Obejmuje to hosty łącznika przyłączania do domeny w celu przeprowadzenia logowania jednokrotnego przy użyciu ograniczonego delegowania protokołu Kerberos (KCD) i poświęcają inne czasochłonne działania. Można na przykład skonfigurować wystąpienie dostępu do usługi PING, jeśli potrzebne jest logowanie jednokrotne oparte na nagłówkach.
 
 **Protokół TLS między hostem łącznika a aplikacją docelową**: zabezpieczenia są najważniejsze, dlatego protokół TLS między hostem łącznika a aplikacją docelową powinien być zawsze używany. Szczególnie jeśli aplikacja sieci Web jest skonfigurowana do uwierzytelniania opartego na formularzach (FBA), w miarę jak poświadczenia użytkownika są efektywnie przesyłane w postaci zwykłego tekstu.
 
@@ -176,7 +176,7 @@ Kroki umożliwiające wdrożenie serwera proxy aplikacji zostały omówione w ty
 
 Publikowanie aplikacji zakłada, że spełniono wszystkie wymagania wstępne i że masz kilka łączników, które są wyświetlane jako zarejestrowane i aktywne na stronie serwera proxy aplikacji.
 
-Możesz również publikować aplikacje za pomocą [programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview).
+Możesz również publikować aplikacje za pomocą [programu PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview).
 
 Poniżej przedstawiono kilka najlepszych rozwiązań, które należy wykonać podczas publikowania aplikacji:
 
@@ -218,9 +218,9 @@ Możesz również pozwolić użytkownikom na samoobsługowe dostęp do aplikacji
 
 Jeśli ta funkcja jest włączona, użytkownicy będą mogli zalogować się do portalu usługi webapps i zażądać dostępu oraz zostać automatycznie zatwierdzona i dodana do już dozwolonej grupy samoobsługowej lub wymagać zatwierdzenia od wskazanej osoby zatwierdzającej.
 
-Użytkownicy-Goście mogą również zostać [zaproszeni do dostępu do wewnętrznych aplikacji publikowanych za pośrednictwem serwera proxy aplikacji za pośrednictwem usługi Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/add-users-information-worker).
+Użytkownicy-Goście mogą również zostać [zaproszeni do dostępu do wewnętrznych aplikacji publikowanych za pośrednictwem serwera proxy aplikacji za pośrednictwem usługi Azure AD B2B](../external-identities/add-users-information-worker.md).
 
-W przypadku aplikacji lokalnych, które są normalnie dostępne anonimowo, nie wymagając uwierzytelniania, możesz chcieć wyłączyć opcję znajdującą się we **właściwościach**aplikacji.
+W przypadku aplikacji lokalnych, które są normalnie dostępne anonimowo, nie wymagając uwierzytelniania, możesz chcieć wyłączyć opcję znajdującą się we **właściwościach** aplikacji.
 
 ![Obraz 26](media/App-proxy-deployment-plan/assignment-required.png)
 
@@ -253,9 +253,9 @@ Odczytuj Logowanie jednokrotne [do aplikacji w usłudze Azure AD](what-is-single
 
 ###  <a name="working-with-other-types-of-applications"></a>Praca z innymi typami aplikacji
 
-Usługa Azure serwer proxy aplikacji usługi Azure AD może również obsługiwać aplikacje opracowane do korzystania z [biblioteki uwierzytelniania firmy Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). Obsługuje natywne aplikacje klienckie przez konsumowanie tokenów wystawionych przez usługę Azure AD odebrane w nagłówku żądania klienta w celu przeprowadzenia wstępnego uwierzytelniania w imieniu użytkowników.
+Usługa Azure serwer proxy aplikacji usługi Azure AD może również obsługiwać aplikacje opracowane do korzystania z [biblioteki uwierzytelniania firmy Microsoft (MSAL)](../develop/v2-overview.md). Obsługuje natywne aplikacje klienckie przez konsumowanie tokenów wystawionych przez usługę Azure AD odebrane w nagłówku żądania klienta w celu przeprowadzenia wstępnego uwierzytelniania w imieniu użytkowników.
 
-Przeczytaj artykuł [Publikowanie natywnych i mobilnych aplikacji klienckich](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) oraz [aplikacji opartych na oświadczeniach](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) , aby dowiedzieć się więcej o dostępnych konfiguracjach serwera proxy aplikacji.
+Przeczytaj artykuł [Publikowanie natywnych i mobilnych aplikacji klienckich](./application-proxy-configure-native-client-application.md) oraz [aplikacji opartych na oświadczeniach](./application-proxy-configure-for-claims-aware-applications.md) , aby dowiedzieć się więcej o dostępnych konfiguracjach serwera proxy aplikacji.
 
 ### <a name="use-conditional-access-to-strengthen-security"></a>Korzystanie z dostępu warunkowego w celu wzmocnienia zabezpieczeń
 
@@ -263,11 +263,11 @@ Zabezpieczenia aplikacji wymagają zaawansowanego zestawu funkcji zabezpieczeń,
 
 Do obsługi serwer proxy aplikacji usługi Azure AD platformy Azure mogą być używane następujące funkcje:
 
-* Dostęp warunkowy oparty na użytkowniku i lokalizacji: Zachowaj poufne dane chronione przez ograniczenie dostępu użytkowników na podstawie lokalizacji geograficznej lub adresu IP przy użyciu [zasad dostępu warunkowego opartego na lokalizacjach](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+* Dostęp warunkowy oparty na użytkowniku i lokalizacji: Zachowaj poufne dane chronione przez ograniczenie dostępu użytkowników na podstawie lokalizacji geograficznej lub adresu IP przy użyciu [zasad dostępu warunkowego opartego na lokalizacjach](../conditional-access/location-condition.md).
 
-* Dostęp warunkowy oparty na urządzeniu: Upewnij się, że tylko zarejestrowane, zatwierdzone i zgodne urządzenia mogą uzyskiwać dostęp do danych firmowych przy użyciu [dostępu warunkowego opartego na urządzeniach](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
+* Dostęp warunkowy oparty na urządzeniu: Upewnij się, że tylko zarejestrowane, zatwierdzone i zgodne urządzenia mogą uzyskiwać dostęp do danych firmowych przy użyciu [dostępu warunkowego opartego na urządzeniach](../conditional-access/require-managed-devices.md).
 
-* Dostęp warunkowy oparty na aplikacji: nie trzeba przerywać pracy, gdy użytkownik nie znajduje się w sieci firmowej. [Bezpieczny dostęp do firmowych aplikacji w chmurze i lokalnych](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) oraz zachowanie kontroli z dostępem warunkowym.
+* Dostęp warunkowy oparty na aplikacji: nie trzeba przerywać pracy, gdy użytkownik nie znajduje się w sieci firmowej. [Bezpieczny dostęp do firmowych aplikacji w chmurze i lokalnych](../conditional-access/app-based-conditional-access.md) oraz zachowanie kontroli z dostępem warunkowym.
 
 * Dostęp warunkowy oparty na ryzyku: Chroń dane przed złośliwymi hakerami za pomocą [zasad dostępu warunkowego opartego na ryzyku](https://www.microsoft.com/cloud-platform/conditional-access) , które mogą być stosowane do wszystkich aplikacji i wszystkich użytkowników, zarówno lokalnych, jak i w chmurze.
 
@@ -277,7 +277,7 @@ Do obsługi serwer proxy aplikacji usługi Azure AD platformy Azure mogą być u
 
 ### <a name="required-roles"></a>Wymagane role
 
-Firma Microsoft zaleca, aby udzielić najmniejszego możliwego uprawnienia do wykonywania niezbędnych zadań w usłudze Azure AD. [Zapoznaj się z różnymi rolami platformy Azure, które są dostępne](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) , a następnie wybierz jedną z nich w celu rozwiązania potrzeb każdej osoby. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
+Firma Microsoft zaleca, aby udzielić najmniejszego możliwego uprawnienia do wykonywania niezbędnych zadań w usłudze Azure AD. [Zapoznaj się z różnymi rolami platformy Azure, które są dostępne](../roles/permissions-reference.md) , a następnie wybierz jedną z nich w celu rozwiązania potrzeb każdej osoby. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
 
 | Rola biznesowa| Zadania biznesowe| Role usługi Azure AD |
 |---|---|---|
@@ -288,7 +288,7 @@ Firma Microsoft zaleca, aby udzielić najmniejszego możliwego uprawnienia do wy
 
 Zminimalizowanie liczby osób, które mają dostęp do zabezpieczanych informacji lub zasobów, może pomóc w zmniejszeniu prawdopodobieństwa uzyskania nieautoryzowanego dostępu lub autoryzowanemu użytkownikowi przypadkowo wpływającemu na poufne zasoby.
 
-Jednak użytkownicy nadal muszą wykonać codzienne operacje uprzywilejowane, aby wymusić [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) zasady oparte na czasie just-in-Time (JIT), aby zapewnić uprzywilejowany dostęp na żądanie do zasobów platformy Azure, a usługa Azure AD to zalecane podejście do efektywnego zarządzania dostępem administracyjnym i inspekcją.
+Jednak użytkownicy nadal muszą wykonać codzienne operacje uprzywilejowane, aby wymusić [Privileged Identity Management](../privileged-identity-management/pim-configure.md) zasady oparte na czasie just-in-Time (JIT), aby zapewnić uprzywilejowany dostęp na żądanie do zasobów platformy Azure, a usługa Azure AD to zalecane podejście do efektywnego zarządzania dostępem administracyjnym i inspekcją.
 
 ### <a name="reporting-and-monitoring"></a>Raportowanie i monitorowanie
 
@@ -296,17 +296,17 @@ Usługa Azure AD zapewnia dodatkowe informacje o użyciu aplikacji i kondycji op
 
 #### <a name="application-audit-logs"></a>Dzienniki inspekcji aplikacji
 
-Te dzienniki zawierają szczegółowe informacje dotyczące logowań do aplikacji skonfigurowanych przy użyciu serwera proxy aplikacji oraz urządzenia i użytkownika, który uzyskują dostęp do aplikacji. [Dzienniki inspekcji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) znajdują się w Azure Portal i w [interfejsie API inspekcji](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) do eksportowania. Ponadto dostępne są również [raporty dotyczące użycia i wglądu](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) w dane aplikacji.
+Te dzienniki zawierają szczegółowe informacje dotyczące logowań do aplikacji skonfigurowanych przy użyciu serwera proxy aplikacji oraz urządzenia i użytkownika, który uzyskują dostęp do aplikacji. [Dzienniki inspekcji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) znajdują się w Azure Portal i w [interfejsie API inspekcji](/graph/api/resources/directoryaudit?view=graph-rest-beta) do eksportowania. Ponadto dostępne są również [raporty dotyczące użycia i wglądu](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) w dane aplikacji.
 
 #### <a name="application-proxy-connector-monitoring"></a>Monitorowanie łącznika serwera proxy aplikacji
 
-Łączniki i usługi zadbają o wszystkie zadania wysokiej dostępności. Stan łączników można monitorować ze strony serwera proxy aplikacji w portalu usługi Azure AD. Aby uzyskać więcej informacji na temat łącznika maintainence, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
+Łączniki i usługi zadbają o wszystkie zadania wysokiej dostępności. Stan łączników można monitorować ze strony serwera proxy aplikacji w portalu usługi Azure AD. Aby uzyskać więcej informacji na temat łącznika maintainence, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-connectors.md#maintenance).
 
 ![Przykład: Łączniki serwer proxy aplikacji usługi Azure AD platformy Azure](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Dzienniki zdarzeń systemu Windows i liczniki wydajności
 
-Łączniki mają zarówno dzienniki administratora, jak i sesji. Dzienniki administracyjne obejmują kluczowe zdarzenia i ich błędy. Dzienniki sesji obejmują wszystkie transakcje i ich szczegóły przetwarzania. Dzienniki i liczniki znajdują się w dziennikach zdarzeń systemu Windows Aby uzyskać więcej informacji, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Postępuj zgodnie [z tym samouczkiem, aby skonfigurować źródła danych dziennika zdarzeń w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Łączniki mają zarówno dzienniki administratora, jak i sesji. Dzienniki administracyjne obejmują kluczowe zdarzenia i ich błędy. Dzienniki sesji obejmują wszystkie transakcje i ich szczegóły przetwarzania. Dzienniki i liczniki znajdują się w dziennikach zdarzeń systemu Windows Aby uzyskać więcej informacji, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-connectors.md#under-the-hood). Postępuj zgodnie [z tym samouczkiem, aby skonfigurować źródła danych dziennika zdarzeń w Azure monitor](../../azure-monitor/platform/data-sources-windows-events.md).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Przewodnik rozwiązywania problemów i kroki
 
@@ -323,7 +323,7 @@ W poniższych artykułach omówiono typowe scenariusze, które mogą być równi
 * [Konfigurowanie logowania jednokrotnego w mojej aplikacji](application-proxy-config-sso-how-to.md)
 * [Problem podczas tworzenia aplikacji w portalu administracyjnym](application-proxy-config-problem.md)
 * [Konfigurowanie ograniczonego delegowania protokołu Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Konfigurowanie przy użyciu usługi PingAccess](application-proxy-back-end-ping-access-how-to.md)
+* [Konfigurowanie przy użyciu usługi PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
 * [Błąd „Can't Access this Corporate Application” (Nie można uzyskać dostępu do tej aplikacji firmowej)](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problem z instalacją łącznika agenta serwera proxy aplikacji](application-proxy-connector-installation-problem.md)
 * [Problem z logowaniem](application-sign-in-problem-on-premises-application-proxy.md)

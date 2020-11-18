@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc43bb2fa99f95a462dcc4c68d27840199b45c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763690"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658540"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Zaawansowane opcje podpisywania certyfikatu w tokenie SAML dla aplikacji galerii w Azure Active Directory
 
@@ -69,11 +69,11 @@ Następnie zmień opcje podpisywania certyfikatu w tokenie SAML dla tej aplikacj
 
    ![Przykład: Strona certyfikatu podpisywania SAML](./media/certificate-signing-options/saml-signing-page.png)
 
-1. Z listy rozwijanej **Opcja podpisywania** wybierz pozycję **Podpisz odpowiedź SAML**, **Podpisz potwierdzenie SAML**lub **Podpisz odpowiedź i potwierdzenie protokołu SAML**. Opisy tych opcji pojawiają się wcześniej w tym artykule w [opcjach podpisywania certyfikatu](#certificate-signing-options).
+1. Z listy rozwijanej **Opcja podpisywania** wybierz pozycję **Podpisz odpowiedź SAML**, **Podpisz potwierdzenie SAML** lub **Podpisz odpowiedź i potwierdzenie protokołu SAML**. Opisy tych opcji pojawiają się wcześniej w tym artykule w [opcjach podpisywania certyfikatu](#certificate-signing-options).
 1. Z listy rozwijanej **algorytm podpisywania** wybierz pozycję **SHA-1** lub **SHA-256**. Opisy tych opcji pojawiają się wcześniej w tym artykule w sekcji [algorytmy podpisywania certyfikatu](#certificate-signing-algorithms) .
 1. Jeśli jesteś zadowolony z wybranych opcji, wybierz pozycję **Zapisz** , aby zastosować nowe ustawienia certyfikatu podpisywania SAML. W przeciwnym razie wybierz **znak X** , aby odrzucić zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory](./configure-saml-single-sign-on.md)
+* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML](./debug-saml-sso-issues.md)

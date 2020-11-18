@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763129"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658710"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Konfiguracja aplikacji jednokrotnego kliknięcia
 
@@ -40,7 +40,7 @@ Funkcja logowania jednokrotnego w systemie Azure została zaprojektowana tak, ab
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Aktywna subskrypcja aplikacji do skonfigurowania z logowaniem jednokrotnym. Wymagane są również poświadczenia administratora.
-- **Rozszerzenie moje aplikacje bezpieczne logowanie** z firmy Microsoft zainstalowane w przeglądarce. Aby uzyskać więcej informacji, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- **Rozszerzenie moje aplikacje bezpieczne logowanie** z firmy Microsoft zainstalowane w przeglądarce. Aby uzyskać więcej informacji, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="one-click-sso-configuration-steps"></a>Jednokrotne kliknięcie czynności konfiguracyjnych Logowanie jednokrotne
 
@@ -59,7 +59,7 @@ Funkcja logowania jednokrotnego w systemie Azure została zaprojektowana tak, ab
 
    ![Zainstaluj moje aplikacje bezpieczne logowanie do przeglądarki](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. Po dodaniu rozszerzenia do przeglądarki wybierz pozycję **Konfiguracja \<Application Name\> **. Po przekierowaniu do portalu administracyjnego aplikacji Zaloguj się jako administrator.
+6. Po dodaniu rozszerzenia do przeglądarki wybierz pozycję **Konfiguracja \<Application Name\>**. Po przekierowaniu do portalu administracyjnego aplikacji Zaloguj się jako administrator.
 
    ![Nazwa aplikacji konfiguracji](./media/one-click-sso-tutorial/setup-sso.png)
 
@@ -82,8 +82,7 @@ Funkcja logowania jednokrotnego w systemie Azure została zaprojektowana tak, ab
 
 11. Możesz wybrać **test** , aby przetestować Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [Co to jest rozszerzenie przeglądarki Moje aplikacje bezpieczne logowanie?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Co to jest rozszerzenie przeglądarki Moje aplikacje bezpieczne logowanie?](../user-help/my-apps-portal-end-user-access.md)

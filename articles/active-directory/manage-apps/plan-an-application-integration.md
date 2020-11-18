@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182330"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659101"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Przewodnik po rozpoczęciu integracji Azure Active Directory z aplikacjami
 
@@ -66,9 +66,9 @@ Jak wspomniano powyżej, mogą istnieć aplikacje, które nie były zarządzane 
 ## <a name="integrating-applications-with-azure-ad"></a>Integrowanie aplikacji z usługą Azure AD
 W poniższych artykułach omówiono różne sposoby integracji aplikacji z usługą Azure AD, a ponadto przedstawiono wskazówki.
 
-* [Określanie, których Active Directory użyć](../fundamentals/active-directory-administer.md)
+* [Określanie, których Active Directory użyć](../fundamentals/active-directory-whatis.md)
 * [Korzystanie z aplikacji w galerii aplikacji platformy Azure](what-is-single-sign-on.md)
-* [Lista samouczków dotyczących integrowania aplikacji SaaS](../active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących integrowania aplikacji SaaS](../saas-apps/tutorial-list.md)
 
 ### <a name="authentication-types"></a>Typy uwierzytelniania
 Każda aplikacja może mieć inne wymagania dotyczące uwierzytelniania. Za pomocą usługi Azure AD certyfikaty podpisywania mogą być używane z aplikacjami, które używają protokołów SAML 2,0, WS-Federation lub OpenID Connect Connect, a także logowania jednokrotnego hasła. Aby uzyskać więcej informacji o typach uwierzytelniania aplikacji do użycia z usługą Azure AD, zobacz [Zarządzanie certyfikatami dla federacyjnych pojedynczych Sign-On w Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) i [hasła logowania jednokrotnego](what-is-single-sign-on.md).
@@ -77,7 +77,7 @@ Każda aplikacja może mieć inne wymagania dotyczące uwierzytelniania. Za pomo
 Za pomocą serwera proxy aplikacji Microsoft Azure AD można zapewnić bezpieczny dostęp do aplikacji znajdujących się w sieci prywatnej, z dowolnego miejsca i na dowolnym urządzeniu. Po zainstalowaniu łącznika serwera proxy aplikacji w środowisku można go łatwo skonfigurować przy użyciu usługi Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integrowanie aplikacji niestandardowych
-Jeśli piszesz nową aplikację i chcesz, aby pomóc deweloperom w korzystaniu z zalet usługi Azure AD, zobacz temat Tworzenie aplikacji dla [deweloperów](../active-directory-applications-guiding-developers-for-lob-applications.md).
+Jeśli piszesz nową aplikację i chcesz, aby pomóc deweloperom w korzystaniu z zalet usługi Azure AD, zobacz temat Tworzenie aplikacji dla [deweloperów](./developer-guidance-for-integrating-applications.md).
 
 Jeśli chcesz dodać aplikację niestandardową do galerii aplikacji platformy Azure, zobacz ["Przenoszenie własnej aplikacji" przy użyciu konfiguracji SAML usługi Azure AD Self-Service](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
@@ -86,16 +86,16 @@ W poniższych artykułach opisano sposoby zarządzania dostępem do aplikacji, k
 
 * [Zarządzanie dostępem do aplikacji przy użyciu usługi Azure AD](what-is-access-management.md)
 * [Automatyzacja za pomocą łączników usługi Azure AD](../app-provisioning/user-provisioning.md)
-* [Assigning users to an application](../active-directory-applications-guiding-developers-assigning-users.md) (Przypisywanie użytkowników do aplikacji)
-* [Assigning groups to an application](../active-directory-applications-guiding-developers-assigning-groups.md) (Przypisywanie grup do aplikacji)
-* [Udostępnianie kont](../active-directory-sharing-accounts.md)
+* [Assigning users to an application](./assign-user-or-group-access-portal.md) (Przypisywanie użytkowników do aplikacji)
+* [Assigning groups to an application](./assign-user-or-group-access-portal.md) (Przypisywanie grup do aplikacji)
+* [Udostępnianie kont](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać szczegółowe informacje, możesz pobrać Azure Active Directory plany wdrożenia z usługi [GitHub](https://aka.ms/deploymentplans). W przypadku aplikacji galerii można pobrać plany wdrożenia dotyczące logowania jednokrotnego, dostępu warunkowego i aprowizacji użytkowników za pomocą [Azure Portal](https://portal.azure.com). 
+Aby uzyskać szczegółowe informacje, możesz pobrać Azure Active Directory plany wdrożenia z usługi [GitHub](../fundamentals/active-directory-deployment-plans.md). W przypadku aplikacji galerii można pobrać plany wdrożenia dotyczące logowania jednokrotnego, dostępu warunkowego i aprowizacji użytkowników za pomocą [Azure Portal](https://portal.azure.com). 
 
 Aby pobrać plan wdrożenia z Azure Portal:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **aplikacje przedsiębiorstwa**wybierz  |  **Pick an App**  |  **plan wdrożenia**aplikacji.
+2. Wybierz pozycję **aplikacje przedsiębiorstwa** wybierz  |  **Pick an App**  |  **plan wdrożenia** aplikacji.
 
 Przekaż opinię na temat planów wdrażania, pobierając [ankietę dotyczącą planu wdrożenia](https://aka.ms/DeploymentPlanFeedback).

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282127"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658268"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure
 
@@ -104,7 +104,7 @@ Ogólnie rzecz biorąc, im więcej użytkowników, tym większa jest potrzebna m
 > [!NOTE]
 > Nie istnieje wiele różnic w maksymalnej TPS między 4, 8 i 16 rdzeniami. Główna różnica między tymi występuje w oczekiwanym opóźnieniu.
 >
-> W tej tabeli przedstawiono również oczekiwaną wydajność łącznika w zależności od typu maszyny, na której jest zainstalowany. Jest to niezależne od limitów ograniczania przepustowości usługi serwera proxy aplikacji, zobacz [limity i ograniczenia usługi](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> W tej tabeli przedstawiono również oczekiwaną wydajność łącznika w zależności od typu maszyny, na której jest zainstalowany. Jest to niezależne od limitów ograniczania przepustowości usługi serwera proxy aplikacji, zobacz [limity i ograniczenia usługi](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Bezpieczeństwo i obsługa sieci
 
@@ -155,7 +155,7 @@ Używane certyfikaty są specyficzne dla usługi serwera proxy aplikacji. Są on
 
 Po pierwszym pomyślnym odnowieniu certyfikatu usługa łącznika usługi Azure serwer proxy aplikacji usługi Azure AD (usługa sieciowa) nie ma uprawnień do usuwania starego certyfikatu z lokalnego magazynu komputera. Jeśli certyfikat wygasł lub nie będzie już używany przez usługę, możesz go bezpiecznie usunąć.
 
-Aby uniknąć problemów z odnowieniem certyfikatu, należy się upewnić, że komunikacja sieciowa z łącznika do [udokumentowanych miejsc docelowych](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) jest włączona.
+Aby uniknąć problemów z odnowieniem certyfikatu, należy się upewnić, że komunikacja sieciowa z łącznika do [udokumentowanych miejsc docelowych](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) jest włączona.
 
 Jeśli łącznik nie jest połączony z usługą przez kilka miesięcy, jego certyfikaty mogą być nieaktualne. W takim przypadku Odinstaluj i ponownie zainstaluj łącznik, aby wyzwolić rejestrację. Można uruchomić następujące polecenia programu PowerShell:
 

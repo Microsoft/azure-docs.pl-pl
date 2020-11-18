@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: cavoeg
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b09a72538dd7a6886811b9a23c915316627da093
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3340cd0a39b0f5311487fec5b05d37e3376d433a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339445"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659255"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-cli"></a>Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym przewodniku szybki start dowiesz się, jak wdrożyć usługę Azure API for FHIR na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="add-healthcareapis-extension"></a>Dodaj rozszerzenie HealthcareAPIs
 

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5c9b47bf5d638f3c15416416a435653eeb68505
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172051"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659390"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -22,7 +22,7 @@ Interfejs wiersza polecenia platformy Azure to środowisko wiersza polecenia pla
 
 W tym przewodniku szybki start dowiesz się, jak utworzyć obszar roboczy Synapse przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,28 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
     > [!IMPORTANT]
     > Obszar roboczy usługi Azure Synapse musi mieć możliwość odczytu i zapisu na wybranym koncie ADLS Gen2. Ponadto dla dowolnego konta magazynu, które można połączyć jako konto magazynu podstawowego, należy włączyć **hierarchiczną przestrzeń nazw**  podczas tworzenia konta magazynu, zgodnie z opisem na stronie [Tworzenie magazynu AccOUT](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) . 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-the-azure-cli-locally"></a>Instalowanie interfejsu wiersza polecenia platformy Azure lokalnie
-
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
-Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz się zalogować i uwierzytelnić. Ten krok nie jest konieczny, jeśli używasz Azure Cloud Shell. Aby zalogować się do interfejsu wiersza polecenia platformy Azure, uruchom `az login` i Uwierzytelnij w oknie przeglądarki:
-
-```azurecli
-az login
-```
-
-Aby uzyskać więcej informacji o uwierzytelnianiu za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
-
-## <a name="install-azure-synapse-extension-for-azure-cli"></a>Zainstaluj rozszerzenie Azure Synapse dla interfejsu wiersza polecenia platformy Azure
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> Rozszerzenie Azure Synapse dla interfejsu wiersza polecenia platformy Azure jest w wersji zapoznawczej.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-cli"></a>Tworzenie obszaru roboczego usługi Azure Synapse za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -65,7 +44,7 @@ az extension add --name synapse
     |StorageAccountResourceGroup| Nazwa istniejącej grupy zasobów konta magazynu ADLS Gen2. |
     |FileShareName| Nazwa istniejącego systemu plików magazynu.|
     |SynapseResourceGroup| Wybierz nową nazwę grupy zasobów usługi Azure Synapse. |
-    |Region| Wybierz jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
+    |Region (Region)| Wybierz jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
     |SynapseWorkspaceName| Wybierz unikatową nazwę dla nowego obszaru roboczego usługi Azure Synapse. |
     |Sqluser| Wybierz wartość nowej nazwy użytkownika.|
     |SqlPassword| Wybierz bezpieczne hasło.|

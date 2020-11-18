@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6993bd10caf2f7e489de8074e311f75710b83d82
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565878"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659441"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +25,7 @@ Jednym ze sposobów kontrolowania dostępu do sieciowego ruchu wychodzącego z p
 
 Ruch sieciowy podlega skonfigurowanym regułom zapory podczas kierowania ruchu sieciowego do zapory jako bramy domyślnej podsieci.
 
-W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrożenia. W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
+W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrożenia. W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
 
 * **AzureFirewallSubnet** — w tej podsieci znajduje się zapora.
 * **Workload-SN** — w tej podsieci znajduje się serwer obciążeń. Ruch sieciowy tej podsieci przechodzi przez zaporę.
@@ -253,7 +253,7 @@ Teraz Przetestuj zaporę, aby upewnić się, że działa zgodnie z oczekiwaniami
 
 1. Połącz pulpit zdalny z maszyną wirtualną z **przeskokiem SRV** i zaloguj się. W tym miejscu Otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **SRV** i zaloguj się.
 
-3. W obszarze **SRV (Pracuj** ) Otwórz okno programu PowerShell i uruchom następujące polecenia:
+3. W obszarze **SRV (Pracuj**) Otwórz okno programu PowerShell i uruchom następujące polecenia:
 
    ```
    nslookup www.google.com
@@ -290,4 +290,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Samouczek: monitorowanie dzienników usługi Azure Firewall](./tutorial-diagnostics.md)
+* [Samouczek: monitorowanie dzienników usługi Azure Firewall](./firewall-diagnostics.md)

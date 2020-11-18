@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d13f401fab126f57d07d405ab5d6ce461c26e139
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578482"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658948"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
 
@@ -84,7 +84,7 @@ Centrum kontrolne platformy Azure obsługuje [wiele obszarów roboczych](./multi
 Na platformie Azure badanie obejmuje wykonywanie zapytań dotyczących [wielu obszarów roboczych w jednym zapytaniu](../azure-monitor/log-query/cross-workspace-query.md), co pozwala na wyszukiwanie i skorelowanie danych z wielu obszarów roboczych w jednym zapytaniu. 
 
 - Użyj [wyrażenia Workspace ()](../azure-monitor/log-query/workspace-expression.md) , aby odwołać się do tabeli w innym obszarze roboczym. 
-- Użyj [operatora Union](https://docs.microsoft.com/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) obok wyrażenia obszaru roboczego (), aby zastosować zapytanie między tabelami w wielu obszarach roboczych.
+- Użyj [operatora Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) obok wyrażenia obszaru roboczego (), aby zastosować zapytanie między tabelami w wielu obszarach roboczych.
 
 Przy użyciu zapisanych [funkcji](../azure-monitor/log-query/functions.md) można uprościć zapytania między obszarami roboczymi. Na przykład, jeśli odwołanie do obszaru roboczego jest długie, możesz chcieć zapisać wyrażenie `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` jako funkcję o nazwie `SecurityEventCustomerA` . Następnie można pisać zapytania jako `SecurityEventCustomerA | where ...` .
 

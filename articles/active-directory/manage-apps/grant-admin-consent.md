@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369101"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659084"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Udzielanie zgody administratora całej dzierżawy dla aplikacji
 
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [
 Przyznanie zgody administratora całej dzierżawy wymaga zalogowania się jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator), [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub [administrator aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
-> Gdy aplikacja otrzymuje zgodę na dostęp do całej dzierżawy, wszyscy użytkownicy będą mogli zalogować się do aplikacji, o ile nie została skonfigurowana tak, aby wymagała przypisania użytkownika. Aby określić, którzy użytkownicy mogą logować się do aplikacji, należy zażądać przypisania użytkownika, a następnie przypisać użytkowników lub grupy do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
+> Gdy aplikacja otrzymuje zgodę na dostęp do całej dzierżawy, wszyscy użytkownicy będą mogli zalogować się do aplikacji, o ile nie została skonfigurowana tak, aby wymagała przypisania użytkownika. Aby określić, którzy użytkownicy mogą logować się do aplikacji, należy zażądać przypisania użytkownika, a następnie przypisać użytkowników lub grupy do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](./assign-user-or-group-access-portal.md).
 >
 > Rola administratora globalnego jest wymagana w celu zapewnienia zgody administratora na uprawnienia aplikacji do interfejsu API Microsoft Graph.
 
@@ -99,6 +99,6 @@ Zawsze należy uważnie przejrzeć uprawnienia żądania aplikacji przed udziele
 
 [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
 
-[Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
+[Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

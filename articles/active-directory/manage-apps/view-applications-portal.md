@@ -12,12 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: a79078977d25c55edfb4ad72bbd4602a073231f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 281e408ca79697edbee308e15b70a2cf2055b212
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89277939"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658897"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Szybki Start: Wyświetlanie listy aplikacji korzystających z dzierżawy usługi Azure Active Directory (Azure AD) na potrzeby zarządzania tożsamościami
 
@@ -48,7 +48,7 @@ Aby wyświetlić aplikacje zarejestrowane w dzierżawie:
 
 Wybierz opcje według tego, czego szukasz.
 
-1. Możesz wyświetlić aplikacje według **typu aplikacji**, **stanu aplikacji**i **widoczności aplikacji**.
+1. Możesz wyświetlić aplikacje według **typu aplikacji**, **stanu aplikacji** i **widoczności aplikacji**.
 2. W obszarze **Typ aplikacji** wybierz jedną z następujących opcji:
     - Opcja **Aplikacje dla przedsiębiorstw** wyświetla aplikacje firm innych niż Microsoft.
     - Opcja **Aplikacje firmy Microsoft** wyświetla aplikacji firmy Microsoft.
@@ -69,7 +69,7 @@ Aby wyszukać określoną aplikację:
 
 
 > [!TIP]
-> Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

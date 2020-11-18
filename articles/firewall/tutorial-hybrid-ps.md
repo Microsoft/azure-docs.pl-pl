@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069412"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658659"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Wdrażanie i konfigurowanie usługi Azure Firewall w sieci hybrydowej za pomocą programu Azure PowerShell
 
@@ -48,7 +48,7 @@ Jeśli chcesz użyć Azure Portal zamiast tego samouczka, zobacz [Samouczek: wdr
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten artykuł wymaga lokalnego uruchomienia programu PowerShell. Musisz mieć zainstalowany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Ten artykuł wymaga lokalnego uruchomienia programu PowerShell. Musisz mieć zainstalowany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 Aby ten scenariusz przebiegał prawidłowo, muszą zostać spełnione trzy podstawowe wymagania:
 
@@ -68,7 +68,7 @@ Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym artykule, aby
 >[!NOTE]
 >Ruch między wirtualnymi sieciami równorzędnymi połączonymi bezpośrednio jest kierowany bezpośrednio nawet wtedy, gdy trasa zdefiniowana przez użytkownika wskazuje usługę Azure Firewall jako bramę domyślną. Aby w tym scenariuszu wysyłać ruch między podsieciami do zapory, trasa zdefiniowana przez użytkownika musi jawnie zawierać prefiks podsieci docelowej w obu podsieciach.
 
-Aby zapoznać się z powiązaną dokumentacją programu Azure PowerShell, zobacz [dokumentacja programu Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
+Aby zapoznać się z powiązaną dokumentacją programu Azure PowerShell, zobacz [dokumentacja programu Azure PowerShell](/powershell/module/az.network/new-azfirewall).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -292,7 +292,7 @@ Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentrato
 
 #### <a name="verify-the-connection"></a>Weryfikowanie połączenia
 
-Pomyślne połączenie można sprawdzić za pomocą polecenia cmdlet *Get-AzVirtualNetworkGatewayConnection* z opcją *Debug*lub bez niego. Można skorzystać z następującego przykładu użycia polecenia cmdlet, dopasowując wartości do własnych potrzeb. Jeśli pojawi się monit, wybierz **A**, aby uruchomić **Wszystko**. W podanym przykładzie *-name* odnosi się do nazwy połączenia, które ma zostać przetestowane.
+Pomyślne połączenie można sprawdzić za pomocą polecenia cmdlet *Get-AzVirtualNetworkGatewayConnection* z opcją *Debug* lub bez niego. Można skorzystać z następującego przykładu użycia polecenia cmdlet, dopasowując wartości do własnych potrzeb. Jeśli pojawi się monit, wybierz **A**, aby uruchomić **Wszystko**. W podanym przykładzie *-name* odnosi się do nazwy połączenia, które ma zostać przetestowane.
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
@@ -496,4 +496,4 @@ Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie b�
 
 Następnie możesz monitorować dzienniki usługi Azure Firewall.
 
-[Samouczek: monitorowanie dzienników usługi Azure Firewall](./tutorial-diagnostics.md)
+[Samouczek: monitorowanie dzienników usługi Azure Firewall](./firewall-diagnostics.md)

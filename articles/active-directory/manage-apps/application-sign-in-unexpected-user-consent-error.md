@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874547"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658489"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Nieoczekiwany błąd podczas wyrażania zgody na aplikację
 
-W tym artykule omówiono błędy, które mogą wystąpić podczas procesu wyrażania zgody na aplikację. W przypadku rozwiązywania nieoczekiwanych monitów o zgodę, które nie zawierają żadnych komunikatów o błędach, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+W tym artykule omówiono błędy, które mogą wystąpić podczas procesu wyrażania zgody na aplikację. W przypadku rozwiązywania nieoczekiwanych monitów o zgodę, które nie zawierają żadnych komunikatów o błędach, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../develop/authentication-vs-authorization.md).
 
 Wiele aplikacji, które integrują się z Azure Active Directory wymaga uprawnień dostępu do innych zasobów w celu działania. Gdy te zasoby są również zintegrowane z Azure Active Directory, uprawnienia dostępu do nich są często wymagane przy użyciu wspólnej struktury wyrażania zgody. Zostanie wyświetlony monit o zgodę, który zwykle występuje, gdy aplikacja jest używana po raz pierwszy, ale może również wystąpić przy następnym użyciu aplikacji.
 
@@ -90,8 +90,6 @@ Użytkownicy końcowi nie będą mogli przyznawać zgody na aplikacje, które zo
 
 ## <a name="next-steps"></a>Następne kroki 
 
-[Aplikacje, uprawnienia i zgoda w Azure Active Directory (punkt końcowy v1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Aplikacje, uprawnienia i zgoda w Azure Active Directory (punkt końcowy v1)](../develop/quickstart-register-app.md)<br>
 
-[Zakresy, uprawnienia i zgody w Azure Active Directory (punkt końcowy v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Zakresy, uprawnienia i zgody w Azure Active Directory (punkt końcowy v 2.0)](../develop/v2-permissions-and-consent.md)

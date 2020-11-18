@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c318c539b1c09761ed81e7602808e415fdaf8b80
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764540"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658183"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Włączanie dostępu zdalnego do programu SharePoint przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -68,7 +68,7 @@ W tym kroku utworzysz aplikację w dzierżawie Azure Active Directory, która u�
    1. Na stronie aplikacji w portalu wybierz pozycję **Logowanie jednokrotne**.
    1. W obszarze **trybu logowania jednokrotnego** wybierz pozycję **Zintegrowane uwierzytelnianie systemu Windows**.
    1. Ustaw **nazwę SPN aplikacji wewnętrznej** na ustawioną wcześniej wartość. Na potrzeby tego przykładu wartość to `HTTP/sharepoint` .
-   1. W obszarze **delegowana tożsamość logowania**wybierz opcję najbardziej odpowiednią dla konfiguracji lasu Active Directory. Na przykład jeśli masz jedną domenę Active Directory w lesie, wybierz pozycję **lokalna nazwa konta sam** (jak pokazano na poniższym zrzucie ekranu). Jeśli jednak użytkownicy nie znajdują się w tej samej domenie co program SharePoint i serwery łącznika serwera proxy aplikacji, wybierz **lokalną główną nazwę użytkownika** (nie jest wyświetlana na zrzucie ekranu).
+   1. W obszarze **delegowana tożsamość logowania** wybierz opcję najbardziej odpowiednią dla konfiguracji lasu Active Directory. Na przykład jeśli masz jedną domenę Active Directory w lesie, wybierz pozycję **lokalna nazwa konta sam** (jak pokazano na poniższym zrzucie ekranu). Jeśli jednak użytkownicy nie znajdują się w tej samej domenie co program SharePoint i serwery łącznika serwera proxy aplikacji, wybierz **lokalną główną nazwę użytkownika** (nie jest wyświetlana na zrzucie ekranu).
 
    ![Konfigurowanie zintegrowanego uwierzytelniania systemu Windows na potrzeby logowania jednokrotnego](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
@@ -103,7 +103,7 @@ Aplikacja sieci Web programu SharePoint musi być skonfigurowana przy użyciu pr
        ```
 
     2. Otwórz witrynę **administracji centralnej programu SharePoint** .
-    1. W obszarze **Ustawienia systemu**wybierz pozycję **Konfiguruj alternatywne mapowania dostępu**. Zostanie otwarte pole **Kolekcja mapowania dostępu alternatywnego** .
+    1. W obszarze **Ustawienia systemu** wybierz pozycję **Konfiguruj alternatywne mapowania dostępu**. Zostanie otwarte pole **Kolekcja mapowania dostępu alternatywnego** .
     1. Przefiltruj wyświetlanie przy użyciu nowej aplikacji sieci Web i Potwierdź, że zobaczysz coś podobnego do tego:
 
        ![Alternatywne mapowania dostępu aplikacji sieci Web](./media/application-proxy-integrate-with-sharepoint-server/new-webapp-aam.png)
@@ -126,7 +126,7 @@ Aplikacja sieci Web programu SharePoint musi być skonfigurowana przy użyciu pr
        ```
 
     2. Otwórz witrynę **administracji centralnej programu SharePoint** .
-    1. W obszarze **Ustawienia systemu**wybierz pozycję **Konfiguruj alternatywne mapowania dostępu**. Zostanie otwarte pole **Kolekcja mapowania dostępu alternatywnego** .
+    1. W obszarze **Ustawienia systemu** wybierz pozycję **Konfiguruj alternatywne mapowania dostępu**. Zostanie otwarte pole **Kolekcja mapowania dostępu alternatywnego** .
     1. Przefiltruj Wyświetlanie z aplikacją sieci Web, która została rozszerzona, i sprawdź, czy widzisz coś podobnego do tego:
 
         ![Alternatywne mapowania dostępu rozszerzonej aplikacji](./media/application-proxy-integrate-with-sharepoint-server/extend-webapp-aam.png)
@@ -167,7 +167,7 @@ Teraz możesz uzyskiwać dostęp do witryny programu SharePoint zewnętrznie za 
 
 ## <a name="step-3-configure-kerberos-constrained-delegation"></a>Krok 3. Konfigurowanie ograniczonego delegowania protokołu Kerberos
 
-Użytkownicy będą początkowo uwierzytelniać się w usłudze Azure AD, a następnie do programu SharePoint przy użyciu protokołu Kerberos za pośrednictwem łącznika serwera proxy usługi Azure AD. Aby umożliwić łącznikowi uzyskanie tokenu Kerberos w imieniu użytkownika usługi Azure AD, należy skonfigurować ograniczone delegowanie protokołu Kerberos (KCD) przy użyciu przejścia protokołu. Aby dowiedzieć się więcej na temat KCD, zobacz [Omówienie ograniczonego delegowania protokołu Kerberos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
+Użytkownicy będą początkowo uwierzytelniać się w usłudze Azure AD, a następnie do programu SharePoint przy użyciu protokołu Kerberos za pośrednictwem łącznika serwera proxy usługi Azure AD. Aby umożliwić łącznikowi uzyskanie tokenu Kerberos w imieniu użytkownika usługi Azure AD, należy skonfigurować ograniczone delegowanie protokołu Kerberos (KCD) przy użyciu przejścia protokołu. Aby dowiedzieć się więcej na temat KCD, zobacz [Omówienie ograniczonego delegowania protokołu Kerberos](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>Ustawianie nazwy SPN dla konta usługi programu SharePoint
 
@@ -176,7 +176,7 @@ Aby zarejestrować nazwę SPN `HTTP/sharepoint` dla konta puli aplikacji program
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-`Setspn`Polecenie wyszukuje nazwę SPN przed dodaniem jej. Jeśli nazwa SPN już istnieje, zobaczysz błąd **wartości zduplikowanej nazwy SPN** . W takim przypadku należy rozważyć usunięcie istniejącej nazwy SPN, jeśli nie jest ona ustawiona na poprawnym koncie puli aplikacji. Można sprawdzić, czy nazwa SPN została dodana pomyślnie, uruchamiając `Setspn` polecenie z opcją-L. Aby dowiedzieć się więcej na temat tego polecenia, zobacz [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+`Setspn`Polecenie wyszukuje nazwę SPN przed dodaniem jej. Jeśli nazwa SPN już istnieje, zobaczysz błąd **wartości zduplikowanej nazwy SPN** . W takim przypadku należy rozważyć usunięcie istniejącej nazwy SPN, jeśli nie jest ona ustawiona na poprawnym koncie puli aplikacji. Można sprawdzić, czy nazwa SPN została dodana pomyślnie, uruchamiając `Setspn` polecenie z opcją-L. Aby dowiedzieć się więcej na temat tego polecenia, zobacz [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>Upewnij się, że łącznik jest zaufany do delegowania do nazwy SPN, która została dodana do konta puli aplikacji SharePoint
 
@@ -188,7 +188,7 @@ Aby skonfigurować KCD, wykonaj następujące kroki dla każdej maszyny łączni
 1. Znajdź komputer z uruchomionym łącznikiem usługi Azure AD proxy. W tym przykładzie jest to serwer programu SharePoint.
 1. Kliknij dwukrotnie komputer, a następnie wybierz kartę **Delegowanie**.
 1. Upewnij się, że opcje delegowania są ustawione tak, aby **ufać temu komputerowi w delegowaniu tylko do określonych usług**. Następnie wybierz opcję **Użyj dowolnego protokołu uwierzytelniania**.
-1. Wybierz przycisk **Dodaj** , wybierz pozycję **Użytkownicy lub komputery**, a następnie Znajdź konto puli aplikacji programu SharePoint. Przykład: `Contoso\spapppool`.
+1. Wybierz przycisk **Dodaj** , wybierz pozycję **Użytkownicy lub komputery**, a następnie Znajdź konto puli aplikacji programu SharePoint. Na przykład: `Contoso\spapppool`.
 1. Z listy nazw SPN wybierz ten, który został utworzony wcześniej dla konta usługi.
 1. Wybierz przycisk **OK** , a następnie ponownie wybierz przycisk **OK** , aby zapisać zmiany.
   
@@ -198,7 +198,7 @@ Teraz możesz zalogować się do programu SharePoint przy użyciu zewnętrznego 
 
 ## <a name="troubleshoot-sign-in-errors"></a>Rozwiązywanie problemów z błędami logowania
 
-Jeśli logowanie do witryny nie działa, można uzyskać więcej informacji o problemie w dziennikach łączników: na maszynie z uruchomionym łącznikiem Otwórz Podgląd zdarzeń, przejdź do pozycji **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**i sprawdź dziennik **administratora** .
+Jeśli logowanie do witryny nie działa, można uzyskać więcej informacji o problemie w dziennikach łączników: na maszynie z uruchomionym łącznikiem Otwórz Podgląd zdarzeń, przejdź do pozycji **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector** i sprawdź dziennik **administratora** .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635902"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658693"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -72,11 +72,11 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
 1.  W [usłudze Azure DevOps](https://dev.azure.com/)Otwórz projekt, który jest skonfigurowany przy użyciu fabryki danych.
 
-1.  W lewej części strony wybierz pozycję **potoki** , a następnie wybierz pozycję **wersje** .
+1.  W lewej części strony wybierz pozycję **potoki**, a następnie wybierz pozycję **wersje**.
 
     ![Wybieranie potoków, wydań](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Wybierz pozycję **Nowy potok** lub, jeśli masz istniejące potoki, wybierz pozycję **Nowy** , a następnie **nowe potoku wydania** .
+1.  Wybierz pozycję **Nowy potok** lub, jeśli masz istniejące potoki, wybierz pozycję **Nowy** , a następnie **nowe potoku wydania**.
 
 1.  Wybierz **pusty szablon zadania** .
 
@@ -84,38 +84,38 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
 1.  W polu **Nazwa etapu** wprowadź nazwę środowiska.
 
-1.  Wybierz pozycję **Dodaj artefakt** , a następnie wybierz repozytorium git skonfigurowane z Twoją fabryką danych programistycznych. Wybierz [gałąź Publikuj](source-control.md#configure-publishing-settings) repozytorium dla **gałęzi domyślnej** . Domyślnie ta gałąź publikowania to `adf_publish` . W polu **wersja domyślna** wybierz pozycję **Najnowsza z gałęzi domyślnej** .
+1.  Wybierz pozycję **Dodaj artefakt**, a następnie wybierz repozytorium git skonfigurowane z Twoją fabryką danych programistycznych. Wybierz [gałąź Publikuj](source-control.md#configure-publishing-settings) repozytorium dla **gałęzi domyślnej**. Domyślnie ta gałąź publikowania to `adf_publish` . W polu **wersja domyślna** wybierz pozycję **Najnowsza z gałęzi domyślnej**.
 
     ![Dodawanie artefaktu](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Dodawanie Azure Resource Manager zadania wdrażania:
 
-    a.  W widoku etap wybierz pozycję **Wyświetl zadania etapowe** .
+    a.  W widoku etap wybierz pozycję **Wyświetl zadania etapowe**.
 
     ![Widok etapu](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Utwórz nowe zadanie. Wyszukaj **wdrożenie szablonu ARM** , a następnie wybierz pozycję **Dodaj** .
+    b.  Utwórz nowe zadanie. Wyszukaj **wdrożenie szablonu ARM**, a następnie wybierz pozycję **Dodaj**.
 
     c.  W zadaniu wdrażania wybierz subskrypcję, grupę zasobów i lokalizację docelowej fabryki danych. W razie potrzeby podaj poświadczenia.
 
-    d.  Na liście **Akcja** wybierz pozycję **Utwórz lub Zaktualizuj grupę zasobów** .
+    d.  Na liście **Akcja** wybierz pozycję **Utwórz lub Zaktualizuj grupę zasobów**.
 
-    e.  Wybierz przycisk wielokropka ( **...** ) obok pola **szablon** . Wyszukaj szablon Azure Resource Manager, który jest generowany w rozgałęzieniu publikowania skonfigurowanego repozytorium git. Wyszukaj plik `ARMTemplateForFactory.json` w <FactoryName> folderze gałęzi adf_publish.
+    e.  Wybierz przycisk wielokropka (**...**) obok pola **szablon** . Wyszukaj szablon Azure Resource Manager, który jest generowany w rozgałęzieniu publikowania skonfigurowanego repozytorium git. Wyszukaj plik `ARMTemplateForFactory.json` w <FactoryName> folderze gałęzi adf_publish.
 
     f.  Wybierz **...** obok pola **Parametry szablonu** , aby wybrać plik parametrów. Wyszukaj plik `ARMTemplateParametersForFactory.json` w <FactoryName> folderze gałęzi adf_publish.
 
     przykład  Wybierz **...** obok pola **Zastąp parametry szablonu** i wprowadź odpowiednie wartości parametrów dla docelowej fabryki danych. W przypadku poświadczeń, które pochodzą z Azure Key Vault wprowadź nazwę wpisu tajnego między podwójnymi cudzysłowami. Na przykład, jeśli nazwa wpisu tajnego to cred1, wprowadź wartość **"$ (cred1)"** dla tej wartości.
 
-    h. Wybierz opcję **przyrostowy** dla **trybu wdrożenia** .
+    h. Wybierz opcję **przyrostowy** dla **trybu wdrożenia**.
 
     > [!WARNING]
-    > W trybie ukończenia wdrożenia zasoby istniejące w grupie zasobów, ale nie są określone w nowym szablonie Menedżer zasobów, zostaną **usunięte** . Aby uzyskać więcej informacji, zobacz [tryby wdrażania Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md)
+    > W trybie ukończenia wdrożenia zasoby istniejące w grupie zasobów, ale nie są określone w nowym szablonie Menedżer zasobów, zostaną **usunięte**. Aby uzyskać więcej informacji, zobacz [tryby wdrażania Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Data Factory wdrożenie produkcyjne](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Zapisz potok wydania.
 
-1. Aby wyzwolić wydanie, wybierz pozycję **Utwórz wydanie** . Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Aby wyzwolić wydanie, wybierz pozycję **Utwórz wydanie**. Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Wybierz pozycję Utwórz wydanie](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -189,11 +189,11 @@ Zespół fabryki danych dostarczył [przykładowego skryptu przedprodukcyjnego i
 
    ![Eksportowanie szablonu Menedżer zasobów](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. W obszarze fabryki danych testowych i produkcyjnych wybierz pozycję **Importuj szablon ARM** . Ta akcja spowoduje przejście do Azure Portal, w którym można zaimportować wyeksportowany szablon. Wybierz opcję **Kompiluj własny szablon w edytorze,** aby otworzyć edytor szablonów Menedżer zasobów.
+1. W obszarze fabryki danych testowych i produkcyjnych wybierz pozycję **Importuj szablon ARM**. Ta akcja spowoduje przejście do Azure Portal, w którym można zaimportować wyeksportowany szablon. Wybierz opcję **Kompiluj własny szablon w edytorze,** aby otworzyć edytor szablonów Menedżer zasobów.
 
    ![Tworzenie własnego szablonu](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Wybierz pozycję **Załaduj plik** , a następnie wybierz wygenerowany szablon Menedżer zasobów. Jest to **arm_template.jsw** pliku znajdującym się w pliku zip, który został wyeksportowany w kroku 1.
+1. Wybierz pozycję **Załaduj plik**, a następnie wybierz wygenerowany szablon Menedżer zasobów. Jest to **arm_template.jsw** pliku znajdującym się w pliku zip, który został wyeksportowany w kroku 1.
 
    ![Edytuj szablon](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -225,7 +225,7 @@ Podczas eksportowania szablonu Menedżer zasobów, Data Factory odczytuje ten pl
 
 ### <a name="custom-parameter-syntax"></a>Składnia parametru niestandardowego
 
-Poniżej przedstawiono niektóre wskazówki, które należy wykonać podczas tworzenia pliku parametrów niestandardowych **arm-template-parameters-definition.js** . Plik składa się z sekcji dla każdego typu jednostki: wyzwalacz, potok, połączona usługa, zestaw danych, środowisko Integration Runtime i przepływ danych.
+Poniżej przedstawiono niektóre wskazówki, które należy wykonać podczas tworzenia pliku parametrów niestandardowych **arm-template-parameters-definition.js**. Plik składa się z sekcji dla każdego typu jednostki: wyzwalacz, potok, połączona usługa, zestaw danych, środowisko Integration Runtime i przepływ danych.
 
 * Wprowadź ścieżkę właściwości pod odpowiednim typem jednostki.
 * Ustawienie nazwy właściwości na `*` wskazuje, że chcesz Sparametryzuj wszystkie jej właściwości (tylko do pierwszego poziomu, a nie cyklicznie). Możesz również podać wyjątki dla tej konfiguracji.
@@ -305,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Potoki
+#### <a name="pipelines"></a>Pipelines
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
@@ -633,19 +633,23 @@ W przypadku wdrożenia fabryki w środowisku produkcyjnym i zapoznania się z us
 
 10.   Dodaj zmiany z poprawki do gałęzi deweloperskiej, aby późniejsze wersje nie obejmowały tego samego błędu.
 
+Obejrzyj film wideo poniżej szczegółowy samouczek wideo dotyczący sposobu naprawy środowiska. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
 ## <a name="best-practices-for-cicd"></a>Najlepsze rozwiązania dotyczące ciągłej integracji/ciągłego wdrażania
 
 Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ciągły/CD, który przenosi zmiany z programowania na test, a następnie do środowiska produkcyjnego, zalecamy następujące najlepsze rozwiązania:
 
 -   **Integracja** z usługą git. Skonfiguruj tylko fabrykę danych deweloperskich z integracją git. Zmiany w testach i produkcji są wdrażane za pośrednictwem ciągłej integracji/ciągłego wdrażania.
 
--   **Skrypt przed wdrożeniem i po wdrożeniu** . Przed etapem wdrażania Menedżer zasobów w obszarze ciągłe/CD należy wykonać określone zadania, takie jak zatrzymywanie i ponowne uruchamianie wyzwalaczy i oczyszczanie. Zalecamy używanie skryptów programu PowerShell przed i po wykonaniu zadania wdrażania. Aby uzyskać więcej informacji, zobacz [Aktualizuj aktywne wyzwalacze](#updating-active-triggers). Zespół fabryki danych [dostarczył skrypt](#script) do użycia w dolnej części tej strony.
+-   **Skrypt przed wdrożeniem i po wdrożeniu**. Przed etapem wdrażania Menedżer zasobów w obszarze ciągłe/CD należy wykonać określone zadania, takie jak zatrzymywanie i ponowne uruchamianie wyzwalaczy i oczyszczanie. Zalecamy używanie skryptów programu PowerShell przed i po wykonaniu zadania wdrażania. Aby uzyskać więcej informacji, zobacz [Aktualizuj aktywne wyzwalacze](#updating-active-triggers). Zespół fabryki danych [dostarczył skrypt](#script) do użycia w dolnej części tej strony.
 
--   **Środowisko Integration Runtime i udostępnianie** . Środowiska Integration Runtime nie zmieniają się często i są podobne do wszystkich etapów w ciągłej integracji/ciągłego wdrażania. Dlatego Data Factory oczekuje, że masz taką samą nazwę i typ środowiska Integration Runtime dla wszystkich etapów ciągłej integracji/ciągłego wdrażania. Jeśli chcesz udostępnić środowisko Integration Runtime na wszystkich etapach, rozważ użycie usługi Trzyelementowy Factory, aby zawierała udostępnione środowisko Integration Runtime. Tej fabryki udostępnionej można używać we wszystkich środowiskach jako połączonego typu środowiska Integration Runtime.
+-   **Środowisko Integration Runtime i udostępnianie**. Środowiska Integration Runtime nie zmieniają się często i są podobne do wszystkich etapów w ciągłej integracji/ciągłego wdrażania. Dlatego Data Factory oczekuje, że masz taką samą nazwę i typ środowiska Integration Runtime dla wszystkich etapów ciągłej integracji/ciągłego wdrażania. Jeśli chcesz udostępnić środowisko Integration Runtime na wszystkich etapach, rozważ użycie usługi Trzyelementowy Factory, aby zawierała udostępnione środowisko Integration Runtime. Tej fabryki udostępnionej można używać we wszystkich środowiskach jako połączonego typu środowiska Integration Runtime.
 
--   **Zarządzane wdrożenie prywatnego punktu końcowego** . Jeśli prywatny punkt końcowy już istnieje w fabryce i podjęto próbę wdrożenia szablonu ARM zawierającego prywatny punkt końcowy o tej samej nazwie, ale z zmodyfikowanymi właściwościami, wdrożenie zakończy się niepowodzeniem. Innymi słowy, można pomyślnie wdrożyć prywatny punkt końcowy o ile ma on takie same właściwości jak ten, który już istnieje w fabryce. Jeśli jakakolwiek właściwość różni się między środowiskami, można ją zastąpić, parametryzacja tę właściwość i dostarczając odpowiednią wartość podczas wdrażania.
+-   **Zarządzane wdrożenie prywatnego punktu końcowego**. Jeśli prywatny punkt końcowy już istnieje w fabryce i podjęto próbę wdrożenia szablonu ARM zawierającego prywatny punkt końcowy o tej samej nazwie, ale z zmodyfikowanymi właściwościami, wdrożenie zakończy się niepowodzeniem. Innymi słowy, można pomyślnie wdrożyć prywatny punkt końcowy o ile ma on takie same właściwości jak ten, który już istnieje w fabryce. Jeśli jakakolwiek właściwość różni się między środowiskami, można ją zastąpić, parametryzacja tę właściwość i dostarczając odpowiednią wartość podczas wdrażania.
 
--   **Key Vault** . W przypadku korzystania z połączonych usług, których informacje o połączeniu są przechowywane w Azure Key Vault, zaleca się przechowywanie oddzielnych magazynów kluczy dla różnych środowisk. Możesz również skonfigurować osobne poziomy uprawnień dla każdego magazynu kluczy. Na przykład użytkownik może nie chcieć, aby członkowie zespołu mieli uprawnienia do wpisów tajnych produkcji. W przypadku przestrzegania tego podejścia zalecamy, aby zachować te same nazwy tajnych na wszystkich etapach. Jeśli zachowasz te same nazwy tajnych, nie musisz Sparametryzuj każdego z parametrów połączenia w środowiskach ciągłej integracji/ciągłego wdrażania, ponieważ jedyną przyczyną zmiany jest nazwa magazynu kluczy, który jest osobnym parametrem.
+-   **Key Vault**. W przypadku korzystania z połączonych usług, których informacje o połączeniu są przechowywane w Azure Key Vault, zaleca się przechowywanie oddzielnych magazynów kluczy dla różnych środowisk. Możesz również skonfigurować osobne poziomy uprawnień dla każdego magazynu kluczy. Na przykład użytkownik może nie chcieć, aby członkowie zespołu mieli uprawnienia do wpisów tajnych produkcji. W przypadku przestrzegania tego podejścia zalecamy, aby zachować te same nazwy tajnych na wszystkich etapach. Jeśli zachowasz te same nazwy tajnych, nie musisz Sparametryzuj każdego z parametrów połączenia w środowiskach ciągłej integracji/ciągłego wdrażania, ponieważ jedyną przyczyną zmiany jest nazwa magazynu kluczy, który jest osobnym parametrem.
 
 -  **Nazewnictwo zasobów** Ze względu na ograniczenia dotyczące szablonów ARM mogą wystąpić problemy z wdrożeniem, jeśli Twoje zasoby zawierają spacje w nazwie. Zespół Azure Data Factory zaleca używanie znaków "_" lub "-" zamiast spacji w przypadku zasobów. Na przykład "Pipeline_1" byłoby preferowaną nazwą dla "potok 1".
 

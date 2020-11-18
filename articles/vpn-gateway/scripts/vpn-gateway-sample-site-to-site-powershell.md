@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: fab1f4862cd1f2907d9bdc9f989fe24f1730002c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e37fbcc0a37219c1630e887ac33d003810b15130
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032445"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658302"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Tworzenie usługi VPN Gateway i dodawanie połączenia lokacja-lokacja za pomocą programu PowerShell
 
@@ -105,8 +105,8 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Tworzy sieć wirtualną. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Tworzy publiczny adres IP. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Tworzy nową konfigurację adresu IP bramy. |
-| [New-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę sieci VPN. |
-| [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway) | Tworzy bramę sieci lokalnej. |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę sieci VPN. |
+| [New-AzLocalNetworkGateway](/powershell/module/az.network/new-azlocalnetworkgateway) | Tworzy bramę sieci lokalnej. |
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Tworzy połączenie lokacja-lokacja. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów i wszystkie zasoby w niej zawarte. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Ustawia konfigurację podsieci dla sieci wirtualnej. |

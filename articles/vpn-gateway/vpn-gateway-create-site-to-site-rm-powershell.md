@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: df7bad806fb5af198d0484af93e9fb79cb75e2d5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7de5f125789b0ed3782224024a9ee9c80d359e77
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540906"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659373"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Tworzenie sieci wirtualnej za pomocą połączenia sieci VPN typu lokacja-lokacja przy użyciu programu PowerShell
 
@@ -31,7 +31,7 @@ Połączenie bramy sieci VPN typu lokacja-lokacja umożliwia łączenie sieci lo
 
 ![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -184,7 +184,7 @@ Utwórz bramę sieci VPN sieci wirtualnej.
 
 Użyj następujących wartości:
 
-* Wartość *-GatewayType* dla konfiguracji lokacja-lokacja to *Vpn* . Typ bramy zawsze zależy od wdrażanej konfiguracji. Na przykład inne konfiguracje bramy mogą wymagać zastosowania wartości -GatewayType ExpressRoute.
+* Wartość *-GatewayType* dla konfiguracji lokacja-lokacja to *Vpn*. Typ bramy zawsze zależy od wdrażanej konfiguracji. Na przykład inne konfiguracje bramy mogą wymagać zastosowania wartości -GatewayType ExpressRoute.
 * Dla pozycji *-VpnType* określającej typ sieci VPN można wybrać opcję *RouteBased* (oparta na trasach; w dokumentacji używa się czasem określenia „brama dynamiczna”) lub *PolicyBased* (oparta na zasadach; w dokumentacji używa się czasem określenia „brama statyczna”). Więcej informacji o typach bram sieci VPN można znaleźć w artykule [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md).
 * Wybierz jednostkę SKU bramy, która ma być używana. Dla niektórych jednostek SKU istnieją ograniczenia konfiguracji. Aby uzyskać więcej informacji, zobacz [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy). Jeśli podczas tworzenia bramy sieci VPN wystąpi błąd dotyczący opcji -GatewaySku, sprawdź, czy zainstalowano najnowszą wersję poleceń cmdlet programu PowerShell.
 
@@ -212,7 +212,7 @@ Połączenia typu lokacja-lokacja z siecią lokalną wymagają urządzenia sieci
 
 ## <a name="7-create-the-vpn-connection"></a><a name="CreateConnection"></a>7. Tworzenie połączenia sieci VPN
 
-Następnie należy utworzyć połączenie sieci VPN typu lokacja-lokacja między bramą sieci wirtualnej i urządzeniem sieci VPN. Przedstawione na nich wartości należy zastąpić własnymi. Klucz współużytkowany musi odpowiadać wartości użytej podczas konfiguracji urządzenia sieci VPN. Należy pamiętać, że dla połączenia typu lokacja-lokacja wartość parametru „-ConnectionType” to **IPsec** .
+Następnie należy utworzyć połączenie sieci VPN typu lokacja-lokacja między bramą sieci wirtualnej i urządzeniem sieci VPN. Przedstawione na nich wartości należy zastąpić własnymi. Klucz współużytkowany musi odpowiadać wartości użytej podczas konfiguracji urządzenia sieci VPN. Należy pamiętać, że dla połączenia typu lokacja-lokacja wartość parametru „-ConnectionType” to **IPsec**.
 
 1. Ustaw zmienne.
    ```azurepowershell-interactive
@@ -261,7 +261,7 @@ Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
 
 ## <a name="next-steps"></a>Następne kroki
 
-*  Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/) (Maszyny wirtualne).
+*  Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](../index.yml) (Maszyny wirtualne).
 * Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).
 * Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu lokacja-lokacja przy użyciu szablonu Azure Resource Manager, zobacz [Tworzenie połączenia sieci VPN typu lokacja-lokacja](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
 * Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu sieć wirtualna-sieć wirtualna przy użyciu szablonu Azure Resource Manager, zobacz [wdrażanie replikacji geograficznej HBase](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

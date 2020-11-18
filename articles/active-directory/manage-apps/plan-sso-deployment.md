@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14520c7c448231045b36e025c2c92332f9daac53
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603343"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658727"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 
@@ -39,7 +39,7 @@ Portal Azure Marketplace obejmuje ponad 3000 aplikacji z wstępnie zintegrowanym
 
 ## <a name="plan-your-sso-team"></a>Planowanie zespołu ds. rejestracji jednokrotnej
 
-- Weź **udział w odpowiednich udziałowcach** — w przypadku niepowodzenia projektów technologicznych zazwyczaj wynika to z niezgodnego oczekiwania na wpływ, wyniki i obowiązki. Aby uniknąć tych pułapek, [upewnij się, że interesują](https://aka.ms/deploymentplans) Cię odpowiednie osoby zainteresowane i że uczestnicy projektu rozumieją swoje role.
+- Weź **udział w odpowiednich udziałowcach** — w przypadku niepowodzenia projektów technologicznych zazwyczaj wynika to z niezgodnego oczekiwania na wpływ, wyniki i obowiązki. Aby uniknąć tych pułapek, [upewnij się, że interesują](../fundamentals/active-directory-deployment-plans.md) Cię odpowiednie osoby zainteresowane i że uczestnicy projektu rozumieją swoje role.
 - **Planowanie** komunikacji — komunikacja jest niezwykle ważna dla sukcesu każdej nowej usługi. Aktywnie Komunikuj się z użytkownikami, aby dowiedzieć się, jak ich środowisko zostanie zmienione, kiedy ulegnie zmianie, i jak uzyskać pomoc techniczną, jeśli wystąpią problemy. Zapoznaj się z opcjami dotyczącymi sposobu, w [jaki użytkownicy końcowi będą uzyskiwać dostęp do swoich aplikacji z obsługą logowania JEDNOkrotnego, a następnie wystawania](end-user-experiences.md)komunikacji 
 
 ## <a name="plan-your-sso-protocol"></a>Planowanie protokołu SSO
@@ -54,25 +54,25 @@ Istnieją dwa podstawowe sposoby pozwalające użytkownikom na logowanie jednokr
 
 ### <a name="considerations-for-federation-based-sso"></a>Zagadnienia dotyczące logowania jednokrotnego opartego na Federacji
 
-- **Przy użyciu programu OpenID Connect Connect i uwierzytelniania OAuth** — Jeśli aplikacja, z którą nawiązujesz połączenie, obsługuje tę funkcję, użyj metody OIDC/OAuth 2,0, aby włączyć logowanie jednokrotne do tej aplikacji. Ta metoda wymaga mniejszej konfiguracji i umożliwia bogatsze środowisko użytkownika. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect Connect 1,0](../develop/v2-protocols-oidc.md)i [przewodnik dewelopera Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- **Przy użyciu programu OpenID Connect Connect i uwierzytelniania OAuth** — Jeśli aplikacja, z którą nawiązujesz połączenie, obsługuje tę funkcję, użyj metody OIDC/OAuth 2,0, aby włączyć logowanie jednokrotne do tej aplikacji. Ta metoda wymaga mniejszej konfiguracji i umożliwia bogatsze środowisko użytkownika. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect Connect 1,0](../develop/v2-protocols-oidc.md)i [przewodnik dewelopera Azure Active Directory](../develop/index.yml).
 - **Konfiguracje punktów końcowych dla logowania jednokrotnego opartego na** protokole SAML — Jeśli używasz protokołu SAML, deweloperzy będą musieli uzyskać określone informacje przed skonfigurowaniem aplikacji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie logowania jednokrotnego opartego na protokole SAML](configure-saml-single-sign-on.md).
-- **Zarządzanie certyfikatami dla logowania jednokrotnego opartego** na protokole SAML — po włączeniu federacyjnego logowania jednokrotnego dla aplikacji usługa Azure AD tworzy certyfikat, który jest domyślnie ważny przez trzy lata. W razie potrzeby można dostosować datę wygaśnięcia dla tego certyfikatu. Upewnij się, że masz procesy do odnawiania certyfikatów przed ich wygaśnięciem. Aby dowiedzieć się więcej, zobacz temat [Zarządzanie certyfikatami w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
+- **Zarządzanie certyfikatami dla logowania jednokrotnego opartego** na protokole SAML — po włączeniu federacyjnego logowania jednokrotnego dla aplikacji usługa Azure AD tworzy certyfikat, który jest domyślnie ważny przez trzy lata. W razie potrzeby można dostosować datę wygaśnięcia dla tego certyfikatu. Upewnij się, że masz procesy do odnawiania certyfikatów przed ich wygaśnięciem. Aby dowiedzieć się więcej, zobacz temat [Zarządzanie certyfikatami w usłudze Azure AD](./manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="considerations-for-password-based-sso"></a>Zagadnienia dotyczące logowania jednokrotnego opartego na hasłach
 
-Korzystanie z usługi Azure AD na potrzeby logowania jednokrotnego opartego na hasłach wymaga wdrożenia przeglądarki, która będzie bezpiecznie pobierać poświadczenia i uzupełnić formularze logowania. Zdefiniuj mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne opcje:
+Korzystanie z usługi Azure AD na potrzeby logowania jednokrotnego opartego na hasłach wymaga wdrożenia przeglądarki, która będzie bezpiecznie pobierać poświadczenia i uzupełnić formularze logowania. Zdefiniuj mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](../user-help/my-apps-portal-end-user-access.md). Dostępne są następujące opcje:
 
-- [zasady grupy programu Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [Configuration Manager programu Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Pobieranie i Konfigurowanie na podstawie użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [zasady grupy programu Internet Explorer](./access-panel-deployment-plan.md)
+- [Configuration Manager programu Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Pobieranie i Konfigurowanie na podstawie użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](../user-help/my-apps-portal-end-user-access.md)
 
-Aby dowiedzieć się więcej, zobacz [jak skonfigurować Logowanie jednokrotne przy użyciu hasła](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
+Aby dowiedzieć się więcej, zobacz [jak skonfigurować Logowanie jednokrotne przy użyciu hasła](./configure-password-single-sign-on-non-gallery-applications.md).
 
 #### <a name="capturing-login-forms-metadata-for-applications-that-arent-in-the-gallery"></a>Przechwytywanie metadanych formularzy logowania dla aplikacji, które nie znajdują się w galerii
 
 Firma Microsoft obsługuje przechwytywanie metadanych w aplikacji sieci Web na potrzeby obsługi magazynów haseł (przechwytywanie pól username i Password). Przejdź do adresu URL logowania podczas procesu konfigurowania aplikacji w celu przechwytywania metadanych formularzy. Poproszenie właściciela aplikacji o dokładny adres URL logowania. Te informacje są używane podczas procesu logowania, które umożliwiają mapowanie poświadczeń usługi Azure AD do aplikacji podczas logowania.
 
-Aby dowiedzieć się więcej, zobacz [co to jest dostęp do aplikacji i logowanie JEDNOkrotne w usłudze Azure AD? — logowanie JEDNOkrotne oparte na haśle](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/).
+Aby dowiedzieć się więcej, zobacz [co to jest dostęp do aplikacji i logowanie JEDNOkrotne w usłudze Azure AD? — logowanie JEDNOkrotne oparte na haśle](./what-is-single-sign-on.md).
 
 #### <a name="indications-that-metadata-in-forms-needs-to-be-recaptured"></a>Wskazanie, że metadane w formularzach wymagają ponownego przechwycenia
 
@@ -96,7 +96,7 @@ Z perspektywy logowania aplikacje z udostępnionymi kontami nie różnią się o
 
 Wybór odpowiedniej metody uwierzytelniania jest kluczową pierwszą decyzją dotyczącą konfigurowania rozwiązania do tworzenia tożsamości hybrydowej usługi Azure AD. Zaimplementuj metodę uwierzytelniania skonfigurowaną za pomocą Azure AD Connect, która również udostępnia użytkownikom w chmurze.
 
-Aby wybrać metodę uwierzytelniania, należy wziąć pod uwagę czas, istniejącą infrastrukturę, złożoność i koszt implementacji własnego wyboru. Te czynniki są różne dla każdej organizacji i mogą ulec zmianie w czasie. Należy wybrać ten, który najlepiej pasuje do konkretnego scenariusza. Aby uzyskać więcej informacji, zobacz [Wybieranie odpowiedniej metody uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
+Aby wybrać metodę uwierzytelniania, należy wziąć pod uwagę czas, istniejącą infrastrukturę, złożoność i koszt implementacji własnego wyboru. Te czynniki są różne dla każdej organizacji i mogą ulec zmianie w czasie. Należy wybrać ten, który najlepiej pasuje do konkretnego scenariusza. Aby uzyskać więcej informacji, zobacz [Wybieranie odpowiedniej metody uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej](../hybrid/choose-ad-authn.md).
 
 ## <a name="plan-your-security-and-governance"></a>Planowanie zabezpieczeń i zarządzania 
 
@@ -104,7 +104,7 @@ Tożsamość to nowy podstawowy obszar Pivot dotyczący zabezpieczeń i inwestyc
 
 ### <a name="plan-access-reviews"></a>Planowanie przeglądów dostępu
 
-[Przeglądy dostępu](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) pozwalają organizacjom efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Należy zaplanować regularne przeglądanie dostępu użytkowników, aby upewnić się, że tylko odpowiednie osoby mają stały dostęp.
+[Przeglądy dostępu](../governance/create-access-review.md) pozwalają organizacjom efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Należy zaplanować regularne przeglądanie dostępu użytkowników, aby upewnić się, że tylko odpowiednie osoby mają stały dostęp.
 
 Niektóre z najważniejszych tematów do zaplanowania podczas konfigurowania przeglądów dostępu obejmują:
 
@@ -116,7 +116,7 @@ Niektóre z najważniejszych tematów do zaplanowania podczas konfigurowania prz
 
 ### <a name="plan-auditing"></a>Inspekcja planu
 
-Usługa Azure AD udostępnia [raporty zawierające informacje techniczne i biznesowe](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
+Usługa Azure AD udostępnia [raporty zawierające informacje techniczne i biznesowe](../reports-monitoring/overview-reports.md). 
 
 Dostępne są zarówno raporty dotyczące zabezpieczeń, jak i działania. Raporty zabezpieczeń przedstawiają użytkowników oflagowanych w celu ryzyka oraz ryzykowne logowania. Raporty dotyczące działań pomagają zrozumieć zachowanie użytkowników w organizacji, wyświetlając szczegóły działania związanego z logowaniem i dostarczając wszystkie identyfikatory logowania. Raporty umożliwiają zarządzanie ryzykiem, zwiększanie produktywności i monitorowanie zgodności.
 
@@ -139,15 +139,15 @@ Wdrożenie MCAS umożliwia:
 - Korzystanie z Kontrola dostępu warunkowego aplikacji ochrony w celu uzyskania wglądu w czasie rzeczywistym i kontroli nad dostępem i działaniami w ramach aplikacji w chmurze
 - Pomaga w zapewnianiu ciągłej kontroli według ustawienia, a następnie ciągłego dostrajania, zasad.
 
-Kontrola sesji Microsoft Cloud Application Security (MCAS) jest dostępna dla dowolnej przeglądarki na dowolnej głównej platformie w dowolnym systemie operacyjnym. Aplikacje mobilne i aplikacje klasyczne mogą być również blokowane lub dozwolone. Dzięki natywnej integracji z usługą Azure AD wszystkie aplikacje, które są skonfigurowane przy użyciu protokołu SAML lub mogą być obsługiwane przez funkcję Open ID Connect Apps z logowaniem jednokrotnym w usłudze Azure AD, w tym [kilka polecanych aplikacji](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
+Kontrola sesji Microsoft Cloud Application Security (MCAS) jest dostępna dla dowolnej przeglądarki na dowolnej głównej platformie w dowolnym systemie operacyjnym. Aplikacje mobilne i aplikacje klasyczne mogą być również blokowane lub dozwolone. Dzięki natywnej integracji z usługą Azure AD wszystkie aplikacje, które są skonfigurowane przy użyciu protokołu SAML lub mogą być obsługiwane przez funkcję Open ID Connect Apps z logowaniem jednokrotnym w usłudze Azure AD, w tym [kilka polecanych aplikacji](/cloud-app-security/proxy-intro-aad).
 
-Aby uzyskać informacje na temat MCAS, zobacz [omówienie Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS to usługa subskrypcji oparta na użytkownikach. Szczegóły dotyczące licencjonowania można przejrzeć w [arkuszu danych licencjonowania MCAS](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
+Aby uzyskać informacje na temat MCAS, zobacz [omówienie Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security). MCAS to usługa subskrypcji oparta na użytkownikach. Szczegóły dotyczące licencjonowania można przejrzeć w [arkuszu danych licencjonowania MCAS](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
 
 ### <a name="use-conditional-access"></a>Korzystanie z dostępu warunkowego
 
 Za pomocą dostępu warunkowego można zautomatyzować decyzje dotyczące kontroli dostępu oparte na kryteriach dla aplikacji w chmurze.
 
-Zasady dostępu warunkowego są wymuszane po zakończeniu uwierzytelniania pierwszego. W związku z tym dostęp warunkowy nie jest przeznaczony jako pierwszy wiersz obrony przed scenariuszami, takimi jak ataki typu "odmowa usługi" (DoS), ale mogą używać sygnałów z tych zdarzeń w celu określenia dostępu. Przykładowo można użyć poziomu ryzyka logowania, lokalizacji żądania itd. Aby uzyskać więcej informacji na temat dostępu warunkowego, zobacz [Omówienie](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) i [Plan wdrażania](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Zasady dostępu warunkowego są wymuszane po zakończeniu uwierzytelniania pierwszego. W związku z tym dostęp warunkowy nie jest przeznaczony jako pierwszy wiersz obrony przed scenariuszami, takimi jak ataki typu "odmowa usługi" (DoS), ale mogą używać sygnałów z tych zdarzeń w celu określenia dostępu. Przykładowo można użyć poziomu ryzyka logowania, lokalizacji żądania itd. Aby uzyskać więcej informacji na temat dostępu warunkowego, zobacz [Omówienie](../conditional-access/plan-conditional-access.md) i [Plan wdrażania](../conditional-access/plan-conditional-access.md).
 
 ## <a name="azure-sso-technical-requirements"></a>Wymagania techniczne logowania jednokrotnego na platformie Azure
 
@@ -163,7 +163,7 @@ W przypadku wszystkich wstępnie zintegrowanych aplikacji SaaS firma Microsoft u
 
 ### <a name="attribute-requirements"></a>Wymagania dotyczące atrybutów
 
-Istnieje wstępnie skonfigurowany zestaw atrybutów i mapowań atrybutów między obiektami użytkowników usługi Azure AD i obiektami użytkowników aplikacji SaaS. Niektóre aplikacje zarządzają innymi typami obiektów, takimi jak grupy. Zaplanuj Mapowanie atrybutów użytkownika z usługi Azure AD do aplikacji i [Dostosuj domyślne mapowania atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) zgodnie z potrzebami biznesowymi.
+Istnieje wstępnie skonfigurowany zestaw atrybutów i mapowań atrybutów między obiektami użytkowników usługi Azure AD i obiektami użytkowników aplikacji SaaS. Niektóre aplikacje zarządzają innymi typami obiektów, takimi jak grupy. Zaplanuj Mapowanie atrybutów użytkownika z usługi Azure AD do aplikacji i [Dostosuj domyślne mapowania atrybutów](../app-provisioning/customize-application-attributes.md) zgodnie z potrzebami biznesowymi.
 
 ### <a name="certificate-requirements"></a>Wymagania certyfikatu
 
@@ -171,9 +171,9 @@ Certyfikat aplikacji musi być aktualny lub istnieje ryzyko, że użytkownicy ni
 
 Istnieją dwa sposoby zarządzania certyfikatami. 
 
-- **Automatyczne Przerzucanie certyfikatów** — firma Microsoft obsługuje [Przerzucanie klucza podpisywania w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Chociaż jest to preferowana metoda zarządzania certyfikatami, nie wszystkie niezależne dostawcy oprogramowania obsługują ten scenariusz.
+- **Automatyczne Przerzucanie certyfikatów** — firma Microsoft obsługuje [Przerzucanie klucza podpisywania w usłudze Azure AD](../develop/active-directory-signing-key-rollover.md). Chociaż jest to preferowana metoda zarządzania certyfikatami, nie wszystkie niezależne dostawcy oprogramowania obsługują ten scenariusz.
 
-- **Ręczna aktualizacja** — każda aplikacja ma swój własny certyfikat, który wygaśnie na podstawie sposobu jego zdefiniowania. Przed wygaśnięciem certyfikatu aplikacji Utwórz nowy certyfikat i wyślij go do niezależnego dostawcy oprogramowania. Te informacje można ściągnąć z metadanych Federacji. [Więcej informacji na temat metadanych Federacji można znaleźć tutaj.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata)
+- **Ręczna aktualizacja** — każda aplikacja ma swój własny certyfikat, który wygaśnie na podstawie sposobu jego zdefiniowania. Przed wygaśnięciem certyfikatu aplikacji Utwórz nowy certyfikat i wyślij go do niezależnego dostawcy oprogramowania. Te informacje można ściągnąć z metadanych Federacji. [Więcej informacji na temat metadanych Federacji można znaleźć tutaj.](../azuread-dev/azure-ad-federation-metadata.md)
 
 ## <a name="implement-sso"></a>Zaimplementuj Logowanie jednokrotne
 
@@ -189,11 +189,11 @@ Aby zaplanować i wdrożyć rozwiązanie w organizacji, należy użyć następuj
 
 - **Konfigurowanie logowania jednokrotnego**
 
-   Z [listy aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)Znajdź i Otwórz samouczek rejestracji Jednokrotnej dla swojej aplikacji, a następnie postępuj zgodnie z instrukcjami samouczka, aby pomyślnie skonfigurować aplikację SaaS.
+   Z [listy aplikacji](../saas-apps/tutorial-list.md)Znajdź i Otwórz samouczek rejestracji Jednokrotnej dla swojej aplikacji, a następnie postępuj zgodnie z instrukcjami samouczka, aby pomyślnie skonfigurować aplikację SaaS.
 
-   Jeśli nie możesz znaleźć aplikacji, zapoznaj się z [dokumentacją aplikacji niestandardowych](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Zapoznaj się z tematem jak dodać aplikację, która nie znajduje się w galerii usługi Azure AD.
+   Jeśli nie możesz znaleźć aplikacji, zapoznaj się z [dokumentacją aplikacji niestandardowych](./configure-saml-single-sign-on.md). Zapoznaj się z tematem jak dodać aplikację, która nie znajduje się w galerii usługi Azure AD.
 
-   Opcjonalnie można użyć oświadczeń wystawionych w tokenie SAML dla aplikacji przedsiębiorstwa przy użyciu [dokumentacji wskazówek firmy Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Upewnij się, że mapowania są zgodne z oczekiwaniami, które chcesz otrzymywać w odpowiedzi SAML dla aplikacji. Jeśli wystąpią problemy podczas konfiguracji, należy skorzystać z naszych wskazówek dotyczących [debugowania integracji z logowaniem JEDNOkrotnym](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
+   Opcjonalnie można użyć oświadczeń wystawionych w tokenie SAML dla aplikacji przedsiębiorstwa przy użyciu [dokumentacji wskazówek firmy Microsoft](../develop/active-directory-claims-mapping.md). Upewnij się, że mapowania są zgodne z oczekiwaniami, które chcesz otrzymywać w odpowiedzi SAML dla aplikacji. Jeśli wystąpią problemy podczas konfiguracji, należy skorzystać z naszych wskazówek dotyczących [debugowania integracji z logowaniem JEDNOkrotnym](./debug-saml-sso-issues.md).
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Zapewnianie użytkownikom końcowym komunikacji z logowaniem jednokrotnym
 
@@ -231,7 +231,7 @@ Ta sekcja zawiera opis wymagań i zaleceń dotyczących pomyślnego zarządzania
 
 ### <a name="required-administrative-roles"></a>Wymagane role administracyjne
 
-Zawsze używaj roli z najmniejszą liczbą uprawnień dostępnych do wykonania wymaganego zadania w ramach Azure Active Directory. Firma Microsoft zaleca, aby [zapoznać się z różnymi rolami, które są dostępne](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) , i wybrać jedną z nich, aby rozwiązać Twoje potrzeby dla każdej osoby dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
+Zawsze używaj roli z najmniejszą liczbą uprawnień dostępnych do wykonania wymaganego zadania w ramach Azure Active Directory. Firma Microsoft zaleca, aby [zapoznać się z różnymi rolami, które są dostępne](../roles/permissions-reference.md) , i wybrać jedną z nich, aby rozwiązać Twoje potrzeby dla każdej osoby dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
 
 | Osoba| Role | Rola usługi Azure AD (jeśli jest wymagana) |
 |--------|-------|-----------------------------|
@@ -241,7 +241,7 @@ Zawsze używaj roli z najmniejszą liczbą uprawnień dostępnych do wykonania w
 | Administratorzy infrastruktury | Właściciel przerzucania certyfikatu | Administrator globalny |
 | Właściciel firmy/uczestnik projektu | Zaświadczanie użytkownika w aplikacji, konfiguracja dla użytkowników z uprawnieniami | Brak |
 
-Zalecamy używanie [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) do zarządzania rolami w celu zapewnienia dodatkowej inspekcji, kontroli i przeglądu dostępu użytkownikom z uprawnieniami do katalogów.
+Zalecamy używanie [Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) do zarządzania rolami w celu zapewnienia dodatkowej inspekcji, kontroli i przeglądu dostępu użytkownikom z uprawnieniami do katalogów.
 
 ### <a name="sso-certificate-lifecycle-management"></a>Zarządzanie cyklem życia certyfikatu SSO
 
@@ -265,7 +265,7 @@ Dostępność metod uwierzytelniania w aplikacji określi najlepszą strategię.
 
 ### <a name="access-management"></a>Zarządzanie dostępem
 
-Zalecamy wybranie skalowalnego podejścia do zarządzania dostępem do zasobów. Typowe podejścia obejmują używanie grup lokalnych przez synchronizację za pośrednictwem Azure AD Connect, [Tworzenie grup dynamicznych w usłudze Azure AD na podstawie atrybutów użytkownika](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)lub tworzenie [grup samoobsługi](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) w usłudze Azure AD zarządzanych przez właściciela zasobu.
+Zalecamy wybranie skalowalnego podejścia do zarządzania dostępem do zasobów. Typowe podejścia obejmują używanie grup lokalnych przez synchronizację za pośrednictwem Azure AD Connect, [Tworzenie grup dynamicznych w usłudze Azure AD na podstawie atrybutów użytkownika](../enterprise-users/groups-dynamic-membership.md)lub tworzenie [grup samoobsługi](../enterprise-users/groups-self-service-management.md) w usłudze Azure AD zarządzanych przez właściciela zasobu.
 
 ### <a name="monitor-security"></a>Monitorowanie zabezpieczeń
 
@@ -277,52 +277,52 @@ Poniższe linki prowadzą do rozwiązywania problemów. Możesz chcieć utworzy�
 
 #### <a name="consent-issues"></a>Problemy z zgodą
 
-- [Nieoczekiwany błąd zgody](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt)
+- [Nieoczekiwany błąd zgody](./application-sign-in-unexpected-user-consent-prompt.md)
 
-- [Błąd zgody użytkownika](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error)
+- [Błąd zgody użytkownika](./application-sign-in-unexpected-user-consent-error.md)
 
 #### <a name="sign-in-issues"></a>Problemy dotyczące logowania
 
-- [Problemy z logowaniem się z portalu niestandardowego](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
+- [Problemy z logowaniem się z portalu niestandardowego](./application-sign-in-other-problem-access-panel.md)
 
-- [Problemy podczas logowania się z poziomu sekcji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemy podczas logowania się z poziomu sekcji Moje aplikacje](./application-sign-in-other-problem-access-panel.md)
 
-- [Błąd na stronie logowania aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
+- [Błąd na stronie logowania aplikacji](./application-sign-in-problem-application-error.md)
 
-- [Problem z logowaniem do aplikacji firmy Microsoft](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-first-party-microsoft)
+- [Problem z logowaniem do aplikacji firmy Microsoft](./application-sign-in-problem-first-party-microsoft.md)
 
 #### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>Problemy z logowaniem jednokrotnym dla aplikacji wymienionych w galerii aplikacji platformy Azure
 
-- [Problem z logowaniem jednokrotnym hasła dla aplikacji wymienionych w galerii aplikacji platformy Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery) 
+- [Problem z logowaniem jednokrotnym hasła dla aplikacji wymienionych w galerii aplikacji platformy Azure](./troubleshoot-password-based-sso.md) 
 
-- [Problem z federacyjnym logowaniem jednokrotnym dla aplikacji wymienionych w galerii aplikacji platformy Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery)   
+- [Problem z federacyjnym logowaniem jednokrotnym dla aplikacji wymienionych w galerii aplikacji platformy Azure](./application-sign-in-problem-federated-sso-gallery.md)   
 
 #### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>Problemy z logowaniem jednokrotnym dla aplikacji, które nie są wymienione w galerii aplikacji platformy Azure
 
-- [Problem z logowaniem jednokrotnym dla aplikacji, które nie znajdują się w galerii aplikacji platformy Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery) 
+- [Problem z logowaniem jednokrotnym dla aplikacji, które nie znajdują się w galerii aplikacji platformy Azure](./troubleshoot-password-based-sso.md) 
 
-- [Problem z federacyjnym logowaniem jednokrotnym dla aplikacji, które nie są wymienione w galerii aplikacji platformy Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery)
+- [Problem z federacyjnym logowaniem jednokrotnym dla aplikacji, które nie są wymienione w galerii aplikacji platformy Azure](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Debugowanie logowania jednokrotnego opartego na protokole SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+[Debugowanie logowania jednokrotnego opartego na protokole SAML](./debug-saml-sso-issues.md)
 
-[Mapowanie roszczeń dla aplikacji za pośrednictwem programu PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)
+[Mapowanie roszczeń dla aplikacji za pośrednictwem programu PowerShell](../develop/active-directory-claims-mapping.md)
 
-[Dostosowywanie oświadczeń wystawionych w tokenie SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
+[Dostosowywanie oświadczeń wystawionych w tokenie SAML](../develop/active-directory-saml-claims-customization.md)
 
-[Protokół SAML logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
+[Protokół SAML logowania jednokrotnego](../develop/single-sign-on-saml-protocol.md)
 
-[Pojedynczy Sign-Out protokół SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
+[Pojedynczy Sign-Out protokół SAML](../develop/single-sign-out-saml-protocol.md)
 
-[Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (dla użytkowników zewnętrznych, takich jak partnerzy i dostawcy)
+[Azure AD B2B](../external-identities/what-is-b2b.md) (dla użytkowników zewnętrznych, takich jak partnerzy i dostawcy)
 
-[Dostęp warunkowy w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Dostęp warunkowy w usłudze Azure AD](../conditional-access/overview.md)
 
-[Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+[Azure Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Dostęp z użyciem logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+[Dostęp z użyciem logowania jednokrotnego](./what-is-single-sign-on.md)
 
-[Samouczek logowania jednokrotnego dla aplikacji](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+[Samouczek logowania jednokrotnego dla aplikacji](../saas-apps/tutorial-list.md)
 
 [Pobieranie oficjalnego dokumentu — plan wdrożenia logowania jednokrotnego](https://aka.ms/SSODeploymentPlan)

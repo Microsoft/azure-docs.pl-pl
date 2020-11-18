@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442263"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659050"
 ---
 # <a name="manage-app-consent-policies"></a>Zarządzanie zasadami wyrażania zgody aplikacji
 
@@ -31,7 +31,7 @@ Zasady zgody aplikacji, w których identyfikator rozpoczyna się od "Microsoft-"
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
 
-1. Upewnij się, że używasz modułu [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) i moduł [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) .
+1. Upewnij się, że używasz modułu [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) i moduł [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) .
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -133,7 +133,7 @@ Poniższa tabela zawiera listę obsługiwanych warunków zasad wyrażania zgody 
 | Warunek | Opis|
 |:---------------|:----------|
 | PermissionClassification | [Klasyfikacja uprawnień](configure-permission-classifications.md) dla przyznawanego uprawnienia lub "wszystkie", aby dopasować się do klasyfikacji uprawnień (w tym uprawnień, które nie zostały sklasyfikowane). Wartość domyślna to "All". |
-| Uprawnienie | Typ uprawnienia udzielonego uprawnienia. Użyj "aplikacji" dla uprawnień aplikacji (np. ról aplikacji) lub "delegowane" dla uprawnień delegowanych. <br><br>**Uwaga** : wartość "delegatedUserConsentable" wskazuje delegowane uprawnienia, które nie zostały skonfigurowane przez wydawcę interfejsu API w celu wymagania zgody administratora. Ta wartość może być używana w zasadach przyznawania uprawnień wbudowanych, ale nie można jej używać w niestandardowych zasadach przyznawania uprawnień. Wymagane. |
+| Uprawnienie | Typ uprawnienia udzielonego uprawnienia. Użyj "aplikacji" dla uprawnień aplikacji (np. ról aplikacji) lub "delegowane" dla uprawnień delegowanych. <br><br>**Uwaga**: wartość "delegatedUserConsentable" wskazuje delegowane uprawnienia, które nie zostały skonfigurowane przez wydawcę interfejsu API w celu wymagania zgody administratora. Ta wartość może być używana w zasadach przyznawania uprawnień wbudowanych, ale nie można jej używać w niestandardowych zasadach przyznawania uprawnień. Wymagane. |
 | ResourceApplication | **Identyfikator appid** aplikacji zasobów (np. interfejsu API), dla którego przyznano uprawnienia, lub "dowolny", aby dopasować się do dowolnej aplikacji lub interfejsu API zasobów. Wartość domyślna to "any". |
 | Uprawnienia | Lista identyfikatorów uprawnień dla określonych uprawnień, które mają być zgodne z, lub lista z pojedynczą wartością "All", która jest zgodna z dowolnym uprawnieniem. Wartością domyślną jest pojedyncza wartość "All". <ul><li>Identyfikatory uprawnień delegowanych można znaleźć we właściwości **OAuth2Permissions** głównego obiektu interfejsu API.</li><li>Identyfikatory uprawnień aplikacji można znaleźć we właściwości **AppRoles** głównego obiektu interfejsu API.</li></ol> |
 | ClientApplicationIds | Lista wartości **AppID** dla aplikacji klienckich, które mają być zgodne z programem, lub lista z pojedynczą wartością "All" w celu dopasowania do dowolnej aplikacji klienckiej. Wartością domyślną jest pojedyncza wartość "All". |
@@ -149,7 +149,7 @@ Dodatkowe informacje:
 * [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
 * [Dowiedz się, jak zarządzać zgodą na aplikacje i oszacować wnioski o zgodę](manage-consent-requests.md)
 * [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
-* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
+* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
 * [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

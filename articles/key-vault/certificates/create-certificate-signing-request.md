@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289603"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658965"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -25,7 +25,15 @@ Aby uzyskać więcej ogólnych informacji o certyfikatach, zobacz [Azure Key Vau
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Dodawanie certyfikatu w Key Vault wystawiony przez niezaufany urząd certyfikacji
+## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Dodawanie certyfikatu w Key Vault wystawiony przez partnera urzędu certyfikacji
+Aby uprościć tworzenie certyfikatów, Key Vault partnerzy z poniższymi dwoma urzędami certyfikacji. 
+
+|Dostawca|Typ certyfikatu|Konfiguracja konfiguracji  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault oferuje certyfikaty SSL OV lub EV z DigiCert| [Przewodnik po integracji](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault oferuje certyfikaty SSL OV lub EV z GlobalSign| [Przewodnik po integracji](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Dodawanie certyfikatu w Key Vault wystawiony przez niepartnerskiego urzędu certyfikacji
 
 Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, które nie są partnerskie Key Vault (na przykład GoDaddy nie jest zaufanym urzędem certyfikacji magazynu kluczy) 
 

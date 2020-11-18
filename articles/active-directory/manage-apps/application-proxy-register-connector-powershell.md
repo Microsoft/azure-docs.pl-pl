@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46071d15db57f64eb60d9267d4081a2b0b74a50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054838"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658438"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -39,7 +39,7 @@ Aby [łącznik serwera proxy](application-proxy-connectors.md) działał prawid�
 Istnieją dwa kroki instalacji nienadzorowanej. Najpierw zainstaluj łącznik. Następnie zarejestruj łącznik w usłudze Azure AD.
 
 > [!IMPORTANT]
-> Jeśli instalujesz łącznik dla Azure Government w chmurze, zapoznaj się z [wymaganiami wstępnymi](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) i [procedurą instalacji](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Wymaga to włączenia dostępu do innego zestawu adresów URL i dodatkowego parametru do uruchomienia instalacji.
+> Jeśli instalujesz łącznik dla Azure Government w chmurze, zapoznaj się z [wymaganiami wstępnymi](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) i [procedurą instalacji](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). Wymaga to włączenia dostępu do innego zestawu adresów URL i dodatkowego parametru do uruchomienia instalacji.
 
 ## <a name="install-the-connector"></a>Instalowanie łącznika
 Wykonaj następujące kroki, aby zainstalować łącznik bez rejestracji:

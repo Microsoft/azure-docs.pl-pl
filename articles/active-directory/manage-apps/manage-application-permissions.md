@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510882"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658982"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Podejmowanie akcji w przypadku aplikacji z ograniczeniami lub podejrzanymi uprawnieniami w Azure Active Directory
 
@@ -29,7 +29,7 @@ Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [
 
 Aby wykonać następujące akcje, należy zalogować się jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
 
-Aby ograniczyć dostęp do aplikacji, należy wymagać przypisania użytkownika, a następnie przypisania użytkowników lub grup do aplikacji.  Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
+Aby ograniczyć dostęp do aplikacji, należy wymagać przypisania użytkownika, a następnie przypisania użytkowników lub grup do aplikacji.  Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](./assign-user-or-group-access-portal.md).
 
 Możesz uzyskać dostęp do portalu usługi Azure AD, aby uzyskać kontekstowe skrypty programu PowerShell do wykonywania akcji.
  
@@ -76,7 +76,7 @@ Zalecamy, aby ograniczyć dostęp do aplikacji przez włączenie ustawienia **pr
 3. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
 5. Wybierz aplikację, do której chcesz ograniczyć dostęp.
 6. Wybierz pozycję **Właściwości**, a następnie ustaw opcję **wymagane przez użytkownika** na **wartość tak**.
-7. Wybierz pozycję **uprawnienia**i sprawdź uprawnienia wysłane przez administratora i użytkownika.
+7. Wybierz pozycję **uprawnienia** i sprawdź uprawnienia wysłane przez administratora i użytkownika.
 
 Opcjonalnie za pomocą programu PowerShell można:
 

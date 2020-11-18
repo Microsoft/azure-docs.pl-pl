@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e9544fb73c8599b219ef7a566032adfe5e33d08
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75862717"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658506"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Sugerowane przez społeczność ustawienia sieci VPN lub urządzenia zapory innych firm dla bramy sieci VPN platformy Azure
 
@@ -26,7 +26,7 @@ Ten artykuł zawiera kilka sugerowanych rozwiązań dla urządzeń sieci VPN lub
 
 W poniższej tabeli przedstawiono kilka typowych urządzeń i powiązana pomoc:
 
-|Produkt    |Tematy pomocy                                                |
+|Produkt    |Dokumentacja                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Sugerowane przez społeczność rozwiązania dla Cisco ASA w sieci VPN platformy Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Sugerowane przez społeczność rozwiązania Cisco ISR w sieci VPN platformy Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
@@ -41,7 +41,6 @@ W poniższej tabeli przedstawiono kilka typowych urządzeń i powiązana pomoc:
 
 ## <a name="next-step"></a>Następny krok
 
-[Ustawienia bram platformy Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
+[Ustawienia bram platformy Azure](./vpn-gateway-about-vpn-devices.md)
 
-[Znane zgodne urządzenia](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
-
+[Znane zgodne urządzenia](./vpn-gateway-about-vpn-devices.md)

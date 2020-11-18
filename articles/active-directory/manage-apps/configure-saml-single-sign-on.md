@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ec020ecd4c2bcf6e9186afb3d2c4a79ef235c371
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339482"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658914"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Omówienie logowania jednokrotnego opartego na protokole SAML
 
 W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W tym artykule opisano opcję opartą na protokole SAML do logowania jednokrotnego. 
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej dla logowania jednokrotnego opartego na protokole SAML, ten artykuł jest dla Ciebie.
 
@@ -32,7 +32,7 @@ W [serii szybkiego startu](add-application-portal-setup-sso.md)znajduje się art
 > [!IMPORTANT] 
 > Istnieją sytuacje, w których opcja **logowania** jednokrotnego nie będzie obecna w nawigacji dla aplikacji w aplikacjach dla **przedsiębiorstw**. 
 >
-> Jeśli aplikacja została zarejestrowana przy użyciu **rejestracje aplikacji** , funkcja logowania jednokrotnego jest domyślnie skonfigurowana do używania protokołu OAuth OIDC. W takim przypadku opcja **logowania** jednokrotnego nie będzie widoczna w obszarze nawigacji w obszarze **aplikacje dla przedsiębiorstw**. W przypadku dodawania niestandardowej aplikacji przy użyciu **rejestracje aplikacji** można skonfigurować opcje w pliku manifestu. Aby dowiedzieć się więcej na temat pliku manifestu, zobacz [Azure Active Directory manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Aby dowiedzieć się więcej na temat standardów rejestracji jednokrotnej, zobacz [uwierzytelnianie i autoryzacja przy użyciu platformy tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Jeśli aplikacja została zarejestrowana przy użyciu **rejestracje aplikacji** , funkcja logowania jednokrotnego jest domyślnie skonfigurowana do używania protokołu OAuth OIDC. W takim przypadku opcja **logowania** jednokrotnego nie będzie widoczna w obszarze nawigacji w obszarze **aplikacje dla przedsiębiorstw**. W przypadku dodawania niestandardowej aplikacji przy użyciu **rejestracje aplikacji** można skonfigurować opcje w pliku manifestu. Aby dowiedzieć się więcej na temat pliku manifestu, zobacz [Azure Active Directory manifest aplikacji](../develop/reference-app-manifest.md). Aby dowiedzieć się więcej na temat standardów rejestracji jednokrotnej, zobacz [uwierzytelnianie i autoryzacja przy użyciu platformy tożsamości firmy Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Inne scenariusze, w których nie będzie można korzystać z **logowania** jednokrotnego w nawigacji, obejmują, gdy aplikacja jest hostowana w innej dzierżawie lub że Twoje konto nie ma wymaganych uprawnień (Administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi). Uprawnienia mogą również prowadzić do scenariusza, w którym można otworzyć **Logowanie jednokrotne** , ale nie będzie można go zapisać. Aby dowiedzieć się więcej na temat ról administracyjnych usługi Azure AD, zobacz https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -72,7 +72,7 @@ Możesz dodać nowe oświadczenia, aby uzyskać szczegółowe informacje, zobacz
 >- Aby utworzyć role niestandardowe za pośrednictwem Azure Portal, zobacz [Konfigurowanie oświadczeń ról](../develop/active-directory-enterprise-app-role-management.md).
 >- Aby dostosować oświadczenia za pomocą programu PowerShell, zobacz [Dostosowywanie oświadczeń — PowerShell](../develop/active-directory-claims-mapping.md).
 >- Aby zmodyfikować manifest aplikacji w celu skonfigurowania opcjonalnych oświadczeń dla aplikacji, zobacz [Konfigurowanie opcjonalnych oświadczeń](../develop/active-directory-optional-claims.md).
->- Aby ustawić zasady okresu istnienia tokenu dla tokenów odświeżania, tokenów dostępu, tokenów sesji i tokenów identyfikatorów, zobacz [Konfigurowanie okresów istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md). Aby ograniczyć sesje uwierzytelniania za pośrednictwem dostępu warunkowego usługi Azure AD, zobacz [możliwości zarządzania sesjami uwierzytelniania](https://go.microsoft.com/fwlink/?linkid=2083106).
+>- Aby ustawić zasady okresu istnienia tokenu dla tokenów odświeżania, tokenów dostępu, tokenów sesji i tokenów identyfikatorów, zobacz [Konfigurowanie okresów istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md). Aby ograniczyć sesje uwierzytelniania za pośrednictwem dostępu warunkowego usługi Azure AD, zobacz [możliwości zarządzania sesjami uwierzytelniania](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ## <a name="saml-signing-certificate"></a>Certyfikat podpisywania SAML
 
@@ -85,7 +85,7 @@ W usłudze Azure AD można pobrać aktywny certyfikat w formacie base64 lub RAW 
 
 Niektóre typowe elementy do sprawdzenia, czy certyfikat obejmują: 
    - *Poprawna data wygaśnięcia.* Można skonfigurować datę wygaśnięcia na maksymalnie trzy lata w przyszłości.
-   - *Stan aktywny dla odpowiedniego certyfikatu.* Jeśli stan jest **nieaktywny** , Zmień stan na **aktywny**. Aby zmienić stan, kliknij prawym przyciskiem myszy wiersz certyfikatu i wybierz pozycję **Ustaw certyfikat jako aktywny**.
+   - *Stan aktywny dla odpowiedniego certyfikatu.* Jeśli stan jest **nieaktywny**, Zmień stan na **aktywny**. Aby zmienić stan, kliknij prawym przyciskiem myszy wiersz certyfikatu i wybierz pozycję **Ustaw certyfikat jako aktywny**.
    - *Poprawna opcja podpisywania i algorytm.*
    - *Poprawne adresy e-mail powiadomień.* Gdy aktywny certyfikat zbliża się do daty wygaśnięcia, usługa Azure AD wyśle powiadomienie na adres e-mail skonfigurowany w tym polu.
 
@@ -95,8 +95,8 @@ Czasami może być konieczne pobranie certyfikatu. Należy zachować ostrożnoś
 > Aplikacja powinna mieć możliwość obsługi znacznika kolejności bajtów znajdującego się w kodzie XML renderowanym podczas korzystania z programu https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id} . Znacznik kolejności bajtów jest reprezentowany jako znak ASCII niedrukowalny» ¿y i w formacie szesnastkowym, który jest reprezentowany przez EF BBbinding podczas przeglądania danych XML.
 
 Aby wprowadzić zmiany w certyfikatach, wybierz przycisk Edytuj. Na stronie **certyfikatu podpisywania SAML** można wykonać kilka czynności:
-   - Utwórz nowy certyfikat: wybierz pozycję **nowy certyfikat** , wybierz **datę wygaśnięcia** , a następnie wybierz pozycję **Zapisz**. Aby uaktywnić certyfikat, wybierz menu kontekstowe ( **...** ) i wybierz pozycję **Ustaw certyfikat jako aktywny**.
-   - Przekaż certyfikat z kluczem prywatnym i poświadczeniami PFX: wybierz pozycję **Importuj certyfikat** i przejdź do certyfikatu. Wprowadź **hasło PFX** , a następnie wybierz pozycję **Dodaj**.  
+   - Utwórz nowy certyfikat: wybierz pozycję **nowy certyfikat**, wybierz **datę wygaśnięcia**, a następnie wybierz pozycję **Zapisz**. Aby uaktywnić certyfikat, wybierz menu kontekstowe (**...**) i wybierz pozycję **Ustaw certyfikat jako aktywny**.
+   - Przekaż certyfikat z kluczem prywatnym i poświadczeniami PFX: wybierz pozycję **Importuj certyfikat** i przejdź do certyfikatu. Wprowadź **hasło PFX**, a następnie wybierz pozycję **Dodaj**.  
    - Skonfiguruj zaawansowane podpisywanie certyfikatu. Aby uzyskać więcej informacji na temat tych opcji, zobacz [Zaawansowane opcje podpisywania certyfikatu](certificate-signing-options.md).
    - Powiadamiaj dodatkowe osoby, gdy aktywny certyfikat zbliża się do daty wygaśnięcia: wprowadź adresy e-mail w polach **powiadomienia e-mail adresy** .
 
@@ -128,12 +128,12 @@ Jeśli zostanie wyświetlony komunikat o błędzie, wykonaj następujące czynno
 
 4. Uruchamiaj test ponownie, dopóki nie zostanie pomyślnie zakończony.
 
-Aby uzyskać więcej informacji, zobacz Debugowanie logowania jednokrotnego [opartego na protokole SAML do aplikacji w Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+Aby uzyskać więcej informacji, zobacz Debugowanie logowania jednokrotnego [opartego na protokole SAML do aplikacji w Azure Active Directory](./debug-saml-sso-issues.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Seria szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md)
-- [Przypisywanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md)
+- [Przypisywanie użytkowników lub grup do aplikacji](./assign-user-or-group-access-portal.md)
 - [Konfigurowanie automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Pojedynczy Sign-On protokół SAML](../develop/single-sign-on-saml-protocol.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210857"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658404"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji
 W tym artykule wymieniono wersje i funkcje serwera proxy aplikacji Azure Active Directory (Azure AD), który został wystawiony. Zespół usługi Azure AD regularnie aktualizuje serwer proxy aplikacji przy użyciu nowych funkcji i funkcjonalności. Łączniki serwera proxy aplikacji są aktualizowane automatycznie po wydaniu nowej wersji. 
@@ -38,7 +38,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 22 lipca 2020: wydane do pobrania ta wersja jest dostępna tylko do instalacji za pośrednictwem strony pobierania. Wydanie z autouaktualnianiem tej wersji zostanie zwolnione w późniejszym czasie.
 
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
--   Ulepszona obsługa Azure Government środowiska chmury. Aby uzyskać instrukcje dotyczące prawidłowej instalacji łącznika dla programu Azure Government Cloud, zapoznaj się z [wymaganiami wstępnymi](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) i [procedurą instalacji](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+-   Ulepszona obsługa Azure Government środowiska chmury. Aby uzyskać instrukcje dotyczące prawidłowej instalacji łącznika dla programu Azure Government Cloud, zapoznaj się z [wymaganiami wstępnymi](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) i [procedurą instalacji](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Obsługa korzystania z klienta sieci Web Usługi pulpitu zdalnego z serwerem proxy aplikacji. Aby uzyskać więcej informacji, zobacz temat [publikowanie pulpit zdalny przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-integrate-with-remote-desktop-services.md) .
 - Ulepszone negocjowanie rozszerzeń protokołu WebSocket. 
 

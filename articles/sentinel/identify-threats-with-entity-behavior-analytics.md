@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425936"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658795"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
@@ -109,7 +109,7 @@ Następujące typy jednostek są obecnie identyfikowane na platformie Azure — 
 
 ### <a name="entity-pages"></a>Strony jednostki
 
-W przypadku wystąpienia dowolnej jednostki (obecnie ograniczonej do użytkowników i hostów) w wyszukiwaniu, alercie lub zbadaniu można wybrać jednostkę i przetworzyć ją na **stronie jednostki** , a arkusz danych zapełnił przydatne informacje o tej jednostce. Typy informacji, które można znaleźć na tej stronie, obejmują podstawowe fakty dotyczące jednostki, oś czasu istotnych zdarzeń związanych z tą jednostką i szczegółowe informacje o zachowaniu działania jednostki.
+W przypadku wystąpienia dowolnej jednostki (obecnie ograniczonej do użytkowników i hostów) w wyszukiwaniu, alercie lub zbadaniu można wybrać jednostkę i przetworzyć ją na **stronie jednostki**, a arkusz danych zapełnił przydatne informacje o tej jednostce. Typy informacji, które można znaleźć na tej stronie, obejmują podstawowe fakty dotyczące jednostki, oś czasu istotnych zdarzeń związanych z tą jednostką i szczegółowe informacje o zachowaniu działania jednostki.
  
 Strony jednostki składają się z trzech części:
 - Panel po lewej stronie zawiera informacje identyfikacyjne jednostki, zebrane ze źródeł danych, takich jak Azure Active Directory, Azure Monitor, Azure Security Center i Microsoft Defender.
@@ -124,7 +124,7 @@ Strony jednostki składają się z trzech części:
 
 Oś czasu jest główną częścią udziału strony jednostki na potrzeby analiz zachowań na platformie Azure. Przedstawia historię zdarzeń związanych z jednostkami, ułatwiając zrozumienie aktywności jednostki w określonym przedziale czasowym.
 
-Możesz wybrać **zakres czasu** spośród kilku opcji predefiniowanych (takich jak *ostatnie 24 godziny* ) lub ustawić go na dowolny niestandardowy zakres czasu. Ponadto można ustawić filtry, które ograniczają informacje na osi czasu do określonych typów zdarzeń lub alertów.
+Możesz wybrać **zakres czasu** spośród kilku opcji predefiniowanych (takich jak *ostatnie 24 godziny*) lub ustawić go na dowolny niestandardowy zakres czasu. Ponadto można ustawić filtry, które ograniczają informacje na osi czasu do określonych typów zdarzeń lub alertów.
 
 Na osi czasu są uwzględniane następujące typy elementów:
 
@@ -180,7 +180,7 @@ Strony jednostki zostały zaprojektowane jako części wielu scenariuszy użycia
 
 ### <a name="querying-behavior-analytics-data"></a>Wykonywanie zapytania dotyczącego danych analizy zachowań
 
-Za pomocą [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/)możemy zbadać tabelę analizy behawioralnej.
+Za pomocą [KQL](/azure/data-explorer/kusto/query/)możemy zbadać tabelę analizy behawioralnej.
 
 Na przykład — jeśli chcemy znaleźć wszystkie przypadki użytkownika, który nie mógł zalogować się do zasobu platformy Azure, w którym była pierwszą próbą nawiązania połączenia z danego kraju, a połączenia z tego kraju są nietypowe nawet w przypadku elementów równorzędnych użytkownika, można użyć następującego zapytania:
 

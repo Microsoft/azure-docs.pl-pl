@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764591"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658166"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Wysoka dostępność i równoważenie obciążenia łączników i aplikacji serwera proxy aplikacji
 
@@ -39,7 +39,7 @@ W tym artykule wyjaśniono, jak dystrybucja ruchu współdziała z wdrożeniem s
 
 1. Użytkownik na urządzeniu klienckim próbuje uzyskać dostęp do aplikacji lokalnej opublikowanej za pomocą serwera proxy aplikacji.
 2. Żądanie przechodzi przez Azure Load Balancer, aby określić, które wystąpienie usługi serwera proxy aplikacji powinno pobrać żądanie. Na region dostępne są dziesiątki wystąpień do zaakceptowania żądania. Ta metoda ułatwia równomierne dystrybuowanie ruchu między wystąpieniami usługi.
-3. Żądanie jest wysyłane do [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
+3. Żądanie jest wysyłane do [Service Bus](../../service-bus-messaging/index.yml).
 4. Service Bus sygnałów do dostępnego łącznika. Następnie łącznik wybiera żądanie z Service Bus.
    - W kroku 2 żądania przechodzą do różnych wystąpień usługi serwera proxy aplikacji, więc połączenia są bardziej podobne do różnych łączników. W związku z tym łączniki są prawie stosowane w grupie.
 5. Łącznik przekazuje żądanie do serwera zaplecza aplikacji. Następnie aplikacja wysyła odpowiedź z powrotem do łącznika.
@@ -98,4 +98,4 @@ Zapoznaj się z dokumentacją dostawcy oprogramowania, aby poznać wymagania dot
 - [Włączanie logowania jednokrotnego](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Włącz dostęp warunkowy](application-proxy-integrate-with-sharepoint-server.md)
 - [Rozwiązywanie problemów z serwerem proxy aplikacji](application-proxy-troubleshoot.md)
-- [Dowiedz się, jak architektura usługi Azure AD obsługuje wysoką dostępność](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Dowiedz się, jak architektura usługi Azure AD obsługuje wysoką dostępność](../fundamentals/active-directory-architecture.md)
