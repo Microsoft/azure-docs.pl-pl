@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ccd070d2d7a6fcccab6d243567dfbe02960cc870
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376412"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873543"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami QnA Maker
 
@@ -117,7 +117,7 @@ Aby zapewnić, że aplikacja punktu końcowego przewidywania została załadowan
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj i wybierz usługę App Service dla QnA Maker. Będzie ona mieć taką samą nazwę jak zasób QnA Maker, ale będzie mieć inny **typ** App Service.
 1. Znajdź **Ustawienia** , a następnie wybierz pozycję **Konfiguracja**.
-1. W okienku Konfiguracja wybierz pozycję **Ustawienia ogólne** , a następnie znajdź pozycję **zawsze włączone** i wybierz pozycję **włączone** jako wartość.
+1. W okienku Konfiguracja wybierz pozycję **Ustawienia ogólne**, a następnie znajdź pozycję **zawsze włączone** i wybierz pozycję **włączone** jako wartość.
 
     > [!div class="mx-imgBorder"]
     > ![W okienku Konfiguracja wybierz pozycję * * Ustawienia ogólne * *, a następnie znajdź * * zawsze włączone * *, a następnie wybierz * * na * * jako wartość.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
@@ -133,6 +133,7 @@ App Service Environment może służyć do hostowania QnA Maker App Service. Je�
 2. Udostępnienie usługi App Service i umożliwienie QnA Maker dostępności jako:
     * Dostępne publicznie — domyślne
     * Tag usługi DNS: `CognitiveServicesManagement`
+3. Utwórz QnA Maker wystąpienie usługi poznawczej (Microsoft. CognitiveServices/accounts) przy użyciu Azure Resource Manager, gdzie punkt końcowy QnA Maker powinien być ustawiony na App Service Environment.
 
 ### <a name="network-isolation-for-app-service"></a>Izolacja sieci dla App Service
 
@@ -143,8 +144,6 @@ Usługa QnA Maker poznawcze używa znacznika usługi: `CognitiveServicesManageme
 * Przejdź do sekcji Sieć zasobu App Service i kliknij opcję "Konfiguruj ograniczenie dostępu", aby dodać adresy IP do dozwolonych.
 
 Mamy również zautomatyzowany skrypt do wykonania tych samych App Service. [Skrypt programu PowerShell można znaleźć w celu skonfigurowania usługi dozwolonych](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) w witrynie GitHub. Musisz wprowadzić identyfikator subskrypcji, grupę zasobów i rzeczywistą App Serviceową nazwę jako parametry skryptu. Uruchomienie skryptu spowoduje automatyczne dodanie adresów IP do App Service dozwolonych.
-    
-1. Utwórz QnA Maker wystąpienie usługi poznawczej (Microsoft. CognitiveServices/accounts) przy użyciu Azure Resource Manager, gdzie punkt końcowy QnA Maker powinien być ustawiony na App Service Environment.
 
 ### <a name="business-continuity-with-traffic-manager"></a>Ciągłość działania dzięki usłudze Traffic Manager
 
@@ -179,7 +178,7 @@ Ta procedura służy do tworzenia zasobów platformy Azure wymaganych do zarząd
 
     ![Tworzenie nowej usługi QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
-1. W **QNA Maker** , zaznacz pole wyboru zarządzane (wersja zapoznawcza) i wybierz odpowiednie warstwy i regiony:
+1. W **QNA Maker**, zaznacz pole wyboru zarządzane (wersja zapoznawcza) i wybierz odpowiednie warstwy i regiony:
 
     ![Tworzenie nowej QnA Maker zarządzanej usługi — warstwa cenowa i regiony](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
 
@@ -211,7 +210,7 @@ Klucze tworzenia można wyświetlić i zresetować z poziomu Azure Portal, w kt�
 
     ![Lista zasobów QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Przejdź do **klawiszy** :
+2. Przejdź do **klawiszy**:
 
     ![Klucz subskrypcji](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
@@ -221,7 +220,7 @@ Punkt końcowy znajduje się w tym samym regionie, w którym znajduje się zasó
 
 Kluczami punktów końcowych można zarządzać z poziomu [portalu QNA Maker](https://qnamaker.ai).
 
-1. Zaloguj się do [portalu QNA Maker](https://qnamaker.ai), przejdź do swojego profilu, a następnie wybierz pozycję **Ustawienia usługi** :
+1. Zaloguj się do [portalu QNA Maker](https://qnamaker.ai), przejdź do swojego profilu, a następnie wybierz pozycję **Ustawienia usługi**:
 
     ![Klucz punktu końcowego](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -241,7 +240,7 @@ Klucze tworzenia można wyświetlać i resetować z Azure Portal, w którym utwo
 
     ![Lista zasobów z zarządzaną QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
 
-2. Przejdź do pozycji **klucze i punkt końcowy** :
+2. Przejdź do pozycji **klucze i punkt końcowy**:
 
     ![Klucz subskrypcji zarządzany przez QnA Maker (wersja zapoznawcza)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
@@ -265,7 +264,7 @@ Obecnie nie można przeprowadzić uaktualnienia w miejscu jednostki SKU usługi 
 
 1. Przywróć indeksy z oryginalnego zasobu usługi Azure Search do nowego. Zapoznaj się z [przykładowym kodem przywracania kopii zapasowej](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Po przywróceniu danych przejdź do nowego zasobu usługi Azure Search, wybierz pozycję **klucze** , a następnie wpisz **nazwę** i **klucz administratora** :
+1. Po przywróceniu danych przejdź do nowego zasobu usługi Azure Search, wybierz pozycję **klucze**, a następnie wpisz **nazwę** i **klucz administratora**:
 
     ![QnA Maker kluczy usługi Azure Search](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
 
@@ -295,7 +294,7 @@ Zasób **App Service** QNA Maker używa zasobu wyszukiwanie poznawcze. Aby zmien
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Znajdź **App Service** skojarzone z Twoim zasobem QNA Maker. Oba z mają tę samą nazwę.
 
-1. Wybierz opcję **Ustawienia** , a następnie **Konfiguracja**. Spowoduje to wyświetlenie wszystkich istniejących ustawień App Service QnA Maker.
+1. Wybierz opcję **Ustawienia**, a następnie **Konfiguracja**. Spowoduje to wyświetlenie wszystkich istniejących ustawień App Service QnA Maker.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający Azure Portal pokazujący App Service ustawienia konfiguracji](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
@@ -305,7 +304,7 @@ Zasób **App Service** QNA Maker używa zasobu wyszukiwanie poznawcze. Aby zmien
     * **AzureSearchAdminKey**
     * **AzureSearchName**
 
-1. Aby użyć nowych ustawień, należy ponownie uruchomić usługę App Service. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Uruchom ponownie**.
+1. Aby użyć nowych ustawień, należy ponownie uruchomić usługę App Service. Wybierz pozycję **Przegląd**, a następnie wybierz pozycję **Uruchom ponownie**.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający Azure Portal ponownego uruchomienia App Service po zmianie ustawień konfiguracji](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)

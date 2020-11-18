@@ -3,12 +3,12 @@ title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych możliwości rozwiązań VMware platformy Azure zdefiniowanych przez oprogramowanie oraz klastrów vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337325"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874019"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów
 
@@ -59,7 +59,7 @@ Bieżące wersje oprogramowania VMware używane w klastrach chmur prywatnych roz
 
 W przypadku każdego nowego klastra w chmurze prywatnej wersja oprogramowania jest zgodna z aktualnie uruchomionymi usługami. W przypadku każdej nowej chmury prywatnej w ramach subskrypcji zostanie zainstalowana najnowsza wersja stosu oprogramowania.
 
-Ogólne zasady uaktualniania i procesy można znaleźć dla oprogramowania platformy Azure VMware Solution platform opisanego w artykule [pojęcia dotyczące uaktualniania](concepts-upgrades.md) .
+Ogólne zasady uaktualniania i procesy można znaleźć dla oprogramowania platformy Azure VMware Solution platform opisanego w artykule [aktualizacje i uaktualnienia w chmurze prywatnej](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Zarządzanie konserwacją i cyklem życia hosta
 

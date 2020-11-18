@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891090"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874478"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Utwórz certyfikaty dla Azure Stack EDGE Pro przy użyciu narzędzia do sprawdzania gotowości centrum Azure Stack 
 
@@ -42,7 +42,7 @@ Aby zażądać następujących certyfikatów, można użyć narzędzia sprawdzan
 Aby utworzyć obsługę klienta na potrzeby wdrożenia urządzeń z systemem Azure Stack EDGE Pro, upewnij się, że: 
 
 - Jesteś klientem z systemem Windows 10 lub Windows Server 2016 lub nowszym. 
-- Pobrano narzędzie do sprawdzania gotowości centrum Microsoft Azure Stack 1.2002.1133.85 [z Galeria programu PowerShell](https://aka.ms/AzsReadinessChecker) w tym systemie. Może być konieczne wyszukanie tego pakietu. Tylko ta wersja narzędzia może tworzyć certyfikaty dla urządzeń z Azure Stack EDGE Pro.
+- Pobrano narzędzie do sprawdzania gotowości centrum Microsoft Azure Stack [z Galeria programu PowerShell](https://aka.ms/AzsReadinessChecker) w tym systemie.
 - Istnieją następujące informacje dotyczące certyfikatów:
   - Nazwa urządzenia
   - Numer seryjny węzła
@@ -56,7 +56,7 @@ Wykonaj następujące kroki, aby przygotować certyfikaty urządzeń Azure Stack
 2. Zainstaluj narzędzie do sprawdzania gotowości centrum Azure Stack. W wierszu polecenia programu PowerShell wpisz: 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     Aby sprawdzić zainstalowaną wersję, wpisz:  

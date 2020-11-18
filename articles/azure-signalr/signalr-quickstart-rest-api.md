@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150969"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874529"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Szybki start: tworzenie przekazów komunikatów w czasie rzeczywistym z poziomu aplikacji konsolowej
 
@@ -28,17 +28,17 @@ Czynności przedstawione w tym przewodniku Szybki start można wykonywać w syst
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> przy użyciu danych konta Azure.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
@@ -51,7 +51,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do przygotowania kodu. Sklonuj 
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="build-and-run-the-sample"></a>Kompilowanie i uruchamianie przykładu
 
@@ -88,7 +88,7 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="run-the-sample-without-publishing"></a>Uruchamianie aplikacji przykładowej bez publikowania
 
@@ -106,7 +106,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 Możesz uruchomić polecenie `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` w katalogu głównym przykładu. Wtedy opcja `-c "<ConnectionString>"` nie jest już potrzebna.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="usage"></a>Użycie
 
@@ -122,7 +122,7 @@ broadcast
 
 Możesz uruchomić wielu klientów o wielu nazwach.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integracja z usługami innych firm
 
@@ -139,7 +139,7 @@ Wersja | Interfejs API stanu | Drzwi | Określona wersja
 
 Lista dostępnych interfejsów API dla każdej konkretnej wersji znajduje się na poniższej liście.
 
-Interfejs API | 1,0 — wersja zapoznawcza | 1.0
+Interfejs API | 1,0 — wersja zapoznawcza | 1,0
 --- | --- | ---
 [Rozgłoś do wszystkich](#broadcast) | **&#x2713;** | **&#x2713;**
 [Rozgłoś do grupy](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -257,11 +257,11 @@ Kod stanu odpowiedzi | Opis
 `200` | Dobre usługi
 `5xx` | Błąd usługi
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -269,5 +269,3 @@ W tym przewodniku szybki start przedstawiono sposób korzystania z interfejsu AP
 
 > [!div class="nextstepaction"]
 > [Opracowywanie Azure Functions przy użyciu powiązań usługi platformy Azure](signalr-quickstart-azure-functions-csharp.md)
-
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsapi)

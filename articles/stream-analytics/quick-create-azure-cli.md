@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646631"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874733"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia platformy Azure w celu zdefiniowania zadania Stream Analytics, które filtruje komunikaty czujnika w czasie rzeczywistym z odczytem temperatury większym niż 27. Zadanie Stream Analytics będzie odczytywać dane z IoT Hub, przekształcać dane i zapisywać dane z powrotem do kontenera w usłudze BLOB Storage. Dane wejściowe używane w tym przewodniku Szybki start są generowany przez symulator online Raspberry Pi.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -155,7 +155,7 @@ Na maszynie lokalnej utwórz plik o nazwie `serialization.json` i dodaj do niego
 Następnie uruchom polecenie cmdlet `az stream-analytics input create`. Pamiętaj, aby zastąpić wartość `datasource` zmiennej ścieżką, w której zapisano plik JSON definicji danych wejściowych zadania, oraz wartość `serialization` zmiennej z ścieżką, w której ZAPISANO plik JSON serializacji.
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -191,7 +191,7 @@ Na maszynie lokalnej utwórz plik o nazwie `datasink.json` i dodaj do niego nast
 Następnie uruchom polecenie cmdlet `az stream-analytics output`. Pamiętaj, aby zastąpić wartość `datasource` zmiennej ścieżką, w której zapisano plik JSON definicji danych wyjściowych zadania, oraz wartość `serialization` zmiennej z ścieżką, w której zapisano plik serializacji JSON.
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -206,7 +206,7 @@ Dodaj przekształcenie zadania za pomocą polecenia [AZ Stream-Analytics Transfo
 Uruchom `az stream-analytics transformation create` polecenie cmdlet.
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -230,7 +230,7 @@ Uruchom zadanie przy użyciu polecenia [AZ Stream-Analytics Job Start](/cli/azur
 Po uruchomieniu poniższego polecenia cmdlet zwróci ono wartość `True` jako dane wyjściowe, jeśli zadanie zostało uruchomione. W kontenerze magazynu zostanie utworzony folder wyjściowy z przekształconymi danymi.
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime

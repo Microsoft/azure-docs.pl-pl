@@ -3,12 +3,12 @@ title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a8ebd5bd4a9e553e24fbe528a4f6654bd4a1dee4
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287049"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873339"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
@@ -38,6 +38,9 @@ Określ region, dla którego ma zostać wdrożone rozwiązanie Azure VMware.  Ab
 ## <a name="resource-name"></a>Nazwa zasobu
 
 Zdefiniuj nazwę zasobu, która będzie używana podczas wdrażania.  Nazwa zasobu jest przyjazną i opisową nazwą, w której jest określana Chmura prywatna rozwiązania Azure VMware.
+
+>[!IMPORTANT]
+>Długość nazwy nie może przekraczać 40 znaków. Jeśli nazwa przekroczy ten limit, nie będzie można tworzyć publicznych adresów IP do użycia z chmurą prywatną. 
 
 ## <a name="size-hosts"></a>Rozmiar hostów
 

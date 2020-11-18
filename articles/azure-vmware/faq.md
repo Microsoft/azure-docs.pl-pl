@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695105"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874716"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -237,7 +237,7 @@ Tak, klienci mogą wdrażać rozwiązanie VMware dla platformy Azure w ramach su
 
 Firma Microsoft zapewnia pomoc techniczną dla rozwiązań VMware platformy Azure. Możesz przesłać [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-W przypadku subskrypcji zarządzanych przez dostawcę usług kryptograficznych pierwszy poziom wsparcia będzie dostarczany przez dostawcę rozwiązań w taki sam sposób, jak dostawca CSP dla innych usług platformy Azure.
+W przypadku subskrypcji zarządzanych przez dostawcę CSP pierwszy poziom wsparcia będzie dostarczany przez dostawcę rozwiązań w taki sam sposób, jak dostawca CSP dla innych usług platformy Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Jakie konta muszę utworzyć chmurę prywatną rozwiązania Azure VMware?
 
@@ -253,12 +253,12 @@ Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania 
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Jak mogę zażądać zwiększenia limitu przydziału hosta dla rozwiązania Azure VMware?
 
-W przypadku subskrypcji zarządzanych przez dostawcę usług kryptograficznych klient musi wykonać żądanie do partnera, a zespół partnerski powiąże się z firmą Microsoft w celu zwiększenia limitu przydziału dla subskrypcji. Aby uzyskać więcej informacji, zobacz [artykuł jak włączyć opcję zasobów rozwiązania VMware platformy Azure](enable-azure-vmware-solution.md) , aby uzyskać szczegółowe informacje. 
+W przypadku subskrypcji zarządzanych przez dostawcę CSP klient musi przesłać żądanie do partnera. Zespół partnerski, a następnie nawiąże się z firmą Microsoft w celu zwiększenia limitu przydziału dla subskrypcji. Aby uzyskać szczegółowe informacje, zobacz [jak włączyć artykuł dotyczący zasobów rozwiązań VMware platformy Azure](enable-azure-vmware-solution.md) . 
 
-W przypadku subskrypcji z umową EA klient musi wykonać tę procedurę.
+W przypadku subskrypcji EA należy wykonać poniższą procedurę. Najpierw będą potrzebne:
 
-* Będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
-* Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
+* [Umowa Enterprise platformy Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
+* Konto platformy Azure w ramach subskrypcji platformy Azure.
 
 Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Potwierdzenie żądania i przydzielenia węzłów trwa do pięciu dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
 
@@ -298,11 +298,15 @@ Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy przesłać 
 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
-Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
 
 #### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
 
-No. Currently Azure VMware Solution does not offer multi-tenancy.
+No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+
+#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
 
 ## Customer communication

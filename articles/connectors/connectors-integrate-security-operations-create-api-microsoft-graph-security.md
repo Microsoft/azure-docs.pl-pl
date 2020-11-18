@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ea861dce23e50bc5fcae50116a3e71793d402f8f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677504"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873322"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Poprawa ochrony przed zagrożeniami przez integrację operacji zabezpieczeń z Microsoft Graph & zabezpieczeń Azure Logic Apps
 
@@ -30,7 +30,7 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i łącznika
 
 Przepływ pracy aplikacji logiki może korzystać z akcji, które pobierają odpowiedzi z łącznika zabezpieczeń Microsoft Graph i udostępniają te dane wyjściowe innym akcjom w przepływie pracy. Możesz również mieć inne akcje w przepływie pracy, używając danych wyjściowych akcji łącznika zabezpieczeń Microsoft Graph. Jeśli na przykład alerty o wysokiej ważności są uzyskiwane za pośrednictwem łącznika zabezpieczeń Microsoft Graph, można wysłać te alerty w wiadomości e-mail przy użyciu łącznika programu Outlook. 
 
-Aby dowiedzieć się więcej o zabezpieczeniach Microsoft Graph, zobacz [Omówienie interfejsu API zabezpieczeń Microsoft Graph](/graph/security-concept-overview). Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Jeśli szukasz Microsoft Flow lub PowerApps, zobacz [co to jest przepływ?](https://flow.microsoft.com/) lub [co to jest usługa powerapps?](https://powerapps.microsoft.com/)
+Aby dowiedzieć się więcej o zabezpieczeniach Microsoft Graph, zobacz [Omówienie interfejsu API zabezpieczeń Microsoft Graph](/graph/security-concept-overview). Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Jeśli szukasz usługi Power Automatyzuj lub PowerApps, zobacz [co to jest usługa Power Automatyzuj?](https://flow.microsoft.com/) lub [co to jest usługa powerapps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,11 +64,11 @@ Aby dowiedzieć się więcej o zabezpieczeniach Microsoft Graph, zobacz [Omówie
 
    -lub-
 
-   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję zabezpieczeń Microsoft Graph, wybierz pozycję **nowy krok** .
+   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję zabezpieczeń Microsoft Graph, wybierz pozycję **nowy krok**.
 
    -lub-
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus (+), a następnie wybierz pozycję **Dodaj akcję** .
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus (+), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź "zabezpieczenia programu Microsoft Graph" jako filtr. Z listy Akcje wybierz żądaną akcję.
 
@@ -93,13 +93,13 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
 
    | Właściwość | Właściwość (JSON) | Wymagany | Typ | Opis |
    |----------|-----------------|----------|------|-------------|
-   | **Interwał** | `interval` | Tak | Liczba całkowita | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p><p>-Miesiąc: 1-16 miesięcy <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
-   | **Częstotliwość** | `frequency` | Tak | Ciąg | Jednostka czasu dla cyklu: **sekunda** , **minuta** , **godzina** , **dzień** , **tydzień** lub **miesiąc** |
+   | **Interwał** | `interval` | Tak | Integer | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p><p>-Miesiąc: 1-16 miesięcy <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
+   | **Częstotliwość** | `frequency` | Tak | Ciąg | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień** lub **miesiąc** |
    | **Strefa czasowa** | `timeZone` | Nie | Ciąg | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
    | **Godzina rozpoczęcia** | `startTime` | Nie | Ciąg | Podaj datę i godzinę rozpoczęcia w tym formacie: <p><p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>-lub- <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia ma maksymalnie 49 lat w przyszłości i musi być zgodna ze [specyfikacją ISO 8601 Data Time](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, a w przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany dłużej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
+1.  Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
 1.  Teraz Kontynuuj dodawanie co najmniej jednej akcji do aplikacji logiki w celu wykonywania zadań, które chcesz wykonać z wynikami wyzwalacza.
 

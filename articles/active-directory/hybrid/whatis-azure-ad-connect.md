@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90018615"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874104"
 ---
 # <a name="what-is-azure-ad-connect"></a>Co to jest program Azure AD Connect?
 
@@ -59,7 +59,7 @@ Najważniejsze zalety i najlepsze rozwiązania:
 |-----|-----|
 |Zwiększone zabezpieczenia|[Trendy związane z blokadą ekstranetu](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Raport dotyczący nieudanych logowań](how-to-connect-health-adfs-risky-ip.md)</br>[W obszarze zgodność z prywatnością](reference-connect-health-user-privacy.md)|
 |Otrzymuj alerty dotyczące [wszystkich krytycznych problemów z systemem ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Konfiguracja i dostępność serwera</br>[Wydajność i łączność](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regularna konserwacja|
-|Łatwe wdrażanie i zarządzanie|[Szybka instalacja agenta](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Automatyczne uaktualnianie agenta do najnowszej wersji</br>Dane dostępne w portalu w ciągu kilku minut|
+|Łatwe wdrażanie i zarządzanie|[Szybka instalacja agenta](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>Automatyczne uaktualnianie agenta do najnowszej wersji</br>Dane dostępne w portalu w ciągu kilku minut|
 Zaawansowane [metryki użycia](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Lista najczęściej używanych aplikacji</br>Lokalizacje sieciowe i połączenia TCP</br>Żądania tokenów dla pojedynczych serwerów|
 |Fantastyczne środowisko pracy użytkownika|Interfejs podobny do pulpitu nawigacyjnego z witryny Azure Portal</br>[Alerty w wiadomościach e-mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

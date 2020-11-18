@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1a7204fea1a77dbca57ffc7d512f81e46c4d3b5f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540131"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873397"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
 
@@ -131,8 +131,12 @@ Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowani
    Subskrypcja |Wybierz subskrypcję platformy Azure, której chcesz użyć.
    Grupa zasobów | Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używane są **dokumenty-AML**. Aby korzystać z istniejącej grupy zasobów, musisz mieć rolę *współautora* lub *właściciela* .  Aby uzyskać więcej informacji na temat dostępu, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
    Region (Region) | Wybierz region platformy Azure znajdujący się najbliżej Twoich użytkowników i zasoby danych, aby utworzyć obszar roboczy.
+   | Konto magazynu | Domyślne konto magazynu dla obszaru roboczego. Domyślnie zostanie utworzony nowy. |
+   | Key Vault | Azure Key Vault używany przez obszar roboczy. Domyślnie zostanie utworzony nowy. |
+   | Application Insights | Wystąpienie usługi Application Insights dla obszaru roboczego. Domyślnie zostanie utworzony nowy. |
+   | Container Registry | Azure Container Registry obszaru roboczego. Domyślnie nowy element _nie_ jest początkowo tworzony dla obszaru roboczego. Zamiast tego jest tworzony, gdy będzie potrzebny podczas tworzenia obrazu platformy Docker podczas uczenia lub wdrożenia. |
 
-    ![Konfigurowanie obszaru roboczego](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Skonfiguruj obszar roboczy.":::
 
 1. Po zakończeniu konfigurowania obszaru roboczego wybierz pozycję **Przegląd + Utwórz**. Opcjonalnie możesz użyć sekcji [Sieć](#networking) i [Zaawansowane](#advanced) , aby skonfigurować więcej ustawień obszaru roboczego.
 
@@ -159,7 +163,7 @@ Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConf
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Domyślną konfiguracją sieci jest użycie __publicznego punktu końcowego__ , który jest dostępny w publicznej sieci Internet. Aby ograniczyć dostęp do obszaru roboczego do utworzonego Virtual Network platformy Azure, zamiast tego możesz wybrać opcję __prywatny punkt końcowy__ (wersja zapoznawcza) jako __metodę połączenia__ , a następnie użyć opcji __+ Dodaj__ , aby skonfigurować punkt końcowy.   
+1. Domyślną konfiguracją sieci jest użycie __publicznego punktu końcowego__, który jest dostępny w publicznej sieci Internet. Aby ograniczyć dostęp do obszaru roboczego do utworzonego Virtual Network platformy Azure, zamiast tego możesz wybrać opcję __prywatny punkt końcowy__ (wersja zapoznawcza) jako __metodę połączenia__, a następnie użyć opcji __+ Dodaj__ , aby skonfigurować punkt końcowy.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Wybór prywatnego punktu końcowego":::  
 
@@ -181,7 +185,7 @@ Podczas tworzenia prywatnego punktu końcowego zostanie utworzona nowa Prywatna 
 
 1. W [Azure Portal](https://portal.azure.com)wybierz grupę zasobów, która zawiera obszar roboczy. Następnie wybierz zasób strefy Prywatna strefa DNS o nazwie __privatelink.API.azureml.MS__
 2. W obszarze __Ustawienia__ wybierz pozycję __linki sieci wirtualnej__.
-3. Wybierz pozycję __Dodaj__. Na stronie __Dodawanie łącza do sieci wirtualnej__ Podaj unikatową __nazwę łącza__ , a następnie wybierz __sieć wirtualną__ , która ma zostać dodana. Wybierz __przycisk OK__ , aby dodać łącze sieciowe.
+3. Wybierz pozycję __Dodaj__. Na stronie __Dodawanie łącza do sieci wirtualnej__ Podaj unikatową __nazwę łącza__, a następnie wybierz __sieć wirtualną__ , która ma zostać dodana. Wybierz __przycisk OK__ , aby dodać łącze sieciowe.
 
 Aby uzyskać więcej informacji, zobacz [Konfiguracja DNS prywatnego punktu końcowego platformy Azure](../private-link/private-endpoint-dns.md).
 
@@ -238,7 +242,7 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Wybierz pozycję __klucze zarządzane przez klienta__ , a następnie wybierz __pozycję kliknij, aby wybrać klucz__.
+1. Wybierz pozycję __klucze zarządzane przez klienta__, a następnie wybierz __pozycję kliknij, aby wybrać klucz__.
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Klucze zarządzane przez klienta":::
 

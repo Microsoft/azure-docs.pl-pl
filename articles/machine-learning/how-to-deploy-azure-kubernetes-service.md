@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: f2ac565b8c6dfce52daeadd20cf3357bc22cd281
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e041b69d8fc256ff5fe759be9716db032540f2cb
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843812"
+ms.locfileid: "94873798"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 
@@ -333,6 +333,7 @@ Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniam
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](../aks/manage-azure-rbac.md)
 * [Bezpieczne środowisko inferencing z platformą Azure Virtual Network](how-to-secure-inferencing-vnet.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Rozwiązywanie problemów z wdrażaniem](how-to-troubleshoot-deployment.md)

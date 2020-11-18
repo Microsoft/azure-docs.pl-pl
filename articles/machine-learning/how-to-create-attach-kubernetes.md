@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8b3ab965c5a85bd6f25e5325fdca24026aec787
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318058"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873832"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Tworzenie i dołączanie klastra usługi Azure Kubernetes Service
 
@@ -59,7 +59,7 @@ Azure Machine Learning można wdrożyć przeszkolone modele uczenia maszynowego 
     > [!IMPORTANT]
     > Klaster __deweloperski-test__ nie jest odpowiedni dla ruchu na poziomie produkcyjnym i może zwiększyć czas wnioskowania. Klastry deweloperskie i testowe nie gwarantują odporności na uszkodzenia.
 
-- W przypadku tworzenia lub dołączania klastra, Jeśli klaster będzie używany do __produkcji__ , musi on zawierać co najmniej 12 __wirtualnych procesorów CPU__. Liczbę wirtualnych procesorów CPU można obliczyć przez pomnożenie __liczby węzłów__ w klastrze przez __liczbę rdzeni__ zapewnioną przez wybrany rozmiar maszyny wirtualnej. Na przykład jeśli używasz rozmiaru maszyny wirtualnej "Standard_D3_v2", który ma 4 rdzenie wirtualne, należy wybrać 3 lub większą liczbę węzłów.
+- W przypadku tworzenia lub dołączania klastra, Jeśli klaster będzie używany do __produkcji__, musi on zawierać co najmniej 12 __wirtualnych procesorów CPU__. Liczbę wirtualnych procesorów CPU można obliczyć przez pomnożenie __liczby węzłów__ w klastrze przez __liczbę rdzeni__ zapewnioną przez wybrany rozmiar maszyny wirtualnej. Na przykład jeśli używasz rozmiaru maszyny wirtualnej "Standard_D3_v2", który ma 4 rdzenie wirtualne, należy wybrać 3 lub większą liczbę węzłów.
 
     W przypadku klastra __deweloperskiego-testowego__ polecenie jest używane co najmniej 2 wirtualne procesory CPU.
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-Jeśli chcesz **programowo sprawdzić dostępne wersje** , użyj interfejsu API REST [usługi Container Service Client](/rest/api/container-service/container%20service%20client/listorchestrators) . Aby znaleźć dostępne wersje, należy zapoznać się z wpisami, gdzie `orchestratorType` jest `Kubernetes` . Skojarzone `orchestrationVersion` wpisy zawierają dostępne wersje, które można **dołączyć** do obszaru roboczego.
+Jeśli chcesz **programowo sprawdzić dostępne wersje**, użyj interfejsu API REST [usługi Container Service Client](/rest/api/container-service/container%20service%20client/listorchestrators) . Aby znaleźć dostępne wersje, należy zapoznać się z wpisami, gdzie `orchestratorType` jest `Kubernetes` . Skojarzone `orchestrationVersion` wpisy zawierają dostępne wersje, które można **dołączyć** do obszaru roboczego.
 
 Aby znaleźć domyślną wersję używaną podczas **tworzenia** klastra za pomocą Azure Machine Learning, Znajdź wpis, gdzie `orchestratorType` jest `Kubernetes` i `default` jest `true` . Skojarzona `orchestratorVersion` wartość jest wersją domyślną. Poniższy fragment kodu JSON przedstawia przykładowy wpis:
 
@@ -147,7 +147,7 @@ Aby znaleźć domyślną wersję używaną podczas **tworzenia** klastra za pomo
 
 ## <a name="create-a-new-aks-cluster"></a>Tworzenie nowego klastra AKS
 
-**Szacowany czas** : około 10 minut.
+**Szacowany czas**: około 10 minut.
 
 Tworzenie i dołączanie klastra AKS jest jednym procesem czasu dla Twojego obszaru roboczego. Można ponownie użyć tego klastra dla wielu wdrożeń. W przypadku usunięcia klastra lub grupy zasobów, która zawiera tę usługę, należy utworzyć nowy klaster przy następnym wdrożeniu. Do obszaru roboczego można dołączyć wiele klastrów AKS.
 
@@ -302,9 +302,10 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-W Azure Machine Learning Studio wybierz pozycję __obliczenia__ , __klastry wnioskowania__ i klaster, który chcesz usunąć. Użyj linku __Odłącz__ , aby odłączyć klaster.
+W Azure Machine Learning Studio wybierz pozycję __obliczenia__, __klastry wnioskowania__ i klaster, który chcesz usunąć. Użyj linku __Odłącz__ , aby odłączyć klaster.
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](../aks/manage-azure-rbac.md)
 * [Jak i gdzie należy wdrożyć model](how-to-deploy-and-where.md)
 * [Wdrażanie modelu w klastrze usługi Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)

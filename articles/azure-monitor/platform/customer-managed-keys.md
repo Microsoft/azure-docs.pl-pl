@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443385"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873526"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -21,11 +21,13 @@ Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitationsandconstraints) pon
 
 ## <a name="customer-managed-key-overview"></a>Informacje o kluczu zarządzanym przez klienta
 
-[Szyfrowanie w spoczynku](../../security/fundamentals/encryption-atrest.md) to wspólne wymagania w zakresie ochrony prywatności i bezpieczeństwa w organizacjach. Możesz pozwolić, aby platforma Azure całkowicie zarządzała szyfrowaniem w stanie spoczynku, podczas gdy masz różne opcje, aby dokładnie zarządzać szyfrowaniem lub kluczami szyfrowania.
+[Szyfrowanie w spoczynku](../../security/fundamentals/encryption-atrest.md) to wspólne wymagania w zakresie ochrony prywatności i bezpieczeństwa w organizacjach. Możesz pozwolić, aby platforma Azure całkowicie zarządzała szyfrowaniem w stanie spoczynku, podczas gdy masz różne opcje, aby dokładnie zarządzać szyfrowaniem i kluczami szyfrowania.
 
-Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (MMK). Azure Monitor udostępnia również opcję szyfrowania przy użyciu własnego klucza przechowywanego w [Azure Key Vault](../../key-vault/general/overview.md) i używanego przez magazyn do szyfrowania danych. Klucz może być chroniony za pomocą [oprogramowania lub sprzętowego modułu HSM](../../key-vault/general/overview.md). Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
+Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (MMK). Azure Monitor udostępnia również opcję szyfrowania przy użyciu własnego klucza, który jest przechowywany w [Azure Key Vault](../../key-vault/general/overview.md) i daje formantowi możliwość odwołania dostępu do danych w dowolnym momencie. Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
 
-Klucz zarządzany przez klienta jest dostarczany w dedykowanych klastrach Log Analytics. Umożliwia ona ochronę danych za pomocą kontrolki [skrytki](#customer-lockbox-preview) i daje formantowi możliwość odwołania dostępu do danych w dowolnym momencie. Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft niezależnie od konfiguracji klucza zarządzanego przez klienta, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#key-revocation). Pracujemy nad zaszyfrowaniem danych SSD z kluczem Customer-Managed w pierwszej połowie 2021.
+Klucz Customer-Managed jest dostarczany w dedykowanych klastrach Log Analytics zapewniających wyższy poziom ochrony i kontrolę. Dane pozyskane do dedykowanych klastrów są szyfrowane dwa razy — raz na poziomie usługi przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta, a raz na poziomie infrastruktury przy użyciu dwóch różnych algorytmów szyfrowania i dwóch różnych kluczy. [Szyfrowanie podwójne](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W takim przypadku dodatkowa warstwa szyfrowania nadal chroni dane. Dedykowany klaster umożliwia również ochronę danych za pomocą kontrolki [skrytki](#customer-lockbox-preview) .
+
+Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft niezależnie od konfiguracji klucza zarządzanego przez klienta, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#key-revocation). Pracujemy nad zaszyfrowaniem danych SSD z kluczem Customer-Managed w pierwszej połowie 2021.
 
 [Model cenowy klastrów log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
 
@@ -74,77 +76,18 @@ Konfiguracja klucza Customer-Managed nie jest obsługiwana w Azure Portal i Inic
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operacje asynchroniczne i sprawdzanie stanu
 
-Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą być szybko wykonywane. W przypadku korzystania z żądań REST w konfiguracji, odpowiedź początkowo zwraca kod stanu HTTP 200 (OK) i nagłówek z właściwością *Azure-AsyncOperation* po zaakceptowaniu:
+Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą być szybko wykonywane. W przypadku użycia opcji REST odpowiedź początkowo zwraca kod stanu HTTP 200 (OK) i nagłówek z właściwością *Azure-AsyncOperation* po zaakceptowaniu:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-Następnie można sprawdzić stan operacji asynchronicznej, wysyłając żądanie GET do wartości nagłówka *Azure-AsyncOperation* :
+Stan operacji asynchronicznej można sprawdzić, wysyłając żądanie GET do wartości nagłówka *Azure-AsyncOperation* :
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-Odpowiedź zawiera informacje o operacji i jej *stanie*. Może to być jedna z następujących czynności:
-
-Operacja jest w toku
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-Operacja aktualizacji identyfikatora klucza jest w toku
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Trwa usuwanie klastra — po usunięciu klastra zawierającego połączone obszary robocze operacja odłączania jest wykonywana dla każdego z obszarów roboczych asynchronicznie, a operacja może chwilę potrwać.
-Nie dotyczy to sytuacji, gdy usuwasz klaster bez połączonego obszaru roboczego — w tym przypadku klaster zostanie natychmiast usunięty.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operacja została ukończona
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operacja nie powiodła się
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+`status`Odpowiedź w odpowiedzi zawiera może być jedną z następujących wartości: "InProgress", "Aktualizacja", "Usuwanie", "powodzenie" lub "zakończone niepowodzeniem", w tym kod błędu.
 
 ### <a name="allowing-subscription"></a>Zezwalanie na subskrypcję
 
@@ -595,7 +538,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
   1. w przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
   2. Wyślij żądanie GET do klastra lub obszaru roboczego i obserwuj odpowiedź. Na przykład niepołączony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
 
-- Aby uzyskać pomoc techniczną i powiązana z kluczem zarządzanym przez klienta, Użyj kontaktów do firmy Microsoft.
+- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych w październiku 2020, gdy w regionie znajdowała się podwójne szyfrowanie. Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", nadal można utworzyć klaster, ale przy wyłączonym podwójnej szyfrowaniu. Po utworzeniu klastra nie można go włączyć ani wyłączyć. Aby utworzyć klaster, gdy podwójne szyfrowanie nie jest obsługiwane w regionie, Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` w treści żądania Rest.
 
 - Komunikaty o błędach
   

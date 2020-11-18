@@ -4,12 +4,12 @@ description: Automatyzowanie niestandardowych raportów codziennych/cotygodniowy
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827734"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873714"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatyzowanie niestandardowych raportów za pomocą usługi Azure Application Insights Data
 
@@ -31,7 +31,7 @@ Każde przedsiębiorstwo ma swoje unikatowe potrzeby związane z raportowaniem, 
 
 Można [programowo wykonywać zapytania dotyczące Application Insights](https://dev.applicationinsights.io/) danych, aby generować raporty niestandardowe zgodnie z harmonogramem. Następujące opcje mogą pomóc szybko rozpocząć pracę:
 
-* [Automatyzowanie raportów za pomocą Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automatyzowanie raportów za pomocą automatyzacji](../platform/logicapp-flow-connector.md)
 * [Automatyzowanie raportów za pomocą Logic Apps](automate-with-logic-apps.md)
 * Użyj szablonu [funkcji platformy Azure](../../azure-functions/functions-create-first-azure-function.md) "Application Insights zaplanowanego skrótu" w scenariuszu monitorowania. Ta funkcja używa SendGrid do dostarczania wiadomości e-mail. 
 
@@ -91,7 +91,7 @@ availabilityResults
 
    ![Zrzut ekranu ustawień funkcji](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Wybierz konfigurację **Function App**  >  **funkcji platformy**aplikacja funkcji  >  **Configuration**.
+6. Wybierz konfigurację **Function App**  >  **funkcji platformy** aplikacja funkcji  >  **Configuration**.
 
     ![Zrzut ekranu ustawień aplikacji funkcji platformy Azure](./media/automate-custom-reports/config.png)
 
@@ -112,7 +112,7 @@ availabilityResults
 
      ![Zrzut ekranu wyjściowego](./media/automate-custom-reports/integrate.png)
 
-9. W obszarze **Ustawienia aplikacji klucza SendGridAPI**wybierz nowo utworzone ustawienie aplikacji dla **SendGridAPI**.
+9. W obszarze **Ustawienia aplikacji klucza SendGridAPI** wybierz nowo utworzone ustawienie aplikacji dla **SendGridAPI**.
 
      ![Uruchom aplikacja funkcji zrzut ekranu](./media/automate-custom-reports/sendgrid-output.png)
 

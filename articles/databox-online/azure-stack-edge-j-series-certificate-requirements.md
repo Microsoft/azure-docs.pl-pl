@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891388"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874240"
 ---
 # <a name="certificate-requirements"></a>Wymagania certyfikatu
 
@@ -30,12 +30,13 @@ Wymagania dotyczące wystawiania certyfikatów są następujące:
 * Certyfikat *wystawiony dla:* pole nie może być takie samo jak *wystawiony przez:* pole z wyjątkiem certyfikatów głównego urzędu certyfikacji.
 
 
-
 ## <a name="certificate-algorithms"></a>Algorytmy certyfikatów
 
 Algorytmy certyfikatów muszą mieć następujące wymagania:
 
 * Certyfikaty muszą używać algorytmu klucza RSA.
+
+* Obsługiwane są tylko certyfikaty RSA z dostawcą usług kryptograficznych Microsoft RSA/SChannel.
 
 * Algorytm podpisu certyfikatu nie może być SHA1.
 
@@ -53,7 +54,7 @@ Certyfikaty muszą mieć następującą nazwę podmiotu i alternatywne wymagania
 
 * Podczas tworzenia certyfikatu punktu końcowego należy skorzystać z następującej tabeli:
 
-    |Type |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
+    |Typ |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -81,6 +82,8 @@ Certyfikaty PFX zainstalowane na urządzeniu Azure Stack EDGE Pro powinny spełn
 * Hasła do wszystkich plików PFX certyfikatów muszą być takie same w czasie wdrażania, jeśli używasz narzędzia sprawdzania gotowości Azure Stack. Aby uzyskać więcej informacji, zobacz [Tworzenie certyfikatów dla usługi Azure Stack EDGE Pro przy użyciu narzędzia do sprawdzania gotowości centrum Azure Stack](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * Hasło do pliku PFX certyfikatu musi być złożonym hasłem. Zanotuj to hasło, ponieważ jest ono używane jako parametr wdrożenia.
+
+* Używaj tylko certyfikatów RSA z dostawcą usług kryptograficznych Microsoft RSA/SChannel.
 
 Aby uzyskać więcej informacji, zobacz [Eksportowanie certyfikatów PFX z kluczem prywatnym](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: b5a2064e2fd80b895b0e801090c66d7119cf69dd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151014"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873509"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi sygnalizującej
 
@@ -32,13 +32,13 @@ Kod dla tego samouczka jest dostępny do pobrania w [repozytorium GitHub o nazwi
 * Zainstaluj [zestaw .NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Pobrane lub sklonowane repozytorium GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) 
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="create-an-azure-signalr-resource"></a>Tworzenie zasobu usługi Azure SignalR
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 
@@ -52,13 +52,13 @@ W tej sekcji użyjesz [interfejsu wiersza polecenia platformy .NET Core](/dotnet
     dotnet new mvc
     ```
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-secret-manager-to-the-project"></a>Dodawanie narzędzia Secret Manager do projektu
 
 W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](/aspnet/core/security/app-secrets) . Narzędzie Secret Manager przechowuje dane poufne do pracy programistycznej poza drzewem projektu. Takie podejście pomaga uniknąć przypadkowego udostępniania wpisów tajnych aplikacji w kodzie źródłowym.
 
-1. Otwórz plik *csproj*. Dodaj element `DotNetCliToolReference`, aby uwzględnić narzędzia *Microsoft.Extensions.SecretManager.Tools*. Dodaj również `UserSecretsId` element, jak pokazano w poniższym kodzie dla *csproj*i Zapisz plik.
+1. Otwórz plik *csproj*. Dodaj element `DotNetCliToolReference`, aby uwzględnić narzędzia *Microsoft.Extensions.SecretManager.Tools*. Dodaj również `UserSecretsId` element, jak pokazano w poniższym kodzie dla *csproj* i Zapisz plik.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -76,7 +76,7 @@ W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](/a
     </Project>
     ```
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>Dodawanie usługi Azure SignalR do aplikacji internetowej
 
@@ -119,7 +119,7 @@ W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](/a
 
     Nie przekazując parametru do `AddAzureSignalR()` , ten kod używa domyślnego klucza konfiguracji dla parametrów połączenia zasobu usługi sygnalizującego. Domyślnym kluczem konfiguracji jest *Azure: sygnalizującer: ConnectionString*.
 
-5. W *Startup.cs*zaktualizuj metodę, `Configure` zastępując ją poniższym kodem.
+5. W *Startup.cs* zaktualizuj metodę, `Configure` zastępując ją poniższym kodem.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -347,7 +347,7 @@ W tej sekcji dodasz środowisko środowiska uruchomieniowego dla ASP.NET Core. A
     }
     ```
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
@@ -382,7 +382,7 @@ W tej sekcji dodasz środowisko środowiska uruchomieniowego dla ASP.NET Core. A
 
     ![Przykład rozmowy z grupą sygnałów platformy Azure](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -403,7 +403,7 @@ Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Aby potwierdzić, 
 
 Po krótkim czasie grupa zasobów i wszystkie jej zasoby zostaną usunięte.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -411,5 +411,3 @@ W tym przewodniku szybki start utworzono nowy zasób usługi Azure Signal Servic
 
 > [!div class="nextstepaction"]
 > [Uwierzytelnianie w usłudze Azure SignalR Service](./signalr-concept-authenticate-oauth.md)
-
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnetcore)

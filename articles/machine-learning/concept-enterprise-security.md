@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561322"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873900"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Zabezpieczenia i zarządzanie dla przedsiębiorstw Azure Machine Learning
 
@@ -30,7 +30,7 @@ W przypadku korzystania z usługi w chmurze najlepszym rozwiązaniem jest ograni
 
 Większość uwierzytelniania do Azure Machine Learning zasobów używa usługi Azure Active Directory (Azure AD) do uwierzytelniania i kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby autoryzacji. Wyjątkami do tego są:
 
-* __SSH__ : można włączyć dostęp SSH do niektórych zasobów obliczeniowych, takich jak Azure Machine Learning wystąpienia obliczeniowego. Dostęp SSH korzysta z uwierzytelniania opartego na kluczach. Aby uzyskać więcej informacji na temat tworzenia kluczy SSH, zobacz [Tworzenie kluczy SSH i zarządzanie nimi](../virtual-machines/linux/create-ssh-keys-detailed.md). Aby uzyskać informacje na temat włączania dostępu SSH, zobacz [Create and manage Azure Machine Learning COMPUTE instance](how-to-create-manage-compute-instance.md).
+* __SSH__: można włączyć dostęp SSH do niektórych zasobów obliczeniowych, takich jak Azure Machine Learning wystąpienia obliczeniowego. Dostęp SSH korzysta z uwierzytelniania opartego na kluczach. Aby uzyskać więcej informacji na temat tworzenia kluczy SSH, zobacz [Tworzenie kluczy SSH i zarządzanie nimi](../virtual-machines/linux/create-ssh-keys-detailed.md). Aby uzyskać informacje na temat włączania dostępu SSH, zobacz [Create and manage Azure Machine Learning COMPUTE instance](how-to-create-manage-compute-instance.md).
 * __Modele wdrożone jako usługi sieci__ Web: wdrożenia usług sieci Web mogą używać __klucza__ lub kontroli dostępu opartej na __tokenach__. Klucze są ciągami statycznymi. Tokeny są pobierane za pomocą konta usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania dla modeli wdrożonych jako usługa sieci Web](how-to-authenticate-web-service.md).
 
 Konkretne usługi, które Azure Machine Learning opierają się na, takie jak usługi Azure Data Storage, mają własne metody uwierzytelniania i autoryzacji. Aby uzyskać więcej informacji na temat uwierzytelniania usług magazynu, zobacz [nawiązywanie połączenia z usługami magazynu](how-to-access-data.md).
@@ -75,6 +75,8 @@ W poniższej tabeli wymieniono niektóre główne operacje Azure Machine Learnin
 | Wywoływanie usługi sieci Web | ✓ | ✓ | ✓ |
 
 Jeśli wbudowane role nie spełniają Twoich potrzeb, można utworzyć role niestandardowe. Role niestandardowe kontrolują wszystkie operacje w obszarze roboczym, takie jak tworzenie obliczeń, przesyłanie przebiegu, rejestrowanie magazynu danych lub Wdrażanie modelu. Role niestandardowe mogą mieć uprawnienia do odczytu, zapisu lub usuwania dla różnych zasobów obszaru roboczego, takich jak klastry, magazyny danych, modele i punkty końcowe. Rolę można udostępnić na określonym poziomie obszaru roboczego, na określonym poziomie grupy zasobów lub na określonym poziomie subskrypcji. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami w obszarze roboczym Azure Machine Learning](how-to-assign-roles.md).
+
+Aby uzyskać więcej informacji na temat używania RBAC z Kubernetes, zobacz [Azure Role-Based Access Control do autoryzacji Kubernetes](../aks/manage-azure-rbac.md).
 
 > [!IMPORTANT]
 > Azure Machine Learning zależy od innych usług platformy Azure, takich jak Azure Blob Storage i Azure Kubernetes Services. Każda usługa platformy Azure ma własne konfiguracje RBAC platformy Azure. Aby osiągnąć żądany poziom kontroli dostępu, może być konieczne zastosowanie konfiguracji RBAC platformy Azure dla Azure Machine Learning i dla usług używanych z Azure Machine Learning.
@@ -146,7 +148,7 @@ Możesz monitorować przebiegi eksperymentu w Azure Machine Learning, w tym info
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-Za pomocą metryk Azure Monitor można wyświetlać i monitorować metryki dla Azure Machine Learningego obszaru roboczego. W [Azure Portal](https://portal.azure.com)wybierz swój obszar roboczy, a następnie wybierz pozycję **metryki** :
+Za pomocą metryk Azure Monitor można wyświetlać i monitorować metryki dla Azure Machine Learningego obszaru roboczego. W [Azure Portal](https://portal.azure.com)wybierz swój obszar roboczy, a następnie wybierz pozycję **metryki**:
 
 [![Zrzut ekranu przedstawiający przykładowe metryki dla obszaru roboczego](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -185,8 +187,8 @@ Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniam
 
 [Azure Policy](../governance/policy/index.yml) jest narzędziem do zarządzania, które umożliwia upewnienie się, że zasoby platformy Azure są zgodne z zasadami. Za pomocą Azure Machine Learning można przypisać następujące zasady:
 
-* **Klucz zarządzany przez klienta** : Inspekcja lub wymuszanie, czy obszary robocze muszą używać klucza zarządzanego przez klienta.
-* **Link prywatny** : Inspekcja, czy obszary robocze używają prywatnego punktu końcowego do komunikacji z siecią wirtualną.
+* **Klucz zarządzany przez klienta**: Inspekcja lub wymuszanie, czy obszary robocze muszą używać klucza zarządzanego przez klienta.
+* **Link prywatny**: Inspekcja, czy obszary robocze używają prywatnego punktu końcowego do komunikacji z siecią wirtualną.
 
 Aby uzyskać więcej informacji na temat Azure Policy, zobacz [dokumentację Azure Policy](../governance/policy/overview.md).
 

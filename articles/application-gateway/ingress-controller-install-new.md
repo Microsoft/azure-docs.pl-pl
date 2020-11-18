@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 04d8a77cd051823559aba42d5dfc1418e6343ecc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397386"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874631"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Jak zainstalować Application Gateway kontroler transferu danych przychodzących (AGIC) przy użyciu nowego Application Gateway
 
@@ -22,7 +22,7 @@ W poniższych instrukcjach przyjęto założenie, Application Gateway kontroler 
 
 Zalecamy używanie [Azure Cloud Shell](https://shell.azure.com/) dla wszystkich operacji wiersza polecenia poniżej. Uruchom powłokę z shell.azure.com lub klikając łącze:
 
-[![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
+[![Uruchamianie osadzane](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
 Alternatywnie można uruchomić Cloud Shell z Azure Portal przy użyciu następującej ikony:
 
@@ -40,7 +40,7 @@ Alternatywnie można uruchomić Cloud Shell z Azure Portal przy użyciu następu
 
 Wykonaj poniższe kroki, aby utworzyć [obiekt główny usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)Azure Active Directory (AAD). Zapisz `appId` `password` wartości, i `objectId` — zostaną one użyte w poniższych krokach.
 
-1. Utwórz nazwę główną usługi AD ([Przeczytaj więcej na temat RBAC](../role-based-access-control/overview.md)):
+1. Utwórz nazwę główną usługi AD ([Dowiedz się więcej o usłudze Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -66,7 +66,7 @@ Wykonaj poniższe kroki, aby utworzyć [obiekt główny usługi](../active-direc
     }
     EOF
     ```
-    Aby wdrożyć klaster z obsługą **RBAC** , należy ustawić `aksEnableRBAC` pole na `true`
+    Aby wdrożyć klaster z obsługą kontroli **RBAC Kubernetes** , należy ustawić `aksEnableRBAC` pole na `true`
 
 ## <a name="deploy-components"></a>Wdróż składniki
 Ten krok spowoduje dodanie do subskrypcji następujących składników:
@@ -131,13 +131,13 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 Aby zainstalować tożsamość usługi AAD pod względem klastra:
 
-   - *Włączono kontrolę RBAC* Klaster AKS
+   - *Włączono KUBERNETES RBAC* Klaster AKS
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - Kontrola *RBAC wyłączona* Klaster AKS
+   - *KUBERNETES RBAC jest wyłączone* Klaster AKS
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -148,7 +148,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
 
 1. Zainstaluj [Helm](../aks/kubernetes-helm.md) i uruchom następujące kroki, aby dodać `application-gateway-kubernetes-ingress` pakiet Helm:
 
-    - *Włączono kontrolę RBAC* Klaster AKS
+    - *Włączono KUBERNETES RBAC* Klaster AKS
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -156,7 +156,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - Kontrola *RBAC wyłączona* Klaster AKS
+    - *KUBERNETES RBAC jest wyłączone* Klaster AKS
 
         ```bash
         helm init
@@ -228,7 +228,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

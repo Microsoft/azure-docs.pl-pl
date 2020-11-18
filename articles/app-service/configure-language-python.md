@@ -2,19 +2,19 @@
 title: Konfigurowanie aplikacji systemu Linux Python
 description: Informacje o konfigurowaniu kontenera języka Python, w którym są uruchamiane aplikacje sieci Web, przy użyciu zarówno Azure Portal, jak i interfejsu wiersza polecenia platformy Azure.
 ms.topic: quickstart
-ms.date: 11/06/2020
+ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425919"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873849"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
-W tym artykule opisano, jak usługa [Azure App Service](overview.md) uruchamia aplikacje języka Python i jak można dostosować zachowanie usługi App Service w razie potrzeby. Aplikacje języka Python muszą zostać wdrożone ze wszystkimi wymaganymi modułami [PIP](https://pypi.org/project/pip/) .
+W tym artykule opisano, jak [Azure App Service](overview.md) są uruchamiane aplikacje Python, jak można migrować istniejące aplikacje na platformę Azure oraz jak dostosować zachowanie App Service, gdy jest to konieczne. Aplikacje języka Python muszą zostać wdrożone ze wszystkimi wymaganymi modułami [PIP](https://pypi.org/project/pip/) .
 
 Aparat wdrażania App Service automatycznie aktywuje środowisko wirtualne i jest uruchamiany `pip install -r requirements.txt` podczas wdrażania [repozytorium git](deploy-local-git.md)lub [pakietu zip](deploy-zip.md).
 
@@ -24,7 +24,7 @@ Do konfiguracji można użyć [Azure Portal](https://portal.azure.com) lub inter
 
 - **Azure Portal** Użyj **Settings**  >  strony **konfiguracji** ustawienia aplikacji zgodnie z opisem w temacie [Konfigurowanie aplikacji App Service w Azure Portal](configure-common.md).
 
-- **Interfejs wiersza polecenia platformy Azure** : masz dwie opcje.
+- **Interfejs wiersza polecenia platformy Azure**: masz dwie opcje.
 
     - Uruchom polecenia w [Azure Cloud Shell](../cloud-shell/overview.md).
     - Uruchom polecenia lokalnie, instalując najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), a następnie zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login).
@@ -34,9 +34,9 @@ Do konfiguracji można użyć [Azure Portal](https://portal.azure.com) lub inter
 
 ## <a name="configure-python-version"></a>Konfigurowanie wersji języka Python
 
-- **Azure Portal** : Użyj karty **Ustawienia ogólne** na stronie **Konfiguracja** , zgodnie z opisem w temacie [Konfigurowanie ustawień ogólnych](configure-common.md#configure-general-settings) dla kontenerów systemu Linux.
+- **Azure Portal**: Użyj karty **Ustawienia ogólne** na stronie **Konfiguracja** , zgodnie z opisem w temacie [Konfigurowanie ustawień ogólnych](configure-common.md#configure-general-settings) dla kontenerów systemu Linux.
 
-- **Interfejs wiersza polecenia platformy Azure** :
+- **Interfejs wiersza polecenia platformy Azure**:
 
     -  Pokaż bieżącą wersję języka Python za pomocą [AZ webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
@@ -92,9 +92,33 @@ Aby uzyskać więcej informacji na temat sposobu uruchamiania App Service i twor
 > Ustawienie o nazwie `SCM_DO_BUILD_DURING_DEPLOYMENT` , jeśli zawiera `true` lub 1, wyzwala kompilację Oryx podczas wdrażania. Ustawienie ma wartość true w przypadku wdrażania przy użyciu narzędzia Git, polecenia interfejsu CLI platformy Azure `az webapp up` i Visual Studio Code.
 
 > [!NOTE]
-> Zawsze używaj ścieżek względnych we wszystkich skryptach przed i po kompilacji, ponieważ kontener kompilacji, w którym działa Oryx, różni się od kontenera środowiska uruchomieniowego, w którym działa aplikacja. Nigdy nie należy polegać na dokładnym umieszczeniu folderu projektu aplikacji w kontenerze (na przykład, że znajduje się on w obszarze *site/wwwroot* ).
+> Zawsze używaj ścieżek względnych we wszystkich skryptach przed i po kompilacji, ponieważ kontener kompilacji, w którym działa Oryx, różni się od kontenera środowiska uruchomieniowego, w którym działa aplikacja. Nigdy nie należy polegać na dokładnym umieszczeniu folderu projektu aplikacji w kontenerze (na przykład, że znajduje się on w obszarze *site/wwwroot*).
 
-## <a name="production-settings-for-django-apps"></a>Ustawienia produkcyjne dla aplikacji Django
+## <a name="migrate-existing-applications-to-azure"></a>Migrowanie istniejących aplikacji na platformę Azure
+
+Istniejące aplikacje sieci Web można ponownie wdrożyć na platformie Azure w następujący sposób:
+
+1. **Repozytorium źródłowe**: utrzymuje kod źródłowy w odpowiednim repozytorium, takim jak GitHub, co umożliwia skonfigurowanie ciągłego wdrażania w dalszej części tego procesu.
+    1. Plik *requirements.txt* musi znajdować się w katalogu głównym repozytorium, aby App Service automatycznie instalować wymagane pakiety.    
+
+1. **Baza danych**: Jeśli aplikacja jest zależna od bazy danych, należy również udostępnić wymagane zasoby na platformie Azure. Zobacz [Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Tworzenie bazy danych](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) na przykład.
+
+1. **Zasoby usługi App Service**: Utwórz grupę zasobów, plan App Service i App Service aplikację sieci Web do hostowania aplikacji. Można to zrobić, wykonując początkowe wdrożenie kodu za pomocą polecenia platformy Azure `az webapp up` , jak pokazano na [samouczku: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Wdróż kod](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Zastąp nazwy grupy zasobów, planu App Service i aplikacji sieci Web, aby były bardziej odpowiednie dla aplikacji.
+
+1. **Zmienne środowiskowe**: Jeśli aplikacja wymaga żadnych zmiennych środowiskowych, Utwórz równoważne [Ustawienia aplikacji App Service](configure-common.md#configure-app-settings). Te ustawienia App Service są wyświetlane jako zmienne środowiskowe, zgodnie z opisem w temacie [zmienne środowiskowe dostępu](#access-app-settings-as-environment-variables).
+    - Połączenia z bazą danych, na przykład, są często zarządzane za pomocą takich ustawień, jak pokazano w [samouczku: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL — Konfiguruj zmienne w celu połączenia bazy danych](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Zobacz [Ustawienia produkcyjne dla aplikacji Django](#production-settings-for-django-apps) dla określonych ustawień typowych aplikacji Django.
+
+1. **Uruchamianie aplikacji**: Zapoznaj się z sekcją [proces uruchamiania kontenera](#container-startup-process) w dalszej części tego artykułu, aby dowiedzieć się, jak App Service próbuje uruchomić aplikację. App Service domyślnie używa serwera sieci Web Gunicorn, który musi być w stanie znaleźć obiekt aplikacji lub folder *WSGI.py* . W razie konieczności można [dostosować polecenie uruchamiania](#customize-startup-command).
+
+1. **Ciągłe wdrażanie**: Skonfiguruj ciągłe wdrażanie, zgodnie z opisem w temacie [ciągłe wdrażanie, aby Azure App Service](deploy-continuous-deployment.md) w przypadku używania Azure Pipelines lub wdrożenia kudu, lub [Wdróż w App Service przy użyciu akcji](deploy-github-actions.md) GitHub w przypadku korzystania z akcji usługi GitHub.
+
+1. **Akcje niestandardowe**: Aby wykonać akcje w kontenerze App Service, który hostuje aplikację, taką jak migracje bazy danych Django, można połączyć się z [kontenerem za pośrednictwem protokołu SSH](configure-linux-open-ssh-session.md). Aby zapoznać się z przykładem uruchamiania migracji bazy danych Django, zobacz [Samouczek: wdrażanie aplikacji sieci Web Django z PostgreSQL-Run Migration Database](tutorial-python-postgresql-app.md#run-django-database-migrations).
+    - W przypadku korzystania z ciągłego wdrażania można wykonać te akcje przy użyciu poleceń po kompilacji, jak opisano wcześniej w temacie [Dostosowywanie automatyzacji kompilacji](#customize-build-automation).
+
+Po wykonaniu tych kroków należy mieć możliwość zatwierdzania zmian w repozytorium źródłowym i automatycznego wdrażania tych aktualizacji do App Service.
+
+### <a name="production-settings-for-django-apps"></a>Ustawienia produkcyjne dla aplikacji Django
 
 Dla środowiska produkcyjnego, takiego jak Azure App Service, aplikacje Django powinny postępować zgodnie z [listą kontrolną wdrożenia](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) Django (djangoproject.com).
 
@@ -178,15 +202,15 @@ Jeśli chcesz zobaczyć wdrożoną aplikację zamiast domyślnej aplikacji, zoba
 
 Jak wspomniano wcześniej w tym artykule, można podać ustawienia konfiguracji Gunicorn za pomocą pliku *gunicorn.conf.py* w katalogu głównym projektu, zgodnie z opisem w temacie [Omówienie konfiguracji Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-Jeśli taka konfiguracja nie jest wystarczająca, można kontrolować zachowanie uruchamiania kontenera, dostarczając niestandardowe polecenie uruchamiania lub wiele poleceń w pliku polecenia uruchamiania. Plik poleceń uruchamiania może korzystać z dowolnej wybranej nazwy, takiej jak *Startup.sh* , *Startup. cmd* , *startup.txt* i tak dalej.
+Jeśli taka konfiguracja nie jest wystarczająca, można kontrolować zachowanie uruchamiania kontenera, dostarczając niestandardowe polecenie uruchamiania lub wiele poleceń w pliku polecenia uruchamiania. Plik poleceń uruchamiania może korzystać z dowolnej wybranej nazwy, takiej jak *Startup.sh*, *Startup. cmd*, *startup.txt* i tak dalej.
 
 Wszystkie polecenia muszą używać ścieżek względnych do folderu głównego projektu.
 
 Aby określić polecenie uruchamiania lub plik poleceń:
 
-- **Azure Portal** : Wybierz stronę **konfiguracji** aplikacji, a następnie wybierz pozycję **Ustawienia ogólne**. W polu **polecenie uruchamiania** Umieść pełny tekst polecenia uruchamiania lub nazwę pliku poleceń uruchomieniowych. Następnie wybierz pozycję **Zapisz** , aby zastosować zmiany. Zobacz [Konfigurowanie ustawień ogólnych](configure-common.md#configure-general-settings) dla kontenerów systemu Linux.
+- **Azure Portal**: Wybierz stronę **konfiguracji** aplikacji, a następnie wybierz pozycję **Ustawienia ogólne**. W polu **polecenie uruchamiania** Umieść pełny tekst polecenia uruchamiania lub nazwę pliku poleceń uruchomieniowych. Następnie wybierz pozycję **Zapisz** , aby zastosować zmiany. Zobacz [Konfigurowanie ustawień ogólnych](configure-common.md#configure-general-settings) dla kontenerów systemu Linux.
 
-- **Interfejs wiersza polecenia platformy Azure** : Aby ustawić polecenie lub plik, użyj [AZ webapp config Set](/cli/azure/webapp/config#az_webapp_config_set) polecenie z `--startup-file` parametrem:
+- **Interfejs wiersza polecenia platformy Azure**: Aby ustawić polecenie lub plik, użyj [AZ webapp config Set](/cli/azure/webapp/config#az_webapp_config_set) polecenie z `--startup-file` parametrem:
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -198,7 +222,7 @@ App Service ignoruje wszelkie błędy występujące podczas przetwarzania niesta
 
 ### <a name="example-startup-commands"></a>Przykładowe polecenia uruchamiania
 
-- **Dodano argumenty Gunicorn** : Poniższy przykład dodaje `--workers=4` do Gunicorn wiersza polecenia, aby uruchomić aplikację Django: 
+- **Dodano argumenty Gunicorn**: Poniższy przykład dodaje `--workers=4` do Gunicorn wiersza polecenia, aby uruchomić aplikację Django: 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -208,7 +232,7 @@ App Service ignoruje wszelkie błędy występujące podczas przetwarzania niesta
 
     Aby uzyskać więcej informacji, zobacz [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Uruchamianie serwera Gunicorn) (docs.gunicorn.org).
 
-- **Włącz rejestrowanie produkcyjne dla Django** : Dodaj `--access-logfile '-'` argumenty i `--error-logfile '-'` do wiersza polecenia:
+- **Włącz rejestrowanie produkcyjne dla Django**: Dodaj `--access-logfile '-'` argumenty i `--error-logfile '-'` do wiersza polecenia:
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -219,7 +243,7 @@ App Service ignoruje wszelkie błędy występujące podczas przetwarzania niesta
 
     Aby uzyskać więcej informacji, zobacz [Gunicorn Logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Moduł główny kolby niestandardowej** : domyślnie App Service zakłada, że moduł główny aplikacji kolby to *Application.py* lub *App.py*. Jeśli Twój główny moduł używa innej nazwy, należy dostosować polecenie uruchamiania. Na przykład YF masz aplikację z kolbą, której moduł główny to *Hello.py* , a obiekt aplikacji do przeszukania w tym pliku jest `myapp` następujący:
+- **Moduł główny kolby niestandardowej**: domyślnie App Service zakłada, że moduł główny aplikacji kolby to *Application.py* lub *App.py*. Jeśli Twój główny moduł używa innej nazwy, należy dostosować polecenie uruchamiania. Na przykład YF masz aplikację z kolbą, której moduł główny to *Hello.py* , a obiekt aplikacji do przeszukania w tym pliku jest `myapp` następujący:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -231,7 +255,7 @@ App Service ignoruje wszelkie błędy występujące podczas przetwarzania niesta
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **Użyj serwera innego niż Gunicorn** : Aby użyć innego serwera sieci Web, takiego jak [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), użyj odpowiedniego polecenia jako polecenia uruchamiania lub pliku polecenia uruchamiania:
+- **Użyj serwera innego niż Gunicorn**: Aby użyć innego serwera sieci Web, takiego jak [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), użyj odpowiedniego polecenia jako polecenia uruchamiania lub pliku polecenia uruchamiania:
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -288,7 +312,7 @@ Ogólnie rzecz biorąc, pierwszy krok rozwiązywania problemów polega na użyci
 
 1. Na Azure Portal aplikacji sieci Web wybierz opcję **Diagnozuj i rozwiąż problemy** z menu po lewej stronie.
 1. Wybierz pozycję **dostępność i wydajność**.
-1. Zapoznaj się z informacjami w opcjach **Dzienniki aplikacji** , **awaria kontenera** i **problemy z kontenerem** , w których pojawią się najczęstsze problemy.
+1. Zapoznaj się z informacjami w opcjach **Dzienniki aplikacji**, **awaria kontenera** i **problemy z kontenerem** , w których pojawią się najczęstsze problemy.
 
 Następnie przejrzyj [dzienniki wdrożenia](#access-deployment-logs) i [Dzienniki aplikacji](#access-diagnostic-logs) w poszukiwaniu wszelkich komunikatów o błędach. Te dzienniki często identyfikują konkretne problemy, które mogą uniemożliwić rozmieszczenie aplikacji lub uruchamianie aplikacji. Na przykład kompilacja może zakończyć się niepowodzeniem, jeśli plik *requirements.txt* ma nieprawidłową nazwę pliku lub nie jest obecny w folderze głównym projektu.
 
@@ -326,19 +350,19 @@ Poniższe sekcje zawierają dodatkowe wskazówki dotyczące konkretnych problem�
 
 #### <a name="could-not-find-setuppy-or-requirementstxt"></a>Nie można znaleźć setup.py lub requirements.txt
 
-- **Strumień dziennika pokazuje, że nie można znaleźć Setup.py lub requirements.txt; Nie uruchomiono instalacji PIP. "** : proces kompilacji Oryx nie może odnaleźć pliku *requirements.txt* .
+- **Strumień dziennika pokazuje, że nie można znaleźć Setup.py lub requirements.txt; Nie uruchomiono instalacji PIP. "**: proces kompilacji Oryx nie może odnaleźć pliku *requirements.txt* .
 
     - Połącz się z kontenerem aplikacji sieci Web za pośrednictwem protokołu [SSH](#open-ssh-session-in-browser) i sprawdź, czy *requirements.txt* ma nazwę poprawnie i czy istnieje bezpośrednio w obszarze *site/wwwroot*. Jeśli nie istnieje, Utwórz lokację w repozytorium i jest ona uwzględniona w Twoim wdrożeniu. Jeśli istnieje w oddzielnym folderze, przenieś go do katalogu głównego.
 
 #### <a name="other-issues"></a>Inne problemy
 
-- **Hasła nie pojawiają się w sesji SSH po wpisaniu** : ze względów bezpieczeństwa sesja SSH utrzymuje hasło ukryte podczas wpisywania. Znaki są rejestrowane, jednak wpisz hasło w zwykły sposób i naciśnij klawisz **Enter** po zakończeniu.
+- **Hasła nie pojawiają się w sesji SSH po wpisaniu**: ze względów bezpieczeństwa sesja SSH utrzymuje hasło ukryte podczas wpisywania. Znaki są rejestrowane, jednak wpisz hasło w zwykły sposób i naciśnij klawisz **Enter** po zakończeniu.
 
-- **Polecenia w sesji SSH prawdopodobnie są obcinane** : Edytor nie może być poleceniami zawijania słów, ale powinny nadal działać poprawnie.
+- **Polecenia w sesji SSH prawdopodobnie są obcinane**: Edytor nie może być poleceniami zawijania słów, ale powinny nadal działać poprawnie.
 
-- **Statyczne zasoby nie są wyświetlane w aplikacji Django** : Upewnij się, że włączono [moduł whitenoise](http://whitenoise.evans.io/en/stable/django.html)
+- **Statyczne zasoby nie są wyświetlane w aplikacji Django**: Upewnij się, że włączono [moduł whitenoise](http://whitenoise.evans.io/en/stable/django.html)
 
-- **Zobaczysz komunikat "wymagane jest krytyczne połączenie SSL"** : Sprawdź wszystkie nazwy użytkowników i hasła używane do uzyskiwania dostępu do zasobów (takich jak bazy danych) w aplikacji.
+- **Zobaczysz komunikat "wymagane jest krytyczne połączenie SSL"**: Sprawdź wszystkie nazwy użytkowników i hasła używane do uzyskiwania dostępu do zasobów (takich jak bazy danych) w aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

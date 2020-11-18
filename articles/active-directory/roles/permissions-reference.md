@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396519"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874682"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -69,7 +69,7 @@ Użytkownicy w tej roli mogą tworzyć rejestracje aplikacji, gdy ustawienie "u�
 
 ### <a name="authentication-administrator"></a>[Administrator uwierzytelniania](#authentication-administrator-permissions)
 
-Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla niektórych użytkowników i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników, którzy nie są administratorami lub przypisani do niektórych ról do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (na przykład MFA lub FIDO), a także do odwoływania się do **zapamiętania usługi MFA na urządzeniu** , które monituje o usługę MFA przy następnym logowaniu. Te akcje dotyczą tylko użytkowników, którzy nie są administratorami lub mają przypisane co najmniej jedną z następujących ról:
+Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla niektórych użytkowników i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników, którzy nie są administratorami lub przypisani do niektórych ról do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (na przykład MFA lub FIDO), a także do odwoływania się do **zapamiętania usługi MFA na urządzeniu**, które monituje o usługę MFA przy następnym logowaniu. Te akcje dotyczą tylko użytkowników, którzy nie są administratorami lub mają przypisane co najmniej jedną z następujących ról:
 
 * Administrator uwierzytelniania
 * Czytelnicy katalogów
@@ -80,7 +80,7 @@ Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędą
 Uprawnienie [administrator uwierzytelniania uprzywilejowanego](#privileged-authentication-administrator) ma uprawnienia do wymuszenia ponownej rejestracji i uwierzytelniania wieloskładnikowego dla wszystkich użytkowników.
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
+> Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
 >
 >* Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Te aplikacje mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom uwierzytelniania. Za pomocą tej ścieżki administrator uwierzytelniania może założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >* Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -233,7 +233,7 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 >- [Centrum administracyjne usługi OneDrive](https://admin.onedrive.com/) — centrum administracyjne usługi OneDrive nie obsługuje roli czytnika globalnego
 >- [Centrum administracyjne M365](https://admin.microsoft.com/Adminportal/Home#/homepage) — globalny czytnik nie może odczytać żądań skrytki klienta. Nie znajdziesz karty **żądania skrytki klienta** w obszarze **Pomoc techniczna** w lewym okienku Centrum administracyjnego M365.
 >- [Centrum zgodności & zabezpieczeń pakietu Office](https://sip.protection.office.com/homepage) — czytnik globalny nie może odczytać dzienników inspekcji SCC, przeprowadzić wyszukiwania zawartości lub zobaczyć zabezpieczony wynik.
->- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia** , **Analiza & raporty** , **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.
+>- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia**, **Analiza & raporty**, **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) nie obsługuje roli czytnika globalnego.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) — Global Reader jest obsługiwany tylko [w przypadku raportowania centralnego](/azure/information-protection/reports-aip) , a organizacja usługi Azure AD nie jest na [ujednoliconej platformie etykietowania](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -260,7 +260,7 @@ Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeża
 * Czytelnik raportów
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
+> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD i nie są przyznawane administratorom pomocy technicznej. Za pomocą tej ścieżki Administrator pomocy technicznej może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -311,7 +311,7 @@ Użytkownicy w tej roli mogą monitorować powiadomienia i aktualizacje kondycji
 
 Nie używaj. Ta rola jest automatycznie przypisana z handlu i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku. Zobacz szczegóły poniżej.
 
-Rola użytkownika nowoczesnego handlu zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365, a następnie wyświetla lewe wpisy nawigacyjne dla **domu** , **rozliczeń** i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](../../cost-management-billing/manage/understand-mca-roles.md) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
+Rola użytkownika nowoczesnego handlu zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365, a następnie wyświetla lewe wpisy nawigacyjne dla **domu**, **rozliczeń** i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](../../cost-management-billing/manage/understand-mca-roles.md) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
 
 Użytkownicy z rolą użytkownika Modern Commerce zazwyczaj mają uprawnienia administracyjne w innych systemach zakupów firmy Microsoft, ale nie mają ról administratora globalnego lub administratora rozliczeń służących do uzyskiwania dostępu do centrum administracyjnego. 
 
@@ -500,7 +500,7 @@ Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi 
 | Tylko dla użytkowników, którzy nie są administratorami ani w ramach jednej z następujących ograniczonych ról administratora:<ul><li>Czytelnicy katalogów<li>Administrator grup<li>Zapraszający gościa<li>Administrator pomocy technicznej<li>Czytelnik centrum wiadomości<li>Administrator haseł<li>Czytelnik raportów<li>Administrator użytkowników|<p>Usuń i Przywróć</p><p>Wyłącz i Włącz</p><p>Unieważnianie tokenów odświeżania</p><p>Zarządzanie wszystkimi właściwościami użytkowników, w tym główną nazwą użytkownika</p><p>Resetowanie hasła</p><p>Aktualizuj klucze urządzeń (FIDO)</p>|
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
+> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom użytkowników. Za pomocą tej ścieżki administrator użytkownika może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -1513,7 +1513,7 @@ Może zarządzać wszystkimi aspektami produktu Power BI.
 
 ### <a name="power-platform-administrator-permissions"></a>Uprawnienia administratora platformy na platformie
 
-Może tworzyć wszystkie aspekty systemu Microsoft Dynamics 365, usługi PowerApps i Microsoft Flow i zarządzać nimi. 
+Może tworzyć wszystkie aspekty usług Microsoft Dynamics 365, PowerApps i Power Automatyzuj oraz zarządzać nimi.
 
 > [!NOTE]
 > Ta rola ma dodatkowe uprawnienia poza Azure Active Directory. Aby uzyskać więcej informacji, zobacz opis roli powyżej.
@@ -1524,7 +1524,7 @@ Może tworzyć wszystkie aspekty systemu Microsoft Dynamics 365, usługi PowerAp
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
 | Microsoft. dynamics365/allEntities/allTasks | Zarządzaj wszystkimi aspektami programu Dynamics 365. |
-| Microsoft. Flow/allEntities/allTasks | Zarządzaj wszystkimi aspektami Microsoft Flow. |
+| Microsoft. Flow/allEntities/allTasks | Zarządzaj wszystkimi aspektami automatyzacji. |
 | Microsoft. powerApps/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi PowerApps. |
 | Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |

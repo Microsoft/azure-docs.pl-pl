@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.openlocfilehash: 5ee5390ef45e71baf3843cadc815de2f7e06bdac
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 35cc87d7f3f1345972a7f27cecaeb96c6fa687dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842368"
+ms.locfileid: "94873917"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -88,9 +88,7 @@ Przed wdrożeniem urządzenia wirtualnego w lokalnym programie vCenter należy p
 
 1. Wybierz **Administration** pozycję  >  **aktualizacje systemu** administracyjnego, a następnie wybierz **link pobieranie żądania**.
 
-1. Wybierz opcję, dla której chcesz pobrać plik komórek jajowych łącznika VMware HCX.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-download-link.png" alt-text="link pobierania żądania" lightbox="media/tutorial-vmware-hcx/vmware-hcx-download-link.png":::
+1. Wybierz wybraną opcję, aby pobrać plik komórki jajowe łącznika VMware HCX.
 
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Wdrażanie lokalnych komórek jajowych łącznika VMware HCX
 
@@ -162,7 +160,7 @@ Po wdrożeniu komórek jajowych łącznika VMware HCX w środowisku lokalnym i u
    > [!NOTE]
    > Przed wyświetleniem monitu o następny krok nastąpi opóźnienie po ponownym uruchomieniu.
 
-Po ponownym uruchomieniu usług należy zobaczyć, że program vCenter zostanie wyświetlony jako zielony na wyświetlonym ekranie. Serwery vCenter i SSO muszą mieć odpowiednie parametry konfiguracji, które powinny być takie same jak w poprzednim ekranie.
+Po ponownym uruchomieniu usług zobaczysz program vCenter wyświetlany jako zielony na wyświetlonym ekranie. Serwery vCenter i SSO muszą mieć odpowiednie parametry konfiguracji, które powinny być takie same jak w poprzednim ekranie.
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Zrzut ekranu pulpitu nawigacyjnego z zielonym stanem programu vCenter." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
@@ -179,11 +177,7 @@ Korzystając z łącznika VMware HCX w centrum danych, możesz połączyć się 
 
 1. Zaloguj się do lokalnego programu vCenter i w obszarze **Strona główna** wybierz pozycję **HCX**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="Zrzut ekranu programu vCenter Client z HCXmi wybranymi między skrótami." lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
-
 1. W obszarze **infrastruktura** wybierz pozycję **parowanie lokacji**, a następnie wybierz opcję **Połącz z lokacją zdalną** (w środku ekranu). 
-
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Zrzut ekranu przedstawiający wybór opcji tworzenia witryny zdalnej." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
 1. Wprowadź zanotowany wcześniej adres URL lub adres IP HCX rozwiązania VMware platformy Azure, a także pozycję Azure VMware cloudadmin \@ vSphere. Local username i Password. Następnie wybierz pozycję **Połącz**.
 
@@ -224,7 +218,7 @@ Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz temat [rozwi
 
 ### <a name="create-a-compute-profile"></a>Utwórz profil obliczeń
 
-1. Wybierz kolejno pozycje **obliczenia profile**  >  **Utwórz profil obliczeniowy**.
+1. W obszarze **infrastruktura** wybierz **pozycję**  >  Tworzenie **profilów obliczeń**  >  **Utwórz profil obliczeniowy**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="Zrzut ekranu pokazujący wybrane opcje rozpoczęcia tworzenia profilu obliczeniowego." lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
@@ -347,7 +341,7 @@ Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz [rozwiązani
 
 Jeśli chcesz rozciągnąć wszystkie sieci z środowiska lokalnego do rozwiązania Azure VMware, wykonaj następujące kroki:
 
-1. W obszarze **usługi** wybierz pozycję **rozszerzenie sieci**, a następnie wybierz pozycję **Utwórz rozszerzenie sieciowe**.
+1. W obszarze **usługi** wybierz pozycję **rozszerzenie sieci**  >  **Utwórz rozszerzenie sieciowe**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Zrzut ekranu, na którym są wyświetlane wybory dotyczące rozpoczynania tworzenia rozszerzenia sieci." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 

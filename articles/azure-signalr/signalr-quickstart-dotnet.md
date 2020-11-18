@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150991"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874546"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi ASP.NET i sygnalizującego
 
@@ -32,13 +32,13 @@ W tym przewodniku szybki start dowiesz się, jak rozpocząć pracę z usługą A
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET sygnalizujący](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnet).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -46,7 +46,7 @@ Tryb *bezserwerowy* nie jest obsługiwany w przypadku aplikacji sygnalizujących
 
 Możesz również utworzyć zasoby platformy Azure używane w tym przewodniku Szybki Start i [utworzyć skrypt usługi sygnalizującej](scripts/signalr-cli-create-service.md).
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnet).
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
@@ -60,7 +60,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnet).
 
 ## <a name="configure-and-run-chat-room-web-app"></a>Konfigurowanie i uruchamianie aplikacji sieci Web pokoju rozmów
 
@@ -106,7 +106,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
 
 1. Naciśnij klawisz <kbd>F5</kbd> , aby uruchomić projekt w trybie debugowania. Aplikacja jest uruchamiana lokalnie. Zamiast hostować środowisko uruchomieniowe sygnalizujące przez samą aplikację, teraz nawiązuje połączenie z usługą Azure Signal.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -117,11 +117,11 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. W instrukcjach dla tego przewodnika Szybki start używana była grupa zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuń](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
+![Usuwanie](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsnet).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -129,5 +129,3 @@ W tym przewodniku szybki start utworzono nowy zasób usługi Azure Signal Servic
 
 > [!div class="nextstepaction"]
 > [Usługa sygnałów platformy Azure z ASP.NET Core](./signalr-quickstart-dotnet-core.md)
-
-[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)

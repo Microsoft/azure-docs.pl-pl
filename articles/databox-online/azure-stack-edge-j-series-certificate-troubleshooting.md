@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568356"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874257"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Rozwiązywanie problemów z błędami certyfikatów
 
@@ -46,6 +46,7 @@ W poniższej tabeli przedstawiono typowe błędy certyfikatów i szczegółowe i
 | CertificateManagement_MissingServerOid | Certyfikat z nazwą podmiotu {0} nie ma identyfikatora OID uwierzytelniania serwera. Sprawdź właściwości certyfikatu i w razie konieczności wprowadź nowy certyfikat.|
 | CertificateManagement_NameMismatch | Niezgodność typów certyfikatów. Oczekiwany zakres: {0} , znaleziono {1} . Przekaż odpowiedni certyfikat.|
 | CertificateManagement_NoPrivateKeyPresent | Certyfikat z nazwą podmiotu nie {0} ma klucza prywatnego. Przekaż certyfikat PFX z kluczem prywatnym.|
+| CertificateManagement_NoRSACryptoPrivateKey | Klucz prywatny certyfikatu z nazwą podmiotu {0} nie jest dostępny. Upewnij się, że korzystasz z obsługiwanego certyfikatu. Obsługiwany jest tylko dostawca usług kryptograficznych RSA/SChannel firmy Microsoft. |
 | CertificateManagement_NotSelfSignedCertificate | Certyfikat z nazwą podmiotu {0} nie jest podpisany z podpisem własnym. Certyfikaty główne powinny być podpisane z podpisem własnym |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Ta operacja nie jest obsługiwana na urządzeniu wirtualnym. Ten błąd wskazuje, że podpisywanie będzie odbywać się tylko z Data Box Gateway uruchomionymi na urządzeniu z chmurą taktyczną. Ten błąd występuje podczas zarządzania urządzeniem za pomocą programu Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | Certyfikat z nazwą podmiotu {0} jest podpisany z podpisem własnym. Przekaż certyfikat, który jest poprawnie podpisany.|
@@ -57,6 +58,8 @@ W poniższej tabeli przedstawiono typowe błędy certyfikatów i szczegółowe i
 | CertificateImportFailure | Certyfikat z odciskiem palca {0} nie został zaimportowany w węźle {1} . Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
 | CertificateApplyFailure | Certyfikat z odciskiem palca {0} nie został zastosowany w węźle {1} . Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft.|
 | NodeNotReachable | Nie można zweryfikować certyfikatu {0} . Sprawdź kondycję sprzętu i oprogramowania systemu.|
+| POBIERZ KOD BŁĘDU | Klucz prywatny dla tego certyfikatu jest niedostępny. Upewnij się, że korzystasz z obsługiwanego certyfikatu. Obsługiwany jest tylko dostawca usług kryptograficznych RSA/SChannel firmy Microsoft. |
+
 
 ## <a name="next-steps"></a>Następne kroki
 

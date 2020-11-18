@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ed4e47cf946827e2e4b9aaeb14d9668e96aeaa5
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311631"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873781"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -200,25 +200,46 @@ Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunxiNeural` Przeglądania
+* `zh-CN-XiaohanNeural` Przeglądania
+* `zh-CN-XiaomoNeural` Przeglądania
+* `zh-CN-XiaoxuanNeural` Przeglądania
+* `zh-CN-XiaoruiNeural` Przeglądania
 
-Zmiany są stosowane na poziomie zdania i style różnią się w zależności od głosu. Jeśli styl nie jest obsługiwany, usługa zwróci mowę w domyślnym stylu mowy neutralnej. Możesz badać style obsługiwane przez poszczególne głosy za pomocą [interfejsu API listy głosowej](rest-text-to-speech.md#get-a-list-of-voices).
+Intensywność stylu mówienia można zmienić w celu lepszego dopasowania do Twojego przypadku użycia. Możesz określić silniejszy lub miękki styl, `styledegree` Aby zwiększyć mowę lub Subdued. 
 
-W przypadku języka chińskiego XiaoxiaoNeural można zmienić intensywność stylu mówiącego, aby lepiej dopasować się do Twojego przypadku użycia. Możesz określić silniejszy lub miękki styl, `styledegree` Aby zwiększyć mowę lub Subdued.
+Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
+* `zh-CN-XiaoxiaoNeural`
+
+Oprócz dostosowywania stylu i stopnia odmowy można również dostosować `role` parametr tak, aby głos był imitacją innego wieku i płci. Na przykład głos męski może zwiększyć gęstość i zmienić intonation na imitację głosu żeńskiego.
+
+Obecnie w przypadku tych głosów neuronowych są obsługiwane dostosowania dotyczące odtwarzania ról:
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+
+Powyższe zmiany są stosowane na poziomie zdania, a style i role są odtwarzane w zależności od głosu. Jeśli styl lub funkcja odtwarzania roli nie jest obsługiwana, usługa zwróci mowę w sposób domyślny. Możesz zobaczyć, jakie style i dla każdego głosu są obsługiwane przez [interfejs API listy głosowej](rest-text-to-speech.md#get-a-list-of-voices) lub za pomocą platformy [tworzenia zawartości audio](https://aka.ms/audiocontentcreation) bez obsługi kodu.
 
 **Składnia**
 
 ```xml
+<mstts:express-as style="string"></mstts:express-as>
+```
+```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+```xml
+<mstts:express-as role="string" style="string"></mstts:express-as>
+```
 > [!NOTE]
-> W tej chwili program `styledegree` obsługuje tylko XiaoxiaoNeural. 
+> W tej chwili `styledegree` obsługuje tylko wartość zh-CN-XiaoxiaoNeural. `role` obsługuje tylko zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural.
 
 **Atrybuty**
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `style` | Określa styl wymawiania. Obecnie style wymawiające są specyficzne dla głosu. | Wymagane, jeśli ustawienie stylu wymawiania dla głosu neuronowych. Jeśli używasz `mstts:express-as` , należy podać styl. Jeśli podano nieprawidłową wartość, ten element zostanie zignorowany. |
-| `styledegree` | Określa intensywność stylu wymawiania. **Akceptowane wartości** : od 0,01 do 2 włącznie. Wartość domyślna to 1, co oznacza intensywność stylu wstępnie zdefiniowanego. Jednostką minimalną jest 0,01, która skutkuje niewielkim tendencją dla stylu docelowego. Wartość 2 powoduje dwustronne zwiększenie intensywności stylu domyślnego.  | Opcjonalnie (w momencie `styledegree` obsługuje tylko XiaoxiaoNeural).|
+| `styledegree` | Określa intensywność stylu wymawiania. **Akceptowane wartości**: od 0,01 do 2 włącznie. Wartość domyślna to 1, co oznacza intensywność stylu wstępnie zdefiniowanego. Jednostką minimalną jest 0,01, która skutkuje niewielkim tendencją dla stylu docelowego. Wartość 2 powoduje dwustronne zwiększenie intensywności stylu domyślnego.  | Opcjonalnie (w momencie `styledegree` obsługuje tylko wartość zh-CN-XiaoxiaoNeural).|
+| `role` | Określa rolę głosu. Głos będzie pełnić rolę innego wieku i płci.  | Opcjonalne (w tej chwili `role` obsługuje tylko wartość zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural).|
 
 Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla każdego głosu neuronowych.
 
@@ -250,6 +271,52 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 |                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |   
 |                         | `style="lyrical"`         | Wyraża emocji w melodic i Sentimental sposób         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  | 
+| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
+|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
+|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
+|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
+|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
+|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokością i energią    |
+|                         | `style="embarrassed"`     | Wyraża niepewne i wątpliwości ton, gdy prelegent jest niewygodny   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
+|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
+|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
+|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
+|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
+|                         | `style="embarrassed"`     | Wyraża niepewne i wątpliwości ton, gdy prelegent jest niewygodny   |
+|                         | `style="affectionate"`    | Przedstawia gęstość ciepłą i Affectionate z większą ilością i Vocal energią. Prelegent jest w stanie zwrócić uwagę na odbiornik. "Osobowość" prelegenta często jest endearinga.          |     
+|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |   
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
+|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
+|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
+|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
+|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokością i energią    |
+|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |  
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
+|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
+|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
+|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
+|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokością i energią    |
+|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |   
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
+|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
+|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+
+Użyj tej tabeli, aby określić, które role są obsługiwane przez każdy głos neuronowych.
+
+| Połączenia głosowe                   | Rola                       | Opis                                                 |
+|-------------------------|----------------------------|-------------------------------------------------------------|
+| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | Głos naśladuje na młodych dorosłych samic.                 |
+|                         | `role="OlderAdultMale"`    | Głos naśladuje do starszej osoby dorosłej.                   |
+|                         | `role="Girl"`              | Dźwięk naśladuje dziewczynka.                               |
+|                         | `role="Boy"`               | Głos naśladuje Boy.                                |
+| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | Głos naśladuje na młodych dorosłych samic.                 |
+|                         | `role="OlderAdultFemale"`  | Głos naśladuje do starszej osoby dorosłej.                 |
+|                         | `role="OlderAdultMale"`    | Głos naśladuje do starszej osoby dorosłej.                   |
 
 **Przykład**
 
@@ -278,6 +345,23 @@ Ten fragment kodu SSML ilustruje, jak `styledegree` atrybut jest używany do zmi
 </speak>
 ```
 
+Ten fragment kodu SSML ilustruje, w jaki sposób `role` atrybut jest używany do zmiany roli Play dla XiaomoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
 ## <a name="add-or-remove-a-breakpause"></a>Dodawanie lub usuwanie przerwy/wstrzymania
 
 Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub zapobiec automatycznemu dodawaniu przez usługę zamiany tekstu na mowę.
@@ -297,7 +381,7 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x — słabe</li><li>lekko</li><li>Średni (domyślnie)</li><li>najwyższy</li><li>x — Strong</li></ul> | Opcjonalne |
-| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund. Przykłady prawidłowych wartości to `2s` i `500` | Opcjonalne |
+| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund, ta wartość powinna być ustawiona poniżej 5000ms. Przykłady prawidłowych wartości to `2s` i `500ms` | Opcjonalne |
 
 | Naprężeni                      | Opis |
 |-------------------------------|-------------|
@@ -316,6 +400,37 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
+```
+## <a name="add-silence"></a>Dodaj wyciszenie
+
+Użyj `mstts:silence` elementu, aby wstawić pauzy przed tekstem lub po nim albo między 2 sąsiednimi zdaniami. 
+
+> [!NOTE]
+>Różnica między `mstts:silence` i `break` jest, którą `break` można dodać do dowolnego miejsca w tekście, ale ciszenie działa tylko na początku lub na końcu tekstu wejściowego lub na granicy dwóch sąsiadujących zdań.  
+
+
+**Składnia**
+
+```xml
+<mstts:silence  type="string"  value="string"/>
+```
+
+**Atrybuty**
+
+| Atrybut | Opis | Wymagane/opcjonalne |
+|-----------|-------------|---------------------|
+| `type` | Określa lokalizację, w której ma zostać dodany wyciszenie: <ul><li>Wiodące — na początku tekstu </li><li>Ślad — na końcu tekstu </li><li>Sentenceboundary — między sąsiednimi zdaniami </li></ul> | Wymagane |
+| `Value` | Określa bezwzględny czas przerwy w sekundach lub milisekund, ta wartość powinna być ustawiona poniżej 5000ms. Przykłady prawidłowych wartości to `2s` i `500ms` | Wymagane |
+
+**Przykład** W tym przykładzie `mtts:silence` służy do dodawania 200 MS wyciszenia między dwoma zdaniami.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
+<voice name="en-US-AriaNeural"> 
+<mstts:silence  type="Sentenceboundary" value="200ms"/> 
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
+</voice> 
+</speak> 
 ```
 
 ## <a name="specify-paragraphs-and-sentences"></a>Określ akapity i zdania
@@ -355,6 +470,9 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 `ph`Element jest używany do wymowy fonetycznej w dokumentach SSML. `ph`Element może zawierać tylko tekst, nie inne elementy. Zawsze dostarczaj mowę do odczytu przez człowieka jako rezerwowe.
 
 Alfabety fonetyczne składają się z telefonów, które składają się z liter, cyfr lub znaków, czasami w połączeniu. Każdy telefon opisuje unikatowy dźwięk mowy. Jest to w przeciwieństwie do alfabetu łacińskiego, gdzie jakakolwiek litera może reprezentować wiele dźwięków wypowiadanych. Rozważ różne wymowy literę "c" w słowach "Candy" i "zaprzestanie" albo różne wymowy kombinacji liter "TH" w słowach "rzecz" i "te".
+
+> [!NOTE]
+> Tag fonemów nie jest obsługiwany w przypadku tych 5 głosów (et-EE-AnuNeural, GA-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural i MT-MT-GarceNeural).
 
 **Składnia**
 
@@ -401,6 +519,10 @@ Czasami usługa zamiany tekstu na mowę nie może dokładnie wymówić wyrazu. N
 
 > [!NOTE]
 > Leksykon niestandardowy obecnie obsługuje kodowanie UTF-8. 
+
+> [!NOTE]
+> Leksykon niestandardowy nie jest obsługiwany w przypadku tych 5 głosów (et-EE-AnuNeural, GA-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural i MT-MT-GarceNeural).
+
 
 **Składnia**
 
@@ -631,7 +753,7 @@ Poniżej przedstawiono obsługiwane typy zawartości dla `interpret-as` `format`
 | `address` | | Tekst jest wymawiany jako adres. Aparat syntezy mowy mówi:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Podobnie jak w przypadku 150th sąd północno-wschodnia (Waszyngton). |
 | `cardinal`, `number` | | Tekst jest wymawiany jako numer kardynalny. Aparat syntezy mowy mówi:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Jak "Istnieją trzy alternatywy". |
 | `characters`, `spell-out` | | Tekst jest wymawiany jako pojedyncze litery (wypisane). Aparat syntezy mowy mówi:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Jako "T E S T". |
-| `date` | DMY, MDR, YMD, YDM, ym, my, MD, DM, d, m, y | Tekst jest wymawiany jako Data. Ten `format` atrybut określa format daty ( *d = Day, m = month i y = Year* ). Aparat syntezy mowy mówi:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Jako "dzisiaj jest Nineteenth październik 2016." |
+| `date` | DMY, MDR, YMD, YDM, ym, my, MD, DM, d, m, y | Tekst jest wymawiany jako Data. Ten `format` atrybut określa format daty (*d = Day, m = month i y = Year*). Aparat syntezy mowy mówi:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Jako "dzisiaj jest Nineteenth październik 2016." |
 | `digits`, `number_digit` | | Tekst jest wymawiany jako sekwencja pojedynczych cyfr. Aparat syntezy mowy mówi:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Jako "1 2 3 4 5 6 7 8 9". |
 | `fraction` | | Tekst jest wymawiany jako liczba ułamkowa. Aparat syntezy mowy mówi:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Jako "trzy osiem cala". |
 | `ordinal` | | Tekst jest wymawiany jako numer porządkowy. Aparat syntezy mowy mówi:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Jako "Wybierz trzecią opcję". |
@@ -717,9 +839,9 @@ Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak pr
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `src` | Określa lokalizację/adres URL pliku dźwiękowego w tle. | Wymagany w przypadku używania dźwięku w tle w dokumencie SSML. |
-| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości** : `0` do `100` włącznie. Wartość domyślna to `1`. | Opcjonalne |
-| `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0` , która jest równoważna brak zanikania w. **Akceptowane wartości** : `0` do `10000` włącznie.  | Opcjonalne |
-| `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0` , która jest równoważna brak zanikania. **Akceptowane wartości** : `0` do `10000` włącznie.  | Opcjonalne |
+| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartość domyślna to `1`. | Opcjonalne |
+| `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0` , która jest równoważna brak zanikania w. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
+| `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0` , która jest równoważna brak zanikania. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
 
 **Przykład**
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c2679be2ca1db9017cbc37219402fa4e1c0666a5
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130038"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874427"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 na komercyjnej witrynie Marketplace
 
@@ -28,7 +28,7 @@ Są wyświetlane Stany subskrypcji SaaS i odpowiednie działania.
 
 ![Cykl życia subskrypcji SaaS na rynku Marketplace](./media/saas-subscription-lifecycle-api-v2.png)
 
-#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Zakupione, ale jeszcze nie aktywowane ( *PendingFulfillmentStart* )
+#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Zakupione, ale jeszcze nie aktywowane (*PendingFulfillmentStart*)
 
 Po zakupie przez klienta końcowego oferty SaaS w portalu Marketplace Wydawca powinien zostać powiadomiony o zakupie, aby nowe konto SaaS zostało utworzone i skonfigurowane dla klienta końcowego po stronie wydawcy.
 
@@ -82,11 +82,14 @@ Można aktualizować tylko aktywną subskrypcję. Gdy subskrypcja jest aktualizo
 
 ##### <a name="update-initiated-from-the-marketplace"></a>Aktualizacja zainicjowana z portalu Marketplace
 
-W tym przepływie klient zmienia plan subskrypcji lub liczbę stanowisk z centrum administracyjnego M365.  
+W tym przepływie klient zmienia plan subskrypcji lub liczbę stanowisk z Azure Portal lub centrum administracyjnego M365.  
 
 1. Po wprowadzeniu aktualizacji firma Microsoft będzie wywoływała adres URL elementu webhook wydawcy, który został skonfigurowany w polu **elementu webhook** w centrum partnerskim, z odpowiednią wartością dla *akcji* i innych odpowiednich parametrów.  
 1. Po stronie wydawcy należy wprowadzić wymagane zmiany w usłudze SaaS i powiadomić firmę Microsoft o zakończeniu zmiany, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
 1. Jeśli poprawka zostanie wysłana ze stanem niepowodzenia, proces aktualizacji nie zostanie ukończony po stronie firmy Microsoft.  Subskrypcja usługi SaaS zostanie pozostawiona z istniejącym planem i ilością stanowisk.
+
+> [!NOTE]
+> Wydawca powinien wywołać POPRAWKĘ, aby [zaktualizować stan interfejsu API operacji](#update-the-status-of-an-operation) z odpowiedzią na awarię i powodzenie *w 10-sekundowym przedziale czasu* po odebraniu powiadomienia elementu webhook. Jeśli poprawka stanu operacji nie zostanie odebrana w ciągu 10 sekund, plan zmiany zostanie *automatycznie poprawiony jako powodzenie*. 
 
 Poniżej przedstawiono sekwencję wywołań interfejsu API dla scenariusza aktualizacji zainicjowanej w portalu Marketplace.
 
@@ -106,9 +109,9 @@ Sekwencja wywołań interfejsu API dla scenariusza zainicjowanej aktualizacji po
 
 ![Wywołania interfejsu API dla aktualizacji zainicjowanej po stronie wydawcy](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
-#### <a name="suspended-suspended"></a>Zawieszone ( *zawieszone* )
+#### <a name="suspended-suspended"></a>Zawieszone (*zawieszone*)
 
-Ten stan wskazuje, że nie odebrano płatności klienta usługi SaaS. Wydawca zostanie powiadomiony o zmianie stanu subskrypcji SaaS przez firmę Microsoft. Powiadomienie jest wykonywane za pośrednictwem wywołania elementu webhook z parametrem *Action* ustawionym na wartość *SUSPENDED* .
+Ten stan wskazuje, że nie odebrano płatności klienta usługi SaaS. Wydawca zostanie powiadomiony o zmianie stanu subskrypcji SaaS przez firmę Microsoft. Powiadomienie jest wykonywane za pośrednictwem wywołania elementu webhook z parametrem *Action* ustawionym na wartość *SUSPENDED*.
 
 Wydawca może lub nie może wprowadzać zmian w usłudze SaaS po stronie wydawcy. Firma Microsoft zaleca, aby Wydawca udostępnił te informacje dla zawieszonego klienta i limitów lub blokuje dostęp klienta do usługi SaaS.  Istnieje prawdopodobieństwo, że płatność nigdy nie zostanie odebrana.
 
@@ -119,7 +122,7 @@ Firma Microsoft przyznaje klientowi 30-dniowy okres prolongaty przed automatyczn
 
 Stan subskrypcji zostanie zmieniony na zawieszony po stronie firmy Microsoft przed wykonaniem jakiejkolwiek akcji przez wydawcę. Można wstrzymać tylko aktywne subskrypcje.
 
-#### <a name="reinstated-suspended"></a>Przywrócono ( *zawieszone* )
+#### <a name="reinstated-suspended"></a>Przywrócono (*zawieszone*)
 
 Trwa przywracanie subskrypcji.
 
@@ -135,7 +138,7 @@ Jeśli poprawka zostanie wysłana ze stanem niepowodzenia, proces przywracania n
 
 Można przywrócić tylko zawieszoną subskrypcję.  Gdy subskrypcja SaaS jest przywracana, jej stan pozostaje zawieszony.  Po zakończeniu tej operacji stan subskrypcji stanie się aktywny.
 
-#### <a name="renewed-subscribed"></a>Odnowione ( *subskrybowane* )
+#### <a name="renewed-subscribed"></a>Odnowione (*subskrybowane*)
 
 Po upływie okresu subskrypcji (po upływie miesiąca lub roku) subskrypcja usługi SaaS jest automatycznie odnawiana przez firmę Microsoft.  Ustawienie domyślne dla ustawienia autoodnawiania ma *wartość true* dla wszystkich subskrypcji SaaS. Subskrypcje Active SaaS będą nadal odnawiane za pomocą zwykłego erzeu. Firma Microsoft nie powiadamia wydawcy o odnowieniu subskrypcji. Klient może wyłączyć automatyczne odnawianie dla subskrypcji SaaS za pośrednictwem portalu administratora M365 lub za pośrednictwem Azure Portal.  W takim przypadku subskrypcja SaaS zostanie automatycznie anulowana na końcu bieżącego okresu rozliczeniowego.  Klienci mogą również anulować subskrypcję usługi SaaS w dowolnym momencie.
 
@@ -143,7 +146,7 @@ Tylko aktywne subskrypcje są automatycznie odnawiane.  Subskrypcje pozostają a
 
 Jeśli autoodnowienie nie powiedzie się z powodu problemu z płatnością, subskrypcja zostanie zawieszona.  Wydawca zostanie powiadomiony.
 
-#### <a name="canceled-unsubscribed"></a>Anulowane ( *niesubskrybowane* ) 
+#### <a name="canceled-unsubscribed"></a>Anulowane (*niesubskrybowane*) 
 
 Subskrypcje docierają do tego stanu w odpowiedzi na jawną akcję klienta lub dostawcę usług w ramach anulowania subskrypcji z witryny wydawcy, Azure Portal lub centrum administracyjnego M365.  Subskrypcję można również anulować niejawnie, ze względu na niepłatne należności, po upływie okresu wstrzymania przez 30 dni.
 
@@ -788,9 +791,9 @@ Kod: błąd wewnętrzny serwera 500. Ponów wywołanie interfejsu API.  Jeśli b
 
 #### <a name="get-operation-status"></a>Pobierz stan operacji
 
-Umożliwia wydawcy śledzenie stanu określonej operacji asynchronicznej:  **unsubskrybuj** , **ChangePlan** lub **ChangeQuantity** .
+Umożliwia wydawcy śledzenie stanu określonej operacji asynchronicznej:  **unsubskrybuj**, **ChangePlan** lub **ChangeQuantity**.
 
-`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji** , pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
+`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji**, pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Pobierz `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,7 +853,7 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 
 Zaktualizuj stan oczekującej operacji, aby wskazać powodzenie lub niepowodzenie operacji po stronie wydawcy.
 
-`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji** , pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
+`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji**, pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Wysłana `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -962,7 +965,7 @@ Gdy Wydawca jest gotowy do zakończenia testowania:
 
 Przepływ zakupu można wyzwolić z poziomu witryny Azure Portal lub Microsoft AppSource, w zależności od tego, gdzie jest publikowana oferta.
 
-Akcje *zmiany planu* , *ilości* i *anulowania subskrypcji* są testowane po stronie wydawcy.  Po stronie firmy Microsoft można wyzwolenie *anulowania subskrypcji* z poziomu Centrum Azure Portal i administratora (w portalu, w którym Microsoft AppSource zakupy są zarządzane).  *Zmiany ilości i planu* można wyzwolić tylko z poziomu Centrum administracyjnego.
+Akcje *zmiany planu*, *ilości* i *anulowania subskrypcji* są testowane po stronie wydawcy.  Po stronie firmy Microsoft można wyzwolenie *anulowania subskrypcji* z poziomu Centrum Azure Portal i administratora (w portalu, w którym Microsoft AppSource zakupy są zarządzane).  *Zmiany ilości i planu* można wyzwolić tylko z poziomu Centrum administracyjnego.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 

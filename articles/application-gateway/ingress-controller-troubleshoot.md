@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f2b9f79f0914e645c736f8a577c46baa42587332
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397369"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874614"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Rozwiązywanie typowych pytań lub problemów z kontrolerem transferu danych przychodzących
 
 [Azure Cloud Shell](https://shell.azure.com/) jest najwygodniejszym sposobem rozwiązywania problemów z instalacją AKS i AGIC. Uruchom powłokę z [Shell.Azure.com](https://shell.azure.com/) lub klikając łącze:
 
-[![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
+[![Uruchamianie osadzane](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
 
 ## <a name="test-with-a-simple-kubernetes-app"></a>Testowanie przy użyciu prostej aplikacji Kubernetes
@@ -141,7 +141,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, należy wykonać następujące czynn
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. Co najmniej jedna **Usługa** , odwołująca się do powyższych zasobników za pośrednictwem pasujących `selector` etykiet.
+  2. Co najmniej jedna **Usługa**, odwołująca się do powyższych zasobników za pośrednictwem pasujących `selector` etykiet.
      Sprawdź poprawność tego [Cloud Shell](https://shell.azure.com/) z `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
@@ -292,7 +292,7 @@ armAuth:
 #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
 
 ################################################################################
-# Specify if the cluster is RBAC enabled or not
+# Specify if the cluster is Kubernetes RBAC enabled or not
 rbac:
     enabled: false # true/false
 

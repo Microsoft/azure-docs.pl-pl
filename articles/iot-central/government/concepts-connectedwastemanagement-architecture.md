@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126279"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873696"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Architektura referencyjna połączonego zarządzania odpadami 
 
@@ -39,10 +39,10 @@ Urządzenia używane w otwartych środowiskach, takich jak pojemniki, mogą być
 Azure IoT Central to platforma aplikacji IoT, która umożliwia szybkie rozpoczęcie pracy z rozwiązaniem IoT. Możesz Marka, dostosowywać i zintegrować rozwiązanie z usługami innych firm.
 Po połączeniu urządzeń z urządzeniami inteligentnymi do IoT Central uzyskasz polecenie i kontrolę, monitorowanie i alerty, interfejs użytkownika z wbudowanymi RBAC, konfigurowalne pulpity nawigacyjne usługi Insights oraz opcje rozszerzalności. 
 
-## <a name="extensibility-and-integrations"></a>Rozszerzalność i integracje 
+## <a name="extensibility-and-integrations"></a>Rozszerzalność i integracje
 Aplikację IoT można zwiększyć w IoT Central i opcjonalnie:
-* Przekształcaj i Integruj dane IoT na potrzeby zaawansowanej analizy, na przykład szkolenia modeli uczenia maszynowego za pośrednictwem ciągłego eksportu danych z IoT Central aplikacji. 
-* Automatyzowanie przepływów pracy w innych systemach przez wyzwalanie akcji przy użyciu Microsoft Flow lub elementów webhook z aplikacji IoT Central
+* Przekształcaj i Integruj dane IoT na potrzeby zaawansowanej analizy, na przykład szkolenia modeli uczenia maszynowego za pośrednictwem ciągłego eksportu danych z IoT Central aplikacji.
+* Automatyzowanie przepływów pracy w innych systemach przez wyzwalanie akcji przy użyciu automatyzacji lub elementów webhook w aplikacji IoT Central
 * programowo dostęp do aplikacji IoT w IoT Central za poorednictwem IoT Central interfejsów API.
 
 ## <a name="business-applications"></a>Aplikacje biznesowe 

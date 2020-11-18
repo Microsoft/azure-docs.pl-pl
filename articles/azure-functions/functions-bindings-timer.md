@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać wyzwalaczy czasomierzy w Azure Functions
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833014"
+ms.locfileid: "94874087"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions
 
@@ -299,11 +299,11 @@ Każde pole może mieć jeden z następujących typów wartości:
 
 |Typ  |Przykład  |Po wyzwoleniu  |
 |---------|---------|---------|
-|Określona wartość |<nobr>"0 5 * * * *"</nobr>|at hh: 05:00, gdzie HH jest co godzinę (raz na godzinę)|
-|Wszystkie wartości ( `*` )|<nobr>"0 * 5 * * *"</nobr>|o 5: mm: 00 codziennie, gdzie mm jest co minutę godziny (60 razy w ciągu określonej godziny)|
-|Zakres ( `-` operator)|<nobr>"5-7 * * * * *"</nobr>|w hh: mm: 05, gg: mm: 06, i hh: mm: 07, gdzie hh: mm jest co minutę co godzinę (3 razy na minutę)|
-|Zestaw wartości ( `,` operator)|<nobr>"5, 8, 10 * * * * *"</nobr>|w hh: mm: 05, gg: mm: 08, i hh: mm: 10, gdzie hh: mm jest co minutę co godzinę (3 razy na minutę)|
-|Wartość interwału ( `/` operator)|<nobr>"0 */5 * * * *"</nobr>|w hh: 00:00, gg: 05:00, gg: 10:00, i tak dalej, do hh: 55:00, gdzie HH jest co godzinę (12 razy w ciągu godziny)|
+|Określona wartość |<nobr>`0 5 * * * *`</nobr>| Co godzinę dnia o godz. 5 minut |
+|Wszystkie wartości ( `*` )|<nobr>`0 * 5 * * *`</nobr>| Co minutę w ciągu godziny, rozpoczynając od godziny 5 |
+|Zakres ( `-` operator)|<nobr>`5-7 * * * * *`</nobr>| Trzy razy minutę — w ciągu kilku sekund od 5 do 7 w każdej minucie każdej godziny każdego dnia |
+|Zestaw wartości ( `,` operator)|<nobr>`5,8,10 * * * * *`</nobr>| Trzy razy minutę — w ciągu 5, 8 i 10 w każdej minucie każdej godziny każdego dnia |
+|Wartość interwału ( `/` operator)|<nobr>`0 */5 * * * *`</nobr>| 12 razy godzinę — przy sekundzie 0 każdego piątego minuty każdej godziny każdego dnia |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Każde pole może mieć jeden z następujących typów wartości:
 
 Poniżej przedstawiono kilka przykładów wyrażeń NCRONTAB, których można użyć dla wyzwalacza czasomierza w Azure Functions.
 
-|Przykład|Po wyzwoleniu  |
-|---------|---------|
-|`"0 */5 * * * *"`|co pięć minut|
-|`"0 0 * * * *"`|raz w górnej części co godzinę|
-|`"0 0 */2 * * *"`|co dwie godziny|
-|`"0 0 9-17 * * *"`|co godzinę od 9 do 5 PM|
-|`"0 30 9 * * *"`|Codziennie o godzinie 9:30|
-|`"0 30 9 * * 1-5"`|at 9:30 AM każdego dnia tygodnia|
-|`"0 30 9 * Jan Mon"`|o godzinie 9:30, co poniedziałek w styczniu|
+| Przykład            | Po wyzwoleniu                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | co pięć minut            |
+| `0 0 * * * *`      | raz w górnej części co godzinę      |
+| `0 0 */2 * * *`    | co dwie godziny               |
+| `0 0 9-17 * * *`   | co godzinę od 9 do 5 PM  |
+| `0 30 9 * * *`     | Codziennie o godzinie 9:30               |
+| `0 30 9 * * 1-5`   | at 9:30 AM każdego dnia tygodnia           |
+| `0 30 9 * Jan Mon` | o godzinie 9:30, co poniedziałek w styczniu |
 
 > [!NOTE]
-> Wyrażenie NCRONTAB wymaga **sześciu pól** format. Na platformie Azure nie są obsługiwane pięć wyrażeń firmy CRONUS w polu.
+> Wyrażenie NCRONTAB wymaga **szóstego formatu pola** . Szósta pozycja pola jest wartością dla sekund, która jest umieszczana na początku wyrażenia. Na platformie Azure nie są obsługiwane pięć wyrażeń firmy CRONUS w polu.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB strefy czasowe
 

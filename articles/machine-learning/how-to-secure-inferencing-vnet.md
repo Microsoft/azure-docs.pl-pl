@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361169"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873815"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska wnioskowania usługi Azure Machine Learning za pomocą sieci wirtualnych
 
@@ -115,6 +115,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Po zakończeniu procesu tworzenia można uruchomić wnioskowanie lub ocenianie modelu w klastrze AKS za siecią wirtualną. Aby uzyskać więcej informacji, zobacz [How to Deploy to AKS](how-to-deploy-and-where.md).
 
+Aby uzyskać więcej informacji na temat korzystania z Role-Based Access Control z usługą Kubernetes, zobacz [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](../aks/manage-azure-rbac.md).
+
 ## <a name="network-contributor-role"></a>Rola współautor sieci
 
 > [!IMPORTANT]
@@ -122,7 +124,7 @@ Po zakończeniu procesu tworzenia można uruchomić wnioskowanie lub ocenianie m
 >
 > Aby dodać tożsamość jako współautor sieci, wykonaj następujące czynności:
 
-1. Aby znaleźć nazwę główną usługi lub identyfikator tożsamości zarządzanej dla AKS, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure. Zamień `<aks-cluster-name>` na nazwę klastra. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _klaster AKS_ :
+1. Aby znaleźć nazwę główną usługi lub identyfikator tożsamości zarządzanej dla AKS, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure. Zamień `<aks-cluster-name>` na nazwę klastra. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _klaster AKS_:
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -134,7 +136,7 @@ Po zakończeniu procesu tworzenia można uruchomić wnioskowanie lub ocenianie m
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. Aby znaleźć identyfikator grupy zasobów zawierającej daną sieć wirtualną, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _sieć wirtualną_ :
+1. Aby znaleźć identyfikator grupy zasobów zawierającej daną sieć wirtualną, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _sieć wirtualną_:
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id
@@ -151,8 +153,8 @@ Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równow
 
 Istnieją dwa podejścia do izolowania ruchu do i z klastra AKS do sieci wirtualnej:
 
-* __Prywatny klaster AKS__ : to podejście używa prywatnego linku platformy Azure do zabezpieczania komunikacji z klastrem na potrzeby operacji wdrażania i zarządzania.
-* __Wewnętrzny moduł równoważenia obciążenia AKS__ : to podejście służy do konfigurowania punktu końcowego dla wdrożeń do AKS w celu korzystania z prywatnego adresu IP w ramach sieci wirtualnej.
+* __Prywatny klaster AKS__: to podejście używa prywatnego linku platformy Azure do zabezpieczania komunikacji z klastrem na potrzeby operacji wdrażania i zarządzania.
+* __Wewnętrzny moduł równoważenia obciążenia AKS__: to podejście służy do konfigurowania punktu końcowego dla wdrożeń do AKS w celu korzystania z prywatnego adresu IP w ramach sieci wirtualnej.
 
 > [!WARNING]
 > Wewnętrzny moduł równoważenia obciążenia nie działa z klastrem AKS, który korzysta z korzystającą wtyczki kubenet. Jeśli chcesz użyć wewnętrznego modułu równoważenia obciążenia i prywatnego klastra AKS w tym samym czasie, skonfiguruj prywatny klaster AKS za pomocą interfejsu Azure Container Network Interface (CNI). Aby uzyskać więcej informacji, zobacz [Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service](../aks/configure-azure-cni.md).

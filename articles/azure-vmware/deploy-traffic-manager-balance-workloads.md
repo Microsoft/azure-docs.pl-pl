@@ -3,12 +3,12 @@ title: Wdróż Traffic Manager, aby zrównoważyć obciążenia Azure VMware Sol
 description: Dowiedz się, jak zintegrować Traffic Manager z rozwiązaniem VMware platformy Azure (Automatyczna synchronizacja), aby zrównoważyć obciążenia aplikacji w wielu punktach końcowych w różnych regionach.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ed74bb0dfc533abadd50af32afc06c9cb4106193
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593140"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874310"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Wdróż Traffic Manager, aby zrównoważyć obciążenia Azure VMware Solution (Automatyczna synchronizacja)
 
@@ -30,7 +30,7 @@ Jak pokazano na poniższej ilustracji, usługa Azure Traffic Manager zapewnia R�
 
 Połączenie przez sieć wirtualną między dwoma regionami chmury prywatnej, zachodnim stanem USA i Europa Zachodnia oraz serwerem lokalnym w regionie Wschodnie stany USA używa bramy ExpressRoute.   
 
-![Diagram architektury Traffic Manager integracji z rozwiązaniem VMware platformy Azure](media/traffic-manager/traffic-manager-topology.png)
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram architektury Traffic Manager integracji z rozwiązaniem VMware platformy Azure" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -75,7 +75,7 @@ W naszym scenariuszu segment NSX-T jest konfigurowany w środowisku automatyczne
 
 1. Wybierz **segmenty** , aby wyświetlić skonfigurowane segmenty. W takim przypadku widzimy, że firma Contoso-SEGMENT1 jest połączona z bramą contoso-T01, elastycznym routerem warstwy 1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Zrzut ekranu przedstawiający profile segmentów w Menedżerze NSX-T.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Zrzut ekranu przedstawiający profile segmentów w Menedżerze NSX-T." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
 
 2. Wybierz pozycję **bramy warstwy 1** , aby wyświetlić listę bram warstwy 1 z liczbą połączonych segmentów. Wybierz segment połączony z Contoso-T01. Zostanie otwarte okno z interfejsem logicznym skonfigurowanym na routerze warstwy-01. Służy on jako brama do maszyny wirtualnej należącej do puli zaplecza połączonej z segmentem.
 
@@ -83,7 +83,7 @@ W naszym scenariuszu segment NSX-T jest konfigurowany w środowisku automatyczne
 
 3. W kliencie vSphere maszyny wirtualnej wybierz maszynę wirtualną, aby wyświetlić jej szczegóły. Zwróć uwagę, że adres IP jest zgodny z informacjami w kroku 3 poprzedniej sekcji: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły maszyny wirtualnej w kliencie VSphere.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły maszyny wirtualnej w kliencie VSphere." lightbox="media/traffic-manager/nsx-t-vm-details.png":::    
 
 4. Wybierz maszynę wirtualną, a następnie kliknij pozycję **akcje > Edytuj ustawienia** , aby zweryfikować połączenie z segmentem NSX-T.
 
@@ -103,7 +103,7 @@ W naszym scenariuszu segment NSX-T jest konfigurowany w środowisku automatyczne
 
 3. Wybierz pozycję **Omówienie**. Skopiuj adres URL pod **nazwą DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Zrzut ekranu przedstawiający przegląd Traffic Manager punktu końcowego z wyróżnioną nazwą DNS."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Zrzut ekranu przedstawiający przegląd Traffic Manager punktu końcowego z wyróżnioną nazwą DNS." lightbox="media/traffic-manager/traffic-manager-endpoints.png"::: 
 
 4. Wklej adres URL nazwy DNS w przeglądarce. Poniższy zrzut ekranu przedstawia ruch kierowany do regionu Europa Zachodnia.
 
