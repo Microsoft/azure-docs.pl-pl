@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964914"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839594"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Użycie metod uwierzytelniania & Insights (wersja zapoznawcza)
 
-Usługa & Insights umożliwia zrozumienie, jak metody uwierzytelniania dla funkcji, takich jak platforma Azure Multi-Factor Authentication i Samoobsługowe resetowanie haseł, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, aby zrozumieć, jakie metody są rejestrowane i jak są używane.
+Usługa & Insights umożliwia zrozumienie, jak metody uwierzytelniania dla funkcji, takich jak usługa Azure AD Multi-Factor Authentication i Samoobsługowe resetowanie haseł, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, aby zrozumieć, jakie metody są rejestrowane i jak są używane.
 
 ## <a name="permissions-and-licenses"></a>Uprawnienia i licencje
 
@@ -31,14 +31,14 @@ Następujące role mogą uzyskać dostęp do użycia i szczegółowych informacj
 - Administrator zabezpieczeń
 - Czytelnik raportów
 
-Do uzyskania dostępu do informacji o użyciu i szczegółowych informacji nie są wymagane żadne dodatkowe licencje. Informacje dotyczące licencjonowania Multi-Factor Authentication platformy Azure i samoobsługowego resetowania hasła (SSPR) znajdują się w [witrynie Azure Active Directory cenowej](https://azure.microsoft.com/pricing/details/active-directory/).
+Do uzyskania dostępu do informacji o użyciu i szczegółowych informacji nie są wymagane żadne dodatkowe licencje. Informacje o licencjach usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR) znajdują się w [witrynie Azure Active Directory cenowej](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Jak to działa
 
 Aby uzyskać dostęp do informacji o użyciu metody uwierzytelniania i szczegółowych informacji:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Azure Active Directory**  >  użyciu**resetowania hasła**  >  **& szczegółowe informacje**.
+1. Przejdź do **Azure Active Directory**  >  użyciu **resetowania hasła**  >  **& szczegółowe informacje**.
 1. Z omówienia **rejestracji** lub **użycia** można wybrać opcję otwarcia wstępnie filtrowanych raportów do filtrowania na podstawie Twoich potrzeb.
 
 ![Omówienie użycia & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
@@ -61,7 +61,7 @@ Za pomocą kontrolki w górnym prawym rogu można zmienić zakres dat dla danych
 
 ### <a name="registration-details"></a>Szczegóły rejestracji
 
-Kliknięcie kafelków **Użytkownicy**, **którzy włączyli**rejestrację lub Użytkownicy **mogą** uzyskać szczegółowe informacje o rejestracji.
+Kliknięcie kafelków **Użytkownicy**, **którzy włączyli** rejestrację lub Użytkownicy **mogą** uzyskać szczegółowe informacje o rejestracji.
 
 Raport szczegóły rejestracji zawiera następujące informacje dla każdego użytkownika:
 
@@ -92,7 +92,7 @@ Za pomocą kontrolek w górnej części listy można wyszukać użytkownika i od
 
 Dane wyświetlane w tych raportach zostaną opóźnione o maksymalnie 60 minut. Pole "ostatnio odświeżone" istnieje w Azure Portal, aby określić, jak ostatnie dane są.
 
-Dane dotyczące użycia i szczegółowych informacji nie są zamiennikiem raportów dotyczących aktywności platformy Azure Multi-Factor Authentication ani informacje zawarte w raporcie dotyczącym logowania w usłudze Azure AD.
+Dane dotyczące użycia i szczegółowych informacji nie są zamiennikiem raportów dotyczących działań w usłudze Azure AD Multi-Factor Authentication ani informacje zawarte w raporcie logowania usługi Azure AD.
 
 Nie można obecnie filtrować raportu w celu wykluczenia użytkowników zewnętrznych.
 

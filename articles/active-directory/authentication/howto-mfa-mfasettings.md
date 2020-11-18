@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie Multi-Factor Authentication platformy Azure — Azure Active Directory
-description: Dowiedz się, jak skonfigurować ustawienia dla usługi Azure Multi-Factor Authentication w Azure Portal
+title: Konfigurowanie usługi Azure AD Multi-Factor Authentication — Azure Active Directory
+description: Dowiedz się, jak skonfigurować ustawienia Multi-Factor Authentication usługi Azure AD w Azure Portal
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,26 +12,26 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: adca22b3a8d9b93dfbc62202106127a5833a4c38
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964439"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839203"
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
+# <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurowanie ustawień Multi-Factor Authentication usługi Azure AD
 
-Aby dostosować środowisko użytkownika końcowego dla usługi Azure Multi-Factor Authentication, można skonfigurować opcje dla ustawień takich jak progi blokady konta lub alerty oszustwa i powiadomienia. Niektóre ustawienia są bezpośrednio w Azure Portal dla Azure Active Directory (Azure AD), a niektóre w osobnym portalu Azure Multi-Factor Authentication.
+Aby dostosować środowisko użytkownika końcowego Multi-Factor Authentication usługi Azure AD, można skonfigurować opcje dla ustawień takich jak progi blokady konta lub alerty oszustwa i powiadomienia. Niektóre ustawienia są bezpośrednio w Azure Portal dla Azure Active Directory (Azure AD), a niektóre w osobnym portalu usługi Azure AD Multi-Factor Authentication.
 
-Następujące ustawienia usługi Azure Multi-Factor Authentication są dostępne w Azure Portal:
+Poniższe ustawienia Multi-Factor Authentication usługi Azure AD są dostępne w Azure Portal:
 
-| Cecha | Opis |
+| Cechy | Opis |
 | ------- | ----------- |
-| [Blokada konta](#account-lockout) | Tymczasowo Blokuj konta z używania platformy Azure Multi-Factor Authentication, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
-| [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Zablokuj określonym użytkownikom możliwość otrzymywania żądań Multi-Factor Authentication platformy Azure. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają Zablokowani przez 90 dni od momentu ich zablokowania lub ręcznie odblokowany. |
+| [Blokada konta](#account-lockout) | Tymczasowo Blokuj konta z używania usługi Azure AD Multi-Factor Authentication, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
+| [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Zablokuj określonym użytkownikom możliwość otrzymywania żądań Multi-Factor Authentication usługi Azure AD. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają Zablokowani przez 90 dni od momentu ich zablokowania lub ręcznie odblokowany. |
 | [Alert dotyczący wykrycia oszustwa](#fraud-alert) | Skonfiguruj ustawienia, które umożliwiają użytkownikom zgłaszanie fałszywych żądań weryfikacji. |
 | [Powiadomienia](#notifications) | Włącz powiadomienia zdarzeń z serwera MFA. |
-| [Tokeny OATH](concept-authentication-oath-tokens.md) | Używany w środowiskach Azure MFA opartych na chmurze do zarządzania tokenami OATH dla użytkowników. |
+| [Tokeny OATH](concept-authentication-oath-tokens.md) | Używany w środowiskach usługi Azure AD MFA opartych na chmurze do zarządzania tokenami OATH dla użytkowników. |
 | [Ustawienia połączenia telefonicznego](#phone-call-settings) | Konfigurowanie ustawień związanych z połączeniami telefonicznymi i powitami w środowiskach chmurowych i lokalnych. |
 | Dostawcy | Spowoduje to wyświetlenie wszystkich istniejących dostawców uwierzytelniania, które mogły zostać skojarzone z Twoim kontem. Nie można utworzyć nowych dostawców uwierzytelniania od 1 września 2018 |
 
@@ -50,14 +50,14 @@ Dostępne są następujące ustawienia:
 Aby skonfigurować ustawienia blokady konta, wykonaj następujące ustawienia:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **Blokada konta**usługi MFA.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **Blokada konta** usługi MFA.
 1. Wprowadź wartości Wymagaj dla danego środowiska, a następnie wybierz pozycję **Zapisz**.
 
     ![Zrzut ekranu ustawień blokady konta w Azure Portal](./media/howto-mfa-mfasettings/account-lockout-settings.png)
 
 ## <a name="block-and-unblock-users"></a>Blokowanie i odblokowywanie użytkowników
 
-Jeśli urządzenie użytkownika zostało zgubione lub skradzione, można zablokować usługi Azure Multi-Factor Authentication dla skojarzonego konta. Wszystkie próby Multi-Factor Authentication platformy Azure dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają zablokowani przez 90 dni od momentu zablokowania.
+Jeśli urządzenie użytkownika zostało zgubione lub skradzione, można zablokować usługi Azure AD Multi-Factor Authentication prób dla skojarzonego konta. Wszystkie próby Multi-Factor Authentication usługi Azure AD dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają zablokowani przez 90 dni od momentu zablokowania.
 
 ### <a name="block-a-user"></a>Blokuj użytkownika
 
@@ -85,7 +85,7 @@ Funkcja alertu oszustwa umożliwia użytkownikom zgłaszanie fałszywych prób u
 
 Dostępne są następujące opcje konfiguracji alertów oszustw:
 
-* **Automatycznie blokuj użytkowników, którzy zgłaszają oszustwo**: w przypadku zgłaszania oszustw przez użytkownika próby uwierzytelnienia usługi Azure MFA dla konta użytkownika są blokowane przez 90 dni lub do momentu odblokowania konta przez administratora. Administrator może przejrzeć logowania przy użyciu raportu logowania i podjąć odpowiednie działania, aby zapobiec przyszłym oszustwom. Administrator może następnie [odblokować](#unblock-a-user) konto użytkownika.
+* **Automatycznie blokuj użytkowników, którzy zgłaszają oszustwo**: w przypadku zgłaszania oszustw przez użytkownika próby uwierzytelnienia usługi Azure AD MFA dla konta użytkownika są blokowane przez 90 dni lub do momentu odblokowania konta przez administratora. Administrator może przejrzeć logowania przy użyciu raportu logowania i podjąć odpowiednie działania, aby zapobiec przyszłym oszustwom. Administrator może następnie [odblokować](#unblock-a-user) konto użytkownika.
 * **Kod służący do zgłaszania oszustw podczas początkowego powitania**: gdy użytkownicy otrzymają połączenie telefoniczne w celu przeprowadzenia uwierzytelniania wieloskładnikowego, zazwyczaj naciskają **#** się w celu potwierdzenia ich zalogowania. Aby zgłosić oszustwo, użytkownik wprowadza kod przed naciśnięciem klawisza **#** . Ten kod jest domyślnie **0** , ale można go dostosować.
 
    > [!NOTE]
@@ -93,14 +93,14 @@ Dostępne są następujące opcje konfiguracji alertów oszustw:
 
 Aby włączyć i skonfigurować alerty oszustwa, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  alertu dotyczącego oszustwa Azure Active Directory**Security**  >  **MFA**  >  **Fraud alert**.
+1. Przejdź do **Azure Active Directory**  >  alertu dotyczącego oszustwa Azure Active Directory **Security**  >  **MFA**  >  **Fraud alert**.
 1. Dla opcji *Zezwalaj użytkownikom na przesyłanie alertów oszustw* ustaw wartość **włączone**.
 1. Skonfiguruj *Automatyczne blokowanie użytkowników, którzy zgłaszają oszustwo* lub *kod w celu zgłaszania oszustw podczas początkowego ustawienia powitania* zgodnie z potrzebami.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
 ### <a name="view-fraud-reports"></a>Wyświetlanie raportów o oszustwie
 
-Wybierz pozycję **Azure Active Directory**  >  **Sign-ins**  >  **szczegóły uwierzytelniania**logowania. Raport oszustwa jest teraz częścią standardowego raportu logowania do usługi Azure AD, który będzie wyświetlany w **"szczegółowe dane wynikowe"** jako odmowa MFA, wprowadzony kod oszustwa.
+Wybierz pozycję **Azure Active Directory**  >  **Sign-ins**  >  **szczegóły uwierzytelniania** logowania. Raport oszustwa jest teraz częścią standardowego raportu logowania do usługi Azure AD, który będzie wyświetlany w **"szczegółowe dane wynikowe"** jako odmowa MFA, wprowadzony kod oszustwa.
  
 ## <a name="notifications"></a>Powiadomienia
 
@@ -110,7 +110,7 @@ Powiadomienia e-mail można skonfigurować, gdy użytkownicy zgłaszają alerty 
 
 Aby skonfigurować powiadomienia o alertach dotyczących oszustw, należy wykonać następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **Multi-Factor Authentication**  >  **powiadomień**Multi-Factor Authentication zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **Multi-Factor Authentication**  >  **powiadomień** Multi-Factor Authentication zabezpieczeń.
 1. Wprowadź adres e-mail, który ma zostać dodany do następnego pola.
 1. Aby usunąć istniejący adres e-mail, wybierz opcję **...** obok żądanego adresu e-mail, a następnie wybierz pozycję **Usuń**.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
@@ -137,7 +137,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Upewnij się, że dołączysz wiersz nagłówka do pliku CSV.
 
-Po poprawnym sformatowaniu pliku CSV administrator może następnie zalogować się do Azure Portal, przejść do **Azure Active Directory > zabezpieczenia > MFA > tokeny Oath**i przekazać plik CSV.
+Po poprawnym sformatowaniu pliku CSV administrator może następnie zalogować się do Azure Portal, przejść do **Azure Active Directory > zabezpieczenia > MFA > tokeny Oath** i przekazać plik CSV.
 
 Proces może potrwać kilka minut, w zależności od rozmiaru pliku CSV. Wybierz przycisk **Odśwież** , aby uzyskać bieżący stan. W przypadku wystąpienia błędów w pliku można pobrać plik CSV, który zawiera listę błędów, które należy rozwiązać. Nazwy pól w pobranym pliku CSV różnią się od przekazanej wersji.
 
@@ -156,17 +156,17 @@ W Stany Zjednoczone, jeśli nie skonfigurowano identyfikatora obiektu wywołują
 * *+ 1 (877) 668 6536*
 
 > [!NOTE]
-> Gdy wywołania usługi Azure Multi-Factor Authentication są umieszczane za pośrednictwem publicznej sieci telefonicznej, czasami wywołania są kierowane przez operatora, który nie obsługuje identyfikatora rozmówcy. W związku z tym identyfikator wywołującego nie jest gwarantowany, mimo że usługa Azure Multi-Factor Authentication zawsze ją wysyła. Dotyczy to zarówno połączeń telefonicznych, jak i komunikatów tekstowych udostępnianych przez usługę Azure Multi-Factor Authentication. Jeśli musisz sprawdzić, czy wiadomość tekstowa pochodzi z usługi Azure Multi-Factor Authentication, zobacz [krótkie kody programu SMS służące do wysyłania wiadomości?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> Gdy wywołania usługi Azure AD Multi-Factor Authentication są umieszczane za pośrednictwem publicznej sieci telefonicznej, czasami wywołania są kierowane przez operatora, który nie obsługuje identyfikatora rozmówcy. W związku z tym identyfikator wywołującego nie jest gwarantowany, mimo że usługa Azure AD Multi-Factor Authentication zawsze ją wysyła. Dotyczy to zarówno połączeń telefonicznych, jak i komunikatów tekstowych udostępnianych przez usługę Azure AD Multi-Factor Authentication. Jeśli musisz sprawdzić, czy wiadomość tekstowa pochodzi z usługi Azure AD Multi-Factor Authentication, zobacz, [jakie krótkie kody programu SMS są używane do wysyłania wiadomości?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Aby skonfigurować własny numer ID procesu wywołującego, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **ustawień połączenia telefonicznego**usługi MFA.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **ustawień połączenia telefonicznego** usługi MFA.
 1. Ustaw **numer identyfikatora rozmówcy usługi MFA** na numer, który użytkownicy będą widzieć na telefonie. Dozwolone są tylko numery w Stanach Zjednoczonych.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
 ### <a name="custom-voice-messages"></a>Niestandardowe wiadomości głosowe
 
-Możesz użyć własnych nagrań lub powitań dla Multi-Factor Authentication platformy Azure za pomocą funkcji niestandardowych wiadomości głosowych. Te komunikaty mogą służyć jako uzupełnienie lub zastępowanie domyślnych nagrań firmy Microsoft.
+Możesz użyć własnych nagrań lub powitania w usłudze Azure AD Multi-Factor Authentication za pomocą funkcji niestandardowych wiadomości głosowych. Te komunikaty mogą służyć jako uzupełnienie lub zastępowanie domyślnych nagrań firmy Microsoft.
 
 Przed rozpoczęciem należy pamiętać o następujących ograniczeniach:
 
@@ -218,25 +218,25 @@ Następujące przykładowe skrypty mogą służyć do tworzenia własnych niesta
 
 Aby użyć własnych wiadomości niestandardowych, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **ustawień połączenia telefonicznego**usługi MFA.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **ustawień połączenia telefonicznego** usługi MFA.
 1. Wybierz pozycję **Dodaj powitanie**.
 1. Wybierz **Typ** powitania, takie jak *Greeting (standard)* lub  *uwierzytelnianie pomyślne*.
-1. Wybierz **Język**na podstawie poprzedniej sekcji w temacie [niestandardowe zachowanie języka komunikatów](#custom-message-language-behavior).
+1. Wybierz **Język** na podstawie poprzedniej sekcji w temacie [niestandardowe zachowanie języka komunikatów](#custom-message-language-behavior).
 1. Wyszukaj i wybierz plik dźwiękowy *MP3* lub *WAV* , który ma zostać przekazany.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Dodaj**, a następnie **Zapisz**.
 
 ## <a name="mfa-service-settings"></a>Ustawienia usługi MFA
 
-Ustawienia dotyczące haseł aplikacji, zaufanych adresów IP, opcji weryfikacji i zapamiętania usługi uwierzytelniania wieloskładnikowego dla systemu Azure Multi-Factor Authentication można znaleźć w obszarze Ustawienia usług. Jest to większa część starszego portalu i nie jest częścią zwykłego portalu usługi Azure AD.
+Ustawienia dotyczące haseł aplikacji, zaufanych adresów IP, opcji weryfikacji i zapamiętania uwierzytelniania wieloskładnikowego w usłudze Azure AD Multi-Factor Authentication można znaleźć w ustawieniach usługi. Jest to większa część starszego portalu i nie jest częścią zwykłego portalu usługi Azure AD.
 
 Ustawienia usługi są dostępne z poziomu Azure Portal, przechodząc do **Azure Active Directory**  >  **zabezpieczenia**  >  **MFA**  >  **wprowadzenie**  >  **Konfigurowanie**  >  **dodatkowych ustawień usługi MFA opartych na chmurze**. Zostanie otwarte nowe okno lub karta z dodatkowymi opcjami *ustawień usługi* .
 
 ## <a name="trusted-ips"></a>Zaufane adresy IP
 
-Funkcja _Zaufane adresy IP_ w usłudze Azure Multi-Factor Authentication pomija w przypadku użytkowników logujących się ze zdefiniowanego zakresu adresów IP. Możesz ustawić zaufane zakresy adresów IP dla środowisk lokalnych, gdy użytkownicy znajdują się w jednej z tych lokalizacji, nie ma monitu o Multi-Factor Authentication platformy Azure.
+Funkcja _Zaufane adresy IP_ w usłudze Azure AD Multi-Factor Authentication pomija w przypadku użytkowników logujących się ze zdefiniowanego zakresu adresów IP. Możesz ustawić zaufane zakresy adresów IP dla środowisk lokalnych, gdy użytkownicy znajdują się w jednej z tych lokalizacji, nie ma monitu o Multi-Factor Authentication usługi Azure AD.
 
 > [!NOTE]
-> W przypadku korzystania z serwera MFA Zaufane adresy IP mogą zawierać prywatne zakresy adresów IPv4. W przypadku usługi Azure Multi-Factor Authentication opartej na chmurze można używać tylko publicznych zakresów adresów IP.
+> W przypadku korzystania z serwera MFA Zaufane adresy IP mogą zawierać prywatne zakresy adresów IPv4. W przypadku usługi Azure AD Multi-Factor Authentication opartej na chmurze można używać tylko zakresów publicznych adresów IP.
 >
 > Zakresy adresów IPv6 są obsługiwane tylko w interfejsie [nazwanych lokalizacji (wersja zapoznawcza)](../conditional-access/location-condition.md#preview-features) .
 
@@ -244,7 +244,7 @@ Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwier
 
 | Typ dzierżawy usługi Azure AD | Opcje funkcji zaufanego adresu IP |
 |:--- |:--- |
-| Zarządzani |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
+| Zarządzany |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
 | Federacyjni |**Wszyscy użytkownicy federacyjne**: Wszyscy użytkownicy zarejestrowani z wewnątrz organizacji mogą ominąć uwierzytelnianie wieloskładnikowe. Użytkownicy pomijają weryfikację przy użyciu roszczeń wydawanych przez Active Directory Federation Services (AD FS).<br/>**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. |
 
 Obejście zaufanego adresu IP działa tylko w intranecie firmy. W przypadku wybrania opcji **Wszyscy użytkownicy Federacji** , a użytkownik loguje się spoza firmowej sieci intranet, użytkownik musi uwierzytelnić się przy użyciu uwierzytelniania wieloskładnikowego. Ten proces jest taki sam, nawet jeśli użytkownik prezentuje AD FS.
@@ -268,7 +268,7 @@ Za pomocą reguł dostępu warunkowego można definiować nazwane lokalizacje, w
 1. Wprowadź nazwę lokalizacji.
 1. Wybierz pozycję **Oznacz jako zaufaną lokalizację**.
 1. Wprowadź zakres adresów IP w notacji CIDR dla danego środowiska, na przykład *40.77.182.32/27*.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego
 
@@ -276,7 +276,7 @@ Aby włączyć Zaufane adresy IP przy użyciu zasad dostępu warunkowego, wykona
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie przejdź do lokalizacji **zabezpieczenia**  >   **dostęp warunkowy**  >  **o nazwie lokalizacje**.
 1. Wybierz pozycję **Konfiguruj Zaufane adresy IP usługi MFA**.
-1. Na stronie **Ustawienia usługi** w obszarze **Zaufane adresy IP**wybierz jedną z następujących dwóch opcji:
+1. Na stronie **Ustawienia usługi** w obszarze **Zaufane adresy IP** wybierz jedną z następujących dwóch opcji:
 
    * **W przypadku żądań od użytkowników federacyjnych pochodzących z mojego intranetu**: aby wybrać tę opcję, zaznacz to pole wyboru. Wszyscy użytkownicy federacyjne, którzy logują się z sieci firmowej, pomijają uwierzytelnianie wieloskładnikowe przy użyciu roszczeń wystawionych przez AD FS. Upewnij się, że AD FS ma regułę umożliwiającą dodanie do odpowiedniego ruchu w intranecie. Jeśli reguła nie istnieje, Utwórz następującą regułę w AD FS:
 
@@ -291,12 +291,12 @@ Aby włączyć Zaufane adresy IP przy użyciu zasad dostępu warunkowego, wykona
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Włączanie funkcji Zaufane adresy IP przy użyciu ustawień usługi
 
-Jeśli nie chcesz używać zasad dostępu warunkowego do włączania zaufanych adresów IP, możesz skonfigurować *Ustawienia usługi* dla platformy Azure Multi-Factor Authentication, wykonując następujące czynności:
+Jeśli nie chcesz używać zasad dostępu warunkowego do włączania zaufanych adresów IP, możesz skonfigurować *Ustawienia usługi* Azure AD Multi-Factor Authentication, wykonując następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**.
 1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
-1. Na stronie **Ustawienia usługi** w obszarze **Zaufane adresy IP**wybierz jedną z następujących opcji:
+1. Na stronie **Ustawienia usługi** w obszarze **Zaufane adresy IP** wybierz jedną z następujących opcji:
 
    * **W przypadku żądań od użytkowników federacyjnych w moim intranecie**: aby wybrać tę opcję, zaznacz pole wyboru. Wszyscy użytkownicy federacyjne, którzy logują się z sieci firmowej, pomijają uwierzytelnianie wieloskładnikowe przy użyciu roszczeń wystawionych przez AD FS. Upewnij się, że AD FS ma regułę umożliwiającą dodanie do odpowiedniego ruchu w intranecie. Jeśli reguła nie istnieje, Utwórz następującą regułę w AD FS:
 
@@ -311,7 +311,7 @@ Jeśli nie chcesz używać zasad dostępu warunkowego do włączania zaufanych a
 
 ## <a name="verification-methods"></a>Metody weryfikacji
 
-Możesz wybrać metody weryfikacji, które są dostępne dla użytkowników w portalu ustawień usługi. Gdy użytkownicy rejestrują swoje konta dla usługi Azure Multi-Factor Authentication, wybierają ich preferowaną metodę weryfikacji z opcji, które zostały włączone. Wskazówki dotyczące procesu rejestracji użytkownika znajdują się w [sekcji Konfigurowanie mojego konta do uwierzytelniania wieloskładnikowego](../user-help/multi-factor-authentication-end-user-first-time.md).
+Możesz wybrać metody weryfikacji, które są dostępne dla użytkowników w portalu ustawień usługi. Gdy użytkownicy rejestrują swoje konta dla Multi-Factor Authentication usługi Azure AD, wybierają preferowaną metodę weryfikacji z opcji, które zostały włączone. Wskazówki dotyczące procesu rejestracji użytkownika znajdują się w [sekcji Konfigurowanie mojego konta do uwierzytelniania wieloskładnikowego](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Dostępne są następujące metody weryfikacji:
 
@@ -331,7 +331,7 @@ Aby włączyć lub wyłączyć metody weryfikacyjne, wykonaj następujące czynn
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**.
 1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
-1. Na stronie **Ustawienia usługi** w obszarze **Opcje weryfikacji**wybierz/Usuń zaznaczenie metod, które mają być dostępne dla użytkowników.
+1. Na stronie **Ustawienia usługi** w obszarze **Opcje weryfikacji** wybierz/Usuń zaznaczenie metod, które mają być dostępne dla użytkowników.
 1. Kliknij przycisk **Zapisz**.
 
 ## <a name="remember-multi-factor-authentication"></a>Pamiętaj Multi-Factor Authentication
@@ -366,7 +366,7 @@ Aby włączyć i skonfigurować opcję dla użytkowników, którzy będą pamię
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**.
 1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
-1. Na stronie **Ustawienia usługi** w obszarze **Zapamiętaj uwierzytelnianie wieloskładnikowe**wybierz opcję **Zezwalaj użytkownikom na zapamiętywanie uwierzytelniania wieloskładnikowego na urządzeniach, które ufają** .
+1. Na stronie **Ustawienia usługi** w obszarze **Zapamiętaj uwierzytelnianie wieloskładnikowe** wybierz opcję **Zezwalaj użytkownikom na zapamiętywanie uwierzytelniania wieloskładnikowego na urządzeniach, które ufają** .
 1. Ustaw liczbę dni, przez które zaufane urządzenia mają obejść uwierzytelnianie wieloskładnikowe. Aby zapewnić optymalne środowisko użytkownika, należy zwiększyć czas trwania do *90* lub więcej dni.
 1. Wybierz pozycję **Zapisz**.
 
@@ -376,4 +376,4 @@ Po włączeniu funkcji Pamiętaj Multi-Factor Authentication użytkownicy mogą 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat dostępnych metod korzystania z usługi Azure Multi-Factor Authentication, zobacz [jakie metody uwierzytelniania i weryfikacji są dostępne w Azure Active Directory?](concept-authentication-methods.md)
+Aby dowiedzieć się więcej na temat dostępnych metod korzystania z usługi Azure AD Multi-Factor Authentication, zobacz [jakie metody uwierzytelniania i weryfikacji są dostępne w Azure Active Directory?](concept-authentication-methods.md)

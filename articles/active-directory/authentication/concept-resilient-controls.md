@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366568"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839713"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
 
@@ -65,11 +65,11 @@ Aby odblokować dostęp administratora do dzierżawy, należy utworzyć konta do
 
 Uwzględnij następujące kontrolki dostępu do istniejących zasad dostępu warunkowego dla organizacji:
 
-1. Zainicjuj obsługę wielu metod uwierzytelniania dla każdego użytkownika, który korzysta z różnych kanałów komunikacyjnych, na przykład aplikacji Microsoft Authenticator (internetowej), tokenu OATH (wygenerowanego na urządzeniu) i wiadomości SMS (telephonic). Poniższy skrypt programu PowerShell pomoże Ci określić z wyprzedzeniem dodatkowe metody, które użytkownicy powinni zarejestrować: [skrypt analizy metody uwierzytelniania usługi Azure MFA](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Zainicjuj obsługę wielu metod uwierzytelniania dla każdego użytkownika, który korzysta z różnych kanałów komunikacyjnych, na przykład aplikacji Microsoft Authenticator (internetowej), tokenu OATH (wygenerowanego na urządzeniu) i wiadomości SMS (telephonic). Poniższy skrypt programu PowerShell pomoże Ci określić z wyprzedzeniem dodatkowe metody, które użytkownicy powinni zarejestrować: [skrypt analizy metody uwierzytelniania usługi Azure AD MFA](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Wdróż usługę Windows Hello dla firm na urządzeniach z systemem Windows 10, aby spełnić wymagania usługi MFA bezpośrednio po zalogowaniu się do urządzenia.
 3. Używaj zaufanych urządzeń za pośrednictwem [sprzężenia hybrydowego usługi Azure AD](../devices/overview.md) lub [Microsoft Intune zarządzanych urządzeń](/intune/planning-guide). Zaufane urządzenia będą ulepszać środowisko użytkownika, ponieważ zaufane urządzenie może spełnić wymagania dotyczące silnych uwierzytelnień zasad bez wyzwania usługi MFA dla użytkownika. Uwierzytelnianie wieloskładnikowe będzie wymagane podczas rejestrowania nowego urządzenia i uzyskiwania dostępu do aplikacji lub zasobów z niezaufanych urządzeń.
 4. Użyj zasad opartych na ryzyku usługi Azure AD Identity Protection, które uniemożliwiają dostęp, gdy użytkownik lub logowanie jest zagrożone w przypadku stałych zasad usługi MFA.
-5. W przypadku ochrony dostępu do sieci VPN przy użyciu rozszerzenia serwera NPS usługi Azure MFA należy rozważyć federowanie rozwiązanie sieci VPN jako [aplikację SAML](../manage-apps/view-applications-portal.md) i określić kategorię aplikacji zgodnie z zaleceniami poniżej. 
+5. W przypadku ochrony dostępu do sieci VPN przy użyciu rozszerzenia serwera NPS usługi Azure AD MFA należy rozważyć federowanie rozwiązanie sieci VPN jako [aplikację SAML](../manage-apps/view-applications-portal.md) i określić kategorię aplikacji zgodnie z zaleceniami poniżej. 
 
 >[!NOTE]
 > Zasady oparte na ryzyku wymagają licencji na [Azure AD — wersja Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -112,7 +112,7 @@ Alternatywnie organizacja może również tworzyć zasady awaryjne. Aby utworzy�
 
 #### <a name="microsoft-recommendations"></a>Zalecenia firmy Microsoft
 
-Zasady awaryjnego dostępu warunkowego to **zasady tworzenia kopii zapasowych** , które pomijają mechanizmy uwierzytelniania wieloskładnikowego Azure MFA, oparte na ryzyku lub na urządzeniach. Aby zminimalizować nieoczekiwane zakłócenia podczas włączania zasad awaryjnych, zasady powinny pozostać w trybie tylko do raportowania, gdy nie są używane. Administratorzy mogą monitorować potencjalny wpływ ich zasad awaryjnych za pomocą skoroszytu dostępu warunkowego usługi Insights. Gdy organizacja zdecyduje się na aktywację planu awaryjnego, Administratorzy mogą włączyć zasady i wyłączyć regularne zasady oparte na kontroli.
+Zasady awaryjnego dostępu warunkowego to **zasady tworzenia kopii zapasowych** , które pomijają usługi Azure AD MFA, uwierzytelnianie MFA innej firmy, oparte na ryzyku lub kontrolki oparte na urządzeniach. Aby zminimalizować nieoczekiwane zakłócenia podczas włączania zasad awaryjnych, zasady powinny pozostać w trybie tylko do raportowania, gdy nie są używane. Administratorzy mogą monitorować potencjalny wpływ ich zasad awaryjnych za pomocą skoroszytu dostępu warunkowego usługi Insights. Gdy organizacja zdecyduje się na aktywację planu awaryjnego, Administratorzy mogą włączyć zasady i wyłączyć regularne zasady oparte na kontroli.
 
 >[!IMPORTANT]
 > Wyłączenie zasad, które wymuszają zabezpieczenia dla użytkowników, nawet tymczasowo, zmniejszy stan bezpieczeństwa w trakcie planowania awaryjnego.
@@ -120,7 +120,7 @@ Zasady awaryjnego dostępu warunkowego to **zasady tworzenia kopii zapasowych** 
 * Skonfiguruj zestaw zasad powrotu, jeśli zakłócenia w jednym typie poświadczeń lub jeden mechanizm kontroli dostępu ma wpływ na dostęp do aplikacji. Skonfiguruj zasady w stanie "tylko raport", który wymaga przyłączenia do domeny jako kontrolki jako kopii zapasowej aktywnej zasady, która wymaga dostawcy MFA innej firmy.
 * Ogranicz ryzyko nieprawidłowych uczestników odgadnąć hasła, gdy uwierzytelnianie wieloskładnikowe nie jest wymagane, postępując zgodnie z zasadami [zawartymi w dokumencie wytyczne dotyczące haseł](https://aka.ms/passwordguidance) .
 * Wdróż [usługę Azure ad Self-Service Resetowanie hasła (SSPR)](./tutorial-enable-sspr.md) i [ochronę hasłem usługi Azure AD](./howto-password-ban-bad-on-premises-deploy.md) , aby upewnić się, że użytkownicy nie używają wspólnych haseł i postanowień dotyczących zakazu.
-* Użyj zasad, które ograniczają dostęp w aplikacjach, jeśli nie zostanie osiągnięty określony poziom uwierzytelniania zamiast po prostu z powrotem do pełnego dostępu. Na przykład:
+* Użyj zasad, które ograniczają dostęp w aplikacjach, jeśli nie zostanie osiągnięty określony poziom uwierzytelniania zamiast po prostu z powrotem do pełnego dostępu. Przykład:
   * Skonfiguruj zasady tworzenia kopii zapasowych, które wysyłają do programów Exchange i SharePoint żądania ograniczonej sesji.
   * Jeśli Twoja organizacja używa Microsoft Cloud App Security, rozważ powracanie do zasad, które angażują MCAS, a następnie MCAS zezwala na dostęp tylko do odczytu, ale nie do przekazywania.
 * Nazwij swoje zasady, aby upewnić się, że można je łatwo znaleźć w trakcie przerw w działaniu. Uwzględnij następujące elementy w nazwie zasad:
@@ -138,7 +138,7 @@ Ten standard nazewnictwa dla zasad awaryjnych będzie następujący:
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-Poniższy przykład: **przykładowo zasady dotyczące zasad urzędu certyfikacji w celu przywrócenia dostępu do aplikacji do współpracy o znaczeniu krytycznym**są typowymi zagrożeniami firmowymi. W tym scenariuszu Organizacja zwykle wymaga uwierzytelniania wieloskładnikowego dla wszystkich usług Exchange Online i SharePoint Online, a w takim przypadku zakłócenia jest w tym przypadku dostawcą usługi MFA dla klienta jest przestój (czy usługa Azure MFA, lokalny dostawca MFA, czy MFA innej firmy). Te zasady ograniczają tę awarię przez umożliwienie określonym użytkownikom mającym dostęp do tych aplikacji z zaufanych urządzeń z systemem Windows tylko wtedy, gdy uzyskują oni dostęp do aplikacji z ich zaufanej sieci firmowej. Spowoduje to również Wykluczenie kont awaryjnych i administratorów podstawowych z tych ograniczeń. Użytkownicy dokierowany do usługi Exchange Online i SharePoint Online będą mogli uzyskiwać dostęp do aplikacji, a inni użytkownicy nadal nie będą mieli dostępu do nich z powodu przestoju. Ten przykład wymaga, aby nazwana lokalizacja sieciowa **CorpNetwork** i Grupa zabezpieczeń **ContingencyAccess** z użytkownikami docelowymi, Grupa o nazwie **CoreAdmins** z podstawowymi administratorami i Grupa o nazwie **EmergencyAccess** z kontami dostępu awaryjnego. Sytuacje awaryjne wymagają czterech zasad, aby zapewnić żądany dostęp. 
+Poniższy przykład: **przykładowo zasady dotyczące zasad urzędu certyfikacji w celu przywrócenia dostępu do aplikacji do współpracy o znaczeniu krytycznym** są typowymi zagrożeniami firmowymi. W tym scenariuszu Organizacja zwykle wymaga uwierzytelniania wieloskładnikowego dla wszystkich usług Exchange Online i SharePoint Online, a w takim przypadku zakłócenia jest w tym przypadku dostawcą usługi MFA dla klienta jest przestój (czy usługa Azure AD MFA, dostawca lokalnego uwierzytelniania MFA czy MFA innej firmy). Te zasady ograniczają tę awarię przez umożliwienie określonym użytkownikom mającym dostęp do tych aplikacji z zaufanych urządzeń z systemem Windows tylko wtedy, gdy uzyskują oni dostęp do aplikacji z ich zaufanej sieci firmowej. Spowoduje to również Wykluczenie kont awaryjnych i administratorów podstawowych z tych ograniczeń. Użytkownicy dokierowany do usługi Exchange Online i SharePoint Online będą mogli uzyskiwać dostęp do aplikacji, a inni użytkownicy nadal nie będą mieli dostępu do nich z powodu przestoju. Ten przykład wymaga, aby nazwana lokalizacja sieciowa **CorpNetwork** i Grupa zabezpieczeń **ContingencyAccess** z użytkownikami docelowymi, Grupa o nazwie **CoreAdmins** z podstawowymi administratorami i Grupa o nazwie **EmergencyAccess** z kontami dostępu awaryjnego. Sytuacje awaryjne wymagają czterech zasad, aby zapewnić żądany dostęp. 
 
 **Przykład: zasady urzędu certyfikacji awaryjnej umożliwiające przywrócenie dostępu do aplikacji do współpracy o kluczowym znaczeniu.**
 
@@ -208,7 +208,7 @@ Kolejność aktywacji:
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Sytuacje awaryjne dla blokady użytkownika z zasobów Premium (rozszerzenie serwera NPS)
 
-W przypadku ochrony dostępu do sieci VPN przy użyciu rozszerzenia serwera NPS usługi Azure MFA należy rozważyć federowanie rozwiązanie sieci VPN jako [aplikację SAML](../manage-apps/view-applications-portal.md) i określić kategorię aplikacji zgodnie z zaleceniami poniżej. 
+W przypadku ochrony dostępu do sieci VPN przy użyciu rozszerzenia serwera NPS usługi Azure AD MFA należy rozważyć federowanie rozwiązanie sieci VPN jako [aplikację SAML](../manage-apps/view-applications-portal.md) i określić kategorię aplikacji zgodnie z zaleceniami poniżej. 
 
 Jeśli wdrożono rozszerzenie zasad sieciowych usługi Azure AD MFA w celu ochrony zasobów Premium, takich jak sieć VPN i Brama Pulpit zdalny, należy rozważyć z wyprzedzeniem, jeśli wszystko jest gotowe do wyłączenia usługi MFA w przypadku awarii.
 
@@ -280,9 +280,9 @@ Jeśli Twoja organizacja korzysta ze starszych zasad usługi MFA dla użytkownik
  > W przypadku rozszerzenia zaufanych adresów IP w celu odblokowania dostępu, wykrywanie ryzyka skojarzone z adresami IP (na przykład niemożliwa podróż lub nieznane lokalizacje) nie zostaną wygenerowane.
 
 >[!NOTE]
- > Konfigurowanie [zaufanych adresów IP](./howto-mfa-mfasettings.md) dla usługi Azure MFA jest możliwe tylko przy użyciu [licencji Azure AD — wersja Premium](./concept-mfa-licensing.md).
+ > Konfigurowanie [zaufanych adresów IP](./howto-mfa-mfasettings.md) dla usługi Azure AD MFA jest dostępne tylko z [licencjami Azure AD — wersja Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Dokumentacja uwierzytelniania usługi Azure AD](./howto-mfaserver-iis.md)
 * [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md)

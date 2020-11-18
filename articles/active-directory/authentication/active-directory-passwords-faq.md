@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965560"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840104"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Często zadawane pytania dotyczące samoobsługowego resetowania hasła
 
@@ -38,10 +38,10 @@ Często zadawane pytania są podzielone na następujące sekcje:
 
   > **Odpowiedź:** tak. Dopóki funkcja resetowania hasła jest włączona i jest licencjonowana, użytkownicy mogą przejść do portalu rejestracji resetowania haseł ( https://aka.ms/ssprsetup) Aby zarejestrować swoje informacje uwierzytelniania. Użytkownicy mogą również rejestrować się za pomocą panelu dostępu ( https://myapps.microsoft.com) . Aby zarejestrować się w panelu dostępu, należy wybrać swój obraz profilu, wybrać pozycję **profil**, a następnie wybrać opcję **zarejestruj do resetowania hasła** .
   >
-  > Po włączeniu [połączonej rejestracji](concept-registration-mfa-sspr-combined.md)użytkownicy mogą rejestrować się zarówno w SSPR, jak i na platformie Multi-Factor Authentication Azure.
+  > Jeśli włączysz [rejestrację łączną](concept-registration-mfa-sspr-combined.md), użytkownicy mogą rejestrować się jednocześnie zarówno w SSPR, jak i w usłudze Azure Multi-Factor Authentication AD.
 * **P: Jeśli włączam funkcję resetowania haseł dla grupy, a następnie zdecyduje się ją włączyć dla wszystkich użytkowników, wymagane jest ponowne zarejestrowanie?**
 
-  > **Odpowiedź:** Nie. Użytkownicy, którzy wypełnili dane uwierzytelniania, nie muszą być ponownie rejestrowani.
+  > Odp **.:** Znaleziono. Użytkownicy, którzy wypełnili dane uwierzytelniania, nie muszą być ponownie rejestrowani.
   >
   >
 * **P: Czy można definiować dane resetowania haseł w imieniu moich użytkowników?**
@@ -61,7 +61,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
   >
 * **P: Czy wszyscy użytkownicy muszą zostać zarejestrowani, zanim będą mogli używać resetowania haseł?**
 
-  > **Odpowiedź:** Nie. Jeśli zdefiniujesz wystarczającą ilość informacji o uwierzytelnianiu w ich imieniu, użytkownicy nie będą musieli rejestrować. Resetowanie hasła działa tak długo, jak prawidłowo sformatowane dane przechowywane w odpowiednich polach w katalogu.
+  > Odp **.:** Znaleziono. Jeśli zdefiniujesz wystarczającą ilość informacji o uwierzytelnianiu w ich imieniu, użytkownicy nie będą musieli rejestrować. Resetowanie hasła działa tak długo, jak prawidłowo sformatowane dane przechowywane w odpowiednich polach w katalogu.
   >
   >
 * **P: Czy można synchronizować lub ustawiać pola numer telefonu uwierzytelniania, adres e-mail uwierzytelniania lub alternatywny numer telefonu uwierzytelniania w imieniu użytkowników?**
@@ -159,7 +159,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
   >
 * **P: czy użytkownik może zarejestrować to samo pytanie zabezpieczeń więcej niż raz?**
 
-  > **Odpowiedź:** Nie. Po zarejestrowaniu określonego pytania przez użytkownika nie można zarejestrować tego pytania w drugim momencie.
+  > Odp **.:** Znaleziono. Po zarejestrowaniu określonego pytania przez użytkownika nie można zarejestrować tego pytania w drugim momencie.
   >
   >
 * **P: Czy można ustawić minimalny limit pytań zabezpieczających na potrzeby rejestracji i resetowania?**

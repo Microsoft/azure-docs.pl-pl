@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356590"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839832"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminowanie nieprawidłowych haseł przy użyciu ochrony hasłem Azure Active Directory
 
@@ -24,7 +24,7 @@ Wiele wskazówek dotyczących zabezpieczeń zaleca, aby nie używać tego samego
 
 W przypadku ochrony hasłem w usłudze Azure AD domyślne globalne listy zakazanych haseł są automatycznie stosowane dla wszystkich użytkowników w dzierżawie usługi Azure AD. Aby móc obsługiwać własne potrzeby biznesowe i bezpieczeństwa, możesz definiować wpisy na liście niestandardowych haseł zabronionych. Gdy użytkownicy zmienią lub zresetują swoje hasła, te zabronione listy haseł są sprawdzane w celu wymuszenia użycia silnych haseł.
 
-Należy używać dodatkowych funkcji, takich jak [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), a nie tylko na silnych hasłach wymuszanych przez ochronę hasłem usługi Azure AD. Aby uzyskać więcej informacji na temat używania wielu warstw zabezpieczeń dla zdarzeń logowania, zobacz [PA $ $Word nie ma znaczenia](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Należy używać dodatkowych funkcji, takich jak [usługa Azure ad Multi-Factor Authentication](concept-mfa-howitworks.md), a nie tylko na silnych hasłach wymuszanych przez ochronę hasłem usługi Azure AD. Aby uzyskać więcej informacji na temat używania wielu warstw zabezpieczeń dla zdarzeń logowania, zobacz [PA $ $Word nie ma znaczenia](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > Ten artykuł koncepcyjny wyjaśnia, jak działa ochrona hasłem w usłudze Azure AD. Jeśli jesteś użytkownikiem końcowym już zarejestrowanym do samoobsługowego resetowania hasła i chcesz wrócić do swojego konta, przejdź do strony [https://aka.ms/sspr](https://aka.ms/sspr) .

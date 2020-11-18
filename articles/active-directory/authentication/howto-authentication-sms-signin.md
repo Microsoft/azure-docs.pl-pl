@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a1da460933269a21afaf8ec7d805ec6f43fce926
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166639"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839409"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurowanie i Zezwalanie użytkownikom na uwierzytelnianie SMS przy użyciu Azure Active Directory (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Musisz mieć uprawnienia *administratora globalnego* w dzierżawie usługi Azure AD, aby włączyć uwierzytelnianie oparte na programie SMS.
 * Każdy użytkownik, który jest włączony w zasadach metody uwierzytelniania wiadomości tekstowych musi być licencjonowany, nawet jeśli nie używa tego programu. Każdy włączony użytkownik musi mieć jedną z następujących licencji usługi Azure AD, usług EMS i Microsoft 365:
-    * [Azure AD — wersja Premium P1 lub P2][azuread-licensing]
+    * [Usługa Azure AD — wersja Premium P1 lub P2][azuread-licensing]
     * [Microsoft 365 (M365) F1 lub F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 lub E5][ems-licensing] lub [Microsoft 365 (M365) E3 lub E5][m365-licensing]
 
@@ -45,7 +45,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 Podczas publicznej wersji zapoznawczej uwierzytelniania opartego na programie SMS obowiązują następujące ograniczenia:
 
-* Uwierzytelnianie oparte na programie SMS nie jest obecnie zgodne z usługą Azure Multi-Factor Authentication.
+* Uwierzytelnianie oparte na programie SMS nie jest obecnie zgodne z usługą Azure AD Multi-Factor Authentication.
 * Z wyjątkiem zespołów uwierzytelnianie oparte na programie SMS nie jest obecnie zgodne z natywnymi aplikacjami pakietu Office.
 * Uwierzytelnianie oparte na programie SMS nie jest zalecane w przypadku kont B2B.
 * Użytkownicy federacyjny nie będą uwierzytelniani w dzierżawie głównej. Są one uwierzytelniane tylko w chmurze.
@@ -89,9 +89,9 @@ Każdy użytkownik, który jest włączony w zasadach metody uwierzytelniania wi
 
 ## <a name="set-a-phone-number-for-user-accounts"></a>Ustawianie numeru telefonu dla kont użytkowników
 
-Użytkownicy są teraz włączeni do uwierzytelniania za pomocą programu SMS, ale ich numer telefonu musi być skojarzony z profilem użytkownika w usłudze Azure AD przed zalogowaniem się. Użytkownik może [ustawić ten numer telefonu](../user-help/sms-sign-in-explainer.md) w *moim profilu*lub przypisać numer telefonu przy użyciu Azure Portal. Numery telefonów mogą być ustawiane przez *administratorów globalnych*, *administratorów uwierzytelniania*lub *administratorów uwierzytelniania uprzywilejowanego*.
+Użytkownicy są teraz włączeni do uwierzytelniania za pomocą programu SMS, ale ich numer telefonu musi być skojarzony z profilem użytkownika w usłudze Azure AD przed zalogowaniem się. Użytkownik może [ustawić ten numer telefonu](../user-help/sms-sign-in-explainer.md) w *moim profilu* lub przypisać numer telefonu przy użyciu Azure Portal. Numery telefonów mogą być ustawiane przez *administratorów globalnych*, *administratorów uwierzytelniania* lub *administratorów uwierzytelniania uprzywilejowanego*.
 
-Po ustawieniu numeru telefonu dla wiadomości SMS jest on również dostępny do użycia z [usługą Azure Multi-Factor Authentication][tutorial-azure-mfa] i funkcją samoobsługowego [resetowania hasła][tutorial-sspr].
+Po ustawieniu numeru telefonu dla wiadomości SMS jest on również dostępny do użycia z [usługą Azure AD Multi-Factor Authentication][tutorial-azure-mfa] i samoobsługowego [resetowania hasła][tutorial-sspr].
 
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W menu nawigacji po lewej stronie okna Azure Active Directory wybierz pozycję **Użytkownicy**.
@@ -100,7 +100,7 @@ Po ustawieniu numeru telefonu dla wiadomości SMS jest on również dostępny do
 
     Wprowadź numer telefonu użytkownika, w tym kod kraju, taki jak *+ 1 xxxxxxxxx*. Azure Portal sprawdza poprawność numeru telefonu.
 
-    Następnie z menu rozwijanego *Typ telefonu* wybierz pozycję *Mobile*, *alternatywny Mobile*lub *inne* w zależności od wymagań.
+    Następnie z menu rozwijanego *Typ telefonu* wybierz pozycję *Mobile*, *alternatywny Mobile* lub *inne* w zależności od wymagań.
 
     :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Ustaw numer telefonu dla użytkownika w Azure Portal, który ma być używany z uwierzytelnianiem na podstawie programu SMS":::
 
@@ -132,9 +132,9 @@ W przypadku problemów z włączaniem i używaniem logowania opartego na program
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>Numer telefonu został już ustawiony dla konta użytkownika
 
-Jeśli użytkownik zarejestrował już usługę Azure Multi-Factor Authentication i/lub funkcję samoobsługowego resetowania hasła (SSPR), ma już numer telefonu skojarzony z Twoim kontem. Ten numer telefonu nie jest automatycznie dostępny do użycia z logowaniem opartym na programie SMS.
+Jeśli użytkownik zarejestrował się już w usłudze Azure AD Multi-Factor Authentication i/lub funkcji samoobsługowego resetowania hasła (SSPR), ma już przypisany numer telefonu do konta. Ten numer telefonu nie jest automatycznie dostępny do użycia z logowaniem opartym na programie SMS.
 
-Użytkownik, który ma już numer telefonu ustawiony dla swojego konta, jest wyświetlany przycisk umożliwiający *Logowanie za pomocą programu SMS* na stronie **mój profil** . Wybierz ten przycisk, a konto jest włączone, aby można było korzystać z logowania opartego na programie SMS oraz poprzednich Multi-Factor Authentication platformy Azure lub rejestracji SSPR.
+Użytkownik, który ma już numer telefonu ustawiony dla swojego konta, jest wyświetlany przycisk umożliwiający *Logowanie za pomocą programu SMS* na stronie **mój profil** . Wybierz ten przycisk, a konto jest włączone na potrzeby logowania opartego na programie SMS i poprzedniej Multi-Factor Authentication rejestracji w usłudze Azure AD.
 
 Aby uzyskać więcej informacji na temat środowiska użytkownika końcowego, zobacz [środowisko użytkownika logowania do programu SMS dla numeru telefonu (wersja zapoznawcza)](../user-help/sms-sign-in-explainer.md).
 

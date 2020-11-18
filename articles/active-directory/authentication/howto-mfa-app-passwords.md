@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie haseł aplikacji dla usługi Azure Multi-Factor Authentication — Azure Active Directory
-description: Dowiedz się, jak konfigurować i używać haseł aplikacji dla starszych aplikacji na platformie Azure Multi-Factor Authentication
+title: Konfigurowanie haseł aplikacji dla usługi Azure AD Multi-Factor Authentication — Azure Active Directory
+description: Dowiedz się, jak konfigurować i używać haseł aplikacji dla starszych aplikacji w usłudze Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85031896a196dd742868466243dd401345b0bc97
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 282bf6a30d8ff70440999ff3763c0d5544ef428d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964506"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839271"
 ---
-# <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Włączanie i używanie usługi Azure Multi-Factor Authentication ze starszymi aplikacjami przy użyciu haseł aplikacji
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Włączanie i używanie usługi Azure AD Multi-Factor Authentication ze starszymi aplikacjami przy użyciu haseł aplikacji
 
-Niektóre starsze aplikacje nie korzystające z przeglądarki, takie jak Office 2010 lub starsze i Apple mail przed systemem iOS 11, nie rozumieją przerw lub przerw w procesie uwierzytelniania. Jeśli użytkownik jest włączony dla platformy Azure Multi-Factor Authentication i spróbuje użyć jednej z tych starszych aplikacji niekorzystających z przeglądarki, nie będzie mógł się uwierzytelnić. Aby korzystać z tych aplikacji w bezpieczny sposób przy użyciu usługi Azure Multi-Factor Authentication włączonej dla kont użytkowników, można użyć haseł aplikacji. Te hasła aplikacji zastąpiły tradycyjne hasło, aby umożliwić aplikacji ominięcie uwierzytelniania wieloskładnikowego i poprawne działanie.
+Niektóre starsze aplikacje nie korzystające z przeglądarki, takie jak Office 2010 lub starsze i Apple mail przed systemem iOS 11, nie rozumieją przerw lub przerw w procesie uwierzytelniania. Jeśli użytkownik jest włączony w usłudze Azure AD Multi-Factor Authentication i spróbuje użyć jednej z tych starszych aplikacji niekorzystających z przeglądarki, nie może się uwierzytelnić. Aby korzystać z tych aplikacji w bezpieczny sposób za pomocą usługi Azure AD Multi-Factor Authentication włączonej dla kont użytkowników, można użyć haseł aplikacji. Te hasła aplikacji zastąpiły tradycyjne hasło, aby umożliwić aplikacji ominięcie uwierzytelniania wieloskładnikowego i poprawne działanie.
 
 Nowoczesne uwierzytelnianie jest obsługiwane przez klientów Microsoft Office 2013 i nowszych. Klienci korzystający z pakietu Office 2013, w tym Outlook, obsługują nowoczesne protokoły uwierzytelniania i mogą być włączeni do pracy z weryfikacją dwuetapową. Po włączeniu klienta hasła aplikacji nie są wymagane dla klienta.
 
@@ -31,7 +31,7 @@ W tym artykule opisano sposób włączania i używania haseł aplikacji w przypa
 
 ## <a name="overview-and-considerations"></a>Omówienie i zagadnienia
 
-Gdy konto użytkownika jest włączone dla usługi Azure Multi-Factor Authentication, zwykły monit logowania zostanie przerwany przez żądanie przeprowadzenia dodatkowej weryfikacji. Niektóre starsze aplikacje nie rozumieją tego przerwania w procesie logowania, więc uwierzytelnianie nie powiedzie się. Aby zachować bezpieczeństwo kont użytkowników i pozostawić Multi-Factor Authentication platformy Azure, można użyć haseł aplikacji zamiast zwykłej nazwy użytkownika i hasła. Gdy hasło aplikacji jest używane podczas logowania, nie ma dodatkowych monitów weryfikacyjnych, więc uwierzytelnianie zakończyło się pomyślnie.
+Gdy konto użytkownika jest włączone dla Multi-Factor Authentication usługi Azure AD, zwykły monit logowania zostanie przerwany przez żądanie przeprowadzenia dodatkowej weryfikacji. Niektóre starsze aplikacje nie rozumieją tego przerwania w procesie logowania, więc uwierzytelnianie nie powiedzie się. Aby zachować bezpieczeństwo kont użytkowników i pozostawić Multi-Factor Authentication usługi Azure AD, można użyć haseł aplikacji zamiast zwykłej nazwy użytkownika i hasła. Gdy hasło aplikacji jest używane podczas logowania, nie ma dodatkowych monitów weryfikacyjnych, więc uwierzytelnianie zakończyło się pomyślnie.
 
 Hasła aplikacji są generowane automatycznie, a nie określone przez użytkownika. To automatycznie generowane hasło utrudnia atakującemu odgadnięcie, więc jest bezpieczniejsze. Użytkownicy nie muszą śledzić haseł ani wprowadzać ich za każdym razem, gdy hasła aplikacji są wprowadzane tylko raz dla aplikacji.
 
@@ -39,7 +39,7 @@ Korzystając z haseł aplikacji, należy zastosować następujące zagadnienia:
 
 * Dla każdego użytkownika istnieje limit 40 haseł aplikacji.
 * Aplikacje, które buforują hasła i używają ich w scenariuszach lokalnych, mogą się nie powieść, ponieważ hasło aplikacji nie jest znane poza kontem służbowym. Przykładem tego scenariusza są wiadomości e-mail programu Exchange, które są lokalne, ale zarchiwizowana poczta znajduje się w chmurze. W tym scenariuszu to samo hasło nie działa.
-* Po włączeniu usługi Azure Multi-Factor Authentication na koncie użytkownika hasła aplikacji mogą być używane z większością klientów nie korzystających z przeglądarki, takich jak Outlook i Microsoft Skype dla firm. Jednak akcje administracyjne nie mogą być wykonywane przy użyciu haseł aplikacji przez aplikacje nie korzystające z przeglądarki, takie jak Windows PowerShell. Akcje nie mogą być wykonywane nawet wtedy, gdy użytkownik ma konto administracyjne.
+* Po włączeniu usługi Azure AD Multi-Factor Authentication na koncie użytkownika hasła aplikacji mogą być używane z większością klientów nie korzystających z przeglądarki, takich jak Outlook i Microsoft Skype dla firm. Jednak akcje administracyjne nie mogą być wykonywane przy użyciu haseł aplikacji przez aplikacje nie korzystające z przeglądarki, takie jak Windows PowerShell. Akcje nie mogą być wykonywane nawet wtedy, gdy użytkownik ma konto administracyjne.
     * Aby uruchamiać skrypty programu PowerShell, należy utworzyć konto usługi o silnym haśle i nie włączać konta na potrzeby weryfikacji dwuetapowej.
 * Jeśli podejrzewasz, że zabezpieczenia konta użytkownika zostały naruszone i odwoływanie/Resetowanie hasła konta, należy również zaktualizować hasła aplikacji. Hasła aplikacji nie są automatycznie odwoływane, gdy hasło do konta użytkownika zostanie odwołane/zresetowane. Użytkownik powinien usunąć istniejące hasła aplikacji i utworzyć nowe.
    * Aby uzyskać więcej informacji, zobacz [Tworzenie i usuwanie haseł aplikacji ze strony dodatkowej weryfikacji zabezpieczeń](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
@@ -55,7 +55,7 @@ Zaleca się utworzenie jednego hasła aplikacji dla każdego urządzenia, a nie 
 
 ## <a name="federated-or-single-sign-on-app-passwords"></a>Hasła aplikacji federacyjnych lub logowania jednokrotnego
 
-Usługa Azure AD obsługuje Federacji lub Logowanie jednokrotne (SSO) z lokalnym Active Directory Domain Services (AD DS). Jeśli Twoja organizacja jest federacyjnym usługą Azure AD i używasz usługi Azure Multi-Factor Authentication, mają zastosowanie następujące zagadnienia dotyczące haseł aplikacji:
+Usługa Azure AD obsługuje Federacji lub Logowanie jednokrotne (SSO) z lokalnym Active Directory Domain Services (AD DS). Jeśli Twoja organizacja jest federacyjnym usługą Azure AD i używasz usługi Azure AD Multi-Factor Authentication, mają zastosowanie następujące zagadnienia dotyczące haseł aplikacji:
 
 >[!NOTE]
 > Poniższe punkty dotyczą tylko klientów federacyjnych (SSO).
@@ -72,7 +72,7 @@ Załóżmy na przykład, że masz następującą architekturę:
 * Lokalne wystąpienie Active Directory jest federacyjne z usługą Azure AD.
 * Używasz usługi Exchange Online.
 * Używasz programu Skype dla firm lokalnie.
-* Używasz usługi Azure Multi-Factor Authentication.
+* Używasz usługi Azure AD Multi-Factor Authentication.
 
 W tym scenariuszu używane są następujące poświadczenia:
 
@@ -99,10 +99,10 @@ Domyślnie użytkownicy nie mogą tworzyć haseł aplikacji. Funkcja haseł apli
 
 ## <a name="create-an-app-password"></a>Utwórz hasło aplikacji
 
-Po zakończeniu wstępnej rejestracji w usłudze Azure Multi-Factor Authentication można utworzyć hasła aplikacji na końcu procesu rejestracji.
+Gdy użytkownicy zakończą swoją wstępną rejestrację w usłudze Azure AD Multi-Factor Authentication, istnieje możliwość utworzenia haseł aplikacji na końcu procesu rejestracji.
 
-Użytkownicy mogą również tworzyć hasła aplikacji po rejestracji. Aby uzyskać więcej informacji i szczegółowe instrukcje dla użytkowników, zobacz [co to są hasła aplikacji w usłudze Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Użytkownicy mogą również tworzyć hasła aplikacji po rejestracji. Aby uzyskać więcej informacji i szczegółowe instrukcje dla użytkowników, zobacz [co to są hasła aplikacji w usłudze Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o tym, jak umożliwić użytkownikom szybkie rejestrowanie w usłudze Azure Multi-Factor Authentication, zobacz [Omówienie rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md).
+Aby uzyskać więcej informacji o tym, jak umożliwić użytkownikom szybkie rejestrowanie w usłudze Azure AD Multi-Factor Authentication, zobacz [Omówienie rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md).

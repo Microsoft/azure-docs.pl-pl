@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992828"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840087"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
 Funkcje, takie jak uwierzytelnianie wieloskładnikowe (MFA), to doskonały sposób na zabezpieczenie organizacji, ale użytkownicy często uzyskują sfrustrowani z dodatkową warstwą zabezpieczeń na potrzeby zapamiętywania haseł. Metody uwierzytelniania bez hasła są wygodniejsze, ponieważ hasło jest usuwane i zastępowane przez użytkownika
 
-| Uwierzytelnianie  | Coś, co masz | Coś lub wiesz |
+| Authentication  | Coś, co masz | Coś lub wiesz |
 | --- | --- | --- |
 | Logowanie bez hasła | Urządzenia, numery telefonów lub klucze zabezpieczeń systemu Windows 10 | Biometryczna lub PIN |
 
@@ -62,7 +62,7 @@ Możesz również pozwolić, aby telefon pracownika stał się metodą uwierzyte
 
 Aplikacja Authenticator włącza każdy telefon z systemem iOS lub Android do silnego poświadczenia bez hasła. Użytkownicy mogą logować się do dowolnej platformy lub przeglądarki, uzyskując powiadomienie na telefonie, dopasowując liczbę wyświetlaną na ekranie na telefonie, a następnie używając ich biometrycznych (dotykowych lub ubocznych) lub numerów PIN, aby potwierdzić. Zapoznaj się z artykułem [pobieranie i instalowanie aplikacji Microsoft Authenticator,](../user-help/user-help-auth-app-download-install.md) Aby uzyskać szczegółowe informacje dotyczące instalacji.
 
-Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator w usłudze Azure AD jest obecnie dostępne w wersji zapoznawczej. Korzystanie z aplikacji Microsoft Authenticator na potrzeby dodatkowego uwierzytelniania na platformie Azure Multi-Factor Authentication, samoobsługowego resetowania hasła (SSPR) lub tokenów oprogramowania OATH jest ogólnie dostępne. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator w usłudze Azure AD jest obecnie dostępne w wersji zapoznawczej. Korzystanie z aplikacji Microsoft Authenticator na potrzeby dodatkowego uwierzytelniania w usłudze Azure AD Multi-Factor Authentication, samoobsługowego resetowania hasła (SSPR) lub tokenów oprogramowania OATH jest ogólnie dostępne. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Uwierzytelnianie bezhasła przy użyciu aplikacji Authenticator jest zgodne z tym samym wzorcem, co w przypadku usługi Windows Hello dla firm. Jest to nieco bardziej skomplikowany sposób, w jaki użytkownik musi zostać zidentyfikowany, aby usługa Azure AD mogła znaleźć używaną wersję aplikacji Microsoft Authenticator:
 

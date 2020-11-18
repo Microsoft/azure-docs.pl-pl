@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: c5ae0e0d312aa9a959b114d576f887bfa5072f49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a166a451c405c2321453e02751baad91c2a14c60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965509"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840021"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -26,13 +26,13 @@ W ramach funkcji logowania dla kont w usłudze Azure Active Directory (Azure AD)
 
 Metody uwierzytelniania bez hasła, takie jak Windows Hello, FIDO2 klucze zabezpieczeń i aplikacja Microsoft Authenticator zapewniają najbezpieczniejsze zdarzenia logowania.
 
-Usługa Azure Multi-Factor Authentication dodaje dodatkowe zabezpieczenia tylko przy użyciu hasła po zalogowaniu się użytkownika. Użytkownik może zostać poproszony o dodatkowe formy uwierzytelniania, na przykład aby odpowiedzieć na powiadomienie wypychane, wprowadzić kod z oprogramowania lub tokenu sprzętowego lub odpowiedzieć na wiadomość SMS lub połączenie telefoniczne.
+Usługa Azure AD Multi-Factor Authentication dodaje dodatkowe zabezpieczenia tylko przy użyciu hasła po zalogowaniu się użytkownika. Użytkownik może zostać poproszony o dodatkowe formy uwierzytelniania, na przykład aby odpowiedzieć na powiadomienie wypychane, wprowadzić kod z oprogramowania lub tokenu sprzętowego lub odpowiedzieć na wiadomość SMS lub połączenie telefoniczne.
 
 Aby uprościć środowisko użytkownika i zarejestrować się na potrzeby usługi MFA i SSPR, zalecamy [włączenie połączonej rejestracji informacji o zabezpieczeniach](howto-registration-mfa-sspr-combined.md). W celu zapewnienia odporności zalecamy, aby użytkownicy musieli zarejestrować wiele metod uwierzytelniania. Gdy jedna metoda nie jest dostępna dla użytkownika podczas logowania lub SSPR, może zdecydować się na uwierzytelnienie przy użyciu innej metody. Aby uzyskać więcej informacji, zobacz [Tworzenie elastycznej strategii zarządzania kontroli dostępu w usłudze Azure AD](concept-resilient-controls.md).
 
 ## <a name="authentication-method-strength-and-security"></a>Siła i zabezpieczenia metody uwierzytelniania
 
-W przypadku wdrażania funkcji takich jak Azure Multi-Factor Authentication w organizacji zapoznaj się z dostępnymi metodami uwierzytelniania. Wybierz metody, które spełniają lub przekraczają wymagania w zakresie zabezpieczeń, użyteczności i dostępności. Jeśli to możliwe, użyj metod uwierzytelniania z najwyższym poziomem zabezpieczeń.
+Podczas wdrażania funkcji, takich jak usługa Azure AD Multi-Factor Authentication w organizacji, zapoznaj się z dostępnymi metodami uwierzytelniania. Wybierz metody, które spełniają lub przekraczają wymagania w zakresie zabezpieczeń, użyteczności i dostępności. Jeśli to możliwe, użyj metod uwierzytelniania z najwyższym poziomem zabezpieczeń.
 
 W poniższej tabeli przedstawiono zagadnienia dotyczące zabezpieczeń dostępnych metod uwierzytelniania. Dostępność to wskazanie, że użytkownik może korzystać z metody uwierzytelniania, a nie dostępności usługi w usłudze Azure AD:
 
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji na temat zabezpieczeń, zobacz luki w zabezpiecz
 
 ## <a name="how-each-authentication-method-works"></a>Jak działa każda metoda uwierzytelniania
 
-Niektóre metody uwierzytelniania mogą być używane jako główny czynnik podczas logowania się do aplikacji lub urządzenia, na przykład przy użyciu klucza zabezpieczeń FIDO2 lub hasła. Inne metody uwierzytelniania są dostępne tylko jako składnik pomocniczy w przypadku korzystania z usługi Azure Multi-Factor Authentication lub SSPR.
+Niektóre metody uwierzytelniania mogą być używane jako główny czynnik podczas logowania się do aplikacji lub urządzenia, na przykład przy użyciu klucza zabezpieczeń FIDO2 lub hasła. Inne metody uwierzytelniania są dostępne tylko jako składnik pomocniczy w przypadku korzystania z usługi Azure AD Multi-Factor Authentication lub SSPR.
 
 Poniższa tabela przedstawia, kiedy Metoda uwierzytelniania może być używana podczas zdarzenia logowania:
 
@@ -83,25 +83,25 @@ Aby dowiedzieć się więcej o tym, jak działa każda metoda uwierzytelniania, 
 * Hasło
 
 > [!NOTE]
-> W usłudze Azure AD hasło jest często jedną z podstawowych metod uwierzytelniania. Nie można wyłączyć metody uwierzytelniania hasła. Jeśli używasz hasła jako podstawowego czynnika uwierzytelniania, Zwiększ bezpieczeństwo zdarzeń logowania za pomocą usługi Azure Multi-Factor Authentication.
+> W usłudze Azure AD hasło jest często jedną z podstawowych metod uwierzytelniania. Nie można wyłączyć metody uwierzytelniania hasła. W przypadku użycia hasła jako podstawowego wskaźnika uwierzytelniania należy zwiększyć bezpieczeństwo zdarzeń logowania za pomocą usługi Azure AD Multi-Factor Authentication.
 
 W niektórych scenariuszach można używać następujących dodatkowych metod weryfikacji:
 
-* [Hasła aplikacji](howto-mfa-app-passwords.md) — używane w przypadku starych aplikacji, które nie obsługują nowoczesnego uwierzytelniania i można je skonfigurować dla Multi-Factor Authentication platformy Azure dla poszczególnych użytkowników.
+* [Hasła aplikacji](howto-mfa-app-passwords.md) — używane w przypadku starych aplikacji, które nie obsługują nowoczesnego uwierzytelniania i można je skonfigurować dla poszczególnych użytkowników usługi Azure AD Multi-Factor Authentication.
 * [Pytania zabezpieczające](concept-authentication-security-questions.md) — używane tylko w przypadku SSPR
 * [Adres e-mail](concept-sspr-howitworks.md#authentication-methods) — służy tylko do SSPR
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, zobacz Samouczek dotyczący samoobsługowego [resetowania hasła (SSPR)][tutorial-sspr] i [platformy Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Aby rozpocząć, zobacz Samouczek dotyczący samoobsługowego [resetowania hasła (SSPR)][tutorial-sspr] i [usługi Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Aby dowiedzieć się więcej o pojęciach SSPR, zobacz Jak działa funkcja samoobsługowego [resetowania hasła w usłudze Azure AD][concept-sspr].
 
-Aby dowiedzieć się więcej na temat pojęć MFA, zobacz [jak działa usługa Azure Multi-Factor Authentication][concept-mfa].
+Aby dowiedzieć się więcej na temat pojęć MFA, zobacz [jak działa usługa Azure AD Multi-Factor Authentication][concept-mfa].
 
 Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [interfejsu API REST Microsoft Graph w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
-Aby sprawdzić, jakie metody uwierzytelniania są używane, zapoznaj się z tematem [Analiza metody uwierzytelniania w usłudze Azure Multi-Factor Authentication przy użyciu programu PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+Aby sprawdzić, jakie metody uwierzytelniania są używane, zobacz [Analiza metody uwierzytelniania w usłudze Azure AD Multi-Factor Authentication przy użyciu programu PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

@@ -1,6 +1,6 @@
 ---
-title: Informacje o usłudze Azure Multi-Factor Authentication i okres istnienia sesji
-description: Dowiedz się więcej na temat zalecanej konfiguracji w celu ponownego uwierzytelnienia przy użyciu usługi Azure Multi-Factor Authentication i sposobu stosowania okresu istnienia sesji.
+title: Informacje o usłudze Azure AD Multi-Factor Authentication i okres istnienia sesji
+description: Dowiedz się więcej na temat zalecanej konfiguracji w celu ponownego uwierzytelnienia przy użyciu usługi Azure AD Multi-Factor Authentication i sposobu stosowania okresu istnienia sesji.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87b30b12e75a583ccee9780f97a6492961365cca
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964948"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839679"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure Multi-Factor Authentication
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure AD Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) ma wiele ustawień, które określają, jak często użytkownicy muszą ponownie przeprowadzić uwierzytelnienie. To ponowne uwierzytelnienie może być przy użyciu pierwszego czynnika, takiego jak hasło, FIDO lub bezhasła Microsoft Authenticator lub w celu przeprowadzenia uwierzytelniania wieloskładnikowego (MFA). Te ustawienia ponownego uwierzytelniania można skonfigurować zgodnie z potrzebami w Twoim środowisku i dla użytkownika.
 
@@ -41,7 +41,7 @@ Aby zapewnić użytkownikom odpowiednie saldo zabezpieczeń i łatwość używan
     * Pozostaw włączoną opcję *pozostawania zalogowanego* i Poinformuj użytkowników, aby zaakceptowali ją.
 * W przypadku scenariuszy z urządzeniami przenośnymi upewnij się, że użytkownicy korzystają z aplikacji Microsoft Authenticator. Ta aplikacja jest używana jako Broker do innych aplikacji federacyjnych usługi Azure AD i zmniejsza na urządzeniu komunikaty dotyczące uwierzytelniania.
 
-Nasze badania pokazują, że te ustawienia są odpowiednie dla większości dzierżawców. Niektóre kombinacje tych ustawień, takie jak *Pamiętaj MFA* i *pozostają*bez zmian, mogą spowodować, że użytkownicy będą monitowani o zbyt częste uwierzytelnianie. Regularne monity o ponowne uwierzytelnienie są błędne w przypadku produktywności użytkowników i mogą sprawiać, że są one bardziej podatne na ataki.
+Nasze badania pokazują, że te ustawienia są odpowiednie dla większości dzierżawców. Niektóre kombinacje tych ustawień, takie jak *Pamiętaj MFA* i *pozostają* bez zmian, mogą spowodować, że użytkownicy będą monitowani o zbyt częste uwierzytelnianie. Regularne monity o ponowne uwierzytelnienie są błędne w przypadku produktywności użytkowników i mogą sprawiać, że są one bardziej podatne na ataki.
 
 ## <a name="azure-ad-session-lifetime-configuration-settings"></a>Ustawienia konfiguracji okresu istnienia sesji usługi Azure AD
 
@@ -112,7 +112,7 @@ Aby zapamiętać ustawienia usługi uwierzytelniania wieloskładnikowego, wykona
 
 1. W portalu usługi Azure AD Wyszukaj i wybierz pozycję *Azure Active Directory*.
 1. Wybierz pozycję **zabezpieczenia**, a następnie polecenie **MFA**.
-1. W obszarze **Konfiguracja**wybierz pozycję **dodatkowe ustawienia usługi MFA oparte na chmurze**.
+1. W obszarze **Konfiguracja** wybierz pozycję **dodatkowe ustawienia usługi MFA oparte na chmurze**.
 1. Na stronie *Ustawienia usługi uwierzytelniania wieloskładnikowego* przewiń listę, aby **zapamiętać ustawienia uwierzytelniania wieloskładnikowego**. Wyłącz ustawienie, usuwając zaznaczenie pola wyboru.
 
 Aby skonfigurować zasady dostępu warunkowego w celu uzyskania częstotliwości logowania i trwałej sesji przeglądarki, wykonaj następujące czynności:
@@ -136,4 +136,4 @@ Poniższa tabela zawiera podsumowanie zaleceń w oparciu o licencje:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć pracę, wykonaj kroki samouczka, aby [zabezpieczyć zdarzenia logowania użytkowników za pomocą usługi azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md) lub [użyć wykrywania ryzyka dla logowania użytkowników w celu wyzwolenia usługi Azure Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).
+Aby rozpocząć pracę, wykonaj kroki samouczka, aby [zabezpieczyć zdarzenia logowania użytkowników za pomocą usługi Azure ad Multi-Factor Authentication](tutorial-enable-azure-mfa.md) lub [użyć wykrywania ryzyka dla logowania użytkowników, aby wyzwolić Multi-Factor Authentication usługi Azure AD](tutorial-risk-based-sspr-mfa.md).

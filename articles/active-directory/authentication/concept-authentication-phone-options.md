@@ -10,20 +10,20 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 39555c5b396e8a8fd3449331cd2fd68b96ad2087
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628122"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840002"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metody uwierzytelniania w opcjach Azure Active Directory-Phone
 
 Do bezpośredniego uwierzytelniania przy użyciu wiadomości tekstowej można [skonfigurować i umożliwić użytkownikom uwierzytelnianie SMS (wersja zapoznawcza)](howto-authentication-sms-signin.md). Logowanie oparte na programie SMS jest doskonałe dla pracowników frontonu. Korzystając z logowania opartego na programie SMS, użytkownicy nie muszą znać nazwy użytkownika i hasła w celu uzyskania dostępu do aplikacji i usług. Użytkownik wprowadza swój zarejestrowany numer telefonu komórkowego, odbiera wiadomość SMS z kodem weryfikacyjnym i wprowadza ją w interfejsie logowania.
 
-Użytkownicy mogą również weryfikować się za pomocą telefonu komórkowego lub telefonu biurowego jako dodatkowej formy uwierzytelniania używanej podczas korzystania z usługi Azure Multi-Factor Authentication lub samoobsługowego resetowania hasła (SSPR).
+Użytkownicy mogą również weryfikować się za pomocą telefonu komórkowego lub telefonu biurowego jako dodatkowej formy uwierzytelniania używanej podczas Multi-Factor Authentication usługi Azure AD lub samoobsługowego resetowania hasła (SSPR).
 
-Aby działały prawidłowo, numery telefonów muszą mieć format *+ CountryCode* , na przykład *+ 1 4251234567*.
+Aby działały prawidłowo, numery telefonów muszą mieć format *+ CountryCode*, na przykład *+ 1 4251234567*.
 
 > [!NOTE]
 > Musi być odstęp między kodem kraju/regionu i numerem telefonu.
@@ -32,25 +32,25 @@ Aby działały prawidłowo, numery telefonów muszą mieć format *+ CountryCode
 
 ## <a name="mobile-phone-verification"></a>Weryfikacja telefonu komórkowego
 
-W przypadku usługi Azure Multi-Factor Authentication lub SSPR użytkownicy mogą zdecydować się na otrzymywanie wiadomości SMS z kodem weryfikacyjnym, aby wejść do interfejsu logowania lub odebrać połączenie telefoniczne.
+W przypadku usługi Azure AD Multi-Factor Authentication lub SSPR użytkownicy mogą zdecydować się na otrzymywanie wiadomości SMS z kodem weryfikacyjnym, aby wejść do interfejsu logowania lub odebrać połączenie telefoniczne.
 
 Jeśli użytkownicy nie chcą, aby numer telefonu komórkowego był widoczny w katalogu, ale chcą używać go do resetowania haseł, Administratorzy nie zapełnią numeru telefonu w katalogu. Zamiast tego użytkownicy powinni zapełniać atrybut **telefonu uwierzytelniania** za pośrednictwem rejestracji informacji o zabezpieczeniach w usłudze [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) . Administratorzy mogą zobaczyć te informacje w profilu użytkownika, ale nie zostały opublikowane w innym miejscu.
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący metody uwierzytelniania z wypełnionym numerem telefonu":::
 
-Firma Microsoft nie gwarantuje spójnego dostarczania wiadomości SMS lub głosowego opartego na usłudze Azure Multi-Factor Authentication na podstawie tej samej liczby. W interesie naszych użytkowników możemy dodawać lub usuwać krótkie kody w dowolnym momencie, gdy wprowadzimy zmiany trasy w celu poprawy możliwości dostarczania wiadomości SMS. Firma Microsoft nie obsługuje krótkich kodów dla krajów/regionów poza Stany Zjednoczone i Kanadę.
+Firma Microsoft nie gwarantuje spójnego dostarczania SMS lub głosowego usługi Azure Multi-Factor Authentication AD na podstawie tego samego numeru. W interesie naszych użytkowników możemy dodawać lub usuwać krótkie kody w dowolnym momencie, gdy wprowadzimy zmiany trasy w celu poprawy możliwości dostarczania wiadomości SMS. Firma Microsoft nie obsługuje krótkich kodów dla krajów/regionów poza Stany Zjednoczone i Kanadę.
 
 ### <a name="text-message-verification"></a>Weryfikacja wiadomości tekstowych
 
-Za pomocą weryfikacji wiadomości tekstowych podczas SSPR lub platformy Azure Multi-Factor Authentication usługa SMS jest wysyłana na numer telefonu komórkowego zawierający kod weryfikacyjny. Aby ukończyć proces logowania, podany kod weryfikacyjny jest wprowadzany do interfejsu logowania.
+Podczas weryfikacji wiadomości tekstowych podczas SSPR lub Multi-Factor Authentication usługi Azure AD wiadomość SMS jest wysyłana na numer telefonu komórkowego zawierający kod weryfikacyjny. Aby ukończyć proces logowania, podany kod weryfikacyjny jest wprowadzany do interfejsu logowania.
 
 ### <a name="phone-call-verification"></a>Weryfikacja połączenia telefonicznego
 
-Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik jest monitowany o naciśnięcie przycisku # na klawiaturze.
+Podczas weryfikacji połączeń telefonicznych podczas SSPR lub Multi-Factor Authentication usługi Azure AD jest wykonywane automatyczne połączenie głosowe z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik jest monitowany o naciśnięcie przycisku # na klawiaturze.
 
 ## <a name="office-phone-verification"></a>Weryfikacja telefonu służbowego
 
-Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik jest monitowany o naciśnięcie przycisku # na klawiaturze.
+Podczas weryfikacji połączeń telefonicznych podczas SSPR lub Multi-Factor Authentication usługi Azure AD jest wykonywane automatyczne połączenie głosowe z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik jest monitowany o naciśnięcie przycisku # na klawiaturze.
 
 ## <a name="troubleshooting-phone-options"></a>Rozwiązywanie problemów z opcjami telefonu
 
@@ -75,11 +75,11 @@ Jeśli masz problemy z uwierzytelnianiem za pomocą telefonu w usłudze Azure AD
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, zobacz Samouczek dotyczący samoobsługowego [resetowania hasła (SSPR)][tutorial-sspr] i [platformy Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Aby rozpocząć, zobacz Samouczek dotyczący samoobsługowego [resetowania hasła (SSPR)][tutorial-sspr] i [usługi Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Aby dowiedzieć się więcej o pojęciach SSPR, zobacz Jak działa funkcja samoobsługowego [resetowania hasła w usłudze Azure AD][concept-sspr].
 
-Aby dowiedzieć się więcej na temat pojęć MFA, zobacz [jak działa usługa Azure Multi-Factor Authentication][concept-mfa].
+Aby dowiedzieć się więcej na temat pojęć MFA, zobacz [jak działa usługa Azure AD Multi-Factor Authentication][concept-mfa].
 
 Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [interfejsu API REST Microsoft Graph w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 

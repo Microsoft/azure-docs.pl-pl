@@ -1,6 +1,6 @@
 ---
-title: Połączona Rejestracja dla SSPR i Multi-Factor Authentication platformy Azure — Azure Active Directory
-description: Dowiedz się więcej na temat połączonego środowiska rejestracji dla Azure Active Directory, aby umożliwić użytkownikom rejestrowanie w usłudze Azure Multi-Factor Authentication i Samoobsługowe resetowanie hasła
+title: Połączona Rejestracja dla SSPR i usługi Azure AD Multi-Factor Authentication — Azure Active Directory
+description: Dowiedz się więcej na temat połączonego środowiska rejestracji dla Azure Active Directory, aby umożliwić użytkownikom rejestrowanie w usłudze Azure AD Multi-Factor Authentication i Samoobsługowe resetowanie hasła
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378010"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839798"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
-Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody zostały użyte do Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet zarówno Multi-Factor Authentication, jak i SSPR.
+Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody zostały użyte do Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet zarówno Multi-Factor Authentication, jak i SSPR.
 
 > [!NOTE]
 > Od 15 sierpnia 2020 wszystkie nowe dzierżawy usługi Azure AD będą automatycznie włączane na potrzeby rejestracji złożonej.
@@ -51,7 +51,7 @@ Jeśli chcesz wymusić określony język, możesz dodać `?lng=<language>` na ko
 
 Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 
-| Metoda | Zarejestruj | Zmiana | Usuń |
+| Metoda | Zarejestruj | Zmiana | Usuwanie |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Tak |
 | Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Tak |
@@ -142,8 +142,8 @@ Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę, która
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, zapoznaj się z samouczkami, aby włączyć funkcję samoobsługowego [resetowania hasła](tutorial-enable-sspr.md) i [włączyć usługę Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+Aby rozpocząć, zapoznaj się z samouczkami, aby włączyć funkcję samoobsługowego [resetowania hasła](tutorial-enable-sspr.md) i [włączyć usługę Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 Dowiedz się, jak [włączyć rejestrację łączną w dzierżawie](howto-registration-mfa-sspr-combined.md) lub [zmusić użytkowników do ponownego rejestrowania metod uwierzytelniania](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Możesz również przejrzeć [dostępne metody dla usług Azure Multi-Factor Authentication i SSPR](concept-authentication-methods.md).
+Możesz również przejrzeć [dostępne metody usługi Azure AD Multi-Factor Authentication i SSPR](concept-authentication-methods.md).

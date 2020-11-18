@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964880"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839577"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
 
@@ -36,7 +36,7 @@ Badania firmy Microsoft [pokazują](https://aka.ms/passwordguidance) , że te wy
 
 - **Zwiększone zabezpieczenia**. Zmniejszenie ryzyka związanego z phishingiem i atakami polegającymi na wyłudzaniu hasła przez usunięcie haseł jako obszaru ataku.
 -  **Lepsze środowisko użytkownika**. Zapewnianie użytkownikom wygodnego sposobu uzyskiwania dostępu do danych z dowolnego miejsca. Zapewnianie łatwego dostępu do aplikacji i usług, takich jak Outlook, OneDrive lub Office, podczas pracy w sieci mobilnej.
--  **Niezawodne wgląd w szczegółowe**dane. Uzyskaj wgląd w działanie bez hasła użytkowników z niezawodnym rejestrowaniem i inspekcją.
+-  **Niezawodne wgląd w szczegółowe** dane. Uzyskaj wgląd w działanie bez hasła użytkowników z niezawodnym rejestrowaniem i inspekcją.
 
 Hasło bez hasła jest zamieniane na coś, co Ci się podoba. Na przykład funkcja Windows Hello dla firm może korzystać z gestu biometrycznego, takiego jak znak lub odcisk palca, lub numeru PIN określonego dla urządzenia, który nie jest przesyłany przez sieć.
 
@@ -67,9 +67,9 @@ Przed rozpoczęciem wdrażania bezhaseł organizacje muszą spełniać następuj
 
 | Wymaganie wstępne | Aplikacja Authenticator | FIDO2 klucze zabezpieczeń |
 | --- | --- | --- |
-| [Połączona Rejestracja w ramach usługi Azure MFA Authentication i samoobsługowego resetowania hasła (SSPR)](howto-registration-mfa-sspr-combined.md) jest włączona | √ | √ |
-| [Użytkownicy mogą przeprowadzać uwierzytelnianie wieloskładnikowe na platformie Azure](howto-mfa-getstarted.md) | √ | √ |
-| [Użytkownicy zostali zarejestrowani do usługi Azure MFA Authentication i SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [Połączona Rejestracja w usłudze Azure AD Multi-Factor Authentication i funkcja samoobsługowego resetowania hasła (SSPR)](howto-registration-mfa-sspr-combined.md) jest włączona | √ | √ |
+| [Użytkownicy mogą wykonywać Multi-Factor Authentication usługi Azure AD](howto-mfa-getstarted.md) | √ | √ |
+| [Użytkownicy zarejestrowani w usłudze Azure AD Multi-Factor Authentication i SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Użytkownicy zarejestrowali swoje urządzenia przenośne w usłudze Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 w wersji 1809 lub nowszej przy użyciu obsługiwanej przeglądarki, takiej jak Microsoft Edge lub Mozilla Firefox <br> (wersja 67 lub nowsza). <br> *Firma Microsoft zaleca korzystanie z wersji 1903 lub nowszej na potrzeby obsługi natywnej*. |   | √ |
 | Zgodne FIDO2 klucze zabezpieczeń. Upewnij się, że korzystasz z urządzenia zabezpieczeń [przetestowanego przez firmę Microsoft i zweryfikowane](./concept-authentication-passwordless.md) urządzenie z systemem FIDO2. |   | √ |
@@ -78,9 +78,9 @@ Przed rozpoczęciem wdrażania bezhaseł organizacje muszą spełniać następuj
 
 Wymagania wstępne dotyczące usługi Windows Hello są wysoce zależne od tego, czy są wdrażane w konfiguracji lokalnej, hybrydowej czy w chmurze. Aby uzyskać więcej informacji, zobacz [pełną listę wymagań wstępnych dotyczących usługi Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication usługi Azure AD
 
-Użytkownicy rejestrują metodę bezhaseł w ramach przepływu rejestracji usługi Azure MFA. Uwierzytelnianie wieloskładnikowe przy użyciu nazwy użytkownika i hasła wraz z inną zarejestrowanej metody może być używane jako rezerwa w przypadku, gdy nie mogą korzystać z swojego telefonu ani klucza zabezpieczeń w niektórych scenariuszach.
+Użytkownicy rejestrują metodę bezhaseł w ramach przepływu rejestracji Multi-Factor Authentication usługi Azure AD. Uwierzytelnianie wieloskładnikowe przy użyciu nazwy użytkownika i hasła wraz z inną zarejestrowanej metody może być używane jako rezerwa w przypadku, gdy nie mogą korzystać z swojego telefonu ani klucza zabezpieczeń w niektórych scenariuszach.
 
 ### <a name="licensing"></a>Licencjonowanie 
 Nie ma dodatkowych kosztów uwierzytelniania bez hasła, chociaż niektóre wymagania wstępne mogą wymagać subskrypcji Premium. Aby uzyskać szczegółowe informacje dotyczące funkcji i licencjonowania na [stronie licencjonowania Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
@@ -140,7 +140,7 @@ Powoduje to włączenie dowolnego telefonu z systemem iOS lub Android do silnego
 
 **Integracja AD FS** — gdy użytkownik włączy Microsoft Authenticator poświadczenia bezhasła, uwierzytelnianie dla tego użytkownika jest domyślnie wysyłane powiadomienie o zatwierdzeniu. Użytkownicy w dzierżawie hybrydowej nie mogą być kierowani do usług AD FS w celu zalogowania się, chyba że wybierze opcję "Użyj hasła zamiast". Ten proces pomija również wszystkie lokalne zasady dostępu warunkowego i przepływy uwierzytelniania przekazywane. Jeśli jednak określono *login_hint* , użytkownik jest przesyłany dalej do usług AD FS i pomija opcję, aby użyć poświadczeń bezhasłem.
 
-**Serwer usługi Azure** MFA — użytkownicy końcowi z obsługą uwierzytelniania wieloskładnikowego za pomocą lokalnego serwera usługi Azure Hadoop w organizacji mogą tworzyć i używać jednego poświadczenia logowania jednokrotnego bez hasła. Jeśli użytkownik próbuje uaktualnić wiele instalacji (5 lub więcej) Microsoft Authenticator przy użyciu poświadczenia, ta zmiana może spowodować wystąpienie błędu.
+**Azure AD Multi-Factor Authentication Server** — użytkownicy końcowi z obsługą uwierzytelniania wieloskładnikowego za pomocą lokalnego serwera usługi Azure MFA mogą tworzyć i używać jednego poświadczenia logowania jednokrotnego bez hasła. Jeśli użytkownik próbuje uaktualnić wiele instalacji (5 lub więcej) Microsoft Authenticator przy użyciu poświadczenia, ta zmiana może spowodować wystąpienie błędu.
 
 **Rejestracja urządzenia** — aby użyć aplikacji Authenticator do uwierzytelniania bezserwerowego, urządzenie musi być zarejestrowane w dzierżawie usługi Azure AD i nie może być urządzeniem udostępnionym. Urządzenie można zarejestrować tylko w jednej dzierżawie. Ten limit oznacza, że tylko jedno konto służbowe jest obsługiwane w przypadku logowania za pomocą telefonu przy użyciu aplikacji uwierzytelniania.
 

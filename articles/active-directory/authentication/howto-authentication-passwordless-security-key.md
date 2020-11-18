@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964642"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839305"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego
 
 ## <a name="requirements"></a>Wymagania
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Multi-Factor Authentication usługi Azure AD](howto-mfa-getstarted.md)
 - Włącz [Podgląd rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
 - Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN wymaga systemu Windows 10 w wersji 1903 lub nowszej * *
@@ -51,8 +51,8 @@ Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji re
 ### <a name="enable-fido2-security-key-method"></a>Włącz metodę klucza zabezpieczeń FIDO2
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **metodami**uwierzytelniania zabezpieczeń  >  **Metoda uwierzytelniania (wersja zapoznawcza)**.
-1. W obszarze **klucz zabezpieczeń metody FIDO2**wybierz następujące opcje:
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **metodami** uwierzytelniania zabezpieczeń  >  **Metoda uwierzytelniania (wersja zapoznawcza)**.
+1. W obszarze **klucz zabezpieczeń metody FIDO2** wybierz następujące opcje:
    1. **Włącz** — tak lub nie
    1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy
 1. **Zapisz** konfigurację.
@@ -62,8 +62,8 @@ Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji re
 1. Przejdź do [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Zaloguj się, jeśli jeszcze nie zostało to zrobione.
 1. Kliknij pozycję **informacje zabezpieczające**.
-   1. Jeśli użytkownik ma już zarejestrowaną co najmniej jedną metodę Multi-Factor Authentication platformy Azure, może natychmiast zarejestrować klucz zabezpieczeń FIDO2.
-   1. Jeśli nie zarejestrowano co najmniej jednej metody Multi-Factor Authentication platformy Azure, należy dodać ją.
+   1. Jeśli użytkownik ma już zarejestrowaną co najmniej jedną metodę Multi-Factor Authentication usługi Azure AD, może natychmiast zarejestrować klucz zabezpieczeń FIDO2.
+   1. Jeśli nie zarejestrowano co najmniej jednej metody Multi-Factor Authentication usługi Azure AD, należy dodać ją.
 1. Dodaj klucz zabezpieczeń FIDO2, klikając pozycję **Dodaj metodę** i wybierając pozycję **klucz zabezpieczeń**.
 1. Wybierz **urządzenie USB** lub **urządzenie NFC**.
 1. Przygotuj swój klucz i wybierz pozycję **dalej**.
@@ -105,4 +105,4 @@ Pracujemy nad obsługą funkcji, która umożliwia zmianę nazwy UPN na przyłą
 
 [Dowiedz się więcej o rejestrowaniu urządzeń](../devices/overview.md)
 
-[Dowiedz się więcej o usłudze Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Dowiedz się więcej o usłudze Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

@@ -1,6 +1,6 @@
 ---
-title: Zabezpieczanie zasobów za pomocą usługi Azure MFA i usług AD FS — Azure Active Directory
-description: Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS w chmurze.
+title: Zabezpieczanie zasobów za pomocą usługi Azure AD MFA i usług ADFS — Azure Active Directory
+description: Jest to strona Multi-Factor Authentication usługi Azure AD, która opisuje, jak zacząć korzystać z usługi Azure AD MFA i AD FS w chmurze.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5167d9041e8edfd6e829bdd1a78f826f73eea4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999fb350aaa5f11510db0d4ecc036e188d76e20f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964591"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839339"
 ---
-# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
+# <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze za pomocą usługi Azure AD Multi-Factor Authentication i AD FS
 
-Jeśli Twoja organizacja jest sfederowana z użyciem usługi Azure Active Directory, możesz użyć usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services (AD FS) do zabezpieczenia zasobów używanych przez usługę Azure AD. Aby zabezpieczyć zasoby usługi Azure Active Directory za pomocą usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services, postępuj zgodnie z poniższymi procedurami.
+Jeśli Twoja organizacja jest federacyjnym z Azure Active Directory, Użyj usługi Azure AD Multi-Factor Authentication lub Active Directory Federation Services (AD FS), aby zabezpieczyć zasoby, do których dostęp jest uzyskiwany za pomocą usługi Azure AD. Poniższe procedury służą do zabezpieczania Azure Active Directory zasobów przy użyciu usługi Azure AD Multi-Factor Authentication lub Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Zabezpieczanie zasobów usługi Azure AD za pomocą usług AD FS
 
@@ -48,7 +48,7 @@ Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby u
 
 ## <a name="trusted-ips-for-federated-users"></a>Zaufane adresy IP dla użytkowników federacyjnych
 
-Zaufane adresy IP umożliwiają administratorom pomijanie weryfikacji dwuetapowej w przypadku określonych adresów IP lub użytkowników federacyjnych, którzy wysyłają żądania z firmowej sieci intranet. Poniższe sekcje zawierają instrukcje dotyczące konfigurowania zaufanych adresów IP usługi Azure Multi-Factor Authentication dla użytkowników federacyjnych i pomijania weryfikacji dwuetapowej w przypadku żądań pochodzących od użytkowników federacyjnych z sieci intranet. Osiąga się to przez skonfigurowanie usług AD FS pod kątem używania szablonu przekazywania lub szablonu filtrowania oświadczeń przychodzących za pomocą typu oświadczeń wewnętrznej sieci firmowej.
+Zaufane adresy IP umożliwiają administratorom pomijanie weryfikacji dwuetapowej w przypadku określonych adresów IP lub użytkowników federacyjnych, którzy wysyłają żądania z firmowej sieci intranet. W poniższych sekcjach opisano sposób konfigurowania usługi Azure AD Multi-Factor Authentication zaufanych adresów IP z użytkownikami federacyjnymi oraz weryfikacji dwuetapowej, gdy żądanie pochodzi z intranetu użytkowników federacyjnych. Osiąga się to przez skonfigurowanie usług AD FS pod kątem używania szablonu przekazywania lub szablonu filtrowania oświadczeń przychodzących za pomocą typu oświadczeń wewnętrznej sieci firmowej.
 
 Ten przykład używa Microsoft 365 dla naszych relacji zaufania jednostek zależnych.
 
@@ -84,12 +84,12 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 15. Kliknij przycisk **OK**.
 16. Zamknij przystawkę zarządzania usługami AD FS.
 
-### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurowanie zaufanych adresów IP usługi Azure Multi-Factor Authentication dla użytkowników federacyjnych
+### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurowanie usługi Azure AD Multi-Factor Authentication zaufanych adresów IP z użytkownikami federacyjnymi
 
 Po skonfigurowaniu oświadczeń można przystąpić do konfigurowania zaufanych adresów IP.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **Azure Active Directory**  >  **Security**  >  **dostęp warunkowy do**zabezpieczeń  >  **nazwanych lokalizacji**.
+2. Wybierz pozycję **Azure Active Directory**  >  **Security**  >  **dostęp warunkowy do** zabezpieczeń  >  **nazwanych lokalizacji**.
 3. W bloku **dostęp warunkowy — lokalizacje z nazwą** wybierz opcję **Konfiguruj Zaufane adresy IP usługi MFA**
 
    ![Dostęp warunkowy usługi Azure AD nazwane lokalizacje Konfigurowanie zaufanych adresów IP MFA](./media/howto-mfa-adfs/trustedip6.png)

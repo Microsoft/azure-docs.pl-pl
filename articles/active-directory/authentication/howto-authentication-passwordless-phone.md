@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592961"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839526"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Włącz logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)
 
@@ -36,7 +36,7 @@ Osoby, które włączyli logowanie za pomocą telefonu z aplikacji Microsoft Aut
 
 Aby korzystać z logowania jednokrotnego przy użyciu aplikacji Microsoft Authenticator, należy spełnić następujące wymagania wstępne:
 
-- Usługa Azure Multi-Factor Authentication z powiadomieniami wypychanymi, które są dozwolone jako metoda weryfikacji.
+- Usługa Azure AD Multi-Factor Authentication z użyciem powiadomień wypychanych jako metody weryfikacji.
 - Najnowsza wersja Microsoft Authenticator zainstalowana na urządzeniach z systemem iOS 8,0 lub nowszym albo systemem Android 6,0 lub nowszym.
 
 > [!NOTE]
@@ -57,7 +57,7 @@ Usługa Azure AD umożliwia wybranie metod uwierzytelniania, które mogą być u
 Aby włączyć metodę uwierzytelniania dla logowania za pomocą telefonu bezhasłem, wykonaj następujące czynności:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta *administratora globalnego* .
-1. Wyszukaj i wybierz *Azure Active Directory* , a następnie przejdź do **Security**  >  **metody uwierzytelniania** zabezpieczeń  >  **zasady metody uwierzytelniania (wersja zapoznawcza)**
+1. Wyszukaj i wybierz *Azure Active Directory*, a następnie przejdź do **Security**  >  **metody uwierzytelniania** zabezpieczeń  >  **zasady metody uwierzytelniania (wersja zapoznawcza)**
 1. W obszarze **Logowanie za pomocą telefonu bezhasło** wybierz następujące opcje:
    1. **Włącz** — tak lub nie
    1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy
@@ -68,7 +68,7 @@ Aby włączyć metodę uwierzytelniania dla logowania za pomocą telefonu bezhas
 Użytkownicy rejestrują się w celu uzyskania metody uwierzytelniania bezhaseł w usłudze Azure AD, wykonując następujące czynności:
 
 1. Przejdź do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
-1. Zaloguj się, a następnie Dodaj aplikację Authenticator, wybierając pozycję **Dodaj metodę > wystawcy aplikację** , a następnie pozycję **Dodaj**.
+1. Zaloguj się, a następnie Dodaj aplikację Authenticator, wybierając pozycję **Dodaj metodę > wystawcy aplikację**, a następnie pozycję **Dodaj**.
 1. Postępuj zgodnie z instrukcjami, aby zainstalować i skonfigurować aplikację Microsoft Authenticator na urządzeniu.
 1. Wybierz pozycję **gotowe** , aby ukończyć konfigurację uwierzytelniania.
 1. W **Microsoft Authenticator** wybierz pozycję **Włącz logowanie** za pomocą telefonu z menu rozwijanego dla zarejestrowanego konta.
@@ -141,4 +141,4 @@ Aby dowiedzieć się więcej o metodach uwierzytelniania i bezhasła usługi Azu
 
 - [Dowiedz się, jak działa uwierzytelnianie bezhasłem](concept-authentication-passwordless.md)
 - [Informacje o rejestracji urządzeń](../devices/overview.md#getting-devices-in-azure-ad)
-- [Dowiedz się więcej o usłudze Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Dowiedz się więcej o usłudze Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

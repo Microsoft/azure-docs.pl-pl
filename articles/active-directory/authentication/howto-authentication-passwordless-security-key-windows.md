@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fba2610b3343744c448e390bc2d713b38da481d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964744"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839475"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 z Azure Active Directory (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego
 
 | Typ urządzenia | Dołączone do usługi Azure AD | hybrydowym dołączonym do usługi Azure AD. |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Multi-Factor Authentication usługi Azure AD](howto-mfa-getstarted.md) | X | X |
 | [Wersja zapoznawcza rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md) | X | X |
 | Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN wymaga systemu Windows 10 w wersji 1903 lub nowszej | X | X |
@@ -79,8 +79,8 @@ Organizacje mogą wybrać jedną lub więcej z poniższych metod, aby umożliwi�
 Aby włączyć korzystanie z kluczy zabezpieczeń w usłudze Intune, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Microsoft Intune**  >  **rejestracji urządzeń**Rejestracja  >  **Windows**Windows  >  **Hello dla firm**  >  **Właściwości**.
-1. W obszarze **Ustawienia**ustaw opcję Zaloguj się przy **użyciu kluczy zabezpieczeń** do **włączenia**.
+1. Przejdź do **Microsoft Intune**  >  **rejestracji urządzeń** Rejestracja  >  **Windows** Windows  >  **Hello dla firm**  >  **Właściwości**.
+1. W obszarze **Ustawienia** ustaw opcję Zaloguj się przy **użyciu kluczy zabezpieczeń** do **włączenia**.
 
 Konfiguracja kluczy zabezpieczeń dla logowania nie zależy od konfiguracji funkcji Windows Hello dla firm.
 
@@ -129,7 +129,7 @@ W przypadku urządzeń, które nie są zarządzane przez usługę Intune, można
 
 ### <a name="enable-with-group-policy"></a>Włącz z zasady grupy
 
-W przypadku **urządzeń przyłączonych do hybrydowej usługi Azure AD**organizacje mogą konfigurować następujące ustawienia zasady grupy, aby włączyć logowanie za pomocą klucza zabezpieczeń Fido. Ustawienie to można znaleźć w obszarze **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **System**  >  **Logowanie**systemu Włącz logowanie przy  >  **użyciu klucza zabezpieczeń**:
+W przypadku **urządzeń przyłączonych do hybrydowej usługi Azure AD** organizacje mogą konfigurować następujące ustawienia zasady grupy, aby włączyć logowanie za pomocą klucza zabezpieczeń Fido. Ustawienie to można znaleźć w obszarze **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **System**  >  **Logowanie** systemu Włącz logowanie przy  >  **użyciu klucza zabezpieczeń**:
 
 - Ustawienie tych zasad na **włączone** umożliwia użytkownikom logowanie się przy użyciu kluczy zabezpieczeń.
 - Ustawienie tych zasad na **wyłączone** lub **Nieskonfigurowane** uniemożliwia użytkownikom logowanie się przy użyciu kluczy zabezpieczeń.
@@ -164,4 +164,4 @@ Jeśli chcesz udostępnić opinię lub napotkać problemy podczas wyświetlania 
 
 [Dowiedz się więcej o rejestrowaniu urządzeń](../devices/overview.md)
 
-[Dowiedz się więcej o usłudze Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Dowiedz się więcej o usłudze Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

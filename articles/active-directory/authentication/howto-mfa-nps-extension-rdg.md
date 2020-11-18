@@ -1,6 +1,6 @@
 ---
-title: Integrowanie RDG z rozszerzeniem NPS usługi Azure MFA — Azure Active Directory
-description: Zintegruj infrastrukturę Pulpit zdalny Gateway z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla Microsoft Azure
+title: Integrowanie RDG z rozszerzeniem NPS usługi Azure AD MFA — Azure Active Directory
+description: Zintegruj infrastrukturę Pulpit zdalny Gateway z usługą Azure AD MFA przy użyciu rozszerzenia serwera zasad sieciowych dla Microsoft Azure
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7399c378053859f96746840942c8c549b7b89a3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5ad3d76227e833f648070bd55469861dffe3d540
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964710"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839560"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integracja infrastruktury Pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD
 
-Ten artykuł zawiera szczegółowe informacje dotyczące integrowania infrastruktury Pulpit zdalny Gateway z usługą Azure Multi-Factor Authentication (MFA) przy użyciu rozszerzenia serwera zasad sieciowych (NPS) dla Microsoft Azure.
+Ten artykuł zawiera szczegółowe informacje dotyczące integrowania infrastruktury Pulpit zdalny Gateway z usługą Azure AD Multi-Factor Authentication (MFA) przy użyciu rozszerzenia serwera zasad sieciowych (NPS) dla Microsoft Azure.
 
 Rozszerzenie serwera zasad sieciowych (NPS) dla systemu Azure pozwala klientom na ochronę Usługa telefonujących użytkowników zdalnego uwierzytelniania (RADIUS) uwierzytelniania klientów przy użyciu usługi Azure based [Multi-Factor Authentication (MFA)](./concept-mfa-howitworks.md). To rozwiązanie zapewnia dwuetapową weryfikację w celu dodania drugiej warstwy zabezpieczeń do logowania i transakcji użytkownika.
 
-Ten artykuł zawiera instrukcje krok po kroku dotyczące integrowania infrastruktury NPS z usługą Azure MFA przy użyciu rozszerzenia serwera NPS dla platformy Azure. Dzięki temu użytkownicy próbujący zalogować się do bramy Pulpit zdalny mogą przeprowadzić bezpieczną weryfikację.
+Ten artykuł zawiera instrukcje krok po kroku dotyczące integrowania infrastruktury NPS z usługą Azure AD MFA przy użyciu rozszerzenia serwera NPS dla platformy Azure. Dzięki temu użytkownicy próbujący zalogować się do bramy Pulpit zdalny mogą przeprowadzić bezpieczną weryfikację.
 
 > [!NOTE]
-> Ten artykuł nie powinien być używany z wdrożeniami serwera MFA i powinien być używany tylko z wdrożeniami usługi Azure MFA (opartymi na chmurze).
+> Ten artykuł nie powinien być używany z wdrożeniami serwera MFA i powinien być używany tylko z wdrożeniami usługi Azure AD MFA (opartymi na chmurze).
 
 Usługi zasad sieciowych i dostępu sieciowego umożliwiają organizacjom wykonywanie następujących czynności:
 
@@ -37,9 +37,9 @@ Usługi zasad sieciowych i dostępu sieciowego umożliwiają organizacjom wykony
 
 Zazwyczaj organizacje wykorzystują serwer NPS (RADIUS) do uproszczenia i scentralizowania zarządzania zasadami sieci VPN. Jednak w wielu organizacjach serwer zasad sieciowych jest również używany do uproszczenia i scentralizowania zarządzania zasadami autoryzacji połączeń usług pulpitu zdalnego (RD CAP).
 
-Organizacje mogą także zintegrować serwer zasad sieciowych z usługą Azure MFA w celu zwiększenia bezpieczeństwa i zapewnienia wysokiego poziomu zgodności. Pozwala to zagwarantować, że użytkownicy będą mogli przeprowadzić weryfikację dwuetapową, aby zalogować się do bramy Pulpit zdalny. Aby użytkownicy mieli dostęp, muszą podać kombinację nazwy użytkownika/hasła oraz informacje, które użytkownik ma w swojej kontroli. Te informacje muszą być zaufane i nie być łatwo duplikowane, takie jak numer telefonu komórkowego, numer stacjonarny, aplikacja na urządzeniu przenośnym itd. RDG obecnie obsługuje połączenia telefoniczne i powiadomienia wypychane z metod aplikacji Microsoft Authenticator dla funkcji 2FA. Aby uzyskać więcej informacji na temat obsługiwanych metod uwierzytelniania, zobacz sekcję [Określanie metod uwierzytelniania, których użytkownicy mogą używać](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+Organizacje mogą także zintegrować serwer zasad sieciowych z usługą Azure AD MFA w celu zwiększenia bezpieczeństwa i zapewnienia wysokiego poziomu zgodności. Pozwala to zagwarantować, że użytkownicy będą mogli przeprowadzić weryfikację dwuetapową, aby zalogować się do bramy Pulpit zdalny. Aby użytkownicy mieli dostęp, muszą podać kombinację nazwy użytkownika/hasła oraz informacje, które użytkownik ma w swojej kontroli. Te informacje muszą być zaufane i nie być łatwo duplikowane, takie jak numer telefonu komórkowego, numer stacjonarny, aplikacja na urządzeniu przenośnym itd. RDG obecnie obsługuje połączenia telefoniczne i powiadomienia wypychane z metod aplikacji Microsoft Authenticator dla funkcji 2FA. Aby uzyskać więcej informacji na temat obsługiwanych metod uwierzytelniania, zobacz sekcję [Określanie metod uwierzytelniania, których użytkownicy mogą używać](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
-Przed udostępnieniem rozszerzenia serwera NPS dla platformy Azure Klienci, którzy chcą wdrożyć weryfikację dwuetapową dla zintegrowanych środowisk NPS i Azure MFA, musieli skonfigurować i zachować osobny serwer usługi MFA w środowisku lokalnym, zgodnie z opisem w [pulpit zdalny bramie i platformie azure serwer Multi-Factor Authentication przy użyciu protokołu RADIUS](howto-mfaserver-nps-rdg.md).
+Przed udostępnieniem rozszerzenia serwera NPS dla platformy Azure Klienci, którzy chcą wdrożyć weryfikację dwuetapową dla zintegrowanych usług NPS i Azure AD MFA, musiały skonfigurować i zachować oddzielny serwer MFA w środowisku lokalnym, zgodnie z opisem w temacie [pulpit zdalny Gateway i azure serwer Multi-Factor Authentication za pomocą usługi RADIUS](howto-mfaserver-nps-rdg.md).
 
 Dostępność rozszerzenia serwera NPS dla platformy Azure umożliwia teraz organizacjom wybór wdrożenia lokalnego rozwiązania MFA lub opartego na chmurze rozwiązania MFA w celu zabezpieczenia uwierzytelniania klienta usługi RADIUS.
 
@@ -53,18 +53,18 @@ Gdy rozszerzenie serwera NPS dla platformy Azure jest zintegrowane z bramą serw
 
 1. Serwer bramy Pulpit zdalny odbiera żądanie uwierzytelnienia od użytkownika pulpitu zdalnego w celu nawiązania połączenia z zasobem, na przykład sesji Pulpit zdalny. Działając jako klient usługi RADIUS, Pulpit zdalny serwer bramy konwertuje żądanie na komunikat Access-Request usługi RADIUS i wysyła komunikat do serwera RADIUS (NPS), na którym zainstalowano rozszerzenie serwera NPS.
 1. Kombinacja nazwy użytkownika i hasła jest weryfikowana w Active Directory i użytkownik jest uwierzytelniany.
-1. Jeśli spełnione są wszystkie warunki określone w żądaniu połączenia serwera NPS i zasady sieciowe (na przykład ograniczenia dotyczące czasu lub członkostwa w grupie), rozszerzenie serwera zasad sieciowych wyzwala żądanie uwierzytelniania pomocniczego za pomocą usługi Azure MFA.
-1. Usługa Azure MFA komunikuje się z usługą Azure AD, pobiera szczegóły użytkownika i wykonuje uwierzytelnianie pomocnicze przy użyciu obsługiwanych metod.
-1. Po pomyślnym zakończeniu żądania MFA usługa Azure MFA komunikuje wynik rozszerzenia serwera NPS.
+1. Jeśli spełnione są wszystkie warunki określone w żądaniu połączenia serwera NPS i zasady sieciowe (na przykład ograniczenia dotyczące czasu lub członkostwa w grupie), rozszerzenie serwera zasad sieciowych wyzwala żądanie uwierzytelniania pomocniczego za pomocą usługi Azure AD MFA.
+1. Usługa Azure AD MFA komunikuje się z usługą Azure AD, pobiera szczegóły użytkownika i wykonuje uwierzytelnianie pomocnicze przy użyciu obsługiwanych metod.
+1. Po pomyślnym wykonaniu żądania MFA usługa Azure AD MFA komunikuje wynik do rozszerzenia serwera NPS.
 1. Serwer NPS, na którym rozszerzenie jest zainstalowane, wysyła komunikat Access-Accept usługi RADIUS dla zasad RD CAP do serwera bramy Pulpit zdalny.
 1. Użytkownik uzyskuje dostęp do żądanego zasobu sieciowego za pomocą bramy usług pulpitu zdalnego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ta sekcja zawiera szczegółowe informacje dotyczące wymagań wstępnych przed integracją usługi Azure MFA z bramą Pulpit zdalny. Przed rozpoczęciem należy mieć na miejsce następujące wymagania wstępne.  
+Ta sekcja zawiera szczegółowe informacje dotyczące wymagań wstępnych przed integracją usługi Azure AD MFA z bramą Pulpit zdalny. Przed rozpoczęciem należy mieć na miejsce następujące wymagania wstępne.  
 
 * Infrastruktura Usługi pulpitu zdalnego (RDS)
-* Licencja usługi Azure MFA
+* Licencja usługi Azure AD MFA
 * Oprogramowanie systemu Windows Server
 * Rola Usługi zasad sieciowych i dostępu sieciowego (NPS)
 * Azure Active Directory zsynchronizowane z lokalnym Active Directory
@@ -77,9 +77,9 @@ Musisz mieć działającą infrastrukturę Usługi pulpitu zdalnego (RDS). Jeśl
 Jeśli chcesz szybko utworzyć lokalną infrastrukturę RDS na potrzeby testowania, wykonaj kroki, aby je wdrożyć.
 **Dowiedz się więcej**: [Wdróż RDS z przewodnikiem Szybki Start platformy Azure](/windows-server/remote/remote-desktop-services/rds-in-azure) i [podstawowym wdrożeniem infrastruktury RDS](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
-### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
+### <a name="azure-ad-mfa-license"></a>Licencja usługi Azure AD MFA
 
-Wymagana jest licencja na usługę Azure MFA, która jest dostępna za pomocą Azure AD — wersja Premium lub innych pakietów, które go obejmują. Licencje oparte na użyciu usługi Azure MFA, takie jak na użytkownika lub licencje uwierzytelniania, są niezgodne z rozszerzeniem serwera NPS. Aby uzyskać więcej informacji, zobacz [jak uzyskać Multi-Factor Authentication platformy Azure](concept-mfa-licensing.md). Do celów testowych możesz użyć subskrypcji próbnej.
+Wymagana jest licencją usługi Azure AD MFA, która jest dostępna za pomocą Azure AD — wersja Premium lub innych pakietów, które obejmują. Licencje oparte na użyciu usługi Azure AD MFA, takie jak na użytkownika lub licencje uwierzytelniania, są niezgodne z rozszerzeniem serwera NPS. Aby uzyskać więcej informacji, zobacz [jak uzyskać Multi-Factor Authentication usługi Azure AD](concept-mfa-licensing.md). Do celów testowych możesz użyć subskrypcji próbnej.
 
 ### <a name="windows-server-software"></a>Oprogramowanie systemu Windows Server
 
@@ -101,31 +101,31 @@ Aby zainstalować rozszerzenie serwera NPS, należy znać identyfikator GUID us�
 
 ## <a name="configure-multi-factor-authentication"></a>Konfigurowanie Multi-Factor Authentication
 
-Ta sekcja zawiera instrukcje dotyczące integrowania usługi Azure MFA z bramą Pulpit zdalny. Jako administrator musisz skonfigurować usługę Azure MFA, zanim użytkownicy będą mogli automatycznie rejestrować swoje urządzenia lub aplikacje wieloskładnikowe.
+Ta sekcja zawiera instrukcje dotyczące integrowania usługi Azure AD MFA z bramą Pulpit zdalny. Jako administrator musisz skonfigurować usługę Azure AD MFA, zanim użytkownicy będą mogli automatycznie rejestrować swoje urządzenia lub aplikacje wieloskładnikowe.
 
-Wykonaj kroki opisane w temacie Rozpoczynanie [pracy z usługą azure Multi-Factor Authentication w chmurze,](howto-mfa-getstarted.md) aby włączyć uwierzytelnianie wieloskładnikowe dla użytkowników usługi Azure AD.
+Wykonaj kroki opisane w temacie [wprowadzenie do usługi Azure ad Multi-Factor Authentication w chmurze,](howto-mfa-getstarted.md) aby włączyć usługę MFA dla użytkowników usługi Azure AD.
 
 ### <a name="configure-accounts-for-two-step-verification"></a>Konfigurowanie kont na potrzeby weryfikacji dwuetapowej
 
 Po włączeniu konta usługi MFA nie można zalogować się do zasobów objętych zasadami usługi MFA do momentu pomyślnego skonfigurowania zaufanego urządzenia do użycia dla drugiego czynnika uwierzytelniania i uwierzytelnienia przy użyciu weryfikacji dwuetapowej.
 
-Postępuj zgodnie z instrukcjami w sekcji [co to jest usługa Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-first-time.md) , aby zrozumieć i prawidłowo skonfigurować urządzenia do uwierzytelniania wieloskładnikowego przy użyciu konta użytkownika.
+Wykonaj kroki opisane w sekcji [co to jest usługa Azure AD Multi-Factor Authentication dla mnie?](../user-help/multi-factor-authentication-end-user-first-time.md) aby zrozumieć i prawidłowo skonfigurować urządzenia dla usługi MFA przy użyciu konta użytkownika.
 
 > [!IMPORTANT]
-> Zachowanie podczas logowania dla bramy Pulpit zdalny nie zapewnia opcji wprowadzania kodu weryfikacyjnego za pomocą usługi Azure Multi-Factor Authentication. Konto użytkownika musi być skonfigurowane pod kątem weryfikacji telefonu lub aplikacji Microsoft Authenticator z użyciem powiadomień wypychanych.
+> Zachowanie podczas logowania dla bramy Pulpit zdalny nie zapewnia opcji wprowadzania kodu weryfikacyjnego za pomocą usługi Azure AD Multi-Factor Authentication. Konto użytkownika musi być skonfigurowane pod kątem weryfikacji telefonu lub aplikacji Microsoft Authenticator z użyciem powiadomień wypychanych.
 >
-> Jeśli jedna z tych dwóch metod uwierzytelniania nie jest skonfigurowana dla użytkownika, nie będzie można ukończyć wyzwania usługi Azure Multi-Factor Authentication i zalogować się do bramy Pulpit zdalny.
+> Jeśli jedna z tych dwóch metod uwierzytelniania nie jest skonfigurowana dla użytkownika, nie będzie można ukończyć wyzwania usługi Azure AD Multi-Factor Authentication i zalogować się do bramy Pulpit zdalny.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalowanie i Konfigurowanie rozszerzenia serwera NPS
 
-Ta sekcja zawiera instrukcje dotyczące konfigurowania infrastruktury RDS do korzystania z usługi Azure MFA na potrzeby uwierzytelniania klientów za pomocą bramy Pulpit zdalny.
+Ta sekcja zawiera instrukcje dotyczące konfigurowania infrastruktury usług pulpitu zdalnego do korzystania z usługi Azure AD MFA na potrzeby uwierzytelniania klientów za pomocą bramy Pulpit zdalny.
 
 ### <a name="acquire-azure-active-directory-tenant-id"></a>Uzyskaj identyfikator dzierżawy Azure Active Directory
 
 W ramach konfiguracji rozszerzenia serwera NPS należy podać poświadczenia administratora i identyfikator usługi Azure AD dla dzierżawy usługi Azure AD. Aby uzyskać identyfikator dzierżawy, wykonaj następujące czynności:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny dzierżawy platformy Azure.
-1. W menu Azure Portal wybierz pozycję **Azure Active Directory**lub Wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
+1. W menu Azure Portal wybierz pozycję **Azure Active Directory** lub Wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
 1. Na stronie **Przegląd** są wyświetlane *Informacje o dzierżawie* . Wybierz ikonę **kopiowania** obok *identyfikatora dzierżawy*, jak pokazano na poniższym przykładzie zrzutu ekranu:
 
    ![Pobieranie identyfikatora dzierżawy z Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
@@ -142,8 +142,8 @@ Zainstaluj rozszerzenie serwera NPS na serwerze z zainstalowaną rolą usług za
 1. Pobierz [rozszerzenie serwera NPS](https://aka.ms/npsmfa).
 1. Skopiuj plik wykonywalny Instalatora (NpsExtnForAzureMfaInstaller.exe) na serwer NPS.
 1. Na serwerze NPS kliknij dwukrotnie **NpsExtnForAzureMfaInstaller.exe**. Jeśli zostanie wyświetlony monit, kliknij przycisk **Uruchom**.
-1. W oknie dialogowym rozszerzenia serwera NPS dla Instalatora usługi Azure MFA Przejrzyj postanowienia licencyjne dotyczące oprogramowania, zaznacz opcję Akceptuję **warunki i postanowienia licencyjne**, a następnie kliknij przycisk **Instaluj**.
-1. W oknie dialogowym rozszerzenia serwera NPS dla ustawienia usługi Azure MFA kliknij przycisk **Zamknij**.
+1. W oknie dialogowym rozszerzenia serwera NPS dla Instalatora usługi Azure AD MFA Przejrzyj postanowienia licencyjne dotyczące oprogramowania, zaznacz opcję Akceptuję **warunki i postanowienia licencyjne**, a następnie kliknij przycisk **Instaluj**.
+1. W oknie dialogowym rozszerzenia serwera NPS dla usługi Azure AD MFA kliknij przycisk **Zamknij**.
 
 ### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>Konfigurowanie certyfikatów do użycia z rozszerzeniem serwera NPS przy użyciu skryptu programu PowerShell
 
@@ -187,11 +187,11 @@ Przepływ uwierzytelniania wymaga wymiany komunikatów usługi RADIUS między br
 
 ### <a name="configure-remote-desktop-gateway-connection-authorization-policies-to-use-central-store"></a>Konfigurowanie zasad autoryzacji połączeń bramy Pulpit zdalny w celu korzystania z magazynu centralnego
 
-Pulpit zdalny zasady autoryzacji połączeń (RD CAP) określają wymagania dotyczące nawiązywania połączenia z serwerem bramy Pulpit zdalny. Ustawienia RD CAP mogą być przechowywane lokalnie (domyślnie) lub mogą być przechowywane w centralnym magazynie RD CAP, na którym działa serwer NPS. Aby skonfigurować integrację usługi Azure MFA z usługami RDS, należy określić użycie magazynu centralnego.
+Pulpit zdalny zasady autoryzacji połączeń (RD CAP) określają wymagania dotyczące nawiązywania połączenia z serwerem bramy Pulpit zdalny. Ustawienia RD CAP mogą być przechowywane lokalnie (domyślnie) lub mogą być przechowywane w centralnym magazynie RD CAP, na którym działa serwer NPS. Aby skonfigurować integrację usługi Azure AD MFA z usługami RDS, należy określić użycie magazynu centralnego.
 
 1. Na serwerze bramy usług pulpitu zdalnego Otwórz **Menedżer serwera**.
 1. W menu kliknij pozycję **Narzędzia**, wskaż polecenie **usługi pulpitu zdalnego**, a następnie kliknij pozycję **Menedżer bramy pulpit zdalny**.
-1. W Menedżerze bramy usług pulpitu zdalnego kliknij prawym przyciskiem myszy pozycję ** \[ Nazwa serwera \] (lokalna)**, a następnie kliknij polecenie **Właściwości**.
+1. W Menedżerze bramy usług pulpitu zdalnego kliknij prawym przyciskiem myszy pozycję **\[ Nazwa serwera \] (lokalna)**, a następnie kliknij polecenie **Właściwości**.
 1. W oknie dialogowym właściwości wybierz kartę **magazyn RD CAP** .
 1. Na karcie Magazyn RD CAP wybierz pozycję **serwer centralny z uruchomionym serwerem zasad sieciowych**. 
 1. W polu **Wprowadź nazwę lub adres IP dla serwera** , na którym działa serwer zasad sieciowych wpisz adres IP lub nazwę serwera serwera, na którym zainstalowano rozszerzenie serwera NPS.
@@ -238,9 +238,9 @@ Aby zapewnić czas na zweryfikowanie poświadczeń użytkowników, przeprowadzen
 
 ### <a name="verify-connection-request-policies"></a>Weryfikowanie zasad żądań połączeń
 
-Domyślnie podczas konfigurowania bramy usług pulpitu zdalnego do używania centralnego magazynu zasad na potrzeby zasad autoryzacji połączeń Brama usług pulpitu zdalnego jest skonfigurowana do przesyłania dalej żądań CAP do serwera NPS. Serwer NPS z zainstalowanym rozszerzeniem usługi Azure MFA przetwarza żądanie dostępu usługi RADIUS. Poniższe kroki pokazują, jak sprawdzić domyślne zasady żądań połączeń.  
+Domyślnie podczas konfigurowania bramy usług pulpitu zdalnego do używania centralnego magazynu zasad na potrzeby zasad autoryzacji połączeń Brama usług pulpitu zdalnego jest skonfigurowana do przesyłania dalej żądań CAP do serwera NPS. Serwer NPS z zainstalowanym rozszerzeniem usługi Azure AD MFA przetwarza żądanie dostępu usługi RADIUS. Poniższe kroki pokazują, jak sprawdzić domyślne zasady żądań połączeń.  
 
-1. Na bramie usług pulpitu zdalnego, w konsoli serwera NPS (lokalnego) rozwiń węzeł **zasady**i wybierz pozycję **zasady żądań połączeń**.
+1. Na bramie usług pulpitu zdalnego, w konsoli serwera NPS (lokalnego) rozwiń węzeł **zasady** i wybierz pozycję **zasady żądań połączeń**.
 1. Kliknij dwukrotnie pozycję **zasady autoryzacji bramy usług terminalowych**.
 1. W oknie dialogowym **Właściwości zasad autoryzacji bramy usług terminalowych** kliknij kartę **Ustawienia** .
 1. Na karcie **Ustawienia** w obszarze przekazywanie żądania połączenia kliknij pozycję **uwierzytelnianie**. Klient usługi RADIUS jest skonfigurowany do przesyłania dalej żądań uwierzytelniania.
@@ -286,7 +286,7 @@ Brama Pulpit zdalny musi być skonfigurowana jako Klient RADIUS serwera NPS.
 
 ### <a name="configure-network-policy"></a>Konfigurowanie zasad sieciowych
 
-Należy odwołać się do wyszukanego centralnego magazynu zasad dla zasad autoryzacji połączeń (CAP) na serwerze NPS z rozszerzeniem usługi Azure MFA. W związku z tym należy zaimplementować zakończenie na serwerze NPS w celu autoryzowania prawidłowych żądań połączeń.  
+Należy odwołać się, że serwer NPS z rozszerzeniem usługi Azure AD MFA jest wskazanym centralnym magazynem zasad dla zasad autoryzacji połączeń (CAP). W związku z tym należy zaimplementować zakończenie na serwerze NPS w celu autoryzowania prawidłowych żądań połączeń.  
 
 1. Na serwerze NPS Otwórz konsolę serwera NPS (lokalna), rozwiń węzeł **zasady**, a następnie kliknij pozycję **zasady sieciowe**.
 1. Kliknij prawym przyciskiem myszy pozycję **połączenia z innymi serwerami dostępu**, a następnie kliknij pozycję **Duplikuj zasady**.
@@ -294,7 +294,7 @@ Należy odwołać się do wyszukanego centralnego magazynu zasad dla zasad autor
    ![Duplikowanie połączenia z innymi zasadami serwerów dostępu](./media/howto-mfa-nps-extension-rdg/image19.png)
 
 1. Kliknij prawym przyciskiem myszy pozycję **kopia połączeń z innymi serwerami dostępu**, a następnie kliknij pozycję **Właściwości**.
-1. W oknie dialogowym **kopia połączeń z innymi serwerami dostępu** w polu **Nazwa zasad**wprowadź odpowiednią nazwę, taką jak _RDG_CAP_. Sprawdź **włączone zasady**i wybierz pozycję **Udziel dostępu**. Opcjonalnie w obszarze **Typ serwera dostępu do sieci**wybierz pozycję **brama pulpit zdalny**lub pozostaw ją **nieokreślony**.
+1. W oknie dialogowym **kopia połączeń z innymi serwerami dostępu** w polu **Nazwa zasad** wprowadź odpowiednią nazwę, taką jak _RDG_CAP_. Sprawdź **włączone zasady** i wybierz pozycję **Udziel dostępu**. Opcjonalnie w obszarze **Typ serwera dostępu do sieci** wybierz pozycję **brama pulpit zdalny** lub pozostaw ją **nieokreślony**.
 
    ![Nazwij zasady, Włącz i Udziel dostępu](./media/howto-mfa-nps-extension-rdg/image21.png)
 
@@ -313,7 +313,7 @@ Należy odwołać się do wyszukanego centralnego magazynu zasad dla zasad autor
 
 ## <a name="verify-configuration"></a>Weryfikuj konfigurację
 
-Aby sprawdzić konfigurację, należy zalogować się do bramy Pulpit zdalny przy użyciu odpowiedniego klienta RDP. Upewnij się, że korzystasz z konta, które jest dozwolone przez zasady autoryzacji połączeń i włączono usługę Azure MFA.
+Aby sprawdzić konfigurację, należy zalogować się do bramy Pulpit zdalny przy użyciu odpowiedniego klienta RDP. Upewnij się, że korzystasz z konta, które jest dozwolone przez zasady autoryzacji połączeń i włączono usługę Azure AD MFA.
 
 Jak pokazano na poniższej ilustracji, możesz użyć strony **Dostęp w sieci Web pulpit zdalny** .
 
@@ -321,7 +321,7 @@ Jak pokazano na poniższej ilustracji, możesz użyć strony **Dostęp w sieci W
 
 Po pomyślnym wprowadzeniu poświadczeń uwierzytelniania podstawowego w oknie dialogowym Pulpit zdalny Połącz zostanie wyświetlony stan Inicjowanie połączenia zdalnego, jak pokazano poniżej. 
 
-W przypadku pomyślnego uwierzytelnienia za pomocą pomocniczej metody uwierzytelniania, która została wcześniej skonfigurowana w usłudze Azure MFA, nawiązano połączenie z zasobem. Jeśli jednak uwierzytelnianie pomocnicze zakończy się niepowodzeniem, odmówiono dostępu do zasobu. 
+W przypadku pomyślnego uwierzytelnienia za pomocą pomocniczej metody uwierzytelniania, która została wcześniej skonfigurowana w usłudze Azure AD MFA, nawiązano połączenie z zasobem. Jeśli jednak uwierzytelnianie pomocnicze zakończy się niepowodzeniem, odmówiono dostępu do zasobu. 
 
 ![Podłączanie pulpitu zdalnego inicjowania połączenia zdalnego](./media/howto-mfa-nps-extension-rdg/image26.png)
 
@@ -358,15 +358,15 @@ Możesz również wyświetlić dziennik zabezpieczeń lub widok niestandardowy u
 
 ![Usługi zasad sieciowych i dostępu sieciowego Podgląd zdarzeń](./media/howto-mfa-nps-extension-rdg/image31.png)
 
-Na serwerze, na którym zainstalowano rozszerzenie serwera NPS dla usługi Azure MFA, można znaleźć Dzienniki aplikacji Podgląd zdarzeń specyficzne dla rozszerzenia w _Logs\Microsoft\AzureMfa aplikacji i usług_.
+Na serwerze, na którym zainstalowano rozszerzenie serwera NPS dla usługi Azure AD MFA, można znaleźć Dzienniki aplikacji Podgląd zdarzeń specyficzne dla rozszerzenia w _Logs\Microsoft\AzureMfa aplikacji i usług_.
 
 ![Podgląd zdarzeń autoryzacji dzienników aplikacji](./media/howto-mfa-nps-extension-rdg/image32.png)
 
 ## <a name="troubleshoot-guide"></a>Przewodnik rozwiązywania problemów
 
-Jeśli konfiguracja nie działa zgodnie z oczekiwaniami, pierwsze miejsce do rozpoczęcia rozwiązywania problemów polega na sprawdzeniu, czy użytkownik jest skonfigurowany do korzystania z usługi Azure MFA. Użytkownik nawiązuje połączenie z [Azure Portal](https://portal.azure.com). Jeśli użytkownik zostanie poproszony o weryfikację pomocniczą i może zostać pomyślnie uwierzytelniony, można wyeliminować nieprawidłową konfigurację usługi Azure MFA.
+Jeśli konfiguracja nie działa zgodnie z oczekiwaniami, pierwsze miejsce do rozpoczęcia rozwiązywania problemów polega na sprawdzeniu, czy użytkownik jest skonfigurowany do korzystania z usługi Azure AD MFA. Użytkownik nawiązuje połączenie z [Azure Portal](https://portal.azure.com). Jeśli użytkownik zostanie poproszony o weryfikację pomocniczą i może się uwierzytelnić, można wyeliminować niepoprawną konfigurację usługi Azure AD MFA.
 
-Jeśli usługa Azure MFA działa dla użytkowników, należy przejrzeć odpowiednie dzienniki zdarzeń. Obejmują one zdarzenia zabezpieczeń, operacyjne bramy i dzienniki usługi Azure MFA omówione w poprzedniej sekcji.
+Jeśli usługa Azure AD MFA działa dla użytkowników, należy przejrzeć odpowiednie dzienniki zdarzeń. Obejmują one zdarzenia zabezpieczeń, operacyjne bramy i dzienniki usługi Azure AD MFA omówione w poprzedniej sekcji.
 
 Poniżej znajduje się przykładowe dane wyjściowe dziennika zabezpieczeń przedstawiające nieudane zdarzenie logowania (Identyfikator zdarzenia 6273).
 
@@ -374,7 +374,7 @@ Poniżej znajduje się przykładowe dane wyjściowe dziennika zabezpieczeń prze
 
 Poniżej znajduje się zdarzenie powiązane z dzienników AzureMFA:
 
-![Przykładowy dziennik usługi Azure MFA Podgląd zdarzeń](./media/howto-mfa-nps-extension-rdg/image34.png)
+![Przykład logowania do usługi Azure AD MFA w Podgląd zdarzeń](./media/howto-mfa-nps-extension-rdg/image34.png)
 
 Aby skorzystać z zaawansowanych opcji rozwiązywania problemów, zapoznaj się z plikami dziennika w formacie bazy danych serwera NPS, w których zainstalowano usługę NPS. Te pliki dzienników są tworzone w folderze _%systemroot%\System32\Logs_ jako pliki tekstowe rozdzielane przecinkami.
 
@@ -392,7 +392,7 @@ Poniższy obraz z programu Microsoft Message Analyzer pokazuje ruch sieciowy fil
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Jak uzyskać usługę Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+[Jak uzyskać Multi-Factor Authentication usługi Azure AD](concept-mfa-licensing.md)
 
 [Brama usług pulpitu zdalnego i serwer Azure Multi-Factor Authentication korzystające z usługi RADIUS](howto-mfaserver-nps-rdg.md)
 
