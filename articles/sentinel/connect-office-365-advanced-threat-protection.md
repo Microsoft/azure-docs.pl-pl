@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 5ac72c9861e06773ffab87dcbf4e730562b798fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346601"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655498"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Łączenie alertów z usługi Microsoft Defender dla pakietu Office 365 
 
@@ -31,7 +31,7 @@ ms.locfileid: "91346601"
 >
 > - Pozyskiwanie alertów usługi Microsoft Defender dla pakietu Office 365 jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-Usługa [Microsoft Defender dla pakietu Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) chroni organizację przed zerowym i innymi zaawansowanymi zagrożeniami, które są nieznane w wiadomościach e-mail, w łączach złośliwych adresów URL i narzędziach do współpracy. Dzięki przeniesieniu alertów programu Microsoft Defender for Office 365 do oprogramowania Azure wskaźnikowego, będziesz mieć możliwość użycia informacji na temat wiadomości e-mail, udostępniania plików i zagrożeń opartych na adresie URL w operacjach zabezpieczeń. Następnie można bardziej kompleksowo analizować zdarzenia zabezpieczeń w organizacji i kompilować elementy PlayBook na potrzeby skutecznej i natychmiastowej reakcji.
+Usługa [Microsoft Defender dla pakietu Office 365](/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) chroni organizację przed zerowym i innymi zaawansowanymi zagrożeniami, które są nieznane w wiadomościach e-mail, w łączach złośliwych adresów URL i narzędziach do współpracy. Dzięki przeniesieniu alertów programu Microsoft Defender for Office 365 do oprogramowania Azure wskaźnikowego, będziesz mieć możliwość użycia informacji na temat wiadomości e-mail, udostępniania plików i zagrożeń opartych na adresie URL w operacjach zabezpieczeń. Następnie można bardziej kompleksowo analizować zdarzenia zabezpieczeń w organizacji i kompilować elementy PlayBook na potrzeby skutecznej i natychmiastowej reakcji.
 
 Łącznik importuje następujące alerty:
 
@@ -55,7 +55,7 @@ Te alerty mogą być widoczne dla klientów pakietu Office w **Centrum zabezpiec
 
 - Musisz być administratorem globalnym lub administratorem zabezpieczeń w dzierżawie obszaru roboczego wskaźnikowego platformy Azure.
 
-- Konieczne jest posiadanie ważnej licencji dla [pakietu office 365 ATP (plan 2](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) ) (dołączonego do pakietów Office 365 E5, Office 365 A5 i Microsoft 365 E5 i dostępnych do zakupu osobno). 
+- Konieczne jest posiadanie ważnej licencji dla [pakietu office 365 ATP (plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) ) (dołączonego do pakietów Office 365 E5, Office 365 A5 i Microsoft 365 E5 i dostępnych do zakupu osobno). 
 
 ## <a name="connect-to-microsoft-defender-for-office-365"></a>Nawiązywanie połączenia z usługą Microsoft Defender dla pakietu Office 365
 
@@ -77,4 +77,4 @@ Jeśli zostanie wdrożona usługa Microsoft Defender dla pakietu Office 365 i je
 
 W tym dokumencie przedstawiono sposób nawiązywania połączenia z usługą Microsoft Defender dla pakietu Office 365 z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
-- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](./tutorial-detect-threats-built-in.md).

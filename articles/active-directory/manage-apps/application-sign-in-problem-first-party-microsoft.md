@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654409"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemy z logowaniem do aplikacji firmy Microsoft
 
@@ -63,7 +63,7 @@ Poniżej przedstawiono niektóre typowe problemy, które osób, gdy użytkownicy
 
   * Upewnij się, że konto użytkownika jest **włączone** do logowania. [Sprawdź stan konta użytkownika](#problems-with-the-users-account)
 
-  * Upewnij się, że **hasło użytkownika nie wygasło lub zostało zapomniane.** [Zresetuj hasło użytkownika](#reset-a-users-password) lub Włącz samoobsługowe [Resetowanie hasła](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Upewnij się, że **hasło użytkownika nie wygasło lub zostało zapomniane.** [Zresetuj hasło użytkownika](#reset-a-users-password) lub Włącz samoobsługowe [Resetowanie hasła](../authentication/tutorial-enable-sspr.md)
 
   * Upewnij się, że **Multi-Factor Authentication** nie blokuje dostępu użytkownika. [Sprawdź stan usługi uwierzytelniania wieloskładnikowego użytkownika](#check-a-users-multi-factor-authentication-status) lub [Sprawdź informacje kontaktowe uwierzytelniania użytkownika](#check-a-users-authentication-contact-info)
 
@@ -179,9 +179,9 @@ Aby zresetować hasło użytkownika, wykonaj następujące kroki:
 
 Aby włączyć funkcję samoobsługowego resetowania hasła, wykonaj następujące kroki wdrażania:
 
--   [Zezwalaj użytkownikom na Resetowanie swoich haseł Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Zezwalaj użytkownikom na Resetowanie swoich haseł Azure Active Directory](../authentication/tutorial-enable-sspr.md)
 
--   [Zezwól użytkownikom na Resetowanie lub zmienianie Active Directory haseł lokalnych](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Zezwól użytkownikom na Resetowanie lub zmienianie Active Directory haseł lokalnych](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Sprawdź stan usługi uwierzytelniania wieloskładnikowego użytkownika
 
@@ -203,7 +203,7 @@ Aby sprawdzić stan usługi uwierzytelniania wieloskładnikowego użytkownika, w
 
 8. Znajdź użytkownika na liście użytkowników, wyszukując, filtrując lub sortując.
 
-9. Wybierz użytkownika z listy użytkowników i **Włącz**, **Wyłącz**lub **wymuszj** uwierzytelnianie wieloskładnikowe zgodnie z potrzebami.
+9. Wybierz użytkownika z listy użytkowników i **Włącz**, **Wyłącz** lub **wymuszj** uwierzytelnianie wieloskładnikowe zgodnie z potrzebami.
 
    * **Uwaga**: Jeśli użytkownik jest w stanie **wymuszonym** , można ustawić je jako czasowo **wyłączone** , aby umożliwić im powrót do konta. Po ponownym uruchomieniu programu można zmienić jego stan na ponownie **włączony** , aby wymagać od nich ponownego zarejestrowania swoich informacji kontaktowych podczas kolejnego logowania. Alternatywnie możesz wykonać kroki opisane w [informacji kontaktowych dotyczących uwierzytelniania użytkownika](#check-a-users-authentication-contact-info) , aby sprawdzić lub ustawić dla nich te dane.
 
@@ -508,26 +508,25 @@ Dostęp do aplikacji można zablokować, ponieważ nie nastąpiła odpowiednia o
 
 -   Dla każdej aplikacji z obsługą połączenia typu Open ID, która żąda uprawnień, przechodzenie do ekranu logowania aplikacji wykonuje na poziomie użytkownika zgodę na aplikację zalogowanego użytkownika.
 
--   Jeśli chcesz to zrobić programowo, zobacz [żądanie zgody poszczególnych użytkowników](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Jeśli chcesz to zrobić programowo, zobacz [żądanie zgody poszczególnych użytkowników](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Wykonywanie operacji zgody na poziomie administratora dla dowolnej aplikacji
 
--   W przypadku **aplikacji utworzonych przy użyciu modelu aplikacji V1**można wymusić zgodę na poziom tego administratora, dodając "**? monit = \_ zgoda administratora**" na końcu adresu URL logowania aplikacji.
+-   W przypadku **aplikacji utworzonych przy użyciu modelu aplikacji V1** można wymusić zgodę na poziom tego administratora, dodając "**? monit = \_ zgoda administratora**" na końcu adresu URL logowania aplikacji.
 
--   Dla **każdej aplikacji opracowanej przy użyciu modelu aplikacji w wersji 2**można wymusić tę zgodę na poziomie administratora, postępując zgodnie z instrukcjami w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Dla **każdej aplikacji opracowanej przy użyciu modelu aplikacji w wersji 2** można wymusić tę zgodę na poziomie administratora, postępując zgodnie z instrukcjami w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Wykonaj zgodę na poziomie administratora dla aplikacji z jedną dzierżawą
 
 -   W przypadku **aplikacji z jedną dzierżawą** , które żądają uprawnień (takich jak te, które są opracowywane lub są używane w organizacji), można wykonać operacji **zgody na poziomie administratora** w imieniu wszystkich użytkowników, logując się jako Administrator globalny i klikając przycisk **Udziel uprawnień** w górnej części **rejestru aplikacji — &gt; wszystkie aplikacje — &gt; Wybierz okienko &gt; uprawnienia wymagane dla aplikacji** .
 
--   Dla **każdej aplikacji opracowanej przy użyciu modelu aplikacji w wersji 1 lub 2**można wymusić zgodę na dostęp na poziomie administratora, postępując zgodnie z instrukcjami w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Dla **każdej aplikacji opracowanej przy użyciu modelu aplikacji w wersji 1 lub 2** można wymusić zgodę na dostęp na poziomie administratora, postępując zgodnie z instrukcjami w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Wykonywanie zgody na poziomie administratora dla aplikacji z wieloma dzierżawcami
 
 -   W przypadku **aplikacji wielodostępnych** , które żądają uprawnień (takich jak aplikacja innej firmy lub firma Microsoft, opracowuje), można wykonać operację **wyrażania zgody na poziomie administratora** . Zaloguj się jako Administrator globalny i kliknij przycisk **Udziel uprawnień** w obszarze **aplikacje dla przedsiębiorstw — &gt; wszystkie aplikacje — Wybierz okienko &gt; &gt; uprawnienia aplikacji** (dostępne wkrótce).
 
--   Możesz również wymusić tę zgodę na poziomie administratora, postępując zgodnie z instrukcjami podanymi w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Możesz również wymusić tę zgodę na poziomie administratora, postępując zgodnie z instrukcjami podanymi w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="next-steps"></a>Następne kroki
-[Korzystanie z punktu końcowego zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Korzystanie z punktu końcowego zgody administratora](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

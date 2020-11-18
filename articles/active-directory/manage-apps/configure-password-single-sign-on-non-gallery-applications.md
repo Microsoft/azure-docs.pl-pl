@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b647e15d3fc99a7f15fbc24e2b6050fdfdc6e93
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598335"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654715"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Informacje na temat logowania jednokrotnego opartego na hasłach
 
@@ -29,11 +29,11 @@ Logowanie jednokrotne oparte na hasłach to doskonały sposób, aby szybko rozpo
 
 - Obsługa aplikacji, które wymagają wielu pól logowania dla aplikacji, które wymagają więcej niż tylko nazwy użytkownika i hasła do logowania
 
-- Dostosuj etykiety pól username i Password, które użytkownicy widzą w [moich aplikacjach](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) po wprowadzeniu poświadczeń
+- Dostosuj etykiety pól username i Password, które użytkownicy widzą w [moich aplikacjach](../user-help/my-apps-portal-end-user-access.md) po wprowadzeniu poświadczeń
 
 - Zezwól użytkownikom na udostępnianie własnych nazw użytkowników i haseł dla wszystkich istniejących kont aplikacji, które są wpisywane ręcznie.
 
-- Zezwól członkowi grupy biznesowej na określanie nazw użytkowników i haseł przypisanych do użytkownika przy użyciu funkcji samoobsługowego [dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+- Zezwól członkowi grupy biznesowej na określanie nazw użytkowników i haseł przypisanych do użytkownika przy użyciu funkcji samoobsługowego [dostępu do aplikacji](./manage-self-service-access.md)
 
 -   Umożliwia administratorowi określenie nazwy użytkownika i hasła, które mają być używane przez osoby lub grupy podczas logowania się do aplikacji za pomocą funkcji aktualizacji poświadczeń 
 
@@ -44,7 +44,7 @@ Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości
 > [!IMPORTANT] 
 > Istnieją sytuacje, w których opcja **logowania** jednokrotnego nie będzie w nawigacji dla aplikacji w **aplikacjach dla przedsiębiorstw**. 
 >
-> Jeśli aplikacja została zarejestrowana przy użyciu **rejestracje aplikacji** , funkcja logowania jednokrotnego jest domyślnie skonfigurowana do używania protokołu OAuth OIDC. W takim przypadku opcja **logowania** jednokrotnego nie będzie widoczna w obszarze nawigacji w obszarze **aplikacje dla przedsiębiorstw**. W przypadku dodawania niestandardowej aplikacji przy użyciu **rejestracje aplikacji** można skonfigurować opcje w pliku manifestu. Aby dowiedzieć się więcej na temat pliku manifestu, zobacz [Azure Active Directory manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Aby dowiedzieć się więcej na temat standardów rejestracji jednokrotnej, zobacz [uwierzytelnianie i autoryzacja przy użyciu platformy tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Jeśli aplikacja została zarejestrowana przy użyciu **rejestracje aplikacji** , funkcja logowania jednokrotnego jest domyślnie skonfigurowana do używania protokołu OAuth OIDC. W takim przypadku opcja **logowania** jednokrotnego nie będzie widoczna w obszarze nawigacji w obszarze **aplikacje dla przedsiębiorstw**. W przypadku dodawania niestandardowej aplikacji przy użyciu **rejestracje aplikacji** można skonfigurować opcje w pliku manifestu. Aby dowiedzieć się więcej na temat pliku manifestu, zobacz [Azure Active Directory manifest aplikacji](../develop/reference-app-manifest.md). Aby dowiedzieć się więcej na temat standardów rejestracji jednokrotnej, zobacz [uwierzytelnianie i autoryzacja przy użyciu platformy tożsamości firmy Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Inne scenariusze, w których nie będzie można korzystać z **logowania** jednokrotnego w nawigacji, obejmują, gdy aplikacja jest hostowana w innej dzierżawie lub że Twoje konto nie ma wymaganych uprawnień (Administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi). Uprawnienia mogą również prowadzić do scenariusza, w którym można otworzyć **Logowanie jednokrotne** , ale nie będzie można go zapisać. Aby dowiedzieć się więcej na temat ról administracyjnych usługi Azure AD, zobacz https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -60,14 +60,14 @@ Strona konfiguracja logowania jednokrotnego na podstawie hasła jest prosta. Zaw
 
 Po wprowadzeniu adresu URL wybierz pozycję **Zapisz**. Usługa Azure AD analizuje kod HTML strony logowania dla pól wprowadzania nazwy użytkownika i hasła. Jeśli próba powiedzie się, wszystko jest gotowe.
  
-Następnym krokiem jest [przypisanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md). Po przypisaniu użytkowników i grup można podać poświadczenia, które będą używane dla użytkownika podczas logowania się do aplikacji. Wybierz pozycję **Użytkownicy i grupy**, zaznacz pole wyboru dla wiersza użytkownika lub grupy, a następnie wybierz pozycję **Aktualizuj poświadczenia**. Na koniec wprowadź nazwę użytkownika i hasło, które mają być używane dla użytkownika lub grupy. Jeśli tego nie zrobisz, użytkownicy otrzymają monit o wprowadzenie poświadczeń podczas uruchamiania.
+Następnym krokiem jest [przypisanie użytkowników lub grup do aplikacji](./assign-user-or-group-access-portal.md). Po przypisaniu użytkowników i grup można podać poświadczenia, które będą używane dla użytkownika podczas logowania się do aplikacji. Wybierz pozycję **Użytkownicy i grupy**, zaznacz pole wyboru dla wiersza użytkownika lub grupy, a następnie wybierz pozycję **Aktualizuj poświadczenia**. Na koniec wprowadź nazwę użytkownika i hasło, które mają być używane dla użytkownika lub grupy. Jeśli tego nie zrobisz, użytkownicy otrzymają monit o wprowadzenie poświadczeń podczas uruchamiania.
  
 
 ## <a name="manual-configuration"></a>Konfiguracja ręczna
 
 Jeśli próba analizy usługi Azure AD nie powiedzie się, można skonfigurować logowanie ręcznie.
 
-1. W obszarze ** \<application name> Konfiguracja**wybierz pozycję **Skonfiguruj \<application name> Ustawienia logowania** jednokrotnego hasła, aby wyświetlić stronę **Konfigurowanie logowania** . 
+1. W obszarze **\<application name> Konfiguracja** wybierz pozycję **Skonfiguruj \<application name> Ustawienia logowania** jednokrotnego hasła, aby wyświetlić stronę **Konfigurowanie logowania** . 
 
 2. Wybierz pozycję **ręcznie Wykryj pola logowania**. Pojawią się dodatkowe instrukcje opisujące Ręczne wykrywanie pól logowania.
 
@@ -88,5 +88,5 @@ Jeśli próba analizy usługi Azure AD nie powiedzie się, można skonfigurować
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przypisywanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md)
+- [Przypisywanie użytkowników lub grup do aplikacji](./assign-user-or-group-access-portal.md)
 - [Konfigurowanie automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/configure-automatic-user-provisioning-portal.md)

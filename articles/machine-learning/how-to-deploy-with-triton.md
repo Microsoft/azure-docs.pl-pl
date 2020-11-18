@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3a7d750caed297dfa364e2f1ef176ee19ad35480
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309706"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654210"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Obsługa wysokiej wydajności przy użyciu serwera wnioskowania Triton (wersja zapoznawcza) 
 
@@ -66,7 +66,11 @@ Przepływ pracy, który ma być używany do wdrażania modelu Triton, to:
 1. Sprawdź, czy możesz wysyłać żądania do modelu wdrożonego Triton.
 1. Uwzględnij kod specyficzny dla Triton we wdrożeniu AML.
 
-## <a name="optional-define-a-model-config-file"></a>Obowiązkowe Zdefiniuj plik konfiguracji modelu
+## <a name="verify-that-triton-can-serve-your-model"></a>Sprawdź, czy Triton może obsłużyć Twój model
+
+Najpierw postępuj zgodnie z poniższymi instrukcjami, aby sprawdzić, czy serwer wnioskowania Triton może obsłużyć Twój model.
+
+### <a name="optional-define-a-model-config-file"></a>Obowiązkowe Zdefiniuj plik konfiguracji modelu
 
 Plik konfiguracji modelu informuje Triton o liczbie danych wejściowych, których oczekuje, i o tym, jakie wymiary będą takie dane wejściowe. Aby uzyskać więcej informacji na temat tworzenia pliku konfiguracji, zobacz [Konfiguracja modelu](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) w dokumentacji firmy NVIDIA.
 
@@ -75,7 +79,7 @@ Plik konfiguracji modelu informuje Triton o liczbie danych wejściowych, któryc
 > 
 > Aby uzyskać więcej informacji na temat tej opcji, zobacz [Konfiguracja wygenerowanego modelu](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) w dokumentacji firmy NVIDIA.
 
-## <a name="directory-structure"></a>Struktura katalogów
+### <a name="use-the-correct-directory-structure"></a>Użyj prawidłowej struktury katalogów
 
 Podczas rejestrowania modelu z Azure Machine Learning można zarejestrować pojedyncze pliki lub strukturę katalogów. Aby można było korzystać z Triton, rejestracja modelu musi być dla struktury katalogów, która zawiera katalog o nazwie `triton` . Ogólna struktura tego katalogu:
 
@@ -93,7 +97,7 @@ models
 > [!IMPORTANT]
 > Ta struktura katalogów jest repozytorium modelu Triton i jest wymagana, aby modele działały z Triton. Aby uzyskać więcej informacji, zobacz [repozytoria modeli Triton](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) w dokumentacji firmy NVIDIA.
 
-## <a name="test-with-triton-and-docker"></a>Testowanie za pomocą Triton i platformy Docker
+### <a name="test-with-triton-and-docker"></a>Testowanie za pomocą Triton i platformy Docker
 
 Aby przetestować model, aby upewnić się, że działa z Triton, możesz użyć platformy Docker. Następujące polecenia ściągają kontener Triton na komputer lokalny, a następnie uruchamiamy serwer Triton:
 
@@ -146,7 +150,7 @@ Poza podstawową kontrolę kondycji można utworzyć klienta w celu wysyłania d
 
 Aby uzyskać więcej informacji na temat uruchamiania Triton przy użyciu platformy Docker, zobacz [Uruchamianie Triton w systemie z procesorem GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) i [Uruchamianie Triton w systemie bez procesora GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
-## <a name="register-your-model"></a>Zarejestruj model
+### <a name="register-your-model"></a>Zarejestruj model
 
 Po zweryfikowaniu, że model współpracuje z Triton, zarejestruj go przy użyciu Azure Machine Learning. Rejestracja modelu przechowuje pliki modeli w obszarze roboczym Azure Machine Learning i są używane podczas wdrażania przy użyciu zestawu SDK języka Python i interfejsu wiersza polecenia platformy Azure.
 
@@ -176,9 +180,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## <a name="add-pre-and-post-processing"></a>Dodaj przed i po przetworzeniu
+## <a name="verify-you-can-call-into-your-model"></a>Sprawdź, czy można wywołać model
 
-Po sprawdzeniu, czy usługa sieci Web działa, można dodać kod poprzedzający i przetworzony przez zdefiniowanie _skryptu wejścia_. Ten plik ma nazwę `score.py` . Aby uzyskać więcej informacji na temat skryptów wprowadzania, zobacz [Definiowanie skryptu wejścia](how-to-deploy-and-where.md#define-an-entry-script).
+Po sprawdzeniu, czy Triton jest w stanie obsłużyć Twój model, można dodać kod poprzedzający i wytworzony przez zdefiniowanie _skryptu wejścia_. Ten plik ma nazwę `score.py` . Aby uzyskać więcej informacji na temat skryptów wprowadzania, zobacz [Definiowanie skryptu wejścia](how-to-deploy-and-where.md#define-an-entry-script).
 
 Dwa główne kroki polegają na zainicjowaniu klienta HTTP Triton w `init()` metodzie i wywołaniu tego klienta w `run()` funkcji.
 

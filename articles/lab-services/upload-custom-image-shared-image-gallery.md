@@ -3,12 +3,12 @@ title: Azure Lab Services — przekazywanie obrazu niestandardowego do galerii o
 description: Opisuje sposób przekazywania obrazu niestandardowego do galerii obrazów udostępnionych. W szkołach działów IT mogą znaleźć się szczególnie przydatne obrazy.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712413"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654647"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Przekazywanie obrazu niestandardowego do usługi Shared Image Gallery
 
@@ -35,31 +35,36 @@ Istnieje wiele opcji tworzenia wirtualnego dysku twardego w środowisku laborato
        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Łączenie wirtualnego dysku twardego":::   
     1. Obraz maszyny wirtualnej w normalny sposób.
-1. [Nawiąż połączenie z maszyną wirtualną i przygotuj ją na platformę Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
-    1. [Ustawianie konfiguracji systemu Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure)
-    1. [Sprawdź usługi systemu Windows, które są minimalnymi wymaganiami, aby zapewnić łączność z maszyną wirtualną](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services)
-    1. [Aktualizowanie ustawień rejestru usług pulpitu zdalnego](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings)
-    1. [Konfigurowanie reguł zapory systemu Windows](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules)
+1. [Nawiąż połączenie z maszyną wirtualną i przygotuj ją na platformę Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+    1. [Ustawianie konfiguracji systemu Windows na platformie Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure)
+    1. [Sprawdź usługi systemu Windows, które są minimalnymi wymaganiami, aby zapewnić łączność z maszyną wirtualną](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)
+    1. [Aktualizowanie ustawień rejestru usług pulpitu zdalnego](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)
+    1. [Konfigurowanie reguł zapory systemu Windows](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)
     1. Zainstaluj aktualizacje systemu Windows
-    1. [Zainstaluj agenta maszyny wirtualnej platformy Azure i dodatkową konfigurację, jak pokazano tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations) 
+    1. [Zainstaluj agenta maszyny wirtualnej platformy Azure i dodatkową konfigurację, jak pokazano tutaj](../virtual-machines/windows/prepare-for-upload-vhd-image.md#complete-the-recommended-configurations) 
     
-    Powyższe kroki spowodują utworzenie wyspecjalizowanego obrazu. W przypadku tworzenia uogólnionego obrazu należy również uruchomić program [Sysprep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). <br/>
+    Powyższe kroki spowodują utworzenie wyspecjalizowanego obrazu. W przypadku tworzenia uogólnionego obrazu należy również uruchomić program [Sysprep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep). <br/>
         Należy utworzyć wyspecjalizowany obraz, jeśli chcesz zachować katalog użytkownika (może zawierać pliki, informacje o koncie użytkownika itp.), które są wymagane przez oprogramowanie zawarte w obrazie.
 1. Ponieważ **Funkcja Hyper-V** domyślnie tworzy plik **VHDX** , należy go przekonwertować na plik VHD.
     1. Przejdź do **akcji Menedżera funkcji Hyper-V**  ->  **Action**  ->  **Edytuj dysk**.
     1. W tym miejscu będziesz mieć możliwość **przekonwertowania** dysku z pliku VHDX na dysk VHD.
     1. Przy próbie zwiększenia rozmiaru dysku upewnij się, że nie przekroczy 128 GB.        
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Łączenie wirtualnego dysku twardego" Azure Portal. Jak wspomniano wcześniej, rozmiar nie może być > 128 GB.
+        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Wybieranie akcji":::   
+1. Przekaż plik VHD na platformę Azure, aby utworzyć dysk zarządzany.
+    1. Możesz użyć albo Eksplorator usługi Storage lub AzCopy z wiersza polecenia, zgodnie z opisem w artykule [przekazywanie wirtualnego dysku twardego na platformę Azure lub skopiowanie dysku zarządzanego do innego regionu](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).        
+    Jeśli maszyna przechodzi do trybu uśpienia lub blokady, proces przekazywania może zostać przerwany i niepowodzenie.
+    1. W wyniku tego kroku masz teraz dysk zarządzany, który można zobaczyć w Azure Portal. 
+        Aby wybrać rozmiar dysku, możesz użyć karty "Size\Performance" Azure Portal. Jak wspomniano wcześniej, rozmiar nie może być > 128 GB.
 1. Utwórz migawkę dysku zarządzanego.
-    Można to zrobić przy użyciu programu PowerShell, Azure Portal lub z poziomu Eksplorator usługi Storage, zgodnie z opisem w temacie [Tworzenie migawki przy użyciu portalu lub programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+    Można to zrobić przy użyciu programu PowerShell, Azure Portal lub z poziomu Eksplorator usługi Storage, zgodnie z opisem w temacie [Tworzenie migawki przy użyciu portalu lub programu PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md).
 1. W galerii obrazów udostępnionych Utwórz definicję i wersję obrazu:
-    1. [Utwórz definicję obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/shared-images-portal#create-an-image-definition).
+    1. [Utwórz definicję obrazu](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).
     1. Należy również określić, czy tworzysz obraz wyspecjalizowany/uogólniony.
 1. Utwórz laboratorium w Azure Lab Services i wybierz obraz niestandardowy z galerii obrazów udostępnionych.
 
-    Jeśli dysk został rozwinięty po zainstalowaniu systemu operacyjnego na oryginalnej maszynie wirtualnej funkcji Hyper-V, należy również rozszerzyć dysk C w systemie Windows, aby użyć przydzieloną przestrzeni dyskowej. W tym celu zaloguj się do szablonu maszyny wirtualnej po utworzeniu laboratorium, a następnie postępuj zgodnie z instrukcjami podanymi w sekcji [Zwiększ wolumin podstawowy](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). Można to zrobić za pośrednictwem interfejsu użytkownika, a także przy użyciu programu PowerShell.
+    Jeśli dysk został rozwinięty po zainstalowaniu systemu operacyjnego na oryginalnej maszynie wirtualnej funkcji Hyper-V, należy również rozszerzyć dysk C w systemie Windows, aby użyć przydzieloną przestrzeni dyskowej. W tym celu zaloguj się do szablonu maszyny wirtualnej po utworzeniu laboratorium, a następnie postępuj zgodnie z instrukcjami podanymi w sekcji [Zwiększ wolumin podstawowy](/windows-server/storage/disk-management/extend-a-basic-volume). Można to zrobić za pośrednictwem interfejsu użytkownika, a także przy użyciu programu PowerShell.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie galerii obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+* [Omówienie galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md)
 * [Jak korzystać z galerii obrazów udostępnionych](how-to-use-shared-image-gallery.md)

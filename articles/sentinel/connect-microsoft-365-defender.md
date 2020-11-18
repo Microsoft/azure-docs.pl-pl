@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938481"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655583"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Łączenie danych z programu Microsoft 365 Defender z platformą Azure — wskaźnikiem
 
@@ -33,9 +33,9 @@ ms.locfileid: "90938481"
 
 ## <a name="background"></a>Tło
 
-Nowy łącznik usługi [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) umożliwia przesyłanie strumieniowe **zaawansowanych dzienników łowiectwa** — typu danych nieprzetworzonych zdarzeń — od Microsoft 365 Defender do punktów kontrolnych platformy Azure. 
+Nowy łącznik usługi [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) umożliwia przesyłanie strumieniowe **zaawansowanych dzienników łowiectwa** — typu danych nieprzetworzonych zdarzeń — od Microsoft 365 Defender do punktów kontrolnych platformy Azure. 
 
-Dzięki integracji usługi [Microsoft Defender dla punktów końcowych (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) na parasol zabezpieczeń programu Microsoft 365 Defender można teraz zbierać [Zaawansowane zdarzenia polowania](https://aka.ms/mdatpAH) usługi Microsoft Defender for Endpoint przy użyciu łącznika Microsoft 365 Defender i przesyłać je bezpośrednio do nowych, wbudowanych tabel w obszarze roboczym wskaźnikowego platformy Azure. Tabele te są oparte na tym samym schemacie, który jest używany w portalu Microsoft 365 Defender, co zapewnia pełny dostęp do pełnego zestawu zaawansowanych dzienników łowiectwa i umożliwia wykonywanie następujących czynności:
+Dzięki integracji usługi [Microsoft Defender dla punktów końcowych (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) na parasol zabezpieczeń programu Microsoft 365 Defender można teraz zbierać [Zaawansowane zdarzenia polowania](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) usługi Microsoft Defender for Endpoint przy użyciu łącznika Microsoft 365 Defender i przesyłać je bezpośrednio do nowych, wbudowanych tabel w obszarze roboczym wskaźnikowego platformy Azure. Tabele te są oparte na tym samym schemacie, który jest używany w portalu Microsoft 365 Defender, co zapewnia pełny dostęp do pełnego zestawu zaawansowanych dzienników łowiectwa i umożliwia wykonywanie następujących czynności:
 
 - Łatwo Kopiuj istniejące zapytania o wylowanie zaawansowane usługi Microsoft Defender ATP do platformy Azure.
 
@@ -49,7 +49,7 @@ Dzięki integracji usługi [Microsoft Defender dla punktów końcowych (MDATP)](
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć ważną licencję usługi Microsoft Defender for Endpoint, zgodnie z opisem w temacie [Konfigurowanie usługi Microsoft Defender for Endpoint Deployment](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Musisz mieć ważną licencję usługi Microsoft Defender for Endpoint, zgodnie z opisem w temacie [Konfigurowanie usługi Microsoft Defender for Endpoint Deployment](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - Użytkownik musi mieć przypisaną rolę administratora globalnego w dzierżawie (w Azure Active Directory).
 
@@ -101,4 +101,4 @@ Na karcie **następne kroki** znajdziesz kilka przykładowych zapytań, które z
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób pobierania nieprzetworzonych danych zdarzeń z usługi Microsoft Defender for Endpoint do platformy Azure — wskaźnik przy użyciu łącznika Microsoft 365 Defender. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
-- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](./tutorial-detect-threats-built-in.md).

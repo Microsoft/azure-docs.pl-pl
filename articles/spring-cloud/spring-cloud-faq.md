@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655055"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -93,6 +93,21 @@ Obecnie są obsługiwane trzy usługi:
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Czy mogę wyświetlać, dodawać i przenosić woluminy trwałe z wewnątrz aplikacji?
 
 Tak.
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Ile wychodzących publicznych adresów IP ma wystąpienie chmury Wiosnowej platformy Azure?
+
+Liczba wychodzących publicznych adresów IP może się różnić w zależności od warstw i innych czynników. 
+
+| Typ wystąpienia chmury Azure wiosny | Domyślna liczba wychodzących publicznych adresów IP |
+| -------------------------------- | ---------------------------------------------- |
+| Wystąpienia warstwy Podstawowa             | 1                                              |
+| Wystąpienia warstwy standardowej          | 2                                              |
+| Wystąpienia iniekcji sieci wirtualnej         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>Czy mogę zwiększyć liczbę wychodzących publicznych adresów IP?
+
+Tak, możesz otworzyć [bilet pomocy technicznej](https://azure.microsoft.com/support/faq/)  , aby zażądać więcej wychodzących publicznych adresów IP.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Czy po usunięciu/przeniesieniu wystąpienia usługi w chmurze Azure wiosny czy zasoby rozszerzeń będą również usuwane lub przenoszone?
 

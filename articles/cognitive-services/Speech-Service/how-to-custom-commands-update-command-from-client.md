@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 290f9ee9c23071ac56b1ff0c65ddc03decbc7344
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571217"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654351"
 ---
 # <a name="update-a-command-from-the-client"></a>Aktualizowanie polecenia z poziomu klienta
 
@@ -53,7 +53,7 @@ Umożliwia przejrzenie kluczowych atrybutów tego działania.
 
 | Atrybut | Wyjaśnienie |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **typ** | Działanie jest typu "Event", a nazwa zdarzenia musi mieć wartość "RemoteUpdate". |
+| **Wprowadź** | Działanie jest typu "Event", a nazwa zdarzenia musi mieć wartość "RemoteUpdate". |
 | **wartość** | Atrybut "value" zawiera atrybuty wymagane do zaktualizowania bieżącego polecenia. |
 | **updatedCommand** | Atrybut "updatedCommand" zawiera nazwę polecenia, "updatedParameters" jest mapą z nazwą parametrów i ich zaktualizowanymi wartościami. |
 | **Anuluj** | Jeśli bieżące polecenie musi zostać anulowane, ustaw dla atrybutu "Cancel" wartość true. |
@@ -121,10 +121,24 @@ Na przykład Pomyśl o scenariuszu, w którym chcesz wysłać identyfikator i na
 Aby przetestować ten scenariusz, Utwórzmy nowe polecenie w naszej bieżącej aplikacji.
 1. Utwórz nowe polecenie o nazwie GetDeviceInfo.
 1. Dodaj przykładowe zdanie z "Pobierz informacje o urządzeniu".
-1. W regule ukończenia "gotowe" Dodaj akcję Wyślij odpowiedź na mowę.
+1. W regule ukończenia "gotowe" Dodaj akcję Wyślij odpowiedź na mowę, która zawiera atrybuty Klasa ClientContext.
     > ![Wysyłanie odpowiedzi mowy z kontekstem](media/custom-commands/send-speech-response-context.png)
-1. Zapisz i Wyszkol aplikację.
-1. Przetestuj aplikację.
+1. Zapisz, Przeszkol i przetestuj aplikację.
+1. W oknie testowanie Wyślij działanie, aby zaktualizować kontekst klienta.
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. Wyślij tekst "Pobierz informacje o urządzeniu".
     > ![Wyślij działanie kontekstu klienta](media/custom-commands/send-client-context-activity.png)
 
 Zanotuj kilka rzeczy.
@@ -132,8 +146,7 @@ Zanotuj kilka rzeczy.
 1. Można używać obiektów złożonych dla Klasa ClientContext.
 1. W odpowiedziach na mowę można używać Klasa ClientContext do wysyłania działań i podczas wywoływania punktów końcowych sieci Web.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Aktualizowanie polecenia z punktu końcowego sieci Web](./how-to-custom-commands-update-command-from-web-endpoint.md)
+> [Aktualizowanie polecenia z poziomu internetowego punktu końcowego](./how-to-custom-commands-update-command-from-web-endpoint.md)

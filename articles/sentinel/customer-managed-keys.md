@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427058"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655276"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurowanie klucza zarządzanego przez klienta na platformie Azure
 
@@ -59,7 +59,7 @@ Aby udostępnić CMK, wykonaj następujące kroki:
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>Krok 1. Tworzenie Azure Key Vault i przechowywanie klucza
 
-1.  [Utwórz zasób Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal), a następnie Wygeneruj lub zaimportuj klucz, który ma być używany do szyfrowania danych.
+1.  [Utwórz zasób Azure Key Vault](/azure-stack/user/azure-stack-key-vault-manage-portal), a następnie Wygeneruj lub zaimportuj klucz, który ma być używany do szyfrowania danych.
     > [!NOTE]
     >  Azure Key Vault należy skonfigurować jako możliwy do odzyskania, aby chronić klucz i dostęp.
 
@@ -132,6 +132,5 @@ Jeśli używasz tego samego klucza na platformie Azure wskaźnikowej i w Log Ana
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób konfigurowania klucza zarządzanego przez klienta w usłudze Azure wskaźnikowej. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
-- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](./tutorial-detect-threats-built-in.md).
 - [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
-

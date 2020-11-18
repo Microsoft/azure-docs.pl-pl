@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427670"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654681"
 ---
 # <a name="configure-permission-classifications"></a>Konfigurowanie klasyfikacji uprawnień
 
@@ -45,7 +45,7 @@ W tym przykładzie został sklasyfikowany minimalny zestaw uprawnień wymaganych
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby sklasyfikować uprawnienia, można użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej ( [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)). Klasyfikacje uprawnień są konfigurowane w obiekcie **Serviceprincipal** interfejsu API, który publikuje uprawnienia.
+Aby sklasyfikować uprawnienia, można użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej ( [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)). Klasyfikacje uprawnień są konfigurowane w obiekcie **Serviceprincipal** interfejsu API, który publikuje uprawnienia.
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>Wyświetlanie listy aktualnych klasyfikacji uprawnień dla interfejsu API
 
@@ -123,7 +123,7 @@ Dodatkowe informacje:
 * [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
 * [Dowiedz się, jak zarządzać zgodą na aplikacje i oszacować wnioski o zgodę](manage-consent-requests.md)
 * [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
-* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
+* [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
 * [Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

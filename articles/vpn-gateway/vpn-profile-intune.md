@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7105597ec34e804c2f2b85b01feb4824d63005c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b1d7f95711017feba52cad97f05128d83734da
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578125"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655174"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Tworzenie profilu usługi Intune w celu wdrożenia profilów klienta sieci VPN
 
@@ -35,7 +35,7 @@ W poniższych krokach użyto przykładowego kodu XML dla niestandardowego profil
 * Połącz ponownie
 * Włączono funkcję wykrywania zaufanych sieci.
 
-Aby poznać inne obsługiwane opcje, zapoznaj się z artykułem [Obsługa sieci VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+Aby poznać inne obsługiwane opcje, zapoznaj się z artykułem [Obsługa sieci VPNV2 CSP](/windows/client-management/mdm/vpnv2-csp) .
 
 1. Pobierz profil sieci VPN z Azure Portal i wyodrębnij plik *azurevpnconfig.xml* z pakietu.
 1. Skopiuj i wklej poniższy tekst do nowego pliku edytora tekstu.
@@ -69,25 +69,25 @@ W tej sekcji utworzysz profil Microsoft Intune z ustawieniami niestandardowymi.
 1. Zaloguj się do usługi Intune i przejdź do **urządzeń — > profile konfiguracji**. Wybierz pozycję **+ Utwórz profil**.
 
    :::image type="content" source="./media/create-profile-intune/configuration-profile.png" alt-text="Profile konfiguracji":::
-1. W polu **Platforma** wybierz pozycję **Windows 10 i nowsze**. W obszarze **profil**wybierz pozycję **niestandardowy**. Następnie wybierz przycisk **Utwórz**.
+1. W polu **Platforma** wybierz pozycję **Windows 10 i nowsze**. W obszarze **profil** wybierz pozycję **niestandardowy**. Następnie wybierz przycisk **Utwórz**.
 1. Podaj nazwę i opis profilu, a następnie wybierz przycisk **dalej**.
 1. Na karcie **Ustawienia konfiguracji** wybierz pozycję **Dodaj**.
 
     * **Nazwa:** Wprowadź nazwę konfiguracji.
     * **Opis:** Opcjonalny opis.
-    * **Identyfikator OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (te informacje można znaleźć w pliku azurevpnconfig.xml w <name> </name> tagu).
+    * **Identyfikator OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (te informacje można znaleźć w pliku azurevpnconfig.xml w <name></name> tagu).
     * **Typ danych:** Ciąg (plik XML).
 
    Wybierz ikonę folderu i wybierz plik zapisany w kroku 6 w krokach [XML](#xml) . Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Profile konfiguracji" lightbox="./media/create-profile-intune/configuration-settings.png":::
+   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Ustawienia konfiguracji" lightbox="./media/create-profile-intune/configuration-settings.png":::
 1. Wybierz opcję **Dalej**.
-1. W obszarze **przypisania**wybierz grupę, do której chcesz wypchnąć konfigurację. Następnie wybierz pozycję **Dalej**.
+1. W obszarze **przypisania** wybierz grupę, do której chcesz wypchnąć konfigurację. Następnie wybierz pozycję **Dalej**.
 1. Reguły zastosowania są opcjonalne. W razie konieczności Zdefiniuj reguły, a następnie wybierz przycisk **dalej**.
 1. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Profile konfiguracji":::
-1. Profil niestandardowy został utworzony. Aby uzyskać Microsoft Intune kroków związanych z wdrażaniem tego profilu, zobacz [przypisywanie profilów użytkowników i urządzeń](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Utwórz profil":::
+1. Profil niestandardowy został utworzony. Aby uzyskać Microsoft Intune kroków związanych z wdrażaniem tego profilu, zobacz [przypisywanie profilów użytkowników i urządzeń](/mem/intune/configuration/device-profile-assign).
  
 ## <a name="next-steps"></a>Następne kroki
 

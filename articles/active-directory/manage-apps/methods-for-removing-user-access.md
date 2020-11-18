@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: kenwith
-ms.openlocfilehash: 8544c35d77dfc32ece9b21a602f301ab15c22439
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 28b31d98f283dc957927ab2a35f0ab95bf066473
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288321"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654120"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Jak usunąć dostęp użytkownika do aplikacji
 
@@ -23,11 +23,11 @@ Ten artykuł pomaga zrozumieć, jak usunąć dostęp użytkownika do aplikacji.
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Chcę usunąć przypisanie określonego użytkownika lub grupy do aplikacji
 
-Aby usunąć przypisanie użytkownika lub grupy do aplikacji, postępuj zgodnie z instrukcjami podanymi w temacie [usuwanie przypisania użytkownika lub grupy z aplikacji przedsiębiorstwa w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artykule.
+Aby usunąć przypisanie użytkownika lub grupy do aplikacji, postępuj zgodnie z instrukcjami podanymi w temacie [usuwanie przypisania użytkownika lub grupy z aplikacji przedsiębiorstwa w Azure Active Directory](./assign-user-or-group-access-portal.md) artykule.
 
 ## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Chcę wyłączyć dostęp do aplikacji dla każdego użytkownika
 
-Aby wyłączyć wszystkie logowania użytkownika do aplikacji, wykonaj kroki opisane w artykule [wyłączanie logowania użytkownika dla aplikacji przedsiębiorstwa w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) .
+Aby wyłączyć wszystkie logowania użytkownika do aplikacji, wykonaj kroki opisane w artykule [wyłączanie logowania użytkownika dla aplikacji przedsiębiorstwa w Azure Active Directory](./disable-user-sign-in-portal.md) .
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Chcę całkowicie usunąć aplikację
 
@@ -37,7 +37,7 @@ Aby wyłączyć wszystkie logowania użytkownika do aplikacji, wykonaj kroki opi
 
 Wyłączenie zgody użytkownika na cały katalog uniemożliwi użytkownikom końcowym przesyłanie ich do żadnej aplikacji. Administratorzy mogą w dalszym ciągu wyrazić zgodę w imieniu użytkownika. Aby uzyskać więcej informacji o zgodzie aplikacji i o tym, dlaczego możesz lub nie chcieć tego zrobić, przeczytaj artykuł [Informacje o zgodzie użytkownika i administratora](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Zobacz również [uprawnienia i zgody](../develop/v2-permissions-and-consent.md).
 
-Aby **wyłączyć wszystkie przyszłe operacje wyrażania zgody użytkowników w całym katalogu** , wykonaj następujące instrukcje:
+Aby **wyłączyć wszystkie przyszłe operacje wyrażania zgody użytkowników w całym katalogu**, wykonaj następujące instrukcje:
 
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny.**
 

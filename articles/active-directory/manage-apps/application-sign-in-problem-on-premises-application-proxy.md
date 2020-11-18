@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7abf61d6b10e22a434c42097bf42183c7b39e352
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367720"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654953"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemy z logowaniem do aplikacji lokalnej przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -48,7 +48,7 @@ Następujące dokumenty mogą ułatwić rozwiązanie niektórych często spotyka
 ## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Mam problem ze skonfigurowaniem uwierzytelniania zaplecza dla mojej aplikacji
   Następujące dokumenty mogą ułatwić rozwiązanie niektórych często spotykanych problemów tego typu.
   * [Nie wiem, jak skonfigurować ograniczone delegowanie protokołu Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-  * [Nie wiem, jak skonfigurować współdziałanie swojej aplikacji z usługą PingAccess](application-proxy-back-end-ping-access-how-to.md)
+  * [Nie wiem, jak skonfigurować współdziałanie swojej aplikacji z usługą PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
 
 ## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Mam problem podczas logowania do mojej aplikacji
   Następujące dokumenty mogą ułatwić rozwiązanie niektórych często spotykanych problemów tego typu.

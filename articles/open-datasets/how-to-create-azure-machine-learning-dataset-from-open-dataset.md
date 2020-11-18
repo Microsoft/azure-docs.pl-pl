@@ -8,16 +8,16 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: a80559761c8a3eba6045db5cd99a7719dd041fa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b9357c0fcf414c2575ca6966e8e5a3716015058
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704399"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654919"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Tworzenie zestawów danych Azure Machine Learning przy użyciu otwartych zestawów danych platformy Azure
 
-W tym artykule dowiesz się, jak przenieść nadzorowane dane wzbogacania do swoich lokalnych lub zdalnych eksperymentów w usłudze Machine Learning za pomocą zestawów danych [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) i [otwartych zestawów danych platformy Azure](https://docs.microsoft.com/azure/open-datasets/). 
+W tym artykule dowiesz się, jak przenieść nadzorowane dane wzbogacania do swoich lokalnych lub zdalnych eksperymentów w usłudze Machine Learning za pomocą zestawów danych [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) i [otwartych zestawów danych platformy Azure](./index.yml). 
 
 Tworząc [zestaw danych Azure Machine Learning](../machine-learning/how-to-create-register-datasets.md), utworzysz odwołanie do lokalizacji źródła danych wraz z kopią jej metadanych. Ponieważ zestawy danych są opóźnieniem oceniane, a dane pozostają w istniejącej lokalizacji, należy
 * Nie Powiąż dodatkowego kosztu magazynowania.
@@ -45,20 +45,20 @@ W tym artykule potrzebne są:
 
 * [Obszar roboczy Azure Machine Learning](../machine-learning/how-to-manage-workspace.md).
 
-* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true ), który obejmuje `azureml-datasets` pakiet.
+* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), który obejmuje `azureml-datasets` pakiet.
 
     * Utwórz [wystąpienie obliczeniowe Azure Machine Learning](../machine-learning/how-to-create-manage-compute-instance.md), które jest w pełni skonfigurowane i zarządzane środowisko programistyczne, które zawiera zintegrowane notesy oraz już zainstalowany zestaw SDK.
 
     **OR**
 
-    * Pracuj nad własnym środowiskiem Python i samodzielnie Instaluj zestaw SDK, korzystając z [tych instrukcji](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true ).
+    * Pracuj nad własnym środowiskiem Python i samodzielnie Instaluj zestaw SDK, korzystając z [tych instrukcji](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 > [!NOTE]
-> Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , który jest zgodny z 64-bitowym językiem Python. W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) i CentOS (7).
+> Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](/python/api/azureml-dataprep/) , który jest zgodny z 64-bitowym językiem Python. W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) i CentOS (7).
 
 ## <a name="create-datasets-with-the-sdk"></a>Tworzenie zestawów danych przy użyciu zestawu SDK
 
-Aby utworzyć Azure Machine Learning zestawy danych za pomocą usługi Azure Open DataSets Classes w zestawie Python SDK, upewnij się, że pakiet został zainstalowany w programie `pip install azureml-opendatasets` . Każdy zestaw danych dyskretnych jest reprezentowany przez własną klasę w zestawie SDK, a niektóre klasy są dostępne jako Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)lub obie. Pełną listę klas można znaleźć w [dokumentacji referencyjnej](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py&preserve-view=true ) `opendatasets` .
+Aby utworzyć Azure Machine Learning zestawy danych za pomocą usługi Azure Open DataSets Classes w zestawie Python SDK, upewnij się, że pakiet został zainstalowany w programie `pip install azureml-opendatasets` . Każdy zestaw danych dyskretnych jest reprezentowany przez własną klasę w zestawie SDK, a niektóre klasy są dostępne jako Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)lub obie. Pełną listę klas można znaleźć w [dokumentacji referencyjnej](/python/api/azureml-opendatasets/azureml.opendatasets?preserve-view=true&view=azure-ml-py) `opendatasets` .
 
 Niektóre klasy można pobrać `opendatasets` z `TabularDataset` lub `FileDataset` , co pozwala na manipulowanie i/lub pobranie plików bezpośrednio. Inne klasy mogą uzyskać zestaw danych **tylko** przy użyciu `get_tabular_dataset()` funkcji lub `get_file_dataset()` z `Dataset` klasy w zestawie SDK języka Python.
 
@@ -88,7 +88,7 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 Zarejestruj zestaw danych Azure Machine Learning za pomocą swojego obszaru roboczego, dzięki czemu możesz udostępniać je innym osobom i korzystać z nich ponownie w ramach eksperymentów w obszarze roboczym. Po zarejestrowaniu zestawu danych Azure Machine Learning utworzonego na podstawie otwartych zestawów danych żadne dane nie zostaną natychmiast pobrane, ale dane będą dostępne później na żądanie (na przykład w przypadku szkolenia) z centralnej lokalizacji magazynu.
 
-Aby zarejestrować zestawy danych za pomocą obszaru roboczego, użyj [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-&preserve-view=true ) metody. 
+Aby zarejestrować zestawy danych za pomocą obszaru roboczego, użyj [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-&preserve-view=true ) metody. 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
@@ -102,7 +102,7 @@ Możesz również tworzyć Azure Machine Learning zestawy danych z platformy Azu
 > [!Note]
 > Zestawy danych utworzone za pomocą Azure Machine Learning Studio są automatycznie rejestrowane w obszarze roboczym.
 
-1. W obszarze roboczym wybierz kartę **zestawy danych** w obszarze **zasoby**. Z menu rozwijanego **Utwórz zestaw danych** wybierz pozycję **z otwarte zestawy**danych.
+1. W obszarze roboczym wybierz kartę **zestawy danych** w obszarze **zasoby**. Z menu rozwijanego **Utwórz zestaw danych** wybierz pozycję **z otwarte zestawy** danych.
 
     ![Otwórz zestaw danych przy użyciu interfejsu użytkownika](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
@@ -110,7 +110,7 @@ Możesz również tworzyć Azure Machine Learning zestawy danych z platformy Azu
 
     ![Wybierz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Zobacz [wykaz otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog) , aby uzyskać szczegółowe informacje, takie jak opisy pól i zakresy dat. Wybierz przycisk **Utwórz**.
+1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Zobacz [wykaz otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog) , aby uzyskać szczegółowe informacje, takie jak opisy pól i zakresy dat. Wybierz pozycję **Utwórz**.
 
     ![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 
@@ -132,6 +132,3 @@ Aby zapoznać się z przykładami i pokazami funkcji otwartych zestawów danych,
 * [Uczenie się z zestawami danych](../machine-learning/how-to-train-with-datasets.md).
 
 * [Utwórz zestaw danych usługi Azure Machine Learning](../machine-learning/how-to-create-register-datasets.md).
-
-
-

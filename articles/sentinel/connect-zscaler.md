@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: ef6677b6f1103c26bd719a3585800765a029f7fb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d788219e36ac94b1d13b2f4819c3e546622ddff1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056842"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655259"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Łączenie rozwiązania Zscaler dostępu do Internetu z platformą Azure — wskaźnik
 
@@ -46,7 +46,5 @@ W tym artykule wyjaśniono, jak połączyć urządzenie z dostępem do Internetu
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia rozwiązania Zscaler dostępu do Internetu z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
-- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](./tutorial-detect-threats-built-in.md).
 - [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
-
-

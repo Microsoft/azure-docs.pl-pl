@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068034"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655072"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Rozwiązywanie typowych problemów z dodawaniem lub usuwaniem aplikacji do Azure Active Directory
 Ten artykuł ułatwia zapoznanie się z typowymi problemami występującymi podczas dodawania lub usuwania aplikacji do Azure Active Directory.
@@ -31,9 +31,9 @@ Czasami, ze względu na przejściowe problemy, problemy z siecią lub usterkę, 
 Jeśli wystąpi błąd podczas klikania przycisku **Dodaj** , zobaczysz **powiadomienie** w stanie **błędu** . Jeśli potrzebujesz więcej szczegółowych informacji o błędzie, aby dowiedzieć się więcej lub udostępnić inżynierowi pomocy technicznej, możesz zobaczyć więcej informacji o błędzie, wykonując czynności opisane w sekcji " [jak wyświetlić szczegóły powiadomienia portalu](#how-to-see-the-details-of-a-portal-notification) ".
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Nie wiem, jak skonfigurować aplikację po dodaniu
-Jeśli potrzebujesz pomocy dotyczącej uczenia się dotyczącej aplikacji, warto zacząć od [listy samouczków dotyczących integrowania aplikacji SaaS z](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artykułem Azure Active Directory.
+Jeśli potrzebujesz pomocy dotyczącej uczenia się dotyczącej aplikacji, warto zacząć od [listy samouczków dotyczących integrowania aplikacji SaaS z](../saas-apps/tutorial-list.md) artykułem Azure Active Directory.
 
-Oprócz tego [Biblioteka dokumentów aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) pomaga dowiedzieć się więcej na temat logowania jednokrotnego w usłudze Azure AD oraz o sposobie jego działania.
+Oprócz tego [Biblioteka dokumentów aplikacji usługi Azure AD](./what-is-application-management.md) pomaga dowiedzieć się więcej na temat logowania jednokrotnego w usłudze Azure AD oraz o sposobie jego działania.
 
 ## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Chcę usunąć aplikację, ale przycisk Usuń jest wyłączony
 
@@ -43,7 +43,7 @@ Przycisk Usuń zostanie wyłączony w następujących scenariuszach:
 
 - W przypadku aplikacji firmy Microsoft nie będzie można usuwać ich z interfejsu użytkownika niezależnie od roli.
 
-- Dla obiektów serviceprincipal, które odpowiadają tożsamości zarządzanej. Nie można usunąć podmiotów usługi zarządzanych tożsamości w bloku aplikacje dla przedsiębiorstw. Musisz przejść do zasobu platformy Azure, aby nim zarządzać. Wyczyść więcej informacji o [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- Dla obiektów serviceprincipal, które odpowiadają tożsamości zarządzanej. Nie można usunąć podmiotów usługi zarządzanych tożsamości w bloku aplikacje dla przedsiębiorstw. Musisz przejść do zasobu platformy Azure, aby nim zarządzać. Wyczyść więcej informacji o [tożsamości zarządzanej](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Jak wyświetlić szczegóły powiadomienia portalu
 Szczegóły dowolnego powiadomienia portalu można wyświetlić, wykonując poniższe kroki:
@@ -56,7 +56,7 @@ Szczegóły dowolnego powiadomienia portalu można wyświetlić, wykonując poni
 6.  Wybierz **ikonę kopiowania** z prawej strony pola tekstowego **błąd kopiowania** , aby skopiować wszystkie szczegóły powiadomienia, które mają być współużytkowane przez inżyniera pomocy technicznej lub grupy produktów.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Jak uzyskać pomoc, wysyłając szczegóły powiadomień do inżyniera pomocy technicznej
-Ważne jest, aby udostępnić **wszystkie szczegóły wymienione poniżej** z inżynierem pomocy technicznej, jeśli potrzebujesz pomocy, dzięki czemu mogą one pomóc szybko. **Zrób zrzut ekranu** lub wybierz **ikonę kopiowania błędu**znajdującą się po prawej stronie pola tekstowego **błąd kopiowania** .
+Ważne jest, aby udostępnić **wszystkie szczegóły wymienione poniżej** z inżynierem pomocy technicznej, jeśli potrzebujesz pomocy, dzięki czemu mogą one pomóc szybko. **Zrób zrzut ekranu** lub wybierz **ikonę kopiowania błędu** znajdującą się po prawej stronie pola tekstowego **błąd kopiowania** .
 
 ## <a name="notification-details-explained"></a>Wyjaśniono szczegóły powiadomień
 Więcej informacji o powiadomieniach można znaleźć w następujących opisach.

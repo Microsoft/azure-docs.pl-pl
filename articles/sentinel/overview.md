@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 773cf5cc6755a4f094eb676992364eea07a795ea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889202"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654664"
 ---
 # <a name="what-is-azure-sentinel"></a>Co to jest Azure Sentinel?
 
@@ -29,11 +29,11 @@ Microsoft Azure wskaźnikiem wydajności jest skalowalne i natywne rozwiązanie 
 
 Azure — wskaźnikowy to Twój Widok z oczami w całym przedsiębiorstwie, zmniejszający nacisk coraz bardziej zaawansowanych ataków, zwiększając liczbę alertów i długi czas rozwiązania.
 
-- **Zbieraj dane w skali chmury** między wszystkimi użytkownikami, urządzeniami, aplikacjami i infrastrukturą, zarówno lokalnie, jak i w wielu chmurach. 
+- **Zbieraj dane w skali chmury** między wszystkimi użytkownikami, urządzeniami, aplikacjami i infrastrukturą, zarówno lokalnie, jak i w wielu chmurach. 
 
-- **Wykrywaj wcześniej niewykryte zagrożenia**i Minimalizuj fałszywie dodatnie, korzystając z analizy i niezrównanej analizy zagrożeń firmy Microsoft. 
+- **Wykrywaj wcześniej niewykryte zagrożenia** i Minimalizuj fałszywie dodatnie, korzystając z analizy i niezrównanej analizy zagrożeń firmy Microsoft. 
 
-- **Zbadaj zagrożenia przy użyciu sztucznej analizy**i Wyszukaj podejrzane działania na dużą skalę, wybierając kolejno lata cybernetycznymi zabezpieczenia w firmie Microsoft. 
+- **Zbadaj zagrożenia przy użyciu sztucznej analizy** i Wyszukaj podejrzane działania na dużą skalę, wybierając kolejno lata cybernetycznymi zabezpieczenia w firmie Microsoft. 
 
 - **Szybko reaguj na zdarzenia** dzięki wbudowanej aranżacji i automatyzacji typowych zadań.
 
@@ -51,7 +51,7 @@ Aby przejść do tablicy wskaźnikowej platformy Azure, musisz najpierw [nawiąz
 
 ## <a name="workbooks"></a>Skoroszyty
 
-Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   na platformie Azure — dane można monitorować, korzystając z integracji z Azure monitor skoroszytów platformy Azure, które zapewniają uniwersalność tworzenia niestandardowych skoroszytów. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty za pomocą skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
+Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md) na platformie Azure — dane można monitorować, korzystając z integracji z Azure monitor skoroszytów platformy Azure, które zapewniają uniwersalność tworzenia niestandardowych skoroszytów. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty za pomocą skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
 
 ![Pulpity nawigacyjne](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -64,7 +64,7 @@ Aby ułatwić zredukowanie szumu i zminimalizować liczbę alertów, które nale
 
 ## <a name="security-automation--orchestration"></a>& aranżacji usługi Security Automation
 
-Automatyzuj typowe zadania i [Uprość aranżację zabezpieczeń dzięki usłudze elementy PlayBook](tutorial-respond-threats-playbook.md) , która integruje się z usługami platformy Azure, a także istniejącymi narzędziami. W oparciu o podstawę Azure Logic Apps rozwiązanie do automatyzacji i organizowania wskaźnikowego platformy Azure zapewnia wysoce rozszerzalną architekturę, która umożliwia skalowalną automatyzację w miarę pojawiania się nowych technologii i zagrożeń. Aby kompilować elementy PlayBook z Azure Logic Apps, możesz wybrać pozycję z galerii wbudowanych elementy PlayBook. Obejmują one [200 łączników](https://docs.microsoft.com/azure/connectors/apis-list) dla usług takich jak Azure Functions. Łączniki umożliwiają zastosowanie dowolnej logiki niestandardowej w kodzie, usługi ServiceNow, JIRA, systemu Zendesk, żądaniach HTTP, Microsoft Teams, zapasowych, Windows Defender ATP i Cloud App Security.
+Automatyzuj typowe zadania i [Uprość aranżację zabezpieczeń dzięki usłudze elementy PlayBook](tutorial-respond-threats-playbook.md) , która integruje się z usługami platformy Azure, a także istniejącymi narzędziami. W oparciu o podstawę Azure Logic Apps rozwiązanie do automatyzacji i organizowania wskaźnikowego platformy Azure zapewnia wysoce rozszerzalną architekturę, która umożliwia skalowalną automatyzację w miarę pojawiania się nowych technologii i zagrożeń. Aby kompilować elementy PlayBook z Azure Logic Apps, możesz wybrać pozycję z galerii wbudowanych elementy PlayBook. Obejmują one [200 łączników](../connectors/apis-list.md) dla usług takich jak Azure Functions. Łączniki umożliwiają zastosowanie dowolnej logiki niestandardowej w kodzie, usługi ServiceNow, JIRA, systemu Zendesk, żądaniach HTTP, Microsoft Teams, zapasowych, Windows Defender ATP i Cloud App Security.
 
 Na przykład w przypadku korzystania z systemu biletów usługi ServiceNow można użyć narzędzi dostępnych Azure Logic Apps do automatyzacji przepływów pracy i otworzyć bilet w usługi ServiceNow za każdym razem, gdy zostanie wykryte określone zdarzenie.
 

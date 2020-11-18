@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883807"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655344"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Połącz zaporę Windows Defender z zabezpieczeniami zaawansowanymi z platformą Azure — wskaźnikiem
 
-Łącznik [zapory Windows Defender z zabezpieczeniami Advanced Security](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) umożliwia korzystanie z platformy Azure do łatwego pozyskiwania zapory Windows Defender z zaawansowanymi dziennikami zabezpieczeń z dowolnego komputera z systemem Windows w obszarze roboczym. To połączenie umożliwia wyświetlanie i analizowanie zdarzeń zapory systemu Windows w skoroszytach, używanie ich w tworzeniu niestandardowych alertów i wprowadzanie ich w celu zapewnienia bezpieczeństwa, dzięki czemu możesz uzyskać więcej informacji o sieci organizacji i zwiększyć możliwości operacji związanych z bezpieczeństwem. 
+Łącznik [zapory Windows Defender z zabezpieczeniami Advanced Security](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) umożliwia korzystanie z platformy Azure do łatwego pozyskiwania zapory Windows Defender z zaawansowanymi dziennikami zabezpieczeń z dowolnego komputera z systemem Windows w obszarze roboczym. To połączenie umożliwia wyświetlanie i analizowanie zdarzeń zapory systemu Windows w skoroszytach, używanie ich w tworzeniu niestandardowych alertów i wprowadzanie ich w celu zapewnienia bezpieczeństwa, dzięki czemu możesz uzyskać więcej informacji o sieci organizacji i zwiększyć możliwości operacji związanych z bezpieczeństwem. 
 
 Rozwiązanie zbiera zdarzenia Zapory systemu Windows z maszyn z systemem Windows, na których zainstalowano agenta Log Analytics. 
 
@@ -67,7 +67,7 @@ Rozwiązanie zbiera zdarzenia Zapory systemu Windows z maszyn z systemem Windows
 
     1. W okienku **Zarządzanie agentami** wybierz opcję **Pobierz agenta systemu Windows (64 bit)** lub **pobierz agenta systemu Windows (32 bit)**, zgodnie z wymaganiami.
 
-    1. Skopiuj ciągi **identyfikatora obszaru roboczego**, **klucza podstawowego**i **klucza pomocniczego** do pliku tekstowego. Skopiuj ten plik i pobrany plik instalacyjny na komputer z systemem Windows. Uruchom plik instalacyjny i po wyświetleniu monitu wprowadź identyfikator i ciągi klucza w pliku tekstowym podczas instalacji.
+    1. Skopiuj ciągi **identyfikatora obszaru roboczego**, **klucza podstawowego** i **klucza pomocniczego** do pliku tekstowego. Skopiuj ten plik i pobrany plik instalacyjny na komputer z systemem Windows. Uruchom plik instalacyjny i po wyświetleniu monitu wprowadź identyfikator i ciągi klucza w pliku tekstowym podczas instalacji.
 
     1. Wróć do okienka **Zapora systemu Windows** .
 
@@ -81,10 +81,9 @@ Rozwiązanie zbiera zdarzenia Zapory systemu Windows z maszyn z systemem Windows
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
  
-Ze względu na to, że Dzienniki zapory systemu Windows są wysyłane do usługi Azure wskaźnikowej tylko wtedy, gdy lokalny plik dziennika osiągnie pojemność, pozostawienie dziennika o rozmiarze domyślnym 4096 KB najprawdopodobniej spowoduje opóźnienie dużej kolekcji. Opóźnienie można obniżyć przez zmniejszenie rozmiaru pliku dziennika. Zapoznaj się z instrukcjami dotyczącymi [konfigurowania dziennika zapory systemu Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Należy pamiętać, że podczas definiowania minimalnego możliwego rozmiaru dziennika (1 KB) praktycznie eliminuje opóźnienie kolekcji, może to mieć negatywny wpływ na wydajność maszyny lokalnej. 
+Ze względu na to, że Dzienniki zapory systemu Windows są wysyłane do usługi Azure wskaźnikowej tylko wtedy, gdy lokalny plik dziennika osiągnie pojemność, pozostawienie dziennika o rozmiarze domyślnym 4096 KB najprawdopodobniej spowoduje opóźnienie dużej kolekcji. Opóźnienie można obniżyć przez zmniejszenie rozmiaru pliku dziennika. Zapoznaj się z instrukcjami dotyczącymi [konfigurowania dziennika zapory systemu Windows](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Należy pamiętać, że podczas definiowania minimalnego możliwego rozmiaru dziennika (1 KB) praktycznie eliminuje opóźnienie kolekcji, może to mieć negatywny wpływ na wydajność maszyny lokalnej. 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia zapory systemu Windows z wskaźnikiem kontrolnym platformy Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
-
