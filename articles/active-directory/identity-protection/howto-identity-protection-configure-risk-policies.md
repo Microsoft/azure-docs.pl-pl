@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367469"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835921"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrukcje: Konfigurowanie i Włączanie zasad ryzyka
 
@@ -33,7 +33,7 @@ Obie zasady działają w celu zautomatyzowania reakcji na wykrycie zagrożeń w 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-Jeśli organizacja chce zezwolić użytkownikom na samodzielne korygowanie w przypadku wykrycia zagrożeń, użytkownicy muszą być zarejestrowani do samoobsługowego resetowania haseł i platformy Azure Multi-Factor Authentication. Zalecamy [włączenie usługi rejestracji informacji o zabezpieczeniach](../authentication/howto-registration-mfa-sspr-combined.md) w celu uzyskania najlepszego środowiska. Umożliwienie użytkownikom samodzielnego korygowania umożliwia szybsze pobieranie stanu wydajności bez konieczności interwencji administratora. Administratorzy nadal mogą zobaczyć te zdarzenia i zbadać je po fakcie. 
+Jeśli organizacja chce zezwolić użytkownikom na samodzielne korygowanie w przypadku wykrycia zagrożeń, użytkownicy muszą być zarejestrowani do samoobsługowego resetowania haseł i usługi Azure AD Multi-Factor Authentication. Zalecamy [włączenie usługi rejestracji informacji o zabezpieczeniach](../authentication/howto-registration-mfa-sspr-combined.md) w celu uzyskania najlepszego środowiska. Umożliwienie użytkownikom samodzielnego korygowania umożliwia szybsze pobieranie stanu wydajności bez konieczności interwencji administratora. Administratorzy nadal mogą zobaczyć te zdarzenia i zbadać je po fakcie. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Wybór dopuszczalnych poziomów ryzyka
 
@@ -76,7 +76,7 @@ Aby włączyć ryzyko dla użytkownika i zasady dotyczące ryzyka związanego z 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włączanie zasad rejestracji w usłudze Azure Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
+- [Włącz zasady rejestracji Multi-Factor Authentication usługi Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
 - [Co to jest ryzyko](concept-identity-protection-risks.md)
 

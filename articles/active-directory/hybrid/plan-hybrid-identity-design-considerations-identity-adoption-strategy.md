@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294872"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836193"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie hybrydowej strategii wdrażania tożsamości
 W tym zadaniu zdefiniujemy hybrydową strategię wdrażania tożsamości dla hybrydowego rozwiązania do obsługi tożsamości, aby spełnić wymagania biznesowe omówione w temacie:
@@ -176,7 +176,7 @@ Następujące elementy nie są obsługiwane i nie powinny być wybierane jako im
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definiowanie strategii uwierzytelniania wieloskładnikowego
-W tym zadaniu zdefiniujesz strategię uwierzytelniania wieloskładnikowego do użycia.  Usługa Azure Multi-Factor Authentication obejmuje dwie różne wersje.  Jest to oparta na chmurze, a druga — oparta na serwerze usługi Azure MFA.  Na podstawie oceny, którą podano powyżej, można określić, które rozwiązanie jest odpowiednie dla danej strategii.  Skorzystaj z poniższej tabeli, aby określić, która opcja projektowania najlepiej spełnia wymagania w zakresie zabezpieczeń firmy:
+W tym zadaniu zdefiniujesz strategię uwierzytelniania wieloskładnikowego do użycia.  Usługa Azure AD Multi-Factor Authentication ma dwie różne wersje.  Jest to oparta na chmurze, a druga — oparta na serwerze usługi Azure MFA.  Na podstawie oceny, którą podano powyżej, można określić, które rozwiązanie jest odpowiednie dla danej strategii.  Skorzystaj z poniższej tabeli, aby określić, która opcja projektowania najlepiej spełnia wymagania w zakresie zabezpieczeń firmy:
 
 Opcje projektu wieloskładnikowego:
 
@@ -192,7 +192,7 @@ Mimo że można rozliczyć rozwiązanie dla danej strategii, nadal musisz użyć
 
 | Lokalizacja użytkownika | Preferowana opcja projektowania |
 | --- | --- |
-| Usługa Azure Active Directory |Wiele FactorAuthentication w chmurze |
+| Azure Active Directory |Wiele FactorAuthentication w chmurze |
 | Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |Oba |
 | Azure AD i lokalna usługa AD przy użyciu Azure AD Connect bez synchronizacji haseł |Oba |
 | Usługa Azure AD i lokalna przy użyciu Azure AD Connect z synchronizacją haseł |Oba |
@@ -213,6 +213,6 @@ Uwierzytelnianie wieloskładnikowe jest domyślnie dostępne dla administratoró
 ## <a name="next-steps"></a>Następne kroki
 [Określanie wymagań dotyczących ochrony danych](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
 

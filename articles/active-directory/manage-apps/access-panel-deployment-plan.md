@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656738"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835666"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planowanie wdrożenia Azure Active Directory moje aplikacje
 
@@ -26,7 +26,7 @@ Za pomocą funkcji Moje aplikacje usługi Azure AD można:
 * Odkryj i uzyskaj dostęp do wszystkich zasobów firmowych połączonych z usługą Azure AD, takich jak aplikacje
 * Żądaj dostępu do nowych aplikacji i grup
 * Zarządzanie dostępem do tych zasobów dla innych osób
-* Zarządzaj ustawieniami resetowania hasła samoobsługowego i ustawień usługi Azure Multi-Factor Authentication
+* Zarządzaj ustawieniami resetowania hasła i usługi Azure AD Multi-Factor Authentication
 * Zarządzanie swoimi urządzeniami
 
 Umożliwia także administratorom zarządzanie:
@@ -54,7 +54,7 @@ Moje aplikacje w usłudze Azure AD są korzystne dla firm w następujący sposó
 
 Moje aplikacje są bezpłatne i nie wymagają licencji do użycia na poziomie podstawowym. Jednak liczba obiektów w katalogu oraz dodatkowe funkcje, które mają zostać wdrożone, mogą wymagać dodatkowych licencji. Niektóre typowe scenariusze dotyczące usługi Azure AD, które mają wymagania dotyczące licencjonowania, obejmują następujące funkcje zabezpieczeń:
 
-* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Multi-Factor Authentication usługi Azure AD](../authentication/concept-mfa-howitworks.md)
 * [Członkostwo oparte na grupach](../fundamentals/active-directory-manage-groups.md)
 * [Samoobsługowe resetowanie haseł](../authentication/tutorial-enable-sspr.md)
 * [Ochrona tożsamości w usłudze Azure Active Directory](../identity-protection/overview-identity-protection.md)
@@ -117,7 +117,7 @@ Od mojej aplikacji wprowadzono użytkowników do portalu jako typowe miejsce na 
 
 W poniższej tabeli wymieniono kilka ważnych konfiguracji aplikacji oraz typowe wartości, których można użyć:
 
-| Konfigurowanie| Typowe wartości |
+| Konfiguracja| Typowe wartości |
 | - | - |
 | Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
@@ -172,7 +172,7 @@ Aby uzyskać więcej informacji na temat sposobu wdrażania i konfigurowania apl
 
 Gdy użytkownicy logują się do aplikacji logowania jednokrotnego opartego na hasłach, muszą zainstalować i używać rozszerzenia moje aplikacje bezpieczne logowanie. Rozszerzenie wykonuje skrypt, który przesyła hasło do formularza logowania aplikacji. Użytkownicy są monitowani o zainstalowanie rozszerzenia podczas pierwszego uruchomienia aplikacji logowania jednokrotnego opartego na hasłach. Więcej informacji o rozszerzeniu można znaleźć w tej dokumentacji dotyczącej [instalowania rozszerzenia przeglądarki Moje aplikacje]().
 
-W przypadku konieczności integrowania aplikacji logowania jednokrotnego opartego na hasłach należy zdefiniować mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](../user-help/my-apps-portal-end-user-access.md). Dostępne są następujące opcje:
+W przypadku konieczności integrowania aplikacji logowania jednokrotnego opartego na hasłach należy zdefiniować mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](../user-help/my-apps-portal-end-user-access.md). Dostępne opcje:
 
 * [zasady grupy programu Internet Explorer]()
 * [Configuration Manager programu Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
@@ -312,4 +312,4 @@ Użyj najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure 
 Za pomocą [Privileged Identity Management](../privileged-identity-management/pim-configure.md) można zarządzać rolami w celu zapewnienia dodatkowej inspekcji, kontroli i przeglądu dostępu użytkownikom z uprawnieniami do katalogów.
 
 ## <a name="next-steps"></a>Następne kroki
-[Planowanie wdrożenia usługi Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

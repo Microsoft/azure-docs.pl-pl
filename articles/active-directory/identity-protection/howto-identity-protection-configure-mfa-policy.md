@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84464338"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835870"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instrukcje: Konfigurowanie zasad rejestracji w usłudze Azure Multi-Factor Authentication
+# <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Instrukcje: Konfigurowanie zasad rejestracji Multi-Factor Authentication usługi Azure AD
 
-Azure AD Identity Protection ułatwia zarządzanie rejestracją usługi Azure Multi-Factor Authentication (MFA) przez skonfigurowanie zasad dostępu warunkowego, aby wymagać rejestracji MFA niezależnie od tego, w jaki sposób jest zapisywana aplikacja do uwierzytelniania.
+Azure AD Identity Protection ułatwia zarządzanie rozwinięciem rejestracji usługi Azure AD Multi-Factor Authentication (MFA) przez skonfigurowanie zasad dostępu warunkowego w taki sposób, aby wymagały rejestracji MFA niezależnie od tego, która aplikacja uwierzytelniania jest zapisywana.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Co to są zasady rejestracji w usłudze Azure Multi-Factor Authentication?
+## <a name="what-is-the-azure-ad-multi-factor-authentication-registration-policy"></a>Co to są zasady rejestracji Multi-Factor Authentication usługi Azure AD?
 
-Usługa Azure Multi-Factor Authentication umożliwia sprawdzenie, kto jest używany więcej niż nazwa użytkownika i hasło. Zapewnia drugą warstwę zabezpieczeń do logowania użytkowników. Aby użytkownicy mogli odpowiadać na monity usługi MFA, muszą najpierw zarejestrować się w usłudze Azure Multi-Factor Authentication.
+Usługa Azure AD Multi-Factor Authentication udostępnia środki umożliwiające sprawdzenie, kto jest używany więcej niż nazwa użytkownika i hasło. Zapewnia drugą warstwę zabezpieczeń do logowania użytkowników. Aby użytkownicy mogli odpowiadać na monity usługi MFA, muszą najpierw zarejestrować się w usłudze Azure AD Multi-Factor Authentication.
 
-Zalecamy, aby dla logowania użytkownika wymagało Multi-Factor Authentication platformy Azure, ponieważ:
+Zalecamy, aby usługa Azure AD Multi-Factor Authentication dla logowania użytkownika była wymagana, ponieważ:
 
 - Zapewnia silne uwierzytelnianie za pomocą zakresu opcji weryfikacji.
 - Odgrywa kluczową rolę w przygotowaniu organizacji do samodzielnego korygowania od wykrywania ryzyka w ramach ochrony tożsamości.
 
-Aby uzyskać więcej informacji na temat usługi Azure Multi-Factor Authentication, zobacz [co to jest usługa azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+Aby uzyskać więcej informacji na temat Multi-Factor Authentication usługi Azure AD, zobacz [co to jest usługa Azure ad Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="policy-configuration"></a>Konfiguracja zasad
 
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji na temat usługi Azure Multi-Factor Authenticati
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
    1. W obszarze **Controls**
-      1. Upewnij się, że pole wyboru **Wymagaj rejestracji w usłudze Azure MFA** jest zaznaczone, a następnie wybierz **pozycję Wybierz**.
+      1. Upewnij się, że pole wyboru **Wymagaj rejestracji w usłudze Azure AD MFA** jest zaznaczone, a następnie wybierz **pozycję Wybierz**.
    1. **Wymuś zasady**  -  **Na**
    1. **Zapisz**
 
@@ -59,4 +59,4 @@ Aby zapoznać się z omówieniem środowiska użytkownika powiązanego, zobacz:
 
 - [Włącz Samoobsługowe resetowanie haseł w usłudze Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Włączanie usługi Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Włącz Multi-Factor Authentication usługi Azure AD](../authentication/howto-mfa-getstarted.md)

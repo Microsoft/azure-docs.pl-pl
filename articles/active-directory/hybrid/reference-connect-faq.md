@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014637"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836074"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect często zadawane pytania
 
@@ -261,7 +261,7 @@ Jeśli potrzebujesz pomocy w uaktualnieniu do nowszej wersji Azure AD Connect, O
 ## <a name="operational-best-practice"></a>Najlepsze rozwiązanie w zakresie działania    
 Poniżej przedstawiono niektóre najlepsze rozwiązania, które należy zaimplementować podczas synchronizacji między Active Directory i Azure Active Directory systemu Windows Server.
 
-**Zastosuj Multi-Factor Authentication dla wszystkich zsynchronizowanych kont** Usługa Azure Multi-Factor Authentication pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe zabezpieczenia, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie za pośrednictwem różnych metod uwierzytelniania. Użytkownicy mogą lub nie mogą zakwestionować usługi MFA w oparciu o decyzje konfiguracyjne wykonywane przez administratora. Więcej informacji na temat usługi MFA można znaleźć tutaj: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Zastosuj Multi-Factor Authentication dla wszystkich zsynchronizowanych kont** Usługa Azure AD Multi-Factor Authentication pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe zabezpieczenia, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie za pośrednictwem różnych metod uwierzytelniania. Użytkownicy mogą lub nie mogą zakwestionować usługi MFA w oparciu o decyzje konfiguracyjne wykonywane przez administratora. Więcej informacji na temat usługi MFA można znaleźć tutaj: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Postępuj zgodnie z zaleceniami dotyczącymi zabezpieczeń serwera Azure AD Connect** Serwer Azure AD Connect zawiera krytyczne dane tożsamości i powinien być traktowany jako składnik warstwy 0, zgodnie z opisem w [Active Directory modelu warstwy administracyjnej](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Zapoznaj się również z naszymi [wskazówkami dotyczącymi zabezpieczania serwera AADConnect](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 

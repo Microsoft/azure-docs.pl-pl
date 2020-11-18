@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776106"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835802"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Korygowanie zagrożeń i odblokowywanie użytkowników
 
@@ -37,7 +37,7 @@ Administratorzy mogą korzystać z następujących opcji korygowania:
 
 ### <a name="self-remediation-with-risk-policy"></a>Samodzielne korygowanie z użyciem zasad ryzyka
 
-Jeśli zezwolisz użytkownikom na samodzielne korygowanie, za pomocą usługi Azure Multi-Factor Authentication (MFA) i samoobsługowego resetowania hasła (SSPR) w ramach zasad ryzyka, mogą one odblokować się w przypadku wykrycia ryzyka. Te wykrycia są następnie uważane za zamknięte. Użytkownicy musieli wcześniej zarejestrowani do usługi Azure MFA i SSPR, aby można było używać ich w przypadku wykrycia ryzyka.
+Jeśli zezwolisz użytkownikom na samodzielne korygowanie, za pomocą usługi Azure AD Multi-Factor Authentication (MFA) i samoobsługowego resetowania hasła (SSPR) w ramach zasad ryzyka, mogą one odblokować się w przypadku wykrycia ryzyka. Te wykrycia są następnie uważane za zamknięte. Użytkownicy musieli wcześniej zarejestrowali usługę Azure AD MFA i SSPR, aby można było używać ich w przypadku wykrycia ryzyka.
 
 Niektóre środki wykrywania mogą nie powodować zagrożenia dla poziomu sytuacji, w której użytkownik będzie musiał przeprowadzić samodzielną korektę, ale Administratorzy powinni nadal oszacować te wykrycia. Administratorzy mogą określić, że dodatkowe środki są niezbędne, takie jak [blokowanie dostępu z lokalizacji](../conditional-access/howto-conditional-access-policy-location.md) lub obniżenie akceptowalnego ryzyka w swoich zasadach.
 
@@ -49,13 +49,13 @@ Administratorzy otrzymują dwie opcje podczas resetowania hasła dla swoich uży
 
 - **Generuj hasło tymczasowe** — przez wygenerowanie hasła tymczasowego możesz natychmiast przywrócić tożsamość z powrotem do stanu bezpiecznego. Ta metoda wymaga skontaktowania się z użytkownikami, których to dotyczy, ponieważ chcą wiedzieć, co to jest hasło tymczasowe. Ponieważ hasło jest tymczasowe, użytkownik jest monitowany o zmianę hasła na coś nowego podczas kolejnego logowania.
 
-- **Wymagaj od użytkownika zresetowania hasła** — wymaganie od użytkowników resetowania haseł umożliwia samoodzyskiwanie bez kontaktowania się z pomocą techniczną lub administratorem. Ta metoda ma zastosowanie tylko do użytkowników zarejestrowanych dla usługi Azure MFA i SSPR. W przypadku użytkowników, którzy nie zostali zarejestrowani, ta opcja jest niedostępna.
+- **Wymagaj od użytkownika zresetowania hasła** — wymaganie od użytkowników resetowania haseł umożliwia samoodzyskiwanie bez kontaktowania się z pomocą techniczną lub administratorem. Ta metoda ma zastosowanie tylko do użytkowników zarejestrowanych dla usługi Azure AD MFA i SSPR. W przypadku użytkowników, którzy nie zostali zarejestrowani, ta opcja jest niedostępna.
 
 ### <a name="dismiss-user-risk"></a>Odrzuć ryzyko związane z użytkownikiem
 
 Jeśli Resetowanie hasła nie jest opcją dla Ciebie, ponieważ na przykład użytkownik został usunięty, można zrezygnować z wykrywania ryzyka użytkownika.
 
-Po kliknięciu przycisku **Odrzuć ryzyko związane z użytkownikiem**wszystkie zdarzenia zostaną zamknięte, a zagrożony użytkownik nie jest już narażony. Jednak ponieważ ta metoda nie ma wpływu na istniejące hasło, nie powoduje, że powiązana tożsamość nie zostanie przywrócona do stanu bezpiecznego. 
+Po kliknięciu przycisku **Odrzuć ryzyko związane z użytkownikiem** wszystkie zdarzenia zostaną zamknięte, a zagrożony użytkownik nie jest już narażony. Jednak ponieważ ta metoda nie ma wpływu na istniejące hasło, nie powoduje, że powiązana tożsamość nie zostanie przywrócona do stanu bezpiecznego. 
 
 ### <a name="close-individual-risk-detections-manually"></a>Ręczne zamykanie indywidualnych wykrycia ryzyka
 

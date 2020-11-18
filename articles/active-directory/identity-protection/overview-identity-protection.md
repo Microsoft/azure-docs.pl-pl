@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783185"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835751"
 ---
 # <a name="what-is-identity-protection"></a>Co to jest ochrona tożsamości?
 
@@ -39,9 +39,9 @@ W swoim [wpisie w blogu w październiku 2018](https://techcommunity.microsoft.co
 >
 > Przy zapłonie w ubiegłym roku mam do 3 najlepszych ataków na nasze systemy tożsamości. Poniżej przedstawiono ostatnią ilość tych ataków
 >   
->   - **Powtarzanie naruszenia** : w maju 2018 wykryto ataki mld USD z 4.6
->   - **Rozpylanie hasła** : 350K w kwietniu 2018
->   - **Phishing** : jest to trudne do wypróbowania dokładnie, ale 23M zdarzenia o podwyższonym ryzyku w marcu 2018, wiele z nich jest związanych z phishingiem
+>   - **Powtarzanie naruszenia**: w maju 2018 wykryto ataki mld USD z 4.6
+>   - **Rozpylanie hasła**: 350K w kwietniu 2018
+>   - **Phishing**: jest to trudne do wypróbowania dokładnie, ale 23M zdarzenia o podwyższonym ryzyku w marcu 2018, wiele z nich jest związanych z phishingiem
 
 ## <a name="risk-detection-and-remediation"></a>Wykrywanie ryzyka i korygowanie
 
@@ -59,7 +59,7 @@ Ochrona tożsamości identyfikuje ryzyko w następujących klasyfikacjach:
 
 Bardziej szczegółowe informacje o tych zagrożeniach i sposobie ich obliczenia można znaleźć w artykule, [co jest ryzykowne](concept-identity-protection-risks.md).
 
-Sygnały ryzyka mogą wyzwolić działania naprawcze, takie jak wymaganie od użytkowników: wykonywania Multi-Factor Authentication Azure, resetowania hasła przy użyciu funkcji samoobsługowego resetowania hasła lub blokowania do momentu podjęcia działania przez administratora.
+Sygnały ryzyka mogą wyzwolić działania naprawcze, takie jak wymaganie od użytkowników: wykonywania Multi-Factor Authentication usługi Azure AD, resetowania hasła przy użyciu funkcji samoobsługowego resetowania hasła lub blokowania do momentu podjęcia działania przez administratora.
 
 ## <a name="risk-investigation"></a>Badanie ryzyka
 

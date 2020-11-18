@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368795"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835972"
 ---
 # <a name="identity-protection-policies"></a>Zasady ochrony tożsamości
 
@@ -24,11 +24,11 @@ Azure Active Directory Identity Protection obejmuje trzy domyślne zasady, któr
 
 ![Zasady ochrony tożsamości](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Zasady rejestracji usługi Azure MFA
+## <a name="azure-ad-mfa-registration-policy"></a>Zasady rejestracji w usłudze Azure AD MFA
 
-Ochrona tożsamości może pomóc organizacjom wdrożyć usługę Azure Multi-Factor Authentication (MFA) za pomocą zasad dostępu warunkowego, które wymagają rejestracji podczas logowania. Włączenie tych zasad jest świetnym sposobem zapewnienia, że nowi użytkownicy w organizacji zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego w pierwszym dniu. Uwierzytelnianie wieloskładnikowe to jedna z metod samoobsługowego rozwiązywania problemów dotyczących zdarzeń związanych z ryzykiem w ramach usługi Identity Protection. Samokorygowanie umożliwia użytkownikom samodzielne podejmowanie działań w celu zmniejszenia liczby wywołań pomocy technicznej.
+Usługa Identity Protection może pomóc organizacjom w przewróceniu usługi Azure AD Multi-Factor Authentication (MFA) przy użyciu zasad dostępu warunkowego, które wymagają rejestracji podczas logowania. Włączenie tych zasad jest świetnym sposobem zapewnienia, że nowi użytkownicy w organizacji zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego w pierwszym dniu. Uwierzytelnianie wieloskładnikowe to jedna z metod samoobsługowego rozwiązywania problemów dotyczących zdarzeń związanych z ryzykiem w ramach usługi Identity Protection. Samokorygowanie umożliwia użytkownikom samodzielne podejmowanie działań w celu zmniejszenia liczby wywołań pomocy technicznej.
 
-Więcej informacji o usłudze Azure Multi-Factor Authentication można znaleźć w artykule, [jak to działa: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
+Więcej informacji na temat usługi Azure AD Multi-Factor Authentication można znaleźć w artykule, [jak to działa: usługa Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
 
 ## <a name="sign-in-risk-policy"></a>Zasady ryzyka związanego z logowaniem
 
@@ -37,7 +37,7 @@ Program Identity Protection analizuje sygnały z każdego logowania, zarówno w 
 W przypadku wykrycia ryzyka użytkownicy mogą wykonywać uwierzytelnianie wieloskładnikowe w celu samokorygowania i zamknąć ryzykowne zdarzenie logowania, aby zapobiec niepotrzebnemu hałasowi dla administratorów.
 
 > [!NOTE] 
-> Przed wyzwoleniem zasad dotyczących ryzyka związanego z logowaniem użytkownicy muszą wcześniej zarejestrować się w usłudze Azure Multi-Factor Authentication.
+> Przed wyzwoleniem zasad dotyczących ryzyka związanego z logowaniem użytkownicy muszą wcześniej zarejestrować się w usłudze Azure AD Multi-Factor Authentication.
 
 ### <a name="custom-conditional-access-policy"></a>Niestandardowe zasady dostępu warunkowego
 
@@ -58,8 +58,8 @@ W przypadku wykrycia ryzyka użytkownicy mogą przeprowadzić Samoobsługowe res
 
 - [Włącz Samoobsługowe resetowanie haseł w usłudze Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Włączanie usługi Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Włącz Multi-Factor Authentication usługi Azure AD](../authentication/howto-mfa-getstarted.md)
 
-- [Włączanie zasad rejestracji w usłudze Azure Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
+- [Włącz zasady rejestracji Multi-Factor Authentication usługi Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
 - [Włącz zasady logowania i ryzyka dla użytkowników](howto-identity-protection-configure-risk-policies.md)

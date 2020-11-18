@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463760"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835904"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Symulowanie wykrywania ryzyka w usłudze Identity Protection
 
@@ -40,7 +40,7 @@ Więcej informacji o każdym wykrywaniu ryzyka można znaleźć w artykule, [co 
 Wykonanie poniższej procedury wymaga zastosowania:
 
 - [Przeglądarka sieci Tor](https://www.torproject.org/projects/torbrowser.html.en) do symulowania anonimowych adresów IP. Może być konieczne użycie maszyny wirtualnej, jeśli Twoja organizacja ogranicza użycie przeglądarki sieci Tor.
-- Konto testowe, które nie zostało jeszcze zarejestrowane w usłudze Azure Multi-Factor Authentication.
+- Konto testowe, które nie zostało jeszcze zarejestrowane w usłudze Azure AD Multi-Factor Authentication.
 
 **Aby zasymulować logowanie z anonimowego adresu IP, wykonaj następujące czynności**:
 
@@ -61,7 +61,7 @@ Poniższa procedura używa nowo utworzonego:
 Wykonanie poniższej procedury wymaga skorzystania z konta użytkownika, które ma:
 
 - Co najmniej 30-dniowa historia logowania.
-- Włączono usługę Azure Multi-Factor Authentication.
+- Usługa Azure AD Multi-Factor Authentication włączona.
 
 **Aby zasymulować logowanie z nieznanej lokalizacji, wykonaj następujące czynności**:
 

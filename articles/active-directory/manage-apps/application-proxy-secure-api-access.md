@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e38d8261bf141248fd143f27c74e0761e54f73f9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eaa4a8f92809dcf44969958573231ad37d908daa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649334"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835701"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Bezpieczny dostęp do lokalnych interfejsów API przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -36,7 +36,7 @@ Na poniższym diagramie przedstawiono, jak za pomocą usługi Azure serwer proxy
 
 Usługa Azure serwer proxy aplikacji usługi Azure AD stanowi szkielet rozwiązania, działającego jako publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API i zapewniający uwierzytelnianie i autoryzację. Możesz uzyskać dostęp do interfejsów API z rozległej macierzy platform przy użyciu bibliotek [Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) .
 
-Ponieważ uwierzytelnianie i autoryzacja w usłudze Azure serwer proxy aplikacji usługi Azure AD są oparte na usłudze Azure AD, można użyć dostępu warunkowego usługi Azure AD w celu zapewnienia, że tylko zaufane urządzenia mają dostęp do interfejsów API opublikowanych za pomocą serwera proxy aplikacji. Użyj funkcji Dołącz do usługi Azure AD lub hybrydowej usługi Azure AD dla komputerów stacjonarnych, a usługa Intune zarządzana na urządzeniach. Możesz również korzystać z funkcji Azure Active Directory — wersja Premium, takich jak platforma Azure Multi-Factor Authentication i zabezpieczenia w ramach uczenia maszynowego w [usłudze Azure Identity Protection](../identity-protection/overview-identity-protection.md).
+Ponieważ uwierzytelnianie i autoryzacja w usłudze Azure serwer proxy aplikacji usługi Azure AD są oparte na usłudze Azure AD, można użyć dostępu warunkowego usługi Azure AD w celu zapewnienia, że tylko zaufane urządzenia mają dostęp do interfejsów API opublikowanych za pomocą serwera proxy aplikacji. Użyj funkcji Dołącz do usługi Azure AD lub hybrydowej usługi Azure AD dla komputerów stacjonarnych, a usługa Intune zarządzana na urządzeniach. Możesz również korzystać z funkcji Azure Active Directory — wersja Premium, takich jak usługa Azure AD Multi-Factor Authentication, oraz zabezpieczeń usługi Machine Learning w [usłudze Azure Identity Protection](../identity-protection/overview-identity-protection.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
