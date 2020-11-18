@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: aed1aa03527481014a63c636181725b91b17a1e8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372385"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697309"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Jak indeksować dane usługi Cosmos DB przy użyciu indeksatora usługi Azure Cognitive Search 
 
@@ -137,7 +137,7 @@ Wcześniej w tym artykule opisano, że [Azure Cosmos DB indeksowania](/azure/cos
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 — Tworzenie danych wejściowych dla żądania
 
-Dla każdego żądania należy podać nazwę usługi i klucz administratora dla usługi Azure Wyszukiwanie poznawcze (w nagłówku POST) oraz nazwę i klucz konta magazynu dla magazynu obiektów BLOB. Możesz użyć programu [Poster](search-get-started-postman.md) do wysyłania żądań HTTP do usługi Azure wyszukiwanie poznawcze.
+Dla każdego żądania należy podać nazwę usługi i klucz administratora dla usługi Azure Wyszukiwanie poznawcze (w nagłówku POST) oraz nazwę i klucz konta magazynu dla magazynu obiektów BLOB. Do wysyłania żądań HTTP do usługi Azure Wyszukiwanie poznawcze można użyć programu [Poster lub Visual Studio Code](search-get-started-rest.md) .
 
 Skopiuj następujące cztery wartości do Notatnika, aby można było je wkleić do żądania:
 
@@ -186,7 +186,7 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 | **Nazwij** | Wymagane. Wybierz dowolną nazwę reprezentującą obiekt źródła danych. |
 |**Wprowadź**| Wymagane. Musi być `cosmosdb` . |
 |**uwierzytelniające** | Wymagane. Musi być zgodna z formatem parametrów połączenia Cosmos DB lub formatem parametrów połączenia zarządzanej tożsamości.<br/><br/>W przypadku **kolekcji SQL** parametry połączenia mogą mieć jeden z następujących formatów: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Parametry połączenia tożsamości zarządzanej o następującym formacie, który nie zawiera klucza konta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Aby użyć tego formatu parametrów połączenia, postępuj zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia indeksatora z bazą danych Cosmos dB przy użyciu tożsamości zarządzanej](search-howto-managed-identities-cosmos-db.md).<br/><br/>W przypadku wersji 3,2 i w wersji 3,6 **kolekcje MongoDB** używają jednego z następujących formatów parametrów połączenia: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Parametry połączenia tożsamości zarządzanej o następującym formacie, który nie zawiera klucza konta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Aby użyć tego formatu parametrów połączenia, postępuj zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia indeksatora z bazą danych Cosmos dB przy użyciu tożsamości zarządzanej](search-howto-managed-identities-cosmos-db.md).<br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku **wykresów Gremlin i tabel Cassandra**.<br/><br/>Należy unikać numerów portów w adresie URL punktu końcowego. Jeśli dołączysz numer portu, usługa Azure Wyszukiwanie poznawcze nie będzie w stanie indeksować bazy danych Azure Cosmos DB.|
-| **wbudowane** | Zawiera następujące elementy: <br/>**Nazwa** : wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie** : opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
+| **wbudowane** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
 | **dataChangeDetectionPolicy** | Rekomendowane. Zobacz sekcję [indeksowanie zmienionych dokumentów](#DataChangeDetectionPolicy) .|
 |**dataDeletionDetectionPolicy** | Opcjonalny. Zobacz sekcję [indeksowanie usuniętych dokumentów](#DataDeletionDetectionPolicy) .|
 
@@ -194,7 +194,7 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 Możesz określić zapytanie SQL do spłaszczania zagnieżdżonych właściwości lub tablic, właściwości JSON projektu i przefiltrować dane, które mają być indeksowane. 
 
 > [!WARNING]
-> Zapytania niestandardowe nie są obsługiwane w przypadku **interfejsu API MongoDB** , **interfejsu api Gremlin** i **interfejs API Cassandra** : `container.query` parametr musi mieć wartość null lub być pominięty. Jeśli musisz użyć zapytania niestandardowego, poinformuj nas o [głosowaniu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
+> Zapytania niestandardowe nie są obsługiwane w przypadku **interfejsu API MongoDB**, **interfejsu api Gremlin** i **interfejs API Cassandra**: `container.query` parametr musi mieć wartość null lub być pominięty. Jeśli musisz użyć zapytania niestandardowego, poinformuj nas o [głosowaniu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
 
 Przykładowy dokument:
 
@@ -274,11 +274,11 @@ Upewnij się, że schemat indeksu docelowego jest zgodny ze schematem źródłow
 | Wartość logiczna |EDM. Boolean, EDM. String |
 | Liczby, które wyglądają jak liczby całkowite |EDM. Int32, EDM. Int64, EDM. String |
 | Liczby, które wyglądają jak zmiennoprzecinkowe |EDM. Double, EDM. String |
-| Ciąg |Edm.String |
+| String |Edm.String |
 | Tablice typów pierwotnych, na przykład ["a", "b", "c"] |Collection(Edm.String) |
 | Ciągi, które wyglądają jak daty |EDM. DateTimeOffset, EDM. String |
 | Obiekty GEOJSON, na przykład {"Type": "Point", "współrzędne": [Long, lat]} |Edm.GeographyPoint |
-| Inne obiekty JSON |Brak |
+| Inne obiekty JSON |Nie dotyczy |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 — Konfigurowanie i uruchamianie indeksatora
 

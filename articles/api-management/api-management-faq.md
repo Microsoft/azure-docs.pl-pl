@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542278"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697989"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management — często zadawane pytania
 Uzyskaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązania dotyczące usługi Azure API Management.
@@ -49,7 +49,7 @@ Uzyskaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązan
 Gdy funkcja jest w wersji zapoznawczej, oznacza to, że aktywnie szukamy opinii na temat sposobu działania tej funkcji. Funkcja w wersji zapoznawczej jest funkcjonalnie kompletna, ale istnieje możliwość, że w odpowiedzi na Opinie klientów wprowadzimy istotną zmianę. Zalecamy, aby nie zależały od funkcji, która jest w wersji zapoznawczej w środowisku produkcyjnym.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Jak mogę zabezpieczyć połączenie między bramą usługi API Management i usługami zaplecza?
-Istnieje kilka opcji zabezpieczania połączenia między bramą API Management i usługami zaplecza. Dostępne możliwości:
+Istnieje kilka opcji zabezpieczania połączenia między bramą API Management i usługami zaplecza. Możesz:
 
 * Użyj uwierzytelniania podstawowego protokołu HTTP. Aby uzyskać więcej informacji, zobacz [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 * Uwierzytelniania wzajemnego protokołu TLS należy używać zgodnie z opisem w artykule [jak zabezpieczyć usługi zaplecza przy użyciu uwierzytelniania certyfikatu klienta w usłudze Azure API Management](api-management-howto-mutual-certificates.md).
@@ -57,7 +57,7 @@ Istnieje kilka opcji zabezpieczania połączenia między bramą API Management i
 * Połącz wystąpienie API Management z usługą Azure Virtual Network.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Jak mogę skopiować moje wystąpienie usługi API Management do nowego wystąpienia?
-Istnieje kilka opcji, jeśli chcesz skopiować wystąpienie API Management do nowego wystąpienia. Dostępne możliwości:
+Istnieje kilka opcji, jeśli chcesz skopiować wystąpienie API Management do nowego wystąpienia. Możesz:
 
 * Użyj funkcji tworzenia kopii zapasowych i przywracania w API Management. Aby uzyskać więcej informacji, zobacz [jak zaimplementować odzyskiwanie awaryjne przy użyciu kopii zapasowej i przywracania usługi w usłudze Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
 * Utwórz własną funkcję tworzenia kopii zapasowych i przywracania za pomocą [interfejsu API REST API Management](/rest/api/apimanagement/). Za pomocą interfejsu API REST Zapisz i Przywróć jednostki z wystąpienia usługi, które chcesz.
@@ -71,24 +71,13 @@ Tak, możesz zarządzać API Management programowo przy użyciu:
 * Polecenia cmdlet programu PowerShell dotyczące [wdrażania usług](/powershell/module/wds) i [zarządzania usługami](/powershell/azure/servicemanagement/overview) .
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Jak dodać użytkownika do grupy administratorów?
-Oto jak można dodać użytkownika do grupy Administratorzy:
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Przejdź do grupy zasobów, która ma API Management wystąpienia, które chcesz zaktualizować.
-3. W API Management Przypisz do użytkownika rolę **współautor usługi API Management** .
-
-Teraz nowo dodany współautor może używać Azure PowerShell [poleceń cmdlet](/powershell/azure/). Oto jak zalogować się jako administrator:
-
-1. Użyj `Connect-AzAccount` polecenia cmdlet, aby się zalogować.
-2. Ustaw kontekst na subskrypcję, która ma usługę przy użyciu `Set-AzContext -SubscriptionID <subscriptionGUID>` .
-3. Pobierz adres URL logowania jednokrotnego za pomocą polecenia `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` .
-4. Użyj adresu URL, aby uzyskać dostęp do portalu administracyjnego.
+Grupy Administratorzy to niezmienna Grupa systemowa. Administratorzy subskrypcji platformy Azure są członkami tej grupy. Nie można dodać użytkownika do tej grupy. Więcej informacji można znaleźć [w temacie How to Create and use Groups for Manage Developer accounts in Azure API Management](./api-management-howto-create-groups.md) .
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Dlaczego zasady, które chcę dodać, są niedostępne w edytorze zasad?
 Jeśli zasady, które mają zostać dodane, są wyszarzone lub wyszarzone w edytorze zasad, upewnij się, że jesteś w prawidłowym zakresie dla zasad. Każda instrukcja zasad jest przeznaczona do użycia w określonych zakresach i sekcjach zasad. Aby zapoznać się z sekcjami zasad i zakresami zasad, zobacz sekcję użycie zasad w temacie [zasady API Management](./api-management-policies.md).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Jak mogę skonfigurować wiele środowisk w jednym interfejsie API?
-Aby skonfigurować wiele środowisk, na przykład środowisko testowe i środowisko produkcyjne, w jednym interfejsie API dostępne są dwie opcje. Dostępne możliwości:
+Aby skonfigurować wiele środowisk, na przykład środowisko testowe i środowisko produkcyjne, w jednym interfejsie API dostępne są dwie opcje. Możesz:
 
 * Hostowanie różnych interfejsów API w tej samej dzierżawie.
 * Hostowanie tych samych interfejsów API w różnych dzierżawach.

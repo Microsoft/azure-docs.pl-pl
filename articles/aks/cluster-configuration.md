@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072088"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698074"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -46,7 +46,7 @@ Zarejestruj `UseCustomizedUbuntuPreview` funkcję:
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
+Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
@@ -78,27 +78,28 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 Jeśli chcesz utworzyć pule węzłów za pomocą obrazu AKS Ubuntu 16,04, możesz to zrobić, pomijając `--aks-custom-headers` tag niestandardowy.
 
+## <a name="container-runtime-configuration"></a>Konfiguracja środowiska uruchomieniowego kontenera
 
-## <a name="container-runtime-configuration-preview"></a>Konfiguracja środowiska uruchomieniowego kontenera (wersja zapoznawcza)
+Środowisko uruchomieniowe kontenera to oprogramowanie, które wykonuje kontenery i zarządza obrazami kontenerów w węźle. Środowisko uruchomieniowe ułatwia abstrakcyjne wywołania sys lub systemu operacyjnego (OS) do uruchamiania kontenerów w systemie Linux lub Windows. Klastry AKS korzystające z pul węzłów Kubernetes w wersji 1,19 i większe użycie `containerd` jako środowiska uruchomieniowego kontenera. Klastry AKS korzystające z funkcji Kubernetes starszych niż v 1.19 dla pul węzłów używają [Moby](https://mobyproject.org/) (nadrzędnego Docker) jako środowiska uruchomieniowego kontenera.
 
-Środowisko uruchomieniowe kontenera to oprogramowanie, które wykonuje kontenery i zarządza obrazami kontenerów w węźle. Środowisko uruchomieniowe ułatwia abstrakcyjne wywołania sys lub systemu operacyjnego (OS) do uruchamiania kontenerów w systemie Linux lub Windows. Dzisiaj AKS korzysta z [Moby](https://mobyproject.org/) (nadrzędnym Docker) jako środowiska uruchomieniowego kontenera. 
-    
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) jest zgodnym podstawowym środowiskiem uruchomieniowym [kontenera (Open](https://opencontainers.org/) Container Initiative), który zapewnia minimalny zestaw funkcji wymaganych do wykonywania kontenerów i zarządzania obrazami w węźle. Zostało ono [przekazano do](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) natywnej usługi obliczeniowej Cloud Foundation (CNCF) w marcu 2017. Bieżąca wersja Moby używana przez AKS już dziś i została utworzona w oparciu o `containerd` , jak pokazano powyżej. 
+[`Containerd`](https://containerd.io/) jest zgodnym podstawowym środowiskiem uruchomieniowym [kontenera (Open](https://opencontainers.org/) Container Initiative), który zapewnia minimalny zestaw funkcji wymaganych do wykonywania kontenerów i zarządzania obrazami w węźle. Zostało ono [przekazano do](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) natywnej usługi obliczeniowej Cloud Foundation (CNCF) w marcu 2017. Bieżąca wersja Moby używana przez AKS już korzysta z programu i została utworzona w oparciu o `containerd` , jak pokazano powyżej.
 
-W przypadku węzłów węzła i węzłów opartych na kontenerach, a nie rozmowy z `dockershim` , kubelet będzie komunikować się bezpośrednio z `containerd` za pośrednictwem wtyczki CRI (interfejs środowiska uruchomieniowego kontenera), usuwając dodatkowe przeskoki w przepływie w porównaniu do implementacji platformy Docker CRI. W związku z tym zobaczysz lepszy czas oczekiwania na uruchomienie i mniejszą ilość zasobów (procesor CPU i pamięć).
+W przypadku `containerd` pul węzłów i węzłów opartych na interfejsie zamiast rozmowy z programem `dockershim` kubelet będzie komunikować się bezpośrednio z `containerd` za pośrednictwem wtyczki CRI (interfejsu środowiska uruchomieniowego kontenera), usuwając dodatkowe przeskoki w przepływie w porównaniu do implementacji platformy Docker CRI. W związku z tym zobaczysz lepszy czas oczekiwania na uruchomienie i mniejszą ilość zasobów (procesor CPU i pamięć).
 
 Przy użyciu `containerd` for AKS nodes, pod kątem opóźnień uruchamiania, zwiększa i zmniejsza zużycie zasobów węzła przez środowisko uruchomieniowe kontenera. Te ulepszenia są włączane przez tę nową architekturę, w której kubelet się bezpośrednio do programu `containerd` za pomocą wtyczki CRI, a w przypadku architektury Moby/Docker kubelet będzie komunikować się z `dockershim` aparatem platformy Docker przed osiągnięciem `containerd` , dzięki czemu mają dodatkowe przeskoki w przepływie.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` działa na każdej wersji systemu Kubernetes w AKS, a w każdej wersji Kubernetes w strumieniu, w którym znajduje się nowsza wersja, i obsługuje wszystkie funkcje Kubernetes i AKS.
+`Containerd` działa na każdej wersji systemu Kubernetes w AKS, a w każdej wersji Kubernetes w strumieniu przedniej powyżej v 1.19 i obsługuje wszystkie funkcje Kubernetes i AKS.
 
 > [!IMPORTANT]
-> Gdy `containerd` stanie się ogólnie dostępna w usłudze AKS, będzie to ustawienie domyślne i opcja dostępna tylko dla środowiska uruchomieniowego kontenera w nowych klastrach. Nadal można używać Moby nodepools i klastrów w starszych obsługiwanych wersjach, dopóki te nie zostaną objęte wsparciem. 
+> Klastry z pulami węzłów utworzone w Kubernetes v 1.19 lub większe domyślne `containerd` dla środowiska uruchomieniowego kontenera. Klastry z pulami węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,19 są odbierane `Moby` dla środowiska uruchomieniowego kontenera, ale zostaną zaktualizowane do `ContainerD` wersji, gdy wersja Kubernetes puli węzłów zostanie zaktualizowana do programu v 1.19 lub nowszego. Nadal można używać `Moby` pul węzłów i klastrów w starszych obsługiwanych wersjach, dopóki te nie zostaną objęte wsparciem.
 > 
-> Zalecamy przetestowanie obciążeń w `containerd` pulach węzłów przed uaktualnieniem lub utworzeniem nowych klastrów przy użyciu tego środowiska uruchomieniowego kontenera.
+> Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów AKS za pomocą `containerD` starszych klastrów niż 1,19 lub więcej.
+
+W poniższej sekcji wyjaśniono, jak można używać i testować AKS z `containerD` klastrami, które nie korzystają jeszcze z Kubernetes w wersji 1,19 lub nowszej, lub zostały utworzone przed udostępnieniem tej funkcji, przy użyciu wersji zapoznawczej środowiska uruchomieniowego kontenera.
 
 ### <a name="use-containerd-as-your-container-runtime-preview"></a>Użyj `containerd` jako środowiska uruchomieniowego kontenera (wersja zapoznawcza)
 
@@ -124,7 +125,7 @@ az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.Cont
 
 ```
 
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
+Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
@@ -193,7 +194,7 @@ Zarejestruj `Gen2VMPreview` funkcję:
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
 
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
+Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
@@ -250,7 +251,7 @@ Zarejestruj `EnableEphemeralOSDiskPreview` funkcję:
 az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
 ```
 
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
+Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"

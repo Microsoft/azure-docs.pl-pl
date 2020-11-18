@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399231"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697173"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Samouczek: indeksowanie danych usługi Azure SQL przy użyciu zestawu .NET SDK
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-+ [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
@@ -69,7 +69,7 @@ Jeśli masz istniejący zasób Azure SQL Database, możesz dodać do niego tabel
 
 1. Wybierz plik, a następnie kliknij pozycję **Otwórz**. Skrypt powinien być podobny do tego na poniższym zrzucie ekranu:
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Strona nowej bazy danych" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Skrypt SQL" border="false":::
 
 1. Kliknij przycisk **Uruchom**, aby wykonać zapytanie. W okienku wyników powinien zostać wyświetlony komunikat o pomyślnym ukończeniu wykonywania zapytania dla 3 wierszy.
 
@@ -79,7 +79,7 @@ Jeśli masz istniejący zasób Azure SQL Database, możesz dodać do niego tabel
     SELECT * FROM Hotels
     ```
 
-1. Skopiuj parametry połączenia ADO.NET dla bazy danych. W obszarze **Ustawienia**  >  **Parametry połączenia**Skopiuj parametry połączenia ADO.NET, podobnie jak w poniższym przykładzie.
+1. Skopiuj parametry połączenia ADO.NET dla bazy danych. W obszarze **Ustawienia**  >  **Parametry połączenia** Skopiuj parametry połączenia ADO.NET, podobnie jak w poniższym przykładzie.
 
     ```sql
     Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -97,9 +97,9 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+1. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Strona nowej bazy danych" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Pobieranie punktu końcowego HTTP i klucza dostępu" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 — Konfigurowanie środowiska
 
@@ -125,8 +125,8 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 Indeksatory wymagają obiektu źródła danych i indeksu. Odpowiedni kod znajduje się w dwóch plikach:
 
-  + **Hotel.cs**zawierający schemat definiujący indeks
-  + **Program.cs**zawierające funkcje tworzenia struktur w usłudze i zarządzania nimi
+  + **Hotel.cs** zawierający schemat definiujący indeks
+  + **Program.cs** zawierające funkcje tworzenia struktur w usłudze i zarządzania nimi
 
 ### <a name="in-hotelcs"></a>W pliku hotel.cs
 
@@ -201,7 +201,7 @@ Obiekt indeksatora to platform-niezależny od, w których konfiguracja, planowan
 
 Naciśnij klawisz F5, aby skompilować i uruchomić rozwiązanie. Program będzie działać w trybie debugowania. Stan każdej operacji będzie zgłaszany w oknie konsoli.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Strona nowej bazy danych" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Dane wyjściowe konsoli" border="false":::
 
 Kod jest uruchamiany lokalnie w programie Visual Studio, łącząc się z usługą wyszukiwania na platformie Azure, która z kolei łączy się z Azure SQL Database i Pobiera zestaw danych. W przypadku tej wielu operacji istnieje kilka potencjalnych punktów awarii. Jeśli wystąpi błąd, należy najpierw sprawdzić następujące warunki:
 
@@ -215,9 +215,9 @@ Kod jest uruchamiany lokalnie w programie Visual Studio, łącząc się z usług
 
 Użyj Azure Portal, aby zweryfikować Tworzenie obiektów, a następnie użyj **Eksploratora wyszukiwania** do wykonywania zapytań względem indeksu.
 
-1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Otwórz każdą z list z kolei, aby sprawdzić, czy obiekt został utworzony. **Indeksy**, **indeksatory**i **źródła danych** będą zawierały odpowiednio "Hotele", "Azure-SQL-Indexer" i "Azure-SQL".
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Otwórz każdą z list z kolei, aby sprawdzić, czy obiekt został utworzony. **Indeksy**, **indeksatory** i **źródła danych** będą zawierały odpowiednio "Hotele", "Azure-SQL-Indexer" i "Azure-SQL".
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Strona nowej bazy danych" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Kafelki Indeksatory i Źródła danych" border="false":::
 
 1. Wybierz indeks hoteli. Na stronie Hotele, **Eksplorator wyszukiwania** jest pierwszą kartą. 
 
@@ -225,7 +225,7 @@ Użyj Azure Portal, aby zweryfikować Tworzenie obiektów, a następnie użyj **
 
    Trzy wpisy w indeksie zostaną zwrócone jako dokumenty JSON. Eksplorator wyszukiwania zwraca dokumenty w formacie JSON, tak, aby można było przeglądać całą strukturę.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Strona nowej bazy danych" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Tworzenie zapytań względem indeksu" border="false":::
    
 1. Następnie wprowadź wyszukiwany ciąg: `search=river&$count=true`. 
 

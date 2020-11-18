@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808446"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698495"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Przenoszenie wewnętrznej Load Balancer platformy Azure do innego regionu przy użyciu Azure Portal
 
 Istnieją różne scenariusze, w których należy przenieść istniejący wewnętrzny moduł równoważenia obciążenia z jednego regionu do innego. Na przykład możesz chcieć utworzyć wewnętrzny moduł równoważenia obciążenia z tą samą konfiguracją do testowania. Możesz również przenieść wewnętrzny moduł równoważenia obciążenia do innego regionu w ramach planowania odzyskiwania po awarii.
 
-Wewnętrznych modułów równoważenia obciążenia platformy Azure nie można przenosić z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager do eksportowania istniejącej konfiguracji i sieci wirtualnej wewnętrznego modułu równoważenia obciążenia.  Następnie można przemieścić zasób w innym regionie, eksportując moduł równoważenia obciążenia i sieć wirtualną do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrażając szablony w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Wewnętrznych modułów równoważenia obciążenia platformy Azure nie można przenosić z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager do eksportowania istniejącej konfiguracji i sieci wirtualnej wewnętrznego modułu równoważenia obciążenia.  Następnie można przemieścić zasób w innym regionie, eksportując moduł równoważenia obciążenia i sieć wirtualną do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrażając szablony w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -32,7 +32,7 @@ Wewnętrznych modułów równoważenia obciążenia platformy Azure nie można p
 
 - Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie wewnętrznych modułów równoważenia obciążenia w używanym regionie docelowym. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
 
-- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie modułów równoważenia obciążenia dla tego procesu.  Zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie modułów równoważenia obciążenia dla tego procesu.  Zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
@@ -43,7 +43,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Wyeksportuj szablon sieci wirtualnej i Wdróż go z Azure Portal
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com)  >  **grup zasobów**Azure Portal.
+1. Zaloguj się do [Azure portal](https://portal.azure.com)  >  **grup zasobów** Azure Portal.
 2. Znajdź grupę zasobów zawierającą źródłową sieć wirtualną i kliknij ją.
 3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon**.
 4. Wybierz pozycję **Wdróż** w bloku **Eksportuj szablon** .
@@ -180,11 +180,11 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 13. Kliknij przycisk **Zapisz** w edytorze online.
 
-14. Kliknij **BASICS**pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć wirtualna.
+14. Kliknij **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć wirtualna.
 
 15. Kliknij pozycję **podstawowe**  >  **grupy zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożona docelowa sieć wirtualna.  Możesz kliknąć przycisk **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowej sieci wirtualnej.  Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącej sieci wirtualnej.
 
-16. Sprawdź **BASICS**  >  , czy**Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
+16. Sprawdź **BASICS**  >  , czy **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
 
 17. Sprawdź, czy w obszarze **Ustawienia** nazwa jest zgodna z nazwą wprowadzoną w edytorze parametrów powyżej.
 
@@ -194,7 +194,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
 
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Wyeksportuj szablon wewnętrznego modułu równoważenia obciążenia i Wdróż go z Azure PowerShell
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com)  >  **grup zasobów**Azure Portal.
+1. Zaloguj się do [Azure portal](https://portal.azure.com)  >  **grup zasobów** Azure Portal.
 2. Znajdź grupę zasobów zawierającą źródłowy wewnętrzny moduł równoważenia obciążenia i kliknij ją.
 3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon**.
 4. Wybierz pozycję **Wdróż** w bloku **Eksportuj szablon** .
@@ -273,9 +273,9 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
                 "tier": "Regional"
             },
         ```
-      Aby uzyskać więcej informacji na temat różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Aby uzyskać więcej informacji na temat różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md)
 
-    * **Reguły równoważenia obciążenia** — w konfiguracji można dodawać lub usuwać reguły równoważenia obciążenia, dodając lub usuwając wpisy dotemplate.jssekcji **loadBalancingRules** ** w** pliku:
+    * **Reguły równoważenia obciążenia** — w konfiguracji można dodawać lub usuwać reguły równoważenia obciążenia, dodając lub usuwając wpisy dotemplate.jssekcji **loadBalancingRules** **w** pliku:
 
         ```json
         "loadBalancingRules": [
@@ -305,7 +305,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
                     }
                 ]
         ```
-       Aby uzyskać więcej informacji o regułach równoważenia obciążenia, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Aby uzyskać więcej informacji o regułach równoważenia obciążenia, zobacz [co to jest Azure Load Balancer?](./load-balancer-overview.md)
 
     * **Sondy** — można dodać lub usunąć sondę modułu równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów do sekcji **sondy** w **template.jsw** pliku:
 
@@ -325,9 +325,9 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
                     }
                 ],
         ```
-       Aby uzyskać więcej informacji na Azure Load Balancer sond kondycji, zobacz [sondy kondycji Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Aby uzyskać więcej informacji na Azure Load Balancer sond kondycji, zobacz [sondy kondycji Load Balancer](./load-balancer-custom-probe-overview.md)
 
-    * **Reguły NAT dla ruchu przychodzącego** — można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów dotemplate.jssekcji **inboundNatRules** ** w** pliku:
+    * **Reguły NAT dla ruchu przychodzącego** — można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów dotemplate.jssekcji **inboundNatRules** **w** pliku:
 
         ```json
         "inboundNatRules": [
@@ -373,15 +373,15 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
             }
         }
         ```
-        Aby uzyskać więcej informacji na temat reguł NAT dla ruchu przychodzącego, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Aby uzyskać więcej informacji na temat reguł NAT dla ruchu przychodzącego, zobacz [co to jest Azure Load Balancer?](./load-balancer-overview.md)
 
 12. Kliknij przycisk **Zapisz** w edytorze online.
 
-13. Kliknij **BASICS**pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy wewnętrzny moduł równoważenia obciążenia.
+13. Kliknij **BASICS** pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy wewnętrzny moduł równoważenia obciążenia.
 
 15. Kliknij pozycję **podstawowe**  >  **grupy zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy moduł równoważenia obciążenia.  Możesz kliknąć przycisk **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego wewnętrznego modułu równoważenia obciążenia lub wybrać istniejącą grupę zasobów, która została utworzona powyżej dla sieci wirtualnej.  Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego wewnętrznego modułu równoważenia obciążenia.
 
-16. Sprawdź **BASICS**  >  , czy**Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony wewnętrzny moduł równoważenia obciążenia.
+16. Sprawdź **BASICS**  >  , czy **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony wewnętrzny moduł równoważenia obciążenia.
 
 17. Sprawdź, czy w obszarze **Ustawienia** nazwa jest zgodna z nazwą wprowadzoną w edytorze parametrów powyżej.  Sprawdź, czy identyfikatory zasobów są wypełnione dla dowolnych sieci wirtualnych w konfiguracji.
 
@@ -402,5 +402,5 @@ Aby zatwierdzić zmiany i zakończyć przenoszenie sieci wirtualnej i wewnętrzn
 W tym samouczku przeniesiono wewnętrzny moduł równoważenia obciążenia platformy Azure z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
-- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](../site-recovery/azure-to-azure-tutorial-migrate.md)

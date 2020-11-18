@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740687"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697258"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Tworzenie prostego zapytania na platformie Azure Wyszukiwanie poznawcze
 
@@ -27,13 +27,13 @@ Alternatywna składnia zapytania to [pełna Lucene](query-lucene-syntax.md), obs
 
 Poniższe przykłady wykorzystują indeks wyszukiwania zadań NYC składający się z zadań dostępnych na podstawie zestawu danych dostarczonego przez [miasto z inicjatywy New York OpenData](https://nycopendata.socrata.com/) Initiative. Te dane nie powinny być uważane za bieżące ani ukończone. Indeks znajduje się w usłudze piaskownicy dostarczonej przez firmę Microsoft, co oznacza, że nie potrzebujesz subskrypcji platformy Azure ani usługi Azure Wyszukiwanie poznawcze do wypróbowania tych zapytań.
 
-To, czego potrzebujesz, jest to Poster lub równoważne narzędzie do wystawiania żądań HTTP na potrzeby pobierania. Aby uzyskać więcej informacji, zobacz [Szybki Start: Eksplorowanie interfejsu API REST platformy Azure wyszukiwanie poznawcze przy użyciu programu Poster](search-get-started-postman.md).
+To, czego potrzebujesz, jest to Poster lub równoważne narzędzie do wystawiania żądań HTTP na potrzeby pobierania. Aby uzyskać więcej informacji, zobacz [Szybki Start: Eksplorowanie interfejsu API REST platformy Azure wyszukiwanie poznawcze](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Ustawianie nagłówka żądania
 
 1. W nagłówku żądania ustaw wartość w **polu Typ zawartości** na `application/json` .
 
-2. Dodaj **klucz API-Key**i ustaw go na ten ciąg: `252044BE3886FE4A8E3BAA4F595114BB` . Jest to klucz zapytania dla usługi wyszukiwania piaskownicy hostującym indeks zadań NYC.
+2. Dodaj **klucz API-Key** i ustaw go na ten ciąg: `252044BE3886FE4A8E3BAA4F595114BB` . Jest to klucz zapytania dla usługi wyszukiwania piaskownicy hostującym indeks zadań NYC.
 
 Po określeniu nagłówka żądania można użyć go ponownie dla wszystkich zapytań w tym artykule, zamieniając tylko ciąg **Search =** String. 
 
@@ -43,7 +43,7 @@ Po określeniu nagłówka żądania można użyć go ponownie dla wszystkich zap
 
 Żądanie jest poleceniem GET z adresem URL zawierającym punkt końcowy Wyszukiwanie poznawcze platformy Azure i ciąg wyszukiwania.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Pobieranie nagłówka żądania Poster" border="false":::
 
 Kompozycja adresów URL ma następujące elementy:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Przykładowa odpowiedź Poster" border="false":::
 
 Być może zauważono wynik wyszukiwania w odpowiedzi. Jednolite Punktacja 1 występuje, gdy nie ma żadnej rangi, ponieważ wyszukiwanie nie było wyszukiwaniem pełnotekstowym lub nie zastosowano żadnych kryteriów. W przypadku wyszukiwania wartości null bez kryteriów wiersze są przywracane w dowolnej kolejności. Jeśli dołączysz rzeczywiste kryteria, wyniki wyszukiwania zostaną rozdzielone na znaczące wartości.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Używany razem filtr jest stosowany najpierw do całego indeksu, a następnie wyszukiwanie jest wykonywane na wynikach filtru. Z tego względu filtrowanie może być przydatne, jeśli chcemy poprawić wydajność zapytań, ponieważ pozwala ono zawęzić zestaw dokumentów przetwarzany przez zapytanie wyszukiwania.
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Filtrowanie odpowiedzi zapytania" border="false":::
 
 Jeśli chcesz wypróbować tę opcję w programie Poster przy użyciu polecenia GET, możesz wkleić ten ciąg:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Filtr zakresu dla zakresów liczbowych" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Filtr zakresu dla zakresów tekstu" border="false":::
 
 Możesz również wypróbować je w programie Poster przy użyciu polecenia GET:
 
@@ -251,14 +251,14 @@ Przy użyciu domyślnego ustawienia searchmode (any) zwracane są dokumenty 2800
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="dowolny tryb wyszukiwania" border="false":::
 
 Zmiana opcji searchmode w celu `all` wymuszenia skumulowanego wpływu na kryteria i zwrócenie mniejszego zestawu wyników — 21 dokumentów — składających się z dokumentów zawierających całą frazę "Straż pożarowa", minus te zadania w adresie Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Parametry zestawu nagłówka żądania Poster" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Tryb wyszukiwania wszystko" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Przykład 8: Tworzenie struktury wyników
 

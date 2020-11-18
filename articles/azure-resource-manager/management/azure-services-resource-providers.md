@@ -2,13 +2,13 @@
 title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/17/2020
+ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949126"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697734"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -150,8 +150,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. SaaS | Procesor |
 | Microsoft. Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft. Search | [Azure Cognitive Search](../../search/index.yml) |
-| Microsoft.Security | [Security Center](../../security-center/index.yml) |
-| Microsoft. SecurityGraph | [Security Center](../../security-center/index.yml) |
+| Microsoft.Security | [Centrum zabezpieczeń](../../security-center/index.yml) |
 | Microsoft. SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | Microsoft. SerialConsole<sup>1</sup> | [Konsola szeregowa platformy Azure dla systemu Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
@@ -161,8 +160,8 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft. SoftwarePlan | Licencja |
 | Microsoft. Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
-| Microsoft.Sql | [Baza danych SQL Azure](../../azure-sql/database/index.yml)<br /> [Wystąpienie zarządzane Azure SQL](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft. SqlVirtualMachine | [SQL Server na platformie Azure Virtual Machines](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Wystąpienie zarządzane Azure SQL](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
+| Microsoft. SqlVirtualMachine | [Program SQL Server na maszynach wirtualnych platformy Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft. StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
 | Microsoft. StorageSync | [Storage](../../storage/index.yml) |
@@ -174,10 +173,10 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft. token | Token |
 | Microsoft. VirtualMachineImages | [Konstruktor obrazów platformy Azure](../../virtual-machines/linux/image-builder-overview.md) |
-| Microsoft. VisualStudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft. VisualStudio | [Azure DevOps](/azure/devops/) |
 | Microsoft. VMware | [Rozwiązanie Azure VMware](../../azure-vmware/index.yml) |
 | Microsoft. VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft. VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft. VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft. Web | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft. WindowsDefenderATP | [Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender](../../security-center/security-center-wdatp.md) |
 | Microsoft. WindowsESU | Rozszerzone aktualizacje zabezpieczeń |

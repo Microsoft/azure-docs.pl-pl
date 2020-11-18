@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874ecfc8c1c50816916fb0b04975477a1cbe0a71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631447"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698091"
 ---
 # <a name="azure-load-balancer-skus"></a>Jednostki SKU Azure Load Balancer
 
@@ -26,7 +26,7 @@ Azure Load Balancer ma dwie jednostki SKU.
 
 Moduł równoważenia obciążenia obsługuje jednostki SKU w warstwie Standardowa i podstawowa. Te jednostki SKU różnią się w zależności od skali, funkcji i cen. Każdy scenariusz, który jest możliwy w przypadku podstawowego modułu równoważenia obciążenia, można utworzyć za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
 
-Aby porównać i poznać różnice, zapoznaj się z poniższą tabelą. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
+Aby porównać i poznać różnice, zapoznaj się z poniższą tabelą. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md).
 
 >[!NOTE]
 > Firma Microsoft zaleca użycie usługi równoważenia obciążenia w warstwie Standardowa.
@@ -34,21 +34,21 @@ Autonomiczne maszyny wirtualne, zestawy dostępności i zestawy skalowania maszy
 
 | | usługa Load Balancer w warstwie Standardowa | Load Balancer podstawowa |
 | --- | --- | --- |
-| **[Rozmiar puli zaplecza](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Obsługuje do 1000 wystąpień. | Obsługuje do 300 wystąpień. |
+| **[Rozmiar puli zaplecza](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Obsługuje do 1000 wystąpień. | Obsługuje do 300 wystąpień. |
 | **Punkty końcowe puli zaplecza** | Wszystkie maszyny wirtualne lub zestawy skalowania maszyn wirtualnych w jednej sieci wirtualnej. | Maszyny wirtualne w jednym zestawie dostępności lub zestaw skalowania maszyn wirtualnych. |
 | **[Sondy kondycji](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Zachowanie w dół sondy kondycji](./load-balancer-custom-probe-overview.md#probedown)** | Połączenia TCP pozostają aktywne na sondie wystąpienia __, a__ wszystkie sondy w dół. | Połączenia TCP pozostają aktywne na sondie wystąpienia. Wszystkie połączenia TCP kończą się, gdy wszystkie sondy są wyłączone. |
 | **Strefy dostępności** | Strefowo nadmiarowe i strefowe frontony dla ruchu przychodzącego i wychodzącego. | Niedostępne |
-| **Diagnostyka** | [Azure Monitor metryki wielowymiarowych](./load-balancer-standard-diagnostics.md) | [Dzienniki Azure Monitor](./load-balancer-monitor-log.md) |
+| **Diagnostyka** | [Azure Monitor metryki wielowymiarowych](./load-balancer-standard-diagnostics.md) | [Dzienniki usługi Azure Monitor](./load-balancer-monitor-log.md) |
 | **Porty wysokiej dostępności** | [Dostępne dla Load Balancer wewnętrznej](./load-balancer-ha-ports-overview.md) | Niedostępne |
 | **Zabezpieczenie domyślne** | Zamknięty do przepływów przychodzących, chyba że jest to dozwolone przez grupę zabezpieczeń sieci. Dozwolony jest ruch wewnętrzny z sieci wirtualnej do wewnętrznego modułu równoważenia obciążenia. | Otwórz domyślnie. Opcjonalna Grupa zabezpieczeń sieci. |
-| **Reguły ruchu wychodzącego** | [Deklaratywna konfiguracja wychodzącego NAT](./load-balancer-outbound-rules-overview.md) | Niedostępne |
+| **Reguły ruchu wychodzącego** | [Deklaratywna konfiguracja wychodzącego NAT](./load-balancer-outbound-connections.md#outboundrules) | Niedostępne |
 | **Resetowanie protokołu TCP w wyniku bezczynności** | [Dostępne dla każdej reguły](./load-balancer-tcp-reset.md) | Niedostępne |
 | **[Wiele frontonów](./load-balancer-multivip-overview.md)** | Ruch przychodzący i [wychodzący](./load-balancer-outbound-connections.md) | Tylko ruch przychodzący |
 | **Operacje zarządzania** | Większość operacji < 30 sekund | typowe 60 – 90 sekund |
 | **Umowa SLA** | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Niedostępne | 
 
-Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciążenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Szczegółowe informacje dotyczące modułu równoważenia obciążenia w warstwie Standardowa zawiera [przegląd](load-balancer-standard-overview.md), [cennik](https://aka.ms/lbpricing) i [umowa dotycząca poziomu usług](https://aka.ms/lbsla).
+Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciążenia](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). Szczegółowe informacje dotyczące modułu równoważenia obciążenia w warstwie Standardowa zawiera [przegląd](./load-balancer-overview.md), [cennik](https://aka.ms/lbpricing) i [umowa dotycząca poziomu usług](https://aka.ms/lbsla).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -65,4 +65,4 @@ Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciąże
 - Dowiedz się więcej o [sondach kondycji](load-balancer-custom-probe-overview.md).
 - Dowiedz się więcej na temat korzystania z [Load Balancer dla połączeń wychodzących](load-balancer-outbound-connections.md).
 - Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa z regułami równoważenia obciążenia dla portów ha](load-balancer-ha-ports-overview.md).
-- Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+- Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md).

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372386"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697207"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie JSON za pomocą indeksatora obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
@@ -53,7 +53,7 @@ Na stronie **Źródło danych** Źródło musi być **BLOB Storage platformy Azu
 
 + **Dane do wyodrębnienia** powinny być *zawartością i metadanymi*. Wybranie tej opcji umożliwia kreatorowi wywnioskowanie schematu indeksu i zamapowanie pól do zaimportowania.
    
-+ **Tryb analizowania** powinien mieć wartość *JSON* , *tablicę JSON* lub *linie JSON*. 
++ **Tryb analizowania** powinien mieć wartość *JSON*, *tablicę JSON* lub *linie JSON*. 
 
   W formacie *JSON* każdy obiekt BLOB jest określany jako pojedynczy dokument wyszukiwania, wyświetlany jako niezależny element w wynikach wyszukiwania. 
 
@@ -108,7 +108,7 @@ Za pomocą interfejsu API REST można indeksować obiekty blob w formacie JSON, 
 
 Możesz przejrzeć [przykład kodu REST](#rest-example) na końcu tej sekcji, który pokazuje, jak utworzyć wszystkie trzy obiekty. Ta sekcja zawiera również szczegółowe informacje na temat [trybów analizy JSON](#parsing-modes), [pojedynczych obiektów BLOB](#parsing-single-blobs), [tablic JSON](#parsing-arrays)i [tablic zagnieżdżonych](#nested-json-arrays).
 
-W przypadku indeksowania JSON opartego na kodzie należy utworzyć następujące obiekty przy użyciu programu [Poster](search-get-started-postman.md) i interfejsu API REST:
+W przypadku indeksowania JSON opartego na kodzie Użyj programu [Poster lub Visual Studio Code](search-get-started-rest.md) i interfejsu API REST, aby utworzyć następujące obiekty:
 
 + [indeks](/rest/api/searchservice/create-index)
 + [Źródło danych](/rest/api/searchservice/create-data-source)
@@ -126,7 +126,7 @@ Obiekty blob JSON w usłudze Azure Blob Storage są zwykle pojedynczym dokumente
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 — Tworzenie danych wejściowych dla żądania
 
-Dla każdego żądania należy podać nazwę usługi i klucz administratora dla usługi Azure Wyszukiwanie poznawcze (w nagłówku POST) oraz nazwę i klucz konta magazynu dla magazynu obiektów BLOB. Możesz użyć programu [Poster](search-get-started-postman.md) do wysyłania żądań HTTP do usługi Azure wyszukiwanie poznawcze.
+Dla każdego żądania należy podać nazwę usługi i klucz administratora dla usługi Azure Wyszukiwanie poznawcze (w nagłówku POST) oraz nazwę i klucz konta magazynu dla magazynu obiektów BLOB. Do wysyłania żądań HTTP do usługi Azure Wyszukiwanie poznawcze można użyć [narzędzia testowego interfejsu API sieci Web](search-get-started-rest.md) .
 
 Skopiuj następujące cztery wartości do Notatnika, aby można było je wkleić do żądania:
 
@@ -455,7 +455,7 @@ Można również odwoływać się do poszczególnych elementów tablicy przy uż
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
 Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, podaj dane wejściowe w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Jeśli potrzebujesz pomocy przy korzystaniu z istniejącej funkcji, Opublikuj pytanie na [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Indeksatory w usłudze Azure Cognitive Search](search-indexer-overview.md)
 + [Indeksowanie Blob Storage platformy Azure przy użyciu usługi Azure Wyszukiwanie poznawcze](search-howto-index-json-blobs.md)

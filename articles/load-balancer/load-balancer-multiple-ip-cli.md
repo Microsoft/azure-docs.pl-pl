@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: bc1e477882f3d065dfe89e8511259732129cec30
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 06dfa65236bf1aa5cfde626c5574ffdf487eb045
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746031"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698363"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,7 +30,7 @@ W tym artykule opisano, jak używać Azure Load Balancer z wieloma adresami IP w
 
 Aby osiągnąć scenariusz opisany w tym artykule, wykonaj następujące czynności:
 
-1. [Zainstaluj i skonfiguruj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , postępując zgodnie z instrukcjami w połączonym artykule i zaloguj się na koncie platformy Azure.
+1. [Zainstaluj i skonfiguruj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) , postępując zgodnie z instrukcjami w połączonym artykule i zaloguj się na koncie platformy Azure.
 2. [Utwórz grupę zasobów](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) o nazwie *contosofabrikam* w następujący sposób:
 
     ```azurecli
@@ -43,14 +43,14 @@ Aby osiągnąć scenariusz opisany w tym artykule, wykonaj następujące czynno�
     az vm availability-set create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Utwórz sieć wirtualną](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) o nazwie *myVNet* oraz podsieć o nazwie Moja *podsieć* :
+4. [Utwórz sieć wirtualną](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) o nazwie *myVNet* oraz podsieć o nazwie Moja *podsieć*:
 
     ```azurecli
     az network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus --subnet-name MySubnet --subnet-prefix 10.0.0.0/24
 
     ```
 
-5. [Utwórz moduł równoważenia obciążenia](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o nazwie *mylb* :
+5. [Utwórz moduł równoważenia obciążenia](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o nazwie *mylb*:
 
     ```azurecli
     az network lb create --resource-group contosofabrikam --location westcentralus --name mylb
@@ -71,7 +71,7 @@ Aby osiągnąć scenariusz opisany w tym artykule, wykonaj następujące czynno�
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Utwórz pule adresów zaplecza — *contosopool* i *fabrikampool* , [sondy](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  -  *http* i reguły równoważenia obciążenia — *HTTPc* i *HTTPf* :
+8. Utwórz pule adresów zaplecza — *contosopool* i *fabrikampool*, [sondy](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  -  *http* i reguły równoważenia obciążenia — *HTTPc* i *HTTPf*:
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool

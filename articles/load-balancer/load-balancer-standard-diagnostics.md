@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717340"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697564"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostyka usługi Load Balancer w warstwie Standardowa przy użyciu metryk, alertów i kondycji zasobów
 
 Usługa Azure usługa Load Balancer w warstwie Standardowa udostępnia następujące możliwości diagnostyczne:
 
-* **Wielowymiarowe metryki i alerty**: zapewniają wielowymiarowe funkcje diagnostyczne, [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) w przypadku konfiguracji usługi równoważenia obciążenia w warstwie Standardowa. Możesz monitorować zasoby standardowego modułu równoważenia obciążenia, zarządzać nimi i rozwiązywać problemy.
+* **Wielowymiarowe metryki i alerty**: zapewniają wielowymiarowe funkcje diagnostyczne, [Azure monitor](../azure-monitor/overview.md) w przypadku konfiguracji usługi równoważenia obciążenia w warstwie Standardowa. Możesz monitorować zasoby standardowego modułu równoważenia obciążenia, zarządzać nimi i rozwiązywać problemy.
 
 * **Kondycja zasobów**: Resource Health stan Load Balancer jest dostępny na stronie Resource Health w obszarze monitorowanie. To automatyczne sprawdzenie informuje o bieżącej dostępności zasobu Load Balancer.
 
@@ -70,7 +70,7 @@ Aby wyświetlić metryki dla zasobów usługa Load Balancer w warstwie Standardo
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Programowe pobieranie metryk wielowymiarowych za pośrednictwem interfejsów API
 
-Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Te metryki można zapisywać na koncie magazynu za pośrednictwem tylko opcji "wszystkie metryki". 
+Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Te metryki można zapisywać na koncie magazynu za pośrednictwem tylko opcji "wszystkie metryki". 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurowanie alertów dla wielowymiarowych metryk ###
 
@@ -138,9 +138,9 @@ Użyj **średniej** jako agregacji dla większości scenariuszy.
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Jak mogę sprawdzić statystykę połączenia wychodzącego? 
 <details>
   <summary>Rozwiń</summary>
-Metryka połączenia z przyłączaniem do translatora adresów sieciowych opisuje ilość pomyślnych i nieudanych połączeń dla [przepływów wychodzących](https://aka.ms/lboutbound).
+Metryka połączenia z przyłączaniem do translatora adresów sieciowych opisuje ilość pomyślnych i nieudanych połączeń dla [przepływów wychodzących](./load-balancer-outbound-connections.md).
 
-Liczba nieudanych połączeń w liczbie większej niż zero oznacza wyczerpanie portów przez translatora adresów sieciowych. Aby określić, co może powodować te błędy, należy zbadać więcej. Manifesty wyczerpania portów strumienia adresów sieciowych jako niepowodzenie do ustanowienia [przepływu wychodzącego](https://aka.ms/lboutbound). Zapoznaj się z artykułem dotyczącym połączeń wychodzących, aby poznać scenariusze i mechanizmy w pracy oraz dowiedzieć się, jak ograniczyć i zaprojektować, aby uniknąć wyczerpania portów. 
+Liczba nieudanych połączeń w liczbie większej niż zero oznacza wyczerpanie portów przez translatora adresów sieciowych. Aby określić, co może powodować te błędy, należy zbadać więcej. Manifesty wyczerpania portów strumienia adresów sieciowych jako niepowodzenie do ustanowienia [przepływu wychodzącego](./load-balancer-outbound-connections.md). Zapoznaj się z artykułem dotyczącym połączeń wychodzących, aby poznać scenariusze i mechanizmy w pracy oraz dowiedzieć się, jak ograniczyć i zaprojektować, aby uniknąć wyczerpania portów. 
 
 Aby uzyskać statystyki połączeń z podłączaniem adresów sieciowych:
 1. Wybierz typ metryki połączenia z podłączaniem **adresów sieciowych** i **sumę** jako agregację. 
@@ -157,14 +157,14 @@ Aby uzyskać statystyki połączeń z podłączaniem adresów sieciowych:
   <summary>Rozwiń</summary>
 Metryki używanych portów przychodzących adresów sieciowych śledzą liczbę portów, które są używane do obsługi przepływów wychodzących. Wskazuje to liczbę unikatowych przepływów między źródłem internetowym i maszyną wirtualną zaplecza lub zestawem skalowania maszyn wirtualnych, która znajduje się za modułem równoważenia obciążenia i nie ma publicznego adresu IP. Porównując liczbę portów ze strumieniami adresów sieciowych, które są używane z przydzieloną liczbą portów przydzielonej, możesz określić, czy dana usługa występuje, czy też grozi wyczerpaniem przydziałów adresów sieciowych i wychodzącym błędem przepływu. 
 
-Jeśli metryki wskazują na ryzyko awarii [przepływu wychodzącego](https://aka.ms/lboutbound) , należy odwołać się do artykułu i podjąć kroki w celu ograniczenia tego problemu w celu zapewnienia kondycji usługi.
+Jeśli metryki wskazują na ryzyko awarii [przepływu wychodzącego](./load-balancer-outbound-connections.md) , należy odwołać się do artykułu i podjąć kroki w celu ograniczenia tego problemu w celu zapewnienia kondycji usługi.
 
 Aby wyświetlić użycie i alokację portów przydziałów adresów sieciowych:
 1. Ustaw agregację czasu wykresu na 1 minutę, aby zapewnić wyświetlanie żądanych danych.
 1. Wybierz **używane porty** i/lub **przydzielony porty** dla przydziałów adresów sieciowych jako typ metryki i **średnią** jako agregację
     * Domyślnie te metryki to średnia liczba portów przydzielone lub używanych przez każdą maszynę wirtualną zaplecza lub VMSS, odpowiadającą wszystkim publicznym adresom IP frontonu zamapowanym na Load Balancer, zagregowanym za pośrednictwem protokołów TCP i UDP.
     * Aby wyświetlić łączną liczbę portów lub przydzielonej do modułu równoważenia obciążenia, użyj **sumy** agregacji metryk
-1. Filtrowanie na określony **Typ protokołu**, zestaw **adresów IP zaplecza**i/lub **adresy IP frontonu**.
+1. Filtrowanie na określony **Typ protokołu**, zestaw **adresów IP zaplecza** i/lub **adresy IP frontonu**.
 1. Aby monitorować kondycję według zaplecza lub wystąpienia frontonu, Zastosuj podział. 
     * Dzielenie uwagi pozwala tylko na wyświetlanie pojedynczej metryki. 
 1. Na przykład aby monitorować użycie protokołu reportowego dla przepływów TCP na maszynę, należy agregować według **średniej**, podzielić według **adresów IP zaplecza** i filtrować według **typu protokołu**. 
@@ -181,7 +181,7 @@ Aby wyświetlić użycie i alokację portów przydziałów adresów sieciowych:
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Jak mogę sprawdzić połączenia przychodzące/wychodzące dla mojej usługi?
 <details>
   <summary>Rozwiń</summary>
-Metryka pakietów SYN opisuje ilość pakietów TCP SYN, które zostały odebrane lub wysłane (dla [przepływów wychodzących](https://aka.ms/lboutbound)), które są skojarzone z określonym frontonem. Ta Metryka służy do zrozumienia prób połączenia TCP z usługą.
+Metryka pakietów SYN opisuje ilość pakietów TCP SYN, które zostały odebrane lub wysłane (dla [przepływów wychodzących](./load-balancer-outbound-connections.md)), które są skojarzone z określonym frontonem. Ta Metryka służy do zrozumienia prób połączenia TCP z usługą.
 
 Użyj **sum** jako agregacji dla większości scenariuszy.
 
@@ -252,18 +252,18 @@ Aby wyświetlić kondycję publicznych zasobów usługa Load Balancer w warstwie
 
    *Ilustracja: widok kondycji zasobów Load Balancer*
  
-Opis ogólnego stanu kondycji zasobu jest dostępny w [dokumentacji systemie RHC występuje](https://docs.microsoft.com/azure/service-health/resource-health-overview). Dla określonych stanów Azure Load Balancer są wymienione w poniższej tabeli: 
+Opis ogólnego stanu kondycji zasobu jest dostępny w [dokumentacji systemie RHC występuje](../service-health/resource-health-overview.md). Dla określonych stanów Azure Load Balancer są wymienione w poniższej tabeli: 
 
 | Stan kondycji zasobu | Opis |
 | --- | --- |
 | Dostępne | Zasób standardowego modułu równoważenia obciążenia jest w dobrej kondycji i jest dostępny. |
 | Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka dostępności ścieżki datapath zgłosiła mniej niż 90%, ale więcej niż 25% kondycji przez co najmniej dwie minuty. Zostanie napotkany umiarkowany wpływ na wydajność. [Postępuj zgodnie z przewodnikiem dostępności ścieżki danych do rozwiązywania problemów], aby określić, czy istnieją zdarzenia zainicjowane przez użytkownika, które powodują wpływ na dostępność.
 | Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. [Postępuj zgodnie z przewodnikiem dostępności ścieżki danych do rozwiązywania problemów], aby określić, czy istnieją zdarzenia zainicjowane przez użytkownika wpływające na dostępność. |
-| Nieznane | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany lub nie otrzymał informacji o dostępności ścieżki danych dla ostatnich 10 minut. Ten stan powinien być przejściowy i będzie odzwierciedlać prawidłowy stan zaraz po odebraniu danych. |
+| Nieznany | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany lub nie otrzymał informacji o dostępności ścieżki danych dla ostatnich 10 minut. Ten stan powinien być przejściowy i będzie odzwierciedlać prawidłowy stan zaraz po odebraniu danych. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [usłudze Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
-- Dowiedz się więcej o [łączności wychodzącej modułu równoważenia obciążenia](https://aka.ms/lboutbound).
-- Dowiedz się więcej na temat [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Dowiedz się więcej o [interfejsie API rest Azure monitor](https://docs.microsoft.com/rest/api/monitor/) i [sposobach pobierania metryk za pośrednictwem interfejsu API REST](/rest/api/monitor/metrics/list).
+- Dowiedz się więcej o [usłudze Load Balancer w warstwie Standardowa](./load-balancer-overview.md).
+- Dowiedz się więcej o [łączności wychodzącej modułu równoważenia obciążenia](./load-balancer-outbound-connections.md).
+- Dowiedz się więcej na temat [Azure monitor](../azure-monitor/overview.md).
+- Dowiedz się więcej o [interfejsie API rest Azure monitor](/rest/api/monitor/) i [sposobach pobierania metryk za pośrednictwem interfejsu API REST](/rest/api/monitor/metrics/list).

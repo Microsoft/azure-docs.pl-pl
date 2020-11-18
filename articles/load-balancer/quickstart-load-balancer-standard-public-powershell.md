@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0dfb5a68149f4745d17581dcefed6aedcf394106
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35dc088909522494d6c1cf4c94f9342c95fda59a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487708"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698492"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure PowerShell
 
@@ -112,7 +112,7 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 Utwórz adres IP frontonu przy użyciu elementu [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
 * Nazwa **frontonu**.
-* Dołączono do **myPublicIP**publicznego adresu IP.
+* Dołączono do **myPublicIP** publicznego adresu IP.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -179,7 +179,7 @@ Reguła modułu równoważenia obciążenia definiuje:
 Utwórz regułę modułu równoważenia obciążenia za pomocą elementu [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig): 
 
 * O nazwie **myHTTPRule**
-* Nasłuchiwanie na **porcie 80** w elemencie **webfrontonu**puli frontonów.
+* Nasłuchiwanie na **porcie 80** w elemencie **webfrontonu** puli frontonów.
 * Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool** przy użyciu **portu 80**. 
 * Korzystanie z sondy kondycji **myHealthProbe**.
 * Protokół **TCP**.
@@ -294,7 +294,7 @@ Utwórz sieciową grupę zabezpieczeń przy użyciu elementu [New-AzNetworkSecur
 
 * O nazwie **myNSG**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * Z regułami zabezpieczeń utworzonymi w poprzednich krokach przechowywanych w zmiennej.
 
 ```azurepowershell
@@ -316,7 +316,7 @@ Utwórz trzy interfejsy sieciowe za pomocą [New-AzNetworkInterface](/powershell
 
 * O nazwie **myNicVM1**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * W sieci wirtualnej **myVNet**.
 * W podsieci **myBackendSubnet**.
 * W sieciowej grupie zabezpieczeń **myNSG**.
@@ -352,7 +352,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 * O nazwie **myNicVM2**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * W sieci wirtualnej **myVNet**.
 * W podsieci **myBackendSubnet**.
 * W sieciowej grupie zabezpieczeń **myNSG**.
@@ -388,7 +388,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 * O nazwie **myNicVM3**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * W sieci wirtualnej **myVNet**.
 * W podsieci **myBackendSubnet**.
 * W sieciowej grupie zabezpieczeń **myNSG**.
@@ -421,7 +421,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic3 -LoadBa
 ```
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -605,8 +605,8 @@ Zastosuj regułę do modułu równoważenia obciążenia przy użyciu [opcji Set
 
 * O nazwie **myOutboundRule**.
 * Skojarzone z modułem równoważenia obciążenia **myLoadBalancer**.
-* Skojarzone z **myFrontEndOutbound**frontonu.
-* **Wszystkie**protokoły.
+* Skojarzone z **myFrontEndOutbound** frontonu.
+* **Wszystkie** protokoły.
 * Limit czasu bezczynności równy **15**.
 * **10000** portów wychodzących.
 * Skojarzona z pulą zaplecza **myBackEndPoolOutbound**.
@@ -753,7 +753,7 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 Utwórz adres IP frontonu przy użyciu elementu [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
 * Nazwa **frontonu**.
-* Dołączono do **myPublicIP**publicznego adresu IP.
+* Dołączono do **myPublicIP** publicznego adresu IP.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -820,7 +820,7 @@ Reguła modułu równoważenia obciążenia definiuje:
 Utwórz regułę modułu równoważenia obciążenia za pomocą elementu [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig): 
 
 * O nazwie **myHTTPRule**
-* Nasłuchiwanie na **porcie 80** w elemencie **webfrontonu**puli frontonów.
+* Nasłuchiwanie na **porcie 80** w elemencie **webfrontonu** puli frontonów.
 * Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool** przy użyciu **portu 80**. 
 * Korzystanie z sondy kondycji **myHealthProbe**.
 * Protokół **TCP**.
@@ -934,7 +934,7 @@ Utwórz sieciową grupę zabezpieczeń przy użyciu elementu [New-AzNetworkSecur
 
 * O nazwie **myNSG**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * Z regułami zabezpieczeń utworzonymi w poprzednich krokach przechowywanych w zmiennej.
 
 ```azurepowershell
@@ -956,7 +956,7 @@ Utwórz trzy interfejsy sieciowe za pomocą [New-AzNetworkInterface](/powershell
 
 * O nazwie **myNicVM1**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * W sieci wirtualnej **myVNet**.
 * W podsieci **myBackendSubnet**.
 * W sieciowej grupie zabezpieczeń **myNSG**.
@@ -992,7 +992,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 * O nazwie **myNicVM2**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * W sieci wirtualnej **myVNet**.
 * W podsieci **myBackendSubnet**.
 * W sieciowej grupie zabezpieczeń **myNSG**.
@@ -1028,7 +1028,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 * O nazwie **myNicVM3**.
 * W grupie zasobów **CreatePubLBQS-RG**.
-* W polu **Wschodnie**lokalizacje.
+* W polu **Wschodnie** lokalizacje.
 * W sieci wirtualnej **myVNet**.
 * W podsieci **myBackendSubnet**.
 * W sieciowej grupie zabezpieczeń **myNSG**.
@@ -1079,7 +1079,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ustaw nazwę użytkownika i hasło administratora maszyn wirtualnych przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1191,7 +1191,7 @@ Utworzenie i skonfigurowanie trzech maszyn wirtualnych może potrwać kilka minu
 
 ## <a name="install-iis"></a>Instalowanie usług IIS
 
-Zainstaluj rozszerzenie niestandardowego skryptu przy użyciu polecenia [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension). 
+Zainstaluj rozszerzenie niestandardowego skryptu przy użyciu polecenia [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension). 
 
 Rozszerzenie powoduje uruchomienie programu PowerShell Add-WindowsFeature Web-Server w celu zainstalowania serwera WebSerwer IIS, a następnie zaktualizowanie strony Default.htm w celu wyświetlenia nazwy hosta maszyny wirtualnej:
 
@@ -1242,7 +1242,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## <a name="test-the-load-balancer"></a>Testowanie modułu równoważenia obciążenia
 
-Użyj [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) , aby uzyskać publiczny adres IP modułu równoważenia obciążenia:
+Użyj [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) , aby uzyskać publiczny adres IP modułu równoważenia obciążenia:
 
 ```azurepowershell-interactive
   ## Variables for command. ##
@@ -1281,5 +1281,3 @@ W tym przewodniku Szybki Start
 Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do..
 > [!div class="nextstepaction"]
 > [Co to jest usługa Azure Load Balancer?](load-balancer-overview.md)
-
-
