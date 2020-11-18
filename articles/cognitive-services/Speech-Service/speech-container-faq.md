@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918472"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653542"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Kontenery usługi mowy — często zadawane pytania
 
@@ -43,7 +43,7 @@ Ponadto wstępnie pakujemy pliki wykonywalne dla maszyn z zestawem instrukcji [A
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Na koniec można ustawić liczbę dekoderów w obrębie *jednego* kontenera przy użyciu `DECODER MAX_COUNT` zmiennej. Dlatego należy zacząć od jednostki SKU (procesor CPU/pamięć) i można zasugerować, jak najlepiej uzyskać najlepszą z nich. Doskonały punkt początkowy dotyczy zalecanych specyfikacji zasobów maszyn hosta.
+Można ustawić liczbę dekoderów, które mają być umieszczone wewnątrz *jednego* kontenera przy użyciu `DECODER MAX_COUNT` zmiennej. Dlatego należy zacząć od jednostki SKU (procesor CPU/pamięć) i można zasugerować, jak najlepiej uzyskać najlepszą z nich. Doskonały punkt początkowy dotyczy zalecanych specyfikacji zasobów maszyn hosta.
 
 <br>
 </details>
@@ -419,7 +419,7 @@ Ile współbieżnych żądań będzie obsługiwał 4 rdzenie, 4 GB pamięci RAM?
 |-----------------------|---------------------|---------------------|
 | Niestandardowa Zamiana tekstu na mowę | 1 rdzeń, 2 GB pamięci | 2 rdzeń, 3 GB pamięci |
 
-***
+**_
 
 - Każdy rdzeń musi mieć co najmniej 2,6 GHz lub szybszy.
 - W przypadku plików ograniczenie przepustowości będzie w zestawie Speech SDK, a wartość 2 (pierwsze 5 sekund dźwięku nie jest ograniczana).
@@ -438,7 +438,7 @@ Przykładowo, aby obsłużyć 1000 godzin/24 godziny, próbowaliśmy skonfigurow
 <b>Czy kontener mowy obsługuje interpunkcję?</b>
 </summary>
 
-**Odpowiedź:** Mamy wielką literę (ITN) dostępną w kontenerze Premium. Interpunkcja jest zależna od języka i nie jest obsługiwana w przypadku niektórych języków, w tym chińskim i japońskim.
+_ *Odpowiedź:** mamy dostęp do Wielkiej litery (ITN) w kontenerze Premium. Interpunkcja jest zależna od języka i nie jest obsługiwana w przypadku niektórych języków, w tym chińskim i japońskim.
 
 Mamy *do* niejawną i podstawową obsługę interpunkcji dla istniejących kontenerów, ale jest ona `off` domyślnie. Oznacza to, że możesz uzyskać `.` znak w Twoim przykładzie, ale nie `。` znak. Aby włączyć tę niejawną logikę, Skorzystaj z przykładu, jak to zrobić w języku Python przy użyciu zestawu mowy SDK (podobnie jak w przypadku innych języków):
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **Odpowiedź:** Nie obsługujemy interfejsu API REST w kontenerze zamiany mowy na tekst, ale obsługujemy tylko usługi WebSockets za pomocą zestawu Speech SDK. Zawsze zapoznaj się z oficjalną dokumentacją, zobacz [punkty końcowe przewidywania zapytań](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> Dlaczego kontener działa jako użytkownik inny niż główny? Jakie problemy mogą wystąpić w związku z tym?</b>
+</summary>
+
+**Odpowiedź:** Należy pamiętać, że domyślny użytkownik wewnątrz kontenera nie jest użytkownikiem głównym. Zapewnia to ochronę przed procesami ucieczki kontenera i uzyskiwaniem uprawnień eskalacji w węźle hosta. Domyślnie niektóre platformy, takie jak platforma kontenera OpenShift, są już wykonywane przez uruchamianie kontenerów przy użyciu wstępnie przypisanego identyfikatora użytkownika. W przypadku tych platform użytkownik niebędący użytkownikiem głównym musi mieć uprawnienia do zapisu w dowolnym zewnętrznym woluminie zmapowanym, który wymaga zapisu. Na przykład folder rejestrowania lub folder pobierania modelu niestandardowego.
 <br>
 </details>
 
@@ -566,7 +576,7 @@ W języku C#, aby włączyć Dyktowanie, wywołaj `SpeechConfig.EnableDictation(
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-java-stable" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Obiektowy C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | Obecnie nie jest obsługiwana lub nie jest ona zaplanowana. |
 
@@ -587,7 +597,7 @@ W języku C#, aby włączyć Dyktowanie, wywołaj `SpeechConfig.EnableDictation(
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-java-stable" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Obiektowy C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | Nie jest obecnie obsługiwana. |
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/28/2020
-ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/16/2020
+ms.openlocfilehash: 35856a0d414e288fcd184164733e9430a6bee296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675289"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653746"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -97,14 +97,17 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
 - **Zasady automatycznego trybu failover**
 
-  Domyślnie grupa trybu failover jest konfigurowana z użyciem zasad automatycznego trybu failover. Usługa Azure wyzwala tryb failover po wykryciu awarii i upłynął okres prolongaty. System musi sprawdzić, czy nie można zmniejszyć przestoju dzięki wbudowanej [infrastrukturze wysokiej dostępności](high-availability-sla.md) ze względu na skalę wpływu. Jeśli chcesz kontrolować przepływ pracy trybu failover z poziomu aplikacji, możesz wyłączyć automatyczne przełączanie do trybu failover.
+  Domyślnie grupa trybu failover jest konfigurowana z użyciem zasad automatycznego trybu failover. Usługa Azure wyzwala tryb failover po wykryciu awarii i upłynął okres prolongaty. System musi sprawdzić, czy nie można zmniejszyć przestoju dzięki wbudowanej [infrastrukturze wysokiej dostępności](high-availability-sla.md) ze względu na skalę wpływu. Jeśli chcesz kontrolować przepływ pracy trybu failover z aplikacji lub ręcznie, możesz wyłączyć automatyczne przełączanie do trybu failover.
   
   > [!NOTE]
   > Ze względu na to, że weryfikacja skali przestoju i szybkość, z jaką można ją ograniczyć, wiąże się z działaniami ludzkimi przez zespół operacyjny, okres prolongaty nie może być ustawiony poniżej jednej godziny. To ograniczenie ma zastosowanie do wszystkich baz danych w grupie trybu failover niezależnie od ich stanu synchronizacji danych.
 
 - **Zasady trybu failover tylko do odczytu**
 
-  Domyślnie tryb failover odbiornika tylko do odczytu jest wyłączony. Gwarantuje to, że nie ma to wpływu na wydajność podstawowego, gdy pomocnicza jest w trybie offline. Oznacza to jednak również, że sesje tylko do odczytu nie będą mogły nawiązywać połączenia do momentu odzyskania pomocniczego. Jeśli nie można tolerować przestojów w sesjach tylko do odczytu i są one prawidłowe do tymczasowego użycia podstawowego w przypadku ruchu tylko do odczytu i odczytu z zapisu na koszt potencjalnego obniżenia wydajności podstawowego, można włączyć tryb failover dla odbiornika tylko do odczytu przez skonfigurowanie `AllowReadOnlyFailoverToPrimary` właściwości. W takim przypadku ruch tylko do odczytu zostanie automatycznie przekierowany do podstawowego, jeśli pomocnicza nie jest dostępna.
+  Domyślnie tryb failover odbiornika tylko do odczytu jest wyłączony. Gwarantuje to, że nie ma to wpływu na wydajność podstawowego, gdy pomocnicza jest w trybie offline. Oznacza to jednak również, że sesje tylko do odczytu nie będą mogły nawiązywać połączenia do momentu odzyskania pomocniczego. Jeśli nie można tolerować przestoju w przypadku sesji tylko do odczytu i można użyć podstawowego dla ruchu tylko do odczytu i zapisu na koszt potencjalnego obniżenia wydajności podstawowego, można włączyć tryb failover dla odbiornika tylko do odczytu przez skonfigurowanie `AllowReadOnlyFailoverToPrimary` właściwości. W takim przypadku ruch tylko do odczytu zostanie automatycznie przekierowany do podstawowego, jeśli pomocnicza nie jest dostępna.
+
+  > [!NOTE]
+  > `AllowReadOnlyFailoverToPrimary`Właściwość działa tylko wtedy, gdy włączona jest automatyczna zasada trybu failover, a platforma Azure wyzwoliła automatyczne przełączenie w tryb failover. W takim przypadku, jeśli właściwość ma wartość true, nowy podstawowy będzie obsługiwał zarówno do odczytu, jak i tylko do odczytu.
 
 - **Planowana praca w trybie failover**
 
@@ -120,7 +123,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
 - **Ręczna praca awaryjna**
 
-  Tryb failover można zainicjować ręcznie w dowolnym momencie, niezależnie od konfiguracji automatycznej pracy awaryjnej. Jeśli zasady automatycznej pracy awaryjnej nie są skonfigurowane, do odzyskania baz danych w grupie trybu failover jest wymagane ręczne przełączenie w tryb failover. Możesz inicjować wymuszone lub przyjazne przejście w tryb failover (z pełną synchronizacją danych). Ten drugi może służyć do przemieszczenie podstawowego do regionu pomocniczego. Po zakończeniu pracy w trybie failover rekordy DNS są automatycznie aktualizowane, aby zapewnić łączność z nowym podstawowym
+  Tryb failover można zainicjować ręcznie w dowolnym momencie, niezależnie od konfiguracji automatycznej pracy awaryjnej. Jeśli zasady automatycznej pracy awaryjnej nie są skonfigurowane, do odzyskania baz danych w grupie trybu failover jest wymagane ręczne przełączenie w tryb failover. Możesz inicjować wymuszone lub przyjazne przejście w tryb failover (z pełną synchronizacją danych). Ten drugi może służyć do przemieszczenie podstawowego do regionu pomocniczego. Po zakończeniu pracy w trybie failover rekordy DNS są automatycznie aktualizowane, aby zapewnić łączność z nowym podstawowym.
 
 - **Okres prolongaty z utratą danych**
 
@@ -128,7 +131,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
 - **Wiele grup trybu failover**
 
-  Można skonfigurować wiele grup trybu failover dla tej samej pary serwerów, aby sterować skalą trybu failover. Każda grupa przejdzie w tryb failover niezależnie. Jeśli aplikacja wielodostępna korzysta z pul elastycznych, można użyć tej funkcji do mieszania podstawowych i pomocniczych baz danych w każdej puli. W ten sposób można zmniejszyć wpływ przestoju tylko na połowę dzierżawców.
+  Można skonfigurować wiele grup trybu failover dla tej samej pary serwerów, aby sterować zakresem trybu failover. Każda grupa przejdzie w tryb failover niezależnie. Jeśli aplikacja wielodostępna korzysta z pul elastycznych, można użyć tej funkcji do mieszania podstawowych i pomocniczych baz danych w każdej puli. W ten sposób można zmniejszyć wpływ przestoju tylko na połowę dzierżawców.
 
   > [!NOTE]
   > Wystąpienie zarządzane SQL nie obsługuje wielu grup trybu failover.
@@ -173,7 +176,7 @@ Podczas wykonywania operacji OLTP Użyj `<fog-name>.database.windows.net` jako a
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Używanie odbiornika tylko do odczytu dla obciążenia przeznaczonego tylko do odczytu
 
-Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. W przypadku sesji tylko do odczytu Użyj `<fog-name>.secondary.database.windows.net` jako adresu URL serwera, a połączenie jest automatycznie przekierowywane do pomocniczego. Zaleca się również, aby wskazać w polu cel odczytu parametrów połączenia przy użyciu `ApplicationIntent=ReadOnly` . Jeśli chcesz mieć pewność, że obciążenie tylko do odczytu będzie możliwe do ponownego połączenia po przejściu w tryb failover lub w przypadku przełączenia serwera pomocniczego w tryb offline, należy skonfigurować `AllowReadOnlyFailoverToPrimary` Właściwość zasad trybu failover.
+Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. W przypadku sesji tylko do odczytu Użyj `<fog-name>.secondary.database.windows.net` jako adresu URL serwera, a połączenie jest automatycznie przekierowywane do pomocniczego. Zaleca się również, aby wskazać w polu cel odczytu parametrów połączenia przy użyciu `ApplicationIntent=ReadOnly` .
 
 ### <a name="preparing-for-performance-degradation"></a>Przygotowanie do obniżenia wydajności
 
@@ -264,20 +267,20 @@ Podczas wykonywania operacji OLTP Użyj `<fog-name>.zone_id.database.windows.net
 Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. Aby nawiązać bezpośrednie połączenie z replikacją geograficzną, użyj `<fog-name>.secondary.<zone_id>.database.windows.net` jako adresu URL serwera, a połączenie jest nawiązywane bezpośrednio z bazą replikacji geograficznej.
 
 > [!NOTE]
-> W niektórych warstwach usług SQL Database obsługuje korzystanie z [replik tylko do odczytu](read-scale-out.md) w celu równoważenia obciążenia obciążeń zapytań tylko do odczytu przy użyciu pojemności jednej repliki tylko do odczytu i przy użyciu parametru w parametrach `ApplicationIntent=ReadOnly` połączenia. Jeśli skonfigurowano pomocnicze wystąpienie replikowane geograficznie, można użyć tej funkcji do łączenia się z repliką tylko do odczytu w lokalizacji podstawowej lub w lokalizacji zreplikowanej geograficznie.
+> W warstwach usług premium, Krytyczne dla działania firmy i skalowania, SQL Database obsługuje używanie [replik tylko](read-scale-out.md) do odczytu do uruchamiania obciążeń zapytań tylko do odczytu przy użyciu pojemności co najmniej jednej repliki tylko do odczytu, przy użyciu `ApplicationIntent=ReadOnly` parametru w parametrach połączenia. Jeśli skonfigurowano pomocnicze wystąpienie replikowane geograficznie, można użyć tej funkcji do łączenia się z repliką tylko do odczytu w lokalizacji podstawowej lub w lokalizacji zreplikowanej geograficznie.
 >
-> - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji podstawowej, użyj `<fog-name>.<zone_id>.database.windows.net` .
-> - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji pomocniczej, użyj programu `<fog-name>.secondary.<zone_id>.database.windows.net` .
+> - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji głównej, użyj `ApplicationIntent=ReadOnly` i `<fog-name>.<zone_id>.database.windows.net` .
+> - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji pomocniczej, użyj `ApplicationIntent=ReadOnly` i `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 ### <a name="preparing-for-performance-degradation"></a>Przygotowanie do obniżenia wydajności
 
-Typowa aplikacja platformy Azure używa wielu usług platformy Azure i składa się z wielu składników. Automatyczna praca awaryjna grupy trybu failover jest wyzwalana na podstawie stanu samych składników usługi Azure SQL. Awaria może nie wpływać na inne usługi platformy Azure w regionie podstawowym, a ich składniki nadal mogą być dostępne w tym regionie. Po przełączeniu podstawowych baz danych do regionu DR opóźnienie między składnikami zależnymi może się zwiększyć. Aby uniknąć wpływu większego opóźnienia na wydajność aplikacji, należy upewnić się, że nadmiarowość wszystkich składników aplikacji w regionie odzyskiwania po awarii jest zgodna z tymi [wskazówkami dotyczącymi zabezpieczeń sieci](#failover-groups-and-network-security).
+Typowa aplikacja platformy Azure używa wielu usług platformy Azure i składa się z wielu składników. Automatyczna praca awaryjna grupy trybu failover jest wyzwalana na podstawie stanu samych składników usługi Azure SQL. Awaria może nie wpływać na inne usługi platformy Azure w regionie podstawowym, a ich składniki nadal mogą być dostępne w tym regionie. Po przełączeniu podstawowych baz danych do regionu pomocniczego opóźnienie między składnikami zależnymi może się zwiększyć. Aby uniknąć wpływu wyższego opóźnienia na wydajność aplikacji, należy upewnić się, że nadmiarowość wszystkich składników aplikacji w regionie pomocniczym i przełączenie w tryb failover składników aplikacji razem z bazą danych. W czasie konfiguracji postępuj zgodnie z [zaleceniami dotyczącymi zabezpieczeń sieci](#failover-groups-and-network-security) , aby zapewnić łączność z bazą danych w regionie pomocniczym.
 
 ### <a name="preparing-for-data-loss"></a>Przygotowywanie do utraty danych
 
-Jeśli zostanie wykryta awaria, tryb failover do odczytu i zapisu jest wyzwalany, jeśli nie ma utraty danych, a najlepiej z naszej wiedzy. W przeciwnym razie poczekaj na okres określony przez. W przeciwnym razie czeka na okres określony przez `GracePeriodWithDataLossHours` . Jeśli określono `GracePeriodWithDataLossHours` , przygotuj się na utratę danych. Ogólnie rzecz biorąc, platforma Azure preferuje dostępność. Jeśli nie możesz zapewnić utraty danych, pamiętaj, aby ustawić GracePeriodWithDataLossHours na wystarczająco dużą liczbę, na przykład 24 godziny.
+Jeśli zostanie wykryta awaria, tryb failover do odczytu i zapisu jest wyzwalany, jeśli nie ma utraty danych, a najlepiej z naszej wiedzy. W przeciwnym razie tryb failover jest odroczony dla okresu określonego przy użyciu `GracePeriodWithDataLossHours` . Jeśli określono `GracePeriodWithDataLossHours` , przygotuj się na utratę danych. Ogólnie rzecz biorąc, platforma Azure preferuje dostępność. Jeśli nie możesz zapewnić utraty danych, pamiętaj, aby ustawić GracePeriodWithDataLossHours na wystarczająco dużą liczbę, na przykład 24 godziny, lub Wyłącz automatyczną pracę awaryjną.
 
-Aktualizacja systemu DNS odbiornika do odczytu i zapisu stanie się natychmiast po zainicjowaniu trybu failover. Ta operacja nie powoduje utraty danych. Jednak proces przełączania ról bazy danych może potrwać do 5 minut w normalnych warunkach. Dopóki nie zostanie ukończona, niektóre bazy danych w nowym wystąpieniu podstawowym nadal będą tylko do odczytu. Jeśli tryb failover jest inicjowany przy użyciu programu PowerShell, cała operacja jest synchroniczna. Jeśli zostanie zainicjowany przy użyciu Azure Portal, interfejs użytkownika będzie wskazywać stan ukończenia. Jeśli zostanie zainicjowany przy użyciu interfejsu API REST, należy użyć mechanizmu sondowania standardowej Azure Resource Manager, aby monitorować ukończenie.
+Aktualizacja systemu DNS odbiornika do odczytu i zapisu stanie się natychmiast po zainicjowaniu trybu failover. Ta operacja nie powoduje utraty danych. Jednak proces przełączania ról bazy danych może potrwać do 5 minut w normalnych warunkach. Dopóki nie zostanie ukończona, niektóre bazy danych w nowym wystąpieniu podstawowym nadal będą tylko do odczytu. Jeśli zostanie zainicjowane przejście w tryb failover przy użyciu programu PowerShell, operacja przełączenia roli repliki podstawowej jest synchroniczna. Jeśli zostanie zainicjowany przy użyciu Azure Portal, interfejs użytkownika będzie wskazywać stan ukończenia. Jeśli zostanie zainicjowany przy użyciu interfejsu API REST, należy użyć mechanizmu sondowania standardowej Azure Resource Manager, aby monitorować ukończenie.
 
 > [!IMPORTANT]
 > Aby przenieść Primaries z powrotem do oryginalnej lokalizacji, Użyj ręcznego trybu failover grupy. Gdy awaria, która spowodowała przejście w tryb failover, jest zmniejszana, można przenieść podstawowe bazy danych do oryginalnej lokalizacji. W tym celu należy zainicjować ręczną pracę awaryjną grupy.
@@ -410,7 +413,7 @@ Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geogra
 
 ### <a name="manage-sql-database-failover"></a>Zarządzanie trybem failover SQL Database
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
@@ -448,7 +451,7 @@ Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geogra
 ### <a name="manage-sql-managed-instance-failover"></a>Zarządzanie trybem failover wystąpienia zarządzanego SQL
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
