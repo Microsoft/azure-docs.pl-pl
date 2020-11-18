@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653797"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841907"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -81,7 +81,7 @@ Azure Data Explorer to szybka i wysoce skalowalna usługa eksploracji danych na 
 
 ### <a name="how-do-i-retrieve-log-data"></a>Jak mogę pobrać danych dziennika?
 Wszystkie dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dziennika, które zapisano przy użyciu języka zapytań Kusto (KQL). Możesz pisać własne zapytania lub używać rozwiązań i szczegółowych informacji, które obejmują zapytania dzienników dla określonej aplikacji lub usługi. Zobacz [Omówienie zapytań dzienników w Azure monitor](log-query/log-query-overview.md).
-
+p
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Czy mogę usunąć dane z obszaru roboczego Log Analytics?
 Dane zostaną usunięte z obszaru roboczego zgodnie z jego [okresem przechowywania](platform/manage-cost-storage.md#change-the-data-retention-period). Można usunąć określone dane ze względu na prywatność lub zgodność. Aby uzyskać więcej informacji [, zobacz Jak eksportować i usuwać dane prywatne](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
 
@@ -594,10 +594,6 @@ Moduł zbierający OpenTelemetry został opisany w [pliku Readme usługi GitHub]
 
 
 ## <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
-
-### <a name="health-feature-is-in-private-preview"></a>Funkcja kondycji jest w prywatnej wersji zapoznawczej
-
-Planujemy wprowadzić serię zmian w celu dodania funkcji i rozwiązania opinii. Funkcja kondycji przechodzi do prywatnej wersji zapoznawczej na koniec czerwca 2020 i aby uzyskać dodatkowe informacje, zapoznaj się z następującym [ogłoszeniem aktualizacji platformy Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Co oznaczają *inne procesy* w widoku węzła?
 

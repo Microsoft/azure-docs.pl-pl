@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 65a60425f09e9cd7a3e06ca1624621ed8b9fdcbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124972"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842077"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Utwórz konto BlockBlobStorage
 
@@ -30,7 +30,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Brak.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 1.2.0 lub nowszego. Uruchom polecenie `Get-Module -ListAvailable Az`, aby określić bieżącą wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -57,13 +57,13 @@ Interfejs wiersza polecenia platformy Azure możesz również zainstalować i u�
 
 ---
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
 
@@ -88,13 +88,13 @@ az login
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
 Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki:
 
-1. W Azure Portal wybierz pozycję **wszystkie usługi** > kategoria **magazynu** > **konta magazynu** .
+1. W Azure Portal wybierz pozycję **wszystkie usługi** > kategoria **magazynu** > **konta magazynu**.
 
-2. W obszarze **konta magazynu** wybierz pozycję **Dodaj** .
+2. W obszarze **konta magazynu** wybierz pozycję **Dodaj**.
 
 3. W polu **subskrypcja** wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
 
-4. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę nowej grupy zasobów.
+4. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów.
 
 5. W polu **nazwa konta magazynu** wprowadź nazwę konta. Należy zwrócić uwagę na następujące wytyczne:
 
@@ -108,19 +108,19 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
 
    |Pole     |Wartość  |
    |---------|---------|
-   |**Wydajność**    |  Wybierz pozycję **Premium** .   |
-   |**Rodzaj konta**    | Wybierz pozycję **BlockBlobStorage** .      |
-   |**Replikacja**    |  Pozostaw domyślne ustawienie **magazynu lokalnie nadmiarowego (LRS)** .      |
+   |**Wydajność**    |  Wybierz pozycję **Premium**.   |
+   |**Rodzaj konta**    | Wybierz pozycję **BlockBlobStorage**.      |
+   |**Replikacja**    |  Pozostaw domyślne ustawienie **magazynu lokalnie nadmiarowego (LRS)**.      |
 
    ![Przedstawia interfejs użytkownika portalu do tworzenia konta blokowego magazynu obiektów BLOB](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
 8. Wybierz kartę **Zaawansowane** .
 
-9. Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, ustaw **hierarchiczną przestrzeń nazw** na **włączone** . W przeciwnym razie pozostaw tę opcję ustawioną na wartość domyślną. Włączenie tego ustawienia przy użyciu konta BlockBlobStorage zapewnia [warstwę Premium dla Data Lake Storage](premium-tier-for-data-lake-storage.md).  Aby dowiedzieć się więcej na temat Data Lake Storage, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+9. Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, ustaw **hierarchiczną przestrzeń nazw** na **włączone**. W przeciwnym razie pozostaw tę opcję ustawioną na wartość domyślną. Włączenie tego ustawienia przy użyciu konta BlockBlobStorage zapewnia [warstwę Premium dla Data Lake Storage](premium-tier-for-data-lake-storage.md).  Aby dowiedzieć się więcej na temat Data Lake Storage, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia konta magazynu.
 
-9. Wybierz pozycję **Utwórz** .
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

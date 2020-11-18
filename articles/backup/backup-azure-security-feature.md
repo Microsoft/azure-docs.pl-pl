@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181684"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841022"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup
 
@@ -40,18 +40,18 @@ Jeśli tworzysz magazyn Recovery Services, możesz użyć wszystkich funkcji zab
     ![Zrzut ekranu przedstawiający opcję Azure Portal Browse](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
     Zostanie wyświetlona lista magazynów Usług odzyskiwania. Z tej listy wybierz magazyn. Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
-3. Z listy elementów, które pojawiają się w magazynie, w obszarze **Ustawienia**wybierz pozycję **Właściwości**.
+3. Z listy elementów, które pojawiają się w magazynie, w obszarze **Ustawienia** wybierz pozycję **Właściwości**.
 
     ![Zrzut ekranu przedstawiający opcje magazynu Recovery Services](./media/backup-azure-security-feature/vault-list-properties.png)
-4. W obszarze **Ustawienia zabezpieczeń**wybierz pozycję **Aktualizuj**.
+4. W obszarze **Ustawienia zabezpieczeń** wybierz pozycję **Aktualizuj**.
 
     ![Zrzut ekranu przedstawiający właściwości magazynu Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
     Link aktualizacji otwiera okienko **Ustawienia zabezpieczeń** , które zawiera podsumowanie funkcji i umożliwia ich włączenie.
-5. Z listy rozwijanej **zostały skonfigurowane Multi-Factor Authentication platformy Azure?** wybierz wartość, aby potwierdzić, że [usługa Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)została włączona. Jeśli jest włączona, zostanie wyświetlony monit o uwierzytelnienie z innego urządzenia (na przykład telefonu komórkowego) podczas logowania się do Azure Portal.
+5. Z listy rozwijanej **zostały skonfigurowane Multi-Factor Authentication usługi Azure AD?** wybierz wartość, aby potwierdzić, że [usługa Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)została włączona. Jeśli jest włączona, zostanie wyświetlony monit o uwierzytelnienie z innego urządzenia (na przykład telefonu komórkowego) podczas logowania się do Azure Portal.
 
-   W przypadku wykonywania krytycznych operacji w usłudze Backup należy wprowadzić numer PIN zabezpieczeń, który jest dostępny na Azure Portal. Włączenie usługi Azure Multi-Factor Authentication powoduje dodanie warstwy zabezpieczeń. Dostęp do Azure Portal mają tylko autoryzowani użytkownicy z prawidłowymi poświadczeniami platformy Azure i uwierzytelniani z drugiego urządzenia.
-6. Aby zapisać ustawienia zabezpieczeń, wybierz pozycję **Włącz** i wybierz pozycję **Zapisz**. Możesz wybrać opcję **Włącz** tylko po wybraniu wartości z listy czy **skonfigurować usługę Azure Multi-Factor Authentication?** w poprzednim kroku.
+   W przypadku wykonywania krytycznych operacji w usłudze Backup należy wprowadzić numer PIN zabezpieczeń, który jest dostępny na Azure Portal. Włączenie usługi Azure AD Multi-Factor Authentication dodaje warstwę zabezpieczeń. Dostęp do Azure Portal mają tylko autoryzowani użytkownicy z prawidłowymi poświadczeniami platformy Azure i uwierzytelniani z drugiego urządzenia.
+6. Aby zapisać ustawienia zabezpieczeń, wybierz pozycję **Włącz** i wybierz pozycję **Zapisz**. Możesz wybrać opcję **Włącz** tylko po wybraniu wartości z listy czy **skonfigurować usługę Azure AD Multi-Factor Authentication?** w poprzednim kroku.
 
     ![Zrzut ekranu ustawień zabezpieczeń](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -88,9 +88,9 @@ W ramach dodawania dodatkowej warstwy uwierzytelniania dla operacji krytycznych 
 
 Aby odebrać ten numer PIN:
 
-1. Zaloguj się do Portalu Azure.
-2. Przejdź do **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
-3. W obszarze **zabezpieczający numer PIN**wybierz pozycję **Generuj**. Spowoduje to otwarcie okienka zawierającego numer PIN, który ma zostać wprowadzony w interfejsie użytkownika agenta usługi Azure Recovery Services.
+1. Zaloguj się w witrynie Azure Portal.
+2. Przejdź do **Recovery Services**  >  **Settings**  >  **Właściwości** ustawień magazynu.
+3. W obszarze **zabezpieczający numer PIN** wybierz pozycję **Generuj**. Spowoduje to otwarcie okienka zawierającego numer PIN, który ma zostać wprowadzony w interfejsie użytkownika agenta usługi Azure Recovery Services.
     Ten kod PIN jest prawidłowy tylko przez pięć minut i jest generowany automatycznie po upływie tego okresu.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Utrzymywanie minimalnego zakresu przechowywania

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850935"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842139"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 
@@ -34,7 +34,7 @@ Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węz
 - **Sieć wirtualna platformy Azure**. Jeśli tworzysz pulę w [sieci wirtualnej](batch-virtual-network.md), postępuj zgodnie z tymi wymaganiami i konfiguracjami. Aby przygotować sieć wirtualną z wyprzedzeniem z co najmniej jedną podsiecią, można użyć Azure Portal, Azure PowerShell, interfejsu Azure Command-Line Interface (CLI) lub innych metod.
   - Sieć wirtualna musi znajdować się w tej samej subskrypcji i w tym samym regionie co konto usługi Batch użyte do utworzenia puli.
   - Podsieć określona dla puli musi mieć wystarczającą liczbę nieprzypisanych adresów IP do obsługi maszyn wirtualnych przeznaczony dla puli, czyli sumę właściwości puli `targetDedicatedNodes` i `targetLowPriorityNodes`. Jeśli podsieć nie ma wystarczającej liczby nieprzypisanych adresów IP, pula częściowo przydzieli węzły obliczeniowe, a następnie wystąpi błąd dotyczący zmiany rozmiaru.
-  - Należy wyłączyć usługę link prywatny i zasady sieciowe punktu końcowego. Można to zrobić za pomocą interfejsu wiersza polecenia platformy Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Należy wyłączyć usługę link prywatny i zasady sieciowe punktu końcowego. Można to zrobić za pomocą interfejsu wiersza polecenia platformy Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > W przypadku każdego węzła dedykowanych 100 lub o niskim priorytecie usługa Batch przydziela jedną usługę łącza prywatnego i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. W przypadku dużych pul może być konieczne [zażądanie zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota) dla co najmniej jednego z tych zasobów. Ponadto nie należy stosować blokad zasobów do żadnych zasobów utworzonych w usłudze Batch, ponieważ uniemożliwia to Oczyszczanie zasobów w wyniku akcji inicjowanych przez użytkownika, takich jak usuwanie puli lub zmienianie rozmiarów na zero.
@@ -52,9 +52,9 @@ Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węz
 1. W oknie **Pule** wybierz pozycję **Dodaj**.
 1. W oknie **Dodawanie puli** wybierz opcję, która ma zostać użyta z listy rozwijanej **Typ obrazu** .
 1. Wybierz poprawny **wydawcę/ofertę/jednostkę SKU** obrazu.
-1. Określ pozostałe wymagane ustawienia, w tym **rozmiar węzła**, **docelowe węzły dedykowane**i **węzły o niskim priorytecie**, a także wszystkie wymagane ustawienia opcjonalne.
+1. Określ pozostałe wymagane ustawienia, w tym **rozmiar węzła**, **docelowe węzły dedykowane** i **węzły o niskim priorytecie**, a także wszystkie wymagane ustawienia opcjonalne.
 1. Opcjonalnie wybierz sieć wirtualną i podsieć, której chcesz użyć. Ta sieć wirtualna musi znajdować się w tej samej grupie zasobów co tworzona Pula.
-1. W polu **Typ aprowizacji adresów IP**wybierz pozycję **NoPublicIPAddresses**.
+1. W polu **Typ aprowizacji adresów IP** wybierz pozycję **NoPublicIPAddresses**.
 
 ![Zrzut ekranu przedstawiający ekran Dodawanie puli z wybraną pozycją NoPublicIPAddresses.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 

@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961225"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840410"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Logowanie w sieci Web za pomocą OpenID Connect Connect in Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ Istnieje również kilka dodatkowych poprawń, które należy wykonać. Walidacj
 
 - Upewnienie się, że użytkownik/organizacja zarejestrowali się w aplikacji.
 - Upewnienie się, że użytkownik ma odpowiednie uprawnienia/autoryzacja.
-- Upewnienie się, że wystąpiła pewna siła uwierzytelniania, taka jak Azure Multi-Factor Authentication.
+- Upewnienie się, że wystąpiło pewne silne uwierzytelnianie, takie jak usługa Azure AD Multi-Factor Authentication.
 
 Po sprawdzeniu poprawności tokenu identyfikatora można rozpocząć sesję z użytkownikiem. Oświadczenia w tokenie identyfikatora mogą służyć do uzyskiwania informacji o użytkowniku w aplikacji. Program używa tych informacji, takich jak wyświetlanie, rekordy i autoryzacja.
 

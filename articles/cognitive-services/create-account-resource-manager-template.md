@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363395"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842111"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
 
@@ -60,7 +60,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
     |Wartość  |Opis  |
     |---------|---------|
     | **Subskrypcja** | Wybierz subskrypcję platformy Azure. |
-    | **Grupa zasobów** | Wybierz pozycję **Utwórz nowy** , wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**. |
+    | **Grupa zasobów** | Wybierz pozycję **Utwórz nowy**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**. |
     | **Region** | Wybierz region.  Na przykład **Wschodnie stany USA** |
     | **Nazwa usługi poznawczej** | Zamień na unikatową nazwę zasobu. Podczas sprawdzania poprawności wdrożenia będzie potrzebna nazwa w następnej sekcji. |
     | **Lokalizacja** | Zamień na region używany powyżej. |
@@ -68,7 +68,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Ekran tworzenia zasobów.":::
 
-3. Wybierz pozycję **Przeglądanie + tworzenie** , a następnie pozycję **Utwórz**. Po pomyślnym zakończeniu wdrażania zasobu zostanie wyróżniony przycisk **Przejdź do zasobu** .
+3. Wybierz pozycję **Przeglądanie + tworzenie**, a następnie pozycję **Utwórz**. Po pomyślnym zakończeniu wdrażania zasobu zostanie wyróżniony przycisk **Przejdź do zasobu** .
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/CLI)
 
@@ -115,13 +115,13 @@ az cognitiveservices account list -g $resourceGroupName
 ---
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich innych zasobów znajdujących się w grupie.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję **Grupy zasobów** , aby wyświetlić listę grup zasobów.
+1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję **Grupy zasobów**, aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów zawierającą zasób do usunięcia
 3. Kliknij prawym przyciskiem myszy na liście grup zasobów. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
 

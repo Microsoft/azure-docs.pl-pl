@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215488"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840614"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Jednostronicowe Logowanie przy użyciu niejawnego przepływu OAuth 2,0 w Azure Active Directory B2C
 
@@ -104,7 +104,7 @@ error=access_denied
 
 | Parametr | Opis |
 | --------- | ----------- |
-| błąd | Kod używany do klasyfikowania typów błędów, które występują. |
+| error | Kod używany do klasyfikowania typów błędów, które występują. |
 | error_description | Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 | stan | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne.|
 
@@ -131,7 +131,7 @@ Aby określić, który przepływ użytkownika był używany do podpisywania toke
 Po pobraniu dokumentu metadanych z punktu końcowego metadanych OpenID Connect Connect można użyć kluczy publicznych RSA-256 (znajdujących się w tym punkcie końcowym), aby zweryfikować podpis tokenu identyfikatora. W tym punkcie końcowym może istnieć wiele kluczy, z których każdy jest identyfikowany przez `kid` . Nagłówek `id_token` zawiera również element `kid` Claim. Wskazuje, które z tych kluczy użyto do podpisania tokenu identyfikatora. Aby uzyskać więcej informacji, w tym informacje dotyczące [sprawdzania poprawności tokenów](tokens-overview.md), zobacz [Informacje o tokenach Azure AD B2C](tokens-overview.md).
 <!--TODO: Improve the information on this-->
 
-Po sprawdzeniu podpisu tokenu identyfikatora kilka oświadczeń wymaga weryfikacji. Na przykład:
+Po sprawdzeniu podpisu tokenu identyfikatora kilka oświadczeń wymaga weryfikacji. Przykład:
 
 * Sprawdź poprawność `nonce` roszczeń, aby zapobiec atakom metodą powtórzeń tokenu. Jej wartość powinna być określona w żądaniu logowania.
 * Sprawdź poprawność `aud` roszczeń, aby upewnić się, że token identyfikatora został wystawiony dla aplikacji. Wartość powinna być IDENTYFIKATORem aplikacji w aplikacji.
@@ -141,7 +141,7 @@ Więcej informacji, które należy wykonać, są szczegółowo opisane w [specyf
 
 * Upewnienie się, że użytkownik lub organizacja zarejestrowali się w aplikacji.
 * Upewnienie się, że użytkownik ma odpowiednie uprawnienia i autoryzację.
-* Upewnienie się, że wystąpiła pewna siła uwierzytelniania, na przykład przy użyciu usługi Azure Multi-Factor Authentication.
+* Upewnienie się, że wystąpiła pewna siła uwierzytelniania, na przykład za pomocą usługi Azure AD Multi-Factor Authentication.
 
 Aby uzyskać więcej informacji o oświadczeniach w tokenie identyfikatora, zobacz [Informacje o tokenach Azure AD B2C](tokens-overview.md).
 
@@ -214,7 +214,7 @@ error=user_authentication_required
 
 | Parametr | Opis |
 | --- | --- |
-| błąd |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
+| error |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 
 Jeśli ten błąd wystąpi w żądaniu iframe, użytkownik musi interaktywnie zalogować się ponownie, aby pobrać nowy token.
@@ -225,7 +225,7 @@ Tokeny identyfikatorów i tokeny dostępu wygasają po krótkim czasie. Aby okre
 ## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania
 Aby podpisać użytkownika poza aplikacją, należy przekierować użytkownika do usługi Azure AD w celu wylogowania. Jeśli nie przekierujesz użytkownika, może być możliwe ponowne uwierzytelnienie w aplikacji bez konieczności ponownego wprowadzania poświadczeń, ponieważ mają ważną sesję logowania jednokrotnego z usługą Azure AD.
 
-Można po prostu przekierować użytkownika do programu `end_session_endpoint` , który znajduje się na liście w tym samym dokumencie metadanych OpenID Connect Connect opisanym w [ZWERYFIKUJ token ID](#validate-the-id-token). Na przykład:
+Można po prostu przekierować użytkownika do programu `end_session_endpoint` , który znajduje się na liście w tym samym dokumencie metadanych OpenID Connect Connect opisanym w [ZWERYFIKUJ token ID](#validate-the-id-token). Przykład:
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F

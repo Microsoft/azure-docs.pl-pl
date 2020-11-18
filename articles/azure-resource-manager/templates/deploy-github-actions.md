@@ -3,13 +3,13 @@ title: Wdrażanie szablonów Menedżer zasobów przy użyciu akcji GitHub
 description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy użyciu akcji usługi GitHub.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746106"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841686"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
@@ -75,7 +75,7 @@ Musisz utworzyć wpisy tajne dla poświadczeń platformy Azure, grupy zasobów i
 
 1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium.
 
-1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło** .
+1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
@@ -95,12 +95,12 @@ Plik można umieścić w dowolnym miejscu w repozytorium. Przykład przepływu p
 
 ## <a name="create-workflow"></a>Tworzenie przepływu pracy
 
-Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows w katalogu głównym repozytorium. Rozszerzenie pliku przepływu pracy może mieć wartość **. yml** lub **. YAML** .
+Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows w katalogu głównym repozytorium. Rozszerzenie pliku przepływu pracy może mieć wartość **. yml** lub **. YAML**.
 
 1. W repozytorium GitHub wybierz pozycję **Akcje** z górnego menu.
-1. Wybierz pozycję **Nowy przepływ pracy** .
-1. Wybierz opcję **Skonfiguruj przepływ pracy samodzielnie** .
-1. Zmień nazwę pliku przepływu pracy, jeśli wolisz inną nazwę niż **Main. yml** . Na przykład: **deployStorageAccount. yml** .
+1. Wybierz pozycję **Nowy przepływ pracy**.
+1. Wybierz opcję **Skonfiguruj przepływ pracy samodzielnie**.
+1. Zmień nazwę pliku przepływu pracy, jeśli wolisz inną nazwę niż **Main. yml**. Na przykład: **deployStorageAccount. yml**.
 1. Zastąp zawartość tego pliku yml następującym kodem:
 
     ```yml
@@ -136,12 +136,12 @@ Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows
 
     Pierwsza sekcja pliku przepływu pracy zawiera:
 
-    - **name** : Nazwa przepływu pracy.
-    - **włączone** : Nazwa zdarzeń usługi GitHub, które wyzwalają przepływ pracy. Przepływ pracy jest wyzwalany w przypadku wystąpienia zdarzenia push w gałęzi głównej, który modyfikuje co najmniej jeden z dwóch określonych plików. Te dwa pliki to plik przepływu pracy i plik szablonu.
+    - **name**: Nazwa przepływu pracy.
+    - **włączone**: Nazwa zdarzeń usługi GitHub, które wyzwalają przepływ pracy. Przepływ pracy jest wyzwalany w przypadku wystąpienia zdarzenia push w gałęzi głównej, który modyfikuje co najmniej jeden z dwóch określonych plików. Te dwa pliki to plik przepływu pracy i plik szablonu.
 
-1. Wybierz pozycję **Rozpocznij zatwierdzenie** .
-1. Wybierz pozycję **Zatwierdź bezpośrednio w gałęzi głównej** .
-1. Wybierz pozycję **Zatwierdź nowy plik** (lub **Zatwierdź zmiany** ).
+1. Wybierz pozycję **Start commit** (Rozpocznij zatwierdzanie).
+1. Wybierz pozycję **Zatwierdź bezpośrednio w gałęzi głównej**.
+1. Wybierz pozycję **Zatwierdź nowy plik** (lub **Zatwierdź zmiany**).
 
 Ponieważ przepływ pracy jest skonfigurowany do wyzwalania przez plik przepływu pracy lub aktualizowany plik szablonu, przepływ pracy zaczyna się bezpośrednio po zatwierdzeniu zmian.
 

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532481"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840733"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Uwagi dla deweloperów dotyczące zasad niestandardowych w Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="protocols-and-authorization-flows"></a>Protokoły i przepływy autoryzacji
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Kod autoryzacji OAuth2](authorization-code-flow.md) |  |  | X |  |
 | OAuth2 kod autoryzacji z PKCE |  |  | X | [Klienci publiczni i aplikacje jednostronicowe](authorization-code-flow.md)  |
@@ -76,7 +76,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="identify-providers-federation"></a>Identyfikowanie Federacji dostawców 
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Na przykład Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Na przykład w serwisie Facebook.  |
@@ -87,7 +87,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="rest-api-integration"></a>Integracja interfejsu API REST
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Interfejs API REST z uwierzytelnianiem podstawowym](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [Interfejs API REST z uwierzytelnianiem certyfikatu klienta](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -95,10 +95,10 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="component-support"></a>Obsługa składników
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Uwierzytelnianie przy współczynniku telefonicznym](phone-factor-technical-profile.md) |  |  | X |  |
-| [Uwierzytelnianie usługi Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Uwierzytelnianie usługi Azure AD MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Hasło jednorazowe](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) jako katalog lokalny |  |  | X |  |
 | Weryfikacja podsystemu wiadomości e-mail platformy Azure do wiadomości e-mail |  |  | X |  |
@@ -110,7 +110,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="app-ief-integration"></a>Integracja App-IEF
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parametr ciągu zapytania `domain_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
 | Parametr ciągu zapytania `login_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
@@ -121,7 +121,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="session-management"></a>Zarządzanie sesjami
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Domyślny dostawca sesji SSO](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Dostawca sesji logowania zewnętrznego](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
@@ -131,7 +131,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="security"></a>Zabezpieczenia
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Klucze zasad — generowanie, ręczne, przekazywanie |  |  | X |  |
 | Klucze zasad — RSA/certyfikat, wpisy tajne |  |  | X |  |
@@ -139,7 +139,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="developer-interface"></a>Interfejs dewelopera
 
-| Obiekt feature | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Witryna Azure Portal — środowisko IEF |  |  | X |  |
 | Przekazywanie zasad |  |  | X |  |

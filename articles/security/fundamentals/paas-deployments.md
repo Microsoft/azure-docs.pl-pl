@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695337"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841992"
 ---
 # <a name="securing-paas-deployments"></a>Zabezpieczanie wdrożeń typu PaaS
 
@@ -82,14 +82,14 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące zarządzania obwodem to
 **Najlepsze rozwiązanie**: Zabezpiecz interfejsy zarządzania maszyną wirtualną w ramach hybrydowych usług PaaS i IaaS przy użyciu interfejsu zarządzania, który umożliwia zdalne zarządzanie tymi maszynami wirtualnymi.   
 **Szczegóły**: można używać protokołów zarządzania zdalnego, takich jak [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607)i [komunikacja zdalna programu PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) . Ogólnie rzecz biorąc, zaleca się, aby nie włączać bezpośredniego dostępu zdalnego do maszyn wirtualnych z Internetu.
 
-Jeśli to możliwe, użyj alternatywnych metod, takich jak korzystanie z wirtualnych sieci prywatnych w sieci wirtualnej platformy Azure. Jeśli alternatywne podejścia nie są dostępne, należy się upewnić, że są używane złożone hasła i uwierzytelnianie dwuskładnikowe (na przykład [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
+Jeśli to możliwe, użyj alternatywnych metod, takich jak korzystanie z wirtualnych sieci prywatnych w sieci wirtualnej platformy Azure. Jeśli alternatywne podejścia nie są dostępne, należy się upewnić, że są używane złożone hasła i uwierzytelnianie dwuskładnikowe (na przykład [usługa Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
 
 **Najlepsze rozwiązanie**: Użyj mocnych platform uwierzytelniania i autoryzacji.   
 **Szczegóły**: Użyj tożsamości federacyjnych w usłudze Azure AD zamiast niestandardowych magazynów użytkowników. W przypadku korzystania z tożsamości federacyjnych należy skorzystać z podejścia opartego na platformie i delegować zarządzanie autoryzowanymi tożsamościami do partnerów. Podejście do tożsamości federacyjnej jest szczególnie ważne, gdy pracownicy są zwolnieni i że informacje muszą być widoczne przez wiele systemów tożsamości i autoryzacji.
 
 Używanie mechanizmów uwierzytelniania i autoryzacji dostarczonych przez platformę zamiast kodu niestandardowego. Przyczyną jest to, że programowanie niestandardowego kodu uwierzytelniania może być podatne na błędy. Większość deweloperów nie jest ekspertami ds. zabezpieczeń i nie jest mało prawdopodobne, że subtleties i najnowsze postępy w zakresie uwierzytelniania i autoryzacji. Kod komercyjny (na przykład od firmy Microsoft) jest często szeroko przeglądany pod kątem zabezpieczeń.
 
-Użyj uwierzytelniania dwuskładnikowego. Uwierzytelnianie dwuskładnikowe jest bieżącym standardem uwierzytelniania i autoryzacji, ponieważ pozwala to uniknąć słabych zagrożeń związanych z typami nazw użytkowników i haseł uwierzytelniania. Dostęp do interfejsów Azure Management (Portal/Remote PowerShell) i usług związanych z klientem powinien zostać zaprojektowany i skonfigurowany do korzystania z usługi [azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Użyj uwierzytelniania dwuskładnikowego. Uwierzytelnianie dwuskładnikowe jest bieżącym standardem uwierzytelniania i autoryzacji, ponieważ pozwala to uniknąć słabych zagrożeń związanych z typami nazw użytkowników i haseł uwierzytelniania. Dostęp do interfejsów Azure Management (Portal/Remote PowerShell) i usług związanych z klientem powinien zostać zaprojektowany i skonfigurowany do korzystania z usługi [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Użyj standardowych protokołów uwierzytelniania, takich jak OAuth2 i Kerberos. Te protokoły zostały rozbudowane i mogą być wdrażane w ramach bibliotek platformy na potrzeby uwierzytelniania i autoryzacji.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364086"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840557"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
 
@@ -101,7 +101,7 @@ Można skonfigurować ustawienia przepływu użytkownika, takie jak te, aby kont
 
 * Typy kont używane do logowania, takie jak konta społecznościowe, takie jak Facebook lub konta lokalne używające adresu e-mail i hasła do logowania
 * Atrybuty, które mają być zbierane od konsumenta, takie jak imię i nazwisko, kod pocztowy lub kraj/region miejsca zamieszkania
-* Azure Multi-Factor Authentication (MFA)
+* Usługa Azure AD Multi-Factor Authentication (MFA)
 * Dostosowanie interfejsu użytkownika
 * Zestaw oświadczeń w tokenie odbieranych przez aplikację po zakończeniu przepływu użytkownika przez użytkownika
 * Zarządzanie sesjami
@@ -115,7 +115,7 @@ Dowiedz się więcej o przepływach użytkowników w [przepływach użytkownikó
 
 Zasady niestandardowe blokują dostęp do pełnego potencjału aparatu aranżacji programu Identity Experience Framework (IEF). Za pomocą zasad niestandardowych można korzystać z IEF w celu kompilowania niemal wszelkich możliwości uwierzytelniania, rejestracji użytkowników lub edytowania profilów, które można wyobrazić.
 
-Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Na przykład:
+Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Przykład:
 
 * Sfederować z innymi dostawcami tożsamości
 * Wyzwania uwierzytelniania wieloskładnikowego (MFA) w pierwszej kolejności i innej firmy

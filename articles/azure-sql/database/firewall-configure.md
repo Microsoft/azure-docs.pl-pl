@@ -5,27 +5,27 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 802c126548a6fa7062a262e2f939c9a214480794
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789645"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841140"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie* MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net* ). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
+Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie* MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
 > [!IMPORTANT]
-> Ten artykuł *nie* dotyczy *wystąpienia zarządzanego usługi Azure SQL* . Aby uzyskać informacje o konfiguracji sieci, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md).
+> Ten artykuł *nie* dotyczy *wystąpienia zarządzanego usługi Azure SQL*. Aby uzyskać informacje o konfiguracji sieci, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md).
 >
 > Usługa Azure Synapse obsługuje tylko reguły zapory adresów IP na poziomie serwera. Nie obsługuje reguł zapory adresów IP na poziomie bazy danych.
 
@@ -63,11 +63,11 @@ Zalecamy używanie reguł zapory adresów IP na poziomie bazy danych zawsze wted
 
 *Czy użytkownicy z jednej bazy danych mają być w pełni odizolowani od innej bazy danych?*
 
-Jeśli *tak* , Użyj reguł zapory adresów IP na poziomie bazy danych, aby udzielić dostępu. Ta metoda pozwala uniknąć używania reguł zapory adresów IP na poziomie serwera, które zezwalają na dostęp za pośrednictwem zapory do wszystkich baz danych. Dzięki temu zmniejszy się głębokość obrony.
+Jeśli *tak*, Użyj reguł zapory adresów IP na poziomie bazy danych, aby udzielić dostępu. Ta metoda pozwala uniknąć używania reguł zapory adresów IP na poziomie serwera, które zezwalają na dostęp za pośrednictwem zapory do wszystkich baz danych. Dzięki temu zmniejszy się głębokość obrony.
 
 *Czy użytkownicy korzystający z adresów IP muszą mieć dostęp do wszystkich baz danych?*
 
-Jeśli *tak* , Użyj reguł zapory adresów IP na poziomie serwera, aby zmniejszyć liczbę ponownych prób skonfigurowania reguł zapory adresów IP.
+Jeśli *tak*, Użyj reguł zapory adresów IP na poziomie serwera, aby zmniejszyć liczbę ponownych prób skonfigurowania reguł zapory adresów IP.
 
 *Czy osoba lub zespół, który konfiguruje reguły zapory IP, ma dostęp tylko za pomocą Azure Portal, programu PowerShell lub interfejsu API REST?*
 
@@ -138,17 +138,17 @@ Aby ustawić regułę zapory adresów IP na poziomie serwera w Azure Portal, prz
 
     Zostanie otwarta strona **Ustawienia zapory** dla serwera.
 
-2. Wybierz pozycję **Dodaj IP klienta** na pasku narzędzi, aby dodać adres IP komputera, którego używasz, a następnie wybierz pozycję **Zapisz** . Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP.
+2. Wybierz pozycję **Dodaj IP klienta** na pasku narzędzi, aby dodać adres IP komputera, którego używasz, a następnie wybierz pozycję **Zapisz**. Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP.
 
     ![Ustaw regułę zapory adresów IP na poziomie serwera](./media/firewall-configure/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>Na stronie Przegląd serwera
 
-Zostanie otwarta strona przegląd dla Twojego serwera. Pokazuje w pełni kwalifikowaną nazwę serwera (na przykład *mynewserver20170403.Database.Windows.NET* ) i oferuje opcje dalszej konfiguracji.
+Zostanie otwarta strona przegląd dla Twojego serwera. Pokazuje w pełni kwalifikowaną nazwę serwera (na przykład *mynewserver20170403.Database.Windows.NET*) i oferuje opcje dalszej konfiguracji.
 
 1. Aby ustawić regułę na poziomie serwera na tej stronie, wybierz opcję **Zapora** z menu **Ustawienia** po lewej stronie.
 
-2. Wybierz pozycję **Dodaj IP klienta** na pasku narzędzi, aby dodać adres IP komputera, którego używasz, a następnie wybierz pozycję **Zapisz** . Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP.
+2. Wybierz pozycję **Dodaj IP klienta** na pasku narzędzi, aby dodać adres IP komputera, którego używasz, a następnie wybierz pozycję **Zapisz**. Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP.
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Zarządzanie regułami zapory adresów IP przy użyciu języka Transact-SQL
 
@@ -174,7 +174,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Aby usunąć regułę zapory adresów IP na poziomie serwera, wykonaj *sp_delete_firewall_rule* procedury składowanej. Poniższy przykład usuwa regułę *ContosoFirewallRule* :
+Aby usunąć regułę zapory adresów IP na poziomie serwera, wykonaj *sp_delete_firewall_rule* procedury składowanej. Poniższy przykład usuwa regułę *ContosoFirewallRule*:
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'

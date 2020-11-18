@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 3b81572266f6ee5bd90662a98988d41479f399cc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675003"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841135"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Korzystanie z uwierzytelniania wieloskładnikowego Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,13 +41,13 @@ Istnieją dwa nieinteraktywne modele uwierzytelniania dla usługi Azure AD, któ
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-Metoda interaktywna obsługująca również usługę Azure Multi-Factor Authentication (MFA) to: 
+Metoda interaktywna, która również obsługuje usługę Azure AD Multi-Factor Authentication (MFA): 
 
 - `Azure Active Directory - Universal with MFA`
 
-Usługa Azure MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
+Usługa Azure AD MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
 
-Aby uzyskać opis Multi-Factor Authentication platformy Azure, zobacz [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Aby uzyskać opis Multi-Factor Authentication usługi Azure AD, zobacz [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 Aby uzyskać instrukcje dotyczące konfiguracji, zobacz [konfigurowanie Azure SQL Database usługi uwierzytelniania wieloskładnikowego dla SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nazwa domeny usługi Azure AD lub parametr identyfikatora dzierżawy
@@ -58,7 +58,7 @@ Wszyscy użytkownicy-Goście, którzy chcą być uwierzytelniani przy użyciu uw
 
 
 1. Otwórz połączenie w programie SSMS. Wprowadź nazwę serwera, a następnie wybierz pozycję **Azure Active Directory — uniwersalna przy użyciu uwierzytelniania MFA** . Dodaj **nazwę użytkownika** , za pomocą którego chcesz się zalogować.
-1. Zaznacz pole **opcji** i przejdź do karty **Właściwości połączenia** . W oknie dialogowym **łączenie z bazą danych** wypełnij okno dialogowe bazy danych. Sprawdź **nazwę domeny usługi AD lub pole Identyfikator dzierżawy** , a następnie podaj urząd uwierzytelniający, taki jak nazwa domeny ( **contosotest.onmicrosoft.com** ) lub identyfikator GUID identyfikatora dzierżawy. 
+1. Zaznacz pole **opcji** i przejdź do karty **Właściwości połączenia** . W oknie dialogowym **łączenie z bazą danych** wypełnij okno dialogowe bazy danych. Sprawdź **nazwę domeny usługi AD lub pole Identyfikator dzierżawy** , a następnie podaj urząd uwierzytelniający, taki jak nazwa domeny (**contosotest.onmicrosoft.com**) lub identyfikator GUID identyfikatora dzierżawy. 
 
    ![Zrzut ekranu przedstawiający kartę właściwości połączenia z wyróżnioną ustawieniami połączenia z bazą danych i nazwą domeny usługi AD lub IDENTYFIKATORem dzierżawy.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
@@ -100,4 +100,4 @@ Po utworzeniu użytkownika bazy danych użytkownik `steve@gmail.com` może zalog
 - [Importowanie pliku BACPAC do nowej bazy danych](database-import.md)  
 - [Eksportowanie bazy danych do pliku BACPAC](database-export.md)  
 - Interfejs C# interfejsu [IUniversalAuthProvider](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- W przypadku korzystania **z Azure Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi** , menu **opcji** , w obszarze **usługi platformy Azure** , **Azure Cloud** , **ADAL okno dane wyjściowe poziom śledzenia** , a następnie przez włączenie **danych wyjściowych**  w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory** .
+- W przypadku korzystania **z Azure Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi**, menu **opcji** , w obszarze **usługi platformy Azure**, **Azure Cloud**, **ADAL okno dane wyjściowe poziom śledzenia**, a następnie przez włączenie **danych wyjściowych**  w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory**.

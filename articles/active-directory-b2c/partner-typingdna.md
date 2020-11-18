@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259055"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840438"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania TypingDNA z Azure Active Directory B2C
 
 W tym instruktażu dowiesz się, jak zintegrować przykładową aplikację płatniczą online w Azure Active Directory B2C z aplikacją TypingDNA. Za pomocą Azure AD B2C aplikacji TypingDNA klienci mogą przestrzegać wymagań transakcji dyrektywy 2 (PSD2) dotyczącej [usług płatniczych](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) za pośrednictwem systemu Dynamics naciśnięć klawiszy i silnego uwierzytelniania klientów. Więcej informacji na temat TypingDNA znajdziesz [tutaj](https://www.typingdna.com/).
 
- Azure AD B2C używa technologii TypingDNA do przechwytywania cech charakterystycznych dla użytkowników i ich rejestrowania i analizowania pod kątem znajomości poszczególnych uwierzytelnień. Spowoduje to dodanie warstwy ochrony związanej z riskiness uwierzytelniania i ocenę poziomów ryzyka. Azure AD B2C może wywoływać inne mechanizmy w celu zapewnienia dalszej pewności, że użytkownik, do którego się odwołuje, wywołuje usługę Azure MFA, wymusza weryfikację wiadomości e-mail lub inną logikę niestandardową dla Twojego scenariusza.
+ Azure AD B2C używa technologii TypingDNA do przechwytywania cech charakterystycznych dla użytkowników i ich rejestrowania i analizowania pod kątem znajomości poszczególnych uwierzytelnień. Spowoduje to dodanie warstwy ochrony związanej z riskiness uwierzytelniania i ocenę poziomów ryzyka. Azure AD B2C może wywoływać inne mechanizmy w celu zapewnienia dalszej pewności, że użytkownik, do którego się odwołuje, wywołuje usługę Azure AD MFA, wymusza weryfikację wiadomości e-mail lub inną logikę niestandardową dla Twojego scenariusza.
 
 >[!NOTE]
 > Te przykładowe zasady są oparte na [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) Starter Pack.
@@ -113,7 +113,7 @@ Te progi należy skorygować w przypadku użycia.
 
 - Po przeprowadzeniu przez interfejs API oceny należy `net_score` zwrócić do B2C wartość logiczną `promptMFA` .
 
-- To `promptMFA` zdarzenie jest używane w ramach warunku wstępnego do warunkowego wykonania usługi Azure MFA.
+- To `promptMFA` zdarzenie jest używane w ramach warunku wstępnego do warunkowego wykonania usługi Azure AD MFA.
 
 ```xml
 

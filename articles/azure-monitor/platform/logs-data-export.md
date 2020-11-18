@@ -3,16 +3,16 @@ title: Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja z
 description: Log Analytics eksportu danych umożliwia ciągłe eksportowanie danych z wybranych tabel z obszaru roboczego Log Analytics do konta usługi Azure Storage lub Event Hubs platformy Azure w miarę ich zbierania.
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427806"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841811"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -100,7 +100,7 @@ Następujący dostawca zasobów platformy Azure musi być zarejestrowany dla Two
 
 - Microsoft. Insights
 
-Ten dostawca zasobów prawdopodobnie jest już zarejestrowany dla większości użytkowników Azure Monitor. Aby sprawdzić, przejdź do pozycji **subskrypcje** w Azure Portal. Wybierz swoją subskrypcję, a następnie kliknij pozycję **dostawcy zasobów** w sekcji **Ustawienia** w menu. Znajdź **Microsoft. Insights**. Jeśli jego stan jest **zarejestrowany** , jest już zarejestrowany. W przeciwnym razie kliknij pozycję **zarejestruj** , aby go zarejestrować.
+Ten dostawca zasobów prawdopodobnie jest już zarejestrowany dla większości użytkowników Azure Monitor. Aby sprawdzić, przejdź do pozycji **subskrypcje** w Azure Portal. Wybierz swoją subskrypcję, a następnie kliknij pozycję **dostawcy zasobów** w sekcji **Ustawienia** w menu. Znajdź **Microsoft. Insights**. Jeśli jego stan jest **zarejestrowany**, jest już zarejestrowany. W przeciwnym razie kliknij pozycję **zarejestruj** , aby go zarejestrować.
 
 Możesz również użyć dowolnej z dostępnych metod, aby zarejestrować dostawcę zasobów zgodnie z opisem w temacie [dostawcy zasobów platformy Azure i typy](../../azure-resource-manager/management/resource-providers-and-types.md). Poniżej przedstawiono przykładowe polecenie przy użyciu programu PowerShell:
 
@@ -342,7 +342,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Wydarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
+| Zdarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

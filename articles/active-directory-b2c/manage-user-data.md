@@ -11,12 +11,12 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387647"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840558"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Zarządzanie danymi użytkowników w Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Azure AD B2C dane użytkownika są ograniczone do:
 
 W poniższym przykładzie przepływu danych eksportu kroki, które są opisane jako wykonywane przez aplikację, można także wykonać przez proces zaplecza lub użytkownika z rolą administratora w katalogu:
 
-1. Użytkownik loguje się do aplikacji. W razie konieczności Azure AD B2C wymusza uwierzytelnianie przy użyciu usługi Azure Multi-Factor Authentication.
+1. Użytkownik loguje się do aplikacji. W razie konieczności Azure AD B2C wymusza uwierzytelnianie w usłudze Azure AD Multi-Factor Authentication.
 2. Aplikacja używa poświadczeń użytkownika w celu wywołania Microsoft Graph operacji interfejsu API w celu pobrania atrybutów użytkownika. Interfejs API Microsoft Graph udostępnia dane atrybutów w formacie JSON. W zależności od schematu można ustawić zawartość tokenu identyfikatora, aby uwzględnić wszystkie dane osobowe użytkownika.
 3. Aplikacja pobiera działanie inspekcji użytkownika. Interfejs API Microsoft Graph udostępnia dane zdarzenia do aplikacji.
 4. Aplikacja agreguje dane i udostępni je użytkownikowi.

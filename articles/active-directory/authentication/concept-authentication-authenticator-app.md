@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8fe6c7ead587d58775984854260bd071215e42
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eab1a3f81666cd3bddea9954f210e5825a538356
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965577"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840121"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metody uwierzytelniania w aplikacji Azure Active Directory Microsoft Authenticator
 
-Aplikacja Microsoft Authenticator zapewnia dodatkowy poziom zabezpieczeń konta służbowego lub szkolnego usługi Azure AD lub konto Microsoft i jest dostępny dla systemów [Android](https://go.microsoft.com/fwlink/?linkid=866594) i [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Za pomocą aplikacji Microsoft Authenticator użytkownicy mogą uwierzytelniać się w trybie bez hasła podczas logowania lub jako dodatkowa opcja weryfikacji podczas samoobsługowego resetowania hasła (SSPR) lub zdarzeń Multi-Factor Authentication platformy Azure.
+Aplikacja Microsoft Authenticator zapewnia dodatkowy poziom zabezpieczeń konta służbowego lub szkolnego usługi Azure AD lub konto Microsoft i jest dostępny dla systemów [Android](https://go.microsoft.com/fwlink/?linkid=866594) i [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Za pomocą aplikacji Microsoft Authenticator użytkownicy mogą uwierzytelniać się w sposób niezależny od hasła podczas logowania lub jako dodatkowa opcja weryfikacji podczas samoobsługowego resetowania hasła (SSPR) lub zdarzeń Multi-Factor Authentication usługi Azure AD.
 
 Użytkownicy mogą otrzymać powiadomienie za pomocą aplikacji mobilnej do zatwierdzenia lub odmowy lub użyć aplikacji Authenticator do wygenerowania kodu weryfikacyjnego OATH, który można wprowadzić w interfejsie logowania. Jeśli włączysz powiadomienie i kod weryfikacyjny, użytkownicy rejestrujący aplikację uwierzytelniania mogą użyć dowolnej metody do zweryfikowania swojej tożsamości.
 

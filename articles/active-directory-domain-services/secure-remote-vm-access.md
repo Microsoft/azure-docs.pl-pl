@@ -1,6 +1,6 @@
 ---
 title: Zabezpieczanie zdalnego dostępu do maszyny wirtualnej w Azure AD Domain Services | Microsoft Docs
-description: Dowiedz się, jak zabezpieczyć zdalny dostęp do maszyn wirtualnych przy użyciu serwera zasad sieciowych (NPS) i platformy Azure Multi-Factor Authentication z wdrożeniem Usługi pulpitu zdalnego w domenie zarządzanej Azure Active Directory Domain Services.
+description: Dowiedz się, jak zabezpieczyć zdalny dostęp do maszyn wirtualnych przy użyciu serwera zasad sieciowych (NPS) i usługi Azure AD Multi-Factor Authentication z wdrożeniem Usługi pulpitu zdalnego w domenie zarządzanej Azure Active Directory Domain Services.
 services: active-directory-ds
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a08b5bf4fb575f0cd2098b3ef180860bb8fbd6e0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967787"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840240"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Bezpieczny dostęp zdalny do maszyn wirtualnych w Azure Active Directory Domain Services
 
-Aby zabezpieczyć zdalny dostęp do maszyn wirtualnych, które działają w domenie zarządzanej Azure Active Directory Domain Services (Azure AD DS), można użyć Usługi pulpitu zdalnego (RDS) i serwera zasad sieciowych (NPS). Usługa Azure AD DS uwierzytelnia użytkowników podczas żądania dostępu za pomocą środowiska RDS. W celu zwiększenia bezpieczeństwa można zintegrować usługę Azure Multi-Factor Authentication, aby zapewnić dodatkowy monit uwierzytelniania podczas logowania. Aby zapewnić tę funkcję, usługa Azure Multi-Factor Authentication używa rozszerzenia serwera NPS.
+Aby zabezpieczyć zdalny dostęp do maszyn wirtualnych, które działają w domenie zarządzanej Azure Active Directory Domain Services (Azure AD DS), można użyć Usługi pulpitu zdalnego (RDS) i serwera zasad sieciowych (NPS). Usługa Azure AD DS uwierzytelnia użytkowników podczas żądania dostępu za pomocą środowiska RDS. W celu zwiększenia bezpieczeństwa można zintegrować usługę Azure AD Multi-Factor Authentication, aby zapewnić dodatkowy monit uwierzytelniania podczas logowania. Usługa Azure AD Multi-Factor Authentication używa rozszerzenia serwera NPS w celu zapewnienia tej funkcji.
 
 > [!IMPORTANT]
 > Zalecanym sposobem bezpiecznego łączenia się z maszynami wirtualnymi w domenie zarządzanej AD DS platformy Azure jest korzystanie z usługi Azure bastionu, a w pełni zarządzanej platformą usługę PaaS, która jest dostarczana w sieci wirtualnej. Host bastionu zapewnia bezpieczną i bezproblemową łączność Remote Desktop Protocol (RDP) z maszynami wirtualnymi bezpośrednio w Azure Portal za pośrednictwem protokołu SSL. Po nawiązaniu połączenia za pośrednictwem hosta bastionu maszyny wirtualne nie potrzebują publicznego adresu IP i nie jest konieczne używanie sieciowych grup zabezpieczeń w celu udostępnienia dostępu do protokołu RDP na porcie TCP 3389.
@@ -28,7 +28,7 @@ Aby zabezpieczyć zdalny dostęp do maszyn wirtualnych, które działają w dome
 >
 > Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure bastionu?][bastion-overview].
 
-W tym artykule opisano sposób konfigurowania usług pulpitu zdalnego na platformie Azure AD DS i opcjonalnie używania rozszerzenia serwera NPS usługi Azure Multi-Factor Authentication.
+W tym artykule opisano sposób konfigurowania usług pulpitu zdalnego na platformie Azure AD DS i opcjonalnie używania rozszerzenia serwera NPS usługi Azure AD Multi-Factor Authentication.
 
 ![Usługi pulpitu zdalnego (RDS) — Omówienie](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -66,32 +66,32 @@ Wdrożenie środowiska pulpitu zdalnego zawiera kilka kroków. Istniejący Przew
 
 W przypadku wdrożenia usług pulpitu zdalnego w domenie zarządzanej można zarządzać tą usługą i korzystać z niej w taki sam sposób, jak w przypadku lokalnej domeny AD DS.
 
-## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Wdrażanie i Konfigurowanie serwera zasad sieciowych i rozszerzenia serwera NPS usługi Azure MFA
+## <a name="deploy-and-configure-nps-and-the-azure-ad-mfa-nps-extension"></a>Wdrażanie i Konfigurowanie serwera zasad sieciowych i rozszerzenia serwera NPS usługi Azure AD MFA
 
-Jeśli chcesz zwiększyć bezpieczeństwo środowiska logowania użytkowników, możesz opcjonalnie zintegrować środowisko pulpitu zdalnego z usługą Azure Multi-Factor Authentication. W przypadku tej konfiguracji użytkownicy otrzymują dodatkowy monit podczas logowania w celu potwierdzenia ich tożsamości.
+Jeśli chcesz zwiększyć bezpieczeństwo środowiska logowania użytkowników, możesz opcjonalnie zintegrować środowisko usług pulpitu zdalnego z usługą Azure AD Multi-Factor Authentication. W przypadku tej konfiguracji użytkownicy otrzymują dodatkowy monit podczas logowania w celu potwierdzenia ich tożsamości.
 
-Aby zapewnić tę możliwość, w środowisku jest instalowany dodatkowy serwer zasad sieciowych (NPS) wraz z rozszerzeniem usługi NPS Multi-Factor Authentication Azure. To rozszerzenie integruje się z usługą Azure AD, aby zażądać i zwrócić stan zaskakujących pytań dotyczących uwierzytelniania wieloskładnikowego.
+Aby zapewnić tę możliwość, w środowisku jest instalowany dodatkowy serwer zasad sieciowych (NPS) wraz z rozszerzeniem zasad sieciowych usługi Azure AD Multi-Factor Authentication. To rozszerzenie integruje się z usługą Azure AD, aby zażądać i zwrócić stan zaskakujących pytań dotyczących uwierzytelniania wieloskładnikowego.
 
-Użytkownicy muszą być [zarejestrowani do korzystania z usługi azure Multi-Factor Authentication][user-mfa-registration], co może wymagać dodatkowych licencji usługi Azure AD.
+Użytkownicy muszą być [zarejestrowani do korzystania z usługi Azure ad Multi-Factor Authentication][user-mfa-registration], co może wymagać dodatkowych licencji usługi Azure AD.
 
-Aby zintegrować platformę Azure Multi-Factor Authentication w środowisku Pulpit zdalny AD DS platformy Azure, Utwórz serwer NPS i zainstaluj rozszerzenie:
+Aby zintegrować usługę Azure AD Multi-Factor Authentication w środowisku usługi Azure AD DS Pulpit zdalny, Utwórz serwer zasad sieciowych i zainstaluj rozszerzenie:
 
 1. Utwórz dodatkową maszynę wirtualną z systemem Windows Server 2016 lub 2019, taką jak *NPSVM01*, która jest połączona z podsiecią *obciążeń* w sieci wirtualnej platformy Azure AD DS. Dołącz maszynę wirtualną do domeny zarządzanej.
 1. Zaloguj się na serwerze zasad sieciowych NPS jako konto, które jest częścią grupy *administratorów DC usługi Azure AD* , np. *contosoadmin*.
-1. W obszarze **Menedżer serwera**wybierz pozycję **Dodaj role i funkcje**, a następnie Zainstaluj rolę *usług zasad sieciowych i dostępu sieciowego* .
-1. Aby [zainstalować i skonfigurować rozszerzenie zasad sieciowych usługi Azure MFA][nps-extension], Skorzystaj z istniejącego artykułu z poradnikiem.
+1. W obszarze **Menedżer serwera** wybierz pozycję **Dodaj role i funkcje**, a następnie Zainstaluj rolę *usług zasad sieciowych i dostępu sieciowego* .
+1. Aby [zainstalować i skonfigurować rozszerzenie NPS usługi Azure AD MFA][nps-extension], należy użyć istniejącego artykułu z poradnikiem.
 
-Po zainstalowaniu serwera NPS i rozszerzenia serwera zasad sieciowych platformy Azure Multi-Factor Authentication wykonaj następną sekcję, aby skonfigurować ją do użycia w środowisku usług pulpitu zdalnego.
+Po zainstalowaniu serwera NPS i usługi Azure AD Multi-Factor Authentication rozszerzenia serwera NPS wykonaj następną sekcję, aby skonfigurować ją do użycia ze środowiskiem usług pulpitu zdalnego.
 
-## <a name="integrate-remote-desktop-gateway-and-azure-multi-factor-authentication"></a>Integracja Pulpit zdalny Gateway i Azure Multi-Factor Authentication
+## <a name="integrate-remote-desktop-gateway-and-azure-ad-multi-factor-authentication"></a>Integracja Pulpit zdalny bramy i usługi Azure AD Multi-Factor Authentication
 
-Aby zintegrować rozszerzenie zasad sieciowych platformy Azure Multi-Factor Authentication, użyj istniejącego artykułu z artykułem do [integracji infrastruktury pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD][azure-mfa-nps-integration].
+Aby zintegrować rozszerzenie zasad sieciowych Multi-Factor Authentication usługi Azure AD, Skorzystaj z istniejącego artykułu z poradnikiem, aby [zintegrować infrastrukturę pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD][azure-mfa-nps-integration].
 
 Do integracji z domeną zarządzaną są konieczne następujące dodatkowe opcje konfiguracji:
 
 1. Nie [Rejestruj serwera NPS w Active Directory][register-nps-ad]. Ten krok zakończy się niepowodzeniem w domenie zarządzanej.
 1. W [kroku 4 Aby skonfigurować zasady sieciowe][create-nps-policy], zaznacz również pole wyboru **Ignoruj właściwości telefonowania konta użytkownika**.
-1. Jeśli używasz systemu Windows Server 2019 dla serwera NPS i rozszerzenia serwera NPS Multi-Factor Authentication Azure, uruchom następujące polecenie, aby zaktualizować bezpieczny kanał, aby umożliwić serwerowi NPS poprawne komunikowanie się:
+1. Jeśli używasz systemu Windows Server 2019 dla rozszerzenia serwera NPS i usługi Azure AD Multi-Factor Authentication, uruchom następujące polecenie, aby zaktualizować bezpieczny kanał, aby umożliwić serwerowi NPS poprawne komunikowanie się:
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -103,7 +103,7 @@ Po zalogowaniu się użytkownicy będą monitowani o dodatkowy czynnik uwierzyte
 
 Aby uzyskać więcej informacji o zwiększaniu odporności wdrożenia, zobacz [usługi pulpitu zdalnego-wysoka dostępność][rds-high-availability].
 
-Aby uzyskać więcej informacji na temat zabezpieczania logowania użytkowników, zobacz [jak to działa: Azure Multi-Factor Authentication][concepts-mfa].
+Aby uzyskać więcej informacji na temat zabezpieczania logowania użytkowników, zobacz [jak to działa: usługa Azure AD Multi-Factor Authentication][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

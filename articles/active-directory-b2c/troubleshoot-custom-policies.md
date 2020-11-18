@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384961"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840257"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Rozwiązywanie problemów Azure AD B2C zasad niestandardowych i struktury środowiska obsługi tożsamości
 
@@ -64,7 +64,7 @@ Typowe błędy walidacji obejmują następujące elementy:
 
 * Aby śledzić wymianę komunikatów między przeglądarką klienta i Azure AD B2C, użyj [programu Fiddler](https://www.telerik.com/fiddler). Może to pomóc w uzyskaniu informacji o tym, gdzie podróż użytkownika kończy się niepowodzeniem w ramach kroków aranżacji.
 
-* W **trybie programistycznym**Użyj [Application Insights](troubleshoot-with-application-insights.md) , aby śledzić aktywność użytkownika platformy do obsługi tożsamości. W **trybie programistycznym**można obserwować wymianę oświadczeń między strukturą środowiska tożsamości a różnymi dostawcami oświadczeń, które są zdefiniowane przez profile techniczne, takie jak dostawcy tożsamości, usługi oparte na interfejsie API, katalog Azure AD B2C użytkowników i inne usługi, takie jak Azure Multi-Factor Authentication.
+* W **trybie programistycznym** Użyj [Application Insights](troubleshoot-with-application-insights.md) , aby śledzić aktywność użytkownika platformy do obsługi tożsamości. W **trybie programistycznym** można obserwować wymianę oświadczeń między strukturą środowiska tożsamości a różnymi dostawcami oświadczeń, które są zdefiniowane przez profile techniczne, takie jak dostawcy tożsamości, usługi oparte na interfejsie API, katalog Azure AD B2C użytkowników i inne usługi, takie jak usługa Azure AD Multi-Factor Authentication.
 
 ## <a name="recommended-practices"></a>Zalecane praktyki
 

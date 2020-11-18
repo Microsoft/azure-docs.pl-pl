@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789577"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841227"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ W tym artykule omówiono niektóre podstawowe cechy Azure SQL Database jako plat
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorowanie baz danych za pomocą witryny Azure Portal
 
-W [Azure Portal](https://portal.azure.com/)można monitorować wykorzystanie poszczególnych baz danych, wybierając bazę danych i klikając wykres **monitorowania** . Spowoduje to wyświetlenie okna **Metryka** , które możesz zmienić, klikając przycisk **Edytuj wykres** . Dodaj następujące metryki:
+W [Azure Portal](https://portal.azure.com/)można monitorować wykorzystanie poszczególnych baz danych, wybierając bazę danych i klikając wykres **monitorowania** . Spowoduje to wyświetlenie okna **Metryka**, które możesz zmienić, klikając przycisk **Edytuj wykres**. Dodaj następujące metryki:
 
 - Procent użycia procesora CPU
 - Procent użycia jednostek DTU
@@ -49,7 +49,7 @@ Po dodaniu tych metryk można nadal wyświetlać je na wykresie **monitorowania*
 
 ![Monitorowanie warstw usług pod względem wydajności bazy danych.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
-Możesz również skonfigurować alerty dotyczące metryk wydajności. Kliknij przycisk **Dodaj alert** w oknie **Metryka** . Użyj kreatora, aby skonfigurować alert. Istnieje możliwość ustawienia alertu, który będzie wysyłany, gdy metryki przekroczą określony próg lub spadną poniżej określonego progu.
+Możesz również skonfigurować alerty dotyczące metryk wydajności. Kliknij przycisk **Dodaj alert** w oknie **Metryka**. Użyj kreatora, aby skonfigurować alert. Istnieje możliwość ustawienia alertu, który będzie wysyłany, gdy metryki przekroczą określony próg lub spadną poniżej określonego progu.
 
 Jeśli na przykład spodziewasz się, że obciążenie bazy danych wzrośnie, możesz skonfigurować alert polegający na wysłaniu wiadomości e-mail, gdy dowolna z metryk wydajności osiągnie 80%. Można to zrobić jako wczesne ostrzeżenie, aby ustalić, kiedy może zajść potrzeba przełączenia do następnego największego rozmiaru obliczeniowego.
 
@@ -65,7 +65,7 @@ Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest t
 
 |Warstwa usługi|Okres przechowywania w dniach|
 |---|:---:|
-|Podstawowa|7|
+|Podstawowy|7|
 |Standardowa|35|
 |Premium|35|
 |||
@@ -101,12 +101,12 @@ SQL Database bardzo poważnie zapewnia bezpieczeństwo i ochronę prywatności. 
 
 Istnieją dwie metody uwierzytelniania oferowane w SQL Database:
 
-- [Uwierzytelnianie usługi Azure Active Directory](authentication-aad-overview.md)
+- [Uwierzytelnianie Azure Active Directory](authentication-aad-overview.md)
 - [Uwierzytelnianie SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 Tradycyjne uwierzytelnianie systemu Windows nie jest obsługiwane. Azure Active Directory (Azure AD) to scentralizowana usługa zarządzania tożsamościami i dostępem. Dzięki temu możesz bardzo łatwo zapewnić dostęp logowania jednokrotnego do wszystkich pracowników w organizacji. Oznacza to, że poświadczenia są współużytkowane przez wszystkie usługi platformy Azure w celu łatwiejszego uwierzytelniania. 
 
-Usługa Azure AD obsługuje [platformę azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) i za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) można zintegrować usługę Azure AD z Active Directory systemu Windows Server. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i usługi Azure Synapse Analytics (wcześniej SQL Data Warehouse) do oferowania kont użytkowników Multi-Factor Authentication i Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
+Usługa Azure AD obsługuje [usługę Azure ad Multi-Factor Authentication](authentication-mfa-ssms-overview.md) i za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) można zintegrować usługę Azure AD z Active Directory systemu Windows Server. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i usługi Azure Synapse Analytics (wcześniej SQL Data Warehouse) do oferowania kont użytkowników Multi-Factor Authentication i Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
 
 |**Jeśli ty...**|**SQL Database/analiza Synapse Azure**|
 |---|---|
@@ -261,7 +261,7 @@ Tę analizę można także wyświetlić w sekcji "Advisor":
 
 W SQL Database można korzystać z inteligentnego wglądu w dane platformy w celu monitorowania wydajności i odpowiednio dostrajania. Można monitorować wydajność i wykorzystanie zasobów w SQL Database przy użyciu następujących metod:
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal pokazuje użycie bazy danych, wybierając bazę danych i klikając wykres w okienku Przegląd. Można zmodyfikować wykres, aby pokazać wiele metryk, w tym wartość procentową procesora CPU, procent jednostek DTU, procent operacji we/wy danych, procent sesji i procent rozmiaru bazy danych.
 
@@ -320,11 +320,11 @@ SQL Database używa niektórych inteligentnych technik, które umożliwiają obs
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database-using-the-azure-portal"></a>Jak mogę eksportować i importować dane jako pliki BACPAC z SQL Database przy użyciu Azure Portal
 
-- **Eksport** : można wyeksportować bazę danych w Azure SQL Database jako plik BACPAC z Azure Portal
+- **Eksport**: można wyeksportować bazę danych w Azure SQL Database jako plik BACPAC z Azure Portal
 
    ![eksport bazy danych](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **Import** : można także zaimportować dane jako plik BACPAC do bazy danych w Azure SQL Database przy użyciu Azure Portal.
+- **Import**: można także zaimportować dane jako plik BACPAC do bazy danych w Azure SQL Database przy użyciu Azure Portal.
 
    ![Importowanie bazy danych](./media/manage-data-after-migrating-to-database/import1.png)
 

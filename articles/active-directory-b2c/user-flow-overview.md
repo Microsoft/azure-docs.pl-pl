@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87481601"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840196"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Przepływy użytkownika w Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Aby ułatwić konfigurowanie typowych zadań związanych z tożsamościami dla a
 
 - Typy kont używane do logowania, takie jak konta społecznościowe, takie jak konta w serwisie Facebook lub konto lokalne
 - Atrybuty, które mają być zbierane od konsumenta, takie jak imię i nazwisko, kod pocztowy i rozmiar butów
-- Azure Multi-Factor Authentication
+- Multi-Factor Authentication usługi Azure AD
 - Dostosowanie interfejsu użytkownika
 - Informacje odbierane przez aplikację jako oświadczenia w tokenie
 

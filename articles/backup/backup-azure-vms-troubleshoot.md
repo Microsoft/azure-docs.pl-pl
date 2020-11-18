@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173833"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840920"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -124,8 +124,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Krok 3. Jeśli kroki 1 i 2 nie rozwiążą problemu, przyczyną błędu może być niepowodzenie zapisywania usługi VSS z powodu ograniczonych operacji we/wy na sekundę.<br>
 
-Aby sprawdzić, przejdź do opcji ***system i Podgląd zdarzeń Dzienniki aplikacji*** i Sprawdź następujący komunikat o błędzie:<br>
-*Przekroczono limit czasu dostawcy kopiowania w tle podczas przechowywania zapisu do woluminu skopiowanego w tle. Jest to prawdopodobnie spowodowane nadmiernym działaniem woluminu przez aplikację lub usługę systemową. Spróbuj ponownie później, gdy aktywność woluminu zostanie zmniejszona.*<br>
+Aby sprawdzić, przejdź do ***system i Podgląd zdarzeń Dzienniki aplikacji** _ i Sprawdź następujący komunikat o błędzie:<br>
+Przekroczono limit czasu _The dostawcy kopiowania w tle podczas przechowywania zapisu do woluminu skopiowanego w tle. Jest to prawdopodobnie spowodowane nadmiernym działaniem woluminu przez aplikację lub usługę systemową. Spróbuj ponownie później, gdy aktywność woluminu zostanie zmniejszona. *<br>
 
 Rozwiązanie:
 
@@ -196,7 +196,7 @@ Jeśli w katalogu **MachineKeys** są wyświetlane uprawnienia inne niż ustawie
 2. Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów CRP systemu Windows Azure**:
 
    * [Otwórz przystawkę Certyfikaty w konsoli komputera lokalnego](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
-   * W **Personal**obszarze  >  **Certyfikaty**osobiste Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów usługi Windows Azure CRP**.
+   * W **Personal** obszarze  >  **Certyfikaty** osobiste Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów usługi Windows Azure CRP**.
 3. Wyzwalanie zadania tworzenia kopii zapasowej maszyny wirtualnej.
 
 ### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState — stan rozszerzenia nie obsługuje operacji tworzenia kopii zapasowej
@@ -244,7 +244,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Dzięki temu migawki będą wykonywane za pośrednictwem hosta, a nie konta gościa. Ponów próbę wykonania operacji tworzenia kopii zapasowej.
 
-**Krok 2**. Spróbuj zmienić harmonogram tworzenia kopii zapasowych na czas, gdy maszyna wirtualna jest mniej załadowana (na przykład mniej procesorów lub IOps)
+**Krok 2**. Spróbuj zmienić harmonogram tworzenia kopii zapasowych na czas, gdy maszyna wirtualna jest mniej załadowana (na przykład mniej procesorów lub IOPS)
 
 **Krok 3**. próba [zwiększenia rozmiaru maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) i ponowna próba wykonania operacji
 
@@ -321,8 +321,8 @@ Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/po
 
 Jeśli po przywróceniu, Zauważ, że dyski są w trybie offline, a następnie:
 
-* Sprawdź, czy komputer, na którym skrypt jest wykonywany, spełnia wymagania systemu operacyjnego. [Dowiedz się więcej](./backup-azure-restore-files-from-vm.md#system-requirements).  
-* Upewnij się, że nie są przywracane do tego samego źródła, [Dowiedz się więcej](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
+* Sprawdź, czy komputer, na którym skrypt jest wykonywany, spełnia wymagania systemu operacyjnego. [Dowiedz się więcej](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Upewnij się, że nie są przywracane do tego samego źródła, [Dowiedz się więcej](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound — przywracanie nie powiodło się, ponieważ nie znaleziono migawki maszyny wirtualnej
 
@@ -405,7 +405,7 @@ Kopia zapasowa maszyny wirtualnej polega na wystawianiu poleceń migawek do maga
 * **Jeśli więcej niż cztery maszyny wirtualne współużytkują tę samą usługę w chmurze, należy rozłożyć maszyny wirtualne na wiele zasad tworzenia kopii zapasowych**. Rozłożenie czasu wykonywania kopii zapasowych, więc nie można uruchomić więcej niż czterech kopii zapasowych maszyn wirtualnych. Spróbuj oddzielić godziny rozpoczęcia w zasadach o co najmniej godzinie.
 * **Maszyna wirtualna jest uruchamiana z dużym procesorem CPU lub pamięcią**. Jeśli maszyna wirtualna działa z dużą ilością pamięci lub użyciem procesora CPU, więcej niż 90 procent, zadanie migawki jest umieszczane w kolejce i opóźnione. Ostatecznie przeprowadzi limit czasu. Jeśli ten problem wystąpi, wypróbuj kopię zapasową na żądanie.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Aby tworzenie kopii zapasowej maszyny wirtualnej IaaS było możliwe, należy włączyć protokół DHCP wewnątrz gościa. Jeśli potrzebujesz statycznego prywatnego adresu IP, skonfiguruj go za pomocą Azure Portal lub programu PowerShell. Upewnij się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona.
 Uzyskaj więcej informacji na temat konfigurowania statycznego adresu IP za pomocą programu PowerShell:

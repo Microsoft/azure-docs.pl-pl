@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328365"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842315"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Włącz Azure Monitor dla jednej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w Azure Portal
 W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych przy użyciu Azure Portal. Ta procedura może być używana w następujących kwestiach:
@@ -27,7 +27,7 @@ W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych 
 
 ## <a name="enable-azure-monitor-for-vms"></a>Włącz Azure Monitor dla maszyn wirtualnych
 
-Z Azure Portal wybierz pozycję **maszyny wirtualne**, **zestawy skalowania maszyn wirtualnych**lub **maszyny — Azure Arc** i wybierz zasób z listy. W sekcji **monitorowanie** w menu wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**. W poniższym przykładzie przedstawiono maszynę wirtualną platformy Azure, ale menu jest podobne do zestawu skalowania maszyn wirtualnych platformy Azure lub usługi Azure Arc.
+Z Azure Portal wybierz pozycję **maszyny wirtualne**, **zestawy skalowania maszyn wirtualnych** lub **serwery — Azure Arc** i wybierz zasób z listy. W sekcji **monitorowanie** w menu wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**. W poniższym przykładzie przedstawiono maszynę wirtualną platformy Azure, ale menu jest podobne do zestawu skalowania maszyn wirtualnych platformy Azure lub usługi Azure Arc.
 
 ![Włączanie Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: a75dd24769a4f1af018981ffcec279afc2a88b5a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682422"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842298"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -41,6 +41,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 - Utworzono i skonfigurowano połączenie hybrydowe. Więcej informacji: [Skonfiguruj połączenie hybrydowe](#configure-the-hybrid-connection).
 - Obsługiwane wersje Service Manager: 2012 R2 lub 2016.
 - Rola użytkownika:  [Zaawansowany operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Dzisiaj alerty wysyłane z Azure Monitor mogą być tworzone w zdarzeniach System Center Service Manager.
 
 > [!NOTE]
 > 
@@ -165,7 +166,7 @@ Aby skonfigurować konfigurację odbiornika dla połączenia hybrydowego, należ
 
 3. Zaloguj się przy użyciu poświadczeń platformy Azure i wybierz subskrypcję, w której utworzono połączenie hybrydowe.
 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 Połączenie hybrydowe zostało pomyślnie nawiązane.
 
@@ -186,7 +187,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 - ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#add-it-service-management-connector).
 - Usługi ServiceNow obsługiwane wersje: Orlando, Nowy Jork, Madryt, Londyn, Kingston, Dżakarta, Stambuł, Helsinki, Genewa.
-- Dzisiaj alerty wysyłane z Azure Monitor mogą tworzyć w usługi ServiceNow jeden z następujących elementów: Events, Incedents lub alertów.
+- Dzisiaj alerty wysyłane z Azure Monitor mogą tworzyć w usługi ServiceNow jeden z następujących elementów: zdarzenia, zdarzenia lub alerty.
 > [!NOTE]
 > ITSMC obsługuje teraz tylko oficjalną ofertę SaaS z usługi. Prywatne wdrożenia usługi są teraz nieobsługiwane. 
 

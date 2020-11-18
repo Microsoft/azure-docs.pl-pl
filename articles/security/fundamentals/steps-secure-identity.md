@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410066"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842026"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
@@ -48,7 +48,7 @@ Zalecenia zawarte w tym dokumencie są wyrównane z [wynikiem bezpiecznego tożs
 
 Przed rozpoczęciem korzystania z tej listy kontrolnej upewnij się, że nie nastąpiło naruszenie zabezpieczeń podczas odczytywania tej listy kontrolnej. Najpierw musisz chronić Twoje konta uprzywilejowane.
 
-Osoby atakujące, które uzyskują kontrolę nad kontami uprzywilejowanymi, mogą mieć ogromne szkody, dlatego należy zapewnić ochronę tych kont jako pierwsze. Włącz i wymagaj [usługi azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) dla wszystkich administratorów w organizacji przy użyciu [domyślnych ustawień zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) lub [dostępu warunkowego](../../active-directory/conditional-access/plan-conditional-access.md). Jeśli nie zaimplementowano usługi MFA, zrób to teraz! Jest to ważne.
+Osoby atakujące, które uzyskują kontrolę nad kontami uprzywilejowanymi, mogą mieć ogromne szkody, dlatego należy zapewnić ochronę tych kont jako pierwsze. Włącz i wymagaj [usługi Azure ad Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) dla wszystkich administratorów w organizacji przy użyciu [domyślnych ustawień zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) lub [dostępu warunkowego](../../active-directory/conditional-access/plan-conditional-access.md). Jeśli nie zaimplementowano usługi MFA, zrób to teraz! Jest to ważne.
 
 Czy wszystko jest ustawione? Zacznijmy od listy kontrolnej.
 
@@ -59,9 +59,9 @@ Większość naruszeń zabezpieczeń przedsiębiorstwa pochodzi z konta złamane
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Upewnij się, że Twoja organizacja używa silnego uwierzytelniania
 
-Uwzględniając częstotliwość, w której hasła są zgadywanie, phishing, skradziony i złośliwe oprogramowanie, ma krytyczne znaczenie dla hasła przy użyciu jakiejś formy silnego poświadczenia — Dowiedz się więcej o [usłudze Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Uwzględniając częstotliwość, w której hasła są zgadywanie, phishing, skradziony lub ponownie używany, ma krytyczne znaczenie dla hasła przy użyciu jakiejś postaci silnego poświadczenia — Dowiedz się więcej o [usłudze Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-Aby w prosty sposób włączyć podstawowy poziom zabezpieczeń tożsamości, można użyć opcji włączenia jednego kliknięcia z [wartościami domyślnymi zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Domyślne ustawienia zabezpieczeń wymuszają usługę Azure MFA dla wszystkich użytkowników w dzierżawie i blokują logowania ze starszych protokołów w całej dzierżawie.
+Aby w prosty sposób włączyć podstawowy poziom zabezpieczeń tożsamości, można użyć opcji włączenia jednego kliknięcia z [wartościami domyślnymi zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Domyślne ustawienia zabezpieczeń wymuszają usługę Azure AD MFA dla wszystkich użytkowników w dzierżawie i blokują logowania ze starszych protokołów w całej dzierżawie.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Zacznij zakazywanie często zaatakowane hasła i Wyłącz tradycyjną złożoność oraz reguły wygasania.
 

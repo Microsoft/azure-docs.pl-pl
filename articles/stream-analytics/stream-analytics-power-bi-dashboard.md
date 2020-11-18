@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745364"
+ms.locfileid: "94842485"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym dla danych przesyłanych strumieniowo
 
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji na temat Power BI zestawów danych, zobacz temat
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 
 ## <a name="test-the-query"></a>Testowanie zapytania
@@ -221,7 +221,7 @@ Uwzględniając tę konfigurację, można zmienić oryginalne zapytanie na nast�
 ```
 
 ### <a name="renew-authorization"></a>Odnów autoryzację
-Jeśli hasło zostało zmienione od czasu utworzenia lub ostatniego uwierzytelnienia zadania, należy ponownie uwierzytelnić konto Power BI. Jeśli usługa Azure Multi-Factor Authentication jest skonfigurowana w dzierżawie Azure Active Directory (Azure AD), należy również odnowić Power BI autoryzację co dwa tygodnie. Jeśli nie odnowisz, zobaczysz objawy, takie jak brak danych wyjściowych zadania lub `Authenticate user error` w dziennikach operacji.
+Jeśli hasło zostało zmienione od czasu utworzenia lub ostatniego uwierzytelnienia zadania, należy ponownie uwierzytelnić konto Power BI. Jeśli usługa Azure AD Multi-Factor Authentication jest skonfigurowana w dzierżawie Azure Active Directory (Azure AD), należy również odnowić Power BI autoryzację co dwa tygodnie. Jeśli nie odnowisz, zobaczysz objawy, takie jak brak danych wyjściowych zadania lub `Authenticate user error` w dziennikach operacji.
 
 Podobnie, jeśli zadanie rozpoczyna się po wygaśnięciu tokenu, wystąpi błąd i zadanie kończy się niepowodzeniem. Aby rozwiązać ten problem, Zatrzymaj uruchomione zadanie i przejdź do danych wyjściowych Power BI. Aby uniknąć utraty danych, wybierz łącze **Odnów autoryzację** , a następnie uruchom ponownie zadanie od **czasu ostatniego zatrzymania**.
 

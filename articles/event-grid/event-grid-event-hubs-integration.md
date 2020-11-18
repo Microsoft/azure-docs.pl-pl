@@ -3,13 +3,13 @@ title: 'Samouczek: wysyłanie danych Event Hubs do magazynu danych — Event Gri
 description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event Hubs do migrowania danych do usługi Azure Synapse Analytics. Do pobierania pliku przechwytywania służy funkcja platformy Azure.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305267"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841380"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
 Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. Ten [Event Hubs i Event Grid integracji](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazują, jak używać Event Hubs z Event Grid, aby bezproblemowo migrować przechwycone dane Event Hubs z magazynu obiektów BLOB do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
@@ -56,7 +56,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Uruchamianie usługi Azure Cloud Shell w witrynie Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. Wybierz przycisk **Cloud Shell** u góry.
 
     ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
@@ -115,7 +115,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
         6. Nazwa usługi Azure Synapse Analytics
         7. Nazwa konta magazynu. 
         8. Nazwa aplikacji funkcji. 
-    3.  W oknie usługi Cloud Shell naciśnij klawisz **ENTER** , aby uruchomić polecenie. Ten proces może zająć trochę czasu, ponieważ tworzysz wiele zasobów. W wyniku wykonania polecenia upewnij się, że nie wystąpiły żadne błędy. 
+    3.  W oknie usługi Cloud Shell naciśnij klawisz **ENTER**, aby uruchomić polecenie. Ten proces może zająć trochę czasu, ponieważ tworzysz wiele zasobów. W wyniku wykonania polecenia upewnij się, że nie wystąpiły żadne błędy. 
     
 
 ### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
@@ -146,7 +146,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
         6. Nazwa usługi Azure Synapse Analytics
         7. Nazwa konta magazynu. 
         8. Nazwa aplikacji funkcji. 
-    3.  W oknie usługi Cloud Shell naciśnij klawisz **ENTER** , aby uruchomić polecenie. Ten proces może zająć trochę czasu, ponieważ tworzysz wiele zasobów. W wyniku wykonania polecenia upewnij się, że nie wystąpiły żadne błędy. 
+    3.  W oknie usługi Cloud Shell naciśnij klawisz **ENTER**, aby uruchomić polecenie. Ten proces może zająć trochę czasu, ponieważ tworzysz wiele zasobów. W wyniku wykonania polecenia upewnij się, że nie wystąpiły żadne błędy. 
 
 ### <a name="close-the-cloud-shell"></a>Zamykanie usługi Cloud Shell 
 Zamknij usługę Cloud Shell, wybierając przycisk **Cloud Shell** w portalu (lub) przycisk **X** w prawym górnym rogu okna usługi Cloud Shell. 
@@ -203,17 +203,17 @@ Utwórz tabelę w swoim magazynie danych, uruchamiając skrypt [CreateDataWareho
 ## <a name="publish-the-azure-functions-app"></a>Publikowanie aplikacji usługi Azure Functions
 
 1. Uruchom program Visual Studio.
-2. Otwórz rozwiązanie **EventHubsCaptureEventGridDemo.sln** , które zostało pobrane z repozytorium [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) w ramach wymagań wstępnych.
+2. Otwórz rozwiązanie **EventHubsCaptureEventGridDemo.sln**, które zostało pobrane z repozytorium [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) w ramach wymagań wstępnych.
 3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **FunctionEGDWDumper** i wybierz polecenie **Opublikuj**.
 
    ![Publikowanie aplikacji funkcji](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. Jeśli zostanie wyświetlony poniższy ekran, wybierz pozycję **Uruchom**. 
 
    ![Zrzut ekranu przedstawiający program Visual Studios z przyciskiem "Start" w sekcji Publikuj.](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. W oknie dialogowym **Publikowanie** wybierz pozycję **Azure** for **Target** , a następnie wybierz pozycję **dalej**. 
+5. W oknie dialogowym **Publikowanie** wybierz pozycję **Azure** for **Target**, a następnie wybierz pozycję **dalej**. 
 
    ![Przycisk uruchamiania publikowania](media/event-grid-event-hubs-integration/publish-select-azure.png)
-6. Wybierz pozycję **Azure aplikacja funkcji (Windows)** , a **następnie** wybierz pozycję Dalej. 
+6. Wybierz pozycję **Azure aplikacja funkcji (Windows)**, a **następnie** wybierz pozycję Dalej. 
 
    ![Wybierz pozycję Azure aplikacja funkcji — system Windows](media/event-grid-event-hubs-integration/select-azure-function-windows.png)
 7. Na karcie **wystąpienie funkcji** wybierz subskrypcję platformy Azure, rozwiń grupę zasobów i wybierz aplikację, a następnie wybierz pozycję **Zakończ**. Musisz zalogować się do konta platformy Azure, jeśli jeszcze tego nie zrobiono. 
