@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408944"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698805"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Kontrola zabezpieczeń v2: kopia zapasowa i odzyskiwanie
 
@@ -36,9 +36,9 @@ Aby zapewnić wyższy poziom ochrony, można włączyć opcję magazynu geografi
 
 - [Jak włączyć przywracanie między regionami](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zasady i standardy](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -58,7 +58,7 @@ Upewnij się, że kopie zapasowe są chronione przed atakami. Powinno to obejmow
 
 W przypadku lokalnych kopii zapasowych przy użyciu Azure Backup szyfrowanie jest dostarczane przy użyciu podanego hasła. W przypadku zwykłych kopii zapasowych usługi Azure dane kopii zapasowej są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez platformę Azure. Możesz zaszyfrować kopie zapasowe przy użyciu klucza zarządzanego przez klienta. W takim przypadku upewnij się, że ten klucz zarządzany przez klienta w magazynie kluczy należy również do zakresu kopii zapasowych. 
 
-Użyj kontroli dostępu opartej na rolach w Azure Backup, Azure Key Vault lub innych zasobów, aby chronić kopie zapasowe i klucze zarządzane przez klienta. Dodatkowo można włączyć zaawansowane funkcje zabezpieczeń, aby wymagać uwierzytelniania wieloskładnikowego, zanim będzie można zmienić lub usunąć kopie zapasowe.
+Użyj kontroli dostępu opartej na rolach platformy Azure w Azure Backup, Azure Key Vault lub innych zasobów, aby chronić kopie zapasowe i klucze zarządzane przez klienta. Dodatkowo można włączyć zaawansowane funkcje zabezpieczeń, aby wymagać uwierzytelniania wieloskładnikowego, zanim będzie można zmienić lub usunąć kopie zapasowe.
 
 - [Omówienie funkcji zabezpieczeń w programie Azure Backup](../../backup/security-overview.md)
 
@@ -68,9 +68,9 @@ Użyj kontroli dostępu opartej na rolach w Azure Backup, Azure Key Vault lub in
 
 - [Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe przed atakami](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -90,9 +90,9 @@ Okresowe wykonywanie przywracania danych kopii zapasowej. Upewnij się, że moż
 
 - [Jak przywrócić klucze Key Vault na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -108,9 +108,9 @@ Upewnij się, że masz środki, aby zapobiec utracie kluczy i je odzyskać. Wł�
 
 - [Jak włączyć funkcję usuwania nietrwałego i przeczyszczania w programie Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 

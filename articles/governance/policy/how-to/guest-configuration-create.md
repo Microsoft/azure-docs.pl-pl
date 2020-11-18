@@ -3,12 +3,12 @@ title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348886"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700684"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -144,7 +144,7 @@ Nazwa konfiguracji niestandardowej musi być spójna wszędzie. Nazwa pliku. zip
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Tworzenie szkieletu projektu konfiguracji gościa
 
-Deweloperzy, którzy chcą skrócić proces uruchamiania i pracy z przykładowego kodu, mogą zainstalować projekt społecznościowy o nazwie " **Projekt konfiguracji gościa** ". Projekt instaluje szablon dla modułu [gips](https://github.com/powershell/plaster) PowerShell. To narzędzie może służyć do tworzenia szkieletu projektu, w tym konfiguracji roboczej i przykładowego zasobu, oraz zestawu testów [szkodników](https://github.com/pester/pester) do sprawdzania poprawności projektu. Szablon zawiera również moduły uruchamiające zadania dla Visual Studio Code do automatyzacji kompilowania i weryfikowania pakietu konfiguracji gościa. Aby uzyskać więcej informacji, zobacz [Projekt konfiguracji gościa](https://github.com/microsoft/guestconfigurationproject)projektu GitHub.
+Deweloperzy, którzy chcą skrócić proces uruchamiania i pracy z przykładowego kodu, mogą zainstalować projekt społecznościowy o nazwie " **Projekt konfiguracji gościa**". Projekt instaluje szablon dla modułu [gips](https://github.com/powershell/plaster) PowerShell. To narzędzie może służyć do tworzenia szkieletu projektu, w tym konfiguracji roboczej i przykładowego zasobu, oraz zestawu testów [szkodników](https://github.com/pester/pester) do sprawdzania poprawności projektu. Szablon zawiera również moduły uruchamiające zadania dla Visual Studio Code do automatyzacji kompilowania i weryfikowania pakietu konfiguracji gościa. Aby uzyskać więcej informacji, zobacz [Projekt konfiguracji gościa](https://github.com/microsoft/guestconfigurationproject)projektu GitHub.
 
 Aby uzyskać więcej informacji o pracy z konfiguracjami ogólnymi, zobacz [Zapisywanie, kompilowanie i stosowanie konfiguracji](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
@@ -169,7 +169,7 @@ Przykłady obejmują repozytoria GitHub, repozytorium platformy Azure lub usług
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Krok po kroku, tworzenie niestandardowych zasad inspekcji konfiguracji Gości dla systemu Windows
 
-Utwórz konfigurację DSC w celu przeprowadzenia inspekcji ustawień. Poniższy przykład skryptu programu PowerShell tworzy konfigurację o nazwie **AuditBitLocker** , importuje moduł zasobów **PsDscResources** i używa tego `Service` zasobu do inspekcji dla działającej usługi. Skrypt konfiguracji można wykonać z komputera z systemem Windows lub macOS.
+Utwórz konfigurację DSC w celu przeprowadzenia inspekcji ustawień. Poniższy przykład skryptu programu PowerShell tworzy konfigurację o nazwie **AuditBitLocker**, importuje moduł zasobów **PsDscResources** i używa tego `Service` zasobu do inspekcji dla działającej usługi. Skrypt konfiguracji można wykonać z komputera z systemem Windows lub macOS.
 
 ```powershell
 # Add PSDscResources module to environment
@@ -202,9 +202,9 @@ Po skompilowaniu pliku MOF pliki pomocnicze muszą być spakowane razem. Ukończ
 
 `New-GuestConfigurationPackage`Polecenie cmdlet tworzy pakiet. Moduły, które są wymagane przez konfigurację, muszą być dostępne w programie `$Env:PSModulePath` . Parametry `New-GuestConfigurationPackage` polecenia cmdlet podczas tworzenia zawartości systemu Windows:
 
-- **Nazwa** : Nazwa pakietu konfiguracji gościa.
-- **Konfiguracja** : pełna ścieżka do skompilowanego dokumentu konfiguracji DSC.
-- **Ścieżka** : ścieżka folderu wyjściowego. Ten parametr jest opcjonalny. Jeśli nie zostanie określony, pakiet zostanie utworzony w bieżącym katalogu.
+- **Nazwa**: Nazwa pakietu konfiguracji gościa.
+- **Konfiguracja**: pełna ścieżka do skompilowanego dokumentu konfiguracji DSC.
+- **Ścieżka**: ścieżka folderu wyjściowego. Ten parametr jest opcjonalny. Jeśli nie zostanie określony, pakiet zostanie utworzony w bieżącym katalogu.
 
 Uruchom następujące polecenie, aby utworzyć pakiet przy użyciu konfiguracji podanych w poprzednim kroku:
 
@@ -220,9 +220,9 @@ Ponieważ agent rzeczywiście ocenia środowisko lokalne, w większości przypad
 
 Parametry `Test-GuestConfigurationPackage` polecenia cmdlet:
 
-- **Nazwa** : Nazwa zasad konfiguracji gościa.
-- **Parameter** : parametry zasad podane w formacie Hashtable.
-- **Ścieżka** : pełna ścieżka pakietu konfiguracji gościa.
+- **Nazwa**: Nazwa zasad konfiguracji gościa.
+- **Parameter**: parametry zasad podane w formacie Hashtable.
+- **Ścieżka**: pełna ścieżka pakietu konfiguracji gościa.
 
 Uruchom następujące polecenie, aby przetestować pakiet utworzony przez poprzedni krok:
 
@@ -247,13 +247,13 @@ Po utworzeniu i przekazaniu niestandardowego pakietu zasad konfiguracji gościa 
 
 Parametry `New-GuestConfigurationPolicy` polecenia cmdlet:
 
-- **ContentUri** : publiczny identyfikator URI http (s) dla pakietu zawartości konfiguracji gościa.
-- **DisplayName** : Nazwa wyświetlana zasad.
-- **Opis** : Opis zasad.
-- **Parameter** : parametry zasad podane w formacie Hashtable.
-- **Wersja** : wersja zasad.
-- **Ścieżka** : ścieżka docelowa, w której są tworzone definicje zasad.
-- **Platforma** : platforma docelowa (Windows/Linux) dla zasad konfiguracji gościa i pakietu zawartości.
+- **ContentUri**: publiczny identyfikator URI http (s) dla pakietu zawartości konfiguracji gościa.
+- **DisplayName**: Nazwa wyświetlana zasad.
+- **Opis**: Opis zasad.
+- **Parameter**: parametry zasad podane w formacie Hashtable.
+- **Wersja**: wersja zasad.
+- **Ścieżka**: ścieżka docelowa, w której są tworzone definicje zasad.
+- **Platforma**: platforma docelowa (Windows/Linux) dla zasad konfiguracji gościa i pakietu zawartości.
 - **Tag** dodaje jeden lub więcej filtrów tagów do definicji zasad
 - **Kategoria** ustawia pole metadanych kategorii w definicji zasad
 
@@ -371,7 +371,7 @@ Pakiety artefaktów dla konfiguracji gościa można rozszerzyć w celu uwzględn
 Rozszerzanie konfiguracji gościa wymaga opracowania dwóch składników.
 
 - Zasób konfiguracji żądanego stanu, który obsługuje wszystkie działania związane z zarządzaniem narzędziem innej firmy
-  - Zainstaluj
+  - Instalowanie
   - Invoke
   - Konwertuj dane wyjściowe
 - Zawartość w poprawnym formacie dla narzędzia do natywnego użycia
@@ -474,10 +474,10 @@ Pliki pomocnicze muszą być spakowane razem. Ukończony pakiet jest używany pr
 
 `New-GuestConfigurationPackage`Polecenie cmdlet tworzy pakiet. W przypadku zawartości innej firmy Użyj parametru **FilesToInclude** , aby dodać zawartość specyfikacji do pakietu. Nie musisz określać **ChefProfilePath** jako pakietów systemu Linux.
 
-- **Nazwa** : Nazwa pakietu konfiguracji gościa.
-- **Konfiguracja** : pełna ścieżka do skompilowanego dokumentu konfiguracyjnego.
-- **Ścieżka** : ścieżka folderu wyjściowego. Ten parametr jest opcjonalny. Jeśli nie zostanie określony, pakiet zostanie utworzony w bieżącym katalogu.
-- **FilesoInclude** : pełna ścieżka do profilu INSPEC.
+- **Nazwa**: Nazwa pakietu konfiguracji gościa.
+- **Konfiguracja**: pełna ścieżka do skompilowanego dokumentu konfiguracyjnego.
+- **Ścieżka**: ścieżka folderu wyjściowego. Ten parametr jest opcjonalny. Jeśli nie zostanie określony, pakiet zostanie utworzony w bieżącym katalogu.
+- **FilesoInclude**: pełna ścieżka do profilu INSPEC.
 
 Uruchom następujące polecenie, aby utworzyć pakiet przy użyciu konfiguracji podanych w poprzednim kroku:
 
@@ -496,9 +496,9 @@ Jeśli chcesz wydać aktualizację zasad, istnieją trzy pola, które wymagają 
 > [!NOTE]
 > `version`Właściwość przypisania konfiguracji gościa ma wpływ tylko na pakiety hostowane przez firmę Microsoft. Najlepszym rozwiązaniem w przypadku przechowywania wersji zawartości niestandardowej jest uwzględnienie wersji w nazwie pliku.
 
-- **Wersja** : po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany.
-- **contentUri** : po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić identyfikator URI dla lokalizacji pakietu. Dołączenie wersji pakietu do nazwy pliku zapewni zmianę wartości tej właściwości w każdej wersji.
-- **contentHash** : Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage` . Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
+- **Wersja**: po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany.
+- **contentUri**: po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić identyfikator URI dla lokalizacji pakietu. Dołączenie wersji pakietu do nazwy pliku zapewni zmianę wartości tej właściwości w każdej wersji.
+- **contentHash**: Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage` . Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
 
 Najprostszym sposobem zwolnienia zaktualizowanego pakietu jest powtórzenie procesu opisanego w tym artykule i udostępnienie zaktualizowanego numeru wersji. Ten proces gwarantuje, że wszystkie właściwości zostały prawidłowo zaktualizowane.
 
@@ -518,8 +518,8 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 Parametry `Protect-GuestConfigurationPackage` polecenia cmdlet:
 
-- **Ścieżka** : pełna ścieżka pakietu konfiguracji gościa.
-- **Certyfikat** : certyfikat podpisywania kodu w celu podpisania pakietu. Ten parametr jest obsługiwany tylko podczas podpisywania zawartości dla systemu Windows.
+- **Ścieżka**: pełna ścieżka pakietu konfiguracji gościa.
+- **Certyfikat**: certyfikat podpisywania kodu w celu podpisania pakietu. Ten parametr jest obsługiwany tylko podczas podpisywania zawartości dla systemu Windows.
 
 Agent GuestConfiguration oczekuje, że klucz publiczny certyfikatu ma być obecny w "zaufanych głównych urzędach certyfikacji" na maszynach z systemem Windows i w ścieżce `/usr/local/share/ca-certificates/extra` na komputerach z systemem Linux. Aby węzeł mógł zweryfikować podpisaną zawartość, przed zastosowaniem zasad niestandardowych Zainstaluj klucz publiczny certyfikatu na komputerze. Ten proces można wykonać przy użyciu dowolnej techniki wewnątrz maszyny wirtualnej lub za pomocą Azure Policy. Przykładowy szablon jest [dostępny tutaj](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
 Zasady dostępu Key Vault muszą zezwalać dostawcy zasobów obliczeniowych na dostęp do certyfikatów podczas wdrożeń. Aby uzyskać szczegółowe instrukcje, zobacz [konfigurowanie Key Vault dla maszyn wirtualnych w programie Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
@@ -532,12 +532,6 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
 Po opublikowaniu zawartości Dodaj tag o nazwie `GuestConfigPolicyCertificateValidation` i wartości `enabled` do wszystkich maszyn wirtualnych, na których powinno być wymagane podpisywanie kodu. Zapoznaj się z [przykładami znaczników](../samples/built-in-policies.md#tags) , w jaki sposób można dostarczyć Tagi na dużą skalę przy użyciu Azure Policy. Po zastosowaniu tego tagu definicja zasad wygenerowana przy użyciu `New-GuestConfigurationPolicy` polecenia cmdlet włącza wymaganie za pośrednictwem rozszerzenia konfiguracji gościa.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Rozwiązywanie problemów z przypisaniami zasad konfiguracji gościa (Podgląd)
-
-Narzędzie jest dostępne w wersji zapoznawczej, aby pomóc w rozwiązywaniu problemów z przypisaniami konfiguracji gościa Azure Policy. Narzędzie jest w wersji zapoznawczej i zostało opublikowane w Galeria programu PowerShell jako nazwa modułu [Narzędzia do rozwiązywania problemów z konfiguracją gościa](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Aby uzyskać więcej informacji na temat poleceń cmdlet w tym narzędziu, użyj polecenia Get-Help w programie PowerShell, aby wyświetlić wbudowane wskazówki. Ponieważ narzędzie pobiera częste aktualizacje, to najlepszy sposób uzyskiwania najnowszych informacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

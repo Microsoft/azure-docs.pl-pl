@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555536"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699750"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -30,7 +30,7 @@ W ramach tej samej dzierżawy Azure Active Directory musi istnieć źródłowa i
 
 ## <a name="workspace-move-considerations"></a>Zagadnienia dotyczące przenoszenia obszaru roboczego
 - Rozwiązania zarządzane, które są zainstalowane w obszarze roboczym, zostaną przeniesione z Log Analytics operacji przenoszenia obszaru roboczego. 
-- Klucze obszaru roboczego zostały ponownie wygenerowane przy użyciu przenoszenia obszaru roboczego (podstawowa i pomocnicza). Jeśli klucz obszaru roboczego jest magazynem, zaktualizuj je przy użyciu nowych wygenerowanych kluczy. 
+- Klucze obszaru roboczego (podstawowe i pomocnicze) zostały ponownie wygenerowane przy użyciu operacji przenoszenia obszaru roboczego. Jeśli przechowujesz kopię kluczy obszaru roboczego w magazynie kluczy, zaktualizuj je przy użyciu nowych kluczy generowanych po przeniesieniu obszaru roboczego. 
 - Połączone agenci pozostaną połączone i będą wysyłać dane do obszaru roboczego po przeniesieniu. 
 - Ponieważ operacja przenoszenia wymaga, aby w obszarze roboczym nie było żadnych połączonych usług, należy usunąć rozwiązania, które korzystają z tego linku, aby umożliwić przeniesienie obszaru roboczego. Rozwiązania, które należy usunąć, aby można było odłączyć konto usługi Automation:
   - Zarządzanie aktualizacjami

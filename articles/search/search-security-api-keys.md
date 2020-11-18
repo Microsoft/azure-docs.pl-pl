@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675578"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700226"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure
 
 Wszystkie żądania do usługi wyszukiwania muszą być tylko do odczytu `api-key` , które zostały wygenerowane w ramach usługi. `api-key`Jest jedynym mechanizmem uwierzytelniania dostępu do punktu końcowego usługi wyszukiwania i musi być uwzględniony w każdym żądaniu. 
 
-+ W [rozwiązaniach REST](search-get-started-postman.md)klucz API-Key jest zazwyczaj określony w nagłówku żądania
++ W [rozwiązaniach REST](search-get-started-rest.md)klucz API-Key jest zazwyczaj określony w nagłówku żądania
 
 + W [rozwiązaniach platformy .NET](search-howto-dotnet-sdk.md)klucz jest często określany jako ustawienie konfiguracji, a następnie przenoszona jako [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -35,7 +35,7 @@ Do uzyskiwania dostępu do usługi wyszukiwania są używane dwa typy kluczy: ad
 
 |Klucz|Opis|Limity|  
 |---------|-----------------|------------|  
-|Administracja|Przyznaje pełne prawa do wszystkich operacji, w tym możliwość zarządzania usługą, tworzenia i usuwania indeksów, indeksatorów i źródeł danych.<br /><br /> Dwa klucze administratora, określane jako klucze *podstawowe* i *pomocnicze* w portalu, są generowane podczas tworzenia usługi i mogą być osobno ponownie generowane na żądanie. Posiadanie dwóch kluczy umożliwia przewinięcie jednego klucza podczas korzystania z drugiego klucza w celu uzyskania ciągłego dostępu do usługi.<br /><br /> Klucze administratora są określone tylko w nagłówkach żądań HTTP. Nie można umieścić klucza API-Key administratora w adresie URL.|Maksymalnie 2 na usługę|  
+|Administrator|Przyznaje pełne prawa do wszystkich operacji, w tym możliwość zarządzania usługą, tworzenia i usuwania indeksów, indeksatorów i źródeł danych.<br /><br /> Dwa klucze administratora, określane jako klucze *podstawowe* i *pomocnicze* w portalu, są generowane podczas tworzenia usługi i mogą być osobno ponownie generowane na żądanie. Posiadanie dwóch kluczy umożliwia przewinięcie jednego klucza podczas korzystania z drugiego klucza w celu uzyskania ciągłego dostępu do usługi.<br /><br /> Klucze administratora są określone tylko w nagłówkach żądań HTTP. Nie można umieścić klucza API-Key administratora w adresie URL.|Maksymalnie 2 na usługę|  
 |Zapytanie|Przyznaje dostęp tylko do odczytu do indeksów i dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.<br /><br /> Klucze zapytań są tworzone na żądanie. Można je tworzyć ręcznie w portalu lub programowo za pośrednictwem [interfejsu API REST zarządzania](/rest/api/searchmanagement/).<br /><br /> Klucze zapytania można określić w nagłówku żądania HTTP dla operacji wyszukiwania, sugestii lub wyszukiwania. Alternatywnie można przekazać klucz zapytania jako parametr w adresie URL. W zależności od sposobu, w jaki aplikacja kliencka formułuje żądanie, może być łatwiejsze przekazanie klucza jako parametru zapytania:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 za usługę|  
 
  Wizualnie nie istnieje różnica między kluczem administratora lub kluczem zapytania. Oba klucze są ciągami składającymi się z 32 losowo generowanych znaków alfanumerycznych. W przypadku utraty informacji o typie klucza określonego w aplikacji można [sprawdzić wartości kluczy w portalu](https://portal.azure.com) lub użyć [interfejsu API REST](/rest/api/searchmanagement/) , aby zwrócić wartość i typ klucza.  
@@ -47,11 +47,11 @@ Do uzyskiwania dostępu do usługi wyszukiwania są używane dwa typy kluczy: ad
 
 Klucze dostępu można uzyskać w portalu lub za pomocą [interfejsu API REST zarządzania](/rest/api/searchmanagement/). Aby uzyskać więcej informacji, zobacz [Manage admin and Query API-Keys](search-security-api-keys.md).
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wyświetl listę [usług wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  dla Twojej subskrypcji.
 3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze** , aby wyświetlić klucze administratora i kwerendy.
 
-   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Strona portalu, Pobieranie ustawień, sekcja kluczy" border="false":::
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Strona portalu, ustawienia widoku, sekcja klucze" border="false":::
 
 ## <a name="create-query-keys"></a>Utwórz klucze zapytań
 
@@ -59,13 +59,13 @@ Klucze zapytań są używane na potrzeby dostępu tylko do odczytu do dokumentó
 
 Ograniczanie dostępu i operacji w aplikacjach klienckich jest niezbędne do ochrony zasobów wyszukiwania w usłudze. Zawsze używaj klucza zapytania zamiast klucza administratora dla dowolnego zapytania pochodzącego z aplikacji klienckiej.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wyświetl listę [usług wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  dla Twojej subskrypcji.
-3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze** .
-4. Kliknij pozycję **Zarządzaj kluczami zapytań** .
+3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze**.
+4. Kliknij pozycję **Zarządzaj kluczami zapytań**.
 5. Użyj klucza zapytania już wygenerowanego dla usługi lub Utwórz do 50 nowych kluczy zapytań. Domyślny klucz zapytania nie ma nazwy, ale dodatkowe klucze zapytania można nazwać do zarządzania.
 
-   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Strona portalu, Pobieranie ustawień, sekcja kluczy" border="false":::
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Tworzenie lub używanie klucza zapytania" border="false":::
 
 > [!Note]
 > Przykład kodu przedstawiający użycie klucza zapytania znajduje się w [kwerendzie na indeks wyszukiwanie poznawcze platformy Azure w języku C#](./search-get-started-dotnet.md).

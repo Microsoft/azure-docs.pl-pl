@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3520cbafc0e9eebfd6057fe92579a45873b25734
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410338"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698763"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Omówienie zarządzania i monitorowania zabezpieczeń platformy Azure
 Ten artykuł zawiera omówienie funkcji zabezpieczeń i usług oferowanych przez platformę Azure w celu ułatwienia zarządzania i monitorowania usług Azure Cloud Services i Virtual Machines.
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
-Role-Based Access Control (RBAC) zapewnia szczegółowe zarządzanie dostępem do zasobów platformy Azure. Za pomocą RBAC, można przyznać użytkownikom tylko dostęp do ich zadań. Kontrola RBAC może również pomóc w zapewnieniu, że osoby, które opuściją organizację, utracą dostęp do zasobów w chmurze.
+Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia szczegółowe zarządzanie dostępem do zasobów platformy Azure. Korzystając z funkcji RBAC systemu Azure, można przyznać użytkownikom tylko te osoby, których potrzebują do wykonywania swoich zadań. Kontrola RBAC systemu Azure może również pomóc w zapewnieniu, że osoby opuszczające organizację utracą dostęp do zasobów w chmurze.
 
 Więcej informacji:
 
-* [Blog zespołu Active Directory w sprawie RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Blog zespołu Active Directory na platformie Azure RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Oprogramowanie chroniące przed złośliwym kodem

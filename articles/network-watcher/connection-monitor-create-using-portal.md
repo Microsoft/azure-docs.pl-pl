@@ -1,7 +1,7 @@
 ---
-title: Utwórz Podgląd monitora połączeń — Azure Portal
+title: Utwórz monitor połączeń — Azure Portal
 titleSuffix: Azure Network Watcher
-description: W tym artykule opisano sposób tworzenia monitora w wersji zapoznawczej monitora połączeń przy użyciu Azure Portal.
+description: W tym artykule opisano sposób tworzenia monitora w monitorze połączeń przy użyciu Azure Portal.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 97d20f2b6b7b355ea5c810ad46b084f42b9bd6d1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447852"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699376"
 ---
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Tworzenie monitora w wersji zapoznawczej monitora połączeń przy użyciu Azure Portal
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń przy użyciu Azure Portal
 
-Informacje na temat używania podglądu monitora połączeń do monitorowania komunikacji między zasobami. W tym artykule opisano sposób tworzenia monitora przy użyciu Azure Portal. Monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure.
+Dowiedz się, jak używać monitora połączeń do monitorowania komunikacji między zasobami. W tym artykule opisano sposób tworzenia monitora przy użyciu Azure Portal. Monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
-W monitorach połączeń utworzonych przy użyciu wersji zapoznawczej monitora połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub w innym adresie URL lub IP.
+W monitorach połączeń utworzonych przy użyciu monitora połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub w innym adresie URL lub IP.
 
 Oto kilka definicji, które ułatwią rozpoczęcie pracy:
 
@@ -47,24 +47,24 @@ Oto kilka definicji, które ułatwią rozpoczęcie pracy:
 
 ## <a name="create-a-connection-monitor"></a>Tworzenie monitora połączeń
 
-Aby utworzyć monitor w podglądzie monitora połączeń przy użyciu Azure Portal:
+Aby utworzyć monitor w monitorze połączeń przy użyciu Azure Portal:
 
 1. Na stronie głównej Azure Portal przejdź do **Network Watcher**.
-1. W okienku po lewej stronie w sekcji **monitorowanie** wybierz pozycję **monitor połączeń (wersja zapoznawcza)**.
+1. W okienku po lewej stronie w sekcji **monitorowanie** wybierz pozycję **monitor połączeń**.
 
-   Zobaczysz wszystkie monitory połączeń, które zostały utworzone w wersji zapoznawczej monitora połączeń. Aby wyświetlić monitory połączeń, które zostały utworzone w klasycznym monitorze połączeń, przejdź do karty **monitor połączeń** .
+   Zobaczysz wszystkie monitory połączeń, które zostały utworzone w monitorze połączenia. Aby wyświetlić monitory połączeń, które zostały utworzone w klasycznym monitorze połączeń, przejdź do karty **monitor połączeń** .
 
-   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń utworzone w wersji zapoznawczej monitora połączeń.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń utworzone w monitorze połączeń.":::
    
     
-1. Na pulpicie nawigacyjnym **monitor połączeń (wersja zapoznawcza)** w lewym górnym rogu wybierz pozycję **Utwórz**.
+1. Na pulpicie nawigacyjnym **monitora połączeń** w lewym górnym rogu wybierz pozycję **Utwórz**.
 
    
 
 1. Na karcie **podstawowe** wprowadź informacje dotyczące monitora połączeń: 
-   * **Nazwa monitora połączeń** : Wprowadź nazwę monitora połączeń. Użyj standardowych reguł nazewnictwa dla zasobów platformy Azure.
-   * **Subskrypcja** : wybierz subskrypcję dla monitora połączeń.
-   * **Region** : Wybierz region monitora połączeń. Można wybrać tylko źródłowe maszyny wirtualne, które są tworzone w tym regionie.
+   * **Nazwa monitora połączeń**: Wprowadź nazwę monitora połączeń. Użyj standardowych reguł nazewnictwa dla zasobów platformy Azure.
+   * **Subskrypcja**: wybierz subskrypcję dla monitora połączeń.
+   * **Region**: Wybierz region monitora połączeń. Można wybrać tylko źródłowe maszyny wirtualne, które są tworzone w tym regionie.
    * **Konfiguracja obszaru** roboczego: Wybierz niestandardowy obszar roboczy lub domyślny obszar roboczy. Obszar roboczy zawiera dane monitorowania.
        * Aby użyć domyślnego obszaru roboczego, zaznacz to pole wyboru. 
        * Aby wybrać niestandardowy obszar roboczy, usuń zaznaczenie pola wyboru. Następnie wybierz subskrypcję i region dla niestandardowego obszaru roboczego. 
@@ -86,13 +86,13 @@ Aby utworzyć monitor w podglądzie monitora połączeń przy użyciu Azure Port
 1. Przed utworzeniem monitora połączeń na karcie **Przegląd + tworzenie** Przejrzyj podstawowe informacje i grupy testowe. Jeśli musisz edytować monitor połączeń, możesz to zrobić, wracając do odpowiednich kart. 
    :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="Zrzut ekranu pokazujący kartę Przegląd i tworzenie w monitorze połączeń.":::
    > [!NOTE] 
-   > Karta **Przegląd + tworzenie** pokazuje koszt miesięcznie na etapie wersji zapoznawczej monitora połączenia. Obecnie w kolumnie **bieżący koszt/miesiąc** nie jest naliczana opłata. Gdy monitor połączeń będzie ogólnie dostępny, w tej kolumnie będzie wyświetlana opłata miesięczna. 
+   > Karta **Przegląd + tworzenie** pokazuje koszt miesięcznie na etapie monitora połączenia. Obecnie w kolumnie **bieżący koszt/miesiąc** nie jest naliczana opłata. Gdy monitor połączeń będzie ogólnie dostępny, w tej kolumnie będzie wyświetlana opłata miesięczna. 
    > 
-   > Nawet w ramach etapu wersji zapoznawczej monitora połączeń obowiązują Log Analytics opłaty za pozyskiwanie.
+   > Nawet w trakcie etapu monitora połączeń obowiązują Log Analytics opłaty za pozyskiwanie.
 
 1. Gdy wszystko będzie gotowe do utworzenia monitora połączeń, w dolnej części karty **Recenzja + tworzenie** wybierz pozycję **Utwórz**.
 
-Podgląd monitora połączeń tworzy zasób monitora połączeń w tle.
+Monitor połączeń tworzy zasób monitora połączeń w tle.
 
 ## <a name="create-test-groups-in-a-connection-monitor"></a>Tworzenie grup testowych w monitorze połączeń
 
@@ -100,9 +100,9 @@ Każda grupa testowa w monitorze połączeń zawiera źródła i miejsca docelow
 
 W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy określić wartości dla następujących pól:
 
-* **Wyłącz grupę testową** : można zaznaczyć to pole wyboru, aby wyłączyć monitorowanie dla wszystkich źródeł i miejsc docelowych, które określa Grupa testowa. Ten wybór jest domyślnie wyczyszczony.
-* **Nazwa** : nadaj nazwę grupie testowej.
-* **Źródła** : można określić maszyny wirtualne platformy Azure i maszyny lokalne jako źródła, jeśli agenci są na nich zainstalowani. Aby dowiedzieć się więcej o instalowaniu agenta dla źródła, zobacz [Instalowanie agentów monitorowania](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Wyłącz grupę testową**: można zaznaczyć to pole wyboru, aby wyłączyć monitorowanie dla wszystkich źródeł i miejsc docelowych, które określa Grupa testowa. Ten wybór jest domyślnie wyczyszczony.
+* **Nazwa**: nadaj nazwę grupie testowej.
+* **Źródła**: można określić maszyny wirtualne platformy Azure i maszyny lokalne jako źródła, jeśli agenci są na nich zainstalowani. Aby dowiedzieć się więcej o instalowaniu agenta dla źródła, zobacz [Instalowanie agentów monitorowania](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
    * Aby wybrać agentów platformy Azure, wybierz kartę **punkty końcowe platformy Azure** . W tym miejscu są wyświetlane tylko maszyny wirtualne, które są powiązane z regionem określonym podczas tworzenia monitora połączeń. Domyślnie maszyny wirtualne są pogrupowane w subskrypcję, do której należą. Te grupy są zwinięte. 
    
        Możesz przejść do szczegółów z poziomu **subskrypcji** na inne poziomy w hierarchii:
@@ -127,7 +127,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
    
    * Po zakończeniu konfigurowania źródeł wybierz pozycję **gotowe** w dolnej części karty. Można nadal edytować podstawowe właściwości, takie jak nazwa punktu końcowego, wybierając punkt końcowy w widoku **Tworzenie grupy testowej** . 
 
-* **Miejsca docelowe** : możesz monitorować łączność z maszyną wirtualną platformy Azure, maszyną lokalną lub dowolnym punktem końcowym (publicznym adresem IP, URL lub nazwą FQDN) przez określenie go jako miejsca docelowego. W ramach pojedynczej grupy testowej można dodać maszyny wirtualne platformy Azure, usługi lokalne, adresy URL pakietu Office 365, adresy URL Dynamics 365 i niestandardowe punkty końcowe.
+* **Miejsca docelowe**: możesz monitorować łączność z maszyną wirtualną platformy Azure, maszyną lokalną lub dowolnym punktem końcowym (publicznym adresem IP, URL lub nazwą FQDN) przez określenie go jako miejsca docelowego. W ramach pojedynczej grupy testowej można dodać maszyny wirtualne platformy Azure, usługi lokalne, adresy URL pakietu Office 365, adresy URL Dynamics 365 i niestandardowe punkty końcowe.
 
     * Aby wybrać maszyny wirtualne platformy Azure jako miejsca docelowe, wybierz kartę **punkty końcowe platformy Azure** . Domyślnie maszyny wirtualne platformy Azure są pogrupowane w hierarchię subskrypcji, która znajduje się w regionie wybranym w obszarze **Utwórz monitor połączeń** na karcie **podstawy** . Możesz zmienić region i wybrać maszyny wirtualne platformy Azure z nowego regionu. Następnie możesz przejść do szczegółów z poziomu **subskrypcji** na inne poziomy w hierarchii, tak jak podczas ustawiania źródłowych punktów końcowych platformy Azure.
 
@@ -155,18 +155,18 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
     * Aby wybrać ostatnio używane punkty końcowe, przejdź do karty **Ostatnia wersja punktu końcowego**   .
     * Po zakończeniu wybierania miejsc docelowych wybierz pozycję **gotowe**. Można nadal edytować podstawowe właściwości, takie jak nazwa punktu końcowego, wybierając punkt końcowy w widoku **Tworzenie grupy testowej** . 
 
-* **Konfiguracje testów** : można dodać co najmniej jedną konfigurację testową do grupy testowej. Utwórz nową konfigurację testu za pomocą nowej karty **Konfiguracja** . Lub Dodaj konfigurację testową z innej grupy testowej w tym samym monitorze połączeń z karty **Wybierz istniejące** .
+* **Konfiguracje testów**: można dodać co najmniej jedną konfigurację testową do grupy testowej. Utwórz nową konfigurację testu za pomocą nowej karty **Konfiguracja** . Lub Dodaj konfigurację testową z innej grupy testowej w tym samym monitorze połączeń z karty **Wybierz istniejące** .
 
-    * **Nazwa konfiguracji testu** : Nazwij konfigurację testu.
-    * **Protokół** : wybierz opcję **TCP** , **ICMP** lub **http**. Aby zmienić protokół HTTP na HTTPS, wybierz pozycję **http** jako protokół, a następnie wybierz pozycję **443** jako port.
-        * **Utwórz konfigurację testu TCP** : to pole wyboru jest wyświetlane tylko w przypadku wybrania z listy **protokołów** protokołu **http** . Zaznacz to pole wyboru, aby utworzyć kolejną konfigurację testu, która używa tych samych źródeł i miejsc docelowych, które zostały określone w innym miejscu konfiguracji. Nowa konfiguracja testu ma nazwę **\<name of test configuration> _networkTestConfig**.
-        * **Wyłącz traceroute** : to pole wyboru ma zastosowanie, gdy protokół to TCP lub ICMP. Zaznacz to pole, aby zatrzymać odnajdywanie topologii i RTT przeskoków przez przeskok.
-    * **Port docelowy** : można podać wybrany port docelowy.
-        * **Nasłuchiwanie na porcie** : to pole wyboru jest stosowane, gdy protokół jest TCP. Zaznacz to pole wyboru, aby otworzyć wybrany port TCP, jeśli nie jest jeszcze otwarty. 
-    * **Częstotliwość testów** : na tej liście Określ, jak często źródła będą wysyłać polecenia ping do miejsc docelowych w określonym protokole i porcie. Możesz wybrać 30 sekund, 1 minutę, 5 minut, 15 minut lub 30 minut. Wybierz opcję **niestandardowy** , aby wprowadzić kolejną częstotliwość, która należy do zakresu od 30 sekund do 30 minut. Źródła przetestują łączność do miejsc docelowych na podstawie wybranej wartości. Jeśli na przykład wybierzesz 30 sekund, źródła będą sprawdzać łączność z miejscem docelowym co najmniej raz w każdym okresie 30 sekund.
-    * **Próg sukcesu** : można ustawić progi dla następujących parametrów sieci:
-       * **Sprawdzenie nie powiodło się** : Ustaw procent kontroli, które mogą zakończyć się niepowodzeniem, gdy źródła sprawdzają łączność z lokalizacjami docelowymi przy użyciu określonych kryteriów. W przypadku protokołu TCP lub ICMP wartość procentowa nieudanych testów może być równa wartości procentowej utraty pakietów. W przypadku protokołu HTTP Ta wartość reprezentuje procent żądań HTTP, które nie otrzymały odpowiedzi.
-       * **Czas błądzenia** : Ustaw wartość RTT (w milisekundach), o jaką można wykonać długie źródła, aby połączyć się z miejscem docelowym za pośrednictwem konfiguracji testu.
+    * **Nazwa konfiguracji testu**: Nazwij konfigurację testu.
+    * **Protokół**: wybierz opcję **TCP**, **ICMP** lub **http**. Aby zmienić protokół HTTP na HTTPS, wybierz pozycję **http** jako protokół, a następnie wybierz pozycję **443** jako port.
+        * **Utwórz konfigurację testu TCP**: to pole wyboru jest wyświetlane tylko w przypadku wybrania z listy **protokołów** protokołu **http** . Zaznacz to pole wyboru, aby utworzyć kolejną konfigurację testu, która używa tych samych źródeł i miejsc docelowych, które zostały określone w innym miejscu konfiguracji. Nowa konfiguracja testu ma nazwę **\<name of test configuration> _networkTestConfig**.
+        * **Wyłącz traceroute**: to pole wyboru ma zastosowanie, gdy protokół to TCP lub ICMP. Zaznacz to pole, aby zatrzymać odnajdywanie topologii i RTT przeskoków przez przeskok.
+    * **Port docelowy**: można podać wybrany port docelowy.
+        * **Nasłuchiwanie na porcie**: to pole wyboru jest stosowane, gdy protokół jest TCP. Zaznacz to pole wyboru, aby otworzyć wybrany port TCP, jeśli nie jest jeszcze otwarty. 
+    * **Częstotliwość testów**: na tej liście Określ, jak często źródła będą wysyłać polecenia ping do miejsc docelowych w określonym protokole i porcie. Możesz wybrać 30 sekund, 1 minutę, 5 minut, 15 minut lub 30 minut. Wybierz opcję **niestandardowy** , aby wprowadzić kolejną częstotliwość, która należy do zakresu od 30 sekund do 30 minut. Źródła przetestują łączność do miejsc docelowych na podstawie wybranej wartości. Jeśli na przykład wybierzesz 30 sekund, źródła będą sprawdzać łączność z miejscem docelowym co najmniej raz w każdym okresie 30 sekund.
+    * **Próg sukcesu**: można ustawić progi dla następujących parametrów sieci:
+       * **Sprawdzenie nie powiodło się**: Ustaw procent kontroli, które mogą zakończyć się niepowodzeniem, gdy źródła sprawdzają łączność z lokalizacjami docelowymi przy użyciu określonych kryteriów. W przypadku protokołu TCP lub ICMP wartość procentowa nieudanych testów może być równa wartości procentowej utraty pakietów. W przypadku protokołu HTTP Ta wartość reprezentuje procent żądań HTTP, które nie otrzymały odpowiedzi.
+       * **Czas błądzenia**: Ustaw wartość RTT (w milisekundach), o jaką można wykonać długie źródła, aby połączyć się z miejscem docelowym za pośrednictwem konfiguracji testu.
        
    :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Zrzut ekranu pokazujący, gdzie skonfigurować konfigurację testu w monitorze połączeń.":::
        
@@ -176,17 +176,17 @@ Można skonfigurować alerty dotyczące testów, które kończą się niepowodze
 
 W Azure Portal, aby utworzyć alerty dla monitora połączeń, należy określić wartości dla tych pól: 
 
-- **Utwórz alert** : możesz zaznaczyć to pole wyboru, aby utworzyć alert dotyczący metryki w Azure monitor. Po zaznaczeniu tego pola wyboru pozostałe pola zostaną włączone do edycji. Opłaty zostaną naliczone na podstawie [cen alertów](https://azure.microsoft.com/pricing/details/monitor/). 
+- **Utwórz alert**: możesz zaznaczyć to pole wyboru, aby utworzyć alert dotyczący metryki w Azure monitor. Po zaznaczeniu tego pola wyboru pozostałe pola zostaną włączone do edycji. Opłaty zostaną naliczone na podstawie [cen alertów](https://azure.microsoft.com/pricing/details/monitor/). 
 
-- **Zakres**  >  **Zasób**  >  **Hierarchia** : te wartości są wypełniane automatycznie na podstawie wartości określonych na karcie **podstawy** .
+- **Zakres**  >  **Zasób**  >  **Hierarchia**: te wartości są wypełniane automatycznie na podstawie wartości określonych na karcie **podstawy** .
 
-- **Nazwa warunku** : alert jest tworzony w ramach `Test Result(preview)` metryki. Gdy wynik testu monitora połączeń ma wynik niepowodzeniem, reguła alertu zostanie wyzwolona. 
+- **Nazwa warunku**: alert jest tworzony w ramach `Test Result(preview)` metryki. Gdy wynik testu monitora połączeń ma wynik niepowodzeniem, reguła alertu zostanie wyzwolona. 
 
-- **Nazwa grupy akcji** : możesz wprowadzić swój adres e-mail bezpośrednio lub można utworzyć alerty za pomocą grup akcji. Jeśli adres e-mail zostanie wprowadzony bezpośrednio, zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** . Identyfikator e-mail zostanie dodany do tej grupy akcji. W przypadku wybrania opcji używania grup akcji należy wybrać wcześniej utworzoną grupę akcji. Aby dowiedzieć się, jak utworzyć grupę akcji, zobacz [Tworzenie grup akcji w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Po utworzeniu alertu możesz [zarządzać alertami](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Nazwa grupy akcji**: możesz wprowadzić swój adres e-mail bezpośrednio lub można utworzyć alerty za pomocą grup akcji. Jeśli adres e-mail zostanie wprowadzony bezpośrednio, zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** . Identyfikator e-mail zostanie dodany do tej grupy akcji. W przypadku wybrania opcji używania grup akcji należy wybrać wcześniej utworzoną grupę akcji. Aby dowiedzieć się, jak utworzyć grupę akcji, zobacz [Tworzenie grup akcji w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Po utworzeniu alertu możesz [zarządzać alertami](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
 
-- **Nazwa reguły alertu** : Nazwa monitora połączeń.
+- **Nazwa reguły alertu**: Nazwa monitora połączeń.
 
-- **Włącz regułę przy tworzeniu** : zaznacz to pole wyboru, aby włączyć regułę alertu na podstawie warunku. Wyłącz to pole wyboru, jeśli chcesz utworzyć regułę bez włączania jej. 
+- **Włącz regułę przy tworzeniu**: zaznacz to pole wyboru, aby włączyć regułę alertu na podstawie warunku. Wyłącz to pole wyboru, jeśli chcesz utworzyć regułę bez włączania jej. 
 
 :::image type="content" source="./media/connection-monitor-2-preview/create-alert-filled.png" alt-text="Zrzut ekranu przedstawiający kartę tworzenie alertu w monitorze połączeń.":::
 

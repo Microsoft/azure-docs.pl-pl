@@ -1,6 +1,6 @@
 ---
-title: Monitor połączeń (wersja zapoznawcza) | Microsoft Docs
-description: Dowiedz się, jak używać monitora połączeń (wersja zapoznawcza) do monitorowania komunikacji sieciowej w środowisku rozproszonym.
+title: Monitor połączeń | Microsoft Docs
+description: Dowiedz się, jak używać monitora połączeń do monitorowania komunikacji sieciowej w środowisku rozproszonym.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447827"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699240"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorowanie łączności sieciowej z monitorem połączeń (wersja zapoznawcza)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
 
-Monitor połączeń (wersja zapoznawcza) zapewnia ujednolicone kompleksowe monitorowanie połączeń w usłudze Azure Network Watcher. Funkcja monitor połączeń (wersja zapoznawcza) obsługuje wdrożenia hybrydowe i chmurowe platformy Azure. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania i wyświetlania metryk związanych z łącznością dla wdrożeń platformy Azure.
+Monitor połączeń zapewnia ujednolicone kompleksowe monitorowanie połączeń w usłudze Azure Network Watcher. Funkcja monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania i wyświetlania metryk związanych z łącznością dla wdrożeń platformy Azure.
 
-Poniżej przedstawiono niektóre przypadki użycia monitora połączeń (wersja zapoznawcza):
+Poniżej przedstawiono niektóre przypadki użycia monitora połączeń:
 
 - Maszyna wirtualna serwera frontonu sieci Web komunikuje się z maszyną wirtualną serwera bazy danych w aplikacji wielowarstwowej. Chcesz sprawdzić łączność sieciową między dwiema maszynami wirtualnymi.
 - Chcesz, aby maszyny wirtualne w regionie Wschodnie stany USA mogli wysyłać polecenia ping do maszyn wirtualnych w regionie Środkowe stany USA, a chcesz porównać opóźnienia sieci między regionami.
@@ -34,9 +34,9 @@ Poniżej przedstawiono niektóre przypadki użycia monitora połączeń (wersja 
 - Aplikacja hybrydowa wymaga połączenia z punktem końcowym usługi Azure Storage. Lokacja lokalna i aplikacja platformy Azure nawiązują połączenie z tym samym punktem końcowym usługi Azure Storage. Chcesz porównać opóźnienia lokacji lokalnej z opóźnieniami aplikacji platformy Azure.
 - Chcesz sprawdzić łączność między konfiguracjami lokalnymi i maszynami wirtualnymi platformy Azure, które obsługują aplikację w chmurze.
 
-W fazie zapoznawczej monitor połączenia łączy najlepsze dwie funkcje: funkcja Network Watcher [monitor połączeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) oraz [monitor łączności usługi](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)Network Performance Monitor (npm), [monitorowanie ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)i [monitorowanie wydajności](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
+Monitor połączeń łączy najlepsze dwie funkcje: funkcja [monitor połączeń Network Watcher (klasyczna)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) i [monitor łączności usługi](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)Network Performance Monitor (npm), [monitorowanie ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)i [monitorowanie wydajności](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
 
-Poniżej przedstawiono niektóre zalety usługi Connection monitor (wersja zapoznawcza):
+Poniżej przedstawiono niektóre zalety monitora połączeń:
 
 * Ujednolicone, intuicyjne środowisko dla platform Azure i wymagania dotyczące monitorowania hybrydowego
 * Międzyregionowe Monitorowanie łączności między obszarami roboczymi
@@ -47,7 +47,7 @@ Poniżej przedstawiono niektóre zalety usługi Connection monitor (wersja zapoz
 
 ![Diagram przedstawiający sposób interakcji monitora połączeń z maszynami wirtualnymi platformy Azure, hostami spoza platformy Azure, punktami końcowymi i lokalizacjami przechowywania danych](./media/connection-monitor-2-preview/hero-graphic.png)
 
-Aby rozpocząć korzystanie z narzędzia Monitor połączeń (wersja zapoznawcza) do monitorowania, wykonaj następujące kroki: 
+Aby rozpocząć korzystanie z monitora połączeń do monitorowania, wykonaj następujące kroki: 
 
 1. Zainstaluj agentów monitorowania.
 1. Włącz Network Watcher w ramach subskrypcji.
@@ -59,7 +59,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące tych kroków.
 
 ## <a name="install-monitoring-agents"></a>Zainstaluj agentów monitorowania
 
-Monitor połączeń opiera się na lekkich plikach wykonywalnych w celu uruchomienia kontroli łączności.  Obsługuje ona sprawdzanie łączności ze środowiskami platformy Azure i środowiskami lokalnymi. Plik wykonywalny, którego używasz, zależy od tego, czy maszyna wirtualna jest hostowana na platformie Azure, czy lokalnie.
+Monitor połączeń opiera się na lekkich plikach wykonywalnych w celu uruchomienia kontroli łączności. Obsługuje ona sprawdzanie łączności ze środowiskami platformy Azure i środowiskami lokalnymi. Plik wykonywalny, którego używasz, zależy od tego, czy maszyna wirtualna jest hostowana na platformie Azure, czy lokalnie.
 
 ### <a name="agents-for-azure-virtual-machines"></a>Agenci usługi Azure Virtual Machines
 
@@ -89,19 +89,19 @@ Monitor połączeń monitoruje komunikację w regularnych odstępach czasu. Info
 
 Źródłami mogą być maszyny wirtualne platformy Azure lub maszyny lokalne z zainstalowanym agentem monitorowania. Docelowymi punktami końcowymi mogą być Microsoft 365 adresów URL, Dynamics 365 adresów URL, niestandardowych adresów URL, identyfikatorów zasobów maszyn wirtualnych platformy Azure, adresów IPv4, IPv6, nazw FQDN lub dowolnych nazw domen.
 
-### <a name="access-connection-monitor-preview"></a>Monitor połączenia dostępu (wersja zapoznawcza)
+### <a name="access-connection-monitor"></a>Dostęp do monitora połączeń
 
 1. Na stronie głównej Azure Portal przejdź do **Network Watcher**.
-1. Po lewej stronie w sekcji **monitorowanie** wybierz pozycję **monitor połączeń (wersja zapoznawcza)**.
-1. Zobaczysz wszystkie monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza). Aby wyświetlić monitory połączeń, które zostały utworzone w klasycznym środowisku monitora połączeń, przejdź do karty **monitor połączeń** .
+1. Po lewej stronie w sekcji **monitorowanie** wybierz pozycję **monitor połączeń**.
+1. Zobaczysz wszystkie monitory połączeń, które zostały utworzone w monitorze połączenia. Aby wyświetlić monitory połączeń, które zostały utworzone w klasycznym środowisku monitora połączeń, przejdź do karty **monitor połączeń** .
     
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>Tworzenie monitora połączeń
 
-W monitorach połączeń utworzonych w monitorze połączeń (wersja zapoznawcza) można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
+W monitorach połączeń utworzonych w monitorze połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 
-Monitor połączeń (wersja zapoznawcza) zawiera następujące jednostki:
+Monitor połączeń obejmuje następujące jednostki:
 
 * **Zasób monitora połączeń** — zasób platformy Azure specyficzny dla regionu. Wszystkie poniższe jednostki są właściwościami zasobu monitora połączeń.
 * **Endpoint** — Źródło lub miejsce docelowe, które uczestniczy w sprawdzaniu łączności. Przykładowe punkty końcowe obejmują maszyny wirtualne platformy Azure, agentów lokalnych, adresy URL i adresy IP.
@@ -111,7 +111,7 @@ Monitor połączeń (wersja zapoznawcza) zawiera następujące jednostki:
 
  ![Diagram przedstawiający monitor połączeń, który definiuje relację między grupami testów i testami](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Podgląd monitora połączeń można utworzyć przy użyciu [Azure Portal](connection-monitor-preview-create-using-portal.md) lub [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Monitor połączeń można utworzyć przy użyciu [Azure Portal](connection-monitor-preview-create-using-portal.md) lub [ARMClient](connection-monitor-preview-create-using-arm-client.md)
 
 Wszystkie źródła, miejsca docelowe i konfiguracje testów dodawane do grupy testowej są podzielone na poszczególne testy. Oto przykład sposobu, w jaki źródła i miejsca docelowe są podzielone:
 
@@ -151,7 +151,7 @@ Po utworzeniu monitora połączeń źródła sprawdzają łączność z miejscem
 
 ### <a name="checks-in-a-test"></a>Sprawdza w teście
 
-W zależności od protokołu, który został wybrany w konfiguracji testu, monitor połączeń (wersja zapoznawcza) uruchamia serię testów dla pary Source-Destination. Kontrole są przeprowadzane zgodnie z wybraną częstotliwością testu.
+W zależności od protokołu, który został wybrany w konfiguracji testu, monitor połączeń uruchamia serię kontroli pary Source-Destination. Kontrole są przeprowadzane zgodnie z wybraną częstotliwością testu.
 
 W przypadku korzystania z protokołu HTTP usługa oblicza liczbę odpowiedzi HTTP, które zwróciły prawidłowy kod odpowiedzi. Prawidłowe kody odpowiedzi można ustawić przy użyciu programu PowerShell i interfejsu wiersza polecenia. Wynik określa procent testów zakończonych niepowodzeniem. Aby obliczyć RTT, usługa mierzy czas między wywołaniem HTTP a odpowiedzią.
 
@@ -164,14 +164,14 @@ Na podstawie danych zwracanych przez testy testy mogą mieć następujące stany
 * Wartości **Pass** — rzeczywiste dla procentu nieudanych testów i RTT znajdują się w określonych progach.
 * **Niepowodzenie** — wartości rzeczywiste dla procentu nieudanych testów lub RTT przekroczyły określone progi. Jeśli nie określono progu, test osiągnie stan niepowodzenia, gdy procent testów zakończonych niepowodzeniem wynosi 100.
 * **Ostrzeżenie** — 
-     * Jeśli określono próg, a monitor połączeń (wersja zapoznawcza) sprawdza, czy procent nie powiódł się więcej niż 80% wartości progowej, test jest oznaczany jako ostrzeżenie.
-     * W przypadku braku określonych progów monitor połączeń (wersja zapoznawcza) automatycznie przypisuje próg. Po przekroczeniu tego progu stan testu zmieni się na ostrzeżenie.W przypadku czasu błądzenia w testach TCP lub ICMP próg jest 750msec. W przypadku czeków zakończonych niepowodzeniem wartość progowa wynosi 10%. 
+     * Jeśli jest określony próg, a monitor połączenia sprawdza, czy procent nie powiódł się więcej niż 80% wartości progowej, test jest oznaczany jako ostrzeżenie.
+     * W przypadku braku określonych progów monitor połączeń automatycznie przypisuje próg. Po przekroczeniu tego progu stan testu zmieni się na ostrzeżenie.W przypadku czasu błądzenia w testach TCP lub ICMP próg jest 750msec. W przypadku czeków zakończonych niepowodzeniem wartość progowa wynosi 10%. 
 * **Nieokreślone**   — Brak danych w obszarze roboczym Log Analytics.Sprawdź metryki. 
 * **Nie uruchomiono**   — Wyłączone przez wyłączenie grupy testowej  
 
 ### <a name="data-collection-analysis-and-alerts"></a>Zbieranie danych, analiza i alerty
 
-Dane zbierane przez Monitor połączeń (wersja zapoznawcza) są przechowywane w obszarze roboczym Log Analytics. Ten obszar roboczy jest skonfigurowany podczas tworzenia monitora połączeń. 
+Dane zbierane przez Monitor połączeń są przechowywane w obszarze roboczym Log Analytics. Ten obszar roboczy jest skonfigurowany podczas tworzenia monitora połączeń. 
 
 Dane monitorowania są również dostępne w metrykach Azure Monitor. Możesz użyć Log Analytics, aby zachować swoje dane monitorowania tak długo, jak chcesz. Azure Monitor przechowuje metryki tylko przez 30 dni. 
 
@@ -181,7 +181,7 @@ Dane monitorowania są również dostępne w metrykach Azure Monitor. Możesz u�
 
 Na pulpitach nawigacyjnych monitorowania zostanie wyświetlona lista monitorów połączeń, do których można uzyskać dostęp do subskrypcji, regionów, sygnatur czasowych, źródeł i typów docelowych.
 
-Po przejściu do monitora połączeń (wersja zapoznawcza) z Network Watcher można wyświetlić dane według:
+Po przejściu do monitora połączeń z Network Watcher można wyświetlić dane według:
 
 * **Monitor połączeń** — lista wszystkich monitorów połączeń utworzonych dla subskrypcji, regionów, sygnatur czasowych, źródeł i typów docelowych. Ten widok jest domyślny.
 * **Grupy testów** — lista wszystkich grup testowych utworzonych dla subskrypcji, regionów, sygnatur czasowych, źródeł i typów docelowych. Te grupy testowe nie są filtrowane według monitorów połączeń.
@@ -197,20 +197,20 @@ Listę można filtrować na podstawie:
 * **Filtry oparte na stanie** — Filtruj według stanu monitora połączenia, grupy testowej lub testu. Zobacz pole 2 na poniższej ilustracji.
 * **Filtrowanie filtrów opartych na alertach** według alertów wyzwalanych w ramach zasobu monitora połączeń. Zobacz pole 3 na poniższej ilustracji.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Zrzut ekranu przedstawiający sposób filtrowania widoków monitorów połączeń, grup testowych i testów w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Zrzut ekranu przedstawiający sposób filtrowania widoków monitorów połączeń, grup testowych i testów w monitorze połączeń " lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-Na przykład aby zobaczyć wszystkie testy w monitorze połączeń (wersja zapoznawcza), gdzie źródłowy adres IP to 10.192.64.56:
+Na przykład aby zobaczyć wszystkie testy w monitorze połączeń, gdzie źródłowy adres IP to 10.192.64.56:
 1. Zmień widok na **test**.
 1. W polu wyszukiwania wpisz *10.192.64.56*
 1. W polu **zakres** w filtr najwyższego poziomu wybierz pozycję **źródła**.
 
-Aby wyświetlić tylko testy zakończone niepowodzeniem w monitorze połączeń (wersja zapoznawcza), gdzie źródłowy adres IP to 10.192.64.56:
+Aby wyświetlić tylko testy zakończone niepowodzeniem w monitorze połączeń, gdzie źródłowy adres IP to 10.192.64.56:
 1. Zmień widok na **test**.
 1. W przypadku filtru opartego na stanie wybierz pozycję **Niepowodzenie**.
 1. W polu wyszukiwania wpisz *10.192.64.56*
 1. W polu **zakres** w filtr najwyższego poziomu wybierz pozycję **źródła**.
 
-Aby wyświetlić tylko testy zakończone niepowodzeniem w monitorze połączeń (wersja zapoznawcza), gdzie miejsce docelowe to outlook.office365.com:
+Aby wyświetlić tylko testy zakończone niepowodzeniem w monitorze połączeń, gdzie miejsce docelowe to outlook.office365.com:
 1. Zmień widok na **test**.
 1. W przypadku filtru opartego na stanie wybierz pozycję **Niepowodzenie**.
 1. W polu wyszukiwania wprowadź *Outlook.office365.com*
@@ -265,9 +265,9 @@ Użyj Log Analytics, aby utworzyć niestandardowe widoki danych monitorowania. W
 
 #### <a name="metrics-in-azure-monitor"></a>Metryki w usłudze Azure Monitor
 
-W monitorach połączeń utworzonych przed rozpoczęciem korzystania z monitora połączeń (wersja zapoznawcza) są dostępne wszystkie cztery metryki:% sond nie powiodło się, AverageRoundtripMs, ChecksFailedPercent (wersja zapoznawcza) i RoundTripTimeMs (wersja zapoznawcza). W monitorach połączeń utworzonych w środowisku monitor połączeń (wersja zapoznawcza) dane są dostępne tylko dla metryk oznaczonych za pomocą *(wersja zapoznawcza)*.
+W monitorach połączeń utworzonych przed rozpoczęciem korzystania z monitora połączeń są dostępne wszystkie cztery metryki:% sond nie powiodło się, AverageRoundtripMs, ChecksFailedPercent (wersja zapoznawcza) i RoundTripTimeMs (wersja zapoznawcza). W monitorach połączeń, które zostały utworzone w środowisku monitora połączeń, dane są dostępne tylko dla metryk, które są znakowane przy użyciu *(wersja zapoznawcza)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Zrzut ekranu przedstawiający metryki w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Zrzut ekranu przedstawiający metryki w monitorze połączeń" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/connectionMonitors
 
@@ -282,18 +282,18 @@ Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/
 
 Alerty metryki można tworzyć na monitorach połączeń przy użyciu poniższych metod 
 
-1. Z monitora połączeń (wersja zapoznawcza) podczas tworzenia monitora połączeń [przy użyciu Azure Portal](connection-monitor-preview-create-using-portal.md#) 
-1. Z poziomu monitora połączeń (wersja zapoznawcza) przy użyciu polecenia "Konfiguruj alerty" na pulpicie nawigacyjnym 
+1. Z monitora połączeń podczas tworzenia monitora połączeń [przy użyciu Azure Portal](connection-monitor-preview-create-using-portal.md#) 
+1. Z poziomu monitora połączeń przy użyciu polecenia "Konfiguruj alerty" na pulpicie nawigacyjnym 
 1. W programie Azure Monitor — aby utworzyć alert w Azure Monitor: 
-    1. Wybierz zasób monitor połączeń, który został utworzony w monitorze połączeń (wersja zapoznawcza).
+    1. Wybierz zasób monitor połączeń, który został utworzony w monitorze połączenia.
     1. Upewnij się, że **Metryka** jest wyświetlana jako typ sygnału dla monitora połączenia.
     1. W polu **Dodaj warunek** dla **nazwy sygnału** wybierz pozycję **ChecksFailedPercent (wersja zapoznawcza)** lub **RoundTripTimeMs (wersja zapoznawcza)**.
     1. W obszarze **Typ sygnału** wybierz pozycję **metryki**. Na przykład wybierz pozycję **ChecksFailedPercent (wersja zapoznawcza)**.
     1. Zostaną wyświetlone wszystkie wymiary metryki. Wybierz nazwę wymiaru i wartość wymiaru. Na przykład wybierz pozycję **adres źródłowy** , a następnie wprowadź adres IP dowolnego źródła w monitorze połączenia.
     1. W obszarze **logika alertu** podaj następujące informacje:
-        * **Typ warunku** : **statyczny**.
+        * **Typ warunku**: **statyczny**.
         * **Warunek** i **próg**.
-        * **Stopień szczegółowości agregacji i częstotliwość oceny** : Monitor połączeń (wersja zapoznawcza) aktualizuje dane co minutę.
+        * **Stopień szczegółowości agregacji i częstotliwość oceny**: Monitor połączenia aktualizuje dane co minutę.
     1. W obszarze **Akcje** wybierz grupę akcji.
     1. Podaj szczegóły alertu.
     1. Utwórz regułę alertu.
@@ -302,7 +302,7 @@ Alerty metryki można tworzyć na monitorach połączeń przy użyciu poniższyc
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnozowanie problemów w sieci
 
-Monitor połączeń (wersja zapoznawcza) ułatwia diagnozowanie problemów z monitorem połączeń i siecią. Problemy w sieci hybrydowej są wykrywane przez zainstalowane wcześniej agenci Log Analytics. Problemy na platformie Azure są wykrywane przez rozszerzenie Network Watcher. 
+Monitor połączeń ułatwia diagnozowanie problemów z monitorem połączeń i sieci. Problemy w sieci hybrydowej są wykrywane przez zainstalowane wcześniej agenci Log Analytics. Problemy na platformie Azure są wykrywane przez rozszerzenie Network Watcher. 
 
 Problemy w sieci platformy Azure można wyświetlić w topologii sieci.
 
@@ -348,5 +348,5 @@ W przypadku sieci, których źródła są maszynami wirtualnymi platformy Azure,
 
 ## <a name="next-steps"></a>Następne kroki
     
-   * Dowiedz się [, jak utworzyć monitor połączeń (wersja zapoznawcza) przy użyciu Azure Portal](connection-monitor-preview-create-using-portal.md)  
-   * Dowiedz się [, jak utworzyć monitor połączeń (wersja zapoznawcza) za pomocą ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Dowiedz się [, jak utworzyć monitor połączeń przy użyciu Azure Portal](connection-monitor-preview-create-using-portal.md)  
+   * Dowiedz się [, jak utworzyć monitor połączeń przy użyciu ARMClient](connection-monitor-preview-create-using-arm-client.md)  

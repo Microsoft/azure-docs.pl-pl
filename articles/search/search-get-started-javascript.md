@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795952"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698900"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu zestawu SDK języka JavaScript
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795952"
 > * [Portal](search-get-started-portal.md)
 > * [Program PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
-Użyj [zestawu SDK języka JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) , aby utworzyć aplikację Node.js w języku JavaScript, która tworzy, ładuje i bada indeks wyszukiwania.
+Użyj [zestawu SDK języka JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) , aby utworzyć aplikację Node.js w języku JavaScript, która tworzy, ładuje i bada indeks wyszukiwania.
 
 W tym artykule przedstawiono sposób tworzenia aplikacji krok po kroku. Alternatywnie możesz [pobrać kod źródłowy i dane](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) i uruchomić aplikację z wiersza polecenia.
 
@@ -58,7 +58,7 @@ Wywołania usługi wymagają punktu końcowego adresu URL i klucza dostępu dla 
 
 2. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi, wymagany w przypadku tworzenia lub usuwania obiektów. Istnieją dwa wymienne klucze podstawowe i pomocnicze. Możesz użyć jednej z nich.
 
-   ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
+   ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-rest/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
 Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -80,7 +80,7 @@ Zacznij od otwarcia VS Code i jego [zintegrowanego terminalu](https://code.visua
     ```
      Zaakceptuj wartości domyślne, z wyjątkiem licencji, która powinna być ustawiona na wartość "MIT". 
 
-3. Zainstaluj `@azure/search-documents` [zestaw SDK JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
+3. Zainstaluj `@azure/search-documents` [zestaw SDK JavaScript/Typscript dla platformy wyszukiwanie poznawcze Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents
@@ -169,7 +169,7 @@ W tym miejscu możemy utworzyć indeks.
 
 ## <a name="1---create-index"></a>1 — Tworzenie indeksu 
 
-Utwórzhotels_quickstart_index.jspliku **na** .  Ten plik definiuje, w jaki sposób usługa Azure Wyszukiwanie poznawcze współpracuje z dokumentami, które zostaną załadowane w następnym kroku. Każde pole zostanie zidentyfikowane przez `name` i ma określony `type` . Każde pole ma także serię atrybutów indeksu, które określają, czy Wyszukiwanie poznawcze platformy Azure mogą przeszukiwać, filtrować, sortować i aspektować pola. Większość pól to proste typy danych, ale niektóre, takie jak `AddressType` złożone typy, które umożliwiają tworzenie rozbudowanych struktur danych w indeksie.  Więcej informacji o [obsługiwanych typach danych](/rest/api/searchservice/supported-data-types) i [atrybutach indeksu](./search-what-is-an-index.md#index-attributes)można znaleźć w części. 
+Utwórzhotels_quickstart_index.jspliku **na**.  Ten plik definiuje, w jaki sposób usługa Azure Wyszukiwanie poznawcze współpracuje z dokumentami, które zostaną załadowane w następnym kroku. Każde pole zostanie zidentyfikowane przez `name` i ma określony `type` . Każde pole ma także serię atrybutów indeksu, które określają, czy Wyszukiwanie poznawcze platformy Azure mogą przeszukiwać, filtrować, sortować i aspektować pola. Większość pól to proste typy danych, ale niektóre, takie jak `AddressType` złożone typy, które umożliwiają tworzenie rozbudowanych struktur danych w indeksie.  Więcej informacji o [obsługiwanych typach danych](/rest/api/searchservice/supported-data-types) i [atrybutach indeksu](./search-what-is-an-index.md#index-attributes)można znaleźć w części. 
 
 Dodaj następujące elementy, aby **hotels_quickstart_index.jsna** lub [pobrać plik](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 

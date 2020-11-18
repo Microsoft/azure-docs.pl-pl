@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90d60a20bb464936d04662b0b9286bd7aaac9e74
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397270"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700175"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Samouczek: Tworzenie niestandardowego analizatora dla numerów telefonów
 
@@ -51,7 +51,7 @@ W następnym kroku należy znać nazwę usługi wyszukiwania i jej klucz interfe
 
 Następnie uruchom program Poster i zaimportuj kolekcję pobraną z [platformy Azure — przykłady/Azure-Search-Samples](https://github.com/Azure-Samples/azure-search-postman-samples).
 
-Aby zaimportować kolekcję, przejdź do obszaru **Files**  >  **Importowanie**plików, a następnie wybierz plik kolekcji, który chcesz zaimportować.
+Aby zaimportować kolekcję, przejdź do obszaru **Files**  >  **Importowanie** plików, a następnie wybierz plik kolekcji, który chcesz zaimportować.
 
 Dla każdego żądania należy:
 
@@ -59,9 +59,9 @@ Dla każdego żądania należy:
 
 1. Zamień na `<YOUR-ADMIN-API-KEY>` klucz podstawowy lub pomocniczy usługi wyszukiwania.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Adres URL i nagłówek żądania post" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Adres URL i nagłówek żądania post" border="false":::
 
-Jeśli nie znasz programu Poster, zobacz [Eksplorowanie interfejsów API REST platformy Azure wyszukiwanie poznawcze przy użyciu programu Poster](search-get-started-postman.md).
+Jeśli nie znasz programu Poster, zobacz [Poznaj interfejsy API REST platformy Azure wyszukiwanie poznawcze](search-get-started-rest.md).
 
 ## <a name="3---create-an-initial-index"></a>3 — Tworzenie początkowego indeksu
 
@@ -239,11 +239,11 @@ Analizatory składają się z trzech składników:
 
 Na poniższym diagramie można zobaczyć, jak te trzy składniki współpracują ze sobą, aby tokenize zdanie:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Adres URL i nagłówek żądania post":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagram procesu analizatora służący do tokenize zdania":::
 
 Tokeny te są następnie przechowywane w odwróconym indeksie, co umożliwia szybkie wyszukiwanie pełnotekstowe.  Odwrócony indeks umożliwia wyszukiwanie pełnotekstowe przez mapowanie wszystkich unikatowych terminów wyodrębnionych podczas analizy leksykalnej do dokumentów, w których występują. Na poniższym diagramie można zobaczyć przykład:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Adres URL i nagłówek żądania post":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Przykładowy indeks odwrócony":::
 
 Wszystkie wyszukiwania przechodzą do wyszukiwania warunków przechowywanych w odwróconym indeksie. Gdy użytkownik wystawia zapytanie:
 
@@ -251,7 +251,7 @@ Wszystkie wyszukiwania przechodzą do wyszukiwania warunków przechowywanych w o
 1. Odwrócony indeks jest następnie skanowany pod kątem dokumentów z pasującymi terminami.
 1. Na koniec pobrane dokumenty są klasyfikowane według [algorytmu podobieństwa](index-ranking-similarity.md).
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Adres URL i nagłówek żądania post":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram podobieństwa klasyfikacji procesów analizatora":::
 
 Jeśli terminy zapytania nie pasują do warunków w indeksie odwróconym, wyniki nie zostaną zwrócone. Aby dowiedzieć się więcej o działaniu zapytań, zapoznaj się z artykułem dotyczącym [wyszukiwania pełnotekstowego](search-lucene-query-architecture.md).
 

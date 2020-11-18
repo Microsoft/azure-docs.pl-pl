@@ -1,15 +1,15 @@
 ---
 title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699597"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania platformy Azure?
 
@@ -150,7 +150,7 @@ Definicje ról są przypisywane w dowolnym miejscu w hierarchii grupy zarządzan
 
 Na przykład przyjrzyjmy się małej sekcji hierarchii dla wizualizacji.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagram hierarchii przykładowej grupy zarządzania." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagram podzestawu przykładowej hierarchii grup zarządzania." border="false":::
    Diagram koncentruje się na głównej grupie zarządzania z grupami zarządzania i marketingu. Grupa zarządzania I T ma jedną podrzędną grupę zarządzania o nazwie produkcja, podczas gdy grupa zarządzania Marketing ma dwie bezpłatne subskrypcje podrzędne w wersji próbnej.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Istnieją ograniczenia, które istnieją podczas korzystania z ról niestandardo
  - Można zdefiniować tylko jedną grupę zarządzania w przypisywanych zakresach nowej roli. To ograniczenie jest stosowane w celu zmniejszenia liczby sytuacji, w których definicje ról i przypisania ról są rozłączone. Taka sytuacja występuje, gdy subskrypcja lub Grupa zarządzania z przypisaniem roli przenosi się do innego elementu nadrzędnego, który nie ma definicji roli.  
  - Akcje płaszczyzny danych dostawcy zasobów nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku problemów z opóźnieniem w przypadku aktualizowania dostawców zasobów płaszczyzny danych.
    Ten problem opóźnienia jest opracowywany, a akcje te zostaną wyłączone z definicji roli w celu ograniczenia ryzyka.
- - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli. Jeśli na liście występuje literówka lub nieprawidłowy identyfikator grupy zarządzania, definicja roli nadal zostanie utworzona.  
+ - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli. Jeśli na liście występuje literówka lub nieprawidłowy identyfikator grupy zarządzania, definicja roli nadal zostanie utworzona.
+
+> [!IMPORTANT]
+> Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych.
+> Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Przeniesienie grup zarządzania i subskrypcji 
 
@@ -194,7 +198,7 @@ Jeśli rola właściciela w subskrypcji jest dziedziczona z bieżącej grupy zar
 
 Grupy zarządzania są obsługiwane w [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md). Możesz wyszukiwać wszystkie zdarzenia, które wystąpiły w grupie zarządzania w tej samej lokalizacji centralnej co inne zasoby platformy Azure. Na przykład widoczne są wszystkie przypisania ról i zmiany przypisań zasad w określonej grupie zarządzania.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Diagram hierarchii przykładowej grupy zarządzania." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Zrzut ekranu dzienników aktywności i operacji związanych z wybraną grupą zarządzania." border="false":::
 
 Jeśli chcesz wykonać zapytanie dotyczące grup zarządzania spoza witryny Azure Portal, zakres docelowy grup zarządzania wygląda tak: **„/providers/Microsoft.Management/managementGroups/{identyfikator_grupy_zarządzania}”**.
 

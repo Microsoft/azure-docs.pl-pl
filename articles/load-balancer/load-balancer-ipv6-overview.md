@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058754"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700693"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Omówienie protokołu IPv6 dla Azure Load Balancer
 
 
 >[!NOTE] 
->Ta zawartość została zastąpiona przez [protokół IPv6 na potrzeby omówienia sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Na platformie Azure zalecane są nowe wdrożenia protokołu IPv6 dla funkcji sieci wirtualnych platformy Azure.
+>Ta zawartość została zastąpiona przez [protokół IPv6 na potrzeby omówienia sieci wirtualnej platformy Azure](../virtual-network/ipv6-overview.md). Na platformie Azure zalecane są nowe wdrożenia protokołu IPv6 dla funkcji sieci wirtualnych platformy Azure.
 
 >[!NOTE]
->Usługa Azure Load Balancer obsługuje dwie warstwy: Podstawowa i Standardowa. W tym artykule omówiono usługę Load Balancer w warstwie Podstawowa. Aby uzyskać więcej informacji na temat usługa Load Balancer w warstwie Standardowa, zobacz [Usługa Load Balancer w warstwie Standardowa Omówienie](load-balancer-standard-overview.md).
+>Usługa Azure Load Balancer obsługuje dwie warstwy: Podstawowa i Standardowa. W tym artykule omówiono usługę Load Balancer w warstwie Podstawowa. Aby uzyskać więcej informacji na temat usługa Load Balancer w warstwie Standardowa, zobacz [Usługa Load Balancer w warstwie Standardowa Omówienie](./load-balancer-overview.md).
 
 Usługi równoważenia obciążenia z podstawową jednostką SKU można wdrożyć przy użyciu adresu IPv6. Oprócz łączności IPv4, zapewnia to następujące możliwości:
 

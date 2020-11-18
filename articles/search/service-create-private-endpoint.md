@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280407"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700158"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
 
@@ -47,7 +47,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć do hostowania maszyny wirtual
     | Subskrypcja | Wybierz swoją subskrypcję|
     | Grupa zasobów | Wybierz pozycję **Utwórz nowy**, wprowadź nazwę *zasobu*, a następnie wybierz przycisk **OK** . |
     | Nazwa | Wprowadź *MyVirtualNetwork* |
-    | Region | Wybierz żądany region |
+    | Region (Region) | Wybierz żądany region |
     |||
 
 1. Pozostaw wartości domyślne pozostałych ustawień. Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz**
@@ -58,7 +58,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
 
 1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć Web**  >  **Azure wyszukiwanie poznawcze**.
 
-1. W obszarze **nowe Search Service — podstawowe**wprowadź lub wybierz następujące informacje:
+1. W obszarze **nowe Search Service — podstawowe** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -75,11 +75,11 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
 
 1. Pozostaw wartości domyślne, a następnie wybierz pozycję **Dalej: sieć**.
 
-1. W obszarze **nowy Search Service — sieć**wybierz pozycję **prywatne** dla **połączenia punktu końcowego (dane)**.
+1. W obszarze **nowy Search Service — sieć** wybierz pozycję **prywatne** dla **połączenia punktu końcowego (dane)**.
 
-1. W obszarze **nowy Search Service — sieć**wybierz pozycję **+ Dodaj** w obszarze **prywatny punkt końcowy**. 
+1. W obszarze **nowy Search Service — sieć** wybierz pozycję **+ Dodaj** w obszarze **prywatny punkt końcowy**. 
 
-1. W obszarze **Utwórz prywatny punkt końcowy**wprowadź lub wybierz następujące informacje:
+1. W obszarze **Utwórz prywatny punkt końcowy** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -121,9 +121,9 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
-    | Region | Wybierz pozycję **zachodnie stany USA** lub region, którego używasz. |
+    | Region (Region) | Wybierz pozycję **zachodnie stany USA** lub region, którego używasz. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -194,7 +194,7 @@ W tej sekcji będziesz weryfikować dostęp do sieci prywatnej do usługi wyszuk
 
 Gdy punkt końcowy usługi wyszukiwania jest prywatny, niektóre funkcje portalu są wyłączone. Będziesz mieć możliwość wyświetlania ustawień poziomu usług i zarządzania nimi, ale dostęp do portalu do indeksowania danych i różnych innych składników w usłudze, takich jak indeks, indeksator i definicje zestawu umiejętności, jest ograniczony ze względów bezpieczeństwa.
 
-1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
+1. W Pulpit zdalny *myVM* Otwórz program PowerShell.
 
 1. Wprowadź ciąg "nslookup [nazwa usługi wyszukiwania]. Search. Windows. NET"
 
@@ -208,7 +208,7 @@ Gdy punkt końcowy usługi wyszukiwania jest prywatny, niektóre funkcje portalu
     Aliases:  [search service name].search.windows.net
     ```
 
-1. Z poziomu maszyny wirtualnej Połącz się z usługą wyszukiwania i Utwórz indeks. Możesz skorzystać z tego [przewodnika Szybki Start](search-get-started-postman.md) , aby utworzyć nowy indeks wyszukiwania w usłudze w programie Poster przy użyciu interfejsu API REST. Konfigurowanie żądań od programu Poster wymaga punktu końcowego usługi wyszukiwania (https://[Search Service Name]. Search. Windows. NET) i Admin API-Key, które zostały skopiowane w poprzednim kroku.
+1. Z poziomu maszyny wirtualnej Połącz się z usługą wyszukiwania i Utwórz indeks. Możesz skorzystać z tego [przewodnika Szybki Start](search-get-started-rest.md) , aby utworzyć nowy indeks wyszukiwania w usłudze przy użyciu interfejsu API REST. Konfigurowanie żądań za pomocą narzędzia testowego interfejsu API sieci Web wymaga punktu końcowego usługi wyszukiwania (https://[nazwa usługi wyszukiwania]. Search. Windows. NET) i administratora klucza API-Key skopiowano w poprzednim kroku.
 
 1. Ukończenie szybkiego startu z maszyny wirtualnej to potwierdzenie, że usługa jest w pełni funkcjonalna.
 
@@ -218,9 +218,9 @@ Gdy punkt końcowy usługi wyszukiwania jest prywatny, niektóre funkcje portalu
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 Gdy skończysz korzystać z prywatnego punktu końcowego, usługi wyszukiwania i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
-1. Wprowadź *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów *myResourceGroup*   z wyników wyszukiwania. 
+1. Wprowadź  *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów  *myResourceGroup*   z wyników wyszukiwania. 
 1. Wybierz pozycję **Usuń grupę zasobów**. 
-1. Wprowadź wartość *Webresourcename*   **, aby wpisać nazwę grupy zasobów** , a następnie wybierz pozycję **Usuń**.
+1. Wprowadź wartość  *Webresourcename*   **, aby wpisać nazwę grupy zasobów** , a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule utworzono MASZYNę wirtualną w sieci wirtualnej i usługę wyszukiwania z prywatnym punktem końcowym. Nawiązano połączenie z maszyną wirtualną z Internetu i bezpiecznie komunikuje się z usługą wyszukiwania za pomocą linku prywatnego. Aby dowiedzieć się więcej o prywatnym punkcie końcowym, zobacz [co to jest prywatny punkt końcowy platformy Azure?](../private-link/private-endpoint-overview.md).

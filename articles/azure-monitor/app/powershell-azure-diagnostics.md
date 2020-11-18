@@ -3,12 +3,12 @@ title: Konfigurowanie usługi Application Insights na platformie Azure przy uży
 description: Automatyzowanie konfigurowania Diagnostyka Azure do danych potoku do Application Insights.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: 3d0b7d1e8d4a164d517834eae877844d85b9a256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd69b90ce6329041f96b8e3173f1f17270f68ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320361"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699733"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Konfigurowanie Application Insights na platformie Azure za pomocą programu PowerShell Cloud Services
 
@@ -40,7 +40,7 @@ Jeśli aplikacja internetowa działa na platformie Azure, a zasoby zostały utwo
 * `myWebAppName` — Identyfikator aplikacji sieci Web
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Włączanie rozszerzenia diagnostyki w ramach wdrażania usługi Cloud Service
-Polecenie cmdlet `New-AzureDeployment` ma parametr `ExtensionConfiguration`, który przyjmuje tablicę konfiguracji diagnostycznych. Można ją utworzyć za pomocą polecenia cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Na przykład:
+Polecenie cmdlet `New-AzureDeployment` ma parametr `ExtensionConfiguration`, który przyjmuje tablicę konfiguracji diagnostycznych. Można ją utworzyć za pomocą polecenia cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Przykład:
 
 ```azurepowershell
 $service_package = "CloudService.cspkg"
@@ -123,8 +123,8 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Monitorowanie aplikacji usług Azure Cloud Services za pomocą usługi Application Insights](./cloudservices.md)
 * [Wysyłanie Diagnostyki Azure do usługi Application Insights](../platform/diagnostics-extension-to-application-insights.md)
-* [Automatyzowanie konfigurowania alertów](powershell-alerts.md)
+
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410049"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700763"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Usługi i technologie zabezpieczeń dostępne na platformie Azure
 
@@ -67,7 +67,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 ## <a name="identity-and-access-management"></a>Zarządzanie tożsamościami i dostępem
 |Usługa|Opis|
 |------|--------|
-| [&nbsp; &nbsp; Access Control oparte na rolach na platformie Azure &nbsp;](../../role-based-access-control/role-assignments-portal.md)|Funkcja kontroli dostępu zaprojektowana tak, aby umożliwić użytkownikom dostęp tylko do tych zasobów, na podstawie ich ról w organizacji.  |
+| [&nbsp;Kontrola dostępu oparta na rolach na platformie Azure &nbsp;](../../role-based-access-control/role-assignments-portal.md)|Funkcja kontroli dostępu zaprojektowana tak, aby umożliwić użytkownikom dostęp tylko do tych zasobów, na podstawie ich ról w organizacji.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Oparte na chmurze repozytorium uwierzytelniania obsługujące wiele dzierżawców, opartych na chmurze katalogów i wielu usług zarządzania tożsamościami na platformie Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Usługa zarządzania tożsamościami, która umożliwia kontrolę nad sposobem tworzenia kont i logowania klientów oraz zarządzania ich profilami w przypadku korzystania z aplikacji opartych na platformie Azure.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Oparta na chmurze i zarządzana wersja Active Directory Domain Services. |

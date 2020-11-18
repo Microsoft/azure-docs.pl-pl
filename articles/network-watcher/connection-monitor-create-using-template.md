@@ -1,7 +1,7 @@
 ---
-title: Tworzenie monitora połączeń — wersja zapoznawcza — ARMClient
+title: Utwórz monitor połączeń — ARMClient
 titleSuffix: Azure Network Watcher
-description: Dowiedz się, jak utworzyć monitor połączeń (wersja zapoznawcza) przy użyciu ARMClient.
+description: Dowiedz się, jak utworzyć monitor połączeń przy użyciu ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447797"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699104"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Tworzenie monitora połączeń (wersja zapoznawcza) przy użyciu ARMClient
+# <a name="create-a-connection-monitor-using-the-armclient"></a>Tworzenie monitora połączeń przy użyciu ARMClient
 
-Dowiedz się, jak utworzyć monitor połączeń (wersja zapoznawcza) w celu monitorowania komunikacji między zasobami przy użyciu ARMClient. Obsługuje wdrożenia w chmurze hybrydowej i platformy Azure.
+Dowiedz się, jak utworzyć monitor połączeń do monitorowania komunikacji między zasobami przy użyciu ARMClient. Obsługuje wdrożenia w chmurze hybrydowej i platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
-W monitorach połączeń utworzonych w monitorze połączeń (wersja zapoznawcza) można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
+W monitorach połączeń utworzonych w monitorze połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 
-Monitor połączeń (wersja zapoznawcza) zawiera następujące jednostki:
+Monitor połączeń obejmuje następujące jednostki:
 
 * **Zasób monitora połączeń** — zasób platformy Azure specyficzny dla regionu. Wszystkie poniższe jednostki są właściwościami zasobu monitora połączeń.
 * **Endpoint** — Źródło lub miejsce docelowe, które uczestniczy w sprawdzaniu łączności. Przykładowe punkty końcowe obejmują maszyny wirtualne platformy Azure, agentów lokalnych, adresy URL i adresy IP.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Punkty końcowe
     * Nazwa — unikatowa nazwa dla każdego punktu końcowego
-    * resourceId — w przypadku punktów końcowych platformy Azure identyfikator zasobu odwołuje się do identyfikatora zasobu usługi Azure Resource Manager dla maszyn wirtualnych. W przypadku punktów końcowych spoza platformy Azure identyfikator zasobu odwołuje się do identyfikatora zasobu usługi Azure Resource Manager dla obszaru roboczego Log Analytics połączonego z agentami spoza platformy Azure.
+    * resourceId — dla punktów końcowych platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager IDENTYFIKATORem zasobu dla maszyn wirtualnych. W przypadku punktów końcowych spoza platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager identyfikator zasobu dla obszaru roboczego Log Analytics połączonego z agentami nienależącymi do platformy Azure.
     * adres — dotyczy tylko sytuacji, gdy nie określono identyfikatora zasobu lub jeśli identyfikator zasobu jest Log Analytics obszarze roboczym. Jeśli jest używany z IDENTYFIKATORem zasobu Log Analytics, to odnosi się do nazwy FQDN agenta, która może być używana do monitorowania. Jeśli jest używany bez identyfikatora zasobu, może to być adres URL lub IP dowolnego publicznego punktu końcowego.
     * Filtr — w przypadku punktów końcowych spoza platformy Azure Użyj opcji Filtruj, aby wybrać agentów z Log Analytics obszaru roboczego, które będą używane do monitorowania w ramach zasobu monitora połączeń. Jeśli filtry nie są ustawione, Wszyscy agenci należący do obszaru roboczego Log Analytics mogą być używani do monitorowania
         * Typ — Ustaw typ jako "adres agenta"

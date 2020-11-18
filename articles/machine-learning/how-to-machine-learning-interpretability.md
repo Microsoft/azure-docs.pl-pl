@@ -1,7 +1,7 @@
 ---
 title: Interpretowanie modeli w Azure Machine Learning (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wyjaśnić, dlaczego model wykonuje przewidywania przy użyciu zestawu SDK Azure Machine Learning. Może być używany podczas szkoleń i wnioskowania, aby zrozumieć, jak model wykonuje przewidywania.
+description: Dowiedz się, jak zrozumieć, & wyjaśnić, jak model uczenia maszynowego wykonuje przewidywania podczas szkolenia & inferencing przy użyciu zestawu SDK języka Python Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: dff0aeaf84ce87ed728d333cb68aee3a349bc111
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311519"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699393"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretowanie modeli w Azure Machine Learning (wersja zapoznawcza)
 
@@ -66,7 +66,7 @@ Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynow
 |--|--|--------------------|
 |Objaśnienie drzewa kształtu| Klasyfikator drzewa [kształtu](https://github.com/slundberg/shap), który koncentruje się na algorytmie oceny wartości szybkiego kształtu czasu wielomianu, który jest specyficzny dla **drzew i ich kompletów drzew**.|Specyficzne dla modelu|
 |Szczegółowy opis kształtu| W oparciu o objaśnienie z kształtu, szczegółowy opis "jest algorytmem zbliżeniowym o dużej szybkości, dla wartości kształtu w modelach uczenia głębokiego, które kompilują się w połączeniu z DeepLIFT opisanym w [dokumencie kształt NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Obsługiwane są modele **TensorFlow** i modele **Keras** korzystające z zaplecza TensorFlow (istnieje również wstępna pomoc techniczna dla PyTorch) ".|Specyficzne dla modelu|
-|Objaśnienie liniowe kształtu| Funkcja wyjaśniająca liniowy kształtu oblicza wartości kształtu dla **modelu liniowego** , opcjonalnie rozliczanie korelacji między funkcjami.|Specyficzne dla modelu|
+|Objaśnienie liniowe kształtu| Funkcja wyjaśniająca liniowy kształtu oblicza wartości kształtu dla **modelu liniowego**, opcjonalnie rozliczanie korelacji między funkcjami.|Specyficzne dla modelu|
 |Wyjaśnienie jądra kształtu| Wyjaśnienie jądra kształtu używa specjalnie ważonej lokalnej regresji liniowej do oszacowania wartości kształtu dla **dowolnego modelu**.|Model — niezależny od|
 |Objaśnienie śladowe (globalny Surogat)| Objaśnienie śladów opiera się na pomysłie na [globalne modele wieloskładnikowe](https://christophm.github.io/interpretable-ml-book/global.html) do naśladowania modeli blackbox. Globalny model zastępczy jest modelem, który jest interpretowany wewnętrznie, aby przybliżyć prognozy **dowolnego czarnego modelu** , jak to możliwe. Naukowcy danych mogą interpretować model zastępczy, aby rysować wnioski o modelu czarnego pudełka. Można użyć jednego z następujących modeli interpretowanych jako model zastępczy: LightGBM (LGBMExplainableModel), regresja liniowa (LinearExplainableModel), Gradient stochastycznego, który jest bardziej wyjaśniony model (SGDExplainableModel) i drzewo decyzyjne (DecisionTreeExplainableModel).|Model — niezależny od|
 |Objaśnienie ważności funkcji permutacji (PFI)| Ważność funkcji permutacji jest techniką używaną do wyjaśnienia modeli klasyfikacji i regresji, które są [sponsorowane przez papier Breimanych lasów](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (patrz sekcja 10). Na wysokim poziomie, w jaki działa, jest to spowodowane losowo Shuffling danych jedną funkcją w danym czasie dla całego zestawu danych i obliczaniem, ile jest Metryka wydajności. Im większa zmiana, tym bardziej ważna jest funkcja. PFI może wyjaśnić ogólne zachowanie **dowolnego modelu bazowego** , ale nie wyjaśnia poszczególnych prognoz. |Model — niezależny od|

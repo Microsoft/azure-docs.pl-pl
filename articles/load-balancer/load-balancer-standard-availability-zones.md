@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669189"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700464"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Usługa Load Balancer w warstwie Standardowa i strefy dostępności
 
@@ -151,11 +151,11 @@ Zasoby w strefach, których nie dotyczy awaria, będą dostępne. Wydajność us
   - W przypadku niepowodzenia strefy usługa zrozumie ten błąd i jeśli stan zostanie utracony, w jaki sposób zostanie odzyskany?
   - Czy w przypadku powracania strefy aplikacja rozumie, jak bezpiecznie przeprowadzić zbieżność?
 
-Przejrzyj [wzorce projektowania w chmurze platformy Azure](https://docs.microsoft.com/azure/architecture/patterns/) , aby zwiększyć odporność aplikacji na błędy.
+Przejrzyj [wzorce projektowania w chmurze platformy Azure](/azure/architecture/patterns/) , aby zwiększyć odporność aplikacji na błędy.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [strefy dostępności](../availability-zones/az-overview.md)
-- Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)
-- Dowiedz się, jak [równoważyć obciążenie maszyn wirtualnych w strefie przy użyciu usługa Load Balancer w warstwie Standardowa z strefą frontonu](load-balancer-standard-public-zonal-cli.md)
-- Dowiedz się, jak [równoważyć obciążenie maszyn wirtualnych między strefami przy użyciu usługa Load Balancer w warstwie Standardowa ze strefowo nadmiarowy fronton](load-balancer-standard-public-zone-redundant-cli.md)
-- Dowiedz się więcej o [wzorcach projektowych chmury platformy Azure](https://docs.microsoft.com/azure/architecture/patterns/) w celu zwiększenia odporności aplikacji na scenariusze błędów.
+- Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa](./load-balancer-overview.md)
+- Dowiedz się, jak [równoważyć obciążenie maszyn wirtualnych w strefie przy użyciu usługa Load Balancer w warstwie Standardowa z strefą frontonu](./quickstart-load-balancer-standard-public-cli.md)
+- Dowiedz się, jak [równoważyć obciążenie maszyn wirtualnych między strefami przy użyciu usługa Load Balancer w warstwie Standardowa ze strefowo nadmiarowy fronton](./quickstart-load-balancer-standard-public-cli.md)
+- Dowiedz się więcej o [wzorcach projektowych chmury platformy Azure](/azure/architecture/patterns/) w celu zwiększenia odporności aplikacji na scenariusze błędów.
