@@ -3,12 +3,12 @@ title: Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
 description: W przypadku korzystania z usługi Azure Lighthouse ważne jest uwzględnienie zabezpieczeń i kontroli dostępu.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399384"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843727"
 ---
 # <a name="recommended-security-practices"></a>Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -17,11 +17,11 @@ W przypadku korzystania z [usługi Azure Lighthouse](../overview.md)ważne jest 
 > [!TIP]
 > Te zalecenia dotyczą również [przedsiębiorstw zarządzających wieloma dzierżawcami](enterprise.md) za pomocą usługi Azure Lighthouse.
 
-## <a name="require-azure-multi-factor-authentication"></a>Wymaganie usługi Azure Multi-Factor Authentication
+## <a name="require-azure-ad-multi-factor-authentication"></a>Wymagaj Multi-Factor Authentication usługi Azure AD
 
-[Usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (znana także jako weryfikacja dwuetapowa) zapobiega uzyskaniu dostępu do konta przez osoby atakujące, wymagając wielu kroków uwierzytelniania. Należy wymagać Multi-Factor Authentication dla wszystkich użytkowników w dzierżawie zarządzającej, w tym użytkowników, którzy będą mieli dostęp do delegowanych zasobów klientów.
+[Usługa Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (znana także jako weryfikacja dwuetapowa) zapobiega uzyskaniu dostępu do konta przez osoby atakujące, wymagając wielu kroków uwierzytelniania. Należy wymagać Multi-Factor Authentication dla wszystkich użytkowników w dzierżawie zarządzającej, w tym użytkowników, którzy będą mieli dostęp do delegowanych zasobów klientów.
 
-Zalecamy poproszenie klientów o wdrożenie Multi-Factor Authentication platformy Azure w swoich dzierżawach.
+Zalecamy poproszenie klientów o wdrożenie Multi-Factor Authentication usługi Azure AD w swoich dzierżawach.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Przypisywanie uprawnień do grup przy użyciu zasad najniższych uprawnień
 
@@ -34,12 +34,12 @@ Podczas tworzenia struktury uprawnień należy przestrzegać zasad najniższych 
 
 Na przykład możesz chcieć użyć struktury podobnej do następujących:
 
-|Nazwa grupy  |Type  |principalId  |Definicja roli  |Identyfikator definicji roli  |
+|Nazwa grupy  |Typ  |principalId  |Definicja roli  |Identyfikator definicji roli  |
 |---------|---------|---------|---------|---------|
 |Architektury     |Grupa użytkowników         |\<principalId\>         |Współautor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Ocena     |Grupa użytkowników         |\<principalId\>         |Czytelnik         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Specjaliści dla maszyn wirtualnych     |Grupa użytkowników         |\<principalId\>         |Współautor maszyny wirtualnej         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatyzacja     |Główna nazwa usługi (SPN)         |\<principalId\>         |Współautor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |Główna nazwa usługi (SPN)         |\<principalId\>         |Współautor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Po utworzeniu tych grup można przypisywać użytkowników zgodnie z wymaganiami. Dodawać tylko użytkowników, którzy naprawdę muszą mieć dostęp. Pamiętaj o regularnym przeglądaniu członkostwa w grupach i usunięciu wszystkich użytkowników, którzy nie są już zarejestrowani.
 
@@ -47,5 +47,5 @@ Należy pamiętać, że po dołączeniu [klientów za pomocą publicznej oferty 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wdróż Multi-Factor Authentication platformy Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Wdróż usługę Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](cross-tenant-management-experience.md).

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977752"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843557"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Zabezpieczanie maszyn wirtualnych platformy Azure i stosowanie zasad
 
@@ -67,7 +67,7 @@ Funkcja tożsamości zarządzanych dla platformy Azure w usłudze Azure Active D
 
 [Zasady platformy Azure](../governance/policy/overview.md) mogą służyć do definiowania żądanego zachowania dla maszyn wirtualnych z [systemem Windows](./windows/policy.md) i maszyn wirtualnych systemu [Linux](./linux/policy.md)w organizacji. Korzystając z zasad, organizacja może wymusić różne konwencje i reguły w całym przedsiębiorstwie. Wymuszanie żądanego zachowania może pomóc w ograniczeniu ryzyka, a tym samym sukcesem organizacji.
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
 Za pomocą [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/overview.md)można rozdzielić cła w ramach zespołu i przyznać dostęp tylko użytkownikom na maszynie wirtualnej, którzy potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu uprawnienia do maszyny wirtualnej, można zezwolić tylko na niektóre akcje. Można skonfigurować kontrolę dostępu dla maszyny wirtualnej w [Azure Portal](../role-based-access-control/role-assignments-portal.md)przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/role)lub[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 

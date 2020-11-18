@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928114"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844101"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -48,6 +48,21 @@ W przypadku działań zakończonych niepowodzeniem w przypadku samodzielnego śr
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>Ogólny błąd lub awaria własnego środowiska IR
 
+### <a name="out-of-memory-issue"></a>Problem z brakiem pamięci
+
+#### <a name="symptoms"></a>Objawy
+
+Problem "OutOfMemoryException" występuje podczas próby uruchomienia działania Lookup przy użyciu połączonego środowiska IR lub samodzielnego środowiska IR.
+
+#### <a name="cause"></a>Przyczyna
+
+Nowe działanie może spełnić problem z OOM (OutOfMemory), jeśli w tej chwili maszyna IR ma duże użycie pamięci. Problem może być spowodowany przez dużą skalę współbieżnych wykonań działań, a błąd jest zaprojektowany.
+
+#### <a name="resolution"></a>Rozwiązanie
+
+Sprawdź użycie zasobów i współbieżne wykonywanie działań w węźle IR. Dostosuj czas wewnętrzny i wyzwalanie przebiegów działania, aby uniknąć zbyt wielu operacji w tym samym węźle podczerwieni w tym samym czasie.
+
+
 ### <a name="tlsssl-certificate-issue"></a>Problem z certyfikatem TLS/SSL:
 
 #### <a name="symptoms"></a>Objawy
@@ -65,14 +80,14 @@ Jest to znany problem w usłudze WCF: Podczas walidacji certyfikatu TLS/SSL w us
 #### <a name="resolution"></a>Rozwiązanie
 
 Własne środowisko IR usługi Azure Data Factory v2 obsługuje certyfikat z symbolami wieloznacznymi. Ten problem występuje zwykle z powodu nieprawidłowego certyfikatu SSL. Ostatnia nazwa DNSName w sieci SAN powinna być prawidłowa. Wykonaj poniższe czynności, aby to sprawdzić. 
-1.  Otwórz konsolę zarządzania, dokładnie sprawdź *podmiot* i *alternatywną nazwę podmiotu* w szczegółach certyfikatu. W powyższym przypadku na przykład ostatni element w *alternatywnej nazwie podmiotu* , czyli "DNS name = Microsoft.com.com", nie jest prawidłowy.
+1.  Otwórz konsolę zarządzania, dokładnie sprawdź *podmiot* i *alternatywną nazwę podmiotu* w szczegółach certyfikatu. W powyższym przypadku na przykład ostatni element w *alternatywnej nazwie podmiotu*, czyli "DNS name = Microsoft.com.com", nie jest prawidłowy.
 2.  Skontaktuj się z firmą wystawienia certyfikatu w celu usunięcia nieprawidłowej nazwy DNS.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problem z limitem zadań współbieżnych
 
 #### <a name="symptoms"></a>Objawy
 
-Przy próbie zwiększenia limitu zadań współbieżnych z poziomu interfejsu użytkownika usługi Azure Data Factory stan zawiesza się na wartości *trwa aktualizacja* .
+Przy próbie zwiększenia limitu zadań współbieżnych z poziomu interfejsu użytkownika usługi Azure Data Factory stan zawiesza się na wartości *trwa aktualizacja*.
 Maksymalna wartość zadań współbieżnych została ustawiona na 24 i chcesz zwiększyć tę liczbę, aby umożliwić szybsze uruchamianie zadań. Minimalna wartość, którą można wprowadzić, to 3, a maksymalna wartość to 32. Zwiększono wartość z 24 do 32 i trafisz na przycisk *aktualizacji* w interfejsie użytkownika, który został zablokowany podczas *aktualizowania* , jak widać poniżej. Po odświeżeniu klient nadal widzi wartość 24, która nigdy nie została zaktualizowana do 32.
 
 ![Aktualizowanie stanu](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
@@ -102,7 +117,7 @@ Podczas obsługi przypadków związanych z uzgadnianiem certyfikatów SSL/TLS mo
 
 - Oto szybki i intuicyjny sposób rozwiązywania problemów z kompilacją łańcucha certyfikatów X. 509.
  
-    1. Wyeksportuj certyfikat, który ma zostać zweryfikowany. Przejdź do zarządzania certyfikatem komputera i znajdź certyfikat, który chcesz sprawdzić, a następnie kliknij prawym przyciskiem myszy pozycję **Wszystkie zadania** -> **Eksportuj** .
+    1. Wyeksportuj certyfikat, który ma zostać zweryfikowany. Przejdź do zarządzania certyfikatem komputera i znajdź certyfikat, który chcesz sprawdzić, a następnie kliknij prawym przyciskiem myszy pozycję **Wszystkie zadania** -> **Eksportuj**.
     
         ![Eksportuj zadania](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +153,7 @@ Podczas obsługi przypadków związanych z uzgadnianiem certyfikatów SSL/TLS mo
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Następnie zostanie otwarte **narzędzie do pobierania adresu URL** . Aby sprawdzić certyfikaty z protokołów AIA, CDP i OCSP, kliknij przycisk **Pobierz** .
+    1. Następnie zostanie otwarte **narzędzie do pobierania adresu URL**. Aby sprawdzić certyfikaty z protokołów AIA, CDP i OCSP, kliknij przycisk **Pobierz**.
 
         ![Przycisk pobierania](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,8 +179,8 @@ Jeśli monitor zostanie przetworzony, zobaczysz następujący wynik:
 
 > [!TIP] 
 > Można ustawić filtr, jak pokazano na poniższym zrzucie ekranu.
-> Informuje nas, że biblioteka DLL **System. ValueTuple** nie znajduje się w folderze związanym z pamięcią GAC lub w folderze *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* , lub w *katalogu c:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
-> Zasadniczo załaduje on bibliotekę dll najpierw z folderu pamięci *GAC* , następnie z folderu *Shared* (Udostępnione), a na końcu z folderu *Gateway* (Brama). W związku z tym możesz umieścić bibliotekę dll w dowolnej ścieżce, która może być przydatna.
+> Informuje nas, że biblioteka DLL **System. ValueTuple** nie znajduje się w folderze związanym z pamięcią GAC lub w folderze *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*, lub w *katalogu c:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
+> Zasadniczo załaduje on bibliotekę dll najpierw z folderu pamięci *GAC*, następnie z folderu *Shared* (Udostępnione), a na końcu z folderu *Gateway* (Brama). W związku z tym możesz umieścić bibliotekę dll w dowolnej ścieżce, która może być przydatna.
 
 ![Skonfiguruj filtry](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +194,7 @@ Tej samej metody można użyć do rozwiązywania problemów z innymi brakującym
 
 Powód, dla którego widzisz System.ValueTuple.dll w obszarze *%windir%\Microsoft.NET\assembly* i *%windir%\assembly* , jest to zachowanie platformy .NET. 
 
-Na poniższym błędzie można jasno zobaczyć zestaw *System. ValueTuple* nie istnieje. Taki problem występuje, gdy aplikacja próbuje sprawdzić zestaw *System.ValueTuple.dll* .
+Na poniższym błędzie można jasno zobaczyć zestaw *System. ValueTuple* nie istnieje. Taki problem występuje, gdy aplikacja próbuje sprawdzić zestaw *System.ValueTuple.dll*.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -210,7 +225,7 @@ Jeśli żaden z powyższych przyczyn nie ma zastosowania, możesz przejść do f
 
 #### <a name="symptoms"></a>Objawy
 
-Po utworzeniu własnych środowisk IR dla źródłowego i docelowego magazynu danych, chcesz połączyć te dwa środowiska IR, aby zakończyć kopię. Jeśli magazyny danych są skonfigurowane w różnych sieci wirtualnychach lub nie mogą zrozumieć mechanizmu bramy, wystąpią błędy, takie jak: *nie można znaleźć sterownika źródła w docelowym środowisku IR* ; *nie można uzyskać dostępu do źródła za pomocą docelowego środowiska IR* .
+Po utworzeniu własnych środowisk IR dla źródłowego i docelowego magazynu danych, chcesz połączyć te dwa środowiska IR, aby zakończyć kopię. Jeśli magazyny danych są skonfigurowane w różnych sieci wirtualnychach lub nie mogą zrozumieć mechanizmu bramy, wystąpią błędy, takie jak: *nie można znaleźć sterownika źródła w docelowym środowisku IR*; *nie można uzyskać dostępu do źródła za pomocą docelowego środowiska IR*.
  
 #### <a name="cause"></a>Przyczyna
 
@@ -288,14 +303,14 @@ Aby sprawdzić błąd, przejdź do dziennika zdarzeń Integration Runtime.
 
 ![Dziennik zdarzeń IR](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException* , postępuj zgodnie z poniższymi instrukcjami:
+Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException*, postępuj zgodnie z poniższymi instrukcjami:
 
 
 1. Sprawdź konto usługi logowania *DIAHostService* w panelu usługi systemu Windows.
 
     ![Konto usługi logowania](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Sprawdź, czy konto usługi logowania ma uprawnienie R/W odniesieniu do folderu: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway* .
+2. Sprawdź, czy konto usługi logowania ma uprawnienie R/W odniesieniu do folderu: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway*.
 
     - Domyślnie, jeśli konto logowania do usługi nie zostało zmienione, powinno mieć uprawnienie R/W.
 
@@ -305,7 +320,7 @@ Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException* , pos
         1. Wyczyść, aby odinstalować bieżące środowisko IR samoobsługowego.
         1. Zainstaluj własne bity IR.
         1. Postępuj zgodnie z poniższymi instrukcjami, aby zmienić konto usługi: 
-            1. Przejdź do folderu instalacji środowiska IR selfhosted, przełącz się do folderu: *Microsoft Integration Runtime\4.0\Shared* .
+            1. Przejdź do folderu instalacji środowiska IR selfhosted, przełącz się do folderu: *Microsoft Integration Runtime\4.0\Shared*.
             1. Uruchom wiersz polecenia przy użyciu podwyższonego poziomu uprawnień. Zamień *\<user>* i *\<password>* przy użyciu własnej nazwy użytkownika i hasła, a następnie uruchom polecenie poniżej:
                        
                 ```
@@ -325,7 +340,7 @@ Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException* , pos
             1. Możesz użyć użytkownika lokalnego/domeny dla konta logowania usługi IR.            
         1. Zarejestruj Integration Runtime.
 
-Jeśli błąd jest wyświetlany jako: *nie można uruchomić usługi Integration Runtime Service "(DIAHostService). Sprawdź, czy masz wystarczające uprawnienia do uruchamiania usług systemowych* , postępując zgodnie z poniższymi instrukcjami:
+Jeśli błąd jest wyświetlany jako: *nie można uruchomić usługi Integration Runtime Service "(DIAHostService). Sprawdź, czy masz wystarczające uprawnienia do uruchamiania usług systemowych*, postępując zgodnie z poniższymi instrukcjami:
 
 1. Sprawdź konto usługi logowania *DIAHostService* w panelu usługi systemu Windows.
    
@@ -351,7 +366,7 @@ Nie można znaleźć przycisku **register** w interfejsie użytkownika Configura
 
 #### <a name="cause"></a>Przyczyna
 
-Ponieważ wersja *Integration Runtime 3,0* , przycisk **zarejestruj** na istniejącym węźle Integration Runtime został usunięty, aby umożliwić bardziej przejrzyste i bezpieczniejsze środowisko. Jeśli zarejestrowano węzeł w dowolnym środowisku IR (online lub nie), to aby zainstalować go ponownie w innym środowisku IR, należy odinstalować poprzedni węzeł, a następnie zainstalować i zarejestrować nowy.
+Ponieważ wersja *Integration Runtime 3,0*, przycisk **zarejestruj** na istniejącym węźle Integration Runtime został usunięty, aby umożliwić bardziej przejrzyste i bezpieczniejsze środowisko. Jeśli zarejestrowano węzeł w dowolnym środowisku IR (online lub nie), to aby zainstalować go ponownie w innym środowisku IR, należy odinstalować poprzedni węzeł, a następnie zainstalować i zarejestrować nowy.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -404,6 +419,47 @@ Instalacja zależy od usługi Instalator Windows. Istnieją przyczyny wariantów
 - Niektóre pliki systemowe lub rejestry zostały przypadkowo naruszone
 
 
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>Nie można pobrać dostępu do certyfikatu dla konta usługi IR
+
+#### <a name="symptoms"></a>Objawy
+
+Podczas instalacji samodzielnego środowiska IR za pośrednictwem programu Microsoft Integration Runtime Configuration Manager jest generowany certyfikat z zaufanym urzędem certyfikacji. Nie można zastosować certyfikatu w celu zaszyfrowania komunikacji między dwoma węzłami. 
+
+Informacje o błędzie są wyświetlane w następujący sposób: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Nie można udzielić dostępu do certyfikatu konta usługi IR](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>Przyczyna
+
+Certyfikat używa usługi dostawcy magazynu kluczy (Dostawca magazynu kluczy), która nie jest jeszcze obsługiwana. SHIR obsługuje tylko certyfikat dostawcy usług kryptograficznych (CSP).
+
+#### <a name="resolution"></a>Rozwiązanie
+
+W tym przypadku zalecany jest certyfikat dostawcy CSP.
+
+**Rozwiązanie 1:** Użyj poniższego polecenia, aby zaimportować certyfikat:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Korzystanie z narzędzia Certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Rozwiązanie 2:** Konwersja certyfikatów:
+
+OpenSSL PKCS12-in .\xxxx.pfx. \ xxxx_new. pem — hasło przebiegu:*\<EnterPassword>*
+
+OpenSSL PKCS12-Export-in. \ xxxx_new. pem-out xxxx_new. pfx
+
+Przed i po konwersji:
+
+![Przed zmianą certyfikatu](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![Po zmianie certyfikatu](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+
 ## <a name="self-hosted-ir-connectivity-issues"></a>Własne problemy z łącznością IR
 
 ### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Własne środowisko Integration Runtime nie może nawiązać połączenia z usługą w chmurze
@@ -431,7 +487,7 @@ Własne środowisko Integration Runtime nie może nawiązać połączenia z usł
     ```
         
    > [!NOTE]     
-   > Adres URL usługi może się różnić w zależności od lokalizacji Data Factory. Adres URL usługi można znaleźć w obszarze **połączenia interfejsu użytkownika funkcji ADF**  >  **Connections**  >  **środowisko Integration Runtimes**  >  **Edycja samohostowanych**  >  **węzłów** IR  >  **przeglądanie adresów URL usług** .
+   > Adres URL usługi może się różnić w zależności od lokalizacji Data Factory. Adres URL usługi można znaleźć w obszarze **połączenia interfejsu użytkownika funkcji ADF**  >  **Connections**  >  **środowisko Integration Runtimes**  >  **Edycja samohostowanych**  >  **węzłów** IR  >  **przeglądanie adresów URL usług**.
             
     Oczekiwana jest następująca odpowiedź:
             
@@ -569,7 +625,7 @@ Wykonaj śledzenie netmon i Przeanalizuj je ponownie.
  
     *Pakiet sieciowy z systemu Linux system A z parametrem TTL 64-> B TTL 64 minus 1 = 63-> C TTL 63 minus 1 = 62-> TTL 62 minus 1 = 61 własne środowisko IR*
 
-- W idealnej sytuacji czas wygaśnięcia będzie wynosił 128, co oznacza, że system Windows działa w naszym Data Factory. Jak pokazano w poniższym przykładzie, *128 – 107 = 21 przeskoków* , co oznacza, że 21 przeskoków dla pakietu zostało wysłanych z Data Factory do samodzielnego środowiska IR podczas uzgadniania TCP 3.
+- W idealnej sytuacji czas wygaśnięcia będzie wynosił 128, co oznacza, że system Windows działa w naszym Data Factory. Jak pokazano w poniższym przykładzie, *128 – 107 = 21 przeskoków*, co oznacza, że 21 przeskoków dla pakietu zostało wysłanych z Data Factory do samodzielnego środowiska IR podczas uzgadniania TCP 3.
  
     ![CZAS WYGAŚNIĘCIA 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +643,11 @@ Gdy próbujesz wykonać polecenie telnet **8.8.8.8 888** przy użyciu zebranych 
 ![Śledzenie netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Oznacza to, że nie można nawiązać połączenia TCP ze stroną serwera **8.8.8.8** w oparciu o port **888** , dlatego w tym miejscu widoczne są dwa **SynReTransmit** dodatkowe pakiety. Ze względu na to, że źródło **host2** nie może nawiązać połączenia z **8.8.8.8em** w pierwszym pakiecie, będzie nadal mieć połączenie.
+Oznacza to, że nie można nawiązać połączenia TCP ze stroną serwera **8.8.8.8** w oparciu o port **888**, dlatego w tym miejscu widoczne są dwa **SynReTransmit** dodatkowe pakiety. Ze względu na to, że źródło **host2** nie może nawiązać połączenia z **8.8.8.8em** w pierwszym pakiecie, będzie nadal mieć połączenie.
 
 > [!TIP]
-> - Możesz kliknąć pozycję Filtr **obciążenia** filtr  ->  **Standardowy**  ->  **adresy**  ->  **adresy IPv4** .
-> - Wprowadź wartość **IPv4. Address = = 8.8.8.8** jako filtr, a następnie kliknij przycisk **Zastosuj** . Następnie zostanie wyświetlona tylko komunikacja z komputera lokalnego do lokalizacji docelowej **8.8.8.8** .
+> - Możesz kliknąć pozycję Filtr **obciążenia** filtr  ->  **Standardowy**  ->  **adresy**  ->  **adresy IPv4**.
+> - Wprowadź wartość **IPv4. Address = = 8.8.8.8** jako filtr, a następnie kliknij przycisk **Zastosuj**. Następnie zostanie wyświetlona tylko komunikacja z komputera lokalnego do lokalizacji docelowej **8.8.8.8**.
 
 ![Filtruj adresy 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         

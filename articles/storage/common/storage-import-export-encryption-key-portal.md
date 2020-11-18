@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783780"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843370"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export
 
@@ -33,7 +33,7 @@ Przed rozpoczęciem upewnij się, że spełniono następujące warunki:
     - [Utwórz zadanie importu dla plików](storage-import-export-data-to-files.md).
     - [Tworzenie zadania eksportu dla obiektów BLOB](storage-import-export-data-from-blobs.md)
 
-2. Masz już istniejące Azure Key Vault z kluczem, który służy do ochrony klucza funkcji BitLocker. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu Azure Portal](../../key-vault/secrets/quick-create-portal.md).
+2. Masz już istniejące Azure Key Vault z kluczem, który służy do ochrony klucza funkcji BitLocker. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: tworzenie Azure Key Vault przy użyciu Azure Portal](../../key-vault/general/quick-create-portal.md).
 
     - **Usuwanie nietrwałe** i **nie przeczyszczanie** jest ustawione na istniejącym Key Vault. Te właściwości nie są domyślnie włączone. Aby włączyć te właściwości, zobacz sekcję zatytułowaną **Włączanie usuwania nietrwałego** i **Włączanie ochrony przed przeczyszczeniem** w jednym z następujących artykułów:
 
@@ -48,7 +48,7 @@ Przed rozpoczęciem upewnij się, że spełniono następujące warunki:
 Konfigurowanie klucza zarządzanego przez klienta dla usługi Import/Export jest opcjonalne. Domyślnie usługa Import/Export używa klucza zarządzanego przez firmę Microsoft w celu ochrony klucza funkcji BitLocker. Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następujące kroki:
 
 1. Przejdź do bloku **Przegląd** zadania importowania.
-2. W okienku po prawej stronie wybierz pozycję **Wybierz, w jaki sposób klucze funkcji BitLocker są szyfrowane** .
+2. W okienku po prawej stronie wybierz pozycję **Wybierz, w jaki sposób klucze funkcji BitLocker są szyfrowane**.
 
     ![Wybierz opcję szyfrowania](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
@@ -56,7 +56,7 @@ Konfigurowanie klucza zarządzanego przez klienta dla usługi Import/Export jest
 
     ![Wyświetl klucz funkcji BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
-4. Możesz określić klucz zarządzany przez klienta. Po wybraniu klucza zarządzanego przez klienta **Wybierz pozycję Magazyn kluczy i klucz** .
+4. Możesz określić klucz zarządzany przez klienta. Po wybraniu klucza zarządzanego przez klienta **Wybierz pozycję Magazyn kluczy i klucz**.
 
     ![Wybierz klucz zarządzany przez klienta](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
@@ -64,11 +64,11 @@ Konfigurowanie klucza zarządzanego przez klienta dla usługi Import/Export jest
 
     ![Wybierz lub Utwórz Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. Możesz również wybrać pozycję **Utwórz nowy** , aby utworzyć nowy magazyn kluczy. W **bloku Utwórz magazyn kluczy** wprowadź grupę zasobów i nazwę magazynu kluczy. Zaakceptuj wszystkie inne ustawienia domyślne. Wybierz pozycję **Recenzja + Utwórz** .
+6. Możesz również wybrać pozycję **Utwórz nowy** , aby utworzyć nowy magazyn kluczy. W **bloku Utwórz magazyn kluczy** wprowadź grupę zasobów i nazwę magazynu kluczy. Zaakceptuj wszystkie inne ustawienia domyślne. Wybierz pozycję **Recenzja + Utwórz**.
 
     ![Utwórz nowy Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
-7. Przejrzyj informacje skojarzone z magazynem kluczy i wybierz pozycję **Utwórz** . Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
+7. Przejrzyj informacje skojarzone z magazynem kluczy i wybierz pozycję **Utwórz**. Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
 
     ![Utwórz Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
@@ -80,11 +80,11 @@ Konfigurowanie klucza zarządzanego przez klienta dla usługi Import/Export jest
 
     Jeśli ochrona usuwania nietrwałego i przeczyszczania nie jest włączona podczas tworzenia magazynu kluczy, Magazyn kluczy zostanie zaktualizowany w celu włączenia ochrony trwałego usuwania i przeczyszczania.
 
-10. Podaj nazwę klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz** .
+10. Podaj nazwę klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
 
     ![Utwórz nowy klucz](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Wybierz **wersję** , a następnie wybierz **pozycję Wybierz** . Zostanie wyświetlony monit o utworzenie klucza w magazynie kluczy.
+11. Wybierz **wersję** , a następnie wybierz **pozycję Wybierz**. Zostanie wyświetlony monit o utworzenie klucza w magazynie kluczy.
 
     ![Nowy klucz został utworzony w magazynie kluczy](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Samouczek — zarządzanie maszynami wirtualnymi za pomocą programu PowerShell
-description: Z tego samouczka dowiesz się, jak za pomocą programu Azure PowerShell zarządzać maszynami wirtualnymi platformy Azure, stosując kontrolę dostępu opartą na rolach, zasady, blokady i tagi
+description: W ramach tego samouczka nauczysz się używać Azure PowerShell do zarządzania maszynami wirtualnymi platformy Azure przez zastosowanie kontroli RBAC, zasad, blokad i tagów platformy Azure
 author: tfitzmac
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 723eaeb6eb8946473b31b447e817a0a3b696f1cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393606eb4211131b2b530e3900746e5024321aa3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926573"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844254"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Samouczek: informacje o zarządzaniu maszynami wirtualnymi systemu Windows za pomocą Azure PowerShell
 
@@ -39,7 +39,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 Grupa zasobów jest obecnie pusta.
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
 Upewnij się, że użytkownicy w organizacji mają odpowiedni poziom dostępu do tych zasobów. Nie udzielaj użytkownikom nieograniczonego dostępu, ale upewnij się, że mogą oni wykonywać swoją pracę. [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie użytkownikami, którzy mają uprawnienia do wykonywania określonych działań w zakresie.
 

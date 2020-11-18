@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: bdae8d77dc5e51cf4a181459ab2e159f31f06e31
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543106"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842893"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
 
@@ -42,7 +42,7 @@ Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku s
 
 ## <a name="create"></a>Utwórz
 
-**Szacowany czas** : około 5 minut.
+**Szacowany czas**: około 5 minut.
 
 Tworzenie wystąpienia obliczeniowego to jednorazowy proces dla Twojego obszaru roboczego. Można ponownie użyć tego obliczenia jako stacji roboczej deweloperskiej lub jako elementu docelowego obliczeń do szkolenia. Do obszaru roboczego można dołączyć wiele wystąpień obliczeniowych.
 
@@ -206,7 +206,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia** , a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
+W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia**, a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
 
 ![Zarządzanie wystąpieniem obliczeniowym](./media/concept-compute-instance/manage-compute-instance.png)
 

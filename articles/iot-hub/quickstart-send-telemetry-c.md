@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: ce53da1b51acb2ce17ef20a046424921f8987be9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7311c7e700edbf8565a449ecbd045a91846e72c3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748673"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844765"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich z użyciem aplikacji zaplecza (C)
 
@@ -31,9 +31,7 @@ W tym przewodniku Szybki start do wysyłania danych telemetrycznych do centrum I
 
 Ten artykuł jest przeznaczony dla systemu Windows, ale można również wykonać ten przewodnik Szybki Start w systemie Linux.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,12 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-
-* Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -58,13 +51,13 @@ W tym przewodniku szybki start będziesz używać [zestawu SDK urządzeń Azure 
 
 W przypadku następujących środowisk można użyć zestawu SDK, instalując następujące pakiety i biblioteki:
 
-* **Linux** : apt-get Packages są dostępne dla Ubuntu 16,04 i 18,04 przy użyciu następujących architektur procesora CPU: amd64, arm64, armhf i i386. Aby uzyskać więcej informacji, zobacz [Tworzenie projektu klienta urządzenia w języku C przy użyciu pakietu apt-get w systemie Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
+* **Linux**: apt-get Packages są dostępne dla Ubuntu 16,04 i 18,04 przy użyciu następujących architektur procesora CPU: amd64, arm64, armhf i i386. Aby uzyskać więcej informacji, zobacz [Tworzenie projektu klienta urządzenia w języku C przy użyciu pakietu apt-get w systemie Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
 
-* **mbed** : dla deweloperów tworzących aplikacje dla urządzeń na platformie mbed opublikowano bibliotekę i przykłady, które pomogą Ci rozpocząć pracę w ciągu kilku minut za pomocą usługi Azure IoT Hub. Aby uzyskać więcej informacji, zobacz [Korzystanie z biblioteki mbed](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
+* **mbed**: dla deweloperów tworzących aplikacje dla urządzeń na platformie mbed opublikowano bibliotekę i przykłady, które pomogą Ci rozpocząć pracę w ciągu kilku minut za pomocą usługi Azure IoT Hub. Aby uzyskać więcej informacji, zobacz [Korzystanie z biblioteki mbed](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 
-* **Arduino** .: Jeśli opracowujesz na Arduino, możesz skorzystać z biblioteki Azure IoT dostępnej w programie Arduino IDE Library Manager. Aby uzyskać więcej informacji, zobacz [Biblioteka usługi Azure IoT Hub dla środowiska Arduino](https://github.com/azure/azure-iot-arduino).
+* **Arduino**.: Jeśli opracowujesz na Arduino, możesz skorzystać z biblioteki Azure IoT dostępnej w programie Arduino IDE Library Manager. Aby uzyskać więcej informacji, zobacz [Biblioteka usługi Azure IoT Hub dla środowiska Arduino](https://github.com/azure/azure-iot-arduino).
 
-* **iOS** . Zestaw SDK urządzeń centrum IoT na potrzeby programowania urządzeń na komputerach Mac i w systemie iOS jest dostępny w postaci aplikacji CocoaPods. Aby uzyskać więcej informacji, zobacz [Przykłady z systemu iOS dotyczące usługi Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient).
+* **iOS**. Zestaw SDK urządzeń centrum IoT na potrzeby programowania urządzeń na komputerach Mac i w systemie iOS jest dostępny w postaci aplikacji CocoaPods. Aby uzyskać więcej informacji, zobacz [Przykłady z systemu iOS dotyczące usługi Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient).
 
 Jednak w tym przewodniku szybki start utworzysz środowisko programistyczne służące do klonowania i kompilowania [zestawu SDK języka C usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c) w witrynie GitHub. Zestaw SDK w witrynie GitHub zawiera przykładowy kod używany w tym przewodniku Szybki start.
 
@@ -125,9 +118,9 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 1. Uruchom następujące polecenie w Azure Cloud Shell, aby utworzyć tożsamość urządzenia.
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
-   **MyCDevice** : jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyCDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
+   **MyCDevice**: jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyCDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
@@ -135,7 +128,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 2. Uruchom następujące polecenie w Azure Cloud Shell, aby uzyskać _Parametry połączenia urządzenia_ dla zarejestrowanego urządzenia:
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
@@ -164,7 +157,7 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym specyficznym
     static const char* connectionString = "[device connection string]";
     ```
 
-    Zastąp wartość `connectionString` stałą parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie zapisz zmiany w pliku **iothub_convenience_sample.c** .
+    Zastąp wartość `connectionString` stałą parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie zapisz zmiany w pliku **iothub_convenience_sample.c**.
 
 3. W lokalnym oknie terminalu przejdź do katalogu projektu *iothub_convenience_sample* w katalogu narzędzia CMake, który został utworzony w zestawie SDK usługi Azure IoT dla języka C. Wprowadź następujące polecenie w katalogu roboczym:
 
@@ -194,7 +187,7 @@ W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azu
 
 1. Używając usługi Azure Cloud Shell, uruchom następujące polecenie, aby nawiązać połączenie i odczytać komunikaty z centrum IoT:
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table

@@ -3,13 +3,13 @@ title: Szybki Start — Tworzenie obrazu kontenera na żądanie na platformie Az
 description: Użyj poleceń Azure Container Registry, aby szybko kompilować, wypchnięciować i uruchamiać obraz kontenera Docker na żądanie w chmurze platformy Azure.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 1b4dcc05747ceae52c649c366c3faf437e77b560
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: adb63b716172c979ca31f1ef70bf1523ff1ad5cc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098930"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845071"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Szybki Start: kompilowanie i uruchamianie obrazu kontenera za pomocą zadań Azure Container Registry
 
@@ -27,7 +27,7 @@ Po tym przewodniku szybki start zapoznaj się z bardziej zaawansowanymi funkcjam
 
 Jeśli nie masz jeszcze rejestru kontenerów, najpierw utwórz grupę zasobów za pomocą polecenia [AZ Group Create][az-group-create] . Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus* .
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

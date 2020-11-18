@@ -16,12 +16,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 915199a619ff7596596b92362de38338bda03029
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 25ed259fa1f2858c0c818eafbdc7b35226067bc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747539"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843064"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Szybki Start: sterowanie urządzeniem podłączonym do usługi Azure IoT Hub za pomocą języka Java
 
@@ -33,35 +33,27 @@ W tym przewodniku szybki start użyjesz metody bezpośredniej do kontrolowania s
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. W programie [Java długoterminowa obsługa platformy Azure i Azure Stack](/java/azure/jdk/?view=azure-java-stable)w obszarze **Obsługa długoterminowa** wybierz pozycję **Java 8** .
+* Java SE Development Kit 8. W programie [Java długoterminowa obsługa platformy Azure i Azure Stack](/java/azure/jdk/?view=azure-java-stable)w obszarze **Obsługa długoterminowa** wybierz pozycję **Java 8**.
+
+    Możesz sprawdzić bieżącą wersję języka Java na komputerze deweloperskim przy użyciu następującego polecenia:
+
+    ```cmd/sh
+    java -version
+    ```
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
+
+    Możesz sprawdzić bieżącą wersję narzędzia Maven na komputerze deweloperskim przy użyciu następującego polecenia:
+
+    ```cmd/sh
+    mvn --version
+    ```
 
 * [Przykładowy projekt w języku Java](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
 
 * Port 8883 otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-Możesz sprawdzić bieżącą wersję języka Java na komputerze deweloperskim przy użyciu następującego polecenia:
-
-```cmd/sh
-java -version
-```
-
-Możesz sprawdzić bieżącą wersję narzędzia Maven na komputerze deweloperskim przy użyciu następującego polecenia:
-
-```cmd/sh
-mvn --version
-```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Dodawanie rozszerzenia usługi Azure IoT
-
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -79,9 +71,9 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 1. Uruchom następujące polecenie w Azure Cloud Shell, aby utworzyć tożsamość urządzenia.
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
-   **MyJavaDevice** : jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyJavaDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
+   **MyJavaDevice**: jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyJavaDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -90,7 +82,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 2. Uruchom następujące polecenia w usłudze Azure Cloud Shell, aby uzyskać _parametry połączenia urządzenia_ dla urządzenia, które właśnie zostało zarejestrowane:
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -107,9 +99,9 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 ## <a name="retrieve-the-service-connection-string"></a>Pobieranie parametrów połączenia usługi
 
-Potrzebne będą także _parametry połączenia usługi_ , aby umożliwić aplikacji zaplecza nawiązywanie połączenia z centrum IoT i pobieranie komunikatów. Następujące polecenie pobiera parametry połączenia usługi dla centrum IoT:
+Potrzebne będą także _parametry połączenia usługi_, aby umożliwić aplikacji zaplecza nawiązywanie połączenia z centrum IoT i pobieranie komunikatów. Następujące polecenie pobiera parametry połączenia usługi dla centrum IoT:
 
-**YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+**YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -125,11 +117,11 @@ Użyjesz tej wartości w dalszej części tego przewodnika Szybki start. Te para
 
 Aplikacja urządzenia symulowanego łączy się z punktem końcowym właściwym dla urządzenia w centrum IoT, wysyła symulowane dane telemetryczne i nasłuchuje wywołań metod bezpośrednich z centrum. W tym przewodniku Szybki start wywołanie metody bezpośredniej z centrum nakazuje urządzeniu zmienić interwał wysyłania danych telemetrycznych. Symulowane urządzenie wysyła potwierdzenie z powrotem do centrum po wykonaniu metody bezpośredniej.
 
-1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu Java. Następnie przejdź do folderu **iot-hub\Quickstarts\simulated-device-2** .
+1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu Java. Następnie przejdź do folderu **iot-hub\Quickstarts\simulated-device-2**.
 
 2. Otwórz plik **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** w wybranym edytorze tekstów.
 
-    Zastąp wartość `connString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice. Java** .
+    Zastąp wartość `connString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice. Java**.
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i skompilować aplikację urządzenia symulowanego:
 
@@ -151,11 +143,11 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym właściwym 
 
 Aplikacja zaplecza łączy się z punktem końcowym po stronie usługi w usłudze IoT Hub. Aplikacja wykonuje bezpośrednie wywołania metody do urządzenia za pośrednictwem Centrum IoT Hub i nasłuchuje pod kątem potwierdzeń. Aplikacja zaplecza usługi IoT Hub zwykle działa w chmurze.
 
-1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu Java. Następnie przejdź do folderu **iot-hub\Quickstarts\back-end-application** .
+1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu Java. Następnie przejdź do folderu **iot-hub\Quickstarts\back-end-application**.
 
 2. Otwórz plik **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** w wybranym edytorze tekstów.
 
-    Zastąp wartość `iotHubConnectionString` zmiennej parametrami połączenia usługi, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **BackEndApplication. Java** .
+    Zastąp wartość `iotHubConnectionString` zmiennej parametrami połączenia usługi, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **BackEndApplication. Java**.
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i skompilować aplikację zaplecza:
 

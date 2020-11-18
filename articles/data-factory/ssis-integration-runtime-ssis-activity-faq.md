@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632213"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844186"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Rozwiązywanie problemów z wykonywaniem pakietów w środowisku SSIS Integration Runtime
 
@@ -121,14 +121,14 @@ Ten błąd występuje, gdy środowisko SSIS Integration Runtime nie może uzyska
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Komunikat o błędzie: "dostawca OLE DB firmy Microsoft dla Analysis Services. "HRESULT: 0x80004005 Description:" COM Error: błąd COM: mscorlib; Element docelowy wywołania zgłosił wyjątek.
 
-Jedną z potencjalnych przyczyn jest to, że nazwa użytkownika lub hasło z włączonym Multi-Factor Authentication platformy Azure jest skonfigurowany do uwierzytelniania Azure Analysis Services. To uwierzytelnianie nie jest obsługiwane w programie SSIS Integration Runtime. Spróbuj użyć jednostki usługi do uwierzytelniania Azure Analysis Services:
+Jedną z potencjalnych przyczyn jest to, że nazwa użytkownika lub hasło z włączonym Multi-Factor Authentication usługi Azure AD jest skonfigurowane pod kątem Azure Analysis Services uwierzytelniania. To uwierzytelnianie nie jest obsługiwane w programie SSIS Integration Runtime. Spróbuj użyć jednostki usługi do uwierzytelniania Azure Analysis Services:
 
 1. Przygotuj jednostkę usługi zgodnie z opisem w temacie [Automatyzacja przy użyciu jednostek usługi](../analysis-services/analysis-services-service-principal.md).
-2. W Menedżerze połączeń Skonfiguruj **użycie określonej nazwy użytkownika i hasła** : Ustaw **Identyfikator aplikacji** jako nazwę użytkownika i **clientSecret** jako hasło.
+2. W Menedżerze połączeń Skonfiguruj **użycie określonej nazwy użytkownika i hasła**: Ustaw **Identyfikator aplikacji** jako nazwę użytkownika i **clientSecret** jako hasło.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Komunikat o błędzie: "Źródło ADONET nie uzyskało połączenia {GUID} z następującym komunikatem o błędzie: Logowanie użytkownika" NT AUTHORITY\ANONYMOUS LOGON "" przy użyciu tożsamości zarządzanej nie powiodło się.
 
-Upewnij się, że nie skonfigurowano metody uwierzytelniania Menedżera połączeń jako **Active Directory uwierzytelniania hasła** , gdy parametr *ConnectUsingManagedIdentity* ma **wartość true** . Zamiast tego można skonfigurować go jako **uwierzytelnianie SQL** , który jest ignorowany, jeśli ustawiono *ConnectUsingManagedIdentity* .
+Upewnij się, że nie skonfigurowano metody uwierzytelniania Menedżera połączeń jako **Active Directory uwierzytelniania hasła** , gdy parametr *ConnectUsingManagedIdentity* ma **wartość true**. Zamiast tego można skonfigurować go jako **uwierzytelnianie SQL** , który jest ignorowany, jeśli ustawiono *ConnectUsingManagedIdentity* .
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Komunikat o błędzie: "0xC020801F at..., Źródło OData [...]: nie można uzyskać połączenia zarządzanego z Menedżera połączeń czasu wykonywania"
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412769"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844867"
 ---
 # <a name="security-management-in-azure"></a>Zarządzanie zabezpieczeniami na platformie Azure
 Subskrybenci platformy Azure mogą zarządzać środowiskami chmury przy użyciu wielu urządzeń, łącznie ze stacjami roboczymi do zarządzania, komputerami deweloperów, a nawet urządzeniami uprzywilejowanych użytkowników końcowych, którzy mają uprawnienia specyficzne dla zadania. W niektórych przypadkach funkcje administracyjne są wykonywane za pośrednictwem konsol sieci Web, takich jak [Azure Portal](https://azure.microsoft.com/features/azure-portal/). W innych przypadkach mogą istnieć bezpośrednie połączenia z platformą Azure z systemów lokalnych za pośrednictwem wirtualnych sieci prywatnych (VPN), usług terminalowych, protokołów aplikacji klienckich lub (programowo) interfejsu API zarządzania usługami Azure (SMAPI, Service Management API). Ponadto punkty końcowe klienta mogą być przyłączone do domeny lub odizolowane i niezarządzane (np. tablety lub smartfony).
@@ -112,7 +112,7 @@ Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RD
 * Bramę usług pulpitu zdalnego przyłącz do tej samej [domeny zarządzania](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)), do której są przyłączone stacje robocze administratorów. Jest to konieczne, gdy jest używana sieć VPN między lokacjami z zabezpieczeniami IPsec lub usługa ExpressRoute w domenie z jednokierunkową relacją zaufania do usługi Azure AD, albo w przypadku federacji poświadczeń między lokalnym wystąpieniem usług AD DS a usługą Azure AD.
 * Skonfiguruj [zasady autoryzacji połączeń klientów](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)), aby umożliwić bramie usług pulpitu zdalnego sprawdzanie, czy maszyna kliencka ma prawidłową nazwę (jest przyłączona do domeny) i jest uprawniona do dostępu do witryny Azure Portal.
 * Aby zapewnić lepszą ochronę ruchu związanego z zarządzaniem przed podsłuchem i kradzieżą tokenów, używaj zabezpieczeń IPsec dla [Sieci VPN Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) albo rozważ możliwość utworzenia izolowanego łącza internetowego za pośrednictwem usługi [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Zapewnij uwierzytelnianie wieloskładnikowe (za pomocą usługi [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) lub uwierzytelnianie przy użyciu kart inteligentnych dla administratorów logujących się przy użyciu bramy usług pulpitu zdalnego.
+* Włącz uwierzytelnianie wieloskładnikowe (za pośrednictwem [usługi Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) lub uwierzytelnianie przy użyciu kart inteligentnych dla administratorów, którzy logują się za pośrednictwem bramy usług pulpitu zdalnego.
 * Skonfiguruj [ograniczenia źródłowych adresów IP](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) lub [sieciowe grupy zabezpieczeń](../../virtual-network/network-security-groups-overview.md) na platformie Azure, aby zminimalizować liczbę punktów końcowych uprawnionych do zarządzania.
 
 ## <a name="security-guidelines"></a>Zalecenia dotyczące zabezpieczeń

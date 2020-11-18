@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a015c3881e2fa51ecfaaba57e6bb6262194012d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3932a1dee0eee16e7d64ff4c6085919d85b431ab
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367877"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843268"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Podstawa zabezpieczeń platformy Azure dla Virtual Machine Scale Sets
 
@@ -612,7 +612,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 * [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Rejestrowanie analityki magazynu platformy Azure](../storage/common/storage-analytics-logging.md)
+* [Rejestrowanie usługi Azure Storage Analytics](../storage/common/storage-analytics-logging.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -974,7 +974,7 @@ W przypadku większości scenariuszy szablony maszyn wirtualnych firmy Microsoft
 
 * [Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Jak utworzyć Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [Jak utworzyć Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/authentication.md)
 

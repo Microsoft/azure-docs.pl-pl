@@ -3,12 +3,12 @@ title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowyw
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32fcdad28b06df1763ab1efb1740d87d0b247b0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400589"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843404"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
 Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium bazuje na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -25,7 +25,7 @@ Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
 
 Za pomocą Azure Key Vault można zarządzać kluczami i przeprowadzać inspekcję użycia klucza. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
 
-W tym artykule pokazano, jak skonfigurować magazyn kluczy z kluczami zarządzanymi przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu Azure Portal](../key-vault/secrets/quick-create-portal.md).
+W tym artykule pokazano, jak skonfigurować magazyn kluczy z kluczami zarządzanymi przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: tworzenie Azure Key Vault przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
 
 > [!IMPORTANT]
 > Użycie kluczy zarządzanych przez klienta w programie Azure Service Bus wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **usuwanie nietrwałe** i **nie przeczyszczanie**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.

@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: d2f6d858275ca5a51ea7d8ef6edc23b741cc2466
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aac03cad9dc6b83e7831b35ac2873ddaae6eda75
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747562"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843115"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT (.NET)
 
@@ -33,33 +33,26 @@ Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji .NET:
 
 * Aplikacja zaplecza, która wywołuje metody bezpośrednie na urządzeniu symulowanym. Aby wywoływać metody bezpośrednie na urządzeniu, ta aplikacja łączy się z punktem końcowym po stronie usługi w centrum IoT.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Potrzebujesz zestawu SDK .NET Core w wersji 2.1.0 lub nowszej na komputerze deweloperskim.
+* Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Potrzebujesz zestawu SDK .NET Core w wersji 2.1.0 lub nowszej na komputerze deweloperskim.
 
-Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
+    Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
 
-Możesz sprawdzić bieżącą wersję języka C# na komputerze deweloperskim przy użyciu następującego polecenia:
+    Możesz sprawdzić bieżącą wersję języka C# na komputerze deweloperskim przy użyciu następującego polecenia:
 
-```cmd/sh
-dotnet --version
-```
+    ```cmd/sh
+    dotnet --version
+    ```
+* Jeśli jeszcze tego nie zrobiono, Pobierz przykłady w języku C# usługi Azure IoT z programu https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip i Wyodrębnij archiwum zip.
 
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
+* Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-Jeśli jeszcze tego nie zrobiono, Pobierz przykłady w języku C# usługi Azure IoT z programu https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip i Wyodrębnij archiwum zip.
-
-Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
@@ -75,9 +68,9 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 1. Uruchom następujące polecenie w Azure Cloud Shell, aby utworzyć tożsamość urządzenia.
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
-   **MyDotnetDevice** : jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyDotnetDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
+   **MyDotnetDevice**: jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyDotnetDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -86,7 +79,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 2. Uruchom następujące polecenia w usłudze Azure Cloud Shell, aby uzyskać _parametry połączenia urządzenia_ dla urządzenia, które właśnie zostało zarejestrowane:
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -119,11 +112,11 @@ Użyjesz tej wartości w dalszej części tego przewodnika Szybki start. Te para
 
 Aplikacja urządzenia symulowanego łączy się z punktem końcowym właściwym dla urządzenia w centrum IoT, wysyła symulowane dane telemetryczne i nasłuchuje wywołań metod bezpośrednich z centrum. W tym przewodniku Szybki start wywołanie metody bezpośredniej z centrum nakazuje urządzeniu zmienić interwał wysyłania danych telemetrycznych. Symulowane urządzenie wysyła potwierdzenie z powrotem do centrum po wykonaniu metody bezpośredniej.
 
-1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\simulated-device-2** .
+1. W lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\simulated-device-2**.
 
 2. Otwórz plik **SimulatedDevice.cs** w wybranym edytorze.
 
-    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice.cs** .
+    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice.cs**.
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane pakiety dla aplikacji urządzenia symulowanego:
 
@@ -145,11 +138,11 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym właściwym 
 
 Aplikacja zaplecza łączy się z punktem końcowym po stronie usługi w usłudze IoT Hub. Aplikacja wykonuje bezpośrednie wywołania metody do urządzenia za pośrednictwem Centrum IoT Hub i nasłuchuje pod kątem potwierdzeń. Aplikacja zaplecza usługi IoT Hub zwykle działa w chmurze.
 
-1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\back-end-application** .
+1. W innym lokalnym oknie terminalu przejdź do folderu głównego przykładowego projektu C#. Następnie przejdź do folderu **iot-hub\Quickstarts\back-end-application**.
 
 2. Otwórz plik **BackEndApplication.cs** w wybranym edytorze tekstów.
 
-    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia usługi, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **BackEndApplication.cs** .
+    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia usługi, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **BackEndApplication.cs**.
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki dla aplikacji zaplecza:
 

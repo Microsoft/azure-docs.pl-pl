@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e10b1955d50450e43d1dbb180f4d533b6b6ae8b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 57cebed8ac229ed54945d75786b84b3cd2a36252
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978058"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844203"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Tworzenie galerii udostępnionych obrazów platformy Azure przy użyciu portalu
 
@@ -21,7 +21,7 @@ ms.locfileid: "91978058"
 
 Galeria obrazów udostępnionych umożliwia udostępnianie niestandardowych obrazów maszyn wirtualnych innym osobom w organizacji, w obrębie lub w różnych regionach, w ramach dzierżawy usługi AAD. Wybierz obrazy, które chcesz udostępnić, które regiony mają być dostępne w programie, oraz użytkowników, którym chcesz je udostępnić. Można utworzyć wiele galerii, aby można było logicznie grupować obrazy udostępnione. 
 
-Galeria jest zasobem najwyższego poziomu, który zapewnia pełną kontrolę dostępu opartą na rolach (RBAC). Obrazy mogą być poddane wersji i można wybrać replikację poszczególnych wersji obrazu do innego zestawu regionów świadczenia usługi Azure. Galeria działa tylko z obrazami zarządzanymi.
+Galeria jest zasobem najwyższego poziomu, który zapewnia pełną kontrolę dostępu opartą na rolach (Azure RBAC). Obrazy mogą być poddane wersji i można wybrać replikację poszczególnych wersji obrazu do innego zestawu regionów świadczenia usługi Azure. Galeria działa tylko z obrazami zarządzanymi.
 
 Funkcja galerii obrazów udostępnionych ma wiele typów zasobów. Firma Microsoft będzie używać tych aplikacji lub tworzyć je w tym artykule:
 
@@ -38,16 +38,16 @@ Podczas pracy z tym artykułem należy zastąpić grupę zasobów i nazwy maszyn
  
 ## <a name="create-vms"></a>Tworzenie maszyn wirtualnych
 
-Teraz można utworzyć co najmniej jedną nową maszynę wirtualną. Ten przykład tworzy maszynę wirtualną o nazwie *myVM*w liście *zasobów*w *regionie Wschodnie stany USA* .
+Teraz można utworzyć co najmniej jedną nową maszynę wirtualną. Ten przykład tworzy maszynę wirtualną o nazwie *myVM* w liście *zasobów* w *regionie Wschodnie stany USA* .
 
 1. Przejdź do definicji obrazu. Możesz użyć filtru zasobów, aby wyświetlić wszystkie dostępne definicje obrazu.
 1. Na stronie definicji obrazu wybierz pozycję **Utwórz maszynę wirtualną** z menu w górnej części strony.
-1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę *zasobu* .
-1. W polu **Nazwa maszyny wirtualnej**wpisz *myVM*.
-1. W **obszarze region**wybierz pozycję *Wschodnie stany USA*.
-1. W przypadku **opcji dostępności**pozostaw wartość domyślną *Brak wymaganej nadmiarowości infrastruktury*.
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę *zasobu* .
+1. W polu **Nazwa maszyny wirtualnej** wpisz *myVM*.
+1. W **obszarze region** wybierz pozycję *Wschodnie stany USA*.
+1. W przypadku **opcji dostępności** pozostaw wartość domyślną *Brak wymaganej nadmiarowości infrastruktury*.
 1. Wartość **obrazu** jest automatycznie wypełniana przy użyciu `latest` wersji obrazu, jeśli rozpoczęto od strony dla definicji obrazu.
-1. W polu **rozmiar**wybierz rozmiar maszyny wirtualnej z listy Dostępne rozmiary, a następnie wybierz **pozycję Wybierz**.
+1. W polu **rozmiar** wybierz rozmiar maszyny wirtualnej z listy Dostępne rozmiary, a następnie wybierz **pozycję Wybierz**.
 1. Jeśli obraz został uogólniony przy użyciu **konta administratora**, należy podać nazwę użytkownika, taką jak *azureuser* i hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](faq.md#what-are-the-password-requirements-when-creating-a-vm). Jeśli obraz był wyspecjalizowany, pola Nazwa użytkownika i hasło zostaną wyszarzone, ponieważ używane są nazwy użytkownika i hasło dla źródłowej maszyny wirtualnej.
 1. Jeśli chcesz zezwolić na dostęp zdalny do maszyny wirtualnej w obszarze **publiczne porty przychodzące**, wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **RDP (3389)** z listy rozwijanej. Jeśli nie chcesz zezwalać na dostęp zdalny do maszyny wirtualnej, pozostaw **nie** wybrane dla **publicznych portów przychodzących**.
 1. Po zakończeniu wybierz przycisk **Recenzja + tworzenie** w dolnej części strony.

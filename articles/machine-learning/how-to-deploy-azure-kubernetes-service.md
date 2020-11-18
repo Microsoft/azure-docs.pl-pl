@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy
+ms.custom: how-to, contperfq1, deploy, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2ac565b8c6dfce52daeadd20cf3357bc22cd281
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325187"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843812"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 
@@ -154,7 +154,7 @@ Składnik obsługujący Skalowanie automatyczne dla wdrożeń modeli Azure ML to
 > [!IMPORTANT]
 > * **Nie należy włączać funkcji automatycznego skalowania w poziomie Kubernetes pod kątem wdrożeń modeli**. W takim przypadku dwa składniki skalowania automatycznego będą konkurować ze sobą nawzajem. Usługa Uczenie maszynowe — Fe została zaprojektowana w celu automatycznego skalowania modeli wdrożonych przez usługę Azure ML, gdzie HPA musiałaby odgadnąć lub przybliżyć użycie modelu z ogólnej metryki, takiej jak użycie procesora CPU lub Konfiguracja metryki niestandardowej.
 > 
-> * Usługa **Azure-Fe nie skaluje liczby węzłów w KLASTRZE AKS** , ponieważ może to prowadzić do nieoczekiwanego wzrostu kosztów. Zamiast tego **skaluje liczbę replik dla modelu** w granicach klastra fizycznego. Jeśli potrzebujesz skalować liczbę węzłów w klastrze, możesz ręcznie skalować klaster lub [skonfigurować automatyczne skalowanie klastra AKS](../aks/cluster-autoscaler.md).
+> * Usługa **Azure-Fe nie skaluje liczby węzłów w KLASTRZE AKS**, ponieważ może to prowadzić do nieoczekiwanego wzrostu kosztów. Zamiast tego **skaluje liczbę replik dla modelu** w granicach klastra fizycznego. Jeśli potrzebujesz skalować liczbę węzłów w klastrze, możesz ręcznie skalować klaster lub [skonfigurować automatyczne skalowanie klastra AKS](../aks/cluster-autoscaler.md).
 
 Skalowanie automatyczne może być kontrolowane przez ustawienie `autoscale_target_utilization` , `autoscale_min_replicas` i `autoscale_max_replicas` dla usługi sieci Web AKS. W poniższym przykładzie pokazano, jak włączyć skalowanie automatyczne:
 
@@ -280,7 +280,7 @@ endpoint.delete_version(version_name="versionb")
 
 ```
 
-## <a name="web-service-authentication"></a>Uwierzytelnianie usługi sieci Web
+## <a name="web-service-authentication"></a>Uwierzytelnianie usługi internetowej
 
 W przypadku wdrażania w usłudze Azure Kubernetes uwierzytelnianie __oparte na kluczach__ jest domyślnie włączone. Można również włączyć uwierzytelnianie __oparte na tokenach__ . Uwierzytelnianie oparte na tokenach wymaga, aby klienci używali konta Azure Active Directory do żądania tokenu uwierzytelniania, który jest używany do wysyłania żądań do wdrożonej usługi.
 

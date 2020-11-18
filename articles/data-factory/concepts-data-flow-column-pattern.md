@@ -6,28 +6,28 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027146"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845010"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Używanie wzorców kolumn w mapowaniu przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Niektóre przekształcenia przepływu danych mapowania umożliwiają odwoływanie się do kolumn szablonu na podstawie wzorców zamiast zakodowanych nazw kolumn. Takie dopasowanie jest znane jako *wzorce kolumn* . Możesz definiować wzorce, aby dopasować kolumny na podstawie nazwy, typu danych, strumienia, źródła lub pozycji, zamiast wymagać dokładnej nazwy pól. Istnieją dwa scenariusze, w których są przydatne wzorce kolumn:
+Niektóre przekształcenia przepływu danych mapowania umożliwiają odwoływanie się do kolumn szablonu na podstawie wzorców zamiast zakodowanych nazw kolumn. Takie dopasowanie jest znane jako *wzorce kolumn*. Możesz definiować wzorce, aby dopasować kolumny na podstawie nazwy, typu danych, strumienia, źródła lub pozycji, zamiast wymagać dokładnej nazwy pól. Istnieją dwa scenariusze, w których są przydatne wzorce kolumn:
 
 * Jeśli przychodzące pola źródłowe często zmieniają się, na przykład w przypadku zmiany kolumn w plikach tekstowych lub bazach danych NoSQL. Ten scenariusz jest nazywany [dryfem schematu](concepts-data-flow-schema-drift.md).
 * Jeśli chcesz wykonać wspólną operację na dużej grupie kolumn. Na przykład, chcemy rzutować każdą kolumnę, która ma wartość "Total" w nazwie kolumny na podwójną.
 
-Wzorce kolumn są obecnie dostępne w transformacje kolumn pochodnych, agregacji, wyboru i ujścia.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Wzorce kolumn w kolumnie pochodnej i agregowanie
 
-Aby dodać wzorzec kolumny do przekształcenia kolumn pochodnych, agregacji lub okna, kliknij przycisk **Dodaj** powyżej listy kolumn lub ikonę znaku plus obok istniejącej kolumny pochodnej. Wybierz pozycję **Dodaj wzorzec kolumny** .
+Aby dodać wzorzec kolumny do przekształcenia kolumn pochodnych, agregacji lub okna, kliknij przycisk **Dodaj** powyżej listy kolumn lub ikonę znaku plus obok istniejącej kolumny pochodnej. Wybierz pozycję **Dodaj wzorzec kolumny**.
 
 ![Zrzut ekranu przedstawia ikonę znaku plus, aby dodać wzorzec kolumny.](media/data-flow/add-column-pattern.png "Wzorce kolumn")
 
@@ -43,11 +43,17 @@ Aby sprawdzić, czy odpowiedni warunek jest poprawny, można sprawdzić poprawno
 
 ![Zrzut ekranu przedstawia kartę schemat danych wyjściowych.](media/data-flow/columnpattern3.png "Wzorce kolumn")
 
+### <a name="hierarchical-pattern-matching"></a>Dopasowanie wzorca hierarchicznego
+
+Można również kompilować dopasowanie do wzorca w złożonych strukturach hierarchicznych. Rozwiń sekcję, w `Each MoviesStruct that matches` której zostanie wyświetlony monit o podanie każdej hierarchii w strumieniu danych. Następnie można skompilować pasujące wzorce dla właściwości w tej wybranej hierarchii.
+
+![Zrzut ekranu przedstawia wzorzec kolumny hierarchicznej.](media/data-flow/patterns-hierarchy.png "Wzorce kolumn w hierarchiach")
+
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapowanie oparte na regułach w SELECT i ujścia
 
 Podczas mapowania kolumn w źródle i wybierania transformacji można dodać stałe mapowania lub mapowania oparte na regułach. Dopasowanie na podstawie `name` kolumn, `type` , `stream` , `origin` i `position` . Można mieć dowolną kombinację stałych i mapowań opartych na regułach. Domyślnie wszystkie projekcje zawierające więcej niż 50 kolumn będą domyślnie mapowane na podstawie reguły, które pasują do każdej kolumny i wyprowadzają wydaną nazwę. 
 
-Aby dodać mapowanie oparte na regułach, kliknij przycisk **Dodaj mapowanie** i wybierz **Mapowanie oparte na regułach** .
+Aby dodać mapowanie oparte na regułach, kliknij przycisk **Dodaj mapowanie** i wybierz **Mapowanie oparte na regułach**.
 
 ![Zrzut ekranu przedstawia mapowanie oparte na regułach wybrane na podstawie dodawania mapowania.](media/data-flow/rule2.png "Mapowanie oparte na regułach")
 
@@ -77,7 +83,7 @@ Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a` . `a`
 
 ## <a name="pattern-matching-expression-values"></a>Wartości wyrażeń dopasowania do wzorca.
 
-* `$$` tłumaczy na nazwę lub wartość każdego dopasowania w czasie wykonywania
+* `$$` tłumaczy na nazwę lub wartość każdego dopasowania w czasie wykonywania. Należy traktować `$$` jako równoważne `this` .
 * `name` reprezentuje nazwę każdej kolumny przychodzącej
 * `type` reprezentuje typ danych każdej kolumny przychodzącej
 * `stream` reprezentuje nazwę skojarzoną z każdym strumieniem lub transformację w przepływie

@@ -10,16 +10,16 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f6ffa23818a223ef1c0d46823955668ad96292d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e71f09179d414be84896a49a66480f19a0665d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307215"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843591"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants---linux-examples"></a>Udostępnianie obrazów maszyn wirtualnych galerii w ramach dzierżawców platformy Azure — przykłady dla systemu Linux
 
-Udostępnione Galerie obrazów umożliwiają udostępnianie obrazów przy użyciu RBAC. RBAC można używać do udostępniania obrazów w dzierżawie, a nawet do osób poza dzierżawcą. Aby uzyskać więcej informacji na temat tej prostej opcji udostępniania, zobacz [udostępnianie galerii](./shared-images-portal.md#share-the-gallery).
+Udostępnione Galerie obrazów umożliwiają udostępnianie obrazów przy użyciu funkcji RBAC platformy Azure. Za pomocą funkcji RBAC platformy Azure można udostępniać obrazy w dzierżawie, a nawet użytkownikom spoza dzierżawy. Aby uzyskać więcej informacji na temat tej prostej opcji udostępniania, zobacz [udostępnianie galerii](./shared-images-portal.md#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 

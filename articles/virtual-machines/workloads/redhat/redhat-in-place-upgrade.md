@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1160bc43db0dc9ec1714b1766c8cadf09660e291
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566626"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844571"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Red Hat Enterprise Linux uaktualnień w miejscu
 
@@ -124,8 +124,8 @@ Consult the pre-upgrade report for details and possible remediation.
 ============================================================
 ```
 **Rozwiązanie**\
-Włącz dostęp do katalogu głównego w programie `/etc/sshd_conf` .
-Jest to spowodowane tym, że nie włączono dostępu do głównego protokołu SSH w programie `/etc/sshd_conf` zgodnie z sekcją "[przygotowania dla uaktualnienia](#preparations-for-the-upgrade)". 
+Włącz dostęp do katalogu głównego w programie `/etc/sshd_config` .
+Jest to spowodowane tym, że nie włączono dostępu do głównego protokołu SSH w programie `/etc/sshd_config` zgodnie z sekcją "[przygotowania dla uaktualnienia](#preparations-for-the-upgrade)". 
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [obrazach Red Hat na platformie Azure](./redhat-images.md).

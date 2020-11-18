@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 3e2cb1d7c5f4d19a91eeb2999d7cbe449c10f822
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 65cc3d2fdcbdea934e80a5f0012ca4f3da157ca3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543004"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843438"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Szybki Start: Tworzenie Azure Database for MySQL elastycznego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -142,7 +142,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 
 ## <a name="connect-using-mysql-command-line-client"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia MySQL
 
-Ponieważ serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)* , należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do utworzonej sieci wirtualnej. 
+Ponieważ serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)*, należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do utworzonej sieci wirtualnej. 
 
 Po utworzeniu maszyny wirtualnej można do niej wykonać protokół SSH i zainstalować popularne narzędzie klienckie, **[mysql.exe](https://dev.mysql.com/downloads/)** narzędzie wiersza polecenia.
 

@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-js
-ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 00502c97e3fc06972c27cedf565d77b52f558795
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250032"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844816"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Konfigurowanie ustawień aplikacji dla usługi Azure static Web Apps Preview
 
@@ -90,7 +90,7 @@ Zwykle przekazywanie ustawień jest wykonywane rzadko i nie jest wymagane w przy
 
 Ustawienia aplikacji można skonfigurować za pomocą Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Azure Portal udostępnia interfejs do tworzenia, aktualizowania i usuwania ustawień aplikacji.
 
@@ -144,7 +144,7 @@ Polecenie interfejsu wiersza polecenia platformy Azure wymaga określonych warto
 2. Nazwa grupy zasobów
 3. Identyfikator subskrypcji
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Widok konfiguracji Web Apps statycznej platformy Azure":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Azure static Web Apps — Omówienie":::
 
 4. W terminalu lub wierszu polecenia wykonaj następujące polecenie. Pamiętaj, aby zastąpić symbole zastępcze `<YOUR_STATIC_SITE_NAME>` , `<YOUR_RESOURCE_GROUP_NAME>` i `<YOUR_SUBSCRIPTION_ID>` z wartościami z okna _Przegląd_ .
 

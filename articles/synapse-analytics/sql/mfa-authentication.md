@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a430bb41f88bfec1299d52d8237c9534b28acc5d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093382"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843302"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD za pomocą Synapse SQL (Obsługa programu SSMS dla usługi MFA)
 
@@ -40,11 +40,11 @@ Istnieją również dwa nieinteraktywne modele uwierzytelniania, które mogą by
 - `Active Directory - Password`
 - `Active Directory - Integrated`
 
-Interaktywna Metoda obejmuje również obsługę uwierzytelniania wieloskładnikowego (MFA) w usłudze Azure:
+Metoda interaktywna obsługuje również usługę Azure AD Multi-Factor Authentication (MFA):
 
 - `Active Directory - Universal with MFA`
 
-Usługa Azure MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
+Usługa Azure AD MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
 
 Opis Multi-Factor Authentication można znaleźć w temacie [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

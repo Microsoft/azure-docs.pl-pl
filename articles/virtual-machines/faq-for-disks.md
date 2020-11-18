@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684512"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843999"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
 
@@ -76,7 +76,7 @@ W zależności od regionu, w którym znajduje się zestaw dostępności, który 
 
 Należy skonfigurować prywatne konto magazynu na potrzeby diagnostyki maszyn wirtualnych.
 
-**Jakiego rodzaju Role-Based wsparcia Access Control jest dostępny dla Managed Disks?**
+**Jakiego rodzaju obsługa kontroli dostępu opartej na rolach na platformie Azure jest dostępna dla Managed Disks?**
 
 Managed Disks obsługuje trzy role domyślne klucza:
 
@@ -420,7 +420,7 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 
 |Narzędzia platformy Azure      | Obsługiwane wersje                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
+|Program Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
 |AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|

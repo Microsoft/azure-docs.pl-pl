@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 ms.date: 10/30/2020
-ms.openlocfilehash: ed2ce13ab10c09dc738e522566742078819e8341
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 4c0d12e4c37476b9ae71962251105ef92aa39120
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148392"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845207"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Konfigurowanie klastrów usługi HDInsight na potrzeby integracji Active Directory z usługą pakiet Enterprise Security
 
@@ -48,9 +48,9 @@ Gdy usługa Azure AD DS jest włączona, wszyscy użytkownicy i obiekty domyśln
 
 Nazwa domeny, która jest używana z usługą Azure AD DS nie może mieć więcej niż 39 znaków, do pracy z usługą HDInsight.
 
-Można synchronizować tylko te grupy, które wymagają dostępu do klastrów usługi HDInsight. Ta opcja synchronizowania tylko określonych grup jest nazywana *synchronizacją w zakresie* . Aby uzyskać instrukcje, zobacz [Konfigurowanie synchronizacji z zakresem z usługi Azure AD do domeny zarządzanej](../../active-directory-domain-services/scoped-synchronization.md).
+Można synchronizować tylko te grupy, które wymagają dostępu do klastrów usługi HDInsight. Ta opcja synchronizowania tylko określonych grup jest nazywana *synchronizacją w zakresie*. Aby uzyskać instrukcje, zobacz [Konfigurowanie synchronizacji z zakresem z usługi Azure AD do domeny zarządzanej](../../active-directory-domain-services/scoped-synchronization.md).
 
-Po włączeniu bezpiecznego protokołu LDAP Umieść nazwę domeny w polu Nazwa podmiotu. I Alternatywna nazwa podmiotu w certyfikacie. Jeśli nazwa domeny to *contoso100.onmicrosoft.com* , upewnij się, że dokładna nazwa istnieje w nazwie podmiotu certyfikatu i Alternatywna nazwa podmiotu. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej AD DS platformy Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md).
+Po włączeniu bezpiecznego protokołu LDAP Umieść nazwę domeny w polu Nazwa podmiotu. I Alternatywna nazwa podmiotu w certyfikacie. Jeśli nazwa domeny to *contoso100.onmicrosoft.com*, upewnij się, że dokładna nazwa istnieje w nazwie podmiotu certyfikatu i Alternatywna nazwa podmiotu. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej AD DS platformy Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
 Poniższy przykład tworzy certyfikat z podpisem własnym. Nazwa domeny *contoso100.onmicrosoft.com* znajduje się w obu tych polach `Subject` (nazwa podmiotu) i `DnsName` (alternatywna nazwa podmiotu).
 
@@ -62,7 +62,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ```
 
 > [!NOTE]  
-> Tylko Administratorzy dzierżawy mają uprawnienia do włączania usługi Azure AD DS. Jeśli magazyn klastra jest Azure Data Lake Storage Gen1 lub Gen2, należy wyłączyć usługę Azure Multi-Factor Authentication tylko dla użytkowników, którzy będą musieli uzyskać dostęp do klastra przy użyciu podstawowego uwierzytelniania Kerberos.
+> Tylko Administratorzy dzierżawy mają uprawnienia do włączania usługi Azure AD DS. Jeśli magazyn klastra jest Azure Data Lake Storage Gen1 lub Gen2, należy wyłączyć usługę Azure AD Multi-Factor Authentication tylko dla użytkowników, którzy będą musieli uzyskać dostęp do klastra przy użyciu podstawowego uwierzytelniania Kerberos.
 >
 > Możesz użyć [zaufanych adresów IP](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) lub [dostępu warunkowego](../../active-directory/conditional-access/overview.md) , aby wyłączyć Multi-Factor Authentication dla określonych użytkowników *tylko* wtedy, gdy uzyskują dostęp do zakresu adresów IP dla sieci wirtualnej klastra usługi HDInsight. W przypadku korzystania z dostępu warunkowego upewnij się, że punkt końcowy usługi Active Directory jest włączony w sieci wirtualnej HDInsight.
 >
@@ -88,7 +88,7 @@ Następnie przypisz rolę **współautor usług domenowych** w usłudze HDInsigh
 
 Przypisanie roli **współautor usług domenowych** w usłudze HDInsight zapewnia, że ta tożsamość ma odpowiedni ( `on behalf of` ) dostęp do operacji usług domenowych w domenie AD DS platformy Azure. Te operacje obejmują tworzenie i usuwanie jednostek organizacyjnych.
 
-Po otrzymaniu roli zarządzanej przez administratora usługi Azure AD DS administrator zarządza tą osobą. Najpierw Administrator wybiera tożsamość zarządzaną w portalu. Następnie wybiera **Access Control (IAM)** w obszarze **Przegląd** . Administrator przypisuje rolę **operatora tożsamości zarządzanej** użytkownikom lub grupom, którzy chcą tworzyć klastry ESP.
+Po otrzymaniu roli zarządzanej przez administratora usługi Azure AD DS administrator zarządza tą osobą. Najpierw Administrator wybiera tożsamość zarządzaną w portalu. Następnie wybiera **Access Control (IAM)** w obszarze **Przegląd**. Administrator przypisuje rolę **operatora tożsamości zarządzanej** użytkownikom lub grupom, którzy chcą tworzyć klastry ESP.
 
 Na przykład administrator usługi Azure AD DS może przypisać tę rolę do grupy **MarketingTeam** dla tożsamości zarządzanej **sjmsi** . Na poniższej ilustracji przedstawiono przykład. To przypisanie gwarantuje, że odpowiednie osoby w organizacji mogą używać tożsamości zarządzanej do tworzenia klastrów ESP.
 
@@ -99,11 +99,11 @@ Na przykład administrator usługi Azure AD DS może przypisać tę rolę do gru
 > [!NOTE]  
 > Usługę Azure AD DS należy wdrożyć w sieci wirtualnej opartej na Azure Resource Manager. Klasyczne sieci wirtualne nie są obsługiwane w przypadku usługi Azure AD DS. Aby uzyskać więcej informacji, zobacz [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network).
 
-Włącz usługę Azure AD DS. Następnie lokalny serwer DNS (Domain Name System) działa na maszynach wirtualnych Active Directory. Skonfiguruj sieć wirtualną AD DS platformy Azure tak, aby korzystała z tych niestandardowych serwerów DNS. Aby zlokalizować odpowiednie adresy IP, wybierz pozycję **Właściwości** w kategorii **Zarządzaj** i poszukaj w obszarze **adres IP w sieci wirtualnej** .
+Włącz usługę Azure AD DS. Następnie lokalny serwer DNS (Domain Name System) działa na maszynach wirtualnych Active Directory. Skonfiguruj sieć wirtualną AD DS platformy Azure tak, aby korzystała z tych niestandardowych serwerów DNS. Aby zlokalizować odpowiednie adresy IP, wybierz pozycję **Właściwości** w kategorii **Zarządzaj** i poszukaj w obszarze **adres IP w sieci wirtualnej**.
 
 ![Lokalizowanie adresów IP dla lokalnych serwerów DNS](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
-Zmień konfigurację serwerów DNS w sieci wirtualnej AD DS platformy Azure. Aby użyć tych niestandardowych adresów IP, wybierz pozycję **serwery DNS** w kategorii **Ustawienia** . Następnie wybierz opcję **niestandardowa** , wprowadź pierwszy adres IP w polu tekstowym, a następnie wybierz pozycję **Zapisz** . Dodaj więcej adresów IP, wykonując te same czynności.
+Zmień konfigurację serwerów DNS w sieci wirtualnej AD DS platformy Azure. Aby użyć tych niestandardowych adresów IP, wybierz pozycję **serwery DNS** w kategorii **Ustawienia** . Następnie wybierz opcję **niestandardowa** , wprowadź pierwszy adres IP w polu tekstowym, a następnie wybierz pozycję **Zapisz**. Dodaj więcej adresów IP, wykonując te same czynności.
 
 ![Aktualizowanie konfiguracji DNS sieci wirtualnej](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
@@ -136,11 +136,11 @@ Po włączeniu protokołu ESP typowe błędne konfiguracje związane z platform�
 
 Podczas tworzenia klastra usługi HDInsight przy użyciu protokołu ESP należy podać następujące parametry:
 
-* **Użytkownik administrator klastra** : Wybierz administratora klastra ze zsynchronizowanego wystąpienia usługi Azure AD DS. To konto domeny musi być już zsynchronizowane i dostępne w usłudze Azure AD DS.
+* **Użytkownik administrator klastra**: Wybierz administratora klastra ze zsynchronizowanego wystąpienia usługi Azure AD DS. To konto domeny musi być już zsynchronizowane i dostępne w usłudze Azure AD DS.
 
-* **Grupy dostępu klastra** : grupy zabezpieczeń, których użytkownicy mają synchronizować i mają dostęp do klastra, powinny być dostępne w usłudze Azure AD DS. Przykładem jest Grupa HiveUsers. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy i Dodawanie członków w Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+* **Grupy dostępu klastra**: grupy zabezpieczeń, których użytkownicy mają synchronizować i mają dostęp do klastra, powinny być dostępne w usłudze Azure AD DS. Przykładem jest Grupa HiveUsers. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy i Dodawanie członków w Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* **Adres URL adresów LDAP** : przykład `ldaps://contoso.com:636` .
+* **Adres URL adresów LDAP**: przykład `ldaps://contoso.com:636` .
 
 Utworzoną tożsamość zarządzaną można wybrać z listy rozwijanej **tożsamość zarządzana przez użytkownika** podczas tworzenia nowego klastra.
 

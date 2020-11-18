@@ -3,13 +3,13 @@ title: Praca z dużymi zestawami danych
 description: Informacje na temat pobierania, formatowania, wyświetlania i pomijania rekordów w dużych zestawach danych podczas pracy z wykresem zasobów platformy Azure.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp
-ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 6054d2cd2cf012c21f451ece87db672897fa0398
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578499"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843353"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Praca z dużymi zestawami danych zasobów platformy Azure
 
@@ -22,7 +22,7 @@ Aby uzyskać wskazówki dotyczące pracy z kwerendami z dużą częstotliwości�
 Domyślnie wykres zasobów ogranicza wszelkie zapytania, aby zwracać tylko **100** rekordów. Ta kontrolka chroni zarówno użytkownika, jak i usługę przed niezamierzonymi zapytaniami, które spowodują powstanie dużych zestawów danych. To zdarzenie najczęściej występuje, gdy klient próbuje znaleźć i filtrować zasoby w taki sposób, aby odpowiadały one konkretnym potrzebom. Ta kontrolka różni się od użycia [górnego](/azure/kusto/query/topoperator) lub [ograniczającego](/azure/kusto/query/limitoperator) operatory języka Azure Eksplorator danych, aby ograniczyć wyniki.
 
 > [!NOTE]
-> Przy **pierwszym**użyciu zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać.
+> Przy **pierwszym** użyciu zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać.
 
 Domyślny limit można zastąpić wszystkimi metodami współpracy z wykresem zasobów. W poniższych przykładach pokazano, jak zmienić limit rozmiaru zestawu danych na _200_:
 
@@ -48,7 +48,7 @@ Formant, który jest _najbardziej restrykcyjny_ , zostanie wygrany. Na przykład
 Następną opcją pracy z dużymi zestawami danych jest kontrolka **pomijania** . Ta kontrolka umożliwia kwerendy przeskoczenie lub pominięcie zdefiniowanej liczby rekordów przed zwróceniem wyników. **Pomijanie** jest przydatne w przypadku zapytań, które sortują wyniki w zrozumiały sposób, gdy celem jest uzyskanie rekordów w środku zestawu wyników. Jeśli wyniki są konieczne na końcu zwracanego zestawu danych, bardziej wydajne jest użycie innej konfiguracji sortowania i pobranie wyników z góry zestawu danych.
 
 > [!NOTE]
-> W przypadku korzystania z funkcji **Skip**zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać. Jeśli `limit` lub `take` są używane w zapytaniu, **Skip** jest ignorowane.
+> W przypadku korzystania z funkcji **Skip** zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać. Jeśli `limit` lub `take` są używane w zapytaniu, **Skip** jest ignorowane.
 
 W poniższych przykładach pokazano, jak pominąć pierwsze _10_ rekordów, a zamiast tego zostanie wyświetlony zwrócony zestaw wyników z 11 rekordu:
 
@@ -92,7 +92,7 @@ Wyniki z interfejsu wiersza polecenia platformy Azure są domyślnie dostępne w
 
 ### <a name="format---table"></a>Format — tabela
 
-Format domyślny _tabeli_zwraca wyniki w formacie JSON zaprojektowanym do wyróżnienia wartości projektu kolumny i wiersza właściwości zwracanych przez zapytanie. Ten format ściśle przypomina dane zdefiniowane w tabeli strukturalnej lub arkuszu kalkulacyjnym z określonymi kolumnami, a następnie każdy wiersz reprezentuje dane wyrównane do tych kolumn.
+Format domyślny _tabeli_ zwraca wyniki w formacie JSON zaprojektowanym do wyróżnienia wartości projektu kolumny i wiersza właściwości zwracanych przez zapytanie. Ten format ściśle przypomina dane zdefiniowane w tabeli strukturalnej lub arkuszu kalkulacyjnym z określonymi kolumnami, a następnie każdy wiersz reprezentuje dane wyrównane do tych kolumn.
 
 Oto przykład wyniku zapytania z formatowaniem _tabeli_ :
 

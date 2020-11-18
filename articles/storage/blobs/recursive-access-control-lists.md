@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: ffd72ffb02e4875305177cf12fd19f538735b7d6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659924"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844237"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
 
@@ -386,9 +386,11 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>Ustawianie listy ACL rekursywnie
 
-Po *ustawieniu* listy ACL **zastąpi** całą listę kontroli dostępu, w tym wszystkie jej wpisy. Jeśli chcesz zmienić poziom uprawnień podmiotu zabezpieczeń lub dodać nowego podmiot zabezpieczeń do listy kontroli dostępu bez wpływu na inne istniejące wpisy, należy zamiast tego *zaktualizować* listę kontroli dostępu. Aby zaktualizować listę ACL zamiast zastępować, zobacz sekcję [aktualizowanie listy ACL rekursywnie](#update-an-acl-recursively) w tym artykule.   
+Po *ustawieniu* listy ACL **zastąpi** całą listę kontroli dostępu, w tym wszystkie jej wpisy. Jeśli chcesz zmienić poziom uprawnień podmiotu zabezpieczeń lub dodać nowego podmiot zabezpieczeń do listy kontroli dostępu bez wpływu na inne istniejące wpisy, należy zamiast tego *zaktualizować* listę kontroli dostępu. Aby zaktualizować listę ACL zamiast zastępować, zobacz sekcję [aktualizowanie listy ACL rekursywnie](#update-an-acl-recursively) w tym artykule.  
 
-Ta sekcja zawiera przykłady dotyczące sposobu ustawiania listy ACL 
+Jeśli zdecydujesz się *ustawić* listę kontroli dostępu, musisz dodać wpis dla użytkownika będącego właścicielem, wpis dla grupy będącej właścicielem i wpis dla wszystkich innych użytkowników. Aby dowiedzieć się więcej na temat użytkownika będącego właścicielem, grupy będącej właścicielem i wszystkich innych użytkowników, zobacz [Użytkownicy i tożsamości](data-lake-storage-access-control.md#users-and-identities). 
+
+Ta sekcja zawiera przykłady dotyczące sposobu ustawiania listy ACL.
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

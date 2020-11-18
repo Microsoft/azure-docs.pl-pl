@@ -3,12 +3,12 @@ title: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 description: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207295"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843200"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 
@@ -62,7 +62,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 **Odpowiedzialność:** Dział
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
-***Wskazówki:** W Azure Monitor Ustaw okres przechowywania dziennika dla Log Analytics obszarów roboczych skojarzonych z wystąpieniami Azure DevTest Labs zgodnie z regulacjami zgodności w organizacji.
+**_Wskazówki:_* W Azure Monitor Ustaw okres przechowywania dziennika dla Log Analytics obszarów roboczych skojarzonych z wystąpieniami Azure DevTest Labs zgodnie z regulacjami zgodności w organizacji.
 
 Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,9 +175,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 - [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie Azure Security Center:*** tak
+**Monitorowanie Azure Security Center:** _
 
-**Odpowiedzialność:** Dział
+A *odpowiedzialność:** klient
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
@@ -387,7 +387,7 @@ Firma Microsoft przeprowadza zarządzanie lukami w zabezpieczeniach zasobów, kt
 **Odpowiedzialność:** Dział
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5,3: Wdróż zautomatyzowane rozwiązanie do zarządzania poprawkami oprogramowania innych firm
-***Wskazówki:*** Jako administrator laboratorium możesz użyć [artefaktów DevTest Labs](add-artifact-vm.md) , aby zautomatyzować aktualizacje niestandardowych obrazów laboratorium, w tym poprawki zabezpieczeń i inne aktualizacje. 
+**_Wskazówki:_* _ jako administrator laboratorium można używać [artefaktów DevTest Labs](add-artifact-vm.md) do automatyzowania aktualizacji niestandardowych obrazów laboratorium, w tym poprawek zabezpieczeń i innych aktualizacji. 
 
 Dowiedz się więcej o usłudze [DevTest Labs Image Factory](image-factory-create.md), która jest rozwiązaniem typu "Konfiguracja jako kod", które regularnie kompiluje i dystrybuuje obrazy, z uwzględnieniem wszystkich pożądanych konfiguracji. 
 
@@ -396,7 +396,7 @@ Jako administrator subskrypcji możesz także użyć rozwiązania Update Managem
 - [Update Management rozwiązanie na platformie Azure](../automation/update-management/update-mgmt-overview.md)
 - [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](../automation/update-management/update-mgmt-overview.md)
 
-**Monitorowanie Azure Security Center:** Nie dotyczy
+_ *Azure Security Center monitorowanie:** nie dotyczy
 
 **Odpowiedzialność:** Dział
 
@@ -692,7 +692,7 @@ Ponadto w firmie Microsoft są zarządzane i utrzymywane w portalu Azure Marketp
 
 - [Konfigurowanie tożsamości zarządzanej do wdrażania środowisk Azure Resource Manager w usłudze DevTest Labs](use-managed-identities-environments.md)
 - [Konfigurowanie tożsamości zarządzanej do wdrażania maszyn wirtualnych w usłudze DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Jak utworzyć magazyn kluczy](../key-vault/secrets/quick-create-portal.md)
+- [Jak utworzyć magazyn kluczy](../key-vault/general/quick-create-portal.md)
 - [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/authentication.md)
 - [Jak przypisać zasady dostępu Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

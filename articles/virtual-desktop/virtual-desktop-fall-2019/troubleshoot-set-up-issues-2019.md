@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009260"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843642"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Tworzenie dzierżawy i puli hostów w systemie Windows Virtual Desktop (klasyczny)
 
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Błąd: Użytkownik wymaga usługi Azure Multi-Factor Authentication (MFA)
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Błąd: użytkownik wymaga usługi Azure AD Multi-Factor Authentication (MFA)
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu wdrożenia nie powiódł się z powodu braku Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ Przykład nieprzetworzonego błędu:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Przyczyna:** Określony Administrator dzierżawy usług pulpitu wirtualnego systemu Windows wymaga zalogowania się do usługi Azure Multi-Factor Authentication (MFA).
+**Przyczyna:** Określony Administrator dzierżawy usług pulpitu wirtualnego systemu Windows wymaga zalogowania się do usługi Azure AD Multi-Factor Authentication (MFA).
 
 **Poprawka:** Utwórz jednostkę usługi i przypisz ją do swojej dzierżawy pulpitu wirtualnego systemu Windows, wykonując kroki opisane w [samouczku: tworzenie jednostek usługi i przypisań ról przy użyciu programu PowerShell](create-service-principal-role-powershell.md). Po sprawdzeniu, czy możesz zalogować się do pulpitu wirtualnego systemu Windows przy użyciu nazwy głównej usługi, uruchom ponownie ofertę witryny Azure Marketplace lub szablon Azure Resource Manager GitHub, w zależności od używanej metody. Postępuj zgodnie z poniższymi instrukcjami, aby wprowadzić poprawne parametry dla metody.
 

@@ -16,12 +16,13 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+- devx-track-azurecli
+ms.openlocfilehash: 8627681d843d15658882529424375486a4cdb1b9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912144"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845173"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -43,7 +44,7 @@ Musisz mieć odpowiednie uprawnienia, aby uzyskać dostęp do dowolnych punktów
 
 [Uprawnienia](#iot-hub-permissions) można udzielić w następujący sposób:
 
-* **Zasady dostępu współdzielonego na poziomie Centrum IoT** . Zasady dostępu współdzielonego mogą przydzielić dowolną kombinację [uprawnień](#iot-hub-permissions). Zasady można definiować w [Azure Portal](https://portal.azure.com)programowo przy użyciu [interfejsów api REST zasobów IoT Hub](/rest/api/iothub/iothubresource)lub przy użyciu polecenia [AZ IoT Hub Policy](/cli/azure/iot/hub/policy) . Nowo utworzone Centrum IoT Hub ma następujące zasady domyślne:
+* **Zasady dostępu współdzielonego na poziomie Centrum IoT**. Zasady dostępu współdzielonego mogą przydzielić dowolną kombinację [uprawnień](#iot-hub-permissions). Zasady można definiować w [Azure Portal](https://portal.azure.com)programowo przy użyciu [interfejsów api REST zasobów IoT Hub](/rest/api/iothub/iothubresource)lub przy użyciu polecenia [AZ IoT Hub Policy](/cli/azure/iot/hub/policy) . Nowo utworzone Centrum IoT Hub ma następujące zasady domyślne:
   
   | Zasady dostępu współdzielonego | Uprawnienia |
   | -------------------- | ----------- |
@@ -53,7 +54,7 @@ Musisz mieć odpowiednie uprawnienia, aby uzyskać dostęp do dowolnych punktów
   | registryRead | Uprawnienia **RegistryRead** |
   | registryReadWrite | Uprawnienia **RegistryRead** i **RegistryWrite** |
 
-* **Poświadczenia zabezpieczeń dla poszczególnych urządzeń** . Każdy IoT Hub zawiera [Rejestr tożsamości](iot-hub-devguide-identity-registry.md) dla każdego urządzenia w tym rejestrze tożsamości, można skonfigurować poświadczenia zabezpieczeń, które przyznają uprawnienia **DeviceConnect** do odpowiednich punktów końcowych urządzeń.
+* **Poświadczenia zabezpieczeń dla poszczególnych urządzeń**. Każdy IoT Hub zawiera [Rejestr tożsamości](iot-hub-devguide-identity-registry.md) dla każdego urządzenia w tym rejestrze tożsamości, można skonfigurować poświadczenia zabezpieczeń, które przyznają uprawnienia **DeviceConnect** do odpowiednich punktów końcowych urządzeń.
 
 Na przykład w typowym rozwiązaniu IoT:
 
@@ -116,7 +117,7 @@ W przypadku korzystania z SASL PLAIN z AMQP, klient łączący się z usługą I
 
 ## <a name="scope-iot-hub-level-credentials"></a>Zakres poświadczeń na poziomie Centrum IoT Hub
 
-Aby ograniczyć zasady zabezpieczeń na poziomie Centrum IoT, można utworzyć tokeny z identyfikatorem URI zasobu z ograniczeniami. Na przykład punkt końcowy do wysyłania komunikatów z urządzenia do chmury z urządzenia to **/Devices/{deviceId}/messages/Events** . Można również użyć zasad dostępu współdzielonego na poziomie Centrum IoT z uprawnieniami **DeviceConnect** do podpisywania tokenu, którego resourceURI to **/Devices/{deviceId}** . To podejście tworzy token, który jest używany tylko do wysyłania wiadomości w imieniu urządzenia **deviceId** .
+Aby ograniczyć zasady zabezpieczeń na poziomie Centrum IoT, można utworzyć tokeny z identyfikatorem URI zasobu z ograniczeniami. Na przykład punkt końcowy do wysyłania komunikatów z urządzenia do chmury z urządzenia to **/Devices/{deviceId}/messages/Events**. Można również użyć zasad dostępu współdzielonego na poziomie Centrum IoT z uprawnieniami **DeviceConnect** do podpisywania tokenu, którego resourceURI to **/Devices/{deviceId}**. To podejście tworzy token, który jest używany tylko do wysyłania wiadomości w imieniu urządzenia **deviceId**.
 
 Ten mechanizm jest podobny do [zasad wydawcy Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)i umożliwia implementowanie niestandardowych metod uwierzytelniania.
 
@@ -144,13 +145,13 @@ Poniżej przedstawiono oczekiwane wartości:
 
 | Wartość | Opis |
 | --- | --- |
-| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry` . **Ważne** : klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256. |
+| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry` . **Ważne**: klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256. |
 | ResourceURI |Prefiks identyfikatora URI (segment) punktów końcowych, do których można uzyskać dostęp za pomocą tego tokenu, rozpoczynając od nazwy hosta Centrum IoT (bez protokołu). Na przykład `myHub.azure-devices.net/devices/device1` |
 | wygaśnięcia |Ciągi UTF8 przez liczbę sekund od czasu epoki 00:00:00 UTC 1 stycznia 1970. |
 | {Zakodowany w adresie URL — resourceURI} |Małe adresy URL — kodowanie identyfikatora URI zasobu niższej wielkości liter |
 | PolicyName |Nazwa zasad dostępu współdzielonego, do których odwołuje się ten token. Nieobecny, jeśli token odwołuje się do poświadczeń urządzenia-rejestru. |
 
-**Uwaga dotycząca prefiksu** : Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla, `/a/b/c` ale nie dla `/a/bc` .
+**Uwaga dotycząca prefiksu**: Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla, `/a/b/c` ale nie dla `/a/bc` .
 
 Poniższy fragment kodu Node.js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token na podstawie danych wejściowych `resourceUri, signingKey, policyName, expiresInMins` . W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
 
@@ -377,9 +378,9 @@ Można użyć dowolnego certyfikatu X. 509 w celu uwierzytelnienia urządzenia z
 
 Obsługiwane są następujące certyfikaty:
 
-* **Istniejący certyfikat X. 509** . Z urządzeniem może już być skojarzony certyfikat X. 509. Urządzenie może używać tego certyfikatu do uwierzytelniania za pomocą IoT Hub. Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji. 
+* **Istniejący certyfikat X. 509**. Z urządzeniem może już być skojarzony certyfikat X. 509. Urządzenie może używać tego certyfikatu do uwierzytelniania za pomocą IoT Hub. Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji. 
 
-* **Certyfikat X. 509 podpisany przez urząd certyfikacji** . Aby zidentyfikować urządzenie i uwierzytelnić je za pomocą IoT Hub, można użyć certyfikatu X. 509 wygenerowanego i podpisanego przez urząd certyfikacji (CA). Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji.
+* **Certyfikat X. 509 podpisany przez urząd certyfikacji**. Aby zidentyfikować urządzenie i uwierzytelnić je za pomocą IoT Hub, można użyć certyfikatu X. 509 wygenerowanego i podpisanego przez urząd certyfikacji (CA). Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji.
 
 * **Certyfikat X-509 z podpisem własnym i z** podpisem własnym. Producent urządzenia lub wdrożenie wewnętrzne może generować te certyfikaty i przechowywać odpowiedni klucz prywatny (i certyfikat) na urządzeniu. Do tego celu można użyć narzędzi, takich jak [OpenSSL](https://www.openssl.org/) i [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) Utility. Działa tylko z uwierzytelnianiem przy użyciu odcisku palca.
 

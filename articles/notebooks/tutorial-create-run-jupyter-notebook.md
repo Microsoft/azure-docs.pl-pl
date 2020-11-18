@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć i uruchomić Jupyter Notebook w wersji 
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e9a07c7b8abffc06bfd30a792af46ba04adf5c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589268"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844475"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Samouczek: Tworzenie i uruchamianie Jupyter Notebook przy użyciu języka Python
 
@@ -19,7 +19,7 @@ Ten samouczek przeprowadzi Cię przez proces używania Azure Notebooks, aby utwo
 
 Ukończony Notes można znaleźć w [przykładach Azure Notebooks GitHub](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Ten samouczek, jednak rozpoczyna się od nowego projektu i pustego notesu, aby można było go utworzyć krok po kroku.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie notesu projektu z niektórymi przykładowymi danymi
@@ -111,7 +111,7 @@ W notesie można zawsze używać poleceń takich jak `!pip install` w komórce k
 
 1. Na pulpicie nawigacyjnym projektu wybierz pozycję **Ustawienia projektu**.
 1. W wyświetlonym oknie podręcznym wybierz kartę **środowisko** , a następnie wybierz pozycję **+ Dodaj**.
-1. W pierwszej kontrolce listy rozwijanej (operacja) w obszarze **czynności konfiguracyjne środowiska**wybierz **Requirements.txt**.
+1. W pierwszej kontrolce listy rozwijanej (operacja) w obszarze **czynności konfiguracyjne środowiska** wybierz **Requirements.txt**.
 1. W drugiej kontrolce listy rozwijanej (nazwa pliku) wybierz *requirements.txt* (utworzony plik).
 1. W trzeciej kontrolce listy rozwijanej (wersja języka Python) Wybierz środowisko **Python w wersji 3,6**.
 1. Wybierz pozycję **Zapisz**.
@@ -134,7 +134,7 @@ W przypadku gotowości pliku danych i ustawienia środowiska projektowego możes
 
 ## <a name="tour-the-notebook-interface"></a>Samouczek dotyczący interfejsu notesu
 
-Z uruchomionym notesem możesz dodać kod i komórki o promocji, uruchomić te komórki i zarządzać działaniem notesu. Po pierwsze zapoznaj się z interfejsem za kilka minut. Aby uzyskać pełną dokumentację, wybierz **Help**  >  polecenie menu**Pomoc dla notesu** pomocy.
+Z uruchomionym notesem możesz dodać kod i komórki o promocji, uruchomić te komórki i zarządzać działaniem notesu. Po pierwsze zapoznaj się z interfejsem za kilka minut. Aby uzyskać pełną dokumentację, wybierz **Help**  >  polecenie menu **Pomoc dla notesu** pomocy.
 
 W górnej części okna widoczne są następujące elementy:
 
@@ -397,7 +397,7 @@ Spróbuj ponownie uruchomić cały Notes:
 
 1. Wyczyść wszystkie dane sesji jądra i wszystkie komórki wyjściowe, wybierając ponownie uruchom **jądro**  >  **& Wyczyść dane wyjściowe**. To polecenie jest zawsze dobrym obiektem do uruchomienia po zakończeniu pracy z notesem, tylko w celu upewnienia się, że nie utworzono żadnych niewielkich zależności między komórkami kodu.
 
-1. **Uruchom ponownie Notes przy użyciu**opcji  >  **Uruchom wszystko**. Zauważ, że wskaźnik jądra jest wypełniany, gdy kod jest uruchomiony.
+1. **Uruchom ponownie Notes przy użyciu** opcji  >  **Uruchom wszystko**. Zauważ, że wskaźnik jądra jest wypełniany, gdy kod jest uruchomiony.
 
     Jeśli masz kod, który jest zbyt długi lub jest zablokowany w inny sposób, możesz zatrzymać jądro za pomocą polecenia **jądra**  >  **przerwania** .
 
@@ -405,11 +405,11 @@ Spróbuj ponownie uruchomić cały Notes:
 
 ## <a name="save-halt-and-close-the-notebook"></a>Zapisz, zatrzymywanie i zamykanie notesu
 
-Podczas edytowania notesu **można zapisać jego**bieżący stan za pomocą  >  polecenia**Zapisz i Utwórz punkt kontrolny** lub przycisk Zapisz na pasku narzędzi. "Punkt kontrolny" tworzy migawkę, którą można przywrócić w dowolnym momencie podczas sesji. Punkty kontrolne umożliwiają dokonanie szeregu eksperymentalnych zmian i jeśli te zmiany nie działają, można po prostu wrócić do punktu kontrolnego za pomocą **File**  >  polecenia**Przywróć plik do punktu kontrolnego** . Alternatywnym podejściem jest tworzenie dodatkowych komórek i Dodawanie komentarzy do kodu, który nie ma być uruchamiany; w dowolny sposób działa.
+Podczas edytowania notesu **można zapisać jego** bieżący stan za pomocą  >  polecenia **Zapisz i Utwórz punkt kontrolny** lub przycisk Zapisz na pasku narzędzi. "Punkt kontrolny" tworzy migawkę, którą można przywrócić w dowolnym momencie podczas sesji. Punkty kontrolne umożliwiają dokonanie szeregu eksperymentalnych zmian i jeśli te zmiany nie działają, można po prostu wrócić do punktu kontrolnego za pomocą **File**  >  polecenia **Przywróć plik do punktu kontrolnego** . Alternatywnym podejściem jest tworzenie dodatkowych komórek i Dodawanie komentarzy do kodu, który nie ma być uruchamiany; w dowolny sposób działa.
 
-Możesz również użyć **File**  >  polecenia**Utwórz kopię** w dowolnym momencie, aby utworzyć kopię bieżącego stanu notesu w nowym pliku w projekcie. Ta kopia zostanie otwarta automatycznie na nowej karcie przeglądarki.
+Możesz również użyć **File**  >  polecenia **Utwórz kopię** w dowolnym momencie, aby utworzyć kopię bieżącego stanu notesu w nowym pliku w projekcie. Ta kopia zostanie otwarta automatycznie na nowej karcie przeglądarki.
 
-Po zakończeniu pracy z notesem Użyj **File**  >  polecenia**Zamknij i zatrzymywanie** , które powoduje zamknięcie notesu i zamknięcie jądra, na którym działa. Azure Notebooks następnie automatycznie zamknie kartę przeglądarki.
+Po zakończeniu pracy z notesem Użyj **File**  >  polecenia **Zamknij i zatrzymywanie** , które powoduje zamknięcie notesu i zamknięcie jądra, na którym działa. Azure Notebooks następnie automatycznie zamknie kartę przeglądarki.
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Debugowanie notesów przy użyciu Visual Studio Code
 
@@ -433,4 +433,4 @@ Artykuły z poradami:
 - [Prezentowanie pokazu slajdów](present-jupyter-notebooks-slideshow.md)
 - [Praca z plikami danych](work-with-project-data-files.md)
 - [Uzyskiwanie dostępu do zasobów danych](access-data-resources-jupyter-notebooks.md)
-- [Używanie usługi Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Używanie usługi Azure Machine Learning](../machine-learning/samples-notebooks.md)

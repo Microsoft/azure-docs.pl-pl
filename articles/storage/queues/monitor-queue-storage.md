@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 52c07861fcd3db5f9a53c4bd6730f89925b11ae6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e41be54ce2017b303543a2e53eabbecb3ddc2978
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348954"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843336"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitorowanie usługi Azure queue storage
 
@@ -127,7 +127,7 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
    > [!div class="mx-imgBorder"]
    > ![Analiza dzienników strony ustawień diagnostycznych](media/monitor-queue-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Otwórz okno polecenia programu Windows PowerShell i zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia. Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -277,7 +277,7 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym u
 > [!TIP]
 > Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione w tym miejscu.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 

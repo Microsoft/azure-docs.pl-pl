@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: cdd5a8b518a374340af35d5f866d51d016e5ac79
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: cb6680482466018f86779d9c0318bbfe4e749be1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745185"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843149"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorowanie magazynu obiektów blob platformy Azure
 
@@ -80,14 +80,14 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 2. Przejdź do konta magazynu.
 
-3. W sekcji **monitorowanie** kliknij pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)** .
+3. W sekcji **monitorowanie** kliknij pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
 
    > [!div class="mx-imgBorder"]
    > ![Portal — dzienniki diagnostyki](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
 
 4. Wybierz **obiekt BLOB** jako typ magazynu, dla którego chcesz włączyć dzienniki.
 
-5. Kliknij pozycję **Dodaj ustawienie diagnostyczne** .
+5. Kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 
    > [!div class="mx-imgBorder"]
    > ![Portal — dzienniki zasobów — Dodaj ustawienie diagnostyczne](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
@@ -129,7 +129,7 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
    > [!div class="mx-imgBorder"]   
    > ![Analiza dzienników strony ustawień diagnostycznych](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Otwórz okno polecenia programu Windows PowerShell i zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia. Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -420,7 +420,7 @@ Poniższy przykład pokazuje, jak odczytywać dane metryki z obsługą wielowymi
 
 ```
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289746"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844492"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Samouczek: Konfigurowanie autorotacji certyfikatów w Key Vault
 
@@ -41,7 +41,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-Utwórz magazyn kluczy lub wybierz istniejący magazyn, aby wykonać operacje (zobacz [procedurę tworzenia magazynu kluczy](../secrets/quick-create-portal.md)). W tym przykładzie nazwa magazynu kluczy jest **przykładem magazynu**.
+Utwórz Azure Key Vault przy użyciu [Azure Portal](../general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md). W tym przykładzie nazwa magazynu kluczy jest **przykładem magazynu**.
 
 ![Dane wyjściowe po zakończeniu tworzenia magazynu kluczy](../media/certificates/tutorial-import-cert/vault-properties.png)
 
@@ -77,8 +77,8 @@ Key Vault automatyczne obracanie certyfikatów poprzez ustalone partnerstwo z ur
 1. Wybierz pozycję **Generuj/Importuj**.
 1. Na ekranie **Tworzenie certyfikatu** zaktualizuj następujące wartości:
 
-   - **Okres ważności** : wprowadź wartość (w miesiącach). Tworzenie krótkoterminowych certyfikatów jest zalecaną metodą zabezpieczeń. Domyślnie wartość ważności nowo utworzonego certyfikatu wynosi 12 miesięcy.
-   - **Typ akcji okresu istnienia** : Wybierz akcję autoodnawiania i alertu certyfikatu, a następnie zaktualizuj **okres istnienia (w procentach** ) lub **liczbę dni przed wygaśnięciem**. Domyślnie automatyczne odnawianie certyfikatu jest ustawiane na 80% okresu istnienia. Z menu rozwijanego wybierz jedną z następujących opcji.
+   - **Okres ważności**: wprowadź wartość (w miesiącach). Tworzenie krótkoterminowych certyfikatów jest zalecaną metodą zabezpieczeń. Domyślnie wartość ważności nowo utworzonego certyfikatu wynosi 12 miesięcy.
+   - **Typ akcji okresu istnienia**: Wybierz akcję autoodnawiania i alertu certyfikatu, a następnie zaktualizuj **okres istnienia (w procentach** ) lub **liczbę dni przed wygaśnięciem**. Domyślnie automatyczne odnawianie certyfikatu jest ustawiane na 80% okresu istnienia. Z menu rozwijanego wybierz jedną z następujących opcji.
 
         |  Automatycznie Odnów w danym momencie| Wyślij wiadomość e-mail do wszystkich kontaktów w danym momencie |
         |-----------|------|
@@ -99,8 +99,8 @@ Key Vault automatyczne obracanie certyfikatów poprzez ustalone partnerstwo z ur
 
 1. Na ekranie **zasady wystawiania** zaktualizuj następujące wartości:
 
-   - **Okres ważności** : zaktualizuj wartość (w miesiącach).
-   - **Typ akcji okresu istnienia** : Wybierz akcję autoodnawiania i alertu certyfikatu, a następnie zaktualizuj **okres istnienia (w procentach** ) lub **liczbę dni przed wygaśnięciem**.
+   - **Okres ważności**: zaktualizuj wartość (w miesiącach).
+   - **Typ akcji okresu istnienia**: Wybierz akcję autoodnawiania i alertu certyfikatu, a następnie zaktualizuj **okres istnienia (w procentach** ) lub **liczbę dni przed wygaśnięciem**.
 
    ![Właściwości certyfikatu](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 

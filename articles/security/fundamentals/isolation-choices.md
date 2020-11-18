@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696221"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842842"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
 
@@ -90,7 +90,7 @@ Niektóre inne możliwości Azure Active Directory obejmują:
 
 - Usługa Azure AD zapewnia tożsamość jako usługę za pośrednictwem Federacji przy użyciu [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronizacji i replikacji z katalogami lokalnymi.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) to usługa wieloskładnikowego uwierzytelniania, która wymaga od użytkowników weryfikacji logowania przy użyciu aplikacji mobilnej, połączenia telefonicznego lub wiadomości SMS. Może być używany z usługą Azure AD, aby pomóc w zabezpieczeniu zasobów lokalnych za pomocą serwera usługi Azure Multi-Factor Authentication, a także z niestandardowymi aplikacjami i katalogami przy użyciu zestawu SDK.
+- Usługa [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) jest usługą uwierzytelniania wieloskładnikowego, która wymaga od użytkowników weryfikacji logowania przy użyciu aplikacji mobilnej, połączenia telefonicznego lub wiadomości SMS. Może być używany z usługą Azure AD, aby pomóc w zabezpieczeniu zasobów lokalnych za pomocą serwera usługi Azure Multi-Factor Authentication, a także z niestandardowymi aplikacjami i katalogami przy użyciu zestawu SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) umożliwia dołączanie maszyn wirtualnych platformy Azure do domeny Active Directory bez wdrażania kontrolerów domeny. Możesz zalogować się na tych maszynach wirtualnych za pomocą poświadczeń firmowych Active Directory i zarządzać maszynami wirtualnymi przyłączonymi do domeny, używając zasady grupy, aby wymusić podstawy zabezpieczeń na wszystkich maszynach wirtualnych platformy Azure.
 

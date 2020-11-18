@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410372"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843693"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
 
@@ -79,13 +79,13 @@ Więcej informacji:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication to metoda uwierzytelniania, która wymaga użycia więcej niż jednej metody weryfikacji i dodaje krytyczną drugą warstwę zabezpieczeń do logowania i transakcji użytkownika. Multi-Factor Authentication pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie za pomocą różnych opcji weryfikacji: połączeń telefonicznych, wiadomości SMS lub powiadomień aplikacji mobilnej oraz kodów weryfikacyjnych i tokenów OAuth innych firm.
+Usługa Azure AD Multi-Factor Authentication to metoda uwierzytelniania, która wymaga użycia więcej niż jednej metody weryfikacji i dodaje krytyczną drugą warstwę zabezpieczeń do logowania i transakcji użytkownika. Multi-Factor Authentication pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie za pomocą różnych opcji weryfikacji: połączeń telefonicznych, wiadomości SMS lub powiadomień aplikacji mobilnej oraz kodów weryfikacyjnych i tokenów OAuth innych firm.
 
 Więcej informacji:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Co to jest usługa Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Jak działa usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Co to jest usługa Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Jak działa Multi-Factor Authentication usługi Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Kontrola dostępu na podstawie ról platformy Azure
 
@@ -107,11 +107,11 @@ Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym, któ
 
 W Azure Portal raporty należą do następujących kategorii:
 
-* **Raporty anomalii** : zawierają zdarzenia logowania, które okazały się nietypowe. Naszym celem jest świadome tego działania i umożliwienie określenia, czy zdarzenie jest podejrzane.
-* **Raporty zintegrowanej aplikacji** : zapewniają wgląd w sposób używania aplikacji w chmurze w organizacji. Usługa Azure AD oferuje integrację z tysiącami aplikacji w chmurze.
-* **Raporty o błędach** : wskazuje błędy, które mogą wystąpić podczas udostępniania kont dla aplikacji zewnętrznych.
-* **Raporty dotyczące użytkownika** : wyświetla dane działania logowania urządzenia dla określonego użytkownika.
-* **Dzienniki aktywności** : zawierają rekord wszystkich zdarzeń poddawanych inspekcji w ciągu ostatnich 24 godzin, ostatnich 7 dni lub ostatnich 30 dni, a także zmiany działania grupy oraz działania związane z resetowaniem i rejestracją.
+* **Raporty anomalii**: zawierają zdarzenia logowania, które okazały się nietypowe. Naszym celem jest świadome tego działania i umożliwienie określenia, czy zdarzenie jest podejrzane.
+* **Raporty zintegrowanej aplikacji**: zapewniają wgląd w sposób używania aplikacji w chmurze w organizacji. Usługa Azure AD oferuje integrację z tysiącami aplikacji w chmurze.
+* **Raporty o błędach**: wskazuje błędy, które mogą wystąpić podczas udostępniania kont dla aplikacji zewnętrznych.
+* **Raporty dotyczące użytkownika**: wyświetla dane działania logowania urządzenia dla określonego użytkownika.
+* **Dzienniki aktywności**: zawierają rekord wszystkich zdarzeń poddawanych inspekcji w ciągu ostatnich 24 godzin, ostatnich 7 dni lub ostatnich 30 dni, a także zmiany działania grupy oraz działania związane z resetowaniem i rejestracją.
 
 Więcej informacji:
 

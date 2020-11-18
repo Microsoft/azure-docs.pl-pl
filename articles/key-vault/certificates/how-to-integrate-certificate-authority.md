@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289546"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844509"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -31,9 +31,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Aby ukończyć ten przewodnik, musisz dysponować następującymi zasobami.
 * Magazyn kluczy. Możesz użyć istniejącego magazynu kluczy lub utworzyć nowy, wykonując czynności opisane w jednym z następujących przewodników szybki start:
-   - [Tworzenie magazynu kluczy za pomocą interfejsu wiersza polecenia platformy Azure](../secrets/quick-create-cli.md)
-   - [Tworzenie magazynu kluczy za pomocą Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Utwórz magazyn kluczy z Azure Portal](../secrets/quick-create-portal.md).
+   - [Tworzenie magazynu kluczy za pomocą interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)
+   - [Tworzenie magazynu kluczy za pomocą Azure PowerShell](../general/quick-create-powershell.md)
+   - [Utwórz magazyn kluczy z Azure Portal](../general/quick-create-portal.md).
 *   Musisz aktywować konto DigiCert CertCentral. [Utwórz](https://www.digicert.com/account/signup/) konto usługi CertCentral.
 *   Uprawnienia na poziomie administratora na kontach.
 
@@ -56,17 +56,17 @@ Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz do
 4.  Wybierz opcję **Dodaj** .
  ![Dodawanie urzędów certyfikacji](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Na ekranie **Tworzenie urzędu certyfikacji** wybierz następujące wartości:
-    -   **Nazwa** : Dodaj rozpoznawalną nazwę wystawcy. Przykład DigicertCA
-    -   **Dostawca** : wybierz z menu pozycję DigiCert.
-    -   **Identyfikator konta** : Wprowadź identyfikator konta DigiCert CertCentral
-    -   **Hasło konta** : Wprowadź klucz interfejsu API wygenerowany na koncie usługi DigiCert CertCentral
-    -   **Identyfikator organizacji** : wprowadź OrgID zebrane z konta DigiCert CertCentral 
+    -   **Nazwa**: Dodaj rozpoznawalną nazwę wystawcy. Przykład DigicertCA
+    -   **Dostawca**: wybierz z menu pozycję DigiCert.
+    -   **Identyfikator konta**: Wprowadź identyfikator konta DigiCert CertCentral
+    -   **Hasło konta**: Wprowadź klucz interfejsu API wygenerowany na koncie usługi DigiCert CertCentral
+    -   **Identyfikator organizacji**: wprowadź OrgID zebrane z konta DigiCert CertCentral 
     -   Kliknij pozycję **Utwórz**.
    
 6.  Zobaczysz, że DigicertCA został już dodany do listy urzędów certyfikacji.
 
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>Program Azure PowerShell
 
 Azure PowerShell służy do tworzenia zasobów platformy Azure i zarządzania nimi przy użyciu poleceń lub skryptów. Usługa Azure hosts Azure Cloud Shell, interaktywnego środowiska powłoki, którego można używać za pomocą Azure Portal w samej przeglądarce.
 

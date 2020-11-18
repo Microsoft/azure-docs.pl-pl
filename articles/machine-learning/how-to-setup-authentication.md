@@ -11,23 +11,23 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: adc0547e36e9cf996a87c2683b4830541b8cd360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442110"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843931"
 ---
-# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
+# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla zasobów i przepływów pracy usługi Azure Machine Learning
 
 
 Dowiedz się, jak skonfigurować uwierzytelnianie w obszarze roboczym Azure Machine Learning. Uwierzytelnianie w obszarze roboczym Azure Machine Learning jest oparte na __Azure Active Directory__ (Azure AD) w większości rzeczy. Ogólnie rzecz biorąc, istnieją trzy przepływy pracy uwierzytelniania, których można używać podczas nawiązywania połączenia z obszarem roboczym:
 
-* __Interaktywny__ : konto jest używane w Azure Active Directory do bezpośredniego uwierzytelniania lub do uzyskania tokenu używanego do uwierzytelniania. Uwierzytelnianie interakcyjne jest używane podczas _eksperymentowania i iteracyjnego programowania_. Uwierzytelnianie interakcyjne umożliwia kontrolowanie dostępu do zasobów (takich jak usługa sieci Web) dla poszczególnych użytkowników.
+* __Interaktywny__: konto jest używane w Azure Active Directory do bezpośredniego uwierzytelniania lub do uzyskania tokenu używanego do uwierzytelniania. Uwierzytelnianie interakcyjne jest używane podczas _eksperymentowania i iteracyjnego programowania_. Uwierzytelnianie interakcyjne umożliwia kontrolowanie dostępu do zasobów (takich jak usługa sieci Web) dla poszczególnych użytkowników.
 
-* Nazwa __główna usługi__ : Utwórz konto jednostki usługi w Azure Active Directory i użyj go do uwierzytelnienia lub pobrania tokenu. Nazwa główna usługi jest używana, gdy potrzebny jest _zautomatyzowany proces do uwierzytelniania_ w usłudze, bez konieczności interakcji z użytkownikiem. Na przykład ciągły skrypt integracji i wdrażania, który pociąga i testuje model przy każdym zmianie kodu szkoleniowego.
+* Nazwa __główna usługi__: Utwórz konto jednostki usługi w Azure Active Directory i użyj go do uwierzytelnienia lub pobrania tokenu. Nazwa główna usługi jest używana, gdy potrzebny jest _zautomatyzowany proces do uwierzytelniania_ w usłudze, bez konieczności interakcji z użytkownikiem. Na przykład ciągły skrypt integracji i wdrażania, który pociąga i testuje model przy każdym zmianie kodu szkoleniowego.
 
-* __Tożsamość zarządzana__ : w przypadku korzystania z zestawu SDK Azure Machine Learning _na maszynie wirtualnej platformy Azure_ można zarządzać tożsamością dla platformy Azure. Ten przepływ pracy umożliwia łączenie się z obszarem roboczym przez maszynę wirtualną przy użyciu tożsamości zarządzanej bez zapisywania poświadczeń w kodzie języka Python ani monitowania użytkownika o uwierzytelnienie. Azure Machine Learning klastrów obliczeniowych można także skonfigurować do korzystania z tożsamości zarządzanej w celu uzyskania dostępu do obszaru roboczego w przypadku _modeli szkoleniowych_.
+* __Tożsamość zarządzana__: w przypadku korzystania z zestawu SDK Azure Machine Learning _na maszynie wirtualnej platformy Azure_ można zarządzać tożsamością dla platformy Azure. Ten przepływ pracy umożliwia łączenie się z obszarem roboczym przez maszynę wirtualną przy użyciu tożsamości zarządzanej bez zapisywania poświadczeń w kodzie języka Python ani monitowania użytkownika o uwierzytelnienie. Azure Machine Learning klastrów obliczeniowych można także skonfigurować do korzystania z tożsamości zarządzanej w celu uzyskania dostępu do obszaru roboczego w przypadku _modeli szkoleniowych_.
 
 > [!IMPORTANT]
 > Niezależnie od używanego przepływu uwierzytelniania usługa kontroli dostępu opartej na rolach (Azure RBAC) jest używana do określania zakresu dostępu (autoryzacji) dozwolonych dla zasobów. Na przykład administrator lub proces automatyzacji może mieć dostęp do tworzenia wystąpienia obliczeniowego, ale nie z niego korzystać, podczas gdy analityk danych może go użyć, ale nie można go usunąć ani utworzyć. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do Azure Machine Learning obszaru roboczego](how-to-assign-roles.md).
@@ -141,7 +141,7 @@ Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego j
 
 1. Włącz [zarządzaną przez system tożsamość skojarzoną z zasobami platformy Azure na maszynie wirtualnej](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
-1. W [Azure Portal](https://portal.azure.com)wybierz obszar roboczy, a następnie wybierz pozycję __Access Control (IAM)__ , __Dodaj przypisanie roli__ i wybierz pozycję __maszyna wirtualna__ na liście rozwijanej __Przypisz dostęp do__ . Na koniec wybierz tożsamość maszyny wirtualnej.
+1. W [Azure Portal](https://portal.azure.com)wybierz obszar roboczy, a następnie wybierz pozycję __Access Control (IAM)__, __Dodaj przypisanie roli__ i wybierz pozycję __maszyna wirtualna__ na liście rozwijanej __Przypisz dostęp do__ . Na koniec wybierz tożsamość maszyny wirtualnej.
 
 1. Wybierz rolę, która ma zostać przypisana do tej tożsamości. Na przykład współautor lub rola niestandardowa. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu do zasobów](how-to-assign-roles.md).
 
@@ -154,7 +154,7 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie tożsamości zarządzane
 ## <a name="use-interactive-authentication"></a>Użyj uwierzytelniania interaktywnego
 
 > [!IMPORTANT]
-> Uwierzytelnianie interakcyjne używa przeglądarki i wymaga plików cookie (w tym plików cookie innych firm). Jeśli pliki cookie zostały wyłączone, może wystąpić błąd, na przykład "nie możemy cię zalogować". Ten błąd może również wystąpić, jeśli włączono [usługę Azure MFA Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
+> Uwierzytelnianie interakcyjne używa przeglądarki i wymaga plików cookie (w tym plików cookie innych firm). Jeśli pliki cookie zostały wyłączone, może wystąpić błąd, na przykład "nie możemy cię zalogować". Ten błąd może również wystąpić, jeśli włączono [usługę Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 Większość przykładów w dokumentacji i przykładach używa uwierzytelniania interakcyjnego. Na przykład podczas korzystania z zestawu SDK istnieją dwa wywołania funkcji, które automatycznie monitują o przepływ uwierzytelniania oparty na interfejsie użytkownika:
 
@@ -403,4 +403,4 @@ ws = Workspace(subscription_id="your-sub-id",
 
 * [Jak używać wpisów tajnych w szkoleniu](how-to-use-secrets-in-runs.md).
 * [Jak skonfigurować uwierzytelnianie dla modeli wdrożonych jako usługa sieci Web](how-to-authenticate-web-service.md).
-* [Korzystaj z modelu Azure Machine Learning wdrożonego jako usługa sieci Web](how-to-consume-web-service.md).
+* [Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa internetowa](how-to-consume-web-service.md).

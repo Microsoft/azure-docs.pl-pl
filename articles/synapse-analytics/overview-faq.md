@@ -2,19 +2,19 @@
 title: Często zadawane pytania — Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
 description: Często zadawane pytania dotyczące usługi Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7e8ea231dd6db9eab6cf9115f6ce2e62893371a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 530ebe09ee0ca44b0a5fbd4b8da2784e2c7ae7ea
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305406"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843897"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Analiza usługi Azure Synapse (obszary robocze — wersja zapoznawcza) — często zadawane pytania
 
@@ -101,8 +101,6 @@ Odp.: tak, możesz użyć własnych aplikacji innych firm, takich jak Tableau i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
-- [Korzystanie z programu Synapse Studio](quickstart-synapse-studio.md)
-- [Tworzenie dedykowanej puli SQL](quickstart-create-sql-pool-portal.md)
-- [Użyj bezserwerowej puli SQL](quickstart-sql-on-demand.md)
-- [Utwórz bezserwerową pulę Apache Spark](quickstart-create-apache-spark-pool-portal.md) 
+* [Rozpoczynanie pracy z usługą Azure Synapse Analytics](get-started.md)
+* [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
+* [Korzystanie z bezserwerowej puli SQL](quickstart-sql-on-demand.md)

@@ -3,13 +3,13 @@ title: Wdróż wystąpienie kontenera przez akcję GitHub
 description: Skonfiguruj akcję GitHub, która automatyzuje kroki do kompilowania, wypychania i wdrażania obrazu kontenera do Azure Container Instances
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 221ecbe5fbe2cdea4105362c43a5765bcc298d46
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019192"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843659"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurowanie akcji usługi GitHub w celu utworzenia wystąpienia kontenera
 
@@ -45,7 +45,7 @@ W tym artykule przedstawiono dwa sposoby konfigurowania przepływu pracy:
 
   ![Zrzut ekranu przedstawiający przycisk rozwidlenia (wyróżniony) w serwisie GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Upewnij się, że włączono akcje dla repozytorium. Przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia**  >  **Akcje**. W obszarze **uprawnienia akcji**upewnij się, że wybrano **opcję Włącz akcje lokalne i inne osoby trzecie dla tego repozytorium** .
+* Upewnij się, że włączono akcje dla repozytorium. Przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia**  >  **Akcje**. W obszarze **uprawnienia akcji** upewnij się, że wybrano **opcję Włącz akcje lokalne i inne osoby trzecie dla tego repozytorium** .
 
 ## <a name="configure-github-workflow"></a>Konfigurowanie przepływu pracy usługi GitHub
 
@@ -112,7 +112,7 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>Zapisz poświadczenia w repozytorium GitHub
 
-1. W interfejsie użytkownika usługi GitHub przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia**wpisy  >  **tajne**. 
+1. W interfejsie użytkownika usługi GitHub przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia** wpisy  >  **tajne**. 
 
 1. Wybierz pozycję **Dodaj nowy wpis tajny** , aby dodać następujące wpisy tajne:
 
@@ -128,7 +128,7 @@ az role assignment create \
 
 1. W interfejsie użytkownika usługi GitHub wybierz pozycję **Akcje**  >  **Nowy przepływ pracy**.
 1. Wybierz opcję **Skonfiguruj przepływ pracy samodzielnie**.
-1. W obszarze **Edytuj nowy plik**wklej następującą zawartość YAML, aby zastąpić przykładowy kod. Zaakceptuj domyślną nazwę pliku `main.yml` lub podaj wybraną nazwę pliku.
+1. W obszarze **Edytuj nowy plik** wklej następującą zawartość YAML, aby zastąpić przykładowy kod. Zaakceptuj domyślną nazwę pliku `main.yml` lub podaj wybraną nazwę pliku.
 1. Wybierz pozycję **Rozpocznij zatwierdzanie**, opcjonalnie Podaj krótkie i rozszerzone opisy zatwierdzenia, a następnie wybierz pozycję **Zatwierdź nowy plik**.
 
 ```yml

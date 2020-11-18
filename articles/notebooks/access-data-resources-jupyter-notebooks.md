@@ -4,12 +4,12 @@ description: Dowiedz się, jak uzyskać dostęp do plików, interfejsów API RES
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: b2254e6d966ca3281cd9c8b0771cb77fb6dede33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a833ff914c1ee53f024147371977ac1caa3800dc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846619"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842876"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Dostęp do danych z chmury w notesie
 
@@ -46,7 +46,7 @@ if response.status_code == 200:
 
 Można uzyskać dostęp do baz danych w SQL Database lub wystąpieniu zarządzanym SQL z pomocą bibliotek moduł pyodbc lub pymssql.
 
-[Używanie języka Python do wykonywania zapytań w bazie danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) zawiera instrukcje dotyczące tworzenia bazy danych w SQL Database zawierającej dane AdventureWorks i pokazujące, jak wykonywać zapytania dotyczące tych danych. Ten sam kod jest przedstawiony w notesie przykładowym dla tego artykułu.
+[Używanie języka Python do wykonywania zapytań w bazie danych Azure SQL Database](../azure-sql/database/connect-query-python.md) zawiera instrukcje dotyczące tworzenia bazy danych w SQL Database zawierającej dane AdventureWorks i pokazujące, jak wykonywać zapytania dotyczące tych danych. Ten sam kod jest przedstawiony w notesie przykładowym dla tego artykułu.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -61,11 +61,11 @@ W przykładowym notesie przedstawiono pracę z tabelami i obiektami BLOB, w tym 
 
 Azure Cosmos DB zapewnia w pełni indeksowany Magazyn NoSQL dla dokumentów JSON. Poniższe artykuły zawierają różne sposoby pracy z Cosmos DBami z poziomu języka Python:
 
-- [Tworzenie aplikacji interfejsu API SQL przy użyciu języka Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Tworzenie aplikacji do kolby z interfejsem API Azure Cosmos DB dla MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Tworzenie bazy danych grafu przy użyciu języka Python i interfejsu API Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [tworzenie aplikacji Cassandra przy użyciu języka Python i usługi Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [tworzenie aplikacji interfejsu API tabel przy użyciu języka Python i usługi Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Tworzenie aplikacji interfejsu API SQL przy użyciu języka Python](../cosmos-db/create-sql-api-python.md)
+- [Tworzenie aplikacji do kolby z interfejsem API Azure Cosmos DB dla MongoDB](../cosmos-db/create-mongodb-flask.md)
+- [Tworzenie bazy danych grafu przy użyciu języka Python i interfejsu API Gremlin](../cosmos-db/create-graph-python.md)
+- [tworzenie aplikacji Cassandra przy użyciu języka Python i usługi Azure Cosmos DB](../cosmos-db/create-cassandra-python.md)
+- [tworzenie aplikacji interfejsu API tabel przy użyciu języka Python i usługi Azure Cosmos DB](../cosmos-db/table-storage-how-to-use-python.md)
 
 Podczas pracy z Cosmos DB można użyć biblioteki [Azure-cosmosdb-Table](https://pypi.org/project/azure-cosmosdb-table/) .
 
@@ -73,9 +73,9 @@ Podczas pracy z Cosmos DB można użyć biblioteki [Azure-cosmosdb-Table](https:
 
 Platforma Azure udostępnia wiele innych typów baz danych, których można użyć. W poniższych artykułach przedstawiono wskazówki dotyczące uzyskiwania dostępu do tych baz danych z języka Python:
 
-- [Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Szybki start: korzystanie z usługi Azure Redis Cache w połączeniu z językiem Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python](../postgresql/connect-python.md)
+- [Szybki start: korzystanie z usługi Azure Redis Cache w połączeniu z językiem Python](../azure-cache-for-redis/cache-python-get-started.md)
+- [Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python](../mysql/connect-python.md)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Kreator kopiowania dla Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

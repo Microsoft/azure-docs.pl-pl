@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3604a2efb4d6f8c08a19d832c8523e44df352444
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a6d4e7f4ca7288b36f6801b9ddb362b7e936862d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518776"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843625"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Podstawa zabezpieczeń platformy Azure dla Service Bus
 
@@ -653,7 +653,7 @@ Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. ServiceBus", aby utwo
 
 - [Konfigurowanie kluczy zarządzanych przez klienta dla Service Bus](configure-customer-managed-key.md)
 
-- [Jak utworzyć Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Jak utworzyć Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Monitorowanie Azure Security Center**: tak
 

@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: bc16dde7d3156df08b946a15012a201054cd8e0a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592604"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843914"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizowanie danych za pomocą dedykowanych pul SQL
 
@@ -71,7 +71,7 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. Wykonanie tego skryptu zajmie około 1 minutę. Ładuje on 2 000 000 wierszy danych z NYC taksówki do tabeli o nazwie **dbo. Podróż**
+1. Ten skrypt zakończy się około 60 sekund. Ładuje on 2 000 000 wierszy danych z NYC taksówki do tabeli o nazwie **dbo. Podróż**
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Eksplorowanie danych z NYC taksówki w dedykowanej puli SQL
 

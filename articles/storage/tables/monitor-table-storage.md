@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 13540f6a4c2e80da390298f7deaf050cd913487f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e5b54f0eb3f068e1697b8541373ed84692448a59
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320051"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844833"
 ---
 # <a name="monitoring-azure-table-storage"></a>Monitorowanie usługi Azure Table Storage
 
@@ -126,7 +126,7 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
    > [!div class="mx-imgBorder"]   
    > ![Analiza dzienników strony ustawień diagnostycznych](media/monitor-table-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Otwórz okno polecenia programu Windows PowerShell i zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia. Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -274,7 +274,7 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym A
 > [!TIP]
 > Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione w tym miejscu.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 

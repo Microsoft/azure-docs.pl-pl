@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02d9e65f5422b7b12900d051f01c1d6f55e8685b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629414"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844680"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurowanie punktów końcowych sieci usługi Azure File Sync
 Azure Files i Azure File Sync zapewniają dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
@@ -39,9 +39,9 @@ Dodatkowo:
 ## <a name="create-the-private-endpoints"></a>Tworzenie prywatnych punktów końcowych
 Podczas tworzenia prywatnego punktu końcowego dla zasobu platformy Azure wdrożone są następujące zasoby:
 
-- **Prywatny punkt końcowy** : zasób platformy Azure reprezentujący prywatny punkt końcowy dla konta magazynu lub usługi synchronizacji magazynu. Można to traktować jako zasób, który nawiązuje połączenie z zasobem platformy Azure i interfejsem sieciowym.
-- **Interfejs sieciowy (nic)** : interfejs sieciowy, który utrzymuje prywatny adres IP w określonej podsieci/sieci wirtualnej. Jest to dokładnie ten sam zasób, który jest wdrażany podczas wdrażania maszyny wirtualnej, ale nie jest przypisywany do maszyny wirtualnej, jest własnością prywatnego punktu końcowego.
-- **Prywatna strefa DNS** : Jeśli nigdy nie wdrożono prywatnego punktu końcowego dla tej sieci wirtualnej, zostanie wdrożona nowa prywatna strefa DNS dla sieci wirtualnej. Zostanie również utworzony rekord DNS A dla zasobu platformy Azure w tej strefie DNS. Jeśli prywatny punkt końcowy został już wdrożony w tej sieci wirtualnej, nowy rekord zasobu platformy Azure zostanie dodany do istniejącej strefy DNS. Wdrożenie strefy DNS jest opcjonalne, jednak zdecydowanie zalecane jest uproszczenie zarządzania usługą DNS.
+- **Prywatny punkt końcowy**: zasób platformy Azure reprezentujący prywatny punkt końcowy dla konta magazynu lub usługi synchronizacji magazynu. Można to traktować jako zasób, który nawiązuje połączenie z zasobem platformy Azure i interfejsem sieciowym.
+- **Interfejs sieciowy (nic)**: interfejs sieciowy, który utrzymuje prywatny adres IP w określonej podsieci/sieci wirtualnej. Jest to dokładnie ten sam zasób, który jest wdrażany podczas wdrażania maszyny wirtualnej, ale nie jest przypisywany do maszyny wirtualnej, jest własnością prywatnego punktu końcowego.
+- **Prywatna strefa DNS**: Jeśli nigdy nie wdrożono prywatnego punktu końcowego dla tej sieci wirtualnej, zostanie wdrożona nowa prywatna strefa DNS dla sieci wirtualnej. Zostanie również utworzony rekord DNS A dla zasobu platformy Azure w tej strefie DNS. Jeśli prywatny punkt końcowy został już wdrożony w tej sieci wirtualnej, nowy rekord zasobu platformy Azure zostanie dodany do istniejącej strefy DNS. Wdrożenie strefy DNS jest opcjonalne, jednak zdecydowanie zalecane jest uproszczenie zarządzania usługą DNS.
 
 > [!Note]  
 > W tym artykule są stosowane sufiksy DNS dla publicznych regionów platformy Azure, `core.windows.net` dla kont magazynu i `afs.azure.net` usług synchronizacji magazynu. Ten komentarz dotyczy również suwerennych chmur platformy Azure, takich jak chmura dla instytucji rządowych Azure USA — po prostu zastępuje odpowiednie sufiksy dla danego środowiska.
@@ -130,7 +130,7 @@ Address: 192.168.0.5
 > Aby można było używać prywatnych punktów końcowych w zasobie usługi synchronizacji magazynu, należy użyć agenta Azure File Sync w wersji 10,1 lub nowszej. Wersje agenta wcześniejsze niż 10,1 nie obsługują prywatnych punktów końcowych w usłudze synchronizacji magazynu. Wszystkie wcześniejsze wersje agenta obsługują prywatne punkty końcowe w ramach zasobu konta magazynu.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Przejdź do **prywatnego centrum linków** , wpisując *prywatny link* na pasku wyszukiwania w górnej części Azure Portal. W spisie treści dla prywatnego centrum łączy wybierz **prywatne punkty końcowe** , a następnie **+ Dodaj** , aby utworzyć nowy prywatny punkt końcowy.
+Przejdź do **prywatnego centrum linków** , wpisując *prywatny link* na pasku wyszukiwania w górnej części Azure Portal. W spisie treści dla prywatnego centrum łączy wybierz **prywatne punkty końcowe**, a następnie **+ Dodaj** , aby utworzyć nowy prywatny punkt końcowy.
 
 [![Zrzut ekranu przedstawiający prywatne centrum linków](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png)](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png#lightbox)
 
@@ -622,6 +622,6 @@ az resource update \
 ```
 ---
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
 - [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)

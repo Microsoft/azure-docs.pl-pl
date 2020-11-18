@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.custom: devx-track-java
-ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d06a6eb8b504f2c5dd09de70d79f50a3ed5d89a3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088758"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844731"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
 
@@ -62,7 +62,7 @@ Utwórz plik scalonego certyfikatu o nazwie _mergedcertificate.crt_. W edytorze 
 
 Wyeksportuj scalony certyfikat TLS/SSL z kluczem prywatnym, za pomocą którego zostało wygenerowane żądanie certyfikatu.
 
-Jeśli żądanie certyfikatu zostało wygenerowane przy użyciu biblioteki OpenSSL, został utworzony plik klucza prywatnego. Aby wyeksportować certyfikat do pliku PFX, uruchom następujące polecenie. Zastąp symbole zastępcze _ &lt; pliku prywatnego-Key>_ i _ &lt; scalonego pliku certyfikatu>_ ze ścieżkami do klucza prywatnego i scalonym plikiem certyfikatu.
+Jeśli żądanie certyfikatu zostało wygenerowane przy użyciu biblioteki OpenSSL, został utworzony plik klucza prywatnego. Aby wyeksportować certyfikat do pliku PFX, uruchom następujące polecenie. Zastąp symbole zastępcze _&lt; pliku prywatnego-Key>_ i _&lt; scalonego pliku certyfikatu>_ ze ścieżkami do klucza prywatnego i scalonym plikiem certyfikatu.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -79,9 +79,9 @@ Aby przekazać certyfikat do magazynu kluczy:
 1. Przejdź do wystąpienia magazynu kluczy.
 1. W okienku nawigacji po lewej stronie kliknij pozycję **Certyfikaty**.
 1. W górnym menu kliknij pozycję **Generuj/Importuj**.
-1. W oknie dialogowym **Tworzenie certyfikatu** w obszarze **metoda tworzenia certyfikatu**wybierz opcję `Import` .
-1. W obszarze **Przekaż plik certyfikatu**przejdź do lokalizacji certyfikatu i wybierz ją.
-1. W obszarze **hasło**wprowadź klucz prywatny certyfikatu.
+1. W oknie dialogowym **Tworzenie certyfikatu** w obszarze **metoda tworzenia certyfikatu** wybierz opcję `Import` .
+1. W obszarze **Przekaż plik certyfikatu** przejdź do lokalizacji certyfikatu i wybierz ją.
+1. W obszarze **hasło** wprowadź klucz prywatny certyfikatu.
 1. Kliknij pozycję **Utwórz**.
 
     ![Importuj certyfikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
@@ -195,7 +195,7 @@ az spring-cloud app custom-domain list --app <app name> --resource-group <resour
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
 W tabeli domena niestandardowa wybierz pozycję **Dodaj powiązanie SSL** , jak pokazano na poprzedniej ilustracji.  
 1. Wybierz **certyfikat** lub zaimportuj go.
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
     ![Dodawanie powiązania SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
@@ -212,7 +212,7 @@ Po pomyślnym dodaniu powiązania SSL stan domeny będzie bezpieczny: **dobra ko
 ## <a name="enforce-https"></a>Wymuszanie protokołu HTTPS
 Domyślnie każdy może nadal uzyskiwać dostęp do aplikacji przy użyciu protokołu HTTP, ale można przekierować wszystkie żądania HTTP do portu HTTPS.
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
-Na stronie aplikacji w lewym okienku nawigacji wybierz pozycję **domena niestandardowa**. Następnie ustaw **tylko https**na *wartość true*.
+Na stronie aplikacji w lewym okienku nawigacji wybierz pozycję **domena niestandardowa**. Następnie ustaw **tylko https** na *wartość true*.
 
 ![Dodawanie powiązania SSL 3](./media/custom-dns-tutorial/enforce-http.png)
 

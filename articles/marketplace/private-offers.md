@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5396845e13e94b4d957f42618baaf19c408f559d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129970"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843778"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Oferty prywatne w portalu komercyjnym firmy Microsoft
 
@@ -41,7 +41,7 @@ W przypadku *nowych lub istniejących ofert z planami* wydawcy mogą łatwo twor
 
 Plany prywatne są składnikiem oferty i są widoczne tylko dla klientów, którzy są jednostek. Plany prywatne mogą ponownie wykorzystać podstawowe obrazy i/lub zaproponować metadane dla planu publicznego. Ta opcja umożliwia wydawcom tworzenie wielu prywatnych odmian oferty publicznej bez konieczności publikowania wielu wersji tego samego obrazu podstawowego i metadanych oferty. W przypadku maszyn wirtualnych i aplikacji platformy Azure tylko w przypadku, gdy plan prywatny udostępnia obraz podstawowy z planem publicznym, wszelkie zmiany obrazu podstawowego oferty będą propagowane dla wszystkich planów publicznych i prywatnych przy użyciu tego obrazu podstawowego.
 
-W przypadku *nowych ofert, które zawierają tylko plany prywatne* , wydawcy mogą utworzyć oferty jako każdą inną ofertę, a następnie oznaczyć plany jako prywatne. Oferty, które mają tylko plany prywatne, nie będą wykrywalne lub dostępne za pośrednictwem komercyjnej witryny Marketplace firmy Microsoft ani [Azure Portal](https://azure.microsoft.com/features/azure-portal/) przez klientów, którzy nie zostali powiązani z ofertą.
+W przypadku *nowych ofert, które zawierają tylko plany prywatne*, wydawcy mogą utworzyć oferty jako każdą inną ofertę, a następnie oznaczyć plany jako prywatne. Oferty, które mają tylko plany prywatne, nie będą wykrywalne lub dostępne za pośrednictwem komercyjnej witryny Marketplace firmy Microsoft ani [Azure Portal](https://azure.microsoft.com/features/azure-portal/) przez klientów, którzy nie zostali powiązani z ofertą.
 
 >[!NOTE]
 >Oferta, która zawiera tylko plany prywatne, nie będzie widoczna w publicznym portalu Azure Marketplace lub AppSource.
@@ -51,6 +51,9 @@ W przypadku *nowych ofert, które zawierają tylko plany prywatne* , wydawcy mog
 W przypadku nowych i istniejących ofert prywatnych wydawcy mogą kierować klientów, którzy korzystają z identyfikatorów subskrypcji. Wydawcy korzystający z maszyny wirtualnej lub oferty aplikacji platformy Azure mogą ograniczyć dostępność planu prywatnego do indywidualnego identyfikatora subskrypcji platformy Azure lub przekazać plik CSV o wartości do 20 000 identyfikatorów subskrypcji platformy Azure. W przypadku korzystania z prywatnej oferty aplikacji SaaS wydawcy mogą skojarzyć identyfikator dzierżawy, aby ograniczyć dostępność planu prywatnego przy użyciu metody przekazywania ręcznego lub woluminu CSV.
 
 Po zacertyfikowaniu i opublikowaniu oferty klienci mogą zaktualizować lub usunąć z planu w ciągu kilku minut, korzystając z funkcji Synchronizuj subskrypcje prywatne. Ta funkcja umożliwia wydawcom szybkie i łatwe aktualizowanie listy klientów, do których plan prywatny jest prezentowany bez certyfikowania lub publikowania oferty.
+
+>[!NOTE]
+>Możliwość zastosowania do platformy Azure gov: oferty prywatne (lub dokładniej: plany prywatne) są dostępne dla chmury gov, podobnie jak w przypadku dowolnej innej oferty. Plan może również przesunąć stan z prywatnego na publiczny i odwrotnie. Kontrolka, w której dostępna jest oferta, znajduje się w rąk partnerskiej i można ją skonfigurować za pośrednictwem Centrum partnerskiego. 
 
 ## <a name="deploying-private-offers"></a>Wdrażanie ofert prywatnych
 

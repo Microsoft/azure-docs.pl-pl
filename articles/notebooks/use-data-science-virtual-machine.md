@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830314"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843166"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Korzystanie z usługi Azure Data Science Virtual Machines
 
@@ -24,7 +24,7 @@ Domyślnie projekty są uruchamiane w **bezpłatnej warstwie obliczeniowej** , c
 
 ## <a name="create-a-dsvm-instance"></a>Tworzenie wystąpienia DSVM
 
-Aby utworzyć nowe wystąpienie DSVM, postępuj zgodnie z instrukcjami dotyczącymi [tworzenia Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Aby uzyskać więcej informacji, w tym informacje o cenach, zobacz [Virtual Machines analizy danych](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Aby utworzyć nowe wystąpienie DSVM, postępuj zgodnie z instrukcjami dotyczącymi [tworzenia Ubuntu Data Science VM](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md). Aby uzyskać więcej informacji, w tym informacje o cenach, zobacz [Virtual Machines analizy danych](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Połącz z DSVM
 
@@ -68,4 +68,4 @@ Jeśli wielu użytkowników współużytkuje DSVM, można uniknąć zablokowania
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o DSVMs na temat [wprowadzenia do analizy danych na platformie Azure Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
+Dowiedz się więcej o DSVMs na temat [wprowadzenia do analizy danych na platformie Azure Virtual Machines](../machine-learning/data-science-virtual-machine/overview.md).

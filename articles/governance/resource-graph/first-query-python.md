@@ -3,13 +3,13 @@ title: 'Szybki Start: pierwsze zapytanie w języku Python'
 description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie biblioteki grafu zasobów dla języka Python i uruchomienie pierwszego zapytania.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: d7ffa8aee7087e77ff14808327251ef495e88f6f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 01e0fd5bfbc5f353474c8305eefc044390c3586a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057403"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845117"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu języka Python
 

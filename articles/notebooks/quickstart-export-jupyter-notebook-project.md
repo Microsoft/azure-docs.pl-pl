@@ -3,12 +3,12 @@ title: Eksportowanie projektu Jupyter Notebook z wersji zapoznawczej Azure Noteb
 description: Szybko Eksportuj projekt Jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea16bd61b542217fb6f2d5ba1d926a0bc19d4cce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90030450"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844424"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Szybki Start: Eksportowanie projektu Jupyter Notebook w wersji zapoznawczej Azure Notebooks
 
@@ -34,7 +34,7 @@ Istniejący projekt Azure Notebooks.
 
 Po pobraniu plików projektu można używać ich z innymi rozwiązaniami Jupyter Notebook. Niektóre opcje opisane w poniższych sekcjach obejmują: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Codespaces GitHub](#use-notebooks-in-github-codespaces)
+- [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
@@ -79,7 +79,7 @@ Azure Machine Learning zapewnia kompleksową platformę do uczenia maszynowego, 
 1. Na pasku nawigacyjnym po lewej stronie wybierz pozycję **Notes**.
 1. Kliknij przycisk **Przekaż pliki** i przekaż pliki projektu pobrane z Azure Notebooks.
 
-Aby uzyskać dodatkowe informacje na temat platformy Azure ML i uruchamiania notesów Jupyter, możesz przejrzeć [dokumentację](../machine-learning/how-to-run-jupyter-notebooks.md) lub spróbować wykonać [wprowadzenie do Machine Learning](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) module w Microsoft Learn.
+Aby uzyskać dodatkowe informacje na temat platformy Azure ML i uruchamiania notesów Jupyter, możesz przejrzeć [dokumentację](../machine-learning/how-to-run-jupyter-notebooks.md) lub spróbować wykonać [wprowadzenie do Machine Learning](/learn/modules/intro-to-azure-machine-learning-service/) module w Microsoft Learn.
 
 
 ## <a name="use-azure-lab-services"></a>Użyj Azure Lab Services

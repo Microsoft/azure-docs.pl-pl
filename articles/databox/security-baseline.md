@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 36d3fdbe05a4fac63415e34aea879a9ef576b725
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6c2a15ac8d0863539ca878a048940b19794e920d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127101"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842911"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Box
 
@@ -271,11 +271,11 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
 
-**Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z włączoną usługą Azure Multi-Factor Authentication (MFA), aby zalogować się i skonfigurować zamówienia Azure Data Box.
+**Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z włączoną usługą Azure AD Multi-Factor Authentication (MFA), aby zalogować się do i skonfigurować zamówienia Azure Data Box.
 
 * [Stacje robocze z dostępem uprzywilejowanym](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planowanie wdrożenia usługi Azure Multi-Factor Authentication opartej na chmurze](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication opartej na chmurze](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

@@ -3,12 +3,12 @@ title: Przegląd Azure Notebooks wersji zapoznawczej
 description: Uruchamiaj notesy Jupyter w chmurze za pomocą usługi bezpłatna wersja zapoznawcza Azure Notebooks, w której nie jest wymagana instalacja ani konfiguracja.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85831407"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845139"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Przegląd Azure Notebooks wersji zapoznawczej
 
@@ -111,4 +111,4 @@ Aby przekazać nam pytania dotyczące usługi Azure Notebooks, prześlij zgłosz
   - [Prezentowanie pokazu slajdów](present-jupyter-notebooks-slideshow.md)
   - [Praca z plikami danych](work-with-project-data-files.md)
   - [Uzyskiwanie dostępu do zasobów danych](access-data-resources-jupyter-notebooks.md)
-  - [Używanie usługi Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Używanie usługi Azure Machine Learning](../machine-learning/samples-notebooks.md)

@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e65e5478c81a99db7789eab4d532ddd01ffc635a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2661715164cc6aa5f5ff587f2ddf28c0918445d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307164"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843574"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Tworzenie udostępnionej galerii obrazów przy użyciu portalu
 
@@ -23,7 +23,7 @@ ms.locfileid: "91307164"
 
 Galeria obrazów udostępnionych umożliwia udostępnianie niestandardowych obrazów maszyn wirtualnych innym osobom w organizacji, w obrębie lub w różnych regionach, w ramach dzierżawy usługi Azure AD. Wybierz obrazy, które chcesz udostępnić, które regiony mają być dostępne w programie, oraz użytkowników, którym chcesz je udostępnić. Można utworzyć wiele galerii, aby można było logicznie grupować obrazy udostępnione. 
 
-Galeria jest zasobem najwyższego poziomu, który zapewnia pełną kontrolę dostępu opartą na rolach (RBAC). Obrazy mogą być poddane wersji i można wybrać replikację poszczególnych wersji obrazu do innego zestawu regionów świadczenia usługi Azure. Galeria działa tylko z obrazami zarządzanymi.
+Galeria jest zasobem najwyższego poziomu, który zapewnia pełną kontrolę dostępu opartą na rolach (Azure RBAC). Obrazy mogą być poddane wersji i można wybrać replikację poszczególnych wersji obrazu do innego zestawu regionów świadczenia usługi Azure. Galeria działa tylko z obrazami zarządzanymi.
 
 Funkcja galerii obrazów udostępnionych ma wiele typów zasobów. Firma Microsoft będzie używać tych aplikacji lub tworzyć je w tym artykule:
 
@@ -36,7 +36,7 @@ Funkcja galerii obrazów udostępnionych ma wiele typów zasobów. Firma Microso
 
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby ukończyć ten przykład w tym artykule, musisz mieć istniejący obraz zarządzany uogólnionej maszyny wirtualnej lub migawkę wyspecjalizowanej maszyny wirtualnej. Możesz skorzystać z [samouczka: Tworzenie niestandardowego obrazu maszyny wirtualnej platformy Azure za pomocą Azure PowerShell](tutorial-custom-images.md) w celu utworzenia obrazu zarządzanego lub [utworzenia migawki](../windows/snapshot-copy-managed-disk.md) dla wyspecjalizowanej maszyny wirtualnej. W przypadku obrazów zarządzanych i migawek rozmiar dysku danych nie może być większy niż 1 TB.
 
@@ -51,12 +51,12 @@ Teraz można utworzyć co najmniej jedną nową maszynę wirtualną. Ten przykł
 
 1. Przejdź do definicji obrazu. Możesz użyć filtru zasobów, aby wyświetlić wszystkie dostępne definicje obrazu.
 1. Na stronie definicji obrazu wybierz pozycję **Utwórz maszynę wirtualną** z menu w górnej części strony.
-1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę *zasobu* .
-1. W polu **Nazwa maszyny wirtualnej**wpisz *myVM*.
-1. W **obszarze region**wybierz pozycję *Wschodnie stany USA*.
-1. W przypadku **opcji dostępności**pozostaw wartość domyślną *Brak wymaganej nadmiarowości infrastruktury*.
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę *zasobu* .
+1. W polu **Nazwa maszyny wirtualnej** wpisz *myVM*.
+1. W **obszarze region** wybierz pozycję *Wschodnie stany USA*.
+1. W przypadku **opcji dostępności** pozostaw wartość domyślną *Brak wymaganej nadmiarowości infrastruktury*.
 1. Wartość **obrazu** jest automatycznie wypełniana przy użyciu `latest` wersji obrazu, jeśli rozpoczęto od strony dla definicji obrazu.
-1. W polu **rozmiar**wybierz rozmiar maszyny wirtualnej z listy Dostępne rozmiary, a następnie wybierz **pozycję Wybierz**.
+1. W polu **rozmiar** wybierz rozmiar maszyny wirtualnej z listy Dostępne rozmiary, a następnie wybierz **pozycję Wybierz**.
 1. W obszarze **konto administratora**, jeśli źródłowa maszyna wirtualna została uogólniona, wprowadź **nazwę użytkownika** i **klucz publiczny SSH**. Jeśli źródłowa maszyna wirtualna była wyspecjalizowana, Opcje te zostaną wyszarzone, ponieważ są używane informacje ze źródłowej maszyny wirtualnej.
 1. Jeśli chcesz zezwolić na dostęp zdalny do maszyny wirtualnej w obszarze **publiczne porty przychodzące**, wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **SSH (22)** z listy rozwijanej. Jeśli nie chcesz zezwalać na dostęp zdalny do maszyny wirtualnej, pozostaw **nie** wybrane dla **publicznych portów przychodzących**.
 1. Po zakończeniu wybierz przycisk **Recenzja + tworzenie** w dolnej części strony.

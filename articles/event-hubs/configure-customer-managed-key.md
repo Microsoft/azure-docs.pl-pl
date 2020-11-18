@@ -3,12 +3,12 @@ title: Skonfiguruj własny klucz do szyfrowania danych usługi Azure Event Hubs 
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Event Hubs platformy Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537262"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843217"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Skonfiguruj klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure przechowywanych przy użyciu Azure Portal
 Usługa Azure Event Hubs zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Event Hubs opiera się na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -23,7 +23,7 @@ Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
 
 Za pomocą Azure Key Vault można zarządzać kluczami i przeprowadzać inspekcję użycia klucza. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
 
-W tym artykule pokazano, jak skonfigurować magazyn kluczy z kluczami zarządzanymi przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu Azure Portal](../key-vault/secrets/quick-create-portal.md).
+W tym artykule pokazano, jak skonfigurować magazyn kluczy z kluczami zarządzanymi przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: tworzenie Azure Key Vault przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
 
 > [!IMPORTANT]
 > Użycie kluczy zarządzanych przez klienta w usłudze Azure Event Hubs wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **usuwanie nietrwałe** i **nie przeczyszczanie**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.

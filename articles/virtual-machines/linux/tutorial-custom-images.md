@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 7fff8539f330c7cbc886577eaf6dbe4417411999
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22609465abfa0cbf30165bc9327d786b3244357e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498144"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844782"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Samouczek: tworzenie niestandardowego obrazu maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -61,7 +61,7 @@ Galeria obrazów jest podstawowym zasobem używanym do włączania udostępniani
 
 Dozwolone znaki w nazwie galerii to wielkie lub małe litery, cyfry, kropki i kropki. Nazwa galerii nie może zawierać kresek.   Nazwy galerii muszą być unikatowe w ramach subskrypcji. 
 
-Utwórz galerię obrazów przy użyciu polecenia [AZ SIG Create](/cli/azure/sig#az-sig-create). Poniższy przykład tworzy grupę zasobów o nazwie Galeria o nazwie *myGalleryRG* w *regionie Wschodnie stany USA*i galerię o nazwie Moja *Gallery*.
+Utwórz galerię obrazów przy użyciu polecenia [AZ SIG Create](/cli/azure/sig#az-sig-create). Poniższy przykład tworzy grupę zasobów o nazwie Galeria o nazwie *myGalleryRG* w *regionie Wschodnie stany USA* i galerię o nazwie Moja *Gallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -94,7 +94,7 @@ Aby uzyskać więcej informacji na temat wartości, które można określić dla
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest dla [WYSPECJALIZOWANEGO](./shared-image-galleries.md#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. 
+W tym przykładzie definicja obrazu ma nazwę *myImageDefinition* i jest dla [WYSPECJALIZOWANEGO](./shared-image-galleries.md#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -156,7 +156,7 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="share-the-gallery"></a>Udostępnianie galerii
 
-Możesz udostępniać obrazy między subskrypcjami przy użyciu Role-Based Access Control (RBAC). Możesz udostępniać obrazy w galerii, definicji obrazu lub wersji obrazu Leve. Każdy użytkownik, który ma uprawnienia do odczytu wersji obrazu, nawet między subskrypcjami, będzie mógł wdrożyć maszynę wirtualną przy użyciu wersji obrazu.
+Możesz udostępniać obrazy między subskrypcjami przy użyciu funkcji kontroli dostępu opartej na rolach (Azure RBAC). Możesz udostępniać obrazy w galerii, definicji obrazu lub wersji obrazu Leve. Każdy użytkownik, który ma uprawnienia do odczytu wersji obrazu, nawet między subskrypcjami, będzie mógł wdrożyć maszynę wirtualną przy użyciu wersji obrazu.
 
 Zalecamy udostępnianie innym użytkownikom na poziomie galerii. Aby uzyskać identyfikator obiektu galerii, użyj [AZ SIG show](/cli/azure/sig#az-sig-show).
 
@@ -176,7 +176,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Aby uzyskać więcej informacji o sposobie udostępniania zasobów przy użyciu funkcji RBAC, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md).
+Aby uzyskać więcej informacji o sposobach udostępniania zasobów przy użyciu usługi Azure RBAC, zobacz [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="azure-image-builder"></a>Konstruktor obrazów platformy Azure
 

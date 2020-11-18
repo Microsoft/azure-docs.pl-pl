@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.custom: mqtt
-ms.openlocfilehash: daf4fb2ab9650c3a68b8862fd391817d5ff626b0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147770"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844458"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Wysyłanie komunikatów z chmury do urządzeń z Centrum IoT Hub
 
@@ -81,9 +81,9 @@ Po wysłaniu komunikatu z chmury do urządzenia usługa może zażądać dostarc
 | negative | Jeśli komunikat z chmury do urządzenia osiągnie stan *utraconych* wiadomości, usługa IoT Hub generuje wiadomość z opinią. |
 | szczegółowe     | W obu przypadkach w usłudze IoT Hub jest generowany komunikat z opinią. |
 
-Jeśli wartość **ACK** jest *pełna*i nie otrzymasz wiadomości z opinią, oznacza to, że wiadomość dotycząca opinii wygasła. Usługa nie może znać, co się stało z oryginalnym komunikatem. W tym przypadku usługa powinna upewnić się, że może przetworzyć opinię przed jej wygaśnięciem. Maksymalny czas wygaśnięcia wynosi dwa dni, co pozostawia czas na ponowne uruchomienie usługi w przypadku wystąpienia błędu.
+Jeśli wartość **ACK** jest *pełna* i nie otrzymasz wiadomości z opinią, oznacza to, że wiadomość dotycząca opinii wygasła. Usługa nie może znać, co się stało z oryginalnym komunikatem. W tym przypadku usługa powinna upewnić się, że może przetworzyć opinię przed jej wygaśnięciem. Maksymalny czas wygaśnięcia wynosi dwa dni, co pozostawia czas na ponowne uruchomienie usługi w przypadku wystąpienia błędu.
 
-Jak wyjaśniono w [punktach końcowych](iot-hub-devguide-endpoints.md), usługa IoT Hub dostarcza informacje zwrotne za pomocą punktu końcowego opartego na usłudze, */messages/servicebound/feedback*jako komunikatów. Semantyka do otrzymywania opinii jest taka sama jak w przypadku komunikatów z chmury do urządzenia. Zawsze, gdy jest to możliwe, informacja zwrotna wiadomości jest przetwarzana w jednej wiadomości, w następującym formacie:
+Jak wyjaśniono w [punktach końcowych](iot-hub-devguide-endpoints.md), usługa IoT Hub dostarcza informacje zwrotne za pomocą punktu końcowego opartego na usłudze, */messages/servicebound/feedback* jako komunikatów. Semantyka do otrzymywania opinii jest taka sama jak w przypadku komunikatów z chmury do urządzenia. Zawsze, gdy jest to możliwe, informacja zwrotna wiadomości jest przetwarzana w jednej wiadomości, w następującym formacie:
 
 | Właściwość     | Opis |
 | ------------ | ----------- |
@@ -97,7 +97,7 @@ Treść jest serializowaną w formacie JSON tablicą rekordów, z których każd
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Sygnatura czasowa wskazująca, kiedy wystąpił wynik komunikatu (na przykład centrum odebrało wiadomość z opinia lub wygasła oryginalna wiadomość) |
 | OriginalMessageId  | Identyfikator *MessageID* komunikatu z chmury do urządzenia, do którego odnoszą się informacje o opinii |
-| Stanu         | Wymagany ciąg używany w wiadomościach zwrotnych, które są generowane przez Centrum IoT: <br/> *Powodzenie* <br/> *Wygasła* <br/> *DeliveryCountExceeded* <br/> *Odrzucone* <br/> *Przeczyszczane* |
+| Stanu         | Wymagany ciąg używany w wiadomościach zwrotnych, które są generowane przez Centrum IoT: <br/> *Prawnego* <br/> *Wygasła* <br/> *DeliveryCountExceeded* <br/> *Odrzucone* <br/> *Przeczyszczane* |
 | Opis        | Wartości ciągu dla elementu *StatusCode* |
 | DeviceId           | Identyfikator urządzenia docelowego komunikatu z chmury do *urządzenia, do* którego odnosi się ten element opinii |
 | DeviceGenerationId | *DeviceGenerationId* urządzenia docelowego komunikatu z chmury do urządzenia, do którego odnosi się ten element opinii |

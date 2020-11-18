@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ccfc290df64417bf0504849a83dbe68efcbddefe
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424060"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843710"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Podstawa zabezpieczeń platformy Azure dla Logic Apps
 
@@ -384,7 +384,7 @@ Jeśli używasz infrastruktury jako kodu, unikaj przechowywania haseł w kodzie 
 
 - [Jak zabezpieczyć dane w Logic Apps i uzyskiwać do nich dostęp](logic-apps-securing-a-logic-app.md)
 
-- [Jak ustawić i pobrać klucz tajny z Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Jak ustawić i pobrać klucz tajny z Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -486,7 +486,7 @@ Ponadto każdy punkt końcowy żądania w aplikacji logiki ma sygnaturę dostęp
 
 W przypadku pomocy technicznej w Logic Apps Użyj tożsamości zarządzanej, aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć poświadczenia, ponieważ dzięki temu nie musisz dostarczać ani rotować wpisów tajnych.
 
-Azure Logic Apps obsługuje zarządzane tożsamości przypisane przez system i przypisane przez użytkownika. Aplikacja logiki może użyć tożsamości przypisanej przez system lub przez pojedynczego użytkownika, udostępnianej w grupie aplikacji logiki, ale nie obu tych tożsamości. Obecnie tylko określone wbudowane wyzwalacze i akcje obsługują tożsamości zarządzane, nie zarządzanymi łącznikami ani połączeniami, na przykład:
+Usługa Azure Logic Apps obsługuje zarówno tożsamości zarządzane przypisane przez system, jak i przez użytkownika. Aplikacja logiki może użyć tożsamości przypisanej przez system lub przez pojedynczego użytkownika, udostępnianej w grupie aplikacji logiki, ale nie obu tych tożsamości. Obecnie tylko określone wbudowane wyzwalacze i akcje obsługują tożsamości zarządzane, a nie zarządzane łączniki lub połączenia, na przykład:
 
 -  HTTP
 
@@ -1057,7 +1057,7 @@ Podczas tworzenia środowiska usługi integracji (ISE) na potrzeby hostowania ap
 
 **Wskazówki**: aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, aplikacja logiki może używać tożsamości zarządzanej (dawniej tożsamość usługi ZARZĄDZANEJ lub MSI), a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć poświadczenia, ponieważ dzięki temu nie musisz dostarczać ani rotować wpisów tajnych.
 
-Obecnie tylko określone wbudowane wyzwalacze i akcje obsługują tożsamości zarządzane, nie zarządzanymi łącznikami ani połączeniami, na przykład:
+Obecnie tylko określone wbudowane wyzwalacze i akcje obsługują tożsamości zarządzane, a nie zarządzane łączniki lub połączenia, na przykład:
 
 - HTTP
 - Azure Functions

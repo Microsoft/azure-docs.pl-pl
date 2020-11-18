@@ -9,16 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84987052"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844954"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiowanie danych z usługi Hive przy użyciu Azure Data Factory 
+# <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych z programu Hive przy użyciu Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z programu Hive. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
@@ -68,6 +68,7 @@ Następujące właściwości są obsługiwane dla połączonej usługi Hive:
 | allowHostNameCNMismatch | Określa, czy ma być wymagana nazwa certyfikatu TLS/SSL wystawionego przez urząd certyfikacji w celu dopasowania do nazwy hosta serwera podczas łączenia za pośrednictwem protokołu TLS. Wartość domyślna to false.  | Nie |
 | allowSelfSignedServerCert | Określa, czy zezwalać na certyfikaty z podpisem własnym z serwera. Wartość domyślna to false.  | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
+| storageReference | Odwołanie do połączonej usługi konta magazynu używanego dla danych przemieszczania w mapowaniu przepływu danych. Jest to wymagane tylko w przypadku używania połączonej usługi Hive w przepływie danych mapowania | Nie |
 
 **Przykład:**
 
@@ -100,7 +101,7 @@ Aby skopiować dane z Hive, ustaw właściwość Type zestawu danych na **hiveob
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **hiveobject** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli, w tym część schematu. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -131,7 +132,7 @@ Aby skopiować dane z programu Hive, ustaw typ źródła w działaniu Copy na **
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HiveSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 
@@ -164,6 +165,53 @@ Aby skopiować dane z programu Hive, ustaw typ źródła w działaniu Copy na **
     }
 ]
 ```
+
+## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
+
+Łącznik programu Hive jest obsługiwany jako [wbudowane źródło DataSet](data-flow-source.md#inline-datasets) w mapowaniu przepływów danych. Odczytywanie przy użyciu zapytania lub bezpośrednio z tabeli programu Hive w usłudze HDInsight. Dane programu Hive są przygotowywane na koncie magazynu jako pliki Parquet przed przeprowadzeniem transformacji w ramach przepływu danych. 
+
+### <a name="source-properties"></a>Właściwości źródła
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło Hive. Można edytować te właściwości na karcie **Opcje źródła** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Przechowywanie | Magazyn musi być `hive` | yes |  `hive` | store | 
+| Format | Bez względu na to, czy czytasz z tabeli czy zapytania | yes | `table` lub `query` | format |
+| Nazwa schematu | W przypadku odczytywania danych z tabeli schemat tabeli źródłowej |  tak, jeśli format jest `table` | String | schemaName |
+| Nazwa tabeli | W przypadku odczytywania z tabeli Nazwa tabeli |   tak, jeśli format jest `table` | String | tableName |
+| Zapytanie | Jeśli format to `query` , zapytanie źródłowe w połączonej usłudze Hive | tak, jeśli format jest `query` | String | query |
+| Przygotowane | Tabela programu Hive zostanie zawsze przemieszczona. | yes | `true` | przygotowane |
+| Kontener magazynu | Kontener magazynu używany do przygotowywania danych przed przeczytaniem z programu Hive lub zapisem w usłudze Hive. Klaster programu Hive musi mieć dostęp do tego kontenera. | yes | String | storageContainer |
+| Tymczasowa baza danych | Schemat/baza danych, w której konto użytkownika określone w połączonej usłudze ma dostęp do usługi. Służy do tworzenia tabel zewnętrznych podczas przemieszczania i porzucenia później | nie | `true` lub `false` | stagingDatabaseName |
+| Wstępnie zdefiniowane skrypty SQL | Kod SQL do uruchomienia w tabeli Hive przed odczytaniem danych | nie | String | preSQLs |
+
+#### <a name="source-example"></a>Przykład źródła
+
+Poniżej znajduje się przykład konfiguracji źródła Hive:
+
+![Przykład źródła Hive](media/data-flow/hive-source.png "[Przykład źródła Hive")
+
+Te ustawienia przekładają się na następujący skrypt przepływu danych:
+
+```
+source(
+    allowSchemaDrift: true,
+    validateSchema: false,
+    ignoreNoFilesFound: false,
+    format: 'table',
+    store: 'hive',
+    schemaName: 'default',
+    tableName: 'hivesampletable',
+    staged: true,
+    storageContainer: 'khive',
+    storageFolderPath: '',
+    stagingDatabaseName: 'default') ~> hivesource
+```
+### <a name="known-limitations"></a>Znane ograniczenia
+
+* Typy złożone, takie jak tablice, mapy, struktury i unie, nie są obsługiwane w celu odczytu. 
+* Łącznik programu Hive obsługuje tylko tabele Hive w usłudze Azure HDInsight w wersji 4,0 lub nowszej (Apache Hive 3.1.0)
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
-ms.custom: references_regions
-ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353360"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843744"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Uaktualnianie publicznych adresów IP
 
@@ -100,7 +100,7 @@ Aby skorzystać z nowych możliwości w Azure Resource Manager, można migrować
 
 W poniższym przykładzie założono poprzednie utworzenie klasycznej usługi Azure Zastrzeżony adres IP **myReservedIP** w ramach **zasobu**. Innym wymaganiem wstępnym migracji jest upewnienie się, że subskrypcja Azure Resource Manager została zarejestrowana na potrzeby migracji. Opisano to szczegółowo w krokach 3 i 4 [tej strony](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
 
-Aby przeprowadzić migrację Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu programu PowerShell.  Uwaga: Jeśli adres IP nie jest skojarzony z żadną usługą (poniżej znajduje się usługa o nazwie Moje **usługi** ), ten krok można pominąć.
+Aby przeprowadzić migrację Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu programu PowerShell.  Uwaga: Jeśli adres IP nie jest skojarzony z żadną usługą (poniżej znajduje się usługa o nazwie Moje **usługi**), ten krok można pominąć.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -118,7 +118,7 @@ Poprzednie polecenie wyświetla wszystkie ostrzeżenia i błędy, które blokuj�
 Move-AzureReservedIP -ReservedIPName $name -Prepare
 Move-AzureReservedIP -ReservedIPName $name -Commit
 ```
-Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanego Zastrzeżony adres IP (w powyższym przykładzie będzie to grupa zasobów **myReservedIP-migrowana** ).
+Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanego Zastrzeżony adres IP (w powyższym przykładzie będzie to grupa zasobów **myReservedIP-migrowana**).
 
 # <a name="reserved-to-basic---cli"></a>[**Zarezerwowane dla języka Basic — interfejs wiersza polecenia**](#tab/option-migrate-cli)
 
@@ -142,30 +142,20 @@ Poprzednie polecenie wyświetla wszystkie ostrzeżenia i błędy, które blokuj�
 azure network reserved-ip prepare-migration $name
 azure network reserved-ip commit-migration $name
 ```
-Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanego Zastrzeżony adres IP (w powyższym przykładzie będzie to grupa zasobów **myReservedIP-migrowana** ).
+Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanego Zastrzeżony adres IP (w powyższym przykładzie będzie to grupa zasobów **myReservedIP-migrowana**).
 
 ---
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Ta funkcja jest obecnie dostępna tylko w następujących regionach:<br>
-Zachodnio-środkowe stany USA<br>
-Północno-środkowe stany USA<br>
-Zachodnie stany USA<br>
-Zachodnie stany USA 2<br>
-Norwegia Wschodnia<br>
-Północna Republika Południowej Afryki<br>
-East US<br>
-Europa Północna<br>
-Korea Środkowa<br>
-Indyjskie centralne<br>
-Wschodnie stany USA 2<br>
-Szwajcaria Północna<br>
-Indie Zachodnie<br>
-Niemcy Północne<br>
-Kanada Środkowa<br>
-Francja Południowa<br>
-Indie Zachodnie
+* Ta funkcja nie jest obecnie dostępna w następujących regionach:<br>
+US Gov Wirginia<br>
+US DoD (region wschodni)<br>
+US DoD (region środkowy)<br>
+Chiny Wschodnie<br>
+Chiny Wschodnie 2<br>
+Chiny Północne<br>
+Chiny Północne 2
 
 * W celu uaktualnienia podstawowego publicznego adresu IP nie można go skojarzyć z żadnym zasobem platformy Azure.  Przejrzyj [Tę stronę](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) , aby uzyskać więcej informacji na temat usuwania skojarzenia publicznych adresów IP.  Podobnie w celu migrowania Zastrzeżony adres IP nie można jej skojarzyć z żadną usługą w chmurze.  Przejrzyj [Tę stronę](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) , aby uzyskać więcej informacji na temat usuwania skojarzenia zarezerwowanych adresów IP.  
 * Publiczne adresy IP uaktualnione z podstawowej do standardowej jednostki SKU nadal nie będą miały [stref dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) i dlatego nie można ich skojarzyć z zasobem platformy Azure, który jest strefowo nadmiarowy lub zona.  Należy pamiętać, że dotyczy to tylko regionów, które oferują strefy dostępności.

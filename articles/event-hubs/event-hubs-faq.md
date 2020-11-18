@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 41b010315adaf5a0eca2939b1d42fe4d7c159628
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909713"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843047"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -59,10 +59,10 @@ Event Hubs emituje wyczerpujące metryki, które zapewniają stan zasobów do [A
 Usługa Azure Event Hubs przechowuje dane klientów. Te dane są automatycznie przechowywane przez Event Hubs w jednym regionie, więc ta usługa automatycznie spełnia wymagania dotyczące miejsca zamieszkania danych regionu, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty muszę otworzyć na zaporze? 
-Za pomocą następujących protokołów można Azure Service Bus wysyłać i odbierać komunikaty:
+Do wysyłania i odbierania zdarzeń można użyć następujących protokołów z usługą Azure Event Hubs:
 
-- AMQP
-- HTTP
+- Advanced Message Queuing Protocol 1,0 (AMQP)
+- Protokół HTTP (Hypertext Transfer Protocol) 1,1 z protokołem TLS (HTTPS)
 - Apache Kafka
 
 Zapoznaj się z poniższą tabelą dla portów wychodzących, które należy otworzyć, aby używać tych protokołów do komunikowania się z usługą Azure Event Hubs. 
@@ -70,8 +70,21 @@ Zapoznaj się z poniższą tabelą dla portów wychodzących, które należy otw
 | Protokół | Porty | Szczegóły | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 i 5672 | Zobacz [Przewodnik po protokole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
+| HTTPS | 443 | Ten port jest używany dla interfejsu API protokołu HTTP/REST i dla gniazd AMQP-over-WebSockets. |
 | Kafka | 9093 | Zobacz [używanie Event Hubs z aplikacji Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+
+Port HTTPS jest wymagany do komunikacji wychodzącej również wtedy, gdy AMQP jest używany przez port 5671, ponieważ kilka operacji zarządzania wykonywanych przez zestawy SDK klienta i pozyskiwania tokenów z Azure Active Directory (gdy są używane) działają za pośrednictwem protokołu HTTPS. 
+
+Oficjalne zestawy Azure SDK zwykle używają protokołu AMQP do wysyłania i otrzymywania zdarzeń z Event Hubs. Opcja protokołu AMQP-over-WebSockets jest uruchamiana przez port TCP 443, podobnie jak w przypadku interfejsu API protokołu HTTP, ale w przeciwnym razie jest taka sama jak w przypadku zwykłego AMQP. Ta opcja ma większe opóźnienie połączeń początkowych ze względu na dodatkowe podróże i nieco bardziej narzuty jako kompromis do udostępniania portu HTTPS. W przypadku wybrania tego trybu port TCP 443 jest wystarczający do komunikacji. Poniższe opcje umożliwiają wybranie trybu AMQP lub AMQP obiektów WebSockets:
+
+| Język | Opcja   |
+| -------- | ----- |
+| .NET     | [EventHubConnectionOptions. TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) właściwość z [EventHubsTransportType. AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) lub [EventHubsTransportType. AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
+| Java     | [com. Microsoft. Azure. eventhubs. EventProcessorClientBuilder. TransportType](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) z [AmqpTransportType. AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) lub [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
+| Węzeł  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) ma `webSocketOptions` Właściwość. |
+| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) z [transportem. AMQP](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) lub [TransportType. AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+
+
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>Jakie adresy IP muszę zezwalać?
 Aby znaleźć odpowiednie adresy IP, które mają zostać dodane do listy dozwolonych połączeń, wykonaj następujące kroki:
@@ -148,7 +161,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-Uwaga: Jeśli sasl.jaas.config nie jest obsługiwaną konfiguracją w Twojej strukturze, Znajdź konfiguracje, które są używane do ustawiania nazwy użytkownika i hasła SASL, i Użyj zamiast nich. Ustaw nazwę użytkownika na $ConnectionString i hasło do parametrów połączenia Event Hubs.
+Uwaga: Jeśli sasl.jaas.config nie jest obsługiwaną konfiguracją w Twojej strukturze, Znajdź konfiguracje, które są używane do ustawiania nazwy użytkownika i hasła SASL, i użyj ich zamiast tego. Ustaw nazwę użytkownika na $ConnectionString i hasło do parametrów połączenia Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Jaki jest rozmiar komunikatu/zdarzenia dla Event Hubs?
 Maksymalny rozmiar komunikatu dozwolony dla Event Hubs wynosi 1 MB.
@@ -193,9 +206,9 @@ Podczas tworzenia przestrzeni nazw w warstwie Podstawowa lub standardowa w Azure
 
 1. Na stronie **przestrzeń nazw magistrali zdarzeń** wybierz pozycję **nowe żądanie obsługi** w menu po lewej stronie. 
 1. Na stronie **nowe żądanie obsługi** wykonaj następujące czynności:
-    1. Aby uzyskać **Podsumowanie** , opisz problem za pomocą kilku wyrazów. 
-    1. W obszarze **typ problemu** wybierz pozycję **przydział** . 
-    1. W przypadku **problemu z podtypem** wybierz pozycję **Żądaj zwiększenia lub zmniejszenia jednostki przepływności** . 
+    1. Aby uzyskać **Podsumowanie**, opisz problem za pomocą kilku wyrazów. 
+    1. W obszarze **typ problemu** wybierz pozycję **przydział**. 
+    1. W przypadku **problemu z podtypem** wybierz pozycję **Żądaj zwiększenia lub zmniejszenia jednostki przepływności**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Strona Support request":::
 
@@ -229,11 +242,11 @@ Możesz poprosić o zwiększenie liczby partycji do 40 (dokładne) przez przesł
 
 1. Na stronie **przestrzeń nazw magistrali zdarzeń** wybierz pozycję **nowe żądanie obsługi** w menu po lewej stronie. 
 1. Na stronie **nowe żądanie obsługi** wykonaj następujące czynności:
-    1. Aby uzyskać **Podsumowanie** , opisz problem za pomocą kilku wyrazów. 
-    1. W obszarze **typ problemu** wybierz pozycję **przydział** . 
-    1. W przypadku **problemu z podtypem** wybierz pozycję **Żądaj zmiany partycji** . 
+    1. Aby uzyskać **Podsumowanie**, opisz problem za pomocą kilku wyrazów. 
+    1. W obszarze **typ problemu** wybierz pozycję **przydział**. 
+    1. W przypadku **problemu z podtypem** wybierz pozycję **Żądaj zmiany partycji**. 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Strona Support request":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Zwiększ liczbę partycji":::
 
 Liczbę partycji można zwiększyć do dokładnie 40. W takim przypadku liczbę TUs należy również zwiększyć do 40. Jeśli zdecydujesz się później obniżyć limit jednostek PRZEPŁYWNOŚCI z powrotem do <= 20, maksymalny limit partycji zostanie również obniżony do 32. 
 
@@ -257,7 +270,7 @@ Całkowity rozmiar wszystkich przechowywanych zdarzeń, w tym dowolnych wewnętr
 
 Każde zdarzenie wysyłane do centrum zdarzeń jest traktowane jako komunikat rozliczany. *Zdarzenie* przychodzące jest zdefiniowane jako jednostka danych, która jest mniejsza lub równa 64 KB. Każde zdarzenie o rozmiarze mniejszym lub równym 64 KB jest traktowane jako jedno konto rozliczane. Jeśli zdarzenie jest większe niż 64 KB, liczba zdarzeń rozliczanych jest obliczana zgodnie z rozmiarem zdarzenia (wielokrotność 64 KB). Na przykład zdarzenie 8 KB wysyłane do centrum zdarzeń jest rozliczane jako jedno zdarzenie, ale komunikat o 96 KB wysłany do centrum zdarzeń jest rozliczany jako dwa zdarzenia.
 
-Zdarzenia używane z centrum zdarzeń, a także operacje zarządzania i wywołania kontrolne, takie jak punkty kontrolne, nie są wliczane do płatnych zdarzeń związanych z transferem danych przychodzących, ale są naliczane do limitu jednostek przepływności.
+Zdarzenia używane z centrum zdarzeń, operacje zarządzania i wywołania kontrolne, takie jak punkty kontrolne, nie są wliczane do płatnych zdarzeń związanych z transferem danych przychodzących, ale są naliczane do limitu jednostek przepływności.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Czy opłaty za połączenia obsługiwane przez brokera dotyczą Event Hubs?
 
@@ -299,9 +312,9 @@ Aby dowiedzieć się więcej o umowie SLA, zobacz stronę [umowy dotyczące pozi
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Jak można kierować określoną wersję zestawu SDK usługi Azure Storage w przypadku korzystania z usługi Azure Blob Storage jako magazynu punktów kontrolnych?
-Jeśli uruchomisz ten kod w Azure Stack centrum, wystąpią błędy środowiska uruchomieniowego, chyba że zostanie wybrana wersja interfejsu API określonej usługi Storage. Jest to spowodowane tym, że zestaw SDK Event Hubs korzysta z najnowszego dostępnego interfejsu API usługi Azure Storage dostępnego na platformie Azure, który może nie być dostępny na platformie Azure Stack Hub. Azure Stack Hub może obsługiwać inną wersję zestawu SDK obiektów blob magazynu, która jest zazwyczaj dostępna na platformie Azure. Jeśli używasz magazynu blogów platformy Azure jako magazynu punktów kontrolnych, sprawdź [obsługiwaną wersję interfejsu API usługi Azure Storage dla kompilacji centrum Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) i wybierz tę wersję w kodzie. 
+Jeśli uruchomisz ten kod w Azure Stack Hub, wystąpią błędy środowiska uruchomieniowego, chyba że zostanie wybrana określona wersja interfejsu API magazynu. Jest to spowodowane tym, że zestaw SDK Event Hubs korzysta z najnowszego dostępnego interfejsu API usługi Azure Storage dostępnego na platformie Azure, który może nie być dostępny na platformie Azure Stack Hub. Azure Stack Hub może obsługiwać inną wersję zestawu SDK obiektów blob magazynu, która jest zazwyczaj dostępna na platformie Azure. Jeśli używasz magazynu blogów platformy Azure jako magazynu punktów kontrolnych, sprawdź [obsługiwaną wersję interfejsu API usługi Azure Storage dla kompilacji centrum Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) i wybierz tę wersję w kodzie. 
 
-Na przykład jeśli korzystasz z programu Azure Stack Hub w wersji 2005, najwyższa dostępna wersja usługi Storage to wersja 2019-02-02. Domyślnie Biblioteka klienta zestawu SDK Event Hubs używa najwyższej dostępnej wersji na platformie Azure (2019-07-07 w momencie wydania zestawu SDK). W takim przypadku, oprócz kroków opisanych w tej sekcji, należy również dodać kod docelowy interfejsu API usługi Storage w wersji 2019-02-02. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady dla języków C#, Java, Python i JavaScript/TypeScript.  
+Na przykład jeśli korzystasz z programu Azure Stack Hub w wersji 2005, najwyższa dostępna wersja usługi Storage to wersja 2019-02-02. Domyślnie Biblioteka klienta zestawu SDK Event Hubs używa najwyższej dostępnej wersji na platformie Azure (2019-07-07 w momencie wydania zestawu SDK). W takim przypadku, oprócz następujących kroków w tej sekcji, należy również dodać kod przeznaczony dla interfejsu API usługi Storage w wersji 2019-02-02. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady dla języków C#, Java, Python i JavaScript/TypeScript.  
 
 Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage w kodzie, zobacz następujące przykłady w witrynie GitHub: 
 

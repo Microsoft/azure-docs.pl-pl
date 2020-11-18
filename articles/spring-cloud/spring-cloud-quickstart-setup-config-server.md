@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 906aeaf87bfd71202064fae856a86985637985eb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0802f09cfb03f837fb7080620da776e79b37c9ed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659543"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845088"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Szybki Start: Konfigurowanie serwera konfiguracji chmury z platformą Azure
 

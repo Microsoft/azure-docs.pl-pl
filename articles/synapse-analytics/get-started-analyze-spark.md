@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: a33b702209bf2724098b7a0db907b1b7237ceccf
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 07537e26b169414e3f8ec35cc32945c20f7eb7ce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592621"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843285"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizowanie za pomocą Apache Spark
 
@@ -23,7 +23,7 @@ ms.locfileid: "94592621"
 
 W tym samouczku przedstawiono podstawowe kroki służące do ładowania i analizowania danych za pomocą Apache Spark dla usługi Azure Synapse.
 
-1. W centrum **danych** kliknij pozycję **Dodaj nowy zasób** (plus przycisk powyżej **połączone** )  >> **Przeglądaj przykłady**. 
+1. W centrum **danych** kliknij pozycję **Dodaj nowy zasób**(plus przycisk powyżej **połączone**)  >> **Przeglądaj przykłady**. 
 1. Znajdź **NYCe taksówki & Limousine z Komisją** i kliknij ją. 
 1. W dolnej części strony naciśnij pozycję **Kontynuuj** i po tym, aby **dodać zestaw danych**. 
 1. Teraz w centrum **danych** w obszarze **połączone** kliknij prawym przyciskiem myszy pozycję **Azure Blob Storage >> przykładowe zestawy danych >> nyc_tlc_yellow** i wybierz pozycję **Nowy Notes**
@@ -58,10 +58,10 @@ Dostępne są dane w tabeli w **SQLPOOL1**. Załaduj je do bazy danych Spark o n
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
-1. Przejdź do centrum **danych** , kliknij prawym przyciskiem myszy pozycję **bazy danych** , a następnie wybierz polecenie **Odśwież**. Powinny zostać wyświetlone następujące bazy danych:
+1. Przejdź do centrum **danych** , kliknij prawym przyciskiem myszy pozycję **bazy danych**, a następnie wybierz polecenie **Odśwież**. Powinny zostać wyświetlone następujące bazy danych:
 
-    - **SQLPOOL1** (dedykowana Pula SQL)
-    - **nyctaxi** (bezserwerowa Pula Apache Spark)
+    - **SQLPOOL1 (SQL)**
+    - **nyctaxi (Spark)**
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analizowanie danych z NYC taksówki przy użyciu platformy Spark i notesów
 

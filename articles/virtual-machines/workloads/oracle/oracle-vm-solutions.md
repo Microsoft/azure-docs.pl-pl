@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 739245a8a17c97f3a8081cfee7e7bb31e4135952
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993484"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843982"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure
 
@@ -109,10 +109,6 @@ Microsoft Azure to autoryzowane środowisko chmury do uruchamiania Oracle Databa
 Bazy danych Oracle zazwyczaj wymagają wyższych ilości pamięci i operacji we/wy. Z tego powodu zaleca się używanie [maszyn wirtualnych zoptymalizowanych pod kątem pamięci](../../sizes-memory.md) dla tych obciążeń. Aby jeszcze bardziej zoptymalizować obciążenia, Oracle Database zaleca się użycie [procesorów wirtualnych vcpuych rdzeni](../../constrained-vcpu.md) , które wymagają dużej ilości pamięci, magazynu I przepustowości we/wy, ale nie dużej liczby rdzeni.
 
 W przypadku migrowania oprogramowania i obciążeń programu Oracle ze środowiska lokalnego do Microsoft Azure firma Oracle zapewnia mobilność licencji zgodnie z opisem w artykule [Oracle na platformie Azure — często zadawane pytania](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
-
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Klaster aplikacji w rzeczywistości Oracle (Oracle RAC)
-
-Miesięczny klaster aplikacji Oracle (Oracle RAC) został zaprojektowany z myślą o ograniczeniu awarii pojedynczego węzła w lokalnej konfiguracji klastra wielowęzłowego. Opiera się on na dwóch lokalnych technologiach, które nie są natywne dla środowisk chmury publicznej z funkcją Hyper-skalowania: sieć z obsługą wielu multiemisji i dysk udostępniony. Jeśli rozwiązanie bazy danych wymaga programu Oracle RAC na platformie Azure, konieczne jest oprogramowanie innych firm umożliwiające korzystanie z tych technologii. Więcej informacji na temat programu Oracle RAC można znaleźć na [stronie FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Zagadnienia dotyczące wysokiej dostępności i odzyskiwania po awarii
 

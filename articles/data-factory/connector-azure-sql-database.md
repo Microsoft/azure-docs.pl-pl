@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: a4eab4b6d028f0a0cc22f92e072bc646d70c02da
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 2e5c04087a9874a01498c70eb3834606069cef13
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901622"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843491"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -65,12 +65,12 @@ Te właściwości są obsługiwane dla Azure SQL Database połączonej usługi:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **AzureSqlDatabase** . | Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureSqlDatabase**. | Tak |
 | Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem Azure SQL Database dla właściwości **ConnectionString** . <br/>Możesz również umieścić hasło lub klucz jednostki usługi w Azure Key Vault. Jeśli jest to uwierzytelnianie SQL, należy ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz przykład JSON po zalogowaniu do tabeli i [przechowywania w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak, w przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą nazwy głównej usługi |
 | servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Azure Data Factory lub [odwołać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak, w przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą nazwy głównej usługi |
 | dzierżaw | Określ informacje o dzierżawie, takie jak nazwa domeny lub identyfikator dzierżawy, w której znajduje się aplikacja. Pobierz ją przez umieszczenie kursora myszy w prawym górnym rogu Azure Portal. | Tak, w przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą nazwy głównej usługi |
-| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, w którym zarejestrowano aplikację usługi Azure AD. <br/> Dozwolone wartości to **AzurePublic** , **AzureChina** , **AzureUsGovernment** i **AzureGermany** . Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
+| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, w którym zarejestrowano aplikację usługi Azure AD. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment** i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
 | Właściwością connectvia | To [środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli magazyn danych znajduje się w sieci prywatnej, możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna usługa Azure Integration Runtime. | Nie |
 
 W przypadku różnych typów uwierzytelniania zapoznaj się z poniższymi sekcjami dotyczącymi wymagań wstępnych i próbek JSON odpowiednio:
@@ -226,7 +226,7 @@ Następujące właściwości są obsługiwane dla Azure SQL Database zestawu dan
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **wartość azuresqltable** . | Tak |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **wartość azuresqltable**. | Tak |
 | schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
 | table (stolik) | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 | tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie dla źródła, tak dla ujścia |
@@ -265,22 +265,22 @@ Aby skopiować dane z Azure SQL Database, w sekcji **Źródło** działania kopi
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **AzureSqlSource** . Typ "sqlsource" jest nadal obsługiwany w celu zapewnienia zgodności z poprzednimi wersjami. | Tak |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **AzureSqlSource**. Typ "sqlsource" jest nadal obsługiwany w celu zapewnienia zgodności z poprzednimi wersjami. | Tak |
 | sqlReaderQuery | Ta właściwość używa niestandardowego zapytania SQL do odczytywania danych. Może to być na przykład `select * from MyTable`. | Nie |
 | sqlReaderStoredProcedureName | Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. | Nie |
 | storedProcedureParameters | Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw lub wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
-| isolationLevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **READCOMMITTED** , **READUNCOMMITTED** , **REPEATABLEREAD** , **Serializable** , **migawka** . Jeśli nie zostanie określony, używany jest domyślny poziom izolacji bazy danych. Aby uzyskać więcej informacji, zapoznaj się z [tym dokumentem](/dotnet/api/system.data.isolationlevel) . | Nie |
-| partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z Azure SQL Database. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable** i **DynamicRange** .<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z Azure SQL Database jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
+| isolationLevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **READCOMMITTED**, **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **migawka**. Jeśli nie zostanie określony, używany jest domyślny poziom izolacji bazy danych. Aby uzyskać więcej informacji, zapoznaj się z [tym dokumentem](/dotnet/api/system.data.isolationlevel) . | Nie |
+| partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z Azure SQL Database. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable** i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z Azure SQL Database jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
 | partitionSettings | Określ grupę ustawień partycjonowania danych. <br>Zastosuj, gdy opcja partycji nie jest `None` . | Nie |
 | **_W obszarze `partitionSettings` :_* _ | | |
-| partitionColumnName | Określ nazwę kolumny źródłowej _ *w postaci liczby całkowitej lub typu daty/godziny* * ( `int` ,,,,, `smallint` `bigint` `date` `smalldatetime` `datetime` , `datetime2` lub `datetimeoffset` ), która będzie używana przez partycjonowanie zakresu na potrzeby kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfDynamicRangePartitionCondition ` w klauzuli WHERE. Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
+| partitionColumnName | Określ nazwę kolumny źródłowej _ *w postaci liczby całkowitej lub typu daty/godziny** ( `int` ,,,,, `smallint` `bigint` `date` `smalldatetime` `datetime` , `datetime2` lub `datetimeoffset` ), która będzie używana przez partycjonowanie zakresu na potrzeby kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfDynamicRangePartitionCondition ` w klauzuli WHERE. Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 | partitionUpperBound | Maksymalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.  <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 | partitionLowerBound | Minimalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 
 **Punkty do uwagi:**
 
-- Jeśli **sqlReaderQuery** jest określony dla **AzureSqlSource** , działanie Copy uruchamia to zapytanie względem źródła Azure SQL Database, aby uzyskać dane. Można również określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** , jeśli procedura składowana pobiera parametry.
-- Jeśli nie określisz opcji **sqlReaderQuery** ani **sqlReaderStoredProcedureName** , kolumny zdefiniowane w sekcji "Structure" w kodzie JSON zestawu danych są używane do konstruowania zapytania. Zapytanie `select column1, column2 from mytable` jest uruchamiane względem Azure SQL Database. Jeśli definicja zestawu danych nie ma "struktury", wszystkie kolumny są wybierane z tabeli.
+- Jeśli **sqlReaderQuery** jest określony dla **AzureSqlSource**, działanie Copy uruchamia to zapytanie względem źródła Azure SQL Database, aby uzyskać dane. Można również określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** , jeśli procedura składowana pobiera parametry.
+- Jeśli nie określisz opcji **sqlReaderQuery** ani **sqlReaderStoredProcedureName**, kolumny zdefiniowane w sekcji "Structure" w kodzie JSON zestawu danych są używane do konstruowania zapytania. Zapytanie `select column1, column2 from mytable` jest uruchamiane względem Azure SQL Database. Jeśli definicja zestawu danych nie ma "struktury", wszystkie kolumny są wybierane z tabeli.
 
 #### <a name="sql-query-example"></a>Przykład zapytania SQL
 
@@ -378,15 +378,15 @@ Aby skopiować dane do Azure SQL Database, w sekcji **ujścia** działania kopio
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **AzureSqlSink** . Typ "sqlsink" jest nadal obsługiwany w celu zapewnienia zgodności z poprzednimi wersjami. | Tak |
+| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **AzureSqlSink**. Typ "sqlsink" jest nadal obsługiwany w celu zapewnienia zgodności z poprzednimi wersjami. | Tak |
 | preCopyScript | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w Azure SQL Database. Jest on wywoływany tylko raz dla każdego przebiegu kopiowania. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie |
 | tableOption | Określa, czy [tabela ujścia ma być automatycznie tworzona,](copy-activity-overview.md#auto-create-sink-tables) Jeśli nie istnieje na podstawie schematu źródłowego. <br>Funkcja autotworzenia tabeli nie jest obsługiwana, gdy obiekt ujścia określa procedurę przechowywaną. <br>Dozwolone wartości to: `none` (domyślnie), `autoCreate` . | Nie |
-| sqlWriterStoredProcedureName | Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej. <br/>Ta procedura składowana jest *wywoływana na partię* . W przypadku operacji, które są uruchamiane tylko raz i nie mają niczego do wykonania z danymi źródłowymi, na przykład Usuń lub Obetnij, użyj `preCopyScript` właściwości.<br>Zobacz przykład od [wywołania procedury składowanej z ujścia bazy danych SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Nie |
+| sqlWriterStoredProcedureName | Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej. <br/>Ta procedura składowana jest *wywoływana na partię*. W przypadku operacji, które są uruchamiane tylko raz i nie mają niczego do wykonania z danymi źródłowymi, na przykład Usuń lub Obetnij, użyj `preCopyScript` właściwości.<br>Zobacz przykład od [wywołania procedury składowanej z ujścia bazy danych SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Nie |
 | storedProcedureTableTypeParameterName |Nazwa parametru typu tabeli określona w procedurze składowanej.  |Nie |
 | sqlWriterTableType |Nazwa typu tabeli, która ma zostać użyta w procedurze składowanej. Działanie kopiowania sprawia, że dane są dostępne w tabeli tymczasowej z tym typem tabeli. Kod procedury składowanej może następnie scalić dane, które są kopiowane z istniejącymi danymi. |Nie |
 | storedProcedureParameters |Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw i wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
-| writeBatchSize | Liczba wierszy do wstawienia do tabeli SQL *na partię* .<br/> Dozwolona wartość to liczba **całkowita** (liczba wierszy). Domyślnie Azure Data Factory dynamicznie określa odpowiedni rozmiar wsadu na podstawie rozmiaru wiersza. | Nie |
-| writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania wsadowego przed przekroczeniem limitu czasu.<br/> Dozwolona wartość to **TimeSpan** . Przykładem jest "00:30:00" (30 minut). | Nie |
+| writeBatchSize | Liczba wierszy do wstawienia do tabeli SQL *na partię*.<br/> Dozwolona wartość to liczba **całkowita** (liczba wierszy). Domyślnie Azure Data Factory dynamicznie określa odpowiedni rozmiar wsadu na podstawie rozmiaru wiersza. | Nie |
+| writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania wsadowego przed przekroczeniem limitu czasu.<br/> Dozwolona wartość to **TimeSpan**. Przykładem jest "00:30:00" (30 minut). | Nie |
 | disableMetricsCollection | Data Factory zbiera metryki, takie jak Azure SQL Database DTU na potrzeby optymalizacji wydajności kopiowania i zaleceń. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
 
 **Przykład 1: Dołączanie danych**
@@ -474,9 +474,9 @@ Przed załadowaniem dużej ilości danych z Azure SQL Database zaleca się włą
 
 | Scenariusz                                                     | Sugerowane ustawienia                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Pełne ładowanie z dużej tabeli z partycjami fizycznymi.        | **Opcja partycji** : partycje fizyczne tabeli. <br><br/>Podczas wykonywania Data Factory automatycznie wykrywa partycje fizyczne i kopiuje dane przez partycje. <br><br/>Aby sprawdzić, czy tabela zawiera partycję fizyczną, można odwołać się do [tego zapytania](#sample-query-to-check-physical-partition). |
-| Pełne ładowanie z dużej tabeli bez partycji fizycznych, z kolumną typu Integer lub DateTime na potrzeby partycjonowania danych. | **Opcje partycji** : dynamiczna partycja zakresu.<br>**Kolumna partycji** (opcjonalnie): określ kolumnę używaną do partycjonowania danych. Jeśli nie zostanie określony, zostanie użyta kolumna indeks lub klucz podstawowy.<br/>**Górna** granica partycji i **Dolna granica partycji** (opcjonalnie): Określ, czy chcesz określić krok partycji. Nie służy do filtrowania wierszy w tabeli, wszystkie wiersze w tabeli zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określony, działanie Copy automatycznie wykrywa wartości.<br><br>Na przykład, jeśli kolumna partycji "ID" ma wartości z zakresu od 1 do 100 i ustawimy dolną granicę jako 20 i górną granicę jako 80, z kopią równoległą jako 4, Data Factory pobiera dane przez 4 partycje-identyfikatory w zakresie <= 20, [21, 50], [51, 80] i >= 81. |
-| Załaduj dużą ilość danych przy użyciu niestandardowego zapytania, bez partycji fizycznych, z kolumną liczb całkowitych lub dat/DateTime na potrzeby partycjonowania danych. | **Opcje partycji** : dynamiczna partycja zakresu.<br>**Zapytanie** : `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>` .<br>**Kolumna partycji** : określ kolumnę używaną do partycjonowania danych.<br>**Górna** granica partycji i **Dolna granica partycji** (opcjonalnie): Określ, czy chcesz określić krok partycji. Nie służy do filtrowania wierszy w tabeli, wszystkie wiersze w wyniku zapytania zostaną partycjonowane i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.<br><br>Podczas wykonywania Data Factory zastępuje `?AdfRangePartitionColumnName` z rzeczywistą nazwą kolumny i zakresem wartości dla każdej partycji i wysyła do Azure SQL Database. <br>Na przykład, jeśli kolumna partycji "ID" ma wartości z zakresu od 1 do 100 i ustawimy dolną granicę jako 20 i górną granicę jako 80, z kopią równoległą jako 4, Data Factory pobiera dane przez 4 partycje-identyfikatory w zakresie <= 20, [21, 50], [51, 80] i >= 81. <br><br>Oto więcej przykładowych zapytań dla różnych scenariuszy:<br> 1. Zbadaj całą tabelę: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. zapytanie z tabeli z zaznaczaniem kolumn i dodatkowymi filtrami WHERE-klauzula: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. zapytanie z podzapytaniami: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. zapytanie z partycją w podzapytaniu: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Pełne ładowanie z dużej tabeli z partycjami fizycznymi.        | **Opcja partycji**: partycje fizyczne tabeli. <br><br/>Podczas wykonywania Data Factory automatycznie wykrywa partycje fizyczne i kopiuje dane przez partycje. <br><br/>Aby sprawdzić, czy tabela zawiera partycję fizyczną, można odwołać się do [tego zapytania](#sample-query-to-check-physical-partition). |
+| Pełne ładowanie z dużej tabeli bez partycji fizycznych, z kolumną typu Integer lub DateTime na potrzeby partycjonowania danych. | **Opcje partycji**: dynamiczna partycja zakresu.<br>**Kolumna partycji** (opcjonalnie): określ kolumnę używaną do partycjonowania danych. Jeśli nie zostanie określony, zostanie użyta kolumna indeks lub klucz podstawowy.<br/>**Górna** granica partycji i **Dolna granica partycji** (opcjonalnie): Określ, czy chcesz określić krok partycji. Nie służy do filtrowania wierszy w tabeli, wszystkie wiersze w tabeli zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określony, działanie Copy automatycznie wykrywa wartości.<br><br>Na przykład, jeśli kolumna partycji "ID" ma wartości z zakresu od 1 do 100 i ustawimy dolną granicę jako 20 i górną granicę jako 80, z kopią równoległą jako 4, Data Factory pobiera dane przez 4 partycje-identyfikatory w zakresie <= 20, [21, 50], [51, 80] i >= 81. |
+| Załaduj dużą ilość danych przy użyciu niestandardowego zapytania, bez partycji fizycznych, z kolumną liczb całkowitych lub dat/DateTime na potrzeby partycjonowania danych. | **Opcje partycji**: dynamiczna partycja zakresu.<br>**Zapytanie**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>` .<br>**Kolumna partycji**: określ kolumnę używaną do partycjonowania danych.<br>**Górna** granica partycji i **Dolna granica partycji** (opcjonalnie): Określ, czy chcesz określić krok partycji. Nie służy do filtrowania wierszy w tabeli, wszystkie wiersze w wyniku zapytania zostaną partycjonowane i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.<br><br>Podczas wykonywania Data Factory zastępuje `?AdfRangePartitionColumnName` z rzeczywistą nazwą kolumny i zakresem wartości dla każdej partycji i wysyła do Azure SQL Database. <br>Na przykład, jeśli kolumna partycji "ID" ma wartości z zakresu od 1 do 100 i ustawimy dolną granicę jako 20 i górną granicę jako 80, z kopią równoległą jako 4, Data Factory pobiera dane przez 4 partycje-identyfikatory w zakresie <= 20, [21, 50], [51, 80] i >= 81. <br><br>Oto więcej przykładowych zapytań dla różnych scenariuszy:<br> 1. Zbadaj całą tabelę: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. zapytanie z tabeli z zaznaczaniem kolumn i dodatkowymi filtrami WHERE-klauzula: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. zapytanie z podzapytaniami: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. zapytanie z partycją w podzapytaniu: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Najlepsze rozwiązania dotyczące ładowania danych za pomocą opcji partycji:
@@ -550,11 +550,11 @@ Dołączanie danych jest domyślnym zachowaniem tego łącznika Azure SQL Databa
 
 Działania kopiowania obecnie nie obsługują natywnie ładowania danych do tabeli tymczasowej bazy danych. Istnieje zaawansowany sposób skonfigurowania go przy użyciu kombinacji wielu działań. Zapoznaj się z tematem [optymalizacja Azure SQL Database zbiorczych scenariuszy upsert](https://github.com/scoriani/azuresqlbulkupsert). Poniżej przedstawiono przykład użycia trwałej tabeli jako przejściowej.
 
-Przykładowo w Azure Data Factory można utworzyć potok z **działaniem kopiowania** łańcucha z **działaniem procedury składowanej** . Dawniej kopiuje dane z magazynu źródłowego do Azure SQL Database tabeli tymczasowej, na przykład **UpsertStagingTable** , jako nazwę tabeli w zestawie danych. Następnie drugi wywołuje procedurę przechowywaną w celu scalenia danych źródłowych z tabeli przemieszczania do tabeli docelowej i wyczyszczenia tabeli przemieszczania.
+Przykładowo w Azure Data Factory można utworzyć potok z **działaniem kopiowania** łańcucha z **działaniem procedury składowanej**. Dawniej kopiuje dane z magazynu źródłowego do Azure SQL Database tabeli tymczasowej, na przykład **UpsertStagingTable**, jako nazwę tabeli w zestawie danych. Następnie drugi wywołuje procedurę przechowywaną w celu scalenia danych źródłowych z tabeli przemieszczania do tabeli docelowej i wyczyszczenia tabeli przemieszczania.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-W bazie danych Zdefiniuj procedurę składowaną z logiką scalania, taką jak Poniższy przykład, który jest wskazywany przez poprzednią aktywność procedury składowanej. Załóżmy, że element docelowy jest tabelą **marketingową** z trzema kolumnami: **ProfileID** , **State** i **Category** . Wykonaj upsert na podstawie kolumny **ProfileID** .
+W bazie danych Zdefiniuj procedurę składowaną z logiką scalania, taką jak Poniższy przykład, który jest wskazywany przez poprzednią aktywność procedury składowanej. Załóżmy, że element docelowy jest tabelą **marketingową** z trzema kolumnami: **ProfileID**, **State** i **Category**. Wykonaj upsert na podstawie kolumny **ProfileID** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -590,9 +590,9 @@ Podczas kopiowania danych do Azure SQL Database można także skonfigurować i w
 
 Można użyć procedury składowanej, gdy wbudowane mechanizmy kopiowania nie służą do tego celu. Przykładem jest to, że chcesz zastosować dodatkowe przetwarzanie przed ostatnim wstawieniem danych źródłowych do tabeli docelowej. Niektóre dodatkowe przykłady przetwarzania są potrzebne do scalania kolumn, wyszukiwania dodatkowych wartości i wstawiania do więcej niż jednej tabeli.
 
-Poniższy przykład przedstawia sposób użycia procedury składowanej do wykonania upsert w tabeli w Azure SQL Database. Załóżmy, że dane wejściowe i tabela **marketingu** ujścia mają trzy kolumny: **ProfileID** , **stan** i **Kategoria** . Zrób upsert na podstawie kolumny **ProfileID** i Zastosuj ją tylko dla określonej kategorii o nazwie "Product".
+Poniższy przykład przedstawia sposób użycia procedury składowanej do wykonania upsert w tabeli w Azure SQL Database. Załóżmy, że dane wejściowe i tabela **marketingu** ujścia mają trzy kolumny: **ProfileID**, **stan** i **Kategoria**. Zrób upsert na podstawie kolumny **ProfileID** i Zastosuj ją tylko dla określonej kategorii o nazwie "Product".
 
-1. W swojej bazie danych Zdefiniuj typ tabeli o tej samej nazwie co **sqlWriterTableType** . Schemat typu tabeli jest taki sam jak schemat zwrócony przez dane wejściowe.
+1. W swojej bazie danych Zdefiniuj typ tabeli o tej samej nazwie co **sqlWriterTableType**. Schemat typu tabeli jest taki sam jak schemat zwrócony przez dane wejściowe.
 
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -602,7 +602,7 @@ Poniższy przykład przedstawia sposób użycia procedury składowanej do wykona
     )
     ```
 
-2. W bazie danych Zdefiniuj procedurę składowaną o takiej samej nazwie jak **sqlWriterStoredProcedureName** . Obsługuje dane wejściowe z określonego źródła i scala do tabeli danych wyjściowych. Nazwa parametru typu tabeli w procedurze składowanej jest taka sama jak **tabelaname** zdefiniowana w zestawie danych.
+2. W bazie danych Zdefiniuj procedurę składowaną o takiej samej nazwie jak **sqlWriterStoredProcedureName**. Obsługuje dane wejściowe z określonego źródła i scala do tabeli danych wyjściowych. Nazwa parametru typu tabeli w procedurze składowanej jest taka sama jak **tabelaname** zdefiniowana w zestawie danych.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -645,13 +645,13 @@ Ustawienia specyficzne dla Azure SQL Database są dostępne na karcie **Opcje ź
 
 **Dane wejściowe:** Wybierz, czy chcesz wskazać źródło w tabeli (równoważnej ```Select * from <table-name>``` ), czy wprowadzić niestandardowe zapytanie SQL.
 
-**Zapytanie** : w przypadku wybrania zapytania w polu wejściowym wprowadź zapytanie SQL dla źródła. To ustawienie przesłania każdą tabelę, która została wybrana w zestawie danych. Klauzule **order by** nie są obsługiwane w tym miejscu, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę. To zapytanie spowoduje utworzenie tabeli źródłowej, której można użyć w przepływie danych. Używanie zapytań jest również doskonałym sposobem zredukowania liczby wierszy do testowania lub wyszukiwania.
+**Zapytanie**: w przypadku wybrania zapytania w polu wejściowym wprowadź zapytanie SQL dla źródła. To ustawienie przesłania każdą tabelę, która została wybrana w zestawie danych. Klauzule **order by** nie są obsługiwane w tym miejscu, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę. To zapytanie spowoduje utworzenie tabeli źródłowej, której można użyć w przepływie danych. Używanie zapytań jest również doskonałym sposobem zredukowania liczby wierszy do testowania lub wyszukiwania.
 
 - Przykład SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Rozmiar wsadu** : wprowadź rozmiar partii, aby podzielić duże ilości danych na odczyt.
+**Rozmiar wsadu**: wprowadź rozmiar partii, aby podzielić duże ilości danych na odczyt.
 
-**Poziom izolacji** : wartość domyślna dla źródeł SQL w mapowaniu przepływu danych jest odczytana. Poziom izolacji można zmienić tutaj na jedną z następujących wartości:
+**Poziom izolacji**: wartość domyślna dla źródeł SQL w mapowaniu przepływu danych jest odczytana. Poziom izolacji można zmienić tutaj na jedną z następujących wartości:
 
 - Odczytaj zatwierdzone
 - Odczytaj niezatwierdzone
@@ -679,11 +679,34 @@ Możesz Sparametryzuj kolumnę klucza użytą tutaj, aby zaktualizować docelow�
 - Utwórz ponownie: tabela zostanie porzucona i utworzona ponownie. Wymagane w przypadku dynamicznego tworzenia nowej tabeli.
 - Obcinanie: wszystkie wiersze z tabeli docelowej zostaną usunięte.
 
-**Rozmiar wsadu** : określa, ile wierszy jest zapisywanych w każdym przedziale. Większe rozmiary partii zwiększają optymalizację kompresji i pamięci, ale grozi wyjątkami dotyczącymi pamięci podczas buforowania danych.
+**Rozmiar wsadu**: określa, ile wierszy jest zapisywanych w każdym przedziale. Większe rozmiary partii zwiększają optymalizację kompresji i pamięci, ale grozi wyjątkami dotyczącymi pamięci podczas buforowania danych.
 
-**Wstępne i gotowe skrypty SQL** : wprowadź wielowierszowe skrypty SQL, które zostaną wykonane przed (przetwarzanie wstępne) i po wykonaniu (po przetworzeniu) dane są zapisywane w bazie danych ujścia
+**Użyj bazy danych tempdb:** Domyślnie Data Factory będzie używać globalnej tabeli tymczasowej do przechowywania danych w ramach procesu ładowania. Można również usunąć zaznaczenie opcji "Użyj bazy danych TempDB", a zamiast tego polecić Data Factory przechowywanie tymczasowej tabeli w bazie danych użytkownika, która znajduje się w bazie danych, która jest używana dla tego ujścia.
+
+![Użyj tymczasowej bazy danych](media/data-flow/tempdb.png "Użyj tymczasowej bazy danych")
+
+**Wstępne i gotowe skrypty SQL**: wprowadź wielowierszowe skrypty SQL, które zostaną wykonane przed (przetwarzanie wstępne) i po wykonaniu (po przetworzeniu) dane są zapisywane w bazie danych ujścia
 
 ![wstępne i końcowe skrypty przetwarzania SQL](media/data-flow/prepost1.png "Skrypty przetwarzania SQL")
+
+### <a name="error-row-handling"></a>Obsługa wierszy błędów
+
+Podczas zapisywania w usłudze Azure SQL DB niektóre wiersze danych mogą kończyć się niepowodzeniem z powodu ograniczeń ustawionych przez miejsce docelowe. Niektóre typowe błędy obejmują:
+
+*    Ciąg lub dane binarne zostałyby obcięte w tabeli
+*    Nie można wstawić wartości NULL do kolumny
+*    Instrukcja INSERT spowodowała konflikt z ograniczeniem CHECK
+
+Domyślnie uruchomienie przepływu danych zakończy się niepowodzeniem przy pierwszym błędzie, który pobiera. Możesz wybrać opcję **Kontynuuj przy błędzie** , która pozwala na ukończenie przepływu danych, nawet jeśli w poszczególnych wierszach występują błędy. Azure Data Factory oferuje różne opcje obsługi tych wierszy błędów.
+
+**Zatwierdzenie transakcji:** Określ, czy dane mają być zapisywane w jednej transakcji, czy w partiach. Pojedyncza transakcja zapewni gorszą wydajność, ale żadne dane nie będą widoczne dla innych do momentu zakończenia transakcji.  
+
+**Dane wyjściowe odrzucone:** Jeśli ta opcja jest włączona, można wyprowadzić wiersze błędów do pliku CSV w usłudze Azure Blob Storage lub wybrane konto Azure Data Lake Storage Gen2. Spowoduje to zapisanie wierszy błędów z trzema dodatkowymi kolumnami: operacją SQL, taką jak INSERT lub UPDATE, kod błędu przepływu danych i komunikat o błędzie w wierszu.
+
+**Powodzenie raportowania w przypadku błędu:** Jeśli ta funkcja jest włączona, przepływ danych zostanie oznaczony jako powodzenie, nawet w przypadku znalezienia wierszy błędów. 
+
+![Obsługa wierszy błędów](media/data-flow/sql-error-row-handling.png "Obsługa wierszy błędów")
+
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mapowanie typu danych dla Azure SQL Database
 
@@ -695,7 +718,7 @@ Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są 
 | binarny |Byte [] |
 | bit |Boolean |
 | char |String, Char [] |
-| date |DateTime |
+| data |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -747,13 +770,13 @@ Więcej szczegółów:
 
 3. Utwórz połączoną usługę z typem ODBC, aby połączyć się z bazą danych SQL, zapoznaj się z poniższymi przykładami:
 
-    - Aby używać **uwierzytelniania SQL** : Określ parametry połączenia ODBC poniżej, a następnie wybierz pozycję uwierzytelnianie **podstawowe** , aby ustawić nazwę użytkownika i hasło.
+    - Aby używać **uwierzytelniania SQL**: Określ parametry połączenia ODBC poniżej, a następnie wybierz pozycję uwierzytelnianie **podstawowe** , aby ustawić nazwę użytkownika i hasło.
 
         ```
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Aby użyć **Data Factory uwierzytelniania tożsamości zarządzanej** : 
+    - Aby użyć **Data Factory uwierzytelniania tożsamości zarządzanej**: 
 
         1. Wykonaj te same [wymagania wstępne](#managed-identity) , aby utworzyć użytkownika bazy danych dla zarządzanej tożsamości i udzielić odpowiedniej roli w bazie danych.
         2. W polu połączona usługa Określ parametry połączenia ODBC poniżej, a następnie wybierz opcję uwierzytelnianie **anonimowe** jako parametry połączenia `Authentication=ActiveDirectoryMsi` .

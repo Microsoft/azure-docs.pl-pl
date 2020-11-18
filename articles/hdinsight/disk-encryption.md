@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548034"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844748"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
 
@@ -71,17 +71,17 @@ Szczegółowe instrukcje można znaleźć w temacie [Tworzenie tożsamości zarz
 
 ### <a name="create-azure-key-vault"></a>Utwórz Azure Key Vault
 
-Utwórz magazyn kluczy. Aby zapoznać się z określonymi krokami, zobacz [tworzenie Azure Key Vault](../key-vault/secrets/quick-create-portal.md) .
+Utwórz magazyn kluczy. Aby zapoznać się z określonymi krokami, zobacz [tworzenie Azure Key Vault](../key-vault/general/quick-create-portal.md) .
 
 Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn kluczy, możesz zaimportować klucze do Azure Key Vault. Należy pamiętać, że magazyn kluczy musi mieć włączone **usuwanie nietrwałe** . Aby uzyskać więcej informacji o importowaniu istniejących kluczy, odwiedź stronę [dotyczącą kluczy, wpisów tajnych i certyfikatów](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Utwórz klucz
 
-1. W nowym magazynie kluczy przejdź do pozycje **Ustawienia**  >  **klucze**  >  **+ Generuj/Importuj** .
+1. W nowym magazynie kluczy przejdź do pozycje **Ustawienia**  >  **klucze**  >  **+ Generuj/Importuj**.
 
     ![Generuj nowy klucz w Azure Key Vault](./media/disk-encryption/create-new-key.png "Generuj nowy klucz w Azure Key Vault")
 
-1. Podaj nazwę, a następnie wybierz pozycję **Utwórz** . Zachowaj domyślny **Typ klucza** **RSA** .
+1. Podaj nazwę, a następnie wybierz pozycję **Utwórz**. Zachowaj domyślny **Typ klucza** **RSA**.
 
     ![generuje nazwę klucza](./media/disk-encryption/create-key.png "Generuj nazwę klucza")
 
@@ -95,7 +95,7 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
 
 ### <a name="create-access-policy"></a>Utwórz zasady dostępu
 
-1. W nowym magazynie kluczy przejdź do **ustawień**  >  **zasady dostępu**  >  **i Dodaj zasady dostępu** .
+1. W nowym magazynie kluczy przejdź do **ustawień**  >  **zasady dostępu**  >  **i Dodaj zasady dostępu**.
 
     ![Utwórz nowe zasady dostępu Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
 
     |Właściwość |Opis|
     |---|---|
-    |Uprawnienia klucza|Wybierz pozycję **Pobierz** , **Odpakuj klucz** i **Zawijaj klucz** .|
-    |Uprawnienia klucza tajnego|Wybierz pozycje **Get** , **Set** i **delete** .|
+    |Uprawnienia klucza|Wybierz pozycję **Pobierz**, **Odpakuj klucz** i **Zawijaj klucz**.|
+    |Uprawnienia klucza tajnego|Wybierz pozycje **Get**, **Set** i **delete**.|
     |Wybierz podmiot zabezpieczeń|Wybierz utworzoną wcześniej tożsamość zarządzaną przypisaną przez użytkownika.|
 
     ![Ustaw pozycję Wybierz podmiot zabezpieczeń dla zasad dostępu Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Wybierz pozycję **Dodaj** .
+1. Wybierz pozycję **Dodaj**.
 
-1. Wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
 
     ![Zapisz zasady dostępu Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ Teraz możesz utworzyć nowy klaster usługi HDInsight. Klucze zarządzane przez
 
 #### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
-Podczas tworzenia klastra Podaj pełny **Identyfikator klucza** , w tym wersję klucza. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Należy również przypisać zarządzaną tożsamość do klastra i podać identyfikator URI klucza.
+Podczas tworzenia klastra Podaj pełny **Identyfikator klucza**, w tym wersję klucza. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Należy również przypisać zarządzaną tożsamość do klastra i podać identyfikator URI klucza.
 
 ![Utwórz nowy klaster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -359,7 +359,7 @@ Mogą wystąpić sytuacje, w których warto zmienić klucze szyfrowania używane
 
 #### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
-Aby obrócić klucz, potrzebny jest podstawowy identyfikator URI magazynu kluczy. Po wykonaniu tej czynności przejdź do sekcji Właściwości klastra usługi HDInsight w portalu, a następnie kliknij pozycję **Zmień klucz** w obszarze **adres URL klucza szyfrowania dysku** . Wprowadź adres URL nowego klucza i prześlij go, aby obrócić klucz.
+Aby obrócić klucz, potrzebny jest podstawowy identyfikator URI magazynu kluczy. Po wykonaniu tej czynności przejdź do sekcji Właściwości klastra usługi HDInsight w portalu, a następnie kliknij pozycję **Zmień klucz** w obszarze **adres URL klucza szyfrowania dysku**. Wprowadź adres URL nowego klucza i prześlij go, aby obrócić klucz.
 
 ![Obróć klucz szyfrowania dysku](./media/disk-encryption/change-key.png)
 

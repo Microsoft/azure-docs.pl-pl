@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie osoby mówiącej, biometry głosu
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397263"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844575"
 ---
-# <a name="what-is-speaker-recognition"></a>Co to jest rozpoznawanie osoby mówiącej?
+# <a name="what-is-speaker-recognition-preview"></a>Co to jest rozpoznawanie osoby mówiącej (wersja zapoznawcza)?
 
 Usługa rozpoznawanie osoby mówiącej zapewnia algorytmy, które weryfikują i identyfikują głośniki według ich unikatowych cech głosowych przy użyciu usługi Voice biometry. Rozpoznawanie osoby mówiącej jest używany do odpowiedzi na pytanie "kto mówi?". Dane szkolenia audio można podawać dla jednego głośnika, który tworzy profil rejestracji na podstawie unikatowych cech głosu osoby mówiącej. Następnie można sprawdzić krzyżowo próbki głosu audio dla tego profilu, aby sprawdzić, czy prelegent jest tą samą osobą (Weryfikacja osoby mówiącej), czy też sprawdzić krzyżowo próbki głosu audio w *grupie* zarejestrowanych profilów głośników, aby sprawdzić, czy pasuje do dowolnego profilu w grupie (tożsamość osoby mówiącej). W odróżnieniu od [Diarizationu głośników](batch-transcription.md#speaker-separation-diarization) grupuje segmenty dźwięku przez prelegenta w operacji wsadowej.
 
@@ -67,7 +67,7 @@ Podobnie jak w przypadku wszystkich zasobów Cognitive Services, deweloperzy kor
 | Jaka jest różnica między weryfikacją tekstową i niezależną od tekstu? | Weryfikacja zależna od tekstu wymaga określonego zdania do rejestracji i rozpoznawania. Weryfikacja niezależna od tekstu wymaga dłuższego przykładu głosu do rejestracji, ale wszystkie elementy mogą być wymawiane, w tym podczas rozpoznawania.|
 | Jakie języki są obsługiwane? | Angielski, francuski, hiszpański, chiński, niemiecki, włoski, japoński i portugalski |
 | Jakie regiony platformy Azure są obsługiwane? | Rozpoznawanie osoby mówiącej to usługa w wersji zapoznawczej, która jest obecnie dostępna tylko w regionie zachodnie stany USA.|
-| Jakie formaty dźwięku są obsługiwane? | Mono 16-bitowe, 16kHz w formacie WAV |
+| Jakie formaty audio są obsługiwane? | Mono 16-bitowe, 16kHz w formacie WAV |
 | **Akceptowanie** i **odrzucanie** odpowiedzi nie jest dokładne, jak dostosować próg? | Ze względu na to, że optymalny próg różni się w zależności od scenariuszy, interfejs API decyduje o tym, czy "Akceptuję" czy "odrzucić", w oparciu o domyślny próg 0,5. Zaawansowani użytkownicy powinni zastąpić domyślną decyzję, a następnie dostosować wynik na podstawie własnego scenariusza. |
 | Czy można wielokrotnie rejestrować jednego prelegenta? | Tak, w przypadku weryfikacji zależnej od tekstu możesz zarejestrować prelegenta do 50 razy. W przypadku weryfikacji niezależnej od tekstu lub identyfikacji osoby mówiącej możesz zarejestrować się nawet przez 300 sekund audio. |
 | Jakie dane są przechowywane na platformie Azure? | Dźwięk rejestracyjny jest przechowywany w usłudze do momentu [usunięcia](speaker-recognition-basics.md#deleting-voice-profile-enrollments)profilu głosowego. Próbki audio rozpoznawania nie są zachowywane ani przechowywane. |

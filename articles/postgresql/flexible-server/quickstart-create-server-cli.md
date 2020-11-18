@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
-ms.custom: mvc
-ms.openlocfilehash: 75d76c64c10bf3ecc28c32452618048119bb9a59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d43fab43b05ccfd88308390f58ba48ff9111b295
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547626"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842825"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Szybki Start: Tworzenie Azure Database for PostgreSQL elastycznego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -79,7 +79,7 @@ Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i po�
 az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin** .
+Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**.
 
 <!--FIXME-->
 ```json
@@ -112,7 +112,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 
 ## <a name="connect-using-postgresql-command-line-client"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia PostgreSQL
 
-Ponieważ serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)* , należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do utworzonej sieci wirtualnej. 
+Ponieważ serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)*, należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do utworzonej sieci wirtualnej. 
 
 Po utworzeniu maszyny wirtualnej można do niej wykonać protokół SSH i zainstalować narzędzie wiersza polecenia **[PSQL](https://www.postgresql.org/download/)** .
 

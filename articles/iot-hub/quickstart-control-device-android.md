@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: a1166874ed743efa599743fa6db8341e94c0fe1f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 969ae6dc1e3667bc360890c292371a0a9b1ba2dc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747665"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844595"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT Hub (Android)
 
@@ -41,15 +41,7 @@ W tym przewodniku szybki start użyjesz metody bezpośredniej do kontrolowania s
 
 * Port 8883 otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Dodawanie rozszerzenia usługi Azure IoT
-
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IoT dodaje do interfejsu wiersza polecenia platformy Azure polecenia specyficzne dla usług IoT Hub, IoT Edge oraz IoT Device Provisioning Service (DPS).
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -67,9 +59,9 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 1. Uruchom następujące polecenie w Azure Cloud Shell, aby utworzyć tożsamość urządzenia.
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
-   **MyAndroidDevice** : jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyAndroidDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
+   **MyAndroidDevice**: jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyAndroidDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -78,7 +70,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 2. Uruchom następujące polecenia w usłudze Azure Cloud Shell, aby uzyskać _parametry połączenia urządzenia_ dla urządzenia, które właśnie zostało zarejestrowane:
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -95,9 +87,9 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 ## <a name="retrieve-the-service-connection-string"></a>Pobieranie parametrów połączenia usługi
 
-Potrzebne będą także _parametry połączenia usługi_ , aby umożliwić aplikacji usługi zaplecza nawiązywanie połączenia z centrum IoT Hub w celu wykonywania metod i pobierania komunikatów. Następujące polecenie pobiera parametry połączenia usługi dla centrum IoT:
+Potrzebne będą także _parametry połączenia usługi_, aby umożliwić aplikacji usługi zaplecza nawiązywanie połączenia z centrum IoT Hub w celu wykonywania metod i pobierania komunikatów. Następujące polecenie pobiera parametry połączenia usługi dla centrum IoT:
 
-**YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+**YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -115,7 +107,7 @@ Oba przykłady dla tego przewodnika Szybki Start są częścią repozytorium Azu
 
 Przykładową aplikację dla zestawu SDK urządzenia można uruchomić na urządzeniu fizycznym z systemem Android lub w emulatorze systemu Android. Przykład łączy się z punktem końcowym właściwym dla urządzenia w centrum IoT, wysyła symulowane dane telemetryczne i nasłuchuje wywołań metod bezpośrednich z centrum. W tym przewodniku Szybki start wywołanie metody bezpośredniej z centrum nakazuje urządzeniu zmienić interwał wysyłania danych telemetrycznych. Symulowane urządzenie wysyła potwierdzenie z powrotem do centrum po wykonaniu metody bezpośredniej.
 
-1. Otwórz przykładowy projekt GitHub dla systemu Android w programie Android Studio. Projekt znajduje się w następującym katalogu sklonowanej lub pobranej kopii [usługi Azure-IoT-Sample-Java](https://github.com/Azure-Samples/azure-iot-samples-java) Repository: *\azure-IoT-Samples-java\iot-hub\Samples\device\AndroidSample* .
+1. Otwórz przykładowy projekt GitHub dla systemu Android w programie Android Studio. Projekt znajduje się w następującym katalogu sklonowanej lub pobranej kopii [usługi Azure-IoT-Sample-Java](https://github.com/Azure-Samples/azure-iot-samples-java) Repository: *\azure-IoT-Samples-java\iot-hub\Samples\device\AndroidSample*.
 
 2. W Android Studio Otwórz *Gradle. Properties* dla przykładowego projektu i Zastąp symbol zastępczy **Device_Connection_String** parametrami połączenia urządzenia, które zostały wykonane wcześniej.
 
@@ -123,7 +115,7 @@ Przykładową aplikację dla zestawu SDK urządzenia można uruchomić na urząd
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. W Android Studio kliknij pozycję **plik**  >  **Synchronizacja plików z plikami Gradle** . Sprawdź, czy kompilacja została zakończona.
+3. W Android Studio kliknij pozycję **plik**  >  **Synchronizacja plików z plikami Gradle**. Sprawdź, czy kompilacja została zakończona.
 
    > [!NOTE]
    > Jeśli synchronizacja projektu nie powiedzie się, może to być spowodowane jedną z następujących przyczyn:
@@ -131,9 +123,9 @@ Przykładową aplikację dla zestawu SDK urządzenia można uruchomić na urząd
    > * Wersje wtyczki Gradle systemu Android i Gradle, do których odwołuje się projekt, są nieaktualne dla używanej wersji programu Android Studio. Postępuj zgodnie z [tymi instrukcjami](https://developer.android.com/studio/releases/gradle-plugin) , aby odnieść się do i zainstalować odpowiednie wersje wtyczki i Gradle dla danej instalacji.
    > * Umowa licencyjna dla Android SDK nie została podpisana. Postępuj zgodnie z instrukcjami podanymi w danych wyjściowych kompilacji w celu podpisania umowy licencyjnej i pobrania zestawu SDK.
 
-4. Po zakończeniu kompilacji kliknij pozycję **Uruchom**  >  **Uruchom polecenie "App"** . Skonfiguruj aplikację do uruchamiania na fizycznym urządzeniu z systemem Android lub w emulatorze systemu Android. Aby uzyskać więcej informacji na temat uruchamiania aplikacji systemu Android na urządzeniu fizycznym lub w emulatorze, zobacz [Run your app (Uruchamianie aplikacji)](https://developer.android.com/training/basics/firstapp/running-app).
+4. Po zakończeniu kompilacji kliknij pozycję **Uruchom**  >  **Uruchom polecenie "App"**. Skonfiguruj aplikację do uruchamiania na fizycznym urządzeniu z systemem Android lub w emulatorze systemu Android. Aby uzyskać więcej informacji na temat uruchamiania aplikacji systemu Android na urządzeniu fizycznym lub w emulatorze, zobacz [Run your app (Uruchamianie aplikacji)](https://developer.android.com/training/basics/firstapp/running-app).
 
-5. Po załadowaniu aplikacji kliknij przycisk **Start** , aby rozpocząć wysyłanie danych telemetrycznych do centrum IoT Hub:
+5. Po załadowaniu aplikacji kliknij przycisk **Start**, aby rozpocząć wysyłanie danych telemetrycznych do centrum IoT Hub:
 
     ![Przykładowy zrzut ekranu aplikacji dla systemu Android urządzenia klienckiego](media/quickstart-control-device-android/sample-screenshot.png)
 
@@ -145,7 +137,7 @@ W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azu
 
 1. Używając usługi Azure Cloud Shell, uruchom następujące polecenie, aby nawiązać połączenie i odczytać komunikaty z centrum IoT:
 
-   **YourIoTHubName** : zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
+   **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table
@@ -165,7 +157,7 @@ Uruchom tę aplikację na oddzielnym urządzeniu fizycznym z systemem Android lu
 
 IoT Hub aplikacja usługi zaplecza jest zwykle uruchamiana w chmurze, w której łatwiej jest ograniczyć ryzyko związane z parametrami połączenia poufnych, które kontrolują wszystkie urządzenia na IoT Hub. W tym przykładzie uruchamiamy ją jako aplikację systemu Android tylko na potrzeby pokazu. W innych wersjach językowych tego przewodnika Szybki Start przedstawiono przykłady, które dokładnie dopasowują się do typowej aplikacji usługi zaplecza.
 
-1. Otwórz przykładowy projekt dla systemu Android z usługi GitHub w programie Android Studio. Projekt znajduje się w następującym katalogu sklonowanej lub pobranej kopii [usługi Azure-IoT-Sample-Java](https://github.com/Azure-Samples/azure-iot-samples-java) Repository: *\azure-IoT-Samples-java\iot-hub\Samples\service\AndroidSample* .
+1. Otwórz przykładowy projekt dla systemu Android z usługi GitHub w programie Android Studio. Projekt znajduje się w następującym katalogu sklonowanej lub pobranej kopii [usługi Azure-IoT-Sample-Java](https://github.com/Azure-Samples/azure-iot-samples-java) Repository: *\azure-IoT-Samples-java\iot-hub\Samples\service\AndroidSample*.
 
 2. W Android Studio Otwórz *Gradle. Properties* dla przykładowego projektu. Zaktualizuj wartości właściwości **ConnectionString** i **DeviceID** przy użyciu ponotowanych wcześniej parametrów połączenia usługi i identyfikatora urządzenia z systemem Android.
 
@@ -174,7 +166,7 @@ IoT Hub aplikacja usługi zaplecza jest zwykle uruchamiana w chmurze, w której 
     DeviceId=MyAndroidDevice
     ```
 
-3. W Android Studio kliknij pozycję **plik**  >  **Synchronizacja plików z plikami Gradle** . Sprawdź, czy kompilacja została zakończona.
+3. W Android Studio kliknij pozycję **plik**  >  **Synchronizacja plików z plikami Gradle**. Sprawdź, czy kompilacja została zakończona.
 
    > [!NOTE]
    > Jeśli synchronizacja projektu nie powiedzie się, może to być spowodowane jedną z następujących przyczyn:
@@ -182,7 +174,7 @@ IoT Hub aplikacja usługi zaplecza jest zwykle uruchamiana w chmurze, w której 
    > * Wersje wtyczki Gradle systemu Android i Gradle, do których odwołuje się projekt, są nieaktualne dla używanej wersji programu Android Studio. Postępuj zgodnie z [tymi instrukcjami](https://developer.android.com/studio/releases/gradle-plugin) , aby odnieść się do i zainstalować odpowiednie wersje wtyczki i Gradle dla danej instalacji.
    > * Umowa licencyjna dla Android SDK nie została podpisana. Postępuj zgodnie z instrukcjami podanymi w danych wyjściowych kompilacji w celu podpisania umowy licencyjnej i pobrania zestawu SDK.
 
-4. Po zakończeniu kompilacji kliknij pozycję **Uruchom**  >  **Uruchom polecenie "App"** . Skonfiguruj aplikację do uruchamiania na osobnym fizycznym urządzeniu z systemem Android lub w emulatorze systemu Android. Aby uzyskać więcej informacji na temat uruchamiania aplikacji systemu Android na urządzeniu fizycznym lub w emulatorze, zobacz [Run your app (Uruchamianie aplikacji)](https://developer.android.com/training/basics/firstapp/running-app).
+4. Po zakończeniu kompilacji kliknij pozycję **Uruchom**  >  **Uruchom polecenie "App"**. Skonfiguruj aplikację do uruchamiania na osobnym fizycznym urządzeniu z systemem Android lub w emulatorze systemu Android. Aby uzyskać więcej informacji na temat uruchamiania aplikacji systemu Android na urządzeniu fizycznym lub w emulatorze, zobacz [Run your app (Uruchamianie aplikacji)](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Po załadowaniu aplikacji zaktualizuj ustawienie **Set Messaging Interval** (Ustaw interwał komunikatów) na wartość **1000** i kliknij pozycję **Invoke** (Wywołaj).
 

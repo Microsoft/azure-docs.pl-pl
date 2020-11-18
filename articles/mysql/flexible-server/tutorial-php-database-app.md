@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 38665cdf42450b09d14211f7ed44d62e4adb75b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537936"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844441"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Samouczek: Tworzenie aplikacji w języku PHP (platformy laravel) i MySQL Server (wersja zapoznawcza) w Azure App Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "92537936"
 
 [Azure App Service](../../app-service/overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. W tym samouczku pokazano, jak utworzyć aplikację języka PHP na platformie Azure i połączyć ją z bazą danych MySQL. Po zakończeniu będziesz mieć aplikację [platformy laravel](https://laravel.com/) działającą na Azure App Service w systemie Linux.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Konfigurowanie aplikacji PHP (platformy laravel) z lokalną bazą danych MySQL
 > * Tworzenie elastycznego serwera MySQL (wersja zapoznawcza)
@@ -96,7 +96,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Konfigurowanie połączenia z serwerem MySQL
 
-W katalogu głównym repozytorium utwórz plik o nazwie *env* . Skopiuj poniższe zmienne do pliku *env* . Zastąp symbol zastępczy _&lt;>root_password_ przy użyciu hasła użytkownika root MySQL.
+W katalogu głównym repozytorium utwórz plik o nazwie *env*. Skopiuj poniższe zmienne do pliku *env*. Zastąp symbol zastępczy _&lt;>root_password_ przy użyciu hasła użytkownika root MySQL.
 
 ```txt
 APP_ENV=local
@@ -110,7 +110,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Aby uzyskać informacje o tym, jak platforma Laravel używa pliku _env_ , zobacz [Laravel Environment Configuration (Konfiguracja środowiska Laravel)](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Aby uzyskać informacje o tym, jak platforma Laravel używa pliku _env_, zobacz [Laravel Environment Configuration (Konfiguracja środowiska Laravel)](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
 ### <a name="run-the-sample-locally"></a>Uruchamianie przykładu lokalnie
 
@@ -134,7 +134,7 @@ php artisan serve
 
 W przeglądarce przejdź do adresu `http://localhost:8000`. Dodaj na stronie kilka zadań.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Pomyślne połączenie środowiska PHP z serwerem MySQL":::
 
 Aby zatrzymać środowisko PHP, naciśnij w terminalu klawisze `Ctrl + C`.
 
@@ -196,7 +196,7 @@ W tym kroku połączysz aplikację PHP z bazą danych MySQL utworzoną w usłudz
 
 ### <a name="configure-the-database-connection"></a>Konfigurowanie połączenia z bazą danych
 
-W katalogu głównym repozytorium utwórz plik _env.production_ i skopiuj do niego poniższe zmienne. Zastąp symbol zastępczy _&lt; MySQL-Server-Name>_ w obu *db_host* i *DB_USERNAME* .
+W katalogu głównym repozytorium utwórz plik _env.production_ i skopiuj do niego poniższe zmienne. Zastąp symbol zastępczy _&lt; MySQL-Server-Name>_ w obu *db_host* i *DB_USERNAME*.
 
 ```
 APP_ENV=production
@@ -221,7 +221,7 @@ Zapisz zmiany.
 
 Domyślnie elastyczny serwer MySQL wymusza połączenia protokołu TLS z klientów. Aby nawiązać połączenie z bazą danych MySQL na platformie Azure, musisz użyć [certyfikatu _PEM_ dostarczonego przez Azure Database for MySQL elastyczny serwer](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Pobierz [ten certyfikat](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) i umieść go w folderze **SSL** w lokalnej kopii przykładowego repozytorium aplikacji.
 
-Otwórz plik _config/database.php_ , a następnie dodaj parametry `sslmode` i `options` do elementu `connections.mysql`, jak pokazano w poniższym kodzie.
+Otwórz plik _config/database.php_, a następnie dodaj parametry `sslmode` i `options` do elementu `connections.mysql`, jak pokazano w poniższym kodzie.
 
 ```php
 'mysql' => [
@@ -257,7 +257,7 @@ Przejdź do adresu `http://localhost:8000`. Jeśli strona ładuje się bez błę
 
 Dodaj na stronie kilka zadań.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Pomyślne połączenie środowiska PHP z usługą Azure Database for MySQL":::
 
 Aby zatrzymać środowisko PHP, naciśnij w terminalu klawisze `Ctrl + C`.
 
@@ -336,7 +336,7 @@ Utworzona została nowa pusta aplikacja internetowa z włączonym wdrażaniem gi
 
 W usłudze App Service zmienne środowiskowe są ustawiane jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
 
-Następujące polecenie konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _&lt; App-Name>_ i _&lt; mysql-Server-Name>_ .
+Następujące polecenie konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _&lt; App-Name>_ i _&lt; mysql-Server-Name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -359,13 +359,13 @@ Dostęp do tych ustawień możesz uzyskać za pomocą metody [getenv](https://ww
 
 Platforma Laravel wymaga klucza aplikacji w usłudze App Service. Możesz go skonfigurować za pomocą ustawień aplikacji.
 
-W oknie terminala lokalnego przy użyciu polecenia `php artisan` wygeneruj nowy klucz aplikacji bez zapisywania go w pliku _env_ .
+W oknie terminala lokalnego przy użyciu polecenia `php artisan` wygeneruj nowy klucz aplikacji bez zapisywania go w pliku _env_.
 
 ```bash
 php artisan key:generate --show
 ```
 
-W Cloud Shell Ustaw klucz aplikacji w aplikacji App Service za pomocą [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) polecenia. Zastąp symbole zastępcze _&lt; App-Name>_ i _&lt; outputofphpartisankey: Generate>_ .
+W Cloud Shell Ustaw klucz aplikacji w aplikacji App Service za pomocą [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) polecenia. Zastąp symbole zastępcze _&lt; App-Name>_ i _&lt; outputofphpartisankey: Generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -387,7 +387,7 @@ W lokalnym oknie terminala dodaj zdalną platformę Azure do lokalnego repozytor
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Wypchnij na zdalną platformę Azure w celu wdrożenia aplikacji za pomocą następującego polecenia. Gdy program git Credential Manager poprosi o podanie poświadczeń, upewnij się, że wprowadzono poświadczenia utworzone w obszarze **Konfigurowanie użytkownika wdrożenia** , a nie poświadczenia, których używasz do logowania się do Azure Portal.
+Wypchnij na zdalną platformę Azure w celu wdrożenia aplikacji za pomocą następującego polecenia. Gdy program git Credential Manager poprosi o podanie poświadczeń, upewnij się, że wprowadzono poświadczenia utworzone w obszarze **Konfigurowanie użytkownika wdrożenia**, a nie poświadczenia, których używasz do logowania się do Azure Portal.
 
 ```bash
 git push azure master
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 Przejdź do adresu `http://<app-name>.azurewebsites.net` i dodaj kilka zadań do listy.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure":::
 
 Gratulacje! Masz uruchomioną opartą na danych aplikację PHP w usłudze Azure App Service.
 
@@ -466,11 +466,11 @@ W lokalnym oknie terminala uruchom migracje baz danych platformy Laravel, aby wp
 php artisan migrate
 ```
 
-Zgodnie z [konwencją nazewnictwa platformy Laravel](https://laravel.com/docs/5.4/eloquent#defining-models) model `Task` (zobacz plik _app/Task.php_ ) jest domyślnie mapowany na tabelę `tasks`.
+Zgodnie z [konwencją nazewnictwa platformy Laravel](https://laravel.com/docs/5.4/eloquent#defining-models) model `Task` (zobacz plik _app/Task.php_) jest domyślnie mapowany na tabelę `tasks`.
 
 ### <a name="update-application-logic"></a>Aktualizowanie logiki aplikacji
 
-Otwórz plik *routes/web.php* . W tym miejscu aplikacja określa swoje trasy i logikę biznesową.
+Otwórz plik *routes/web.php*. W tym miejscu aplikacja określa swoje trasy i logikę biznesową.
 
 Na końcu pliku dodaj trasę z następującym kodem:
 
@@ -493,7 +493,7 @@ Poprzedzający kod wprowadza prostą aktualizację do modelu danych, przełącza
 
 ### <a name="update-the-view"></a>Aktualizowanie widoku
 
-Otwórz plik *resources/views/tasks.blade.php* . Znajdź tag otwierający `<tr>` i zastąp go następującym kodem:
+Otwórz plik *resources/views/tasks.blade.php*. Znajdź tag otwierający `<tr>` i zastąp go następującym kodem:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -534,7 +534,7 @@ php artisan serve
 
 Aby zobaczyć zmianę stanu zadania, przejdź do adresu `http://localhost:8000` i zaznacz pole wyboru.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Dodanie pola wyboru do zadania":::
 
 Aby zatrzymać środowisko PHP, naciśnij w terminalu klawisze `Ctrl + C`.
 
@@ -556,7 +556,7 @@ git push azure master
 
 Po zakończeniu wykonywania polecenia `git push` przejdź do aplikacji platformy Azure i przetestuj nowe funkcje.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Zmiany w modelu i bazie danych opublikowane na platformie Azure":::
 
 Jeśli dodano jakiekolwiek zadania, zostaną one zachowane w bazie danych. Aktualizacje schematu danych pozostawiają dane bez zmian.
 
