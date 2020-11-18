@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 8f5044a5fb43956e857bc7b93b92e15d40225326
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013240"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748186"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — Java
 
@@ -62,25 +62,9 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
 
 1. W Visual Studio Code Otwórz folder, w którym znajduje się projekt
 1. Znajdź i Otwórz `pom.xml`
-1. Dodawanie wymaganych zależności
+1. Dodaj niezbędne zależności.
 
-    ```xml
-   <dependency>
-     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-     <artifactId>azure-mgmt-media</artifactId>
-     <version>1.0.0-beta-3</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.rest</groupId>
-     <artifactId>client-runtime</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>azure-client-authentication</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-    ```
+   Zobacz `pom.xml` w przykładowym [kodowaniu wideo](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESCustomPreset/pom.xml) .
 
 ## <a name="connect-to-the-java-client"></a>Nawiązywanie połączenia z klientem Java
 
@@ -122,7 +106,7 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
    ```
 1. Uruchom aplikację.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Koncepcje Media Services](concepts-overview.md)
 - [Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)

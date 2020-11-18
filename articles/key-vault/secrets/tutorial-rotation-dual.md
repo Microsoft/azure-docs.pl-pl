@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a061cf493fba99c518448acd9c4bf4bd5949eb98
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843281"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831826"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów przy użyciu dwóch zestawów poświadczeń uwierzytelniania
 
@@ -44,7 +44,7 @@ Jeśli nie masz istniejącego magazynu kluczy i kont magazynu, możesz użyć po
 
 [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **akvrotation** i kliknij przycisk **OK**.
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **akvrotation** i kliknij przycisk **OK**.
 1. Wybierz pozycję **Przeglądanie+tworzenie**.
 1. Wybierz pozycję **Utwórz**
 
@@ -67,8 +67,6 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>Utwórz i Wdróż funkcję rotacji klucza konta magazynu
-> [!IMPORTANT]
-> Poniższy szablon wymaga Key Vault, konto usługi Azure Storage i funkcja platformy Azure, aby znajdować się w tej samej grupie zasobów
 
 Następnie Utwórz aplikację funkcji z tożsamością zarządzaną przez system, a także z innymi wymaganymi składnikami i Wdróż funkcje rotacji kluczy konta magazynu
 
@@ -85,13 +83,15 @@ Funkcje rotacji aplikacji funkcji wymagają następujących składników i konfi
    [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. Na liście **Grupa zasobów** wybierz pozycję **akvrotation**.
-1. W polu **nazwa konta magazynu**wpisz nazwę konta magazynu z kluczami dostępu, aby obrócić
-1. W polu **nazwa Key Vault**wpisz nazwę magazynu kluczy
-1. W polu **nazwa aplikacja funkcji**wpisz nazwę aplikacji funkcji
-1. W polu **Nazwa wpisu tajnego**wpisz nazwę wpisu tajnego, w którym będą przechowywane klucze dostępu
-1. W **adresie URL repozytorium**wpisz kod funkcji Lokalizacja usługi GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )
+1. W obszarze **konto magazynu RG** wprowadź nazwę grupy zasobów, w której znajduje się konto magazynu. Pozostaw wartość domyślną **[resourceName (). Name]** , jeśli konto magazynu istnieje już w tej samej grupie zasobów, w której jest wdrażana Funkcja rotacji kluczy.
+1. W polu **nazwa konta magazynu** wprowadź nazwę konta magazynu z kluczami dostępu do obrotu.
+1. W **Key Vault RG** wprowadź nazwę grupy zasobów, w której znajduje się Twój Magazyn kluczy. Należy zachować wartość domyślną **[resourceName (). Name]** , jeśli Magazyn kluczy już istnieje w tej samej grupie zasobów, w której jest wdrażana Funkcja rotacji kluczy.
+1. W polu **nazwa Key Vault** wprowadź nazwę magazynu kluczy.
+1. W polu **nazwa aplikacja funkcji** wprowadź nazwę aplikacji funkcji.
+1. W polu **Nazwa wpisu tajnego** wprowadź nazwę wpisu tajnego, w którym będą przechowywane klucze dostępu.
+1. W polu **adres URL repozytorium** wprowadź wartość w polu kod funkcji w witrynie GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** ).
 1. Wybierz pozycję **Przeglądanie+tworzenie**.
-1. Wybierz pozycję **Utwórz**
+1. Wybierz przycisk **Utwórz**.
 
    ![Przejrzyj i Utwórz pierwsze konto magazynu](../media/secrets/rotation-dual/dual-rotation-2.png)
 
@@ -159,10 +159,10 @@ Dodawanie dodatkowych kluczy konta magazynu do rotacji do istniejącej funkcji w
    [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
 1. Na liście **Grupa zasobów** wybierz pozycję **akvrotation**.
-1. W polu **nazwa konta magazynu**wpisz nazwę konta magazynu z kluczami dostępu, aby obrócić
-1. W polu **nazwa Key Vault**wpisz nazwę magazynu kluczy
-1. W polu **nazwa aplikacja funkcji**wpisz nazwę aplikacji funkcji
-1. W polu **Nazwa wpisu tajnego**wpisz nazwę wpisu tajnego, w którym będą przechowywane klucze dostępu
+1. W polu **nazwa konta magazynu** wpisz nazwę konta magazynu z kluczami dostępu, aby obrócić
+1. W polu **nazwa Key Vault** wpisz nazwę magazynu kluczy
+1. W polu **nazwa aplikacja funkcji** wpisz nazwę aplikacji funkcji
+1. W polu **Nazwa wpisu tajnego** wpisz nazwę wpisu tajnego, w którym będą przechowywane klucze dostępu
 1. Wybierz pozycję **Przeglądanie+tworzenie**.
 1. Wybierz pozycję **Utwórz**
 

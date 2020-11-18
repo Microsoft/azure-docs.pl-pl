@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213942"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832997"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure Blob Storage dla Azure Functions
 
@@ -20,6 +20,16 @@ Wyzwalacz magazynu obiektów BLOB uruchamia funkcję po wykryciu nowego lub zakt
 Wyzwalacz usługi Azure Blob Storage wymaga konta magazynu ogólnego przeznaczenia. Obsługiwane są również konta magazynu w wersji 2 z [przestrzeniami nazw hierarchiczna](../storage/blobs/data-lake-storage-namespace.md) . Aby użyć konta typu obiekt BLOB lub jeśli aplikacja ma specjalne potrzeby, przejrzyj alternatywy do użycia tego wyzwalacza.
 
 Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Sondowanie
+
+Sondowanie działa jako hybrydowe między inspekcjami dzienników i uruchamiania okresowych skanowania kontenerów. Obiekty blob są skanowane w grupach 10 000 na raz z tokenem kontynuacji używanym między interwałami.
+
+> [!WARNING]
+> Ponadto [dzienniki magazynu są tworzone na podstawie najlepszego nakładu pracy](/rest/api/storageservices/About-Storage-Analytics-Logging) . Nie ma gwarancji, że wszystkie zdarzenia są przechwytywane. W pewnych warunkach dzienniki mogą być pominięte.
+> 
+> Jeśli potrzebujesz szybszego lub bardziej niezawodnego przetwarzania obiektów blob, rozważ utworzenie [komunikatu w kolejce](../storage/queues/storage-dotnet-how-to-use-queues.md) podczas tworzenia obiektu BLOB. Następnie przetworzyć obiekt BLOB przy użyciu [wyzwalacza kolejki](functions-bindings-storage-queue.md) zamiast wyzwalacza obiektu BLOB. Innym rozwiązaniem jest użycie Event Grid; Zapoznaj się z samouczkiem [Automatyzowanie zmiany rozmiarów przekazanych obrazów przy użyciu Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Alternatywy
 
@@ -80,7 +90,7 @@ Oto dane powiązania w *function.js* pliku:
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji * na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod skryptu w języku C#, który jest powiązany z `Stream` :
 
@@ -127,7 +137,7 @@ Oto *function.js* pliku:
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji * na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod JavaScript:
 
@@ -162,7 +172,7 @@ Oto *function.js* pliku:
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji * na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod języka Python:
 
@@ -277,9 +287,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | nie dotyczy | Musi być ustawiony na `blobTrigger` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
-|**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
-|**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji. |
+|**Wprowadź** | n/d | Musi być ustawiony na `blobTrigger` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
+|**wskazywa** | n/d | Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
+|**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji. |
 |**ścieżka** | **Blobpath ścieżką** |[Kontener](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) do monitorowania.  Może być [wzorcem nazw obiektów BLOB](#blob-name-patterns). |
 |**połączenia** | **Połączenie** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem usługi BLOB Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
@@ -349,7 +359,7 @@ Aby wyszukać nawiasy klamrowe w nazwach plików, należy wprowadzić nawiasy kl
 "path": "images/{{20140101}}-{name}",
 ```
 
-Jeśli obiekt BLOB ma nazwę * {20140101}-soundfile.mp3*, `name` wartość zmiennej w kodzie funkcji jest *soundfile.mp3*.
+Jeśli obiekt BLOB ma nazwę *{20140101}-soundfile.mp3*, `name` wartość zmiennej w kodzie funkcji jest *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadane
 
@@ -386,7 +396,7 @@ Metadane nie są dostępne w języku Java.
 
 Azure Functions przechowuje potwierdzenia obiektów BLOB w kontenerze o nazwie *Azure-WebJobs-hosty* na koncie usługi Azure Storage dla aplikacji funkcji (zdefiniowanej przez ustawienie aplikacji `AzureWebJobsStorage` ). Potwierdzenie obiektu BLOB zawiera następujące informacje:
 
-* Funkcja wyzwalana ("* &lt; Nazwa aplikacji funkcji>*. Obowiązki. * &lt; nazwa funkcji>*", na przykład:" MyFunctionApp. Functions. CopyBlob ")
+* Funkcja wyzwalana ("*&lt; Nazwa aplikacji funkcji>*. Obowiązki. *&lt; nazwa funkcji>*", na przykład:" MyFunctionApp. Functions. CopyBlob ")
 * Nazwa kontenera
 * Typ obiektu BLOB ("BlockBlob" lub "PageBlob")
 * Nazwa obiektu BLOB
@@ -400,7 +410,7 @@ Gdy funkcja wyzwalacza obiektu BLOB kończy się niepowodzeniem dla danego obiek
 
 W przypadku niepowodzenia wszystkich 5 prób Azure Functions dodaje komunikat do kolejki magazynu o nazwie *WebJobs-blobtrigger-trujące*. Maksymalna liczba ponownych prób można skonfigurować. To samo ustawienie MaxDequeueCount jest używane na potrzeby obsługi skażonych obiektów blob i komunikatów trującej kolejki. Komunikat w kolejce dla trujących obiektów BLOB jest obiektem JSON, który zawiera następujące właściwości:
 
-* FunctionId (w formacie * &lt; Nazwa aplikacji funkcji>*. Obowiązki. * &lt; nazwa funkcji>*)
+* FunctionId (w formacie *&lt; Nazwa aplikacji funkcji>*. Obowiązki. *&lt; nazwa funkcji>*)
 * Blobtype ("BlockBlob" lub "PageBlob")
 * NazwaKontenera
 * BlobName
@@ -413,16 +423,6 @@ Wyzwalacz obiektów BLOB używa kolejki wewnętrznie, więc Maksymalna liczba ws
 [Plan zużycia](functions-scale.md#how-the-consumption-and-premium-plans-work) ogranicza aplikację funkcji na jednej maszynie wirtualnej (VM) do 1,5 GB pamięci. Pamięć jest używana przez wszystkie jednocześnie wykonywane wystąpienia funkcji i przez sam czas wykonywania funkcji. Jeśli funkcja wyzwalana przez obiekt BLOB ładuje cały obiekt BLOB do pamięci, maksymalna ilość pamięci używana przez tę funkcję tylko dla obiektów BLOB to 24 * maksymalny rozmiar obiektu BLOB. Na przykład aplikacja funkcji mająca trzy funkcje wyzwalane przez obiekt BLOB i ustawienia domyślne byłyby w maksymalnym zakresie współbieżności maszyny wirtualnej równym 3 * 24 = 72 wywołań funkcji.
 
 Funkcje języka JavaScript i języka Java ładują cały obiekt BLOB do pamięci, a funkcje języka C# to w przypadku powiązania z `string` , lub `Byte[]` .
-
-## <a name="polling"></a>Sondowanie
-
-Sondowanie działa jako hybrydowe między inspekcjami dzienników i uruchamiania okresowych skanowania kontenerów. Obiekty blob są skanowane w grupach 10 000 na raz z tokenem kontynuacji używanym między interwałami.
-
-> [!WARNING]
-> Ponadto [dzienniki magazynu są tworzone na podstawie najlepszego nakładu pracy](/rest/api/storageservices/About-Storage-Analytics-Logging) . Nie ma gwarancji, że wszystkie zdarzenia są przechwytywane. W pewnych warunkach dzienniki mogą być pominięte.
-> 
-> Jeśli potrzebujesz szybszego lub bardziej niezawodnego przetwarzania obiektów blob, rozważ utworzenie [komunikatu w kolejce](../storage/queues/storage-dotnet-how-to-use-queues.md) podczas tworzenia obiektu BLOB. Następnie przetworzyć obiekt BLOB przy użyciu [wyzwalacza kolejki](functions-bindings-storage-queue.md) zamiast wyzwalacza obiektu BLOB. Innym rozwiązaniem jest użycie Event Grid; Zapoznaj się z samouczkiem [Automatyzowanie zmiany rozmiarów przekazanych obrazów przy użyciu Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Następne kroki
 

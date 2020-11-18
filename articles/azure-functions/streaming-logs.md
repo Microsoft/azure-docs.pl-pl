@@ -3,13 +3,13 @@ title: Dzienniki wykonywania przesyłania strumieniowego w Azure Functions
 description: 115-145 znaków, w tym spacje. To streszczenie jest wyświetlane w wynikach wyszukiwania.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 61756afb5111da3d5573e967a6ca13f25354aef5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: 68b9d567fe0f2959c809a25c3669b9529cf093b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216100"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832883"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Włączanie dzienników wykonywania przesyłania strumieniowego w Azure Functions
 
@@ -29,7 +29,7 @@ Oba typy strumieni dzienników można wyświetlić w portalu.
 
 ### <a name="built-in-log-streaming"></a>Wbudowane przesyłanie strumieniowe dzienników
 
-Aby wyświetlić dzienniki przesyłania strumieniowego w portalu, wybierz kartę **funkcje platformy** w aplikacji funkcji. Następnie w obszarze **monitorowanie**wybierz pozycję **Rejestruj strumieniowo**.
+Aby wyświetlić dzienniki przesyłania strumieniowego w portalu, wybierz kartę **funkcje platformy** w aplikacji funkcji. Następnie w obszarze **monitorowanie** wybierz pozycję **Rejestruj strumieniowo**.
 
 ![Włączanie dzienników przesyłania strumieniowego w portalu](./media/functions-monitoring/enable-streaming-logs-portal.png)
 
@@ -64,7 +64,7 @@ az account set --subscription <subscriptionNameOrId>
 az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>
 ```
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>Program Azure PowerShell
 
 Dzienniki przesyłania strumieniowego można włączyć za pomocą [Azure PowerShell](/powershell/azure/). W przypadku programu PowerShell Użyj polecenia [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) , aby włączyć rejestrowanie w aplikacji funkcji, jak pokazano w poniższym fragmencie kodu: 
 

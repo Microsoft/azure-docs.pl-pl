@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3e53937122b8721aff5db435ac447b686ea16643
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748689"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831926"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C# (wersja zapoznawcza)
 
@@ -43,43 +43,34 @@ Na poniższej ilustracji przedstawiono, w jaki sposób lokalne i lokalne aplikac
 > [!NOTE]
 > Ruch SSH przesyłany za pośrednictwem strumienia urządzenia jest tunelowany za pośrednictwem punktu końcowego przesyłania strumieniowego usługi IoT Hub zamiast bezpośredniego przesyłania między usługą i urządzeniem. Aby uzyskać więcej informacji, zobacz [korzyści wynikające z używania strumieni urządzeń usługi IoT Hub](iot-hub-device-streams-overview.md#benefits).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
 
-  * Środkowe stany USA
+  * Central US
   * Środkowe stany USA — EUAP
   * Southeast Asia
   * Europa Północna
 
 * Dwie przykładowe aplikacje, które są uruchamiane w tym przewodniku Szybki Start, są zapisywane w języku C#. Potrzebujesz zestaw .NET Core SDK 2.1.0 na komputerze deweloperskim lub nowszym.
 
-  Zestaw .NET Core SDK można pobrać [dla wielu platform z platformy .NET](https://www.microsoft.com/net/download/all).
+    Zestaw .NET Core SDK można pobrać [dla wielu platform z platformy .NET](https://www.microsoft.com/net/download/all).
 
-* Sprawdź bieżącą wersję języka C# na komputerze deweloperskim, używając następującego polecenia:
+    Sprawdź bieżącą wersję języka C# na komputerze deweloperskim, używając następującego polecenia:
 
     ```
     dotnet --version
     ```
 
-* Uruchom następujące polecenie, aby dodać rozszerzenie Azure IoT dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Pobierz przykłady w języku C# usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)i Wyodrębnij archiwum zip.
 
 * Prawidłowe konto użytkownika i poświadczenie na urządzeniu (Windows lub Linux) używane do uwierzytelniania użytkownika.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
@@ -195,7 +186,7 @@ Dane wyjściowe konsoli po stronie usługi (aplikacja lokalnego serwera proxy na
 
 ![Usługa — dane wyjściowe aplikacji lokalnego serwera proxy](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Dane wyjściowe konsoli na urządzeniu lokalnego serwera proxy, który łączy się z demonem SSH w *IP_address: 22* :
+Dane wyjściowe konsoli na urządzeniu lokalnego serwera proxy, który łączy się z demonem SSH w *IP_address: 22*:
 
 ![Dane wyjściowe aplikacji lokalnego serwera proxy](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

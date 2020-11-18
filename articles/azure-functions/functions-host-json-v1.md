@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 1. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167728"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832827"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsw odwołaniu dla Azure Functions 1. x
 
@@ -93,7 +93,8 @@ Następujące przykładowe *host.jsw* plikach są dostępne wszystkie dostępne 
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -140,7 +141,7 @@ Ustawienia konfiguracji dla [wyzwalacza Azure Cosmos DB i powiązań](functions-
 |---------|---------|---------|
 |Bramamode|Brama|Tryb połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB. Dostępne są opcje `Direct` i `Gateway`|
 |Protokół|Schemat|Protokół połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB.  Przeczytaj [tutaj, aby uzyskać wyjaśnienie obu trybów](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|nie dotyczy|Prefiks dzierżawy do użycia we wszystkich funkcjach w aplikacji.|
+|leasePrefix|n/d|Prefiks dzierżawy do użycia we wszystkich funkcjach w aplikacji.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -249,9 +250,9 @@ Kontroluje filtrowanie dla dzienników pisanych przez obiekt [ILogger](functions
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
-|categoryFilter|nie dotyczy|Określa filtrowanie według kategorii| 
+|categoryFilter|n/d|Określa filtrowanie według kategorii| 
 |defaultLevel|Informacje|Dla wszystkich kategorii, które nie są określone w `categoryLevels` tablicy, Wyślij dzienniki na tym poziomie i powyżej, aby Application Insights.| 
-|categoryLevels|nie dotyczy|Tablica kategorii, która określa minimalny poziom rejestrowania do wysłania do Application Insights dla każdej kategorii. Określona tutaj Kategoria kontroluje wszystkie kategorie, które zaczynają się od tej samej wartości, a dłuższe wartości mają pierwszeństwo. W powyższym przykładzie *host.jsw* pliku wszystkie kategorie zaczynające się od dziennika "host. agregator" na `Information` poziomie. Wszystkie inne kategorie zaczynające się od "host", takie jak "Host.Executor", log na `Error` poziomie.| 
+|categoryLevels|n/d|Tablica kategorii, która określa minimalny poziom rejestrowania do wysłania do Application Insights dla każdej kategorii. Określona tutaj Kategoria kontroluje wszystkie kategorie, które zaczynają się od tej samej wartości, a dłuższe wartości mają pierwszeństwo. W powyższym przykładzie *host.jsw* pliku wszystkie kategorie zaczynające się od dziennika "host. agregator" na `Information` poziomie. Wszystkie inne kategorie zaczynające się od "host", takie jak "Host.Executor", log na `Error` poziomie.| 
 
 ## <a name="queues"></a>tworzone
 
@@ -286,11 +287,12 @@ Ustawienie konfiguracji dla [powiązania danych wyjściowych SendGrind](function
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
-|wniosek|nie dotyczy|Adres e-mail nadawcy we wszystkich funkcjach.| 
+|wniosek|n/d|Adres e-mail nadawcy we wszystkich funkcjach.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -301,7 +303,8 @@ Ustawienia konfiguracji dla [wyzwalaczy Service Bus i powiązań](functions-bind
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
@@ -309,8 +312,9 @@ Ustawienia konfiguracji dla [wyzwalaczy Service Bus i powiązań](functions-bind
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Maksymalna liczba jednoczesnych wywołań wywołania zwrotnego, które powinna zostać zainicjowana przez pompę komunikatów. Domyślnie środowisko uruchomieniowe funkcji przetwarza wiele komunikatów jednocześnie. Aby skierować środowisko uruchomieniowe do przetwarzania tylko pojedynczej kolejki lub komunikatu tematu w danym momencie, ustaw wartość `maxConcurrentCalls` 1. | 
-|prefetchCount|nie dotyczy|Domyślny PrefetchCount, który będzie używany przez bazowe MessageReceiver.| 
-|Właściwość autorenewtimeout|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.| 
+|prefetchCount|n/d|Domyślny PrefetchCount, który będzie używany przez bazowe MessageReceiver.| 
+|Właściwość autorenewtimeout|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.|
+|Wskazówk|true|W przypadku wartości true wyzwalacz zakończy przetwarzanie komunikatu automatycznie po pomyślnym wykonaniu operacji. W przypadku wartości false jest odpowiedzialna funkcja do ukończenia komunikatu przed zwróceniem.|
 
 ## <a name="singleton"></a>pojedynczego
 
@@ -334,7 +338,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 |listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Przedział czasu używany do odzyskiwania blokady odbiornika, jeśli nie można uzyskać blokady odbiornika podczas uruchamiania.| 
 |lockAcquisitionTimeout|00:01:00|Maksymalny czas, przez jaki środowisko uruchomieniowe podejmie próbę uzyskania blokady.| 
-|lockAcquisitionPollingInterval|nie dotyczy|Interwał między kolejnymi próbami przejęcia blokady.| 
+|lockAcquisitionPollingInterval|n/d|Interwał między kolejnymi próbami przejęcia blokady.| 
 
 ## <a name="tracing"></a>pochodzenia
 

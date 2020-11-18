@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377806"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832902"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -36,7 +36,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 
 ## <a name="enable-agent-based-monitoring"></a>Włącz monitorowanie oparte na agentach
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
 > Kombinacja APPINSIGHTS_JAVASCRIPT_ENABLED i urlCompression nie jest obsługiwana. Aby uzyskać więcej informacji, zobacz wyjaśnienie w [sekcji Rozwiązywanie problemów](#troubleshooting).
@@ -59,7 +59,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
  
  Poniżej znajduje się podsumowanie danych zbieranych dla każdej trasy:
         
-| Dane | Podstawowa kolekcja .NET | Zalecana kolekcja .NET |
+| Dane | ASP.NET — podstawowa kolekcja | ASP.NET zalecana kolekcja |
 | --- | --- | --- |
 | Dodanie trendów użycia procesora, pamięci i operacji we/wy |Tak |Tak |
 | Zbieranie trendów użycia z możliwością korelacji wyników dostępności z transakcjami | Tak |Tak |
@@ -73,11 +73,11 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 
     * Aby zapoznać się z listą obsługiwanych ustawień procesora telemetrii do próbkowania, możesz zajrzeć do [kodu](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) i [powiązanej dokumentacji](./sampling.md).
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Obsługiwane są następujące wersje programu .NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
+Obsługiwane są następujące wersje ASP.NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
 
-Kierowanie całego środowiska z platformy .NET Core, samodzielnego wdrażania i aplikacji opartych na systemie Linux nie jest obecnie **obsługiwane** w przypadku monitorowania opartego na agentach/rozszerzeniach. ([Instrumentacja ręczna](./asp-net-core.md) za pośrednictwem kodu będzie działała we wszystkich poprzednich scenariuszach).
+Ukierunkowanie na pełną strukturę ASP.NET Core, samodzielnego wdrażania i aplikacji opartych na systemie Linux **nie** są obecnie obsługiwane przez monitorowanie oparte na agentach/rozszerzeniach. ([Instrumentacja ręczna](./asp-net-core.md) za pośrednictwem kodu będzie działała we wszystkich poprzednich scenariuszach).
 
 1. **Wybierz pozycję Application Insights** w panelu sterowania platformy Azure dla usługi App Service.
 
@@ -90,7 +90,7 @@ Kierowanie całego środowiska z platformy .NET Core, samodzielnego wdrażania i
 
      ![Instrumentacja aplikacji internetowej](./media/azure-web-apps/create-resource-01.png)
 
-2. Po określeniu zasobu, który ma być używany, można wybrać, w jaki sposób Application Insights zbierać dane na platformę dla aplikacji. Program .NET Core oferuje **zalecaną kolekcję** lub **wyłączony** dla ASP.NET Core 2,1, 2,2, 3,0 i 3,1.
+2. Po określeniu zasobu, który ma być używany, można wybrać, w jaki sposób Application Insights zbierać dane na platformę dla aplikacji. ASP.NET Core oferuje **zalecane kolekcje** lub **wyłączone** dla ASP.NET Core 2,1, 2,2, 3,0 i 3,1.
 
     ![Wybierz opcje na platformę](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -111,12 +111,12 @@ Aplikacje sieci Web oparte na App Service Python nie obsługują obecnie automat
 
 ## <a name="enable-client-side-monitoring"></a>Włączanie monitorowania po stronie klienta
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 Monitorowanie po stronie klienta jest zgodą na ASP.NET. Aby włączyć monitorowanie po stronie klienta:
 
 * **Ustawienia** **>** **Konfiguracja**
-   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji** :
+   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji**:
 
      Nazwa: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -126,14 +126,14 @@ Monitorowanie po stronie klienta jest zgodą na ASP.NET. Aby włączyć monitoro
 
 Aby wyłączyć monitorowanie po stronie klienta, Usuń skojarzoną parę klucz wartość z ustawień aplikacji lub ustaw wartość na false.
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Monitorowanie po stronie klienta jest **domyślnie włączone** w przypadku aplikacji .NET Core z **zalecaną kolekcją** , niezależnie od tego, czy jest obecne ustawienie aplikacji "APPINSIGHTS_JAVASCRIPT_ENABLED".
+Monitorowanie po stronie klienta jest **domyślnie włączone** dla aplikacji ASP.NET Core z **zalecaną kolekcją**, niezależnie od tego, czy jest obecne ustawienie aplikacji "APPINSIGHTS_JAVASCRIPT_ENABLED".
 
 Jeśli z jakiegoś powodu chcesz wyłączyć monitorowanie po stronie klienta:
 
 * **Ustawienia** **>** **Konfiguracja**
-   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji** :
+   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji**:
 
      Nazwij `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -348,7 +348,7 @@ Jeśli uaktualnienie zostało wykonane z wersji wcześniejszej niż 2.5.1, spraw
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotyczący monitorowania na podstawie rozszerzeń i programu .NET Core w przypadku aplikacji opartych na App Services platformie .NET.
+Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dla monitorowania opartego na rozszerzeniu/agencie dla aplikacji ASP.NET i ASP.NET Core działających na platformie Azure App Services.
 
 > [!NOTE]
 > Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
@@ -372,16 +372,31 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 
     * Upewnij się, że nie ma żadnych wpisów dla `AppAlreadyInstrumented` , `AppContainsDiagnosticSourceAssembly` i `AppContainsAspNetTelemetryCorrelationAssembly` .
         * Jeśli którykolwiek z tych wpisów istnieje, Usuń następujące pakiety z aplikacji: `Microsoft.ApplicationInsights` , `System.Diagnostics.DiagnosticSource` , i `Microsoft.AspNet.TelemetryCorrelation` .
+        * Tylko w przypadku aplikacji ASP.NET Core: w przypadku, gdy aplikacja odwołuje się do dowolnych pakietów Application Insights, na przykład jeśli wcześniej Instrumentacja (lub próba przystąpienia do instrumentu) aplikacji za pomocą [zestawu SDK ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), włączenie integracji App Service może nie zostać zastosowane i dane mogą nie być wyświetlane w Application Insights. Aby rozwiązać ten problem, w portalu Włącz opcję "współdziałanie z zestawem SDK Application Insights" i zaczniesz wyświetlać dane w Application Insights 
+        > [!IMPORTANT]
+        > Ta funkcja jest w wersji zapoznawczej 
+
+        ![Włącz ustawienie istniejącej aplikacji](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        Dane są teraz wysyłane przy użyciu metody bezkodowej, nawet jeśli zestaw Application Insights SDK został pierwotnie użyty lub podjęto próbę użycia.
+
+        > [!IMPORTANT]
+        > Jeśli aplikacja używana Application Insights zestawu SDK do wysyłania danych telemetrycznych, taka Telemetria zostanie wyłączona — innymi słowy, niestandardowa Telemetria — jeśli taka istnieje, na przykład wszelkie metody śledź * () i wszystkie ustawienia niestandardowe, takie jak próbkowanie, zostaną wyłączone. 
+
+
+### <a name="php-and-wordpress-are-not-supported"></a>PHP i WordPress nie są obsługiwane
+
+Witryny PHP i WordPress nie są obsługiwane. Obecnie nie ma oficjalnie obsługiwanego zestawu SDK/agenta dla monitorowania po stronie serwera tych obciążeń. Jednak ręczne Instrumentacja transakcji po stronie klienta w środowisku PHP lub witrynie WordPress przez dodanie kodu JavaScript po stronie klienta do stron sieci Web można wykonać przy użyciu [zestawu SDK języka JavaScript](./javascript.md).
 
 Poniższa tabela zawiera bardziej szczegółowy opis znaczenia tych wartości, ich podstawowych przyczyn i zalecanych poprawek:
 
 |Wartość problemu|Wyjaśnienie|Wprowadzanie poprawek
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany. Może to być spowodowane odwołaniem do `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` lub `Microsoft.ApplicationInsights`  | Usuń odwołania. Niektóre z tych odwołań są domyślnie dodawane z niektórych szablonów programu Visual Studio, a starsze wersje programu Visual Studio mogą dodawać odwołania do programu `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | Jeśli aplikacja jest przeznaczona dla platformy .NET Core 2,1 lub 2,2 i odwołuje się do [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-Package, to jest Application Insights, a rozszerzenie zostanie wycofane. | Klienci korzystający z programu .NET Core 2.1, 2.2 [zalecają](https://github.com/aspnet/Announcements/issues/287) zamiast tego użycie metadanych Microsoft. AspNetCore. app.|
+|`AppAlreadyInstrumented:true` | Jeśli aplikacja jest ukierunkowana na ASP.NET Core 2,1 lub 2,2, ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany | Klienci korzystający z programu .NET Core 2.1, 2.2 [zalecają](https://github.com/aspnet/Announcements/issues/287) zamiast tego użycie metadanych Microsoft. AspNetCore. app. Ponadto należy włączyć opcję "współdziałanie z zestawem SDK Application Insights" w portalu (patrz powyższe instrukcje).|
 |`AppAlreadyInstrumented:true` | Ta wartość może być również spowodowana obecnością powyższych bibliotek DLL w folderze aplikacji z poprzedniego wdrożenia. | Wyczyść folder aplikacji, aby upewnić się, że te biblioteki DLL zostały usunięte. Sprawdź katalog bin aplikacji lokalnej oraz katalog wwwroot w App Service. (Aby sprawdzić katalog wwwroot aplikacji internetowej App Service: Narzędzia zaawansowane (kudu) > konsoli debugowania > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Ta wartość wskazuje, że rozszerzenie wykryło odwołania do `Microsoft.AspNet.TelemetryCorrelation` w aplikacji i zostanie wycofana. | Usuń odwołanie.
-|`AppContainsDiagnosticSourceAssembly**:true`|Ta wartość wskazuje, że rozszerzenie wykryło odwołania do `System.Diagnostics.DiagnosticSource` w aplikacji i zostanie wycofana.| Usuń odwołanie.
+|`AppContainsDiagnosticSourceAssembly**:true`|Ta wartość wskazuje, że rozszerzenie wykryło odwołania do `System.Diagnostics.DiagnosticSource` w aplikacji i zostanie wycofana.| Dla ASP.NET usuń odwołanie. 
 |`IKeyExists:false`|Ta wartość wskazuje, że klucz instrumentacji nie występuje w element appSetting, `APPINSIGHTS_INSTRUMENTATIONKEY` . Możliwe przyczyny: te wartości mogły zostać przypadkowo usunięte, nie można ustawić wartości w skrypcie automatyzacji itd. | Upewnij się, że ustawienie jest obecne w ustawieniach aplikacji App Service.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED i urlCompression nie są obsługiwane
@@ -397,13 +412,9 @@ Aby uzyskać najnowsze informacje na temat Application Insights agenta/rozszerze
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Domyślna witryna internetowa wdrożona przy użyciu usługi Web Apps nie obsługuje automatycznego monitorowania po stronie klienta
 
-Podczas tworzenia aplikacji sieci Web za pomocą programu `ASP.NET` lub `.NET Core` środowiska uruchomieniowego na platformie Azure App Services wdrażana jest pojedyncza statyczna strona HTML jako początkowa witryna sieci Web. Statyczna Strona sieci Web ładuje również zarządzane składniki sieci .NET w usługach IIS. Pozwala to na testowanie bezkodowego monitorowania po stronie serwera, ale nie obsługuje automatycznego monitorowania po stronie klienta.
+Podczas tworzenia aplikacji sieci Web za pomocą programu `ASP.NET` lub `ASP.NET Core` środowiska uruchomieniowego na platformie Azure App Services wdrażana jest pojedyncza statyczna strona HTML jako początkowa witryna sieci Web. Statyczna Strona sieci Web ładuje również zarządzaną część sieci Web ASP.NET w usługach IIS. Pozwala to na testowanie bezkodowego monitorowania po stronie serwera, ale nie obsługuje automatycznego monitorowania po stronie klienta.
 
 Jeśli chcesz przetestować monitorowanie po stronie serwera i klienta dla ASP.NET lub ASP.NET Core w aplikacji sieci Web App Services platformy Azure, zalecamy wykonanie oficjalnych przewodników związanych z [tworzeniem aplikacji internetowej ASP.NET Core](../../app-service/quickstart-dotnetcore.md) i [Tworzenie aplikacji sieci Web ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md) , a następnie użyj instrukcji w bieżącym artykule, aby włączyć monitorowanie.
-
-### <a name="php-and-wordpress-are-not-supported"></a>PHP i WordPress nie są obsługiwane
-
-Witryny PHP i WordPress nie są obsługiwane. Obecnie nie ma oficjalnie obsługiwanego zestawu SDK/agenta dla monitorowania po stronie serwera tych obciążeń. Jednak ręczne Instrumentacja transakcji po stronie klienta w środowisku PHP lub witrynie WordPress przez dodanie kodu JavaScript po stronie klienta do stron sieci Web można wykonać przy użyciu [zestawu SDK języka JavaScript](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Parametry połączenia i klucz Instrumentacji
 

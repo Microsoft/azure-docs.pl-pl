@@ -2,15 +2,15 @@
 title: Przegląd specyfikacji szablonu
 description: Opisuje sposób tworzenia specyfikacji szablonu i udostępniania ich innym użytkownikom w organizacji.
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728475"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747404"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specyfikacje szablonu Azure Resource Manager (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ Specyfikacja szablonu to typ zasobu do przechowywania szablonu Azure Resource Ma
 Do wdrożenia specyfikacji szablonu można używać standardowych narzędzi platformy Azure, takich jak PowerShell, interfejs wiersza polecenia platformy Azure, Azure Portal, REST i inne obsługiwane zestawy SDK i klienci. Używasz tych samych poleceń, co w przypadku szablonu.
 
 > [!NOTE]
-> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby go użyć, musisz [zarejestrować się w celu uzyskania listy oczekiwania](https://aka.ms/templateSpecOnboarding).
+> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby go użyć, należy zainstalować najnowszą wersję programu PowerShell lub interfejsu wiersza polecenia platformy Azure. W przypadku Azure PowerShell Użyj [wersji 5.0.0 lub nowszej](/powershell/azure/install-az-ps). W przypadku interfejsu wiersza polecenia platformy Azure Użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Dlaczego warto używać specyfikacji szablonu?
 

@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202960"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832810"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Uwierzytelnianie w usłudze Azure Communications Services
 
@@ -72,11 +72,11 @@ Jeśli nie korzystasz z biblioteki klienckiej do przesyłania żądań HTTP do i
 
 Tokeny dostępu użytkowników pozwalają aplikacjom klienckim uwierzytelniać się bezpośrednio w usłudze Azure Communications Services. Aby to osiągnąć, należy skonfigurować zaufaną usługę, która uwierzytelnia użytkowników aplikacji i wystawia tokeny dostępu użytkowników z biblioteką klienta Administracja. Zapoznaj się z dokumentacją dotyczącą [architektury klienta i serwera](./client-and-server-architecture.md) , aby dowiedzieć się więcej na temat zagadnień związanych z architekturą.
 
-`CommunicationClientCredential`Klasa zawiera logikę do udostępniania poświadczeń tokenu dostępu użytkownika do bibliotek klienckich i zarządzania ich cyklem życia.
+`CommunicationUserCredential`Klasa zawiera logikę do udostępniania poświadczeń tokenu dostępu użytkownika do bibliotek klienckich i zarządzania ich cyklem życia.
 
 ### <a name="initialize-the-client-libraries"></a>Inicjowanie bibliotek klienckich
 
-Aby zainicjować biblioteki klienckie usług Azure Communications Services, które wymagają uwierzytelniania tokenu dostępu użytkownika, należy najpierw utworzyć wystąpienie `CommunicationClientCredential` klasy, a następnie użyć jej do zainicjowania klienta interfejsu API.
+Aby zainicjować biblioteki klienckie usług Azure Communications Services, które wymagają uwierzytelniania tokenu dostępu użytkownika, należy najpierw utworzyć wystąpienie `CommunicationUserCredential` klasy, a następnie użyć jej do zainicjowania klienta interfejsu API.
 
 Poniższe fragmenty kodu pokazują, jak zainicjować bibliotekę klienta programu Chat z tokenem dostępu użytkownika:
 

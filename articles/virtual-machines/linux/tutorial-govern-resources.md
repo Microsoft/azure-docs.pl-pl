@@ -1,6 +1,6 @@
 ---
 title: Samouczek — zarządzanie maszynami wirtualnymi za pomocą interfejsu wiersza polecenia
-description: W ramach tego samouczka nauczysz się używać interfejsu wiersza polecenia platformy Azure do zarządzania maszynami wirtualnymi platformy Azure przez zastosowanie RBAC, zasad, blokad i tagów.
+description: W ramach tego samouczka nauczysz się używać interfejsu wiersza polecenia platformy Azure do zarządzania maszynami wirtualnymi platformy Azure, stosując rolę RBAC, blokady i Tagi platformy Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 565315ad78a2994f44973c4fdcd4519ab9e03ea8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517958"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831790"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Samouczek: informacje o zarządzaniu maszynami wirtualnymi z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location "East US"
 
 Grupa zasobów jest obecnie pusta.
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
 Upewnij się, że użytkownicy w organizacji mają odpowiedni poziom dostępu do tych zasobów. Nie udzielaj użytkownikom nieograniczonego dostępu, ale upewnij się, że mogą oni wykonywać swoją pracę. [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie użytkownikami, którzy mają uprawnienia do wykonywania określonych działań w zakresie.
 
@@ -63,9 +63,9 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Jeśli zostanie zgłoszony błąd wskazujący, że **jednostka\<guid> nie istnieje w katalogu** , oznacza to, że nowa grupa nie została rozpropagowana w usłudze Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
+Jeśli zostanie zgłoszony błąd wskazujący, że **jednostka\<guid> nie istnieje w katalogu**, oznacza to, że nowa grupa nie została rozpropagowana w usłudze Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
 
-Zazwyczaj należy powtórzyć ten proces dla roli *Współautor sieci* i *Współautor konta magazynu* , aby upewnić się, że użytkownicy mogą zarządzać wdrożonymi zasobami. W tym artykule można pominąć te kroki.
+Zazwyczaj należy powtórzyć ten proces dla roli *Współautor sieci* i *Współautor konta magazynu*, aby upewnić się, że użytkownicy mogą zarządzać wdrożonymi zasobami. W tym artykule można pominąć te kroki.
 
 ## <a name="azure-policy"></a>Azure Policy
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517720"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832534"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Ramka zabezpieczeń: uwierzytelnianie | Środki zaradcze
 
@@ -30,7 +30,7 @@ ms.locfileid: "94517720"
 | **Aplikacja sieci Web**    | <ul><li>[Rozważ użycie standardowego mechanizmu uwierzytelniania do uwierzytelniania w aplikacji sieci Web](#standard-authn-web-app)</li><li>[Aplikacje muszą obsługiwać bezpieczne scenariusze dotyczące niepowodzenia uwierzytelniania](#handle-failed-authn)</li><li>[Włącz uwierzytelnianie krok po kroku lub adaptacyjne](#step-up-adaptive-authn)</li><li>[Upewnij się, że interfejsy administracyjne są odpowiednio zablokowane.](#admin-interface-lockdown)</li><li>[Bezpieczne Implementowanie funkcji zapomnianego hasła](#forgot-pword-fxn)</li><li>[Upewnij się, że zasady haseł i kont zostały zaimplementowane](#pword-account-policy)</li><li>[Implementowanie formantów w celu zapobiegania wyliczaniu nazw użytkowników](#controls-username-enum)</li></ul> |
 | **Database** (Baza danych) | <ul><li>[Jeśli to możliwe, Użyj uwierzytelniania systemu Windows w celu nawiązania połączenia z usługą SQL Server](#win-authn-sql)</li><li>[Gdy jest to możliwe, Użyj uwierzytelniania Azure Active Directory w celu nawiązania połączenia z SQL Database](#aad-authn-sql)</li><li>[Gdy jest używany tryb uwierzytelniania SQL, upewnij się, że zasady konta i hasła są wymuszane w programie SQL Server](#authn-account-pword)</li><li>[Nie używaj uwierzytelniania SQL w zawartych bazach danych](#autn-contained-db)</li></ul> |
 | **Centrum zdarzeń Azure** | <ul><li>[Użyj poświadczeń uwierzytelniania na urządzeniu przy użyciu tokenów SaS](#authn-sas-tokens)</li></ul> |
-| **Granica zaufania platformy Azure** | <ul><li>[Włączanie usługi Azure Multi-Factor Authentication dla administratorów platformy Azure](#multi-factor-azure-admin)</li></ul> |
+| **Granica zaufania platformy Azure** | <ul><li>[Włączanie usługi Azure AD Multi-Factor Authentication dla administratorów platformy Azure](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric granic zaufania** | <ul><li>[Ograniczanie dostępu anonimowego do klastra Service Fabric](#anon-access-cluster)</li><li>[Upewnij się, że Service Fabric certyfikat klienta-węzeł różni się od certyfikatu węzła-węzeł](#fabric-cn-nn)</li><li>[Uwierzytelnianie klientów w klastrach usługi Service Fabric za pomocą usługi AAD](#aad-client-fabric)</li><li>[Upewnij się, że certyfikaty usługi Service Fabric są uzyskiwane z zatwierdzonego urzędu certyfikacji (CA)](#fabric-cert-ca)</li></ul> |
 | **Serwer tożsamości** | <ul><li>[Używaj standardowych scenariuszy uwierzytelniania obsługiwanych przez serwer tożsamości](#standard-authn-id)</li><li>[Zastąp domyślną pamięć podręczną tokenów serwera tożsamości z skalowalną alternatywą](#override-token)</li></ul> |
 | **Granica zaufania maszyny** | <ul><li>[Upewnij się, że pliki binarne wdrożonej aplikacji są podpisane cyfrowo](#binaries-signed)</li></ul> |
@@ -173,7 +173,7 @@ ms.locfileid: "94517720"
 | **Odwołania**              | [Omówienie modelu uwierzytelniania i zabezpieczeń Event Hubs](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Kroki** | <p>Model zabezpieczeń Event Hubs jest oparty na kombinacji tokenów sygnatury dostępu współdzielonego (SAS) i wydawców zdarzeń. Nazwa wydawcy reprezentuje identyfikator DeviceID, który odbiera token. Pomoże to skojarzyć tokeny wygenerowane z odpowiednimi urządzeniami.</p><p>Wszystkie komunikaty są otagowane przy użyciu programu inicjującego po stronie usługi, umożliwiając wykrywanie prób podania źródła w ładunku. Podczas uwierzytelniania urządzeń Wygeneruj token sygnatury dostępu współdzielonego na urządzenie w zakresie unikatowego wydawcy.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Włączanie usługi Azure Multi-Factor Authentication dla administratorów platformy Azure
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Włączanie usługi Azure AD Multi-Factor Authentication dla administratorów platformy Azure
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517720"
 | **Faza SDL**               | Wdrożenie |
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Co to jest usługa Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Odwołania**              | [Co to jest usługa Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Kroki** | <p>Uwierzytelnianie wieloskładnikowe (MFA) to metoda uwierzytelniania wymagająca więcej niż jednej metody weryfikacji i zwiększania krytycznej drugiej warstwy zabezpieczeń do logowania i transakcji użytkownika. Działa ono, wymagając co najmniej dwóch następujących metod weryfikacji:</p><ul><li>Coś, co wiesz (zazwyczaj hasło)</li><li>Coś, co masz (zaufane urządzenie, które nie jest łatwo duplikowane, takie jak telefon)</li><li>Coś, co masz (biometria)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Ograniczanie dostępu anonimowego do klastra Service Fabric

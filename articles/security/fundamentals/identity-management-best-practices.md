@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 886597e5490acb94f43d840dc5a3d22092e45849
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698768"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832606"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -157,7 +157,7 @@ Jeśli masz wielu dzierżawców lub chcesz umożliwić użytkownikom [Resetowani
 
 Zalecamy wymaganie weryfikacji dwuetapowej dla wszystkich użytkowników. Obejmuje to administratorów i innych użytkowników w organizacji, którzy mogą mieć znaczący wpływ na bezpieczeństwo kont (na przykład funkcjonariusze finansów).
 
-Istnieje wiele opcji wymagających weryfikacji dwuetapowej. Najlepsza opcja zależy od Twoich celów, uruchomionej wersji usługi Azure AD i programu licencjonowania. Zobacz, [jak wymagać weryfikacji dwuetapowej dla użytkownika](../../active-directory/authentication/howto-mfa-userstates.md) , aby określić najlepszą dla siebie opcję. Aby uzyskać więcej informacji o licencjach i cenach, zobacz strony z cennikiem usługi [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) i [platformy Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
+Istnieje wiele opcji wymagających weryfikacji dwuetapowej. Najlepsza opcja zależy od Twoich celów, uruchomionej wersji usługi Azure AD i programu licencjonowania. Zobacz, [jak wymagać weryfikacji dwuetapowej dla użytkownika](../../active-directory/authentication/howto-mfa-userstates.md) , aby określić najlepszą dla siebie opcję. Aby uzyskać więcej informacji o licencjach i cenach, zobacz strony z cennikiem usługi [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) i [usługi Azure AD Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
 
 Poniżej przedstawiono opcje i korzyści dotyczące włączania weryfikacji dwuetapowej:
 
@@ -170,14 +170,14 @@ Poniżej przedstawiono opcje i korzyści dotyczące włączania weryfikacji dwue
 Ta metoda jest dostępna dla wszystkich warstw licencjonowania, ale nie może być mieszana z istniejącymi zasadami dostępu warunkowego. Więcej informacji można znaleźć w [ustawieniach zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) .
 
 **Opcja 2**: [Włączanie Multi-Factor Authentication przez zmianę stanu użytkownika](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Korzyść**: jest to tradycyjna metoda wymagająca weryfikacji dwuetapowej. Działa ona zarówno [w przypadku usługi azure Multi-Factor Authentication w chmurze, jak i na platformie azure serwer Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md). Użycie tej metody wymaga, aby użytkownicy przeprowadzali weryfikację dwuetapową przy każdym logowaniu i zastępują zasady dostępu warunkowego.
+**Korzyść**: jest to tradycyjna metoda wymagająca weryfikacji dwuetapowej. Działa ona zarówno w przypadku usługi [Azure AD Multi-Factor Authentication w chmurze, jak i na platformie azure serwer Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md). Użycie tej metody wymaga, aby użytkownicy przeprowadzali weryfikację dwuetapową przy każdym logowaniu i zastępują zasady dostępu warunkowego.
 
-Aby określić, gdzie należy włączyć Multi-Factor Authentication, zobacz, [która wersja usługi Azure MFA jest odpowiednia dla mojej organizacji?](../../active-directory/authentication/concept-mfa-howitworks.md).
+Aby określić, gdzie należy włączyć Multi-Factor Authentication, zobacz, [która wersja usługi Azure AD MFA jest odpowiednia dla mojej organizacji?](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 **Opcja 3**: [Włączanie Multi-Factor Authentication przy użyciu zasad dostępu warunkowego](../../active-directory/authentication/howto-mfa-getstarted.md).
 **Korzyść**: Ta opcja umożliwia wyświetlenie monitu o weryfikację dwuetapową w określonych warunkach przy użyciu [dostępu warunkowego](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Określone warunki mogą być logowaniem użytkowników z różnych lokalizacji, niezaufanych urządzeń lub aplikacji, które są uważane za ryzykowne. Definiowanie określonych warunków, w których wymagana jest weryfikacja dwuetapowa, pozwala uniknąć stałego monitowania użytkowników, co może być nieprzyjemnym interfejsem użytkownika.
 
-Jest to najbardziej elastyczny sposób na umożliwienie weryfikacji dwuetapowej dla użytkowników. Włączenie zasad dostępu warunkowego działa tylko w przypadku usługi Azure Multi-Factor Authentication w chmurze i jest funkcją Premium usługi Azure AD. Więcej informacji na temat tej metody można znaleźć w temacie [wdrażanie opartego na chmurze Multi-Factor Authentication platformy Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
+Jest to najbardziej elastyczny sposób na umożliwienie weryfikacji dwuetapowej dla użytkowników. Włączenie zasad dostępu warunkowego działa tylko w przypadku Multi-Factor Authentication usługi Azure AD w chmurze i jest funkcją Premium usługi Azure AD. Więcej informacji na temat tej metody można znaleźć w temacie [wdrażanie opartego na chmurze usługi Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 **Opcja 4**: Włącz Multi-Factor Authentication przy użyciu zasad dostępu warunkowego, oceniając [zasady dostępu warunkowego opartego na ryzyku](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Korzyść**: Ta opcja umożliwia:
@@ -269,7 +269,7 @@ Oceń konta, które są przypisane lub kwalifikujące się do roli administrator
 **Najlepsze rozwiązanie**: Wymagaj, aby wszystkie krytyczne konta administratorów miały hasła (preferowany) lub wymagają Multi-Factor Authentication.
 **Szczegóły**: użyj [aplikacji Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) , aby zalogować się do dowolnego konta usługi Azure AD bez użycia hasła. Podobnie jak w [przypadku usługi Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator używa uwierzytelniania opartego na kluczach, aby włączyć poświadczenia użytkownika powiązane z urządzeniem i korzystać z uwierzytelniania biometrycznego lub numeru PIN.
 
-Wymagaj usługi Azure Multi-Factor Authentication podczas logowania dla wszystkich użytkowników, którzy są trwale przypisani do co najmniej jednej roli administratora usługi Azure AD: Administrator globalny, administrator ról uprzywilejowanych, administrator programu Exchange Online i administrator usługi SharePoint Online. Włącz [Multi-Factor Authentication kont administratorów](../../active-directory/authentication/howto-mfa-userstates.md) i upewnij się, że zarejestrowano użytkowników konta administratora.
+Wymagaj usługi Azure AD Multi-Factor Authentication podczas logowania dla wszystkich użytkowników, którzy są trwale przypisani do co najmniej jednej roli administratora usługi Azure AD: Administrator globalny, administrator ról uprzywilejowanych, administrator programu Exchange Online i administrator usługi SharePoint Online. Włącz [Multi-Factor Authentication kont administratorów](../../active-directory/authentication/howto-mfa-userstates.md) i upewnij się, że zarejestrowano użytkowników konta administratora.
 
 **Najlepsze rozwiązanie**: w przypadku krytycznych kont administratorów należy dysponować administratorem stacji roboczej, gdzie zadania produkcyjne nie są dozwolone (na przykład przeglądanie i poczta e-mail). Pozwala to chronić konta administratorów przed atakami wykorzystującymi funkcję przeglądania i poczty e-mail oraz znacząco zmniejszają ryzyko wystąpienia poważnych zdarzeń.
 **Szczegóły**: Użyj stacji roboczej administratora. Wybierz poziom zabezpieczeń stacji roboczej:

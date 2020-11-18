@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025905"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833014"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions
 
@@ -126,7 +126,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Poniższy przykład ilustruje sposób konfigurowania *function.jsna* i *run.ps1* pliku dla wyzwalacza czasomierza w programie [PowerShell](./functions-reference-powershell.md).
 
@@ -163,7 +163,7 @@ Wystąpienie [obiektu Timer](#usage) jest przesyłane jako pierwszy argument do 
 
 # <a name="python"></a>[Python](#tab/python)
 
-W poniższym przykładzie jest stosowane powiązanie wyzwalacza czasomierza, którego konfiguracja została opisana w *function.js* pliku. Rzeczywista [funkcja języka Python](functions-reference-python.md) , która używa powiązania, jest opisana w pliku *__init__ . PR* . Obiekt przesłany do funkcji jest [obiektem typu Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). Logika funkcji zapisuje w dziennikach wskazujący, czy bieżące wywołanie jest spowodowane pominiętym wystąpieniem harmonogramu.
+W poniższym przykładzie jest stosowane powiązanie wyzwalacza czasomierza, którego konfiguracja została opisana w *function.js* pliku. Rzeczywista [funkcja języka Python](functions-reference-python.md) , która używa powiązania, jest opisana w pliku *__init__. PR* . Obiekt przesłany do funkcji jest [obiektem typu Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). Logika funkcji zapisuje w dziennikach wskazujący, czy bieżące wywołanie jest spowodowane pominiętym wystąpieniem harmonogramu.
 
 Oto dane powiązania w *function.js* pliku:
 
@@ -242,7 +242,7 @@ public void keepAlive(
 
 Atrybuty nie są obsługiwane przez język JavaScript.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Atrybuty nie są obsługiwane przez program PowerShell.
 
@@ -258,9 +258,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | nie dotyczy | Musi być ustawiona na wartość "timerTrigger". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
-|**wskazywa** | nie dotyczy | Musi być ustawiona na wartość "in". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
-|**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt timer w kodzie funkcji. | 
+|**Wprowadź** | n/d | Musi być ustawiona na wartość "timerTrigger". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
+|**wskazywa** | n/d | Musi być ustawiona na wartość "in". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
+|**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje obiekt timer w kodzie funkcji. | 
 |**rozkład**|**ScheduleExpression**|[Wyrażenie CRONUS](#ncrontab-expressions) lub wartość [TimeSpan](#timespan) . Elementu `TimeSpan` można używać tylko w przypadku aplikacji funkcji działającej w planie App Service. Możesz umieścić wyrażenie harmonogramu w ustawieniu aplikacji i ustawić tę właściwość na nazwę ustawienia aplikacji ujętą w **%** znaki, jak w tym przykładzie: "% ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Jeśli `true` , funkcja jest wywoływana po uruchomieniu środowiska uruchomieniowego. Na przykład środowisko uruchomieniowe jest uruchamiane, gdy aplikacja funkcji zostanie wznowiona po przejściu w stan bezczynności z powodu braku aktywności. gdy aplikacja funkcji zostanie ponownie uruchomiona z powodu zmiany funkcji i gdy aplikacja funkcji jest skalowana w dół. Tak więc **runOnStartup** powinna rzadko, jeśli kiedykolwiek jest ustawiona na `true` , szczególnie w środowisku produkcyjnym. |
 |**useMonitor**|**UseMonitor**|Ustaw wartość `true` lub `false` , aby wskazać, czy harmonogram ma być monitorowany. Harmonogram monitorowania utrzymuje harmonogramy, aby pomóc w zapewnieniu, że harmonogram jest prawidłowo obsługiwany nawet po ponownym uruchomieniu wystąpień aplikacji funkcji. Jeśli nie ustawiono jawnie, wartość domyślna to `true` harmonogramy, które mają interwał cyklu większy lub równy 1 minuty. W przypadku harmonogramów, które wyzwalają więcej niż raz na minutę, wartość domyślna to `false` .
@@ -300,7 +300,7 @@ Każde pole może mieć jeden z następujących typów wartości:
 |Typ  |Przykład  |Po wyzwoleniu  |
 |---------|---------|---------|
 |Określona wartość |<nobr>"0 5 * * * *"</nobr>|at hh: 05:00, gdzie HH jest co godzinę (raz na godzinę)|
-|Wszystkie wartości ( `*` )|<nobr>"0 * 5 * * *"</nobr>|o godzinie 5: mm: 00 codziennie, gdzie mm jest co minutę godziny (60 razy dziennie)|
+|Wszystkie wartości ( `*` )|<nobr>"0 * 5 * * *"</nobr>|o 5: mm: 00 codziennie, gdzie mm jest co minutę godziny (60 razy w ciągu określonej godziny)|
 |Zakres ( `-` operator)|<nobr>"5-7 * * * * *"</nobr>|w hh: mm: 05, gg: mm: 06, i hh: mm: 07, gdzie hh: mm jest co minutę co godzinę (3 razy na minutę)|
 |Zestaw wartości ( `,` operator)|<nobr>"5, 8, 10 * * * * *"</nobr>|w hh: mm: 05, gg: mm: 08, i hh: mm: 10, gdzie hh: mm jest co minutę co godzinę (3 razy na minutę)|
 |Wartość interwału ( `/` operator)|<nobr>"0 */5 * * * *"</nobr>|w hh: 00:00, gg: 05:00, gg: 10:00, i tak dalej, do hh: 55:00, gdzie HH jest co godzinę (12 razy w ciągu godziny)|

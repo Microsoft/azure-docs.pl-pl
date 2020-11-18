@@ -7,19 +7,19 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cbe822b75368a1ab72bcd7f73419770b291d2508
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e47dad8498c48a5da5307517efe493fa5c1aa590
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321150"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748067"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Wykonywanie zadań naukowych dotyczących danych: eksploracja, modelowanie i wdrażanie
 
-Typowe zadania analizy danych obejmują eksplorację, modelowanie i wdrażanie danych. W tym artykule pokazano, jak używać **interaktywnej eksploracji danych, analizy i raportowania (pomysł)** oraz **zautomatyzowanych narzędzi do modelowania i raportowania (Amar)** do wykonywania kilku typowych zadań związanych z nauką o danych, takich jak interaktywna Eksploracja danych, analiza danych, raportowanie i tworzenie modelu. Opcje wdrażania modelu w środowisku produkcyjnym mogą obejmować:
+Typowe zadania analizy danych obejmują eksplorację, modelowanie i wdrażanie danych. W tym artykule opisano zadania w celu wykonania kilku typowych zadań związanych z nauką o danych, takich jak interaktywna Eksploracja danych, analiza danych, raportowanie i tworzenie modelu. Opcje wdrażania modelu w środowisku produkcyjnym mogą obejmować:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL — serwer z usługami ML](/sql/advanced-analytics/r/r-services)
@@ -32,43 +32,11 @@ Analityk danych może przeprowadzić eksplorację i raportowanie na wiele sposob
 
 Produkty takie jak Azure Machine Learning również zapewniają [Zaawansowane Przygotowywanie danych](../how-to-create-register-datasets.md) do przetwarzanie i eksploracji danych, w tym tworzenie funkcji. Użytkownik powinien zdecydować o narzędziach, bibliotekach i pakietach, które najlepiej odpowiadają potrzebom. 
 
-Element dostarczany na końcu tej fazy jest raportem eksploracji danych. Raport powinien zapewnić dość obszerny wgląd w dane, które mają być używane do modelowania, oraz ocenę, czy dane są odpowiednie do przechodzenia do etapu modelowania. Narzędzia Team Data Scienceing Process (przetwarzania TDSP) omówione w poniższych sekcjach dla częściowo zautomatyzowanej eksploracji, modelowania i raportowania zapewniają również ustandaryzowaną eksplorację i raporty dotyczące modelowania danych. 
-
-### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>Interaktywna eksploracja, analiza i raportowanie danych przy użyciu narzędzia POMYSŁu
-
-W tym narzędziu opartym na obstawce w języku R lub w środowisku Python jest dostępne elastyczne i interaktywne narzędzie do analizowania i eksplorowania zestawów danych. Użytkownicy mogą szybko generować raporty z zestawu danych przy minimalnym kodowaniu. Użytkownicy mogą klikać przyciski, aby eksportować wyniki eksploracji do ostatecznego raportu, który można dostarczyć klientom lub użyć do podejmowania decyzji dotyczących zmiennych, które mają zostać uwzględnione w kolejnym kroku modelowania.
-
-W tej chwili narzędzie działa tylko w przypadku ramek danych w pamięci. Plik YAML jest wymagany do określenia parametrów zestawu danych, który ma zostać zbadany. Aby uzyskać więcej informacji, zobacz [pomysł w przetwarzania TDSP narzędzia do nauki o danych](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
-
+Element dostarczany na końcu tej fazy jest raportem eksploracji danych. Raport powinien zapewnić dość obszerny wgląd w dane, które mają być używane do modelowania, oraz ocenę, czy dane są odpowiednie do przechodzenia do etapu modelowania. 
 
 ## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> modelowanie
 
 Istnieje wiele zestawów narzędzi i pakietów dla modeli szkoleniowych w różnych językach. Osoby zajmujące się danymi mogą korzystać z nich, które kiedykolwiek są wygodne, tak długo, jak zagadnienia dotyczące wydajności dotyczące dokładności i opóźnień są spełnione dla odpowiednich przypadków użycia biznesowego i scenariuszy produkcyjnych.
-
-W następnej sekcji pokazano, jak używać narzędzia przetwarzania TDSP opartego na języku R na potrzeby automatycznego modelowania. Za pomocą tego narzędzia AMAR można szybko generować podstawowe modele linii, a także parametry, które należy dostrajać, aby zapewnić lepszy model.
-W poniższej sekcji Zarządzanie modelami przedstawiono, jak mieć system do rejestracji wielu modeli i zarządzania nimi.
-
-
-### <a name="model-training-modeling-and-reporting-using-the-amar-utility"></a>Uczenie modeli: Modelowanie i raportowanie przy użyciu narzędzia AMAR
-
-[Narzędzie zautomatyzowanego modelowania i raportowania (Amar)](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) udostępnia dostosowywalne, częściowo zautomatyzowane narzędzie do tworzenia modeli przy użyciu funkcji czyszczenia parametrów i w celu porównania dokładności tych modeli. 
-
-Narzędzie tworzenia modelu jest plikiem R Markdown, który można uruchomić w celu utworzenia własnych danych wyjściowych HTML z spisem treści w celu łatwego nawigowania w różnych sekcjach. Trzy algorytmy są wykonywane po uruchomieniu pliku z promocjami (spojit): rozkładanie regularne przy użyciu pakietu glmnet, losowego lasu korzystającego z pakietu randomForest i zwiększania drzew przy użyciu pakietu xgboost). Każdy z tych algorytmów produkuje model szkolony. Dokładność tych modeli jest porównywana i są raportowane względne znaczenie funkcji. Obecnie istnieją dwa narzędzia: jeden jest przeznaczony dla zadania klasyfikacji binarnej, a drugi to zadanie regresji. Główne różnice między nimi to sposób, w jaki parametry kontroli i metryki dokładności są określone dla tych zadań szkoleniowych. 
-
-Plik YAML służy do określenia:
-
-- dane wejściowe (Źródło SQL lub plik danych języka R) 
-- jaka część danych jest używana do uczenia się i czego częścią do testowania
-- które algorytmy do uruchomienia 
-- wybór parametrów kontroli dla optymalizacji modelu:
-    - wzajemne sprawdzanie poprawności 
-    - Uruchamianie
-    - zgięcia krzyżowego sprawdzania poprawności
-- dla każdego algorytmu są ustawiane parametry funkcji Hyper-Parameter. 
-
-W pliku YAML można także zmodyfikować liczbę algorytmów, liczbę założenia do optymalizacji, parametry funkcji Hyper-Parameter oraz liczbę zestawów parametrów funkcji Hyper-parametru do odłożenia. Na przykład można uruchamiać z mniejszą liczbą zgięciów OKS, niższą liczbą zestawów parametrów. Jeśli jest to możliwe, można również uruchomić bardziej kompleksowo z większą liczbą operacji CV lub większej liczby zestawów parametrów.
-
-Aby uzyskać więcej informacji, zobacz [zautomatyzowane narzędzia do modelowania i raportowania w przetwarzania TDSP narzędzia do nauki o danych](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
 ### <a name="model-management"></a>Zarządzanie modelem
 Po skompilowaniu wielu modeli zwykle trzeba mieć system do rejestrowania modeli i zarządzania nimi. Zwykle potrzebna jest kombinacja skryptów lub interfejsów API, bazy danych zaplecza lub systemu przechowywania wersji. Poniżej przedstawiono kilka opcji, które można wziąć pod uwagę w przypadku następujących zadań zarządzania:

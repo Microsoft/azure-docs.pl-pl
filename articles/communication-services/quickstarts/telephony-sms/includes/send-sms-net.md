@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-communication-services
 author: dademath
 manager: nimag
@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c8bce6afd914a22be80a57ae234e39161d182b7f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499229"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816783"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta SMS usług komunikacyjnych w języku C# do wysyłania wiadomości SMS.
 
@@ -59,7 +59,7 @@ dotnet build
 Mimo że w katalogu aplikacji, zainstaluj bibliotekę klienta programu SMS dla usług Azure Communication Services dla platformy .NET za pomocą `dotnet add package` polecenia.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 ```
 
 Dodaj `using` dyrektywę na górze elementu **program.cs** , aby uwzględnić `Azure.Communication` przestrzeń nazw.

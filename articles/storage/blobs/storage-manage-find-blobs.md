@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370257"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832436"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu tagów indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -327,6 +327,7 @@ W tej sekcji opisano znane problemy i warunki w publicznej wersji zapoznawczej t
 - Gdy filtrowanie jest ograniczone do jednego kontenera, `@container` można je przekazywać tylko wtedy, gdy wszystkie Tagi indeksu w wyrażeniu filtru mają kontrolę równości (klucz = wartość).
 - W przypadku używania operatora Range z `AND` warunkiem można określić tylko tę samą nazwę klucza znacznika indeksu ( `"Age" > '013' AND "Age" < '100'` ).
 - Przechowywanie wersji i indeks obiektów BLOB nie są obsługiwane. Tagi indeksu obiektów BLOB są zachowywane dla wersji, ale nie są przenoszone do aparatu indeksu obiektów BLOB.
+- Nie ma interfejsu API, aby określić, czy Tagi indeksów są indeksowane.
 - Tryb failover konta nie jest obsługiwany. Indeks obiektów BLOB może nie zostać poprawnie zaktualizowany po przejściu do trybu failover.
 - Zarządzanie cyklem życia obsługuje tylko sprawdzanie równości przy użyciu dopasowania indeksu obiektów BLOB.
 - `Copy Blob` nie kopiuje tagów indeksu obiektów BLOB ze źródłowego obiektu BLOB do nowego docelowego obiektu BLOB. Można określić Tagi, które mają być stosowane do docelowego obiektu BLOB podczas operacji kopiowania.

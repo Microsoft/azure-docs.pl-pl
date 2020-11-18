@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 35c120b6d7715ac6fefe0e8712040108568ee8de
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747433"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831994"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C (wersja zapoznawcza)
 
@@ -46,15 +46,13 @@ Na poniższej ilustracji przedstawiono sposób, w jaki programy lokalnego serwer
 > [!NOTE]
 > Ruch SSH przesyłany za pośrednictwem strumienia urządzenia jest tunelowany za pośrednictwem punktu końcowego przesyłania strumieniowego usługi IoT Hub zamiast bezpośredniego przesyłania między usługą i urządzeniem. Aby uzyskać więcej informacji, zobacz [korzyści wynikające z używania strumieni urządzeń usługi IoT Hub](iot-hub-device-streams-overview.md#benefits). Na rysunku przedstawiono również demona SSH, która jest uruchomiona na tym samym urządzeniu (lub komputerze) co lokalny serwer proxy urządzenia. W tym przewodniku szybki start adres IP demona SSH umożliwia również uruchamianie lokalnego serwera proxy na urządzeniu i demona na różnych komputerach.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
 
-  * Środkowe stany USA
+  * Central US
   * Środkowe stany USA — EUAP
   * Europa Północna
   * Azja Południowo-Wschodnia
@@ -62,11 +60,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 * Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/vs/) z włączonym [programowaniem pulpitu przy użyciu języka C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) .
 * Zainstaluj najnowszą wersję usługi [Git](https://git-scm.com/download/).
 
-* Uruchom następujące polecenie, aby dodać rozszerzenie Azure IoT dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

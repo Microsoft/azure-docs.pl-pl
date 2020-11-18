@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506298"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747693"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Skonfiguruj obszar roboczy Log Analytics dla Azure Monitor dla maszyn wirtualnych
 Azure Monitor dla maszyn wirtualnych zbiera dane z co najmniej jednego Log Analytics obszarów roboczych w Azure Monitor. Przed dołączeniem agentów należy utworzyć i skonfigurować obszar roboczy. W tym artykule opisano wymagania obszaru roboczego i skonfigurować go do Azure Monitor dla maszyn wirtualnych.
@@ -77,8 +77,8 @@ Aby można było używać Log Analyticsego obszaru roboczego z Azure Monitor dla
 > [!NOTE]
 > Po dodaniu rozwiązania *VMInsights* do obszaru roboczego wszystkie istniejące maszyny wirtualne połączone z obszarem roboczym rozpoczną wysyłanie danych do InsightsMetrics. Dane dla innych typów danych nie będą zbierane do momentu dodania Agent zależności do tych istniejących maszyn wirtualnych połączonych z obszarem roboczym.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
-Istnieją trzy opcje konfigurowania istniejącego obszaru roboczego na podstawie Azure Portal.
+### <a name="azure-portal"></a>Azure Portal
+Istnieją trzy opcje konfigurowania istniejącego obszaru roboczego przy użyciu Azure Portal. Każdy z nich został opisany poniżej.
 
 Aby skonfigurować jeden obszar roboczy, wybierz **inne opcje** dołączania, a następnie **Skonfiguruj obszar roboczy**. Wybierz subskrypcję i obszar roboczy, a następnie kliknij przycisk **Konfiguruj**.
 

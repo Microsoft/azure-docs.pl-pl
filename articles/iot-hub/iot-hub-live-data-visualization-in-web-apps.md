@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740998"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832181"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
 
@@ -51,13 +51,7 @@ W tym samouczku dowiesz się, jak wizualizować dane z czujników w czasie rzecz
 
 * W krokach przedstawionych w tym artykule przyjęto założenie, że komputer deweloperski systemu Windows; można jednak łatwo wykonać te kroki w systemie Linux w preferowanej powłoce.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Dodawanie grupy odbiorców do centrum IoT Hub
 
@@ -253,7 +247,7 @@ Jeśli występują problemy z tym przykładem, spróbuj wykonać kroki opisane w
 
 ### <a name="azure-app-service-issues"></a>Problemy Azure App Service
 
-* W Azure Portal przejdź do aplikacji sieci Web. W obszarze **monitorowanie** w okienku po lewej stronie wybierz pozycję **dzienniki App Service** . Włącz **Rejestrowanie aplikacji (system plików)** w systemie, ustaw **poziom** na błąd, a następnie wybierz pozycję **Zapisz** . Następnie otwórz **strumień dziennika** (w obszarze **monitorowanie** ).
+* W Azure Portal przejdź do aplikacji sieci Web. W obszarze **monitorowanie** w okienku po lewej stronie wybierz pozycję **dzienniki App Service**. Włącz **Rejestrowanie aplikacji (system plików)** w systemie, ustaw **poziom** na błąd, a następnie wybierz pozycję **Zapisz**. Następnie otwórz **strumień dziennika** (w obszarze **monitorowanie**).
 
 * Z poziomu aplikacji sieci Web w Azure Portal w obszarze **Narzędzia deweloperskie**  wybierz pozycję  **konsola** i sprawdź wersje węzła i npm z `node -v` i `npm -v` .
 

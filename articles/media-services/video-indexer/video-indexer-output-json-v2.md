@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050866"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831570"
 ---
 # <a name="examine-the-video-indexer-output"></a>Sprawdzanie danych wyjściowych Video Indexer
 
-Po indeksowaniu wideo Video Indexer poduces zawartość JSON, która zawiera szczegółowe informacje o określonych filmach wideo. Szczegółowe informacje obejmują: transkrypcje, OCRs, twarze, tematy, bloki itp. Każdy typ usługi Insights obejmuje wystąpienia zakresów czasu, które są wyświetlane, gdy szczegółowe informacje pojawiają się w filmie wideo. 
+Gdy plik wideo jest indeksowany, Video Indexer generuje zawartość JSON, która zawiera szczegółowe informacje o określonych danych wideo. Szczegółowe informacje obejmują: transkrypcje, OCRs, twarze, tematy, bloki itp. Każdy typ usługi Insights obejmuje wystąpienia zakresów czasu, które są wyświetlane, gdy szczegółowe informacje pojawiają się w filmie wideo. 
 
 Możesz wizualnie zapoznać się ze szczegółowymi informacjami na temat wideo, naciskając przycisk **odtwarzania** na filmie wideo w witrynie [Video Indexer](https://www.videoindexer.ai/) . 
 
@@ -58,7 +58,7 @@ Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie wglądu w da
 |accountId|Identyfikator konta w VI listy odtwarzania.|
 |identyfikator|Identyfikator listy odtwarzania.|
 |name|Nazwa listy odtwarzania.|
-|description|Opis listy odtwarzania.|
+|description (opis)|Opis listy odtwarzania.|
 |userName|Nazwa użytkownika, który utworzył listę odtwarzania.|
 |utworzony|Godzina utworzenia listy odtwarzania.|
 |Ustawienia prywatności|Tryb prywatności listy odtwarzania (prywatny/publiczny).|
@@ -187,6 +187,7 @@ Obiekt może mieć identyfikator, nazwę, miniaturę, inne metadane i listę wys
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) wgląd w szczegółowe dane.|
 |emocji| [Emocji](#emotions) wgląd w szczegółowe dane.|
 |opisano|Szczegółowe informacje dotyczące [tematów](#topics) .|
+|głośniki|Informacje na temat [głośników](#speakers) .|
 
 Przykład:
 
@@ -222,36 +223,45 @@ Liczba|Lista zakresów czasu tego bloku.|
 |---|---|
 |identyfikator|Identyfikator wiersza.|
 |tekst|Samego transkrypcji.|
+|ufność|Niezgodność z dokładnością transkrypcji.|
+|speakerId|Identyfikator osoby mówiącej.|
 |language|Język transkrypcji. Przeznaczone do obsługi transkrypcji, w których każdy wiersz może mieć inny język.|
 |Liczba|Lista przedziałów czasu, w których pojawił się ten wiersz. Jeśli wystąpienie jest transkrypcją, będzie miało tylko 1 wystąpienie.|
 
 Przykład:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>aparat
@@ -331,12 +341,12 @@ Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa interfejs API
 |identyfikator|Identyfikator kroju.|
 |name|Nazwa kroju. Może to być "nieznany #0, zidentyfikowanej osobistości lub osoby przeszkolonej przez klienta.|
 |ufność|Niepewność identyfikacji kroju.|
-|description|Opis osobistości. |
+|description (opis)|Opis osobistości. |
 |thumbnailId|Identyfikator miniatury tej czołowej.|
 |knownPersonId|Jeśli jest to znana osoba, jej identyfikator wewnętrzny.|
 |referenceId|Jeśli jest to osobistości Bing, jego identyfikator Bing.|
 |referenceType|Obecnie tylko Bing.|
-|title|Jeśli jest to osobistości, jego tytuł (na przykład "dyrektor naczelny firmy Microsoft").|
+|tytuł|Jeśli jest to osobistości, jego tytuł (na przykład "dyrektor naczelny firmy Microsoft").|
 |imageUrl|Jeśli jest to osobistości, jego adres URL obrazu.|
 |Liczba|Są to wystąpienia, w których pojawiły się powierzchnie w danym przedziale czasu. Każde wystąpienie ma również thumbnailsId. |
 
@@ -519,7 +529,7 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 |name|Nazwa marki.|
 |referenceId | Sufiks adresu URL witryny Wikipedia. Na przykład "Target_Corporation" jest sufiksem [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Przykładowy adres URL to [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|Opis marek.|
+|description (opis)|Opis marek.|
 |tags|Lista wstępnie zdefiniowanych tagów, które zostały skojarzone z tą marką.|
 |ufność|Wartość ufności detektora Video Indexer marką (0-1).|
 |Liczba|Lista zakresów czasu tej marki. Każde wystąpienie ma element marktype, który wskazuje, czy ta marka pojawiła się w transkrypcji, czy w OCR.|
@@ -827,6 +837,42 @@ Video Indexer wykonuje wnioskowanie głównych tematów z transkrypcji. Gdy jest
 . . .
 ```
 
+#### <a name="speakers"></a>głośniki
+
+|Nazwa|Opis|
+|---|---|
+|identyfikator|Identyfikator osoby mówiącej.|
+|name|Nazwa głośnika w postaci "głośnik # *<number>* " na przykład: "prelegent #1".|
+|Liczba |Lista przedziałów czasu, w których pojawił się ten głośnik.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Następne kroki
 
 [Portal dla deweloperów Video Indexer](https://api-portal.videoindexer.ai)

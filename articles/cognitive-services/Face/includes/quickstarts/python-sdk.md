@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7141ebe4e7894c975ba2ee6fb39d5bfd4483ed41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523695"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816807"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -165,9 +165,12 @@ Po przypisaniu twarzy należy przeszkolić **osobę** , aby mogła ona identyfik
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
 
+> [!TIP]
+> Interfejs API rozpoznawania twarzy jest uruchamiany na zestawie wstępnie skompilowanych modeli, które są statyczne według natury (wydajność modelu nie będzie przechodząca ani ulepszana, gdy usługa jest uruchamiana). Wyniki generowane przez model mogą ulec zmianie, jeśli firma Microsoft zaktualizuje zaplecze modelu bez migracji do zupełnie nowej wersji modelu. Aby skorzystać z nowszej wersji modelu, możesz ponownie przeprowadzić uczenie swojej **osoby**, określając nowszy model jako parametr z tymi samymi obrazami rejestracji.
+
 ## <a name="identify-a-face"></a>Identyfikowanie kroju
 
-Operacja identyfikowania pobiera obraz osoby (lub wielu osób) i szuka tożsamości każdej twarzy na obrazie (wyszukiwanie rozpoznawania twarzy). Porównuje każdą wykrytą twarzą z **osobą** , która jest bazą danych różnych obiektów **osób** , których funkcje twarzy są znane.
+Operacja identyfikowania pobiera obraz osoby (lub wielu osób) i szuka tożsamości każdej twarzy na obrazie (wyszukiwanie rozpoznawania twarzy). Porównuje każdą wykrytą twarzą z **osobą**, która jest bazą danych różnych obiektów **osób** , których funkcje twarzy są znane.
 
 > [!IMPORTANT]
 > Aby można było uruchomić ten przykład, należy najpierw uruchomić kod w temacie [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group).
@@ -180,7 +183,7 @@ Poniższy kod wygląda w folderze głównym projektu dla obrazu _test-image-pers
 
 ### <a name="identify-faces"></a>Identyfikowanie twarzy
 
-Metoda **Zidentyfikuj** pobiera tablicę wykrytych twarzy i porównuje je z tą **osobą**. Jeśli może być zgodna z wykrytą stroną do **osoby** , zapisuje wynik. Ten kod drukuje szczegółowe wyniki dopasowania do konsoli.
+Metoda **Zidentyfikuj** pobiera tablicę wykrytych twarzy i porównuje je z tą **osobą**. Jeśli może być zgodna z wykrytą stroną do **osoby**, zapisuje wynik. Ten kod drukuje szczegółowe wyniki dopasowania do konsoli.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 

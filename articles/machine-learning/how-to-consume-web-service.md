@@ -10,18 +10,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.custom: how-to, devx-track-python, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: fa1b19ef4ece3011c97c3158d54edd1d39efc09d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441991"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832640"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa internetowa
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web
 
 
-Wdrożenie modelu Azure Machine Learning jako usługi sieci Web powoduje utworzenie punktu końcowego interfejsu API REST. Można wysłać dane do tego punktu końcowego i otrzymać prognozę zwróconą przez model. W tym dokumencie dowiesz się, jak tworzyć klientów dla usługi sieci Web przy użyciu języków C#, go, Java i Python.
+Wdrożenie modelu usługi Azure Machine Learning jako usługi internetowej powoduje utworzenie punktu końcowego interfejsu API REST. Można wysłać dane do tego punktu końcowego i otrzymać prognozę zwróconą przez model. W tym dokumencie dowiesz się, jak tworzyć klientów dla usługi sieci Web przy użyciu języków C#, go, Java i Python.
 
 Usługa sieci Web jest tworzona podczas wdrażania modelu w środowisku lokalnym, Azure Container Instances, usługi Azure Kubernetes lub tablic bram opartych na polach (FPGA). Użytkownik pobiera identyfikator URI służący do uzyskiwania dostępu do usługi sieci Web przy użyciu [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Jeśli jest włączone uwierzytelnianie, można również pobrać klucze uwierzytelniania lub tokeny przy użyciu zestawu SDK.
 
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-W programie Azure Machine Learning Studio wybierz __punkty końcowe__ , __punkty końcowe w czasie rzeczywistym__ , a następnie nazwę punktu końcowego. W szczegółach dla punktu końcowego w polu __punkt końcowy REST__ znajduje się identyfikator URI oceniania. __Identyfikator URI struktury Swagger__ zawiera identyfikator URI programu Swagger.
+W programie Azure Machine Learning Studio wybierz __punkty końcowe__, __punkty końcowe w czasie rzeczywistym__, a następnie nazwę punktu końcowego. W szczegółach dla punktu końcowego w polu __punkt końcowy REST__ znajduje się identyfikator URI oceniania. __Identyfikator URI struktury Swagger__ zawiera identyfikator URI programu Swagger.
 
 ---
 
@@ -119,7 +119,7 @@ Azure Machine Learning zapewnia dwa sposoby kontroli dostępu do usług sieci We
 
 Podczas wysyłania żądania do usługi, która jest zabezpieczona za pomocą klucza lub tokenu, użyj nagłówka __autoryzacji__ w celu przekazania klucza lub tokenu. Klucz lub token musi być sformatowany jako `Bearer <key-or-token>` , gdzie `<key-or-token>` jest wartością klucza lub tokenu.
 
-Podstawowa różnica między kluczami i tokenami polega na tym, że **klucze są statyczne i mogą być ponownie generowane ręcznie** , a **tokeny muszą być odświeżane po wygaśnięciu**. Uwierzytelnianie oparte na kluczach jest obsługiwane dla wystąpień kontenerów platformy Azure i wdrożonych usług sieci Web usługi Azure Kubernetes, a uwierzytelnianie oparte na tokenach jest dostępne **tylko** dla wdrożeń usługi Azure Kubernetes. Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania, zobacz [Konfigurowanie uwierzytelniania dla modeli wdrożonych jako usługi sieci Web](how-to-authenticate-web-service.md).
+Podstawowa różnica między kluczami i tokenami polega na tym, że **klucze są statyczne i mogą być ponownie generowane ręcznie**, a **tokeny muszą być odświeżane po wygaśnięciu**. Uwierzytelnianie oparte na kluczach jest obsługiwane dla wystąpień kontenerów platformy Azure i wdrożonych usług sieci Web usługi Azure Kubernetes, a uwierzytelnianie oparte na tokenach jest dostępne **tylko** dla wdrożeń usługi Azure Kubernetes. Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania, zobacz [Konfigurowanie uwierzytelniania dla modeli wdrożonych jako usługi sieci Web](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Uwierzytelnianie przy użyciu kluczy

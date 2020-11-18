@@ -4,12 +4,12 @@ description: Informacje na temat odnajdywania lokalnych maszyn wirtualnych VMwar
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8a09f4583bd5cdae977b927be9649897a2d24ee6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311298"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832657"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych VMware z oceną serwera
 
@@ -17,7 +17,7 @@ W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia 
 
 W tym samouczku przedstawiono sposób odnajdywania lokalnych maszyn wirtualnych VMware przy użyciu Azure Migrate: narzędzia do oceny serwera za pomocą urządzenia uproszczonego Azure Migrate. Urządzenie można wdrożyć jako maszynę wirtualną VMware, aby ciągle wykrywać metadane maszyn wirtualnych i wydajności, aplikacje działające na maszynach wirtualnych oraz zależności maszyn wirtualnych.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure.
@@ -52,23 +52,23 @@ Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, 
 
 Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
-1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi**wybierz pozycję **subskrypcje**.
+1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi** wybierz pozycję **subskrypcje**.
 
     ![Wyszukaj w polu wyszukiwania subskrypcję platformy Azure](./media/tutorial-discover-vmware/search-subscription.png)
 
 2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt Azure Migrate. 
 3. W subskrypcji wybierz pozycję **Kontrola dostępu (IAM)**  >  **sprawdzanie dostępu**.
-4. W obszarze **Sprawdź dostęp**Wyszukaj odpowiednie konto użytkownika.
-5. W obszarze **Dodaj przypisanie roli**kliknij pozycję **Dodaj**.
+4. W obszarze **Sprawdź dostęp** Wyszukaj odpowiednie konto użytkownika.
+5. W obszarze **Dodaj przypisanie roli** kliknij pozycję **Dodaj**.
 
     ![Wyszukaj konto użytkownika, aby sprawdzić dostęp i przypisać rolę](./media/tutorial-discover-vmware/azure-account-access.png)
 
-6. W obszarze **Dodaj przypisanie roli**wybierz rolę współautor lub właściciela, a następnie wybierz konto (azmigrateuser w naszym przykładzie). Następnie kliknij przycisk **Zapisz**.
+6. W obszarze **Dodaj przypisanie roli** wybierz rolę współautor lub właściciela, a następnie wybierz konto (azmigrateuser w naszym przykładzie). Następnie kliknij przycisk **Zapisz**.
 
     ![Otwiera stronę Dodawanie przypisania roli w celu przypisania roli do konta](./media/tutorial-discover-vmware/assign-role.png)
 
-7. W portalu Wyszukaj użytkowników, a w obszarze **usługi**wybierz pozycję **Użytkownicy**.
-8. W obszarze **Ustawienia użytkownika**Sprawdź, czy użytkownicy usługi Azure AD mogą rejestrować aplikacje (domyślnie ustawione na **wartość tak** ).
+7. W portalu Wyszukaj użytkowników, a w obszarze **usługi** wybierz pozycję **Użytkownicy**.
+8. W obszarze **Ustawienia użytkownika** Sprawdź, czy użytkownicy usługi Azure AD mogą rejestrować aplikacje (domyślnie ustawione na **wartość tak** ).
 
     ![Sprawdź ustawienia użytkownika, które użytkownicy mogą rejestrować Active Directory aplikacje](./media/tutorial-discover-vmware/register-apps.png)
 
@@ -84,10 +84,10 @@ W programie klient sieci Web vSphere Skonfiguruj konto w następujący sposób:
 
 1. Korzystając z konta z uprawnieniami administratora, w > klienta sieci Web programu vSphere wybierz pozycję **Administracja**.
 2. **Dostęp**, wybierz pozycję **Użytkownicy i grupy logowania jednokrotnego**.
-3. W obszarze **Użytkownicy**Dodaj nowego użytkownika.
-4. W obszarze **nowy użytkownik**wpisz szczegóły konta. Następnie kliknij przycisk **OK**.
-5. W obszarze **uprawnienia globalne**wybierz konto użytkownika i przypisz rolę tylko do **odczytu** do konta. Następnie kliknij przycisk **OK**.
-6. W obszarze **role** > wybierz rolę **tylko do odczytu** , a w obszarze **uprawnienia**wybierz pozycję **operacje gościa**. Te uprawnienia są potrzebne do odnajdywania aplikacji uruchomionych na maszynach wirtualnych oraz do analizowania zależności maszyn wirtualnych.
+3. W obszarze **Użytkownicy** Dodaj nowego użytkownika.
+4. W obszarze **nowy użytkownik** wpisz szczegóły konta. Następnie kliknij przycisk **OK**.
+5. W obszarze **uprawnienia globalne** wybierz konto użytkownika i przypisz rolę tylko do **odczytu** do konta. Następnie kliknij przycisk **OK**.
+6. W obszarze **role** > wybierz rolę **tylko do odczytu** , a w obszarze **uprawnienia** wybierz pozycję **operacje gościa**. Te uprawnienia są potrzebne do odnajdywania aplikacji uruchomionych na maszynach wirtualnych oraz do analizowania zależności maszyn wirtualnych.
  
     ![Pole wyboru zezwalające na operacje gościa w roli tylko do odczytu](./media/tutorial-discover-vmware/guest-operations.png)
 
@@ -109,13 +109,13 @@ Skonfiguruj nowy projekt Azure Migrate.
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
-3. W obszarze **Przegląd**wybierz pozycję **Utwórz projekt**.
-5. W obszarze **Utwórz projekt**wybierz swoją subskrypcję platformy Azure i grupę zasobów. Utwórz grupę zasobów, jeśli jej nie masz.
-6. W obszarze **szczegóły projektu**Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
+3. W obszarze **Przegląd** wybierz pozycję **Utwórz projekt**.
+5. W obszarze **Utwórz projekt** wybierz swoją subskrypcję platformy Azure i grupę zasobów. Utwórz grupę zasobów, jeśli jej nie masz.
+6. W obszarze **szczegóły projektu** Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-vmware/new-project.png)
 
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
 
 **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
@@ -146,8 +146,8 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
 1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
-2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
-3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych VMware. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+2. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
+3. W obszarze **1: generowanie klucza projektu Azure Migrate** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych VMware. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
 1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
@@ -174,7 +174,7 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
     
         **Algorytm** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        VMware (11,9 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
+        VMware (11,9 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
     - Dla Azure Government:
     
@@ -190,12 +190,12 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
 Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 
 1. W konsoli klienta vSphere kliknij pozycję **plik**  >  **Wdróż OVF szablon**.
-2. W Kreatorze wdrażania szablonu OVF > **Źródło**Określ lokalizację pliku komórek jajowych.
-3. W polu **Nazwa** i **Lokalizacja**Określ przyjazną nazwę maszyny wirtualnej. Wybierz obiekt spisu, w którym będzie hostowana maszyna wirtualna.
-5. W obszarze **host/klaster**Określ hosta lub klaster, na którym będzie URUCHAMIANA maszyna wirtualna.
-6. W obszarze **Magazyn**określ miejsce docelowe magazynu dla maszyny wirtualnej.
+2. W Kreatorze wdrażania szablonu OVF > **Źródło** Określ lokalizację pliku komórek jajowych.
+3. W polu **Nazwa** i **Lokalizacja** Określ przyjazną nazwę maszyny wirtualnej. Wybierz obiekt spisu, w którym będzie hostowana maszyna wirtualna.
+5. W obszarze **host/klaster** Określ hosta lub klaster, na którym będzie URUCHAMIANA maszyna wirtualna.
+6. W obszarze **Magazyn** określ miejsce docelowe magazynu dla maszyny wirtualnej.
 7. W obszarze **Disk Format** (Format dysku) określ typ i rozmiar dysku.
-8. W polu **mapowanie sieci**Określ sieć, z którą zostanie nawiązane połączenie z maszyną wirtualną. Sieć wymaga łączności z Internetem, aby można było wysyłać metadane do oceny serwera Azure Migrate.
+8. W polu **mapowanie sieci** Określ sieć, z którą zostanie nawiązane połączenie z maszyną wirtualną. Sieć wymaga łączności z Internetem, aby można było wysyłać metadane do oceny serwera Azure Migrate.
 9. Sprawdź poprawność ustawień, a następnie kliknij pozycję **Finish** (Zakończ).
 
 
@@ -216,7 +216,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z maszyną wirtualną, a następnie otwórz adres URL aplikacji sieci Web urządzenia: **https://*Nazwa urządzenia lub adres IP*: 44368**.
 
    Możesz też otworzyć aplikację na pulpicie urządzenia, wybierając skrót do aplikacji.
-1. Zaakceptuj **postanowienia licencyjne**i przeczytaj informacje o innych firmach.
+1. Zaakceptuj **postanowienia licencyjne** i przeczytaj informacje o innych firmach.
 1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
    - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
      - Kliknij pozycję **Skonfiguruj serwer proxy** , aby określić adres serwera proxy (w postaci http://ProxyIPAddress lub na http://ProxyFQDN) porcie nasłuchu.
@@ -253,7 +253,7 @@ Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane dotyczą
 1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** wystąpienia vCenter Server. Możesz pozostawić **port** domyślny (443) lub określić port niestandardowy, dla którego vCenter Server nasłuchiwanie i kliknąć przycisk **Zapisz**.
 1. Po kliknięciu przycisku Zapisz Urządzenie spróbuje sprawdzić poprawność połączenia z vCenter Server przy użyciu podanych poświadczeń i wyświetlić **stan weryfikacji** w tabeli dotyczącej VCENTER Server adres IP/nazwa FQDN.
 1. Przed rozpoczęciem odnajdywania można ponownie **sprawdzić poprawność** łączności, aby vCenter Server w dowolnym momencie.
-1. W **kroku 3: podaj poświadczenia maszyny wirtualnej w celu odnalezienia zainstalowanych aplikacji i przeprowadzenia mapowania zależności bez agenta**, kliknij przycisk **Dodaj poświadczenia**i określ system operacyjny, dla którego podano poświadczenia, przyjazną nazwę dla poświadczeń oraz nazwę **użytkownika** i **hasło**. Następnie kliknij przycisk **Zapisz**.
+1. W **kroku 3: podaj poświadczenia maszyny wirtualnej w celu odnalezienia zainstalowanych aplikacji i przeprowadzenia mapowania zależności bez agenta**, kliknij przycisk **Dodaj poświadczenia** i określ system operacyjny, dla którego podano poświadczenia, przyjazną nazwę dla poświadczeń oraz nazwę **użytkownika** i **hasło**. Następnie kliknij przycisk **Zapisz**.
 
     - Opcjonalnie możesz dodać poświadczenia tutaj, jeśli utworzono konto do użycia dla [funkcji odnajdywania aplikacji](how-to-discover-applications.md)lub [Funkcja analizy zależności bez agenta](how-to-create-group-machine-dependencies-agentless.md).
     - Jeśli nie chcesz korzystać z tych funkcji, możesz kliknąć suwak, aby pominąć ten krok. Zamiar można zmienić w dowolnym momencie później.

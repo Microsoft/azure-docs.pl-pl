@@ -4,17 +4,16 @@ description: Dowiedz się, jak skonfigurować transformację ujścia w mapowaniu
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427313"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832521"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
@@ -65,13 +64,9 @@ Poniższy film wideo wyjaśnia różne opcje ujścia dla typów plików rozdziel
 
 ![Zrzut ekranu pokazujący ustawienia ujścia.](media/data-flow/sink-settings.png "Zrzut ekranu pokazujący ustawienia ujścia.")
 
-**Dryfowanie schematu** : [dryfowanie schematu](concepts-data-flow-schema-drift.md) jest możliwością Data Factory natywnie obsługiwać elastyczne schematy w przepływach danych bez konieczności jawnego definiowania zmian w kolumnach. Włącz funkcję **Zezwalaj na dryfowanie schematu** w celu zapisania dodatkowych kolumn na podstawie zawartości zdefiniowanej w schemacie danych ujścia.
+**Dryfowanie schematu**: [dryfowanie schematu](concepts-data-flow-schema-drift.md) jest możliwością Data Factory natywnie obsługiwać elastyczne schematy w przepływach danych bez konieczności jawnego definiowania zmian w kolumnach. Włącz funkcję **Zezwalaj na dryfowanie schematu** w celu zapisania dodatkowych kolumn na podstawie zawartości zdefiniowanej w schemacie danych ujścia.
 
-**Sprawdź poprawność schematu** : Jeśli wybrano opcję Weryfikuj schemat, przepływ danych zakończy się niepowodzeniem, jeśli w projekcji źródłowej nie zostanie znaleziona żadna kolumna przychodzącego schematu źródłowego lub typy danych nie są zgodne. Użyj tego ustawienia, aby wymusić, że dane źródłowe spełniają kontrakt zdefiniowanej projekcji. Jest to przydatne w scenariuszach ze źródłami danych w celu sygnalizowania, że nazwy kolumn lub typy zostały zmienione.
-
-**Użyj bazy danych tempdb:** Domyślnie Data Factory będzie używać globalnej tabeli tymczasowej do przechowywania danych w ramach procesu ładowania. Można również usunąć zaznaczenie opcji "Użyj bazy danych TempDB", a zamiast tego polecić Data Factory przechowywanie tymczasowej tabeli w bazie danych użytkownika, która znajduje się w bazie danych, która jest używana dla tego ujścia.
-
-![Użyj tymczasowej bazy danych](media/data-flow/tempdb.png "Użyj tymczasowej bazy danych")
+**Sprawdź poprawność schematu**: Jeśli wybrano opcję Weryfikuj schemat, przepływ danych zakończy się niepowodzeniem, jeśli w projekcji źródłowej nie zostanie znaleziona żadna kolumna przychodzącego schematu źródłowego lub typy danych nie są zgodne. Użyj tego ustawienia, aby wymusić, że dane źródłowe spełniają kontrakt zdefiniowanej projekcji. Jest to przydatne w scenariuszach ze źródłami danych w celu sygnalizowania, że nazwy kolumn lub typy zostały zmienione.
 
 ## <a name="cache-sink"></a>Ujścia pamięci podręcznej
 
@@ -109,9 +104,14 @@ Domyślnie dane są zapisywane w wielu ujściach w kolejności niedeterministycz
 
 ![Niestandardowe porządkowanie obiektów sink](media/data-flow/cache-2.png "Niestandardowe porządkowanie obiektów sink")
 
+## <a name="error-row-handling"></a>Obsługa wierszy błędów
+
+Podczas zapisywania do baz danych niektóre wiersze danych mogą kończyć się niepowodzeniem z powodu ograniczeń ustawionych przez miejsce docelowe. Domyślnie uruchomienie przepływu danych zakończy się niepowodzeniem przy pierwszym błędzie, który pobiera. W niektórych łącznikach można wybrać opcję **Kontynuuj przy błędzie** , która pozwala na ukończenie przepływu danych, nawet jeśli pojedyncze wiersze mają Błędy. Obecnie ta funkcja jest dostępna tylko w Azure SQL Database. Aby uzyskać więcej informacji, zobacz [Obsługa wierszy błędów w usłudze Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
 ## <a name="data-preview-in-sink"></a>Podgląd danych w usłudze ujścia
 
 Podczas pobierania podglądu danych w klastrze debugowania żadne dane nie zostaną zazapisywane w ujścia. Zostanie zwrócona migawka danych, na które wyglądają dane, ale nic nie zostanie zazapisywane w miejscu docelowym. Aby przetestować zapisywanie danych w ujścia, uruchom debugowanie potoku z kanwy potoku.
 
 ## <a name="next-steps"></a>Następne kroki
+
 Po utworzeniu przepływu danych Dodaj [działanie przepływu danych do potoku](concepts-data-flow-overview.md).
