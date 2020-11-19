@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 271913a731a2bdf5af94885b5fe4027c0334853c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740284"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887505"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu szablonu ARM
 
@@ -22,19 +22,17 @@ Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, któ
 
 W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Wymagania wstępne
+- Ten artykuł wymaga wersji 2.0.61 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-Aby utworzyć klaster AKS przy użyciu szablonu Menedżer zasobów, należy podać klucz publiczny SSH i Azure Active Directory nazwę główną usługi. Alternatywnie można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast nazwy głównej usługi w celu uzyskania uprawnień. Jeśli potrzebujesz jednego z tych zasobów, zobacz następującą sekcję: w przeciwnym razie przejdź do sekcji [przeglądanie szablonu](#review-the-template) .
+- Aby utworzyć klaster AKS przy użyciu szablonu Menedżer zasobów, należy podać klucz publiczny SSH i Azure Active Directory nazwę główną usługi. Alternatywnie można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast nazwy głównej usługi w celu uzyskania uprawnień. Jeśli potrzebujesz jednego z tych zasobów, zobacz następującą sekcję: w przeciwnym razie przejdź do sekcji [przeglądanie szablonu](#review-the-template) .
 
 ### <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
@@ -70,7 +68,7 @@ Dane wyjściowe są podobne do poniższego przykładu:
 }
 ```
 
-Zwróć uwagę na wartości *appId* i *password* . Te wartości są używane w kolejnych krokach.
+Zwróć uwagę na wartości *appId* i *password*. Te wartości są używane w kolejnych krokach.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
@@ -88,22 +86,22 @@ Więcej przykładów AKS można znaleźć w witrynie [szablonów szybkiego start
 
 2. Wybierz lub wprowadź następujące wartości.
 
-    W tym przewodniku szybki start pozostaw wartości domyślne dla *rozmiaru dysku systemu operacyjnego GB* , *liczby agentów* , *rozmiaru maszyny wirtualnej agenta* , *typu systemu operacyjnego* i *wersji Kubernetes* . Podaj własne wartości dla następujących parametrów szablonu:
+    W tym przewodniku szybki start pozostaw wartości domyślne dla *rozmiaru dysku systemu operacyjnego GB*, *liczby agentów*, *rozmiaru maszyny wirtualnej agenta*, *typu systemu operacyjnego* i *wersji Kubernetes*. Podaj własne wartości dla następujących parametrów szablonu:
 
-    * **Subskrypcja** : wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów** : wybierz pozycję **Utwórz nową** . Wprowadź unikatową nazwę grupy zasobów, *na przykład grupa zasobów, a* następnie wybierz przycisk **OK** .
-    * **Lokalizacja** : Wybierz lokalizację, na przykład **Wschodnie stany USA** .
-    * **Nazwa klastra** : Wprowadź unikatową nazwę klastra AKS, na przykład *myAKSCluster* .
-    * **Prefiks DNS** : wprowadź unikatowy prefiks DNS dla klastra, taki jak *myakscluster* .
-    * **Nazwa użytkownika administratora systemu Linux** : Wprowadź nazwę użytkownika, aby nawiązać połączenie przy użyciu protokołu SSH, takiego jak *azureuser* .
-    * **Klucz publiczny SSH RSA** : Skopiuj i wklej *publiczną* część pary kluczy SSH (domyślnie zawartość *~/.ssh/id_rsa. pub* ).
-    * **Identyfikator klienta jednostki usługi** : Skopiuj i wklej *identyfikator appid* swojej jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
-    * **Klucz tajny klienta jednostki usługi** : Skopiuj i wklej *hasło* jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
-    * **Wyrażam zgodę na powyższe warunki i postanowienia** : zaznacz to pole wyboru, aby zgadzać się.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure.
+    * **Grupa zasobów**: wybierz pozycję **Utwórz nową**. Wprowadź unikatową nazwę grupy zasobów, *na przykład grupa zasobów, a* następnie wybierz przycisk **OK**.
+    * **Lokalizacja**: Wybierz lokalizację, na przykład **Wschodnie stany USA**.
+    * **Nazwa klastra**: Wprowadź unikatową nazwę klastra AKS, na przykład *myAKSCluster*.
+    * **Prefiks DNS**: wprowadź unikatowy prefiks DNS dla klastra, taki jak *myakscluster*.
+    * **Nazwa użytkownika administratora systemu Linux**: Wprowadź nazwę użytkownika, aby nawiązać połączenie przy użyciu protokołu SSH, takiego jak *azureuser*.
+    * **Klucz publiczny SSH RSA**: Skopiuj i wklej *publiczną* część pary kluczy SSH (domyślnie zawartość *~/.ssh/id_rsa. pub*).
+    * **Identyfikator klienta jednostki usługi**: Skopiuj i wklej *identyfikator appid* swojej jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
+    * **Klucz tajny klienta jednostki usługi**: Skopiuj i wklej *hasło* jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
+    * **Wyrażam zgodę na powyższe warunki i postanowienia**: zaznacz to pole wyboru, aby zgadzać się.
 
     ![Menedżer zasobów szablon do tworzenia klastra usługi Azure Kubernetes w portalu](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Wybierz pozycję **Kup** .
+3. Wybierz pozycję **Kup**.
 
 Utworzenie klastra AKS może potrwać kilka minut. Poczekaj na pomyślne wdrożenie klastra, zanim przejdziesz do kolejnego kroku.
 
@@ -129,7 +127,7 @@ Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-Następujące przykładowe dane wyjściowe pokazują węzły utworzone w poprzednich krokach. Upewnij się, że stan wszystkich węzłów jest *gotowy* :
+Następujące przykładowe dane wyjściowe pokazują węzły utworzone w poprzednich krokach. Upewnij się, że stan wszystkich węzłów jest *gotowy*:
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -257,7 +255,7 @@ Aby monitorować postęp, użyj polecenia [kubectl get-service][kubectl-get] z a
 kubectl get service azure-vote-front --watch
 ```
 
-Początkowo adres *EXTERNAL-IP* dla usługi *azure-vote-front* jest wyświetlany jako *oczekujący* .
+Początkowo adres *EXTERNAL-IP* dla usługi *azure-vote-front* jest wyświetlany jako *oczekujący*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE

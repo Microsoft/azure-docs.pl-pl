@@ -1,19 +1,19 @@
 ---
-title: Instalowanie agenta Log Analytics na komputerach z systemem Linux
+title: Instalowanie agenta usługi Log Analytics na komputerach z systemem Linux
 description: W tym artykule opisano sposób łączenia komputerów z systemem Linux hostowanych w innych chmurach lub lokalnych w celu Azure Monitor z agentem Log Analytics dla systemu Linux.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332505"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886842"
 ---
-# <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta Log Analytics na komputerach z systemem Linux
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta usługi Log Analytics na komputerach z systemem Linux
 Ten artykuł zawiera szczegółowe informacje dotyczące instalowania agenta Log Analytics na komputerach z systemem Linux przy użyciu następujących metod:
 
 * [Zainstaluj agenta dla systemu Linux, używając skryptu otoki](#install-the-agent-using-wrapper-script) hostowanego w witrynie GitHub. Jest to zalecana metoda instalacji i uaktualnienia agenta, gdy komputer ma łączność z Internetem bezpośrednio lub za pośrednictwem serwera proxy.
@@ -30,13 +30,17 @@ Listę dystrybucji systemu Linux obsługiwanych przez agenta Log Analytics możn
 
 >[!NOTE]
 >OpenSSL 1.1.0 jest obsługiwana tylko na platformach x86_x64 (64-bitowe) i OpenSSL wcześniejszych niż 1. x nie jest obsługiwana na żadnej platformie.
->
+
+>[!NOTE]
+>Uruchamianie agenta Log Analytics Linux w kontenerach nie jest obsługiwane. Jeśli potrzebujesz monitorować kontenery, Skorzystaj z rozwiązania do [monitorowania kontenerów](../insights/containers.md) dla hostów platformy Docker lub [Azure monitor kontenerów](../insights/container-insights-overview.md) dla Kubernetes.
+
 Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany w naszym modelu pomocy technicznej:  
 
 * Obsługiwane są tylko wersje serwera, a nie klient.  
 * Zanotuj pomoc techniczną na dowolnym z [potwierdzonych dystrybucje systemu Azure](../../virtual-machines/linux/endorsed-distros.md)w systemie Linux. Należy pamiętać, że może wystąpić pewne opóźnienie między nowym dystrybucji/wersją zatwierdzona w systemie Azure Linux i jest ona obsługiwana dla agenta Log Analytics Linux.
 * Wszystkie wersje pomocnicze są obsługiwane dla każdej wymienionej wersji głównej.
-* Wersje, które przekazały datę zakończenia obsługi przez producenta, nie są obsługiwane.  
+* Wersje, które przekazały datę zakończenia obsługi przez producenta, nie są obsługiwane.
+* Obsługują tylko obrazy maszyn wirtualnych; kontenery, nawet te pochodzące z obrazów oficjalnych wydawców dystrybucji, nie są obsługiwane.
 * Nowe wersje AMI nie są obsługiwane.  
 * Obsługiwane są tylko wersje, które domyślnie korzystają z protokołu SSL 1. x.
 

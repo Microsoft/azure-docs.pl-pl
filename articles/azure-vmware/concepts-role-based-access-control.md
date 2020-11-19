@@ -1,16 +1,16 @@
 ---
-title: Pojęcia — kontrola dostępu oparta na rolach (RBAC)
-description: Poznaj kluczowe możliwości kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure
+title: Koncepcje — vSphere kontroli dostępu opartej na rolach (vSphere RBAC)
+description: Poznaj kluczowe możliwości vSphere kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 6e1864fdfe397325a7c5ba601b625bcc1776174c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fbd5b48ce30a6612c45ebd97f08812efd29c50b3
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535490"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888406"
 ---
-# <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Kontrola dostępu oparta na rolach (RBAC) dla rozwiązań VMware platformy Azure
+# <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>vSphere kontroli dostępu opartej na rolach (vSphere RBAC) dla rozwiązań VMware platformy Azure
 
 W rozwiązaniu VMware platformy Azure program vCenter ma wbudowanego użytkownika lokalnego o nazwie cloudadmin i przypisany do wbudowanej roli CloudAdmin. Lokalny użytkownik cloudadmin służy do konfigurowania użytkowników w usłudze AD. Ogólnie rzecz biorąc rola CloudAdmin tworzy obciążenia i zarządza nimi w chmurze prywatnej. W rozwiązaniu VMware platformy Azure rola CloudAdmin ma uprawnienia vCenter, które różnią się od innych rozwiązań w chmurze VMware.     
 
@@ -52,7 +52,7 @@ Rola CloudAdmin w ramach rozwiązania Azure VMware ma następujące uprawnienia 
 | **Sieć** | Przypisywanie sieci |
 | **Zasób** | Zastosuj zalecenie<br />Przypisywanie vApp do puli zasobów<br />Przypisz maszynę wirtualną do puli zasobów<br />Utwórz pulę zasobów<br />Migrowanie wyłączone z maszyny wirtualnej<br />Migrowanie na maszynie wirtualnej<br />Modyfikuj pulę zasobów<br />Przenieś pulę zasobów<br />VMotion zapytania<br />Usuń pulę zasobów<br />Zmień nazwę puli zasobów |
 | **Zaplanowane zadanie** | Tworzenie zadania<br />Modyfikowanie zadania<br />Usuń zadanie<br />Uruchom zadanie |
-| **Sesje** | Komunikat<br />Weryfikuj sesję |
+| **Sesje** | Wiadomość<br />Weryfikuj sesję |
 | **Profil** | Widok magazynu oparty na profilach |
 | **Widok magazynu** | Widok |
 | **vApp** | Dodaj maszynę wirtualną<br />Przypisz pulę zasobów<br />Przypisz vApp<br />Klonowanie<br />Utwórz<br />Usuwanie<br />Eksportowanie<br />Importuj<br />Move<br />Wyłączanie<br />Włącz<br />Zmień nazwę<br />Wstrzymanie<br />Unregister<br />Wyświetl środowisko OVF<br />Konfiguracja aplikacji vApp<br />Konfiguracja wystąpienia vApp<br />Konfiguracja vApp zarządzane<br />Konfiguracja zasobów vApp |

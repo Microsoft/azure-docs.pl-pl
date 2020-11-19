@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6fc3441fac5fe037e9a268d26012761d1fece70
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463265"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888967"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
 
@@ -37,7 +37,7 @@ Po uruchomieniu [przykładowego wywoływania sieci Web](https://github.com/Azure
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Samouczek dotyczący wywoływania sieci Web 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
-:::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Samouczek dotyczący wywoływania sieci Web 1" lightbox="./media/web-calling-tutorial-page-2.png":::
+:::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Samouczek dotyczący wywoływania sieci Web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
 
 ## <a name="user-provisioning-and-sdk-initialization"></a>Inicjowanie obsługi administracyjnej użytkowników i Inicjalizacja zestawu SDK 
@@ -52,29 +52,29 @@ Kliknij przycisk "Pokaż kod", aby zobaczyć przykładowy kod, którego możesz 
 
 Po zainicjowaniu zestawu SDK powinny zostać wyświetlone następujące elementy:
 
-:::image type="content" source="./media/user-provisioning.png" alt-text="Samouczek dotyczący wywoływania sieci Web 1" lightbox="./media/user-provisioning.png":::
+:::image type="content" source="./media/user-provisioning.png" alt-text="Aprowizowanie użytkowników" lightbox="./media/user-provisioning.png":::
 
 Teraz możesz zacząć umieszczać wywołania przy użyciu zasobu usług komunikacyjnych.
 
 ## <a name="placing-and-receiving-calls"></a>Umieszczanie i otrzymywanie wywołań
 
-Zestaw SDK wywoływania sieci Web usług komunikacyjnych umożliwia korzystanie z **1:1**, **1: N**i **grup** wywołań.
+Zestaw SDK wywoływania sieci Web usług komunikacyjnych umożliwia korzystanie z **1:1**, **1: N** i **grup** wywołań.
 
 W przypadku połączeń wychodzących 1:1 lub 1: N można określić wiele tożsamości użytkowników usług komunikacyjnych do wywołania przy użyciu wartości rozdzielanych przecinkami. Można również określić, aby można było wywoływać tradycyjne numery telefonów (PSTN), korzystając z wartości rozdzielanych przecinkami. 
 
 Podczas wywoływania numerów telefonów PSTN należy określić alternatywny identyfikator obiektu wywołującego. Kliknij przycisk "Umieść połączenie", aby nawiązać połączenie wychodzące:
 
-:::image type="content" source="./media/place-a-call.png" alt-text="Samouczek dotyczący wywoływania sieci Web 1" lightbox="./media/place-a-call.png":::
+:::image type="content" source="./media/place-a-call.png" alt-text="Umieść wywołanie" lightbox="./media/place-a-call.png":::
 
 Aby przyłączyć się do wywołania grupy, wprowadź identyfikator GUID, który identyfikuje wywołanie, i kliknij przycisk "Dołącz grupę":
 
-:::image type="content" source="./media/join-a-group-call.png" alt-text="Samouczek dotyczący wywoływania sieci Web 1" lightbox="./media/join-a-group-call.png":::
+:::image type="content" source="./media/join-a-group-call.png" alt-text="Dołącz do wywołania grupy" lightbox="./media/join-a-group-call.png":::
 
 Kliknij przycisk "Pokaż kod", aby wyświetlić przykładowy kod służący do umieszczania wywołań, otrzymywania wywołań i sprzęgania wywołań grup.
 
 Aktywne wywołanie wygląda następująco:
 
-:::image type="content" source="./media/group-call.png" alt-text="Samouczek dotyczący wywoływania sieci Web 1" lightbox="./media/group-call.png":::
+:::image type="content" source="./media/group-call.png" alt-text="Wywołanie grupy" lightbox="./media/group-call.png":::
 
 Ten przykład zawiera również fragmenty kodu dla następujących możliwości:
 
@@ -95,7 +95,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - Zapoznaj się z [pomocą biblioteki klienta wywołującego](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Dowiedz się więcej o [sposobie wywoływania programu](../concepts/voice-video-calling/about-call-types.md)
-- Zapoznaj się z dokumentacją [interfejsu API](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Zapoznaj się z dokumentacją [interfejsu API](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 
@@ -103,4 +103,4 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Redux](https://redux.js.org/) — zarządzanie stanem po stronie klienta
 - [FluentUI](https://aka.ms/fluent-ui) — Biblioteka interfejsu użytkownika zasilanego przez firmę Microsoft
 - [Reagowanie](https://reactjs.org/) — Biblioteka do tworzenia interfejsów użytkownika
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) — platforma do tworzenia aplikacji sieci Web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) — platforma do tworzenia aplikacji sieci Web

@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357627"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886791"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Rozwiązywanie problemów w usłudze Azure Communications Services
 
@@ -23,17 +23,17 @@ Ten dokument pomoże Ci w rozwiązywaniu problemów, które mogą wystąpić w r
 
 Zachęcamy deweloperów do przesyłania pytań, sugerujenia funkcji i zgłaszania problemów jako problemów w [repozytorium GitHub](https://github.com/Azure/communication)usług komunikacyjnych. Inne fora obejmują:
 
-* [Pytania i odpowiedzi Microsoft](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
+* [Pytania i odpowiedzi Microsoft](/answers/questions/topics/single/101418.html)
+* [Witryna StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 W zależności od [planu pomocy technicznej](https://azure.microsoft.com/support/plans/) dotyczącej subskrypcji platformy Azure możesz przesłać bilet pomocy technicznej bezpośrednio za pomocą [Azure Portal](https://azure.microsoft.com/support/create-ticket/).
 
 Aby pomóc w rozwiązywaniu niektórych typów problemów, może zostać wyświetlony monit o podanie następujących informacji:
 
-* **Identyfikator MS-CV** : ten identyfikator jest używany do rozwiązywania problemów z wywołaniami i komunikatami. 
-* **Identyfikator wywołania** : ten identyfikator jest używany do identyfikowania wywołań usług komunikacyjnych.
-* **Identyfikator wiadomości SMS** : ten identyfikator jest używany do identyfikowania wiadomości SMS.
-* **Dzienniki wywołań** : te dzienniki zawierają szczegółowe informacje, których można użyć do rozwiązywania problemów z wywoływaniem i siecią.
+* **Identyfikator MS-CV**: ten identyfikator jest używany do rozwiązywania problemów z wywołaniami i komunikatami. 
+* **Identyfikator wywołania**: ten identyfikator jest używany do identyfikowania wywołań usług komunikacyjnych.
+* **Identyfikator wiadomości SMS**: ten identyfikator jest używany do identyfikowania wiadomości SMS.
+* **Dzienniki wywołań**: te dzienniki zawierają szczegółowe informacje, których można użyć do rozwiązywania problemów z wywoływaniem i siecią.
 
 
 ## <a name="access-your-ms-cv-id"></a>Uzyskaj dostęp do identyfikatora MS-CV

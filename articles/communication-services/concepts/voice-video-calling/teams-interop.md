@@ -9,14 +9,14 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a7e2240e3f74f82186827ec82bb1aa39a5b93f6c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 028e7f9764cbf75263736471f434e04bc6daca0f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123838"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886825"
 ---
-# <a name="teams-interoperability"></a>Współdziałanie zespołów
+# <a name="teams-interoperability"></a>Współdziałanie usługi Teams
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -35,13 +35,13 @@ Architektura wysokiego poziomu dla tego przypadku użycia wygląda następująco
 
 Niektóre zespoły, takie jak podniesione, tryb razem i pokoje zagadnień, będą dostępne tylko dla użytkowników zespołów, aplikacja niestandardowa będzie miała dostęp do podstawowych możliwości udostępniania dźwięku, wideo i ekranu.
 
-Gdy użytkownik usług komunikacyjnych dołączają się do spotkania zespołów, nazwa wyświetlana podana przez wywołującą bibliotekę klienta będzie pokazywana użytkownikom zespołów. Użytkownik usług komunikacyjnych będzie w przeciwnym razie traktowany jak anonimowy użytkownik w zespołach. Aplikacja niestandardowa powinna rozważyć uwierzytelnianie użytkowników i inne środki bezpieczeństwa w celu ochrony spotkań zespołów. Należy zastanowić się, że implikacje dla użytkowników anonimowych mogą dołączać do spotkań i korzystać z [przewodnika po zabezpieczeniach zespołów](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) w celu skonfigurowania możliwości dostępnych dla użytkowników anonimowych.
+Gdy użytkownik usług komunikacyjnych dołączają się do spotkania zespołów, nazwa wyświetlana podana przez wywołującą bibliotekę klienta będzie pokazywana użytkownikom zespołów. Użytkownik usług komunikacyjnych będzie w przeciwnym razie traktowany jak anonimowy użytkownik w zespołach. Aplikacja niestandardowa powinna rozważyć uwierzytelnianie użytkowników i inne środki bezpieczeństwa w celu ochrony spotkań zespołów. Należy zastanowić się, że implikacje dla użytkowników anonimowych mogą dołączać do spotkań i korzystać z [przewodnika po zabezpieczeniach zespołów](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) w celu skonfigurowania możliwości dostępnych dla użytkowników anonimowych.
 
-Użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe.
+Użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dołącz do aplikacji wywołującej do spotkania zespołów](../../quickstarts/voice-video-calling/get-started-teams-interop.md)
+> [Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams](../../quickstarts/voice-video-calling/get-started-teams-interop.md)

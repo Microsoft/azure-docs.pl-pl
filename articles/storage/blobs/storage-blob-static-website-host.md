@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78330399"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888508"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -21,7 +21,7 @@ ms.locfileid: "78330399"
 
 W tym samouczku dowiesz się, jak skompilować i wdrożyć statyczną witrynę sieci Web w usłudze Azure Storage. Po zakończeniu będzie gotowa statyczna witryna internetowa, do której użytkownicy będą mieli publiczny dostęp. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie hostowania statycznej witryny internetowej
@@ -77,14 +77,24 @@ Następnie utwórz stronę internetową Hello world w programie Visual Studio Co
 1. Otwórz plik *index.html* w edytorze, wklej następujący tekst do pliku i zapisz go:
 
     ```
-    <h1>Hello World!</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+      </body>
+    </html>
     ```
 
 1. Utwórz domyślny plik błędu i nazwij go *404. html*.
 1. Otwórz plik *404.html* w edytorze, wklej następujący tekst do pliku i zapisz go:
 
     ```
-    <h1>404</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>404</h1>
+      </body>
+    </html>
     ```
 
 1. Kliknij prawym przyciskiem myszy w obszarze folderu *mywebsite* na panelu **Explorer**, a następnie wybierz pozycję **Deploy to Static Website...** (Wdrażanie w statycznej witrynie internetowej), aby wdrożyć witrynę internetową. Zostanie wyświetlony monit o zalogowanie się na platformie Azure w celu pobrania listy subskrypcji.

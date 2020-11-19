@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8decbe22f869573bf7a2221099d2bc30c00fc8a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357474"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888848"
 ---
 # <a name="quickstart-handle-sms-events"></a>Szybki Start: obsługa zdarzeń programu SMS
 
@@ -24,7 +24,7 @@ Rozpocznij pracę z usługami Azure Communications Services przy użyciu Azure E
 
 ## <a name="about-azure-event-grid"></a>Informacje o Azure Event Grid
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) to oparta na chmurze usługa obsługi zdarzeń. W tym artykule dowiesz się, jak subskrybować zdarzenia dla [zdarzeń usługi komunikacyjnej](../../concepts/event-handling.md)i wyzwalać zdarzenie, aby wyświetlić wynik. Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następuje przetwarzanie danych zdarzenia i są wykonywane akcje. W tym artykule wyślemy zdarzenia do aplikacji sieci Web, która gromadzi i wyświetla komunikaty.
+[Azure Event Grid](../../../event-grid/overview.md) to oparta na chmurze usługa obsługi zdarzeń. W tym artykule dowiesz się, jak subskrybować zdarzenia dla [zdarzeń usługi komunikacyjnej](../../concepts/event-handling.md)i wyzwalać zdarzenie, aby wyświetlić wynik. Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następuje przetwarzanie danych zdarzenia i są wykonywane akcje. W tym artykule wyślemy zdarzenia do aplikacji sieci Web, która gromadzi i wyświetla komunikaty.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -45,11 +45,11 @@ W witrynie Azure Portal:
 4. Znajdź dostawcę **Microsoft.EventGrid**.
 5. Jeśli nie jest on zarejestrowany, wybierz pozycję **Zarejestruj**. 
 
-Ukończenie rejestracji może chwilę potrwać. Wybierz pozycję **Odśwież** , aby zaktualizować stan. Gdy **Stan** będzie miał wartość **Zarejestrowano** , możesz kontynuować.
+Ukończenie rejestracji może chwilę potrwać. Wybierz pozycję **Odśwież**, aby zaktualizować stan. Gdy **Stan** będzie miał wartość **Zarejestrowano**, możesz kontynuować.
 
 ### <a name="event-grid-viewer-deployment"></a>Wdrożenie przeglądarki Event Grid
 
-W tym przewodniku szybki start użyjemy [przykładowej przeglądarki Azure Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) do wyświetlania zdarzeń w czasie niemal rzeczywistym. Pozwoli to użytkownikowi na korzystanie z kanału informacyjnego w czasie rzeczywistym. Ponadto ładunek każdego zdarzenia powinien być również dostępny do celów inspekcji.  
+W tym przewodniku szybki start użyjemy [przykładowej przeglądarki Azure Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) do wyświetlania zdarzeń w czasie niemal rzeczywistym. Pozwoli to użytkownikowi na korzystanie z kanału informacyjnego w czasie rzeczywistym. Ponadto ładunek każdego zdarzenia powinien być również dostępny do celów inspekcji.  
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>Subskrybowanie zdarzeń programu SMS przy użyciu elementów webhook
 
@@ -63,7 +63,7 @@ Na stronie **Tworzenie subskrypcji zdarzeń** wprowadź **nazwę** subskrypcji z
 
 Możesz subskrybować określone zdarzenia, aby poinformować Event Grid, które zdarzenia programu SMS mają być śledzone, i miejsce, w którym mają być wysyłane zdarzenia. Wybierz zdarzenia, które chcesz subskrybować, z menu rozwijanego. W przypadku programu SMS można wybrać opcję `SMS Received` i `SMS Delivery Report Received` . 
 
-Jeśli zostanie wyświetlony monit o podanie **nazwy tematu systemu** , możesz skorzystać z bezpłatnego identyfikatora, który umożliwia filtrowanie zdarzeń po ich wydaniu.
+Jeśli zostanie wyświetlony monit o podanie **nazwy tematu systemu**, możesz udostępnić unikatowy ciąg. To pole nie ma wpływu na środowisko użytkownika i służy do celów wewnętrznych telemetrii.
 
 Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Communication Services](../../concepts/event-handling.md).
 
@@ -73,9 +73,9 @@ Wybierz **element Hook sieci Web** dla **typu punktu końcowego**.
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Zrzut ekranu przedstawiający pole typu punktu końcowego ustawione na element Hook sieci Web.":::
 
-W przypadku **punktu końcowego** kliknij pozycję **Wybierz punkt końcowy** , a następnie wprowadź adres URL aplikacji sieci Web.
+W przypadku **punktu końcowego** kliknij pozycję **Wybierz punkt końcowy**, a następnie wprowadź adres URL aplikacji sieci Web.
 
-W takim przypadku będziemy używać adresu URL z [przykładowej przeglądarki Azure Event Grid Viewer](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) , która została wcześniej skonfigurowana w przewodniku Szybki Start. Adres URL dla przykładu będzie mieć format: `https://{{site-name}}.azurewebsites.net/api/updates`
+W takim przypadku będziemy używać adresu URL z [przykładowej przeglądarki Azure Event Grid Viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) , która została wcześniej skonfigurowana w przewodniku Szybki Start. Adres URL dla przykładu będzie mieć format: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 Następnie wybierz pozycję **Potwierdź wybór**.
 
@@ -94,7 +94,7 @@ Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Comm
 
 ### <a name="receiving-sms-events"></a>Otrzymywanie zdarzeń SMS
 
-Po wykonaniu każdej akcji powyżej zobaczysz, że `SMS Received` `SMS Delivery Report Received` zdarzenia i są wysyłane do punktu końcowego. Te zdarzenia będą wyświetlane w [przykładowej Azure Event Grid przeglądarki](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) , którą ustawimy na początku. Aby zobaczyć cały ładunek, możesz nacisnąć ikonę oka obok zdarzenia. Zdarzenia będą wyglądać następująco:
+Po wykonaniu każdej akcji powyżej zobaczysz, że `SMS Received` `SMS Delivery Report Received` zdarzenia i są wysyłane do punktu końcowego. Te zdarzenia będą wyświetlane w [przykładowej Azure Event Grid przeglądarki](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) , którą ustawimy na początku. Aby zobaczyć cały ładunek, możesz nacisnąć ikonę oka obok zdarzenia. Zdarzenia będą wyglądać następująco:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Zrzut ekranu przedstawiający schemat Event Grid dla zdarzenia otrzymanego SMS.":::
 
@@ -116,4 +116,4 @@ W tym przewodniku szybki start przedstawiono sposób korzystania z zdarzeń prog
 Możesz również chcieć:
 
  - [Informacje o pojęciach dotyczących obsługi zdarzeń](../../concepts/event-handling.md)
- - [Dowiedz się więcej o Event Grid](https://docs.microsoft.com/azure/event-grid/overview)
+ - [Dowiedz się więcej o Event Grid](../../../event-grid/overview.md)

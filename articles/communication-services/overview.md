@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303373"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888610"
 ---
 # <a name="what-is-azure-communication-services"></a>Co to są usługi Azure Communication Services?
 
@@ -77,9 +77,9 @@ Poniższe zasoby ułatwią zapoznanie się z bibliotekami klienckimi usługi Azu
 
 Istnieją dwa inne produkty do komunikacji firmy Microsoft, które można wziąć pod uwagę w przypadku, gdy nie są w tej chwili bezpośrednio obsługiwane usługi komunikacyjne:
 
- - [Microsoft Graph interfejsy API komunikacji w chmurze](https://docs.microsoft.com/graph/cloud-communications-concept-overview) umożliwiają organizacjom tworzenie środowisk komunikacyjnych powiązanych z Azure Active Directory użytkownikami z licencjami M365. Jest to idealne rozwiązanie w przypadku aplikacji powiązanych z Azure Active Directoryą lub miejsca, w którym chcesz zwiększyć produktywność w programie Microsoft Teams. Istnieją także interfejsy API do kompilowania aplikacji i dostosowywania w ramach [środowiska zespołu.](https://docs.microsoft.com/microsoftteams/platform/?view=msteams-client-js-latest&preserve-view=true)
+ - [Microsoft Graph interfejsy API komunikacji w chmurze](/graph/cloud-communications-concept-overview) umożliwiają organizacjom tworzenie środowisk komunikacyjnych powiązanych z Azure Active Directory użytkownikami z licencjami M365. Jest to idealne rozwiązanie w przypadku aplikacji powiązanych z Azure Active Directoryą lub miejsca, w którym chcesz zwiększyć produktywność w programie Microsoft Teams. Istnieją także interfejsy API do kompilowania aplikacji i dostosowywania w ramach [środowiska zespołu.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
- - [Usługa Azure PlayFaber](https://docs.microsoft.com/gaming/playfab/features/multiplayer/networking/) upraszcza Dodawanie rozmowy o małym opóźnieniu i komunikacji danych z grami. W przypadku korzystania z usług komunikacyjnych w programie do gier i połączeń z usługą łączności PlayFab jest to dostosowana opcja i bezpłatna na konsoli Xbox.
+ - [Usługa Azure PlayFaber](/gaming/playfab/features/multiplayer/networking/) upraszcza Dodawanie rozmowy o małym opóźnieniu i komunikacji danych z grami. W przypadku korzystania z usług komunikacyjnych w programie do gier i połączeń z usługą łączności PlayFab jest to dostosowana opcja i bezpłatna na konsoli Xbox.
 
 
 ## <a name="next-steps"></a>Następne kroki

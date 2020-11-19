@@ -47,8 +47,6 @@
           href: how-to/setup-cicd.md
         - name: Korzystanie z usług GitHub Actions i Azure Dev Spaces (wersja zapoznawcza)
           href: how-to/github-actions.md
-        - name: Używanie wtyczki usługi Azure Dev Spaces dla serwera Jenkins
-          href: /azure/developer/jenkins/azure-dev-spaces-and-aks
         - name: Ciągłość działalności biznesowej i odzyskiwanie po awarii (BCDR) dla usługi Azure Dev Spaces
           href: how-to/dev-spaces-business-continuity.md
         - name: Interakcja z kontenerami systemu Windows

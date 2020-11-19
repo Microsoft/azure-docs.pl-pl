@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961242"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886417"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy tokenów SAML w zasadach niestandardowych Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) emituje kilka typów tokenów zabezpie
 
 ## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `None` . Ustaw element **OutputTokenFormat** na wartość `SAML2` .
+Atrybut **name** elementu **Protocol** musi być ustawiony na `SAML2` . Ustaw element **OutputTokenFormat** na wartość `SAML2` .
 
 W poniższym przykładzie przedstawiono profil techniczny dla `Saml2AssertionIssuer` :
 
@@ -51,7 +51,7 @@ W poniższym przykładzie przedstawiono profil techniczny dla `Saml2AssertionIss
 
 ## <a name="input-output-and-persist-claims"></a>Oświadczenia danych wejściowych, wyjściowych i utrwalania
 
-Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie istnieją. Obecne są również elementy **InutputClaimsTransformations** i **OutputClaimsTransformations** .
+Elementy **InputClaims**, **OutputClaims** i **PersistClaims** są puste lub nie istnieją. Obecne są również elementy **InutputClaimsTransformations** i **OutputClaimsTransformations** .
 
 ## <a name="metadata"></a>Metadane
 

@@ -6,14 +6,14 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1803a0070321ff4d895203f027f839601bb726ee
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487912"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887148"
 ---
-# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Powiadomienie o planowanej konserwacji w Azure Database for PostgreSQL-pojedynczym serwerze
+# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Powiadomienie o planowanej konserwacji w usłudze Azure Database for PostgreSQL — pojedynczy serwer
 
 Dowiedz się, jak przygotować się do zaplanowanych zdarzeń konserwacji na Azure Database for PostgreSQL.
 
@@ -21,7 +21,7 @@ Dowiedz się, jak przygotować się do zaplanowanych zdarzeń konserwacji na Azu
 
 Usługa Azure Database for PostgreSQL wykonuje zautomatyzowane stosowanie poprawek podstawowego sprzętu, systemu operacyjnego i aparatu bazy danych. Poprawka obejmuje nowe funkcje usługi, zabezpieczenia i aktualizacje oprogramowania. W przypadku aparatu PostgreSQL uaktualnienia wersji pomocniczej są automatyczne i uwzględniane jako część cyklu poprawek. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika ani ustawień konfiguracji. Poprawka jest przeprowadzana w szerokim zakresie i przeprowadzona przy użyciu bezpiecznych praktyk wdrażania.
 
-Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane na serwerach w danym regionie świadczenia usługi Azure. Podczas planowanej konserwacji jest tworzone zdarzenie powiadamiania informujące klientów o wdrożeniu aktualizacji usługi w regionie platformy Azure, w którym znajdują się serwery. Minimalny czas trwania między dwoma planowanymi konserwacjami to 30 dni. Otrzymasz powiadomienie o następnym przedziale czasu obsługi 72 godzin.
+Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane na serwerach w danym regionie świadczenia usługi Azure. Podczas planowanej konserwacji jest tworzone zdarzenie powiadomienia informujące klientów o wdrożeniu aktualizacji usługi w regionie świadczenia platformy Azure, w którym serwery są hostowane. Minimalny czas trwania między dwoma planowanymi konserwacjami to 30 dni. 72 godziny wcześniej otrzymasz powiadomienie o następnym oknie obsługi.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Planowana konserwacja — czas trwania i wpływ klienta
 
@@ -61,7 +61,7 @@ Możesz sprawdzić powiadomienie dotyczące planowanej konserwacji na Azure Port
 7. Upewnij się, że w momencie utworzenia reguły włączania zostanie ustawiona wartość tak.
 8. Wybierz pozycję **Utwórz regułę alertu** , aby zakończyć alert
 
-Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi**można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications-portal.md).
+Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi** można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Czy mogę anulować lub odroczyć planowaną konserwację?
 
@@ -78,7 +78,7 @@ Błąd przejściowy, nazywany także błędem przejściowym, jest błędem, któ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for PostgreSQL, Wyślij wiadomość e-mail do zespołu Azure Database for PostgreSQL pod adresem *AskAzureDBforMySQL@service.microsoft.com* .
+- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for PostgreSQL, Wyślij wiadomość e-mail do zespołu Azure Database for PostgreSQL pod adresem *AskAzureDBforPostgreSQL@service.microsoft.com* .
 - Zobacz [jak skonfigurować alerty](howto-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - [Rozwiązywanie problemów z połączeniem do Azure Database for PostgreSQL-pojedynczego serwera](howto-troubleshoot-common-connection-issues.md)
 - [Obsługa błędów przejściowych i wydajne łączenie się z Azure Database for PostgreSQL-pojedynczym serwerem](concepts-connectivity.md)

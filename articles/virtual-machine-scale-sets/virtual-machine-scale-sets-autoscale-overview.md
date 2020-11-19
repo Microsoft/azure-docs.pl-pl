@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86527408"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888797"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Omówienie autoskalowania w zestawach skalowania maszyn wirtualnych platformy Azure
 Zestaw skalowania maszyn wirtualnych platformy Azure może automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych, na których działa aplikacja. To automatyczne i elastyczne zachowanie zmniejsza obciążenie związane z zarządzaniem w celu monitorowania i optymalizowania wydajności aplikacji. Tworzysz reguły, które definiują akceptowalną wydajność dla pozytywnego środowiska klienta. Po spełnieniu tych zdefiniowanych progów reguły automatycznego skalowania podejmują działania w celu dostosowania pojemności zestawu skalowania. Możesz również zaplanować zdarzenia, aby automatycznie zwiększać lub zmniejszać pojemność zestawu skalowania w ustalonych odstępach czasu. Ten artykuł zawiera omówienie dostępnych metryk wydajności i działań, które mogą być wykonywane automatycznie.
@@ -22,6 +22,9 @@ Zestaw skalowania maszyn wirtualnych platformy Azure może automatycznie zwięks
 
 ## <a name="benefits-of-autoscale"></a>Zalety automatycznego skalowania
 Wraz ze wzrostem zapotrzebowania aplikacji zwiększa się obciążenie wystąpień maszyn wirtualnych w zestawie skalowania. Jeśli wzrost obciążenia ma cechy stałego trendu, można skonfigurować reguły skalowania automatycznego umożliwiające zwiększenie liczby wystąpień maszyn wirtualnych w zestawie skalowania.
+
+> [!NOTE]
+> W przypadku korzystania z automatycznych napraw wystąpienia w zestawie skalowania Maksymalna liczba wystąpień w zestawie skalowania może wynosić 200. Dowiedz się więcej o [automatycznym naprawianiu wystąpień](./virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 Gdy aplikacje zostaną wdrożone, zestaw skalowania rozpoczyna kierowanie ruchu do nowo utworzonych wystąpień maszyn wirtualnych za pośrednictwem modułu równoważenia obciążenia. Użytkownik kontroluje, jakie metryki mają być monitorowane, takie jak procesor CPU lub pamięć, jak długo obciążenie aplikacji musi spełniać daną wartość progową oraz liczbę wystąpień maszyn wirtualnych do dodania do zestawu skalowania.
 
@@ -75,7 +78,7 @@ Podczas tworzenia reguł skalowania automatycznego w celu monitorowania danej me
 | Średnia          |
 | Minimum          |
 | Maksimum          |
-| Suma            |
+| Łącznie            |
 | Ostatnie             |
 | Liczba            |
 
@@ -135,7 +138,7 @@ Można tworzyć reguły automatycznego skalowania, które korzystają z metryk o
 - [Interfejs wiersza polecenia platformy Azure](tutorial-autoscale-cli.md)
 - [Szablon Azure](tutorial-autoscale-template.md)
 
-W tym omówieniu szczegółowo opisano sposób używania reguł skalowania automatycznego w celu skalowania w poziomie i zwiększania lub zmniejszania *liczby* wystąpień maszyn wirtualnych w zestawie skalowania. Możesz również skalować w pionie, aby zwiększyć lub zmniejszyć *rozmiar*wystąpienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [pionowy Skalowanie automatyczne przy użyciu zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+W tym omówieniu szczegółowo opisano sposób używania reguł skalowania automatycznego w celu skalowania w poziomie i zwiększania lub zmniejszania *liczby* wystąpień maszyn wirtualnych w zestawie skalowania. Możesz również skalować w pionie, aby zwiększyć lub zmniejszyć *rozmiar* wystąpienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [pionowy Skalowanie automatyczne przy użyciu zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Aby uzyskać informacje na temat zarządzania wystąpieniami maszyn wirtualnych, zobacz [Zarządzanie zestawami skalowania maszyn wirtualnych za pomocą Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 

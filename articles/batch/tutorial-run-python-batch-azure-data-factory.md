@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c66c14d42c3d14fc4171f6fdfaf2e7f75a531507
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185115"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886910"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zainstalowana dystrybucja języka [Python](https://www.python.org/downloads/) do testowania lokalnego.
-* Pakiet [platformy Azure](https://pypi.org/project/azure/) `pip` .
+* Pakiet [Azure-Storage-BLOB](https://pypi.org/project/azure-storage-blob/) `pip` .
 * [Zestaw danychiris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Konto usługi Azure Batch i połączone konto usługi Azure Storage. Zobacz [Tworzenie konta usługi Batch](quick-create-portal.md#create-a-batch-account) , aby uzyskać więcej informacji na temat tworzenia i łączenia kont usługi Batch z kontami magazynu.
 * Konto Azure Data Factory. Aby uzyskać więcej informacji na temat tworzenia fabryki danych za pomocą Azure Portal, zobacz temat [Tworzenie fabryki danych](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) .
@@ -54,10 +54,10 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli usługi Batch, która b�
 1. Wybierz konto w usłudze Batch
 1. Utwórz pulę, wybierając pozycję **Pule** na pasku po lewej stronie, a następnie przycisk **Dodaj** nad formularzem wyszukiwania. 
     1. Wybierz identyfikator i nazwę wyświetlaną. Będziemy używać `custom-activity-pool` tego przykładu.
-    1. Ustaw typ skali na **stały rozmiar**i ustaw liczbę węzłów dedykowanych na 2.
-    1. W obszarze **nauka danych**wybierz pozycję **Dsvm systemu Windows** jako system operacyjny.
+    1. Ustaw typ skali na **stały rozmiar** i ustaw liczbę węzłów dedykowanych na 2.
+    1. W obszarze **nauka danych** wybierz pozycję **Dsvm systemu Windows** jako system operacyjny.
     1. Wybierz `Standard_f2s_v2` rozmiar maszyny wirtualnej.
-    1. Włącz zadanie uruchamiania i Dodaj polecenie `cmd /c "pip install pandas"` . Tożsamość użytkownika może pozostać jako domyślny **użytkownik puli**.
+    1. Włącz zadanie uruchamiania i Dodaj polecenie `cmd /c "pip install azure-storage-blob pandas"` . Tożsamość użytkownika może pozostać jako domyślny **użytkownik puli**.
     1. Wybierz przycisk **OK**.
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów BLOB
@@ -75,17 +75,17 @@ Poniższy skrypt w języku Python ładuje `iris.csv` zestaw danych z `input` kon
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                )
 
 # Load iris dataset from the task node
@@ -98,10 +98,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-Zapisz skrypt jako `main.py` i przekaż go do kontenera **usługi Azure Storage** . Przed przekazaniem do kontenera obiektów BLOB upewnij się, że funkcja jest testowana i sprawdzana lokalnie.
+Zapisz skrypt jako `main.py` i przekaż go do kontenera **usługi Azure Storage** `input` . Przed przekazaniem do kontenera obiektów BLOB upewnij się, że funkcja jest testowana i sprawdzana lokalnie.
 
 ``` bash
 python main.py
@@ -126,8 +128,8 @@ W tej sekcji utworzysz potok i zweryfikujesz go za pomocą skryptu języka Pytho
     ![Na karcie Azure Batch Dodaj konto usługi Batch, które zostało utworzone w poprzednich krokach, a następnie Testuj połączenie](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. Na karcie **Ustawienia** wprowadź polecenie `python main.py` .
-1. W przypadku **połączonej usługi zasobów**Dodaj konto magazynu, które zostało utworzone w poprzednich krokach. Przetestuj połączenie, aby upewnić się, że zakończyło się pomyślnie.
-1. W **ścieżce folderu**wybierz nazwę kontenera **BLOB Storage platformy Azure** , który zawiera skrypt języka Python i skojarzone dane wejściowe. Spowoduje to pobranie wybranych plików z kontenera do wystąpień węzłów puli przed wykonaniem skryptu języka Python.
+1. W przypadku **połączonej usługi zasobów** Dodaj konto magazynu, które zostało utworzone w poprzednich krokach. Przetestuj połączenie, aby upewnić się, że zakończyło się pomyślnie.
+1. W **ścieżce folderu** wybierz nazwę kontenera **BLOB Storage platformy Azure** , który zawiera skrypt języka Python i skojarzone dane wejściowe. Spowoduje to pobranie wybranych plików z kontenera do wystąpień węzłów puli przed wykonaniem skryptu języka Python.
 
     ![W ścieżce folderu wybierz nazwę kontenera Blob Storage platformy Azure](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Aby sprawdzić poprawność ustawień potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi potoku powyżej kanwy. Sprawdź, czy potok został pomyślnie zweryfikowany. Wybierz przycisk &gt;&gt; (strzałka w prawo), aby zamknąć dane wyjściowe weryfikacji.

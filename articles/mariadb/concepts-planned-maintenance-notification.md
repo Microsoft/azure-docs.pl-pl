@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 61313a1790fe51cb26168622cc871076c40bb511
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490836"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887437"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Powiadomienie o planowanej konserwacji w Azure Database for MariaDB
 
@@ -21,7 +21,7 @@ Dowiedz się, jak przygotować się do zaplanowanych zdarzeń konserwacji na Azu
 
 Usługa Azure Database for MariaDB wykonuje zautomatyzowane stosowanie poprawek podstawowego sprzętu, systemu operacyjnego i aparatu bazy danych. Poprawka obejmuje nowe funkcje usługi, zabezpieczenia i aktualizacje oprogramowania. W przypadku aparatu MariaDB uaktualnienia wersji pomocniczej są automatyczne i uwzględniane jako część cyklu poprawek. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika ani ustawień konfiguracji. Poprawka jest przeprowadzana w szerokim zakresie i przeprowadzona przy użyciu bezpiecznych praktyk wdrażania.
 
-Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane na serwerach w danym regionie świadczenia usługi Azure. Podczas planowanej konserwacji jest tworzone zdarzenie powiadamiania informujące klientów o wdrożeniu aktualizacji usługi w regionie platformy Azure, w którym znajdują się serwery. Minimalny czas trwania między dwoma planowanymi konserwacjami to 30 dni. Otrzymasz powiadomienie o następnym przedziale czasu obsługi 72 godzin.
+Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane na serwerach w danym regionie świadczenia usługi Azure. Podczas planowanej konserwacji jest tworzone zdarzenie powiadomienia informujące klientów o wdrożeniu aktualizacji usługi w regionie świadczenia platformy Azure, w którym serwery są hostowane. Minimalny czas trwania między dwoma planowanymi konserwacjami to 30 dni. 72 godziny wcześniej otrzymasz powiadomienie o następnym oknie obsługi.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Planowana konserwacja — czas trwania i wpływ klienta
 
@@ -61,7 +61,7 @@ Możesz sprawdzić powiadomienie dotyczące planowanej konserwacji na Azure Port
 7. Upewnij się, że w momencie utworzenia reguły włączania zostanie ustawiona wartość tak.
 8. Wybierz pozycję **Utwórz regułę alertu** , aby zakończyć alert
 
-Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi**można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
+Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi** można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Czy mogę anulować lub odroczyć planowaną konserwację?
 
@@ -78,7 +78,7 @@ Błąd przejściowy, nazywany także błędem przejściowym, jest błędem, któ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MariaDB, Wyślij wiadomość e-mail do zespołu Azure Database for MariaDB pod adresem *AskAzureDBforMySQL@service.microsoft.com* .
+- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MariaDB, Wyślij wiadomość e-mail do zespołu Azure Database for MariaDB w **AskAzureDBforMariaDB@service.microsoft.com**
 - Zobacz [jak skonfigurować alerty](howto-alert-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - [Rozwiązywanie problemów z połączeniem z usługą Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Obsługa błędów przejściowych i wydajne łączenie się z Azure Database for MariaDB](concepts-connectivity.md)

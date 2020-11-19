@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: Tworzenie grupy zarządzania przy użyciu języka JavaScript'
 description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu zorganizowania zasobów w hierarchii zasobów przy użyciu języka JavaScript.
-ms.date: 09/30/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676221"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886604"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Szybki Start: Tworzenie grupy zarządzania przy użyciu języka JavaScript
 
@@ -71,7 +71,7 @@ Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów plat
        const createMG = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.createOrUpdate(
+          const result = await client.managementGroups.createOrUpdate(
              groupId: argv.groupID,
              {
                  displayName: argv.displayName
@@ -90,7 +90,7 @@ Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów plat
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Pamiętaj, aby zastąpić każdy `<>` symbol zastępczy tokenu _identyfikatorem grupy zarządzania_ i _przyjazną nazwą grupy zarządzania_ .
+   Pamiętaj, aby zastąpić każdy `<>` symbol zastępczy tokenu _identyfikatorem grupy zarządzania_ i _przyjazną nazwą grupy zarządzania_.
 
    Po próbie uwierzytelnienia skryptu w terminalu zostanie wyświetlony komunikat podobny do następującego:
 

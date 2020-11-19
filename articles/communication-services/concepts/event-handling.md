@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072122"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888729"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Obsługa zdarzeń w usłudze Azure Communications Services
 
@@ -22,13 +22,13 @@ ms.locfileid: "92072122"
 
 Usługi komunikacyjne platformy Azure integrują się z [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) , aby zapewnić niezawodne i skalowalne powiadomienia o zdarzeniach w czasie rzeczywistym. Celem tego artykułu jest ułatwienie konfigurowania aplikacji do nasłuchiwania zdarzeń usług komunikacyjnych. Na przykład możesz chcieć zaktualizować bazę danych, utworzyć element roboczy i dostarczyć Powiadomienie wypychane za każdym razem, gdy wiadomość SMS zostanie odebrana przy użyciu numeru telefonu skojarzonego z zasobem usług komunikacyjnych.
 
-Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która używa modelu publikowania/subskrybowania. Event Grid ma wbudowaną obsługę usług platformy Azure, takich jak [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) i [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Może ona dostarczać alerty zdarzeń do usług innych niż Azure przy użyciu elementów webhook. Aby zapoznać się z pełną listą programów obsługi zdarzeń obsługiwanych przez Event Grid, zobacz [wprowadzenie do Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która używa modelu publikowania/subskrybowania. Event Grid ma wbudowaną obsługę usług platformy Azure, takich jak [Azure Functions](../../azure-functions/functions-overview.md) i [Azure Logic Apps](../../azure-functions/functions-overview.md). Może ona dostarczać alerty zdarzeń do usług innych niż Azure przy użyciu elementów webhook. Aby zapoznać się z pełną listą programów obsługi zdarzeń obsługiwanych przez Event Grid, zobacz [wprowadzenie do Azure Event Grid](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagram przedstawiający model zdarzeń Azure Event Grid.":::
 
 ## <a name="events-types"></a>Typy zdarzeń
 
-Funkcja Event Grid używa [subskrypcji zdarzeń](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów. 
+Funkcja Event Grid używa [subskrypcji zdarzeń](../../event-grid/concepts.md#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów. 
 
 Usługi komunikacyjne platformy Azure emitują następujące typy zdarzeń:
 
@@ -50,7 +50,7 @@ Możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure, ab
 
 ## <a name="event-subjects"></a>Tematy zdarzeń
 
-`subject`Pole wszystkich zdarzeń usług komunikacyjnych identyfikuje użytkownika, numer telefonu lub jednostkę, która jest przeznaczona dla zdarzenia. Typowe prefiksy służą do zezwalania na proste [filtrowanie Event Grid](https://docs.microsoft.com/azure/event-grid/event-filtering).
+`subject`Pole wszystkich zdarzeń usług komunikacyjnych identyfikuje użytkownika, numer telefonu lub jednostkę, która jest przeznaczona dla zdarzenia. Typowe prefiksy służą do zezwalania na proste [filtrowanie Event Grid](../../event-grid/event-filtering.md).
 
 | Prefiks podmiotu                              | Jednostka usługi komunikacyjnej |
 | ------------------------------------------- | ---------------------------- |
@@ -351,6 +351,6 @@ Ta sekcja zawiera przykład sposobu, w jaki będą wyglądały dane dla każdego
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
-* Aby zapoznać się z wprowadzeniem do Azure Event Grid pojęć, zobacz [pojęcia w Event Grid?](https://docs.microsoft.com/azure/event-grid/concepts)
-* Aby zapoznać się z wprowadzeniem do Azure Event Grid SystemTopics, zobacz [Tematy systemowe w Azure Event Grid?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](../../event-grid/overview.md)
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid pojęć, zobacz [pojęcia w Event Grid?](../../event-grid/concepts.md)
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid SystemTopics, zobacz [Tematy systemowe w Azure Event Grid?](../../event-grid/system-topics.md)

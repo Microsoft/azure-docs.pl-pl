@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677421"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888576"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -40,25 +40,21 @@ Przykład zawiera aplikację po stronie klienta i aplikację po stronie serwera.
 
 Oto jak wygląda przykład:
 
-:::image type="content" source="./media/chat/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
+:::image type="content" source="./media/chat/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.":::
 
-Po naciśnięciu przycisku &quot;Rozpocznij rozmowę" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o podanie nazwy i znaku emoji, który będzie reprezentował Ciebie w rozmowie. 
+Po naciśnięciu przycisku "Rozpocznij rozmowę" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o podanie nazwy i znaku emoji, który będzie reprezentował Ciebie w rozmowie. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
-
-Po naciśnięciu przycisku &quot;Rozpocznij rozmowę":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Zrzut ekranu przedstawiający ekran przedczatu aplikacji.":::
 
 Po skonfigurowaniu nazwy wyświetlanej i Emoji można dołączyć do sesji rozmowy. Zostanie wyświetlona główna Kanwa rozmowy, w której znajduje się podstawowe doświadczenie z rozmowy.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
-
-Po naciśnięciu przycisku &quot;Rozpocznij rozmowę":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Zrzut ekranu przedstawiający ekran główny aplikacji przykładowej.":::
 
 Składniki głównego ekranu czatu:
 
-- **Główny obszar rozmowy** : jest to podstawowe środowisko rozmowy, w którym użytkownicy mogą wysyłać i odbierać wiadomości. Aby wysyłać komunikaty, możesz użyć obszaru wprowadzania i nacisnąć klawisz ENTER (lub użyć przycisku Wyślij). Odebrane komunikaty czatu są kategoryzowane przez nadawcę przy użyciu poprawnej nazwy i Emoji. W obszarze rozmowa są wyświetlane dwa typy powiadomień: 1) wpisywanie powiadomień podczas wpisywania przez użytkownika i 2) wysyłania i odczytywania powiadomień dotyczących komunikatów.
-- **Nagłówek** : to miejsce, w którym użytkownik zobaczy tytuł wątku rozmowy i kontrolki do przełączania uczestników i ustawień paski boczne oraz przycisk opuszczania, aby zakończyć sesję rozmowy.
-- **Pasek boczny** : wskazuje, że uczestnicy i informacje o ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Pasek boczny uczestników zawiera listę uczestników rozmowy i link umożliwiający Zapraszanie uczestników do sesji rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie tytułu wątku rozmowy. 
+- **Główny obszar rozmowy**: jest to podstawowe środowisko rozmowy, w którym użytkownicy mogą wysyłać i odbierać wiadomości. Aby wysyłać komunikaty, możesz użyć obszaru wprowadzania i nacisnąć klawisz ENTER (lub użyć przycisku Wyślij). Odebrane komunikaty czatu są kategoryzowane przez nadawcę przy użyciu poprawnej nazwy i Emoji. W obszarze rozmowa są wyświetlane dwa typy powiadomień: 1) wpisywanie powiadomień podczas wpisywania przez użytkownika i 2) wysyłania i odczytywania powiadomień dotyczących komunikatów.
+- **Nagłówek**: to miejsce, w którym użytkownik zobaczy tytuł wątku rozmowy i kontrolki do przełączania uczestników i ustawień paski boczne oraz przycisk opuszczania, aby zakończyć sesję rozmowy.
+- **Pasek boczny**: wskazuje, że uczestnicy i informacje o ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Pasek boczny uczestników zawiera listę uczestników rozmowy i link umożliwiający Zapraszanie uczestników do sesji rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie tytułu wątku rozmowy. 
 
 Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków związanych z konfigurowaniem przykładu.
 
@@ -122,4 +118,4 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Redux](https://redux.js.org/) — zarządzanie stanem po stronie klienta
 - [FluentUI](https://aka.ms/fluent-ui) — Biblioteka interfejsu użytkownika zasilanego przez firmę Microsoft
 - [Reagowanie](https://reactjs.org/) — Biblioteka do tworzenia interfejsów użytkownika
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) — platforma do tworzenia aplikacji sieci Web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) — platforma do tworzenia aplikacji sieci Web

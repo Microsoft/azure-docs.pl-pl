@@ -2,17 +2,17 @@
 title: Odwołanie do składni Azure Service Bus sqlfilter | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje na temat gramatyki xmlfilter. Element sqlfilter obsługuje podzestaw standardu SQL-92.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341588"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888474"
 ---
 # <a name="sqlfilter-syntax"></a>Składnia elementu SQLFilter
 
-Obiekt *sqlfilter* jest wystąpieniem [klasy sqlfilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)i reprezentuje wyrażenie filtru oparte na języku SQL, które jest oceniane względem [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Element sqlfilter obsługuje podzestaw standardu SQL-92.  
+Obiekt *sqlfilter* jest wystąpieniem [klasy sqlfilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)i reprezentuje wyrażenie filtru oparte na języku SQL, które jest oceniane względem [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Element sqlfilter obsługuje podzestaw standardu SQL-92.  
   
  W tym temacie przedstawiono szczegółowe informacje na temat gramatyki xmlfilter.  
   
@@ -134,16 +134,16 @@ A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.
   
 ### <a name="arguments"></a>Argumenty  
   
--   `<integer_constant>` jest ciągiem liczb, które nie są ujęte w cudzysłów i nie zawierają punktów dziesiętnych. Wartości są przechowywane jako `System.Int64` wewnętrznie i zgodne z tym samym zakresem.  
+-   `<integer_constant>` jest ciągiem liczb, które nie są ujęte w znaki cudzysłowu i nie zawierają punktów dziesiętnych. Wartości są przechowywane jako `System.Int64` wewnętrznie i zgodne z tym samym zakresem.  
   
-     Są to przykłady długich stałych:  
+     Oto przykłady długich stałych:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>` jest ciągiem liczb, które nie są ujęte w cudzysłów i zawierają separator dziesiętny. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością.  
+-   `<decimal_constant>` jest ciągiem liczb, które nie są ujęte w znaki cudzysłowu i zawierają separator dziesiętny. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością.  
   
      W przyszłych wersjach ten numer może być przechowywany w innym typie danych do obsługi dokładnej semantyki liczb, dlatego nie należy polegać na tym, że jest to typ danych bazowych `System.Double` `<decimal_constant>` .  
   
@@ -192,11 +192,11 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
   
 ### <a name="remarks"></a>Uwagi
   
-`newid()`Funkcja zwraca obiekt **System. GUID** wygenerowany przez `System.Guid.NewGuid()` metodę.  
+`newid()`Funkcja zwraca `System.Guid` wygenerowany przez `System.Guid.NewGuid()` metodę.  
   
 `property(name)`Funkcja zwraca wartość właściwości, do której odwołuje się `name` . `name`Wartość może być dowolnym prawidłowym wyrażeniem zwracającym wartość ciągu.  
   
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Kwestie do rozważenia
   
 Rozważ użycie następujących semantyki [sqlfilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) :  
   
@@ -218,13 +218,13 @@ Rozważ użycie następujących semantyki [sqlfilter](/dotnet/api/microsoft.serv
   
   Nieznana Ocena w operatorach arytmetycznych:  
   
-- W przypadku operatorów binarnych, jeśli po lewej i/lub prawej stronie operandów jest oceniane jako **nieznany**, wynik jest **nieznany**.  
+- W przypadku operatorów binarnych, jeśli po lewej lub po prawej stronie operandów jest oceniane jako **nieznany**, wynik jest **nieznany**.  
   
 - W przypadku operatorów jednoargumentowych, jeśli operand jest oceniany jako **nieznany**, wynik jest **nieznany**.  
   
   Nieznana Ocena w binarnych operatorach porównania:  
   
-- Jeśli po lewej i/lub prawej stronie operandów jest oceniane jako **nieznany**, wynik jest **nieznany**.  
+- Jeśli po lewej lub po prawej stronie operandów jest oceniane jako **nieznany**, wynik jest **nieznany**.  
   
   Nieznana Ocena w `[NOT] LIKE` :  
   
@@ -267,6 +267,58 @@ Rozważ użycie następujących semantyki [sqlfilter](/dotnet/api/microsoft.serv
 -   Operatory porównania, takie jak,,,, `>` `>=` `<` `<=` `!=` i `=` postępują według tej samej semantyki co powiązanie operatora języka C# w promocjach typu danych i konwersje niejawne.  
   
 -   Operatory arytmetyczne, takie jak,,, `+` `-` `*` `/` i `%` stosują tę samą semantykę co powiązanie operatora języka C# w promocjach typu danych i konwersje niejawne.
+
+
+## <a name="examples"></a>Przykłady
+
+### <a name="set-rule-action-for-a-sql-filter"></a>Ustawianie akcji reguły dla filtru SQL
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>Filtr SQL dla właściwości systemowej
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>Przy użyciu lub 
+
+```csharp
+ sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>Używanie w i nie w
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Aby zapoznać się z przykładem w języku C#, zobacz [przykładowe filtry tematu w witrynie GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

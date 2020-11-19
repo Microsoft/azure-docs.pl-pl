@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6efcadf85816bb6aa014893bb9b20476a0701990
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968365"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886757"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorowanie i przeglądanie dzienników lokalnych środowisk ochrony haseł usługi Azure AD
 
@@ -66,15 +66,19 @@ Zdarzenia związane z walidacją hasła klucza są następujące:
 
 | Zdarzenie |Zmiana hasła |Ustawiono hasło|
 | --- | :---: | :---: |
-|Chodzenia |10014 |10015|
+|Zdane |10014 |10015|
 |Niepowodzenie (z powodu zasad haseł klienta)| 10016, 30002| 10017, 30003|
 |Niepowodzenie (z powodu zasad haseł firmy Microsoft)| 10016, 30004| 10017, 30005|
 |Niepowodzenie (ze względu na połączone zasady haseł firmy Microsoft i klientów)| 10016, 30026| 10017, 30027|
+|Niepowodzenie (ze względu na nazwę użytkownika)| 10016, 30021| 10017, 30022|
 |Przekazywanie tylko do inspekcji (nie powiodło się zasady haseł klienta)| 10024, 30008| 10025, 30007|
 |Zakończyło się tylko Inspekcja (w przypadku niepowodzenia zasad haseł firmy Microsoft)| 10024, 30010| 10025, 30009|
 |Zakończyło się tylko Inspekcja (nie udało się połączyć zasad haseł firmy Microsoft i klientów)| 10024, 30028| 10025, 30029|
+|Przekazywanie tylko do inspekcji (nie powiodło się z powodu nazwy użytkownika)| 10016, 30024| 10017, 30023|
 
 Przypadki w powyższej tabeli odnoszące się do "połączonych zasad" odnoszą się do sytuacji, w których znaleziono hasło użytkownika zawierające co najmniej jeden token z listy zakazanych haseł Microsoft i listy haseł wykluczonych od klientów.
+
+Przypadki w powyższej tabeli odnoszące się do "Nazwa użytkownika" odnoszą się do sytuacji, w których znaleziono hasło użytkownika zawierające nazwę konta użytkownika i/lub jedną z przyjaznych nazw użytkownika. Każdy scenariusz spowoduje odrzucenie hasła użytkownika, gdy zasady są ustawione na wymuszanie lub przekazanie, jeśli zasady są w trybie inspekcji.
 
 Gdy para zdarzeń jest rejestrowana razem, oba zdarzenia są jawnie skojarzone przez posiadanie tego samego korelacji.
 

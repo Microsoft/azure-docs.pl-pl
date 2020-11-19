@@ -5,12 +5,12 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Opisuje proces migracji z Azure Dev Spaces do mostka do Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
-ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895260"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888525"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
 
@@ -85,7 +85,7 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 1. Jeśli używasz programu Visual Studio, zaktualizuj środowisko IDE programu Visual Studio do wersji 16,7 lub nowszej i zainstaluj mostek do rozszerzenia Kubernetes z [Visual Studio Marketplace][vs-marketplace]. Jeśli używasz Visual Studio Code, zainstaluj [mostek do rozszerzenia Kubernetes][vsc-marketplace].
 1. Wyłącz kontroler Azure Dev Spaces przy użyciu Azure Portal lub [interfejsu wiersza polecenia Azure dev Spaces][azds-delete].
 1. Użyj [Azure Cloud Shell](https://shell.azure.com). Lub na komputerach Mac, Linux lub Windows z zainstalowanym programem bash Otwórz wiersz polecenia powłoki bash. Upewnij się, że następujące narzędzia są dostępne w środowisku wiersza polecenia: Azure CLI, Docker, polecenia kubectl, zwinięcie, tar i gunzip.
-1. Utwórz rejestr kontenerów lub Użyj istniejącego. Rejestr kontenerów można utworzyć na platformie Azure przy użyciu [Azure Container Registry](../container-registry/index.yml) lub przy użyciu narzędzia [Docker Hub](https://hub.docker.com/). W przypadku korzystania z Azure Cloud Shell tylko Azure Container Registry jest dostępny do hostowania obrazów platformy Docker.
+1. Utwórz rejestr kontenerów lub Użyj istniejącego. Rejestr kontenerów można utworzyć na platformie Azure przy użyciu [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) lub przy użyciu narzędzia [Docker Hub](https://hub.docker.com/). W przypadku korzystania z Azure Cloud Shell tylko Azure Container Registry jest dostępny do hostowania obrazów platformy Docker.
 1. Uruchom skrypt migracji w celu przekonwertowania Azure Dev Spaces zasobów na mostek do zasobów Kubernetes. Skrypt kompiluje nowy obraz zgodny z mostkiem Kubernetes, przekazuje go do wyoznaczonego rejestru, a następnie używa [Helm](https://helm.sh) do aktualizowania klastra przy użyciu obrazu. Należy podać grupę zasobów, nazwę klastra AKS oraz rejestr kontenerów. Dostępne są inne opcje wiersza polecenia, jak pokazano poniżej:
 
    ```azure-cli
@@ -117,7 +117,7 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 
 Można również użyć routingu specyficznego dla deweloperów z mostkiem do Kubernetes. Scenariusz opracowywania zespołu Azure Dev Spaces używa wielu przestrzeni nazw Kubernetes do izolowania usługi od reszty aplikacji przy użyciu koncepcji nadrzędnych i podrzędnych przestrzeni nazw. Mostek do Kubernetes oferuje tę samą funkcję, ale z ulepszonymi charakterystykami wydajności i w obrębie tej samej przestrzeni nazw aplikacji.
 
-Oba mostki do Kubernetes i Azure Dev Spaces wymagają, aby nagłówki HTTP były obecne i propagowane w całej aplikacji. Jeśli aplikacja została już skonfigurowana do obsługi propagacji nagłówków dla Azure Dev Spaces, należy zaktualizować nagłówek. Aby przejść do programu Bridge do Kubernetes z Azure Dev Spaces, zaktualizuj skonfigurowany nagłówek z *azds-Route-as* do *Kubernetes-Route-as* .
+Oba mostki do Kubernetes i Azure Dev Spaces wymagają, aby nagłówki HTTP były obecne i propagowane w całej aplikacji. Jeśli aplikacja została już skonfigurowana do obsługi propagacji nagłówków dla Azure Dev Spaces, należy zaktualizować nagłówek. Aby przejść do programu Bridge do Kubernetes z Azure Dev Spaces, zaktualizuj skonfigurowany nagłówek z *azds-Route-as* do *Kubernetes-Route-as*.
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Oceń mostek do Kubernetes
 

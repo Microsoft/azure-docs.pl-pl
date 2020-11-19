@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ecc25af19694c0befdd24b041807e2067db4f13b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362471"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886944"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Co to jest zarządzanie upoważnieniami w usłudze Azure AD?
 
@@ -144,17 +144,22 @@ Wyspecjalizowane chmury, takie jak Azure (Niemcy) i Azure (Chiny), nie są obecn
 Upewnij się, że Twój katalog ma co najmniej tyle licencji na Azure AD — wersja Premium P2, ile masz:
 
 - Użytkownicy będący członkami, którzy **mogą** zażądać pakietu dostępu.
-- Użytkownicy i Goście, którzy żądają pakietu dostępu.
-- Użytkownicy i Goście, którzy zatwierdzają żądania dla pakietu dostępu.
-- Użytkownicy i Goście, którzy mają bezpośrednie przypisanie do pakietu dostępu.
+- Użytkownicy i Goście, którzy <u>żądają</u> pakietu dostępu.
+- Użytkownicy i Goście, którzy <u>zatwierdzają żądania</u> dla pakietu dostępu.
+- Użytkownicy będący członkami, którzy <u>przeglądają przypisania</u> dla pakietu dostępu. 
+- Użytkownicy i Goście, którzy mają <u>bezpośrednie przypisanie</u> do pakietu dostępu.
+
+Dla użytkowników-Gości wymagania dotyczące licencjonowania będą zależeć od używanego [modelu licencjonowania](../external-identities/external-identities-pricing.md) . Jednak poniższe działania użytkowników-Gości są uważane za Azure AD — wersja Premium użycia P2:
+- Użytkownicy-Goście, którzy <u>żądają</u> pakietu dostępu. 
+- Użytkownicy-Goście, którzy <u>zatwierdzają żądania</u> dla pakietu dostępu.
+- Użytkownicy-Goście, którzy <u>przeglądają przypisania</u> dla pakietu dostępu.
+- Użytkownicy-Goście, którzy mają <u>bezpośrednie przypisanie</u> do pakietu dostępu. 
 
 Licencje na Azure AD — wersja Premium P2 **nie** są wymagane dla następujących zadań:
 
 - Dla użytkowników z rolą administratora globalnego, którzy konfigurują wykazy początkowe, pakiety dostępu i zasady, nie są wymagane żadne licencje i delegowanie zadań administracyjnych do innych użytkowników.
 - Nie są wymagane żadne licencje dla użytkowników, którzy zostali delegowane zadania administracyjne, takie jak twórca katalogu, właściciel katalogu i Menedżer pakietów dostępu.
 - Dla Gości, którzy **mogą** żądać pakietów dostępu, nie są wymagane żadne licencje, ale **nie** żądają pakietu dostępu.
-
-Cennik zewnętrzny usługi Azure AD (użytkownik-Gość) bazuje na comiesięcznych aktywnych użytkownikach (MAU), czyli liczbie unikatowych użytkowników z aktywnością uwierzytelniania w ciągu miesiąca kalendarzowego. Ten model zastępuje model rozliczeń dotyczący współczynnika 1:5, który zezwala maksymalnie pięciu użytkownikom-Gościom na każdą licencję Azure AD — wersja Premium w dzierżawie. Gdy dzierżawa jest połączona z subskrypcją i używasz funkcji tożsamości zewnętrznych do współpracy z użytkownikami-Gośćmi, będzie ona automatycznie rozliczana przy użyciu modelu rozliczania opartego na MAU. Aby uzyskać więcej informacji, zobacz model rozliczeń dla [tożsamości zewnętrznych usługi Azure AD](../external-identities/external-identities-pricing.md).
 
 Aby uzyskać więcej informacji na temat licencji, zobacz [przypisywanie lub usuwanie licencji przy użyciu portalu Azure Active Directory](../fundamentals/license-users-groups.md).
 

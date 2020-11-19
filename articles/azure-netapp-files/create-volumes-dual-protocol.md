@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 06885e3f6a1ceeebc7c0bb1053e36e9e95a0043e
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591652"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888780"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -51,14 +51,16 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
     |-  |-  |-  |-  |-  |
     | UNIX  | NFS   | NFSv3 tryb bitowy   | UNIX  | NFS i Windows   |
     | NTFS  | Windows   | Listy ACL NTFS     | NTFS  |NFS i Windows|
+* Użytkownicy systemu UNIX instalujący wolumin stylu zabezpieczeń NTFS przy użyciu systemu plików NFS zostaną uwierzytelnieni jako użytkownik systemu Windows `root` dla systemu UNIX `root` i `pcuser` dla wszystkich innych użytkowników. Przed zainstalowaniem woluminu w systemie plików NFS upewnij się, że te konta użytkowników znajdują się w Active Directory. 
+
 
 ## <a name="create-a-dual-protocol-volume"></a>Tworzenie woluminu dwuprotokołowego
 
-1.  Kliknij blok **woluminy** w bloku pule pojemności. Kliknij pozycję **+ Dodaj wolumin** , aby utworzyć wolumin. 
+1.  Kliknij blok **woluminy** w bloku pule pojemności. Kliknij pozycję **+ Dodaj wolumin**, aby utworzyć wolumin. 
 
     ![Przejdź do woluminów](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  W oknie Tworzenie woluminu kliknij pozycję **Utwórz** , a następnie podaj informacje dotyczące następujących pól na karcie podstawowe:   
+2.  W oknie Tworzenie woluminu kliknij pozycję **Utwórz**, a następnie podaj informacje dotyczące następujących pól na karcie podstawowe:   
     * **Nazwa woluminu**      
         Określ nazwę tworzonego woluminu.   
 
@@ -88,7 +90,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
         Określ podsieć, której chcesz użyć na potrzeby woluminu.  
         Określana podsieć musi być delegowana do usługi Azure NetApp Files. 
         
-        Jeśli podsieć nie została delegowana, można kliknąć pozycję **Utwórz nowe** na stronie Utwórz wolumin. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy** , aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
+        Jeśli podsieć nie została delegowana, można kliknąć pozycję **Utwórz nowe** na stronie Utwórz wolumin. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy**, aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
  
         ![Tworzenie woluminu](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -100,7 +102,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
         ![Pokaż zaznaczenie zaawansowane](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-3. Kliknij pozycję **Protokół** , a następnie wykonaj następujące czynności:  
+3. Kliknij pozycję **Protokół**, a następnie wykonaj następujące czynności:  
     * Wybierz pozycję **Dual-Protocol (NFSv3 i SMB)** jako typ protokołu dla woluminu.   
 
     * Z listy rozwijanej wybierz połączenie **Active Directory** .  

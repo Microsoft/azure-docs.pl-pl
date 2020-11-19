@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336456"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888814"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Szybki Start: Konfigurowanie Azure NetApp Files i Tworzenie woluminu NFS
 
@@ -33,8 +33,6 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 > [!IMPORTANT]
 > Musisz mieć udzielony dostęp do usługi Azure NetApp Files. Aby zażądać dostępu do usługi, zobacz [stronę Azure NetApp Files waitlist](https://aka.ms/azurenetappfiles).  Przed kontynuowaniem musisz poczekać na oficjalną wiadomość e-mail z potwierdzeniem z zespołu Azure NetApp Files.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ---
 
 ## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Zarejestruj się, aby uzyskać Azure NetApp Files i dostawcę zasobów NetApp
@@ -49,7 +47,7 @@ W przypadku kroków rejestracji przy użyciu portalu Otwórz sesję Cloud Shell,
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub nowszego. Uruchom polecenie `Get-Module -ListAvailable Az`, aby określić bieżącą wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli wolisz, możesz zamiast tego użyć konsoli Cloud Shell w sesji programu PowerShell.
 
@@ -64,6 +62,10 @@ Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 2.6.0 lub
     ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -85,14 +87,14 @@ Aby uzyskać więcej informacji, zobacz artykuł [Rejestrowanie na Azure NetApp 
 
       ![Wybierz Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
-2. Kliknij pozycję **+ Dodaj** , aby utworzyć nowe konto usługi NetApp.
+2. Kliknij pozycję **+ Dodaj**, aby utworzyć nowe konto usługi NetApp.
 
      ![Utwórz nowe konto NetApp](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
 3. W oknie nowe konto NetApp podaj następujące informacje:
    1. Wprowadź **myaccount1** dla nazwy konta.
    2. Wybierz subskrypcję.
-   3. Wybierz pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów. Wprowadź **myRG1** dla nazwy grupy zasobów. Kliknij pozycję **OK**.
+   3. Wybierz pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów. Wprowadź **myRG1** dla nazwy grupy zasobów. Kliknij przycisk **OK**.
    4. Wybierz lokalizację konta.
 
       ![Nowe okno konta NetApp](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)
@@ -101,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Rejestrowanie na Azure NetApp 
 
 4. Kliknij przycisk **Utwórz** , aby utworzyć nowe konto NetApp.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Zdefiniuj pewne zmienne, aby można było odwoływać się do nich w pozostałej części przykładów:
 
@@ -176,7 +178,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia konta NetApp w szablonie A
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W bloku zarządzanie Azure NetApp Files wybierz konto NetApp ( **myaccount1** ).
+1. W bloku zarządzanie Azure NetApp Files wybierz konto NetApp (**myaccount1**).
 
     ![Wybierz konto NetApp](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
@@ -196,7 +198,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia konta NetApp w szablonie A
 
 5. Kliknij pozycję **Utwórz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Definiowanie nowych zmiennych do użytku w przyszłości
 
@@ -260,7 +262,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia puli pojemności w szablon
 
 3. W oknie Tworzenie woluminu podaj informacje dotyczące woluminu:
    1. Wprowadź **myvol1** jako nazwę woluminu.
-   2. Wybierz swoją pulę pojemności ( **mypool1** ).
+   2. Wybierz swoją pulę pojemności (**mypool1**).
    3. Użyj wartości domyślnej dla limitu przydziału.
    4. W obszarze Sieć wirtualna kliknij pozycję **Utwórz nową** , aby utworzyć nową sieć wirtualną platformy Azure.  Następnie uzupełnij następujące informacje:
        * Wprowadź **myvnet1** jako nazwę sieci wirtualnej.
@@ -269,16 +271,16 @@ Poniższy fragment kodu przedstawia sposób tworzenia puli pojemności w szablon
        * Określ zakres adresów podsieci, na przykład 10.7.0.0/24. Nie można udostępnić dedykowanej podsieci innym zasobom.
        * Wybierz pozycję **Microsoft. NetApp/Volumes** dla delegowania podsieci.
        * Kliknij przycisk **OK** , aby utworzyć sieć wirtualną.
-   5. W obszarze podsieć wybierz nowo utworzoną sieć wirtualną ( **myvnet1** ) jako podsiecię delegata.
+   5. W obszarze podsieć wybierz nowo utworzoną sieć wirtualną (**myvnet1**) jako podsiecię delegata.
 
       ![Utwórz okno woluminu](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)
 
       ![Utwórz okno sieci wirtualnej](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)
 
-4. Kliknij pozycję **Protokół** , a następnie wykonaj następujące czynności:
+4. Kliknij pozycję **Protokół**, a następnie wykonaj następujące czynności:
     * Wybierz system **plików NFS** jako typ protokołu dla woluminu.
     * Wprowadź **myfilepath1** jako ścieżkę pliku, która zostanie użyta do utworzenia ścieżki eksportu dla woluminu.
-    * Wybierz wersję systemu plików NFS ( **NFSv3** lub **nfsv 4.1** ) dla woluminu.
+    * Wybierz wersję systemu plików NFS (**NFSv3** lub **nfsv 4.1**) dla woluminu.
       Zapoznaj się z [zagadnieniami](azure-netapp-files-create-volumes.md#considerations) i [najlepszym rozwiązaniem](azure-netapp-files-create-volumes.md#best-practice) dotyczącym wersji systemu plików NFS.
 
     ![Określanie protokołu NFS dla przewodnika Szybki Start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
@@ -292,7 +294,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia puli pojemności w szablon
 
     ![Utworzono wolumin](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 1. Utwórz delegowanie podsieci do "Microsoft. NetApp/Volumes" przy użyciu polecenia [New-AzDelegation](/powershell/module/az.network/new-azdelegation) .
 
@@ -425,7 +427,7 @@ Gdy wszystko będzie gotowe, a jeśli chcesz, możesz usunąć grupę zasobów. 
 
     ![Potwierdzenie usunięcia grupy zasobów](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png )
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Gdy wszystko będzie gotowe, a jeśli chcesz, możesz usunąć grupę zasobów. Akcja usuwania grupy zasobów jest nieodwracalna.
 

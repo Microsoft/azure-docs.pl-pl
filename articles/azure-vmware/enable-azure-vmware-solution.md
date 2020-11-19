@@ -3,12 +3,12 @@ title: Jak włączyć zasób rozwiązania Azure VMware
 description: Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby węzłów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: c9c31d8ffbf62a511f4f2ab19f995b6bc0ee0ca4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695150"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888440"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Jak włączyć zasób rozwiązania VMware dla platformy Azure
 Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób [rozwiązania VMware platformy Azure](introduction.md) . Możesz również zażądać większej liczby węzłów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
@@ -78,7 +78,7 @@ Dostawcy usług kryptograficznych muszą korzystać z [Centrum partnerskiego fir
 
 1. Przejrzyj i Zakończ ogólne ustawienia subskrypcji planu platformy Azure dla klienta. Aby uzyskać więcej informacji, zobacz [dokumentację Centrum partnerskiego firmy Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-Po skonfigurowaniu planu platformy Azure oraz wymaganych uprawnień RBAC w ramach dostawcy usług kryptograficznych nastąpi umożliwienie firmie Microsoft włączenia limitu przydziału dla subskrypcji planu platformy Azure. Dostęp do Azure Portal z Centrum partnerskiego przy użyciu procedury **administratora w imieniu** (AOBO).
+Po skonfigurowaniu planu platformy Azure i wymaganych uprawnieniach vSphere RBAC są stosowane jako dostawcy CSP, firma Microsoft może włączyć limit przydziału dla subskrypcji planu platformy Azure. Dostęp do Azure Portal z Centrum partnerskiego przy użyciu procedury **administratora w imieniu** (AOBO).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com).
 

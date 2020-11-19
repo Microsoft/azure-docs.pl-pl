@@ -4,12 +4,12 @@ description: Ten artykuł zawiera omówienie zarządzania aplikacją Service Fab
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 886b7d6b40bebf6234064b0627017db1d8cfe31f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681690"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888831"
 ---
 # <a name="service-fabric-application-resource-model"></a>Model zasobów aplikacji Service Fabric
 
@@ -91,6 +91,7 @@ Przykładowa aplikacja zawiera [szablony Azure Resource Manager](https://github.
 >
 >
 
+
 | Parametr              | Opis                                 | Przykład                                                      | Komentarze                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Nazwa klastra, na którym jest wdrażana | SF-cluster123                                                |                                                              |
@@ -137,6 +138,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Uaktualnij aplikację Service Fabric przy użyciu Menedżer zasobów
+
+
+> [!IMPORTANT]
+> Wszystkie usługi wdrażane za pomocą definicji JSON ARM muszą zostać usunięte z sekcji DefaultServices odpowiedniego pliku ApplicationManifest.xml.
+
 
 Możesz uaktualnić aplikację, która została już wdrożona w klastrze Service Fabric z jednego z następujących powodów:
 

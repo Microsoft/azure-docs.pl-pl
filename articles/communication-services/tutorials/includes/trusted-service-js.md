@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daf2d675bbbee324769b6e1e8d8d34587d37c72f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947382"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886627"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [arch
 
 ### <a name="azure-functions-set-up"></a>Konfiguracja Azure Functions
 
-Najpierw Skonfigurujmy podstawową strukturę naszej funkcji platformy Azure. Instrukcje krok po kroku dotyczące konfiguracji można znaleźć tutaj: [Tworzenie funkcji przy użyciu Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)
+Najpierw Skonfigurujmy podstawową strukturę naszej funkcji platformy Azure. Instrukcje krok po kroku dotyczące konfiguracji można znaleźć tutaj: [Tworzenie funkcji przy użyciu Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)
 
 Nasza funkcja platformy Azure wymaga następującej konfiguracji:
 
@@ -46,7 +46,7 @@ Nasza funkcja platformy Azure wymaga następującej konfiguracji:
 - Poziom autoryzacji: anonimowe (można go później zmienić, jeśli wolisz inny model autoryzacji)
 - Nazwa funkcji: zdefiniowane przez użytkownika
 
-Po wykonaniu [instrukcji Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript) w powyższej konfiguracji należy mieć projekt w Visual Studio Code dla funkcji platformy Azure z `index.js` plikiem zawierającym samą funkcję. Kod wewnątrz tego pliku powinien być następujący:
+Po wykonaniu [instrukcji Azure Functions](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript) w powyższej konfiguracji należy mieć projekt w Visual Studio Code dla funkcji platformy Azure z `index.js` plikiem zawierającym samą funkcję. Kod wewnątrz tego pliku powinien być następujący:
 
 ```javascript
 
@@ -128,15 +128,15 @@ W przypadku istniejących usług komunikacyjnych `CommunicationUser` można pomi
 
 ## <a name="test-the-azure-function"></a>Testowanie funkcji platformy Azure
 
-Uruchom lokalnie funkcję platformy Azure przy użyciu polecenia `F5` . Spowoduje to zainicjowanie funkcji platformy Azure lokalnie i udostępnienie jej w programie: `http://localhost:7071/api/FUNCTION_NAME` . Zapoznaj się z dodatkową dokumentacją na temat [uruchamiania lokalnego](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-locally)
+Uruchom lokalnie funkcję platformy Azure przy użyciu polecenia `F5` . Spowoduje to zainicjowanie funkcji platformy Azure lokalnie i udostępnienie jej w programie: `http://localhost:7071/api/FUNCTION_NAME` . Zapoznaj się z dodatkową dokumentacją na temat [uruchamiania lokalnego](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)
 
 Otwórz adres URL w przeglądarce i dla tokenu powinna zostać wyświetlona treść odpowiedzi z identyfikatorem użytkownika, tokenem i wygaśnięciem komunikacji.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Diagram dla architektury zaufanych usług":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Zrzut ekranu przedstawiający przykład odpowiedzi dla utworzonej funkcji platformy Azure.":::
 
 ## <a name="deploy-the-function-to-azure"></a>Wdróż funkcję na platformie Azure
 
-Aby wdrożyć funkcję platformy Azure, możesz wykonać [instrukcje krok po kroku](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#sign-in-to-azure)
+Aby wdrożyć funkcję platformy Azure, możesz wykonać [instrukcje krok po kroku](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
 Ogólnie rzecz biorąc, konieczne będzie:
 1. Logowanie do platformy Azure z poziomu programu Visual Studio
@@ -151,4 +151,4 @@ Uruchamianie funkcji platformy Azure przy użyciu adresu URL `http://<function-a
 
 Aby znaleźć adres URL, kliknij prawym przyciskiem myszy funkcję na Visual Studio Code i skopiuj adres URL funkcji.
 
-Aby uzyskać więcej informacji na temat [uruchamiania funkcji platformy Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-in-azure)
+Aby uzyskać więcej informacji na temat [uruchamiania funkcji platformy Azure](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-in-azure)

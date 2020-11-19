@@ -2,14 +2,14 @@
 title: Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 description: Pule obrazów niestandardowych są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń wsadowych.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0ba6270e6b6b4fcd258d8f5b3668931706f95b5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745530"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888355"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 
@@ -40,7 +40,7 @@ Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może z
 
 - **Konto usługi Azure Batch.** Aby utworzyć konto usługi Batch, zobacz Przewodnik Szybki Start w usłudze Batch przy użyciu [Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-- **Obraz udostępnionej galerii obrazów** . Aby utworzyć obraz udostępniony, musisz mieć lub utworzyć zasób obrazu zarządzanego. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych.
+- **Obraz udostępnionej galerii obrazów**. Aby utworzyć obraz udostępniony, musisz mieć lub utworzyć zasób obrazu zarządzanego. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych.
 
 > [!NOTE]
 > Jeśli udostępniony obraz nie znajduje się w tej samej subskrypcji co konto usługi Batch, należy [zarejestrować dostawcę zasobów Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) dla tej subskrypcji. Dwie subskrypcje muszą znajdować się w tej samej dzierżawie usługi Azure AD.
@@ -208,9 +208,9 @@ Wykonaj następujące kroki, aby utworzyć pulę z udostępnionego obrazu w Azur
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. Przejdź do pozycji **konta wsadowe** i wybierz swoje konto.
 1. Wybierz pozycję **Pule** , a następnie **Dodaj** , aby utworzyć nową pulę.
-1. W sekcji **Typ obrazu** wybierz pozycję **Galeria obrazów udostępnionych** .
+1. W sekcji **Typ obrazu** wybierz pozycję **Galeria obrazów udostępnionych**.
 1. Wypełnij pozostałe sekcje informacjami o zarządzanym obrazie.
-1. Wybierz przycisk **OK** .
+1. Wybierz przycisk **OK**.
 
 ![Utwórz pulę przy użyciu udostępnionego obrazu z portalem.](media/batch-sig-images/create-custom-pool.png)
 
@@ -218,7 +218,7 @@ Wykonaj następujące kroki, aby utworzyć pulę z udostępnionego obrazu w Azur
 
 Jeśli planujesz utworzenie puli z setkami lub tysiącami maszyn wirtualnych lub więcej przy użyciu udostępnionego obrazu, Skorzystaj z poniższych wskazówek.
 
-- **Numery replik galerii obrazów udostępnionych.**  W przypadku każdej puli z maksymalnie 600 wystąpieniami zalecamy zachowanie co najmniej jednej repliki. Na przykład, jeśli tworzysz pulę z 3000 maszyn wirtualnych, należy pozostawić co najmniej 5 replik obrazu. Zawsze sugerujemy przechowywanie większej liczby replik niż minimalne wymagania w celu uzyskania lepszej wydajności.
+- **Numery replik galerii obrazów udostępnionych.**  W przypadku każdej puli z maksymalnie 300 wystąpieniami zalecamy zachowanie co najmniej jednej repliki. Na przykład, jeśli tworzysz pulę z 3000 maszyn wirtualnych, należy pozostawić co najmniej 10 replik obrazu. Zawsze sugerujemy przechowywanie większej liczby replik niż minimalne wymagania w celu uzyskania lepszej wydajności.
 
 - **Limit czasu zmiany rozmiaru.** Jeśli pula zawiera stałą liczbę węzłów (jeśli nie ma automatycznego skalowania), zwiększ `resizeTimeout` Właściwość puli w zależności od rozmiaru puli. Dla każdego 1000 maszyn wirtualnych zalecany limit rozmiaru wynosi co najmniej 15 minut. Na przykład zalecany limit rozmiaru dla puli z maszynami wirtualnymi 2000 wynosi co najmniej 30 minut.
 

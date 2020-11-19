@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651247"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888712"
 ---
 # <a name="identity-model"></a>Model tożsamości
 
@@ -83,6 +83,6 @@ W przypadku buforowania tokenów dostępu do magazynu zapasowego zalecamy korzys
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do zarządzania tokenami, zobacz [Tworzenie tokenów dostępu i zarządzanie nimi](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
-* Aby zapoznać się z wprowadzeniem do uwierzytelniania, zobacz [uwierzytelnianie w usłudze Azure Communications Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
-* Aby uzyskać wprowadzenie do danych w miejscu zamieszkania i prywatności, zobacz [dostępność regionów i dane w miejscu zamieszkania](https://docs.microsoft.com/azure/communication-services/concepts/privacy).
+* Aby zapoznać się z wprowadzeniem do zarządzania tokenami, zobacz [Tworzenie tokenów dostępu i zarządzanie nimi](../quickstarts/access-tokens.md).
+* Aby zapoznać się z wprowadzeniem do uwierzytelniania, zobacz [uwierzytelnianie w usłudze Azure Communications Services](./authentication.md).
+* Aby uzyskać wprowadzenie do danych w miejscu zamieszkania i prywatności, zobacz [dostępność regionów i dane w miejscu zamieszkania](./privacy.md).

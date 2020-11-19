@@ -89,14 +89,9 @@
     - name: Notesy programu Jupyter
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Repozytorium przykładów
-      displayName: 'example, examples, jupyter, python, notebook, github'
-      href: 'https://github.com/Azure/azureml-examples'
     - name: Przykłady i zestawy danych projektanta
       displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
-    - name: Kompleksowe przykłady metodyki MLOps
-      href: 'https://github.com/microsoft/MLOps'
     - name: Open Datasets (wersja publiczna)
       href: ../open-datasets/samples.md?context=azure%252fmachine-learning%252fcontext%252fml-context
 - name: Pojęcia

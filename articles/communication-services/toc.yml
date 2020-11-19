@@ -103,15 +103,15 @@
     - name: Przegląd dokumentacji referencyjnej
       href: concepts/reference.md
     - name: Dokumentacja interfejsu API REST
-      href: 'https://docs.microsoft.com/rest/api/communication/'
+      href: /rest/api/communication/
     - name: Wywoływanie bibliotek
       items:
         - name: Wywoływanie (JavaScript)
-          href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+          href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
         - name: Wywoływanie (Android/Java)
-          href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+          href: /java/api/com.azure.communication.calling?view=communication-services-java-android
         - name: Wywoływanie (iOS)
-          href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+          href: /objectivec/communication-services/calling/
     - name: Biblioteki czatu
       items:
         - name: Czat (JavaScript)

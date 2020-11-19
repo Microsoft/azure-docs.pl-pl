@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b8d74f86fc9c3d2cc020628f67c36d8d67973fff
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128654"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888661"
 ---
 # <a name="metrics-overview"></a>Przegląd metryk
 
-Usługi Azure Communication Services obecnie udostępniają metryki dla programów chat i SMS. Za pomocą [usługi Azure Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) można wykreślać własne wykresy, badać nienormalne wartości metryk i zrozumieć ruch związany z interfejsem API przy użyciu danych metryk wysyłanych przez czat i żądania SMS.
+Usługi Azure Communication Services obecnie udostępniają metryki dla programów chat i SMS. Za pomocą [usługi Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md) można wykreślać własne wykresy, badać nienormalne wartości metryk i zrozumieć ruch związany z interfejsem API przy użyciu danych metryk wysyłanych przez czat i żądania SMS.
 
 ## <a name="where-to-find-metrics"></a>Gdzie można znaleźć metryki
 
@@ -30,7 +30,7 @@ Istnieją dwa typy żądań, które są reprezentowane w ramach metryk usług ko
 
 Metryki żądań interfejsu API rozmowy i SMS zawierają trzy wymiary, których można użyć do filtrowania danych metryk. Te wymiary mogą być agregowane przy użyciu `Count` typu agregacji i obsługują wszystkie standardowe serie czasowe agregacji platformy Azure, w tym `Sum` ,, `Average` `Min` i `Max` .
 
-Aby uzyskać więcej informacji na temat obsługiwanych typów agregacji i agregacji szeregów czasowych, można znaleźć [Zaawansowane funkcje usługi Azure Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#changing-aggregation)
+Aby uzyskać więcej informacji na temat obsługiwanych typów agregacji i agregacji szeregów czasowych, można znaleźć [Zaawansowane funkcje usługi Azure Eksplorator metryk](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
 
 - **Operacja** — wszystkie operacje lub trasy, które mogą być wywoływane w bramie rozmowy ACS.
 - **Kod stanu** — odpowiedź dotycząca kodu stanu wysłana po żądaniu.
@@ -75,8 +75,8 @@ W metrykach żądań interfejsu API programu SMS są dostępne następujące ope
 | SMSMessagesReceived      | Pobiera wiadomości SMS. |
 
 
-:::image type="content" source="./media/sms-metric.png" alt-text="Metryka żądania interfejsu API rozmowy.":::
+:::image type="content" source="./media/sms-metric.png" alt-text="Metryka żądania interfejsu API programu SMS.":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [metrykach platformy danych](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
+- Dowiedz się więcej o [metrykach platformy danych](../../azure-monitor/platform/data-platform-metrics.md)
