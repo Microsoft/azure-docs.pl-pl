@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: d889b7dabc5d97a36f8b12bcff90cf3ad2069fb7
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: a9af249aac18c847bf353f22b23ee67ab6e264c4
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082192"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915246"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -26,22 +26,22 @@ W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojed
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Zrzut ekranu przedstawiający okno Tworzenie nowego projektu w programie Xcode.":::
 
-### <a name="install-the-package"></a>Zainstaluj pakiet
+### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instalowanie pakietu i zależności za pomocą CocoaPods
 
-Dodaj do projektu bibliotekę klienta wywołującą usługi Azure Communication Services oraz jej zależności (AzureCore. Framework i AzureCommunication. Framework).
+1. Utwórz plik podfile dla aplikacji, tak jak to:
 
-> [!NOTE]
-> Wraz z wydaniem zestawu AzureCommunicationCalling SDK znajdziesz skrypt bash `BuildAzurePackages.sh` . Skrypt, gdy zostanie uruchomiony, `sh ./BuildAzurePackages.sh` zapewnia ścieżkę do wygenerowanych pakietów platformy, które należy zaimportować do przykładowej aplikacji w następnym kroku. Należy pamiętać, że konieczne będzie skonfigurowanie narzędzi wiersza polecenia Xcode, jeśli nie zostało to zrobione przed uruchomieniem skryptu: Start Xcode, wybierz pozycję "Preferencje-> lokalizacje". Wybierz wersję Xcode dla narzędzi wiersza polecenia. **Należy zauważyć, że skrypt BuildAzurePackages.sh działa tylko z Xcode 11,5 i nowszymi.**
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
 
-1. Pobierz bibliotekę kliencką klienta usługi Azure Communications Services dla systemu iOS.
-2. W Xcode kliknij plik projektu i wybierz miejsce docelowe kompilacji, aby otworzyć Edytor ustawień projektu.
-3. Na karcie **Ogólne** przewiń do sekcji **struktury, biblioteki i osadzona zawartość** , a następnie kliknij ikonę **"+"** .
-4. W lewym dolnym rogu okna dialogowego wybierz pozycję **Dodaj pliki**, przejdź do katalogu **AzureCommunicationCalling. Framework** w pakiecie biblioteki klienta unspakowany.
-    1. Powtórz ostatni krok w celu dodania **AzureCore. Framework** i **AzureCommunication. Framework**.
-5. Otwórz kartę **Ustawienia kompilacji** w edytorze ustawień projektu i przewiń do sekcji **ścieżki wyszukiwania** . Dodaj nowy wpis **ścieżki wyszukiwania struktury** dla katalogu zawierającego **AzureCommunicationCalling. Framework**.
-    1. Dodaj kolejną pozycję ścieżki wyszukiwania struktury wskazującej folder zawierający zależności.
-
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Zrzut ekranu przedstawiający okno Tworzenie nowego projektu w programie Xcode.":::
+2. Uruchom polecenie `pod install`.
+3. Otwórz `.xcworkspace` program with Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Zażądaj dostępu do mikrofonu
 
@@ -110,9 +110,9 @@ Przekaż obiekt CommunicationUserCredential utworzony powyżej do ACSCallClient
 
 ```swift
 
-callClient = ACSCallClient()
-callClient?.createCallAgent(userCredential!,
-    withCompletionHandler: { (callAgent, error) in
+callClient = CallClient()
+callClient?.createCallAgent(with: userCredential!,
+    completionHandler: { (callAgent, error) in
         if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
@@ -134,7 +134,7 @@ Tworzenie i uruchamianie wywołań jest synchroniczne. Otrzymasz wystąpienie wy
 ```swift
 
 let callees = [CommunicationUser(identifier: 'acsUserId')]
-let oneToOneCall = self.CallingApp.callAgent.call(participants: callees, options: ACSStartCallOptions())
+let oneToOneCall = self.callAgent.call(participants: callees, options: StartCallOptions())
 
 ```
 
@@ -144,7 +144,7 @@ Aby nawiązać połączenie z usługą PSTN, musisz określić numer telefonu uz
 
 let pstnCallee = PhoneNumber('+1999999999')
 let callee = CommunicationUser(identifier: 'acsUserId')
-let groupCall = self.CallingApp.callAgent.call(participants: [pstnCallee, callee], options: ACSStartCallOptions())
+let groupCall = self.callAgent.call(participants: [pstnCallee, callee], options: StartCallOptions())
 
 ```
 
@@ -154,14 +154,14 @@ Aby uzyskać wystąpienie Menedżera urządzeń, zapoznaj się [tutaj](#device-m
 ```swift
 
 let camera = self.deviceManager!.getCameraList()![0]
-let localVideoStream = ACSLocalVideoStream(camera)
-let videoOptions = ACSVideoOptions(localVideoStream)
+let localVideoStream = LocalVideoStream(camera: camera)
+let videoOptions = VideoOptions(localVideoStream: localVideoStream)
 
-let startCallOptions = ACSStartCallOptions()
+let startCallOptions = StartCallOptions()
 startCallOptions?.videoOptions = videoOptions
 
 let callee = CommunicationUser(identifier: 'acsUserId')
-let call = self.callAgent?.call([callee], options: startCallOptions)
+let call = self.callAgent?.call(participants: [callee], options: startCallOptions)
 
 ```
 
@@ -170,9 +170,9 @@ Aby przyłączyć się do wywołania, należy wywołać jeden z interfejsów API
 
 ```swift
 
-let groupCallContext = ACSGroupCallContext()
+let groupCallContext = GroupCallContext()
 groupCallContext?.groupId = UUID(uuidString: "uuid_string")!
-let call = self.callAgent?.join(with: groupCallContext, joinCallOptions: ACSJoinCallOptions())
+let call = self.callAgent?.join(with: groupCallContext, joinCallOptions: JoinCallOptions())
 
 ```
 
@@ -186,7 +186,7 @@ Mobilne Powiadomienie wypychane to powiadomienie wyskakujące, które otrzymujes
 - Krok 2: Xcode > podpisywania & możliwości — > Dodawanie możliwości-> "tryby tła"
 - Krok 3. "tryby tła" — > wybierz pozycję "Voice over IP" i "powiadomienia zdalne"
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Zrzut ekranu przedstawiający okno Tworzenie nowego projektu w programie Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Zrzut ekranu przedstawiający sposób dodawania funkcji w Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>Zarejestruj się w celu otrzymywania powiadomień wypychanych
 
@@ -198,8 +198,8 @@ Po pomyślnej inicjacji należy wywołać rejestr powiadomień wypychanych. Gdy 
 ```swift
 
 let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
-callAgent.registerPushNotifications(deviceToken,
-                withCompletionHandler: { (error) in
+callAgent.registerPushNotifications(deviceToken: deviceToken,
+                completionHandler: { (error) in
     if(error == nil) {
         print("Successfully registered to push notification.")
     } else {
@@ -215,7 +215,7 @@ Aby odbierać przychodzące wywołania powiadomień wypychanych, wywołaj *handl
 ```swift
 
 let dictionaryPayload = pushPayload?.dictionaryPayload
-callAgent.handlePushNotification(dictionaryPayload, withCompletionHandler: { (error) in
+callAgent.handlePushNotification(payload: dictionaryPayload, completionHandler: { (error) in
     if (error != nil) {
         print("Handling of push notification failed")
     } else {
@@ -251,7 +251,7 @@ Możesz wykonywać różne operacje w trakcie wywołania, aby zarządzać ustawi
 Aby wyciszyć lub wyłączyć lokalny punkt końcowy, można użyć `mute` i `unmute` asynchronicznych interfejsów API:
 
 ```swift
-call.mute(completionHandler: { (error) in
+call!.mute(completionHandler: { (error) in
     if error == nil {
         print("Successfully muted")
     } else {
@@ -264,7 +264,7 @@ call.mute(completionHandler: { (error) in
 Komunikacji Odciszenie lokalne
 
 ```swift
-call.unmute(completionHandler:{ (error) in
+call!.unmute(completionHandler:{ (error) in
     if error == nil {
         print("Successfully un-muted")
     } else {
@@ -279,10 +279,10 @@ Aby rozpocząć wysyłanie lokalnego wideo do innych uczestników wywołania, u�
 
 ```swift
 
-let firstCamera: ACSVideoDeviceInfo? = self.deviceManager?.getCameraList()![0]
-let localVideoStream = ACSLocalVideoStream(firstCamera)
+let firstCamera: VideoDeviceInfo? = self.deviceManager?.getCameraList()![0]
+let localVideoStream = LocalVideoStream(camera: firstCamera)
 
-call.startVideo(localVideoStream) { (error) in
+call!.startVideo(stream: localVideoStream) { (error) in
     if (error == nil) {
         print("Local video started successfully")
     }
@@ -305,11 +305,10 @@ Komunikacji Aby zatrzymać lokalne wideo, Przekaż `localVideoStream` zwrócone 
 
 ```swift
 
-call.stopVideo(localVideoStream,{ (error) in
+call!.stopVideo(stream: localVideoStream) { (error) in
     if (error == nil) {
         print("Local video stopped successfully")
-    }
-    else {
+    } else {
         print("Local video failed to stop")
     }
 }
@@ -361,7 +360,7 @@ Aby dodać uczestnika do wywołania (użytkownika lub numeru telefonu), można w
 
 ```swift
 
-let remoteParticipantAdded: ACSRemoteParticipant = call.addParticipant(CommunicationUser(identifier: "userId"))
+let remoteParticipantAdded: RemoteParticipant = call.add(participant: CommunicationUser(identifier: "userId"))
 
 ```
 
@@ -370,7 +369,7 @@ Aby usunąć uczestnika z wywołania (użytkownika lub numeru telefonu), możesz
 
 ```swift
 
-call!.remove(remoteParticipantAdded) { (error) in
+call!.remove(participant: remoteParticipantAdded) { (error) in
     if (error == nil) {
         print("Successfully removed participant")
     } else {
@@ -398,7 +397,7 @@ var remoteParticipantVideoStream = call.remoteParticipants[0].videoStreams[0]
 
 ```swift
 
-var type: ACSMediaStreamType = remoteParticipantVideoStream.type // 'ACSMediaStreamTypeVideo'
+var type: MediaStreamType = remoteParticipantVideoStream.type // 'ACSMediaStreamTypeVideo'
 
 var isAvailable: Bool = remoteParticipantVideoStream.isAvailable // indicates if remote stream is available
 
@@ -412,10 +411,10 @@ Aby rozpocząć renderowanie zdalnych strumieni uczestników:
 
 ```swift
 
-let renderer: ACSRenderer? = ACSRenderer(remoteVideoStream: remoteParticipantVideoStream)
-let targetRemoteParticipantView: ACSRendererView? = renderer?.createView(ACSRenderingOptions(ACSScalingMode.crop))
+let renderer: Renderer? = Renderer(remoteVideoStream: remoteParticipantVideoStream)
+let targetRemoteParticipantView: RendererView? = renderer?.createView(with: RenderingOptions(scalingMode: ScalingMode.crop))
 // To update the scaling mode later
-targetRemoteParticipantView.update(ACSScalingMode.fit)
+targetRemoteParticipantView.update(scalingMode: ScalingMode.fit)
 
 ```
 
@@ -466,11 +465,11 @@ Menedżer urządzeń umożliwia ustawienie domyślnego urządzenia, które będz
 // get first microphone
 var firstMicrophone = self.deviceManager!.getMicrophoneList()![0]
 // [Synchronous] set microphone
-deviceManager.setMicrophone(ACSAudioDeviceInfo())
+deviceManager.setMicrophone(microphoneDevice: firstMicrophone)
 // get first speaker
 var firstSpeaker = self.deviceManager!.getSpeakerList()![0]
 // [Synchronous] set speaker
-deviceManager.setSpeakers(ACSAudioDeviceInfo())
+deviceManager.setSpeaker(speakerDevice: firstSpeaker)
 ```
 
 ### <a name="local-camera-preview"></a>Podgląd lokalnego aparatu fotograficznego
@@ -479,10 +478,10 @@ Możesz użyć, `ACSRenderer` Aby rozpocząć renderowanie strumienia z aparatu 
 
 ```swift
 
-let camera: ACSVideoDeviceInfo = self.deviceManager!.getCameraList()![0]
-let localVideoStream: ACSLocalVideoStream = ACSLocalVideoStream(camera)
-let renderer: ACSRenderer = ACSRenderer(localVideoStream: localVideoStream)
-self.view = renderer!.createView(ACSRenderingOptions())
+let camera: VideoDeviceInfo = self.deviceManager!.getCameraList()![0]
+let localVideoStream: LocalVideoStream = LocalVideoStream(camera: camera)
+let renderer: Renderer = Renderer(localVideoStream: localVideoStream)
+self.view = renderer!.createView()
 
 ```
 
@@ -493,8 +492,8 @@ Moduł renderowania ma zestaw właściwości i metod, które umożliwiają kontr
 ```swift
 
 // Constructor can take in ACSLocalVideoStream or ACSRemoteVideoStream
-let localRenderer = ACSRenderer(localVideoStream:localVideoStream)
-let remoteRenderer = ACSRenderer(remoteVideoStream:remoteVideoStream)
+let localRenderer = Renderer(localVideoStream:localVideoStream)
+let remoteRenderer = Renderer(remoteVideoStream:remoteVideoStream)
 
 // [ACSStreamSize] size of the rendering view
 localRenderer.size
@@ -502,8 +501,12 @@ localRenderer.size
 // [ACSRendererDelegate] an object you provide to receive events from this ACSRenderer instance
 localRenderer.delegate
 
+// [Synchronous] create view
+try! localRenderer.createView()
+
 // [Synchronous] create view with rendering options
-localRenderer.createView(options:ACSRenderingOptions())
+try! localRenderer.createView(with: RenderingOptions(scalingMode: ScalingMode.fit))
+
 // [Synchronous] dispose rendering view
 localRenderer.dispose()
 
@@ -519,8 +522,8 @@ Aby subskrybować `property changed` zdarzenia:
 ```swift
 call.delegate = self
 // Get the property of the call state by doing get on the call's state member
-public func onCallStateChanged(_ call: ACSCall!,
-                               _ args: ACSPropertyChangedEventArgs!)
+public func onCallStateChanged(_ call: Call!,
+                               args: PropertyChangedEventArgs!)
 {
     print("Callback from SDK when the call state changes, current state: " + call.state.rawValue)
 }
@@ -536,8 +539,8 @@ Aby subskrybować `collection updated` zdarzenia:
 ```swift
 call.delegate = self
 // Collection contains the streams that were added or removed only
-public func onLocalVideoStreamsChanged(_ call: ACSCall!,
-                                       _ args: ACSLocalVideoStreamsUpdatedEventArgs!)
+public func onLocalVideoStreamsChanged(_ call: Call!,
+                                       args: LocalVideoStreamsUpdatedEventArgs!)
 {
     print(args.addedStreams.count)
     print(args.removedStreams.count)

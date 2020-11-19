@@ -3,12 +3,12 @@ title: Agent Microsoft Azure Recovery Services (MARS) — często zadawane pytan
 description: Rozwiązuje często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów za pomocą Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172504"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917362"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Często zadawane pytania — agent Microsoft Azure Recovery Services (MARS)
 
@@ -22,7 +22,7 @@ Najnowszy Agent MARS używany podczas tworzenia kopii zapasowych komputerów z s
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>Gdzie można pobrać plik poświadczeń magazynu?
 
-W Azure Portal przejdź do **Właściwości** magazynu. W obszarze **poświadczenia kopii zapasowej**zaznacz pole wyboru za **pomocą najnowszego agenta Recovery Services**. Kliknij pozycję **Pobierz**.
+W Azure Portal przejdź do **Właściwości** magazynu. W obszarze **poświadczenia kopii zapasowej** zaznacz pole wyboru za **pomocą najnowszego agenta Recovery Services**. Kliknij pozycję **Pobierz**.
 
 ![Pobierz poświadczenia](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -71,6 +71,10 @@ Tak. Agent MARS konwertuje deduplikowane dane na normalne dane podczas przygotow
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Czy muszę mieć uprawnienia administratora, aby zainstalować i skonfigurować agenta MARS?
 
 Tak, Instalacja agenta MARS i Konfiguracja kopii zapasowych za pomocą konsoli MARS musi być administratorem lokalnym na chronionym serwerze.
+
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>Jaki jest wpływ tworzenia kopii zapasowych agenta MARS na transfer subskrypcji magazynu do innego katalogu usługi Azure AD?
+
+Zmiana katalogu usługi Azure AD nie będzie miała wpływu na kopie zapasowe agenta MARS. 
 
 ## <a name="manage-backups"></a>Zarządzanie kopiami zapasowymi
 
@@ -185,7 +189,7 @@ Należy rozważyć następujące kwestie:
   * *Inne hasło*, a następnie nie można przywrócić danych kopii zapasowej.
 * Jeśli Agent jest instalowany na *innym komputerze* z
   * To *samo hasło* (używane w oryginalnej maszynie), a następnie można przywrócić dane kopii zapasowej.
-  * *Innym hasłem*nie można przywrócić danych kopii zapasowej.
+  * *Innym hasłem* nie można przywrócić danych kopii zapasowej.
 * Jeśli oryginalny komputer jest uszkodzony (nie można ponownie wygenerować hasła za pośrednictwem konsoli MARS), ale można przywrócić lub uzyskać dostęp do oryginalnego folderu tymczasowego używanego przez agenta MARS, można przywrócić (jeśli nie pamiętasz hasła). Aby uzyskać więcej pomocy, skontaktuj się z działem obsługi klienta.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Jak mogę Odzyskaj, Jeśli utracisz moją oryginalną maszynę (w której wykonano kopie zapasowe)?
@@ -194,7 +198,7 @@ Jeśli masz takie samo hasło (podane podczas rejestracji) oryginalnego komputer
 
 | Oryginalna maszyna | Danym | Dostępne opcje |
 | --- | --- | --- |
-| Następuje |Dostępne |Agenta MARS można zainstalować i zarejestrować na innym komputerze z hasłem podanym podczas rejestracji oryginalnej maszyny. Wybierz **opcję odzyskiwania**  >  w**innej lokalizacji** , aby przeprowadzić przywracanie. Więcej informacji znajduje się w tym [artykule](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Następuje |Dostępne |Agenta MARS można zainstalować i zarejestrować na innym komputerze z hasłem podanym podczas rejestracji oryginalnej maszyny. Wybierz **opcję odzyskiwania**  >  w **innej lokalizacji** , aby przeprowadzić przywracanie. Więcej informacji znajduje się w tym [artykule](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Następuje |Następuje |Nie można odzyskać danych lub dane są niedostępne |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Zadania tworzenia kopii zapasowej kończą się niepowodzeniem lub nie działają przez długi czas. Upłynął okres przechowywania. Czy nadal mogę przywrócić?

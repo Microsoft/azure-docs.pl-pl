@@ -5,25 +5,25 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148940"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917532"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
 
 - Tagi usług dla ruchu wychodzącego
-- Reguły zapory IP dla ruchu przychodzącego (wersja zapoznawcza)
+- Reguły zapory IP dla ruchu przychodzącego
 - Prywatne punkty końcowe dla ruchu przychodzącego
 
 
 ## <a name="service-tags"></a>Tagi usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [Omówienie tagów usług](../virtual-network/service-tags-overview.md).
 
-Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md#security-rules)   lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md#security-rules) lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym* lub *docelowym* reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|
@@ -45,7 +45,7 @@ Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint
 Używanie prywatnych punktów końcowych dla zasobu Event Grid pozwala:
 
 - Bezpieczny dostęp do tematu lub domeny z sieci wirtualnej przez sieć szkieletową firmy Microsoft w przeciwieństwie do publicznego Internetu.
-- Bezpiecznie łącz się z sieci lokalnych, które łączą się z siecią wirtualną przy użyciu sieci VPN lub usługa expressroutes z prywatną komunikację równorzędną.
+- Bezpiecznie łącz się z sieci lokalnych, które łączą się z siecią wirtualną przy użyciu sieci VPN lub usługi Express przy użyciu komunikacji równorzędnej.
 
 W przypadku tworzenia prywatnego punktu końcowego tematu lub domeny w sieci wirtualnej do zatwierdzenia Właściciel zasobu jest wysyłana prośba o zgodę. Jeśli użytkownik żądający utworzenia prywatnego punktu końcowego jest również właścicielem zasobu, to żądanie zgody jest automatycznie zatwierdzane. W przeciwnym razie połączenie jest w stanie **oczekiwania** , dopóki nie zostanie zatwierdzone. Aplikacje w sieci wirtualnej mogą bezproblemowo łączyć się z usługą Event Grid za pośrednictwem prywatnego punktu końcowego, używając tych samych parametrów połączenia i mechanizmów autoryzacji, które mogą być używane w inny sposób. Właściciele zasobów mogą zarządzać żądaniami zgody i prywatnymi punktami końcowymi za pomocą karty **prywatne punkty końcowe** dla zasobu w Azure Portal.
 

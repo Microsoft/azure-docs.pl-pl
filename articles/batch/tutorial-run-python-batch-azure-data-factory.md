@@ -1,18 +1,18 @@
 ---
-title: Uruchamianie skryptów Python za Data Factory
-description: Samouczek — informacje o sposobie uruchamiania skryptów języka Python w ramach potoku za pośrednictwem Azure Data Factory przy użyciu Azure Batch.
-author: mammask
+title: Samouczek — uruchamianie skryptów Python za Data Factory
+description: Dowiedz się, jak uruchamiać skrypty języka Python jako część potoku za pośrednictwem Azure Data Factory przy użyciu Azure Batch.
+author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.author: komammas
+ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c66c14d42c3d14fc4171f6fdfaf2e7f75a531507
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886910"
+ms.locfileid: "94917634"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
@@ -155,6 +155,5 @@ W tym samouczku przedstawiono przykład, w którym pokazano, jak uruchamiać skr
 Aby dowiedzieć się więcej na temat Azure Data Factory, zobacz:
 
 > [!div class="nextstepaction"]
-> [Azure Data Factory](../data-factory/introduction.md) 
->  [Potoki i działania](../data-factory/concepts-pipelines-activities.md) 
->  [Działania niestandardowe](../data-factory/transform-data-using-dotnet-custom-activity.md)
+> [Przegląd Azure Data Factory](../data-factory/introduction.md)
+

@@ -65,6 +65,8 @@
       href: use-editor-create-project.md
     - name: Osadzanie widżetów w aplikacji
       href: video-indexer-embed-widgets.md
+    - name: Zagadnienia dotyczące korzystania z usługi Video Indexer na dużą skalę
+      href: considerations-when-use-at-scale.md
     - name: Odzyskiwanie po awarii
       href: video-indexer-disaster-recovery.md
     - name: Dostosowywanie modeli zawartości

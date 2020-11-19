@@ -2,14 +2,14 @@
 title: Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen
 description: W tym artykule opisano sposób konfigurowania prywatnych punktów końcowych dla tematów Azure Event Grid lub domen.
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324148"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916990"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla tematu lub domeny. Aby uzyskać więcej informacji na temat pojęć, zobacz [zabezpieczenia sieci](network-security.md).
@@ -31,23 +31,23 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć prywatny punkt koń
     2. Wybierz **grupę zasobów platformy Azure** dla prywatnego punktu końcowego. 
     3. Wprowadź **nazwę** punktu końcowego. 
     4. Wybierz **region** punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się sieć wirtualna, ale może być w innym regionie niż zasób link prywatny (w tym przykładzie temat usługi Event Grid). 
-    5. Następnie wybierz pozycję **Dalej: przycisk >zasobu ** w dolnej części strony. 
+    5. Następnie wybierz pozycję **Dalej: przycisk >zasobu** w dolnej części strony. 
 
       ![Prywatny punkt końcowy — Strona podstawy](./media/configure-private-endpoints/basics-page.png)
 3. Na stronie **zasób** wykonaj następujące kroki: 
-    1. W przypadku metody połączenia w przypadku wybrania opcji **Połącz z zasobem platformy Azure w moim katalogu**wykonaj następujące czynności. Ten przykład pokazuje, jak nawiązać połączenie z zasobem platformy Azure w katalogu. 
+    1. W przypadku metody połączenia w przypadku wybrania opcji **Połącz z zasobem platformy Azure w moim katalogu** wykonaj następujące czynności. Ten przykład pokazuje, jak nawiązać połączenie z zasobem platformy Azure w katalogu. 
         1. Wybierz **subskrypcję platformy Azure** , w której istnieje **temat/domena** . 
-        1. W polu **Typ zasobu**wybierz pozycję **Microsoft. EventGrid/tematy** lub **Microsoft. EventGrid/domen** dla **typu zasobu**.
-        2. W obszarze **zasób**wybierz temat/domenę z listy rozwijanej. 
+        1. W polu **Typ zasobu** wybierz pozycję **Microsoft. EventGrid/tematy** lub **Microsoft. EventGrid/domen** dla **typu zasobu**.
+        2. W obszarze **zasób** wybierz temat/domenę z listy rozwijanej. 
         3. Upewnij się, że **docelowy zasób** podrzędny jest ustawiony na **temat** lub **domenę** (na podstawie wybranego typu zasobu).    
-        4. Wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
+        4. Wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
 
             ![Zrzut ekranu przedstawiający stronę "Tworzenie prywatnego zasobu punktu końcowego".](./media/configure-private-endpoints/resource-page.png)
-    2. W przypadku wybrania opcji **Połącz z zasobem przy użyciu identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
-        1. Wprowadź identyfikator zasobu. Przykład: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
-        2. W obszarze **zasób**wprowadź **temat** lub **domenę**. 
+    2. W przypadku wybrania opcji **Połącz z zasobem przy użyciu identyfikatora zasobu lub aliasu** wykonaj następujące kroki:
+        1. Wprowadź identyfikator zasobu. Na przykład: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
+        2. W obszarze **zasób** wprowadź **temat** lub **domenę**. 
         3. obowiązkowe Dodaj komunikat żądania. 
-        4. Wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
+        4. Wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
 
             ![Prywatny punkt końcowy — Strona zasobów](./media/configure-private-endpoints/connect-azure-resource-id.png)
 4. Na stronie **Konfiguracja** wybierz podsieć w sieci wirtualnej, w której chcesz wdrożyć prywatny punkt końcowy. 
@@ -57,7 +57,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć prywatny punkt koń
 
     ![Prywatny punkt końcowy — Strona konfiguracji](./media/configure-private-endpoints/configuration-page.png)
 5. Na stronie **Tagi** Utwórz dowolne Tagi (nazwy i wartości), które chcesz skojarzyć z prywatnym zasobem punktu końcowego. Następnie wybierz przycisk **Przegląd + Utwórz** u dołu strony. 
-6. Na stronie **Przegląd i tworzenie**Przejrzyj wszystkie ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy. 
+6. Na stronie **Przegląd i tworzenie** Przejrzyj wszystkie ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy. 
 
     ![Prywatny punkt końcowy — przegląd & tworzenia strony](./media/configure-private-endpoints/review-create-page.png)
     
@@ -68,7 +68,7 @@ Podczas tworzenia prywatnego punktu końcowego należy zatwierdzić połączenie
 
 Istnieją cztery Stany aprowizacji:
 
-| Akcja usługi | Stan prywatnego punktu końcowego klienta usługi | Opis |
+| Akcja w usłudze | Stan prywatnego punktu końcowego klienta usługi | Opis |
 |--|--|--|
 | Brak | Oczekiwanie | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
 | Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
@@ -81,7 +81,7 @@ W poniższych sekcjach pokazano, jak zatwierdzić lub odrzucić prywatne połąc
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Na pasku wyszukiwania wpisz **Event Grid tematy** lub **Event Grid domen**.
 1. Wybierz **temat** lub **domenę** , którą chcesz zarządzać.
-1. Wybierz kartę **Sieć** .
+1. Wybierz kartę **Sieć**.
 1. Jeśli istnieją oczekujące połączenia, zobaczysz połączenie na liście **oczekujące** w stanie aprowizacji. 
 
 ### <a name="to-approve-a-private-endpoint"></a>Aby zatwierdzić prywatny punkt końcowy
@@ -108,7 +108,7 @@ Możesz odrzucić prywatny punkt końcowy, który znajduje się w stanie oczekiw
 
 1. Wybierz **prywatny punkt końcowy** , który chcesz odrzucić, a następnie na pasku narzędzi wybierz pozycję **Odrzuć** .
 
-    ![Zrzut ekranu pokazujący "sieci — połączenia punktu końcowego (wersja zapoznawcza)" z wybraną opcją "Odrzuć".](./media/configure-private-endpoints/reject-button.png)
+    ![Zrzut ekranu pokazujący "połączenia sieciowe w sieci prywatnej" z wybraną opcją "Odrzuć".](./media/configure-private-endpoints/reject-button.png)
 1. W oknie dialogowym **Odrzuć połączenie** Wprowadź komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. 
 
     ![Prywatny punkt końcowy — Odrzuć](./media/configure-private-endpoints/reject.png)
@@ -121,7 +121,7 @@ Możesz odrzucić prywatny punkt końcowy, który znajduje się w stanie oczekiw
 
 
 ## <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Aby utworzyć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) , jak pokazano w następującym przykładzie:
+Aby utworzyć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -135,12 +135,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Aby zapoznać się z opisami parametrów użytych w tym przykładzie, zobacz dokumentację dotyczącą [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Poniżej przedstawiono kilka punktów, do których warto zwrócić uwagę: 
+Aby zapoznać się z opisami parametrów użytych w tym przykładzie, zobacz dokumentację dotyczącą [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Poniżej przedstawiono kilka punktów, do których warto zwrócić uwagę: 
 
 - W polu `private-connection-resource-id` Określ identyfikator zasobu **tematu** lub **domeny**. W poprzednim przykładzie jest użyty typ: temat.
 - dla `group-ids` , określ `topic` lub `domain` . W poprzednim przykładzie `topic` użyto. 
 
-Aby usunąć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , jak pokazano w następującym przykładzie:
+Aby usunąć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -165,7 +165,7 @@ az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
-Aby utworzyć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) , jak pokazano w następującym przykładzie:
+Aby utworzyć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -179,12 +179,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Aby zapoznać się z opisami parametrów użytych w tym przykładzie, zobacz dokumentację dotyczącą [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Poniżej przedstawiono kilka punktów, do których warto zwrócić uwagę: 
+Aby zapoznać się z opisami parametrów użytych w tym przykładzie, zobacz dokumentację dotyczącą [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Poniżej przedstawiono kilka punktów, do których warto zwrócić uwagę: 
 
 - W polu `private-connection-resource-id` Określ identyfikator zasobu **tematu** lub **domeny**. W poprzednim przykładzie jest użyty typ: temat.
 - dla `group-ids` , określ `topic` lub `domain` . W poprzednim przykładzie `topic` użyto. 
 
-Aby usunąć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , jak pokazano w następującym przykładzie:
+Aby usunąć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>

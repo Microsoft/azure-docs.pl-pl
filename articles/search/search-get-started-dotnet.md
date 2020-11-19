@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3e43a6b72d8de25de3220a9a6ac4e0b3986a467
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f82254915ffedf97f945be79be0de827a956af45
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701810"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916614"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Azure.Search.Documents
 
@@ -38,6 +38,8 @@ Przed rozpoczęciem należy dysponować następującymi narzędziami i usługami
 
 + [ Pakiet NuGetAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
 
+Zestaw Azure SDK dla platformy .NET jest zgodny z [.NET Standard 2,0](/dotnet/standard/net-standard#net-implementation-support), co oznacza, że .NET Framework 4.6.1 i .net Core 2,0 jako wymagania minimalne.
+
 ## <a name="set-up-your-project"></a>konfigurowanie projektu
 
 Załącz informacje o połączeniu z usługą, a następnie uruchom program Visual Studio, aby utworzyć nowy projekt aplikacji konsoli, który można uruchomić w środowisku .NET Core.
@@ -58,15 +60,9 @@ Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do u
 
 ### <a name="install-the-nuget-package"></a>Zainstaluj pakiet NuGet
 
-Po utworzeniu projektu dodaj bibliotekę kliencką. [PakietAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) składa się z jednej biblioteki klienckiej, która zapewnia wszystkie interfejsy API używane do pracy z usługą wyszukiwania w programie .NET.
-
-1. W obszarze **Narzędzia**  >  **Menedżer pakietów NuGet** wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania.**.. 
-
-1. Kliknij pozycję **Browse (Przeglądaj)**.
+1. W programie Visual Studio Utwórz nowy projekt przy użyciu szablonu Aplikacja konsolowa (.NET Core) dla języka C#.
 
 1. Wyszukaj `Azure.Search.Documents` i wybierz wersję 11,0 lub nowszą.
-
-1. Kliknij przycisk **Instaluj** po prawej stronie, aby dodać zestaw do projektu i rozwiązania.
 
 ### <a name="create-a-search-client"></a>Tworzenie klienta wyszukiwania
 
@@ -134,9 +130,20 @@ W tym przykładzie metody synchroniczne Azure.Search.Docbiblioteki uments są u�
     }
     ```
 
-1. W **program.cs** Utwórz obiekt [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) , a następnie Wywołaj metodę, aby wyrazić [indeks w](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) usłudze wyszukiwania.
+1. W **program.cs** Utwórz obiekt [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex)  [, wywołując metodę](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) `SearchIndexClient` .
 
-   ```csharp
+    ```csharp
+    private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+    {
+        FieldBuilder fieldBuilder = new FieldBuilder();
+        var searchFields = fieldBuilder.Build(typeof(Hotel));
+        var definition = new SearchIndex(indexName, searchFields);
+
+        indexClient.CreateOrUpdateIndex(definition);
+    }
+    ```
+
+   <!-- ```csharp
     // Define an index schema using SearchIndex
     // Create the index using SearchIndexClient
     SearchIndex index = new SearchIndex(indexName)
@@ -153,7 +160,7 @@ W tym przykładzie metody synchroniczne Azure.Search.Docbiblioteki uments są u�
 
     Console.WriteLine("{0}", "Creating index...\n");
     idxclient.CreateIndex(index);
-   ```
+   ``` -->
 
 Atrybuty w polu określają, w jaki sposób jest używany w aplikacji. Na przykład, `IsFilterable` atrybut musi być przypisany do każdego pola, które obsługuje wyrażenie filtru.
 
@@ -194,7 +201,7 @@ Podczas przekazywania dokumentów należy użyć obiektu [IndexDocumentsBatch](/
 
     Po zainicjowaniu obiektu [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) można wysłać go do indeksu, wywołując [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) na obiekcie [SearchClient](/dotnet/api/azure.search.documents.searchclient) .
 
-1. Ponieważ jest to Aplikacja konsolowa, która uruchamia wszystkie polecenia sekwencyjnie, należy dodać 2-sekundowy czas oczekiwania między indeksowaniem a zapytaniami.
+1. Ponieważ jest to Aplikacja konsolowa, która uruchamia wszystkie polecenia sekwencyjnie, należy dodać 2-sekundowe opóźnienie.
 
     ```csharp
     // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
@@ -206,7 +213,7 @@ Podczas przekazywania dokumentów należy użyć obiektu [IndexDocumentsBatch](/
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-Wyniki zapytania można uzyskać zaraz po indeksowaniu pierwszego dokumentu, ale rzeczywiste testy indeksu powinny poczekać do momentu indeksowania wszystkich dokumentów.
+Wyniki zapytania można uzyskać zaraz po indeksowaniu pierwszego dokumentu, ale w celu poprawnego testowania poczekaj, aż wszystkie dokumenty są indeksowane.
 
 W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W przypadku zapytań Użyj metody [Search](/dotnet/api/azure.search.documents.searchclient.search) . Ta metoda pobiera tekst przeszukiwany (ciąg zapytania), a także inne [Opcje](/dotnet/api/azure.search.documents.searchoptions).
 
@@ -292,14 +299,6 @@ Wyszukiwanie i filtry są wykonywane przy użyciu metody [SearchClient. Search](
 Naciśnij klawisz F5, aby ponownie skompilować aplikację i uruchomić program w całości. 
 
 Dane wyjściowe zawierają komunikaty z [konsoli. WriteLine](/dotnet/api/system.console.writeline)z dodaniem informacji o zapytaniu i wyników.
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
-
-Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
-
-Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech indeksów, indeksatorów i źródeł danych. Możesz usunąć poszczególne elementy w portalu, aby zachować limit. 
 
 ## <a name="next-steps"></a>Następne kroki
 

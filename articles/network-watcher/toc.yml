@@ -28,7 +28,7 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Pojęcia
   items:
-    - name: Monitor połączeń (wersja zapoznawcza)
+    - name: Monitor połączeń
       href: connection-monitor-overview.md
     - name: Diagnozowanie problemów z filtrowaniem ruchu sieciowego na maszynie wirtualnej
       href: network-watcher-ip-flow-verify-overview.md
@@ -58,7 +58,7 @@
   items:
     - name: Konfigurowanie usługi Network Watcher
       href: network-watcher-create.md
-    - name: Tworzenie monitora połączeń (wersja zapoznawcza)
+    - name: Tworzenie monitora połączeń
       items:
         - name: Korzystanie z witryny Azure Portal
           href: connection-monitor-create-using-portal.md
@@ -66,11 +66,11 @@
           href: connection-monitor-create-using-template.md
         - name: Korzystanie z programu PowerShell
           href: connection-monitor-create-using-powershell.md
-    - name: Migrowanie do monitora połączenia (wersja zapoznawcza)
+    - name: Migrowanie do monitora połączenia
       items:
         - name: Z monitora wydajności sieci
           href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-        - name: Z monitora połączenia
+        - name: Z monitora połączenia (klasycznego)
           href: migrate-to-connection-monitor-preview-from-connection-monitor.md
     - name: Diagnozowanie problemów z siecią maszyn wirtualnych
       items:
@@ -88,7 +88,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnozowanie problemów z połączeniami wychodzącymi
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md

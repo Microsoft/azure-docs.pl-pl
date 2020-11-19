@@ -63,14 +63,24 @@
           href: plan-sso-deployment.md
         - name: Opcje logowania jednokrotnego
           href: sso-options.md
+        - name: Logowanie jednokrotne za pomocą aplikacji lokalnych
+          href: application-proxy-config-sso-how-to.md
         - name: Logowanie jednokrotne oparte na protokole OIDC
           href: configure-oidc-single-sign-on.md
         - name: Logowanie jednokrotne oparte na języku SAML
           href: configure-saml-single-sign-on.md
+        - name: Logowanie jednokrotne oparte na języku SAML (aplikacje lokalne)
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Logowanie jednokrotne oparte na haśle
           href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Logowanie jednokrotne oparte na haśle (aplikacje lokalne)
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: Logowanie jednokrotne oparte na linkach
           href: configure-linked-sign-on.md
+        - name: Logowanie jednokrotne oparte na nagłówkach (aplikacje lokalne)
+          href: application-proxy-configure-single-sign-on-with-headers.md
+        - name: Logowanie jednokrotne oparte na protokole Kerberos (aplikacje lokalne)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
         - name: Logowanie jednokrotne jednym kliknięciem
           href: one-click-sso-tutorial.md
     - name: Zabezpieczenia aplikacji
@@ -182,24 +192,16 @@
           href: application-proxy-remove-personal-data.md
         - name: Konfigurowanie domeny niestandardowej
           href: application-proxy-configure-custom-domain.md
-        - name: Logowanie jednokrotne przy użyciu serwera proxy aplikacji
-          items:
-            - name: Ograniczone delegowanie protokołu Kerberos (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Przechowywanie haseł w magazynie
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: Nagłówki
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: Logowanie jednokrotne SAML
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Bezpieczne starsze aplikacje dzięki kontrolerom dostarczania aplikacji lub sieciom
           href: secure-hybrid-access.md
         - name: Przewodniki dotyczące publikowania
           items:
             - name: Integrowanie z serwerem proxy aplikacji na serwerze usługi NDES
               href: active-directory-app-proxy-protect-ndes.md
+            - name: Integrowanie z serwerem proxy aplikacji przy użyciu usługi PingAccess
+              href: application-proxy-ping-access-publishing-guide.md
             - name: Integracja z usługą Azure AD Domain Services
-              href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
             - name: Integracja z usługą Power BI
               href: application-proxy-integrate-with-power-bi.md
             - name: Integracja z usługą Cloud App Security
@@ -256,14 +258,12 @@
               href: application-proxy-connectivity-no-working-connector.md
             - name: Konfigurowanie w portalu administracyjnym
               href: application-proxy-config-how-to.md
-            - name: Konfigurowanie logowania jednokrotnego w mojej aplikacji
-              href: application-proxy-config-sso-how-to.md
             - name: Problem podczas tworzenia aplikacji w portalu administracyjnym
               href: application-proxy-config-problem.md
             - name: Konfigurowanie ograniczonego delegowania protokołu Kerberos
               href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
             - name: Konfigurowanie przy użyciu usługi PingAccess
-              href: application-proxy-back-end-ping-access-how-to.md
+              href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
             - name: Błąd „Can't Access this Corporate Application” (Nie można uzyskać dostępu do tej aplikacji firmowej)
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: Problem z instalacją łącznika agenta serwera proxy aplikacji
@@ -281,11 +281,11 @@
 - name: Zasoby
   items:
     - name: Pomoc techniczna i opcje pomocy dla deweloperów
-      href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
+      href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
     - name: Forum z opiniami na temat platformy Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Aktualizacje usług

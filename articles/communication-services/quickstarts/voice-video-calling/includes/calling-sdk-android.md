@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c015561e66d77e6df352e601bf1a67da5996d4d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886691"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915303"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -153,7 +153,7 @@ Mobilne powiadomienia wypychane są wyskakującymi powiadomieniami wyświetlanym
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Konto Firebase jest skonfigurowane z włączoną obsługą usługi Cloud Messaging (FCM) oraz z usługą obsługi wiadomości w chmurze Firebase połączoną z wystąpieniem centrum powiadomień platformy Azure. Aby uzyskać więcej informacji, zobacz [powiadomienia usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/concepts/notifications) .
+Konto Firebase jest skonfigurowane z włączoną obsługą usługi Cloud Messaging (FCM) oraz z usługą obsługi wiadomości w chmurze Firebase połączoną z wystąpieniem centrum powiadomień platformy Azure. Aby uzyskać więcej informacji, zobacz [powiadomienia usług komunikacyjnych](../../../concepts/notifications.md) .
 Ponadto w samouczku założono, że używasz Android Studio w wersji 3,6 lub nowszej do kompilowania aplikacji.
 
 Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było odbierać komunikaty powiadomień z usługi Firebase Cloud Messaging. W `AndroidManifest.xml` pliku Dodaj następujący zestaw uprawnień bezpośrednio po *manifeście<... >* lub poniżej *</application>* tagu

@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 11/15/2020
-ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.date: 11/19/2020
+ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659985"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916784"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Skonfiguruj własne środowisko IR jako serwer proxy dla Azure-SSIS IR w Azure Data Factory
 
@@ -175,8 +175,10 @@ Aby włączyć składniki niestandardowe/inne firmy do uzyskiwania dostępu do d
 
 1. Zainstaluj składniki niestandardowe/innych firm ukierunkowane na SQL Server 2017 na Azure-SSIS IR za pośrednictwem [konfiguracji niestandardowych Standard/Express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
-1. Utwórz następujące klucze rejestru DTSPath w samoobsługowym środowisku IR, jeśli jeszcze nie istnieją: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` i `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` .
- 
+1. Utwórz następujące klucze rejestru DTSPath w samoobsługowym środowisku IR, jeśli jeszcze nie istnieją:
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` Ustaw na `C:\Program Files\Microsoft SQL Server\140\DTS\`
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` Ustaw na `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`
+   
 1. Zainstaluj składniki niestandardowe/inne firmy przeznaczone dla SQL Server 2017 na samoobsługowym środowisku IR w DTSPath powyżej i upewnij się, że proces instalacji:
 
    1. Tworzy `<DTSPath>` , `<DTSPath>/Connections` , `<DTSPath>/PipelineComponents` , i `<DTSPath>/UpgradeMappings` foldery, jeśli jeszcze nie istnieją.
@@ -185,7 +187,7 @@ Aby włączyć składniki niestandardowe/inne firmy do uzyskiwania dostępu do d
    
    1. Instaluje wszystkie zestawy, do których odwołują się zestawy składników niestandardowych/innych firm w globalnej pamięci podręcznej zestawów (GAC).
 
-Oto [przykład składnika innej firmy](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) , który używa konfiguracji Express Custom i samodzielnego środowiska IR jako serwera proxy dla Azure-SSIS IR.
+Poniżej przedstawiono przykłady naszych partnerów, [Theobald oprogramowania](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) i [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), które dostosowują swoje składniki do korzystania z konfiguracji Express Custom i samodzielnego środowiska IR jako serwera proxy dla Azure-SSIS IR.
 
 ## <a name="enforce-tls-12"></a>Wymuszanie protokołu TLS 1.2
 

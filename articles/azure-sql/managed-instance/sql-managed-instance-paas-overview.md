@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790716"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917940"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ Na poniższym diagramie przedstawiono główne funkcje wystąpienia zarządzaneg
 
 ![Najważniejsze funkcje](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Wystąpienie zarządzane usługi Azure SQL jest przeznaczone dla klientów, którzy chcą migrować dużą liczbę aplikacji z środowiska lokalnego lub IaaS, samodzielnego lub niezależnego dostawcy oprogramowania do w pełni zarządzanego środowiska chmury PaaS, z możliwie jak najniższym nakładem migracji. Korzystając z w pełni zautomatyzowanej [usługi migracji danych platformy Azure](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), klienci mogą przebudować istniejące wystąpienie SQL Server do wystąpienia zarządzanego SQL, które oferuje zgodność z SQL Server i pełną izolację wystąpień klientów dzięki natywnej obsłudze sieci wirtualnej.  Program Software Assurance umożliwia wymianę istniejących licencji dla obniżonych stawek w wystąpieniu zarządzanym SQL przy użyciu [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Wystąpienie zarządzane SQL to Najlepsza lokalizacja docelowa migracji w chmurze dla wystąpień SQL Server, które wymagają wysokiego poziomu zabezpieczeń i rozbudowanej powierzchni programistycznej.
+Wystąpienie zarządzane usługi Azure SQL jest przeznaczone dla klientów, którzy chcą migrować dużą liczbę aplikacji z środowiska lokalnego lub IaaS, samodzielnego lub niezależnego dostawcy oprogramowania do w pełni zarządzanego środowiska chmury PaaS, z możliwie jak najniższym nakładem migracji. Korzystając z w pełni zautomatyzowanej [usługi migracji danych platformy Azure](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), klienci mogą przebudować istniejące wystąpienie SQL Server do wystąpienia zarządzanego SQL, które oferuje zgodność z SQL Server i pełną izolację wystąpień klientów dzięki natywnej obsłudze sieci wirtualnej. Aby uzyskać więcej informacji na temat opcji i narzędzi migracji, zobacz [Omówienie migracji: SQL Server do wystąpienia zarządzanego Azure SQL](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Program Software Assurance umożliwia wymianę istniejących licencji dla obniżonych stawek w wystąpieniu zarządzanym SQL przy użyciu [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Wystąpienie zarządzane SQL to Najlepsza lokalizacja docelowa migracji w chmurze dla wystąpień SQL Server, które wymagają wysokiego poziomu zabezpieczeń i rozbudowanej powierzchni programistycznej.
 
 ## <a name="key-features-and-capabilities"></a>Najważniejsze funkcje i możliwości
 
@@ -49,7 +49,7 @@ Wystąpienie zarządzane SQL łączy najlepsze funkcje, które są dostępne zar
 |Środowisko izolowane (Integracja z siecią[wirtualną](connectivity-architecture-overview.md), usługa pojedynczej dzierżawy, dedykowane zasoby obliczeniowe i magazyn) <br>[Przezroczyste szyfrowanie danych (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Uwierzytelnianie Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), obsługa logowania jednokrotnego <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Nazwy główne serwera usługi Azure AD (logowania)</a>  <br>Stosuje się do standardów zgodności, takich jak Azure SQL Database <br>[Inspekcja SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |Azure Resource Manager interfejs API do automatyzowania aprowizacji i skalowania usługi <br>Azure Portal funkcje ręcznego inicjowania obsługi i skalowania usługi <br>Usługa Data Migration Service
 
 > [!IMPORTANT]
-> Wystąpienie zarządzane Azure SQL zostało certyfikowane z zastosowaniem wielu standardów zgodności. Aby uzyskać więcej informacji, zobacz [oferty zgodności Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), w których można znaleźć najbardziej aktualną listę certyfikatów zgodności wystąpienia zarządzanego SQL, które wymieniono w obszarze **SQL Database** .
+> Wystąpienie zarządzane Azure SQL zostało certyfikowane z zastosowaniem wielu standardów zgodności. Aby uzyskać więcej informacji, zobacz [oferty zgodności Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), w których można znaleźć najbardziej aktualną listę certyfikatów zgodności wystąpienia zarządzanego SQL, które wymieniono w obszarze **SQL Database**.
 
 W poniższej tabeli przedstawiono najważniejsze funkcje wystąpienia zarządzanego SQL:
 
@@ -85,7 +85,7 @@ Znajdź więcej informacji na temat różnic między generacjami sprzętowymi w 
 
 Wystąpienie zarządzane SQL jest dostępne w dwóch warstwach usług:
 
-- **Ogólnego przeznaczenia** : zaprojektowana dla aplikacji z typowymi wymaganiami dotyczącymi opóźnień I operacji we/wy.
+- **Ogólnego przeznaczenia**: zaprojektowana dla aplikacji z typowymi wymaganiami dotyczącymi opóźnień I operacji we/wy.
 - **Krytyczne** dla działania firmy: zaprojektowano dla aplikacji z minimalnymi wymaganiami we/wy i minimalnego wpływu podstawowych operacji konserwacji w obciążeniu.
 
 Obie warstwy usług gwarantują dostępność na 99,99% i umożliwiają niezależne Wybieranie rozmiaru magazynu i pojemności obliczeniowej. Aby uzyskać więcej informacji na temat architektury wysokiej dostępności wystąpienia zarządzanego Azure SQL, zobacz [wysoką dostępność i wystąpienie zarządzane usługi Azure SQL](../database/high-availability-sla.md).
@@ -156,9 +156,9 @@ Migracja zaszyfrowanej bazy danych do wystąpienia zarządzanego SQL jest obsłu
 
 ## <a name="azure-active-directory-integration"></a>Integracja z usługą Azure Active Directory
 
-Wystąpienie zarządzane SQL obsługuje tradycyjne logowania do aparatu bazy danych SQL Server i logowania zintegrowane z usługą Azure AD. Nazwy główne serwera usługi Azure AD (dane logowania) ( **publiczna wersja zapoznawcza** ) są w chmurze systemu Azure lokalnych nazw logowania, które są używane w środowisku lokalnym. Nazwy główne serwera usługi Azure AD umożliwiają określanie użytkowników i grup z dzierżawy usługi Azure AD jako wystąpień głównych o zakresie wystąpienia, które mogą wykonywać wszystkie operacje na poziomie wystąpienia, w tym zapytania między bazami danych w ramach tego samego wystąpienia zarządzanego.
+Wystąpienie zarządzane SQL obsługuje tradycyjne logowania do aparatu bazy danych SQL Server i logowania zintegrowane z usługą Azure AD. Nazwy główne serwera usługi Azure AD (dane logowania) (**publiczna wersja zapoznawcza**) są w chmurze systemu Azure lokalnych nazw logowania, które są używane w środowisku lokalnym. Nazwy główne serwera usługi Azure AD umożliwiają określanie użytkowników i grup z dzierżawy usługi Azure AD jako wystąpień głównych o zakresie wystąpienia, które mogą wykonywać wszystkie operacje na poziomie wystąpienia, w tym zapytania między bazami danych w ramach tego samego wystąpienia zarządzanego.
 
-Wprowadzono nową składnię do tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania) **od dostawcy zewnętrznego** . Aby uzyskać więcej informacji na temat składni, zobacz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Tworzenie nazwy logowania</a>i zapoznaj się z artykułem [inicjowanie obsługi administracyjnej Azure Active Directory dla wystąpienia zarządzanego SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) .
+Wprowadzono nową składnię do tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania) **od dostawcy zewnętrznego**. Aby uzyskać więcej informacji na temat składni, zobacz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Tworzenie nazwy logowania</a>i zapoznaj się z artykułem [inicjowanie obsługi administracyjnej Azure Active Directory dla wystąpienia zarządzanego SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) .
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integracja usługi Azure Active Directory z uwierzytelnianiem wieloskładnikowym
 
@@ -168,10 +168,10 @@ Wystąpienie zarządzane SQL umożliwia centralne zarządzanie tożsamościami u
 
 Uwierzytelnianie wystąpienia zarządzanego SQL dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas łączenia się z bazą danych. Wystąpienie zarządzane SQL obsługuje dwa typy uwierzytelniania:  
 
-- **Uwierzytelnianie SQL** :
+- **Uwierzytelnianie SQL**:
 
   Ta metoda uwierzytelniania używa nazwy użytkownika i hasła.
-- **Uwierzytelnianie Azure Active Directory** :
+- **Uwierzytelnianie Azure Active Directory**:
 
   Ta metoda uwierzytelniania używa tożsamości zarządzanych przez Azure Active Directory i jest obsługiwana w przypadku domen zarządzanych i zintegrowanych. Używaj uwierzytelniania usługi Active Directory (zabezpieczeń zintegrowanych), [gdy tylko jest to możliwe](/sql/relational-databases/security/choose-an-authentication-mode).
 
@@ -181,14 +181,14 @@ Autoryzacja odnosi się do tego, co użytkownik może zrobić w bazie danych w w
 
 ## <a name="database-migration"></a>Migracja bazy danych
 
-Wystąpienie zarządzane SQL kieruje scenariusze użytkownika z migracją masowej bazy danych z implementacji baz danych lokalnych lub IaaS. Wystąpienie zarządzane SQL obsługuje kilka opcji migracji bazy danych:
+Wystąpienie zarządzane SQL kieruje scenariusze użytkownika z migracją masowej bazy danych z implementacji baz danych lokalnych lub IaaS. Wystąpienie zarządzane SQL obsługuje kilka opcji migracji bazy danych, które zostały omówione w przewodnikach migracji. Aby uzyskać więcej informacji [, zobacz Omówienie migracji: SQL Server do wystąpienia zarządzanego Azure SQL](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md) .
 
 ### <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie  
 
 Podejście do migracji wykorzystuje kopie zapasowe SQL do usługi Azure Blob Storage. Kopie zapasowe przechowywane w usłudze Azure Storage BLOB mogą być bezpośrednio przywracane do wystąpienia zarządzanego przy użyciu [polecenia Przywróć T-SQL](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current).
 
 - Aby zapoznać się z przewodnikiem Szybki Start pokazujący, jak przywrócić plik kopii zapasowej o szerokim świecie standardowym, zobacz [przywracanie pliku kopii zapasowej do wystąpienia zarządzanego](restore-sample-database-quickstart.md). Ten przewodnik Szybki Start przedstawia, że musisz przekazać plik kopii zapasowej do usługi Azure Blob Storage i zabezpieczyć go przy użyciu klucza sygnatury dostępu współdzielonego (SAS).
-- Aby uzyskać informacje o przywracaniu z adresu URL, zobacz [natywne przywracanie z adresu URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
+- Aby uzyskać informacje o przywracaniu z adresu URL, zobacz [natywne przywracanie z adresu URL](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md#backup-and-restore).
 
 > [!IMPORTANT]
 > Kopie zapasowe z wystąpienia zarządzanego można przywrócić tylko do innego wystąpienia zarządzanego. Nie można ich przywrócić do wystąpienia SQL Server lub Azure SQL Database.

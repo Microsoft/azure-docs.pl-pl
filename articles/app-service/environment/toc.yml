@@ -3,6 +3,8 @@
   items:
     - name: Informacje o środowiskach usługi App Service
       href: intro.md
+    - name: Środowisko App Service Environment w wersji 3 (wersja zapoznawcza)
+      href: overview.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -10,11 +12,13 @@
       href: create-external-ase.md
     - name: Tworzenie wewnętrznego środowiska ASE
       href: create-ilb-ase.md
+    - name: Tworzenie środowiska ASEv3 (wersja zapoznawcza)
+      href: creation.md
 - name: Samouczki
   items:
     - name: Integracja z zaporą aplikacji internetowych
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Konfigurowanie protokołu TLS
+    - name: Ustawienia niestandardowe środowiska ASE
       href: app-service-app-service-environment-custom-settings.md
 - name: Samples
   items:
@@ -28,12 +32,12 @@
       href: network-info.md
     - name: Skalowanie rozproszone geograficznie
       href: app-service-app-service-environment-geo-distributed-scale.md
-    - name: ASEv1
-      href: app-service-app-service-environment-intro.md
     - name: Diagnostyka
       href: ../overview-diagnostics.md
     - name: Certyfikaty
       href: certificates.md
+    - name: Sieć środowiska ASEv3 (wersja zapoznawcza)
+      href: networking.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Korzystanie ze środowiska ASE
@@ -48,12 +52,16 @@
       href: firewall-integration.md
     - name: Nadmiarowość stref
       href: zone-redundancy.md
+    - name: Korzystanie ze środowiska ASEv3 (wersja zapoznawcza)
+      href: using.md
 - name: Dokumentacja
   items:
     - name: Adresy zarządzania
       href: management-addresses.md
     - name: Dokumentacja środowiska ASEv1
       items:
+        - name: ASEv1
+          href: app-service-app-service-environment-intro.md
         - name: Tworzenie środowiska ASEv1
           href: app-service-web-how-to-create-an-app-service-environment.md
         - name: Konfigurowanie środowiska ASEv1

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337680"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917770"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker identyfikatorów usługi Azure HDInsight (HIB)
 
@@ -137,6 +137,25 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 ``` 
 
 W przypadku korzystania z Z usługi Beeline i usługi Livy można także wykonać poniższe kody próbek, [Aby skonfigurować](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) klienta do korzystania z protokołu OAuth i łączenia się z klastrem.
+
+## <a name="faq"></a>Często zadawane pytania
+### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Którą aplikację tworzy Usługa HDInsight w usłudze AAD?
+W przypadku każdego klastra aplikacja innej firmy zostanie zarejestrowana w usłudze AAD z identyfikatorem URI klastra jako identifierUri (np https://clustername.azurehdinsight.net .).
+
+### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Dlaczego użytkownicy są monitowani o zgodę przed użyciem klastrów HIB włączonych?
+W usłudze AAD zgoda jest wymagana dla wszystkich aplikacji innych firm, zanim będzie można uwierzytelnić użytkowników lub uzyskać dostęp do danych.
+
+### <a name="can-the-consent-be-approved-programatically"></a>Czy zgoda można zatwierdzić programowo?
+Interfejs API Microsoft Graph umożliwia automatyzację zgody. Zapoznaj się z [dokumentacją interfejsu API](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) , aby zautomatyzować wyrażanie zgody:
+
+* Zarejestruj aplikację i Udziel aplikacji Application. ReadWrite. All uprawnienia do aplikacji, aby uzyskać dostęp do Microsoft Graph
+* Po utworzeniu klastra Zapytaj aplikację klastra na podstawie identyfikatora URI identyfikatora
+* Zarejestruj zgodę aplikacji
+
+Po usunięciu klastra Usługa HDInsight usunie aplikację i nie ma potrzeby czyszczenia żadnych wyrazów.
+
+ 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

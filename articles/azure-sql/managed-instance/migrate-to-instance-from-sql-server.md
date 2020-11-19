@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788554"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917804"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server migracji wystąpień do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Ten artykuł zawiera informacje o metodach migrowania wystąpienia programu SQL Server 2005 lub nowszego do [wystąpienia zarządzanego usługi Azure SQL](sql-managed-instance-paas-overview.md). Aby uzyskać informacje na temat migracji do pojedynczej bazy danych lub puli elastycznej, zobacz [Migrowanie do SQL Database](../database/migrate-to-database-from-sql-server.md). Informacje o migracji z innych platform znajdują się w temacie [Przewodnik po migracji bazy danych Azure](https://datamigration.microsoft.com/).
+Ten artykuł zawiera informacje o metodach migrowania wystąpienia programu SQL Server 2005 lub nowszego do [wystąpienia zarządzanego usługi Azure SQL](sql-managed-instance-paas-overview.md). Aby uzyskać informacje na temat migracji do pojedynczej bazy danych lub puli elastycznej, zobacz [Omówienie migracji: SQL Server do SQL Database](../migration-guides/database/sql-server-to-sql-database-overview.md). Informacje o migracji z innych platform i wskazówki dotyczące narzędzi i opcji można znaleźć w temacie [Migrowanie do usługi Azure SQL](../migration-guides/index.yml).
 
 > [!NOTE]
 > Jeśli chcesz szybko rozpocząć i wypróbować wystąpienie zarządzane Azure SQL, możesz chcieć przejść do [przewodnika Szybki Start](quickstart-content-reference-guide.md) , a nie na tej stronie.

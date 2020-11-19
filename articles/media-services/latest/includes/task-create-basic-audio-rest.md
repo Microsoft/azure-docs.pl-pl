@@ -5,22 +5,25 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: eacdfe663ee3ec323d59daf160fe33af073bc1c5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3a99dd9e69363e8fbb02b7e5e1ac5921d079ba21
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525195"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917891"
 ---
 <!--Create a basic audio transform REST-->
 
-Następujące polecenie REST platformy Azure tworzy podstawowy zasób audio. Zastąp wartości `subscriptionID` , `resourceGroup` i wartościami, dla `amsAccountName` których obecnie pracujesz. Nadaj nazwę elementowi zawartości, ustawiając `assetName` tutaj.
+Następujące polecenie REST platformy Azure tworzy podstawowy zasób audio. Zastąp wartości `subscriptionID` , `resourceGroup` i wartościami, dla `amsAccountName` których obecnie pracujesz. Nadaj nazwę przekształceniu według ustawienia `transformName` .
 
-```
+```REST
+
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01
+
 ```
 
 ## <a name="body"></a>Treść
+
 ```json
 {
     "properties": {

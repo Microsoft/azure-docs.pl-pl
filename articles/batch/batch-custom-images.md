@@ -2,17 +2,17 @@
 title: Tworzenie niestandardowej puli obrazów przy użyciu obrazu zarządzanego
 description: Utwórz niestandardową pulę obrazów usługi Batch z zarządzanego obrazu, aby udostępnić węzłom obliczeniowym oprogramowanie i dane aplikacji.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851288"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916580"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Tworzenie niestandardowej puli obrazów przy użyciu obrazu zarządzanego
 
-Aby utworzyć niestandardową pulę obrazów dla maszyn wirtualnych puli usługi Batch, możesz użyć zarządzanego obrazu do utworzenia [obrazu galerii obrazów udostępnionych](batch-sig-images.md). Obsługiwane jest również korzystanie tylko z obrazu zarządzanego, ale tylko w przypadku wersji interfejsu API do i włącznie z 2019-08-01. 
+Aby utworzyć niestandardową pulę obrazów dla maszyn wirtualnych puli usługi Batch, możesz użyć zarządzanego obrazu do utworzenia [obrazu galerii obrazów udostępnionych](batch-sig-images.md). Obsługiwane jest również korzystanie tylko z obrazu zarządzanego, ale tylko w przypadku wersji interfejsu API do i włącznie z 2019-08-01.
 
 > [!IMPORTANT]
 > W większości przypadków należy utworzyć obrazy niestandardowe przy użyciu galerii obrazów udostępnionych. Za pomocą galerii obrazów udostępnionych można udostępniać pule szybciej, skalować większe ilości maszyn wirtualnych i zwiększyć niezawodność podczas aprowizacji maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych](batch-sig-images.md).
@@ -49,6 +49,7 @@ Jeśli tworzysz nową maszynę wirtualną dla obrazu, Użyj obrazu z witryny Azu
 - Na maszynie wirtualnej nie należy instalować rozszerzeń platformy Azure, takich jak rozszerzenie niestandardowego skryptu. Jeśli obraz zawiera wstępnie zainstalowane rozszerzenie, platforma Azure może napotkać problemy podczas wdrażania puli usługi Batch.
 - W przypadku korzystania z dołączonych dysków danych należy zainstalować i sformatować dyski z poziomu maszyny wirtualnej w celu ich użycia.
 - Upewnij się, że określony obraz podstawowego systemu operacyjnego używa domyślnego dysku tymczasowego. Agent węzła wsadowego aktualnie oczekuje domyślnego dysku tymczasowego.
+- Upewnij się, że dysk systemu operacyjnego nie jest szyfrowany.
 - Gdy maszyna wirtualna jest uruchomiona, nawiąż połączenie z nią za pośrednictwem protokołu RDP (dla systemu Windows) lub SSH (system Linux). Zainstaluj wymagane oprogramowanie lub skopiuj wymagane dane.  
 
 ### <a name="create-a-vm-snapshot"></a>Tworzenie migawki maszyny wirtualnej

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: fabfdce72202f79e2ac5bad08d124df7ce2de542
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5e3fbd1868cc1216cb7b9d02b2aa8e690af33952
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592587"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917685"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analizowanie danych na koncie magazynu
 
@@ -42,11 +42,13 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analizowanie danych na koncie magazynu
 
+Dane można analizować w obszarze roboczym domyślne konto ADLS Gen2. Możesz też połączyć ADLS Gen2 lub konto usługi BLOB Storage z obszarem roboczym za pomocą funkcji "**Zarządzaj**" > "**połączone usługi**" > "**Nowy**" (poniższe kroki odnoszą się do podstawowego konta ADLS Gen2).
+
 1. W programie Synapse Studio przejdź do centrum **danych** , a następnie wybierz pozycję **połączone**.
 1. Przejdź do pozycji **konta magazynu** mój  >  **obszar roboczy (podstawowe-contosolake)**.
 1. Wybierz pozycję **Użytkownicy (podstawowy)**. Powinien zostać wyświetlony folder **NYCTaxi** . Wewnątrz powinny być widoczne dwa foldery o nazwie **PassengerCountStats_csvformat** i **PassengerCountStats_parquetformat**.
 1. Otwórz folder **PassengerCountStats_parquetformat** . W programie zobaczysz plik Parquet o takiej samej nazwie `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
-1. Kliknij prawym przyciskiem myszy pozycję **Parquet** , a następnie wybierz pozycję **Nowy Notes**. Tworzy Notes o takiej samej komórce:
+1. Kliknij prawym przyciskiem myszy pozycję **Parquet**, a następnie wybierz pozycję **Nowy Notes**. Tworzy Notes o takiej samej komórce:
 
     ```py
     %%pyspark

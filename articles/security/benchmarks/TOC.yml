@@ -139,6 +139,8 @@
       href: ../../container-instances/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Container Registry
       href: ../../container-registry/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Content Delivery Network
+      href: ../../cdn/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Cosmos DB
       href: ../../cosmos-db/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Cost Management

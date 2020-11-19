@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377126"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917243"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -162,6 +162,8 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
+Aby uzyskać więcej informacji na temat tych ustawień, zobacz [próbkowanie w Application Insights](../azure-monitor/app/sampling.md). 
+
 |Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | isEnabled | true | Włącza lub wyłącza próbkowanie. | 
@@ -172,7 +174,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 | samplingPercentageDecreaseTimeout | 00:00:01 | Gdy wartość procentowa próbkowania ulegnie zmianie, ta właściwość określa, jak wkrótce później Application Insights można ponownie obniżyć procent próbkowania, aby przechwycić mniejszą ilość danych. |
 | minSamplingPercentage | 0,1 | W miarę jak procent próbkowania różni się, ta właściwość określa minimalny dozwolony procent próbkowania. |
 | maxSamplingPercentage | 100,0 | W miarę jak procent próbkowania różni się, ta właściwość określa maksymalny dozwolony procent próbkowania. |
-| movingAverageRatio | 1.0 | Przy obliczaniu średniej przenoszonej waga przypisana do najnowszej wartości. Użyj wartości równej lub mniejszej od 1. Mniejsze wartości sprawiają, że algorytm jest mniej aktywny w nagłych zmianach. |
+| movingAverageRatio | 1,0 | Przy obliczaniu średniej przenoszonej waga przypisana do najnowszej wartości. Użyj wartości równej lub mniejszej od 1. Mniejsze wartości sprawiają, że algorytm jest mniej aktywny w nagłych zmianach. |
 | excludedTypes | wartość null | Rozdzielana średnikami lista typów, które nie mają być próbkowane. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone, są próbkowane. |
 | includedTypes | wartość null | Rozdzielana średnikami lista typów, które mają być próbkowane; pusta lista implikuje wszystkie typy. Typ wymieniony w liście `excludedTypes` typów przesłonięcia w tym miejscu. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wystąpienia określonych typów są próbkowane; typy, które nie są określone lub implikowane są przesyłane bez próbkowania. |
 
@@ -191,7 +193,7 @@ Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na
 |Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
-| captureSnapshotMemoryWeight | 0.5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0,5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Limit liczby żądań zakończonych niepowodzeniem do żądania migawek przed wyłączeniem procesora telemetrii.|
 | handleUntrackedExceptions | true | Włącza lub wyłącza śledzenie wyjątków, które nie są śledzone przez Application Insights dane telemetryczne. |
 | isEnabled | true | Włącza lub wyłącza kolekcje migawek | 

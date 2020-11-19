@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/30/2020
-ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/18/2020
+ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131364"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917906"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -36,9 +36,9 @@ Podczas przywracania bazy danych usługa określa, które pełne, różnicowe i 
 
 ### <a name="backup-storage-redundancy"></a>Nadmiarowość magazynu kopii zapasowych
 
-Domyślnie, SQL Database i wystąpienia zarządzane SQL przechowują dane w [magazynach obiektów BLOB](../../storage/common/storage-redundancy.md) geograficznie nadmiarowych (RA-GRS), które są replikowane do [sparowanego regionu](../../best-practices-availability-paired-regions.md). Ułatwia to ochronę przed awariami magazynu kopii zapasowych w regionie podstawowym i umożliwia przywrócenie serwera do innego regionu w przypadku awarii. 
+Domyślnie, SQL Database i wystąpienia zarządzane SQL przechowują dane w geograficznie nadmiarowych obiektach [BLOB](../../storage/common/storage-redundancy.md) , które są replikowane do [sparowanego regionu](../../best-practices-availability-paired-regions.md). Ułatwia to ochronę przed awariami magazynu kopii zapasowych w regionie podstawowym i umożliwia przywrócenie serwera do innego regionu w przypadku awarii. 
 
-Opcja konfigurowania nadmiarowości magazynu kopii zapasowych zapewnia elastyczność wyboru między lokalnie nadmiarową, nadmiarową strefą lub geograficznie nadmiarowym magazynem obiektów BLOB dla wystąpienia zarządzanego SQL lub SQL Database. Aby upewnić się, że dane są przechowywane w tym samym regionie, w którym wdrożono wystąpienie zarządzane lub baza danych SQL, można zmienić domyślną nadmiarowość geograficznie nadmiarową magazynu kopii zapasowych i skonfigurować obiekty blob magazynu lokalnie nadmiarowego (LRS) lub strefy nadmiarowe (ZRS) dla kopii zapasowych. Mechanizmy nadmiarowości magazynu przechowują wiele kopii danych w taki sposób, aby były chronione przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowym awariami sprzętowymi, siecią lub przestojem lub bardzo naturalnymi katastrofami. Skonfigurowana nadmiarowość magazynu kopii zapasowych jest stosowana do obu krótkoterminowych ustawień przechowywania kopii zapasowych, które są używane do przywracania do punktu w czasie (kopie) oraz długoterminowych kopii zapasowych używanych do długoterminowych kopii zapasowych (LTR). 
+Opcja konfigurowania nadmiarowości magazynu kopii zapasowych zapewnia elastyczność wyboru między lokalnie nadmiarową, nadmiarową strefą lub geograficznie nadmiarowym magazynem obiektów BLOB dla wystąpienia zarządzanego SQL lub SQL Database. Aby upewnić się, że dane są przechowywane w tym samym regionie, w którym wdrożono wystąpienie zarządzane lub baza danych SQL, można zmienić domyślną nadmiarowość geograficznie nadmiarową magazynu kopii zapasowych i skonfigurować obiekty blob magazynu lokalnie nadmiarowego lub strefowo nadmiarowe dla kopii zapasowych. Mechanizmy nadmiarowości magazynu przechowują wiele kopii danych w taki sposób, aby były chronione przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowym awariami sprzętowymi, siecią lub przestojem lub bardzo naturalnymi katastrofami. Skonfigurowana nadmiarowość magazynu kopii zapasowych jest stosowana do obu krótkoterminowych ustawień przechowywania kopii zapasowych, które są używane do przywracania do punktu w czasie (kopie) oraz długoterminowych kopii zapasowych używanych do długoterminowych kopii zapasowych (LTR). 
 
 W przypadku SQL Database nadmiarowość magazynu kopii zapasowej można skonfigurować w momencie tworzenia bazy danych lub można ją zaktualizować dla istniejącej bazy danych. zmiany wprowadzone do istniejącej bazy danych mają zastosowanie tylko do przyszłych kopii zapasowych. Po zaktualizowaniu nadmiarowości magazynu kopii zapasowej istniejącej bazy danych może upłynąć do 48 godzin, aby zmiany zostały zastosowane. Należy pamiętać, że funkcja przywracania geograficznego jest wyłączona, gdy tylko baza danych zostanie zaktualizowana w celu używania magazynu lokalnego lub Strefowo nadmiarowego. 
 
@@ -179,9 +179,9 @@ Można monitorować całkowite użycie magazynu kopii zapasowych dla każdego ty
 ### <a name="backup-storage-redundancy"></a>Nadmiarowość magazynu kopii zapasowych
 
 Nadmiarowość magazynu kopii zapasowych ma wpływ na koszty tworzenia kopii zapasowych w następujący sposób:
-- LRS cena = x
-- Cena ZRS = 1,25 x
-- RA-GRS Price = 2x
+- lokalnie — cena nadmiarowa = x
+- Strefa-nadmiarowa cena = 1,25 x
+- Cena geograficznie nadmiarowa = 2
 
 Aby uzyskać więcej informacji na temat cennika usługi Backup Storage, Azure SQL Database odwiedź stronę [cennika](https://azure.microsoft.com/pricing/details/sql-database/single/) i [Cennik wystąpienia zarządzanego usługi Azure SQL](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -190,9 +190,9 @@ Aby uzyskać więcej informacji na temat cennika usługi Backup Storage, Azure S
 
 ### <a name="monitor-costs"></a>Monitorowanie kosztów
 
-Aby poznać koszty magazynu kopii zapasowych, przejdź do pozycji **Cost Management + rozliczenia** w Azure Portal, wybierz pozycję **Cost Management** , a następnie wybierz pozycję **Analiza kosztów** . Wybierz żądaną subskrypcję jako **zakres** , a następnie odfiltruj dla odpowiedniego okresu i usługi.
+Aby poznać koszty magazynu kopii zapasowych, przejdź do pozycji **Cost Management + rozliczenia** w Azure Portal, wybierz pozycję **Cost Management**, a następnie wybierz pozycję **Analiza kosztów**. Wybierz żądaną subskrypcję jako **zakres**, a następnie odfiltruj dla odpowiedniego okresu i usługi.
 
-Dodaj filtr dla **nazwy usługi** , a następnie na liście rozwijanej wybierz pozycję **baza danych SQL** . Użyj filtru **podkategorii mierników** , aby wybrać licznik rozliczeń dla usługi. W przypadku pojedynczej bazy danych lub elastycznej puli baz danych wybierz **jedną/elastyczną pulę kopie magazynu kopii zapasowych** . W przypadku wystąpienia zarządzanego wybierz pozycję **mi kopie Backup Storage** . Podkategorie **magazynu** i **obliczeń** mogą być również przydatne, ale nie są one skojarzone z kosztami magazynu kopii zapasowych.
+Dodaj filtr dla **nazwy usługi**, a następnie na liście rozwijanej wybierz pozycję **baza danych SQL** . Użyj filtru **podkategorii mierników** , aby wybrać licznik rozliczeń dla usługi. W przypadku pojedynczej bazy danych lub elastycznej puli baz danych wybierz **jedną/elastyczną pulę kopie magazynu kopii zapasowych**. W przypadku wystąpienia zarządzanego wybierz pozycję **mi kopie Backup Storage**. Podkategorie **magazynu** i **obliczeń** mogą być również przydatne, ale nie są one skojarzone z kosztami magazynu kopii zapasowych.
 
 ![Analiza kosztów magazynu kopii zapasowych](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -373,7 +373,7 @@ Aby uzyskać więcej informacji, zobacz [interfejs API REST przechowywania kopii
 > [!NOTE]
 > Konfigurowalną nadmiarowość magazynu dla kopii zapasowych wystąpienia zarządzanego SQL można określić tylko podczas procesu tworzenia wystąpienia zarządzanego. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej. W przypadku SQL Database publiczna wersja zapoznawcza tej funkcji jest obecnie dostępna w Brazylii Południowej i jest ogólnie dostępna w regionie na platformie Azure Południowo-Wschodnia. 
 
-Nadmiarowość magazynu kopii zapasowych wystąpienia zarządzanego można ustawić tylko podczas tworzenia wystąpienia. SQL Database można ustawić podczas tworzenia bazy danych lub można ją zaktualizować dla istniejącej bazy danych. Wartość domyślna to magazyn Geograficznie nadmiarowy (RA-GRS). W przypadku różnic cen między lokalnie nadmiarowy (LRS), strefowo nadmiarowy (ZRS) i geograficznie nadmiarowy (RA-GRS) magazyn kopii zapasowych odwiedź [stronę z cennikiem wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Nadmiarowość magazynu kopii zapasowych wystąpienia zarządzanego można ustawić tylko podczas tworzenia wystąpienia. SQL Database można ustawić podczas tworzenia bazy danych lub można ją zaktualizować dla istniejącej bazy danych. Wartość domyślna to magazyn Geograficznie nadmiarowy. Różnice w cenach między lokalnie nadmiarowym, nadmiarowym i geograficznie nadmiarowym magazynem kopii zapasowych można znaleźć na [stronie cennika wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Konfigurowanie nadmiarowości magazynu kopii zapasowych przy użyciu Azure Portal
 

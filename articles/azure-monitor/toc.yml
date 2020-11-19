@@ -944,14 +944,28 @@
           href: insights/vminsights-maps.md
         - name: Monitorowanie wydajności
           href: insights/vminsights-performance.md
-        - name: Monitorowanie zmian
-          href: insights/vminsights-change-analysis.md
+        - name: Monitorowanie kondycji gościa (wersja zapoznawcza)
+          items:
+            - name: Omówienie
+              href: insights/vminsights-health-overview.md
+            - name: Włącz
+              href: insights/vminsights-health-enable.md
+            - name: Alerty
+              href: insights/vminsights-health-alerts.md
+            - name: Konfigurowanie monitorów w portalu
+              href: insights/vminsights-health-configure.md
+            - name: Konfigurowanie monitorów na dużą skalę
+              href: insights/vminsights-health-configure-dcr.md
+            - name: Rozwiązywanie problemów
+              href: insights/vminsights-health-troubleshoot.md
         - name: Analizowanie danych przy użyciu zapytań dzienników
           href: insights/vminsights-log-search.md
+        - name: Monitorowanie wydajności
+          href: insights/vminsights-alerts.md
+        - name: Monitorowanie zmian
+          href: insights/vminsights-change-analysis.md
         - name: Wizualizowanie danych za pomocą skoroszytów
           href: insights/vminsights-workbooks.md
-        - name: Tworzenie reguł alertów
-          href: insights/vminsights-alerts.md
         - name: Wyłączanie monitorowania
           href: insights/vminsights-optout.md
     - name: Usługa Azure Monitor dla kontenerów

@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 64334b17060879a2e587b13b062c81e86df33831
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d47abaade13958b4e28d3ad5f62b88e8a53e89a9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743443"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917845"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Przegląd migracji: SQL Server do SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -57,13 +57,15 @@ Odpowiednie podejście do Twojej firmy zwykle zależy od następujących czynnik
 - Cykl pomocy technicznej dla istniejących produktów
 - Okno dla przestojów aplikacji podczas migracji
 
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="Przestój migracji maszyn wirtualnych":::
+
 W poniższej tabeli opisano różnice między dwiema strategiami migracji:
 <br />
 
 | **Strategia migracji** | **Opis** | **Kiedy stosować** |
 | --- | --- | --- |
 | **Unieś & Shift** | Aby przenieść całą fizyczną lub wirtualną SQL Server z bieżącej lokalizacji na wystąpienie SQL Server na maszynie wirtualnej platformy Azure bez wprowadzania zmian w systemie operacyjnym lub SQL Server wersji, należy użyć strategii migracji i przesunięcia. Aby ukończyć podnieśność i przesunięcia do migracji, zobacz [Azure Migrate](../../../migrate/migrate-services-overview.md). <br /><br /> Serwer źródłowy pozostaje w trybie online i usług, podczas gdy serwer źródłowy i docelowy synchronizują dane, umożliwiając niemal bezproblemowe Migrowanie. | Służy do migracji pojedynczej do bardzo dużej skali, nawet mającej zastosowanie do scenariuszy, takich jak wyjście centrum danych. <br /><br /> Nie jest wymagane wprowadzanie zmian w kodzie do baz danych lub aplikacji SQL użytkownika, co umożliwia szybsze przeprowadzanie migracji. <br /><br />Nie są wymagane żadne dodatkowe kroki do migrowania usług analizy biznesowej, takich jak  [SSIS](/sql/integration-services/sql-server-integration-services), [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports)i [SSAS](/analysis-services/analysis-services-overview). |
-|**Migracja** | Użyj strategii migracji, gdy chcesz uaktualnić SQL Server docelowy i/lub wersję systemu operacyjnego. <br /> <br /> Wybierz maszynę wirtualną platformy Azure z witryny Azure Marketplace lub przygotowanego obrazu SQL Server zgodnego z wersją SQL Server źródłowej. | Należy używać w przypadku, gdy wymagane jest użycie funkcji dostępnych w nowszych wersjach SQL Server lub jeśli istnieje potrzeba uaktualnienia starszych wersji SQL Server i/lub systemu operacyjnego, które nie są już obsługiwane.  <br /> <br /> Może wymagać wprowadzenia zmian w bazie danych aplikacji lub użytkownika w celu obsługi uaktualnienia SQL Server. <br /><br />W przypadku migracji usług [analizy biznesowej](#business-intelligence) mogą wystąpić dodatkowe zagadnienia. |
+|**Migrate (Migracja)** | Użyj strategii migracji, gdy chcesz uaktualnić SQL Server docelowy i/lub wersję systemu operacyjnego. <br /> <br /> Wybierz maszynę wirtualną platformy Azure z witryny Azure Marketplace lub przygotowanego obrazu SQL Server zgodnego z wersją SQL Server źródłowej. | Należy używać w przypadku, gdy wymagane jest użycie funkcji dostępnych w nowszych wersjach SQL Server lub jeśli istnieje potrzeba uaktualnienia starszych wersji SQL Server i/lub systemu operacyjnego, które nie są już obsługiwane.  <br /> <br /> Może wymagać wprowadzenia zmian w bazie danych aplikacji lub użytkownika w celu obsługi uaktualnienia SQL Server. <br /><br />W przypadku migracji usług [analizy biznesowej](#business-intelligence) mogą wystąpić dodatkowe zagadnienia. |
 
 
 ## <a name="lift-and-shift"></a>Migrowanie metodą „lift-and-shift”  
@@ -75,7 +77,7 @@ Poniższa tabela zawiera szczegółowe informacje o dostępnej metodzie dotyczą
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 z dodatkiem SP4| SQL Server 2008 z dodatkiem SP4| [Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Istniejące SQL Server przenoszone do wystąpienia SQL Server na maszynie wirtualnej platformy Azure. Może skalować obciążenia migracji do 35 000 maszyn wirtualnych. <br /><br /> Serwery źródłowe pozostają w trybie online i obsługują żądania podczas synchronizacji danych serwera, co minimalizuje przestoje. <br /><br /> **Automatyzacja & obsługa skryptów**: [Azure Site Recovery skryptów](../../../migrate/how-to-migrate-at-scale.md) i [Przykładowa migracja skalowana i planowanie na platformie Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>Migracja  
+## <a name="migrate"></a>Migrate (Migracja)  
 
 Ze względu na łatwość konfigurowania zalecanym rozwiązaniem migracji jest utworzenie natywnego SQL Server [kopii zapasowej](/sql/t-sql/statements/backup-transact-sql) lokalnie, a następnie skopiowanie pliku na platformę Azure. Ta metoda obsługuje większe bazy danych (>1 TB) dla wszystkich wersji SQL Server począwszy od 2008 i większych kopii zapasowych bazy danych (>1 TB). Jednak w przypadku baz danych, które są uruchamiane w SQL Server 2014, które są mniejsze niż 1 TB i które mają dobrą łączność z platformą Azure, to lepszym rozwiązaniem jest [SQL Server kopia zapasowa do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) . 
 
@@ -100,7 +102,7 @@ W poniższej tabeli przedstawiono wszystkie dostępne metody migrowania bazy dan
 > W przypadku dużych transferów danych z ograniczoną liczbą opcji sieci można zobaczyć [duże transfery danych z ograniczoną łącznością](../../../storage/common/storage-solution-large-dataset-low-network.md).
 > 
 
-### <a name="considerations"></a>Kwestie do rozważenia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 Poniżej znajduje się lista kluczowych zagadnień, które należy wziąć pod uwagę podczas przeglądania metod migracji:
 

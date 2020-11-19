@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660291"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916495"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -196,7 +196,7 @@ Ostatnie zmiany ustawień konfiguracji wielokanałowego protokołu SMB bez ponow
 
 ### <a name="cause"></a>Przyczyna  
 
-Powiadomienia o zmianach plików o dużej liczbie w udziałach plików mogą powodować znaczne duże opóźnienia. Zwykle jest to wykonywane w przypadku witryn sieci Web hostowanych w udziałach plików z głębokiej zagnieżdżonej struktury katalogów. Typowym scenariuszem jest hostowana aplikacja sieci Web IIS, w której jest skonfigurowane powiadomienie o zmianie pliku dla każdego katalogu w konfiguracji domyślnej. Każda zmiana (ReadDirectoryChangesW) w udziale, który jest zarejestrowany przez klienta SMB do wypychania powiadomienia o zmianach z usługi plików do klienta, który pobiera zasoby systemowe, i występuje problem z liczbą zmian. Może to spowodować ograniczenie przepustowości i w związku z tym spowodować większe opóźnienia po stronie klienta. 
+Powiadomienia o zmianach plików o dużej liczbie w udziałach plików mogą powodować znaczne duże opóźnienia. Zwykle jest to wykonywane w przypadku witryn sieci Web hostowanych w udziałach plików z głębokiej zagnieżdżonej struktury katalogów. Typowym scenariuszem jest hostowana aplikacja sieci Web IIS, w której jest skonfigurowane powiadomienie o zmianie pliku dla każdego katalogu w konfiguracji domyślnej. Każda zmiana ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) w udziale, który jest zarejestrowany przez klienta SMB do wypychania powiadomienia o zmianach z usługi plików do klienta, który pobiera zasoby systemowe, i występuje problem z liczbą zmian. Może to spowodować ograniczenie przepustowości i w związku z tym spowodować większe opóźnienia po stronie klienta. 
 
 Aby potwierdzić, możesz użyć metryk platformy Azure w portalu — 
 
@@ -213,10 +213,8 @@ Aby potwierdzić, możesz użyć metryk platformy Azure w portalu —
     - Zaktualizuj interwał sondowania procesu roboczego usług IIS (W3WP) do 0 przez ustawienie `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` w rejestrze i ponownie uruchom proces W3wp. Aby dowiedzieć się więcej na temat tego ustawienia, zobacz [Common Registry Keys, które są używane przez wiele części usług IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Zwiększ częstotliwość interwału sondowania powiadomień o zmianach pliku, aby zmniejszyć ilość woluminu.
     - Zaktualizuj interwał sondowania procesu roboczego W3WP na wyższą wartość (np. 10mins lub 30mins) na podstawie wymagań. Ustaw `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [w rejestrze](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) i ponownie uruchom proces W3wp.
-- Jeśli zmapowany katalog fizyczny witryny sieci Web ma zagnieżdżoną strukturę katalogów, możesz spróbować ograniczyć zakres powiadomień o zmianach pliku, aby zmniejszyć ilość powiadomień.
-    - Domyślnie usługi IIS używają konfiguracji z Web.config plików w katalogu fizycznym, do którego zamapowany jest katalog wirtualny, a także w dowolnych katalogach podrzędnych w katalogu fizycznym. Jeśli nie chcesz używać plików Web.config w katalogach podrzędnych, określ wartość false dla atrybutu wartość allowsubdirconfig w katalogu wirtualnym. Więcej szczegółów można znaleźć [tutaj](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-
-Ustaw ustawienie "wartość allowsubdirconfig" katalogu wirtualnego usług IIS w Web.Config na wartość false, aby wykluczyć mapowane katalogi fizyczne obiektów podrzędnych z zakresu.  
+- Jeśli zmapowany katalog fizyczny witryny sieci Web ma zagnieżdżoną strukturę katalogów, możesz spróbować ograniczyć zakres powiadomień o zmianach pliku, aby zmniejszyć ilość powiadomień. Domyślnie usługi IIS używają konfiguracji z Web.config plików w katalogu fizycznym, do którego zamapowany jest katalog wirtualny, a także w dowolnych katalogach podrzędnych w katalogu fizycznym. Jeśli nie chcesz używać plików Web.config w katalogach podrzędnych, określ wartość false dla atrybutu wartość allowsubdirconfig w katalogu wirtualnym. Więcej szczegółów można znaleźć [tutaj](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Ustaw ustawienie "wartość allowsubdirconfig" katalogu wirtualnego usług IIS w Web.Config na *wartość false* , aby wykluczyć mapowane katalogi fizyczne obiektów podrzędnych z zakresu.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Jak utworzyć alert, jeśli udział plików jest ograniczany
 

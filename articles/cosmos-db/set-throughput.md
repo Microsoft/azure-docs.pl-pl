@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490274"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917260"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Wszystkie kontenery utworzone w bazie danych z zainicjowaną przepływność mus
 
 Jeśli obciążenie partycji logicznej zużywa więcej niż przepływność przydzieloną do określonej partycji logicznej, operacje są ograniczone proporcjonalnie. W przypadku wystąpienia ograniczenia szybkości można zwiększyć przepływność całej bazy danych lub wykonać operację ponownie. Aby uzyskać więcej informacji na temat partycjonowania, zobacz [partycje logiczne](partitioning-overview.md).
 
-Kontenery w bazie danych z udostępnioną przepływnością współdzielą przepływność (RU/s) przydzieloną do tej bazy danych. W bazie danych można mieć maksymalnie cztery kontenery z minimalną przepływnością 400 RU/s. W standardowym (ręcznym) rozpoczęciu przepływności każdy nowy kontener po pierwszym cztery będzie wymagać dodatkowego 100 RU/s. Przykładowo jeśli masz bazę danych z udostępnioną przepływnością z ośmioma kontenerami, minimalna wartość przepływności w tej bazie danych będzie wynosiła 800 RU/s. W przypadku przepływności z obsługą automatycznego skalowania można mieć maksymalnie 25 kontenerów w bazie danych z automatycznym skalą 4000 RU/s (skaluje się między 400 – 4000 RU/s).
+Kontenery w bazie danych z udostępnioną przepływnością współdzielą przepływność (RU/s) przydzieloną do tej bazy danych. Przy użyciu standardowej (ręcznej) przepływności udostępnionej można mieć maksymalnie 25 kontenerów z co najmniej 400 RU/s w bazie danych. W przypadku przepływności z obsługą automatycznego skalowania można mieć maksymalnie 25 kontenerów w bazie danych z automatycznym skalą 4000 RU/s (skaluje się między 400 – 4000 RU/s).
 
 > [!NOTE]
 > W lutym 2020 Wprowadziliśmy zmianę, która umożliwia korzystanie z maksymalnie 25 kontenerów w udostępnionej bazie danych przepływności, co zapewnia lepszą obsługę przepływności w kontenerach. Po pierwszych 25 kontenerach możesz dodać więcej kontenerów do bazy danych tylko wtedy, gdy są one udostępniane [z dedykowaną przepływność](#set-throughput-on-a-database-and-a-container), która jest oddzielona od udostępnionej przepływności bazy danych.<br>
@@ -80,11 +80,11 @@ Jeśli Twoje obciążenia wymagają usunięcia i ponownego utworzenia wszystkich
 Można połączyć te dwa modele. Przepływność aprowizacji zarówno dla bazy danych, jak i kontenera jest dozwolona. Poniższy przykład pokazuje, jak zainicjować standardową (ręczną) przepływność administracyjną dla bazy danych Cosmos Azure i kontenera:
 
 * Można utworzyć bazę danych usługi Azure Cosmos o nazwie *z* w standardowym (ręcznym) przepływności *"K"* jednostek ru. 
-* Następnie utwórz pięć kontenerów o nazwie *a* , *B* , *C* , *D* i *E* w ramach bazy danych. Podczas tworzenia kontenera B upewnij się, że włączono **dedykowaną przepływność dla tej opcji kontenera** , a następnie jawnie Skonfiguruj *"P"* jednostek ru na potrzeby aprowizacji dla tego kontenera. Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. 
+* Następnie utwórz pięć kontenerów o nazwie *a*, *B*, *C*, *D* i *E* w ramach bazy danych. Podczas tworzenia kontenera B upewnij się, że włączono **dedykowaną przepływność dla tej opcji kontenera** , a następnie jawnie Skonfiguruj *"P"* jednostek ru na potrzeby aprowizacji dla tego kontenera. Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Ustawianie przepływności na poziomie kontenera":::
 
-* Przepływność jednostek ru *"K"* jest udostępniana w czterech kontenerach *a* , *C* , *D* i *E*. Dokładna ilość przepływności *dostępna dla,* *C* , *D* lub *E* jest różna. Dla każdego z przepływności poszczególnych kontenerów nie ma umowy SLA.
+* Przepływność jednostek ru *"K"* jest udostępniana w czterech kontenerach *a*, *C*, *D* i *E*. Dokładna ilość przepływności *dostępna dla,* *C*, *D* lub *E* jest różna. Dla każdego z przepływności poszczególnych kontenerów nie ma umowy SLA.
 * Kontener o nazwie *B* jest zagwarantowany do uzyskania jednostek ru przepływności *"P"* przez cały czas. Jest ona obsługiwana przez umowy SLA.
 
 > [!NOTE]
@@ -111,7 +111,6 @@ Rzeczywiste minimum RU/s może się różnić w zależności od konfiguracji kon
 * 400 RU/s 
 * Bieżący magazyn w GB * 10 RU/s (chyba że kontener lub baza danych zawiera więcej niż 1 TB danych, zobacz nasz [duży magazyn/niska przepływność](#high-storage-low-throughput-program))
 * Najwyższy poziom RU/s zainicjowany dla bazy danych lub kontenera/100
-* Liczba kontenerów * 100 RU/s (tylko udostępniona baza danych przepływności)
 
 ### <a name="changing-the-provisioned-throughput"></a>Zmiana zainicjowanej przepływności
 
@@ -122,7 +121,7 @@ Zainicjowaną przepływność kontenera lub bazy danych można skalować za pomo
 
 W przypadku **obniżenia ilości zainicjowanej przepływności** będzie można wykonać [minimalnie](#current-provisioned-throughput).
 
-Jeśli **rośnie przepływność** , większość czasu operacja jest chwilowo. Istnieją jednak sytuacje, w których operacja może trwać dłużej, ze względu na zadania systemowe do udostępniania wymaganych zasobów. W takim przypadku próba modyfikacji zainicjowanej przepływności podczas wykonywania tej operacji spowoduje zwrócenie odpowiedzi HTTP 423 z komunikatem o błędzie z informacją o tym, że inna operacja skalowania jest w toku.
+Jeśli **rośnie przepływność**, większość czasu operacja jest chwilowo. Istnieją jednak sytuacje, w których operacja może trwać dłużej, ze względu na zadania systemowe do udostępniania wymaganych zasobów. W takim przypadku próba modyfikacji zainicjowanej przepływności podczas wykonywania tej operacji spowoduje zwrócenie odpowiedzi HTTP 423 z komunikatem o błędzie z informacją o tym, że inna operacja skalowania jest w toku.
 
 > [!NOTE]
 > Jeśli planujesz bardzo duże obciążenie pozyskiwania, które będzie wymagało dużego wzrostu przepływności, należy pamiętać, że operacja skalowania nie ma umowy SLA i, jak wspomniano w poprzednim akapicie, może zająć dużo czasu, gdy wzrost jest duży. Możesz chcieć zaplanować i rozpocząć skalowanie przed rozpoczęciem obciążenia i użyć poniższych metod w celu sprawdzenia postępu.
@@ -147,8 +146,8 @@ W tej tabeli przedstawiono porównanie standardowego (ręcznej) przepływności 
 
 |**Parametr**  |**Przepustowość standardowa (ręczna) w bazie danych**  |**Standardowa (ręczna) przepływność na kontenerze**|**Automatyczne skalowanie przepływności bazy danych** | **Automatyczne skalowanie przepływności dla kontenera**|
 |---------|---------|---------|---------|---------|
-|Punkt wejścia (minimalny RU/s) |400 RU/s. Po pierwsze cztery kontenery każdy dodatkowy kontener wymaga co najmniej 100 RU/s</li> |400| Automatyczne skalowanie w zakresie od 400 do 4000 RU/s. Może mieć do 25 kontenerów bez minimum RU/s na kontener</li> | Automatyczne skalowanie w zakresie od 400 do 4000 RU/s.|
-|Minimalna wartość RU/s na kontener|100|400|--|Skalowanie automatyczne z zakresu od 400 do 4000 RU/s|
+|Punkt wejścia (minimalny RU/s) |400 RU/s. Może mieć do 25 kontenerów bez minimum RU/s dla kontenera.</li> |400| Automatyczne skalowanie w zakresie od 400 do 4000 RU/s. Może mieć do 25 kontenerów bez minimum RU/s dla kontenera.</li> | Automatyczne skalowanie w zakresie od 400 do 4000 RU/s.|
+|Minimalna wartość RU/s na kontener|--|400|--|Skalowanie automatyczne z zakresu od 400 do 4000 RU/s|
 |Maksymalna jednostek ru|Bez ograniczeń, w bazie danych.|Bez ograniczeń, w kontenerze.|Bez ograniczeń, w bazie danych.|Bez ograniczeń, w kontenerze.
 |Jednostek ru przypisane lub dostępne dla określonego kontenera|Brak gwarancji. Jednostek ru przypisane do danego kontenera zależą od właściwości. Właściwościami mogą być wybór kluczy partycji kontenerów, które współdzielą przepływność, rozkład obciążenia oraz liczbę kontenerów. |Wszystkie jednostek ru skonfigurowane w kontenerze są zarezerwowane wyłącznie dla kontenera.|Brak gwarancji. Jednostek ru przypisane do danego kontenera zależą od właściwości. Właściwościami mogą być wybór kluczy partycji kontenerów, które współdzielą przepływność, rozkład obciążenia oraz liczbę kontenerów. |Wszystkie jednostek ru skonfigurowane w kontenerze są zarezerwowane wyłącznie dla kontenera.|
 |Maksymalna ilość miejsca w magazynie dla kontenera|Ograniczona.|Nieograniczona liczba|Nieograniczona liczba|Nieograniczona liczba|

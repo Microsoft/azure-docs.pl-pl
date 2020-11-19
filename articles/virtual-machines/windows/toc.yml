@@ -330,7 +330,9 @@
         - name: Kopia zapasowa i odzyskiwanie po awarii dla dysków
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Dyski udostępnione
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Warstwy wydajności dysków
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Efemeryczne dyski systemu operacyjnego
           href: ../ephemeral-os-disks.md
     - name: Networking
@@ -886,8 +888,10 @@
               href: attach-disk-ps.md
             - name: Azure Portal
               href: attach-managed-disk-portal.md
-        - name: Zmiana warstwy dysku
+        - name: Zmiana warstwy dysku — PowerShell / interfejs wiersza polecenia
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Zmiana warstwy dysku — portal
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Odłączanie dysku
           href: detach-disk.md
         - name: Wdrażanie dysków za pomocą szablonu usługi Resource Manager

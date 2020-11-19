@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574124"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915321"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Działająca [aplikacja wywołująca usługi komunikacyjne](../getting-started-with-calling.md).
-- [Wdrożenie zespołów](https://docs.microsoft.com/deployoffice/teams-install).
+- [Wdrożenie zespołów](/deployoffice/teams-install).
 
 ## <a name="enable-teams-interoperability"></a>Włącz współdziałanie zespołów
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Pobierz kontekst spotkania
 
-Kontekst zespołów można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisany w [dokumentacji programu Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+Kontekst zespołów można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisany w [dokumentacji programu Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
 
 Wymagane informacje o spotkaniu można również uzyskać od adresu URL **spotkania sprzężenia** w samym zaproszeniu do spotkania.
 
@@ -115,4 +115,3 @@ Otwórz przeglądarkę i przejdź do http://localhost:8080/ . Powinien zostać w
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Zrzut ekranu ukończonej aplikacji JavaScript.":::
 
 Wstaw kontekst zespołów do pola tekstowego i naciśnij pozycję *Dołącz zespoły spotkanie* , aby dołączyć zespoły do spotkania z poziomu aplikacji usług komunikacyjnych.
-

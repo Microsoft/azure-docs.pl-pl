@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516445"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916478"
 ---
-# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Publiczna wersja zapoznawcza: Korzyść użycia hybrydowego platformy Azure — jak ma to zastosowanie do Linux Virtual Machines
+# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Korzyść użycia hybrydowego platformy Azure — jak ma zastosowanie do Linux Virtual Machines
 
 ## <a name="overview"></a>Omówienie
 
 Korzyść użycia hybrydowego platformy Azure umożliwia łatwiejsze Migrowanie lokalnych maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) na platformę Azure przy użyciu własnej istniejącej subskrypcji Red Hat lub SUSE. Korzystając z tej korzyści, płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ opłata za oprogramowanie jest objęta subskrypcją usługi RHEL lub SLES. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
 
 > [!IMPORTANT]
-> Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych z systemem Linux jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych z systemem Linux jest teraz dostępna publicznie
+
 
 ## <a name="benefit-description"></a>Opis korzyści
 
@@ -44,12 +44,6 @@ Korzyść użycia hybrydowego platformy Azure jest dostępny dla wszystkich obra
 Wystąpienia zarezerwowane, dedykowane hosty i korzyści z używania hybrydowej bazy danych SQL nie kwalifikują się do Korzyść użycia hybrydowego platformy Azure, jeśli jest już używana korzyść z maszynami wirtualnymi z systemem Linux.
 
 ## <a name="how-to-get-started"></a>Jak zacząć
-
-Korzyść użycia hybrydowego platformy Azure jest obecnie w fazie wersji zapoznawczej dla maszyn wirtualnych z systemem Linux. Po uzyskaniu dostępu do wersji zapoznawczej możesz włączyć korzystanie z interfejsu wiersza polecenia platformy Azure.
-
-### <a name="public-preview"></a>Publiczna wersja zapoznawcza
-
-Korzyść użycia hybrydowego platformy Azure (dla systemu Linux) jest teraz w fazie publicznej wersji zapoznawczej. Poniższe kroki umożliwiają skorzystanie z zalet dystrybucji Red Hat i SUSE. 
 
 ### <a name="red-hat-customers"></a>Klienci firmy Red Hat
 

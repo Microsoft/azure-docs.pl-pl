@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445340"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917277"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
-Na platformie Azure Wyszukiwanie poznawcze wartość "wyszukiwanie w trakcie pisania" jest włączana za pomocą konstrukcji **sugerującej** dodanej do [indeksu wyszukiwania](search-what-is-an-index.md). Program sugerujący obsługuje dwa środowiska: *Autouzupełnianie* , które uzupełnia częściowe dane wejściowe dla zapytania obejmującego całą kadencję, oraz *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
+Na platformie Azure Wyszukiwanie poznawcze wartość "wyszukiwanie w trakcie pisania" jest włączana za pomocą konstrukcji **sugerującej** dodanej do [indeksu wyszukiwania](search-what-is-an-index.md). Program sugerujący obsługuje dwa środowiska: *Autouzupełnianie*, które uzupełnia częściowe dane wejściowe dla zapytania obejmującego całą kadencję, oraz *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
 
 Poniższy zrzut ekranu przedstawiający [Tworzenie pierwszej aplikacji w języku C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustruje oba te elementy. Funkcja Autouzupełnianie przewiduje potencjalną kadencję, kończąc "TW" z "in". Sugestie to wyniki wyszukiwania mini, gdzie pole takie jak nazwa hotelu reprezentuje pasujący dokument wyszukiwania hotelowego z indeksu. W przypadku sugestii można wyświetlić dowolne pole, które zawiera opisowe informacje.
 
@@ -54,7 +54,7 @@ Wykorzystaj automatycznie korzyści z większej puli pól do narysowania ze wzgl
 
 Sugestie z drugiej strony dają lepsze wyniki, gdy wybór pola jest selektywny. Należy pamiętać, że sugestia jest serwerem proxy dla dokumentu wyszukiwania, dzięki czemu można chcieć, aby pola, które najlepiej reprezentują pojedynczy wynik. Nazwy, tytuły lub inne unikatowe pola, które odróżniają wiele pasujących wyników działają najlepiej. Jeśli pola zawierają powtarzające się wartości, sugestie składają się z identycznych wyników i użytkownik nie wie, który z nich należy kliknąć.
 
-Aby zaspokoić zarówno środowiska typu "wyszukiwanie jako dane", Dodaj wszystkie pola, które są potrzebne do autouzupełniania, a następnie użyj **$SELECT** , **$Top** , **$Filter** i **searchFields** , aby kontrolować wyniki dla sugestii.
+Aby zaspokoić zarówno środowiska typu "wyszukiwanie jako dane", Dodaj wszystkie pola, które są potrzebne do autouzupełniania, a następnie użyj **$SELECT**, **$Top**, **$Filter** i **searchFields** , aby kontrolować wyniki dla sugestii.
 
 ### <a name="choose-analyzers"></a>Wybieranie analizatorów
 
@@ -120,20 +120,20 @@ W interfejsie API REST Dodaj sugestie za pomocą pozycji [Utwórz indeks](/rest/
 W języku C#, zdefiniuj [obiekt SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` jest kolekcją obiektu SearchIndex, ale może przyjmować tylko jeden element. 
 
 ```csharp
-private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
-    FieldBuilder fieldBuilder = new FieldBuilder();
-    var searchFields = fieldBuilder.Build(typeof(Hotel));
+    var definition = new SearchIndex()
+    {
+        FieldBuilder builder = new FieldBuilder();
+        Fields = builder.Build(typeof(Hotel);
+        Suggesters = new List<Suggester>() {new Suggester()
+            {
+                Name = "sg",
+                SourceFields = new string[] { "HotelName", "Category" }
+            }}
+    }
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
-    var definition = new SearchIndex(indexName, searchFields);
-
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
-    definition.Suggesters.Add(suggester);
-
-    indexClient.CreateOrUpdateIndex(definition);
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 

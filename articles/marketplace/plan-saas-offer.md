@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734399"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917549"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
@@ -104,7 +104,26 @@ Połączenie programu CRM można dodać lub zmodyfikować w dowolnym momencie po
 
 ## <a name="selecting-an-online-store"></a>Wybieranie sklepu online
 
-Po opublikowaniu oferty SaaS zostanie ona wyświetlona w Microsoft AppSource, Azure Marketplace lub obu. Każdy sklep online obsługuje unikatowe wymagania klientów. AppSource dotyczy rozwiązań firmowych, a platforma Azure Marketplace dotyczy rozwiązań IT. Typ oferty, możliwości Transact i kategorie określają, gdzie Twoja oferta zostanie opublikowana. Kategorie i podkategorie są mapowane na każdy sklep online na podstawie typu rozwiązania. Aby uzyskać szczegółowe informacje na temat opcji listy obsługiwanych przez sklepy online, zobacz [Opcje wyświetlania i cennika według sklepu online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Aby uzyskać więcej informacji na temat kategorii i podkategorii, zobacz [Kategorie i podkategorie w komercyjnym portalu Marketplace](categories.md).
+Po opublikowaniu oferty SaaS zostanie ona wyświetlona w Microsoft AppSource, Azure Marketplace lub obu. Każdy sklep online obsługuje unikatowe wymagania klientów. AppSource dotyczy rozwiązań firmowych, a platforma Azure Marketplace dotyczy rozwiązań IT. Typ oferty, możliwości Transact i kategorie określają, gdzie Twoja oferta zostanie opublikowana. Kategorie i podkategorie są mapowane na każdy sklep online na podstawie typu rozwiązania. 
+
+Jeśli Twoja oferta *SaaS to rozwiązanie* IT (Azure Marketplace) i rozwiązanie biznesowe (AppSource), wybierz kategorię i podkategorię, która ma zastosowanie do każdego sklepu online. Oferty opublikowane w ramach obu magazynów online powinny mieć wartość propozycja jako rozwiązanie IT *i* rozwiązanie biznesowe.
+
+> [!IMPORTANT]
+> Oferty SaaS z [naliczanymi opłatami](partner-center-portal/saas-metered-billing.md) są dostępne w witrynie Azure Marketplace i Azure Portal. Oferty SaaS z tylko planami prywatnymi są dostępne za pomocą Azure Portal.
+
+| Naliczanie opłat | Plan publiczny | Plan prywatny | Dostępne w: |
+|---|---|---|---|
+| Tak             | Tak         | Nie           | Portal Azure Marketplace i Azure Portal |
+| Tak             | Tak         | Tak          | Azure Marketplace i Azure Portal * |
+| Tak             | Nie          | Tak          | Tylko Azure Portal |
+| Nie              | Nie          | Tak          | Tylko Azure Portal |
+|||||
+
+&#42; plan prywatny oferty będzie dostępny tylko za pośrednictwem Azure Portal
+
+Na przykład oferta z naliczaniem opłatowym i tylko planem prywatnym (bez planu publicznego) zostanie zakupiona przez klientów w Azure Portal. Dowiedz się więcej o [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](private-offers.md).
+
+Aby uzyskać szczegółowe informacje na temat opcji listy obsługiwanych przez sklepy online, zobacz [Opcje wyświetlania i cennika według sklepu online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Aby uzyskać więcej informacji na temat kategorii i podkategorii, zobacz [Kategorie i podkategorie w komercyjnym portalu Marketplace](categories.md).
 
 ## <a name="legal-contracts"></a>Umowy prawne
 

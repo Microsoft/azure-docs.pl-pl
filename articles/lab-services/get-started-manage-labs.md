@@ -2,52 +2,27 @@
 title: Wprowadzenie do Azure Lab Services
 description: W tym artykule opisano, jak rozpocząć pracę z Azure Lab Services.
 ms.topic: article
-ms.date: 10/02/2020
-ms.openlocfilehash: 33e052931b0c3bd1bb1434b7eeefeed7a2a7ceab
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.date: 11/18/2020
+ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380291"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917107"
 ---
 # <a name="get-started-with-lab-services"></a>Wprowadzenie do usług laboratoryjnych 
 
-Jako student, możesz użyć Azure Lab Services, aby uzyskać dostęp do standardowych programów wymaganych przez programy badawcze na maszynach wirtualnych. 
+Azure Lab Services oferuje uczniów i nauczycieli z dostępem do laboratoriów komputera wirtualnego bezpośrednio z własnych komputerów.
 
-Nauczyciele muszą wiedzieć, jak nauczyć się uczniów, aby mogli korzystać z Azure Lab Services w swojej instrukcji za poorednictwem sprzętu wystawionego od jednego do jednego studenta.
+Nauczyciele muszą dowiedzieć się, jak nauczyć uczniów/rodziców, aby mogli korzystać z usług laboratoryjnych w ramach swoich instrukcji za poorednictwem sprzętu wystawionego przez jednego ucznia. W związku z tym uczniowie mogą uzyskać dostęp do oprogramowania standardowego w branży wymaganego przez programy badawcze za pomocą Virtual Machines (VM). 
 
-Ten artykuł zawiera informacje dotyczące personelu nauczania w zakresie uzyskiwania dostępu do Azure Lab Services i zarządzania nimi.
+Maszyna wirtualna to środowisko wirtualne, które działa jako komputer wirtualny. Maszyny wirtualne mają własny procesor, pamięć i magazyn. Maszyny wirtualne stanowią podstawę dla prawdziwej maszyny i mogą zapewnić użytkownikom dostęp do systemów operacyjnych i oprogramowania bez konieczności posiadania ich na własnym urządzeniu. Azure Lab Services zapewnia studentom dostęp do maszyn wirtualnych i nawigowanie po nich oraz do zarządzania nimi. 
 
-## <a name="overview"></a>Omówienie
+Ten artykuł zawiera informacje dotyczące personelu nauczania w zakresie uzyskiwania dostępu do Azure Lab Services oraz zarządzania nimi i nauczania z nich.
 
-Co to jest maszyna wirtualna i jak to działa?
+## <a name="key-concepts"></a>Kluczowe pojęcia
 
-Maszyna wirtualna (VM) to środowisko wirtualne, które działa jako komputer wirtualny. Maszyny wirtualne mają własny procesor, pamięć i magazyn. Maszyny wirtualne stanowią podstawę dla prawdziwej maszyny i mogą zapewnić użytkownikom dostęp do systemów operacyjnych i oprogramowania bez konieczności posiadania ich na własnym urządzeniu. Azure Lab Services zapewnia studentom dostęp do maszyn wirtualnych i nawigowanie po nich oraz do zarządzania nimi. 
-
-Aby uzyskać więcej informacji, zobacz [Tworzenie laboratoriów zajęć i zarządzanie nimi](how-to-manage-classroom-labs.md).
-
-## <a name="lab-dashboards"></a>Pulpity nawigacyjne laboratorium
-
-Pulpity nawigacyjne dla laboratoriów stacjonarnych w Azure Lab Services zawierają migawkę różnych aspektów konkretnego laboratorium, w tym informacje o maszynie wirtualnej, liczbę przypisanych i nieprzypisanych maszyn wirtualnych, liczbę zarejestrowanych i niezarejestrowanego użytkownika oraz informacje o harmonogramach laboratorium. 
-
-> [!NOTE]
-> Chociaż większość aspektów administracyjnych pulpitu nawigacyjnego i [witryny sieci web Azure Lab Services](https://labs.azure.com/) będzie widoczna dla nauczycieli, uprawnienia specyficzne dla Twojej roli mogą mieć wpływ na możliwość modyfikowania określonych kryteriów na pulpicie nawigacyjnym. Jeśli wystąpi problem z konkretną konfigurację laboratorium, skontaktuj się z administratorem CTE.
-
-:::image type="content" source="./media/use-dashboard/dashboard.png" alt-text="Portal Azure Lab Services":::
-
-1. Przejdź do [witryny sieci Web usługi Azure Lab Services](https://labs.azure.com/)i zaloguj się.
-1. Wybierz laboratorium.
-1. Po lewej stronie okna zobaczysz **pulpit nawigacyjny** . Kliknij pozycję **pulpit nawigacyjny** , aby zobaczyć kilka kafelków na pulpicie nawigacyjnym.
-1. Poniżej znajdują się kafelki z **Rozliczeniami &** , istnieją również kafelki dotyczące szablonów, pul maszyn wirtualnych, użytkowników i harmonogramów, które pozwalają modyfikować aspekty i wyświetlać więcej szczegółowych informacji na temat laboratorium zajęć.
-
-    1. Szablon — opisuje datę utworzenia szablonu i ostatnią publikację. 
-    1. Pula maszyn wirtualnych — liczba przypisanych i nieprzypisanych maszyn wirtualnych.
-    1. Użytkownicy — liczba zarejestrowanych użytkowników i użytkowników, którzy zostali dodani do laboratorium, ale nie są zarejestrowani.
-    1. Harmonogramy — wyświetla nadchodzące zaplanowane zdarzenia dla laboratorium oraz link, aby wyświetlić więcej zdarzeń.
-
-Aby uzyskać więcej informacji, zobacz [Korzystanie z pulpitu nawigacyjnego](use-dashboard.md).
-
-## <a name="quota-hours"></a>Godziny przydziału
+### <a name="quota-hours"></a>Godziny przydziału
 
 Studenci mogą uzyskać dostęp do swoich maszyn wirtualnych w dowolnym momencie podczas zaplanowanej klasy czasu bez wpływu na ich godziny przydziału. Godziny przydziału są ustawiane dla całego semestru i określają liczbę godzin, przez studenta mogą korzystać z maszyny wirtualnej poza regularnie zaplanowanym czasem klasy.
 
@@ -57,17 +32,42 @@ Aby uzyskać więcej informacji, zobacz [Ustawianie limitu przydziału](how-to-c
 
 ### <a name="automatic-shut-down"></a>Automatyczne zamykanie
 
-Aby pomóc w utrzymaniu kosztów i zaoszczędzeniu godzin przydziału dla uczniów, automatyczne zamykanie zostanie włączone dla naszych laboratoriów. Automatyczne zamykanie spowoduje wyłączenie maszyn wirtualnych po okresie braku aktywności (bez danych wejściowych myszy lub klawiatury). Automatyczne zamykanie działa w dwóch etapach, a pierwszy student zostanie odłączony od maszyny wirtualnej po okresie braku aktywności. W tym momencie maszyna wirtualna nadal **działa** i uczniowie mogą nawiązywać połączenia. Po rozłączeniu z innym okresem braku aktywności maszyna wirtualna zostanie zamknięta.
+Aby pomóc w obniżeniu kosztów i zaoszczędzeniu godzin przydziału dla uczniów, automatyczne wyłączenia są włączane dla laboratoriów. Automatyczne zamykanie spowoduje wyłączenie maszyn wirtualnych po okresie braku aktywności (bez danych wejściowych myszy lub klawiatury). Automatyczne zamykanie działa w dwóch etapach, a pierwszy student zostanie odłączony od maszyny wirtualnej po okresie braku aktywności. W tym momencie maszyna wirtualna nadal **działa** i uczniowie mogą nawiązywać połączenia. Po rozłączeniu z innym okresem braku aktywności maszyna wirtualna zostanie zamknięta.
 
-Automatyczne zamykanie jest ważnym narzędziem do oszczędzania kosztów, ale w związku z tym w przypadku zapisywania pracy i renderowania dużych plików projektu są one dostępne jako wyzwanie dla studentów. Jeśli uczniowie są często rozłączane, a maszyny wirtualne są zbyt szybko wyłączone. Skontaktuj się z administratorem CTE. 
+Automatyczne zamykanie jest ważnym narzędziem do oszczędzania kosztów, ale w związku z tym w przypadku zapisywania pracy i renderowania dużych plików projektu są one dostępne jako wyzwanie dla studentów. Jeśli uczniowie są często rozłączane lub maszyny wirtualne są zbyt szybko wyłączone, skontaktuj się z administratorem CTE. 
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie automatycznego zamykania maszyn wirtualnych dla konta laboratorium](how-to-configure-lab-accounts.md).
 
-## <a name="managing-virtual-machines"></a>Zarządzanie maszynami wirtualnymi
+### <a name="managing-virtual-machines"></a>Zarządzanie maszynami wirtualnymi
 
 Zarządzanie laboratorium umożliwia nauczycielom Sterowanie elementami, takimi jak pojemność laboratoryjna (liczba maszyn wirtualnych dostępnych dla studentów) oraz ręczne uruchamianie, zatrzymywanie lub resetowanie maszyn wirtualnych. Nauczyciele mogą również łączyć się z maszynami wirtualnymi, aby korzystać z interfejsu ucznia, uzyskiwać dostęp do plików i rozwiązywać problemy z oprogramowaniem lub maszyną wirtualną.
 
-Najważniejszym znaczeniem do zapamiętania podczas zarządzania naszymi maszynami wirtualnymi jest to, że kiedykolwiek komputer jest **uruchomiony** , są ponoszone koszty nawet wtedy, gdy żaden z nich nie jest podłączony do maszyny wirtualnej.
+Najważniejszym znaczeniem do zapamiętania, gdy zarządzanie maszynami wirtualnymi jest **uruchomienie** komputera, są ponoszone koszty nawet wtedy, gdy żaden z nich nie jest podłączony do maszyny wirtualnej.
+
+## <a name="lab-dashboards"></a>Pulpity nawigacyjne laboratorium
+
+### <a name="overview"></a>Omówienie
+
+Pulpity nawigacyjne dla laboratoriów stacjonarnych w Azure Lab Services zawierają migawkę różnych aspektów konkretnego laboratorium, w tym informacje o maszynie wirtualnej, liczbę przypisanych i nieprzypisanych maszyn wirtualnych, liczbę zarejestrowanych i niezarejestrowanego użytkownika oraz informacje o harmonogramach laboratorium. 
+
+> [!NOTE]
+> Chociaż większość aspektów administracyjnych pulpitu nawigacyjnego i [witryny sieci web Azure Lab Services](https://labs.azure.com/) będzie widoczna dla nauczycieli, uprawnienia specyficzne dla Twojej roli mogą mieć wpływ na możliwość modyfikowania określonych kryteriów na pulpicie nawigacyjnym. Jeśli wystąpi problem z konkretną konfigurację laboratorium, skontaktuj się z administratorem CTE.
+
+:::image type="content" source="./media/use-dashboard/dashboard.png" alt-text="Portal Azure Lab Services":::
+
+### <a name="examine-a-dashboard"></a>Sprawdzanie pulpitu nawigacyjnego
+
+1. Przejdź do [witryny sieci Web usługi Azure Lab Services](https://labs.azure.com/)i zaloguj się.
+1. Wybierz laboratorium.
+1. Po lewej stronie okna zobaczysz **pulpit nawigacyjny** . Kliknij pozycję **pulpit nawigacyjny** , aby zobaczyć kilka kafelków na pulpicie nawigacyjnym.
+1. Poniżej znajdują się kafelki z **Rozliczeniami &** , istnieją również kafelki dotyczące szablonów, pul maszyn wirtualnych, użytkowników i harmonogramów, które pozwalają modyfikować aspekty i wyświetlać więcej szczegółowych informacji na temat laboratorium zajęć.
+
+    * Szablon — opisuje datę utworzenia szablonu i ostatnią publikację. 
+    * Pula maszyn wirtualnych — liczba przypisanych i nieprzypisanych maszyn wirtualnych.
+    * Użytkownicy — liczba zarejestrowanych użytkowników i użytkowników, którzy zostali dodani do laboratorium, ale nie są zarejestrowani.
+    * Harmonogramy — wyświetla nadchodzące zaplanowane zdarzenia dla laboratorium oraz link, aby wyświetlić więcej zdarzeń.
+
+Aby uzyskać więcej informacji, zobacz [Korzystanie z pulpitu nawigacyjnego](use-dashboard.md).
 
 ### <a name="manually-starting-vms"></a>Ręczne uruchamianie maszyn wirtualnych
 
@@ -98,7 +98,7 @@ Jeśli student ma problemy z nawiązywaniem połączenia z maszyną wirtualną l
     > [!NOTE]
     > Włączenie maszyny wirtualnej ucznia nie wpłynie na przydział dla ucznia. Limity przydziału dla użytkowników określają liczbę godzin Lab dostępnych dla użytkownika poza zaplanowanym czasem klasy.
 
-### <a name="connect-to-virtual-machines"></a>Połącz z Virtual Machines
+### <a name="connect-to-vms"></a>Nawiązywanie połączenia z maszynami wirtualnymi
 
 Nauczyciele mogą łączyć się z maszyną wirtualną ucznia, o ile jest ona włączona, a student nie jest połączony z maszyną wirtualną. Łącząc się z maszyną wirtualną, będziesz mieć dostęp do plików lokalnych na maszynie wirtualnej i pomóc uczniom w rozwiązywaniu problemów.
 
@@ -107,7 +107,7 @@ Nauczyciele mogą łączyć się z maszyną wirtualną ucznia, o ile jest ona w�
 
 :::image type="content" source="./media/how-to-set-virtual-machine-passwords/connect-student-vm.png" alt-text="Przycisk połączenia z maszyną wirtualną ucznia":::
 
-## <a name="add-and-manage-lab-users"></a>Dodawanie użytkowników laboratorium i zarządzanie nimi
+## <a name="manage-users-in-a-lab"></a>Zarządzanie użytkownikami w laboratorium
 
 Nauczyciele mogą dodawać użytkowników uczniów do laboratorium i monitorować ich limity godzinowe. 
 
@@ -123,7 +123,7 @@ Nauczyciele mogą dodawać użytkowników uczniów do laboratorium i monitorowa�
     :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Dodawanie uczniów do laboratorium":::
 1. Lista użytkowników zostanie teraz zaktualizowana o wiadomości e-mail, status, zaproszenie i godziny przydziału.
 
-    Po zarejestrowaniu uczniów dla laboratorium, ich nazwy zostaną zaktualizowane przy użyciu imion i nazwisk z katalogu MP.
+    Po zarejestrowaniu uczniów dla laboratorium, ich nazwy zostaną zaktualizowane przy użyciu imion i nazwisk z Azure Active Directory.
 
     > [!NOTE]
     > Opcja Włącz opcję Ogranicz dostęp jest włączona dla użytkowników. Oznacza to, że tylko użytkownicy z listą mogą zarejestrować się w laboratorium przy użyciu wysyłanego linku rejestracji.
@@ -144,7 +144,7 @@ Możesz również dodać użytkowników, przekazując plik CSV zawierający ich 
 
 ### <a name="register-users"></a>Rejestrowanie użytkowników
 
-Po dodaniu użytkowników do laboratorium konieczne będzie zarejestrowanie się w celu uzyskania dostępu do maszyn wirtualnych. Można to zrobić przez Zapraszanie użytkowników z portalu usług sieci Web platformy Azure, który wyśle wiadomość e-mail zawierającą link rejestracji dla laboratorium. Lub przez skopiowanie i wklejenie linku rejestracji do wiadomości e-mail lub innej formy komunikacji z uczniami.
+Po dodaniu użytkowników do laboratorium konieczne będzie zarejestrowanie się w celu uzyskania dostępu do maszyn wirtualnych. Można to zrobić przez Zapraszanie użytkowników z portalu, co spowoduje wysłanie wiadomości e-mail zawierającej link rejestracji dla laboratorium. Lub przez skopiowanie i wklejenie linku rejestracji do wiadomości e-mail lub innej formy komunikacji z uczniami.
 
 1. Na stronie **Użytkownicy** wybierz studenta lub wielu uczniów z listy.
 
@@ -164,7 +164,7 @@ Po dodaniu użytkowników do laboratorium konieczne będzie zarejestrowanie się
     
     :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Wyślij rejestrację użytkownika":::
 
-Po zaproszeniu użytkowników za pomocą Azure Portal lub udostępnieniu linku będzie można monitorować użytkowników, którzy zostali pomyślnie zarejestrowani na stronie **Użytkownicy** w kolumnie **stan** . 
+Po zaproszeniu użytkowników lub udostępnieniu linku będzie można monitorować użytkowników, którzy zostali pomyślnie zarejestrowani na stronie **Użytkownicy** w kolumnie **stan** . 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

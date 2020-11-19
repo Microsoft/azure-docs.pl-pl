@@ -98,6 +98,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Przeprowadzanie inspekcji zgodności przy użyciu usługi Azure Policy
           href: signalr-howto-azure-policy.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Przewodniki po rozwiązywaniu problemów
+          href: signalr-howto-troubleshoot-guide.md
+        - name: Metody rozwiązywania problemów
+          href: signalr-howto-troubleshoot-method.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

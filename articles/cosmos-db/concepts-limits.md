@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491821"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917736"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,26 +41,48 @@ Przepustowość można zainicjować na poziomie kontenera lub na poziomie bazy d
 > [!NOTE]
 > Aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących zarządzania obciążeniami z kluczami partycji wymagającymi wyższych limitów dla magazynu lub przepływności, zobacz [Tworzenie klucza partycji syntetycznej](synthetic-partition-keys.md).
 
-Kontener Cosmos (lub udostępniona baza danych przepływności) musi mieć minimalną przepływność wynoszącą 400 RU/s. Wraz z rozwojem kontenera Minimalna obsługiwana przepływność zależy również od następujących czynników:
+### <a name="minimum-throughput-limits"></a>Minimalne limity przepływności
 
-* Maksymalna przepływność kiedykolwiek obsługiwana w kontenerze. Na przykład jeśli przepustowość została zwiększona do 50 000 RU/s, najniższą możliwą przepływność będzie 500 RU/s.
-* Bieżący magazyn w GB w kontenerze. Na przykład jeśli kontener ma 100 GB miejsca w magazynie, najniższą możliwą przepływność będzie 1000 RU/s. **Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
-* Minimalna przepływność dla udostępnionej bazy danych przepływności zależy również od całkowitej liczby kontenerów utworzonych kiedykolwiek w udostępnionej bazie danych przepływności, mierzoną przy 100 RU/s na kontener. Jeśli na przykład utworzono pięć kontenerów w ramach udostępnionej bazy danych przepływności, przepustowość musi wynosić co najmniej 500 RU/s.
+Kontener Cosmos (lub udostępniona baza danych przepływności) musi mieć minimalną przepływność wynoszącą 400 RU/s. W miarę wzrostu kontenera Cosmos DB wymaga minimalnej przepływności, aby upewnić się, że baza danych lub kontener ma wystarczający zasób do operacji.
 
 Bieżącą i minimalną przepływność kontenera lub bazy danych można pobrać z Azure Portal lub zestawów SDK. Aby uzyskać więcej informacji, zobacz temat [udostępnianie przepływności na kontenerach i bazach danych](set-throughput.md). 
 
-> [!NOTE]
-> W niektórych przypadkach może być możliwe obniżenie przepływności do mniejszej niż 10%. Użyj interfejsu API w celu uzyskania dokładnej minimalnej jednostek ru na kontener.
+Rzeczywiste minimum RU/s może się różnić w zależności od konfiguracji konta. Za pomocą [metryk Azure monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) można wyświetlić historię zainicjowanej przepływności (ru/s) i magazynu w ramach zasobu. 
+
+#### <a name="minimum-throughput-on-container"></a>Minimalna przepływność na kontenerze 
+
+Aby oszacować minimalną przepływność wymaganą przez kontener z ręczną przepływem, Znajdź maksymalnie:
+
+* 400 RU/s 
+* Bieżący magazyn w GB * 10 RU/s
+* Najwyższy poziom RU/s zainicjowany w kontenerze/100
+
+Przykład: Załóżmy, że masz kontener z obsługą 400 RU/s i 0 GB magazynu. Można zwiększyć przepływność do 50 000 RU/s i zaimportować 20 GB danych. Minimalna wartość RU/s to teraz `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 ru/s. W miarę upływu czasu magazyn rośnie do 200 GB. Minimalna wartość RU/s to teraz `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 ru/s. 
+
+**Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
+
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Minimalna przepływność dla udostępnionej bazy danych przepływności 
+Aby oszacować minimalną przepływność wymaganą przez udostępnioną bazę danych przepływności z ręczną przepływność, Znajdź maksymalnie:
+
+* 400 RU/s 
+* Bieżący magazyn w GB * 10 RU/s
+* Najwyższy poziom RU/s zainicjowany w bazie danych/100
+* 400 + MAX (liczba kontenerów-25, 0) * 100 RU/s
+
+Przykład: Załóżmy, że masz bazę danych z obsługą 400 RU/s, 15 GB miejsca do magazynowania i 10 kontenerów. Minimalna wartość RU/s to `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Jeśli w bazie danych wystąpiło 30 kontenerów, minimalna wartość RU/s byłaby `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 ru/s. 
+
+**Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program).
 
 Poniżej znajduje się podsumowanie minimalnych limitów przydziałów RU. 
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Minimalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimalna jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimalna jednostek ru na kontener w ramach udostępnionej bazy danych przepływności | 100 |
+| Minimalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimalna jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s dla pierwszych 25 kontenerów. Dodatkowe 100 RU/s dla każdego kontenera później. |
 
-Cosmos DB obsługuje elastyczne skalowanie przepływności (jednostek ru) na kontener lub bazę danych za pośrednictwem zestawów SDK lub portalu. Każdy kontener można skalować synchronicznie i od razu w zakresie od 10 do 100 razy od wartości minimalnej i maksymalnej. Jeśli żądana wartość przepływności znajduje się poza zakresem, skalowanie jest wykonywane asynchronicznie. Skalowanie asynchroniczne może zająć kilka minut, w zależności od wymaganej przepływności i rozmiaru magazynu danych w kontenerze.  
+Cosmos DB obsługuje programistyczne skalowanie przepływności (RU/s) na kontener lub bazę danych za pośrednictwem zestawów SDK lub portalu.    
+
+W zależności od bieżących zasobów i ustawień zainicjowanych przez program RU/s każdy zasób można skalować synchronicznie i od razu między minimalnymi jednostkami RU/s do maksymalnie 100x minimalnych jednostek RU/s. Jeśli żądana wartość przepływności znajduje się poza zakresem, skalowanie jest wykonywane asynchronicznie. Skalowanie asynchroniczne może zająć kilka minut, w zależności od wymaganej przepływności i rozmiaru magazynu danych w kontenerze.  
 
 ### <a name="serverless"></a>Praca bezserwerowa
 
@@ -172,9 +194,9 @@ Azure Cosmos DB przechowuje metadane systemowe dla każdego konta. Te metadane u
 
 | Zasób | Limit domyślny |
 | --- | --- |
-|Maksymalna stawka tworzenia kolekcji na minutę| 5|
-|Maksymalna stawka tworzenia bazy danych na minutę|   5|
-|Maksymalna liczba zainicjowanych przepływności na minutę| 5|
+|Maksymalna stawka tworzenia kolekcji na minutę|    5|
+|Maksymalna stawka tworzenia bazy danych na minutę|    5|
+|Maksymalna liczba zainicjowanych przepływności na minutę|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limity przepływności aprowizacji automatycznego skalowania
 

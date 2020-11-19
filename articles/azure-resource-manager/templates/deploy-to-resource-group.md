@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w grupach zasobów
 description: Opisuje sposób wdrażania zasobów w szablonie Azure Resource Manager. Pokazuje, jak należy określić więcej niż jedną grupę zasobów.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: fd211641d7fcc02a1db154053597497583b21ae5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/18/2020
+ms.openlocfilehash: 5e33f0d505759944ccaf2233aa122b6ab701c91f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681545"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917430"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Wdrożenia grup zasobów przy użyciu szablonów ARM
 
@@ -54,7 +54,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 W przypadku polecenia wdrażania programu PowerShell Użyj polecenie [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Poniższy przykład wdraża szablon w celu utworzenia grupy zasobów:
 
@@ -83,6 +83,8 @@ Podczas wdrażania w grupie zasobów można wdrożyć zasoby w:
 
 * docelowa Grupa zasobów z operacji
 * inne grupy zasobów w ramach tej samej subskrypcji lub innych subskrypcji
+* dowolna subskrypcja dzierżawy
+* Dzierżawca dla grupy zasobów
 * [zasoby rozszerzeń](scope-extension-resources.md) można stosować do zasobów
 
 Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
@@ -95,6 +97,8 @@ Aby wdrożyć zasoby do zasobu docelowego, należy dodać te zasoby do sekcji za
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
+Aby zapoznać się z przykładowym szablonem, zobacz [wdrażanie w docelowej grupie zasobów](#deploy-to-target-resource-group).
+
 ### <a name="scope-to-resource-group-in-same-subscription"></a>Zakres do grupy zasobów w tej samej subskrypcji
 
 Aby wdrożyć zasoby w innej grupie zasobów w ramach tej samej subskrypcji, Dodaj wdrożenie zagnieżdżone i Uwzględnij `resourceGroup` Właściwość. Jeśli nie określisz identyfikatora subskrypcji lub grupy zasobów, zostanie użyta subskrypcja i Grupa zasobów z szablonu nadrzędnego. Przed uruchomieniem wdrożenia muszą istnieć wszystkie grupy zasobów.
@@ -103,13 +107,43 @@ W poniższym przykładzie zagnieżdżone wdrożenie jest przeznaczone dla grupy 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
+Aby zapoznać się z przykładowym szablonem, zobacz [wdrażanie w wielu grupach zasobów](#deploy-to-multiple-resource-groups).
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>Zakres do grupy zasobów w innej subskrypcji
 
 Aby wdrożyć zasoby w grupie zasobów w innej subskrypcji, należy dodać wdrożenie zagnieżdżone i uwzględnić `subscriptionId` `resourceGroup` właściwości i. W poniższym przykładzie zagnieżdżone wdrożenie jest przeznaczone dla grupy zasobów o nazwie `demoResourceGroup` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-## <a name="cross-resource-groups"></a>Grupy wielu zasobów
+Aby zapoznać się z przykładowym szablonem, zobacz [wdrażanie w wielu grupach zasobów](#deploy-to-multiple-resource-groups).
+
+### <a name="scope-to-subscription"></a>Zakres subskrypcji
+
+Aby wdrożyć zasoby w ramach subskrypcji, Dodaj wdrożenie zagnieżdżone i Uwzględnij `subscriptionId` Właściwość. Subskrypcja może być subskrypcją docelowej grupy zasobów lub dowolną inną subskrypcją dzierżawy. Ponadto należy ustawić `location` Właściwość dla wdrożenia zagnieżdżonego.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+Aby zapoznać się z przykładowym szablonem, zobacz [Tworzenie grupy zasobów](#create-resource-group).
+
+### <a name="scope-to-tenant"></a>Zakres do dzierżawy
+
+Możesz tworzyć zasoby w dzierżawie, ustawiając dla ustawienia `scope` wartość `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
+
+Można użyć wdrożenia zagnieżdżonego z `scope` i `location` zestawu.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+
+Lub można ustawić zakres `/` dla niektórych typów zasobów, takich jak grupy zarządzania.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+## <a name="deploy-to-target-resource-group"></a>Wdróż w docelowej grupie zasobów
+
+Aby wdrożyć zasoby w docelowej grupie zasobów, zdefiniuj te zasoby w sekcji **zasoby** szablonu. Poniższy szablon służy do tworzenia konta magazynu w grupie zasobów określonej w operacji wdrażania.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+
+## <a name="deploy-to-multiple-resource-groups"></a>Wdróż w wielu grupach zasobów
 
 W pojedynczym szablonie ARM można wdrożyć wiele grup zasobów. Aby określić grupę zasobów, która jest inna niż ta dla szablonu nadrzędnego, użyj [szablonu zagnieżdżone lub połączone](linked-templates.md). W obszarze Typ zasobu wdrożenia Określ wartości dla identyfikatora subskrypcji i grupy zasobów, na które ma zostać wdrożony szablon zagnieżdżony. Grupy zasobów mogą istnieć w różnych subskrypcjach.
 
@@ -124,9 +158,9 @@ Jeśli ustawisz `resourceGroup` nazwę grupy zasobów, która nie istnieje, wdro
 
 Aby przetestować poprzedni szablon i zobaczyć wyniki, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby wdrożyć dwa konta magazynu w dwóch grupach zasobów w ramach **tej samej subskrypcji** , użyj:
+Aby wdrożyć dwa konta magazynu w dwóch grupach zasobów w ramach **tej samej subskrypcji**, użyj:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -143,7 +177,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Aby wdrożyć dwa konta magazynu w **dwóch subskrypcjach** , użyj:
+Aby wdrożyć dwa konta magazynu w **dwóch subskrypcjach**, użyj:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -152,10 +186,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location southcentralus
 
 New-AzResourceGroupDeployment `
@@ -169,7 +203,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby wdrożyć dwa konta magazynu w dwóch grupach zasobów w ramach **tej samej subskrypcji** , użyj:
+Aby wdrożyć dwa konta magazynu w dwóch grupach zasobów w ramach **tej samej subskrypcji**, użyj:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -184,7 +218,7 @@ az deployment group create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Aby wdrożyć dwa konta magazynu w **dwóch subskrypcjach** , użyj:
+Aby wdrożyć dwa konta magazynu w **dwóch subskrypcjach**, użyj:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -207,6 +241,76 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="create-resource-group"></a>Tworzenie grupy zasobów
+
+W ramach wdrożenia grupy zasobów można przełączyć się na poziom subskrypcji i utworzyć grupę zasobów. Poniższy szablon wdraża konto magazynu w docelowej grupie zasobów i tworzy nową grupę zasobów w określonej subskrypcji.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "westus",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

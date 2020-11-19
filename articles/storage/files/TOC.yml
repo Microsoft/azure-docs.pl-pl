@@ -67,6 +67,12 @@
           href: storage-sync-files-networking-overview.md
         - name: Informacje o obsłudze warstw w chmurze
           href: storage-sync-cloud-tiering.md
+    - name: Wydajność i skalowanie
+      items:
+        - name: Wydajność funkcji SMB Multichannel
+          href: storage-files-smb-multichannel-performance.md
+        - name: Cele dotyczące skalowalności i wydajności
+          href: storage-files-scale-targets.md
     - name: Zapobieganie przypadkowemu usuwaniu danych
       href: storage-files-prevent-file-share-deletion.md
     - name: Tworzenie kopii zapasowej udziałów plików
@@ -74,9 +80,7 @@
     - name: Szyfrowanie danych magazynowanych
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Szyfrowanie magazynowanych danych przy użyciu kluczy zarządzanych przez klienta
-      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Cele dotyczące skalowalności i wydajności
-      href: storage-files-scale-targets.md
+      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Oferty rozwiązań do zapewniania zgodności
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Często zadawane pytania
@@ -87,8 +91,6 @@
       items:
         - name: Tworzenie udziału plików SMB
           href: storage-how-to-create-file-share.md
-        - name: Włączanie obsługi dużych udziałów plików
-          href: storage-files-how-to-create-large-file-share.md
         - name: Tworzenie udziału plików w warstwie Premium
           href: storage-how-to-create-premium-fileshare.md
         - name: Tworzenie udziału NFS
@@ -231,6 +233,12 @@
               href: storage-files-migration-storsimple-8000.md
             - name: Przewodnik migracji dla urządzeń StorSimple 1200
               href: storage-files-migration-storsimple-1200.md
+    - name: Poprawa wydajności
+      items:
+        - name: Włączanie funkcji SMB Multichannel
+          href: storage-files-enable-smb-multichannel.md
+        - name: Włączanie obsługi dużych udziałów plików
+          href: storage-files-how-to-create-large-file-share.md
     - name: Programowanie
       items:
         - name: Konfigurowanie parametrów połączenia
