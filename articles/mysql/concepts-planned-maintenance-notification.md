@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886485"
+ms.locfileid: "94919628"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Powiadomienie o planowanej konserwacji w Azure Database for MySQL-pojedynczym serwerze
 
@@ -78,7 +78,7 @@ Błąd przejściowy, nazywany także błędem przejściowym, jest błędem, któ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MySQL, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL pod adresem **AskAzureDBforMySQL@service.microsoft.com** .
+- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MySQL, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL w AskAzureDBforMySQL@service.microsoft.com
 - Zobacz [jak skonfigurować alerty](howto-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - [Rozwiązywanie problemów z połączeniem do Azure Database for MySQL-pojedynczego serwera](howto-troubleshoot-common-connection-issues.md)
 - [Obsługa błędów przejściowych i wydajne łączenie się z Azure Database for MySQL-pojedynczym serwerem](concepts-connectivity.md)

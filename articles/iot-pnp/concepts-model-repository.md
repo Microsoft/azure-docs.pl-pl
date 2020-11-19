@@ -3,16 +3,16 @@ title: Informacje o pojęciach repozytorium modelu urządzenia | Microsoft Docs
 description: Jako deweloper rozwiązania lub Specjalista IT zapoznaj się z podstawowymi pojęciami dotyczącymi repozytorium modelu urządzeń.
 author: rido-min
 ms.author: rmpablos
-ms.date: 09/30/2020
+ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131364"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920546"
 ---
 # <a name="device-model-repository"></a>Repozytorium modelu urządzenia
 
@@ -30,7 +30,7 @@ Firma Microsoft udostępnia publiczną DMR z następującymi cechami:
 
 ## <a name="custom-device-model-repository"></a>Niestandardowe repozytorium modeli urządzeń
 
-Tego samego wzorca DMR można użyć w dowolnym nośniku magazynującym, takim jak lokalny system plików lub niestandardowe serwery sieci Web HTTP, aby utworzyć niestandardową DMR. Modele urządzeń można pobrać z niestandardowego DMR w taki sam sposób jak w przypadku publicznego DMR po prostu przez zmianę podstawowego adresu URL służącego do uzyskiwania dostępu do DMR.
+Użyj tego samego wzorca DMR, aby utworzyć niestandardowe DMR w dowolnym nośniku magazynującym, takim jak lokalny system plików lub niestandardowe serwery sieci Web HTTP. Modele urządzeń można pobrać z niestandardowego DMR w taki sam sposób jak w przypadku publicznego DMR, zmieniając podstawowy adres URL używany do uzyskiwania dostępu do DMR.
 
 > [!NOTE]
 > Firma Microsoft oferuje narzędzia do sprawdzania poprawności modeli urządzeń w DMR publicznym. Można ponownie użyć tych narzędzi w niestandardowych repozytoriach.
@@ -47,9 +47,9 @@ Wszystkie interfejsy w `dtmi` folderach są również dostępne w publicznym pun
 
 ### <a name="resolve-models"></a>Rozpoznaj modele
 
-Aby programowo uzyskać dostęp do tych interfejsów, należy skonwertować DTMI na ścieżkę względną, której można użyć do wysyłania zapytań do publicznego punktu końcowego. Poniższy przykład kodu pokazuje, jak to zrobić:
+Aby programowo uzyskać dostęp do tych interfejsów, należy skonwertować DTMI na ścieżkę względną, której można użyć do wysyłania zapytań do publicznego punktu końcowego.
 
-Aby skonwertować DTMI na ścieżkę bezwzględną, używamy `DtmiToPath` funkcji z `IsValidDtmi` :
+Aby skonwertować DTMI na ścieżkę bezwzględną, użyj `DtmiToPath` funkcji z `IsValidDtmi` :
 
 ```cs
 static string DtmiToPath(string dtmi)
@@ -86,46 +86,81 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 > Musisz mieć konto usługi GitHub, aby móc przesyłać modele do DMR publicznego.
 
 1. Rozwidlenie publicznego repozytorium GitHub: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models) .
-1. Klonuj repozytorium rozwidlenia. Opcjonalnie Utwórz nową gałąź, aby zachować zmiany odizolowane od `main` gałęzi.
-1. Dodaj nowe interfejsy do `dtmi` folderu przy użyciu konwencji folderu/filename. Zobacz Narzędzie [Dodaj model](#add-model) .
-1. Sprawdź poprawność modeli urządzeń lokalnie, używając [skryptów do walidacji zmian](#validate-files) .
+1. Sklonuj repozytorium rozwidlenia. Opcjonalnie Utwórz nową gałąź, aby zachować zmiany odizolowane od `main` gałęzi.
+1. Dodaj nowe interfejsy do `dtmi` folderu przy użyciu konwencji folderu/filename. Aby dowiedzieć się więcej, zobacz [Importowanie modelu do `dtmi/` folderu](#import-a-model-to-the-dtmi-folder).
+1. Sprawdź poprawność modeli lokalnie przy użyciu `dmr-client` Narzędzia. Aby dowiedzieć się więcej, zobacz temat [Weryfikowanie modeli](#validate-models).
 1. Zatwierdź zmiany lokalnie i wypchnij do Twojego rozwidlenia.
 1. Z rozwidlenia Utwórz żądanie ściągnięcia, które odwołuje się do `main` gałęzi. Zobacz [tworzenie dokumentacji problemu lub żądania ściągnięcia](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) .
 1. Zapoznaj się z [wymaganiami dotyczącymi żądań ściągnięcia](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-Żądanie ściągnięcia wyzwala serię akcji usługi GitHub, które weryfikują nowe przesłane interfejsy i upewnij się, że żądanie ściągnięcia spełni wszystkie testy.
+Żądanie ściągnięcia wyzwala zestaw akcji usługi GitHub, które weryfikują przesłane interfejsy i sprawdza, czy żądanie ściągnięcia spełnia wszystkie wymagania.
 
 Firma Microsoft odpowie na żądanie ściągnięcia ze wszystkimi kontrolami w ciągu trzech dni roboczych.
 
-### <a name="add-model"></a>Dodaj model
+### <a name="dmr-client-tools"></a>`dmr-client` narzędzi
 
-Poniższe kroki pokazują, jak skrypt add-model.js ułatwia dodawanie nowego interfejsu. Ten skrypt wymaga Node.js do uruchomienia:
+Narzędzia używane do sprawdzania poprawności modeli podczas sprawdzania żądań ściągnięcia mogą również służyć do lokalnego dodawania i weryfikowania interfejsów DTDL.
 
-1. W wierszu polecenia przejdź do lokalnego repozytorium git
-1. Uruchom polecenie `npm install`
-1. Uruchom polecenie `npm run add-model <path-to-file-to-add>`
+> [!NOTE]
+> To narzędzie wymaga [zestawu .NET SDK](https://dotnet.microsoft.com/download) w wersji 3,1 lub nowszej.
 
-Obejrzyj dane wyjściowe konsoli dla wszystkich komunikatów o błędach.
+### <a name="install-dmr-client"></a>Zainstaluj `dmr-client`
 
-### <a name="local-validation"></a>Weryfikacja lokalna
+```bash
+curl -L https://aka.ms/install-dmr-client-linux | bash
+```
 
-Te same sprawdzenia poprawności można uruchomić lokalnie przed przesłaniem żądania ściągnięcia, aby ułatwić zdiagnozowanie problemów z wyprzedzeniem.
+```powershell
+iwr https://aka.ms/install-dmr-client-windows -UseBasicParsing | iex
+```
 
-#### <a name="validate-files"></a>Validate — pliki
+### <a name="import-a-model-to-the-dtmi-folder"></a>Importowanie modelu do `dtmi/` folderu
 
-`npm run validate-files <file1.json> <file2.json>` sprawdza, czy ścieżka pliku jest zgodna z oczekiwanymi nazwami folderów i plików.
+Jeśli model jest już przechowywany w plikach JSON, możesz użyć `dmr-client import` polecenia, aby dodać je do `dtmi/` folderu z prawidłowymi nazwami plików:
 
-#### <a name="validate-ids"></a>Weryfikuj — identyfikatory
+```bash
+# from the local repo root folder
+dmr-client import --model-file "MyThermostat.json"
+```
 
-`npm run validate-ids <file1.json> <file2.json>` sprawdza, czy wszystkie identyfikatory zdefiniowane w dokumencie używają tego samego katalogu głównego, który jest IDENTYFIKATORem głównym.
+> [!TIP]
+> Możesz użyć argumentu, `--local-repo` Aby określić folder główny lokalnego repozytorium.
 
-#### <a name="validate-deps"></a>Validate-deps
+### <a name="validate-models"></a>Weryfikuj modele
 
-`npm run validate-deps <file1.json> <file2.json>` sprawdza, czy wszystkie zależności są dostępne w `dtmi` folderze.
+Możesz sprawdzić poprawność modeli przy użyciu `dmr-client validate` polecenia:
 
-#### <a name="validate-models"></a>Weryfikuj — modele
+```bash
+dmr-client validate --model-file ./my/model/file.json
+```
 
-Możesz uruchomić [przykład weryfikacji DTDL](https://github.com/Azure-Samples/DTDL-Validator) , aby sprawdzić poprawność modeli urządzeń lokalnie.
+> [!NOTE]
+> Walidacja używa najnowszej wersji analizatora DTDL, aby upewnić się, że wszystkie interfejsy są zgodne ze specyfikacją języka DTDL.
+
+Aby zweryfikować zależności zewnętrzne, muszą one znajdować się w repozytorium lokalnym. Aby sprawdzić poprawność modeli, użyj `--repo` opcji, aby określić `local` lub `remote` folder do rozpoznawania zależności:
+
+```bash
+# from the repo root folder
+dmr-client validate --model-file ./my/model/file.json --repo .
+```
+
+### <a name="strict-validation"></a>Ścisła weryfikacja
+
+DMR zawiera dodatkowe [wymagania](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md), Użyj flagi, `stict` Aby sprawdzić poprawność modelu:
+
+```bash
+dmr-client validate --model-file ./my/model/file.json --repo . --strict true
+```
+
+Sprawdź dane wyjściowe konsoli dla wszystkich komunikatów o błędach.
+
+### <a name="export-models"></a>Eksportowanie modeli
+
+Modele można eksportować z danego repozytorium (lokalnego lub zdalnego) do pojedynczego pliku przy użyciu tablicy JSON:
+
+```bash
+dmr-client export --dtmi "dtmi:com:example:TemperatureController;1" -o TemperatureController.expanded.json
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

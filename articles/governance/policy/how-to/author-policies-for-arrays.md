@@ -3,12 +3,12 @@ title: Tworzenie zasad dla właściwości tablicy zasobów
 description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń języka tablicowego, oszacować alias [*] i dołączać elementy z regułami definicji Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 92339a6da4fd2061d66935cc8d04428c69822862
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323236"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920461"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
 
@@ -17,7 +17,7 @@ Właściwości Azure Resource Manager są zwykle określane jako ciągi i warto�
 - Typ [parametru definicji](../concepts/definition-structure.md#parameters)w celu zapewnienia wielu opcji
 - Część [reguły zasad](../concepts/definition-structure.md#policy-rule) z zastosowaniem warunków **w** lub **notIn**
 - Część reguły zasad, która oblicza [ \[ \* \] alias](../concepts/definition-structure.md#understanding-the--alias) do oszacowania:
-  - Scenariusze takie jak **none** , **any** lub **All**
+  - Scenariusze takie jak **none**, **any** lub **All**
   - Złożone scenariusze z **liczbą**
 - W [efekcie dołączania](../concepts/effects.md#append) , aby zastąpić lub dodać do istniejącej tablicy
 
@@ -28,7 +28,7 @@ W tym artykule opisano każde użycie programu według Azure Policy i przedstawi
 ### <a name="define-a-parameter-array"></a>Zdefiniuj tablicę parametrów
 
 Zdefiniowanie parametru jako tablicy umożliwia elastyczność zasad, gdy wymagana jest więcej niż jedna wartość.
-Ta definicja zasad umożliwia określenie dowolnej pojedynczej lokalizacji parametru **allowedLocations** i wartości domyślnych _eastus2_ :
+Ta definicja zasad umożliwia określenie dowolnej pojedynczej lokalizacji parametru **allowedLocations** i wartości domyślnych _eastus2_:
 
 ```json
 "parameters": {
@@ -44,7 +44,7 @@ Ta definicja zasad umożliwia określenie dowolnej pojedynczej lokalizacji param
 }
 ```
 
-Jako **Typ** to _ciąg_ , podczas przypisywania zasad można ustawić tylko jedną wartość. Jeśli te zasady są przypisane, zasoby w zakresie są dozwolone tylko w ramach jednego regionu świadczenia usługi Azure. Większość definicji zasad musi zezwalać na listę zatwierdzonych opcji, takich jak Zezwalanie na _eastus2_ , _Wschodnie_ i _westus2_.
+Jako **Typ** to _ciąg_, podczas przypisywania zasad można ustawić tylko jedną wartość. Jeśli te zasady są przypisane, zasoby w zakresie są dozwolone tylko w ramach jednego regionu świadczenia usługi Azure. Większość definicji zasad musi zezwalać na listę zatwierdzonych opcji, takich jak Zezwalanie na _eastus2_, _Wschodnie_ i _westus2_.
 
 Aby utworzyć definicję zasad w celu zezwolenia na wiele opcji, należy użyć **typu** _tablicy_ . Te same zasady można napisać ponownie w następujący sposób:
 
@@ -75,7 +75,7 @@ Ta nowa definicja parametru przyjmuje więcej niż jedną wartość podczas przy
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Przekazywanie wartości do tablicy parametrów podczas przypisywania
 
-Podczas przypisywania zasad przy użyciu Azure Portal parametr **typu** _Array_ jest wyświetlany jako pojedyncze pole tekstowe. Wskazówka mówi "Use; do oddzielania wartości. (np. Londyn; Nowy Jork) ". Aby przekazać dozwolone wartości lokalizacji _eastus2_ , _Wschodnie_ i _westus2_ do parametru, użyj następującego ciągu:
+Podczas przypisywania zasad przy użyciu Azure Portal parametr **typu** _Array_ jest wyświetlany jako pojedyncze pole tekstowe. Wskazówka mówi "Use; do oddzielania wartości. (np. Londyn; Nowy Jork) ". Aby przekazać dozwolone wartości lokalizacji _eastus2_, _Wschodnie_ i _westus2_ do parametru, użyj następującego ciągu:
 
 `eastus2;eastus;westus2`
 
@@ -95,7 +95,7 @@ Format wartości parametru jest różny w przypadku korzystania z interfejsu wie
 
 Aby użyć tego ciągu z każdym zestawem SDK, użyj następujących poleceń:
 
-- Interfejs wiersza polecenia platformy Azure: polecenie [AZ Policy przypisanie Create](/cli/azure/policy/assignment#az-policy-assignment-create) **z parametrem** Parameter
+- Interfejs wiersza polecenia platformy Azure: polecenie [AZ Policy przypisanie Create](/cli/azure/policy/assignment#az_policy_assignment_create) **z parametrem** Parameter
 - Azure PowerShell: polecenie cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) z parametrem **PolicyParameter**
 - Interfejs API REST: w operacji _Put_ [Create](/rest/api/resources/policyassignments/create) jako część treści żądania jako wartość właściwości **Properties. Parameters**
 
@@ -201,7 +201,7 @@ Ten warunek porównuje całą `stringArray` tablicę z jedną wartością ciągu
 
 #### <a name="referencing-the-array-members-collection"></a>Odwoływanie się do kolekcji elementów członkowskich tablicy
 
-Aliasy używające `[*]` składni reprezentują **kolekcję wartości właściwości wybranych ze właściwości array** , która różni się od wybrania samej właściwości Array. W przypadku `Microsoft.Test/resourceType/stringArray[*]` zwraca kolekcję, która ma wszystkie elementy członkowskie `stringArray` . Jak wspomniano wcześniej, `field` warunek sprawdza, czy wszystkie wybrane właściwości zasobów spełniają warunek, w związku z czym następujący warunek jest prawdziwy tylko wtedy, gdy **wszystkie** elementy członkowskie `stringArray` są równe "" wartości "".
+Aliasy używające `[*]` składni reprezentują **kolekcję wartości właściwości wybranych ze właściwości array**, która różni się od wybrania samej właściwości Array. W przypadku `Microsoft.Test/resourceType/stringArray[*]` zwraca kolekcję, która ma wszystkie elementy członkowskie `stringArray` . Jak wspomniano wcześniej, `field` warunek sprawdza, czy wszystkie wybrane właściwości zasobów spełniają warunek, w związku z czym następujący warunek jest prawdziwy tylko wtedy, gdy **wszystkie** elementy członkowskie `stringArray` są równe "" wartości "".
 
 ```json
 {
@@ -311,7 +311,7 @@ To zachowanie działa również w przypadku tablic zagnieżdżonych. Na przykła
 }
 ```
 
-Moc `count` jest w `where` stanie. Gdy jest określony, Azure Policy wylicza elementy członkowskie tablicy i ocenia każde względem warunku, licząc liczbę ocenionych elementów członkowskich tablicy `true` . W odniesieniu do każdej iteracji `where` oceny warunku Azure Policy wybiera jeden element członkowski tablicy * **i** _ i ocenia zawartość zasobu `where` pod warunkiem _*, jeśli * *_i_*_ jest jedynym członkiem array_ *. Posiadanie tylko jednego elementu członkowskiego tablicy dostępnej w każdej iteracji umożliwia stosowanie złożonych warunków na poszczególnych elementach członkowskich tablicy.
+Moc `count` jest w `where` stanie. Gdy jest określony, Azure Policy wylicza elementy członkowskie tablicy i ocenia każde względem warunku, licząc liczbę ocenionych elementów członkowskich tablicy `true` . W odniesieniu do każdej iteracji `where` oceny warunku Azure Policy wybiera jeden element członkowski tablicy ***i** _ i ocenia zawartość zasobu `where` pod warunkiem _*, jeśli **_i_*_ jest jedynym członkiem array_ *. Posiadanie tylko jednego elementu członkowskiego tablicy dostępnej w każdej iteracji umożliwia stosowanie złożonych warunków na poszczególnych elementach członkowskich tablicy.
 
 Przykład:
 ```json

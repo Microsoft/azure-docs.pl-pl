@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie kwerendy udostępnionej przy użyciu interfejsu 
 description: W tym przewodniku szybki start wykonaj kroki, aby włączyć rozszerzenie Graf zasobów dla interfejsu wiersza polecenia platformy Azure i utworzyć zapytanie udostępnione.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 93df1c858ac6238a0192bcdedac8286f2cf75007
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057199"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919713"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Szybki Start: Tworzenie zapytania udostępnionego grafu zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,14 +28,14 @@ Aby włączyć interfejs wiersza polecenia platformy Azure do pracy z usługą A
 
 1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.8.0**). Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows).
 
-1. W wybranym środowisku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Extension Add](/cli/azure/extension#az-extension-add) , aby zaimportować rozszerzenie grafu zasobów przy użyciu następujące polecenie:
+1. W wybranym środowisku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Extension Add](/cli/azure/extension#az_extension_add) , aby zaimportować rozszerzenie grafu zasobów przy użyciu następujące polecenie:
 
    ```azurecli-interactive
    # Add the Resource Graph extension to the Azure CLI environment
    az extension add --name resource-graph
    ```
 
-1. Sprawdź, czy rozszerzenie zostało zainstalowane i czy jest to oczekiwana wersja (co najmniej **1.1.0**) z [listą rozszerzeń AZ](/cli/azure/extension#az-extension-list):
+1. Sprawdź, czy rozszerzenie zostało zainstalowane i czy jest to oczekiwana wersja (co najmniej **1.1.0**) z [listą rozszerzeń AZ](/cli/azure/extension#az_extension_list):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -49,7 +49,7 @@ Aby włączyć interfejs wiersza polecenia platformy Azure do pracy z usługą A
 
 Po dodaniu rozszerzenia interfejsu wiersza polecenia platformy Azure do wybranego środowiska przekroczenie czasu do zapytania udostępnionego grafu zasobów. Udostępnione zapytanie jest obiektem Azure Resource Manager, w którym można udzielić uprawnienia lub uruchomić je w Eksploratorze Azure Resource Graph. Zapytanie podsumowuje liczbę wszystkich zasobów pogrupowanych według _lokalizacji_.
 
-1. Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az-group-create) , aby przechowywać udostępnione zapytanie grafu zasobów platformy Azure. Ta grupa zasobów ma nazwę `resource-graph-queries` , a lokalizacja to `westus2` .
+1. Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az_group_create) , aby przechowywać udostępnione zapytanie grafu zasobów platformy Azure. Ta grupa zasobów ma nazwę `resource-graph-queries` , a lokalizacja to `westus2` .
 
    ```azurecli-interactive
    # Login first with az login if not using Cloud Shell
@@ -58,7 +58,7 @@ Po dodaniu rozszerzenia interfejsu wiersza polecenia platformy Azure do wybraneg
    az group create --name 'resource-graph-queries' --location 'westus2'
    ```
 
-1. Utwórz zapytanie udostępnione wykresu zasobów platformy Azure przy użyciu `graph` rozszerzenia i [AZ Graph Shared-Query Create](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-create) :
+1. Utwórz zapytanie udostępnione wykresu zasobów platformy Azure przy użyciu `graph` rozszerzenia i [AZ Graph Shared-Query Create](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_create) :
 
    ```azurecli-interactive
    # Create the Azure Resource Graph shared query
@@ -68,14 +68,14 @@ Po dodaniu rozszerzenia interfejsu wiersza polecenia platformy Azure do wybraneg
       --resource-group 'resource-graph-queries'
    ```
 
-1. Wyświetl listę udostępnionych zapytań w nowej grupie zasobów. Polecenie [AZ Graph Shared-Query List](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-list) zwraca tablicę wartości.
+1. Wyświetl listę udostępnionych zapytań w nowej grupie zasobów. Polecenie [AZ Graph Shared-Query List](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_list) zwraca tablicę wartości.
 
    ```azurecli-interactive
    # List all the Azure Resource Graph shared queries in a resource group
    az graph shared-query list --resource-group 'resource-graph-queries'
    ```
 
-1. Aby uzyskać tylko jeden współużytkowany wynik zapytania, użyj polecenia [AZ Graph Shared-Query show](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-show) .
+1. Aby uzyskać tylko jeden współużytkowany wynik zapytania, użyj polecenia [AZ Graph Shared-Query show](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_show) .
 
    ```azurecli-interactive
    # Show a specific Azure Resource Graph shared query
@@ -83,7 +83,7 @@ Po dodaniu rozszerzenia interfejsu wiersza polecenia platformy Azure do wybraneg
       --name 'Summarize resources by location'
    ```
 
-1. Uruchom zapytanie udostępnione w interfejsie wiersza polecenia platformy Azure z `{{shared-query-uri}}` składnią w poleceniu [AZ Graph Query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) .
+1. Uruchom zapytanie udostępnione w interfejsie wiersza polecenia platformy Azure z `{{shared-query-uri}}` składnią w poleceniu [AZ Graph Query](/cli/azure/ext/resource-graph/graph#ext_resource_graph_az_graph_query) .
    Najpierw skopiuj `id` pole z wyniku poprzedniego `show` polecenia. Zastąp `shared-query-uri` tekst w przykładzie wartością z `id` pola, pozostawiając otaczające `{{` `}}` znaki i.
 
    ```azurecli-interactive
@@ -100,9 +100,9 @@ Innym sposobem na znalezienie zapytań udostępnionych grafu zasobów jest użyc
 
 Jeśli chcesz usunąć zapytanie udostępnione, grupę zasobów i rozszerzenie grafu zasobów ze środowiska interfejsu wiersza polecenia platformy Azure, możesz to zrobić za pomocą następujących poleceń:
 
-- [AZ Graph Shared-Query Delete](/cli/azure/ext/resource-graph/graph/shared-query#ext-resource-graph-az-graph-shared-query-delete)
-- [az group delete](/cli/azure/group#az-group-delete)
-- [AZ Extension Remove](/cli/azure/extension#az-extension-remove)
+- [AZ Graph Shared-Query Delete](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_delete)
+- [az group delete](/cli/azure/group#az_group_delete)
+- [AZ Extension Remove](/cli/azure/extension#az_extension_remove)
 
 ```azurecli-interactive
 # Delete the Azure Resource Graph shared query

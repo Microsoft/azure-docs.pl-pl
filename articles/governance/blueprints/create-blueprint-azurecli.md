@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie strategii przy użyciu interfejsu wiersza polece
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057964"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920563"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -116,9 +116,9 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
 
      > [!NOTE]
      > Użyj nazwy pliku _blueprint.js_ podczas importowania definicji planu.
-     > Ta nazwa pliku jest używana podczas wywoływania [AZ planu import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > Ta nazwa pliku jest używana podczas wywoływania [AZ planu import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
-     Obiekt planu jest domyślnie tworzony w domyślnej subskrypcji. Aby określić grupę zarządzania, należy użyć grupy **zarządzania**parametrami. Aby określić subskrypcję, użyj **subskrypcji**parametru.
+     Obiekt planu jest domyślnie tworzony w domyślnej subskrypcji. Aby określić grupę zarządzania, należy użyć grupy **zarządzania** parametrami. Aby określić subskrypcję, użyj **subskrypcji** parametru.
 
 1. Dodaj grupę zasobów dla artefaktów magazynu do definicji.
 

@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237322"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920665"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -29,7 +29,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
 
 ### <a name="create-in-the-azure-cli"></a>Tworzenie w interfejsie wiersza polecenia platformy Azure
 
-Aby utworzyć nową grupę zarządzania, użyj polecenia [AZ Account Management-Group Create](/cli/azure/account/management-group#az-account-management-group-create) w interfejsie Azure. W tym przykładzie **Nazwa** grupy zarządzania to _contoso_.
+Aby utworzyć nową grupę zarządzania, użyj polecenia [AZ Account Management-Group Create](/cli/azure/account/management-group#az_account_management_group_create) w interfejsie Azure. W tym przykładzie **Nazwa** grupy zarządzania to _contoso_.
 
 ```azurecli-interactive
 az account management-group create --name 'Contoso'
@@ -51,7 +51,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby usunąć utworzoną powyżej grupę zarządzania, użyj polecenia [AZ Account Management-Group Delete](/cli/azure/account/management-group#az-account-management-group-delete) :
+Aby usunąć utworzoną powyżej grupę zarządzania, użyj polecenia [AZ Account Management-Group Delete](/cli/azure/account/management-group#az_account_management_group_delete) :
 
 ```azurecli-interactive
 az account management-group delete --name 'Contoso'

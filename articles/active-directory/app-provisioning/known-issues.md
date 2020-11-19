@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069759"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919690"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji
 Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą aplikacji. Aby przekazać opinię na temat usługi Application Provisioning w witrynie UserVoice, zobacz temat [udostępnianie aplikacji usługi Azure AD](https://aka.ms/appprovisioningfeaturerequest)w usłudze UserVoice. Uważnie obserwujemy usługę UserVoice, abyśmy mogli ulepszyć usługi. 
@@ -86,6 +86,9 @@ Podczas ustawiania aprowizacji `enabled = off` lub przerywania, bieżący cykl a
 
 Gdy grupa znajduje się w zakresie, a element członkowski znajduje się poza zakresem, Grupa zostanie zainicjowana. Użytkownik poza zakresem nie zostanie zainicjowany. Jeśli członek powróci do zakresu, usługa nie będzie od razu wykryć zmiany. Ponowne uruchomienie aprowizacji rozwiąże problem. Zalecamy okresowe ponowne uruchamianie usługi, aby upewnić się, że wszyscy użytkownicy mają prawidłowo zainicjowaną obsługę administracyjną.  
 
+**Menedżer nie jest zainicjowany**
+
+Jeśli użytkownik i jego Menedżer są zarówno w zakresie udostępniania, usługa zainicjuje użytkownika, a następnie zaktualizuje Menedżera. Jeśli jednak w dniu, w którym znajduje się użytkownik, a Menedżer znajduje się poza zakresem, udostępnimy użytkownikowi bez odwołania do Menedżera. Gdy Menedżer przyjdzie do zakresu, odwołanie do Menedżera nie zostanie zaktualizowane do momentu ponownego uruchomienia aprowizacji i spowoduje ponowne ocenienie wszystkich użytkowników przez usługę. 
 
 ## <a name="next-steps"></a>Następne kroki
 - [Jak działa aprowizacja](how-provisioning-works.md)

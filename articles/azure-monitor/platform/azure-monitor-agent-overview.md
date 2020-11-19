@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 76f541a45c56669d17103f16997f3d036955b773
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132707"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919691"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Omówienie agenta Azure Monitor (wersja zapoznawcza)
 Agent Azure Monitor (AMA) zbiera dane monitorowania z systemu operacyjnego gościa maszyn wirtualnych i dostarcza go do Azure Monitor. Ten artykuł zawiera omówienie agenta Azure Monitor, w tym sposobu instalowania go i konfigurowania zbierania danych.
@@ -78,7 +78,7 @@ Agent Azure Monitor wysyła dane do metryk Azure Monitor lub obszaru roboczego L
 
 | Źródło danych | Miejsca docelowe | Opis |
 |:---|:---|:---|
-| Wydajność        | Metryki Azure Monitor<br>Obszar roboczy usługi Log Analytics | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
+| Wydajność        | Metryki usługi Azure Monitor<br>Obszar roboczy usługi Log Analytics | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
 | Dzienniki zdarzeń systemu Windows | Obszar roboczy usługi Log Analytics | Informacje wysyłane do systemu rejestrowania zdarzeń systemu Windows. |
 | Dziennik systemu             | Obszar roboczy usługi Log Analytics | Informacje wysyłane do systemu rejestrowania zdarzeń w systemie Linux. |
 
@@ -91,7 +91,7 @@ Zobacz [obsługiwane systemy operacyjne](agents-overview.md#supported-operating-
 ## <a name="security"></a>Zabezpieczenia
 Agent Azure Monitor nie wymaga żadnych kluczy, ale wymaga [tożsamości zarządzanej przypisanej do systemu](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Przed wdrożeniem agenta na każdej maszynie wirtualnej musi być włączona tożsamość zarządzana przypisana przez system.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 Agent Azure Monitor obsługuje Tagi usług platformy Azure (wymagane są Tagi AzureMonitor i AzureResourceManager), ale nie działa ona jeszcze z Azure Monitor prywatnymi zakresami linków lub bezpośrednimi serwerami proxy.
 
 ## <a name="install-the-azure-monitor-agent"></a>Zainstaluj agenta Azure Monitor
@@ -101,7 +101,7 @@ Agent Azure Monitor jest zaimplementowany jako [rozszerzenie maszyny wirtualnej 
 |:---|:---|:---|
 | Publisher | Microsoft. Azure. Monitor  | Microsoft. Azure. Monitor |
 | Typ      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1,0 | 1.5 |
 
 Zainstaluj agenta Azure Monitor przy użyciu dowolnej z metod instalacji agentów maszyny wirtualnej, w tym następujących elementów przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Alternatywnie można zainstalować agenta i skonfigurować zbieranie danych na maszynach wirtualnych w ramach subskrypcji platformy Azure za pomocą portalu z procedurą opisaną w temacie [Konfigurowanie zbierania danych dla agenta Azure monitor (wersja zapoznawcza)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 
@@ -134,7 +134,7 @@ az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Mo
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell2)
 
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus -TypeHandlerVersion 1.5
 ```
 ---
 

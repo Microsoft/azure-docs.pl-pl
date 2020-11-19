@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c9a8b5f9e02cc76789755bf81d309826de1459c5
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888423"
+ms.locfileid: "94920597"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -237,7 +237,7 @@ Tak, klienci mogą wdrażać rozwiązanie VMware dla platformy Azure w ramach su
 
 Firma Microsoft zapewnia pomoc techniczną dla rozwiązań VMware platformy Azure. Możesz przesłać [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-W przypadku subskrypcji zarządzanych przez dostawcę CSP pierwszy poziom wsparcia będzie dostarczany przez dostawcę rozwiązań w taki sam sposób, jak dostawca CSP dla innych usług platformy Azure.
+W przypadku subskrypcji zarządzanych przez dostawcę CSP pierwszy poziom wsparcia jest udostępniany przez dostawcę rozwiązania w taki sam sposób, jak dostawca CSP dla innych usług platformy Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Jakie konta muszę utworzyć chmurę prywatną rozwiązania Azure VMware?
 
@@ -247,9 +247,9 @@ Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 
 Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespół pomocy technicznej, który zapewnia ujednolicony punkt kontaktowy dla ekosystemów Red Hat działających na platformie Azure.  Podobnie jak w przypadku innych usług platformy Azure, które współpracują z Red Hat Enterprise Linux, rozwiązanie platformy Azure VMware jest objęte dostępem do chmury i zintegrowanym parasolem pomocy technicznej, a Red Hat Enterprise Linux jest obsługiwane na potrzeby uruchamiania na platformie Azure VMware.
 
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>Czy jest dostępny program VMware HCX Enterprise Edition, a jeśli tak, ile to kosztuje?
+#### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>Czy jest dostępny program VMware HCX Enterprise, a jeśli tak, ile kosztuje?
 
-Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Możesz wyłączyć lub zrezygnować z usługi.
+Program VMware HCX Enterprise jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX Enterprise for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Po przejściu do usługi VMware HCX Enterprise zostanie wyświetlone 30-dniowe powiadomienie o przełączeniu na rozliczenia. Możesz ją wyłączyć lub zrezygnować z usługi.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Jak mogę zażądać zwiększenia limitu przydziału hosta dla rozwiązania Azure VMware?
 
@@ -260,8 +260,7 @@ W przypadku subskrypcji EA należy wykonać poniższą procedurę. Najpierw będ
 * [Umowa Enterprise platformy Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 * Konto platformy Azure w ramach subskrypcji platformy Azure.
 
-Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Potwierdzenie żądania i przydzielenia węzłów trwa do pięciu dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
-
+Przed utworzeniem zasobu rozwiązania VMware platformy Azure Wyślij bilet pomocy technicznej, aby przydzielił Twoje węzły. Potwierdzenie żądania i przydzielenia węzłów trwa do pięciu dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
 
 1. W Azure Portal w obszarze **Pomoc i obsługa techniczna** Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:
    - **Typ problemu:** Naukow

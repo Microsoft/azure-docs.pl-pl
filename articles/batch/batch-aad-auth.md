@@ -4,12 +4,12 @@ description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudz
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: cb8306da4022ea1819e2da32a2f513c83bed309f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309374"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920512"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -81,11 +81,11 @@ Po zarejestrowaniu aplikacji wykonaj następujące kroki w Azure Portal, aby udz
 1. Wyszukaj nazwę aplikacji na liście rejestracji aplikacji.
 1. Wybierz aplikację i wybierz pozycję **uprawnienia interfejsu API**.
 1. W sekcji **uprawnienia interfejsu API** wybierz pozycję **Dodaj uprawnienie**.
-1. W obszarze **Wybierz interfejs API**Wyszukaj interfejs API usługi Batch. Wyszukuj następujące ciągi, aż znajdziesz odpowiedni interfejs API:
+1. W obszarze **Wybierz interfejs API** Wyszukaj interfejs API usługi Batch. Wyszukuj następujące ciągi, aż znajdziesz odpowiedni interfejs API:
     1. **Microsoft Azure Batch**
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** to identyfikator interfejsu API usługi Batch.
 1. Po znalezieniu interfejsu API usługi Batch zaznacz go, a następnie wybierz **pozycję Wybierz**.
-1. W obszarze **Wybierz uprawnienia**zaznacz pole wyboru obok pozycji **dostęp do usługi Azure Batch** , a następnie wybierz pozycję **Dodaj uprawnienia**.
+1. W obszarze **Wybierz uprawnienia** zaznacz pole wyboru obok pozycji **dostęp do usługi Azure Batch** , a następnie wybierz pozycję **Dodaj uprawnienia**.
 
 Sekcja **uprawnienia interfejsu API** pokazuje teraz, że aplikacja usługi Azure AD ma dostęp do zarówno Microsoft Graph, jak i interfejsu API usługi Batch. Uprawnienia są udzielane Microsoft Graph automatycznie po pierwszym zarejestrowaniu aplikacji w usłudze Azure AD.
 
@@ -268,13 +268,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Utwórz obiekt **BatchTokenCredentials** , który przyjmuje delegat jako parametr. Użyj tych poświadczeń, aby otworzyć obiekt **BatchClient** . Tego obiektu **BatchClient** można użyć do kolejnych operacji w usłudze Batch:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```
@@ -336,13 +336,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Utwórz obiekt **BatchTokenCredentials** , który przyjmuje delegat jako parametr. Użyj tych poświadczeń, aby otworzyć obiekt **BatchClient** . Następnie użyj tego obiektu **BatchClient** dla kolejnych operacji w usłudze Batch:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```

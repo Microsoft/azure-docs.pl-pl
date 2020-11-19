@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 61313a1790fe51cb26168622cc871076c40bb511
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887437"
+ms.locfileid: "94920529"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Powiadomienie o planowanej konserwacji w Azure Database for MariaDB
 
@@ -78,7 +78,7 @@ Błąd przejściowy, nazywany także błędem przejściowym, jest błędem, któ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MariaDB, Wyślij wiadomość e-mail do zespołu Azure Database for MariaDB w **AskAzureDBforMariaDB@service.microsoft.com**
+- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MariaDB, Wyślij wiadomość e-mail do zespołu Azure Database for MariaDB w AskAzureDBforMariaDB@service.microsoft.com
 - Zobacz [jak skonfigurować alerty](howto-alert-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - [Rozwiązywanie problemów z połączeniem z usługą Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Obsługa błędów przejściowych i wydajne łączenie się z Azure Database for MariaDB](concepts-connectivity.md)

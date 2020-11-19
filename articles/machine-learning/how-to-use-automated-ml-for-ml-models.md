@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536255"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919645"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 
@@ -108,7 +108,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
     Ustawienia zaawansowane | Te ustawienia umożliwiają skonfigurowanie dla eksperymentu konta użytkownika i istniejącej sieci wirtualnej. 
     
-    Wybierz przycisk **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
+    Wybierz pozycję **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
 
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](how-to-connect-data-ui.md#profile) ).
@@ -126,9 +126,9 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     
         1. Włącz uczenie głębokie.
     
-        1. Wybierz *kolumnę czasu* : Ta kolumna zawiera dane czasu, które mają być używane.
+        1. Wybierz *kolumnę czasu*: Ta kolumna zawiera dane czasu, które mają być używane.
 
-        1. Wybierz *horyzont prognoz* : wskaż, ile jednostek czasu (min/godzina/dni/tygodnie/miesiące/lata) będzie można przewidzieć na przyszłość. Dalszy model jest wymagany do przewidywania w przyszłości, tym mniej dokładne stanie się. [Dowiedz się więcej o prognozowaniu i prognozowaniu horyzontu](how-to-auto-train-forecast.md).
+        1. Wybierz *horyzont prognoz*: wskaż, ile jednostek czasu (min/godzina/dni/tygodnie/miesiące/lata) będzie można przewidzieć na przyszłość. Dalszy model jest wymagany do przewidywania w przyszłości, tym mniej dokładne stanie się. [Dowiedz się więcej o prognozowaniu i prognozowaniu horyzontu](how-to-auto-train-forecast.md).
 
 1. Obowiązkowe Wyświetl ustawienia konfiguracji dodawania: dodatkowe ustawienia, których można użyć w celu lepszego kontrolowania zadania szkoleniowego. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych. 
 
@@ -137,9 +137,9 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Metryka podstawowa| Główna Metryka używana do oceniania modelu. [Dowiedz się więcej o metrykach modelu](how-to-configure-auto-train.md#primary-metric).
     Wyjaśnij najlepszy model | Wybierz, aby włączyć lub wyłączyć, aby wyświetlić wyjaśnienia dla zalecanego najlepszego modelu. <br> Ta funkcja nie jest obecnie dostępna w przypadku [niektórych algorytmów prognozowania](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego. <br><br> Zezwalanie na algorytmy jest dostępne tylko dla [eksperymentów zestawu SDK](how-to-configure-auto-train.md#supported-models). <br> Zobacz [obsługiwane modele dla każdego typu zadania](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
-    Kryterium zakończenia| Po spełnieniu któregokolwiek z tych kryteriów zadanie szkolenia zostanie zatrzymane. <br> *Czas zadania szkoleniowego (godz.)* : jak długo zezwolić na uruchomienie zadania szkoleniowego. <br> *Próg wyniku metryki* : minimalny wynik metryki dla wszystkich potoków. Dzięki temu w przypadku zdefiniowania metryki docelowej, która ma zostać osiągnięta, nie poświęcasz więcej czasu na zadanie szkoleniowe niż to konieczne.
+    Kryterium zakończenia| Po spełnieniu któregokolwiek z tych kryteriów zadanie szkolenia zostanie zatrzymane. <br> *Czas zadania szkoleniowego (godz.)*: jak długo zezwolić na uruchomienie zadania szkoleniowego. <br> *Próg wyniku metryki*: minimalny wynik metryki dla wszystkich potoków. Dzięki temu w przypadku zdefiniowania metryki docelowej, która ma zostać osiągnięta, nie poświęcasz więcej czasu na zadanie szkoleniowe niż to konieczne.
     Walidacja| Wybierz jedną z opcji krzyżowego sprawdzania poprawności, która ma zostać użyta w zadaniu szkoleniowym. <br> [Dowiedz się więcej na temat krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Prognozowanie obsługuje tylko wzajemne sprawdzanie poprawności.
-    Współbieżność| *Maksymalna liczba współbieżnych iteracji* : maksymalną liczbę potoków (iteracji) do przetestowania w zadaniu szkoleniowym. Zadanie nie zostanie uruchomione więcej niż określona liczba iteracji.
+    Współbieżność| *Maksymalna liczba współbieżnych iteracji*: maksymalną liczbę potoków (iteracji) do przetestowania w zadaniu szkoleniowym. Zadanie nie zostanie uruchomione więcej niż określona liczba iteracji. Dowiedz się więcej o tym, jak zautomatyzowanej ML wykonuje [wiele podrzędnych przebiegów w klastrach](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. Obowiązkowe Wyświetl ustawienia cechowania: Jeśli zdecydujesz się włączyć **Automatyczne cechowania** w formularzu **ustawień konfiguracji dodatkowej** , zostaną zastosowane domyślne techniki cechowania. W **widoku cechowania ustawienia** można zmienić te ustawienia domyślne i odpowiednio dostosować. Dowiedz się, jak [dostosować featurizations](#customize-featurization). 
 

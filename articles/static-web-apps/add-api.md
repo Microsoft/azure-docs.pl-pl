@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128508"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920495"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -33,17 +33,17 @@ Bezserwerowe interfejsy API można dodać do Web Apps statycznej platformy Azure
 Poniższe kroki przedstawiają sposób tworzenia nowego repozytorium i klonowania plików na komputerze.
 
 1. Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do witryny, https://github.com/staticwebdev/vanilla-basic/generate Aby utworzyć nowe repozytorium.
-1. W polu _Nazwa repozytorium_ wprowadź **My-Wanili-API** .
-1. Kliknij pozycję **Utwórz repozytorium na podstawie szablonu** .
+1. W polu _Nazwa repozytorium_ wprowadź **My-Wanili-API**.
+1. Kliknij pozycję **Utwórz repozytorium na podstawie szablonu**.
 
    :::image type="content" source="media/add-api/create-repository.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
 
 Po utworzeniu projektu Skopiuj adres URL w przeglądarce w celu utworzenia nowego repozytorium. Ten adres URL jest używany w Visual Studio Code, aby sklonować repozytorium git.
 
 1. Naciśnij klawisz **F1** , aby otworzyć polecenie w palecie poleceń.
-1. Wklej adres URL do monitu _git: Clone_ , a następnie naciśnij klawisz **Enter** .
+1. Wklej adres URL do monitu _git: Clone_ , a następnie naciśnij klawisz **Enter**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Klonowanie projektu GitHub przy użyciu Visual Studio Code":::
 
     Postępuj zgodnie z monitami, aby wybrać lokalizację repozytorium w celu sklonowania projektu.
 
@@ -51,7 +51,7 @@ Po utworzeniu projektu Skopiuj adres URL w przeglądarce w celu utworzenia noweg
 
 Następnie utworzysz projekt Azure Functions jako interfejs API aplikacji. 
 
-1. W projekcie _My-Wanili-API_ utwórz podfolder o nazwie **API** .
+1. W projekcie _My-Wanili-API_ utwórz podfolder o nazwie **API**.
 1. Naciśnij klawisz **F1** , aby otworzyć paletę poleceń
 1. Wpisz **Azure Functions: Utwórz nowy projekt...**
 1. Naciśnij klawisz **Enter**
@@ -59,14 +59,14 @@ Następnie utworzysz projekt Azure Functions jako interfejs API aplikacji.
 1. Wybierz folder **interfejsu API** jako katalog obszaru roboczego projektu
 1. Wybierz **pozycję Wybierz**
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Zrzut ekranu przedstawia folder P i i przycisk Wybierz.":::
 
 1. Podaj następujące informacje na ekranie:
 
-    - _Wybierz język_ : Wybierz **JavaScript**
-    - _Wybierz szablon dla pierwszej funkcji projektu_ : Wybierz **wyzwalacz http**
-    - _Podaj nazwę funkcji_ : wprowadź **GetMessage**
-    - _Poziom autoryzacji_ : wybierz opcję **anonimowe** , co umożliwia wszystkim użytkownikom wywoływanie punktu końcowego funkcji.
+    - _Wybierz język_: Wybierz **JavaScript**
+    - _Wybierz szablon dla pierwszej funkcji projektu_: Wybierz **wyzwalacz http**
+    - _Podaj nazwę funkcji_: wprowadź **GetMessage**
+    - _Poziom autoryzacji_: wybierz opcję **anonimowe**, co umożliwia wszystkim użytkownikom wywoływanie punktu końcowego funkcji.
         - Aby dowiedzieć się więcej na temat poziomów autoryzacji, zobacz [klucze autoryzacji](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 Visual Studio Code generuje projekt Azure Functions z funkcją wyzwalaną przez protokół HTTP.
@@ -145,13 +145,13 @@ Visual Studio Code integruje się z [Azure Functions Core Tools](../azure-functi
 
     Podstawowe narzędzia przedstawiają dane wyjściowe z działającej aplikacji na panelu _terminalu_ . W ramach danych wyjściowych można zobaczyć punkt końcowy adresu URL funkcji wyzwalanej przez protokół HTTP, działającej lokalnie.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Zrzut ekranu przedstawia kartę TERMINALa, w której można zobaczyć U R L.":::
 
 1. Po uruchomieniu podstawowych narzędzi przejdź do następującego adresu URL, aby sprawdzić, czy interfejs API działa prawidłowo: `http://localhost:7071/api/message` .
 
    Odpowiedź w przeglądarce powinna wyglądać podobnie do poniższego przykładu:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Alt textzrzut ekranu wyświetla tekstową odpowiedź w przeglądarce.":::
 
 1. Naciśnij klawisze **Shift + F5** , aby zatrzymać sesję debugowania.
 
@@ -195,11 +195,11 @@ W przypadku wdrożenia na platformie Azure żądania kierowane do interfejsu API
 
 1. Naciśnij klawisz **F5** , aby uruchomić projekt interfejsu API.
 
-1. Naciśnij klawisz **F1** , a następnie wybierz pozycję **serwer aktywny: Otwórz za pomocą serwera na żywo** .
+1. Naciśnij klawisz **F1** , a następnie wybierz pozycję **serwer aktywny: Otwórz za pomocą serwera na żywo**.
 
     Komunikat API powinien być teraz widoczny na stronie sieci Web.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Zrzut ekranu przedstawia komunikat P I w przeglądarce.":::
 
    > [!NOTE]
    > Do obsłużenia pliku można użyć innych serwerów HTTP lub proxy `index.html` . Uzyskanie dostępu do programu `index.html` z `file:///` nie będzie działało.
@@ -228,21 +228,23 @@ Następnie Dodaj ustawienia specyficzne dla aplikacji.
 
 1. Wybierz swoją _subskrypcję platformy Azure_
 1. Wybierz lub Utwórz nową _grupę zasobów_
-1. Nadaj aplikacji nazwę **My-wanilid-API** .
+1. Nadaj aplikacji nazwę **My-wanilid-API**.
 1. Wybierz _region_ znajdujący się najbliżej siebie
 1. Wybierz **bezpłatną** _jednostkę SKU_
 1. Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** i uwierzytelnij się przy użyciu usługi GitHub
 1. Wybierz preferowaną _organizację_
 1. Wybierz pozycję **My-wanilid-API** z listy rozwijanej _repozytorium_
 1. Wybierz pozycję **główna** z listy rozwijanej _rozgałęzienie_
-1. Kliknij przycisk **Dalej: Skompiluj >** , aby edytować konfigurację kompilacji
+1. Wybierz wybraną platformę dla konfiguracji kompilacji na liście rozwijanej _Ustawienia wstępne kompilacji_
+
+ > Te pola będą odzwierciedlać domyślną strukturę projektu typu aplikacji. Zmień wartości, aby odpowiadały aplikacji.
 
 Następnie Dodaj następujące szczegóły kompilacji.
 
-1. Wprowadź **/** _lokalizację aplikacji_ .
+1. Wprowadź **/** _lokalizację aplikacji_.
 1. Wprowadź **interfejs API** w polu _Lokalizacja interfejsu API_ .
-1. Wyczyść wartość domyślną z _lokalizacji artefaktu aplikacji_ , pozostawiając pole puste.
-1. Kliknij pozycję **Przejrzyj i utwórz** .
+1. Wyczyść wartość domyślną z _lokalizacji artefaktu aplikacji_, pozostawiając pole puste.
+1. Kliknij pozycję **Przejrzyj i utwórz**.
 1. Kliknij przycisk **Utwórz**
 
     Po kliknięciu przycisku _Utwórz_ na platformie Azure są wykonywane dwie rzeczy. Najpierw zostaną utworzone podstawowe usługi w chmurze obsługujące aplikację. Następnie proces w tle rozpocznie się Kompilowanie i wdrażanie aplikacji.
@@ -251,11 +253,11 @@ Następnie Dodaj następujące szczegóły kompilacji.
 
     Gdy aplikacja jest kompilowana w tle, możesz kliknąć transparent, który zawiera link umożliwiający wyświetlenie stanu kompilacji.
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Przepływ pracy w usłudze GitHub":::
 
 1. Po zakończeniu wdrożenia jednostki organizacyjnej można przejść do aplikacji sieci Web, klikając link _adresu URL_ na stronie _Przegląd_ .
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Tworzenie nowego repozytorium z usługi Wanili — podstawowa":::
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Dostęp do statycznego adresu URL aplikacji z Azure Portal":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -268,7 +270,7 @@ Jeśli nie chcesz zachować tej aplikacji do dalszej pracy, możesz wykonać nas
 1. Na stronie Moja _zasobów_ upewnij się, że wymienione zasoby są tymi, które chcesz usunąć.
 1. Wybierz pozycję **Usuń**
 1. Wpisz w polu tekstowym element **Webresourcename**
-1. Wybierz pozycję **Usuń** .
+1. Wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

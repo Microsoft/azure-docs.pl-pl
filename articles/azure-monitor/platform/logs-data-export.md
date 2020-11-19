@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841811"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920087"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -117,7 +117,11 @@ Jeśli konto magazynu zostało skonfigurowane tak, aby zezwalać na dostęp z wy
 ### <a name="create-or-update-data-export-rule"></a>Utwórz lub zaktualizuj regułę eksportu danych
 Reguła eksportu danych definiuje dane, które mają zostać wyeksportowane dla zestawu tabel w jednym miejscu docelowym. Można utworzyć regułę dla każdego miejsca docelowego.
 
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
 Poniższe polecenie interfejsu wiersza polecenia służy do wyświetlania tabel w obszarze roboczym. Może to pomóc w skopiowaniu żądanych tabel i uwzględnieniu w regule eksportowania danych.
+
 ```azurecli
 az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
@@ -133,6 +137,8 @@ Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do centrum z
 ```azurecli
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 Użyj poniższego żądania, aby utworzyć regułę eksportu danych przy użyciu interfejsu API REST. Żądanie powinno korzystać z autoryzacji tokenu okaziciela i aplikacji typu Content/JSON.
 
@@ -193,26 +199,38 @@ Poniżej znajduje się Przykładowa treść żądania REST dla centrum zdarzeń,
   }
 }
 ```
+---
 
 ## <a name="view-data-export-configuration"></a>Wyświetl konfigurację eksportu danych
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
 Użyj następującego polecenia, aby wyświetlić konfigurację reguły eksportu danych przy użyciu interfejsu wiersza polecenia.
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Użyj poniższego żądania, aby wyświetlić konfigurację reguły eksportu danych przy użyciu interfejsu API REST. Żądanie powinno korzystać z autoryzacji tokenu okaziciela.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="disable-an-export-rule"></a>Wyłącz regułę eksportu
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
 Reguły eksportu można wyłączyć w celu zatrzymania eksportowania, gdy nie trzeba przechowywać danych przez pewien okres, na przykład podczas przeprowadzania testowania. Użyj poniższego polecenia, aby wyłączyć regułę eksportu danych przy użyciu interfejsu wiersza polecenia.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 Aby wyłączyć regułę eksportu danych przy użyciu interfejsu API REST, należy użyć następującego żądania. Żądanie powinno korzystać z autoryzacji tokenu okaziciela.
 
@@ -234,32 +252,45 @@ Content-type: application/json
     }
 }
 ```
+---
 
 ## <a name="delete-an-export-rule"></a>Usuwanie reguły eksportu
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
 Użyj poniższego polecenia, aby usunąć regułę eksportu danych przy użyciu interfejsu wiersza polecenia.
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Użyj poniższego żądania, aby usunąć regułę eksportu danych przy użyciu interfejsu API REST. Żądanie powinno korzystać z autoryzacji tokenu okaziciela.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Wyświetlanie wszystkich reguł eksportu danych w obszarze roboczym
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
 Użyj następującego polecenia, aby wyświetlić wszystkie reguły eksportu danych w obszarze roboczym przy użyciu interfejsu wiersza polecenia.
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Poniższe żądanie służy do wyświetlania wszystkich reguł eksportu danych w obszarze roboczym przy użyciu interfejsu API REST. Żądanie powinno korzystać z autoryzacji tokenu okaziciela.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+---
 
 ## <a name="unsupported-tables"></a>Nieobsługiwane tabele
 Jeśli reguła eksportu danych zawiera nieobsługiwaną tabelę, konfiguracja zakończy się pomyślnie, ale żadne dane nie zostaną wyeksportowane dla tej tabeli. Jeśli tabela jest później obsługiwana, wówczas jej dane zostaną wyeksportowane w tym czasie.
@@ -342,7 +373,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Zdarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
+| Wydarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

@@ -3,12 +3,12 @@ title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491804"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920019"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -203,7 +203,7 @@ Aby utworzyć definicję zasad, należy wykonać czynności opisane w poniższej
    ```
 
    Polecenie tworzy definicję zasad o nazwie _konta magazynu inspekcji otwarte dla sieci publicznych_.
-   Aby uzyskać więcej informacji na temat innych parametrów, których można użyć, zobacz [AZ Policy Definition Create](/cli/azure/policy/definition#az-policy-definition-create).
+   Aby uzyskać więcej informacji na temat innych parametrów, których można użyć, zobacz [AZ Policy Definition Create](/cli/azure/policy/definition#az_policy_definition_create).
 
    Gdy jest wywoływana bez parametrów lokalizacji, `az policy definition creation` domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, użyj następujących parametrów:
 

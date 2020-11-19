@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289774"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919934"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
@@ -44,8 +44,17 @@ Po utworzeniu certyfikatu Key Vault można go pobrać ze klucza prywatnego z adr
 
 Klucz adresowania jest bardziej istotny dla niemożliwych do eksportu certyfikatów KV. Operacje na kluczu KV z adresami są mapowane z pola *użycie* klucza dla zasad certyfikatu KV użytych do utworzenia certyfikatu kV.  
 
+Typ pary kluczy, która ma być obsługiwana dla certyfikatów
+
  - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
 
+|Typ klucza|Informacje|Zabezpieczenia|
+|--|--|--|
+|**RSA**| Klucz RSA "chroniony przez oprogramowanie"|Poziom FIPS 140-2|
+|**RSA — HSM**| Klucz RSA "chroniony przez HSM" (tylko wersja Premium)|Moduł HSM FIPS 140-2 Level 2|
+|**EC**| Klucz krzywej eliptyczna "chronione przez oprogramowanie"|Poziom FIPS 140-2|
+|**WE-HSM**| Klucz krzywej eliptyczna "chroniony przez moduł HSM" (tylko wersja Premium)|Moduł HSM FIPS 140-2 Level 2|
+|||
 
 ## <a name="certificate-attributes-and-tags"></a>Atrybuty i Tagi certyfikatu
 
@@ -57,14 +66,14 @@ Atrybuty certyfikatu są duplikowane do atrybutów klucza, który można adresow
 
 Certyfikat Key Vault ma następujące atrybuty:  
 
--   *włączone* : wartość logiczna, opcjonalna, **wartość** domyślna to true. Można określić, aby wskazać, czy dane certyfikatu mogą być pobierane jako tajne, czy jako klucz. Używany także w połączeniu z *NBF* i *EXP* , gdy operacja występuje między *NBF* i *EXP* , i będzie dozwolona tylko wtedy, gdy wartość Enabled jest ustawiona na true. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone.  
+-   *włączone*: wartość logiczna, opcjonalna, **wartość** domyślna to true. Można określić, aby wskazać, czy dane certyfikatu mogą być pobierane jako tajne, czy jako klucz. Używany także w połączeniu z *NBF* i *EXP* , gdy operacja występuje między *NBF* i *EXP*, i będzie dozwolona tylko wtedy, gdy wartość Enabled jest ustawiona na true. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone.  
 
 Istnieją dodatkowe atrybuty tylko do odczytu, które znajdują się w odpowiedzi:
 
--   *utworzono* : IntDate: wskazuje, kiedy ta wersja certyfikatu została utworzona.  
--   *Zaktualizowano* : IntDate: wskazuje, kiedy ta wersja certyfikatu została zaktualizowana.  
--   *EXP* : IntDate: zawiera wartość daty wygaśnięcia certyfikatu x509.  
--   *NBF* : IntDate: zawiera wartość daty certyfikatu x509.  
+-   *utworzono*: IntDate: wskazuje, kiedy ta wersja certyfikatu została utworzona.  
+-   *Zaktualizowano*: IntDate: wskazuje, kiedy ta wersja certyfikatu została zaktualizowana.  
+-   *EXP*: IntDate: zawiera wartość daty wygaśnięcia certyfikatu x509.  
+-   *NBF*: IntDate: zawiera wartość daty certyfikatu x509.  
 
 > [!Note] 
 > Jeśli certyfikat usługi Key Vault wygaśnie, adresowany klucz i wpis tajny przestaną działać.  
@@ -103,14 +112,14 @@ Poniższa tabela przedstawia mapowanie zasad użycia klucza x509 do efektywnych 
 
 |**Flagi użycia klucza x509**|**Key Vault kluczowe operacje**|**Zachowanie domyślne**|
 |----------|--------|--------|
-|DataEncipherment|szyfrowanie, odszyfrowywanie| Brak |
-|DecipherOnly|zawartości| Brak  |
+|DataEncipherment|szyfrowanie, odszyfrowywanie| Nie dotyczy |
+|DecipherOnly|zawartości| Nie dotyczy  |
 |Bity digitalSignature|Podpisz, zweryfikuj| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|EncipherOnly|encrypt| Brak |
-|KeyCertSign|Podpisz, zweryfikuj|Brak|
+|EncipherOnly|encrypt| Nie dotyczy |
+|KeyCertSign|Podpisz, zweryfikuj|Nie dotyczy|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|Niemożność wyparcia|Podpisz, zweryfikuj| Brak |
-|crlsign bit|Podpisz, zweryfikuj| Brak |
+|Niemożność wyparcia|Podpisz, zweryfikuj| Nie dotyczy |
+|crlsign bit|Podpisz, zweryfikuj| Nie dotyczy |
 
 ## <a name="certificate-issuer"></a>Wystawca certyfikatu
 

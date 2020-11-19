@@ -5,20 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d0d559579e841553e04c26bf4dcc78934de3e95
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422878"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920206"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu narzędzi wiersza polecenia
 
 W tym artykule opisano integrację kolejki usługi Azure Storage z funkcją i kontem magazynu utworzonym w poprzednim artykule Szybki Start. Tę integrację można osiągnąć za pomocą *powiązania danych wyjściowych* , które zapisuje dane z żądania HTTP do wiadomości w kolejce. Wykonanie tego artykułu nie wiąże się z żadnymi dodatkowymi kosztami powyżej kilku centów z poprzedniego przewodnika Szybki Start. Aby dowiedzieć się więcej na temat powiązań, zobacz temat [Azure Functions wyzwalacze i koncepcje powiązań](functions-triggers-bindings.md).
 
 ## <a name="configure-your-local-environment"></a>Konfigurowanie środowiska lokalnego
-
-Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia][previous-quickstart]. Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.
 
 ::: zone pivot="programming-language-csharp"  
 Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-csharp.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
@@ -126,7 +124,7 @@ mvn azure-functions:deploy
 
     # <a name="curl"></a>[odsłon](#tab/curl)
     
-    Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL** , dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
+    Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
     
     ![Dane wyjściowe funkcji są uruchamiane na platformie Azure przy użyciu zwinięcia](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 

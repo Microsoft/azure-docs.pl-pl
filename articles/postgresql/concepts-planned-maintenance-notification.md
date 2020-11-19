@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1803a0070321ff4d895203f027f839601bb726ee
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887148"
+ms.locfileid: "94920257"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Powiadomienie o planowanej konserwacji w usłudze Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -78,7 +78,7 @@ Błąd przejściowy, nazywany także błędem przejściowym, jest błędem, któ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for PostgreSQL, Wyślij wiadomość e-mail do zespołu Azure Database for PostgreSQL pod adresem *AskAzureDBforPostgreSQL@service.microsoft.com* .
+- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for PostgreSQL, Wyślij wiadomość e-mail do zespołu Azure Database for PostgreSQL w AskAzureDBforPostgreSQL@service.microsoft.com
 - Zobacz [jak skonfigurować alerty](howto-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - [Rozwiązywanie problemów z połączeniem do Azure Database for PostgreSQL-pojedynczego serwera](howto-troubleshoot-common-connection-issues.md)
 - [Obsługa błędów przejściowych i wydajne łączenie się z Azure Database for PostgreSQL-pojedynczym serwerem](concepts-connectivity.md)

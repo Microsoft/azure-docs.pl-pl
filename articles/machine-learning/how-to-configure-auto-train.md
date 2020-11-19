@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4546433f5bd20e2f001d6d868d8adfb4b9bf8c0
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535337"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920376"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -103,7 +103,7 @@ Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lu
 |&nbsp;Rozmiar danych szkoleniowych &nbsp;| Technika walidacji |
 |---|-----|
 |**Więcej &nbsp; niż &nbsp; 20 000 &nbsp; wierszy**| Zastosowano podział danych szkolenia/walidacji. Wartość domyślna to przejęcie 10% początkowego zestawu danych szkoleniowych jako zestawu walidacji. Z kolei ten zestaw walidacji jest używany do obliczania metryk.
-|**Mniejsze &nbsp; niż &nbsp; 20 000 &nbsp; wierszy**| Stosowana jest metoda weryfikacji krzyżowej. Domyślna liczba zagięć zależy od liczby wierszy. <br> **Jeśli zestaw danych jest mniejszy niż 1 000 wierszy** , używane są 10 zagięć. <br> **Jeśli wiersze są z zakresu od 1 000 do 20 000** , używane są trzy składowe.
+|**Mniejsze &nbsp; niż &nbsp; 20 000 &nbsp; wierszy**| Stosowana jest metoda weryfikacji krzyżowej. Domyślna liczba zagięć zależy od liczby wierszy. <br> **Jeśli zestaw danych jest mniejszy niż 1 000 wierszy**, używane są 10 zagięć. <br> **Jeśli wiersze są z zakresu od 1 000 do 20 000**, używane są trzy składowe.
 
 W tej chwili należy podać własne **dane testowe** do oceny modelu. Przykładowy kod służący do wprowadzania własnych danych testowych do oceny modelu znajduje się w sekcji **test** [tego notesu Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
@@ -130,26 +130,24 @@ Oto niektóre przykłady:
 1. Eksperyment klasyfikacji korzystający z AUC ważone jako Metryka podstawowa z limitem czasu eksperymentu w minutach ustawionym na 30 minut i 2 zgięcia wzajemnej walidacji.
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. Poniższy przykład to eksperyment regresji ustawiony na koniec po 60 minutach z pięcioma zgięciami krzyżowymi.
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
@@ -301,6 +299,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Kryteria wyjścia
+
+Istnieje kilka opcji, które można zdefiniować w AutoMLConfig, aby zakończyć eksperyment.
+
+|Kryteria| description (opis)
+|----|----
+Brak &nbsp; kryteriów | Jeśli nie określisz żadnych parametrów zakończenia, eksperyment kontynuuje działanie, dopóki nie zostanie wprowadzony kolejny postęp w głównej metryce.
+Po upływie &nbsp; &nbsp; dłuższego &nbsp; &nbsp; czasu| Użyj `experiment_timeout_minutes` Ustawienia w ustawieniach, aby określić czas, w ciągu którego eksperyment powinien nadal działać. <br><br> Aby zapobiec błędom przekroczenia limitu czasu eksperymentu, istnieje co najmniej 15 minut lub 60 minut, jeśli rozmiar wiersza według kolumny przekracza 10 000 000.
+&nbsp; &nbsp; &nbsp; &nbsp; Osiągnięto wynik| Użyj `experiment_exit_score` kończenia eksperymentu po osiągnięciu określonego podstawowego wyniku metryki.
+
 ## <a name="run-experiment"></a>Uruchom eksperyment
 
 Dla zautomatyzowanej tablicy należy utworzyć `Experiment` obiekt, który jest obiektem nazwanym w `Workspace` używanym do uruchamiania eksperymentów.
@@ -327,17 +337,15 @@ run = experiment.submit(automl_config, show_output=True)
 >Zależności są najpierw instalowane na nowym komputerze.  Przed wyświetleniem danych wyjściowych może upłynąć do 10 minut.
 >Ustawienie `show_output` powoduje `True` , że dane wyjściowe są wyświetlane w konsoli programu.
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>Wiele przebiegów podrzędnych w klastrach
 
-### <a name="exit-criteria"></a>Kryteria wyjścia
+Na klastrze, na którym jest już uruchomiony inny eksperyment, można wykonywać zautomatyzowane uruchomienia eksperymentów z systemem. Jednak czas zależy od liczby węzłów w klastrze, a jeśli te węzły są dostępne do uruchamiania innego eksperymentu.
 
-Istnieje kilka opcji, które można zdefiniować, aby zakończyć eksperyment.
+Każdy węzeł w klastrze działa jako indywidualna maszyna wirtualna (VM), która może wykonywać pojedynczy przebieg szkoleniowy; w przypadku zautomatyzowanej ML oznacza to uruchomienie podrzędne. Jeśli wszystkie węzły są zajęte, nowy eksperyment zostanie umieszczony w kolejce. Jeśli jednak istnieją wolne węzły, nowy eksperyment uruchomi automatyczne uruchamianie elementów podrzędnych ML w ramach dostępnych węzłów/maszyn wirtualnych.
 
-|Kryteria| description (opis)
-|----|----
-Brak &nbsp; kryteriów | Jeśli nie określisz żadnych parametrów zakończenia, eksperyment kontynuuje działanie, dopóki nie zostanie wprowadzony kolejny postęp w głównej metryce.
-Po upływie &nbsp; &nbsp; dłuższego &nbsp; &nbsp; czasu| Użyj `experiment_timeout_minutes` Ustawienia w ustawieniach, aby określić czas, w ciągu którego eksperyment powinien nadal działać. <br><br> Aby zapobiec błędom przekroczenia limitu czasu eksperymentu, istnieje co najmniej 15 minut lub 60 minut, jeśli rozmiar wiersza według kolumny przekracza 10 000 000.
-&nbsp; &nbsp; &nbsp; &nbsp; Osiągnięto wynik| Użyj `experiment_exit_score` kończenia eksperymentu po osiągnięciu określonego podstawowego wyniku metryki.
+Aby ułatwić zarządzanie uruchomieniami podrzędnymi i kiedy można je wykonać, zalecamy utworzenie dedykowanego klastra na eksperyment i dopasowanie `max_concurrent_iterations` do liczby węzłów w klastrze. W ten sposób można używać wszystkich węzłów klastra w tym samym czasie z liczbą współbieżnych uruchomień/iteracji podrzędnych.
+
+Skonfiguruj  `max_concurrent_iterations` w `AutoMLConfig` obiekcie. Jeśli nie jest skonfigurowany, domyślnie dozwolone jest tylko jedno współbieżne uruchomienie/iteracja na eksperymentie.  
 
 ## <a name="explore-models-and-metrics"></a>Eksplorowanie modeli i metryk
 
@@ -348,7 +356,7 @@ Zobacz [ocenę zautomatyzowanych wyników eksperymentu w usłudze Machine Learni
 Aby uzyskać podsumowanie cechowania i zrozumieć, jakie funkcje zostały dodane do określonego modelu, zobacz [cechowania przezroczystość](how-to-configure-auto-features.md#featurization-transparency). 
 
 > [!NOTE]
-> Algorytmy zautomatyzowanej ML mają nieodłączną losowość, która może spowodować nieznaczne wahania w zalecanych modelach końcowe wyniki metryk, takie jak dokładność. Zautomatyzowanej ML wykonuje również operacje na danych, takie jak podzielenie testów pociągowych, podzielone lub krzyżowe sprawdzanie poprawności w razie potrzeby. Dlatego w przypadku uruchamiania eksperymentu z tymi samymi ustawieniami konfiguracji i metryką podstawową wiele razy prawdopodobnie zobaczysz zmiany w przypadku wszystkich eksperymentów końcowych metryk, ze względu na te czynniki. 
+> Algorytmy zautomatyzowanej sieci mają nieodłączną losowość, która może spowodować nieznaczne wahania w końcowym wyniku metryk, na przykład dokładność. Zautomatyzowanej ML wykonuje również operacje na danych, takie jak podzielenie testów pociągowych, podzielone lub krzyżowe sprawdzanie poprawności w razie potrzeby. Dlatego w przypadku uruchamiania eksperymentu z tymi samymi ustawieniami konfiguracji i metryką podstawową wiele razy prawdopodobnie zobaczysz zmiany w przypadku wszystkich eksperymentów końcowych metryk, ze względu na te czynniki. 
 
 ## <a name="register-and-deploy-models"></a>Rejestrowanie i wdrażanie modeli
 
