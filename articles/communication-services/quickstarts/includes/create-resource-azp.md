@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 051f903c0b203045886b80f72d868adc1fa85f73
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947660"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886102"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -23,11 +23,11 @@ Aby utworzyć zasób usługi Azure Communications Services, najpierw Zaloguj si�
 
 Wprowadź wartość **komunikacja** na stronie **Wyszukaj w witrynie Marketplace** lub na pasku wyszukiwania w górnej części portalu.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Zrzut ekranu z wyróżnionym przyciskiem Utwórz zasób w Azure Portal.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie usług komunikacyjnych na pasku wyszukiwania.":::
 
 W wynikach wybierz pozycję **usługi komunikacyjne** , a następnie wybierz pozycję **Dodaj**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Zrzut ekranu z wyróżnionym przyciskiem Utwórz zasób w Azure Portal.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Zrzut ekranu przedstawiający panel platformy Azure z wyróżnionym przyciskiem Dodaj.":::
 
 Teraz możesz skonfigurować zasób usług komunikacyjnych. Na pierwszej stronie w procesie tworzenia zostanie wyświetlony monit o określenie:
 
@@ -36,7 +36,7 @@ Teraz możesz skonfigurować zasób usług komunikacyjnych. Na pierwszej stronie
 * Nazwa zasobu usług komunikacyjnych
 * Geografia, z którą zostanie skojarzony zasób
 
-W następnym kroku można przypisać Tagi do zasobu. Tagi mogą służyć do organizowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat tagów, zobacz [dokumentację tagowania zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) .
+W następnym kroku można przypisać Tagi do zasobu. Tagi mogą służyć do organizowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat tagów, zobacz [dokumentację tagowania zasobów](../../../azure-resource-manager/management/tag-resources.md) .
 
 Na koniec możesz przejrzeć konfigurację i **utworzyć** zasób. Należy pamiętać, że wdrożenie może potrwać kilka minut.
 

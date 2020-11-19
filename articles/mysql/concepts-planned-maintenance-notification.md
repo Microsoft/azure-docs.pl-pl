@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417592"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886485"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Powiadomienie o planowanej konserwacji w Azure Database for MySQL-pojedynczym serwerze
 
@@ -21,7 +21,7 @@ Dowiedz się, jak przygotować się do zaplanowanych zdarzeń konserwacji na Azu
 
 Usługa Azure Database for MySQL wykonuje zautomatyzowane stosowanie poprawek podstawowego sprzętu, systemu operacyjnego i aparatu bazy danych. Poprawka obejmuje nowe funkcje usługi, zabezpieczenia i aktualizacje oprogramowania. W przypadku aparatu MySQL uaktualnienia wersji pomocniczej są automatyczne i uwzględniane jako część cyklu poprawek. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika ani ustawień konfiguracji. Poprawka jest przeprowadzana w szerokim zakresie i przeprowadzona przy użyciu bezpiecznych praktyk wdrażania.
 
-Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane na serwerach w danym regionie świadczenia usługi Azure. Podczas planowanej konserwacji jest tworzone zdarzenie powiadamiania informujące klientów o wdrożeniu aktualizacji usługi w regionie platformy Azure, w którym znajdują się serwery. Minimalny czas trwania między dwoma planowanymi konserwacjami to 30 dni. Otrzymasz powiadomienie o następnym przedziale czasu obsługi 72 godzin.
+Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane na serwerach w danym regionie świadczenia usługi Azure. Podczas planowanej konserwacji jest tworzone zdarzenie powiadomienia informujące klientów o wdrożeniu aktualizacji usługi w regionie świadczenia platformy Azure, w którym serwery są hostowane. Minimalny czas trwania między dwoma planowanymi konserwacjami to 30 dni. 72 godziny wcześniej otrzymasz powiadomienie o następnym oknie obsługi.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Planowana konserwacja — czas trwania i wpływ klienta
 
@@ -48,7 +48,7 @@ Możesz sprawdzić powiadomienie dotyczące planowanej konserwacji na Azure Port
 
 1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Service Health**.
 2. Wybierz kartę **Planowana konserwacja**
-3. Wybierz **subskrypcję** , **region** i **usługę** , dla której chcesz sprawdzić zaplanowane powiadomienie o konserwacji. 
+3. Wybierz **subskrypcję**, **region** i **usługę** , dla której chcesz sprawdzić zaplanowane powiadomienie o konserwacji. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Aby odebrać powiadomienie o planowanej konserwacji
 
@@ -56,7 +56,7 @@ Możesz sprawdzić powiadomienie dotyczące planowanej konserwacji na Azure Port
 2. W sekcji **alerty** wybierz pozycję **alerty dotyczące kondycji**.
 3. Wybierz pozycję **+ Dodaj alert kondycji usługi** i wypełnij pola.
 4. Wypełnij pola wymagane. 
-5. Wybierz **Typ zdarzenia** , wybierz pozycję **Planowana konserwacja** lub **Zaznacz wszystko**
+5. Wybierz **Typ zdarzenia**, wybierz pozycję **Planowana konserwacja** lub **Zaznacz wszystko**
 6. W obszarze **grupy akcji** Określ, w jaki sposób chcesz otrzymywać alert (Otrzymuj wiadomość e-mail, wyzwól aplikację logiki itp.).  
 7. Upewnij się, że w momencie utworzenia reguły włączania zostanie ustawiona wartość tak.
 8. Wybierz pozycję **Utwórz regułę alertu** , aby zakończyć alert
@@ -78,7 +78,7 @@ Błąd przejściowy, nazywany także błędem przejściowym, jest błędem, któ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MySQL, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL pod adresem *AskAzureDBforMySQL@service.microsoft.com* .
+- W przypadku pytań lub sugestii, które mogą mieć na celu pracę z Azure Database for MySQL, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL pod adresem **AskAzureDBforMySQL@service.microsoft.com** .
 - Zobacz [jak skonfigurować alerty](howto-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - [Rozwiązywanie problemów z połączeniem do Azure Database for MySQL-pojedynczego serwera](howto-troubleshoot-common-connection-issues.md)
 - [Obsługa błędów przejściowych i wydajne łączenie się z Azure Database for MySQL-pojedynczym serwerem](concepts-connectivity.md)

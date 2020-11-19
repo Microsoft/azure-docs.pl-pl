@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666946"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886077"
 ---
 # <a name="client-and-server-architecture"></a>Architektura klienta i serwera
 
@@ -37,19 +37,19 @@ Biblioteki klienckie usług Azure Communications Services wymagają `user access
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
 
-Aby uzyskać dodatkowe informacje, zobacz [najlepsze rozwiązania związane z zarządzaniem tożsamościami](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+Aby uzyskać dodatkowe informacje, zobacz [najlepsze rozwiązania związane z zarządzaniem tożsamościami](../../security/fundamentals/identity-management-best-practices.md)
 
 ## <a name="browser-communication"></a>Komunikacja przeglądarki
 
 Biblioteki klienckie JavaScript dotyczące usługi Azure Communications umożliwiają aplikacjom sieci Web zaawansowaną obsługę tekstu, głosu i wideo. Aplikacja bezpośrednio współdziała z usługami Azure Communications Services za pomocą biblioteki klienckiej w celu uzyskania dostępu do płaszczyzny danych i dostarczania tekstu, głosu i wideo w czasie rzeczywistym. Przykładowy przepływ architektury można znaleźć poniżej:
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram przedstawiający architekturę przeglądarki dla usług komunikacyjnych.":::
 
 ## <a name="native-app-communication"></a>Komunikacja natywna aplikacji
 
 Wiele scenariuszy najlepiej obsługuje aplikacje natywne. Usługi komunikacyjne platformy Azure obsługują komunikację między przeglądarką a aplikacją.  Podczas tworzenia natywnego środowiska aplikacji przy użyciu powiadomień wypychanych użytkownicy będą mogli odbierać wywołania nawet wtedy, gdy aplikacja nie jest uruchomiona. Usługi komunikacyjne systemu Azure ułatwiają to zintegrowane powiadomienia wypychane w usłudze Google Firebase, Apple Push Notification Service i powiadomieniach wypychanych systemu Windows. Przykładowy przepływ architektury można znaleźć poniżej:
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram przedstawiający architekturę usług komunikacyjnych do komunikacji natywnej aplikacji.":::
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Komunikacja głosowa i SMS za pośrednictwem publicznej sieci telefonicznej (PSTN)
 
@@ -58,7 +58,7 @@ Komunikacja przez system telefonii może znacząco zwiększyć zasięg aplikacji
 > [!Note]
 > W publicznej wersji zapoznawczej udostępnianie numerów telefonów US jest dostępne dla klientów, którzy mają adresy rozliczeń znajdujące się w Stanach Zjednoczonych i Kanadzie. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram przedstawiający architekturę PSTN usług komunikacyjnych.":::
 
 Aby uzyskać więcej informacji na temat rozwiązań PSTN i SMS, zobacz [Planowanie rozwiązań PSTN i SMS](../concepts/telephony-sms/plan-solution.md)
 
@@ -66,9 +66,9 @@ Aby uzyskać więcej informacji na temat rozwiązań PSTN i SMS, zobacz [Planowa
 
 Usługi komunikacyjne platformy Azure obsługują komunikację między ludźmi, chociaż kanały tekstowe i głosowe, z usługami, które bezpośrednio uzyskują dostęp do płaszczyzny danych usług Azure Communication Services. Na przykład możesz mieć bot odpowiedzi na przychodzące rozmowy telefoniczne lub uczestniczyć w rozmowie w sieci Web. Usługi komunikacyjne platformy Azure udostępniają biblioteki klienckie, które umożliwiają wywoływanie i rozmowę z tymi scenariuszami. Przykładowy przepływ architektury można znaleźć poniżej:
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram przedstawiający architekturę bot usług komunikacyjnych.":::
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Możesz chcieć zamieścić dowolne dane między użytkownikami, aby na przykład zsynchronizować udostępnioną rzeczywistość mieszana lub środowisko gier. Płaszczyzna danych w czasie rzeczywistym używana do komunikacji tekstu, głosu i wideo jest dostępna bezpośrednio na dwa sposoby:
 
@@ -80,7 +80,7 @@ Możesz chcieć zamieścić dowolne dane między użytkownikami, aby na przykła
 > [!div class="nextstepaction"]
 > [Tworzenie tokenów dostępu użytkowników](../quickstarts/access-tokens.md)
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - Informacje o [uwierzytelnianiu](../concepts/authentication.md)
 - Informacje o [rozwiązaniach PSTN i SMS](../concepts/telephony-sms/plan-solution.md)

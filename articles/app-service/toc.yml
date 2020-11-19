@@ -114,8 +114,8 @@
           href: overview-authentication-authorization.md
         - name: Stosowanie poprawek systemu operacyjnego i środowiska uruchomieniowego
           href: overview-patch-os-runtime.md
-        - name: Wbudowane mechanizmy zabezpieczeń
-          href: app-service-security-controls.md
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358613"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886332"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Przewidywanie opłat za taksówkę za pomocą zautomatyzowanego uczenia maszynowego
 
@@ -39,7 +39,9 @@ Jeśli nie masz subskrypcji Azure, przed rozpoczęciem utwórz bezpłatne konto.
 * Ukończ [Samouczek instalacji](tutorial-1st-experiment-sdk-setup.md) , jeśli nie masz jeszcze obszaru roboczego Azure Machine Learning lub maszyny wirtualnej notesu.
 * Po zakończeniu pracy z samouczkiem Instalatora Otwórz Notes *samouczków/Regression-automl-NYC-Taxi-Data/Regression-Automated-ml. ipynb* przy użyciu tego samego serwera notesu.
 
-Ten samouczek jest również dostępny w witrynie [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) , jeśli chcesz uruchomić go w [środowisku lokalnym](how-to-configure-environment.md#local). Uruchom, `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` Aby pobrać wymagane pakiety.
+Ten samouczek jest również dostępny w witrynie [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) , jeśli chcesz uruchomić go w [środowisku lokalnym](how-to-configure-environment.md#local). Aby uzyskać wymagane pakiety, 
+* [Zainstaluj pełny `automl` Klient](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* Uruchom, `pip install azureml-opendatasets azureml-widgets` Aby pobrać wymagane pakiety.
 
 ## <a name="download-and-prepare-data"></a>Pobieranie i przygotowywanie danych
 
@@ -182,7 +184,7 @@ ws = Workspace.from_config()
 
 ## <a name="split-the-data-into-train-and-test-sets"></a>Podział danych na zestawy treningowe i testowe
 
-Podziel dane na zestawy szkoleniowe i testowe przy użyciu `train_test_split` funkcji w `scikit-learn` bibliotece. Ta funkcja dzieli dane na zestaw danych x ( **Features** ) na potrzeby szkolenia modeli oraz zestawu danych y ( **wartości do przewidywania** ) na potrzeby testowania.
+Podziel dane na zestawy szkoleniowe i testowe przy użyciu `train_test_split` funkcji w `scikit-learn` bibliotece. Ta funkcja dzieli dane na zestaw danych x (**Features**) na potrzeby szkolenia modeli oraz zestawu danych y (**wartości do przewidywania**) na potrzeby testowania.
 
 Parametr `test_size` określa procent danych przydzielanych do testowania. `random_state`Parametr ustawia inicjator dla generatora losowego, dzięki czemu podziały testu pociąga są deterministyczne.
 

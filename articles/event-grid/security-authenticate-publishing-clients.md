@@ -4,12 +4,12 @@ description: W tym artykule opisano różne sposoby uwierzytelniania klientów, 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d38d4ffc868d442980cda576ea158704231f9efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c415b7e1bb6bd7a2116da82c7d8f1de205009d0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856334"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886264"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Uwierzytelnianie klientów publikowania (Azure Event Grid)
 Ten artykuł zawiera informacje dotyczące uwierzytelniania klientów, którzy publikują zdarzenia w celu Azure Event Grid tematów lub domen przy użyciu **klucza dostępu** lub tokenu **sygnatury dostępu współdzielonego (SAS)** . Zalecamy używanie tokenu SAS, ale uwierzytelnianie klucza zapewnia proste programowanie i jest zgodne z wieloma istniejącymi wydawcami elementów webhook.  
@@ -82,7 +82,7 @@ def generate_sas_token(uri, key, expiry=3600):
 ```
 
 ### <a name="using-aeg-sas-token-header"></a>Korzystanie z nagłówka AEG-SAS-token
-Oto przykład przekazywania tokenu sygnatury dostępu współdzielonego jako wartości `aeg-sas-toke` nagłówka. 
+Oto przykład przekazywania tokenu sygnatury dostępu współdzielonego jako wartości `aeg-sas-token` nagłówka. 
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d

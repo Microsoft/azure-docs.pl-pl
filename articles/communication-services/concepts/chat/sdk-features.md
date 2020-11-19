@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666147"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885992"
 ---
 # <a name="chat-client-library-overview"></a>Omówienie biblioteki klienta czatu
 
@@ -52,7 +52,7 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 | Zdarzenia             | Użyj Event Grid, aby subskrybować aktywność użytkowników w wątkach rozmowy i zintegrować niestandardowe usługi powiadomień lub logikę biznesową     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Monitorowanie        | Monitoruj użycie w odniesieniu do wysłanych komunikatów                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorowanie jakości i stanu żądań interfejsu API wykonywanych przez aplikację oraz Konfigurowanie alertów za pośrednictwem portalu                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Dodatkowe funkcje | Użyj [interfejsy API usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) wraz z biblioteką klienta programu chat, aby włączyć funkcję inteligentnego *tłumaczenia języka & tonacji analizę komunikatu przychodzącego na kliencie, konwersji zamiany mowy na tekst w celu redagowania wiadomości w czasie, gdy członek mówi, itd.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Dodatkowe funkcje | Użyj [interfejsy API usług Cognitive Services](../../../cognitive-services/index.yml) wraz z biblioteką klienta programu chat, aby włączyć funkcję inteligentnego *tłumaczenia języka & tonacji analizę komunikatu przychodzącego na kliencie, konwersji zamiany mowy na tekst w celu redagowania wiadomości w czasie, gdy członek mówi, itd.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## <a name="next-steps"></a>Następne kroki
 

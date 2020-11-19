@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć ap
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 2c99244df7811b09abaf10d54d924a727201bbad
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a14659b64bbc86cfc50cbf8a377c0245fba25065
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076644"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886247"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -19,9 +19,9 @@ Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, któ
 
 W tym artykule założono podstawową wiedzę na temat koncepcji Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ### <a name="limitations"></a>Ograniczenia
 

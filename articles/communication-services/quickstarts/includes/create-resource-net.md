@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 258908ed1118b0463e8c824cd8c699fb460dfff2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947659"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886118"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/dotnet/).
 - Najnowsza wersja [programu .NET Core Client Library](https://dotnet.microsoft.com/download/dotnet-core) dla danego systemu operacyjnego.
-- Pobierz najnowszą wersję [biblioteki klienta tożsamości platformy .NET](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet).
+- Pobierz najnowszą wersję [biblioteki klienta tożsamości platformy .NET](/dotnet/api/azure.identity?view=azure-dotnet).
 - Pobierz najnowszą wersję [biblioteki klienta zarządzania .NET](../../concepts/sdk-options.md).
 
 ## <a name="installing-the-client-library"></a>Instalowanie biblioteki klienckiej
@@ -44,13 +44,13 @@ Aby komunikować się z usługami Azure Communications Services, należy najpier
 
 ### <a name="option-1-managed-identity"></a>Opcja 1: tożsamość zarządzana
 
-Jeśli Twój kod jest uruchomiony jako usługa na platformie Azure, najprostszym sposobem uwierzytelniania jest uzyskanie zarządzanej tożsamości z platformy Azure. Dowiedz się więcej o [tożsamościach zarządzanych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Jeśli Twój kod jest uruchomiony jako usługa na platformie Azure, najprostszym sposobem uwierzytelniania jest uzyskanie zarządzanej tożsamości z platformy Azure. Dowiedz się więcej o [tożsamościach zarządzanych](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-[Usługi platformy Azure, które obsługują tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+[Usługi platformy Azure, które obsługują tożsamości zarządzane](../../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-[Jak używać tożsamości zarządzanych do App Service i Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Jak używać tożsamości zarządzanych do App Service i Azure Functions](../../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-#### <a name="system-assigned-managed-identity"></a>[Tożsamość zarządzana przypisana przez system](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+#### <a name="system-assigned-managed-identity"></a>[Tożsamość zarządzana przypisana przez system](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
 ```csharp
 using Azure.Identity;
@@ -62,7 +62,7 @@ var subscriptionId = "AZURE_SUBSCRIPTION_ID";
 var acsClient = new CommunicationManagementClient(subscriptionId, new ManagedIdentityCredential());
 ```
 
-#### <a name="user-assigned-managed-identity"></a>[Tożsamość zarządzana przypisana przez użytkownika](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity)
+#### <a name="user-assigned-managed-identity"></a>[Tożsamość zarządzana przypisana przez użytkownika](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity)
 
 ClientId zarządzanej tożsamości musi być przekazywać `ManagedIdentityCredential` jawnie.
 
@@ -79,7 +79,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### <a name="option-2-service-principal"></a>Opcja 2: Nazwa główna usługi
 
-Zamiast korzystać z tożsamości zarządzanej, można uwierzytelnić się na platformie Azure przy użyciu jednostki usługi, którą zarządzasz samodzielnie. Dowiedz się więcej, korzystając z dokumentacji dotyczącej [tworzenia nazwy głównej usługi w Azure Active Directory i zarządzania nią](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Zamiast korzystać z tożsamości zarządzanej, można uwierzytelnić się na platformie Azure przy użyciu jednostki usługi, którą zarządzasz samodzielnie. Dowiedz się więcej, korzystając z dokumentacji dotyczącej [tworzenia nazwy głównej usługi w Azure Active Directory i zarządzania nią](../../../active-directory/develop/howto-create-service-principal-portal.md).
 
 Po utworzeniu nazwy głównej usługi należy zebrać następujące informacje na jej temat z Azure Portal:
 
@@ -121,7 +121,7 @@ Po uwierzytelnieniu możesz użyć swojego klienta zarządzania do wykonywania w
 
 Dla każdego z poniższych przykładów przypiszemy nasze zasoby usług komunikacyjnych do istniejącej grupy zasobów.
 
-Jeśli musisz utworzyć grupę zasobów, możesz to zrobić za pomocą [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) lub [Azure Resource Manager biblioteki klienta](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+Jeśli musisz utworzyć grupę zasobów, możesz to zrobić za pomocą [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) lub [Azure Resource Manager biblioteki klienta](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Tworzenie zasobu usług komunikacyjnych i zarządzanie nim
 

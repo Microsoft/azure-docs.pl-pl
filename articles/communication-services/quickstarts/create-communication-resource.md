@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667507"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886103"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Szybki Start: Tworzenie zasobów usług komunikacyjnych i zarządzanie nimi
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą Azure Portal lub z biblioteki klienta zarządzania platformy .NET. Biblioteka klienta zarządzania umożliwia tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów oraz interfejsów za pomocą usługi [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)platformy Azure do wdrażania i zarządzania. Wszystkie funkcje dostępne w bibliotekach klienta są dostępne w Azure Portal. 
+Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą Azure Portal lub z biblioteki klienta zarządzania platformy .NET. Biblioteka klienta zarządzania umożliwia tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów oraz interfejsów za pomocą usługi [Azure Resource Manager](../../azure-resource-manager/management/overview.md)platformy Azure do wdrażania i zarządzania. Wszystkie funkcje dostępne w bibliotekach klienta są dostępne w Azure Portal. 
 
 > [!WARNING]
 > Należy pamiętać, że dostępność usług komunikacyjnych jest ograniczona do lokalizacji geograficznej USA w trakcie publicznej wersji zapoznawczej. Należy również pamiętać, że nie można przesłać zasobów komunikacyjnych do innej subskrypcji w ramach publicznej wersji zapoznawczej.
@@ -47,8 +47,8 @@ Po przejściu do zasobu usług komunikacyjnych wybierz pozycję **klucze** z men
 Biblioteki klienckie usług komunikacyjnych używają parametrów połączenia do autoryzacji żądań wysyłanych do usług komunikacyjnych. Istnieje kilka opcji przechowywania parametrów połączenia:
 
 * Aplikacja działająca na komputerze stacjonarnym lub na urządzeniu może przechowywać parametry połączenia w pliku **app.config** lub **web.config** . Dodaj parametry połączenia do sekcji **AppSettings** w tych plikach.
-* Aplikacja działająca w Azure App Service może przechowywać parametry połączenia w [ustawieniach aplikacji App Service](https://docs.microsoft.com/azure/app-service/configure-common). Dodaj parametry połączenia do sekcji **parametry połączeń** karty Ustawienia aplikacji w portalu.
-* Parametry połączenia można przechowywać w [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+* Aplikacja działająca w Azure App Service może przechowywać parametry połączenia w [ustawieniach aplikacji App Service](../../app-service/configure-common.md). Dodaj parametry połączenia do sekcji **parametry połączeń** karty Ustawienia aplikacji w portalu.
+* Parametry połączenia można przechowywać w [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md).
 * Jeśli uruchamiasz aplikację lokalnie, możesz chcieć przechowywać parametry połączenia w zmiennej środowiskowej.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>Przechowywanie parametrów połączenia w zmiennej środowiskowej
@@ -67,7 +67,7 @@ Po dodaniu zmiennej środowiskowej być może trzeba będzie ponownie uruchomić
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-Edytuj **zshrc**i Dodaj zmienną środowiskową:
+Edytuj **zshrc** i Dodaj zmienną środowiskową:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
@@ -77,7 +77,7 @@ Po dodaniu zmiennej środowiskowej uruchom polecenie `source ~/.zshrc` z okna ko
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
-Edytuj **.bash_profile**i Dodaj zmienną środowiskową:
+Edytuj **.bash_profile** i Dodaj zmienną środowiskową:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
