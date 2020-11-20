@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4839f8211e678f5fc2fb3572c7eaa545fbee6c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055779"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961196"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opcje migracji danych z serii StorSimple 8000
 
@@ -31,7 +31,7 @@ Klienci korzystający z serii StorSimple 8000 mają opcje platformy Azure lub in
 
 Ta nowa opcja migracji umożliwia klientom przechowywanie udziałów plików w organizacji w Azure Files. Te udziały plików są następnie scentralizowane dla dostępu lokalnego przy użyciu Azure File Sync (AFS). Serwer AFS można wdrożyć na hoście z systemem Windows Server. Rzeczywista migracja danych jest następnie wykonywana jako kopia hosta lub narzędzie do migracji.
 
-Aby uzyskać więcej informacji na temat migrowania danych do Azure File Sync, przejdź do [StorSimple 8100 i 8600 migracji do Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+Aby uzyskać więcej informacji na temat migrowania danych do Azure File Sync, przejdź do [StorSimple 8100 i 8600 migracji do Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Opcje innych firm
 
@@ -111,4 +111,4 @@ A. Czas migracji danych zależy od ilości danych i wybranej opcji uaktualniania
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Migrowanie danych z serii StorSimple 8000 do Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [Migrowanie danych z serii StorSimple 8000 do Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

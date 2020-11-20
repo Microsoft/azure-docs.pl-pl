@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538601"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961332"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Nawiązywanie połączenia z usługami magazynu na platformie Azure
 
@@ -88,7 +88,7 @@ Aby zapewnić bezpieczne łączenie się z usługą Azure Storage, Azure Machine
 
 ### <a name="virtual-network"></a>Sieć wirtualna 
 
-Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej** , wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. Zapoznaj się z tematem [Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md) , aby upewnić się, że podczas tworzenia i rejestrowania magazynu danych są stosowane odpowiednie czynności konfiguracyjne.  
+Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej**, wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. Zapoznaj się z tematem [Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md) , aby upewnić się, że podczas tworzenia i rejestrowania magazynu danych są stosowane odpowiednie czynności konfiguracyjne.  
 
 ### <a name="access-validation"></a>Sprawdzanie poprawności dostępu
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 W przypadku magazynu danych Azure Data Lake Storage Generation 2 (ADLS Gen 2) należy użyć [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) do zarejestrowania magazynu danych poświadczeń połączonego z magazynem usługi Azure datalake Generation 2 z [uprawnieniami nazw głównych](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-Aby można było korzystać z nazwy głównej usługi, należy [zarejestrować aplikację](../active-directory/develop/app-objects-and-service-principals.md) i udzielić dostępu do danych jednostki usługi za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC) lub list kontroli dostępu (ACL). Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](../storage/blobs/data-lake-storage-access-control-model.md). 
+Aby można było korzystać z nazwy głównej usługi, należy [zarejestrować aplikację](../active-directory/develop/app-objects-and-service-principals.md) i udzielić dostępu do danych głównych usługi za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC) lub list kontroli dostępu (ACL). Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 Poniższy kod powoduje utworzenie i zarejestrowanie `adlsgen2_datastore_name` magazynu danych w `ws` obszarze roboczym. Ten magazyn danych uzyskuje dostęp do systemu plików `test` na `account_name` koncie magazynu przy użyciu podanych poświadczeń jednostki usługi. Zapoznaj się z sekcją [uprawnień & dostępu do magazynu](#storage-access-and-permissions) , aby uzyskać wskazówki dotyczące scenariuszy sieci wirtualnych oraz znaleźć wymagane poświadczenia uwierzytelniania. 
 

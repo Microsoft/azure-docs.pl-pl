@@ -5,17 +5,18 @@ services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8d11ff6eaab8ed6a13c3c2aa1b712cc57e7825ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973822"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960975"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
 
@@ -273,7 +274,7 @@ Jeśli chcesz uruchomić rozszerzenie skryptu niestandardowego więcej niż raz,
 * **Nazwa** rozszerzenia jest taka sama jak w poprzednim wdrożeniu rozszerzenia.
 * Zaktualizuj konfigurację w przeciwnym razie polecenie nie zostanie wykonane jeszcze raz. Można dodać w właściwości dynamicznej do polecenia, takich jak sygnatura czasowa.
 
-Alternatywnie można ustawić **wartość true**dla właściwości [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) .
+Alternatywnie można ustawić **wartość true** dla właściwości [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) .
 
 ### <a name="using-invoke-webrequest"></a>Używanie Invoke-WebRequest
 
@@ -282,7 +283,7 @@ Jeśli używasz polecenia [Invoke-WebRequest](/powershell/module/microsoft.power
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
+## <a name="virtual-machine-scale-sets"></a>Zestawy skali maszyn wirtualnych
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
@@ -294,13 +295,13 @@ Aby wdrożyć rozszerzenie niestandardowego skryptu na klasycznych maszynach wir
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Przejdź do klasycznego zasobu maszyny wirtualnej. W obszarze **Ustawienia**wybierz pozycję **rozszerzenia** .
+Przejdź do klasycznego zasobu maszyny wirtualnej. W obszarze **Ustawienia** wybierz pozycję **rozszerzenia** .
 
 Kliknij pozycję **+ Dodaj** i na liście zasobów wybierz pozycję **niestandardowe rozszerzenie skryptu**.
 
 Na stronie **rozszerzenie instalacji** wybierz lokalny plik programu PowerShell i Wypełnij wszystkie argumenty i kliknij przycisk **OK**.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Użyj polecenia cmdlet [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) , aby dodać rozszerzenie niestandardowego skryptu do istniejącej maszyny wirtualnej.
 
@@ -344,7 +345,7 @@ gdzie `<n>` jest dziesiętną liczbą całkowitą, która może ulec zmianie mi�
 
 Po wykonaniu `commandToExecute` polecenia rozszerzenie ustawia ten katalog (na przykład `...\Downloads\2` ) jako bieżący katalog roboczy. Ten proces umożliwia lokalizowanie plików pobranych za pośrednictwem właściwości przy użyciu ścieżek względnych `fileURIs` . Przykłady można znaleźć w poniższej tabeli.
 
-Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać względne ścieżki skryptów/plików w `commandToExecute` ciągu, jeśli jest to możliwe. Na przykład:
+Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać względne ścieżki skryptów/plików w `commandToExecute` ciągu, jeśli jest to możliwe. Przykład:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

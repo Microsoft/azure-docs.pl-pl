@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 316b513f761aa422f87c83658e6c50efec25efb4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514660"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961145"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opcje migracji danych z urządzeń StorSimple serii 5000-7000 
 
@@ -43,7 +43,7 @@ Aby uzyskać więcej informacji na temat migrowania danych przy użyciu serii St
 
 Ta nowa opcja migracji umożliwia klientom przechowywanie udziałów plików w organizacji w Azure Files. Te udziały plików są następnie scentralizowane dla dostępu lokalnego przy użyciu Azure File Sync (AFS). Serwer AFS można wdrożyć na hoście z systemem Windows Server. Rzeczywista migracja danych jest następnie wykonywana jako kopia hosta lub narzędzie do migracji.
 
-Aby uzyskać więcej informacji na temat migrowania danych do Azure File Sync, przejdź do obszaru [Migrowanie danych z serii StorSimple 5000-7000 do Azure File Sync](storsimple-5000-7000-afs-migration.md).
+Aby uzyskać więcej informacji na temat migrowania danych do Azure File Sync, przejdź do obszaru [Migrowanie danych z serii StorSimple 5000-7000 do Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Opcje innych firm
 
@@ -127,4 +127,4 @@ A. Data zakończenia obsługi serii StorSimple 8000 została opublikowana w [tym
 
 ## <a name="next-steps"></a>Następne kroki
  - [Migruj dane z serii StorSimple 5000-7000 do urządzenia z serii 8000](storsimple-8000-migrate-from-5000-7000.md).
- - [Migrowanie danych z serii StorSimple 5000-7000 do Azure File Sync](storsimple-5000-7000-afs-migration.md)
+ - [Migrowanie danych z serii StorSimple 5000-7000 do Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

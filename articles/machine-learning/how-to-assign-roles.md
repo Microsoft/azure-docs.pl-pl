@@ -11,19 +11,19 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441703"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961230"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
 W tym artykule dowiesz się, jak zarządzać dostępem (autoryzacją) do obszaru roboczego Azure Machine Learning. [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) służy do zarządzania dostępem do zasobów platformy Azure, takich jak możliwość tworzenia nowych zasobów lub używania istniejących. Użytkownikom w Azure Active Directory (Azure AD) są przypisane określone role, które zapewniają dostęp do zasobów. Platforma Azure udostępnia wbudowane role i możliwość tworzenia ról niestandardowych.
 
 > [!TIP]
-> Ten artykuł koncentruje się na Azure Machine Learning, poszczególnych usługach, na których opiera się platforma Azure ML, dostarczając własne ustawienia RBAC. Na przykład korzystając z informacji zawartych w tym artykule, można skonfigurować, kto może przesyłać żądania oceniania do modelu wdrożonego jako usługa sieci Web w usłudze Azure Kubernetes Service. Jednak usługa Azure Kubernetes udostępnia swój własny zestaw ról RBAC platformy Azure. Aby uzyskać informacje dotyczące poszczególnych usług, które mogą być przydatne w przypadku Azure Machine Learning, zobacz następujące linki:
+> Ten artykuł koncentruje się na Azure Machine Learning, poszczególnych usługach, na których opiera się platforma Azure ML, dostarczając własne ustawienia RBAC. Na przykład korzystając z informacji zawartych w tym artykule, można skonfigurować, kto może przesyłać żądania oceniania do modelu wdrożonego jako usługa sieci Web w usłudze Azure Kubernetes Service. Jednak usługa Azure Kubernetes udostępnia swój własny zestaw ról platformy Azure. Aby uzyskać informacje dotyczące poszczególnych usług, które mogą być przydatne w przypadku Azure Machine Learning, zobacz następujące linki:
 >
 > * [Kontrola dostępu do zasobów klastra usługi Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](../aks/manage-azure-rbac.md)
@@ -209,7 +209,7 @@ Aby wykonać operacje MLflow z obszarem roboczym Azure Machine Learning, użyj n
 
 ### <a name="data-scientist"></a>Mistrz danych
 
-Umożliwia analitykowi danych wykonywanie wszystkich operacji w obszarze roboczym **z wyjątkiem** :
+Umożliwia analitykowi danych wykonywanie wszystkich operacji w obszarze roboczym **z wyjątkiem**:
 
 * Tworzenie obliczeń
 * Wdrażanie modeli w środowisku produkcyjnym AKS
@@ -247,7 +247,7 @@ Umożliwia analitykowi danych wykonywanie wszystkich operacji w obszarze roboczy
 
 ### <a name="data-scientist-restricted"></a>Ograniczone przez analityka danych
 
-Bardziej ograniczona definicja roli bez symboli wieloznacznych w dozwolonych akcjach. Może wykonywać wszystkie operacje w obszarze roboczym, **z wyjątkiem** :
+Bardziej ograniczona definicja roli bez symboli wieloznacznych w dozwolonych akcjach. Może wykonywać wszystkie operacje w obszarze roboczym, **z wyjątkiem**:
 
 * Tworzenie obliczeń
 * Wdrażanie modeli w środowisku produkcyjnym AKS
@@ -310,7 +310,7 @@ Bardziej ograniczona definicja roli bez symboli wieloznacznych w dozwolonych akc
      
 ### <a name="mlflow-data-scientist"></a>Analityk danych MLflow
 
-Zezwala analitykom danych na wykonywanie wszystkich MLflow obsługiwanych operacji Azure **z wyjątkiem** :
+Zezwala analitykom danych na wykonywanie wszystkich MLflow obsługiwanych operacji Azure **z wyjątkiem**:
 
 * Tworzenie obliczeń
 * Wdrażanie modeli w środowisku produkcyjnym AKS
@@ -395,7 +395,7 @@ Umożliwia przypisanie roli do jednostki usługi i używanie jej do automatyzowa
 
 ### <a name="workspace-admin"></a>Administrator obszaru roboczego
 
-Umożliwia wykonywanie wszystkich operacji w zakresie obszaru roboczego, **z wyjątkiem** :
+Umożliwia wykonywanie wszystkich operacji w zakresie obszaru roboczego, **z wyjątkiem**:
 
 * Tworzenie nowego obszaru roboczego
 * Przypisywanie przydziałów poziomu subskrypcji lub obszaru roboczego

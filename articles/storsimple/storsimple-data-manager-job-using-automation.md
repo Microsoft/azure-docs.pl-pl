@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d0103857b6f759560129dbe8e693ec6c0d7291e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743611"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961213"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Wyzwalanie zadania za pomocą usługi Azure Automation
 
@@ -26,7 +26,7 @@ W tym artykule szczegółowo opisano sposób tworzenia elementu Runbook Azure Au
 
 Przed rozpoczęciem upewnij się, że masz:
 
-*   Azure PowerShell zainstalowany na komputerze klienckim. [Pobierz Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   Azure PowerShell zainstalowany na komputerze klienckim. [Pobierz Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 *   Poprawnie skonfigurowana Definicja zadania w ramach usługi StorSimple Data Manager w grupie zasobów.
 *   Pobierz  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) plik z repozytorium GitHub. 
 *   Pobierz [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) skrypt z repozytorium GitHub.
@@ -50,7 +50,7 @@ Przed rozpoczęciem upewnij się, że masz:
    3. Utwórz nową grupę zasobów lub wybierz ją z istniejącej grupy zasobów.
    4. Wybierz **lokalizację**.
    5. Pozostaw wybraną opcję Domyślne **Utwórz konto Uruchom jako** .
-   6. Aby uzyskać link do szybkiego dostępu do pulpitu nawigacyjnego, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij przycisk **Utwórz**.
+   6. Aby uzyskać link do szybkiego dostępu do pulpitu nawigacyjnego, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij pozycję **Utwórz**.
 
       ![Tworzenie konta Uruchom jako usługi Automation 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -58,7 +58,7 @@ Przed rozpoczęciem upewnij się, że masz:
     
       ![Powiadomienie o wdrożeniu konta usługi Automation](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-      Aby uzyskać więcej informacji, przejdź do [obszaru Tworzenie konta Uruchom jako](../automation/automation-create-runas-account.md).
+      Aby uzyskać więcej informacji, przejdź do [obszaru Tworzenie konta Uruchom jako](../automation/manage-runas-account.md).
 
 3. W nowo utworzonym koncie przejdź do obszaru **zasoby udostępnione > moduły** i kliknij pozycję **+ Dodaj moduł**.
 
@@ -84,9 +84,9 @@ Wykonaj następujące kroki, aby zaimportować, opublikować i uruchomić elemen
 
     ![Dodaj element Runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 
-2. W obszarze **Dodawanie elementu Runbook**kliknij pozycję **Importuj istniejący element Runbook**.
+2. W obszarze **Dodawanie elementu Runbook** kliknij pozycję **Importuj istniejący element Runbook**.
 
-3. Wskaż plik skryptu Azure PowerShell `Trigger-DataTransformation-Job.ps1` dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij przycisk **Utwórz**.
+3. Wskaż plik skryptu Azure PowerShell `Trigger-DataTransformation-Job.ps1` dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij pozycję **Utwórz**.
 
     ![Dodaj element Runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 
@@ -98,7 +98,7 @@ Wykonaj następujące kroki, aby zaimportować, opublikować i uruchomić elemen
 
     ![Dodaj element Runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Podaj parametry, takie jak nazwa usługi StorSimple Data Manager, skojarzona Grupa zasobów i nazwa definicji zadania. **Rozpocznij** test. Raport jest generowany po zakończeniu przebiegu. Aby uzyskać więcej informacji, przejdź do procedury [testowania elementu Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Podaj parametry, takie jak nazwa usługi StorSimple Data Manager, skojarzona Grupa zasobów i nazwa definicji zadania. **Rozpocznij** test. Raport jest generowany po zakończeniu przebiegu. Aby uzyskać więcej informacji, przejdź do procedury [testowania elementu Runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Dodaj element Runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 
@@ -110,7 +110,7 @@ Wykonaj następujące kroki, aby zaimportować, opublikować i uruchomić elemen
 
     ![Dodawanie elementu Runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. **Uruchom** element Runbook. W obszarze **Start Runbook**wprowadź wszystkie parametry. Kliknij przycisk **OK** , aby przesłać i uruchomić zadanie przekształcania danych.
+9. **Uruchom** element Runbook. W obszarze **Start Runbook** wprowadź wszystkie parametry. Kliknij przycisk **OK** , aby przesłać i uruchomić zadanie przekształcania danych.
 
 10. Aby monitorować postęp zadania w Azure Portal, przejdź do obszaru **zadania** w usłudze StorSimple Data Manager. Wybierz i kliknij zadanie, aby wyświetlić szczegóły zadania.
 

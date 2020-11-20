@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 188a348b497a485be0a8091b50a3f2c11b6493c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900058"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960754"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Kontenery Cognitive Services platformy Azure — często zadawane pytania
 
@@ -50,7 +50,7 @@ Cognitive Services konfiguracjami kontenerów zasobów są kontrolowane przez kl
 
 Odp **.:** Nie wszyscy znają termin "chmura suwerenna", więc zacznijmy od definicji:
 
-> "Suwerenna chmura" składa się z [Azure Government](../../azure-government/documentation-government-welcome.md), [platformy Azure (Niemcy](../../germany/germany-welcome.md)) i [platformy Azure z Chin](https://docs.microsoft.com/azure/china/overview-operations) .
+> "Suwerenna chmura" składa się z [Azure Government](../../azure-government/documentation-government-welcome.md), [platformy Azure (Niemcy](../../germany/germany-welcome.md)) i [platformy Azure z Chin](/azure/china/overview-operations) .
 
 Niestety kontenery Cognitive Services *nie* są natywnie obsługiwane w przypadku suwerennych chmur. Kontenery można uruchamiać w tych chmurach, ale zostaną one pobrane z chmury publicznej i muszą wysyłać dane użycia do publicznego punktu końcowego.
 

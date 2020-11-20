@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 21562bc17d4bfd4913c9085755d962382d207c79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 59eae5303d9eca48fa4cec30fe622faf19ffba1f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566796"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961893"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -29,7 +29,7 @@ W tym samouczku pokazano, jak wykonać wymagania wstępne dotyczące tworzenia [
 
 Chociaż w tym artykule ręcznie konfiguruje się środowisko grupy dostępności, można to również zrobić przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [programu PowerShell lub interfejsu wiersza polecenia platformy Azure](availability-group-az-commandline-configure.md)lub [szablonów szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md) . 
 
-**Szacowany czas** : ukończenie wymagań wstępnych może potrwać kilka godzin. Wiele z nich poświęca więcej czasu na tworzenie maszyn wirtualnych.
+**Szacowany czas**: ukończenie wymagań wstępnych może potrwać kilka godzin. Wiele z nich poświęca więcej czasu na tworzenie maszyn wirtualnych.
 
 Na poniższym diagramie przedstawiono sposób kompilowania w samouczku.
 
@@ -91,7 +91,7 @@ Aby utworzyć sieć wirtualną w Azure Portal:
    | --- | --- |
    | **Nazwa** |autoHAVNET |
    | **Przestrzeń adresowa** |10.33.0.0/24 |
-   | **Nazwa podsieci** |Administrator |
+   | **Nazwa podsieci** |Administracja |
    | **Zakres adresów podsieci** |10.33.0.0/29 |
    | **Subskrypcja** |Określ subskrypcję, która ma zostać użyta. **Subskrypcja** jest pusta, jeśli masz tylko jedną subskrypcję. |
    | **Grupa zasobów** |Wybierz pozycję **Użyj istniejącej** i wybierz nazwę grupy zasobów. |
@@ -171,7 +171,7 @@ Aby utworzyć i skonfigurować kontrolery domeny, Wróć do grupy zasobów **SQL
 
 1. Wybierz pozycję **Dodaj**. 
 2. Wpisz **Windows Server 2016 Datacenter**.
-3. Wybierz pozycję **Windows Server 2016 Datacenter**. W **systemie Windows Server 2016 Datacenter** Sprawdź, czy model wdrażania jest **Menedżer zasobów** , a następnie wybierz pozycję **Utwórz**. 
+3. Wybierz pozycję **Windows Server 2016 Datacenter**. W **systemie Windows Server 2016 Datacenter** Sprawdź, czy model wdrażania jest **Menedżer zasobów**, a następnie wybierz pozycję **Utwórz**. 
 
 Powtórz powyższe kroki, aby utworzyć dwie maszyny wirtualne. Nadaj nazwę obu maszynom wirtualnym:
 
@@ -199,7 +199,7 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | **Podsieć** |administrator |
 | **Publiczny adres IP** |*Taka sama nazwa jak maszyna wirtualna* |
 | **Sieciowa grupa zabezpieczeń** |*Taka sama nazwa jak maszyna wirtualna* |
-| **Zestaw dostępności** |adavailabilityset </br>**Domeny błędów** : 2 </br>**Domeny aktualizacji** : 2|
+| **Zestaw dostępności** |adavailabilityset </br>**Domeny błędów**: 2 </br>**Domeny aktualizacji**: 2|
 | **Diagnostyka** |Enabled (Włączony) |
 | **Konto magazynu diagnostyki** |*Utworzone automatycznie* |
 
@@ -218,7 +218,7 @@ W poniższych krokach skonfiguruj komputer **AD-Primary-DC** jako kontroler dome
 
     ![Nawiązywanie połączenia z maszyną wirtualną](./media/availability-group-manually-configure-prerequisites-tutorial-/20-connectrdp.png)
 
-2. Zaloguj się przy użyciu skonfigurowanego konta administratora ( **\DomainAdmin** ) i hasła ( **contoso! 0000** ).
+2. Zaloguj się przy użyciu skonfigurowanego konta administratora (**\DomainAdmin**) i hasła (**contoso! 0000**).
 3. Domyślnie powinien zostać wyświetlony pulpit nawigacyjny **Menedżer serwera** .
 4. Wybierz link **Dodaj role i funkcje** na pulpicie nawigacyjnym.
 
@@ -276,7 +276,7 @@ Po utworzeniu pierwszego kontrolera domeny i włączeniu usługi DNS na pierwszy
 
 2. W obszarze **Ustawienia** wybierz pozycję **serwer DNS**.
 
-3. Wybierz opcję **niestandardowy** , a następnie wpisz prywatny adres IP podstawowego kontrolera domeny.
+3. Wybierz opcję **niestandardowy**, a następnie wpisz prywatny adres IP podstawowego kontrolera domeny.
 
 4. Wybierz pozycję **Zapisz**.
 
@@ -285,7 +285,7 @@ Po utworzeniu pierwszego kontrolera domeny i włączeniu usługi DNS na pierwszy
 Po ponownym uruchomieniu podstawowego kontrolera domeny można skonfigurować drugi kontroler domeny. Ten opcjonalny krok zapewnia wysoką dostępność. Wykonaj następujące kroki, aby skonfigurować drugi kontroler domeny:
 
 1. W portalu Otwórz grupę zasobów **SQL-ha-RG** i wybierz pozycję **AD----------kontroler-DC** . W obszarze **AD-pomocniczy kontroler domeny** wybierz pozycję **Połącz** , aby otworzyć plik RDP na potrzeby dostępu do pulpitu zdalnego.
-2. Zaloguj się do maszyny wirtualnej przy użyciu skonfigurowanego konta administratora ( **BUILTIN\DomainAdmin** ) i hasła ( **contoso! 0000** ).
+2. Zaloguj się do maszyny wirtualnej przy użyciu skonfigurowanego konta administratora (**BUILTIN\DomainAdmin**) i hasła (**contoso! 0000**).
 3. Zmień preferowany adres serwera DNS na adres kontrolera domeny.
 4. W **Centrum sieci i udostępniania** wybierz interfejs sieciowy.
 
@@ -294,7 +294,7 @@ Po ponownym uruchomieniu podstawowego kontrolera domeny można skonfigurować dr
 5. Wybierz pozycję **Właściwości**.
 6. Wybierz pozycję **Protokół internetowy w wersji 4 (TCP/IPv4)** , a następnie wybierz pozycję **Właściwości**.
 7. Wybierz opcję **Użyj następujących adresów serwerów DNS** , a następnie określ adres podstawowego kontrolera domeny w **preferowanym serwerze DNS**.
-8. Wybierz przycisk **OK** , a następnie **Zamknij** , aby zatwierdzić zmiany. Teraz można przyłączyć maszynę wirtualną do **Corp.contoso.com**.
+8. Wybierz przycisk **OK**, a następnie **Zamknij** , aby zatwierdzić zmiany. Teraz można przyłączyć maszynę wirtualną do **Corp.contoso.com**.
 
    >[!IMPORTANT]
    >Jeśli nastąpi utrata połączenia z pulpitem zdalnym po zmianie ustawienia DNS, przejdź do Azure Portal i ponownie uruchom maszynę wirtualną.
@@ -314,7 +314,7 @@ Po ponownym uruchomieniu podstawowego kontrolera domeny można skonfigurować dr
     ![Konfiguracja wdrożenia](./media/availability-group-manually-configure-prerequisites-tutorial-/28-deploymentconfig.png)
 
 18. Kliknij pozycję **Wybierz**.
-19. Połącz się za pomocą konta administratora ( **Corp. CONTOSO. COM\domainadmin** ) i hasło ( **contoso! 0000** ).
+19. Połącz się za pomocą konta administratora (**Corp. CONTOSO. COM\domainadmin**) i hasło (**contoso! 0000**).
 20. W obszarze **Wybierz domenę z lasu** wybierz domenę, a następnie wybierz przycisk **OK**.
 21. W obszarze **Opcje kontrolera domeny** Użyj wartości domyślnych i ustaw hasło trybu DSRM.
 
@@ -336,15 +336,15 @@ W następnych krokach skonfigurujesz konta Active Directory. W poniższej tabeli
 
 | |Konto instalacji<br/> |SqlServer-0 <br/>Konto usługi SQL Server i programu SQL Agent |SqlServer-1<br/>Konto usługi SQL Server i programu SQL Agent
 | --- | --- | --- | ---
-|**Imię** |Zainstaluj |SQLSvc1 | SQLSvc2
-|**Nazwa SamAccountName użytkownika** |Zainstaluj |SQLSvc1 | SQLSvc2
+|**Imię** |Instalowanie |SQLSvc1 | SQLSvc2
+|**Nazwa SamAccountName użytkownika** |Instalowanie |SQLSvc1 | SQLSvc2
 
 Aby utworzyć każde konto, wykonaj następujące czynności.
 
 1. Zaloguj się na komputerze z **usługą AD-podstawowa-DC** .
-2. W **Menedżer serwera** wybierz pozycję **Narzędzia** , a następnie wybierz pozycję **Centrum administracyjne usługi Active Directory**.   
+2. W **Menedżer serwera** wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Centrum administracyjne usługi Active Directory**.   
 3. Wybierz pozycję **Corp (local)** w okienku po lewej stronie.
-4. W okienku odpowiednie **zadania** wybierz pozycję **Nowy** , a następnie wybierz pozycję **użytkownik**.
+4. W okienku odpowiednie **zadania** wybierz pozycję **Nowy**, a następnie wybierz pozycję **użytkownik**.
 
    ![Centrum administracyjne usługi Active Directory](./media/availability-group-manually-configure-prerequisites-tutorial-/29-addcnewuser.png)
 
@@ -361,16 +361,16 @@ Aby utworzyć każde konto, wykonaj następujące czynności.
 
     ![Właściwości użytkownika CORP](./media/availability-group-manually-configure-prerequisites-tutorial-/31-addcproperties.png)
 
-2. Wybierz pozycję **rozszerzenia** , a następnie wybierz przycisk **Zaawansowane** na karcie **zabezpieczenia** .
+2. Wybierz pozycję **rozszerzenia**, a następnie wybierz przycisk **Zaawansowane** na karcie **zabezpieczenia** .
 3. W oknie dialogowym **Zaawansowane ustawienia zabezpieczeń dla firm** wybierz pozycję **Dodaj**.
-4. Kliknij pozycję **Wybierz podmiot zabezpieczeń** , Wyszukaj pozycję **CORP\Install** , a następnie wybierz przycisk **OK**.
+4. Kliknij pozycję **Wybierz podmiot zabezpieczeń**, Wyszukaj pozycję **CORP\Install**, a następnie wybierz przycisk **OK**.
 5. Zaznacz pole wyboru **Czytaj wszystkie właściwości** .
 
 6. Zaznacz pole wyboru **Utwórz obiekty komputerów** .
 
      ![Uprawnienia użytkownika Corp](./media/availability-group-manually-configure-prerequisites-tutorial-/33-addpermissions.png)
 
-7. Wybierz przycisk **OK** , a następnie ponownie wybierz przycisk **OK**. Zamknij okno właściwości **firmowe** .
+7. Wybierz przycisk **OK**, a następnie ponownie wybierz przycisk **OK**. Zamknij okno właściwości **firmowe** .
 
 Po zakończeniu konfigurowania Active Directory i obiektów użytkownika Utwórz dwie SQL Server maszyny wirtualne oraz maszynę wirtualną serwera monitora. Następnie Dołącz wszystkie trzy do domeny.
 
@@ -394,7 +394,7 @@ Użyj pojedynczej karty sieciowej na serwer (węzeł klastra) i pojedynczej pods
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>Tworzenie i Konfigurowanie maszyn wirtualnych SQL Server
 
-Następnie utwórz trzy maszyny wirtualne — dwie SQL Server maszyny wirtualne i jedną maszynę wirtualną dla dodatkowego węzła klastra. Aby utworzyć wszystkie maszyny wirtualne, Wróć do grupy zasobów **SQL-ha-RG** , a następnie wybierz pozycję **Dodaj**. Wyszukaj odpowiedni element galerii, wybierz pozycję **maszyna wirtualna** , a następnie wybierz pozycję **z galerii**. Informacje w poniższej tabeli ułatwiają tworzenie maszyn wirtualnych:
+Następnie utwórz trzy maszyny wirtualne — dwie SQL Server maszyny wirtualne i jedną maszynę wirtualną dla dodatkowego węzła klastra. Aby utworzyć wszystkie maszyny wirtualne, Wróć do grupy zasobów **SQL-ha-RG** , a następnie wybierz pozycję **Dodaj**. Wyszukaj odpowiedni element galerii, wybierz pozycję **maszyna wirtualna**, a następnie wybierz pozycję **z galerii**. Informacje w poniższej tabeli ułatwiają tworzenie maszyn wirtualnych:
 
 
 | Strona | Maszyna wirtualna 1 | Maszyna wirtualna 2 | VM3 |
@@ -402,7 +402,7 @@ Następnie utwórz trzy maszyny wirtualne — dwie SQL Server maszyny wirtualne 
 | Wybierz odpowiedni element galerii |**Windows Server 2016 Datacenter** |**SQL Server 2016 z dodatkiem SP1 Enterprise w systemie Windows Server 2016** |**SQL Server 2016 z dodatkiem SP1 Enterprise w systemie Windows Server 2016** |
 | **Podstawowe informacje** o konfiguracji maszyny wirtualnej |**Nazwa** = Cluster-FSW<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = contoso! 0000<br/>**Subskrypcja** = subskrypcja<br/>**Grupa zasobów** = SQL-ha-RG<br/>**Lokalizacja** = Twoja lokalizacja na platformie Azure |**Nazwa** = SqlServer-0<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = contoso! 0000<br/>**Subskrypcja** = subskrypcja<br/>**Grupa zasobów** = SQL-ha-RG<br/>**Lokalizacja** = Twoja lokalizacja na platformie Azure |**Nazwa** = SqlServer-1<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = contoso! 0000<br/>**Subskrypcja** = subskrypcja<br/>**Grupa zasobów** = SQL-ha-RG<br/>**Lokalizacja** = Twoja lokalizacja na platformie Azure |
 | **Rozmiar** konfiguracji maszyny wirtualnej |**Size** = DS1 \_ v2 (1 vCPU, 3,5 GB) |**Size** = DS2 \_ v2 (2 procesorów wirtualnych vCPU, 7 GB)</br>Rozmiar musi obsługiwać magazyn SSD (Obsługa dysków w warstwie Premium). )) |**Size** = DS2 \_ v2 (2 procesorów wirtualnych vCPU, 7 GB) |
-| **Ustawienia** konfiguracji maszyny wirtualnej |**Magazyn** : Użyj dysków zarządzanych.<br/>**Virtual Network** = autoHAVNET<br/>**Subnet** = sqlsubnet (10.1.1.0/24)<br/>**Publiczny adres IP** generowany automatycznie.<br/>**Sieciowa Grupa zabezpieczeń** = brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj automatycznie wygenerowanego konta magazynu<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn** : Użyj dysków zarządzanych.<br/>**Virtual Network** = autoHAVNET<br/>**Subnet** = sqlsubnet (10.1.1.0/24)<br/>**Publiczny adres IP** generowany automatycznie.<br/>**Sieciowa Grupa zabezpieczeń** = brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj automatycznie wygenerowanego konta magazynu<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn** : Użyj dysków zarządzanych.<br/>**Virtual Network** = autoHAVNET<br/>**Subnet** = sqlsubnet (10.1.1.0/24)<br/>**Publiczny adres IP** generowany automatycznie.<br/>**Sieciowa Grupa zabezpieczeń** = brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj automatycznie wygenerowanego konta magazynu<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |
+| **Ustawienia** konfiguracji maszyny wirtualnej |**Magazyn**: Użyj dysków zarządzanych.<br/>**Virtual Network** = autoHAVNET<br/>**Subnet** = sqlsubnet (10.1.1.0/24)<br/>**Publiczny adres IP** generowany automatycznie.<br/>**Sieciowa Grupa zabezpieczeń** = brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj automatycznie wygenerowanego konta magazynu<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj dysków zarządzanych.<br/>**Virtual Network** = autoHAVNET<br/>**Subnet** = sqlsubnet (10.1.1.0/24)<br/>**Publiczny adres IP** generowany automatycznie.<br/>**Sieciowa Grupa zabezpieczeń** = brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj automatycznie wygenerowanego konta magazynu<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj dysków zarządzanych.<br/>**Virtual Network** = autoHAVNET<br/>**Subnet** = sqlsubnet (10.1.1.0/24)<br/>**Publiczny adres IP** generowany automatycznie.<br/>**Sieciowa Grupa zabezpieczeń** = brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj automatycznie wygenerowanego konta magazynu<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |
 | **Ustawienia SQL Server** konfiguracji maszyny wirtualnej |Nie dotyczy |**SQL Connectivity** = prywatny (w Virtual Network)<br/>**Port** = 1433<br/>**Uwierzytelnianie SQL** = wyłączone<br/>**Konfiguracja magazynu** = ogólne<br/>**Automatyczne stosowanie poprawek** = niedziela o 2:00<br/>**Automatyczne kopie zapasowe** = wyłączone</br>**Integracja Azure Key Vault** = wyłączona |**SQL Connectivity** = prywatny (w Virtual Network)<br/>**Port** = 1433<br/>**Uwierzytelnianie SQL** = wyłączone<br/>**Konfiguracja magazynu** = ogólne<br/>**Automatyczne stosowanie poprawek** = niedziela o 2:00<br/>**Automatyczne kopie zapasowe** = wyłączone</br>**Integracja Azure Key Vault** = wyłączona |
 
 <br/>
@@ -422,9 +422,9 @@ Teraz można przyłączyć maszyny wirtualne do **Corp.contoso.com**. Wykonaj na
 3. Wybierz łącze **grupy roboczej** .
 4. W sekcji **Nazwa komputera** wybierz pozycję **Zmień**.
 5. Zaznacz pole wyboru **domena** i wpisz **Corp.contoso.com** w polu tekstowym. Wybierz przycisk **OK**.
-6. W podręcznym oknie dialogowym **zabezpieczenia systemu Windows** określ poświadczenia dla domyślnego konta administratora domeny ( **CORP\DomainAdmin** ) i hasło ( **contoso! 0000** ).
+6. W podręcznym oknie dialogowym **zabezpieczenia systemu Windows** określ poświadczenia dla domyślnego konta administratora domeny (**CORP\DomainAdmin**) i hasło (**contoso! 0000**).
 7. Gdy zostanie wyświetlony komunikat "Witamy w domenie corp.contoso.com", wybierz **przycisk OK**.
-8. Wybierz pozycję **Zamknij** , a następnie w oknie podręcznym wybierz pozycję **Uruchom ponownie teraz** .
+8. Wybierz pozycję **Zamknij**, a następnie w oknie podręcznym wybierz pozycję **Uruchom ponownie teraz** .
 
 ## <a name="add-accounts"></a>Dodawanie kont
 
@@ -440,8 +440,8 @@ Po ponownym uruchomieniu każdej maszyny wirtualnej jako członka domeny Dodaj *
    >Upewnij się, że logujesz się przy użyciu konta administratora domeny. W poprzednich krokach użyto WBUDOWANEgo konta administratora. Teraz, gdy serwer znajduje się w domenie, użyj konta domeny. W sesji RDP Określ *DOMAIN* \\ *nazwę użytkownika* domeny.
    >
 
-2. W **Menedżer serwera** wybierz pozycję **Narzędzia** , a następnie pozycję **Zarządzanie komputerem**.
-3. W oknie **Zarządzanie komputerem** rozwiń węzeł **Użytkownicy i grupy lokalne** , a następnie wybierz pozycję **grupy**.
+2. W **Menedżer serwera** wybierz pozycję **Narzędzia**, a następnie pozycję **Zarządzanie komputerem**.
+3. W oknie **Zarządzanie komputerem** rozwiń węzeł **Użytkownicy i grupy lokalne**, a następnie wybierz pozycję **grupy**.
 4. Kliknij dwukrotnie grupę **administratorzy** .
 5. W oknie dialogowym **Właściwości administratorów** wybierz przycisk **Dodaj** .
 6. Wprowadź **CORP\Install** użytkownika, a następnie wybierz przycisk **OK**.
@@ -538,14 +538,14 @@ Powtórz kroki na drugiej maszynie wirtualnej SQL Server.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Dostrajanie progów sieci klastra trybu failover
 
-W przypadku uruchamiania węzłów klastra trybu failover systemu Windows na maszynach wirtualnych platformy Azure z funkcją SQL Server AlwaysOn zaleca się zmianę ustawienia klastra na bardziej swobodny stan monitorowania.  Dzięki temu klaster jest znacznie bardziej stabilny i niezawodny.  Aby uzyskać szczegółowe informacje na ten temat, zobacz [IaaS with SQL AlwaysOn-dostrajania sieci klastra trybu failover](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+W przypadku uruchamiania węzłów klastra trybu failover systemu Windows na maszynach wirtualnych platformy Azure z funkcją SQL Server AlwaysOn zaleca się zmianę ustawienia klastra na bardziej swobodny stan monitorowania.  Dzięki temu klaster jest znacznie bardziej stabilny i niezawodny.  Aby uzyskać szczegółowe informacje na ten temat, zobacz [IaaS with SQL AlwaysOn-dostrajania sieci klastra trybu failover](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Skonfiguruj zaporę na każdej maszynie wirtualnej SQL Server
 
 Rozwiązanie wymaga otwarcia następujących portów TCP w zaporze:
 
-- **SQL Server VM** : port 1433 dla domyślnego wystąpienia SQL Server.
+- **SQL Server VM**: port 1433 dla domyślnego wystąpienia SQL Server.
 - **Sonda modułu równoważenia obciążenia platformy Azure:** Dowolny dostępny port. Przykłady często używają 59999.
 - **Punkt końcowy dublowania bazy danych:** Dowolny dostępny port. Przykłady często używają 5022.
 
@@ -565,7 +565,7 @@ Metoda otwierania portów zależy od używanego rozwiązania zapory. W następne
 5. Wybierz pozycję **Dalej**.
 6. Na stronie **Akcja** pozostaw zaznaczone pole wyboru **Zezwalaj na połączenie** , a następnie wybierz przycisk **dalej**.
 7. Na stronie **profil** zaakceptuj ustawienia domyślne, a następnie wybierz przycisk **dalej**.
-8. Na stronie **Nazwa** Określ nazwę reguły (na przykład **sondy Azure lb** ) w polu tekstowym **Nazwa** , a następnie wybierz pozycję **Zakończ**.
+8. Na stronie **Nazwa** Określ nazwę reguły (na przykład **sondy Azure lb**) w polu tekstowym **Nazwa** , a następnie wybierz pozycję **Zakończ**.
 
 Powtórz te kroki na drugiej maszynie wirtualnej SQL Server.
 

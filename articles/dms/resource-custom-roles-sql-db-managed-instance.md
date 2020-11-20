@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291507"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961485"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Role niestandardowe dla SQL Server migracji do usługi Azure SQL Managed instance w trybie online
 
@@ -32,7 +32,7 @@ Obecnie zalecamy utworzenie co najmniej dwóch ról niestandardowych dla identyf
 > [!NOTE]
 > Ostatni wymóg roli niestandardowej może zostać usunięty, ponieważ nowy kod wystąpienia zarządzanego SQL jest wdrażany na platformie Azure.
 
-**Rola niestandardowa dla identyfikatora aplikacji**. Ta rola jest wymagana do Azure Database Migration Service migracji na poziomie *zasobu* lub *grupy zasobów* (Aby uzyskać więcej informacji na temat identyfikatora aplikacji, zobacz artykuł [Używanie portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
+**Rola niestandardowa dla identyfikatora aplikacji**. Ta rola jest wymagana do Azure Database Migration Service migracji na poziomie *zasobu* lub *grupy zasobów* (Aby uzyskać więcej informacji na temat identyfikatora aplikacji, zobacz artykuł [Używanie portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md)).
 
 ```json
 {
@@ -83,7 +83,7 @@ Obecnie zalecamy utworzenie co najmniej dwóch ról niestandardowych dla identyf
 
 Plik JSON powyżej musi być przechowywany w trzech plikach tekstowych i można użyć polecenia cmdlet AzureRM, AZ PowerShell lub interfejsu wiersza polecenia platformy Azure, aby utworzyć role przy użyciu polecenia **New-AzureRmRoleDefinition (AzureRM)** lub **New-AzRoleDefinition (az)**.
 
-Aby uzyskać więcej informacji, zobacz artykuł [role niestandardowe platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Aby uzyskać więcej informacji, zobacz artykuł [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md).
 
 Po utworzeniu ról niestandardowych należy dodać przypisania ról do użytkowników i identyfikatorów aplikacji do odpowiednich zasobów lub grup zasobów:
 

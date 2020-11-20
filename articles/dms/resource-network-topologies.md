@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: 5839de1fde8e4a4d5e661d232ae91099a9483bcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae036b7d893eb268ea55026054bf364dad0b610e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291575"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961553"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologie sieci dla migracji wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Użyj tej topologii, jeśli wystąpienie zarządzane Azure SQL jest połączone 
 **Wymagania**
 
 - W tym scenariuszu wystąpienie zarządzane SQL i wystąpienie Azure Database Migration Service są tworzone w tym samym Microsoft Azure Virtual Network, ale używają różnych podsieci.  
-- Sieć wirtualna używana w tym scenariuszu jest również połączona z siecią lokalną za pomocą usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Sieć wirtualna używana w tym scenariuszu jest również połączona z siecią lokalną za pomocą usługi [ExpressRoute](../expressroute/expressroute-introduction.md) lub [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ## <a name="sql-managed-instance-isolated-from-the-on-premises-network"></a>Wystąpienie zarządzane SQL odizolowane od sieci lokalnej
 
@@ -46,8 +46,8 @@ Tej topologii sieci należy użyć, jeśli środowisko wymaga co najmniej jedneg
 
 **Wymagania**
 
-- Sieć wirtualna, której Azure Database Migration Service używa w tym scenariuszu, musi być również podłączona do sieci lokalnej przy użyciu ( https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)).
-- Skonfiguruj [komunikację równorzędną sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) między siecią wirtualną używaną dla wystąpienia zarządzanego SQL i Azure Database Migration Service.
+- Sieć wirtualna, której Azure Database Migration Service używa w tym scenariuszu, musi być również podłączona do sieci lokalnej przy użyciu ( https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)).
+- Skonfiguruj [komunikację równorzędną sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md) między siecią wirtualną używaną dla wystąpienia zarządzanego SQL i Azure Database Migration Service.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migracje z chmury do chmury: udostępniona Sieć wirtualna
 
@@ -71,7 +71,7 @@ Tej topologii sieci należy użyć, jeśli środowisko wymaga co najmniej jedneg
 
 **Wymagania**
 
-- Skonfiguruj [komunikację równorzędną sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) między siecią wirtualną używaną dla wystąpienia zarządzanego SQL i Azure Database Migration Service.
+- Skonfiguruj [komunikację równorzędną sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md) między siecią wirtualną używaną dla wystąpienia zarządzanego SQL i Azure Database Migration Service.
 
 ## <a name="inbound-security-rules"></a>Reguły zabezpieczeń dla ruchu przychodzącego
 
@@ -90,11 +90,11 @@ Tej topologii sieci należy użyć, jeśli środowisko wymaga co najmniej jedneg
 | Udział SMB                 | 445                                                   | TCP          | Dowolne        | Przestrzeń adresów lokalnych | Zezwalaj      | Udział sieciowy SMB dla systemu DMS do przechowywania plików kopii zapasowej bazy danych na potrzeby migracji do Azure SQL Database MI i programu SQL Server na maszynie wirtualnej platformy Azure <br/>(Jeśli masz połączenie lokacja-lokacja, ta reguła może nie być potrzebna). |
 | DMS_subnet                | Dowolne                                                   | Dowolne          | Dowolne        | DMS_Subnet                | Zezwalaj      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Migrowanie SQL Server do wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Przegląd wymagań wstępnych dotyczących używania Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
-- [Tworzenie sieci wirtualnej przy użyciu witryny Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Migrowanie SQL Server do wystąpienia zarządzanego SQL](./tutorial-sql-server-to-managed-instance.md)
+- [Przegląd wymagań wstępnych dotyczących używania Azure Database Migration Service](./pre-reqs.md)
+- [Tworzenie sieci wirtualnej przy użyciu witryny Azure Portal](../virtual-network/quick-create-portal.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

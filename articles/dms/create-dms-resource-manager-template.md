@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 24a0d16a6ff052df4b7a9bcdd078542987b4fd50
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a9c68bca4d50af734a0a2cd8a91c7e46d9b56ff1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88661184"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963219"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Szybki Start: Tworzenie wystąpienia Azure Database Migration Service przy użyciu szablonu ARM
 
@@ -59,12 +59,12 @@ Więcej szablonów usług Azure Database Migration Services można znaleźć w [
     * **Region**: lokalizacja, w której zostaną wdrożone zasoby.
     * **Nazwa usługi**: Nazwa nowej usługi migracji.
     * **Lokalizacja**: Lokalizacja grupy zasobów, pozostaw wartość domyślną `[resourceGroup().location]` .
-    * **Nazwa**sieci wirtualnej: Nazwa nowej nazwy.
+    * **Nazwa** sieci wirtualnej: Nazwa nowej nazwy.
     * **Nazwa podsieci**: Nazwa nowej podsieci skojarzonej z siecią wirtualną.
 
 
 
-3. Wybierz pozycję **Przeglądanie + tworzenie**. Po pomyślnym wdrożeniu wystąpienia Azure Database Migration Service otrzymasz powiadomienie. 
+3. Wybierz pozycję **Przejrzyj i utwórz**. Po pomyślnym wdrożeniu wystąpienia Azure Database Migration Service otrzymasz powiadomienie. 
 
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).
@@ -109,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [ Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Aby poznać inne sposoby wdrażania Azure Database Migration Service, zobacz: 
 - [Witryna Azure Portal](quickstart-create-data-migration-service-portal.md)

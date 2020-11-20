@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272165"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962012"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Tworzenie wystąpienia usługi Azure Network Watcher
 
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Tworzenie Network Watcher w portalu
 
-Przejdź do **wszystkich usług**  >  **Networking**  >  **Network Watcher**sieci. Możesz wybrać wszystkie subskrypcje, dla których chcesz włączyć Network Watcher. Ta akcja tworzy Network Watcher w każdym dostępnym regionie.
+Przejdź do **wszystkich usług**  >  **Networking**  >  **Network Watcher** sieci. Możesz wybrać wszystkie subskrypcje, dla których chcesz włączyć Network Watcher. Ta akcja tworzy Network Watcher w każdym dostępnym regionie.
 
 ![Tworzenie obserwatora sieciowego](./media/network-watcher-create/figure1.png)
 
@@ -107,7 +107,7 @@ Aby utworzyć wystąpienie Network Watcher odwołaj się do tego [szablonu szybk
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Usuwanie Network Watcher w portalu
 
-Przejdź do **wszystkich usług**  >  **Networking**  >  **Network Watcher**sieci.
+Przejdź do **wszystkich usług**  >  **Networking**  >  **Network Watcher** sieci.
 
 Wybierz kartę Przegląd, jeśli jeszcze tego nie zrobiono. Użyj listy rozwijanej, aby wybrać subskrypcję, w której chcesz wyłączyć obserwatora sieciowego.
 Rozwiń listę regionów dla wybranej subskrypcji, klikając strzałkę. Dla każdego z nich należy użyć 3 kropek po prawej stronie, aby uzyskać dostęp do menu kontekstowego.
@@ -129,7 +129,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Teraz, gdy masz już wystąpienie Network Watcher, zapoznaj się z dostępnymi funkcjami:
 
-* [Topologia](network-watcher-topology-overview.md)
+* [Topologia](./view-network-topology.md)
 * [Przechwytywanie pakietów](network-watcher-packet-capture-overview.md)
 * [Weryfikacja przepływu adresów IP](network-watcher-ip-flow-verify-overview.md)
 * [Narzędzie Następny przeskok](network-watcher-next-hop-overview.md)

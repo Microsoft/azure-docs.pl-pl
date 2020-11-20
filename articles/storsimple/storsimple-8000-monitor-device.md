@@ -6,19 +6,19 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977412"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962437"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Monitorowanie urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
 
 ## <a name="overview"></a>Omówienie
 Usługi StorSimple Menedżer urządzeń można użyć do monitorowania konkretnych urządzeń w ramach rozwiązania StorSimple. Wykresy niestandardowe można tworzyć na podstawie wydajności operacji we/wy, wykorzystania pojemności, przepustowości sieci i metryk wydajności urządzeń oraz przypinać je do pulpitu nawigacyjnego. Aby uzyskać więcej informacji, przejdź do obszaru [Dostosowywanie pulpitu nawigacyjnego portalu](../azure-portal/azure-portal-dashboards.md).
 
-Aby wyświetlić informacje o monitorowaniu dla określonego urządzenia, w Azure Portal wybierz usługę StorSimple Menedżer urządzeń. Z listy urządzeń wybierz urządzenie, a następnie przejdź do pozycji **monitorowanie**. Następnie można zobaczyć wykresy **pojemności**, **użycia**i **wydajności** dla wybranego urządzenia.
+Aby wyświetlić informacje o monitorowaniu dla określonego urządzenia, w Azure Portal wybierz usługę StorSimple Menedżer urządzeń. Z listy urządzeń wybierz urządzenie, a następnie przejdź do pozycji **monitorowanie**. Następnie można zobaczyć wykresy **pojemności**, **użycia** i **wydajności** dla wybranego urządzenia.
 
 ## <a name="capacity"></a>Pojemność
 **Pojemność** śledzi miejsce zainicjowane i miejsce pozostało na urządzeniu. Pozostała pojemność jest następnie wyświetlana jako przypięty lokalnie lub w warstwach.
@@ -139,6 +139,5 @@ Jeśli przejdziesz do wykresu przepływności interfejsu danych 1, inny interfej
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się [, jak korzystać z pulpitu nawigacyjnego urządzenia usługi StorSimple Menedżer urządzeń](storsimple-device-dashboard.md).
-* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-manager-service-administration.md).
-
+* Dowiedz się [, jak korzystać z pulpitu nawigacyjnego urządzenia usługi StorSimple Menedżer urządzeń](./storsimple-8000-device-dashboard.md).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](./storsimple-8000-manager-service-administration.md).

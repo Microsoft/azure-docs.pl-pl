@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 05bcb0aebd44dee60fa3f323e1f109e4c0761ec8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167325"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961961"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
 
@@ -51,7 +52,7 @@ ms.locfileid: "92167325"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 W tym artykule opisano sposób wdrażania maszyn wirtualnych, konfigurowania maszyn wirtualnych, instalowania platformy klastra i instalowania serwera NFS o wysokiej dostępności, który może służyć do przechowywania danych udostępnionych systemu SAP o wysokiej dostępności.
-W tym przewodniku opisano sposób konfigurowania serwera NFS o wysokiej dostępności, który jest używany przez dwa systemy SAP, NW1 i NW2. Nazwy zasobów (na przykład Virtual Machines, Virtual Networks) w przykładzie założono, że użyto [szablonu serwera plików SAP][template-file-server] **z prefiksem**zasobu.
+W tym przewodniku opisano sposób konfigurowania serwera NFS o wysokiej dostępności, który jest używany przez dwa systemy SAP, NW1 i NW2. Nazwy zasobów (na przykład Virtual Machines, Virtual Networks) w przykładzie założono, że użyto [szablonu serwera plików SAP][template-file-server] **z prefiksem** zasobu.
 
 Najpierw przeczytaj następujące informacje i dokumenty SAP
 
@@ -120,7 +121,7 @@ Możesz użyć jednego z szablonów szybkiego startu w usłudze GitHub, aby wdro
    4. Nazwa użytkownika administratora i hasło administratora  
       Zostanie utworzony nowy użytkownik, którego można użyć do zalogowania się na komputerze.
    5. Identyfikator podsieci  
-      Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda tak, jak** &lt; Identyfikator &gt; subskrypcji**/subscriptions//ResourceGroups/nazwa** &lt; grupy &gt; zasobów**/Providers/Microsoft.Network/virtualNetworks/nazwa** &lt; sieci &gt; wirtualnej**/Subnets/** &lt; nazwa &gt; podsieci**
+      Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda tak, jak **&lt; Identyfikator &gt; subskrypcji**/subscriptions//ResourceGroups/nazwa **&lt; grupy &gt; zasobów**/Providers/Microsoft.Network/virtualNetworks/nazwa **&lt; sieci &gt; wirtualnej**/Subnets/**&lt; nazwa &gt; podsieci**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Ręczne wdrażanie systemu Linux za pośrednictwem Azure Portal
 
@@ -158,7 +159,7 @@ Najpierw należy utworzyć maszyny wirtualne dla tego klastra systemu plików NF
          1. Port 61000 dla NW1
             1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
             1. Wprowadź nazwę nowej sondy kondycji (na przykład **NW1-HP**)
-            1. Wybierz pozycję TCP jako protokół, port 610**00**, Zachowaj interwał 5 i próg złej kondycji 2
+            1. Wybierz pozycję TCP jako protokół, port 610 **00**, Zachowaj interwał 5 i próg złej kondycji 2
             1. Kliknij przycisk OK.
          1. Port 61001 dla NW2
             * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla NW2
@@ -192,7 +193,7 @@ Najpierw należy utworzyć maszyny wirtualne dla tego klastra systemu plików NF
          1. Port 61000 dla NW1
             1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
             1. Wprowadź nazwę nowej sondy kondycji (na przykład **NW1-HP**)
-            1. Wybierz pozycję TCP jako protokół, port 610**00**, Zachowaj interwał 5 i próg złej kondycji 2
+            1. Wybierz pozycję TCP jako protokół, port 610 **00**, Zachowaj interwał 5 i próg złej kondycji 2
             1. Kliknij przycisk OK.
          1. Port 61001 dla NW2
             * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla NW2

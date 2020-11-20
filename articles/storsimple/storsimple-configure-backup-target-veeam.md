@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710349"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962556"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą Veeam
 
@@ -81,7 +81,7 @@ StorSimple oferuje następujące korzyści:
 
 Mimo że StorSimple przedstawia dwa główne scenariusze wdrażania (podstawowa kopia zapasowa i pomocnicza lokalizacja docelowa kopii zapasowej), zasadniczo jest to proste, blokowe urządzenie magazynujące. StorSimple wykonuje całą kompresję i deduplikację. Bezproblemowo wysyła i pobiera dane między chmurą i systemem plików.
 
-Aby uzyskać więcej informacji na temat StorSimple, zobacz [StorSimple 8000 Series: rozwiązanie hybrydowego magazynu w chmurze](storsimple-overview.md). Można również przejrzeć [specyfikacje serii StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
+Aby uzyskać więcej informacji na temat StorSimple, zobacz [StorSimple 8000 Series: rozwiązanie hybrydowego magazynu w chmurze](storsimple-overview.md). Można również przejrzeć [specyfikacje serii StorSimple 8000](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Używanie urządzenia StorSimple jako miejsca docelowego kopii zapasowej jest obsługiwane tylko dla wersji StorSimple 8000 Update 3 i nowszych.
@@ -172,7 +172,7 @@ Aby można było optymalnie wykonać rozwiązanie, zalecamy przestrzeganie nast�
 
 ### <a name="deploy-storsimple"></a>Wdróż StorSimple
 
-Aby uzyskać wskazówki krok po kroku dotyczące wdrażania StorSimple, zobacz [wdrażanie lokalnego urządzenia StorSimple](storsimple-deployment-walkthrough-u2.md).
+Aby uzyskać wskazówki krok po kroku dotyczące wdrażania StorSimple, zobacz [wdrażanie lokalnego urządzenia StorSimple](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### <a name="deploy-veeam"></a>Wdróż Veeam
 
@@ -187,7 +187,7 @@ W tej sekcji przedstawiono przykłady konfiguracji. Poniższe przykłady i zalec
 | StorSimple zadania wdrażania  | Dodatkowe komentarze |
 |---|---|
 | Wdróż lokalne urządzenie StorSimple. | Obsługiwane wersje: Update 3 i nowsze wersje. |
-| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable` . </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable` . </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode` . |
+| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](./storsimple-8000-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable` . </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable` . </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode` . |
 | Utwórz wspólny kontener woluminów dla woluminu, który przechowuje dane kopii zapasowej. Wszystkie dane w kontenerze woluminów są deduplikowane. | Kontenery woluminów StorSimple definiują domeny deduplikacji.  |
 | Utwórz woluminy StorSimple. | Utwórz woluminy o rozmiarach jak najbliżej przewidywanego użycia, ponieważ rozmiar woluminu wpływa na czas trwania migawki w chmurze. Aby uzyskać informacje o sposobie rozmiaru woluminu, Przeczytaj o [zasadach przechowywania](#retention-policies).</br> </br> Użyj StorSimple woluminów warstwowych i zaznacz pole wyboru **Użyj tego woluminu dla rzadziej używanych danych archiwalnych** . </br> Używanie tylko woluminów przypiętych lokalnie nie jest obsługiwane. |
 | Utwórz unikatowe zasady tworzenia kopii zapasowych StorSimple dla wszystkich woluminów docelowych kopii zapasowych. | Zasady tworzenia kopii zapasowych StorSimple definiują grupę spójności woluminu. |
@@ -213,16 +213,16 @@ Skonfiguruj swoje rozwiązanie zgodnie z wytycznymi w poniższych sekcjach.
 - Wyłącz funkcję defragmentacji systemu Windows Server na woluminach StorSimple.
 - Wyłącz indeksowanie systemu Windows Server na woluminach StorSimple.
 - Uruchom skanowanie antywirusowe na hoście źródłowym (nie na woluminach StorSimple).
-- Wyłącz domyślną [konserwację systemu Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) w Menedżerze zadań. Wykonaj tę czynność w jeden z następujących sposobów:
+- Wyłącz domyślną [konserwację systemu Windows Server](/windows/win32/w8cookbook/automatic-maintenance) w Menedżerze zadań. Wykonaj tę czynność w jeden z następujących sposobów:
   - Wyłącz konfiguratora konserwacji w systemie Windows Harmonogram zadań.
-  - Pobierz [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) z programu Windows Sysinternals. Po pobraniu PsExec Uruchom program Windows PowerShell jako administrator, a następnie wpisz:
+  - Pobierz [PsExec](/sysinternals/downloads/psexec) z programu Windows Sysinternals. Po pobraniu PsExec Uruchom program Windows PowerShell jako administrator, a następnie wpisz:
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### <a name="storsimple-best-practices"></a>Najlepsze rozwiązania StorSimple
 
--   Upewnij się, że urządzenie StorSimple zostało zaktualizowane do [wersji Update 3 lub nowszej](storsimple-install-update-3.md).
+-   Upewnij się, że urządzenie StorSimple zostało zaktualizowane do [wersji Update 3 lub nowszej](./index.yml).
 -   Izoluj ruch związany z technologią iSCSI i chmurą. Używaj dedykowanych połączeń iSCSI dla ruchu między StorSimple a serwerem kopii zapasowych.
 -   Upewnij się, że urządzenie StorSimple jest dedykowanym miejscem docelowym kopii zapasowej. Obciążenia mieszane nie są obsługiwane, ponieważ wpływają na RTO i cel punktu odzyskiwania.
 
@@ -272,15 +272,15 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
 ### <a name="to-set-up-veeam-storage"></a>Aby skonfigurować magazyn Veeam
 
-1.  W konsoli **Narzędzia**do tworzenia kopii zapasowych i replikacji programu Veeam przejdź do pozycji **infrastruktura kopii zapasowych**. Kliknij prawym przyciskiem myszy pozycję **repozytoria kopii zapasowych**, a następnie wybierz pozycję **Dodaj repozytorium kopii zapasowych**.
+1.  W konsoli **Narzędzia** do tworzenia kopii zapasowych i replikacji programu Veeam przejdź do pozycji **infrastruktura kopii zapasowych**. Kliknij prawym przyciskiem myszy pozycję **repozytoria kopii zapasowych**, a następnie wybierz pozycję **Dodaj repozytorium kopii zapasowych**.
 
     ![Zrzut ekranu pokazujący konsolę zarządzania Veeam i podświetl opcję Dodaj repozytorium kopii zapasowych.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz opcję **Dalej**.
+2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz pozycję **Dalej**.
 
     ![Strona Veeam Management Console, nazwa i opis](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz opcję **Dalej**.
+3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz pozycję **Dalej**.
 
     ![Veeam Management Console, wybierz typ repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Veeam Management Console, ustawienia zgodności magazynu](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz opcję **Dalej**.
+6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz pozycję **Dalej**.
 
     ![Zrzut ekranu pokazujący konsolę zarządzania Veeam, w której można dodać nowe repozytorium kopii zapasowej.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -319,8 +319,8 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 | Częstotliwość/typ kopii zapasowej | Pełne | Przyrostowe (dni 1-5)  |   
 |---|---|---|
 | Co tydzień (tygodnie 1-4) | Sobota | Monday-Friday |
-| Co miesiąc  | Sobota  |   |
-| Rocznie | Sobota  |   |
+| Miesięczne  | Sobota  |   |
+| Roczne | Sobota  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Przypisywanie woluminów StorSimple do zadania tworzenia kopii zapasowej Veeam
@@ -329,7 +329,7 @@ W przypadku scenariusza cel głównej kopii zapasowej Utwórz codzienne zadanie 
 
 #### <a name="to-assign-storsimple-volumes-to-a-veeam-backup-job"></a>Aby przypisać woluminy StorSimple do zadania tworzenia kopii zapasowej Veeam
 
-1.  W konsoli kopia zapasowa Veeam i replikacja wybierz pozycję **kopia zapasowa & replikacja**. Kliknij prawym przyciskiem myszy pozycję **kopia zapasowa**, a następnie wybierz pozycję **VMware** lub **funkcji Hyper-V**w zależności od środowiska.
+1.  W konsoli kopia zapasowa Veeam i replikacja wybierz pozycję **kopia zapasowa & replikacja**. Kliknij prawym przyciskiem myszy pozycję **kopia zapasowa**, a następnie wybierz pozycję **VMware** lub **funkcji Hyper-V** w zależności od środowiska.
 
     ![Konsola zarządzania Veeam, nowe zadanie tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage8.png)
 
@@ -345,7 +345,7 @@ W przypadku scenariusza cel głównej kopii zapasowej Utwórz codzienne zadanie 
 
     ![Konsola zarządzania Veeam, Nowa strona zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
-5. W oknie dialogowym **Ustawienia zaawansowane** na karcie **kopia zapasowa** wybierz pozycję **przyrostowe**. Upewnij się, że pole wyboru **Utwórz syntetyczne pełne kopie zapasowe** jest wyczyszczone. Zaznacz pole wyboru **Utwórz aktywne pełne kopie zapasowe okresowo** . W obszarze **aktywna pełna kopia zapasowa**zaznacz pole wyboru **co tydzień w wybranym** dniu dla soboty.
+5. W oknie dialogowym **Ustawienia zaawansowane** na karcie **kopia zapasowa** wybierz pozycję **przyrostowe**. Upewnij się, że pole wyboru **Utwórz syntetyczne pełne kopie zapasowe** jest wyczyszczone. Zaznacz pole wyboru **Utwórz aktywne pełne kopie zapasowe okresowo** . W obszarze **aktywna pełna kopia zapasowa** zaznacz pole wyboru **co tydzień w wybranym** dniu dla soboty.
 
     ![Zrzut ekranu przedstawiający konsolę zarządzania Veeam, na przykład nową stronę ustawień zaawansowanych zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
@@ -399,14 +399,14 @@ GFS rotacja co tydzień, co miesiąc i co rok
 | Tydzień 2 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 3 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 4 | StorSimple tygodni 2-4 |   |   |   |   |   |
-| Co miesiąc | StorSimple miesięcznie |   |   |   |   |   |
-| Rocznie | StorSimple rocznie  |   |   |   |   |   |
+| Miesięczne | StorSimple miesięcznie |   |   |   |   |   |
+| Roczne | StorSimple rocznie  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Przypisywanie woluminów StorSimple do zadania kopiowania Veeam
 
 #### <a name="to-assign-storsimple-volumes-to-a-veeam-copy-job"></a>Aby przypisać woluminy StorSimple do zadania kopiowania Veeam
 
-1.  W konsoli kopia zapasowa Veeam i replikacja wybierz pozycję **kopia zapasowa & replikacja**. Kliknij prawym przyciskiem myszy pozycję **kopia zapasowa**, a następnie wybierz pozycję **VMware** lub **funkcji Hyper-V**w zależności od środowiska.
+1.  W konsoli kopia zapasowa Veeam i replikacja wybierz pozycję **kopia zapasowa & replikacja**. Kliknij prawym przyciskiem myszy pozycję **kopia zapasowa**, a następnie wybierz pozycję **VMware** lub **funkcji Hyper-V** w zależności od środowiska.
 
     ![Zrzut ekranu pokazujący konsolę zarządzania Veeam z opcjami programu VMware i funkcji Hyper-V, które można wybrać.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
@@ -502,21 +502,21 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 
 | Scenariusz | Wpływ | Jak odzyskać | Uwagi |
 |---|---|---|---|
-| Awaria urządzenia StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Zastąp urządzenie zakończone niepowodzeniem i przeprowadź [StorSimple tryb failover i odzyskiwanie po awarii](storsimple-device-failover-disaster-recovery.md). | Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane pełne zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. Proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych zostaną przeskanowane i pobrane z warstwy chmury do warstwy urządzeń lokalnych, co może być czasochłonnym procesem. |
+| Awaria urządzenia StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Zastąp urządzenie zakończone niepowodzeniem i przeprowadź [StorSimple tryb failover i odzyskiwanie po awarii](./storsimple-8000-device-failover-disaster-recovery.md). | Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane pełne zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. Proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych zostaną przeskanowane i pobrane z warstwy chmury do warstwy urządzeń lokalnych, co może być czasochłonnym procesem. |
 | Awaria serwera Veeam | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Skompiluj ponownie serwer kopii zapasowej i wykonaj przywracanie bazy danych zgodnie z opisem w [centrum pomocy Veeam (dokumentacja techniczna)](https://www.veeam.com/documentation-guides-datasheets.html).  | Należy ponownie skompilować lub przywrócić serwer Veeam w lokacji odzyskiwania po awarii. Przywróć bazę danych do najnowszego punktu. Jeśli przywrócona baza danych Veeam nie jest zsynchronizowana z najnowszymi zadaniami tworzenia kopii zapasowych, wymagane jest indeksowanie i wykazanie. Ten proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych będą skanowane i pobrane z warstwy chmury do warstwy urządzenia lokalnego. Zwiększa to intensywnie czasochłonne. |
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 Następujące dokumenty odwołują się do tego artykułu:
 
-- [Konfiguracja wielościeżkowego we/wy StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Scenariusze magazynu: alokowanie elastyczne](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Korzystanie z dysków GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Skonfiguruj kopie w tle dla folderów udostępnionych](https://technet.microsoft.com/library/cc771893.aspx)
+- [Konfiguracja wielościeżkowego we/wy StorSimple](./storsimple-8000-configure-mpio-windows-server.md)
+- [Scenariusze magazynu: alokowanie elastyczne](/windows-hardware/drivers/storage/thin-provisioning)
+- [Korzystanie z dysków GPT](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Skonfiguruj kopie w tle dla folderów udostępnionych](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o sposobach [przywracania z zestawu kopii zapasowych](storsimple-restore-from-backup-set-u2.md).
-- Dowiedz się więcej na temat wykonywania [trybu failover urządzeń i odzyskiwania po awarii](storsimple-device-failover-disaster-recovery.md).
+- Dowiedz się więcej o sposobach [przywracania z zestawu kopii zapasowych](./storsimple-8000-restore-from-backup-set-u2.md).
+- Dowiedz się więcej na temat wykonywania [trybu failover urządzeń i odzyskiwania po awarii](./storsimple-8000-device-failover-disaster-recovery.md).

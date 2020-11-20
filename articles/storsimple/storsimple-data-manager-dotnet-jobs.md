@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e34701640de24a4c3c13f8d10073b4392af2f28a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b18627d2806662d6d966af95d51873d5623b2393
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183653"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961128"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Inicjowanie transformacji danych przy użyciu zestawu SDK platformy .NET
 
@@ -33,7 +33,7 @@ Przed rozpoczęciem upewnij się, że masz:
 
     - Program Visual Studio 2012, 2013, 2015 lub 2017.
 
-    - Program Azure PowerShell. [Pobierz program Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+    - Program Azure PowerShell. [Pobierz program Azure PowerShell](/powershell/azure/).
 *   Prawidłowo skonfigurowana Definicja zadania w StorSimple Data Manager w grupie zasobów.
 *   Wszystkie wymagane biblioteki DLL. Pobierz te biblioteki DLL z [repozytorium GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
 *   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) skrypt z repozytorium GitHub.
@@ -67,7 +67,7 @@ Wykonaj następujące kroki, aby użyć programu .NET do uruchomienia zadania tr
         ![Tworzenie projektu 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
     2. Wybierz pozycję **zainstalowane > szablony > aplikacji konsolowej > Visual C#**.
     3. Wprowadź **DataTransformationApp** dla **nazwy**.
-    4. Dla **lokalizacji**wybierz pozycję **C:\DataTransformation** .
+    4. Dla **lokalizacji** wybierz pozycję **C:\DataTransformation** .
     6. Kliknij przycisk **OK**, aby utworzyć projekt.
 
         ![Tworzenie projektu 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)

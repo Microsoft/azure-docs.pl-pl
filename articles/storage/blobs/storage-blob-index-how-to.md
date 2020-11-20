@@ -3,18 +3,18 @@ title: Używanie tagów indeksu obiektów BLOB do zarządzania danymi i znajdowa
 description: Zobacz przykłady użycia tagów indeksu obiektów BLOB do kategoryzowania i wykonywania zapytań dotyczących obiektów blob oraz zarządzania nimi.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2e3e16b71d52edd9ab4eaf55651567b95e334b84
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371974"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961791"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Użyj tagów indeksu obiektów BLOB (wersja zapoznawcza), aby zarządzać danymi na platformie Azure Blob Storage i znajdować je
 
@@ -56,7 +56,7 @@ Ponieważ indeks obiektów BLOB jest w wersji zapoznawczej, pakiet programu .NET
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Przekaż nowy obiekt BLOB za pomocą tagów indeksu
 
-Przekazywanie nowego obiektu BLOB za pomocą tagów indeksu może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+To zadanie można wykonać przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który uzyskał uprawnienie do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Pobieranie, ustawianie i aktualizowanie tagów indeksów obiektów BLOB
 
-Pobieranie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+Pobieranie tagów indeksów obiektów BLOB może odbywać się przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który otrzymał uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
-Ustawianie i aktualizowanie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+Ustawienie i zaktualizowanie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który otrzymał uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -132,7 +132,7 @@ Ustawianie i aktualizowanie tagów indeksów obiektów BLOB może być wykonywan
 
 6. Wybierz przycisk **Zapisz** , aby potwierdzić wszystkie aktualizacje obiektu BLOB
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak pobierać, ustawiać, aktualizować i usuwać Tagi indeksów w obiektach Blob.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrowanie i znajdowanie danych przy użyciu tagów indeksów obiektów BLOB
 
-Wyszukiwanie i filtrowanie według tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+To zadanie można wykonać przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który uzyskał uprawnienie do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -209,7 +209,7 @@ W Azure Portal filtr tagów indeksu obiektów BLOB automatycznie stosuje `@conta
 
 5. Wybierz przycisk **Filtr tagów indeksu obiektów BLOB** , aby dodać dodatkowe filtry tagów (do 10)
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący sposób filtrowania i znajdowania otagowanych obiektów BLOB przy użyciu tagów indeksu":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -303,11 +303,11 @@ static async Task FindBlobsByTagsExample()
 
 4. Wybierz zestaw **filtrów** , aby dodać opcjonalny filtr dla dopasowania prefiksu i dopasowania indeksu obiektów BLOB
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak dodać znaczniki indeksu do zarządzania cyklem życia.":::
 
 5. Wybierz pozycję **Przegląd + Dodaj** , aby przejrzeć ustawienia reguły
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wyświetlania reguły zarządzania cyklem życia z przykładem filtru tagów indeksu obiektów BLOB":::
 
 6. Wybierz pozycję **Dodaj** , aby zastosować nową regułę do zasad zarządzania cyklem życia
 

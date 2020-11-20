@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: a9ac4830d11aa3360a272ac1feb167eb20c26c9a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962624"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemy z migracją w trybie online & ograniczenia dotyczące usługi Azure DB dla programu MySQL z Azure Database Migration Service
 
@@ -118,7 +118,7 @@ Podczas próby przeprowadzenia migracji w trybie online z AWS RDS MySQL do Azure
 
   **Ograniczenie**: ten błąd występuje, gdy docelowa baza danych Azure Database for MySQL nie ma wymaganego schematu. Migracja schematu jest wymagana, aby umożliwić Migrowanie danych do obiektu docelowego.
 
-  **Obejście**: [Migruj schemat](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) ze źródłowej bazy danych do docelowej bazy danych.
+  **Obejście**: [Migruj schemat](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) ze źródłowej bazy danych do docelowej bazy danych.
 
 ## <a name="other-limitations"></a>Inne ograniczenia
 
@@ -127,7 +127,7 @@ Podczas próby przeprowadzenia migracji w trybie online z AWS RDS MySQL do Azure
   - Wszystkie DDLs partycji
   - Usuń tabelę
   - Zmień nazwę tabeli
-- Przy użyciu instrukcji *ALTER table <table_name> column_name <Dodawanie * kolumn do początku lub do środka tabeli nie jest obsługiwane. *<ALTER table table_name> Dodaj kolumnę <column_name>* dodaje kolumnę na końcu tabeli.
+- Przy użyciu instrukcji *ALTER table <table_name> column_name <Dodawanie* kolumn do początku lub do środka tabeli nie jest obsługiwane. *<ALTER table table_name> Dodaj kolumnę <column_name>* dodaje kolumnę na końcu tabeli.
 - Indeksy utworzone tylko w części danych kolumn nie są obsługiwane. Poniższa instrukcja to przykład, który tworzy indeks, używając tylko części danych kolumny:
 
     ``` 
@@ -136,7 +136,7 @@ Podczas próby przeprowadzenia migracji w trybie online z AWS RDS MySQL do Azure
 
 - W Azure Database Migration Service limit migracji baz danych w ramach jednego działania migracji wynosi cztery.
 
-- Usługa Azure DMS nie obsługuje akcji referencyjnej CASCADE, która pomaga automatycznie usuwać lub aktualizować pasujący wiersz w tabeli podrzędnej po usunięciu lub zaktualizowaniu wiersza w tabeli nadrzędnej. Aby uzyskać więcej informacji, zobacz sekcję działania referencyjne w temacie [ograniczenia klucza obcego](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)artykułu. Usługa Azure DMS wymaga porzucenia ograniczeń klucza obcego na docelowym serwerze bazy danych podczas początkowego ładowania danych i nie można używać akcji referencyjnych. Jeśli obciążenie zależy od aktualizowania powiązanej tabeli podrzędnej za pomocą tej akcji referencyjnej, zalecamy wykonanie [zrzutu i przywrócenie](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) zamiast tego. 
+- Usługa Azure DMS nie obsługuje akcji referencyjnej CASCADE, która pomaga automatycznie usuwać lub aktualizować pasujący wiersz w tabeli podrzędnej po usunięciu lub zaktualizowaniu wiersza w tabeli nadrzędnej. Aby uzyskać więcej informacji, zobacz sekcję działania referencyjne w temacie [ograniczenia klucza obcego](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)artykułu. Usługa Azure DMS wymaga porzucenia ograniczeń klucza obcego na docelowym serwerze bazy danych podczas początkowego ładowania danych i nie można używać akcji referencyjnych. Jeśli obciążenie zależy od aktualizowania powiązanej tabeli podrzędnej za pomocą tej akcji referencyjnej, zalecamy wykonanie [zrzutu i przywrócenie](../mysql/concepts-migrate-dump-restore.md) zamiast tego. 
 
 - **Błąd:** Zbyt duży rozmiar wiersza (> 8126). Zmiana niektórych kolumn na tekst lub obiekt BLOB może pomóc. W bieżącym formacie wiersza prefiks obiektu BLOB o wartości 0 bajtów jest przechowywany w tekście.
 

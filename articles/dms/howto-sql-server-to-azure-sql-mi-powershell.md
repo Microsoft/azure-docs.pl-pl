@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c82acb66266fd36e5b7155adbfa5bd5ade1b765c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1c45b99138a05ef78976b90f65f57304e676ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291991"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962777"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrowanie SQL Server do wystąpienia zarządzanego SQL za pomocą programu PowerShell & Azure Database Migration Service
 
@@ -40,30 +40,30 @@ Ten artykuł zawiera szczegółowe informacje na temat przeprowadzania migracji 
 Aby wykonać te kroki, potrzebne są:
 
 * [SQL Server 2016 lub nowszy](https://www.microsoft.com/sql-server/sql-server-downloads) (dowolna wersja).
-* Lokalna kopia bazy danych **AdventureWorks2016** , która jest dostępna do pobrania w [tym miejscu](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017).
-* Aby włączyć protokół TCP/IP, który jest domyślnie wyłączony z instalacją SQL Server Express. Włącz protokół TCP/IP, wykonując czynności opisane w artykule [Włączanie lub wyłączanie protokołu sieciowego serwera](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-* Aby skonfigurować [zaporę systemu Windows na potrzeby dostępu do aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Lokalna kopia bazy danych **AdventureWorks2016** , która jest dostępna do pobrania w [tym miejscu](/sql/samples/adventureworks-install-configure?view=sql-server-2017).
+* Aby włączyć protokół TCP/IP, który jest domyślnie wyłączony z instalacją SQL Server Express. Włącz protokół TCP/IP, wykonując czynności opisane w artykule [Włączanie lub wyłączanie protokołu sieciowego serwera](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+* Aby skonfigurować [zaporę systemu Windows na potrzeby dostępu do aparatu bazy danych](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
-* Wystąpienie zarządzane SQL. Wystąpienie zarządzane SQL można utworzyć, postępując zgodnie ze szczegółowymi informacjami w artykule [Tworzenie wystąpienia zarządzanego ASQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* Wystąpienie zarządzane SQL. Wystąpienie zarządzane SQL można utworzyć, postępując zgodnie ze szczegółowymi informacjami w artykule [Tworzenie wystąpienia zarządzanego ASQL](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Aby pobrać i zainstalować [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 lub nowszy.
-* Microsoft Azure Virtual Network utworzony przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia Azure Database Migration Service z połączeniem lokacja-lokacja z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Zakończono ocenę lokalnej bazy danych i migracji schematu przy użyciu Data Migration Assistant, zgodnie z opisem w artykule [wykonywanie oceny SQL Server migracji](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
-* Aby pobrać i zainstalować `Az.DataMigration` moduł (w wersji 0.7.2 lub nowszej) z Galeria programu PowerShell przy użyciu [polecenia cmdlet programu PowerShell Install-module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
-* Aby upewnić się, że poświadczenia używane do nawiązania połączenia z wystąpieniem źródła SQL Server mają uprawnienia [serwera kontroli](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) .
+* Microsoft Azure Virtual Network utworzony przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia Azure Database Migration Service z połączeniem lokacja-lokacja z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](../expressroute/expressroute-introduction.md) lub [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* Zakończono ocenę lokalnej bazy danych i migracji schematu przy użyciu Data Migration Assistant, zgodnie z opisem w artykule [wykonywanie oceny SQL Server migracji](/sql/dma/dma-assesssqlonprem).
+* Aby pobrać i zainstalować `Az.DataMigration` moduł (w wersji 0.7.2 lub nowszej) z Galeria programu PowerShell przy użyciu [polecenia cmdlet programu PowerShell Install-module](/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+* Aby upewnić się, że poświadczenia używane do nawiązania połączenia z wystąpieniem źródła SQL Server mają uprawnienia [serwera kontroli](/sql/t-sql/statements/grant-server-permissions-transact-sql) .
 * Aby upewnić się, że poświadczenia używane do nawiązania połączenia z docelowym wystąpieniem zarządzanym SQL mają uprawnienie Kontrola bazy danych dla docelowych baz danych wystąpienia zarządzanego SQL.
 
     > [!IMPORTANT]
-    > W przypadku migracji w trybie online należy wcześniej skonfigurować poświadczenia Azure Active Directory. Aby uzyskać więcej informacji, zobacz artykuł [Używanie portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    > W przypadku migracji w trybie online należy wcześniej skonfigurować poświadczenia Azure Active Directory. Aby uzyskać więcej informacji, zobacz artykuł [Używanie portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Zaloguj się do subskrypcji Microsoft Azure
 
-Zaloguj się do subskrypcji platformy Azure za pomocą programu PowerShell. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie przy użyciu Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Zaloguj się do subskrypcji platformy Azure za pomocą programu PowerShell. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie przy użyciu Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Grupa zasobów platformy Azure to logiczny kontener, w którym są wdrażane i zarządzane zasoby platformy Azure.
 
-Utwórz grupę zasobów za pomocą [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) polecenia.
+Utwórz grupę zasobów za pomocą [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) polecenia.
 
 Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w regionie *Wschodnie stany USA* .
 
@@ -71,16 +71,16 @@ Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w regionie *
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Tworzenie wystąpienia usługi Azure Database Migration Service
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Utwórz wystąpienie Azure Database Migration Service
 
 Nowe wystąpienie Azure Database Migration Service można utworzyć przy użyciu `New-AzDataMigrationService` polecenia cmdlet.
 To polecenie cmdlet oczekuje następujących wymaganych parametrów:
 
-* *Nazwa grupy zasobów platformy Azure*. Możesz użyć [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) polecenia, aby utworzyć grupę zasobów platformy Azure jak wcześniej pokazana i podać jej nazwę jako parametr.
+* *Nazwa grupy zasobów platformy Azure*. Możesz użyć [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) polecenia, aby utworzyć grupę zasobów platformy Azure jak wcześniej pokazana i podać jej nazwę jako parametr.
 * *Nazwa usługi*. Ciąg, który odpowiada żądanej unikatowej nazwie usługi dla Azure Database Migration Service.
 * *Lokalizacja*. Określa lokalizację usługi. Określ lokalizację centrum danych platformy Azure, np. Zachodnie stany USA lub Azja Południowo-Wschodnia.
 * *Jednostka SKU*. Ten parametr odnosi się do nazwy jednostki SKU DMS. Obecnie obsługiwane nazwy jednostek SKU to *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*.
-* *Identyfikator podsieci wirtualnej*. Za pomocą polecenia cmdlet można [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) utworzyć podsieć.
+* *Identyfikator podsieci wirtualnej*. Za pomocą polecenia cmdlet można [`New-AzVirtualNetworkSubnetConfig`](//powershell/module/az.network/new-azvirtualnetworksubnetconfig) utworzyć podsieć.
 
 Poniższy przykład tworzy usługę o nazwie *MyDMS* w grupie zasobów *MyDMSResourceGroup* znajdującej się w regionie *Wschodnie stany USA* przy użyciu sieci wirtualnej o nazwie *MyVNET* i podsieci o nazwie Moja *podsieć*.
 
@@ -161,7 +161,7 @@ Następnie utwórz i uruchom zadanie Azure Database Migration Service. To zadani
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Utwórz parametry poświadczeń dla źródła i celu
 
-Utwórz poświadczenia zabezpieczeń połączenia jako obiekt [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) .
+Utwórz poświadczenia zabezpieczeń połączenia jako obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) .
 
 W poniższym przykładzie pokazano Tworzenie obiektów *PSCredential* dla połączeń źródłowych i docelowych, dostarczając hasła jako zmienne ciągów *$sourcePassword* i *$targetPassword*.
 
@@ -226,7 +226,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 > [!NOTE]
-> Azure Database Migration Service nie obsługuje korzystania z tokenu SAS na poziomie konta. Musisz użyć identyfikatora URI sygnatury dostępu współdzielonego dla kontenera konta magazynu. [Dowiedz się, jak uzyskać identyfikator URI sygnatury dostępu współdzielonego dla kontenera obiektów blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).
+> Azure Database Migration Service nie obsługuje korzystania z tokenu SAS na poziomie konta. Musisz użyć identyfikatora URI sygnatury dostępu współdzielonego dla kontenera konta magazynu. [Dowiedz się, jak uzyskać identyfikator URI sygnatury dostępu współdzielonego dla kontenera obiektów blob](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container).
 
 ### <a name="additional-configuration-requirements"></a>Dodatkowe wymagania dotyczące konfiguracji
 
@@ -290,8 +290,8 @@ Bez względu na to, czy wykonywana jest migracja w trybie offline, czy online, `
 * *Zadaniename*. Nazwa zadania do utworzenia. 
 * *SourceConnection*. Obiekt AzDmsConnInfo reprezentujący połączenie SQL Server źródłowej.
 * *TargetConnection*. Obiekt AzDmsConnInfo reprezentujący docelowe połączenie wystąpienia zarządzanego Azure SQL.
-* *SourceCred*. Obiekt [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) do nawiązywania połączenia z serwerem źródłowym.
-* *TargetCred*. Obiekt [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) do nawiązywania połączenia z serwerem docelowym.
+* *SourceCred*. Obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) do nawiązywania połączenia z serwerem źródłowym.
+* *TargetCred*. Obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) do nawiązywania połączenia z serwerem docelowym.
 * *SelectedDatabase*. Obiekt AzDataMigrationSelectedDB reprezentujący mapowanie źródłowe i docelowe bazy danych.
 * *BackupFileShare*. Obiekt dataudziału reprezentujący udział sieciowy lokalny, do którego Azure Database Migration Service mogą pobrać kopie zapasowe źródłowej bazy danych.
 * *BackupBlobSasUri*. Identyfikator URI sygnatury dostępu współdzielonego, który zapewnia Azure Database Migration Service z dostępem do kontenera konta magazynu, do którego usługa przekazuje pliki kopii zapasowej. Dowiedz się, jak uzyskać identyfikator URI sygnatury dostępu współdzielonego dla kontenera obiektów blob.
@@ -422,4 +422,4 @@ Aby uzyskać informacje na temat dodatkowych scenariuszy migracji (par Source/Ta
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat Azure Database Migration Service w artykule [co to jest Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
+Dowiedz się więcej na temat Azure Database Migration Service w artykule [co to jest Azure Database Migration Service?](./dms-overview.md).

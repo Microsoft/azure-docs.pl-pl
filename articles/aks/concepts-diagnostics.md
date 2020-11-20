@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d06ad2f740394a4959f3665c5d6311e71841241
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79126611"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960839"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Omówienie usługi Azure Kubernetes Service Diagnostics (wersja zapoznawcza)
 
@@ -39,7 +39,7 @@ Po kliknięciu kategorii można wyświetlić raport diagnostyczny specyficzny dl
 
 ## <a name="cluster-insights"></a>Szczegółowe informacje o klastrze
 
-W usłudze **cluster Insights**są dostępne następujące testy diagnostyczne.
+W usłudze **cluster Insights** są dostępne następujące testy diagnostyczne.
 
 ### <a name="cluster-node-issues"></a>Problemy z węzłem klastra
 
@@ -82,5 +82,7 @@ Zarządzanie tożsamościami i zabezpieczeniami wykrywa błędy uwierzytelniania
 ## <a name="next-steps"></a>Następne kroki
 
 Zbierz dzienniki, aby ułatwić dalsze Rozwiązywanie problemów z klastrem za pomocą [AKS Periscope](https://aka.ms/aksperiscope).
+
+Zapoznaj się z [sekcją Klasyfikacja Practices](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices) w Przewodniku obsługi AKS Day-2.
 
 Opublikuj swoje pytania lub opinie w witrynie [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) , dodając w tytule "[diag]".
