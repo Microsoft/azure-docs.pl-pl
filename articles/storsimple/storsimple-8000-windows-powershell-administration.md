@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999521"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950673"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Używanie programu Windows PowerShell dla usługi StorSimple do administrowania urządzeniem
 
@@ -28,7 +28,7 @@ Po przeczytaniu tego artykułu będzie można:
 * Uzyskaj pomoc w program Windows PowerShell dla usługi StorSimple.
 
 > [!NOTE]
-> * Polecenia cmdlet program Windows PowerShell dla usługi StorSimple umożliwiają zarządzanie urządzeniem StorSimple z poziomu konsoli szeregowej lub zdalnie za pośrednictwem komunikacji zdalnej programu Windows PowerShell. Aby uzyskać więcej informacji na temat poszczególnych poleceń cmdlet, które mogą być używane w tym interfejsie, przejdź do [dokumentacji poleceń cmdlet dla program Windows PowerShell dla usługi StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+> * Polecenia cmdlet program Windows PowerShell dla usługi StorSimple umożliwiają zarządzanie urządzeniem StorSimple z poziomu konsoli szeregowej lub zdalnie za pośrednictwem komunikacji zdalnej programu Windows PowerShell. Aby uzyskać więcej informacji na temat poszczególnych poleceń cmdlet, które mogą być używane w tym interfejsie, przejdź do [dokumentacji poleceń cmdlet dla program Windows PowerShell dla usługi StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 > * Polecenia cmdlet programu Azure PowerShell StorSimple są różnymi kolekcjami poleceń cmdlet, które umożliwiają automatyzację StorSimple zadań dotyczących poziomu usług i migracji z wiersza polecenia. Aby uzyskać więcej informacji na temat Azure PowerShell poleceń cmdlet dla StorSimple, przejdź do [dokumentacji poleceń cmdlet platformy Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
@@ -50,7 +50,7 @@ Aby nawiązać połączenie z interfejsem programu Windows PowerShell z poziomu 
 1. W oknie dialogowym wyznaczanie ponownej **konfiguracji** w okienku **Kategoria** wybierz pozycję **Klawiatura**.
 2. Upewnij się, że wybrano następujące opcje (są to ustawienia domyślne podczas uruchamiania nowej sesji).
    
-   | Element klawiatury | Wybierz |
+   | Element klawiatury | Wybierz pozycję |
    | --- | --- |
    | Klawisz Backspace |Kontrolka-? (127) |
    | Główne i końcowe klawisze |Standardowa |
@@ -63,7 +63,7 @@ Aby nawiązać połączenie z interfejsem programu Windows PowerShell z poziomu 
 3. Kliknij pozycję **Zastosuj**.
 4. W okienku **Kategoria** wybierz opcję **tłumaczenie**.
 5. W polu listy **zdalny zestaw znaków** wybierz pozycję **UTF-8**.
-6. W obszarze **Obsługa znaków rysowania linii**wybierz opcję **Użyj punktów kodowych rysowania linii Unicode**. Poniższy zrzut ekranu przedstawia prawidłowe wybory.
+6. W obszarze **Obsługa znaków rysowania linii** wybierz opcję **Użyj punktów kodowych rysowania linii Unicode**. Poniższy zrzut ekranu przedstawia prawidłowe wybory.
    
     ![Ustawienia kodowania UTF](./media/storsimple-windows-powershell-administration/IC740878.png)
 7. Kliknij pozycję **Zastosuj**.
@@ -178,4 +178,3 @@ Możesz łatwo zaktualizować pomoc w interfejsie programu Windows PowerShell. W
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli wystąpią problemy z urządzeniem StorSimple podczas wykonywania jednego z powyższych przepływów pracy, zapoznaj się z [narzędziami do rozwiązywania problemów z wdrożeniami StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-

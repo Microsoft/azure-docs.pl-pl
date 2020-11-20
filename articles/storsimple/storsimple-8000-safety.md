@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbd292d42fd6fd2a0e149e103c17968a6f084b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514540"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950758"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Bezpieczne Instalowanie i obsługiwanie urządzenia StorSimple
 ![Ikona ostrzeżenia ](./media/storsimple-safety/IC740879.png)
@@ -114,7 +114,7 @@ Urządzenie zostało zaprojektowane do obsługi dwóch PCMs. Każdy PCMs ma zasi
 
 Aby zmniejszyć prawdopodobieństwo powstania szkody, porażenia energii elektrycznej lub zgonu:
 
-* Nie usuwaj okładek z modułu PCM. Występuje niebezpieczeństwo porażenia prądem. Aby zwrócić moduł PCM i uzyskać zamiennik, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-contact-microsoft-support.md).
+* Nie usuwaj okładek z modułu PCM. Występuje niebezpieczeństwo porażenia prądem. Aby zwrócić moduł PCM i uzyskać zamiennik, [skontaktuj się z pomoc techniczna firmy Microsoft](./storsimple-8000-contact-microsoft-support.md).
 
 ![Powiadomienie o ikonie powiadomienia ](./media/storsimple-safety/IC740881.png) **:**
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089574"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949500"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Przewodnik: Dodawanie wymiany oświadczeń interfejsu API REST do zasad niestandardowych w Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Gdy interfejs API REST zweryfikuje dane, musi zwrócić HTTP 200 (ok), z następ
 }
 ```
 
-Konfiguracja punktu końcowego interfejsu API REST jest poza zakresem tego artykułu. Utworzyliśmy przykład [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) . Możesz uzyskać dostęp do kompletnego kodu funkcji platformy Azure w serwisie [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+Konfiguracja punktu końcowego interfejsu API REST jest poza zakresem tego artykułu. Utworzyliśmy przykład [Azure Functions](../azure-functions/functions-reference.md) . Możesz uzyskać dostęp do kompletnego kodu funkcji platformy Azure w serwisie [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definiowanie oświadczeń
 
@@ -183,9 +183,9 @@ Aby zwrócić `balance` wniosek z powrotem do aplikacji jednostki uzależnionej,
 </RelyingParty>
 ```
 
-Powtórz ten krok dla **ProfileEdit.xml**i **PasswordReset.xml** podróży użytkownika.
+Powtórz ten krok dla **ProfileEdit.xml** i **PasswordReset.xml** podróży użytkownika.
 
-Zapisz zmienione pliki: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*i *PasswordReset.xml*. 
+Zapisz zmienione pliki: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* i *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Testowanie zasad niestandardowych
 
@@ -193,7 +193,7 @@ Zapisz zmienione pliki: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD.
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz pozycję **platforma obsługi tożsamości**.
-1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*i *PasswordReset.xml*. 
+1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* i *PasswordReset.xml*. 
 1. Wybierz przekazane zasady rejestracji lub logowania, a następnie kliknij przycisk **Uruchom teraz** .
 1. Użytkownik powinien mieć możliwość rejestrowania się przy użyciu adresu e-mail lub konta w serwisie Facebook.
 1. Token wysłany z powrotem do aplikacji zawiera `balance` zastrzeżenie.

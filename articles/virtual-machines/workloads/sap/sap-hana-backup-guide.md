@@ -7,21 +7,22 @@ author: msjuergent
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88652189"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950027"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Przewodnik dotyczący tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Przewodnik tworzenia kopii zapasowych dla SAP HANA uruchomionych na maszynach wirtualnych platformy Azure zawiera tylko opis tematów dotyczących platformy Azure. Aby uzyskać ogólne SAP HANA elementów powiązanych z kopią zapasową, zapoznaj się z dokumentacją SAP HANA. Oczekujemy, że znasz zasady tworzenia kopii zapasowych bazy danych, przyczyny i motywacje mające na celu posiadanie solidnej strategii tworzenia kopii zapasowych, a informacje o wymaganiach firmy dotyczą procedury tworzenia kopii zapasowej, okresu przechowywania kopii zapasowych i procedury przywracania.
 
@@ -116,7 +117,7 @@ Jak opisano wcześniej, opisywanie funkcji tworzenia kopii zapasowych Azure Back
 > Tworzenie kopii zapasowych na podstawie migawek dysków dla SAP HANA w wdrożeniach, w których używane są wiele kontenerów bazy danych, wymagaj minimalnej wersji platformy HANA 2,0 SP04
 > 
 
-Usługa Azure Storage nie zapewnia spójności systemu plików na wielu dyskach lub woluminach dołączonych do maszyny wirtualnej podczas procesu tworzenia migawki. Oznacza to, że spójność aplikacji podczas tworzenia migawki musi zostać dostarczona przez aplikację, w tym przypadku SAP HANA samej. [Uwaga dotycząca oprogramowania SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883) zawiera ważne informacje dotyczące SAP HANA kopii zapasowych według migawek magazynu. Na przykład w systemach plików XFS należy uruchomić **XFS \_ zamrozić** przed rozpoczęciem migawki magazynu, aby zapewnić spójność aplikacji (zobacz [XFS \_ Zablokuj (8) — Strona Man z systemem Linux](https://linux.die.net/man/8/xfs_freeze) , aby uzyskać szczegółowe informacje na temat ** \_ zawieszania XFS**.
+Usługa Azure Storage nie zapewnia spójności systemu plików na wielu dyskach lub woluminach dołączonych do maszyny wirtualnej podczas procesu tworzenia migawki. Oznacza to, że spójność aplikacji podczas tworzenia migawki musi zostać dostarczona przez aplikację, w tym przypadku SAP HANA samej. [Uwaga dotycząca oprogramowania SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883) zawiera ważne informacje dotyczące SAP HANA kopii zapasowych według migawek magazynu. Na przykład w systemach plików XFS należy uruchomić **XFS \_ zamrozić** przed rozpoczęciem migawki magazynu, aby zapewnić spójność aplikacji (zobacz [XFS \_ Zablokuj (8) — Strona Man z systemem Linux](https://linux.die.net/man/8/xfs_freeze) , aby uzyskać szczegółowe informacje na temat **\_ zawieszania XFS**.
 
 Zakładając, że istnieje system plików XFS z czterema dyskami wirtualnymi platformy Azure, następujące kroki zapewniają spójną migawkę, która reprezentuje obszar danych HANA:
 

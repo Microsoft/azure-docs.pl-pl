@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877031"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948548"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Szybki Start: wdrażanie dzienników przepływu sieciowej grupy zabezpieczeń i zarządzanie nimi za pomocą Azure Policy 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91877031"
 Usługa Azure Policy pomaga wymuszać standardy organizacyjne i oceniać zgodność na dużą skalę. Typowe przypadki użycia Azure Policy obejmują wdrażanie ładu pod kątem spójności zasobów, zgodności z przepisami, bezpieczeństwa, kosztów i zarządzania. W tym artykule będziemy używać dwóch wbudowanych zasad dostępnych dla dzienników przepływów sieciowej grupy zabezpieczeń do zarządzania konfiguracją dzienników przepływów. Pierwsze zasady flaguje wszelkie sieciowych grup zabezpieczeń bez włączonych dzienników przepływów. Druga zasada automatycznie wdraża dzienniki przepływów dla sieciowych grup zabezpieczeń bez włączonych dzienników przepływów. 
 
 Jeśli tworzysz zasady platformy Azure po raz pierwszy, możesz przeczytać: 
-- [Przegląd Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Samouczek dotyczący tworzenia zasad](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Przegląd Azure Policy](../governance/policy/overview.md) 
+- [Samouczek dotyczący tworzenia zasad](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Lokalizowanie zasad
@@ -134,5 +134,5 @@ Po wprowadzeniu zasad powinien zostać wyświetlony podobny do poniższego zrzut
 
 ## <a name="next-steps"></a>Następne kroki 
 
--   Skorzystaj z tego [samouczka](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) , aby wdrożyć dzienniki przepływów i Analiza ruchu przy użyciu szablonów usługi ARM.
--   Dowiedz się więcej o [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
+-   Skorzystaj z tego [samouczka](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) , aby wdrożyć dzienniki przepływów i Analiza ruchu przy użyciu szablonów usługi ARM.
+-   Dowiedz się więcej o [Network Watcher](./index.yml)

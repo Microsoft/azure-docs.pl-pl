@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972020"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950738"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Przywracanie woluminu StorSimple z zestawu kopii zapasowych
 
@@ -63,7 +63,7 @@ W Update 4 polecenia cmdlet programu Windows PowerShell mogą służyć do wykon
 
 * `Set-HcsRehydrationJob` — To polecenie cmdlet pozwala wstrzymywać, zatrzymywać, wznawiać zadanie uzupełniania, gdy trwa uzupełnianie.
 
-Aby uzyskać więcej informacji na temat uzupełniania poleceń cmdlet, przejdź do [dokumentacji poleceń cmdlet programu Windows PowerShell dla StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Aby uzyskać więcej informacji na temat uzupełniania poleceń cmdlet, przejdź do [dokumentacji poleceń cmdlet programu Windows PowerShell dla StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 Przy automatycznym uzupełnianiu oczekiwana jest zazwyczaj wyższa szybkość przejściowego odczytu. Rzeczywista wielkość ulepszeń zależy od różnych czynników, takich jak wzorzec dostępu, zmiany danych i typ danych. 
 
@@ -137,4 +137,3 @@ Aby ukończyć operację przywracania, przełącz wolumin w tryb offline na hoś
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [zarządzać woluminami StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
-

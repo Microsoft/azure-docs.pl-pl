@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62803bd450db351290bbc12d650d23a4148a4536
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855366"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951200"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Przygotowanie infrastruktury platformy Azure pod kątem wysokiej dostępności SAP przy użyciu klastra trybu failover systemu Windows i udziału plików dla wystąpień oprogramowania SAP ASCS/SCS
 
@@ -218,8 +219,8 @@ Przed rozpoczęciem instalacji zapoznaj się z następującym artykułem:
 | --- | --- | --- | --- |
 | Pierwszy węzeł klastra ASCS/SCS klaster | ASCS-1 | 10.0.6.4 | ASCS — as |
 | Drugi węzeł klastra ASCS/SCS klaster | ASCS-2 | 10.0.6.5 | ASCS — as |
-| Nazwa sieci klastra |ASCS — CL | 10.0.6.6 | nie dotyczy |
-| Nazwa sieci klastra SAP PR1 ASCS |PR1 — ASCS | 10.0.6.7 | nie dotyczy |
+| Nazwa sieci klastra |ASCS — CL | 10.0.6.6 | n/d |
+| Nazwa sieci klastra SAP PR1 ASCS |PR1 — ASCS | 10.0.6.7 | n/d |
 
 
 **Tabela 1**: klaster ASCS/SCS
@@ -236,8 +237,8 @@ Przed rozpoczęciem instalacji zapoznaj się z następującym artykułem:
 | Pierwszy węzeł klastra | SOFS-1 | 10.0.6.10 | SOFS — as |
 | Drugi węzeł klastra | SOFS-2 | 10.0.6.11 | SOFS — as |
 | Trzeci węzeł klastra | SOFS-3 | 10.0.6.12 | SOFS — as |
-| Nazwa sieci klastra | SOFS — CL | 10.0.6.13 | nie dotyczy |
-| Nazwa hosta globalnego SAP | sapglobal | Używaj adresów IP wszystkich węzłów klastra | nie dotyczy |
+| Nazwa sieci klastra | SOFS — CL | 10.0.6.13 | n/d |
+| Nazwa hosta globalnego SAP | sapglobal | Używaj adresów IP wszystkich węzłów klastra | n/d |
 
 **Tabela 3**: klaster serwera plików Scale-Out
 
@@ -259,9 +260,9 @@ Aby przygotować infrastrukturę platformy Azure, wykonaj następujące czynnoś
 * W przypadku korzystania z systemu Windows Server 2016 zalecamy skonfigurowanie [monitora chmury platformy Azure][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Wdróż ręcznie klaster serwera plików Scale-Out 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Wdróż ręcznie klaster serwera plików Scale-Out 
 
-Klaster serwera plików Scale-Out firmy Microsoft można wdrożyć ręcznie, zgodnie z opisem w blogu [bezpośrednie miejsca do magazynowania na platformie Azure][ms-blog-s2d-in-azure], wykonując następujący kod:  
+Klaster serwera plików Scale-Out firmy Microsoft można wdrożyć ręcznie, zgodnie z opisem w blogu [bezpośrednie miejsca do magazynowania na platformie Azure][ms-blog-s2d-in-azure], wykonując następujący kod:  
 
 
 ```powershell

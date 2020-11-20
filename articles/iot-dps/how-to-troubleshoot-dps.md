@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646476"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950690"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Rozwiązywanie problemów z usługą Azure IoT Hub Device Provisioning Service
 
-Problemy z łącznością dla urządzeń IoT mogą być trudne do rozwiązania, ponieważ istnieje wiele możliwych punktów awarii, takich jak niepowodzenia zaświadczania, błędy rejestracji itp. Ten artykuł zawiera wskazówki dotyczące wykrywania i rozwiązywania problemów z łącznością urządzeń za pośrednictwem [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Problemy z łącznością dla urządzeń IoT mogą być trudne do rozwiązania, ponieważ istnieje wiele możliwych punktów awarii, takich jak niepowodzenia zaświadczania, błędy rejestracji itp. Ten artykuł zawiera wskazówki dotyczące wykrywania i rozwiązywania problemów z łącznością urządzeń za pośrednictwem [Azure monitor](../azure-monitor/overview.md).
 
 ## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Używanie Azure Monitor do wyświetlania metryk i konfigurowania alertów
 
@@ -81,5 +81,5 @@ Skorzystaj z tej tabeli, aby zrozumieć i rozwiązać typowe błędy.
 | 401 | Nie można zweryfikować tokenu autoryzacji; na przykład wygasła lub nie dotyczy identyfikatora URI żądania. Ten kod błędu jest również zwracany do urządzeń w ramach przepływu zaświadczania modułu TPM. | 401 Brak autoryzacji|
 | 404 | Wystąpienie usługi Device Provisioning lub zasób (np. Rejestracja) nie istnieje. |404 — Nie znaleziono |
 | 412 | Element ETag w żądaniu jest niezgodny z elementem ETag istniejącego zasobu, zgodnie z RFC7232. | 412 warunek wstępny nie powiódł się |
-| 429 | Operacje są ograniczane przez usługę. Aby uzyskać szczegółowe limity usługi, zobacz [limity IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 zbyt wiele żądań |
+| 429 | Operacje są ograniczane przez usługę. Aby uzyskać szczegółowe limity usługi, zobacz [limity IoT Hub Device Provisioning Service](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 zbyt wiele żądań |
 | 500 | Wystąpił błąd wewnętrzny. | 500 Wewnętrzny błąd serwera|

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18ffc5aa9c56451099afc4ddbe8b6ac5bd588974
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986251"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948769"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Wizualizowanie dzienników przepływu sieciowych grup zabezpieczeń usługi Azure Network Watcher przy użyciu narzędzi open source
 
@@ -41,7 +41,7 @@ W tym scenariuszu należy włączyć rejestrowanie przepływu sieciowej grupy za
 
 #### <a name="install-elasticsearch"></a>Zainstaluj Elasticsearch
 
-1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie, `java -version` Aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](https://aka.ms/azure-jdks).
+1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie, `java -version` Aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Pobierz poprawny pakiet binarny dla Twojego systemu:
 
    ```bash
@@ -239,7 +239,7 @@ Przykładowy pulpit nawigacyjny zawiera kilka wizualizacji dzienników przepływ
 
 Korzystając z paska zapytania w górnej części pulpitu nawigacyjnego, można filtrować pulpit nawigacyjny na podstawie dowolnego parametru przepływów, takich jak identyfikator subskrypcji, grupy zasobów, reguła lub jakakolwiek inna interesująca zmienna. Aby uzyskać więcej informacji o zapytaniach i filtrach Kibana, zapoznaj się z [oficjalną dokumentacją](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Łącząc dzienniki przepływu sieciowych grup zabezpieczeń z elastycznym stosem, mamy zaawansowaną i dostosowywalną metodę wizualizacji ruchu w sieci. Te pulpity nawigacyjne umożliwiają szybkie uzyskiwanie i udostępnianie szczegółowych informacji o ruchu sieciowym, a także filtrowanie i badanie wszelkich potencjalnych anomalii. Za pomocą Kibana można dostosować te pulpity nawigacyjne i utworzyć konkretne wizualizacje w celu spełnienia wszelkich potrzeb związanych z zabezpieczeniami, inspekcją i zgodnością.
 

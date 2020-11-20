@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426544"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948480"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
 
@@ -58,7 +58,7 @@ Aby sprawdzić role przypisane do użytkownika w ramach subskrypcji:
 
 3. Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika, użyj polecenie  **Get-AzRoleAssignment-SignInName [User email]-IncludeClassicAdministrators**. 
 
-Jeśli nie widzisz żadnych danych wyjściowych, skontaktuj się z administratorem subskrypcji, aby uzyskać dostęp do uruchamiania poleceń. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Jeśli nie widzisz żadnych danych wyjściowych, skontaktuj się z administratorem subskrypcji, aby uzyskać dostęp do uruchamiania poleceń. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>W jakich regionach świadczenia usługi Azure Analiza ruchu dostępne?
@@ -126,7 +126,7 @@ Tak.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Czy mogę użyć istniejącego obszaru roboczego?
 
-Tak. W przypadku wybrania istniejącego obszaru roboczego upewnij się, że został on zmigrowany do nowego języka zapytań. Jeśli nie chcesz uaktualnić obszaru roboczego, musisz utworzyć nowy. Aby uzyskać więcej informacji o nowym języku zapytań, zobacz artykuł [Azure Monitoring Logs Upgrade to New Search log](../log-analytics/log-analytics-log-search-upgrade.md).
+Tak. W przypadku wybrania istniejącego obszaru roboczego upewnij się, że został on zmigrowany do nowego języka zapytań. Jeśli nie chcesz uaktualnić obszaru roboczego, musisz utworzyć nowy. Aby uzyskać więcej informacji o nowym języku zapytań, zobacz artykuł [Azure Monitoring Logs Upgrade to New Search log](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Czy moje konto usługi Azure Storage znajduje się w jednej subskrypcji, a mój obszar roboczy Log Analytics należy do innej subskrypcji?
 
@@ -176,7 +176,7 @@ Widzisz informacje o zasobach na pulpicie nawigacyjnym; nie ma jednak żadnych s
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Czy można skonfigurować analizę ruchu przy użyciu programu PowerShell lub szablonu Azure Resource Manager lub klienta?
 
-Analiza ruchu można skonfigurować przy użyciu programu Windows PowerShell z wersji 6.2.1 lub nowszej. Aby skonfigurować rejestrowanie przepływu i analizę ruchu dla określonego sieciowej grupy zabezpieczeń przy użyciu polecenia cmdlet Set, zobacz [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Aby uzyskać informacje o rejestrowaniu przepływu i stanie analizy ruchu dla określonego sieciowej grupy zabezpieczeń, zobacz [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Analiza ruchu można skonfigurować przy użyciu programu Windows PowerShell z wersji 6.2.1 lub nowszej. Aby skonfigurować rejestrowanie przepływu i analizę ruchu dla określonego sieciowej grupy zabezpieczeń przy użyciu polecenia cmdlet Set, zobacz [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Aby uzyskać informacje o rejestrowaniu przepływu i stanie analizy ruchu dla określonego sieciowej grupy zabezpieczeń, zobacz [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Obecnie nie można użyć szablonu Azure Resource Manager w celu skonfigurowania analizy ruchu.
 
@@ -250,7 +250,7 @@ Na przykład zgodnie z [planem cenowym](https://azure.microsoft.com/pricing/deta
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Jak często Analiza ruchu są przetwarzane dane?
 
-Zapoznaj się z [sekcją agregacja danych](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) w artykule Analiza ruchu schematu i dokumentu agregacji danych
+Zapoznaj się z [sekcją agregacja danych](./traffic-analytics-schema.md#data-aggregation) w artykule Analiza ruchu schematu i dokumentu agregacji danych
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Jak Analiza ruchu decyduje o tym, że adres IP jest złośliwy? 
 
@@ -262,7 +262,7 @@ Analiza ruchu nie ma wbudowaną obsługę alertów. Jednak ponieważ Analiza ruc
 - Można użyć wypchnięty do Log Analytics w Analiza ruchu. 
 - Użyj [schematu udokumentowanego w tym miejscu](traffic-analytics-schema.md) , aby napisać zapytania 
 - Kliknij pozycję "Nowa reguła alertu", aby utworzyć alert
-- Zapoznaj się z [dokumentacją alertów dziennika](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) , aby utworzyć alert
+- Zapoznaj się z [dokumentacją alertów dziennika](../azure-monitor/platform/alerts-log.md) , aby utworzyć alert
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Jak mogę sprawdzić, które maszyny wirtualne odbierają większość ruchu lokalnego?
 
@@ -400,4 +400,4 @@ Na stronie topologia podsieci wirtualnych znajdują się dwie główne sekcje:
 - Po wybraniu dowolnego filtru na transparencie i naciśnięciu `Ctrl+F6` fokus zostanie przeniesiony do jednego z wyróżnionych węzłów (**podsieci**) w widoku topologii.
 - Aby przejść do innych wyróżnionych węzłów w widoku topologii, użyj `Shift+Right arrow` klawisza do przesunięcia do przodu. 
 - W zaznaczonych węzłach fokus jest przenoszony do **pola narzędzia informacji** dla węzła. Domyślnie fokus jest przenoszony do przycisku **więcej szczegółów** w **polu narzędzie informacji**. Aby dalej poruszać się wewnątrz widoku **pola** , użyj `Right arrow` klawiszy i, `Left arrow` Aby przenieść odpowiednio do przodu i do tyłu. Naciśnięcie klawisza `Enter` ma ten sam efekt, co wybranie priorytetowego przycisku w **polu narzędzie informacji**.
-- Po wybraniu takich węzłów można odwiedzać wszystkie jego połączenia, po jednym przez naciśnięcie `Shift+Left arrow` klawisza. Fokus jest przenoszony do **pola narzędzia informacji** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.    
+- Po wybraniu takich węzłów można odwiedzać wszystkie jego połączenia, po jednym przez naciśnięcie `Shift+Left arrow` klawisza. Fokus jest przenoszony do **pola narzędzia informacji** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.

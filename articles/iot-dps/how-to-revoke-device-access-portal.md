@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532345"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951081"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Jak wyrejestrować urządzenie z usługi Azure IoT Hub Device Provisioning Service
 
@@ -56,7 +56,7 @@ Po zakończeniu procedury należy zobaczyć, że wpis został usunięty z listy 
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Nie Zezwalaj na certyfikat pośredniego lub głównego urzędu certyfikacji X. 509 przy użyciu grupy rejestracji
 
-Certyfikaty X. 509 są zwykle uporządkowane w łańcuchu certyfikatów zaufania. Jeśli certyfikat na dowolnym etapie łańcucha zostanie naruszony, zaufanie jest zerwane. Certyfikat musi być niedozwolony, aby nie zezwalać usłudze Device Provisioning na dostęp do urządzeń, które znajdują się w dowolnym łańcuchu zawierającym ten certyfikat. Aby dowiedzieć się więcej o certyfikatach X. 509 i sposobach ich użycia w usłudze aprowizacji, zobacz [certyfikaty x. 509](./concepts-security.md#x509-certificates). 
+Certyfikaty X. 509 są zwykle uporządkowane w łańcuchu certyfikatów zaufania. Jeśli certyfikat na dowolnym etapie łańcucha zostanie naruszony, zaufanie jest zerwane. Certyfikat musi być niedozwolony, aby nie zezwalać usłudze Device Provisioning na dostęp do urządzeń, które znajdują się w dowolnym łańcuchu zawierającym ten certyfikat. Aby dowiedzieć się więcej o certyfikatach X. 509 i sposobach ich użycia w usłudze aprowizacji, zobacz [certyfikaty x. 509](./concepts-x509-attestation.md#x509-certificates). 
 
 Grupa rejestracji to wpis dla urządzeń, które korzystają ze wspólnego mechanizmu zaświadczania certyfikatów X. 509 podpisanych przez ten sam pośredni lub główny urząd certyfikacji. Wpis grupy rejestracji jest konfigurowany przy użyciu certyfikatu X. 509 skojarzonego z pośrednim lub głównym urzędem certyfikacji. Wpis jest również skonfigurowany z dowolnymi wartościami konfiguracji, takimi jak stan dwuosiowy i połączenie usługi IoT Hub, które są współużytkowane przez urządzenia z tym certyfikatem w łańcuchu certyfikatów. Aby nie zezwalać na certyfikat, można wyłączyć lub usunąć jego grupę rejestracji.
 
@@ -110,4 +110,4 @@ Po pomyślnym utworzeniu rejestracji na karcie **indywidualne rejestracje** powi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wyrejestrowanie jest również częścią większego procesu anulowania obsługi administracyjnej. Anulowanie aprowizacji urządzenia obejmuje zarówno Wyrejestrowanie z usługi Provisioning, jak i Wyrejestrowanie z Centrum IoT Hub. Aby dowiedzieć się więcej na temat pełnego procesu, zobacz [Jak anulować obsługę administracyjną urządzeń, które wcześniej były obsługiwane](how-to-unprovision-devices.md) . 
+Wyrejestrowanie jest również częścią większego procesu anulowania obsługi administracyjnej. Anulowanie aprowizacji urządzenia obejmuje zarówno Wyrejestrowanie z usługi Provisioning, jak i Wyrejestrowanie z Centrum IoT Hub. Aby dowiedzieć się więcej na temat pełnego procesu, zobacz [Jak anulować obsługę administracyjną urządzeń, które wcześniej były obsługiwane](how-to-unprovision-devices.md) .

@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089659"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949585"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Niestandardowa Weryfikacja poczty e-mail za pomocą Mailjet
 
 Użyj niestandardowych wiadomości e-mail w programie Azure Active Directory B2C (Azure AD B2C), aby wysyłać niestandardowe wiadomości e-mail do użytkowników, którzy logują się w celu korzystania z aplikacji. Korzystając z usługi [DisplayControls](display-controls.md) (obecnie w wersji zapoznawczej) i dostawcy poczty e-mail innej firmy Mailjet, można użyć własnego szablonu wiadomości e-mail oraz adresu *:* adres i temat, a także do obsługi lokalizacji i niestandardowych ustawień hasła jednorazowego (OTP).
 
-Niestandardowa Weryfikacja poczty e-mail wymaga użycia dostawcy poczty e-mail innej firmy, takiego jak [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md)lub [SPARKPOST](https://sparkpost.com), niestandardowy interfejs API REST lub dowolny dostawca poczty e-mail oparty na protokole HTTP (w tym własny). W tym artykule opisano konfigurowanie rozwiązania korzystającego z Mailjet.
+Niestandardowa Weryfikacja poczty e-mail wymaga użycia dostawcy poczty e-mail innej firmy, takiego jak [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)lub [SPARKPOST](https://sparkpost.com), niestandardowy interfejs API REST lub dowolny dostawca poczty e-mail oparty na protokole HTTP (w tym własny). W tym artykule opisano konfigurowanie rozwiązania korzystającego z Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -43,16 +43,16 @@ Następnie Zapisz klucz interfejsu API Mailjet w kluczu zasad Azure AD B2C, aby 
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Na stronie **Przegląd** wybierz pozycję **Struktura środowiska tożsamości**.
 1. Wybierz pozycję **klucze zasad**, a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje**wybierz pozycję **Ręczne**.
+1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
 1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetApiKey`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany **klucz interfejsu API** Mailjet.
-1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
+1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany **klucz interfejsu API** Mailjet.
+1. W obszarze **użycie klucza** wybierz pozycję **podpis**.
 1. Wybierz pozycję **Utwórz**.
 1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje**wybierz pozycję **Ręczne**.
+1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
 1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetSecretKey`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany **klucz tajny** Mailjet.
-1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
+1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany **klucz tajny** Mailjet.
+1. W obszarze **użycie klucza** wybierz pozycję **podpis**.
 1. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-mailjet-template"></a>Tworzenie szablonu Mailjet
@@ -159,9 +159,9 @@ Po utworzeniu konta Mailjet i kluczu interfejsu API Mailjet przechowywanego w kl
     ```
 
 1. Rozwiń pozycję **Edytuj temat** w lewym górnym rogu
-    1. W polu **temat**wprowadź wartość domyślną podmiotu. Mailjet używa tej wartości, gdy interfejs API nie zawiera parametru podmiotu.
-    1. W polu **Nazwa**wpisz nazwę firmy.
-    1. W polu **adres**wybierz swój adres e-mail
+    1. W polu **temat** wprowadź wartość domyślną podmiotu. Mailjet używa tej wartości, gdy interfejs API nie zawiera parametru podmiotu.
+    1. W polu **Nazwa** wpisz nazwę firmy.
+    1. W polu **adres** wybierz swój adres e-mail
     1. Wybierz pozycję **Zapisz**.
 1. W prawym górnym rogu wybierz pozycję **zapisz & Opublikuj**, a następnie pozycję **tak, Publikuj zmiany**
 1. Zapisz **Identyfikator szablonu** utworzonego do użycia w późniejszym kroku. Ten identyfikator należy określić podczas [dodawania transformacji oświadczeń](#add-the-claims-transformation).

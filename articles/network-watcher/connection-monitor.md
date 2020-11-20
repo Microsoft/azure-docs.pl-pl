@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef78766deb739791720838bb27649586da96152
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76834658"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948798"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Samouczek: monitorowanie komunikacji sieciowej między dwiema maszynami wirtualnymi przy użyciu witryny Azure Portal
 
-Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych
@@ -34,7 +34,7 @@ Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -93,7 +93,7 @@ Utwórz monitor połączeń na potrzeby monitorowania komunikacji na porcie TCP 
     | Ustawienie                  | Wartość               |
     | ---------                | ---------           |
     | Nazwa                     | myVm1-myVm2(22)     |
-    | Źródło                   |                     |
+    | Element źródłowy                   |                     |
     | Maszyna wirtualna          | myVm1               |
     | Element docelowy              |                     |
     | Wybierz maszynę wirtualną |                     |
@@ -129,7 +129,7 @@ Alerty są tworzone na podstawie reguł alertów na platformie Azure Monitor i m
 2. Kliknij pozycję **Wybierz element docelowy**, a następnie wybierz zasoby docelowe. Wybierz pozycję **Subskrypcja** i ustaw **Typ zasobu**, aby odfiltrować monitor połączeń, którego chcesz używać.
 
     ![ekran alertu z zaznaczonym elementem docelowym](./media/connection-monitor/set-alert-rule.png)
-1. Po wybraniu zasobu docelowego wybierz pozycję **Dodaj kryteria**. Usługa Network Watcher zawiera [metryki, na podstawie których można tworzyć alerty](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). W obszarze **Dostępne sygnały** ustaw metryki ProbesFailedPercent i AverageRoundtripMs:
+1. Po wybraniu zasobu docelowego wybierz pozycję **Dodaj kryteria**. Usługa Network Watcher zawiera [metryki, na podstawie których można tworzyć alerty](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). W obszarze **Dostępne sygnały** ustaw metryki ProbesFailedPercent i AverageRoundtripMs:
 
     ![strona alertów z zaznaczonymi sygnałami](./media/connection-monitor/set-alert-signals.png)
 1. Wypełnij szczegóły alertu, takie jak nazwa, opis i ważność reguły alertu. Do alertu możesz także dodać grupę akcji, aby zautomatyzować i dostosować reakcję na alert.
@@ -153,7 +153,7 @@ Domyślnie platforma Azure zezwala na komunikację na wszystkich portach między
     | Priorytet                | 100            |
     | Nazwa                    | DenySshInbound |
 
-5. Ponieważ monitor połączeń sonduje co 60 sekund, zaczekaj kilka minut, po lewej stronie portalu wybierz kolejno pozycje **Network Watcher** i **Monitor połączeń**, a następnie ponownie wybierz monitor ** myVm1-myVm2(22)**. Teraz wyniki są inne, jak pokazano na poniższej ilustracji:
+5. Ponieważ monitor połączeń sonduje co 60 sekund, zaczekaj kilka minut, po lewej stronie portalu wybierz kolejno pozycje **Network Watcher** i **Monitor połączeń**, a następnie ponownie wybierz monitor **myVm1-myVm2(22)**. Teraz wyniki są inne, jak pokazano na poniższej ilustracji:
 
     ![Błąd szczegółów monitora](./media/connection-monitor/vm-monitor-fault.png)
 

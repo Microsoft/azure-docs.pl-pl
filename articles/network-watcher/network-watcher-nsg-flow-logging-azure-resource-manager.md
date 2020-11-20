@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db4d4ae56a5a0ee0c92de5d9822614a3270b1c5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738145"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948684"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń na podstawie szablonu Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Witryna Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [Program PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [Interfejs API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) to natywny i zaawansowany sposób zarządzania [infrastrukturą jako kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) to natywny i zaawansowany sposób zarządzania [infrastrukturą jako kod](/azure/devops/learn/what-is-infrastructure-as-code).
 
-W tym artykule przedstawiono sposób programowego włączania [dzienników usługi sieciowej grupy zabezpieczeń Flow](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) przy użyciu szablonu Azure Resource Manager i Azure PowerShell. Zaczynamy od udostępnienia przeglądu właściwości obiektu dziennika przepływu sieciowej grupy zabezpieczeń, po którym następuje kilka przykładowych szablonów. Następnie wdrażamy szablon przy użyciu lokalnego wystąpienia programu PowerShell.
+W tym artykule przedstawiono sposób programowego włączania [dzienników usługi sieciowej grupy zabezpieczeń Flow](./network-watcher-nsg-flow-logging-overview.md) przy użyciu szablonu Azure Resource Manager i Azure PowerShell. Zaczynamy od udostępnienia przeglądu właściwości obiektu dziennika przepływu sieciowej grupy zabezpieczeń, po którym następuje kilka przykładowych szablonów. Następnie wdrażamy szablon przy użyciu lokalnego wystąpienia programu PowerShell.
 
 
 ## <a name="nsg-flow-logs-object"></a>Obiekt dzienników przepływu sieciowej grupy zabezpieczeń
 
 Obiekt dzienników przepływu sieciowej grupy zabezpieczeń ze wszystkimi parametrami jest przedstawiony poniżej.
-Pełny przegląd właściwości można znaleźć w [dokumentacji szablonów przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Pełny przegląd właściwości można znaleźć w [dokumentacji szablonów przepływu sieciowej grupy zabezpieczeń](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -76,8 +76,8 @@ Aby utworzyć zasób Microsoft. Network/networkWatchers/flowLogs, Dodaj powyższ
 
 Jeśli używasz szablonów Azure Resource Manager po raz pierwszy, możesz dowiedzieć się więcej na ich temat, korzystając z poniższych linków.
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 Poniżej przedstawiono dwa przykłady kompletnych szablonów służących do konfigurowania dzienników przepływów sieciowej grupy zabezpieczeń.
@@ -172,14 +172,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Weryfikowanie wdrożenia
 
-Istnieje kilka sposobów, aby sprawdzić, czy wdrożenie zakończyło się pomyślnie. W konsoli programu PowerShell powinna zostać wyświetlona wartość "ProvisioningState" ("powodzenie"). Ponadto możesz odwiedzić [stronę portalu sieciowej grupy zabezpieczeń Flow Logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) , aby potwierdzić zmiany. Jeśli wystąpiły problemy ze wdrożeniem, zapoznaj się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Istnieje kilka sposobów, aby sprawdzić, czy wdrożenie zakończyło się pomyślnie. W konsoli programu PowerShell powinna zostać wyświetlona wartość "ProvisioningState" ("powodzenie"). Ponadto możesz odwiedzić [stronę portalu sieciowej grupy zabezpieczeń Flow Logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) , aby potwierdzić zmiany. Jeśli wystąpiły problemy ze wdrożeniem, zapoznaj się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## <a name="deleting-your-resource"></a>Usuwanie zasobu
-System Azure umożliwia usunięcie zasobów w trybie wdrożenia "Complete". Aby usunąć zasób dzienniki przepływów, określ wdrożenie w trybie kompletnym bez uwzględniania zasobu, który chcesz usunąć. Przeczytaj więcej na temat [całego trybu wdrożenia](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
+System Azure umożliwia usunięcie zasobów w trybie wdrożenia "Complete". Aby usunąć zasób dzienniki przepływów, określ wdrożenie w trybie kompletnym bez uwzględniania zasobu, który chcesz usunąć. Przeczytaj więcej na temat [całego trybu wdrożenia](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak wizualizować dane przepływu usługi sieciowej grupy zabezpieczeń przy użyciu:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Narzędzia Open Source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Analiza ruchu platformy Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Analiza ruchu platformy Azure](./traffic-analytics.md)

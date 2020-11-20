@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531393"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950733"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane samoobsługowo 
 
@@ -25,7 +25,7 @@ Ogólnie rzecz biorąc, cofanie aprowizacji urządzenia obejmuje dwie czynności
    - Aby dowiedzieć się, jak wyrejestrować urządzenie, zobacz [Jak wyrejestrować urządzenie z usługi Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
    - Aby dowiedzieć się, jak wyrejestrować urządzenie programowo przy użyciu jednego z zestawów SDK usługi aprowizacji, zobacz [Zarządzanie rejestracjami urządzeń za pomocą zestawów SDK usług](how-to-manage-enrollments-sdks.md).
 
-2. Wyrejestruj urządzenie z IoT Hub, aby uniemożliwić komunikację w przyszłości i transfer danych. Ponownie można tymczasowo wyłączyć lub trwale usunąć wpis urządzenia w rejestrze tożsamości dla IoT Hub, w którym Zainicjowano obsługę administracyjną. Aby dowiedzieć się więcej o wyłączaniu, zobacz temat [wyłączanie urządzeń](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) . Zapoznaj się z tematem "Zarządzanie urządzeniami/urządzenia IoT" dla zasobu IoT Hub w [Azure Portal](https://portal.azure.com).
+2. Wyrejestruj urządzenie z IoT Hub, aby uniemożliwić komunikację w przyszłości i transfer danych. Ponownie można tymczasowo wyłączyć lub trwale usunąć wpis urządzenia w rejestrze tożsamości dla IoT Hub, w którym Zainicjowano obsługę administracyjną. Aby dowiedzieć się więcej o wyłączaniu, zobacz temat [wyłączanie urządzeń](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) . Zapoznaj się z tematem "Zarządzanie urządzeniami/urządzenia IoT" dla zasobu IoT Hub w [Azure Portal](https://portal.azure.com).
 
 Dokładne kroki wykonywane w celu anulowania aprowizacji urządzenia zależą od jego mechanizmu zaświadczania i odpowiedniego wpisu rejestracji w usłudze aprowizacji. Poniższe sekcje zawierają omówienie procesu na podstawie typu rejestracji i zaświadczania.
 
@@ -63,4 +63,4 @@ W przypadku grup rejestracji istnieją dwa scenariusze, które należy wziąć p
 
 - Aby anulować obsługę administracyjną pojedynczego urządzenia z grupy rejestracji:
   1. Utwórz wyłączoną rejestrację indywidualną dla swojego certyfikatu liścia (urządzenia). Spowoduje to odwołanie dostępu do usługi aprowizacji dla tego urządzenia, pozostawiając jednocześnie dostęp do innych urządzeń, które mają certyfikat podpisywania grupy rejestracji w łańcuchu. Nie usuwaj wyłączonej rejestracji indywidualnej dla urządzenia. Pozwoli to na ponowne zarejestrowanie urządzenia za pomocą grupy rejestracji. 
-  2. Aby znaleźć centrum IoT, do którego zainicjowano urządzenie i wyłączyć lub usunąć je z rejestru tożsamości centrum, należy użyć listy urządzeń, które zostały zainicjowane dla tej grupy rejestracji. 
+  2. Aby znaleźć centrum IoT, do którego zainicjowano urządzenie i wyłączyć lub usunąć je z rejestru tożsamości centrum, należy użyć listy urządzeń, które zostały zainicjowane dla tej grupy rejestracji.

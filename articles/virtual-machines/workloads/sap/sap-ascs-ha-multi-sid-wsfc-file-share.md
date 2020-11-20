@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b204aa508370c62aaf33688aeb7ec63d3f8f1b0e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855211"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950622"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem klastra trybu failover systemu Windows Server i udziału plików na platformie Azure
 
@@ -71,13 +72,13 @@ Celem jest zainstalowanie wielu klastrowanych wystąpień programu SAP Advanced 
 
 _**Rysunek 2.** Konfiguracja z użyciem protokołu SAP w dwóch klastrach_
 
-Instalacja dodatkowego systemu ** \<SID2> SAP** jest taka sama jak instalacja jednego \<SID> systemu. W klastrze ASCS/SCS wymagane są dwa dodatkowe kroki przygotowania, a także w klastrze udział plików SOFS.
+Instalacja dodatkowego systemu **\<SID2> SAP** jest taka sama jak instalacja jednego \<SID> systemu. W klastrze ASCS/SCS wymagane są dwa dodatkowe kroki przygotowania, a także w klastrze udział plików SOFS.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Przygotowywanie infrastruktury dla scenariusza z obsługą protokołu SAP o wiele identyfikatorów SID
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Przygotowywanie infrastruktury na kontrolerze domeny
 
-Utwórz grupę domen ** \<Domain> \ SAP_ \<SID2> _GlobalAdmin**, na przykład za pomocą wartości \<SID2> = PR2. Nazwa grupy domen to \<Domain> \ SAP_PR2_GlobalAdmin.
+Utwórz grupę domen **\<Domain> \ SAP_ \<SID2> _GlobalAdmin**, na przykład za pomocą wartości \<SID2> = PR2. Nazwa grupy domen to \<Domain> \ SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Przygotowywanie infrastruktury w klastrze ASCS/SCS
 
@@ -259,7 +260,7 @@ _**Rysunek 10.** Wyłącz wszystkie ustawienia_
 <br>
 
 Przypisz uprawnienia *pełna kontrola* do plików i udziału sapmnt dla:
-* Grupa użytkowników domeny ** \<SID> _GlobalAdmin SAP_**
+* Grupa użytkowników domeny **\<SID> _GlobalAdmin SAP_**
 * Obiekt komputera ASCS/SCS węzły klastra **ASCS-$1** i **ASCS-$2**
 
 ![Ilustracja 11. Przypisywanie uprawnień Pełna kontrola do kont grup użytkowników i komputerów][sap-ha-guide-figure-8022]

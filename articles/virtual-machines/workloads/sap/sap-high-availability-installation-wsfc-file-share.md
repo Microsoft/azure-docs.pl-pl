@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a6d3d4c791cebdee02d7d2c739be3b32b8086ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7df3934862efa9798735d0c163f7fb1bac98423
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760893"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951047"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalowanie rozwiązania SAP NetWeaver o wysokiej dostępności w klastrze trybu failover systemu Windows i udziału plików dla wystąpień SAP ASCS/SCS na platformie Azure
 
@@ -309,12 +310,12 @@ Skonfiguruj zasób klastra SAP, port sondy SAP-SID-IP przy użyciu programu Powe
 
 Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Aby zainstalować wystąpienie, w narzędziu instalacji SAP SWPM przejdź do:
 
-**\<Product>** > **\<DBMS>** > **Instalacja**  >  **Serwer aplikacji ABAP** (lub **Java**) > **High-Availability System**  >  **ASCS/SCS instance**  >  **dodatkowym węźle klastra**o wysokiej dostępności ASCS/SCS.
+**\<Product>** > **\<DBMS>** > **Instalacja**  >  **Serwer aplikacji ABAP** (lub **Java**) > **High-Availability System**  >  **ASCS/SCS instance**  >  **dodatkowym węźle klastra** o wysokiej dostępności ASCS/SCS.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Aktualizowanie profilu wystąpienia SAP ASCS/SCS
 
-Zaktualizuj parametry w profilu wystąpienia SAP ASCS/SCS \<SID> _ASCS/SCS \<Nr> _ \<Host> .
+Zaktualizuj parametry w profilu wystąpienia SAP ASCS/SCS \<SID> _ASCS/SCS \<Nr>_ \<Host> .
 
 
 | Nazwa parametru | Wartość parametru |

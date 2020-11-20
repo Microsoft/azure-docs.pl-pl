@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084315"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949721"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Poniższe najlepsze rozwiązania i zalecenia dotyczą niektórych podstawowych a
 | Najlepsze rozwiązanie | Opis |
 |--|--|
 | Wybieranie przepływów użytkownika dla większości scenariuszy | Platforma obsługi tożsamości Azure AD B2C jest podstawową siłą usługi. Zasady w pełni opisują środowiska tożsamości, takie jak rejestrowanie, logowanie lub edytowanie profilów. Aby ułatwić skonfigurowanie najczęstszych zadań związanych z tożsamościami, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie przepływy użytkownika. Korzystając z przepływów użytkowników, możesz tworzyć wspaniałe środowiska użytkownika w kilka minut za pomocą zaledwie kilku kliknięć. [Dowiedz się, kiedy używać przepływów użytkowników a zasad niestandardowych](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
-| Rejestracje aplikacji | Wszystkie aplikacje (w sieci Web, natywny) i interfejs API, które są zabezpieczane, muszą być zarejestrowane w Azure AD B2C. Jeśli aplikacja ma zarówno wersję sieci Web, jak i natywną systemu iOS i Android, można zarejestrować je jako jedną aplikację w Azure AD B2C z tym samym IDENTYFIKATORem klienta. Dowiedz się [, jak zarejestrować aplikacje OIDC, SAML, Web i Native](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications). Dowiedz się więcej o [typach aplikacji, których można używać w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/application-types). |
+| Rejestracje aplikacji | Wszystkie aplikacje (w sieci Web, natywny) i interfejs API, które są zabezpieczane, muszą być zarejestrowane w Azure AD B2C. Jeśli aplikacja ma zarówno wersję sieci Web, jak i natywną systemu iOS i Android, można zarejestrować je jako jedną aplikację w Azure AD B2C z tym samym IDENTYFIKATORem klienta. Dowiedz się [, jak zarejestrować aplikacje OIDC, SAML, Web i Native](./tutorial-register-applications.md?tabs=applications). Dowiedz się więcej o [typach aplikacji, których można używać w Azure AD B2C](./application-types.md). |
 | Przechodzenie do rozliczania miesięcznie aktywnych użytkowników | Azure AD B2C została przeniesiona z comiesięcznych aktywnych uwierzytelnień na miesięczne rozliczenia aktywnych użytkowników (MAU). Większość klientów znajdzie ten model ekonomicznie. [Dowiedz się więcej o comiesięcznych rozliczeniach aktywnych użytkowników](https://azure.microsoft.com/updates/mau-billing/). |
 
 ## <a name="planning-and-design"></a>Planowanie i projektowanie
@@ -53,7 +53,7 @@ W fazie wdrażania należy wziąć pod uwagę następujące zalecenia.
 | Najlepsze rozwiązanie | Opis |
 |--|--|
 | Edytuj zasady niestandardowe z rozszerzeniem Azure AD B2C dla Visual Studio Code | Pobierz Visual Studio Code i to [rozszerzenie utworzone przez społeczność z witryny Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Chociaż nie jest to oficjalny produkt firmy Microsoft, rozszerzenie Azure AD B2C dla Visual Studio Code zawiera kilka funkcji, które ułatwiają pracę z zasadami niestandardowymi. |
-| Dowiedz się, jak rozwiązywać problemy Azure AD B2C | Dowiedz się, jak [rozwiązywać problemy z zasadami niestandardowymi](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) podczas projektowania. Dowiedz się, jak wygląda normalny przepływ uwierzytelniania i korzystaj z narzędzi do wykrywania anomalii i błędów. Na przykład użyj [Application Insights](troubleshoot-with-application-insights.md) , aby przejrzeć dzienniki wyjściowe podróży użytkownika. |
+| Dowiedz się, jak rozwiązywać problemy Azure AD B2C | Dowiedz się, jak [rozwiązywać problemy z zasadami niestandardowymi](./troubleshoot-custom-policies.md?tabs=applications) podczas projektowania. Dowiedz się, jak wygląda normalny przepływ uwierzytelniania i korzystaj z narzędzi do wykrywania anomalii i błędów. Na przykład użyj [Application Insights](troubleshoot-with-application-insights.md) , aby przejrzeć dzienniki wyjściowe podróży użytkownika. |
 | Skorzystaj z naszej biblioteki sprawdzonych wzorców zasad niestandardowych | Znajdź [przykłady](https://github.com/azure-ad-b2c/samples) kilku ulepszonych Azure AD B2C użytkowników zarządzania tożsamościami i dostępem klientów (CIAM). |
 
 ## <a name="testing"></a>Testowanie
@@ -64,7 +64,7 @@ Przetestuj i automatyzuj implementację Azure AD B2C.
 |--|--|
 | Konto dla ruchu globalnego | Użyj źródeł ruchu z różnych adresów globalnych, aby przetestować wymagania dotyczące wydajności i lokalizacji. Upewnij się, że wszystkie pliki HTML, CSS i zależności mogą spełniać wymagania dotyczące wydajności. |
 | Testowanie funkcjonalne i interfejsu użytkownika | Przetestuj przepływy użytkowników na całym końcu. Dodaj testy syntetyczne co kilka minut przy użyciu protokołu selen, test sieci Web programu VS itd. |
-| Testowanie piórem | Przed rozpoczęciem korzystania z rozwiązania należy wykonać ćwiczenia testowania penetracji w celu sprawdzenia, czy wszystkie składniki są bezpieczne, w tym wszystkich zależności innych firm. Upewnij się, że interfejsy API zostały zabezpieczone przy użyciu tokenów dostępu i używasz właściwego protokołu uwierzytelniania dla scenariusza aplikacji. Dowiedz się więcej o [testowaniu penetracji](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) i [Microsoft Cloud ujednolicone reguły testowania penetracji](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1). |
+| Testowanie piórem | Przed rozpoczęciem korzystania z rozwiązania należy wykonać ćwiczenia testowania penetracji w celu sprawdzenia, czy wszystkie składniki są bezpieczne, w tym wszystkich zależności innych firm. Upewnij się, że interfejsy API zostały zabezpieczone przy użyciu tokenów dostępu i używasz właściwego protokołu uwierzytelniania dla scenariusza aplikacji. Dowiedz się więcej o [testowaniu penetracji](../security/fundamentals/pen-testing.md) i [Microsoft Cloud ujednolicone reguły testowania penetracji](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1). |
 | Testowanie A/B | Przed przeprowadzeniem całego wypełniania, aby przetworzyć nowe funkcje przy użyciu małego, losowego zestawu użytkowników. Dzięki włączeniu języka JavaScript w Azure AD B2C można zintegrować z narzędziami do testowania/B, takimi jak optymalizacja, przejrzystość i inne. |
 | Testowanie obciążeniowe | Azure AD B2C można skalować, ale aplikacja może skalować się tylko wtedy, gdy wszystkie jej zależności można skalować. Przetestuj testowanie interfejsów API i sieci CDN. |
 | Ograniczanie przepływności |  Azure AD B2C ogranicza ruch, jeśli zbyt wiele żądań jest wysyłanych z tego samego źródła w krótkim czasie. Używaj kilku źródeł ruchu podczas testowania obciążenia i `AADB2C90229` łagodnie Obsługuj kod błędu w aplikacjach. |
@@ -78,10 +78,10 @@ Zarządzaj środowiskiem Azure AD B2C.
 |--|--|
 | Tworzenie wielu środowisk | Aby ułatwić wykonywanie operacji i wdrażania, Utwórz osobne środowiska na potrzeby opracowywania, testowania, przedprodukcyjnego i produkcyjnego. Utwórz Azure AD B2C dzierżawców dla każdej z nich. |
 | Używanie kontroli wersji dla zasad niestandardowych | Należy rozważyć użycie usługi GitHub, Azure Repos lub innego systemu kontroli wersji opartej na chmurze dla zasad niestandardowych Azure AD B2C. |
-| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (zasady niestandardowe)<br/>[Klucze](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Przepływy użytkownika](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
+| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](/graph/api/resources/trustframeworkpolicy?preserve-view=true&view=graph-rest-beta) (zasady niestandardowe)<br/>[Klucze](/graph/api/resources/trustframeworkkeyset?preserve-view=true&view=graph-rest-beta)<br/>[Przepływy użytkowników](/graph/api/resources/identityuserflow?preserve-view=true&view=graph-rest-beta) |
 | Integracja z usługą Azure DevOps | [Potok](deploy-custom-policies-devops.md) ciągłej integracji i ciągłego wdrażania umożliwia łatwe i szybkie przemieszczanie kodu między różnymi środowiskami.   |
 | Integracja z usługą Azure Monitor | [Zdarzenia dziennika inspekcji](view-audit-logs.md) są przechowywane tylko przez siedem dni. [Integracja z usługą Azure monitor](azure-monitor.md) w celu przechowywania dzienników do długoterminowego użytku lub integracji z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń innych firm (Siem) w celu uzyskania szczegółowych informacji o środowisku. |
-| Skonfiguruj aktywne alerty i monitorowanie | [Śledź zachowanie użytkowników](active-directory-b2c-custom-guide-eventlogger-appins.md) w Azure AD B2C przy użyciu Application Insights. |
+| Skonfiguruj aktywne alerty i monitorowanie | [Śledź zachowanie użytkowników](./analytics-with-application-insights.md) w Azure AD B2C przy użyciu Application Insights. |
 
 ## <a name="support-and-status-updates"></a>Aktualizacje pomocy technicznej i stanu
 

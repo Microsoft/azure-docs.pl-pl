@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978224"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950367"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -150,7 +151,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
         - Aby uniknąć przekroczenia limitu czasu GRAFICZNEgo interfejsu użytkownika między lokalnymi interfejsami i warstwami aplikacji SAP wdrożonymi na platformie Azure, sprawdź, czy te parametry są ustawione w domyślnym. pfl lub profilu wystąpienia:
             - rdisp/keepalive_timeout = 3600
             - rdisp/utrzymywanie aktywności = 20
-        - Aby zapobiec zakłóceniom ustanowionych połączeń między procesem kolejkowania SAP a procesami roboczymi SAP, należy ustawić **wartość true**dla parametru **umieścić/encni/set_so_keepalive** . Zobacz również artykuł [SAP uwagi #2743751](https://launchpad.support.sap.com/#/notes/2743751).  
+        - Aby zapobiec zakłóceniom ustanowionych połączeń między procesem kolejkowania SAP a procesami roboczymi SAP, należy ustawić **wartość true** dla parametru **umieścić/encni/set_so_keepalive** . Zobacz również artykuł [SAP uwagi #2743751](https://launchpad.support.sap.com/#/notes/2743751).  
         - Jeśli używasz konfiguracji klastra trybu failover systemu Windows, upewnij się, że czas reakcji na węzły, które nie odpowiada, jest ustawiony poprawnie dla platformy Azure. [Próg sieci klastra trybu failover dostrajania](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) zawiera listę parametrów i ich wpływ na sensitivities pracy awaryjnej. Przy założeniu, że węzły klastra znajdują się w tej samej podsieci, należy zmienić następujące parametry:
             - SameSubNetDelay = 2000
             - SameSubNetThreshold = 15

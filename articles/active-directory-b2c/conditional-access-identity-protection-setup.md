@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309784"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949772"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Konfigurowanie ochrony tożsamości i dostępu warunkowego w Azure AD B2C
 
@@ -26,7 +26,7 @@ Program Identity Protection zapewnia stałe wykrywanie ryzyka dla dzierżawy Azu
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Dzierżawca Azure AD B2C musi być [połączony z subskrypcją usługi Azure AD](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Aby można było korzystać z dostępu warunkowego opartego na ryzyku i użytkownika, Azure AD B2C Premium P2. W razie potrzeby [Zmień warstwę cenową Azure AD B2C na Premium P2](https://aka.ms/exid-pricing-tier). 
+- Aby można było korzystać z dostępu warunkowego opartego na ryzyku i użytkownika, Azure AD B2C Premium P2. W razie potrzeby [Zmień warstwę cenową Azure AD B2C na Premium P2](./billing.md). 
 - Aby zarządzać usługą Identity Protection i dostępem warunkowym w dzierżawie B2C, musisz mieć konto przypisane do roli administratora globalnego lub administratora zabezpieczeń.
 - Aby korzystać z tych funkcji w dzierżawie, musisz najpierw przełączyć się do warstwy cenowej "Azure AD B2C Premium P2".
 
@@ -56,11 +56,11 @@ Następujące wykrycia ryzyka są obecnie obsługiwane w przypadku Azure AD B2C:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 
-1. W obszarze **zabezpieczenia**wybierz pozycję **ryzykowni użytkownicy (wersja zapoznawcza)**.
+1. W obszarze **zabezpieczenia** wybierz pozycję **ryzykowni użytkownicy (wersja zapoznawcza)**.
 
    ![Ryzykowni użytkownicy](media/conditional-access-identity-protection-setup/risky-users.png)
 
-1. W obszarze **zabezpieczenia**wybierz pozycję **wykrywanie ryzyka (wersja zapoznawcza)**.
+1. W obszarze **zabezpieczenia** wybierz pozycję **wykrywanie ryzyka (wersja zapoznawcza)**.
 
    ![Wykrycia ryzyka](media/conditional-access-identity-protection-setup/risk-detections.png)
 
@@ -92,7 +92,7 @@ Aby dodać zasady dostępu warunkowego oparte na wykryciu ryzyka ochrony tożsam
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 
-1. W obszarze **zabezpieczenia**wybierz pozycję **dostęp warunkowy (wersja zapoznawcza)**. Zostanie otwarta strona **zasady dostępu warunkowego** . 
+1. W obszarze **zabezpieczenia** wybierz pozycję **dostęp warunkowy (wersja zapoznawcza)**. Zostanie otwarta strona **zasady dostępu warunkowego** . 
 
 1. Wybierz pozycję **nowe zasady** i postępuj zgodnie z dokumentacją dostępu warunkowego usługi Azure AD, aby utworzyć nowe zasady. Poniżej przedstawiono przykład:
 
@@ -105,10 +105,10 @@ Aby dodać zasady dostępu warunkowego oparte na wykryciu ryzyka ochrony tożsam
 
 1. Utwórz zasady dostępu warunkowego, jak wspomniano powyżej, z następującymi ustawieniami:
    
-   - W przypadku **użytkowników i grup**wybierz użytkownika testowego. Nie zaznaczaj opcji **Wszyscy użytkownicy** lub Zablokuj się przed zalogowaniem się.
-   - W przypadku **aplikacji lub akcji w chmurze**wybierz **pozycję Wybierz aplikacje**, a następnie wybierz aplikację jednostki uzależnionej.
-   - W obszarze warunki wybierz pozycję **ryzyko związane z logowaniem** i **wysoki**, **Średni**i **niski** poziom ryzyka.
-   - W obszarze **Udziel**wybierz opcję **Blokuj dostęp**.
+   - W przypadku **użytkowników i grup** wybierz użytkownika testowego. Nie zaznaczaj opcji **Wszyscy użytkownicy** lub Zablokuj się przed zalogowaniem się.
+   - W przypadku **aplikacji lub akcji w chmurze** wybierz **pozycję Wybierz aplikacje**, a następnie wybierz aplikację jednostki uzależnionej.
+   - W obszarze warunki wybierz pozycję **ryzyko związane z logowaniem** i **wysoki**, **Średni** i **niski** poziom ryzyka.
+   - W obszarze **Udziel** wybierz opcję **Blokuj dostęp**.
 
       ![Wybierz pozycję Blokuj dostęp](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
@@ -130,7 +130,7 @@ Aby sprawdzić wynik zdarzenia dostępu warunkowego:
 
 3. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 
-4. W obszarze **działania**wybierz pozycję **dzienniki inspekcji**.
+4. W obszarze **działania** wybierz pozycję **dzienniki inspekcji**.
 
 5. Przefiltruj dziennik inspekcji, ustawiając **kategorię** na **B2C** i ustawiając **Typ zasobu działania** na **IdentityProtection**. Następnie wybierz przycisk **Zastosuj**.
 

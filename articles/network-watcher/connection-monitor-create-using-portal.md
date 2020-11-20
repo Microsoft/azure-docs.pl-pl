@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699376"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949194"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń przy użyciu Azure Portal
 
 Dowiedz się, jak używać monitora połączeń do monitorowania komunikacji między zasobami. W tym artykule opisano sposób tworzenia monitora przy użyciu Azure Portal. Monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz 
+## <a name="before-you-begin"></a>Przed rozpoczęciem 
 
 W monitorach połączeń utworzonych przy użyciu monitora połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub w innym adresie URL lub IP.
 
@@ -102,7 +102,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
 
 * **Wyłącz grupę testową**: można zaznaczyć to pole wyboru, aby wyłączyć monitorowanie dla wszystkich źródeł i miejsc docelowych, które określa Grupa testowa. Ten wybór jest domyślnie wyczyszczony.
 * **Nazwa**: nadaj nazwę grupie testowej.
-* **Źródła**: można określić maszyny wirtualne platformy Azure i maszyny lokalne jako źródła, jeśli agenci są na nich zainstalowani. Aby dowiedzieć się więcej o instalowaniu agenta dla źródła, zobacz [Instalowanie agentów monitorowania](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Źródła**: można określić maszyny wirtualne platformy Azure i maszyny lokalne jako źródła, jeśli agenci są na nich zainstalowani. Aby dowiedzieć się więcej o instalowaniu agenta dla źródła, zobacz [Instalowanie agentów monitorowania](./connection-monitor-overview.md#install-monitoring-agents).
    * Aby wybrać agentów platformy Azure, wybierz kartę **punkty końcowe platformy Azure** . W tym miejscu są wyświetlane tylko maszyny wirtualne, które są powiązane z regionem określonym podczas tworzenia monitora połączeń. Domyślnie maszyny wirtualne są pogrupowane w subskrypcję, do której należą. Te grupy są zwinięte. 
    
        Możesz przejść do szczegółów z poziomu **subskrypcji** na inne poziomy w hierarchii:
@@ -117,7 +117,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
 
    * Aby wybrać agentów lokalnych, wybierz kartę **punkty końcowe inne niż Azure** . Domyślnie agenci są pogrupowani w obszary robocze według regionów. Wszystkie te obszary robocze mają skonfigurowaną Network Performance Monitor. 
    
-       Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+       Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). 
    
        W obszarze **Utwórz monitor połączeń** na karcie **podstawowe** jest wybierany region domyślny. Jeśli zmienisz region, możesz wybrać agentów z obszarów roboczych w nowym regionie. Można wybrać co najmniej jednego agenta lub podsieci. W widoku **podsieci** można wybrać określone adresy IP do monitorowania. W przypadku dodania wielu podsieci zostanie utworzona niestandardowa sieć lokalna o nazwie **OnPremises_Network_1** . Możesz również zmienić selektor **Grupuj według** , aby grupować według agentów.
 
@@ -140,7 +140,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
     
     * Aby wybrać agentów nienależących do platformy Azure jako miejsca docelowe, wybierz kartę **punkty końcowe spoza platformy Azure** . Domyślnie agenci są pogrupowani w obszary robocze według regionów. Wszystkie te obszary robocze mają skonfigurowane Network Performance Monitor. 
     
-      Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z witryny Azure Marketplace. Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+      Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z witryny Azure Marketplace. Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). 
 
       W obszarze **Utwórz monitor połączeń** na karcie **podstawowe**   jest wybierany region domyślny. Jeśli zmienisz region, możesz wybrać agentów z obszarów roboczych w nowym regionie. Można wybrać co najmniej jednego agenta lub podsieci. W widoku **podsieci** można wybrać określone adresy IP do monitorowania. W przypadku dodania wielu podsieci zostanie utworzona niestandardowa sieć lokalna o nazwie **OnPremises_Network_1** .  
 
@@ -182,7 +182,7 @@ W Azure Portal, aby utworzyć alerty dla monitora połączeń, należy określi�
 
 - **Nazwa warunku**: alert jest tworzony w ramach `Test Result(preview)` metryki. Gdy wynik testu monitora połączeń ma wynik niepowodzeniem, reguła alertu zostanie wyzwolona. 
 
-- **Nazwa grupy akcji**: możesz wprowadzić swój adres e-mail bezpośrednio lub można utworzyć alerty za pomocą grup akcji. Jeśli adres e-mail zostanie wprowadzony bezpośrednio, zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** . Identyfikator e-mail zostanie dodany do tej grupy akcji. W przypadku wybrania opcji używania grup akcji należy wybrać wcześniej utworzoną grupę akcji. Aby dowiedzieć się, jak utworzyć grupę akcji, zobacz [Tworzenie grup akcji w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Po utworzeniu alertu możesz [zarządzać alertami](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Nazwa grupy akcji**: możesz wprowadzić swój adres e-mail bezpośrednio lub można utworzyć alerty za pomocą grup akcji. Jeśli adres e-mail zostanie wprowadzony bezpośrednio, zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** . Identyfikator e-mail zostanie dodany do tej grupy akcji. W przypadku wybrania opcji używania grup akcji należy wybrać wcześniej utworzoną grupę akcji. Aby dowiedzieć się, jak utworzyć grupę akcji, zobacz [Tworzenie grup akcji w Azure Portal](../azure-monitor/platform/action-groups.md). Po utworzeniu alertu możesz [zarządzać alertami](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nazwa reguły alertu**: Nazwa monitora połączeń.
 
@@ -201,5 +201,5 @@ Te limity skali są monitorowane przez monitory połączeń:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się [, jak analizować dane monitorowania i ustawiać alerty](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Dowiedz się [, jak zdiagnozować problemy w sieci](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Dowiedz się [, jak analizować dane monitorowania i ustawiać alerty](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Dowiedz się [, jak zdiagnozować problemy w sieci](./connection-monitor-overview.md#diagnose-issues-in-your-network).

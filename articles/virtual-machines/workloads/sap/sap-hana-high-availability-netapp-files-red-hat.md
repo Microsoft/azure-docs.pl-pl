@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f107ba4dd0150e9727183d0bd334c9279de17337
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144192"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950010"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowanie Azure NetApp Files na Red Hat Enterprise Linux
 
@@ -51,7 +52,7 @@ ms.locfileid: "92144192"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-W tym artykule opisano sposób konfigurowania replikacji systemu SAP HANA w ramach wdrożenia skalowalnego w poziomie, gdy systemy plików HANA są instalowane za pośrednictwem systemu plików NFS, używając Azure NetApp Files (ANF). W przykładowych konfiguracjach i poleceniach instalacji, numer wystąpienia nr **03**i identyfikator systemu Hana **HN1** są używane. SAP HANA replikacja składa się z jednego węzła podstawowego i co najmniej jednego węzła pomocniczego.
+W tym artykule opisano sposób konfigurowania replikacji systemu SAP HANA w ramach wdrożenia skalowalnego w poziomie, gdy systemy plików HANA są instalowane za pośrednictwem systemu plików NFS, używając Azure NetApp Files (ANF). W przykładowych konfiguracjach i poleceniach instalacji, numer wystąpienia nr **03** i identyfikator systemu Hana **HN1** są używane. SAP HANA replikacja składa się z jednego węzła podstawowego i co najmniej jednego węzła pomocniczego.
 
 Gdy kroki w tym dokumencie są oznaczone następującymi prefiksami, znaczenie jest następujące:
 
@@ -251,10 +252,10 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
     1.  Następnie utwórz sondę kondycji:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
-        1.  Wybierz pozycję TCP jako protokół i port 625**03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+        1.  Wybierz pozycję TCP jako protokół i port 625 **03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
         1.  Wybierz przycisk **OK**.
     1.  Następnie utwórz reguły równoważenia obciążenia:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
+        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-lb**).
         1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**, **Hana — zaplecze** i **Hana-HP**).
         1.  Wybierz pozycję **porty ha**.
@@ -280,35 +281,35 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
     1.  Następnie utwórz sondę kondycji:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
-        1.  Wybierz pozycję **TCP** jako protokół i port 625**03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+        1.  Wybierz pozycję **TCP** jako protokół i port 625 **03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
         1.  Wybierz przycisk **OK**.
     1.  W przypadku SAP HANA 1,0 Utwórz reguły równoważenia obciążenia:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3**03**15).
+        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
+        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 15).
         1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-        1.  Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port 3**03**15.
+        1.  Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 15.
         1.  Zwiększ **limit czasu bezczynności** do 30 minut.
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
         1.  Wybierz przycisk **OK**.
-        1.  Powtórz te kroki dla portu 3**03**17.
+        1.  Powtórz te kroki dla portu 3 **03** 17.
     1.  W przypadku SAP HANA 2,0 Utwórz reguły równoważenia obciążenia dla systemowej bazy danych:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3**03**13).
+        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
+        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 13).
         1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-        1.  Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port 3**03**13.
+        1.  Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 13.
         1.  Zwiększ **limit czasu bezczynności** do 30 minut.
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
         1.  Wybierz przycisk **OK**.
-        1.  Powtórz te kroki dla portu 3**03**14.
+        1.  Powtórz te kroki dla portu 3 **03** 14.
     1.  W przypadku SAP HANA 2,0 najpierw utwórz reguły równoważenia obciążenia dla bazy danych dzierżawcy:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3**03**40).
+        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
+        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 40).
         1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-        1.  Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port 3**03**40.
+        1.  Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 40.
         1.  Zwiększ **limit czasu bezczynności** do 30 minut.
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
         1.  Wybierz przycisk **OK**.
-        1.  Powtórz te kroki dla portów 3**03**41 i 3**03**42.
+        1.  Powtórz te kroki dla portów 3 **03** 41 i 3 **03** 42.
 
 Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapoznaj się z rozdziałem [połączenia z bazami danych dzierżawy](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) w Przewodniku obsługi [bazy danych dzierżaw SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) lub Uwaga [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
@@ -563,7 +564,7 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
 
    Sprawdź stan klastra i wszystkich zasobów
    > [!NOTE]
-   > Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+   > Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
    
     ```
     sudo pcs status

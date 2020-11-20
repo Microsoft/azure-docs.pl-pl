@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cdd7f4957b22eb4c87d60e3d57b0cec675659963
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7ba0604c0fb1a51c5276f2a28fb0e39b878b7639
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131806"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949568"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalizowanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dostosowanie języka w programie Azure Active Directory B2C (Azure AD B2C) pozwala dostosowywać różne języki do potrzeb klientów. Firma Microsoft udostępnia tłumaczenia dla [języków 36](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), ale można również udostępniać własne tłumaczenia w dowolnym języku. Nawet jeśli środowisko użytkownika jest dostarczane tylko dla jednego języka, można dostosować dowolny tekst na stronach. 
+Dostosowanie języka w programie Azure Active Directory B2C (Azure AD B2C) pozwala dostosowywać różne języki do potrzeb klientów. Firma Microsoft udostępnia tłumaczenia dla [języków 36](./user-flow-language-customization.md#supported-languages), ale można również udostępniać własne tłumaczenia w dowolnym języku. Nawet jeśli środowisko użytkownika jest dostarczane tylko dla jednego języka, można dostosować dowolny tekst na stronach. 
 
 W tym artykule przedstawiono sposób obsługi wielu ustawień regionalnych lub języków w zasadach dla podróży użytkownika. Lokalizacja wymaga trzech kroków: Skonfiguruj jawną listę obsługiwanych języków, podaj odpowiednie dla języka ciągi i kolekcje, a następnie Edytuj [definicję zawartości](contentdefinitions.md) strony. 
 
@@ -246,7 +246,7 @@ W poniższym przykładzie w języku angielskim (EN) i hiszpańskim (ES) ciągi n
 1. Zapisz plik rozszerzeń.
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
 1. Wyszukaj i wybierz **Azure AD B2C**.
-1. W obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
+1. W obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości**.
 1. Wybierz pozycję **Przekaż zasady niestandardowe**.
 1. Przekaż wcześniej zmieniony plik rozszerzeń.
 
@@ -255,7 +255,7 @@ W poniższym przykładzie w języku angielskim (EN) i hiszpańskim (ES) ciągi n
 1. Wybierz przekazane zasady, a następnie wybierz pozycję **Uruchom teraz**.
 1. Powinno być możliwe wyświetlenie zlokalizowanej strony rejestracji lub logowania.
 1. Kliknij link do rejestracji, aby wyświetlić zlokalizowaną stronę rejestracji w usłudze.
-1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Na przykład: 
+1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Przykład: 
 
 ```http
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
@@ -265,4 +265,3 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_s
 
 - Dowiedz się więcej o elemencie [lokalizacyjnym](localization.md) w IEF Reference.
 - Zobacz listę [identyfikatorów ciągów lokalizacji](localization-string-ids.md) dostępnych w Azure AD B2C.
-

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 10abd1065fe47556109ed69d36493c165dec1418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 177215775c9e83286aa98872eed0ab211a8f36ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738230"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948752"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatyzacja inspekcji sieciowej grupy zabezpieczeń za pomocą widoku grupy zabezpieczeń Network Watcher platformy Azure
 
 Klienci często podlegają wyzwaniom sprawdzającym stan bezpieczeństwa infrastruktury. To wyzwanie nie jest inne dla swoich maszyn wirtualnych na platformie Azure. Należy mieć podobny profil zabezpieczeń oparty na regułach sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń). Korzystając z widoku grupy zabezpieczeń, można teraz uzyskać listę reguł stosowanych do maszyny wirtualnej w ramach sieciowej grupy zabezpieczeń. Można zdefiniować sieciowej grupy ZABEZPIECZEŃy profil zabezpieczeń i zainicjować widok grupy zabezpieczeń na cotygodniowo erze i porównać dane wyjściowe z profilem złota i utworzyć raport. W ten sposób można łatwo zidentyfikować wszystkie maszyny wirtualne, które nie są zgodne z określonym profilem zabezpieczeń.
 
-Jeśli nie znasz sieciowych grup zabezpieczeń, zobacz [Omówienie zabezpieczeń sieci](../virtual-network/security-overview.md).
+Jeśli nie znasz sieciowych grup zabezpieczeń, zobacz [Omówienie zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -189,16 +189,3 @@ SideIndicator            : <=
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli ustawienia zostały zmienione, zobacz [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to Track The Network Security Groups and Security rules.
-
-
-
-
-
-
-
-
-
-
-
-
-

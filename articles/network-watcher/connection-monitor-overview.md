@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699240"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949003"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
 
@@ -34,7 +34,7 @@ Poniżej przedstawiono niektóre przypadki użycia monitora połączeń:
 - Aplikacja hybrydowa wymaga połączenia z punktem końcowym usługi Azure Storage. Lokacja lokalna i aplikacja platformy Azure nawiązują połączenie z tym samym punktem końcowym usługi Azure Storage. Chcesz porównać opóźnienia lokacji lokalnej z opóźnieniami aplikacji platformy Azure.
 - Chcesz sprawdzić łączność między konfiguracjami lokalnymi i maszynami wirtualnymi platformy Azure, które obsługują aplikację w chmurze.
 
-Monitor połączeń łączy najlepsze dwie funkcje: funkcja [monitor połączeń Network Watcher (klasyczna)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) i [monitor łączności usługi](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)Network Performance Monitor (npm), [monitorowanie ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)i [monitorowanie wydajności](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
+Monitor połączeń łączy najlepsze dwie funkcje: funkcja [monitor połączeń Network Watcher (klasyczna)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) i [monitor łączności usługi](../azure-monitor/insights/network-performance-monitor-service-connectivity.md)Network Performance Monitor (npm), [monitorowanie ExpressRoute](../expressroute/how-to-npm.md)i [monitorowanie wydajności](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) .
 
 Poniżej przedstawiono niektóre zalety monitora połączeń:
 
@@ -65,7 +65,7 @@ Monitor połączeń opiera się na lekkich plikach wykonywalnych w celu uruchomi
 
 Aby monitor połączeń rozpoznawał maszyny wirtualne platformy Azure jako źródła monitorowania, należy zainstalować na nich rozszerzenie maszyny wirtualnej agenta Network Watcher. To rozszerzenie jest również znane jako *rozszerzenie Network Watcher*. Usługa Azure Virtual Machines wymaga rozszerzenia, aby wyzwolić kompleksowe monitorowanie i inne zaawansowane funkcje. 
 
-Rozszerzenie Network Watcher można zainstalować podczas [tworzenia maszyny wirtualnej](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). Można również oddzielnie instalować, konfigurować i rozwiązywać problemy z rozszerzeniem Network Watcher dla systemów [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) i [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+Rozszerzenie Network Watcher można zainstalować podczas [tworzenia maszyny wirtualnej](./connection-monitor.md#create-the-first-vm). Można również oddzielnie instalować, konfigurować i rozwiązywać problemy z rozszerzeniem Network Watcher dla systemów [Linux](../virtual-machines/extensions/network-watcher-linux.md) i [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) lub zapory mogą blokować komunikację między lokalizacją źródłową i docelową. Monitor połączeń wykrywa ten problem i wyświetla go jako komunikat diagnostyczny w topologii. Aby włączyć monitorowanie połączeń, upewnij się, że reguły sieciowej grupy zabezpieczeń i zapory zezwalają na pakiety przez TCP lub ICMP między źródłem a miejscem docelowym.
 
@@ -73,7 +73,7 @@ Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) lub zapory
 
 Aby monitor połączeń mógł rozpoznać maszyny lokalne jako źródła monitorowania, Zainstaluj agenta Log Analytics na komputerach. Następnie Włącz Network Performance Monitor rozwiązanie. Ci agenci są połączeni z obszarami roboczymi Log Analytics, więc musisz skonfigurować identyfikator obszaru roboczego i klucz podstawowy, aby umożliwić agentom rozpoczęcie monitorowania.
 
-Aby zainstalować agenta Log Analytics dla maszyn z systemem Windows, zobacz [Azure monitor rozszerzenie maszyny wirtualnej dla systemu Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
+Aby zainstalować agenta Log Analytics dla maszyn z systemem Windows, zobacz [Azure monitor rozszerzenie maszyny wirtualnej dla systemu Windows](../virtual-machines/extensions/oms-windows.md).
 
 Jeśli ścieżka zawiera zapory lub wirtualne urządzenia sieciowe (urządzeń WUS), upewnij się, że lokalizacja docelowa jest osiągalna.
 
@@ -81,7 +81,7 @@ Jeśli ścieżka zawiera zapory lub wirtualne urządzenia sieciowe (urządzeń W
 
 Wszystkie subskrypcje z siecią wirtualną są włączane przy użyciu Network Watcher. Podczas tworzenia sieci wirtualnej w ramach subskrypcji Network Watcher jest automatycznie włączana w regionie i subskrypcji sieci wirtualnej. To automatyczne włączenie nie wpływa na zasoby ani nie powoduje naliczania opłat. Upewnij się, że Network Watcher nie jest jawnie wyłączona w Twojej subskrypcji. 
 
-Aby uzyskać więcej informacji, zobacz [włączanie Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Aby uzyskać więcej informacji, zobacz [włączanie Network Watcher](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Tworzenie monitora połączeń 
 
@@ -111,7 +111,7 @@ Monitor połączeń obejmuje następujące jednostki:
 
  ![Diagram przedstawiający monitor połączeń, który definiuje relację między grupami testów i testami](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Monitor połączeń można utworzyć przy użyciu [Azure Portal](connection-monitor-preview-create-using-portal.md) lub [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Monitor połączeń można utworzyć przy użyciu [Azure Portal](./connection-monitor-create-using-portal.md) lub [ARMClient](./connection-monitor-create-using-template.md)
 
 Wszystkie źródła, miejsca docelowe i konfiguracje testów dodawane do grupy testowej są podzielone na poszczególne testy. Oto przykład sposobu, w jaki źródła i miejsca docelowe są podzielone:
 
@@ -213,7 +213,7 @@ Aby wyświetlić tylko testy zakończone niepowodzeniem w monitorze połączeń,
 Aby wyświetlić tylko testy zakończone niepowodzeniem w monitorze połączeń, gdzie miejsce docelowe to outlook.office365.com:
 1. Zmień widok na **test**.
 1. W przypadku filtru opartego na stanie wybierz pozycję **Niepowodzenie**.
-1. W polu wyszukiwania wprowadź *Outlook.office365.com*
+1. W polu wyszukiwania wprowadź *Office.Live.com*
 1. W polu **zakres** w filtrze najwyższego poziomu wybierz pozycję **miejsca docelowe**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Zrzut ekranu przedstawiający widok, który jest filtrowany do wyświetlania tylko testów zakończonych niepowodzeniem dla miejsca docelowego Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -348,5 +348,5 @@ W przypadku sieci, których źródła są maszynami wirtualnymi platformy Azure,
 
 ## <a name="next-steps"></a>Następne kroki
     
-   * Dowiedz się [, jak utworzyć monitor połączeń przy użyciu Azure Portal](connection-monitor-preview-create-using-portal.md)  
-   * Dowiedz się [, jak utworzyć monitor połączeń przy użyciu ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Dowiedz się [, jak utworzyć monitor połączeń przy użyciu Azure Portal](./connection-monitor-create-using-portal.md)  
+   * Dowiedz się [, jak utworzyć monitor połączeń przy użyciu ARMClient](./connection-monitor-create-using-template.md)

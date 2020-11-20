@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531410"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951132"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Jak wycofać certyfikaty urządzeń X. 509
 
@@ -51,7 +51,7 @@ Gdy urządzenie jest początkowo obsługiwane przez funkcję samoobsługowego in
 
 Po przeprowadzeniu nowego certyfikatu liścia do urządzenia nie może on już nawiązać połączenia z usługą IoT Hub, ponieważ używa nowego certyfikatu do nawiązania połączenia. Centrum IoT rozpoznaje tylko urządzenie ze starym certyfikatem. Wynik próby połączenia urządzenia będzie nieautoryzowany. Aby rozwiązać ten problem, należy zaktualizować wpis rejestracji dla urządzenia w celu uwzględnienia nowego certyfikatu liścia urządzenia. Następnie usługa aprowizacji może zaktualizować informacje rejestru urządzenia IoT Hub w miarę potrzeb, gdy urządzenie zostanie ponownie zainicjowane. 
 
-Jednym z możliwych wyjątków dla tego błędu połączenia jest scenariusz, w którym utworzono [grupę rejestracji](concepts-service.md#enrollment-group) dla urządzenia w usłudze aprowizacji. W takim przypadku, jeśli nie powrócisz certyfikatów głównych lub pośrednich w łańcuchu certyfikatów urządzenia zaufania, urządzenie zostanie rozpoznane, jeśli nowy certyfikat jest częścią łańcucha zaufania zdefiniowanego w grupie rejestracyjnej. Jeśli ten scenariusz występuje jako reakcja na naruszenie zabezpieczeń, należy co najmniej nie zezwalać określonym certyfikatom urządzenia w grupie, które są uważane za naruszone. Aby uzyskać więcej informacji, zobacz nie [Zezwalaj na określone urządzenia w grupie rejestracji](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
+Jednym z możliwych wyjątków dla tego błędu połączenia jest scenariusz, w którym utworzono [grupę rejestracji](concepts-service.md#enrollment-group) dla urządzenia w usłudze aprowizacji. W takim przypadku, jeśli nie powrócisz certyfikatów głównych lub pośrednich w łańcuchu certyfikatów urządzenia zaufania, urządzenie zostanie rozpoznane, jeśli nowy certyfikat jest częścią łańcucha zaufania zdefiniowanego w grupie rejestracyjnej. Jeśli ten scenariusz występuje jako reakcja na naruszenie zabezpieczeń, należy co najmniej nie zezwalać określonym certyfikatom urządzenia w grupie, które są uważane za naruszone. Aby uzyskać więcej informacji, zobacz nie [Zezwalaj na określone urządzenia w grupie rejestracji](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
 
 Aktualizowanie wpisów rejestracji dla wycofanych certyfikatów jest realizowane na stronie **Zarządzanie rejestracjami** . Aby uzyskać dostęp do tej strony, wykonaj następujące kroki:
 
@@ -69,7 +69,7 @@ Sposób obsługi aktualizacji wpisu rejestracji zależy od tego, czy są używan
 
 W przypadku wycofywania certyfikatów w odpowiedzi na naruszenie zabezpieczeń należy zastosować następujące podejście, które powoduje natychmiastowe usunięcie bieżącego certyfikatu:
 
-1. Kliknij pozycję **rejestracje indywidualne**i kliknij wpis Identyfikator rejestracji na liście. 
+1. Kliknij pozycję **rejestracje indywidualne** i kliknij wpis Identyfikator rejestracji na liście. 
 
 2. Kliknij przycisk **Usuń bieżące certyfikaty** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Po zakończeniu kliknij przycisk **Zapisz** .
 
@@ -92,7 +92,7 @@ Jeśli aktualizujesz certyfikaty, aby obsługiwać wygaśnięcia certyfikatów, 
 Później, gdy certyfikat pomocniczy zbliża się również do wygaśnięcia i musi zostać przeniesiona, można obrócić do korzystania z konfiguracji podstawowej. Obracanie między głównymi i dodatkowymi certyfikatami w ten sposób zmniejsza czas przestoju w przypadku urządzeń, które próbują zainicjować obsługę administracyjną.
 
 
-1. Kliknij pozycję **rejestracje indywidualne**i kliknij wpis Identyfikator rejestracji na liście. 
+1. Kliknij pozycję **rejestracje indywidualne** i kliknij wpis Identyfikator rejestracji na liście. 
 
 2. Kliknij pozycję **certyfikat pomocniczy** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
 
@@ -134,7 +134,7 @@ Aby zaktualizować rejestrację grupy w odpowiedzi na naruszenie zabezpieczeń, 
 
 1. Kliknij pozycję **grupy rejestracji**, a następnie kliknij nazwę grupy na liście. 
 
-2. Kliknij pozycję **certyfikat pośredni**i **Usuń bieżący certyfikat**. Kliknij ikonę folderu, aby przejść do nowego certyfikatu pośredniego, który ma zostać przekazany do grupy rejestracji. Po zakończeniu kliknij przycisk **Zapisz** . Te kroki należy wykonać zarówno dla certyfikatu podstawowego, jak i pomocniczego, jeśli oba zabezpieczenia zostały naruszone.
+2. Kliknij pozycję **certyfikat pośredni** i **Usuń bieżący certyfikat**. Kliknij ikonę folderu, aby przejść do nowego certyfikatu pośredniego, który ma zostać przekazany do grupy rejestracji. Po zakończeniu kliknij przycisk **Zapisz** . Te kroki należy wykonać zarówno dla certyfikatu podstawowego, jak i pomocniczego, jeśli oba zabezpieczenia zostały naruszone.
 
     Ten nowy certyfikat pośredni powinien być podpisany przez zweryfikowany certyfikat głównego urzędu certyfikacji, który został już dodany do usługi aprowizacji. Aby uzyskać więcej informacji, zobacz [certyfikaty X. 509](concepts-x509-attestation.md#x509-certificates).
 
@@ -162,7 +162,7 @@ Później, gdy certyfikat pomocniczy zbliża się również do wygaśnięcia i m
 
 2. Kliknij kartę **Zarządzanie rejestracjami** dla wystąpienia usługi Device Provisioning Service, a następnie kliknij listę **grupy rejestracji** . Kliknij nazwę grupy rejestracyjnej na liście.
 
-3. Kliknij pozycję **certyfikat urzędu certyfikacji**i wybierz nowy certyfikat głównego urzędu certyfikacji w ramach konfiguracji **certyfikatu pomocniczego** . Następnie kliknij przycisk **Zapisz**. 
+3. Kliknij pozycję **certyfikat urzędu certyfikacji** i wybierz nowy certyfikat głównego urzędu certyfikacji w ramach konfiguracji **certyfikatu pomocniczego** . Następnie kliknij przycisk **Zapisz**. 
 
     ![Wybierz nowy certyfikat głównego urzędu certyfikacji do wygaśnięcia](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 

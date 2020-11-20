@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504115"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949840"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika rejestracji (wersja zapoznawcza)
 
@@ -26,8 +26,8 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 
 ## <a name="create-an-api-connector"></a>Tworzenie łącznika interfejsu API
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure AD B2C**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure AD B2C**.
 4. Wybierz pozycję **Łączniki interfejsu API (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowy łącznik interfejsu API**.
 
    ![Dodawanie nowego łącznika interfejsu API](./media/add-api-connector/api-connector-new.png)
@@ -36,13 +36,13 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 6. Podaj **adres URL punktu końcowego** dla wywołania interfejsu API.
 7. Podaj informacje o uwierzytelnianiu dla interfejsu API.
 
-   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź **nazwę użytkownika** "fikcyjnej" i **hasło** , które może ignorować interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
+   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź **nazwę użytkownika** "fikcyjnej" i **hasło** , które może ignorować interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint <b>? Code = 0123456789</b>).
 
    ![Konfigurowanie nowego łącznika interfejsu API](./media/add-api-connector/api-connector-config.png)
 8. Wybierz pozycję **Zapisz**.
 
 ## <a name="the-request-sent-to-your-api"></a>Żądanie wysłane do interfejsu API
-Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) właściwości użytkownika. 
+Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](/graph/api/resources/user#properties) właściwości użytkownika. 
 
 **Przykładowe żądanie**
 ```http
@@ -73,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Tylko właściwości użytkownika i atrybuty niestandardowe wymienione w **Azure AD B2C**  >  środowisku**atrybutów użytkownika** są dostępne do wysłania w żądaniu.
+Tylko właściwości użytkownika i atrybuty niestandardowe wymienione w **Azure AD B2C**  >  środowisku **atrybutów użytkownika** są dostępne do wysłania w żądaniu.
 
 Atrybuty niestandardowe istnieją w formacie **extension_ \<extensions-app-id> _CustomAttribute**  w katalogu. Interfejs API powinien oczekiwać otrzymywania oświadczeń w tym samym zserializowanym formacie. Aby uzyskać więcej informacji na temat atrybutów niestandardowych, zobacz [Definiowanie atrybutów niestandardowych w Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -83,14 +83,14 @@ Ponadto w przypadku wszystkich żądań jest domyślnie wysyłane żądanie **us
 > Jeśli w momencie wywołania punktu końcowego interfejsu API nie ma wartości, to nie zostanie ono wysłane do interfejsu API. Interfejs API powinien zostać zaprojektowany, aby jawnie sprawdzić i obsłużyć przypadek, w którym w żądaniu nie występuje żądanie.
 
 > [!TIP] 
-> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. 
+> [**tożsamości ("tożsamości")**](/graph/api/resources/objectidentity) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Włączanie łącznika interfejsu API w przepływie użytkownika
 
 Wykonaj następujące kroki, aby dodać łącznik interfejsu API do przepływu użytkownika w celu rejestracji.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure AD B2C**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure AD B2C**.
 4. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz przepływ użytkownika, do którego chcesz dodać łącznik interfejsu API.
 5. Wybierz pozycję **Łączniki interfejsu API**, a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
 
@@ -103,7 +103,7 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do przepływu u
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 
-Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (np. Google, Facebook, & usługi Azure AD). Ten krok poprzedza*_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. Ten krok nie jest wywoływany, jeśli użytkownik jest rejestrowany przy użyciu konta lokalnego.
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (np. Google, Facebook, & usługi Azure AD). Ten krok poprzedza *_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. Ten krok nie jest wywoływany, jeśli użytkownik jest rejestrowany przy użyciu konta lokalnego.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Przykładowe żądanie wysłane do interfejsu API w tym kroku
 ```http
@@ -288,7 +288,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | Wersja     | String  | Tak      | Wersja interfejsu API.                                                    |
 | akcja      | String  | Tak      | Wartość musi być `ValidationError` .                                           |
-| status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
+| status      | Integer | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
 | userMessage | String  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
 > [!NOTE]

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562827"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949959"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
@@ -25,7 +25,7 @@ Użyj Azure Monitor, aby kierować dzienniki logowania i [inspekcji](view-audit-
 Zdarzenia dziennika można kierować do:
 
 * Konto usługi Azure [Storage](../storage/blobs/storage-blobs-introduction.md).
-* [Obszar roboczy log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (do analizowania danych, tworzenia pulpitów nawigacyjnych i alertów dotyczących określonych zdarzeń).
+* [Obszar roboczy log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (do analizowania danych, tworzenia pulpitów nawigacyjnych i alertów dotyczących określonych zdarzeń).
 * [Centrum zdarzeń](../event-hubs/event-hubs-about.md) platformy Azure (i integracja z wystąpieniami logiki Splunk i Sumo).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -34,7 +34,7 @@ W tym artykule dowiesz się, jak przenieść dzienniki do obszaru roboczego usł
 
 ## <a name="deployment-overview"></a>Omówienie wdrażania
 
-Azure AD B2C wykorzystuje [monitorowanie Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Aby włączyć *Ustawienia diagnostyczne* w Azure Active Directory w dzierżawie Azure AD B2C, należy użyć [usługi Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) do [delegowania zasobu](../lighthouse/concepts/azure-delegated-resource-management.md), co umożliwi Azure AD B2C ( **dostawcy usług** ) Zarządzanie zasobem usługi Azure AD ( **klienta** ). Po wykonaniu kroków opisanych w tym artykule będziesz mieć dostęp do grupy zasobów *Azure-AD-B2C-monitor* zawierającej [obszar roboczy Log Analytics](../azure-monitor/learn/quick-create-workspace.md) w portalu **Azure AD B2C** . Będziesz mieć możliwość transferu dzienników z Azure AD B2C do Log Analytics obszaru roboczego.
+Azure AD B2C wykorzystuje [monitorowanie Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Aby włączyć *Ustawienia diagnostyczne* w Azure Active Directory w dzierżawie Azure AD B2C, należy użyć [usługi Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) do [delegowania zasobu](../lighthouse/concepts/azure-delegated-resource-management.md), co umożliwi Azure AD B2C ( **dostawcy usług**) Zarządzanie zasobem usługi Azure AD ( **klienta**). Po wykonaniu kroków opisanych w tym artykule będziesz mieć dostęp do grupy zasobów *Azure-AD-B2C-monitor* zawierającej [obszar roboczy Log Analytics](../azure-monitor/learn/quick-create-workspace.md) w portalu **Azure AD B2C** . Będziesz mieć możliwość transferu dzienników z Azure AD B2C do Log Analytics obszaru roboczego.
 
 Podczas tego wdrożenia autoryzujesz użytkownika lub grupę w katalogu Azure AD B2C, aby skonfigurować wystąpienie obszaru roboczego Log Analytics w ramach dzierżawy zawierającej subskrypcję platformy Azure. Aby utworzyć autoryzację, należy wdrożyć szablon [Azure Resource Manager](../azure-resource-manager/index.yml) w dzierżawie usługi Azure AD zawierającym subskrypcję programu.
 
@@ -70,7 +70,7 @@ Najpierw pobierz **Identyfikator dzierżawy** katalogu Azure AD B2C (znany równ
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę **Azure AD B2C** .
-1. Wybierz pozycję **Azure Active Directory** , wybierz pozycję **Przegląd**.
+1. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **Przegląd**.
 1. Zapisz **Identyfikator dzierżawy**.
 
 ### <a name="32-select-a-security-group"></a>3,2 Wybierz grupę zabezpieczeń
@@ -82,12 +82,12 @@ Aby ułatwić zarządzanie, zalecamy korzystanie z *grup* użytkowników usługi
 > [!IMPORTANT]
 > Aby można było dodać uprawnienia dla grupy usługi Azure AD, **Typ grupy** musi być ustawiony na **zabezpieczenia**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-1. Po wybraniu **Azure Active Directory** w katalogu **Azure AD B2C** wybierz pozycję **grupy** , a następnie wybierz grupę. Jeśli nie masz istniejącej grupy, Utwórz grupę **zabezpieczeń** , a następnie Dodaj członków. Aby uzyskać więcej informacji, postępuj zgodnie z procedurą [Utwórz podstawową grupę i Dodaj członków przy użyciu Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
+1. Po wybraniu **Azure Active Directory** w katalogu **Azure AD B2C** wybierz pozycję **grupy**, a następnie wybierz grupę. Jeśli nie masz istniejącej grupy, Utwórz grupę **zabezpieczeń** , a następnie Dodaj członków. Aby uzyskać więcej informacji, postępuj zgodnie z procedurą [Utwórz podstawową grupę i Dodaj członków przy użyciu Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
 1. Wybierz pozycję **Przegląd** i Zapisz **Identyfikator obiektu** grupy.
 
 ### <a name="33-create-an-azure-resource-manager-template"></a>3,3 Tworzenie szablonu Azure Resource Manager
 
-Następnie utworzysz szablon Azure Resource Manager, który przydaje Azure AD B2C dostęp do utworzonej wcześniej grupy zasobów usługi Azure AD (na przykład *Azure-AD-B2C-monitor* ). Wdróż szablon z przykładu GitHub za pomocą przycisku **Wdróż na platformie Azure** , który otwiera Azure Portal i umożliwia skonfigurowanie i wdrożenie szablonu bezpośrednio w portalu. Aby wykonać te kroki, upewnij się, że zalogowano się do dzierżawy usługi Azure AD (nie dzierżawy Azure AD B2C).
+Następnie utworzysz szablon Azure Resource Manager, który przydaje Azure AD B2C dostęp do utworzonej wcześniej grupy zasobów usługi Azure AD (na przykład *Azure-AD-B2C-monitor*). Wdróż szablon z przykładu GitHub za pomocą przycisku **Wdróż na platformie Azure** , który otwiera Azure Portal i umożliwia skonfigurowanie i wdrożenie szablonu bezpośrednio w portalu. Aby wykonać te kroki, upewnij się, że zalogowano się do dzierżawy usługi Azure AD (nie dzierżawy Azure AD B2C).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na pasku narzędzi portalu wybierz ikonę **katalogów i subskrypcji** , a następnie wybierz katalog zawierający dzierżawę usługi **Azure AD** .
@@ -162,7 +162,7 @@ Aby skonfigurować ustawienia monitorowania dla Azure AD B2C dzienników aktywno
 
 1. Nadaj ustawieniu nazwę, jeśli jeszcze jej nie ma.
 1. Zaznacz pole wyboru dla każdego miejsca docelowego, aby wysłać dzienniki. Wybierz pozycję **Konfiguruj** , aby określić swoje ustawienia zgodnie z **opisem w poniższej tabeli**.
-1. Wybierz pozycję **Wyślij do log Analytics** , a następnie wybierz utworzoną wcześniej **nazwę obszaru roboczego** ( `AzureAdB2C` ).
+1. Wybierz pozycję **Wyślij do log Analytics**, a następnie wybierz utworzoną wcześniej **nazwę obszaru roboczego** ( `AzureAdB2C` ).
 1. Wybierz pozycję **AuditLogs** i **SignInLogs**.
 1. Wybierz pozycję **Zapisz**.
 
@@ -239,7 +239,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć nowy skoroszyt przy 
 1. Zastosuj szablon przy użyciu przycisku **Zastosuj** .
 1. Wybierz przycisk **gotowe do edycji** na pasku narzędzi, aby zakończyć edytowanie skoroszytu.
 1. Na koniec Zapisz skoroszyt za pomocą przycisku **Zapisz** na pasku narzędzi.
-1. Podaj **tytuł** , taki jak *Azure AD B2C pulpitu nawigacyjnego*.
+1. Podaj **tytuł**, taki jak *Azure AD B2C pulpitu nawigacyjnego*.
 1. Wybierz pozycję **Zapisz**.
 
     ![Zapisz skoroszyt](./media/azure-monitor/wrkb-title.png)
@@ -279,7 +279,7 @@ Skorzystaj z poniższych instrukcji, aby utworzyć nowy Alert platformy Azure, k
     | where PercentageChange <= threshold   //Trigger's alert rule if matched.
     ```
 
-1. Wybierz pozycję **Uruchom** , aby przetestować zapytanie. Wyniki powinny zostać wyświetlone, jeśli w ciągu ostatnich 24 godzin wystąpi spadek o 25% lub więcej.
+1. Wybierz pozycję **Uruchom**, aby przetestować zapytanie. Wyniki powinny zostać wyświetlone, jeśli w ciągu ostatnich 24 godzin wystąpi spadek o 25% lub więcej.
 1. Aby utworzyć regułę alertu opartą na powyższym zapytaniu, użyj opcji **+ Nowa reguła alertu** dostępnej na pasku narzędzi.
 1. Na stronie **Tworzenie reguły alertu** wybierz pozycję **nazwa warunku** . 
 1. Na stronie **Konfiguruj logikę sygnału** ustaw następujące wartości, a następnie użyj przycisku **gotowe** , aby zapisać zmiany.
