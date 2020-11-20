@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75a2762a0937efbceaa168f8a2d6409e2e3a7ae4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890652"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967231"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Podsumowanie funkcji żądania danych klienta
 
@@ -62,6 +62,6 @@ Możliwe jest również wykonywanie operacji eksportowania na potrzeby rejestrac
 
 ## <a name="links-to-additional-documentation"></a>Linki do dodatkowej dokumentacji
 
-Pełna dokumentacja dotycząca interfejsów API usługi Device Provisioning znajduje się w lokalizacji [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps) .
+Pełna dokumentacja dotycząca interfejsów API usługi Device Provisioning znajduje się w lokalizacji [https://docs.microsoft.com/rest/api/iot-dps](/rest/api/iot-dps) .
 
 [Funkcje żądania danych klienta](../iot-hub/iot-hub-customer-data-requests.md)na platformie Azure IoT Hub.

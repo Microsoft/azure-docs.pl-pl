@@ -3,16 +3,17 @@ title: Implementacja bramy Oracle na maszynie wirtualnej z systemem Linux na pla
 description: Szybko zapoznaj się z firmą Oracle w środowisku platformy Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534145"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966874"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie bramy Oracle na maszynie wirtualnej platformy Azure z systemem Linux 
 
@@ -24,7 +25,7 @@ Przed rozpoczęciem upewnij się, że interfejs wiersza polecenia platformy Azur
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska
 
-Aby przeprowadzić instalację firmy Oracle, należy utworzyć dwie maszyny wirtualne platformy Azure w tym samym zestawie dostępności. Obraz portalu Marketplace używany do tworzenia maszyn wirtualnych to **Oracle: Oracle-Database-EE: 12.1.0.2: Najnowsze** .
+Aby przeprowadzić instalację firmy Oracle, należy utworzyć dwie maszyny wirtualne platformy Azure w tym samym zestawie dostępności. Obraz portalu Marketplace używany do tworzenia maszyn wirtualnych to **Oracle: Oracle-Database-EE: 12.1.0.2: Najnowsze**.
 
 Należy również zapoznać się z edytorem systemu UNIX VI i uzyskać podstawową wiedzę na temat X11 (X Windows).
 
@@ -389,9 +390,9 @@ Ten krok jest opcjonalny. Ten krok można pominąć, jeśli używasz klienta z s
 3. W oknie generator kluczy:
 
    - Aby wygenerować klucz, wybierz przycisk **Generuj** .
-   - Skopiuj zawartość klucza ( **Ctrl + C** ).
+   - Skopiuj zawartość klucza (**Ctrl + C**).
    - Wybierz przycisk **Zapisz klucz prywatny** .
-   - Zignoruj wyświetlone ostrzeżenie, a następnie wybierz przycisk **OK** .
+   - Zignoruj wyświetlone ostrzeżenie, a następnie wybierz przycisk **OK**.
 
    ![Zrzut ekranu przedstawiający stronę generatora kluczy](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -403,21 +404,21 @@ Ten krok jest opcjonalny. Ten krok można pominąć, jeśli używasz klienta z s
    $ cd .ssh
    ```
 
-5. Utwórz plik o nazwie **authorized_keys** . Wklej zawartość klucza w tym pliku, a następnie Zapisz plik.
+5. Utwórz plik o nazwie **authorized_keys**. Wklej zawartość klucza w tym pliku, a następnie Zapisz plik.
 
    > [!NOTE]
    > Klucz musi zawierać ciąg `ssh-rsa` . Ponadto zawartość klucza musi być pojedynczym wierszem tekstu.
    >  
 
-6. Uruchom program PuTTY. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **AUTH** . W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
+6. Uruchom program PuTTY. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **AUTH**. W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
 
    ![Zrzut ekranu przedstawiający stronę Ustawianie klucza prywatnego](./media/oracle-golden-gate/setprivatekey.png)
 
-7. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **X11** . Następnie zaznacz pole wyboru **Włącz przekazywanie X11** .
+7. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **X11**. Następnie zaznacz pole wyboru **Włącz przekazywanie X11** .
 
    ![Zrzut ekranu przedstawiający stronę Włączanie X11](./media/oracle-golden-gate/enablex11.png)
 
-8. W okienku **Kategoria** przejdź do **sesji** . Wprowadź informacje o hoście, a następnie wybierz pozycję **Otwórz** .
+8. W okienku **Kategoria** przejdź do **sesji**. Wprowadź informacje o hoście, a następnie wybierz pozycję **Otwórz**.
 
    ![Zrzut ekranu przedstawiający stronę sesji](./media/oracle-golden-gate/puttysession.png)
 
@@ -436,7 +437,7 @@ Aby zainstalować firmę Oracle, należy wykonać następujące czynności:
 
    ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Zmień lokalizację oprogramowania. Następnie wybierz pole **Start Manager** i wprowadź lokalizację bazy danych. Wybierz przycisk **Dalej** , aby kontynuować.
+3. Zmień lokalizację oprogramowania. Następnie wybierz pole **Start Manager** i wprowadź lokalizację bazy danych. Wybierz przycisk **Dalej**, aby kontynuować.
 
    ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_02.png)
 

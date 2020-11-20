@@ -3,16 +3,17 @@ title: Obciążenia Red Hat na platformie Azure — omówienie | Microsoft Docs
 description: Dowiedz się więcej o ofercie produktów Red Hat dostępnych na platformie Azure.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 61f7461633aba18a21fcc18709055dc790ffee7b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3e4a770a33f5cdb3c3b2de09cbcb8431b2fc3fbb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993232"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968659"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Obciążenia Red Hat na platformie Azure
 

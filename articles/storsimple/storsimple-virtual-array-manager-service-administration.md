@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515446"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967095"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Menedżer urządzeń w celu administrowania wirtualną macierzą StorSimple
 ![przepływ procesu instalacji](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -34,7 +34,7 @@ Po przeczytaniu tego artykułu dowiesz się, jak:
 * Administruj wirtualną macierzą StorSimple za pośrednictwem usługi StorSimple Menedżer urządzeń
 
 > [!NOTE]
-> Aby wyświetlić opcje zarządzania dostępne dla urządzenia z serii StorSimple 8000, przejdź do [korzystania z usługi StorSimple Manager w celu administrowania urządzeniem StorSimple](storsimple-manager-service-administration.md).
+> Aby wyświetlić opcje zarządzania dostępne dla urządzenia z serii StorSimple 8000, przejdź do [korzystania z usługi StorSimple Manager w celu administrowania urządzeniem StorSimple](./storsimple-8000-manager-service-administration.md).
 > 
 > 
 
@@ -78,4 +78,3 @@ Aby uzyskać więcej informacji na temat każdego przepływu pracy, kliknij odpo
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje o interfejsie użytkownika sieci Web i sposobach ich użycia, przejdź do strony przy [użyciu interfejsu użytkownika sieci Web StorSimple do administrowania wirtualną tablicą programu StorSimple](storsimple-ova-web-ui-admin.md).
-

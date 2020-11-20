@@ -8,23 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: f0204f5b923cf3363d85be9642d2866436df155a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: 8743e765a050bfc4a2ba93a1b3e0344a960edb76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369464"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966891"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
 Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktualność dzięki najnowszym zmianom, ten artykuł zawiera informacje o nowych wersjach i funkcjach.
 
+## <a name="november-2020"></a>Listopad 2020 r.
+
+* [Nowy punkt końcowy](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) z interfejs API analizy tekstu v 3.1 — wersja zapoznawcza. 3 dla nowego [interfejsu API analizy](how-tos/text-analytics-how-to-call-api.md?tabs=analyze)asynchronicznej, który obsługuje przetwarzanie wsadowe dla operacji wyodrębniania ner, dane osobowe i frazy klucza.
+* [Nowy punkt końcowy](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) z interfejs API analizy tekstu v 3.1 — wersja zapoznawcza. 3 dla nowych analiza tekstu asynchronicznych dla interfejsu API hostowanego w usłudze [Health](how-tos/text-analytics-for-health.md) z obsługą przetwarzania wsadowego.
+* Obie nowe funkcje wymienione powyżej są dostępne tylko w następujących regionach: `West US 2` ,, `East US 2` `Central US` `North Europe` i `West Europe` .
+* Portugalski (Brazylia) `pt-BR` jest teraz obsługiwane w [Analiza tonacji](how-tos/text-analytics-how-to-sentiment-analysis.md) v3. x, rozpoczynając od wersji modelu `2020-04-01` . Dodaje do istniejącej obsługi języka `pt-PT` portugalskiego.
+* Zaktualizowano biblioteki klienckie, które obejmują analizę asynchroniczną i analiza tekstu dla operacji związanych z kondycją. Przykłady można znaleźć w witrynie GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat interfejs API analizy tekstu v 3.1 — wersja zapoznawcza. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+
 ## <a name="october-2020"></a>Październik 2020 r.
 
 * Obsługa języka hindi dla analiza tonacji v3. x, rozpoczynając od wersji modelu `2020-04-01` . 
-* Model wersja `2020-09-01` dla punktu końcowego v3/Languages, który dodaje ulepszone wykrywanie i dokładność języka.
+* Wersja modelu `2020-09-01` dla punktu końcowego/Languages v3, który dodaje ulepszone wykrywanie i dokładność języka.
 * Dostępność wersji 3 w centralnej wersji Indie i Zjednoczone Emiraty Arabskie.
 
 ## <a name="september-2020"></a>Wrzesień 2020
@@ -147,7 +164,7 @@ Nazwy następujących właściwości w odpowiedzi JSON zostały zmienione, o ile
 
 ### <a name="text-analytics-api-v31-public-preview"></a>Interfejs API analizy tekstu v 3.1 — publiczna wersja zapoznawcza
    * Nowa funkcja analiza tonacji — [Wyszukiwanie opinii](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * Nowy [osobisty `PII` Filtr domeny](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) dla chronionych informacji o zdrowiu ( `PHI` ).
+   * Nowy osobisty `PII` Filtr domeny dla chronionych informacji o zdrowiu ( `PHI` ).
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o wersji zapoznawczej interfejs API analizy tekstu v 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -162,7 +179,7 @@ W ramach [ujednoliconej wersji zestawu Azure SDK](https://techcommunity.microsof
    * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
    * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [Dowiedz się więcej na temat zestawu SDK dla interfejs API analizy tekstu v3](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Niestandardowa wersja próbna rozpoznawania jednostek v3
@@ -172,7 +189,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 * Rozpoznawanie następujących głównych typów jednostek (tylko w języku angielskim):
     * Persontype
     * Produkt
-    * Zdarzenie
+    * Wydarzenie
     * Jednostka geopolityczna (GPE) jako podtyp w lokalizacji
     * Czy
 
@@ -181,13 +198,10 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
     * Organizacja
     * Wiek jako podtyp w ramach ilości
     * Data jako podtyp w obszarze DateTime
-    * E-mail 
+    * Poczta e-mail 
     * Numer telefonu (tylko Stany Zjednoczone)
     * Adres URL
     * Adres IP
-
-> [!div class="nextstepaction"]
-> [Dowiedz się więcej na temat nazwanego rozpoznawania jednostek v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ### <a name="october-2019"></a>Październik 2019 r.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710927"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967282"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą NetBackup
 
@@ -79,7 +79,7 @@ StorSimple oferuje następujące korzyści:
 
 Mimo że StorSimple przedstawia dwa główne scenariusze wdrażania (podstawowa kopia zapasowa i pomocnicza lokalizacja docelowa kopii zapasowej), zasadniczo jest to proste, blokowe urządzenie magazynujące. StorSimple wykonuje całą kompresję i deduplikację. Bezproblemowo wysyła i pobiera dane między chmurą i systemem plików.
 
-Aby uzyskać więcej informacji na temat StorSimple, zobacz [StorSimple 8000 Series: rozwiązanie hybrydowego magazynu w chmurze](storsimple-overview.md). Można również przejrzeć [specyfikacje serii StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
+Aby uzyskać więcej informacji na temat StorSimple, zobacz [StorSimple 8000 Series: rozwiązanie hybrydowego magazynu w chmurze](storsimple-overview.md). Można również przejrzeć [specyfikacje serii StorSimple 8000](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Używanie urządzenia StorSimple jako miejsca docelowego kopii zapasowej jest obsługiwane tylko dla wersji StorSimple 8000 Update 3 i nowszych.
@@ -170,7 +170,7 @@ Aby można było optymalnie wykonać rozwiązanie, zalecamy przestrzeganie nast�
 
 ### <a name="deploy-storsimple"></a>Wdróż StorSimple
 
-Aby uzyskać wskazówki krok po kroku dotyczące wdrażania StorSimple, zobacz [wdrażanie lokalnego urządzenia StorSimple](storsimple-deployment-walkthrough-u2.md).
+Aby uzyskać wskazówki krok po kroku dotyczące wdrażania StorSimple, zobacz [wdrażanie lokalnego urządzenia StorSimple](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### <a name="deploy-netbackup"></a>Wdróż NetBackup
 
@@ -185,7 +185,7 @@ W tej sekcji przedstawiono przykłady konfiguracji. Poniższe przykłady i zalec
 | StorSimple zadania wdrażania  | Dodatkowe komentarze |
 |---|---|
 | Wdróż lokalne urządzenie StorSimple. | Obsługiwane wersje: Update 3 i nowsze wersje. |
-| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable` . </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable` . </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode` . |
+| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](./storsimple-8000-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable` . </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable` . </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode` . |
 | Utwórz wspólny kontener woluminów dla woluminu, który przechowuje dane kopii zapasowej. Wszystkie dane w kontenerze woluminów są deduplikowane. | Kontenery woluminów StorSimple definiują domeny deduplikacji.  |
 | Utwórz woluminy StorSimple. | Utwórz woluminy o rozmiarach jak najbliżej przewidywanego użycia, ponieważ rozmiar woluminu wpływa na czas trwania migawki w chmurze. Aby uzyskać informacje o sposobie rozmiaru woluminu, Przeczytaj o [zasadach przechowywania](#retention-policies).</br> </br> Użyj StorSimple woluminów warstwowych i zaznacz pole wyboru **Użyj tego woluminu dla rzadziej używanych danych archiwalnych** . </br> Używanie tylko woluminów przypiętych lokalnie nie jest obsługiwane. |
 | Utwórz unikatowe zasady tworzenia kopii zapasowych StorSimple dla wszystkich woluminów docelowych kopii zapasowych. | Zasady tworzenia kopii zapasowych StorSimple definiują grupę spójności woluminu. |
@@ -212,16 +212,16 @@ Skonfiguruj swoje rozwiązanie zgodnie z wytycznymi w poniższych sekcjach.
 - Wyłącz funkcję defragmentacji systemu Windows Server na woluminach StorSimple.
 - Wyłącz indeksowanie systemu Windows Server na woluminach StorSimple.
 - Uruchom skanowanie antywirusowe na hoście źródłowym (nie na woluminach StorSimple).
-- Wyłącz domyślną [konserwację systemu Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) w Menedżerze zadań. Wykonaj tę czynność w jeden z następujących sposobów:
+- Wyłącz domyślną [konserwację systemu Windows Server](/windows/win32/w8cookbook/automatic-maintenance) w Menedżerze zadań. Wykonaj tę czynność w jeden z następujących sposobów:
   - Wyłącz konfiguratora konserwacji w systemie Windows Harmonogram zadań.
-  - Pobierz [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) z programu Windows Sysinternals. Po pobraniu PsExec Uruchom program Windows PowerShell jako administrator, a następnie wpisz:
+  - Pobierz [PsExec](/sysinternals/downloads/psexec) z programu Windows Sysinternals. Po pobraniu PsExec Uruchom program Windows PowerShell jako administrator, a następnie wpisz:
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### <a name="storsimple-best-practices"></a>Najlepsze rozwiązania StorSimple
 
--   Upewnij się, że urządzenie StorSimple zostało zaktualizowane do [wersji Update 3 lub nowszej](storsimple-install-update-3.md).
+-   Upewnij się, że urządzenie StorSimple zostało zaktualizowane do [wersji Update 3 lub nowszej](./index.yml).
 -   Izoluj ruch związany z technologią iSCSI i chmurą. Używaj dedykowanych połączeń iSCSI dla ruchu między StorSimple a serwerem kopii zapasowych.
 -   Upewnij się, że urządzenie StorSimple jest dedykowanym miejscem docelowym kopii zapasowej. Obciążenia mieszane nie są obsługiwane, ponieważ wpływają na RTO i cel punktu odzyskiwania.
 
@@ -265,7 +265,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
 ### <a name="to-set-up-netbackup-storage"></a>Aby skonfigurować magazyn NetBackup
 
-1.  W konsoli administracyjnej NetBackup wybierz pozycję Pule dysków urządzenia **Zarządzanie nośnikami i**urządzeniami  >  **Devices**  >  **Disk Pools**. W Kreatorze konfiguracji puli dysków wybierz typ serwera magazynu **AdvancedDisk**, a następnie wybierz przycisk **dalej**.
+1.  W konsoli administracyjnej NetBackup wybierz pozycję Pule dysków urządzenia **Zarządzanie nośnikami i** urządzeniami  >  **Devices**  >  **Disk Pools**. W Kreatorze konfiguracji puli dysków wybierz typ serwera magazynu **AdvancedDisk**, a następnie wybierz przycisk **dalej**.
 
     ![Konsola administracyjna NetBackup, Kreator konfiguracji puli dysków](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -303,8 +303,8 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 | Częstotliwość/typ kopii zapasowej | Pełne | Przyrostowe (dni 1-5)  |   
 |---|---|---|
 | Co tydzień (tygodnie 1-4) | Sobota | Monday-Friday |
-| Co miesiąc  | Sobota  |   |
-| Rocznie | Sobota  |   |
+| Miesięczne  | Sobota  |   |
+| Roczne | Sobota  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Przypisywanie woluminów StorSimple do zadania tworzenia kopii zapasowej NetBackup
 
@@ -328,7 +328,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, wybierz typ zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz opcję **Dalej**.
+5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz pozycję **Dalej**.
 
    ![Konsola administracyjna NetBackup, lista klientów w nowych zasadach](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -414,8 +414,8 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 | Tydzień 2 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 3 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 4 | StorSimple tygodni 2-4 |   |   |   |   |   |
-| Co miesiąc | StorSimple miesięcznie |   |   |   |   |   |
-| Rocznie | StorSimple rocznie  |   |   |   |   |   |
+| Miesięczne | StorSimple miesięcznie |   |   |   |   |   |
+| Roczne | StorSimple rocznie  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Przypisywanie woluminów StorSimple do archiwum NetBackup i zadania duplikowania
@@ -430,19 +430,19 @@ Po zdefiniowaniu początkowych pul dysków należy zdefiniować trzy dodatkowe z
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Aby przypisać woluminy StorSimple do archiwum NetBackup i zadania duplikowania
 
-1. W konsoli administracyjnej NetBackup wybierz pozycję **Storage**  >  **Zasady cyklu życia magazynu**magazynu  >  **nowe zasady cyklu życia magazynu**.
+1. W konsoli administracyjnej NetBackup wybierz pozycję **Storage**  >  **Zasady cyklu życia magazynu** magazynu  >  **nowe zasady cyklu życia magazynu**.
 
    ![Konsola administracyjna NetBackup, nowe zasady cyklu życia magazynu](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
 2. Wprowadź nazwę migawki, a następnie wybierz pozycję **Dodaj**.
 
-3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji**wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania**i **okres przechowywania**. Wybierz przycisk **OK**.
+3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji** wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania** i **okres przechowywania**. Wybierz przycisk **OK**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Nowa operacja](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
    Definiuje ona pierwszą operację i repozytorium kopii zapasowej.
 
-4. Zaznacz, aby wyróżnić poprzednią operację, a następnie wybierz pozycję **Dodaj**. W oknie dialogowym **Zmienianie operacji magazynu** wybierz wartości, które mają być przeznaczone dla **magazynu docelowego**, **typu przechowywania**i **okresu przechowywania**.
+4. Zaznacz, aby wyróżnić poprzednią operację, a następnie wybierz pozycję **Dodaj**. W oknie dialogowym **Zmienianie operacji magazynu** wybierz wartości, które mają być przeznaczone dla **magazynu docelowego**, **typu przechowywania** i **okresu przechowywania**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Zmienianie operacji magazynu](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
@@ -454,7 +454,7 @@ Po zdefiniowaniu początkowych pul dysków należy zdefiniować trzy dodatkowe z
 
    ![Konsola administracyjna NetBackup, Dodawanie zasad w oknie dialogowym Nowe zasady cyklu życia magazynu](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-7. Po zakończeniu definiowania zasad przechowywania SLP w obszarze **zasady**Zdefiniuj zasady tworzenia kopii zapasowych, wykonując kroki opisane w temacie [przypisywanie woluminów StorSimple do zadania tworzenia kopii zapasowej NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
+7. Po zakończeniu definiowania zasad przechowywania SLP w obszarze **zasady** Zdefiniuj zasady tworzenia kopii zapasowych, wykonując kroki opisane w temacie [przypisywanie woluminów StorSimple do zadania tworzenia kopii zapasowej NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
 8. W obszarze **harmonogramy**, w oknie dialogowym **zmiana harmonogramu** kliknij prawym przyciskiem myszy pozycję **pełna**, a następnie wybierz pozycję **Zmień**.
 
@@ -531,20 +531,20 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 
 | Scenariusz | Wpływ | Jak odzyskać | Uwagi |
 |---|---|---|---|
-| Awaria urządzenia StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Zastąp urządzenie zakończone niepowodzeniem i przeprowadź [StorSimple tryb failover i odzyskiwanie po awarii](storsimple-device-failover-disaster-recovery.md). | Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane pełne zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. Proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych zostaną przeskanowane i pobrane z warstwy chmury do warstwy urządzeń lokalnych, co może być czasochłonnym procesem. |
+| Awaria urządzenia StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Zastąp urządzenie zakończone niepowodzeniem i przeprowadź [StorSimple tryb failover i odzyskiwanie po awarii](./storsimple-8000-device-failover-disaster-recovery.md). | Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane pełne zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. Proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych zostaną przeskanowane i pobrane z warstwy chmury do warstwy urządzeń lokalnych, co może być czasochłonnym procesem. |
 | Awaria serwera NetBackup | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Skompiluj ponownie serwer kopii zapasowej i wykonaj przywracanie bazy danych. | Należy ponownie skompilować lub przywrócić serwer NetBackup w lokacji odzyskiwania po awarii. Przywróć bazę danych do najnowszego punktu. Jeśli przywrócona baza danych NetBackup nie jest zsynchronizowana z najnowszymi zadaniami tworzenia kopii zapasowych, wymagane jest indeksowanie i wykazanie. Ten proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych będą skanowane i pobrane z warstwy chmury do warstwy urządzenia lokalnego. Zwiększa to intensywnie czasochłonne. |
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 Następujące dokumenty odwołują się do tego artykułu:
 
-- [Konfiguracja wielościeżkowego we/wy StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Scenariusze magazynu: alokowanie elastyczne](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Korzystanie z dysków GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Skonfiguruj kopie w tle dla folderów udostępnionych](https://technet.microsoft.com/library/cc771893.aspx)
+- [Konfiguracja wielościeżkowego we/wy StorSimple](./storsimple-8000-configure-mpio-windows-server.md)
+- [Scenariusze magazynu: alokowanie elastyczne](/windows-hardware/drivers/storage/thin-provisioning)
+- [Korzystanie z dysków GPT](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Skonfiguruj kopie w tle dla folderów udostępnionych](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o sposobach [przywracania z zestawu kopii zapasowych](storsimple-restore-from-backup-set-u2.md).
-- Dowiedz się więcej na temat wykonywania [trybu failover urządzeń i odzyskiwania po awarii](storsimple-device-failover-disaster-recovery.md).
+- Dowiedz się więcej o sposobach [przywracania z zestawu kopii zapasowych](./storsimple-8000-restore-from-backup-set-u2.md).
+- Dowiedz się więcej na temat wykonywania [trybu failover urządzeń i odzyskiwania po awarii](./storsimple-8000-device-failover-disaster-recovery.md).

@@ -4,18 +4,18 @@ description: IoT Edge pobieranie dzienników modułu i przekazywanie ich do usł
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171916"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966925"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Pobieranie dzienników z wdrożeń IoT Edge
 
@@ -82,7 +82,7 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 
 Pomyślne pobranie dzienników zwraca wartość **"status": 200** , a następnie ładunek zawierający dzienniki pobrane z modułu, filtrowane według ustawień określonych w żądaniu.
 
-Na przykład:
+Przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +123,7 @@ W Azure Portal Wywołaj metodę z nazwą metody `GetModuleLogs` i następującym
 
 ![Wywołaj metodę bezpośrednią "GetModuleLogs" w Azure Portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-Możesz również przekazać dane wyjściowe interfejsu wiersza polecenia do narzędzi systemu Linux, takich jak [gzip](https://en.wikipedia.org/wiki/Gzip), do przetwarzania skompresowanej odpowiedzi. Na przykład:
+Możesz również przekazać dane wyjściowe interfejsu wiersza polecenia do narzędzi systemu Linux, takich jak [gzip](https://en.wikipedia.org/wiki/Gzip), do przetwarzania skompresowanej odpowiedzi. Przykład:
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -140,6 +140,14 @@ az iot hub invoke-module-method \
 ## <a name="upload-module-logs"></a>Przekazywanie dzienników modułu
 
 Użyj metody **UploadModuleLogs** Direct do wysłania żądanych dzienników do określonego kontenera BLOB Storage platformy Azure.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Jeśli chcesz przekazać dzienniki z urządzenia za urządzeniem bramy, musisz mieć skonfigurowane [moduły proxy interfejsu API i usługi BLOB Storage](how-to-configure-api-proxy-module.md) na urządzeniu warstwy najwyższego poziomu. Te moduły kierują dzienniki z urządzenia warstwy niższej za pośrednictwem urządzenia bramy do magazynu w chmurze.
+
+::: moniker-end
 
 Ta metoda akceptuje ładunek JSON podobny do **GetModuleLogs**, z dodaniem klucza "adresie sasurl":
 
@@ -184,7 +192,7 @@ Pomyślne żądanie przekazania dzienników zwraca **"status": 200** , po który
 | message | ciąg | Komunikat, jeśli wystąpi błąd, pusty ciąg w przeciwnym razie. |
 | correlationId | ciąg   | Identyfikator do wysłania zapytania do stanu żądania przekazywania. |
 
-Na przykład:
+Przykład:
 
 Następujące wywołanie umożliwia przekazanie ostatnich wierszy dziennika 100 ze wszystkich modułów w formacie skompresowanym JSON:
 
@@ -261,6 +269,14 @@ W Azure Portal Wywołaj metodę z nazwą metody `UploadModuleLogs` i następują
 
 Użyj metody **UploadSupportBundle** Direct, aby powiązać i przekazać plik zip dzienników modułów IoT Edge do dostępnego kontenera BLOB Storage platformy Azure. Ta metoda bezpośrednia uruchamia [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) polecenie na urządzeniu IoT Edge, aby uzyskać dzienniki.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Jeśli chcesz przekazać dzienniki z urządzenia za urządzeniem bramy, musisz mieć skonfigurowane [moduły proxy interfejsu API i usługi BLOB Storage](how-to-configure-api-proxy-module.md) na urządzeniu warstwy najwyższego poziomu. Te moduły kierują dzienniki z urządzenia warstwy niższej za pośrednictwem urządzenia bramy do magazynu w chmurze.
+
+::: moniker-end
+
 Ta metoda akceptuje ładunek JSON z następującym schematem:
 
 ```json
@@ -300,7 +316,7 @@ Pomyślne żądanie przekazania dzienników zwraca **"status": 200** , po który
 | message | ciąg | Komunikat, jeśli wystąpi błąd, pusty ciąg w przeciwnym razie. |
 | correlationId | ciąg   | Identyfikator do wysłania zapytania do stanu żądania przekazywania. |
 
-Na przykład:
+Przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -358,7 +374,7 @@ Pomyślne żądanie przekazania dzienników zwraca **"status": 200** , po który
 | message | ciąg | Komunikat, jeśli wystąpi błąd, pusty ciąg w przeciwnym razie. |
 | correlationId | ciąg   | Identyfikator do wysłania zapytania do stanu żądania przekazywania. |
 
-Na przykład:
+Przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \

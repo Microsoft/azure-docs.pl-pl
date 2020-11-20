@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e560fc996393969eecb45a3fdda24bc940436dc0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617074"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967724"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA
 
@@ -93,10 +94,10 @@ Szczegółowe kroki rozwiązywania problemów można znaleźć w witrynie [SAP H
 Zapoznaj się z uwagą do programu [sap #2081065 — Rozwiązywanie problemów z siecią SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) i wykonywanie kroków rozwiązywania problemów z siecią w tej notatce SAP.
 
 1. Analizowanie czasu rundy między serwerem a klientem.
-  A. Uruchom [_ \_ \_ klientów sieciowych_](https://launchpad.support.sap.com/#/notes/1969700)programu SQL Script Hana _._
+  A. Uruchom [_\_ \_ klientów sieciowych_](https://launchpad.support.sap.com/#/notes/1969700)programu SQL Script Hana _._
   
 2. Analizowanie komunikacji między węzłami.
-  A. Uruchom [_ \_ \_ usługę sieciową Hana_](https://launchpad.support.sap.com/#/notes/1969700)skryptu SQL _._
+  A. Uruchom [_\_ \_ usługę sieciową Hana_](https://launchpad.support.sap.com/#/notes/1969700)skryptu SQL _._
 
 3. Uruchom polecenie systemu Linux **ifconfig** (dane wyjściowe wskazuje, czy występują jakiekolwiek straty pakietu).
 4. Uruchom polecenie systemu Linux **tcpdump**.

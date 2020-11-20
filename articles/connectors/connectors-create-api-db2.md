@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765bb66b572f0c046222cfb617fe4caa80925256
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334603"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967406"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Dostęp do zasobów IBM DB2 i zarządzanie nimi przy użyciu Azure Logic Apps
 
@@ -28,7 +28,7 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która wykonuje różn
 
 | Platforma | Wersja | 
 |----------|---------|
-| IBM DB2 dla systemu z/OS | 11,1, 10,1 |
+| IBM DB2 dla systemu z/OS | 12, 11,1, 10,1 |
 | IBM DB2 for i | 7,3, 7,2, 7,1 |
 | IBM DB2 for LUW | 11, 10,5 |
 |||
@@ -90,7 +90,7 @@ Aby skonfigurować połączenie, podaj te szczegóły połączenia po wyświetle
 | **Hasło** | Tak | Hasło do bazy danych |
 ||||
 
-Na przykład:
+Przykład:
 
 ![Szczegóły połączenia dla baz danych opartych na chmurze](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -112,7 +112,7 @@ Przed utworzeniem połączenia należy zainstalować lokalną bramę danych. W p
 | **Punkt** | Tak | Nazwa zainstalowanej lokalnej bramy danych <p><p>**Uwaga**: Wybierz tę wartość z listy, która obejmuje wszystkie zainstalowane bramy danych w ramach subskrypcji i grupy zasobów platformy Azure. |
 ||||
 
-Na przykład:
+Przykład:
 
 ![Szczegóły połączenia dla lokalnych baz danych](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -126,7 +126,7 @@ Aby ręcznie uruchomić aplikację logiki, na pasku narzędzi projektanta wybier
 
    ![Widok historii uruchamiania](./media/connectors-create-api-db2/run-history.png)
 
-1. W obszarze **uruchomienie aplikacji logiki**można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
+1. W obszarze **uruchomienie aplikacji logiki** można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
 Rozwiń akcję **Pobierz tabele** .
 
    ![Rozwiń akcję](./media/connectors-create-api-db2/expand-action-step.png)
@@ -169,7 +169,7 @@ Aby ręcznie uruchomić aplikację logiki, na pasku narzędzi projektanta wybier
 
 1. W obszarze **Podsumowanie**, w sekcji **historia uruchomień** wybierz ostatni przebieg, który jest pierwszym elementem na liście.
 
-1. W obszarze **uruchomienie aplikacji logiki**można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
+1. W obszarze **uruchomienie aplikacji logiki** można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
 Rozwiń akcję **Pobierz wiersz** .
 
 1. Aby wyświetlić dane wejściowe, wybierz pozycję **Pokaż nieprzetworzone dane wejściowe**.
@@ -206,7 +206,7 @@ Aby ręcznie uruchomić aplikację logiki, na pasku narzędzi projektanta wybier
 
 1. W obszarze **Podsumowanie**, w sekcji **historia uruchomień** wybierz ostatni przebieg, który jest pierwszym elementem na liście.
 
-1. W obszarze **uruchomienie aplikacji logiki**można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
+1. W obszarze **uruchomienie aplikacji logiki** można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
 Rozwiń akcję **Pobierz wiersze** .
 
 1. Aby wyświetlić dane wejściowe, wybierz pozycję **Pokaż nieprzetworzone dane wejściowe**.
@@ -239,7 +239,7 @@ Aby dodać pojedynczy rekord do tabeli bazy danych DB2, użyj akcji **Wstaw wier
    | **Identyfikator regionu** | Tak | Identyfikator regionu do dodania, na przykład "102" |
    |||| 
 
-   Na przykład:
+   Przykład:
 
    ![Zrzut ekranu, który pokazuje projektanta Logic Apps z akcją "Wstaw wiersz (wersja zapoznawcza)" i przykładowymi wartościami właściwości.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -253,7 +253,7 @@ Aby ręcznie uruchomić aplikację logiki, na pasku narzędzi projektanta wybier
 
 1. W obszarze **Podsumowanie**, w sekcji **historia uruchomień** wybierz ostatni przebieg, który jest pierwszym elementem na liście.
 
-1. W obszarze **uruchomienie aplikacji logiki**można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
+1. W obszarze **uruchomienie aplikacji logiki** można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
 Rozwiń akcję **Wstaw wiersz** .
 
 1. Aby wyświetlić dane wejściowe, wybierz pozycję **Pokaż nieprzetworzone dane wejściowe**.
@@ -287,7 +287,7 @@ Aby zaktualizować pojedynczy rekord w tabeli bazy danych DB2, użyj akcji **Akt
    | **Identyfikator regionu** | Tak | Nowy identyfikator regionu, taki jak "102" |
    ||||
 
-   Na przykład:
+   Przykład:
 
    ![Zrzut ekranu, który pokazuje projektanta Logic Apps z akcją "Aktualizuj wiersz (wersja zapoznawcza)", w której wybiera się tabelę.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -301,7 +301,7 @@ Aby ręcznie uruchomić aplikację logiki, na pasku narzędzi projektanta wybier
 
 1. W obszarze **Podsumowanie**, w sekcji **historia uruchomień** wybierz ostatni przebieg, który jest pierwszym elementem na liście.
 
-1. W obszarze **uruchomienie aplikacji logiki**można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
+1. W obszarze **uruchomienie aplikacji logiki** można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
 Rozwiń akcję **Aktualizuj wiersz** .
 
 1. Aby wyświetlić dane wejściowe, wybierz pozycję **Pokaż nieprzetworzone dane wejściowe**.
@@ -332,7 +332,7 @@ Aby usunąć pojedynczy rekord z tabeli bazy danych DB2, użyj akcji **Usuń wie
    | **Identyfikator wiersza** | Tak | Identyfikator rekordu do usunięcia, na przykład "99999" |
    ||||
 
-   Na przykład:
+   Przykład:
 
    ![Zrzut ekranu przedstawiający projektanta Logic Apps z akcją "Usuń wiersz (wersja zapoznawcza)", w której jest wybierana tabela do usunięcia.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
@@ -346,7 +346,7 @@ Aby ręcznie uruchomić aplikację logiki, na pasku narzędzi projektanta wybier
 
 1. W obszarze **Podsumowanie**, w sekcji **historia uruchomień** wybierz ostatni przebieg, który jest pierwszym elementem na liście.
 
-1. W obszarze **uruchomienie aplikacji logiki**można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
+1. W obszarze **uruchomienie aplikacji logiki** można teraz przeglądać stan, dane wejściowe i wyjściowe dla każdego kroku w aplikacji logiki.
 Rozwiń akcję **Usuń wiersz** .
 
 1. Aby wyświetlić dane wejściowe, wybierz pozycję **Pokaż nieprzetworzone dane wejściowe**.

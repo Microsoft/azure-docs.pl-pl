@@ -3,16 +3,17 @@ title: Obrazy Red Hat Enterprise Linux dostępne na platformie Azure
 description: Dowiedz się więcej na temat Red Hat Enterprise Linux obrazów w Microsoft Azure
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 66e2f70a5d55d263f7da343c0987e77a9f60c3b0
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b03d559b8952a61896fa79a568fb8200b3618fed
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372680"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968642"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Obrazy Red Hat Enterprise Linux (RHEL) dostępne na platformie Azure
 Platforma Azure oferuje różne obrazy RHEL dla różnych przypadków użycia.
@@ -26,7 +27,7 @@ Jest to lista obrazów RHEL dostępnych na platformie Azure. O ile nie określon
 > [!NOTE]
 > Obrazy RAW nie są już tworzone na korzyść obrazów LVM. LVM zapewnia kilka korzyści w porównaniu ze starszym schematem partycjonowania RAW (innym niż LVM), w tym znacznie bardziej elastyczne opcje zmiany rozmiarów partycji.
 
-Oferta| Jednostka SKU | Partycjonowanie | Inicjowanie obsługi | Uwagi
+Oferta| SKU | Partycjonowanie | Inicjowanie obsługi | Uwagi
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | SUROWCÓW    | Agent systemu Linux | Rozszerzona obsługa cyklu życia dostępna od 1 grudnia. [Więcej informacji znajdziesz tutaj.](redhat-extended-lifecycle-support.md)
 |             | 6.8      | SUROWCÓW    | Agent systemu Linux | Rozszerzona obsługa cyklu życia dostępna od 1 grudnia. [Więcej informacji znajdziesz tutaj.](redhat-extended-lifecycle-support.md)

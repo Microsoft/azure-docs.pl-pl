@@ -3,12 +3,12 @@ title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architektur
 description: Dowiedz się więcej na temat integrowania wdrożenia rozwiązania Azure VMware w architekturze gwiazdy i szprych na platformie Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: da4a5f5ec6fa2b0a2733e8d1bf0243ec75f38d55
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 788ef9886e0d102a549e84cd01c658e9e4131c63
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577723"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967452"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
@@ -38,7 +38,7 @@ Architektura ma następujące główne składniki:
 
 - **Lokacja lokalna:** Lokalne centra danych klienta połączone z platformą Azure za pomocą połączenia ExpressRoute.
 
-- **Chmura prywatna rozwiązania Azure VMware:** Rozwiązanie VMware platformy Azure SDDC utworzone przez co najmniej jeden klaster vSphere, każdy z nich z maksymalnie 16 węzłami.
+- **Chmura prywatna rozwiązania Azure VMware:** Rozwiązanie VMware platformy Azure SDDC utworzone przez co najmniej jeden klaster vSphere, każdy z nich z maksymalnie 16 hostami.
 
 - **ExpressRoute Gateway:** Umożliwia komunikację między chmurą prywatną rozwiązań VMware platformy Azure, usługami udostępnionymi w sieci wirtualnej Hub i obciążeniami działającymi w sieciach wirtualnych szprych.
 

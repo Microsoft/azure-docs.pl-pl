@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4a53dd803b22899b7dd15db0aa1ff411641a11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3339f883d177366a64187e0c090752527802c8d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183262"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968778"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Używanie Azure Resource Manager skryptów opartych na zestawie SDK do zarządzania urządzeniami StorSimple
 
@@ -57,7 +57,7 @@ Przed rozpoczęciem upewnij się, że masz:
     * W środowisku systemu Windows wykonaj kroki opisane w temacie [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/install-az-ps). Azure PowerShell można zainstalować na hoście z systemem Windows Server, jeśli jest on używany przez StorSimple.
     * W środowisku Linux lub MacOS wykonaj kroki opisane w temacie [Instalowanie i konfigurowanie Azure PowerShell w systemie MacOS lub Linux](/powershell/azure/install-az-ps).
 
-Aby uzyskać więcej informacji na temat korzystania z Azure PowerShell, przejdź do obszaru wprowadzenie do [korzystania z Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Aby uzyskać więcej informacji na temat korzystania z Azure PowerShell, przejdź do obszaru wprowadzenie do [korzystania z Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="run-azure-powershell-script"></a>Uruchom skrypt Azure PowerShell
 

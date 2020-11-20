@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968013"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
@@ -40,9 +40,11 @@ Program sugerowany jest wewnętrzną strukturą danych, która obsługuje zachow
 
 Aby utworzyć program sugerujący, Dodaj go do [definicji indeksu](/rest/api/searchservice/create-index). Sugerował Pobiera nazwę i kolekcję pól, w których włączono środowisko typeahead. i [ustawić każdą właściwość](#property-reference). Najlepszym terminem tworzenia sugestii jest określenie pola, które będzie z niego korzystać.
 
-+ Używaj tylko pól ciągów
++ Używaj tylko pól ciągów.
 
-+ Użyj domyślnego standardowego analizatora Lucene ( `"analyzer": null` ) lub [analizatora języka](index-add-language-analyzers.md) (na przykład `"analyzer": "en.Microsoft"` ) w polu
++ Jeśli pole String jest częścią typu złożonego (na przykład pole miasto w adres), Uwzględnij element nadrzędny w polu: `"Address/City"` (REST, C# i Python) lub `["Address"]["City"]` (JavaScript).
+
++ Użyj domyślnego standardowego analizatora Lucene ( `"analyzer": null` ) lub [analizatora języka](index-add-language-analyzers.md) (na przykład `"analyzer": "en.Microsoft"` ) dla tego pola.
 
 Jeśli spróbujesz utworzyć sugestię przy użyciu istniejących pól, interfejs API nie będzie go zezwalać. Prefiksy są generowane podczas indeksowania, gdy częściowe warunki w dwóch lub większej liczbie znaków są rozliczanie tokenów obok całych warunków. Mając na względzie, że istniejące pola są już tokenami, należy ponownie skompilować indeks, jeśli chcesz dodać je do sugestii. Aby uzyskać więcej informacji, zobacz [jak ponownie skompilować indeks wyszukiwanie poznawcze platformy Azure](search-howto-reindex.md).
 

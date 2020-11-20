@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968064"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge Java dla urządzeń z systemem Linux
 
@@ -34,9 +34,9 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Zakres rozwiązania
+## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przedstawiono sposób tworzenia modułu w **języku Java** przy użyciu **Visual Studio Code**i sposobu wdrażania go na **urządzeniu z systemem Linux**. IoT Edge nie obsługuje modułów języka Java dla urządzeń z systemem Windows.
+W tym samouczku przedstawiono sposób tworzenia modułu w **języku Java** przy użyciu **Visual Studio Code** i sposobu wdrażania go na **urządzeniu z systemem Linux**. IoT Edge nie obsługuje modułów języka Java dla urządzeń z systemem Windows.
 
 Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów Java:
 
@@ -44,8 +44,6 @@ Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania moduł�
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Używanie VS Code dla modułów języka Java w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Używanie VS Code dla modułów języka Java w systemie Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-
-## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska deweloperskiego do tworzenia kontenerów systemu Linux: [Tworzenie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md). Wykonując jeden z tych samouczków, należy spełnić następujące wymagania wstępne:
 
@@ -90,10 +88,10 @@ Utwórz szablon rozwiązania w języku Java, który można dostosować przy uży
 Jeśli tworzysz moduł Java po raz pierwszy, pobranie pakietów Maven może potrwać kilka minut. Gdy rozwiązanie jest gotowe, okno VS Code ładuje obszar roboczy rozwiązania IoT Edge. Obszar roboczy rozwiązania zawiera pięć składników najwyższego poziomu:
 
 * Folder **modułów** zawiera kod Java dla modułu i plików platformy Docker, aby skompilować moduł jako obraz kontenera.
-* Plik ** \. ENV** przechowuje poświadczenia rejestru kontenerów.
+* Plik **\. ENV** przechowuje poświadczenia rejestru kontenerów.
 * Plik **deployment.template.json** zawiera informacje, których środowisko uruchomieniowe usługi IoT Edge używa do wdrażania modułów na urządzeniu.
 * **deployment.debug.template.jsw** kontenerach plików jest debugowana wersja modułów.
-* W tym samouczku nie będziesz edytować folderu ** \. programu vscode** ani pliku ** \. GITIGNORE** .
+* W tym samouczku nie będziesz edytować folderu **\. programu vscode** ani pliku **\. GITIGNORE** .
 
 Jeśli podczas tworzenia własnego rozwiązania nie określisz rejestru kontenerów, ale zaakceptujesz wartość domyślną localhost:5000, nie będziesz mieć pliku \.env.
 
@@ -111,7 +109,7 @@ Rozszerzenie IoT Edge podejmuje próbę ściągnięcia poświadczeń rejestru ko
 
 Obecnie Visual Studio Code mogą opracowywać moduły Java dla urządzeń z systemem Linux AMD64 i Linux ARM32v7. Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązanie, ponieważ kontener jest zbudowany i uruchamiany inaczej dla każdego typu architektury. Wartość domyślna to Linux AMD64.
 
-1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego**lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
+1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego** lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
 
 2. W palecie poleceń wybierz architekturę docelową z listy opcji. W tym samouczku używamy maszyny wirtualnej Ubuntu jako urządzenia IoT Edge, co spowoduje zachowanie domyślnego **amd64**.
 

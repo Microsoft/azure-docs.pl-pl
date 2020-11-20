@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544753"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968540"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP
 
@@ -109,8 +110,8 @@ Konfiguracja będzie wyglądać następująco:
 4. Utwórz reguły sieciowej grupy zabezpieczeń, aby ograniczyć dostęp do określonych publicznych punktów końcowych. Jeśli istnieje sieciowa Grupa zabezpieczeń, możesz ją dostosować. W poniższym przykładzie pokazano, jak włączyć dostęp do interfejsu API zarządzania platformy Azure: 
    1. Przejdź do sieciowej grupy zabezpieczeń
    1. Kliknij pozycję Reguły zabezpieczeń dla ruchu wychodzącego
-   1. Dodaj regułę, aby **odmówić** wszystkim dostępowi wychodzącemu do **Internetu** .
-   1. Dodaj regułę, aby **zezwolić** na dostęp do **AzureCloud** , z priorytetem niższym od priorytetu reguły, aby odmówić dostępu do Internetu.
+   1. Dodaj regułę, aby **odmówić** wszystkim dostępowi wychodzącemu do **Internetu**.
+   1. Dodaj regułę, aby **zezwolić** na dostęp do **AzureCloud**, z priorytetem niższym od priorytetu reguły, aby odmówić dostępu do Internetu.
 
 
    Reguły zabezpieczeń dla ruchu wychodzącego będą wyglądać następująco: 
@@ -147,14 +148,14 @@ Architektura będzie wyglądać następująco:
    1. Kliknij przycisk Dodaj podsieć. Wprowadź **AzureFirewallSubnet** jako nazwę. Wprowadź odpowiedni zakres adresów. Zapisz zmiany.  
 3. Utwórz zaporę platformy Azure.  
    1. W Azure Portal zaznacz wszystkie zasoby, kliknij przycisk Dodaj, Zapora, Utwórz. Wybierz grupę zasobów (Wybierz tę samą grupę zasobów, w której znajduje się Virtual Network).  
-   1. Wprowadź nazwę zasobu zapory platformy Azure. Na przykład **MyAzureFirewall** .  
+   1. Wprowadź nazwę zasobu zapory platformy Azure. Na przykład **MyAzureFirewall**.  
    1. Wybierz opcję Region i wybierz co najmniej dwie strefy dostępności wyrównane z strefami dostępności, w których wdrożono maszyny wirtualne.  
    1. Wybierz Virtual Network, w którym są wdrażane maszyny wirtualne SAP i usługa Azure Standard load module.  
-   1. Publiczny adres IP: kliknij przycisk Utwórz, a następnie wprowadź nazwę. Na przykład **MyFirewallPublicIP** .  
+   1. Publiczny adres IP: kliknij przycisk Utwórz, a następnie wprowadź nazwę. Na przykład **MyFirewallPublicIP**.  
 4. Utwórz regułę zapory platformy Azure, aby zezwolić na połączenia wychodzące z określonymi publicznymi punktami końcowymi. W przykładzie pokazano, jak zezwolić na dostęp do publicznego punktu końcowego interfejsu API zarządzania platformy Azure.  
    1. Wybierz pozycję reguły, Kolekcja reguł sieci, a następnie kliknij pozycję Dodaj kolekcję reguł sieci.  
-   1. Nazwa: **MyOutboundRule** , wprowadź priorytet, wybierz pozycję Akcja **Zezwalaj** .  
-   1. Usługa: nazwa **ToAzureAPI** .  Protokół: Wybierz **dowolny** . Adres źródłowy: Wprowadź zakres podsieci, w której wdrożono maszyny wirtualne i usługa Load Balancer w warstwie Standardowa na przykład: **11.97.0.0/24** . Porty docelowe: wprowadź <b>*</b> .  
+   1. Nazwa: **MyOutboundRule**, wprowadź priorytet, wybierz pozycję Akcja **Zezwalaj**.  
+   1. Usługa: nazwa **ToAzureAPI**.  Protokół: Wybierz **dowolny**. Adres źródłowy: Wprowadź zakres podsieci, w której wdrożono maszyny wirtualne i usługa Load Balancer w warstwie Standardowa na przykład: **11.97.0.0/24**. Porty docelowe: wprowadź <b>*</b> .  
    1. Zapisz
    1. Ponieważ nadal umieszczasz w zaporze platformy Azure, wybierz pozycję przegląd. Zanotuj prywatny adres IP zapory platformy Azure.  
 5. Tworzenie trasy do zapory platformy Azure  
@@ -164,9 +165,9 @@ Architektura będzie wyglądać następująco:
 
    Reguła zapory będzie wyglądać następująco: ![ diagram pokazujący, jak będzie wyglądać Zapora.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
-6. Utwórz trasę zdefiniowaną przez użytkownika z podsieci maszyn wirtualnych do prywatnego adresu IP **MyAzureFirewall** .
+6. Utwórz trasę zdefiniowaną przez użytkownika z podsieci maszyn wirtualnych do prywatnego adresu IP **MyAzureFirewall**.
    1. Po umieszczeniu w tabeli tras kliknij pozycję trasy. Wybierz pozycję Dodaj. 
-   1. Nazwa trasy: ToMyAzureFirewall, prefiks adresu: **0.0.0.0/0** . Typ następnego przeskoku: wybierz pozycję urządzenie wirtualne. Adres następnego przeskoku: wprowadź prywatny adres IP skonfigurowanej zapory: **11.97.1.4** .  
+   1. Nazwa trasy: ToMyAzureFirewall, prefiks adresu: **0.0.0.0/0**. Typ następnego przeskoku: wybierz pozycję urządzenie wirtualne. Adres następnego przeskoku: wprowadź prywatny adres IP skonfigurowanej zapory: **11.97.1.4**.  
    1. Zapisz
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Używanie serwera proxy dla wywołań Pacemaker do interfejsu API zarządzania platformy Azure
@@ -185,7 +186,7 @@ Serwera proxy można użyć do zezwalania na wywołania Pacemaker do publicznego
 
 ### <a name="pacemaker-configuration-with-proxy"></a>Konfiguracja Pacemaker z serwerem proxy 
 
-W branży dostępnych jest wiele różnych opcji serwera proxy. Instrukcje krok po kroku dotyczące wdrażania serwera proxy wykraczają poza zakres tego dokumentu. W poniższym przykładzie przyjęto założenie, że serwer proxy odpowiada na **MyProxyService** i nasłuchuje na porcie **MyProxyPort** .  
+W branży dostępnych jest wiele różnych opcji serwera proxy. Instrukcje krok po kroku dotyczące wdrażania serwera proxy wykraczają poza zakres tego dokumentu. W poniższym przykładzie przyjęto założenie, że serwer proxy odpowiada na **MyProxyService** i nasłuchuje na porcie **MyProxyPort**.  
 Aby umożliwić usłudze Pacemaker komunikowanie się z interfejsem API zarządzania platformy Azure, wykonaj następujące czynności na wszystkich węzłach klastra:  
 
 1. Edytuj plik konfiguracji Pacemaker/etc/sysconfig/Pacemaker i Dodaj następujące wiersze (wszystkie węzły klastra):

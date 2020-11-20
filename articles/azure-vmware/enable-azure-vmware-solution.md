@@ -1,17 +1,17 @@
 ---
 title: Jak włączyć zasób rozwiązania Azure VMware
-description: Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby węzłów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
+description: Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888440"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967367"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Jak włączyć zasób rozwiązania VMware dla platformy Azure
-Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób [rozwiązania VMware platformy Azure](introduction.md) . Możesz również zażądać większej liczby węzłów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
+Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób [rozwiązania VMware platformy Azure](introduction.md) . Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 
 ## <a name="eligibility-criteria"></a>Kryteria kwalifikacji
 
@@ -22,7 +22,7 @@ Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure. Subskry
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Włącz rozwiązanie VMware dla platformy Azure dla klientów z umowami EA
-Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
+Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia hostów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić hosty. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i potrzebujesz większej liczby hostów, przejdziesz do tego samego procesu.
 
 
 1. W Azure Portal w obszarze **Pomoc i obsługa techniczna** Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:
@@ -38,20 +38,20 @@ Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomo
 
    - ZK lub produkcja 
    - Nazwa regionu
-   - Liczba węzłów
+   - Liczba hostów
    - Wszelkie inne szczegóły
 
    >[!NOTE]
-   >Rozwiązanie VMware firmy Azure zaleca co najmniej trzy węzły do roztworzenia chmury prywatnej oraz węzłów nadmiarowości N + 1. 
+   >Rozwiązanie VMware firmy Azure zaleca co najmniej trzy hosty, które umożliwiają zapełnienie chmury prywatnej oraz dla hostów nadmiarowości N + 1. 
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przesłać żądanie.
 
    Potwierdzenie Twojego wniosku zostanie potrwać do pięciu dni roboczych.
 
    >[!IMPORTANT] 
-   >Jeśli masz już istniejące rozwiązanie VMware platformy Azure i żądasz dodatkowych węzłów, pamiętaj, że potrzebujemy pięciu dni roboczych na przydzielenie węzłów. 
+   >Jeśli masz już istniejące rozwiązanie VMware platformy Azure i żądasz dodatkowych hostów, pamiętaj, że potrzebujemy pięciu dni roboczych, aby przydzielić hosty. 
 
-1. Przed udostępnieniem węzłów upewnij się, że rejestrujesz dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
+1. Przed udostępnieniem hostów upewnij się, że rejestrujesz dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -99,21 +99,21 @@ Po skonfigurowaniu planu platformy Azure i wymaganych uprawnieniach vSphere RBAC
 
    - ZK lub produkcja 
    - Nazwa regionu
-   - Liczba węzłów
+   - Liczba hostów
    - Wszelkie inne szczegóły
    - Czy jest przeznaczony do hostowania wielu klientów?
 
    >[!NOTE]
-   >Rozwiązanie VMware firmy Azure zaleca co najmniej trzy węzły do roztworzenia chmury prywatnej oraz węzłów nadmiarowości N + 1. 
+   >Rozwiązanie VMware firmy Azure zaleca co najmniej trzy hosty, które umożliwiają zapełnienie chmury prywatnej oraz dla hostów nadmiarowości N + 1. 
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przesłać żądanie.
 
    Potwierdzenie Twojego wniosku zostanie potrwać do pięciu dni roboczych.
 
    >[!IMPORTANT] 
-   >Jeśli masz już istniejące rozwiązanie VMware platformy Azure i żądasz dodatkowych węzłów, pamiętaj, że potrzebujemy pięciu dni roboczych na przydzielenie węzłów. 
+   >Jeśli masz już istniejące rozwiązanie VMware platformy Azure i żądasz dodatkowych hostów, pamiętaj, że potrzebujemy pięciu dni roboczych, aby przydzielić hosty. 
 
-1. Po dodaniu do planu platformy Azure i włączeniu limitu przydziału klient lub administrator partnera może wdrożyć chmurę prywatną rozwiązania VMware platformy Azure za pomocą Azure Portal. Przed udostępnieniem węzłów upewnij się, że rejestrujesz dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
+1. Po dodaniu do planu platformy Azure i włączeniu limitu przydziału klient lub administrator partnera może wdrożyć chmurę prywatną rozwiązania VMware platformy Azure za pomocą Azure Portal. Przed udostępnieniem hostów upewnij się, że rejestrujesz dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>

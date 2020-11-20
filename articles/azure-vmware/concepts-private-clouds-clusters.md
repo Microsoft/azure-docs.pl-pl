@@ -3,12 +3,12 @@ title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych możliwości rozwiązań VMware platformy Azure zdefiniowanych przez oprogramowanie oraz klastrów vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874019"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967384"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów
 
@@ -38,7 +38,7 @@ Menedżer vSphere i NSX-T służy do zarządzania większością aspektów konfi
 
 ## <a name="hosts"></a>Hosts
 
-Klastry chmur prywatnych rozwiązania VMware platformy Azure używają węzłów infrastruktury z funkcją Hyper-dezbieżną. W poniższej tabeli przedstawiono pojemności pamięci RAM, procesora CPU i dysku hosta. 
+Klastry chmur prywatnych rozwiązania VMware platformy Azure korzystają z hostów infrastruktury bez systemu operacyjnego. W poniższej tabeli przedstawiono pojemności pamięci RAM, procesora CPU i dysku hosta. 
 
 | Typ hosta              |             Procesor CPU             |   Pamięć RAM (GB)   |  Warstwa pamięci podręcznej interfejsu NVMe sieci vSAN (TB, RAW)  |  warstwa pojemności sieci vSAN SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |

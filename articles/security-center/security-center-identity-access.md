@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371073"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967146"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorowanie tożsamość i dostępu
 
-Obwód zabezpieczeń został rozwijający się od obwodu sieci do obwodu tożsamości. W przypadku tego rozwoju zabezpieczenia są mniej związane z obroną sieci oraz więcej informacji na temat zarządzania zabezpieczeniami aplikacji, danych i użytkowników.
+Obwód zabezpieczeń ewoluował od obwodu sieci do obwodu tożsamości. W przypadku tego rozwoju zabezpieczenia są mniej związane z obroną sieci oraz więcej informacji na temat zarządzania zabezpieczeniami aplikacji, danych i użytkowników.
 
 Monitorując działania i ustawienia konfiguracji związane z tożsamością, możesz podejmować aktywne akcje przed wystąpieniem zdarzenia lub ponownie uaktywnić akcje, aby przerwać próby ataków.
 
@@ -30,7 +30,7 @@ Monitorując działania i ustawienia konfiguracji związane z tożsamością, mo
 
 Azure Security Center ma dwie dedykowane mechanizmy kontroli zabezpieczeń, aby upewnić się, że spełniasz wymagania dotyczące tożsamości i zabezpieczeń organizacji: 
 
- - **Zarządzanie dostępem i uprawnieniami** — zachęcamy do zastosowania [modelu dostępu o najniższym poziomie uprawnień](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) i upewnienia się, że użytkownicy będą mieli tylko dostęp niezbędny do wykonywania swoich zadań. Ta kontrolka zawiera również zalecenia dotyczące implementowania [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md) w celu kontrolowania dostępu do zasobów.
+ - **Zarządzanie dostępem i uprawnieniami** — zachęcamy do zastosowania [modelu dostępu o najniższym poziomie uprawnień](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) i upewnienia się, że użytkownicy będą mieli tylko dostęp niezbędny do wykonywania swoich zadań. Ta kontrolka zawiera również zalecenia dotyczące implementowania [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md) w celu kontrolowania dostępu do zasobów.
  
  - **Włączenie uwierzytelniania wieloskładnikowego** — z włączoną funkcją [MFA](https://www.microsoft.com/security/business/identity/mfa) konta są bezpieczniejsze, a użytkownicy nadal mogą uwierzytelniać się w prawie każdej aplikacji z logowaniem jednokrotnym.
 

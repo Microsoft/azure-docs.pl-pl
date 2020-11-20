@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511946"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967214"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Korzystanie z filtrów połączeń IP usługi Azure IoT DPS
 
@@ -22,7 +22,7 @@ Bezpieczeństwo jest ważnym aspektem każdego rozwiązania IoT. Czasami trzeba 
 
 Istnieją dwa konkretne przypadki użycia, w których warto zablokować połączenia z punktem końcowym usługi DPS z określonych adresów IP:
 
-* Usługa DPS powinna odbierać ruch tylko z określonego zakresu adresów IP i odrzucać każdy inny ruch. Na przykład używasz usługi DPS z usługą [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services), aby tworzyć prywatne połączenia między usługą DPS a urządzeniami.
+* Usługa DPS powinna odbierać ruch tylko z określonego zakresu adresów IP i odrzucać każdy inny ruch. Na przykład używasz usługi DPS z usługą [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), aby tworzyć prywatne połączenia między usługą DPS a urządzeniami.
 
 * Należy odrzucić ruch z adresów IP, które zostały zidentyfikowane jako podejrzane przez administratora usługi DPS.
 
@@ -48,7 +48,7 @@ Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP** wypełnij pola.
 
 ![Po wybraniu pozycji Dodaj regułę filtrowania adresów IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Podaj **nazwę** reguły filtrowania adresów IP. Nazwa musi być unikatowym, alfanumerycznym ciągiem z rozróżnianą wielkością liter o długości do 128 znaków. Akceptowane są tylko 7-bitowe znaki alfanumeryczne ASCII i `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Podaj **nazwę** reguły filtrowania adresów IP. Nazwa musi być unikatowym, alfanumerycznym ciągiem z rozróżnianą wielkością liter o długości do 128 znaków. Akceptowane są tylko 7-bitowe znaki alfanumeryczne ASCII i `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR zapis 192.168.100.0/22 reprezentuje 1024 adresy IPv4 z zakresu od 192.168.100.0 do 192.168.103.255.
 
@@ -74,7 +74,7 @@ Aby usunąć regułę filtrowania adresów IP, wybierz ikonę kosza dla tego wie
 
 ## <a name="update-ip-filter-rules-in-code"></a>Aktualizowanie reguł filtrowania adresów IP w kodzie
 
-Możesz pobrać i zmodyfikować filtr adresów IP usługi DPS przy użyciu punktu końcowego REST dostawcy zasobów platformy Azure. Zobacz `properties.ipFilterRules` w opisie [metody createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Możesz pobrać i zmodyfikować filtr adresów IP usługi DPS przy użyciu punktu końcowego REST dostawcy zasobów platformy Azure. Zobacz `properties.ipFilterRules` w opisie [metody createorupdate](/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 Aktualizowanie reguł filtrowania adresów IP usługi DPS nie jest obecnie obsługiwane w interfejsie wiersza polecenia platformy Azure ani w programie Azure PowerShell, ale można je wykonać przy użyciu szablonów usługi Azure Resource Manager. Zobacz [Szablony usługi Azure Resource Manager](../azure-resource-manager/templates/overview.md), aby uzyskać wskazówki dotyczące używania szablonów usługi Resource Manager. Poniższe przykłady szablonów pokazują, jak tworzyć, edytować i usuwać reguły filtrowania adresów IP w usłudze DPS.
 
@@ -136,7 +136,7 @@ Zaktualizuj atrybuty reguły filtrowania adresów IP szablonu zgodnie z Twoimi w
 | Atrybut                | Opis |
 | ------------------------ | ----------- |
 | **FilterName**           | Podaj nazwę reguły filtrowania adresów IP. Nazwa musi być unikatowym, alfanumerycznym ciągiem z rozróżnianą wielkością liter o długości do 128 znaków. Akceptowane są tylko 7-bitowe znaki alfanumeryczne ASCII i {„-”, „:”, „/”, „\'”, „.”, „+”, „%”, „_”, „#”, „*”, „?”, „!”, „(„,”')”, „,”, „=”, „@”, „;”, „'”}. |
-| **Akcja**               | Akceptowane wartości akcji reguły filtrowania adresów IP to **Akceptuj** lub **Odrzuć** . |
+| **Akcja**               | Akceptowane wartości akcji reguły filtrowania adresów IP to **Akceptuj** lub  **Odrzuć** . |
 | **ipMask**               | Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR zapis 192.168.100.0/22 reprezentuje 1024 adresy IPv4 z zakresu od 192.168.100.0 do 192.168.103.255. |
 
 

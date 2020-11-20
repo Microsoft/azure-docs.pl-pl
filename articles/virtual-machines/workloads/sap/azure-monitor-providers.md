@@ -3,22 +3,23 @@ title: Azure Monitor dla dostawców rozwiązań SAP | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure monitor dla dostawców rozwiązań SAP.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356454"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968608"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Usługa Azure monitor dla dostawców rozwiązań SAP (wersja zapoznawcza)
 
 ## <a name="overview"></a>Omówienie  
 
-W kontekście Azure Monitor dla rozwiązań SAP *Typ dostawcy* odnosi się do określonego *dostawcy*. Na przykład *SAP HANA* , który jest skonfigurowany dla określonego składnika w oprogramowaniu SAP, takich jak SAP HANA Database. Dostawca zawiera informacje o połączeniu dla odpowiedniego składnika i pomaga zbierać dane telemetryczne z tego składnika. Jeden Azure Monitor dla zasobu rozwiązań SAP (znany również jako zasób monitora SAP) można skonfigurować przy użyciu wielu dostawców tego samego typu dostawcy lub wielu dostawców z wieloma typami dostawcy.
+W kontekście Azure Monitor dla rozwiązań SAP *Typ dostawcy* odnosi się do określonego *dostawcy*. Na przykład *SAP HANA*, który jest skonfigurowany dla określonego składnika w oprogramowaniu SAP, takich jak SAP HANA Database. Dostawca zawiera informacje o połączeniu dla odpowiedniego składnika i pomaga zbierać dane telemetryczne z tego składnika. Jeden Azure Monitor dla zasobu rozwiązań SAP (znany również jako zasób monitora SAP) można skonfigurować przy użyciu wielu dostawców tego samego typu dostawcy lub wielu dostawców z wieloma typami dostawcy.
    
 Klienci mogą konfigurować różne typy dostawców, aby umożliwić zbieranie danych z odpowiedniego składnika w systemie SAP. Na przykład klienci mogą skonfigurować jednego dostawcę dla typu dostawcy SAP HANA, innego dostawcę dla typu dostawcy klastrów o wysokiej dostępności i tak dalej.  
 

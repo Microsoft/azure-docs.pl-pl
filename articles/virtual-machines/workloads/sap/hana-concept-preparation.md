@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424246"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967860"
 ---
 # <a name="disaster-recovery-principles"></a>Zasady odzyskiwania po awarii
 
@@ -77,7 +78,7 @@ Zespół operacyjny ustanawia relację replikacji między woluminami PRD w regio
 
 Następnie skonfiguruj lub Dostosuj harmonogram tworzenia kopii zapasowych migawek magazynu, aby uzyskać dostęp do RTO i punktu odzyskiwania w przypadku awarii. Aby zminimalizować cel punktu odzyskiwania, należy ustawić następujące Interwały replikacji w usłudze w dużym wystąpieniu usługi HANA:
 - Dla woluminów objętych połączoną migawką ( **Snapshot Type)** Ustaw replikację co 15 minut do odpowiadającego miejsca docelowego woluminu magazynu w lokacji odzyskiwania po awarii.
-- W przypadku woluminu kopii zapasowej dziennika transakcji ( **dzienniki**typu migawek), ustawione na replikację co 3 minuty do odpowiadającego miejsca docelowego woluminu magazynu w lokacji odzyskiwania po awarii.
+- W przypadku woluminu kopii zapasowej dziennika transakcji ( **dzienniki** typu migawek), ustawione na replikację co 3 minuty do odpowiadającego miejsca docelowego woluminu magazynu w lokacji odzyskiwania po awarii.
 
 Aby zminimalizować cel punktu odzyskiwania, skonfiguruj następujące elementy:
 - Wykonaj migawkę magazynu typu **Hana** (zobacz "krok 7: wykonywanie migawek") co 30 minut do 1 godziny.

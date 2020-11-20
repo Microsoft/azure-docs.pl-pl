@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fdaa1346e4837b3bf611d964158d132dcdfeeda
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 42333a3feae19b6c3c77494f7e843cac1d9bc078
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282678"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968132"
 ---
 # <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>Tworzenie kopii zapasowych i przywracanie SAP HANA w dużych wystąpieniach platformy HANA
 
@@ -338,7 +339,7 @@ Drugą opcją usunięcia określonych migawek jest użycie skryptu `azure_hana_s
 
 Aby uzyskać więcej informacji na temat skryptu, zobacz "Usuwanie migawki — azure_hana_snapshot_delete" w [narzędziach Microsoft Snapshot Tools dla SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Uruchom skrypt jako **katalog główny**użytkownika.
+Uruchom skrypt jako **katalog główny** użytkownika.
 
 >[!IMPORTANT]
 >Jeśli istnieją dane, które istnieją tylko w migawce, którą planujesz usunąć, po usunięciu migawki te dane zostaną utracone w nieskończoność.
@@ -347,7 +348,7 @@ Uruchom skrypt jako **katalog główny**użytkownika.
 ## <a name="file-level-restore-from-a-storage-snapshot"></a>Przywracanie na poziomie pliku z migawki magazynu
 
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
-W przypadku typów migawek **Hana** i **Logs**można uzyskać dostęp do migawek bezpośrednio na woluminach w katalogu **. snapshot** . Dla każdej z migawek istnieje podkatalog. Skopiuj każdy plik w stanie, w którym znajdował się w punkcie migawki z tego podkatalogu, do rzeczywistej struktury katalogów. 
+W przypadku typów migawek **Hana** i **Logs** można uzyskać dostęp do migawek bezpośrednio na woluminach w katalogu **. snapshot** . Dla każdej z migawek istnieje podkatalog. Skopiuj każdy plik w stanie, w którym znajdował się w punkcie migawki z tego podkatalogu, do rzeczywistej struktury katalogów. 
 
 W bieżącej wersji skryptu *nie* ma skryptu przywracania podanego dla przywracania migawek jako samoobsługi. Przywracanie migawek można wykonać w ramach samoobsługowego skryptu odzyskiwania po awarii w lokacji odzyskiwania po awarii podczas pracy w trybie failover. Aby przywrócić żądaną migawkę z istniejących dostępnych migawek, należy skontaktować się z zespołem ds. operacyjnych firmy Microsoft, otwierając żądanie obsługi.
 
@@ -438,19 +439,19 @@ Kroki związane z integracją SnapCenter w SAP HANA są następujące:
 
 1. Na stronie subskrypcja SAP HANA wybierz podstronę **grupy zasobów** .
 
-   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Grupa zasobów subskrypcji laboratorium rozwiązania" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
 
 1. Wybierz odpowiednią grupę zasobów w regionie.
 
-   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Wybierz odpowiednią grupę zasobów w regionie" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
 
 1. Wybierz wpis jednostki SKU odpowiadający SAP HANA w usłudze Azure Storage.
 
-   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Wybierz wpis jednostki SKU odpowiadający SAP HANA" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
 
 1. Otwórz **nowe żądanie biletu pomocy technicznej** , pokreślone na czerwono.
 
-   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Otwórz nowe żądanie biletu pomocy technicznej":::
 
 1. Na karcie **podstawowe** podaj następujące informacje dotyczące biletu:
 
@@ -468,7 +469,7 @@ Kroki związane z integracją SnapCenter w SAP HANA są następujące:
    * Skonfiguruj SnapCenter dla elementu HLI
    * Twój klucz publiczny dla użytkownika SnapCenter (SnapCenter. pem) — Zobacz przykład klucza publicznego Create poniżej
 
-     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="./media/snapcenter/new-support-request-details.png":::
+     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="Nowe żądanie obsługi — Karta Szczegóły" lightbox="./media/snapcenter/new-support-request-details.png":::
 
 1. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć bilet pomocy technicznej. 
 
@@ -525,7 +526,7 @@ Przed zainstalowaniem programu SnapCenter Przejrzyj [SAP HANA Backup/Recovery wi
 
 1. Skonfiguruj poświadczenia użytkownika dla SnapCenter. Domyślnie wypełniane są poświadczenia użytkownika systemu Windows używane do instalowania aplikacji. 
 
-   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika"::: 
+   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Okno dialogowe danych wejściowych użytkownika instalacji"::: 
 
 1. Po rozpoczęciu sesji Zapisz wykluczenie zabezpieczeń, a interfejs GUI zostanie uruchomiony.
 
@@ -536,20 +537,20 @@ Przed zainstalowaniem programu SnapCenter Przejrzyj [SAP HANA Backup/Recovery wi
 
 1. W SnapCenter wybierz pozycję **system magazynu**, a następnie wybierz pozycję **+ Nowy**. 
 
-   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="Połączenia magazynu SnapCenter" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
 
    Wartość domyślna to jeden SVM na dzierżawcę. Jeśli klient ma wiele dzierżawców lub HLIs w wielu regionach, zaleca się skonfigurowanie wszystkich SVMs w SnapCenter
 
 1. W obszarze Dodawanie systemu magazynu podaj informacje dotyczące systemu magazynu, który chcesz dodać, nazwę użytkownika i hasło SnapCenter, a następnie wybierz pozycję **Prześlij**.
 
-   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="Nowe połączenie magazynu":::
 
    >[!NOTE]
    >Wartość domyślna to jeden SVM na dzierżawcę.  Jeśli istnieje wiele dzierżawców, zaleca się skonfigurowanie wszystkich SVMs w tym miejscu w SnapCenter. 
 
 1. W SnapCenter wybierz pozycję **hosty** i wybierz pozycję **+ Dodaj** , aby skonfigurować wtyczkę platformy Hana i hosty bazy danych Hana.  Najnowsza wersja programu SnapCenter automatycznie wykrywa bazę danych HANA na hoście.
 
-   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="media/snapcenter/managed-hosts-new-host.png":::
+   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="W SnapCenter wybierz pozycję hosty, a następnie pozycję Dodaj." lightbox="media/snapcenter/managed-hosts-new-host.png":::
 
 1. Podaj informacje dla nowego hosta:
    1. Wybierz system operacyjny dla typu hosta.
@@ -557,7 +558,7 @@ Przed zainstalowaniem programu SnapCenter Przejrzyj [SAP HANA Backup/Recovery wi
    1. Podaj poświadczenia, których chcesz użyć.
    1. Wybierz opcje **systemu Microsoft Windows** i **SAP HANA** a następnie wybierz pozycję **Prześlij**.
 
-   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Informacje dla nowego hosta":::
 
    >[!IMPORTANT]
    >Aby można było zainstalować pierwszy węzeł, SnapCenter umożliwia użytkownikowi niebędącemu głównym Instalowanie wtyczek w bazie danych.  Aby uzyskać informacje na temat włączania użytkownika niebędącego głównym, zobacz Dodawanie użytkownika niebędącego [elementem głównym i Konfigurowanie uprawnień sudo](https://library.netapp.com/ecmdocs/ECMLP2590889/html/GUID-A3EEB5FC-242B-4C2C-B407-510E48A8F131.html).
@@ -566,7 +567,7 @@ Przed zainstalowaniem programu SnapCenter Przejrzyj [SAP HANA Backup/Recovery wi
 
 1. Po zainstalowaniu wtyczki, w SnapCenter, wybierz pozycję **hosty** , a następnie wybierz pozycję **+ Dodaj** , aby dodać węzeł Hana.
 
-   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="media/snapcenter/add-hana-node.png":::
+   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Dodaj węzeł HANA" lightbox="media/snapcenter/add-hana-node.png":::
 
 1. Podaj informacje o węźle HANA:
    1. Wybierz system operacyjny dla typu hosta.
@@ -574,15 +575,15 @@ Przed zainstalowaniem programu SnapCenter Przejrzyj [SAP HANA Backup/Recovery wi
    1. Wybierz, **+** Aby dodać poświadczenia skonfigurowane w systemie operacyjnym hosta programu Hana DB, a następnie wybierz przycisk **OK**.
    1. Wybierz pozycję **SAP HANA** a następnie wybierz pozycję **Prześlij**.
 
-   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="Szczegóły węzła SAP HANA":::
 
 1. Potwierdź odcisk palca i wybierz pozycję **Potwierdź i prześlij**.
 
-   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Potwierdź i prześlij odcisk palca":::
 
 1. W węźle Hana w obszarze systemowa baza danych wybierz pozycję **Security**  >  **users**  >  **SNAPCENTER** , aby utworzyć użytkownika SNAPCENTER.
 
-   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Tworzenie użytkownika SnapCenter w programie HANA (systemowa baza danych)":::
 
 
 
@@ -595,15 +596,15 @@ W przypadku skonfigurowania HSR należy skonfigurować system ręcznie.
 
 1. W SnapCenter wybierz pozycję **zasoby** i **San Hana** (u góry), a następnie wybierz pozycję **+ Dodaj SAP HANA bazę danych** (po prawej stronie).
 
-   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="media/snapcenter/manual-hana-setup.png":::
+   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Ręczna konfiguracja platformy HANA" lightbox="media/snapcenter/manual-hana-setup.png":::
 
 1. Określ szczegóły zasobów użytkownika administratora platformy HANA skonfigurowanego na hoście z systemem Linux lub na hoście, na którym są zainstalowane wtyczki. Kopia zapasowa będzie zarządzana z wtyczki w systemie Linux.
 
-   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Określ szczegóły zasobów użytkownika administratora platformy HANA skonfigurowanego na hoście z systemem Linux.":::
 
 1. Wybierz wolumin danych, dla którego chcesz wykonać migawki, wybierz pozycję **Zapisz** , a następnie wybierz pozycję **Zakończ**.
 
-   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Wybierz wolumin danych, dla którego chcesz wykonać migawki, wybierz pozycję Zapisz, a następnie wybierz pozycję Zakończ.":::
 
 ### <a name="create-a-snapshot-policy"></a>Tworzenie zasad migawek
 
@@ -611,53 +612,53 @@ Przed rozpoczęciem tworzenia kopii zapasowych SAP HANA zasobów bazy danych za 
 
 1. W SnapCenter wybierz pozycję **zasoby** , a następnie wybierz bazę danych.
 
-   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="W SnapCenter wybierz pozycję zasoby, a następnie wybierz bazę danych.":::
 
 1. Postępuj zgodnie z przepływem pracy Kreatora konfiguracji, aby skonfigurować harmonogram migawek.
 
-   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
+   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Postępuj zgodnie z przepływem pracy Kreatora konfiguracji, aby skonfigurować harmonogram migawek." lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
 
 1. Podaj opcje konfigurowania poleceń poprzedzających/post oraz specjalnych kluczy SSL.  W tym przykładzie nie są używane żadne specjalne ustawienia.
 
-   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Podaj opcje konfigurowania poleceń przedpost i specjalnych kluczy SSL." lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
 
 1. Wybierz pozycję **Dodaj** , aby utworzyć zasady migawek, które mogą być również używane dla innych baz danych platformy Hana. 
 
-   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Wybierz pozycję Dodaj, aby utworzyć zasady migawek, które mogą być również używane dla innych baz danych platformy HANA.":::
 
 1. Wprowadź nazwę zasad i opis.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Wprowadź nazwę zasad i opis.":::
 
 
 1. Wybierz typ i częstotliwość tworzenia kopii zapasowych.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Wybierz typ i częstotliwość tworzenia kopii zapasowych.":::
 
 1. Skonfiguruj **Ustawienia przechowywania kopii zapasowej na żądanie**.  W naszym przykładzie konfigurujemy przechowywanie do trzech kopii migawek, aby zachować.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Skonfiguruj ustawienia przechowywania kopii zapasowej na żądanie.":::
 
 1. Skonfiguruj **Ustawienia przechowywania godzinowego**. 
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Skonfiguruj ustawienia przechowywania godzinowego.":::
 
 1. Jeśli konfiguracja SnapMirror została skonfigurowana, wybierz pozycję **Aktualizuj SnapMirror po utworzeniu kopii migawki lokalnej**.
 
-   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="Jeśli SnapMirror jest wymagany, wybierz pozycję Aktualizuj SnapMirror po utworzeniu kopii migawki lokalnej.":::
 
 1. Wybierz pozycję **Zakończ** , aby przejrzeć podsumowanie nowych zasad tworzenia kopii zapasowych. 
-1. W obszarze **Konfigurowanie harmonogramu**wybierz pozycję **Dodaj**.
+1. W obszarze **Konfigurowanie harmonogramu** wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="W obszarze Konfigurowanie harmonogramu wybierz pozycję Dodaj.":::
 
 1. Wybierz **datę początkową**, datę **wygaśnięcia** i częstotliwość.
 
-   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Wybierz datę początkową, datę wygaśnięcia i częstotliwość.":::
 
 1. Podaj szczegóły wiadomości e-mail dotyczącej powiadomień.
 
-   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Podaj szczegóły wiadomości e-mail dotyczącej powiadomień.":::
 
 1.  Wybierz pozycję **Zakończ** , aby utworzyć zasady tworzenia kopii zapasowych.
 
@@ -704,11 +705,11 @@ Możesz użyć SnapCenter, aby przywrócić bazę danych.  W tej sekcji zajmiemy
 
 1. Przywróć pliki bazy danych za pośrednictwem SnapCenter.  Wybierz bazę danych, a następnie wybierz pozycję **Przywróć**.  
 
-   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
+   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Wybierz bazę danych i wybierz pozycję Przywróć." lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
 
 1. Wybierz typ przywracania.  W naszym przykładzie przywracamy cały zasób. 
 
-   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Wybierz typ przywracania.":::
 
    >[!NOTE]
    >W przypadku konfiguracji domyślnej nie trzeba określać poleceń do wykonania przywracania lokalnego z migawki na dysku. 
@@ -720,27 +721,27 @@ Możesz użyć SnapCenter, aby przywrócić bazę danych.  W tej sekcji zajmiemy
    
    SnapCenter przywraca dane do oryginalnej lokalizacji, aby można było rozpocząć proces przywracania w HANA. Ponadto, ponieważ SnapCenter nie może modyfikować wykazu kopii zapasowych (baza danych nie działa), wyświetlane jest ostrzeżenie.
 
-   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Ponieważ SnapCenter nie może modyfikować wykazu kopii zapasowych, wyświetlane jest ostrzeżenie. ":::
 
-1. Ponieważ wszystkie pliki bazy danych są przywracane, należy uruchomić proces przywracania w HANA. W programie Hana Studio w obszarze **systemy**kliknij prawym przyciskiem myszy systemową bazę danych i wybierz pozycję **kopia zapasowa i odzyskiwanie**  >  **Odzyskaj systemową bazę danych**.
+1. Ponieważ wszystkie pliki bazy danych są przywracane, należy uruchomić proces przywracania w HANA. W programie Hana Studio w obszarze **systemy** kliknij prawym przyciskiem myszy systemową bazę danych i wybierz pozycję **kopia zapasowa i odzyskiwanie**  >  **Odzyskaj systemową bazę danych**.
 
-   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Rozpocznij proces przywracania w programie HANA.":::
 
 1. Wybierz typ odzyskiwania.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Wybierz typ odzyskiwania.":::
 
 1. Wybierz lokalizację wykazu kopii zapasowych.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Wybierz lokalizację wykazu kopii zapasowych.":::
 
 1. Wybierz kopię zapasową, aby odzyskać bazę danych SAP HANA.
 
-   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika":::
+   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Wybierz kopię zapasową, aby odzyskać bazę danych SAP HANA.":::
 
    Po odzyskaniu bazy danych zostanie wyświetlony komunikat z **przywróceniem do czasu** i **przywróceniem do sygnatury pozycji dziennika** .
 
-1. W obszarze **systemy**kliknij prawym przyciskiem myszy systemową bazę danych i wybierz pozycję **kopia zapasowa i odzyskiwanie**odzyskiwanie  >  **bazy danych dzierżawy**.
+1. W obszarze **systemy** kliknij prawym przyciskiem myszy systemową bazę danych i wybierz pozycję **kopia zapasowa i odzyskiwanie** odzyskiwanie  >  **bazy danych dzierżawy**.
 1. Postępuj zgodnie z przepływem pracy kreatora, aby ukończyć odzyskiwanie bazy danych dzierżawy. 
 
 Aby uzyskać więcej informacji na temat przywracania bazy danych, zobacz [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
@@ -753,7 +754,7 @@ Można przywracać woluminy niezwiązane z danymi, na przykład udział plików 
 
 Aby można było sklonować, należy mieć tę samą wersję platformy HANA, która jest zainstalowana jako źródłowa baza danych. Identyfikatory SID i identyfikatory mogą być różne. 
 
-:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="Utwórz przypadek pomocy technicznej dla konfiguracji magazynu użytkownika" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="Klonowanie systemu SAP HANA" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
 
 1. Utwórz magazyn użytkowników bazy danych HANA dla bazy danych H34 z/usr/sap/H34/HDB40.
 
@@ -777,7 +778,7 @@ Aby można było sklonować, należy mieć tę samą wersję platformy HANA, kt�
 1. W SnapCenter Dodaj hosta docelowego, na którym zostanie zainstalowany klon. Aby uzyskać więcej informacji, zobacz [Dodawanie hostów i instalowanie pakietów wtyczek na hostach zdalnych](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
    1. Podaj informacje dotyczące poświadczeń Uruchom jako, które chcesz dodać. 
    1. Wybierz system operacyjny hosta i wprowadź informacje o hoście.
-   1. W obszarze **wtyczki do zainstalowania**wybierz wersję, wprowadź ścieżkę instalacji, a następnie wybierz pozycję **SAP HANA**.
+   1. W obszarze **wtyczki do zainstalowania** wybierz wersję, wprowadź ścieżkę instalacji, a następnie wybierz pozycję **SAP HANA**.
    1. Wybierz pozycję **Weryfikuj** , aby uruchomić testy przed instalacją.
 
 1. Zatrzymaj platformę HANA i Odinstaluj stary wolumin danych.  Zostanie zainstalowany klon z SnapCenter.  
@@ -830,7 +831,7 @@ Aby można było sklonować, należy mieć tę samą wersję platformy HANA, kt�
    >[!NOTE]
    >Aby uzyskać więcej informacji, zobacz [klonowanie z kopii zapasowej](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
 
-1. W obszarze **skrypty**podaj następujące elementy:
+1. W obszarze **skrypty** podaj następujące elementy:
 
    * **Polecenie instalacji:** /NetApp/SC-system-Refresh.sh Zainstaluj H34% hana_data_h31_mnt00001_t250_vol_Clone
    * **Polecenie post klonowania:** /NetApp/SC-system-Refresh.sh Recover H34

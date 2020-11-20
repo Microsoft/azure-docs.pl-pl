@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331509"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967928"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Windows
 
@@ -43,9 +44,9 @@ Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej z syst
 | 10.20.18011 | 1.0.18011 | Lipiec 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Zwiększono MaxExpressionDepth do 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Czerwiec 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Dodano możliwość wyłączania poświadczeń domyślnych podczas nawiązywania połączenia z serwerem proxy (obsługa WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Marzec 2019 r. | <ul><li>Niewielkie poprawki stabilizacji </li></ul> |
-| 10.19.10006 | nie dotyczy | Dec 2018 | <ul><li> Niewielkie poprawki stabilizacji </li></ul> | 
-| 8.0.11136 | nie dotyczy | Września 2018 |  <ul><li> Dodano obsługę wykrywania zmiany identyfikatora zasobu podczas przenoszenia maszyny wirtualnej </li><li> Dodano obsługę identyfikatora zasobu raportowania podczas korzystania z instalacji niezwiązanej z rozszerzeniem </li></ul>| 
-| 8.0.11103 | nie dotyczy |  Kwiecień 2018 r. | |
+| 10.19.10006 | n/d | Dec 2018 | <ul><li> Niewielkie poprawki stabilizacji </li></ul> | 
+| 8.0.11136 | n/d | Września 2018 |  <ul><li> Dodano obsługę wykrywania zmiany identyfikatora zasobu podczas przenoszenia maszyny wirtualnej </li><li> Dodano obsługę identyfikatora zasobu raportowania podczas korzystania z instalacji niezwiązanej z rozszerzeniem </li></ul>| 
+| 8.0.11103 | n/d |  Kwiecień 2018 r. | |
 | 8.0.11081 | 1.0.11081 | Lis 2017 | | 
 | 8.0.11072 | 1.0.11072 | Września 2017 | |
 | 8.0.11049 | 1.0.11049 | 2017 lutego | |
@@ -92,7 +93,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozsze
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft. EnterpriseCloud. Monitoring |
 | typ | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1,0 |
 | Identyfikator obszaru roboczego (np.) * | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (np.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 

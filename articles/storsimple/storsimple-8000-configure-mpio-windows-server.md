@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514342"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968812"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Konfigurowanie wielościeżkowego wejścia/wyjścia dla urządzenia StorSimple
 
 W tym samouczku opisano kroki, które należy wykonać, aby zainstalować i używać funkcji wielościeżkowego wejścia/wyjścia (MPIO) na hoście z systemem Windows Server 2012 R2 i połączonym z urządzeniem fizycznym StorSimple. Wskazówki zawarte w tym artykule dotyczą tylko urządzeń fizycznych z serii StorSimple 8000. Funkcja MPIO nie jest obecnie obsługiwana w urządzeniu w chmurze StorSimple.
 
-Wbudowana obsługa funkcji wielościeżkowego we/wy (MPIO) w systemie Windows Server w celu ułatwienia tworzenia konfiguracji sieci iSCSI o wysokiej dostępności i odpornych na błędy. Funkcja MPIO używa nadmiarowych składników ścieżki fizycznej — kart, kabli i przełączników — do tworzenia ścieżek logicznych między serwerem a urządzeniem magazynującym. Jeśli wystąpi awaria składnika, powodując niepowodzenie ścieżki logicznej, logika wielościeżkowa używa ścieżki alternatywnej dla operacji we/wy, dzięki czemu aplikacje mogą nadal uzyskiwać dostęp do swoich danych. Ponadto w zależności od konfiguracji funkcja MPIO może również zwiększyć wydajność przez ponowne zrównoważenie obciążenia we wszystkich tych ścieżkach. Aby uzyskać więcej informacji, zobacz [MPIO — Omówienie](https://technet.microsoft.com/library/cc725907.aspx "Omówienie i funkcje MPIO").
+Wbudowana obsługa funkcji wielościeżkowego we/wy (MPIO) w systemie Windows Server w celu ułatwienia tworzenia konfiguracji sieci iSCSI o wysokiej dostępności i odpornych na błędy. Funkcja MPIO używa nadmiarowych składników ścieżki fizycznej — kart, kabli i przełączników — do tworzenia ścieżek logicznych między serwerem a urządzeniem magazynującym. Jeśli wystąpi awaria składnika, powodując niepowodzenie ścieżki logicznej, logika wielościeżkowa używa ścieżki alternatywnej dla operacji we/wy, dzięki czemu aplikacje mogą nadal uzyskiwać dostęp do swoich danych. Ponadto w zależności od konfiguracji funkcja MPIO może również zwiększyć wydajność przez ponowne zrównoważenie obciążenia we wszystkich tych ścieżkach. Aby uzyskać więcej informacji, zobacz [MPIO — Omówienie](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11) "Omówienie i funkcje MPIO").
 
 Aby zapewnić wysoką dostępność rozwiązania StorSimple, na urządzeniu StorSimple należy skonfigurować funkcję MPIO. Gdy funkcja MPIO jest zainstalowana na serwerach hosta z systemem Windows Server 2012 R2, serwery mogą wówczas tolerować awarie łącza, sieci lub interfejsu.
 
@@ -86,7 +86,7 @@ Funkcja MPIO musi być skonfigurowana do identyfikowania woluminów StorSimple. 
 4. Po wyświetleniu monitu uruchom ponownie serwer.
 5. W oknie dialogowym **Właściwości MPIO** kliknij kartę **urządzenia MPIO** . kliknij przycisk **Dodaj**.
     </br>![Właściwości MPIO — urządzenia z funkcją MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. W oknie dialogowym **Dodawanie obsługi MPIO** , w obszarze **Identyfikator sprzętu urządzenia**wprowadź numer seryjny urządzenia. Aby uzyskać numer seryjny urządzenia, uzyskaj dostęp do usługi StorSimple Menedżer urządzeń. Przejdź do **urządzeń > pulpicie nawigacyjnym**. Numer seryjny urządzenia jest wyświetlany **w okienku po** prawej stronie pulpitu nawigacyjnego urządzenia.
+6. W oknie dialogowym **Dodawanie obsługi MPIO** , w obszarze **Identyfikator sprzętu urządzenia** wprowadź numer seryjny urządzenia. Aby uzyskać numer seryjny urządzenia, uzyskaj dostęp do usługi StorSimple Menedżer urządzeń. Przejdź do **urządzeń > pulpicie nawigacyjnym**. Numer seryjny urządzenia jest wyświetlany **w okienku po** prawej stronie pulpitu nawigacyjnego urządzenia.
     </br>
     ![Dodawanie obsługi MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Po wyświetleniu monitu uruchom ponownie serwer.
@@ -132,7 +132,7 @@ Po skonfigurowaniu funkcji MPIO w systemie Windows Server woluminy utworzone na 
 13. Zainicjuj dysk i Utwórz nowy wolumin. W trakcie procesu formatowania wybierz rozmiar bloku 64 KB.
     
     ![Zarządzanie dyskami](./media/storsimple-configure-mpio-windows-server/IC741008.png)
-14. W obszarze **Zarządzanie dyskami**kliknij prawym przyciskiem myszy **dysk** , a następnie wybierz polecenie **Właściwości**.
+14. W obszarze **Zarządzanie dyskami** kliknij prawym przyciskiem myszy **dysk** , a następnie wybierz polecenie **Właściwości**.
 15. W oknie dialogowym właściwości StorSimple modelu # # # # **Path** kliknij kartę **MPIO** .
     
     ![DeviceProp StorSimple 8100 dla wielu ścieżek dysków.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
@@ -191,4 +191,3 @@ Poniższa procedura opisuje sposób dodawania sesji, gdy urządzenie StorSimple 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń, aby zmodyfikować konfigurację urządzenia StorSimple](storsimple-8000-modify-device-config.md).
-

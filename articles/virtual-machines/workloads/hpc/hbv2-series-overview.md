@@ -3,20 +3,20 @@ title: Omówienie maszyn wirtualnych z serii HBv2 — Azure Virtual Machines | M
 description: Dowiedz się więcej o rozmiarze maszyny wirtualnej z serii HBv2 na platformie Azure.
 services: virtual-machines
 author: vermagit
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 48366f205ed8eb2d179bdc39c8da3d673f066a69
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: be66f29881250843f70ba85b8ef7c80ae8b31aa6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332640"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966942"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HBv2 
 

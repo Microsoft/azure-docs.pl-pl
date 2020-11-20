@@ -9,12 +9,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
-ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85846839"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968200"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Omówienie stref i rekordów DNS
 
@@ -93,7 +93,7 @@ Numer seryjny strefy w rekordzie SOA nie jest aktualizowany automatycznie, gdy z
 [Rekordy SRV](https://en.wikipedia.org/wiki/SRV_record) są używane przez różne usługi do określania lokalizacji serwera. Podczas określania rekordu SRV w Azure DNS:
 
 * Należy określić *usługę* i *Protokół* jako część nazwy zestawu rekordów poprzedzoną znakami podkreślenia.  Na przykład " \_ SIP. \_ tcp.name '.  W przypadku rekordu w wierzchołku strefy nie ma potrzeby określania elementu " \@ " w nazwie rekordu, po prostu Użyj usługi i protokołu, na przykład " \_ SIP. \_ TCP '.
-* *Priorytet*, *waga*, *port*i *cel* są określone jako parametry każdego rekordu w zestawie rekordów.
+* *Priorytet*, *waga*, *port* i *cel* są określone jako parametry każdego rekordu w zestawie rekordów.
 
 ### <a name="txt-records"></a>Rekordy TXT
 
@@ -127,7 +127,7 @@ Domyślnie program Azure DNS PowerShell używa elementów ETag do blokowania wsp
 
 Na poziomie interfejsu API REST Azure DNS elementy ETag są określane przy użyciu nagłówków HTTP.  Ich zachowanie jest podano w poniższej tabeli:
 
-| Header | Zachowanie |
+| Nagłówek | Zachowanie |
 | --- | --- |
 | Brak |UMIESZCZAj zawsze zakończone powodzeniem (brak testów ETag) |
 | If-Match \<etag> |Element PUT kończy się powodzeniem tylko wtedy, gdy zasób istnieje i element ETag pasuje |
@@ -143,5 +143,5 @@ W przypadku korzystania z Azure DNS są stosowane następujące domyślne limity
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby rozpocząć korzystanie z Azure DNS, Dowiedz się, jak [utworzyć strefę DNS](dns-getstarted-create-dnszone-portal.md) i [utworzyć rekordy DNS](dns-getstarted-create-recordset-portal.md).
+* Aby rozpocząć korzystanie z Azure DNS, Dowiedz się, jak [utworzyć strefę DNS](./dns-getstarted-portal.md) i [utworzyć rekordy DNS](./dns-getstarted-portal.md).
 * Aby przeprowadzić migrację istniejącej strefy DNS, Dowiedz się, jak [importować i eksportować plik strefy DNS](dns-import-export.md).

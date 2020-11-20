@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507504"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967112"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Użyj StorSimple Menedżer urządzeń do zarządzania poświadczeniami konta magazynu dla macierzy wirtualnej StorSimple
 
@@ -31,7 +31,7 @@ Sekcja **konfiguracji** bloku StorSimple Menedżer urządzeń w macierzy wirtual
   
   ![Pulpit nawigacyjny usługi Menedżer urządzeń](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-W tym samouczku wyjaśniono, jak można dodawać, edytować lub usuwać poświadczenia konta magazynu dla macierzy wirtualnej StorSimple. Informacje przedstawione w tym samouczku dotyczą tylko macierzy wirtualnej StorSimple. Aby uzyskać informacje na temat zarządzania kontami magazynu w serii 8000, zobacz [Korzystanie z usługi StorSimple Manager do zarządzania kontem magazynu](storsimple-manage-storage-accounts.md).
+W tym samouczku wyjaśniono, jak można dodawać, edytować lub usuwać poświadczenia konta magazynu dla macierzy wirtualnej StorSimple. Informacje przedstawione w tym samouczku dotyczą tylko macierzy wirtualnej StorSimple. Aby uzyskać informacje na temat zarządzania kontami magazynu w serii 8000, zobacz [Korzystanie z usługi StorSimple Manager do zarządzania kontem magazynu](./storsimple-8000-manage-storage-accounts.md).
 
 Poświadczenia konta magazynu zawierają poświadczenia używane przez urządzenie do uzyskiwania dostępu do konta magazynu za pomocą dostawcy usług w chmurze. W przypadku kont usługi Microsoft Azure Storage są to poświadczenia, takie jak nazwa konta i podstawowy klucz dostępu.
 
@@ -52,7 +52,7 @@ Najczęstsze zadania związane z poświadczeniami konta magazynu, które można 
 Istnieją trzy typy poświadczeń konta magazynu, które mogą być używane z urządzeniem StorSimple.
 
 * **Automatycznie generowane poświadczenia konta magazynu** — w miarę jak nazwa sugeruje, że ten typ poświadczenia konta magazynu jest generowany automatycznie podczas pierwszego tworzenia usługi. Aby dowiedzieć się więcej o sposobie tworzenia tego poświadczenia konta magazynu, zobacz [Tworzenie nowej usługi](storsimple-virtual-array-manage-service.md#create-a-service).
-* **poświadczenia konta magazynu w ramach subskrypcji usługi** — są to poświadczenia konta usługi Azure Storage, które są skojarzone z tą samą subskrypcją co usługa. Aby dowiedzieć się więcej o tym, jak są tworzone poświadczenia konta magazynu, zobacz [Informacje o kontach usługi Azure Storage](../storage/common/storage-create-storage-account.md).
+* **poświadczenia konta magazynu w ramach subskrypcji usługi** — są to poświadczenia konta usługi Azure Storage, które są skojarzone z tą samą subskrypcją co usługa. Aby dowiedzieć się więcej o tym, jak są tworzone poświadczenia konta magazynu, zobacz [Informacje o kontach usługi Azure Storage](../storage/common/storage-account-create.md).
 * **poświadczenia konta magazynu poza subskrypcją usługi** — są to poświadczenia konta usługi Azure Storage, które nie są skojarzone z usługą i mogą być dostępne przed utworzeniem usługi.
 
 ## <a name="add-a-storage-account-credential"></a>Dodawanie poświadczeń konta magazynu
@@ -72,7 +72,7 @@ Aby dodać poświadczenia konta usługi Azure Storage, wykonaj następujące pro
 3. Kliknij pozycję **Dodaj**.
 4. W bloku **Dodawanie konta magazynu** wykonaj następujące czynności:
    
-    1. W obszarze **subskrypcja**wybierz pozycję **bieżące**.
+    1. W obszarze **subskrypcja** wybierz pozycję **bieżące**.
     2. Podaj nazwę konta usługi Azure Storage.
     3. Wybierz pozycję **Włącz** , aby utworzyć bezpieczny kanał na potrzeby komunikacji sieciowej między urządzeniem StorSimple a chmurą. Wybierz opcję **Wyłącz** tylko wtedy, gdy Pracujesz w chmurze prywatnej.
     4. Kliknij pozycję **Dodaj**. Po pomyślnym utworzeniu konta magazynu otrzymasz powiadomienie.<br></br>
@@ -86,7 +86,7 @@ Aby dodać poświadczenia konta usługi Azure Storage, wykonaj następujące pro
 3. Kliknij pozycję **Dodaj**.
 4. W bloku **Dodawanie konta magazynu** wykonaj następujące czynności:
    
-    1. W obszarze **subskrypcja**wybierz pozycję **inne**.
+    1. W obszarze **subskrypcja** wybierz pozycję **inne**.
    
     2. Podaj nazwę poświadczenia konta usługi Azure Storage.
    
@@ -152,4 +152,3 @@ Aby poinformować usługę StorSimple Menedżer urządzeń o zmianie, musisz uzy
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [administrować wirtualną macierzą StorSimple](storsimple-ova-web-ui-admin.md).
-

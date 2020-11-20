@@ -2,18 +2,18 @@
 title: Często zadawane pytania
 description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: c9a8b5f9e02cc76789755bf81d309826de1459c5
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920597"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967350"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
-Odpowiedzi na często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
 
 ## <a name="general"></a>Ogólne
 
@@ -33,7 +33,7 @@ Wszystkie usługi platformy Azure będą dostępne dla klientów rozwiązań VMw
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Czy mogę użyć tych samych narzędzi, których teraz używam do zarządzania zasobami w chmurze prywatnej?
 
-Tak. Azure Portal jest używany do wdrażania i wielu operacji zarządzania. Program vCenter i NSX Manager są używane do zarządzania zasobami vSphere i NSX-T.
+Tak. Azure Portal jest używany do wdrażania i kilku operacji zarządzania. Program vCenter i NSX Manager są używane do zarządzania zasobami vSphere i NSX-T.
 
 #### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>Czy mogę zarządzać chmurą prywatną przy użyciu lokalnego programu vCenter?
 
@@ -53,7 +53,7 @@ Wszystkie środowiska chmury są dostarczane z oprogramowaniem VMware HCX, vSphe
 
 #### <a name="what-does-the-change-control-process-look-like"></a>Jak wygląda proces kontroli zmian?
 
-Aktualizacje wprowadzone do usługi będą zgodne z procesem standardowego zarządzania zmianami Microsoft Azure. Klienci są odpowiedzialni za wszelkie zadania administracyjne dotyczące obciążeń i powiązane procesy zarządzania zmianami.
+Aktualizacje wprowadzane do usługi są następujące po standardowym procesie zarządzania zmianami Microsoft Azure. Klienci są odpowiedzialni za wszelkie zadania administracyjne dotyczące obciążeń i powiązane procesy zarządzania zmianami.
 
 #### <a name="how-is-this-different-from-azure-vmware-solution-by-cloudsimple"></a>Jak różni się to od rozwiązania Azure VMware CloudSimple?
 
@@ -65,7 +65,7 @@ Korzystając z nowego rozwiązania VMware platformy Azure, firma Microsoft i opr
 Tak, pod warunkiem, że system, w którym jest zainstalowany, może uzyskać dostęp do programu vCenter chmury prywatnej i używa publicznego systemu DNS do rozpoznawania nazw hostów ESXi.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Czy istnieją specjalne instrukcje dotyczące instalowania i używania funkcji niedostępności z maszynami wirtualnymi rozwiązań VMware platformy Azure?
-Nie, należy użyć [instrukcji dostarczonych przez oprogramowanie VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) i spełnić wymagania wstępne dotyczące maszyn wirtualnych określone w tych instrukcjach. 
+Nie. Aby spełnić wymagania wstępne dotyczące maszyn wirtualnych określonych w tych instrukcjach, należy użyć [instrukcji dostarczonych przez oprogramowanie VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) . 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>Czy oprogramowanie VMware HCX jest obsługiwane w sieciach VPN?
 Nie, ze względu na wymagania dotyczące przepustowości i opóźnienia.
@@ -74,7 +74,7 @@ Nie, ze względu na wymagania dotyczące przepustowości i opóźnienia.
 Azure bastionu to usługa, która jest zalecana do łączenia się z polem skoku, aby uniemożliwić udostępnianie rozwiązania Azure VMware do Internetu. Nie można używać usługi Azure bastionu do nawiązywania połączeń z maszynami wirtualnymi rozwiązań VMware platformy Azure, ponieważ nie są one obiektami usługi Azure IaaS.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Czy Azure Load Balancer można używać wewnętrznych dla maszyn wirtualnych rozwiązania Azure VMware?
-Nie. Azure Load Balancer Internal obsługuje tylko maszyny wirtualne IaaS platformy Azure. Azure Load Balancer nie obsługuje pul zaplecza opartych na protokole IP; tylko maszyny wirtualne platformy Azure lub obiekty zestawu skalowania maszyn wirtualnych, w których maszyny wirtualne rozwiązań platformy Azure VMware nie są obiektami platformy Azure.
+Nie. Azure Load Balancer Internal — obsługuje tylko maszyny wirtualne IaaS platformy Azure. Azure Load Balancer nie obsługuje pul zaplecza opartych na protokole IP; tylko maszyny wirtualne platformy Azure lub obiekty zestawu skalowania maszyn wirtualnych, w których maszyny wirtualne rozwiązań platformy Azure VMware nie są obiektami platformy Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Czy do nawiązania połączenia z rozwiązaniem VMware platformy Azure można używać istniejącej bramy ExpressRoute?
 Tak, możesz użyć istniejącej bramy ExpressRoute, aby nawiązać połączenie z rozwiązaniem VMware platformy Azure, o ile nie przekracza limit czterech obwodów ExpressRoute na sieć wirtualną.  Jednak w celu uzyskania dostępu do rozwiązania VMware platformy Azure ze środowisk lokalnych za pośrednictwem usługi ExpressRoute należy mieć ExpressRoute Global Reach, ponieważ Brama ExpressRoute nie zapewnia routingu przechodniego między podłączonymi do niego obwodami.
@@ -105,7 +105,7 @@ Każdy host ESXi w rozwiązaniu VMware platformy Azure jest skonfigurowany z kar
 
 Tak, wszystkie dane sieci vSAN są szyfrowane domyślnie przy użyciu kluczy przechowywanych w Azure Key Vault.
 
-#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>W ten sposób można udokumentować swoje rozwiązania tworzenia kopii zapasowych, które umożliwiają współpracę z rozwiązaniem VMware platformy Azure. Co z innymi rozwiązaniami do tworzenia kopii zapasowych niezależnych dostawców oprogramowania (ISV)?
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendors-isvs-backup-solutions"></a>W ten sposób można udokumentować swoje rozwiązania tworzenia kopii zapasowych, które umożliwiają współpracę z rozwiązaniem VMware platformy Azure. Co z innymi rozwiązaniami do tworzenia kopii zapasowych niezależnych dostawców oprogramowania (ISV)?
 
 O ile wiemy, każde rozwiązanie do tworzenia kopii zapasowych, które korzysta z oprogramowania VMware VADP z trybem transportu HotAdd, powinno funkcjonować bezpośrednio na platformie Azure VMware.
 
@@ -147,7 +147,7 @@ Nie. Hosty wysokiej klasy ESXi są zarezerwowane do użytku w klastrach produkcy
 
 #### <a name="what-versions-of-vmware-software-is-used-in-private-clouds"></a>Jakie wersje oprogramowania VMware są używane w chmurach prywatnych?
 
-Chmury prywatne używają vSphere 6,7, sieci vSAN 6,7, VMware HCX i w wersji 2,5 NSX-T.  
+Chmury prywatne używają vSphere 6,7 U3, sieci vSAN 6,7 U3, VMware HCX i NSX-T 2,5.  Aby uzyskać więcej informacji, zobacz [wymagania dotyczące wersji oprogramowania VMware](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>Czy Chmura prywatna korzysta z programu VMware NSX?
 
@@ -163,7 +163,7 @@ Nie, nie musisz używać NSX lokalnie.
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>Co to jest harmonogram uaktualniania i aktualizacji oprogramowania VMware w chmurze prywatnej?
 
-Uaktualnienia pakietu oprogramowania w chmurze prywatnej są wykonywane w celu zachowania oprogramowania w ramach jednej wersji najnowszego pakietu oprogramowania w oprogramowaniu VMware. Wersje oprogramowania w chmurze prywatnej mogą różnić się od najnowszych wersji poszczególnych składników oprogramowania (ESXi, NSX-T, vCenter, sieci vSAN).
+Uaktualnienie pakietu oprogramowania w chmurze prywatnej zachowuje oprogramowanie w ramach jednej wersji najnowszego pakietu oprogramowania z programu VMware. Wersje oprogramowania w chmurze prywatnej mogą różnić się od najnowszych wersji poszczególnych składników oprogramowania (ESXi, NSX-T, vCenter, sieci vSAN).
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>Jak często będzie aktualizowany stos oprogramowania chmury prywatnej?
 
@@ -237,7 +237,7 @@ Tak, klienci mogą wdrażać rozwiązanie VMware dla platformy Azure w ramach su
 
 Firma Microsoft zapewnia pomoc techniczną dla rozwiązań VMware platformy Azure. Możesz przesłać [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-W przypadku subskrypcji zarządzanych przez dostawcę CSP pierwszy poziom wsparcia jest udostępniany przez dostawcę rozwiązania w taki sam sposób, jak dostawca CSP dla innych usług platformy Azure.
+W przypadku subskrypcji zarządzanych przez dostawcę usług kryptograficznych pierwszy poziom wsparcia zapewnia dostawcy rozwiązań w taki sam sposób, jak dostawca CSP dla innych usług platformy Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Jakie konta muszę utworzyć chmurę prywatną rozwiązania Azure VMware?
 
@@ -245,7 +245,7 @@ Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Czy rozwiązania firmy Red Hat są obsługiwane na platformie Azure VMware?
 
-Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespół pomocy technicznej, który zapewnia ujednolicony punkt kontaktowy dla ekosystemów Red Hat działających na platformie Azure.  Podobnie jak w przypadku innych usług platformy Azure, które współpracują z Red Hat Enterprise Linux, rozwiązanie platformy Azure VMware jest objęte dostępem do chmury i zintegrowanym parasolem pomocy technicznej, a Red Hat Enterprise Linux jest obsługiwane na potrzeby uruchamiania na platformie Azure VMware.
+Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespół pomocy technicznej, który zapewnia ujednolicony punkt kontaktowy dla ekosystemów firmy Red Hat działających na platformie Azure.  Podobnie jak w przypadku innych usług platformy Azure, które współpracują z Red Hat Enterprise Linux, rozwiązanie Azure VMware jest objęte dostępem w chmurze i zintegrowanym parasolem wsparcia. Red Hat Enterprise Linux jest obsługiwany na potrzeby uruchamiania na platformie Azure VMware rozwiązanie platformy Azure.
 
 #### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>Czy jest dostępny program VMware HCX Enterprise, a jeśli tak, ile kosztuje?
 
@@ -260,7 +260,7 @@ W przypadku subskrypcji EA należy wykonać poniższą procedurę. Najpierw będ
 * [Umowa Enterprise platformy Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 * Konto platformy Azure w ramach subskrypcji platformy Azure.
 
-Przed utworzeniem zasobu rozwiązania VMware platformy Azure Wyślij bilet pomocy technicznej, aby przydzielił Twoje węzły. Potwierdzenie żądania i przydzielenia węzłów trwa do pięciu dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
+Aby można było utworzyć zasób rozwiązania Azure VMware, należy przesłać bilet pomocy technicznej w celu przydzielenia hostów. Potwierdzenie i spełnienie Twojego żądania zajmuje maksymalnie pięć dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i potrzebujesz większej liczby hostów, przejdziesz do tego samego procesu.
 
 1. W Azure Portal w obszarze **Pomoc i obsługa techniczna** Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:
    - **Typ problemu:** Naukow
@@ -275,46 +275,47 @@ Przed utworzeniem zasobu rozwiązania VMware platformy Azure Wyślij bilet pomoc
 
    - ZK lub produkcja 
    - Nazwa regionu
-   - Liczba węzłów
+   - Liczba hostów
    - Wszelkie inne szczegóły
 
    >[!NOTE]
-   >Rozwiązanie VMware firmy Azure zaleca co najmniej trzy węzły do roztworzenia chmury prywatnej oraz węzłów nadmiarowości N + 1. 
+   >Rozwiązanie VMware firmy Azure zaleca co najmniej trzy hosty, które umożliwiają zapełnienie chmury prywatnej oraz dla hostów nadmiarowości N + 1. 
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przesłać żądanie.
 
    Potwierdzenie Twojego wniosku zostanie potrwać do pięciu dni roboczych.
 
    >[!IMPORTANT] 
-   >Jeśli masz już istniejące rozwiązanie VMware platformy Azure i żądasz dodatkowych węzłów, pamiętaj, że potrzebujemy pięciu dni roboczych na przydzielenie węzłów. 
+   >Jeśli masz już istniejące rozwiązanie VMware platformy Azure i poproś o dodatkowe hosty, pamiętaj, że potrzebujemy pięciu dni roboczych, aby przydzielić hosty. 
 
-1. Przed udostępnieniem węzłów upewnij się, że rejestrujesz dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
+1. Przed udostępnieniem hostów upewnij się, że rejestrujesz dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
+   ```
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+   Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../azure-resource-manager/management/resource-providers-and-types.md). 
 
-#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+#### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>Czy zarezerwowane wystąpienia są dostępne do zakupu przez program Cloud Solution Provider (CSP)?
 
-Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
+Tak. Dostawca CSP może zakupić zarezerwowane wystąpienia dla swoich klientów. Więcej informacji można znaleźć w artykule dotyczącym [zapisywania kosztów z wystąpieniem zastrzeżonym](reserved-instance.md) . 
 
-#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+#### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>Czy rozwiązanie Azure VMware oferuje wiele dzierżawców na potrzeby hostowania partnerów CSP?
 
-No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+Nie. Obecnie rozwiązanie VMware platformy Azure nie oferuje wielu dzierżawców.
 
-#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+#### <a name="will-traffic-between-on-premises-and-azure-vmware-solution-over-expressroute-incur-any-outbound-data-transfer-charge-in-the-metered-data-plan"></a>Czy ruch między środowiskiem lokalnym i rozwiązaniem VMware platformy Azure przez program ExpressRoute wiąże się z opłatami za transfer danych wychodzących w planie taryfowych danych?
 
-Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
+Ruch w ramach obwodu usługi Azure VMware ExpressRoute nie jest naliczany w żaden sposób. Ruch z obwodu usługi ExpressRoute łączącego się z siecią lokalną z platformą Azure jest naliczany zgodnie z planami cenowymi ExpressRoute.
 
 
-## Customer communication
+## <a name="customer-communication"></a>Komunikacja z klientem
 
-#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+#### <a name="how-can-i-receive-an-alert-when-azure-sends-service-health-notifications-to-my-azure-subscription"></a>Jak mogę odebrać alert, gdy platforma Azure wysyła powiadomienia o kondycji usługi do mojej subskrypcji platformy Azure?
 
-Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+Problemy z usługą, planowana konserwacja, klasyfikatory kondycji, powiadomienia doradców zabezpieczeń są publikowane za pomocą **Service Health** w Azure Portal.  Podczas konfigurowania alertów dziennika aktywności dla tych powiadomień można podejmować odpowiednie działania. Aby uzyskać więcej informacji, zobacz [tworzenie alertów dotyczących kondycji usługi przy użyciu Azure Portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
 
-:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+:::image type="content" source="media/service-health.png" alt-text="Zrzut ekranu przedstawiający powiadomienia Service Health":::
 
 
 

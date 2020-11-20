@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f33ef81282dd8e60eba64cc77cbd95ab8dbc557
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507951"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967571"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Obsługiwane scenariusze dla dużych wystąpień HANA
 W tym artykule opisano obsługiwane scenariusze i szczegóły architektury dla dużych wystąpień platformy HANA (HLI).
@@ -32,7 +33,7 @@ Zapoznaj się z postanowieniami i definicjami, które są używane w tym artykul
 
 - **SID**: identyfikator systemu dla systemu Hana
 - **HLI**: Duże wystąpienia Hana
-- **DR**Odzyskiwanie po awarii
+- **DR** Odzyskiwanie po awarii
 - **Normalny program Dr**: Konfiguracja systemu z dedykowanym zasobem tylko do celów odzyskiwania po awarii
 - **MULTIPURPOSE Dr**: system lokacji Dr, który jest skonfigurowany do korzystania ze środowiska nieprodukcyjnego obok wystąpienia produkcyjnego skonfigurowanego dla zdarzenia odzyskiwania po awarii 
 - **Single-SID**: system z zainstalowanym jednym wystąpieniem
@@ -56,7 +57,7 @@ W tym artykule opisano szczegółowe informacje o dwóch składnikach w poszczeg
 
 Każdy serwer aprowizacji jest wstępnie skonfigurowany z zestawami interfejsów sieci Ethernet. Interfejsy Ethernet skonfigurowane w poszczególnych jednostkach programu HLI są podzielone na cztery typy:
 
-- Odp **.: używany przez lub**przez dostęp klienta.
+- Odp **.: używany przez lub** przez dostęp klienta.
 - **B**: służy do komunikacji między węzłami. Ten interfejs jest skonfigurowany na wszystkich serwerach (niezależnie od żądanej topologii), ale używany tylko w scenariuszach skalowania w poziomie.
 - **C**: służy do łączności między węzłami.
 - **D**: służy do nawiązywania połączenia z urządzeniem między węzłami i iSCSI dla Instalatora STONITH. Ten interfejs jest konfigurowany tylko wtedy, gdy zażądano Instalatora HSR.  

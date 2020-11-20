@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960324"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968761"
 ---
 # <a name="contact-microsoft-support"></a>Kontakt z pomocą techniczną firmy Microsoft
 
@@ -21,7 +21,7 @@ StorSimple Menedżer urządzeń zapewnia możliwość **rejestrowania nowego ż�
 * Jak zarządzać cyklem życia żądania pomocy technicznej z poziomu portalu.
 * Jak uruchomić sesję obsługi w interfejsie programu Windows PowerShell urządzenia StorSimple.
 
-Przed utworzeniem Support request należy zapoznać się z [tematem umowy SLA i informacjami dotyczącymi serii StorSimple 8000](https://msdn.microsoft.com/library/mt433077.aspx) .
+Przed utworzeniem Support request należy zapoznać się z [tematem umowy SLA i informacjami dotyczącymi serii StorSimple 8000](./storsimple-8000-support-options.md) .
 
 ## <a name="create-a-support-request"></a>Tworzenie żądania obsługi
 
@@ -47,7 +47,7 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
     2. Określ, czy problem jest związany z urządzeniem, czy z usługą StorSimple Menedżer urządzeń.
     3. Wybierz **kategorię** tego problemu i podaj więcej **szczegółowych informacji** o problemie.
     4. Podaj datę i godzinę rozpoczęcia problemu.
-    5. W polu **przekazywanie plików**kliknij ikonę folderu, aby przejść do pakietu pomocy technicznej.
+    5. W polu **przekazywanie plików** kliknij ikonę folderu, aby przejść do pakietu pomocy technicznej.
     6. Sprawdź **udostępnianie informacji diagnostycznych**.
     7. Kliknij przycisk **Dalej**.
 
@@ -55,7 +55,7 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
 
 4. W bloku **nowe żądanie obsługi** kliknij pozycję **krok 3. informacje kontaktowe**. W bloku **informacje kontaktowe** wykonaj następujące czynności:
 
-   1. W obszarze **Opcje kontaktu**Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
+   1. W obszarze **Opcje kontaktu** Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
    2. W informacjach kontaktowych Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Zaznacz pole wyboru **Zapisz zmiany kontaktu w przyszłych żądaniach obsługi** .
    3. Kliknij pozycję **Utwórz**.
    

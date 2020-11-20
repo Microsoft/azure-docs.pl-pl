@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 93cccb1455f7a228cf40d4948cd8579610230db5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 876fd8260b64fba4d3d34a766b4259323c660b76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526446"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968081"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Samouczek: Inicjowanie obsługi urządzenia w usłudze IoT Hub przy użyciu usługi Azure IoT Hub Device Provisioning Service
 
@@ -36,13 +36,13 @@ Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowa
 Ten krok obejmuje dodawanie unikatowych artefaktów zabezpieczeń urządzenia do usługi Device Provisioning. Te artefakty zabezpieczeń bazują na [mechanizmie zaświadczania](concepts-service.md#attestation-mechanism) urządzenia w następujący sposób:
 
 - W przypadku urządzeń opartych na modułach TPM wymagane są następujące elementy:
-    - *Klucz poręczenia* unikatowy dla każdego modułu TPM lub symulacji uzyskany od producenta modułu TPM.  Aby uzyskać więcej informacji, zobacz [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Informacje o kluczu poręczenia modułu TPM).
+    - *Klucz poręczenia* unikatowy dla każdego modułu TPM lub symulacji uzyskany od producenta modułu TPM.  Aby uzyskać więcej informacji, zobacz [Understand TPM Endorsement Key](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)) (Informacje o kluczu poręczenia modułu TPM).
     - *Identyfikator rejestracji* używany do jednoznacznego identyfikowania urządzenia w zakresie/przestrzeni nazw. Ten identyfikator może, ale nie musi być taki sam jak identyfikator urządzenia. Identyfikator jest wymagany dla każdego urządzenia. W przypadku urządzeń opartych na modułach TPM identyfikator rejestracji może pochodzić od samego modułu TPM, na przykład może to być skrót SHA-256 klucza poręczenia modułu TPM.
 
       [![Informacje o rejestracji dla modułu TPM w portalu](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - W przypadku urządzeń opartych na standardzie X.509 wymagane są następujące elementy:
-    - [Certyfikat wystawiony dla modułu lub symulacji X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) w postaci pliku *PEM* lub *CER*. W przypadku rejestracji indywidualnej należy użyć certyfikatu z  *podpisem* urządzenia dla systemu X. 509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego*. 
+    - [Certyfikat wystawiony dla modułu lub symulacji X.509](/windows/win32/seccertenroll/about-x-509-public-key-certificates) w postaci pliku *PEM* lub *CER*. W przypadku rejestracji indywidualnej należy użyć certyfikatu z  *podpisem* urządzenia dla systemu X. 509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego*. 
 
       [![Dodawanie rejestracji indywidualnej dla zaświadczania X. 509 w portalu](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -88,7 +88,7 @@ Po uruchomieniu urządzenia powinny zostać wykonane następujące działania:
 
     ![Pomyślne połączenie z centrum w portalu](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Aby uzyskać więcej informacji, zobacz przykład aprowizacji urządzenia klienta [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). W tym przykładzie pokazano aprowizowanie symulowanego urządzenia przy użyciu certyfikatów TPM i X.509 oraz kluczy zawartości. Zapoznaj się ponownie z przewodnikami Szybki start dotyczącymi atestacji certyfikatów [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device) i [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) oraz [kluczy zawartości](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key), aby uzyskać instrukcje krok po kroku dotyczące korzystania z przykładów.
+Aby uzyskać więcej informacji, zobacz przykład aprowizacji urządzenia klienta [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). W tym przykładzie pokazano aprowizowanie symulowanego urządzenia przy użyciu certyfikatów TPM i X.509 oraz kluczy zawartości. Zapoznaj się ponownie z przewodnikami Szybki start dotyczącymi atestacji certyfikatów [TPM](./quick-create-simulated-device.md) i [X.509](./quick-create-simulated-device-x509.md) oraz [kluczy zawartości](./quick-create-simulated-device-symm-key.md), aby uzyskać instrukcje krok po kroku dotyczące korzystania z przykładów.
 
 ## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:

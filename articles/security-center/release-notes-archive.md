@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 26192c742ab2e010c18c02226252dbb480b72cee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357848"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967163"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -188,7 +188,7 @@ Teraz możesz dodawać standardy, takie jak:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (nowy)** (czyli bardziej kompletna reprezentacja usługi Azure CIS 1.1.0)
 
-Ponadto został niedawno dodany **test testów zabezpieczeń platformy Azure** , oparte na platformie Azure wskazówki dotyczące zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. Dodatkowe standardy będą obsługiwane na pulpicie nawigacyjnym, gdy staną się dostępne.  
+Ponadto został niedawno dodany **test testów zabezpieczeń platformy Azure**, oparte na platformie Azure wskazówki dotyczące zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. Dodatkowe standardy będą obsługiwane na pulpicie nawigacyjnym, gdy staną się dostępne.  
  
 Dowiedz się więcej o [dostosowywaniu zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
 
@@ -302,7 +302,7 @@ Aby wyeliminować to zagrożenie, Azure Security Center wydane wykrywanie atakó
 
 
 
-## <a name="january-2020"></a>Styczeń 2020 r.
+## <a name="january-2020"></a>Styczeń 2020 r.
 
 ### <a name="enhanced-secure-score-preview"></a>Ulepszony bezpieczny wynik (wersja zapoznawcza)
 
@@ -314,7 +314,7 @@ Dowiedz się więcej o [ulepszonym zabezpieczeniu (wersja zapoznawcza)](secure-s
 
 
 
-## <a name="november-2019"></a>Listopad 2019 r.
+## <a name="november-2019"></a>Listopad 2019 r.
 
 Aktualizacje w listopadzie obejmują:
  - [Ochrona przed zagrożeniami dla Azure Key Vault w regionach Ameryka Północna (wersja zapoznawcza)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
@@ -392,7 +392,7 @@ Kubernetes szybko staje się nowym standardem wdrażania oprogramowania i zarzą
 Nowe możliwości w tej publicznej wersji zapoznawczej obejmują:
 
 - **Odnajdowanie & widoczność** — ciągłe wykrywanie zarządzanych wystąpień AKS w ramach zarejestrowanych subskrypcji Security Center.
-- **Zaleceń dotyczących oceny** — elementy poddaje się do działania, aby ułatwić klientom przestrzeganie najlepszych rozwiązań w zakresie zabezpieczeń w AKS w ramach bezpiecznego wyniku klienta, na przykład "Access Control opartych na rolach powinna być używana do ograniczania dostępu do klastra usługi Kubernetes Service".
+- **Zalecane zalecenia dotyczące oceny** — elementy poddaje się do działania, aby pomóc klientom w zgodności z najlepszymi rozwiązaniami w zakresie bezpieczeństwa dla AKS i zwiększyć ich bezpieczny wynik. Zalecenia obejmują elementy takie jak "kontrola dostępu oparta na rolach" powinna służyć do ograniczania dostępu do klastra usługi Kubernetes Service ".
 - **Wykrywanie zagrożeń** — Analiza oparta na hoście i klastrze, taka jak "wykryto uprzywilejowany kontener".
 
 

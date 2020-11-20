@@ -7,18 +7,19 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88b1cd2a5bf33d6401f0d2e15237400e27c72e54
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541156"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967656"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurowanie serwera SMT dla systemu SUSE Linux
 Duże wystąpienia SAP HANA nie mają bezpośredniej łączności z Internetem. Nie jest to prosty proces rejestracji takiej jednostki u dostawcy systemu operacyjnego oraz pobierania i stosowania aktualizacji. Rozwiązaniem dla systemu SUSE Linux jest skonfigurowanie serwera w postaci SMT na maszynie wirtualnej platformy Azure. Hostowanie maszyny wirtualnej w sieci wirtualnej platformy Azure, która jest połączona z dużym wystąpieniem HANA. Dzięki takiemu serwerowi o rozmiarze SMT duże wystąpienie wystąpienia HANA może rejestrować i pobierać aktualizacje. 
@@ -34,7 +35,7 @@ Wymagania wstępne dotyczące instalowania serwera z systemem SMT, który spełn
 
 Najpierw Zaloguj się do [centrum klient SUSE](https://scc.suse.com/).
 
-Przejdź do **Organization**pozycji  >  **poświadczenia organizacji**organizacji. W tej sekcji należy znaleźć poświadczenia niezbędne do skonfigurowania serwera SMT.
+Przejdź do **Organization** pozycji  >  **poświadczenia organizacji** organizacji. W tej sekcji należy znaleźć poświadczenia niezbędne do skonfigurowania serwera SMT.
 
 Następnie zainstaluj maszynę wirtualną w systemie SUSE Linux w sieci wirtualnej platformy Azure. Aby wdrożyć maszynę wirtualną, zapoznaj się z obrazem galerii SLES 12 z dodatkiem SP2 (wybierz pozycję obraz BYOS SUSE). W procesie wdrażania nie należy definiować nazwy DNS i nie należy używać statycznych adresów IP.
 
@@ -78,7 +79,7 @@ Resolving package dependencies...
 ```
 
 
-Możesz również użyć narzędzia YAST, aby zainstalować pakiety SMT. W YAST, przejdź do obszaru **konserwacja oprogramowania**i Wyszukaj pozycję SMT. Wybierz opcję **SMT**, która automatycznie przełącza się do YaST2-SMT.
+Możesz również użyć narzędzia YAST, aby zainstalować pakiety SMT. W YAST, przejdź do obszaru **konserwacja oprogramowania** i Wyszukaj pozycję SMT. Wybierz opcję **SMT**, która automatycznie przełącza się do YaST2-SMT.
 
 ![Zrzut ekranu elementu SMT w YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 

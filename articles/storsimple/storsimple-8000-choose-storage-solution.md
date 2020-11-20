@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 903342230b28f8e4fbdcdfd93543e5a0aa54975e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f5bb1c2716acbbac8d3e776eb9beda045fd881
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968744"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Compare StorSimple with Azure File Sync and Data Box Edge data transfer options (Porównanie usługi StorSimple z usługami Azure File Sync i opcjami transferu danych usługi Data Box Edge) 
 
@@ -20,9 +20,9 @@ ms.locfileid: "88183279"
  
 Ten dokument zawiera omówienie opcji lokalnego transferu danych na platformę Azure, porównując: Data Box Edge a Azure File Sync a 8000.
 
-- **[Data Box Edge](/azure/databox-online/data-box-edge-overview)** — Data Box Edge to lokalne urządzenie sieciowe, które przenosi dane na platformę Azure i poza nią i ma funkcję obliczeniową z obsługą systemu AI na potrzeby wstępnego przetwarzania danych podczas przekazywania. Data Box Gateway to wirtualna wersja urządzenia z takimi samymi możliwościami transferu danych.
-- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)** — Azure File Sync może służyć do scentralizowania udziałów plików w organizacji w Azure Files, przy zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Ogólna dostępność Azure File Sync została ogłoszona wcześniej w 2018.
-- **[StorSimple](/azure/storsimple/storsimple-overview)** – StorSimple to urządzenie hybrydowe, które ułatwia przedsiębiorstwom skonsolidowanie infrastruktury magazynu na potrzeby magazynu podstawowego, ochrony danych, archiwizacji i odzyskiwania po awarii na jednym rozwiązaniu przez ścisłe integrację z usługą Azure Storage. Cykl życia produktu dla programu StorSimple można znaleźć [tutaj](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+- **[Data Box Edge](../databox-online/azure-stack-edge-overview.md)** — Data Box Edge to lokalne urządzenie sieciowe, które przenosi dane na platformę Azure i poza nią i ma funkcję obliczeniową z obsługą systemu AI na potrzeby wstępnego przetwarzania danych podczas przekazywania. Data Box Gateway jest wirtualną wersją urządzenia z takimi samymi możliwościami transferu danych.
+- **[Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md)** — Azure File Sync może służyć do scentralizowania udziałów plików w organizacji w Azure Files, przy zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Ogólna dostępność Azure File Sync została ogłoszona wcześniej w 2018.
+- **[StorSimple](./storsimple-overview.md)** – StorSimple to urządzenie hybrydowe, które ułatwia przedsiębiorstwom skonsolidowanie infrastruktury magazynu na potrzeby magazynu podstawowego, ochrony danych, archiwizacji i odzyskiwania po awarii na jednym rozwiązaniu przez ścisłe integrację z usługą Azure Storage. Cykl życia produktu dla programu StorSimple można znaleźć [tutaj](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 ## <a name="comparison-summary"></a>Podsumowanie porównania
 
@@ -39,5 +39,5 @@ Ten dokument zawiera omówienie opcji lokalnego transferu danych na platformę A
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) i [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
-- Dowiedz się więcej o [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)
+- Dowiedz się więcej na temat [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) i [Azure Data Box Gateway](../databox-online/data-box-gateway-overview.md)
+- Dowiedz się więcej o [Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md)

@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure HANA, Storage Ultra Disk, Premium Storage
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357081"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967469"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -46,7 +47,7 @@ Minimalny SAP HANA warunki certyfikowania dla różnych typów magazynu to:
 - Platforma Azure Ultra Disk co najmniej dla woluminu **/Hana/log** . Wolumin **/Hana/Data** można umieścić w usłudze Premium Storage bez systemu Azure akcelerator zapisu lub w celu szybszego ponownego uruchomienia komputera
 - Woluminy **NFS v 4.1** na Azure NetApp Files dla **/Hana/log i/Hana/Data**. Wolumin/Hana/Shared może korzystać z protokołu NFS v3 lub NFS v 4.1
 
-Niektóre typy magazynów można łączyć. Na przykład można umieścić **/Hana/Data** w usłudze Premium Storage, a **/Hana/log** może zostać umieszczony w magazynie Ultra Disk w celu uzyskania wymaganego niskiego opóźnienia. Jeśli używasz woluminu opartego na ANF dla **/Hana/Data** , wolumin  **/Hana/log** musi być oparty na systemie plików NFS również na ANF. Korzystanie z systemu plików NFS na ANF dla jednego z woluminów (na przykład/Hana/Data) i usługi Azure Premium Storage lub Ultra Disk dla innego woluminu (na przykład **/Hana/log** ) **nie jest obsługiwane**.
+Niektóre typy magazynów można łączyć. Na przykład można umieścić **/Hana/Data** w usłudze Premium Storage, a **/Hana/log** może zostać umieszczony w magazynie Ultra Disk w celu uzyskania wymaganego niskiego opóźnienia. Jeśli używasz woluminu opartego na ANF dla **/Hana/Data**, wolumin  **/Hana/log** musi być oparty na systemie plików NFS również na ANF. Korzystanie z systemu plików NFS na ANF dla jednego z woluminów (na przykład/Hana/Data) i usługi Azure Premium Storage lub Ultra Disk dla innego woluminu (na przykład **/Hana/log**) **nie jest obsługiwane**.
 
 W lokalnym świecie rzadko trzeba zadbać o podsystemy we/wy i możliwości. Przyczyną jest to, że dostawca urządzenia jest wymagany do upewnienia się, że minimalne wymagania dotyczące magazynu są spełnione dla SAP HANA. Podczas tworzenia infrastruktury platformy Azure należy pamiętać o niektórych wymaganiach wystawionych przez SAP. Niektóre z minimalnych cech przepływności zalecane przez SAP to:
 
@@ -192,7 +193,7 @@ W przypadku innych woluminów konfiguracja będzie wyglądać następująco:
 | M416ms_v2 | 11 400 GiB | 2 000 MB/s | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-Sprawdź, czy przepływność magazynu dla różnych sugerowanych woluminów spełnia obciążenie, które chcesz uruchomić. Jeśli obciążenie wymaga wyższych woluminów dla **/Hana/Data** i **/Hana/log** , należy zwiększyć liczbę wirtualnych dysków twardych usługi Azure Premium Storage. Ustalanie wielkości woluminu o większej liczbie dysków VHD nie powoduje zwiększenia przepływności operacji we/wy w ramach limitów typu maszyny wirtualnej platformy Azure.
+Sprawdź, czy przepływność magazynu dla różnych sugerowanych woluminów spełnia obciążenie, które chcesz uruchomić. Jeśli obciążenie wymaga wyższych woluminów dla **/Hana/Data** i **/Hana/log**, należy zwiększyć liczbę wirtualnych dysków twardych usługi Azure Premium Storage. Ustalanie wielkości woluminu o większej liczbie dysków VHD nie powoduje zwiększenia przepływności operacji we/wy w ramach limitów typu maszyny wirtualnej platformy Azure.
 
 Usługa Azure akcelerator zapisu działa tylko w połączeniu z usługą [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Dlatego co najmniej dyski usługi Azure Premium Storage tworzące wolumin **/Hana/log** muszą zostać wdrożone jako dyski zarządzane. Więcej szczegółowych instrukcji i ograniczeń dotyczących usługi Azure akcelerator zapisu można znaleźć w artykule [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
 

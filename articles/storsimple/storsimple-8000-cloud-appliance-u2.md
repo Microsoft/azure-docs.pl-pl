@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021379"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968846"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Wdrażanie urządzenia StorSimple w chmurze oraz zarządzanie nim na platformie Azure (aktualizacja Update 3 i nowsze)
 
@@ -47,7 +47,7 @@ Dostępne są dwa modele urządzenia StorSimple w chmurze: standardowy — 8010 
 | **Maksymalna pojemność** |30 TB |64 TB |
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci)| Standard_DS3 (4 rdzenie, 14 GB pamięci)|
 | **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Regiony świadczenia usługi Azure obsługujące usługę Premium Storage i maszyny wirtualne DS3 platformy Azure<br></br>Przy użyciu [tej listy](https://azure.microsoft.com/regions/services/) sprawdź, czy w Twoim regionie jest dostępna zarówno opcja **Maszyny wirtualne > Seria DS**, jak i opcja **Magazyn > Magazyn na dysku**. |
-| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md) |Używa Premium Storage platformy Azure dla dysków lokalnych<sup>2</sup> <br></br> |
+| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-account-create.md) |Używa Premium Storage platformy Azure dla dysków lokalnych<sup>2</sup> <br></br> |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Scenariusze tworzenia i testowania w chmurze <br></br>Obciążenia o małych opóźnieniach i większej wydajności<br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
 <sup>1</sup> *dawniej znany jako 1100*.
@@ -96,7 +96,7 @@ Przed aprowizowaniem urządzenia w chmurze wykonaj następujące czynności przy
 Przed utworzeniem urządzenia w chmurze przeprowadź następujące aktualizacje usługi Menedżer urządzeń StorSimple:
 
 * Dodaj [rekordy kontroli dostępu](storsimple-8000-manage-acrs.md) do maszyn wirtualnych, które będą serwerami hosta dla urządzenia w chmurze.
-* Użyj [konta magazynu](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym działa urządzenie w chmurze. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. W urządzeniu w chmurze można używać konta Standard lub Premium Storage. Więcej informacji na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md).
+* Użyj [konta magazynu](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym działa urządzenie w chmurze. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. W urządzeniu w chmurze można używać konta Standard lub Premium Storage. Więcej informacji na temat [tworzenia konta Standard Storage](../storage/common/storage-account-create.md).
 * Do utworzenia urządzenia w chmurze użyj innego konta magazynu niż używane do obsługi danych. Użycie tego samego konta magazynu może spowodować obniżenie wydajności.
 
 Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje:
@@ -267,7 +267,7 @@ Aby zatrzymać naliczanie wszystkich opłat, należy usunąć urządzenie w chmu
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Rozwiązywanie problemów z błędami łączności internetowej
 Jeśli podczas tworzenia urządzenia w chmurze nie ma łączności z Internetem, krok związany z tworzeniem kończy się niepowodzeniem. Aby rozwiązać problemy w przypadku awarii wynikających z łączności z Internetem, wykonaj poniższe czynności w witrynie Azure Portal:
 
-1. [Utwórz maszynę wirtualną systemu Windows w witrynie Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Ta maszyna wirtualna powinna używać tego samego konta magazynu, sieci wirtualnej i podsieci, które są używane przez urządzenie w chmurze. Jeśli istnieje host systemu Windows Server na platformie Azure używający tego samego konta magazynu, sieci wirtualnej i podsieci, możesz również użyć go, aby rozwiązywać problemy z łącznością z Internetem.
+1. [Utwórz maszynę wirtualną systemu Windows w witrynie Azure Portal](../virtual-machines/windows/quick-create-portal.md). Ta maszyna wirtualna powinna używać tego samego konta magazynu, sieci wirtualnej i podsieci, które są używane przez urządzenie w chmurze. Jeśli istnieje host systemu Windows Server na platformie Azure używający tego samego konta magazynu, sieci wirtualnej i podsieci, możesz również użyć go, aby rozwiązywać problemy z łącznością z Internetem.
 2. Zdalnie zaloguj się do maszyny wirtualnej utworzonej w poprzednim kroku.
 3. Otwórz okno poleceń w ramach maszyny wirtualnej (naciśnij klawisze Win + R, a następnie wpisz polecenie `cmd`).
 4. W wierszu polecenia wpisz następujące polecenie.

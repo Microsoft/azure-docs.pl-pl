@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f72342a318e3436fb80fb06b2312f664c9d04969
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617001"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967622"
 ---
 # <a name="onboarding-requirements"></a>Wymagania dotyczące dołączania
 
@@ -70,7 +71,7 @@ Aby uzyskać informacje na temat macierzy zgodności systemów operacyjnych i op
 - Licencje i składniki instalacji oprogramowania dla wszystkich aplikacji SAP, które łączą się z SAP HANA i powiązane kontrakty pomocy technicznej SAP.
 - Licencje i składniki instalacji oprogramowania dla wszystkich aplikacji innych niż SAP używanych z SAP HANA na platformie Azure (duże wystąpienia) i powiązane kontrakty pomocy technicznej.
 
-**Nowych**
+**Umiejętności**
 
 - Środowisko i znajomość usługi Azure IaaS oraz jej składników.
 - Środowisko i znajomość sposobu wdrażania obciążeń SAP na platformie Azure.

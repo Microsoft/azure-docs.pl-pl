@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 056009c34aec97a8c5c45aea4b93ba41977fa7a6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 31cba884cff490d43341a4c52f24c32b1e253e42
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518196"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967333"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Przeprowadź migrację do wersji 3. x interfejs API analizy tekstu
 
 [!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
-Jeśli używasz wersji 2,1 interfejs API analizy tekstu, ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 3. x. Wersja 3,0 jest ogólnie dostępna i wprowadza nowe funkcje, takie jak rozszerzone [rozpoznawanie jednostek nazwanych (ner)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) i [przechowywanie wersji modelu](concepts/model-versioning.md). Dostępna jest również wersja zapoznawcza v 3.1 (v 3.1-Preview. x), która dodaje funkcje, takie jak [Wyszukiwanie opinii](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). Modele używane w wersji 2 nie będą otrzymywać przyszłych aktualizacji. 
+Jeśli używasz wersji 2,1 interfejs API analizy tekstu, ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 3. x. Wersja 3,0 jest ogólnie dostępna i wprowadza nowe funkcje, takie jak rozszerzone [rozpoznawanie jednostek nazwanych (ner)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) i [przechowywanie wersji modelu](concepts/model-versioning.md). Dostępna jest również wersja zapoznawcza v 3.1 (v 3.1-Preview. x), która dodaje funkcje, takie jak [Wyszukiwanie opinii](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). Modele używane w wersji 2 nie będą otrzymywać przyszłych aktualizacji. 
 
 #### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment-analysis)
 
@@ -38,7 +38,7 @@ Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy ż
 Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
+* [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Biblioteki klienta
 
@@ -70,7 +70,7 @@ Należy również zaktualizować aplikację tak, aby korzystała z [kategorii je
 Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/EntitiesRecognitionGeneral)
+* [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Biblioteki klienta
 
@@ -92,7 +92,7 @@ Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy ż
 Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
 * [Wersja 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Languages)
+* [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ### <a name="client-libraries"></a>Biblioteki klienta
 

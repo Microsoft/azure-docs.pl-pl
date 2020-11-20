@@ -3,6 +3,7 @@ title: Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (AD
 description: Uruchamiaj środowisko deweloperskie i testowe środowiska (zD&T) na platformie Azure Virtual Machines.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcd354b906b4d6c92d8b3186fc8e09c94a31ca55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87052410"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968404"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (ADCD) w programie IBM zD&T v1
 
@@ -58,7 +59,7 @@ Wymagany jest dostęp do nośnika ADCD. W poniższych krokach przyjęto założe
 
 5. Opcjonalnie kliknij listę porządku alfabetycznego, aby wyświetlić i wyświetlić theproduct według nazwy.
 
-6. Wybierz **wszystkie systemy operacyjne** w **polu system operacyjny**i **wszystkie języki** w **polu Języki**. Następnie kliknij pozycję **Przejdź**.
+6. Wybierz **wszystkie systemy operacyjne** w **polu system operacyjny** i **wszystkie języki** w **polu Języki**. Następnie kliknij pozycję **Przejdź**.
 
 7. Kliknij pozycję **Wybierz pojedyncze pliki** , aby rozwinąć listę i wyświetlić poszczególne nośniki do pobrania.
 
@@ -111,13 +112,13 @@ Następnym krokiem jest skonfigurowanie zD&T w celu używania przekazanych pakie
 
     ![Ekran powitalny IBM zD&T Enterprise Edition](media/02-welcome.png)
 
-3. Na stronie **Szybki Start** w obszarze **Konfiguracja**wybierz pozycję **Magazyn obrazów**.
+3. Na stronie **Szybki Start** w obszarze **Konfiguracja** wybierz pozycję **Magazyn obrazów**.
 
      ![Ekran IBM zD&T Enterprise Edition Szybki start](media/03-quickstart.png)
 
 4. Na stronie **Konfigurowanie magazynu obrazu** wybierz pozycję **SSH protokół transferu plików**.
 
-5. W polu **Nazwa hosta**wpisz **localhost** i wprowadź ścieżkę do katalogu, w którym zostały przekazane obrazy. Na przykład/home/MyUserID/ZDT/adcd/nov2017/volumes.
+5. W polu **Nazwa hosta** wpisz **localhost** i wprowadź ścieżkę do katalogu, w którym zostały przekazane obrazy. Na przykład/home/MyUserID/ZDT/adcd/nov2017/volumes.
 
 6. Wprowadź **Identyfikator użytkownika** i **hasło** dla maszyny wirtualnej. Nie należy używać identyfikatora użytkownika ZD&T i hasła.
 
@@ -127,13 +128,13 @@ Następnym krokiem jest skonfigurowanie zD&T w celu używania przekazanych pakie
 
 Następnym krokiem jest skonfigurowanie środowiska docelowego zD&T. To emulowane środowisko hostowane polega na tym, że obrazy są uruchamiane.
 
-1. Na stronie **Szybki Start** w obszarze **Konfiguracja**wybierz pozycję **środowiska docelowe**.
+1. Na stronie **Szybki Start** w obszarze **Konfiguracja** wybierz pozycję **środowiska docelowe**.
 
 2. Na stronie **Konfiguruj środowiska docelowe** wybierz pozycję **Dodaj cel**.
 
 3. Wybierz pozycję **Linux**. IBM obsługuje dwa typy środowisk, Linux i Cloud (OpenStack), ale ta wersja demonstracyjna jest uruchamiana w systemie Linux.
 
-4. Na stronie **Dodawanie środowiska docelowego** dla **nazwy hosta**wprowadź wartość **localhost**. Pozostaw **port SSH** ustawiony na **22**.
+4. Na stronie **Dodawanie środowiska docelowego** dla **nazwy hosta** wprowadź wartość **localhost**. Pozostaw **port SSH** ustawiony na **22**.
 
 5. W polu **etykieta środowiska docelowego** Wprowadź etykietę, taką jak **MyCICS.**
 
@@ -143,7 +144,7 @@ Następnym krokiem jest skonfigurowanie środowiska docelowego zD&T. To emulowan
 
 Po wykonaniu poprzednich kroków konfiguracyjnych należy skonfigurować zD&T, aby używać pakietów i środowiska docelowego. Ponownie Użyj procesu magazynowania obrazów w programie zD&T, który umożliwia instalowanie i używanie obrazów. Może korzystać z protokołu SSH lub FTP.
 
-1. Na stronie **Szybki Start** w obszarze **Konfigurowanie**wybierz pozycję **ADCD**. Zostanie wyświetlony zestaw instrukcji informujących o czynnościach, które należy wykonać przed zainstalowaniem pakietu ADCD. Wyjaśnia to, dlaczego nazywamy katalog docelowy tak jak wcześniej.
+1. Na stronie **Szybki Start** w obszarze **Konfigurowanie** wybierz pozycję **ADCD**. Zostanie wyświetlony zestaw instrukcji informujących o czynnościach, które należy wykonać przed zainstalowaniem pakietu ADCD. Wyjaśnia to, dlaczego nazywamy katalog docelowy tak jak wcześniej.
 
 2. Przy założeniu, że wszystkie obrazy zostały przekazane do prawidłowych katalogów, kliknij link **ADCD** w prawym dolnym rogu (widocznym w kroku 7 na poniższym zrzucie ekranu).
 

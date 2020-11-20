@@ -3,6 +3,7 @@ title: Instalowanie środowiska IBM zD&w środowisku deweloperskim/testowym na p
 description: Wdróż środowisko deweloperskie i testowe programu IBM Z (zD&T) na platformie Azure Virtual Machines (VM) jako usługa (IaaS).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12a812f66345a26701b2a1623487fd262ede4be
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499923"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968336"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Zainstaluj środowisko IBM zD&w środowisku deweloperskim/testowym na platformie Azure
 
@@ -42,7 +43,7 @@ W tym artykule opisano sposób konfigurowania środowiska deweloperskiego i test
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!NOTE]
-> IBM zezwala na zainstalowanie zD&T Enterprise Edition tylko w środowiskach deweloperskich i testowych — a*nie* w środowiskach produkcyjnych.
+> IBM zezwala na zainstalowanie zD&T Enterprise Edition tylko w środowiskach deweloperskich i testowych — a *nie* w środowiskach produkcyjnych.
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -62,7 +63,7 @@ W tym artykule opisano sposób konfigurowania środowiska deweloperskiego i test
 
 3. Uzyskaj poświadczenia SSH wyświetlane w bloku **Przegląd** maszyny wirtualnej za pomocą przycisku **Połącz** . Wybierz kartę **SSH** i skopiuj polecenie SSH Logon do Schowka.
 
-4. Zaloguj się do [powłoki bash](../../../../cloud-shell/quickstart.md) z lokalnego komputera i Wklej polecenie. Będzie on w formacie **SSH \<user id\> \@ \<IP Address\> **. Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź je w celu nawiązania połączenia z katalogiem macierzystym.
+4. Zaloguj się do [powłoki bash](../../../../cloud-shell/quickstart.md) z lokalnego komputera i Wklej polecenie. Będzie on w formacie **SSH \<user id\> \@ \<IP Address\>**. Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź je w celu nawiązania połączenia z katalogiem macierzystym.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiuj plik instalacyjny na serwer
 
@@ -108,7 +109,7 @@ Plik instalacyjny dla serwera sieci Web to **ZDT \_ instalacji \_ EE \_ v 12.0.0
 
 4. Naciśnij **uważnie** i Przeczytaj umowy licencyjne. Na końcu licencji wprowadź **wartość tak** , aby wykonać operację.
 
-5. Po wyświetleniu monitu o zmianę hasła dla nowo utworzonego użytkownika **ibmsys1**Użyj polecenia **sudo passwd ibmsys1** i wprowadź nowe hasło.
+5. Po wyświetleniu monitu o zmianę hasła dla nowo utworzonego użytkownika **ibmsys1** Użyj polecenia **sudo passwd ibmsys1** i wprowadź nowe hasło.
 
 6. Aby sprawdzić, czy instalacja zakończyła się pomyślnie
 

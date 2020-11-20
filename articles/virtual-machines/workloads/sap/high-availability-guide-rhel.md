@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 9b4684f8d9a6bd04a11961632b616258db7344a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 496b78de869cc213af6b79b3e72016bba3da1266
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487572"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967435"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux
 
@@ -150,7 +151,7 @@ Portal Azure Marketplace zawiera obraz Red Hat Enterprise Linux, który służy 
    1. Nazwa użytkownika administratora, hasło administratora lub klucz SSH  
       Zostanie utworzony nowy użytkownik, którego można użyć do zalogowania się na komputerze.
    1. Identyfikator podsieci  
-   Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda tak, jak** &lt; Identyfikator &gt; subskrypcji**/subscriptions//ResourceGroups/nazwa** &lt; grupy &gt; zasobów**/Providers/Microsoft.Network/virtualNetworks/nazwa** &lt; sieci &gt; wirtualnej**/Subnets/** &lt; nazwa &gt; podsieci**
+   Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda tak, jak **&lt; Identyfikator &gt; subskrypcji**/subscriptions//ResourceGroups/nazwa **&lt; grupy &gt; zasobów**/Providers/Microsoft.Network/virtualNetworks/nazwa **&lt; sieci &gt; wirtualnej**/Subnets/**&lt; nazwa &gt; podsieci**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Ręczne wdrażanie systemu Linux za pośrednictwem Azure Portal
 
@@ -185,13 +186,13 @@ Najpierw musisz utworzyć maszyny wirtualne dla tego klastra. Następnie należy
       1. Wybierz Maszyny wirtualne klastra SCS i ich adresy IP.
       1. Kliknij pozycję Dodaj.
    1. Tworzenie sond kondycji
-      1. Port 620**00** dla ASCS
+      1. Port 620 **00** dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej sondy kondycji (na przykład **NW1-ASCS-HP**)
-         1. Wybierz pozycję TCP jako protokół, port 620**00**, Zachowaj interwał 5 i próg złej kondycji 2
+         1. Wybierz pozycję TCP jako protokół, port 620 **00**, Zachowaj interwał 5 i próg złej kondycji 2
          1. Kliknij przycisk OK.
-      1. Port 621**02** dla ASCS wykres wywołujących
-         * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621**02** i **NW1-AERS-HP**)
+      1. Port 621 **02** dla ASCS wykres wywołujących
+         * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621 **02** i **NW1-AERS-HP**)
    1. Reguły równoważenia obciążenia
       1. Reguły równoważenia obciążenia dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję reguły równoważenia obciążenia i kliknij przycisk Dodaj.
@@ -219,15 +220,15 @@ Najpierw musisz utworzyć maszyny wirtualne dla tego klastra. Następnie należy
       1. Wybierz Maszyny wirtualne klastra SCS
       1. Kliknij przycisk OK.
    1. Tworzenie sond kondycji
-      1. Port 620**00** dla ASCS
+      1. Port 620 **00** dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej sondy kondycji (na przykład **NW1-ASCS-HP**)
-         1. Wybierz pozycję TCP jako protokół, port 620**00**, Zachowaj interwał 5 i próg złej kondycji 2
+         1. Wybierz pozycję TCP jako protokół, port 620 **00**, Zachowaj interwał 5 i próg złej kondycji 2
          1. Kliknij przycisk OK.
-      1. Port 621**02** dla ASCS wykres wywołujących
-         * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621**02** i **NW1-AERS-HP**)
+      1. Port 621 **02** dla ASCS wykres wywołujących
+         * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621 **02** i **NW1-AERS-HP**)
    1. Reguły równoważenia obciążenia
-      1. 32**00** TCP dla ASCS
+      1. 32 **00** TCP dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję reguły równoważenia obciążenia i kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **NW1-lb-3200**)
          1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **NW1-ASCS-fronton**)
@@ -236,9 +237,9 @@ Najpierw musisz utworzyć maszyny wirtualne dla tego klastra. Następnie należy
          1. **Upewnij się, że włączono zmiennoprzecinkowy adres IP**
          1. Kliknij przycisk OK.
       1. Dodatkowe porty dla ASCS
-         * Powtórz powyższe kroki dla portów 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 i TCP dla ASCS
+         * Powtórz powyższe kroki dla portów 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 i TCP dla ASCS
       1. Dodatkowe porty dla ASCS wykres WYWOŁUJĄCYCH
-         * Powtórz powyższe kroki dla portów 33**02**, 5**02**13, 5**02**14, 5**02**16 i TCP dla ASCS wykres wywołujących
+         * Powtórz powyższe kroki dla portów 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 i TCP dla ASCS wykres wywołujących
 
 > [!IMPORTANT]
 > Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.  
@@ -406,7 +407,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**NW1**/ASCS**00**, spróbuj ustawić właściciela i grupę folderu ASCS**00** , a następnie ponów próbę.
+   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**NW1**/ASCS **00**, spróbuj ustawić właściciela i grupę folderu ASCS **00** , a następnie ponów próbę.
 
    <pre><code>sudo chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    sudo chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -462,7 +463,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**NW1**/ERS**02**, spróbuj ustawić właściciela i grupę folderu wykres wywołujących**02** i ponów próbę.
+   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**NW1**/ERS **02**, spróbuj ustawić właściciela i grupę folderu wykres wywołujących **02** i ponów próbę.
 
    <pre><code>sudo chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    sudo chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
