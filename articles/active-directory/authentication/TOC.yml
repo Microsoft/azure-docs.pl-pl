@@ -9,7 +9,7 @@
   items:
     - name: Włączanie samoobsługowego resetowania hasła
       href: tutorial-enable-sspr.md
-    - name: Włączanie usługi Azure Multi-Factor Authentication
+    - name: Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure AD
       href: tutorial-enable-azure-mfa.md
     - name: Włączanie funkcji zapisywania zwrotnego haseł w środowisku lokalnym
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: Samoobsługowe resetowanie hasła dla klientów systemu Windows
           href: howto-sspr-windows.md
-    - name: Azure Multi-Factor Authentication
+    - name: Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
       items:
         - name: Podręcznik wdrażania
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Konfiguracja zaawansowana rozszerzenia serwera zasad sieciowych
               href: howto-mfa-nps-extension-advanced.md
-            - name: Usługi Azure VPN i Azure MFA
+            - name: Usługa Azure VPN i uwierzytelnianie wieloskładnikowe w usłudze Azure AD
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Brama pulpitu zdalnego
               href: howto-mfa-nps-extension-rdg.md

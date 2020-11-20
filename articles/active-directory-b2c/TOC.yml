@@ -356,7 +356,7 @@
                       href: application-insights-technical-profile.md
                     - name: Usługa Azure Active Directory
                       href: active-directory-technical-profile.md
-                    - name: Azure Multi-Factor Authentication
+                    - name: Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
                     - name: Samoobsługowe resetowanie hasła w usłudze Azure AD

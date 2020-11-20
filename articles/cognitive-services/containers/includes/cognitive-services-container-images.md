@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 3f2611c9535b9721cccadf35e56bdd21a3020257
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2c2ebe9b419100163ae55c1be85dd1464904e841
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677444"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978427"
 ---
 ### <a name="container-repositories-and-images"></a>Repozytoria kontenerów i obrazy
 
@@ -89,9 +89,8 @@ Wcześniej w repozytorium były hostowane kontenery w wersji zapoznawczej `conta
 |--|--|--|
 | [Przetwarzanie obrazów](../../Computer-vision/computer-vision-how-to-install-containers.md) | Przeczytaj v 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | [Przetwarzanie obrazów](../../Computer-vision/computer-vision-how-to-install-containers.md) | Przeczytaj v 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
-| [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Analiza przestrzenna | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Przetwarzanie obrazów](../../computer-vision/spatial-analysis-container.md) | Analiza przestrzenna | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [Interfejs API usługi rozpoznawania mowy](../../speech-service/speech-container-howto.md?tab=ctts) | Niestandardowa Zamiana tekstu na mowę | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [Interfejs API usługi rozpoznawania mowy](../../speech-service/speech-container-howto.md?tab=lid) | Wykrywanie języka | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
 | [Interfejs API usługi rozpoznawania mowy](../../speech-service/speech-container-howto.md?tab=ntts) | Neuronowych Zamiana tekstu na mowę | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
-| [analiza tekstu dla kondycji](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analiza tekstu dla opieki zdrowotnej | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
-
+| [Analiza tekstu dla opieki zdrowotnej](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analiza tekstu dla opieki zdrowotnej | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

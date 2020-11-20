@@ -10,7 +10,7 @@
       href: require-tou.md
 - name: Samouczki
   items:
-    - name: Wymaganie usługi Azure Multi-Factor Authentication
+    - name: Wymaganie uwierzytelniania wieloskładnikowego w usłudze Azure AD
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Pojęcia
   expanded: false

@@ -61,10 +61,14 @@
       href: security-baselines-overview.md
     - name: Punkt odniesienia zabezpieczeń usługi API Management
       href: ../../api-management/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi App Service
+      href: ../../app-service/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Application Gateway
       href: ../../application-gateway/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Automation
       href: ../../automation/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Advisor
+      href: ../../advisor/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Backup
       href: ../../backup/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
@@ -97,6 +101,8 @@
       href: ../../frontdoor/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Information Protection
+      href: /azure/information-protection/security-baseline
     - name: Punkt odniesienia zabezpieczeń usługi Azure IoT Hub
       href: ../../iot-hub/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Kubernetes Service
