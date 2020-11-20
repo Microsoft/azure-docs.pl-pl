@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02c30423ab3c6de87eac7d34b5f0004e54a8d5d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065089"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957813"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure
 W tym artykule opisano sposób, w jaki można dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure oraz jakie są niezbędne wersje systemu operacyjnego lub wersje DBMS.
@@ -86,7 +87,7 @@ Znajomość wersji systemu DBMS, które są obsługiwane przez docelową infrast
 ## <a name="sap-hana-support"></a>Obsługa SAP HANA
 Na platformie Azure są dostępne dwie usługi, których można użyć do uruchomienia bazy danych HANA:
 
-- Azure Virtual Machines
+- Maszyny wirtualne platformy Azure
 - [Duże wystąpienia HANA](./hana-overview-architecture.md)
 
 W przypadku uruchamiania SAP HANA rozwiązanie SAP ma więcej i silniejsze warunki, które muszą spełniać infrastruktura niż w przypadku uruchamiania NetWeaver lub innych aplikacji SAP i systemu DBMS. W związku z tym mniejsza liczba maszyn wirtualnych platformy Azure kwalifikuje się do uruchamiania SAP HANA systemu DBMS. Listę obsługiwanych infrastruktury platformy Azure obsługiwaną dla SAP HANA można znaleźć w [katalogu sprzętowym SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 

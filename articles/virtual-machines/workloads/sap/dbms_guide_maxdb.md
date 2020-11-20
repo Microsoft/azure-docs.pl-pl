@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7195e3c9f2d38c16bd9cad59a2489157c7c1340f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4257fcca1172502560c182651d649745e494cc1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654637"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958969"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Wdrażanie oprogramowania SAP MaxDB, liveCache i Content Server na maszynach wirtualnych platformy Azure
 
@@ -328,7 +329,7 @@ Zdecydowanie zaleca się użycie najnowszej wersji systemu operacyjnego Microsof
 Zaktualizowaną listę dokumentacji SAP MaxDB można znaleźć w następującej uwadze dotyczącej oprogramowania SAP [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Wskazówki dotyczące konfiguracji oprogramowania SAP MaxDB na maszynach wirtualnych platformy Azure
-#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Konfiguracja magazynu
+#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Konfiguracja usługi Storage
 Najlepsze rozwiązania dotyczące usługi Azure Storage dla oprogramowania SAP MaxDB są zgodne z ogólnymi zaleceniami wymienionymi w rozdziale [Storage Structure The VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
@@ -380,7 +381,7 @@ Inne ustawienia dotyczące oprogramowania SAP MaxDB są niewidoczne dla maszyn w
 
 ## <a name="specifics-for-sap-livecache-deployments-on-windows"></a>Specyficzne dla wdrożeń SAP liveCache w systemie Windows
 ### <a name="sap-livecache-version-support"></a>Obsługa wersji SAP liveCache
-Minimalna wersja oprogramowania SAP liveCache obsługiwana na platformie Azure Virtual Machines to **SAP LC/LCAPPS 10,0 Sp 25** , w tym **LiveCache 7.9.08.31** i **działu prawnego — kompilacja 25**wydana dla **EhP 2 dla SAP SCM 7,0** i nowszych.
+Minimalna wersja oprogramowania SAP liveCache obsługiwana na platformie Azure Virtual Machines to **SAP LC/LCAPPS 10,0 Sp 25** , w tym **LiveCache 7.9.08.31** i **działu prawnego — kompilacja 25** wydana dla **EhP 2 dla SAP SCM 7,0** i nowszych.
 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>Obsługiwane wersje systemu Microsoft Windows i typy maszyn wirtualnych platformy Azure dla systemu SAP liveCache DBMS
 Aby znaleźć obsługiwaną wersję systemu Microsoft Windows dla oprogramowania SAP liveCache na platformie Azure, zobacz:

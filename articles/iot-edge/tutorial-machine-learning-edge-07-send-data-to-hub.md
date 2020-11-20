@@ -9,23 +9,24 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857252"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959309"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Samouczek: wysyłanie danych za pośrednictwem niewidocznej bramy
-
-> [!NOTE]
-> Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
 
 W tym artykule wielokrotnie korzystamy z maszyny wirtualnej tworzenia jako symulowanego urządzenia. Jednak zamiast bezpośredniego przesyłania danych do IoT Hub urządzenie wysyła dane do urządzenia IoT Edge skonfigurowanego jako nieprzezroczysta brama.
 
 Monitorujemy działanie urządzenia IoT Edge, gdy symulowane urządzenie wysyła dane. Po zakończeniu działania urządzenia zapoznaj się z danymi na naszym koncie magazynu, aby sprawdzić, czy wszystko działa zgodnie z oczekiwaniami.
 
 Ten krok jest zwykle wykonywany przez programistę lub dewelopera urządzenia.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Każdy artykuł w serii jest oparty na pracy w poprzednim artykule. Jeśli ten artykuł został bezpośrednio osiągnięty, odwiedź [pierwszy artykuł](tutorial-machine-learning-edge-01-intro.md) z serii.
 
 ## <a name="review-device-harness"></a>Przejrzyj zespół urządzeń
 
@@ -134,7 +135,7 @@ Można obserwować wyniki wysyłania danych z urządzenia typu liść, przegląd
 
 Dodaliśmy proste narzędzie wiersza polecenia do odczytywania pliku Avro i zwracania ciągu JSON komunikatów w pliku. W tej sekcji zostanie zainstalowana i uruchomiona.
 
-1. Otwórz terminal w**Visual Studio Code (**  >  **Nowy terminal**terminalu).
+1. Otwórz terminal w **Visual Studio Code (**  >  **Nowy terminal** terminalu).
 
 1. Zainstaluj hubavroreader:
 

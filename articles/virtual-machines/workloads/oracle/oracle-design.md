@@ -3,16 +3,17 @@ title: Projektowanie i implementowanie bazy danych Oracle na platformie Azure | 
 description: Projektuj i Implementuj bazę danych Oracle w środowisku platformy Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534077"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959173"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i implementowanie bazy danych Oracle na platformie Azure
 
@@ -143,13 +144,13 @@ Na podstawie wymagań dotyczących przepustowości sieci istnieją różne typy 
 
 ### <a name="disk-types-and-configurations"></a>Typy i konfiguracje dysków
 
-- *Domyślne dyski systemu operacyjnego* : te typy dysków oferują trwałe dane i buforowanie. Są one zoptymalizowane pod kątem dostępu do systemu operacyjnego przy uruchamianiu i nie są przeznaczone do obciążeń transakcyjnych lub magazynu danych (analitycznych).
+- *Domyślne dyski systemu operacyjnego*: te typy dysków oferują trwałe dane i buforowanie. Są one zoptymalizowane pod kątem dostępu do systemu operacyjnego przy uruchamianiu i nie są przeznaczone do obciążeń transakcyjnych lub magazynu danych (analitycznych).
 
-- *Dyski niezarządzane* : przy użyciu tych typów dysków można zarządzać kontami magazynu, które przechowują pliki wirtualnego dysku twardego (VHD), które odpowiadają DYSKOM maszyny wirtualnej. Pliki VHD są przechowywane jako stronicowe obiekty blob na kontach usługi Azure Storage.
+- *Dyski niezarządzane*: przy użyciu tych typów dysków można zarządzać kontami magazynu, które przechowują pliki wirtualnego dysku twardego (VHD), które odpowiadają DYSKOM maszyny wirtualnej. Pliki VHD są przechowywane jako stronicowe obiekty blob na kontach usługi Azure Storage.
 
-- *Dyski zarządzane* : platforma Azure zarządza kontami magazynu używanymi dla dysków maszyny wirtualnej. Należy określić typ dysku (Premium lub standardowa) oraz wymagany rozmiar dysku. Platforma Azure tworzy dysk i zarządza nim.
+- *Dyski zarządzane*: platforma Azure zarządza kontami magazynu używanymi dla dysków maszyny wirtualnej. Należy określić typ dysku (Premium lub standardowa) oraz wymagany rozmiar dysku. Platforma Azure tworzy dysk i zarządza nim.
 
-- *Dyski usługi Premium Storage* : te typy dysków najlepiej nadają się do obciążeń produkcyjnych. Usługa Premium Storage obsługuje dyski maszyn wirtualnych, które mogą być dołączone do określonych maszyn wirtualnych serii rozmiarów, takich jak usługi DS, DSv2, GS i maszyny wirtualne z serii F. Dysk w warstwie Premium ma różne rozmiary i można wybrać między dyskami od 32 GB do 4 096 GB. Każdy rozmiar dysku ma własne specyfikacje wydajności. W zależności od wymagań aplikacji można dołączyć jeden lub więcej dysków do maszyny wirtualnej.
+- *Dyski usługi Premium Storage*: te typy dysków najlepiej nadają się do obciążeń produkcyjnych. Usługa Premium Storage obsługuje dyski maszyn wirtualnych, które mogą być dołączone do określonych maszyn wirtualnych serii rozmiarów, takich jak usługi DS, DSv2, GS i maszyny wirtualne z serii F. Dysk w warstwie Premium ma różne rozmiary i można wybrać między dyskami od 32 GB do 4 096 GB. Każdy rozmiar dysku ma własne specyfikacje wydajności. W zależności od wymagań aplikacji można dołączyć jeden lub więcej dysków do maszyny wirtualnej.
 
 Podczas tworzenia nowego dysku zarządzanego w portalu można wybrać **Typ konta** dla typu dysku, który ma być używany. Należy pamiętać, że nie wszystkie dostępne dyski są wyświetlane w menu rozwijanym. Po wybraniu określonego rozmiaru maszyny wirtualnej w menu zostaną wyświetlone tylko dostępne jednostki SKU magazynu w warstwie Premium, które są oparte na tym rozmiarze maszyny wirtualnej.
 
@@ -186,9 +187,9 @@ Po wybraniu jasnego obrazu wymagań we/wy możesz wybrać kombinację dysków, k
 
 Istnieją trzy opcje buforowania hosta:
 
-- *Tylko do odczytu* : wszystkie żądania są buforowane na potrzeby przyszłych operacji odczytu. Wszystkie zapisy są utrwalane bezpośrednio w usłudze Azure Blob Storage.
+- *Tylko do odczytu*: wszystkie żądania są buforowane na potrzeby przyszłych operacji odczytu. Wszystkie zapisy są utrwalane bezpośrednio w usłudze Azure Blob Storage.
 
-- *ReadWrite* : jest to algorytm "Ready". Operacje odczytu i zapisu są buforowane na potrzeby przyszłych operacji odczytu. Operacje zapisu inne niż Write-through są najpierw utrwalane w lokalnej pamięci podręcznej. Zapewnia również najniższe opóźnienie dysku dla obciążeń lekkich. Używanie pamięci podręcznej ReadWrite z aplikacją, która nie obsługuje utrwalania wymaganych danych może spowodować utratę danych, jeśli maszyna wirtualna ulegnie awarii.
+- *ReadWrite*: jest to algorytm "Ready". Operacje odczytu i zapisu są buforowane na potrzeby przyszłych operacji odczytu. Operacje zapisu inne niż Write-through są najpierw utrwalane w lokalnej pamięci podręcznej. Zapewnia również najniższe opóźnienie dysku dla obciążeń lekkich. Używanie pamięci podręcznej ReadWrite z aplikacją, która nie obsługuje utrwalania wymaganych danych może spowodować utratę danych, jeśli maszyna wirtualna ulegnie awarii.
 
 - *Brak* (wyłączone): za pomocą tej opcji można ominąć pamięć podręczną. Wszystkie dane są przekazywane na dysk i utrwalane w usłudze Azure Storage. Ta metoda zapewnia najwyższą szybkość operacji we/wy dla obciążeń intensywnie korzystających z operacji we/wy. Należy również wziąć pod uwagę "koszt transakcji".
 
@@ -208,9 +209,9 @@ Po zapisaniu ustawienia dysku z danymi nie można zmienić ustawienia pamięci p
 
 Po skonfigurowaniu i skonfigurowaniu środowiska platformy Azure następnym krokiem jest zabezpieczenie sieci. Poniżej przedstawiono niektóre zalecenia:
 
-- *Zasady sieciowej grupy zabezpieczeń* : sieciowej grupy zabezpieczeń może być zdefiniowana przez podsieć lub kartę sieciową. Łatwiej jest kontrolować dostęp na poziomie podsieci zarówno w przypadku zabezpieczeń, jak i wymuszania routingu dla takich elementów jak zapory aplikacji.
+- *Zasady sieciowej grupy zabezpieczeń*: sieciowej grupy zabezpieczeń może być zdefiniowana przez podsieć lub kartę sieciową. Łatwiej jest kontrolować dostęp na poziomie podsieci zarówno w przypadku zabezpieczeń, jak i wymuszania routingu dla takich elementów jak zapory aplikacji.
 
-- *Serwera przesiadkowego* : Aby uzyskać bardziej bezpieczny dostęp, Administratorzy nie powinni bezpośrednio łączyć się z usługą aplikacji lub bazą danych. Serwera przesiadkowego jest używany jako nośnik między komputerem administratora i zasobami platformy Azure.
+- *Serwera przesiadkowego*: Aby uzyskać bardziej bezpieczny dostęp, Administratorzy nie powinni bezpośrednio łączyć się z usługą aplikacji lub bazą danych. Serwera przesiadkowego jest używany jako nośnik między komputerem administratora i zasobami platformy Azure.
 ![Zrzut ekranu przedstawiający stronę topologii serwera przesiadkowego](./media/oracle-design/jumpbox.png)
 
     Komputer administratora powinien oferować dostęp z ograniczonym dostępem do adresów IP tylko do serwera przesiadkowego. Serwera przesiadkowego powinien mieć dostęp do aplikacji i bazy danych.

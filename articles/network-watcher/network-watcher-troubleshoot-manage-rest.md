@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: a3cd2323900dfbe6bec8f192822135f0c9dbb1cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad89ac04d753fbe3203851af268aed29813fa587
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738672"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960397"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Rozwiązywanie problemów z bramą Virtual Network i połączeniami przy użyciu usługi Azure Network Watcher
 
@@ -133,7 +133,7 @@ Po zakończeniu operacji stan zmieni się na **powodzenie**.
 
 ### <a name="retrieve-the-results"></a>Pobieranie wyników
 
-Po **pomyślnym**uzyskaniu stanu Wywołaj metodę get na identyfikatorze URI klasy OperationResult, aby pobrać wyniki.
+Po **pomyślnym** uzyskaniu stanu Wywołaj metodę get na identyfikatorze URI klasy OperationResult, aby pobrać wyniki.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
@@ -266,7 +266,7 @@ Poniżej przedstawiono przykłady typowej odpowiedzi zwracanej podczas wykonywan
 
 ### <a name="retrieve-the-results"></a>Pobieranie wyników
 
-Po **pomyślnym**uzyskaniu stanu Wywołaj metodę get na identyfikatorze URI klasy OperationResult, aby pobrać wyniki.
+Po **pomyślnym** uzyskaniu stanu Wywołaj metodę get na identyfikatorze URI klasy OperationResult, aby pobrać wyniki.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
@@ -323,7 +323,7 @@ is a transient state while the Azure platform is being updated.",
 
 Tekst akcji zawiera ogólne wskazówki dotyczące sposobu rozwiązania problemu. Jeśli można wykonać akcję dotyczącą problemu, zostanie podane łącze z dodatkowymi wskazówkami. W przypadku braku dodatkowych wskazówek odpowiedź zawiera adres URL służący do otwierania zgłoszenia do pomocy technicznej.  Aby uzyskać więcej informacji o właściwościach odpowiedzi i uwzględnionych na niej tematach, odwiedź stronę [Network Watcher Rozwiązywanie problemów](network-watcher-troubleshoot-overview.md)
 
-Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Inne narzędzie, które może być używane, jest Eksplorator usługi Storage. Więcej informacji na temat Eksplorator usługi Storage można znaleźć tutaj przy użyciu następującego linku: [Eksplorator usługi Storage](https://storageexplorer.com/)
+Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Inne narzędzie, które może być używane, jest Eksplorator usługi Storage. Więcej informacji na temat Eksplorator usługi Storage można znaleźć tutaj przy użyciu następującego linku: [Eksplorator usługi Storage](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Następne kroki
 

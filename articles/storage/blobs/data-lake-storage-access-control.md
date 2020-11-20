@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320472"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959139"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Listy ACL dostępu i domyślne listy ACL mają tę samą strukturę.
 
 ## <a name="levels-of-permission"></a>Poziomy uprawnień
 
-Uprawnienia do obiektu kontenera są **odczytywane**, **zapisywane**i **wykonywane**oraz mogą być używane dla plików i katalogów, jak pokazano w poniższej tabeli:
+Uprawnienia do obiektu kontenera są **odczytywane**, **zapisywane** i **wykonywane** oraz mogą być używane dla plików i katalogów, jak pokazano w poniższej tabeli:
 
 |            |    Plik     |   Katalog |
 |------------|-------------|----------|
@@ -90,9 +90,9 @@ W modelu w stylu POSIX, który jest używany przez Data Lake Storage Gen2, upraw
 
 W poniższej tabeli przedstawiono wpisy listy kontroli dostępu wymagane do umożliwienia podmiotowi zabezpieczeń wykonywania operacji wymienionych w kolumnie **operacja** . 
 
-W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `\` ), podkatalog o nazwie **Oregon**, podkatalog katalogu Oregon o nazwie **Portland**oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. 
+W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `\` ), podkatalog o nazwie **Oregon**, podkatalog katalogu Oregon o nazwie **Portland** oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. 
 
-> [! IMPORANT] w tej tabeli założono, że używasz **tylko** list ACL bez żadnych przypisań ról funkcji RBAC platformy Azure. Aby wyświetlić podobną tabelę, która łączy usługę Azure RBAC wraz z listami ACL, zobacz [tabela uprawnień: łączenie RBAC i listy ACL platformy Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [! IMPORANT] w tej tabeli założono, że używasz **tylko** list ACL bez żadnych przypisań ról platformy Azure. Aby wyświetlić podobną tabelę, która łączy usługę Azure RBAC wraz z listami ACL, zobacz [tabela uprawnień: łączenie RBAC i listy ACL platformy Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operacja             |    /    | Oregon | Biura | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -199,7 +199,7 @@ Jak pokazano w algorytmie kontroli dostępu, maska ogranicza dostęp dla użytko
 
 W przypadku nowego kontenera Data Lake Storage Gen2 maska listy ACL dostępu katalogu głównego ("/") domyślnie **750** dla katalogów i **640** dla plików. W poniższej tabeli przedstawiono notację symboliczną tych poziomów uprawnień.
 
-|Jednostka|Katalogi|Pliki|
+|Jednostka|Katalogi|Files|
 |--|--|--|
 |Użytkownik będący właścicielem|`rwx`|`r-w`|
 |Grupa będąca właścicielem|`r-x`|`r--`|
@@ -224,7 +224,7 @@ Po utworzeniu nowego pliku lub katalogu w istniejącym katalogu, domyślna lista
 
 ### <a name="umask"></a>umask
 
-Podczas tworzenia pliku lub katalogu maska umask jest używany do modyfikowania sposobu ustawiania domyślnych list ACL dla elementu podrzędnego. Maska umask jest wartością 9-bitową w katalogach nadrzędnych, które zawierają wartość RWX dla **użytkownika będącego właścicielem**, **grupy będącej właścicielem**i **innych**.
+Podczas tworzenia pliku lub katalogu maska umask jest używany do modyfikowania sposobu ustawiania domyślnych list ACL dla elementu podrzędnego. Maska umask jest wartością 9-bitową w katalogach nadrzędnych, które zawierają wartość RWX dla **użytkownika będącego właścicielem**, **grupy będącej właścicielem** i **innych**.
 
 Maska umask dla Azure Data Lake Storage Gen2 stałą wartość ustawioną na 007. Ta wartość tłumaczy na:
 
@@ -270,7 +270,7 @@ Jeśli usługa HNS jest wyłączona, nadal obowiązują reguły autoryzacji RBAC
 
 Aby dowiedzieć się, jak system oblicza RBAC i listy ACL platformy Azure, aby podejmować decyzje dotyczące autoryzacji zasobów konta magazynu, zobacz [jak oceniane są uprawnienia](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Jakie są limity przypisań ról RBAC platformy Azure i wpisów listy ACL?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Jakie są limity przypisań ról platformy Azure i wpisów listy ACL?
 
 Poniższa tabela zawiera podsumowanie limitów, które należy wziąć pod uwagę podczas korzystania z funkcji RBAC platformy Azure do zarządzania "określonymi" uprawnieniami (uprawnienia dotyczące kont magazynu lub kontenerów) i korzystania z list ACL do zarządzania szczegółowymi uprawnieniami (uprawnienia dotyczące plików i katalogów). Użyj grup zabezpieczeń dla przypisań listy ACL. Korzystanie z grup zmniejsza maksymalną liczbę przypisań ról na subskrypcję i maksymalną liczbę wpisów listy ACl na plik lub katalog. 
 
@@ -343,6 +343,6 @@ Interfejs API REST usługi Azure Storage zawiera operację o nazwie [list ACL ko
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Model kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

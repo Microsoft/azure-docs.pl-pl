@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766241"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957915"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Korzystanie z podsumowania urządzenia w usłudze StorSimple Menedżer urządzeń
 
@@ -81,7 +81,7 @@ Obszar podstawy przechwytuje niektóre ważne właściwości, takie jak stan, mo
      W tym kontekście *magazyn podstawowy* odnosi się do łącznej ilości danych zapisanych przez hosta i może być podzielony według typu woluminu: *podstawowy magazyn warstwowy* obejmuje zarówno dane przechowywane lokalnie, jak i dane warstwowe w chmurze. *Magazyn podstawowy lokalnie przypięty* obejmuje tylko dane przechowywane lokalnie. *Magazyn w chmurze*, z drugiej strony, to pomiar całkowitej ilości danych przechowywanych w chmurze. Ten magazyn zawiera dane warstwowe i kopie zapasowe. Dane przechowywane w chmurze są deduplikowane i kompresowane, natomiast podstawowy magazyn wskazuje ilość miejsca używanego do deduplikowania i kompresowania danych. (Można porównać te dwie liczby, aby uzyskać pomysł o szybkość kompresji). W przypadku magazynu podstawowego i w chmurze podane kwoty są zależne od skonfigurowanej częstotliwości śledzenia. Na przykład jeśli zostanie wybrana częstotliwość z jedną tygodnią, wykres będzie przedstawiał dane dla każdego dnia w poprzednim tygodniu.
 
      Aby sprawdzić ilość magazynu w chmurze zużytego w czasie, wybierz opcję **użyty magazyn w chmurze** . Aby wyświetlić łączny magazyn, który został zapisany przez hosta, wybierz **używany magazyn warstwowy** i **podstawowy, PRZYpięty lokalny** magazyn. 
-     Aby uzyskać więcej informacji, zobacz [Korzystanie z usługi StorSimple Menedżer urządzeń do monitorowania urządzenia StorSimple](storsimple-monitor-device.md).
+     Aby uzyskać więcej informacji, zobacz [Korzystanie z usługi StorSimple Menedżer urządzeń do monitorowania urządzenia StorSimple](./storsimple-8000-monitor-device.md).
 
 
 * Kafelek **pojemność** przedstawia magazyn podstawowy, który jest inicjowany i pozostały w całym urządzeniu względem łącznego magazynu dostępnego dla tego samego. **Przygotowana odnosi się** do ilości miejsca przeznaczonego do użycia i przystosowanego do użytku, **pozostała** odnosi się do pozostałej pojemności, która może zostać zainicjowana na tym urządzeniu. 
@@ -96,4 +96,3 @@ Obszar podstawy przechwytuje niektóre ważne właściwości, takie jak stan, mo
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [bloku podsumowania usługi StorSimple](storsimple-8000-service-dashboard.md).
 * Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
-

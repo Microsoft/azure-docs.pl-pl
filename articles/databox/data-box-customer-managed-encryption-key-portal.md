@@ -1,103 +1,183 @@
 ---
-title: Użyj Azure Portal, aby skonfigurować klucze zarządzane przez klienta dla Azure Data Box
-description: Dowiedz się, jak za pomocą Azure Portal skonfigurować klucze zarządzane przez klienta za pomocą Azure Key Vault dla Azure Data Box. Klucze zarządzane przez klienta umożliwiają tworzenie, obracanie, wyłączanie i odwoływanie kontroli dostępu.
+title: Użyj Azure Portal do zarządzania kluczami zarządzanymi przez klienta dla Azure Data Box
+description: Dowiedz się, jak za pomocą usługi Azure Portal tworzyć klucze zarządzane przez klienta i zarządzać nimi za pomocą Azure Key Vault dla Azure Data Box. Klucze zarządzane przez klienta umożliwiają tworzenie, obracanie, wyłączanie i odwoływanie kontroli dostępu.
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: cd9f4ad6b6831b2b15c09b37edc569b3f2d247f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337730"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958209"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Użyj kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box
 
-Azure Data Box chroni klucz odblokowywania urządzenia (znany również jako hasło urządzenia), który jest używany do blokowania urządzenia za pomocą klucza szyfrowania. Domyślnie klucz odblokowania urządzenia dla zamówienia urządzenie Data Box jest szyfrowany przy użyciu klucza zarządzanego przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczem odblokowywania urządzenia, możesz również podać klucz zarządzany przez klienta. 
+Azure Data Box chroni klucz odblokowywania urządzenia (znany również jako hasło urządzenia), który jest używany do blokowania urządzenia przy użyciu klucza szyfrowania. Domyślnie ten klucz szyfrowania jest kluczem zarządzanym firmy Microsoft. Aby uzyskać dodatkową kontrolę, można użyć klucza zarządzanego przez klienta.
 
-Klucze zarządzane przez klienta muszą być tworzone i przechowywane w Azure Key Vault. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md).
+Użycie klucza zarządzanego przez klienta nie ma wpływu na sposób szyfrowania danych na urządzeniu. Ma to wpływ tylko na to, jak klucz odblokowywania urządzenia jest szyfrowany.
 
-W tym artykule pokazano, jak używać kluczy zarządzanych przez klienta Azure Data Box w [Azure Portal](https://portal.azure.com/). Ten artykuł dotyczy zarówno urządzeń Azure Data Box, jak i urządzeń Azure Data Box Heavy.
+Aby zachować ten poziom kontroli w całym procesie zamówienia, podczas tworzenia zamówienia Użyj klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz [Samouczek: Order Azure Data Box](data-box-deploy-ordered.md).
 
-## <a name="prerequisites"></a>Wymagania wstępne
+W tym artykule pokazano, jak włączyć klucz zarządzany przez klienta dla istniejącego zamówienia urządzenie Data Box w [Azure Portal](https://portal.azure.com/). Dowiesz się, jak zmienić Magazyn kluczy, klucz, wersję lub tożsamość dla bieżącego klucza zarządzanego przez klienta lub przełączyć się z powrotem do korzystania z klucza zarządzanego przez firmę Microsoft.
 
-Przed rozpoczęciem upewnij się, że spełniono następujące warunki:
+Ten artykuł ma zastosowanie do Azure Data Box i Azure Data Box Heavy urządzeń.
 
-1. Utworzono zamówienie Azure Data Box zgodnie z instrukcjami podanymi w [samouczku: order Azure Data Box](data-box-deploy-ordered.md).
+## <a name="requirements"></a>Wymagania
 
-2. Masz już istniejące Azure Key Vault z kluczem, którego możesz użyć do ochrony klucza odblokowywania urządzenia. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu Azure Portal](../key-vault/secrets/quick-create-portal.md).
+Klucz zarządzany przez klienta dla zamówienia urządzenie Data Box musi spełniać następujące wymagania:
 
-    - **Usuwanie nietrwałe** i **nie przeczyszczania** jest ustawione dla istniejącego magazynu kluczy. Te właściwości nie są domyślnie włączone. Aby włączyć te właściwości, zobacz sekcję zatytułowaną **Włączanie usuwania nietrwałego** i **Włączanie ochrony przed przeczyszczeniem** w jednym z następujących artykułów:
+- Klucz musi zostać utworzony i zapisany w Azure Key Vault, który ma **nietrwałe usuwanie** i **nie można go** włączyć. Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md). Możesz utworzyć magazyn kluczy i klucz podczas tworzenia lub aktualizowania zamówienia.
 
-        - [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../key-vault/general/soft-delete-powershell.md).
-        - [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../key-vault/general/soft-delete-cli.md).
-    - Istniejący magazyn kluczy powinien mieć klucz RSA o rozmiarze 2048 lub większym. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach Azure Key Vault](../key-vault/keys/about-keys.md).
-    - Magazyn kluczy musi znajdować się w tym samym regionie co konta magazynu używane na potrzeby danych. Z zasobem Azure Data Box można połączyć wiele kont magazynu.
-    - Jeśli nie masz istniejącego magazynu kluczy, możesz go również utworzyć w sposób wbudowany zgodnie z opisem w poniższej sekcji.
+- Klucz musi być kluczem RSA o rozmiarze 2048 lub większym.
 
-## <a name="enable-keys"></a>Włącz klucze
+## <a name="enable-key"></a>Włącz klucz
 
-Skonfigurowanie klucza zarządzanego przez klienta dla Azure Data Box jest opcjonalne. Domyślnie do ochrony klucza funkcji BitLocker urządzenie Data Box jest używany klucz zarządzany przez firmę Microsoft. Aby włączyć klucz zarządzany przez klienta w Azure Portal, wykonaj następujące kroki:
+Aby włączyć klucz zarządzany przez klienta dla istniejącego zamówienia urządzenie Data Box w Azure Portal, wykonaj następujące kroki:
 
-1. Przejdź do bloku **Przegląd** dla zamówienia urządzenie Data Box.
+1. Przejdź do ekranu **Przegląd** dla zamówienia urządzenie Data Box.
 
-    ![Blok przeglądu urządzenie Data Box kolejności](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
+    ![Ekran przeglądu urządzenie Data Box Order-1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Przejdź do pozycji **ustawienia > szyfrowanie**. W obszarze **typ szyfrowania** możesz wybrać sposób ochrony klucza odblokowywania urządzenia. Domyślnie klucz zarządzany przez firmę Microsoft jest używany do ochrony hasła odblokowywania urządzenia. 
+2. Przejdź do pozycji **ustawienia > szyfrowanie** i wybierz pozycję **klucz zarządzany przez klienta**. Następnie wybierz pozycję **Wybierz klucz i Magazyn kluczy**.
 
-    ![Wybierz opcję szyfrowania](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
+    ![Wybierz opcję szyfrowania klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-3. Wybierz typ szyfrowania jako **klucz zarządzany przez klienta**. Po wybraniu klucza zarządzanego przez klienta **Wybierz magazyn kluczy i klucz**.
+   Na ekranie **Wybieranie klucza z Azure Key Vault** subskrypcja zostanie automatycznie wypełniona.
 
-    ![Wybierz klucz zarządzany przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
+ 3. W przypadku **magazynu kluczy** można wybrać istniejący magazyn kluczy z listy rozwijanej lub wybrać pozycję **Utwórz nowy** i utworzyć nowy magazyn kluczy.
 
-4. W bloku **Wybieranie klucza z Azure Key Vault** subskrypcja zostanie automatycznie wypełniona. W przypadku **magazynu kluczy** można wybrać istniejący magazyn kluczy z listy rozwijanej.
+     ![Opcje magazynu kluczy podczas wybierania klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    ![Wybierz istniejące Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
+     Aby utworzyć nowy magazyn kluczy, wprowadź subskrypcję, grupę zasobów, nazwę magazynu kluczy i inne informacje na ekranie **Tworzenie nowego magazynu kluczy** . W obszarze **Opcje odzyskiwania** upewnij się, że ochrona **usuwania nietrwałego** i **przeczyszczania** jest włączona. Następnie wybierz pozycję **Przegląd + Utwórz**.
 
-    Możesz również wybrać pozycję **Utwórz nowy** , aby utworzyć nowy magazyn kluczy. W **bloku Utwórz magazyn kluczy** wprowadź grupę zasobów i nazwę magazynu kluczy. Upewnij się, że ochrona **usuwania nietrwałego** i **przeczyszczania** jest włączona. Zaakceptuj wszystkie inne ustawienia domyślne. Wybierz pozycję **Recenzja + Utwórz**.
+      ![Przeglądanie i tworzenie Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-    ![Przeglądanie i tworzenie Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+      Zapoznaj się z informacjami dotyczącymi magazynu kluczy, a następnie wybierz pozycję **Utwórz**. Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
 
-5. Przejrzyj informacje skojarzone z magazynem kluczy i wybierz pozycję **Utwórz**. Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
+       ![Tworzenie Azure Key Vault przy użyciu ustawień](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-    ![Tworzenie Azure Key Vault przy użyciu ustawień](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
-
-6. W **kluczu select from Azure Key Vault** można wybrać klucz w istniejącym magazynie kluczy.
+4. Na ekranie **Wybieranie klucza z Azure Key Vault** można wybrać istniejący klucz z magazynu kluczy lub utworzyć nowy.
 
     ![Wybierz klucz z Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-7. Jeśli chcesz utworzyć nowy klucz, wybierz pozycję **Utwórz nowy** , aby utworzyć klucz. Rozmiar klucza RSA może mieć wartość 2048 lub większą.
+   Jeśli chcesz utworzyć nowy klucz, wybierz pozycję **Utwórz nowy**. Musisz użyć klucza RSA. Rozmiar może wynosić 2048 lub więcej.
 
     ![Utwórz nowy klucz w Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-8. Podaj nazwę klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
+    Wprowadź nazwę nowego klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**. Zostanie wyświetlony monit o utworzenie klucza w magazynie kluczy.
 
     ![Nazwa nowego klucza](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
-
-9. Zostanie wyświetlony monit o utworzenie klucza w magazynie kluczy. Wybierz **wersję** , a następnie wybierz **pozycję Wybierz**.
+5. W przypadku **wersji** można wybrać istniejącą wersję klucza z listy rozwijanej.
 
     ![Wybierz wersję dla nowego klucza](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-10. W okienku **typ szyfrowania** można zobaczyć Magazyn kluczy i klucz wybrany dla klucza zarządzanego przez klienta.
+    Jeśli chcesz wygenerować nową wersję klucza, wybierz pozycję **Utwórz nową**.
+
+    ![Otwieranie okna dialogowego służącego do tworzenia nowej wersji klucza](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
+
+    Wybierz opcję Ustawienia dla nowej wersji klucza i wybierz pozycję **Utwórz**.
+
+    ![Utwórz nową wersję klucza](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-b.png)
+
+6. Po wybraniu magazynu kluczy, klucza i wersji klucza wybierz **pozycję Wybierz**.
+
+    ![Klucz w Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-c.png)
+
+    Ustawienia **typu szyfrowania** pokazują wybrany magazyn kluczy i klucz.
 
     ![Klucz i Magazyn kluczy dla klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-11. Zapisz klucz. 
+7. Wybierz typ tożsamości, która ma być używana do zarządzania kluczem zarządzanym przez klienta dla tego zasobu. Możesz użyć **przypisanej do systemu** tożsamości, która została wygenerowana podczas tworzenia zamówienia, lub wybrać tożsamość przypisaną przez użytkownika.
 
-    ![Zapisz klucz zarządzany przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+    Tożsamość przypisana przez użytkownika jest niezależnym zasobem, którego można używać do zarządzania dostępem do zasobów. Aby uzyskać więcej informacji, zobacz [zarządzane typy tożsamości](/azure/active-directory/managed-identities-azure-resources/overview).
+
+    ![Wybierz typ tożsamości](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
+
+    Aby przypisać tożsamość użytkownika, wybierz pozycję **przypisano użytkownika**. Następnie wybierz pozycję **Wybierz tożsamość użytkownika**, a następnie wybierz zarządzaną tożsamość, która ma być używana.
+
+    ![Wybierz tożsamość do użycia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
+
+    W tym miejscu nie można utworzyć nowej tożsamości użytkownika. Aby dowiedzieć się, jak ją utworzyć, zobacz [Tworzenie, wyświetlanie, usuwanie lub przypisywanie roli do tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+
+    Wybrana tożsamość użytkownika jest wyświetlana w ustawieniach **typu szyfrowania** .
+
+    ![Wybrana tożsamość użytkownika pokazana w ustawieniach typu szyfrowania](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+
+ 9. Wybierz pozycję **Zapisz** , aby zapisać zaktualizowane ustawienia **typu szyfrowania** .
+
+     ![Zapisz klucz zarządzany przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
     Adres URL klucza jest wyświetlany w obszarze **typ szyfrowania**.
 
-    ![Adres URL klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
+    ![Adres URL klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)<!--Probably need new screen from recent order. Can you provide one? I can't create an order using CMK with the subscription I'm using.-->
 
-> [!IMPORTANT]
-> Klucz zarządzany przez firmę Microsoft można wyłączyć i przenieść do klucza zarządzanego przez klienta na dowolnym etapie kolejności urządzenie Data Box. Jednak po utworzeniu klucza zarządzanego przez klienta nie można przełączyć się z powrotem do klucza zarządzanego przez firmę Microsoft.
+## <a name="change-key"></a>Zmień klucz
+
+Aby zmienić Magazyn kluczy, klucz i/lub wersję klucza dla aktualnie używanego klucza zarządzanego przez klienta, wykonaj następujące kroki:
+
+1. Na ekranie **Omówienie** kolejności urządzenie Data Box przejdź do pozycji **Ustawienia**  >  **szyfrowanie**, a następnie kliknij przycisk **Zmień klucz**.
+
+    ![Ekran omówienia urządzenie Data Box kolejności z kluczem zarządzanym przez klienta — 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16.png)
+
+2. Wybierz **pozycję Wybierz inny magazyn kluczy i klucz**.
+
+    ![Ekran przeglądu kolejności urządzenie Data Box, wybierania innego klucza i opcji magazynu kluczy](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16-a.png)
+
+3. Na ekranie **Wybieranie klucza z magazynu kluczy** jest wyświetlana subskrypcja, ale nie jest to magazyn kluczy, klucz lub wersja klucza. Można wprowadzić dowolne z następujących zmian:
+
+   - Wybierz inny klucz z tego samego magazynu kluczy. Przed wybraniem klucza i wersji należy wybrać Magazyn kluczy.
+
+   - Wybierz inny magazyn kluczy i przypisz nowy klucz.
+
+   - Zmień wersję bieżącego klucza.
+   
+    Po zakończeniu wprowadzania zmian wybierz **pozycję Wybierz**.
+
+    ![Wybierz opcję szyfrowania-2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17.png)
+
+4. Wybierz pozycję **Zapisz**.
+
+    ![Zapisz zaktualizowane ustawienia szyfrowania-1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="change-identity"></a>Zmień tożsamość
+
+Aby zmienić tożsamość używaną do zarządzania dostępem do klucza zarządzanego przez klienta w ramach tej kolejności, wykonaj następujące kroki:
+
+1. Na ekranie **Przegląd** dla ukończonej kolejności urządzenie Data Box przejdź do pozycji **Ustawienia**  >  **szyfrowanie**.
+
+2. Wprowadź jedną z następujących zmian:
+
+     - Aby zmienić tożsamość użytkownika na inną, kliknij pozycję **Wybierz inną tożsamość użytkownika**. Następnie wybierz inną tożsamość w panelu po prawej stronie ekranu, a następnie wybierz **pozycję Wybierz**.
+
+       ![Opcja zmiany tożsamości przypisanej przez użytkownika dla klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18.png)
+
+   - Aby przełączyć się do tożsamości przypisanej do systemu wygenerowanej podczas tworzenia zamówienia, wybierz pozycję **system przypisany** przez **Wybieranie typu tożsamości**.
+
+     ![Opcja zmiany na system przypisany do klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19.png)
+
+3. Wybierz pozycję **Zapisz**.
+
+    ![Zapisz zaktualizowane ustawienia szyfrowania-2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="use-microsoft-managed-key"></a>Użyj klucza zarządzanego firmy Microsoft
+
+Aby zmienić użycie klucza zarządzanego przez klienta na klucz zarządzany przez firmę Microsoft dla zamówienia, wykonaj następujące kroki:
+
+1. Na ekranie **Przegląd** dla ukończonej kolejności urządzenie Data Box przejdź do pozycji **Ustawienia**  >  **szyfrowanie**.
+
+2. Wybierz pozycję **Typ**, a następnie wybierz opcję **klucz zarządzany przez firmę Microsoft**.
+
+    ![Ekran przeglądu urządzenie Data Box Order-5](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20.png)
+
+3. Wybierz pozycję **Zapisz**.
+
+    ![Zapisz zaktualizowane ustawienia szyfrowania dla klucza zarządzanego przez firmę Microsoft](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21.png)
 
 ## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów
 
@@ -108,12 +188,18 @@ Jeśli otrzymasz jakiekolwiek błędy związane z kluczem zarządzanym przez kli
 | SsemUserErrorEncryptionKeyDisabled| Nie można pobrać klucza dostępu, ponieważ klucz zarządzany przez klienta jest wyłączony.| Tak, włączając wersję klucza.|
 | SsemUserErrorEncryptionKeyExpired| Nie można pobrać klucza dostępu, ponieważ klucz zarządzany przez klienta wygasł.| Tak, włączając wersję klucza.|
 | SsemUserErrorKeyDetailsNotFound| Nie można pobrać klucza dostępu, ponieważ nie można odnaleźć klucza zarządzanego przez klienta.| Jeśli magazyn kluczy został usunięty, nie można odzyskać klucza zarządzanego przez klienta.  Jeśli przeprowadzono migrację magazynu kluczy do innej dzierżawy, zobacz [zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji](../key-vault/general/move-subscription.md). Jeśli magazyn kluczy został usunięty:<ol><li>Tak, jeśli jest to czas trwania funkcji przeczyszczania i ochrony, wykonaj kroki opisane w sekcji [odzyskiwanie magazynu kluczy](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault).</li><li>Nie, jeśli przekracza czas trwania ochrony przed usunięciem.</li></ol><br>W przeciwnym razie, jeśli Magazyn kluczy przeszedł do migracji dzierżawy, można go odzyskać, wykonując jedną z poniższych czynności: <ol><li>Przywróć Magazyn kluczy z powrotem do starej dzierżawy.</li><li>Ustaw `Identity = None` , a następnie ustaw wartość z powrotem na `Identity = SystemAssigned` . Spowoduje to usunięcie i odtworzenie tożsamości po utworzeniu nowej tożsamości. Włącz `Get` , `Wrap` i `Unwrap` uprawnienia do nowej tożsamości w zasadach dostępu magazynu kluczy.</li></ol> |
-| SsemUserErrorKeyVaultBadRequestException| Nie można pobrać klucza dostępu, ponieważ odwołuje się do niego dostęp do klucza zarządzanego przez klienta.| Tak, sprawdź, czy: <ol><li>Magazyn kluczy ma nadal plik MSI w zasadach dostępu.</li><li>Zasady dostępu zapewniają uprawnienia do pobierania, zawijania i depakowania.</li><li>Jeśli magazyn kluczy znajduje się w sieci wirtualnej za zaporą, sprawdź, czy jest włączona funkcja **Zezwalaj na zaufane usługi firmy Microsoft** .</li></ol>|
+| SsemUserErrorKeyVaultBadRequestException | Zastosowano klucz zarządzany przez klienta, ale dostęp do klucza nie został udzielony lub został odwołany lub nie można uzyskać dostępu do magazynu kluczy ze względu na włączenie zapory. | Dodaj tożsamość wybraną do magazynu kluczy, aby umożliwić dostęp do klucza zarządzanego przez klienta. Jeśli w magazynie kluczy jest włączona Zapora, przełącz się na tożsamość przypisaną do systemu, a następnie Dodaj klucz zarządzany przez klienta. Aby uzyskać więcej informacji, zobacz jak [włączyć klucz](#enable-key). |
 | SsemUserErrorKeyVaultDetailsNotFound| Nie można pobrać klucza dostępu, ponieważ nie można znaleźć skojarzonego magazynu kluczy dla klucza zarządzanego przez klienta. | Jeśli magazyn kluczy został usunięty, nie można odzyskać klucza zarządzanego przez klienta.  Jeśli przeprowadzono migrację magazynu kluczy do innej dzierżawy, zobacz [zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji](../key-vault/general/move-subscription.md). Jeśli magazyn kluczy został usunięty:<ol><li>Tak, jeśli jest to czas trwania funkcji przeczyszczania i ochrony, wykonaj kroki opisane w sekcji [odzyskiwanie magazynu kluczy](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault).</li><li>Nie, jeśli przekracza czas trwania ochrony przed usunięciem.</li></ol><br>W przeciwnym razie, jeśli Magazyn kluczy przeszedł do migracji dzierżawy, można go odzyskać, wykonując jedną z poniższych czynności: <ol><li>Przywróć Magazyn kluczy z powrotem do starej dzierżawy.</li><li>Ustaw `Identity = None` , a następnie ustaw wartość z powrotem na `Identity = SystemAssigned` . Spowoduje to usunięcie i odtworzenie tożsamości po utworzeniu nowej tożsamości. Włącz `Get` , `Wrap` i `Unwrap` uprawnienia do nowej tożsamości w zasadach dostępu magazynu kluczy.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Nie można pobrać klucza dostępu, ponieważ nie można odnaleźć klucza zarządzanego przez klienta.| Tak, sprawdź, czy: <ol><li>Magazyn kluczy ma nadal plik MSI w zasadach dostępu.</li><li>Tożsamość jest przypisana do systemu typu.</li><li>Włącz uprawnienia Get, zawijania i depakowania do tożsamości w zasadach dostępu magazynu kluczy.</li></ol>|
+| SsemUserErrorUserAssignedLimitReached | Dodawanie nowej tożsamości przypisanej przez użytkownika nie powiodło się, ponieważ osiągnięto limit łącznej liczby tożsamości przypisanych do użytkownika, które można dodać. | Spróbuj ponownie wykonać operację, podając mniejszą liczbę tożsamości użytkowników, lub usuń niektóre tożsamości przypisane przez użytkownika z zasobu przed ponowną próbą. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | Operacja zarządzanego dostępu do tożsamości nie powiodła się. <br> Uwaga: dotyczy to scenariusza, w którym subskrypcja została przeniesiona do innej dzierżawy. Klient musi ręcznie przenieść tożsamość do nowej dzierżawy. PFA pocztą e-mail, aby uzyskać więcej szczegółów. | Przenieś wybraną tożsamość do nowej dzierżawy, w której znajduje się subskrypcja. Aby uzyskać więcej informacji, zobacz jak [włączyć klucz](#enable-key). |
+| SsemUserErrorKekUserIdentityNotFound | Zastosowano klucz zarządzany przez klienta, ale w usłudze Active Directory nie znaleziono tożsamości przypisanej przez użytkownika, która ma dostęp do klucza. <br> Uwaga: dotyczy to sytuacji, gdy tożsamość użytkownika jest usuwana z platformy Azure.| Spróbuj dodać inną tożsamość przypisanego użytkownika do magazynu kluczy, aby umożliwić dostęp do klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz jak [włączyć klucz](#enable-key). |
+| SsemUserErrorUserAssignedIdentityAbsent | Nie można pobrać klucza dostępu, ponieważ nie można odnaleźć klucza zarządzanego przez klienta. | Nie można uzyskać dostępu do klucza zarządzanego przez klienta. Tożsamość przypisanych przez użytkownika (UAI) skojarzona z kluczem została usunięta lub typ UAI został zmieniony. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | Operacja zarządzanego dostępu do tożsamości nie powiodła się. <br> Uwaga: dotyczy to scenariusza, w którym subskrypcja została przeniesiona do innej dzierżawy. Klient musi ręcznie przenieść tożsamość do nowej dzierżawy. PFA pocztą e-mail, aby uzyskać więcej szczegółów. | Spróbuj dodać inną tożsamość przypisanego użytkownika do magazynu kluczy, aby umożliwić dostęp do klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz jak [włączyć klucz](#enable-key).|
+| SsemUserErrorKeyVaultBadRequestException | Zastosowano klucz zarządzany przez klienta, ale dostęp do klucza nie został udzielony lub został odwołany lub nie można uzyskać dostępu do magazynu kluczy ze względu na włączenie zapory. | Dodaj tożsamość wybraną do magazynu kluczy, aby umożliwić dostęp do klucza zarządzanego przez klienta. Jeśli w magazynie kluczy jest włączona Zapora, przełącz się na tożsamość przypisaną do systemu, a następnie Dodaj klucz zarządzany przez klienta. Aby uzyskać więcej informacji, zobacz jak [włączyć klucz](#enable-key). |
 | Błąd rodzajowy  | Nie można pobrać klucza dostępu.| Jest to błąd ogólny. Skontaktuj się pomoc techniczna firmy Microsoft, aby rozwiązać problem z błędem i określić następne kroki.|
-
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest Azure Key Vault](../key-vault/general/overview.md)?
+- [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
+- [Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Key Vault przy użyciu witryny Azure Portal](../key-vault/secrets/quick-create-portal.md)

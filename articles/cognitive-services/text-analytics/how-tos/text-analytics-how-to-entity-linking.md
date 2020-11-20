@@ -8,47 +8,53 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: cabde27591159b5751435a97a909a5f6f8c3081b
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518230"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957099"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
 
-Interfejs API analizy tekstu umożliwia przyjęcie tekstu bez struktury i zwrócenie listy niejednoznacznych jednostek z linkami do dodatkowych informacji w sieci Web. Interfejs API obsługuje jednocześnie rozpoznawanie jednostek nazwanych (NER) i łączenie jednostek.
+Interfejs API analizy tekstu umożliwia przyjęcie tekstu bez struktury i zwrócenie listy niejednoznacznych jednostek z linkami do dodatkowych informacji w sieci Web. Interfejs API obsługuje jednocześnie funkcję rozpoznawania jednostek nazwanych (NER) dla kilku kategorii jednostek oraz łączenie jednostek.
 
-### <a name="entity-linking"></a>Łączenie jednostek
+## <a name="entity-linking"></a>Łączenie jednostek
 
 Łączenie jednostek to możliwość identyfikacji i odróżnienia tożsamości jednostki znalezionej w tekście (na przykład określenie, czy wystąpienie słowa "Mars" odwołuje się do globalnej, czy do rzymskie akty Boże wojny). Ten proces wymaga obecności bazy wiedzy w odpowiednim języku do łączenia rozpoznanych jednostek w tekście. Łączenie jednostek używa [witryny Wikipedia](https://www.wikipedia.org/) jako tej bazy wiedzy.
 
-
-### <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
+## <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
 
 Funkcja rozpoznawania jednostek nazwanych (NER) to możliwość identyfikowania różnych jednostek w tekście i kategoryzowania ich do wstępnie zdefiniowanych klas lub typów, takich jak: osoba, lokalizacja, wydarzenie, produkt i organizacja.  
 
-## <a name="named-entity-recognition-versions-and-features"></a>Wersje i funkcje rozpoznawania jednostek nazwanych
+## <a name="personally-identifiable-information-pii"></a>Identyfikowalne dane osobowe
+
+Funkcja dane OSOBowe jest częścią NER i może identyfikować i wygrupować poufne jednostki w tekście, które są skojarzone z poszczególnymi osobami, takimi jak: numer telefonu, adres e-mail, adres wysyłkowy, numer paszportu.  
+
+## <a name="named-entity-recognition-features-and-versions"></a>Funkcje i wersje rozpoznawania jednostek nazwanych
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Obiekt feature                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 2 |
+| Obiekt feature                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 3 |
 |-----------------------------------------------------------------|--------|----------|
 | Metody dla żądań pojedynczych i wsadowych                          | X      | X        |
 | Rozbudowane rozpoznawanie jednostek w kilku kategoriach           | X      | X        |
 | Oddziel punkty końcowe do wysyłania połączeń jednostek i żądań NER. | X      | X        |
 | Rozpoznawanie `PII` jednostek informacji osobistych () i kondycji ( `PHI` )        |        | X        |
+| Redakcja `PII`        |        | X        |
 
 Aby uzyskać informacje, zobacz temat [Obsługa języków](../language-support.md) .
 
-## <a name="entity-types"></a>Typy jednostek
-
 Rozpoznawanie jednostek nazwanych v3 zapewnia rozszerzone wykrywanie w wielu typach. Obecnie NER v 3.0 może rozpoznawać jednostki w [kategorii jednostki ogólne](../named-entity-types.md).
 
-Nazwana funkcja rozpoznawania jednostek v 3.1 — wersja zapoznawcza. 2 obejmuje możliwości wykrywania programu v 3.0 i możliwość wykrywania informacji osobistych ( `PII` ) przy użyciu `v3.1-preview.2/entities/recognition/pii` punktu końcowego. Można użyć opcjonalnego `domain=phi` parametru do wykrywania poufnych informacji o kondycji ( `PHI` ). Aby uzyskać więcej informacji, zobacz artykuł [Kategorie jednostek](../named-entity-types.md) i [punkty końcowe żądania](#request-endpoints) poniżej.
+Nazwanego rozpoznawania jednostek v 3.1 — wersja zapoznawcza. 3 obejmuje możliwości wykrywania wersji 3.0 i: 
+* Możliwość wykrywania informacji osobistych ( `PII` ) przy użyciu `v3.1-preview.3/entities/recognition/pii` punktu końcowego. 
+* Opcjonalny `domain=phi` parametr do wykrywania poufnych informacji o kondycji ( `PHI` ).
+* [Operacja asynchroniczna](text-analytics-how-to-call-api.md) przy użyciu `/analyze` punktu końcowego.
 
+Aby uzyskać więcej informacji, zobacz sekcję [Kategorie jednostek](../named-entity-types.md) i [punkty końcowe żądania](#request-endpoints) poniżej. 
 
 ## <a name="sending-a-rest-api-request"></a>Wysyłanie żądania interfejsu API REST
 
@@ -68,41 +74,41 @@ Utwórz żądanie POST. Można [użyć programu Poster](text-analytics-how-to-ca
 
 ### <a name="request-endpoints"></a>Punkty końcowe żądania
 
-#### <a name="version-31-preview2"></a>[Wersja 3,1-Preview. 2](#tab/version-3-preview)
+#### <a name="version-31-preview3"></a>[Wersja 3,1-Preview. 3](#tab/version-3-preview)
 
-Rozpoznawanie jednostek nazwanych `v3.1-preview.2` używa oddzielnych punktów końcowych dla żądań ner, dane osobowe i powiązania jednostek. Użyj poniższego formatu adresu URL na podstawie Twojego żądania:
+Rozpoznawanie jednostek nazwanych `v3.1-preview.3` używa oddzielnych punktów końcowych dla żądań ner, dane osobowe i powiązania jednostek. Użyj poniższego formatu adresu URL na podstawie Twojego żądania.
 
-Łączenie jednostek
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+**Łączenie jednostek**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
 
-[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
+[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
 
-NER
-* Jednostki ogólne — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
+**Rozpoznawanie jednostek nazwanych**
+* Jednostki ogólne — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
 
-[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
 
-Identyfikowalne dane osobowe
-* Personal ( `PII` ) — informacje — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+**Identyfikowalne dane osobowe**
+* Personal ( `PII` ) — informacje — `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
 
 Można również użyć opcjonalnego `domain=phi` parametru do wykrywania informacji o kondycji ( `PHI` ) w tekście. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
-Zwróć uwagę na dodanie `redactedText` właściwości w pliku JSON odpowiedzi, który zawiera zmodyfikowany tekst wejściowy, w którym wykryte jednostki danych osobowych są zastępowane przez * dla każdego znaku w jednostkach.
+W systemie `v3.1-preview.3` odpowiedź JSON zawiera `redactedText` Właściwość, która zawiera zmodyfikowany tekst wejściowy, w którym wykryte jednostki danych osobowych są zastępowane przez `*` dla każdego znaku w jednostkach.
 
-[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+[Rozpoznawanie jednostek nazwanych wersja 3,1 — Dokumentacja dotycząca wersji zapoznawczej dla `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
 #### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
 Nazwanego rozpoznawania jednostek v3 używa oddzielnych punktów końcowych dla żądań NER i konsolidacji jednostek. Użyj poniższego formatu adresu URL na podstawie Twojego żądania:
 
-Łączenie jednostek
+**Łączenie jednostek**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 [Odwołanie do nazwanego rozpoznawania jednostek w wersji 3,0 dla `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-NER
+**Rozpoznawanie jednostek nazwanych**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
 [Odwołanie do nazwanego rozpoznawania jednostek w wersji 3,0 dla `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
@@ -113,7 +119,7 @@ Ustaw nagłówek żądania w taki sposób, aby zawierał klucz interfejs API ana
 
 ### <a name="example-ner-request"></a>Przykładowe żądanie NER 
 
-Poniżej znajduje się przykład zawartości, którą można wysłać do interfejsu API. Format żądania jest taki sam dla obu wersji interfejsu API.
+Poniższy kod JSON jest przykładem zawartości, którą można wysłać do interfejsu API. Format żądania jest taki sam dla obu wersji interfejsu API.
 
 ```json
 {
@@ -138,7 +144,7 @@ Interfejs API analizy tekstu jest bezstanowy. Na Twoim koncie nie są przechowyw
 
 Wszystkie żądania POST zwracają sformatowaną w formacie JSON odpowiedź z identyfikatorami i wykrytymi właściwościami jednostki.
 
-Dane wyjściowe są zwracane natychmiast. Wyniki można przesłać strumieniowo do aplikacji, która akceptuje kod JSON, lub zapisać do pliku w systemie lokalnym, a następnie zaimportować do aplikacji, która umożliwia sortowanie i wyszukiwanie danych oraz manipulowanie nimi. Ze względu na obsługę wielojęzycznych i emoji, odpowiedź może zawierać przesunięcia tekstu. Aby uzyskać więcej informacji [, zobacz Jak przetwarzać przesunięcia tekstu](../concepts/text-offsets.md) .
+Dane wyjściowe są zwracane natychmiast. Wyniki można przesłać strumieniowo do aplikacji, która akceptuje kod JSON, lub zapisać do pliku w systemie lokalnym, a następnie zaimportować do aplikacji, która umożliwia sortowanie i wyszukiwanie danych oraz manipulowanie nimi. Ze względu na obsługę wielojęzycznych i emoji, odpowiedź może zawierać przesunięcia tekstu. Aby uzyskać więcej informacji, zobacz [Jak przetwarzać przesunięcia tekstu](../concepts/text-offsets.md).
 
 ### <a name="example-responses"></a>Przykładowe odpowiedzi
 

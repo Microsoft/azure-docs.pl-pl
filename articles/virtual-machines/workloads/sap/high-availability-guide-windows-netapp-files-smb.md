@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88853106"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958952"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP
 
@@ -146,7 +147,7 @@ W oprogramowaniu SAP wymagane jest następujące oprogramowanie:
 1. Zainstaluj wystąpienie SAP ASCS/SCS w pierwszym węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do: **Product**  >  **DBMS** > Installation > Application Server ABAP (lub Java) > High-Availability system > ASCS/SCS, > pierwszym węźle klastra.  
 
 2. Wybierz opcję **klaster udziałów plików** jako konfigurację udziału klastra w SWPM.  
-3. Po wyświetleniu monitu w kroku **Parametry klastra systemowego SAP**wprowadź nazwę hosta dla Azure NETAPP Files udziału SMB, który został już utworzony jako **Nazwa hosta udziału plików**.  W tym przykładzie nazwą hosta udziału SMB jest **anfsmb-9562**. 
+3. Po wyświetleniu monitu w kroku **Parametry klastra systemowego SAP** wprowadź nazwę hosta dla Azure NETAPP Files udziału SMB, który został już utworzony jako **Nazwa hosta udziału plików**.  W tym przykładzie nazwą hosta udziału SMB jest **anfsmb-9562**. 
 
    > [!IMPORTANT]
    > Jeśli narzędzie sprawdzania wymagań wstępnych w programie SWPM pokazuje warunek funkcji ciągłej dostępności nie jest spełniony, można rozwiązać ten problem, postępując zgodnie z instrukcjami w oknie [opóźniony komunikat o błędzie podczas próby dostępu do folderu udostępnionego, który już nie istnieje w systemie Windows](https://support.microsoft.com/help/2820470/delayed-error-message-when-you-try-to-access-a-shared-folder-that-no-l).  
@@ -158,7 +159,7 @@ W oprogramowaniu SAP wymagane jest następujące oprogramowanie:
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instalowanie wystąpienia ASCS/SCS w drugim węźle klastra ASCS/SCS
 
-1. Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do **produktu**  >  system**DBMS** > Installation > Application Server ABAP (lub Java) > High-Availability > ASCS/SCS > dodatkowym węźle klastra.  
+1. Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do **produktu**  >  system **DBMS** > Installation > Application Server ABAP (lub Java) > High-Availability > ASCS/SCS > dodatkowym węźle klastra.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalowanie wystąpienia systemu DBMS i serwerów aplikacji SAP
 

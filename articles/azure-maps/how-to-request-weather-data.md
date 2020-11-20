@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915426"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957116"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Żądanie danych pogodowych w czasie rzeczywistym i prognozowanie przy użyciu Azure Maps usług pogodowych
 
@@ -27,6 +27,12 @@ W tym artykule dowiesz się, jak:
 * Żądaj prognoz dziennych za pomocą [interfejsu API pobierania dziennej prognozy](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
 * Żądaj prognoz godzinowych przy użyciu [interfejsu API uzyskiwania godzinnych prognoz](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
 * Zażądaj prognoz minutowo według minut przy użyciu [interfejsu API prognoz Get minut](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+
+Ten film wideo zawiera omówienie usług pogodowych w Azure Maps z przykładami wywołania REST.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps usługi pogodowe dla deweloperów — wideo w witrynie Microsoft Channel 9"></iframe>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,9 +50,9 @@ W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.c
 
 W tym przykładzie użyjesz [interfejsu API Get Current Conditions](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) , aby pobrać bieżące warunki pogodowe we współrzędnych znajdujących się w Seattle, WA.
 
-1. Otwórz aplikację Poster. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja** .  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . Ta kolekcja zostanie użyta w pozostałej części przykładów tego dokumentu.
+1. Otwórz aplikację Poster. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**.  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . Ta kolekcja zostanie użyta w pozostałej części przykładów tego dokumentu.
 
-2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz** .
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz**.
 
 3. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -236,7 +242,7 @@ W tym przykładzie użyjesz [interfejsu API alertów o silnych pogodach](https:/
 >[!NOTE]
 >Ten przykład pobiera poważne alerty pogodowe w momencie pisania. Prawdopodobnie nie ma już żadnych poważnych alertów pogodowych w wybranej lokalizacji. Aby pobrać rzeczywiste poważne dane alertu podczas uruchamiania tego przykładu, należy pobrać dane z innej lokalizacji współrzędnych.
 
-1. Otwórz aplikację Poster, kliknij pozycję **New (nowy** ), a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
+1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -288,7 +294,7 @@ W tym przykładzie użyjesz [interfejsu API alertów o silnych pogodach](https:/
 
 W tym przykładzie użyjesz [interfejsu API uzyskiwania dziennej prognozy](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) , aby pobrać 5-dniową prognozę pogody dla współrzędnych znajdujących się w Seattle, WA.
 
-1. Otwórz aplikację Poster, kliknij pozycję **New (nowy** ), a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
+1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -536,7 +542,7 @@ W tym przykładzie użyjesz [interfejsu API uzyskiwania dziennej prognozy](https
 
 W tym przykładzie użyjesz [interfejsu API prognozowania godzinowego](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) , aby pobrać prognozę pogody godzinowego w ciągu następnych 12 godzin przy współrzędnych znajdujących się w Seattle, WA.
 
-1. Otwórz aplikację Poster, kliknij pozycję **New (nowy** ), a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
+1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -643,7 +649,7 @@ W tym przykładzie użyjesz [interfejsu API prognozowania godzinowego](https://d
 
 W tym przykładzie użyjesz [interfejsu API prognozowania minut](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) , aby pobrać prognozę pogody na minutę w czasie, w którym znajdują się w Seattle, WA. Prognoza pogody jest podawana w ciągu następnych 120 minut. Nasza kwerenda żąda, aby Prognoza była podawana w odstępach 15-minutowych, ale można dostosować wartość parametru do 1 lub 5 minut.
 
-1. Otwórz aplikację Poster, kliknij pozycję **New (nowy** ), a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
+1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 

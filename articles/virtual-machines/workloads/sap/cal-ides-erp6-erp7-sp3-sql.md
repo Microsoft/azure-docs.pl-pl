@@ -3,16 +3,17 @@ title: Wdrażanie oprogramowania SAP środowisk IDE EHP7 SP3 dla oprogramowania 
 description: Wdrażanie programu SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e1c20ba5549a1d9660b6e30fafa040d545a6a37
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dc0c1744c2943d33d516de4ed9d28893541773ad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993440"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957881"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Wdrażanie programu SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure
 W tym artykule opisano sposób wdrażania systemu SAP środowisk IDE z systemem SQL Server i systemem operacyjnym Windows na platformie Azure za pośrednictwem biblioteki urządzeń SAP w chmurze (SAP CAL) 3,0. Zrzuty ekranu przedstawiają proces krok po kroku. Aby wdrożyć inne rozwiązanie, wykonaj te same czynności.
@@ -85,13 +86,13 @@ Pomyślnie utworzono konto SAP CAL, które jest w stanie:
 > Aby można było wdrożyć rozwiązanie SAP środowisk IDE w oparciu o system Windows i SQL Server, może być konieczne zarejestrowanie się w celu skorzystania z subskrypcji SAP CAL. W przeciwnym razie rozwiązanie może być widoczne jako **zablokowane** na stronie Przegląd.
 
 ### <a name="deploy-a-solution"></a>Wdróż rozwiązanie
-1. Po skonfigurowaniu konta SAP CAL wybierz **rozwiązanie SAP środowisk IDE w systemie Windows i SQL Server** rozwiązanie. Kliknij pozycję **Utwórz wystąpienie**i Potwierdź warunki użytkowania. 
+1. Po skonfigurowaniu konta SAP CAL wybierz **rozwiązanie SAP środowisk IDE w systemie Windows i SQL Server** rozwiązanie. Kliknij pozycję **Utwórz wystąpienie** i Potwierdź warunki użytkowania. 
 
 1. Na stronie **Tryb podstawowy: Tworzenie wystąpienia** należy wykonać następujące instrukcje:
 
-    a. Wprowadź **nazwę**wystąpienia.
+    a. Wprowadź **nazwę** wystąpienia.
 
-    b. Wybierz **region**platformy Azure. Aby uzyskać dostęp do wielu dostępnych regionów platformy Azure, może być potrzebna subskrypcja SAP CAL.
+    b. Wybierz **region** platformy Azure. Aby uzyskać dostęp do wielu dostępnych regionów platformy Azure, może być potrzebna subskrypcja SAP CAL.
 
     c.  Wprowadź **hasło** główne dla rozwiązania, jak pokazano poniżej:
 

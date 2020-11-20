@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7e9d73fa94acd2f31452de05ef3caee92d5cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055507"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960125"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Wprowadzenie do StorSimple Snapshot Manager
 
@@ -79,7 +79,7 @@ Program StorSimple Snapshot Manager tworzy woluminy, a następnie konfiguruje je
 
 StorSimple Snapshot Manager używa grup woluminów do tworzenia kopii zapasowych, które są spójne z aplikacjami. Spójność aplikacji istnieje, gdy wszystkie powiązane pliki i bazy danych są zsynchronizowane i reprezentują prawdziwą kondycję aplikacji w określonym punkcie czasu. Grupy woluminów (które są również znane jako *grupy spójności*) stanowią podstawę zadania tworzenia kopii zapasowej lub przywracania.
 
-Grupy woluminów nie są takie same jak kontenery woluminów. Kontener woluminów zawiera jeden lub więcej woluminów, które współużytkują konto magazynu w chmurze i inne atrybuty, takie jak szyfrowanie i użycie przepustowości. Kontener pojedynczego woluminu może zawierać maksymalnie 256 alokowanych elastycznie woluminów StorSimple. Aby uzyskać więcej informacji na temat kontenerów woluminów, przejdź do obszaru [Zarządzanie kontenerami woluminów](storsimple-manage-volume-containers.md). Grupy woluminów są kolekcjami woluminów skonfigurowanych w celu ułatwienia operacji tworzenia kopii zapasowych. W przypadku wybrania dwóch woluminów należących do różnych kontenerów woluminów należy umieścić je w pojedynczej grupie woluminów, a następnie utworzyć zasady tworzenia kopii zapasowej dla tej grupy woluminów. kopia zapasowa każdego woluminu zostanie utworzona w odpowiednim kontenerze woluminów przy użyciu odpowiedniego konta magazynu.
+Grupy woluminów nie są takie same jak kontenery woluminów. Kontener woluminów zawiera jeden lub więcej woluminów, które współużytkują konto magazynu w chmurze i inne atrybuty, takie jak szyfrowanie i użycie przepustowości. Kontener pojedynczego woluminu może zawierać maksymalnie 256 alokowanych elastycznie woluminów StorSimple. Aby uzyskać więcej informacji na temat kontenerów woluminów, przejdź do obszaru [Zarządzanie kontenerami woluminów](./storsimple-8000-manage-volume-containers.md). Grupy woluminów są kolekcjami woluminów skonfigurowanych w celu ułatwienia operacji tworzenia kopii zapasowych. W przypadku wybrania dwóch woluminów należących do różnych kontenerów woluminów należy umieścić je w pojedynczej grupie woluminów, a następnie utworzyć zasady tworzenia kopii zapasowej dla tej grupy woluminów. kopia zapasowa każdego woluminu zostanie utworzona w odpowiednim kontenerze woluminów przy użyciu odpowiedniego konta magazynu.
 
 > [!NOTE]
 > Wszystkie woluminy w grupie woluminów muszą pochodzić od jednego dostawcy usług w chmurze.
@@ -89,7 +89,7 @@ Grupy woluminów nie są takie same jak kontenery woluminów. Kontener woluminó
 ## <a name="integration-with-windows-volume-shadow-copy-service"></a>Integracja z systemem Windows Usługa kopiowania woluminów w tle
 StorSimple Snapshot Manager używa Usługa kopiowania woluminów w tle systemu Windows (VSS) do przechwytywania danych spójnych z zastosowaniem aplikacji. Usługa VSS ułatwia spójność aplikacji przez komunikowanie się z aplikacjami obsługującymi usługę VSS w celu koordynowania tworzenia migawek przyrostowych. Usługa VSS zapewnia, że aplikacje są tymczasowo nieaktywne lub quiescent, gdy są wykonywane migawki. 
 
-Implementacja StorSimple Snapshot Manager usługi VSS współdziała z SQL Server i ogólnymi woluminami NTFS. Proces jest następujący: 
+Implementacja StorSimple Snapshot Manager usługi VSS współdziała z SQL Server i ogólnymi woluminami NTFS. Przebieg procesu: 
 
 1. Obiekt żądający, który jest zazwyczaj rozwiązaniem do zarządzania danymi i ich ochrony (na przykład StorSimple Snapshot Manager) lub aplikacji do tworzenia kopii zapasowych, wywołuje usługę VSS i prosi o zebranie informacji z oprogramowania zapisywania w aplikacji docelowej.
 2. Usługa VSS kontaktuje się ze składnikiem składnika zapisywania w celu pobrania opisu danych. Moduł zapisujący zwraca opis danych, których kopia zapasowa ma zostać utworzona. 
@@ -140,4 +140,3 @@ Aby uzyskać informacje o monitorowaniu zadań tworzenia kopii zapasowych, przej
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [korzystaniu z usługi StorSimple Snapshot Manager do administrowania rozwiązaniem StorSimple](storsimple-snapshot-manager-admin.md).
 * Pobierz [Snapshot Manager StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-

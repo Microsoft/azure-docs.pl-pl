@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152120"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957337"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowalnego w poziomie systemu na Red Hat Enterprise Linux 
 
@@ -122,7 +123,7 @@ W poniższych instrukcjach przyjęto założenie, że została już utworzona gr
 Aby zapoznać się z konfiguracją przedstawioną w tym dokumencie, należy wdrożyć siedem maszyn wirtualnych: 
    - trzy maszyny wirtualne, które mają być węzłami bazy danych HANA dla lokacji replikacji HANA 1: **Hana-S1-DB1**, **Hana-S1-DB2** i **Hana-S1-DB3**  
    - trzy maszyny wirtualne, które mają być węzłami bazy danych HANA dla lokacji replikacji HANA 2: **Hana-S2-DB1**, **Hana-S2-DB2** i **Hana-S2-DB3**  
-   - Mała maszyna wirtualna, która ma stanowić *większość*twórców: **Hana-s-mm**
+   - Mała maszyna wirtualna, która ma stanowić *większość* twórców: **Hana-s-mm**
 
    Maszyny wirtualne, wdrożone jako węzły SAP DB HANA, powinny być certyfikowane przez oprogramowanie SAP dla HANA jako opublikowane w [katalogu sprzętu SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Podczas wdrażania węzłów bazy danych HANA upewnij się, że wybrano opcję [przyspieszona sieć](../../../virtual-network/create-vm-accelerated-networking-cli.md) .  
   
@@ -131,7 +132,7 @@ Aby zapoznać się z konfiguracją przedstawioną w tym dokumencie, należy wdro
    Wdróż lokalne dyski zarządzane dla systemów `/hana/data` i `/hana/log` . Minimalna zalecana konfiguracja magazynu dla systemu `/hana/data` i `/hana/log` została opisana w temacie [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md).
 
    Wdróż podstawowy interfejs sieciowy dla każdej maszyny wirtualnej w `client` podsieci sieci wirtualnej.  
-   Po wdrożeniu maszyny wirtualnej za pośrednictwem Azure Portal nazwa interfejsu sieciowego jest generowana automatycznie. W tych instrukcjach dotyczących uproszczenia będziemy odnosić się do automatycznie generowanych, podstawowych interfejsów sieciowych dołączonych do `client` podsieci sieci wirtualnej platformy Azure jako **Hana-S1-DB1-Client**, **Hana-S1-DB2-Client**, **Hana-S1-DB3-Client**i tak dalej.  
+   Po wdrożeniu maszyny wirtualnej za pośrednictwem Azure Portal nazwa interfejsu sieciowego jest generowana automatycznie. W tych instrukcjach dotyczących uproszczenia będziemy odnosić się do automatycznie generowanych, podstawowych interfejsów sieciowych dołączonych do `client` podsieci sieci wirtualnej platformy Azure jako **Hana-S1-DB1-Client**, **Hana-S1-DB2-Client**, **Hana-S1-DB3-Client** i tak dalej.  
 
 
    > [!IMPORTANT]
@@ -140,7 +141,7 @@ Aby zapoznać się z konfiguracją przedstawioną w tym dokumencie, należy wdro
 
 2. Utwórz sześć interfejsów sieciowych, po jednej dla każdej maszyny wirtualnej usługi HANA DB w `inter` podsieci sieci wirtualnej (w tym przykładzie platformą **Hana-S1-DB1-Inter**, **Hana-S1-DB2-Inter**, **Hana-S1-DB3-Inter**, **Hana-S2-DB1-Inter**, **Hana-S2-** z i Hana- **S2-DB3-Inter**).  
 
-3. Utwórz sześć interfejsów sieciowych, jedną dla każdej maszyny wirtualnej usługi HANA DB, w `hsr` podsieci sieci wirtualnej (w tym przykładzie: **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR**i **Hana-S2-DB3-HSR**).  
+3. Utwórz sześć interfejsów sieciowych, jedną dla każdej maszyny wirtualnej usługi HANA DB, w `hsr` podsieci sieci wirtualnej (w tym przykładzie: **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR** i **Hana-S2-DB3-HSR**).  
 
 4. Dołącz nowo utworzone interfejsy sieci wirtualnej do odpowiednich maszyn wirtualnych:  
 
@@ -206,12 +207,12 @@ Aby zapoznać się z konfiguracją przedstawioną w tym dokumencie, należy wdro
 
       1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
       1. Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
-      1. Wybierz pozycję **TCP** jako protokół i port 625**03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+      1. Wybierz pozycję **TCP** jako protokół i port 625 **03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
       1. Wybierz przycisk **OK**.
 
    1. Następnie utwórz reguły równoważenia obciążenia:
    
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
+      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
       1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-lb**).
       1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**, **Hana — zaplecze** i **Hana-HP**).
       1. Wybierz pozycję **porty ha**.
@@ -447,14 +448,14 @@ W tym przykładzie do wdrażania SAP HANA w konfiguracji skalowania z HSR na mas
     chmod 775 /hana/shared
     ```
 
-3. **[1]** Sprawdź, czy możesz zalogować się za pośrednictwem protokołu SSH do maszyn wirtualnych usługi Hana DB w tej lokacji **Hana-S1-DB2** i **Hana-S1-DB3**bez monitowania o hasło.  
+3. **[1]** Sprawdź, czy możesz zalogować się za pośrednictwem protokołu SSH do maszyn wirtualnych usługi Hana DB w tej lokacji **Hana-S1-DB2** i **Hana-S1-DB3** bez monitowania o hasło.  
    Jeśli tak nie jest, klucze SSH programu Exchange, zgodnie z opisem w temacie [Korzystanie z uwierzytelniania opartego na kluczach](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
-4. **[2]** Sprawdź, czy możesz zalogować się za pośrednictwem protokołu SSH do maszyn wirtualnych usługi Hana DB w tej lokacji **Hana-S2-DB2** i **Hana-S2-DB3**bez monitowania o hasło.  
+4. **[2]** Sprawdź, czy możesz zalogować się za pośrednictwem protokołu SSH do maszyn wirtualnych usługi Hana DB w tej lokacji **Hana-S2-DB2** i **Hana-S2-DB3** bez monitowania o hasło.  
    Jeśli tak nie jest, klucze SSH programu Exchange, zgodnie z opisem w temacie [Korzystanie z uwierzytelniania opartego na kluczach](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```
     ssh root@hana-s2-db2
@@ -599,7 +600,7 @@ W tym przykładzie do wdrażania SAP HANA w konfiguracji skalowania z HSR na mas
 
 1. **[1]** Skonfiguruj replikację systemu w lokacji 1:
 
-   Wykonaj kopię zapasową baz danych jako **hn1**adm:
+   Wykonaj kopię zapasową baz danych jako **hn1** adm:
 
     ```
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
@@ -936,7 +937,7 @@ Uwzględnij wszystkie maszyny wirtualne, w tym większość twórców w klastrze
 
    3. Następnie utwórz zasób wystąpienia platformy HANA.  
       > [!NOTE]
-      > Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.  
+      > Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.  
  
       W przypadku kompilowania klastra RHEL **7. x** Użyj następujących poleceń:    
       ```

@@ -3,16 +3,17 @@ title: Wdrażanie oprogramowania SAP S/4HANA lub BW/4HANA na maszynie wirtualnej
 description: Wdrażanie oprogramowania SAP S/4HANA lub BW/4HANA na maszynie wirtualnej platformy Azure
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 116de28501b77262ef126ed420982d853376da4e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6492e770479042a5a1b4da6f61917832adad4873
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993406"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959292"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Wdrażanie oprogramowania SAP S/4HANA lub BW/4HANA na platformie Azure
 W tym artykule opisano sposób wdrażania usługi S/4HANA na platformie Azure przy użyciu biblioteki urządzeń SAP Cloud (SAP CAL) 3,0. W celu wdrożenia innych rozwiązań opartych na SAP HANA, takich jak BW/4HANA, wykonaj te same czynności.
@@ -105,9 +106,9 @@ W tym miejscu zademonstrowano ścieżkę podstawową do wdrożenia.
 
     a. Wybierz konto SAP CAL. (Użyj konta, które jest skojarzone do wdrożenia z modelem wdrażania Menedżer zasobów).
 
-    b. Wprowadź **nazwę**wystąpienia.
+    b. Wprowadź **nazwę** wystąpienia.
 
-    c. Wybierz **region**platformy Azure. System SAP CAL sugeruje region. Jeśli potrzebujesz innego regionu platformy Azure i nie masz subskrypcji SAP CAL, musisz zamówić subskrypcję z licencją CAL przy użyciu oprogramowania SAP.
+    c. Wybierz **region** platformy Azure. System SAP CAL sugeruje region. Jeśli potrzebujesz innego regionu platformy Azure i nie masz subskrypcji SAP CAL, musisz zamówić subskrypcję z licencją CAL przy użyciu oprogramowania SAP.
 
     d. Wprowadź **hasło** główne dla rozwiązania składającego się z ośmiu lub dziewięciu znaków. Hasło jest używane dla administratorów różnych składników programu.
 

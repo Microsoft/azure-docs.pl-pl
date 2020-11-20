@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890483"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959156"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Łącznik SAP LaMa dla platformy Azure
 
@@ -138,7 +139,7 @@ Otwórz witrynę sieci Web SAP LaMa i przejdź do infrastruktury. Przejdź do ka
 * Port serwera proxy: port TCP serwera proxy
 * Zmień typ magazynu, aby zaoszczędzić koszty: Włącz to ustawienie, jeśli karta platformy Azure powinna zmienić typ magazynu Managed Disks, aby zmniejszyć koszty, gdy dyski nie są używane. W przypadku dysków z danymi, do których odwołuje się konfiguracja wystąpienia SAP, karta zmieni typ dysku na standardowy magazyn podczas cofania przygotowania wystąpienia i powrót do oryginalnego typu magazynu podczas przygotowywania wystąpienia. Zatrzymanie maszyny wirtualnej w programie SAP LaMa spowoduje zmianę typu magazynu wszystkich dołączonych dysków, w tym dysku systemu operacyjnego do magazynu w warstwie Standardowa. Jeśli uruchomisz maszynę wirtualną w oprogramowaniu SAP LaMa, karta zmieni typ magazynu z powrotem na oryginalny typ magazynu.
 
-Kliknij pozycję Konfiguracja testu, aby sprawdzić poprawność danych wejściowych. Powinna zostać wyświetlona
+Kliknij pozycję Konfiguracja testu, aby sprawdzić poprawność danych wejściowych. Powinien zostać wyświetlony następujący ekran
 
 Pomyślnie nawiązano połączenie: połączenie z chmurą Microsoft Cloud zakończyło się pomyślnie. Znaleziono 7 grup zasobów (zażądano tylko 10 grup)
 
@@ -274,7 +275,7 @@ Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zai
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-Uruchom SWPM i Użyj *AH1-ASCS* dla *nazwy hosta wystąpienia ASCS* .
+Uruchom SWPM i Użyj *AH1-ASCS* dla *nazwy hosta wystąpienia ASCS*.
 
 ![Logo systemu Linux.][Logo_Linux] Linux  
 Dodaj następujący parametr profilu do profilu agenta hosta SAP, który znajduje się w/usr/SAP/hostctrl/exe/host_profile. Aby uzyskać więcej informacji, zobacz temat SAP Note [2628497].
@@ -319,7 +320,7 @@ W ramach konta NetApp Pula pojemności określa rozmiar i typ dysków dla każde
 
 ![Utworzono pulę pojemności SAP LaMa NetApp ](media/lama/sap-lama-capacitypool-list.png)
 
-Można teraz definiować woluminy NFS. Ponieważ w jednej puli będą woluminy z wieloma systemami, należy wybrać schemat nazewnictwa samodzielnego. Dodanie identyfikatora SID pomaga zgrupować powiązane woluminy. W przypadku ASCS i wystąpienia as są wymagany następujące instalacje: */sapmnt/ \<SID\>* , */usr/SAP/ \<SID\>* i */Home/ \<sid\> adm* . Opcjonalnie */usr/SAP/Trans* jest wymagany dla centralnego katalogu transportowego, który jest co najmniej używany przez wszystkie systemy o jednej poziomej.
+Można teraz definiować woluminy NFS. Ponieważ w jednej puli będą woluminy z wieloma systemami, należy wybrać schemat nazewnictwa samodzielnego. Dodanie identyfikatora SID pomaga zgrupować powiązane woluminy. W przypadku ASCS i wystąpienia as są wymagany następujące instalacje: */sapmnt/ \<SID\>*, */usr/SAP/ \<SID\>* i */Home/ \<sid\> adm*. Opcjonalnie */usr/SAP/Trans* jest wymagany dla centralnego katalogu transportowego, który jest co najmniej używany przez wszystkie systemy o jednej poziomej.
 
 > [!NOTE]
 > W fazie BETA nazwa woluminów musi być unikatowa w ramach subskrypcji.
@@ -381,7 +382,7 @@ Dodaj kolejną wirtualną nazwę hosta i adres IP dla nazwy, która jest używan
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej serwera aplikacji, a nie na maszynie wirtualnej HANA. Użyj *AH1-DB* dla *hosta bazy danych* w *bazie danych okna dialogowego dla systemu SAP* .
+Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej serwera aplikacji, a nie na maszynie wirtualnej HANA. Użyj *AH1-DB* dla *hosta bazy danych* w *bazie danych okna dialogowego dla systemu SAP*.
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>Zainstaluj serwer aplikacji SAP NetWeaver dla SAP HANA
 
@@ -436,7 +437,7 @@ Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zai
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-Uruchom SWPM i Użyj *AS1-ASCS* dla *nazwy hosta wystąpienia ASCS* .
+Uruchom SWPM i Użyj *AS1-ASCS* dla *nazwy hosta wystąpienia ASCS*.
 
 #### <a name="install-sql-server"></a>Instalacja programu SQL Server
 
@@ -447,9 +448,9 @@ Należy dodać adres IP wirtualnej nazwy hosta bazy danych do interfejsu sieciow
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej programu SQL Server. Użyj SAPINST_USE_HOSTNAME = *AS1-DB* , aby zastąpić nazwę hosta używaną do nawiązywania połączenia z SQL Server. Jeśli maszyna wirtualna została wdrożona przy użyciu szablonu Azure Resource Manager, upewnij się, że ustawisz katalog używany dla plików danych bazy danych do *C:\sql\data* i pliku dziennika bazy danych na *C:\sql\log* .
+Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej programu SQL Server. Użyj SAPINST_USE_HOSTNAME =*AS1-DB* , aby zastąpić nazwę hosta używaną do nawiązywania połączenia z SQL Server. Jeśli maszyna wirtualna została wdrożona przy użyciu szablonu Azure Resource Manager, upewnij się, że ustawisz katalog używany dla plików danych bazy danych do *C:\sql\data* i pliku dziennika bazy danych na *C:\sql\log*.
 
-Upewnij się, że użytkownik *NT NT\SYSTEM* ma dostęp do SQL Server i ma rolę serwera *sysadmin* . Aby uzyskać więcej informacji, zobacz uwagi dotyczące oprogramowania SAP [1877727] i [2562184].
+Upewnij się, że użytkownik *NT NT\SYSTEM* ma dostęp do SQL Server i ma rolę serwera *sysadmin*. Aby uzyskać więcej informacji, zobacz uwagi dotyczące oprogramowania SAP [1877727] i [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Zainstaluj serwer aplikacji SAP NetWeaver
 

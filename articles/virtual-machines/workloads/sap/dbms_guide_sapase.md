@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3ef3fc2afa07590ff676d57c22f05ed723539f9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963588"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957728"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP
 
@@ -80,7 +81,7 @@ Przykłady podane poniżej służą do celów ilustracyjnych i mogą być modyfi
 
 Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy danych wynoszącym od 50 GB do 250 GB, na przykład Menedżera rozwiązań SAP, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E4s_v3 (4 vCPU/32 GB pamięci RAM) | E4s_v3 (4 vCPU/32 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -101,7 +102,7 @@ Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy d
 
 Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 250 GB – 750 GB, na przykład w przypadku mniejszych systemów SAP Business Suite, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E16s_v3 (16 vCPU/128 GB pamięci RAM) | E16s_v3 (16 vCPU/128 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -121,7 +122,7 @@ Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z r
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarze bazy danych wynoszącym od 750 GB do 2000 GB, na przykład w większym systemie SAP Business Suite, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E64s_v3 (64 vCPU/432 GB pamięci RAM) | E64s_v3 (64 vCPU/432 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -142,7 +143,7 @@ Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarz
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 2 TB +, na przykład w większym globalnie używanym systemie SAP Business Suite, może wyglądać jak
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | Seria M (1,0 do 4,0 TB pamięci RAM)  | Seria M (1,0 do 4,0 TB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f27cb217b60c23f3cf89f48effb933837269000e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986237"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960329"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów z zasobami w usłudze Azure Network Watcher
 
@@ -73,7 +73,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 | ConnectionIsMarkedDisconnected | Połączenie jest oznaczone jako "rozłączone" |Nie|
 | ConnectionNotConfiguredOnGateway | Usługa bazowa nie ma skonfigurowanego połączenia. | Tak |
 | ConnectionMarkedStandby | Podstawowa usługa jest oznaczona jako w stanie wstrzymania.| Tak|
-| Uwierzytelnianie | Niezgodność klucza wstępnego | Tak|
+| Authentication | Niezgodność klucza wstępnego | Tak|
 | PeerReachability | Brama równorzędna jest nieosiągalna. | Tak|
 | IkePolicyMismatch | Brama równorzędna ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
 | Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika WFP. |Tak|
@@ -105,7 +105,7 @@ Pliki dziennika rozwiązywania problemów z zasobami są przechowywane na koncie
 > [!NOTE]
 > W niektórych przypadkach tylko podzestaw plików dzienników jest zapisywana w magazynie.
 
-Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Inne narzędzie, które może być używane, jest Eksplorator usługi Storage. Więcej informacji na temat Eksplorator usługi Storage można znaleźć tutaj przy użyciu następującego linku: [Eksplorator usługi Storage](https://storageexplorer.com/)
+Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Inne narzędzie, które może być używane, jest Eksplorator usługi Storage. Więcej informacji na temat Eksplorator usługi Storage można znaleźć tutaj przy użyciu następującego linku: [Eksplorator usługi Storage](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

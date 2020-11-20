@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-python, devx-track-js
-ms.openlocfilehash: a4496ba46b486f183136381a51c6a523dd9e1b87
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5c8918995675cae8e70ca9fc1efb0cf4c7cb233b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047985"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959411"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Samouczek: Tworzenie i wdrażanie modułu IoT Edge Node.js dla urządzeń z systemem Linux
 
@@ -33,9 +33,9 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Zakres rozwiązania
+## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przedstawiono sposób tworzenia modułu w **Node.js** przy użyciu **Visual Studio Code**i sposobu wdrażania go na urządzeniu z **systemem Linux**. IoT Edge nie obsługuje modułów Node.js dla urządzeń z systemem Windows.
+W tym samouczku przedstawiono sposób tworzenia modułu w **Node.js** przy użyciu **Visual Studio Code** i sposobu wdrażania go na urządzeniu z **systemem Linux**. IoT Edge nie obsługuje modułów Node.js dla urządzeń z systemem Windows.
 
 Skorzystaj z poniższej tabeli, aby poznać opcje projektowania i wdrażania Node.js modułów:
 
@@ -43,8 +43,6 @@ Skorzystaj z poniższej tabeli, aby poznać opcje projektowania i wdrażania Nod
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Używanie VS Code dla modułów Node.js w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Używanie VS Code dla modułów Node.js w systemie Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-
-## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska deweloperskiego do tworzenia kontenerów systemu Linux: [Tworzenie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md). Wykonując jeden z tych samouczków, należy spełnić następujące wymagania wstępne:
 
@@ -104,7 +102,7 @@ Rozszerzenie IoT Edge podejmuje próbę ściągnięcia poświadczeń rejestru ko
 
 Obecnie Visual Studio Code mogą opracowywać moduły Node.js dla urządzeń z systemem Linux AMD64 i Linux ARM32v7. Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązanie, ponieważ kontener jest zbudowany i uruchamiany inaczej dla każdego typu architektury. Wartość domyślna to Linux AMD64.
 
-1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego**lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
+1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego** lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
 
 2. W palecie poleceń wybierz architekturę docelową z listy opcji. W tym samouczku używamy maszyny wirtualnej Ubuntu jako urządzenia IoT Edge, co spowoduje zachowanie domyślnego **amd64**.
 

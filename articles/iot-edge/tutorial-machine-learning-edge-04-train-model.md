@@ -8,17 +8,14 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660251"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959632"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Samouczek: uczenie i wdrażanie modelu Azure Machine Learning
-
-> [!NOTE]
-> Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
 
 W tym artykule wykonamy następujące zadania:
 
@@ -29,6 +26,10 @@ W tym artykule wykonamy następujące zadania:
 Azure Notebooks korzystać z obszaru roboczego Azure Machine Learning, czyli podstawy do eksperymentowania, uczenia i wdrażania modeli uczenia maszynowego.
 
 Kroki opisane w tym artykule mogą być zwykle wykonywane przez analityków danych.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Każdy artykuł w serii jest oparty na pracy w poprzednim artykule. Jeśli ten artykuł został bezpośrednio osiągnięty, odwiedź [pierwszy artykuł](tutorial-machine-learning-edge-01-intro.md) z serii.
 
 ## <a name="set-up-azure-notebooks"></a>Skonfiguruj Azure Notebooks
 
@@ -68,7 +69,7 @@ Będziemy przekazywać przykładowe pliki notesu do nowego projektu Azure Notebo
 
 1. Pozostaw opcję **publiczny** i **plik Readme** niezaznaczone, ponieważ nie ma potrzeby, aby projekt był publiczny lub miał plik Readme.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Wybierz pozycję **Przekaż** (ikona strzałki w górę) i wybierz pozycję **z komputera**.
 

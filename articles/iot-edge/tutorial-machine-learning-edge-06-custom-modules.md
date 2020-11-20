@@ -9,17 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959445"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Samouczek: Tworzenie i wdrażanie niestandardowych modułów IoT Edge
-
-> [!NOTE]
-> Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
 
 W tym artykule tworzymy trzy moduły IoT Edge, które odbierają komunikaty z urządzeń IoT z liścia, uruchamiają dane za pośrednictwem modelu uczenia maszynowego, a następnie przesyłają szczegółowe informacje do IoT Hub.
 
@@ -54,6 +51,10 @@ Na poniższym diagramie przedstawiono moduły, dane wejściowe, wyjścia i trasy
 ![Diagram architektury IoT Edge trzech modułów](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 Kroki opisane w tym artykule są zwykle wykonywane przez dewelopera chmury.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Każdy artykuł w serii jest oparty na pracy w poprzednim artykule. Jeśli ten artykuł został bezpośrednio osiągnięty, odwiedź [pierwszy artykuł](tutorial-machine-learning-edge-01-intro.md) z serii.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Utwórz nowe rozwiązanie IoT Edge
 
@@ -160,7 +161,7 @@ Moduł routera jest ważnym elementem rozwiązania, które zapewnia, że komunik
 
 1. Nazwij moduł **turbofanRouter**.
 
-1. Po wyświetleniu monitu dotyczącego repozytorium obrazów platformy Docker Użyj rejestru z obszaru roboczego usługi Machine Learning (możesz znaleźć rejestr w węźle registryCredentials * wdeployment.template.js* pliku). Ta wartość jest w pełni kwalifikowanym adresem do rejestru, np ** \<your registry\> . azurecr.IO/turbofanrouter**.
+1. Po wyświetleniu monitu dotyczącego repozytorium obrazów platformy Docker Użyj rejestru z obszaru roboczego usługi Machine Learning (możesz znaleźć rejestr w węźle registryCredentials *wdeployment.template.js* pliku). Ta wartość jest w pełni kwalifikowanym adresem do rejestru, np **\<your registry\> . azurecr.IO/turbofanrouter**.
 
     > [!NOTE]
     > W tym artykule używamy Azure Container Registry, który został utworzony przez obszar roboczy Azure Machine Learning. Jest to wyłącznie wygoda. Możemy utworzyć nowy rejestr kontenerów i opublikować tam nasze moduły.
@@ -210,7 +211,7 @@ Moduł routera jest ważnym elementem rozwiązania, które zapewnia, że komunik
 
 1. Zapisz i Zamknij tasks.jsna.
 
-1. Uruchom kompilację `Ctrl + Shift + B` z **Terminal**lub  >  **Uruchom zadanie kompilacji**.
+1. Uruchom kompilację `Ctrl + Shift + B` z **Terminal** lub  >  **Uruchom zadanie kompilacji**.
 
 ### <a name="set-up-module-routes"></a>Konfigurowanie tras modułu
 
@@ -577,7 +578,7 @@ W przypadku routera i klasyfikatora oczekuje się otrzymywania zwykłych komunik
 
 1. W Azure Portal przejdź do IoT Hub.
 
-1. W menu po lewej stronie w obszarze **Obsługa wiadomości**wybierz pozycję **routing wiadomości**.
+1. W menu po lewej stronie w obszarze **Obsługa wiadomości** wybierz pozycję **routing wiadomości**.
 
 1. Na karcie **trasy** wybierz pozycję **Dodaj**.
 
@@ -589,13 +590,13 @@ W przypadku routera i klasyfikatora oczekuje się otrzymywania zwykłych komunik
 
 1. Wybierz pozycję **Wybierz kontener**.
 
-1. Na stronie **konta magazynu** Znajdź konto magazynu używane w tym samouczku, którego nazwa jest taka sama jak **iotedgeandml \<unique suffix\> **.
+1. Na stronie **konta magazynu** Znajdź konto magazynu używane w tym samouczku, którego nazwa jest taka sama jak **iotedgeandml \<unique suffix\>**.
 
 1. Wybierz kontener **ruldata** , a następnie kliknij pozycję **Wybierz**.
 
 1. Wróć na stronę **Dodawanie punktu końcowego magazynu** i wybierz pozycję **Utwórz** , aby utworzyć punkt końcowy magazynu.
 
-1. Z powrotem na stronie **Dodawanie trasy** dla **kwerendy routingu**Zastąp ciąg `true` następującym zapytaniem:
+1. Z powrotem na stronie **Dodawanie trasy** dla **kwerendy routingu** Zastąp ciąg `true` następującym zapytaniem:
 
     ```sql
     IS_DEFINED($body.PredictedRul) AND NOT IS_DEFINED($body.OperationalSetting1)
@@ -622,7 +623,7 @@ Nie chcemy kierować nowych danych prognoz do naszej starej lokalizacji magazynu
 
 1. Na stronie IoT Hub **Routing komunikatów** wybierz kartę **trasy** .
 
-1. Wybierz **turbofanDeviceDataToStorage**lub inną nazwę nadaną do początkowej trasy danych urządzenia.
+1. Wybierz **turbofanDeviceDataToStorage** lub inną nazwę nadaną do początkowej trasy danych urządzenia.
 
 1. Aktualizowanie zapytania routingu do
 
@@ -672,7 +673,7 @@ Nie chcemy kierować nowych danych prognoz do naszej starej lokalizacji magazynu
 
 Skonfiguruj funkcję przekazywania plików IoT Hub, aby umożliwić modułowi zapisywania plików przekazywanie plików do magazynu.
 
-1. W menu po lewej stronie w IoT Hub w obszarze **Obsługa wiadomości**wybierz pozycję **przekazywanie plików**.
+1. W menu po lewej stronie w IoT Hub w obszarze **Obsługa wiadomości** wybierz pozycję **przekazywanie plików**.
 
 1. Wybierz **kontener usługi Azure Storage**.
 
@@ -719,7 +720,7 @@ Po wprowadzeniu zmian w konfiguracji wszystko jest gotowe do skompilowania obraz
 
 1. W Visual Studio Code Uruchom nowy terminal z wierszem polecenia i zaloguj się do usługi Azure Container Registry (ACR).
 
-  Wymagane wartości Nazwa użytkownika, hasło i serwer logowania można znaleźć w Azure Portal. Nazwa rejestru kontenerów ma format "turbofandemo \<unique id\> ". W menu po lewej stronie w obszarze **Ustawienia**wybierz pozycję **klucze dostępu** , aby je wyświetlić.
+  Wymagane wartości Nazwa użytkownika, hasło i serwer logowania można znaleźć w Azure Portal. Nazwa rejestru kontenerów ma format "turbofandemo \<unique id\> ". W menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **klucze dostępu** , aby je wyświetlić.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -733,9 +734,9 @@ Po pomyślnym zakończeniu kompilacji będziemy mogli używać Azure Portal do p
 
 1. Otwórz Azure Container Registry w tym samouczku. Nazwa rejestru kontenerów ma format "turbofandemo \<unique id\> ". 
 
-1. W menu po lewej stronie w obszarze **usługi**wybierz pozycję **repozytoria**.
+1. W menu po lewej stronie w obszarze **usługi** wybierz pozycję **repozytoria**.
 
-1. Należy zauważyć, że oba moduły utworzone, **avrofilewriter** i **turbofanrouter**są wyświetlane jako repozytoria.
+1. Należy zauważyć, że oba moduły utworzone, **avrofilewriter** i **turbofanrouter** są wyświetlane jako repozytoria.
 
 1. Wybierz pozycję **turbofanrouter** i pamiętaj, że Opublikowano jeden obraz oznaczony jako 0.0.1-amd64.
 

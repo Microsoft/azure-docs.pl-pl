@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1383db44922a044f5e51075b6e1feafa70c78009
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314066"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958763"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na SUSE Linux Enterprise Server 
 
@@ -232,11 +233,11 @@ W następnych instrukcjach przyjęto założenie, że utworzono już grupę zaso
 
    c. Wybierz podsieć sieci wirtualnej platformy Azure. Wybierz opcję [przyspieszone sieci](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
 
-   Podczas wdrażania maszyn wirtualnych nazwa interfejsu sieciowego jest generowana automatycznie. W tych instrukcjach dla uproszczenia będziemy odnosić się do automatycznie generowanych interfejsów sieciowych dołączonych do podsieci sieci wirtualnej klienta platformy Azure, jako **hanadb1-Client**, **hanadb2-Client**i **hanadb3-Client**. 
+   Podczas wdrażania maszyn wirtualnych nazwa interfejsu sieciowego jest generowana automatycznie. W tych instrukcjach dla uproszczenia będziemy odnosić się do automatycznie generowanych interfejsów sieciowych dołączonych do podsieci sieci wirtualnej klienta platformy Azure, jako **hanadb1-Client**, **hanadb2-Client** i **hanadb3-Client**. 
 
 3. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `storage` podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Storage**, **hanadb2-** Storage i **hanadb3-Storage**).  
 
-4. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `hana`  podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Hana**, **hanadb2-Hana**i **hanadb3-Hana**).  
+4. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `hana`  podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Hana**, **hanadb2-Hana** i **hanadb3-Hana**).  
 
 5. Dołącz nowo utworzone interfejsy sieci wirtualnej do odpowiednich maszyn wirtualnych, wykonując następujące czynności:  
 
@@ -435,7 +436,7 @@ Skonfiguruj i przygotuj system operacyjny, wykonując następujące czynności:
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-5. **[A]** ręcznie utwórz grupę SAP HANA i użytkownika. Identyfikatory dla grup sapsys i User **hn1**ADM muszą być ustawione na te same identyfikatory, które są dostępne podczas dołączania. (W tym przykładzie identyfikatory są ustawione na **1001**). Jeśli identyfikatory nie są ustawione prawidłowo, nie będzie można uzyskać dostępu do woluminów. Identyfikatory grup sapsys i kont użytkowników **hn1**adm i sapadm muszą być takie same na wszystkich maszynach wirtualnych.  
+5. **[A]** ręcznie utwórz grupę SAP HANA i użytkownika. Identyfikatory dla grup sapsys i User **hn1** ADM muszą być ustawione na te same identyfikatory, które są dostępne podczas dołączania. (W tym przykładzie identyfikatory są ustawione na **1001**). Jeśli identyfikatory nie są ustawione prawidłowo, nie będzie można uzyskać dostępu do woluminów. Identyfikatory grup sapsys i kont użytkowników **hn1** adm i sapadm muszą być takie same na wszystkich maszynach wirtualnych.  
 
     <pre><code>
     # Create user group 
@@ -520,7 +521,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
 
 1. **[A]** przed instalacją Hana Ustaw hasło główne. Hasło główne można wyłączyć po zakończeniu instalacji. Uruchom jako `root` polecenie `passwd` .  
 
-2. **[1]** Sprawdź, czy możesz zalogować się za pośrednictwem protokołu SSH do **hanadb2** i **hanadb3**bez monitowania o hasło.  
+2. **[1]** Sprawdź, czy możesz zalogować się za pośrednictwem protokołu SSH do **hanadb2** i **hanadb3** bez monitowania o hasło.  
 
     <pre><code>
     ssh root@<b>hanadb2</b>
@@ -533,7 +534,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
     sudo zypper install libgcc_s1 libstdc++6 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Zmień własność SAP HANA `data` i `log` katalogów na **hn1**adm.   
+4. **[2], [3]** Zmień własność SAP HANA `data` i `log` katalogów na **hn1** adm.   
 
     <pre><code>
     # Execute as root
@@ -635,8 +636,8 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
 6. Aby zoptymalizować SAP HANA dla magazynu bazowego Azure NetApp Files, ustaw następujące parametry SAP HANA:
 
    - `max_parallel_io_requests`**128**
-   - `async_read_submit` **on**
-   - `async_write_submit_active` **on**
+   - `async_read_submit`**na**
+   - `async_write_submit_active`**na**
    - `async_write_submit_blocks`**wszystkie**
 
    Aby uzyskać więcej informacji, zobacz [NetApp aplikacji SAP na Microsoft Azure przy użyciu Azure NetApp Files][anf-sap-applications-azure]. 
@@ -657,7 +658,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
 
 1. Symuluj awarię węzła w węźle procesu roboczego SAP HANA. Wykonaj następujące czynności: 
 
-   a. Przed zasymulowaniem awarii węzła Uruchom następujące polecenia jako **hn1**adm, aby przechwycić stan środowiska:  
+   a. Przed zasymulowaniem awarii węzła Uruchom następujące polecenia jako **hn1** adm, aby przechwycić stan środowiska:  
 
    <pre><code>
     # Check the landscape status
@@ -712,7 +713,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
 
 2. Aby skasować serwer nazw, wykonaj następujące czynności:
 
-   a. Przed testami Sprawdź stan środowiska, uruchamiając następujące polecenia jako **hn1**adm:  
+   a. Przed testami Sprawdź stan środowiska, uruchamiając następujące polecenia jako **hn1** adm:  
 
    <pre><code>
     #Landscape status 
@@ -734,7 +735,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    </code></pre>
 
-   b. Uruchom następujące polecenia jako **hn1**adm w aktywnym węźle głównym, który jest **hanadb1** w tym przypadku:  
+   b. Uruchom następujące polecenia jako **hn1** adm w aktywnym węźle głównym, który jest **hanadb1** w tym przypadku:  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
@@ -768,7 +769,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB start
    </code></pre>
 
-   Po rozpoczęciu SAP HANA na **hanadb1**oczekiwany jest następujący stan:  
+   Po rozpoczęciu SAP HANA na **hanadb1** oczekiwany jest następujący stan:  
 
    <pre><code>
     # Check the instance status
@@ -827,7 +828,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB start
    </code></pre>
 
-   Po rozpoczęciu SAP HANA **hanadb3**stan będzie wyglądać następująco:  
+   Po rozpoczęciu SAP HANA **hanadb3** stan będzie wyglądać następująco:  
 
    <pre><code>
     # Check the instance status

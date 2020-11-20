@@ -8,17 +8,14 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c40f7d988f2b5f206f42eae787efcdce786948a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857082"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959683"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Samouczek: generowanie danych symulowanego urządzenia
-
-> [!NOTE]
-> Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
 
 W tym artykule wykorzystamy dane szkoleniowe dotyczące uczenia maszynowego w celu symulowania przesyłania danych telemetrycznych urządzenia do usługi Azure IoT Hub. Jak zostało to opisane we wprowadzeniu, ten samouczek używa [zestawu danych symulacji degradacji aparatu TurboFan](https://c3.nasa.gov/dashlink/resources/139/) w celu symulowania danych z zestawu aparatów samolotowych na potrzeby szkolenia i testowania.
 
@@ -46,6 +43,10 @@ Zadania opisane w tym artykule powinny zająć około 20 minut.
 
 Rzeczywisty, podobny do pracy w tym kroku, będzie prawdopodobnie wykonywany przez deweloperów urządzeń i deweloperów rozwiązań w chmurze.
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Każdy artykuł w serii jest oparty na pracy w poprzednim artykule. Jeśli ten artykuł został bezpośrednio osiągnięty, odwiedź [pierwszy artykuł](tutorial-machine-learning-edge-01-intro.md) z serii.
+
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Konfigurowanie Visual Studio Code i kompilowanie projektu DeviceHarness
 
 1. Otwórz sesję pulpitu zdalnego na maszynie wirtualnej deweloperskiej.
@@ -69,7 +70,7 @@ Rzeczywisty, podobny do pracy w tym kroku, będzie prawdopodobnie wykonywany prz
 
    Jeśli te powiadomienia nie są wyświetlane, Zamknij Visual Studio Code, Usuń pliki bin i obj w `C:\source\IoTEdgeAndMlSample\DeviceHarness` , otwórz Visual Studio Code i ponownie otwórz folder DeviceHarness.
 
-1. Sprawdź, czy środowisko jest prawidłowo skonfigurowane, wyzwalając kompilację, **Ctrl**  +  **SHIFT**  +  **B**lub **Terminal**  >  **zadanie kompilacji Uruchom kompilację**.
+1. Sprawdź, czy środowisko jest prawidłowo skonfigurowane, wyzwalając kompilację, **Ctrl**  +  **SHIFT**  +  **B** lub **Terminal**  >  **zadanie kompilacji Uruchom kompilację**.
 
 1. Zostanie wyświetlony monit o wybranie zadania kompilacji do uruchomienia. Wybierz pozycję **kompilacja**.
 
@@ -131,7 +132,7 @@ Dane wysłane przez DeviceHarness zostały przekazane do centrum IoT Hub, gdzie 
 
 1. Otwórz [Azure Portal](https://portal.azure.com/) i przejdź do centrum IoT Hub utworzonego dla tego samouczka.
 
-1. W menu po lewej stronie w obszarze **monitorowanie**wybierz pozycję **metryki**.
+1. W menu po lewej stronie w obszarze **monitorowanie** wybierz pozycję **metryki**.
 
 1. Na stronie definicja wykresu kliknij listę rozwijaną **Metryka** , przewiń w dół listy i wybierz pozycję **Routing: dane dostarczone do magazynu**. Wykres powinien pokazać skok, gdy dane były kierowane do magazynu.
 

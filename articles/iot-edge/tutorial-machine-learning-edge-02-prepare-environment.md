@@ -8,19 +8,20 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047662"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959598"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Samouczek: Konfigurowanie środowiska do uczenia maszynowego na IoT Edge
 
-> [!NOTE]
-> Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
-
 Ten artykuł ułatwia przygotowanie środowiska do projektowania i wdrażania. Najpierw skonfiguruj komputer deweloperski przy użyciu wszystkich potrzebnych narzędzi. Następnie utwórz niezbędne zasoby w chmurze na platformie Azure.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Każdy artykuł w serii jest oparty na pracy w poprzednim artykule. Jeśli ten artykuł został bezpośrednio osiągnięty, odwiedź [pierwszy artykuł](tutorial-machine-learning-edge-01-intro.md) z serii.
 
 ## <a name="set-up-the-development-vm"></a>Konfigurowanie maszyny wirtualnej tworzenia
 
@@ -100,7 +101,7 @@ Aby pomóc obniżyć koszty, maszyna wirtualna tworzenia została utworzona z ha
 
 1. W Azure Portal przejdź do maszyny wirtualnej, która utworzyła skrypt.
 
-1. W menu po lewej stronie w obszarze **operacje**wybierz pozycję **automatyczne zamykanie**.
+1. W menu po lewej stronie w obszarze **operacje** wybierz pozycję **automatyczne zamykanie**.
 
 1. Dostosuj **zaplanowane zamknięcie** i **strefę czasową** zgodnie z potrzebami i wybierz pozycję **Zapisz**.
 
@@ -183,7 +184,7 @@ W ramach tworzenia Centrum IoT, skrypt, który został uruchomiony w poprzedniej
 
 1. Na liście zasobów wybierz IoT Hub utworzoną przez skrypt. Nazwa będzie kończyć się znakami losowymi, takimi jak `IotEdgeAndMlHub-jrujej6de6i7w` .
 
-1. W menu po lewej stronie w obszarze **Obsługa wiadomości**wybierz pozycję **routing wiadomości**.
+1. W menu po lewej stronie w obszarze **Obsługa wiadomości** wybierz pozycję **routing wiadomości**.
 
 1. Na stronie **routing wiadomości** wybierz kartę **niestandardowe punkty końcowe** .
 

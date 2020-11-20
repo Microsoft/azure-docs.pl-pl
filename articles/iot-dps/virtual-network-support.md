@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998580"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959785"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Obsługa usługi Azure IoT Hub Device Provisioning Service (DPS) dla sieci wirtualnych
 
@@ -38,7 +38,7 @@ Z kilku powodów klienci mogą chcieć ograniczyć łączność z zasobami platf
 
 Typowe podejścia do ograniczania łączności obejmują [reguły filtru IP usługi DPS](./iot-dps-ip-filtering.md) i sieci wirtualne (VNET) z [prywatnymi punktami końcowymi](../private-link/private-endpoint-overview.md). Celem tego artykułu jest opisanie podejścia sieci wirtualnej dla usługi DPS przy użyciu prywatnych punktów końcowych. 
 
-Urządzenia, które działają w sieciach lokalnych, mogą używać [wirtualnej sieci prywatnej (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) lub prywatnej komunikacji równorzędnej [ExpressRoute](https://azure.microsoft.com/services/expressroute/) do nawiązywania połączenia z siecią wirtualną na platformie Azure i uzyskiwać dostęp do zasobów usługi DPS za pośrednictwem prywatnych punktów końcowych. 
+Urządzenia, które działają w sieciach lokalnych, mogą używać [wirtualnej sieci prywatnej (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub prywatnej komunikacji równorzędnej [ExpressRoute](https://azure.microsoft.com/services/expressroute/) do nawiązywania połączenia z siecią wirtualną na platformie Azure i uzyskiwać dostęp do zasobów usługi DPS za pośrednictwem prywatnych punktów końcowych. 
 
 Prywatny punkt końcowy jest prywatnym adresem IP przydzielonym wewnątrz sieci wirtualnej należącej do klienta, za pomocą której jest dostępny zasób platformy Azure. Mając prywatny punkt końcowy dla zasobu usługi DPS, można zezwolić urządzeniom działającym w sieci wirtualnej na żądanie aprowizacji przez zasób usługi DPS bez zezwalania na ruch do publicznego punktu końcowego.
 
@@ -51,7 +51,7 @@ Przed kontynuowaniem upewnij się, że spełniono następujące wymagania wstęp
 
 * Masz zainicjowaną sieć wirtualną platformy Azure z podsiecią, w której zostanie utworzony prywatny punkt końcowy. Aby uzyskać więcej informacji, zobacz temat [Tworzenie sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure](../virtual-network/quick-create-cli.md).
 
-* W przypadku urządzeń, które działają w sieciach lokalnych, skonfiguruj [wirtualną sieć prywatną (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) lub prywatną komunikację równorzędną [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) w sieci wirtualnej platformy Azure.
+* W przypadku urządzeń, które działają w sieciach lokalnych, skonfiguruj [wirtualną sieć prywatną (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub prywatną komunikację równorzędną [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) w sieci wirtualnej platformy Azure.
 
 ## <a name="private-endpoint-limitations"></a>Ograniczenia prywatnego punktu końcowego
 
@@ -105,7 +105,7 @@ Aby skonfigurować prywatny punkt końcowy, wykonaj następujące kroki:
 
 4. Na stronie _Tworzenie konfiguracji prywatnego punktu końcowego_ wybierz sieć wirtualną i podsieć, w której ma zostać utworzony prywatny punkt końcowy.
  
-    Kliknij przycisk **Dalej: Tagi**i opcjonalnie Podaj wszystkie znaczniki dla zasobu.
+    Kliknij przycisk **Dalej: Tagi** i opcjonalnie Podaj wszystkie znaczniki dla zasobu.
 
     ![Skonfiguruj prywatny punkt końcowy](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
@@ -129,13 +129,13 @@ Możesz zażądać prywatnego punktu końcowego do zasobu DPS według identyfika
     | :---- | :-----|
     | **Identyfikator zasobu lub alias** | Wprowadź identyfikator zasobu dla zasobu DPS. |
     | **Docelowy zasób podrzędny** | Wprowadź **iotDps** |
-    | **Komunikat żądania** | Wprowadź komunikat żądania dla właściciela zasobu usługi DPS.<br>Przykład: <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
+    | **Komunikat żądania** | Wprowadź komunikat żądania dla właściciela zasobu usługi DPS.<br>Na przykład <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     Kliknij przycisk **Dalej: Konfiguracja** , aby skonfigurować sieć wirtualną dla prywatnego punktu końcowego.
 
 3. Na stronie _Tworzenie konfiguracji prywatnego punktu końcowego_ wybierz sieć wirtualną i podsieć, w której ma zostać utworzony prywatny punkt końcowy.
  
-    Kliknij przycisk **Dalej: Tagi**i opcjonalnie Podaj wszystkie znaczniki dla zasobu.
+    Kliknij przycisk **Dalej: Tagi** i opcjonalnie Podaj wszystkie znaczniki dla zasobu.
 
 4. Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz** , aby utworzyć prywatne żądanie punktu końcowego.
 
@@ -154,5 +154,5 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 Skorzystaj z poniższych linków, aby dowiedzieć się więcej o funkcjach zabezpieczeń DPS:
 
-* [Zabezpieczenia](concepts-security.md)
+* [Zabezpieczenia](./concepts-service.md#attestation-mechanism)
 * [Obsługa protokołu TLS 1,2](tls-support.md)

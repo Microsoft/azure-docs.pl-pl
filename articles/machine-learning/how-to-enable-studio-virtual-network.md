@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554669"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960006"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -36,7 +36,7 @@ Zapoznaj się z innymi artykułami w tej serii:
 
 
 > [!IMPORTANT]
-> Jeśli obszar roboczy znajduje się w __chmurze suwerennej__ , takiej jak Azure Government lub Azure Chiny 21Vianet, zintegrowane notesy _nie_ obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Jeśli obszar roboczy znajduje się w __chmurze suwerennej__, takiej jak Azure Government lub Azure Chiny 21Vianet, zintegrowane notesy _nie_ obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -90,7 +90,7 @@ Azure Machine Learning używa [magazynów](concept-data.md#datastores) danych do
 1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby  __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej przez obszar roboczy__.
 
 
-Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy jako __czytnika__ do usługi magazynu przy użyciu funkcji kontroli dostępu opartej na zasobach platformy Azure (Azure RBAC). Dostęp __czytnika__ umożliwia pobranie ustawień zapory przez obszar roboczy i upewnienie się, że dane nie opuszczają sieci wirtualnej.
+Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy jako __czytnika__ do usługi magazynu przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Dostęp __czytnika__ umożliwia pobranie ustawień zapory przez obszar roboczy i upewnienie się, że dane nie opuszczają sieci wirtualnej.
 
 > [!NOTE]
 > Wprowadzenie zmian może potrwać do 10 minut.
@@ -102,7 +102,7 @@ Korzystanie z tożsamości zarządzanej w celu uzyskiwania dostępu do usług ma
 > [!IMPORTANT]
 > Te zagadnienia są unikatowe dla __typu konta magazynu__ , do którego uzyskujesz dostęp.
 
-### <a name="azure-blob-storage"></a>Azure Blob Storage
+### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 
 W przypadku __usługi Azure Blob Storage__ tożsamość zarządzana przez obszar roboczy jest również dodawana jako [czytnik danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) , dzięki czemu może odczytywać dane z magazynu obiektów BLOB.
 
