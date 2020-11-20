@@ -3,18 +3,17 @@ title: Szybki Start — Tworzenie aplikacji IoT Central platformy Azure | Micros
 description: Szybki Start — Tworzenie nowej aplikacji IoT Central platformy Azure. Utwórz aplikację, korzystając z bezpłatnego planu cenowego lub jednego z standardowych planów cenowych.
 author: viv-liu
 ms.author: viviali
-ms.date: 07/30/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 477da41bab48ee49727ec2a8c029e748d6e7f863
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: afe3e9812271f4b8e049fb2a53efd45fe746e514
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987377"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992815"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Szybki Start — Tworzenie aplikacji IoT Central platformy Azure
 
@@ -43,15 +42,15 @@ Aby utworzyć nową aplikację usługi Azure IoT Central przy użyciu szablonu *
     ![Informacje dotyczące rozliczeń IoT Central platformy Azure](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Jeśli na poprzedniej stronie została wybrana opcja **aplikacja niestandardowa** , zostanie wyświetlona lista rozwijana **szablonu aplikacji** . Lista rozwijana może zawierać inne szablony, które zostały udostępnione przez organizację. 
+    > Jeśli na poprzedniej stronie została wybrana opcja **aplikacja niestandardowa** , zostanie wyświetlona lista rozwijana **szablonu aplikacji** . Lista rozwijana może zawierać inne szablony, które zostały udostępnione przez organizację.
 
     >[!IMPORTANT]
-    >Szablon **aplikacji niestandardowej (wersja** 2) został wycofany, ponieważ wszystkie funkcje wcześniej dostępne w szablonie starszej aplikacji są teraz dostępne w najnowszym szablonie **aplikacji niestandardowej** (V3). 
-    
+    >Szablon **aplikacji niestandardowej (wersja** 2) został wycofany, ponieważ wszystkie funkcje wcześniej dostępne w szablonie starszej aplikacji są teraz dostępne w najnowszym szablonie **aplikacji niestandardowej** (V3).
+
 1. Wybierz, aby utworzyć tę aplikację przy użyciu 7-dniowego planu cenowego w wersji próbnej lub jednego z standardowych planów cenowych:
 
     - Aplikacje tworzone za pomocą planu *bezpłatnego* są bezpłatne przez siedem dni i obsługują maksymalnie pięć urządzeń. Możesz przekonwertować je tak, aby używały standardowego planu cenowego w dowolnym momencie przed wygaśnięciem.
-    - W przypadku aplikacji tworzonych przy użyciu planu *standardowego* są naliczane opłaty za poszczególne urządzenia. możesz wybrać plan cenowy w **warstwie Standardowa 1** lub **standardowa 2** z dwoma urządzeniami, które są bezpłatne. Dowiedz się więcej o planach cen bezpłatnych i standardowych na [stronie cennika usługi Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Jeśli tworzysz aplikację przy użyciu standardowego planu cenowego, musisz wybrać *katalog*, *subskrypcję platformy Azure*i *lokalizację*:
+    - W przypadku aplikacji tworzonych przy użyciu planu *standardowego* są naliczane opłaty za poszczególne urządzenia. możesz wybrać plan cenowy w **warstwie Standardowa 1** lub **standardowa 2** z dwoma urządzeniami, które są bezpłatne. Dowiedz się więcej o planach cen bezpłatnych i standardowych na [stronie cennika usługi Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Jeśli tworzysz aplikację przy użyciu standardowego planu cenowego, musisz wybrać *katalog*, *subskrypcję platformy Azure* i *lokalizację*:
         - *Katalog* jest Azure Active Directory, w którym tworzysz aplikację. Azure Active Directory zawiera tożsamości użytkowników, poświadczenia i inne informacje o organizacji. Jeśli nie masz Azure Active Directory, po utworzeniu subskrypcji platformy Azure zostanie utworzony jeden z nich.
         - *Subskrypcja platformy Azure* umożliwia tworzenie wystąpień usług platformy Azure. IoT Central udostępniają zasoby w ramach subskrypcji. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć bezpłatnie na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription). Po utworzeniu subskrypcji platformy Azure przejdź z powrotem do strony **Nowa aplikacja** . Twoja nowa subskrypcja zostanie wyświetlona na liście rozwijanej **subskrypcja platformy Azure** .
         - *Lokalizacja jest lokalizacją* geograficzną, [w której chcesz](https://azure.microsoft.com/global-infrastructure/geographies/) utworzyć aplikację. Zazwyczaj należy wybrać lokalizację, która jest fizycznie najbliżej Twoich urządzeń, aby uzyskać optymalną wydajność. Po wybraniu lokalizacji nie można przenieść aplikacji do innej lokalizacji.

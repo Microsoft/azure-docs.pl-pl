@@ -3,18 +3,17 @@ title: Szybki Start — monitorowanie urządzeń na platformie Azure IoT Central
 description: Szybki Start — jako operator, Dowiedz się, jak monitorować urządzenia za pomocą aplikacji IoT Central platformy Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987348"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992758"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Szybki Start: korzystanie z usługi Azure IoT Central do monitorowania urządzeń
 
@@ -28,29 +27,29 @@ Przed rozpoczęciem należy wykonać trzy poprzednie Przewodniki Szybki Start [T
 
 ## <a name="receive-a-notification"></a>Odbieranie powiadomienia
 
-Usługa Azure IoT Central wysyła powiadomienia dotyczące urządzeń jako wiadomości e-mail. Konstruktor dodał regułę do wysyłania powiadomienia, gdy temperatura w czujniku połączonego urządzenia przekroczyła wartość progową. Sprawdź wiadomości e-mail wysłane na konto wybrane przez konstruktora do odbierania powiadomień.
+Usługa Azure IoT Central wysyła powiadomienia dotyczące urządzeń jako wiadomości e-mail. Jako Konstruktor dodano regułę wysyłania powiadomienia do operatora, gdy wilgotność w czujniku połączonego urządzenia przekroczyła wartość progową. Jako operator sprawdzasz wiadomości e-mail pod kątem powiadomień.
 
 Otwórz wiadomość e-mail otrzymaną po zakończeniu [konfigurowania reguł i akcji dla](quick-configure-rules.md) szybkiego startu urządzenia. W wiadomości e-mail wybierz link do urządzenia:
 
-![Wiadomość e-mail z alertem](media/quick-monitor-devices/email.png)
+:::image type="content" source="media/quick-monitor-devices/email.png" alt-text="Zrzut ekranu przedstawiający wiadomość e-mail z powiadomieniem":::
 
 Widok **omówienia** symulowanego urządzenia utworzonego w poprzednich przewodnikach Szybki Start zostanie otwarty w przeglądarce:
 
-![Urządzenie, które wyzwoliło wiadomość e-mail z powiadomieniem](media/quick-monitor-devices/dashboard.png)
+:::image type="content" source="media/quick-monitor-devices/dashboard.png" alt-text="Zrzut ekranu pokazujący przegląd urządzenia, które wyzwoliło powiadomienie":::
 
 ## <a name="investigate-an-issue"></a>Badanie problemu
 
-Jako operator można wyświetlić informacje o urządzeniu w widokach **Przegląd**, **informacje**i **polecenia** . Konstruktor utworzył widok **Zarządzanie urządzeniem** służący do edytowania informacji o urządzeniu i ustawiania właściwości urządzeń.
+Jako operator można wyświetlić informacje o urządzeniu w widokach **Przegląd**, **informacje** i **polecenia** . Konstruktor utworzył widok **Zarządzanie urządzeniem** służący do edytowania informacji o urządzeniu i ustawiania właściwości urządzeń.
 
-Wykres na pulpicie nawigacyjnym pokazuje wykreśloną temperaturę urządzenia. Należy określić, że temperatura urządzenia jest zbyt wysoka.
+Wykres na pulpicie nawigacyjnym pokazuje powierzchnię wilgotności urządzenia. Należy określić, że wilgotność urządzenia jest zbyt wysoka.
 
 ## <a name="remediate-an-issue"></a>Rozwiązywanie problemu
 
 Aby wprowadzić zmianę na urządzeniu, użyj strony **Zarządzanie urządzeniem** .
 
-Zmień **szybkość wentylatora** na 500, aby schłodzić urządzenie. Wybierz pozycję **Zapisz** , aby zaktualizować urządzenie. Gdy urządzenie potwierdzi zmianę ustawień, stan właściwości zmieni się na **zsynchronizowany**:
+Zmień **temperaturę docelową** na 80, aby obgrzać urządzenie i zmniejszyć wilgotność. Wybierz pozycję **Zapisz** , aby zaktualizować urządzenie. Gdy urządzenie potwierdzi zmianę ustawień, stan właściwości zmieni się na **zsynchronizowany**:
 
-![Ustawienia aktualizacji](media/quick-monitor-devices/change-settings.png)
+:::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Zrzut ekranu przedstawiający zaktualizowaną wartość ustawienia temperatury docelowej dla urządzenia":::
 
 ## <a name="next-steps"></a>Następne kroki
 
